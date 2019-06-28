@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926203"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357110"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database-hanterad databasinstans
 
@@ -40,7 +40,7 @@ Konfigurera en hanterad instans för att fungera som en utgivare och/eller en di
 
 - Att den hanterade instansen inte för närvarande deltar i en geo-replikeringsrelation.
 - Att utgivaren hanterad instans är i samma virtuella nätverk som utgivaren och prenumeranten, eller [vNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) har upprättats mellan virtuella nätverk över alla tre entiteter. 
-- Anslutningen använder SQL-autentisering mellan replikering deltagare.
+- Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
 - Ett Azure Storage-konto-resurs för arbetskatalogen för replikering.
 - Port 445 (TCP utgående) är öppen i säkerhetsregler för NSG för hanterade instanser för att få åtkomst till Azure-filresursen. 
 
@@ -172,7 +172,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 Det här skriptet konfigurerar en lokal utgivare på den hanterade instansen lägger till en länkad server och skapar en uppsättning jobb för SQL Server Agent. 

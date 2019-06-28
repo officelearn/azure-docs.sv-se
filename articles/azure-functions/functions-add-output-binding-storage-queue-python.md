@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870042"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342318"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Lägg till en Azure Storage-kö-bindning till din funktion
 
@@ -51,7 +51,7 @@ I funktioner, varje typ av bindning kräver en `direction`, `type`, och ett unik
 
 För att skapa en bindning måste du lägga till ett konfigurationsobjekt för bindningen till den `function.json` filen. Redigera filen function.json i mappen HttpTrigger att lägga till ett objekt för att den `bindings` matris som har följande egenskaper:
 
-| Egenskap  | Värde | Beskrivning |
+| Egenskap | Value | Beskrivning |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | Namn som identifierar bindningsparametern som refereras till i din kod. |
 | **`type`** | `queue` | Bindningen är en bindning för Azure Storage-kö. |
@@ -117,8 +117,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -139,7 +139,7 @@ Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra 
 
 Den här gången utdatabindningen skapar även en kö med namnet `outqueue` i ditt Storage-kontot och lägger till ett meddelande med det här samma sträng.
 
-Därefter använder Azure CLI för att visa den nya kön och kontrollera att meddelandet har lagts till. Du kan också visa din kö med hjälp av den [Microsoft Azure Lagringsutforskaren] [ Azure Storage Explorer] eller i den [Azure-portalen](https://portal.azure.com).
+Därefter använder Azure CLI för att visa den nya kön och kontrollera att meddelandet har lagts till. Du kan också visa din kö med hjälp av den [Microsoft Azure Lagringsutforskaren][Azure Storage Explorer] eller i den [Azure-portalen](https://portal.azure.com).
 
 ### <a name="set-the-storage-account-connection"></a>Ange lagringskontoanslutning
 

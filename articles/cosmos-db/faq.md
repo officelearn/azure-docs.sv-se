@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 89c04a55138d57fd2ff37a96f2bc92b12d1780d9
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137741"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341221"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -159,11 +159,11 @@ Du kan skapa användare och behörigheter på något av de [Cosmos DB API SDK](s
 
 ### <a name="does-the-sql-api-support-sql"></a>SQL-API som har stöd för SQL?
 
-SQL-frågespråket som stöds av SQL API-konton är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL Server. Azure Cosmos DB SQL-frågespråket innehåller omfattande operatorer för hierarkisk och relationsoperatorer och utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkta noderna, vilket används av både Azure Cosmos DB automatiska indexeringstekniker och SQL-fråga dialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i den [SQL-fråga] [ query] artikeln.
+SQL-frågespråket som stöds av SQL API-konton är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL Server. Azure Cosmos DB SQL-frågespråket innehåller omfattande operatorer för hierarkisk och relationsoperatorer och utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkta noderna, vilket används av både Azure Cosmos DB automatiska indexeringstekniker och SQL-fråga dialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i den [SQL-fråga][query] artikeln.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL-API som har stöd för SQL-aggregeringsfunktioner?
 
-SQL-API: et stöder med låg latens aggregering i valfri skala via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktioner](how-to-sql-query.md#Aggregates).
+SQL-API: et stöder med låg latens aggregering i valfri skala via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktioner](sql-query-aggregates.md).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller SQL API samtidighet?
 

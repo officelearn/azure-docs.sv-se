@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 03f7f050e158ba30d2f89e79ffcc9e8723eb5268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7af43d24b03a4c548925bdca4189fd0524c701a4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298694"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341640"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Korrigerat några fel i sessionen behållaren som kan orsaka ett ”ägare resursen hittades inte”-undantag för begäranden omedelbart när samlingen har skapats.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](how-to-sql-query.md#Aggregates).
+* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](sql-query-aggregates.md).
 * Tillagt stöd för ändringsfeed.
 * Stöd har lagts till för samlingen kvotinformation via RequestOptions.setPopulateQuotaInfo.
 * Stöd har lagts till för lagrad procedur skriptet loggning via RequestOptions.setScriptLoggingEnabled.

@@ -79,7 +79,7 @@ Varje Utlösartyp av har ett annat gränssnitt och indata som definierar utlösa
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Kontrollerar eller *enkäter* valfri slutpunkt. Den här slutpunkten måste följa en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller genom att returnera en matris. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp men anropar den angivna URL: en för att registrera eller avregistrera. |
-| [**Upprepning**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
+| [**Recurrence**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
 | [**Request**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 

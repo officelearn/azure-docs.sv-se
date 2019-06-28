@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272364"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341592"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -48,10 +48,8 @@ ms.locfileid: "67272364"
 * Stöd för strömmar. 
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
 
-### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Tillåt skrivbegäranden återställas till en annan region om ursprungligt en misslyckas
-* Lägg till sessionen återförsöksprincipen för skrivbegäran
 * Korrigeringar för spårning av konkurrenstillstånd för frågor som gjorde att tomma sidor
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
@@ -228,7 +226,7 @@ ms.locfileid: "67272364"
 * Åtgärda ett problem där mellan partition ordning av frågan fortsättning inte fungerar vid sortering på strängfält.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](how-to-sql-query.md#Aggregates).
+* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](sql-query-aggregates.md).
 * Sänkte lägsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -381,7 +379,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.5.0](#2.5.0) |18 juni 2019 |--- |
+| [2.4.1](#2.4.1) |Den 20 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 maj 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 februari 2019 |--- |

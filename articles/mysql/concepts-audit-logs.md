@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078877"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357649"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Granskningsloggar i Azure Database for MySQL
 
@@ -45,7 +45,7 @@ Andra parametrar som du kan justera är:
 
 Granskningsloggarna är integrerade med Azure Monitor-diagnostikloggar. När du har aktiverat granskningsloggar på MySQL-servern, kan du generera dem till Azure Monitor-loggar, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar i Azure-portalen finns i [Granska loggen portal artikeln](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Scheman
+## <a name="diagnostic-logs-schemas"></a>Scheman för diagnostikloggar
 
 I följande avsnitt beskriver vad som är resultatet av MySQL-granskningsloggarna utifrån händelsetyp. De fält som ingår och i vilken ordning som de visas kan variera beroende på utdata-metod.
 

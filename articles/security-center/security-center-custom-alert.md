@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192628"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341134"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
@@ -29,17 +29,15 @@ I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azu
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Tillbakadragning av anpassad avisering regler i Azure Security Center
 
-Anpassade aviseringarna kommer att dras tillbaka den 30 juni 2019 på grund av tillbakadragning av den underliggande infrastrukturen som den är baserad på. I tidsramen tills utfasningen användare kommer att kunna redigera befintliga anpassade aviseringsregler men kommer inte att kunna lägga till nya.
+Anpassade aviseringarna kommer att dras tillbaka den 30 juni 2019 på grund av tillbakadragning av den underliggande infrastrukturen som den är baserad på. I tidsramen tills utfasningen användare kommer att kunna redigera befintliga anpassade aviseringsregler men kommer inte att kunna lägga till nya. Följande utfasning, eventuella anpassade aviseringar som definierats börjar inte gälla och säkerhetsaviseringar baserat på dessa regler för anpassade varningar genereras inte.
 Användare bör antingen:
-- Aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) med ett klick onboarding att automatiskt migrera sina befintliga aviseringar och skapa nya
+- Aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och använda inbyggda [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funktioner för att återskapa notifieringsregler
 - Återskapa sina aviseringar med Azure Monitor loggaviseringar
                                      
-Om du vill behålla dina befintliga aviseringar och migrera dem till Azure Sentinel, kan du [starta Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Välj arbetsytan där din anpassade aviseringar lagras som första steg och välj sedan menyalternativet 'Analytics' för att automatiskt migrera dina aviseringar.
+Om du vill behålla dina befintliga aviseringar och migrera dem till Azure Sentinel, kan du [starta Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Välj arbetsytan där din anpassade aviseringar lagras som första steg och välj sedan menyalternativet 'Analytics' för att ställa in anpassade varningar-regler. Besök den [dokumentation](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) för ytterligare information.
 
 > [!NOTE]
-> Anpassade aviseringar migrering till Azure Sentinel är migreras en gång för alla anpassade aviseringar i den valda arbetsytan. När migreringen är klar, är anpassade aviseringar för den valda arbetsytan inte tillgänglig via Azure Security Center.
->
-> Anpassade aviseringar med hjälp av [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) eller [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instruktioner frågor stöds inte i Azure Sentinel och kommer inte att migreras. Redigera dessa varningar innan du utför migreringen.
+> Anpassade aviseringar med hjälp av [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) eller [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instruktioner frågor stöds inte i Azure Sentinel. Redigera dessa varningar innan du utför migreringen.
 
 Om du vill återskapa dina aviseringar med Azure Monitor aviseringar, finns på: [Skapa, visa och hantera aviseringar med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) anvisningar om hur du skapar aviseringar. Allmän översikt över aviseringar i Azure Monitor klickar du på [här](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 

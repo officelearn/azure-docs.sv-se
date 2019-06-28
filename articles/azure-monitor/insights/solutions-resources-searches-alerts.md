@@ -76,7 +76,7 @@ Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.
 
 I följande tabell beskrivs varje egenskap för en sparad sökning.
 
-| Egenskap | Beskrivning |
+| Egenskap | description |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
 | displayName | Namn som ska visas på den sparade sökningen i portalen. |
@@ -121,7 +121,7 @@ En sparad sökning kan ha ett eller flera scheman med ett schema som representer
     }
 Egenskaper för schema resurser beskrivs i följande tabell.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | enabled       | Ja | Anger om aviseringen är aktiverad när den skapas. |
 | interval      | Ja | Hur ofta frågan körs på bara några minuter. |
@@ -174,18 +174,18 @@ Aviseringsåtgärder har följande struktur. Detta inkluderar vanliga variabler 
 
 Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | description | Nej | Valfri beskrivning av aviseringen. |
-| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde
 Det här avsnittet är obligatoriskt. Den definierar egenskaperna för tröskelvärdet.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
 | Värde | Ja | Värde att jämföra resultatet. |
@@ -196,7 +196,7 @@ Det här avsnittet är valfritt. Tar med riskfaktorn för en avisering om metris
 > [!NOTE]
 > Metrisk måttenhet aviseringar är för närvarande i offentlig förhandsversion.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | TriggerCondition | Ja | Anger om tröskelvärdet för totalt antal överträdelser eller efterföljande överträdelser bland följande värden:<br><br>**Totalt antal<br>i följd** |
 | Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
@@ -206,7 +206,7 @@ Det här avsnittet är valfritt. Tar med riskfaktorn för en avisering om metris
 #### <a name="throttling"></a>Begränsning
 Det här avsnittet är valfritt. Inkludera det här avsnittet om du vill visa inga aviseringar från samma regel under en tidsperiod när en avisering har skapats.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | DurationInMinutes | Ja om begränsning element som ingår | Antal minuter för att visa inga aviseringar när en från samma regeln har skapats. |
 
@@ -215,7 +215,7 @@ Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att 
 
 För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärdsgrupp - resursmall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | AzNsNotification | Ja | Resurs-ID för Azure åtgärdsgruppen som ska associeras med aviseringen för att utföra nödvändiga åtgärder när aviseringsvillkoren uppfylls. |
 | CustomEmailSubject | Nej | Anpassade ämnesraden för e-postmeddelandet som skickas till alla adresser som anges i åtgärdsgruppen associerade. |
@@ -231,7 +231,7 @@ Varje schema har en **avisering** åtgärd. Detta definierar information om avis
 ##### <a name="emailnotification"></a>EmailNotification
  Det här avsnittet är valfritt inkluderar den om du vill att aviseringen för att skicka e-post till en eller flera mottagare.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka meddelande när en avisering skapas som i följande exempel.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | Ja | Ämnesrad i e-postmeddelandet. |
@@ -240,7 +240,7 @@ Varje schema har en **avisering** åtgärd. Detta definierar information om avis
 ##### <a name="remediation"></a>Åtgärd
 Det här avsnittet är valfritt inkluderar den om du vill att en runbook startas som svar på aviseringen. 
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | RunbookName | Ja | Namnet på runbook att starta. |
 | WebhookUri | Ja | URI för webhook för runbooken. |
@@ -269,7 +269,7 @@ Om aviseringen anropar en webhook, så måste en åtgärd-resurs med en typ av *
     }
 Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
 
-| Elementnamn | Krävs | Beskrivning |
+| Elementnamn | Krävs | description |
 |:--|:--|:--|
 | type | Ja | Typ av åtgärd. Det här är **Webhook** för webhook-åtgärder. |
 | namn | Ja | Visningsnamn för åtgärden. Detta visas inte i konsolen. |

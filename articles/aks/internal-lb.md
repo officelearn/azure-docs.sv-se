@@ -7,25 +7,25 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a2161be4ee70f7ae5c8baa3816eb9f9943a5d2
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956367"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358007"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes Service (AKS)
 
 Om du vill begränsa åtkomsten till dina program i Azure Kubernetes Service (AKS), kan du skapa och använda en intern belastningsutjämnare. En intern belastningsutjämnare gör en Kubernetes-tjänst som är tillgängligt endast för program som körs i samma virtuella nätverk som Kubernetes-klustret. Den här artikeln visar hur du skapar och använder en intern belastningsutjämnare med Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer är tillgängliga i två SKU: er - *grundläggande* och *Standard*. AKS stöder för närvarande den *grundläggande* SKU. Om du vill använda den *Standard* SKU, kan du använda den överordnade [aks-engine][aks-engine]. Mer information finns i [Azure load balancer SKU jämförelse][azure-lb-comparison].
+> Azure Load Balancer är tillgängliga i två SKU: er - *grundläggande* och *Standard*. Som standard den *grundläggande* SKU som ska användas när ett tjänstmanifest används för att skapa en belastningsutjämnare på AKS. Mer information finns i [Azure load balancer SKU jämförelse][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 AKS-kluster tjänstens huvudnamn måste behörighet att hantera nätverksresurser om du använder ett befintligt undernät eller en resursgrupp. I allmänhet tilldela den *nätverksdeltagare* roll till tjänstens huvudnamn på delegerade resurser. Mer information om behörigheter finns i [AKS delegera åtkomst till andra Azure-resurser][aks-sp].
 
@@ -48,7 +48,7 @@ spec:
     app: internal-app
 ```
 
-Distribuera en intern belastningsutjämnare med hjälp av den [kubectl gäller] kubectl-gäller] och ange namnet på ditt YAML-manifest:
+Distribuera en intern belastningsutjämnare med hjälp av den [kubectl gäller][kubectl-apply] och ange namnet på ditt YAML-manifest:
 
 ```console
 kubectl apply -f internal-lb.yaml
@@ -96,7 +96,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Använda privata nätverk
 
-När du skapar AKS-kluster kan ange du avancerade nätverksinställningar. Den här metoden låter dig distribuera klustret till ett befintligt Azure virtuellt nätverk och undernät. Ett scenario är att distribuera din AKS-kluster till ett privat nätverk som är anslutna till din lokala miljö och köra tjänster som endast är tillgängliga internt. Mer information finns i Konfigurera din egen virtuella undernätverk med [Kubenet] [ use-kubenet] eller [Azure CNI][advanced-networking].
+När du skapar AKS-kluster kan ange du avancerade nätverksinställningar. Den här metoden låter dig distribuera klustret till ett befintligt Azure virtuellt nätverk och undernät. Ett scenario är att distribuera din AKS-kluster till ett privat nätverk som är anslutna till din lokala miljö och köra tjänster som endast är tillgängliga internt. Mer information finns i Konfigurera din egen virtuella undernätverk med [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
 
 Inga ändringar i föregående steg behövs för att distribuera en intern belastningsutjämnare i ett AKS-kluster som använder ett privat nätverk. Belastningsutjämnaren skapas i samma resursgrupp som ditt AKS-kluster, men är ansluten till ditt privata virtuella nätverk och undernät, som visas i följande exempel:
 
@@ -108,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Du behöver ge tjänstens huvudnamn för AKS-klustret i *Nätverksdeltagare* rollen till resursgruppen där resurserna i Azure-nätverk har distribuerats. Visa tjänstens huvudnamn med [az aks show][az-aks-show], till exempel `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Du kan skapa en rolltilldelning med den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando.
+> Du behöver ge tjänstens huvudnamn för AKS-klustret i *Nätverksdeltagare* rollen till resursgruppen där resurserna i Azure-nätverk har distribuerats. Visa tjänstens huvudnamn med [az aks show][az-aks-show], till exempel `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Du kan skapa en rolltilldelning med den [az-rolltilldelning skapa][az-role-assignment-create] kommando.
 
 ## <a name="specify-a-different-subnet"></a>Ange ett annat undernät
 
@@ -141,6 +141,7 @@ Du kan också direkt ta bort en tjänst som med Kubernetes-resurser, till exempe
 Mer information om Kubernetes-tjänster på den [dokumentation för Kubernetes services][kubernetes-services].
 
 <!-- LINKS - External -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
 

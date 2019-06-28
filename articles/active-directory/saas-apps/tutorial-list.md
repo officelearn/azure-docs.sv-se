@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d26dffa005ac4bf8df0ecc0cee2c570960a38d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240045"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358139"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-program med Azure Active Directory
 
@@ -46,7 +46,7 @@ Du hittar fler självstudier, använda innehållsförteckningen till vänster.
 
 | Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :--- | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Konsolen för Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS)-konsolen – rollen etablering](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
+| ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Konsolen för Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS)-konsolen – rollen etablering](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (rollen baser SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - etableringen av användare](google-apps-provisioning-tutorial.md) |
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - etableringen av användare](salesforce-provisioning-tutorial.md) |

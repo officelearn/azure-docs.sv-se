@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304364"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341216"
 ---
 # <a name="api-management-policy-expressions"></a>Principuttryck för API Management
 Den här artikeln beskriver principuttryck syntaxen är C# 7. Varje uttryck har åtkomst till den angivna implicit [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tillåtet [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.
@@ -74,7 +74,7 @@ Uttryck kan användas som attributvärden eller textvärden i alla API Managemen
 ## <a name="CLRTypes"></a> .NET framework-typer tillåts i principuttryck
 I följande tabell visas de .NET Framework-typerna och deras medlemmar som tillåts i principuttryck.
 
-|Typ|Stöds medlemmar|
+|Type|Stöds medlemmar|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Alla|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -94,19 +94,19 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Byte|Alla|
 |System.Char|Alla|
 |System.Collections.Generic.Dictionary<TKey, TValue>|Alla|
-|System.Collections.Generic.HashSet<T>|Alla|
-|System.Collections.Generic.ICollection<T>|Alla|
+|System.Collections.Generic.HashSet\<T>|Alla|
+|System.Collections.Generic.ICollection\<T>|Alla|
 |System.Collections.Generic.IDictionary<TKey, TValue>|Alla|
-|System.Collections.Generic.IEnumerable<T>|Alla|
-|System.Collections.Generic.IEnumerator<T>|Alla|
-|System.Collections.Generic.IList<T>|Alla|
-|System.Collections.Generic.IReadOnlyCollection<T>|Alla|
+|System.Collections.Generic.IEnumerable\<T>|Alla|
+|System.Collections.Generic.IEnumerator\<T>|Alla|
+|System.Collections.Generic.IList\<T>|Alla|
+|System.Collections.Generic.IReadOnlyCollection\<T>|Alla|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Alla|
-|System.Collections.Generic.ISet<T>|Alla|
+|System.Collections.Generic.ISet\<T>|Alla|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Alla|
-|System.Collections.Generic.List<T>|Alla|
-|System.Collections.Generic.Queue<T>|Alla|
-|System.Collections.Generic.Stack<T>|Alla|
+|System.Collections.Generic.List\<T>|Alla|
+|System.Collections.Generic.Queue\<T>|Alla|
+|System.Collections.Generic.Stack\<T>|Alla|
 |System.Convert|Alla|
 |System.DateTime|(Konstruktor), lägger till, AddDays AddHours, AddMilliseconds, AddMinutes, AddMonths, Lägg_till_sekunder, AddTicks, AddYears, datum, dag, DayOfWeek, DayOfYear, DaysInMonth, timme, IsDaylightSavingTime, IsLeapYear, MaxValue, millisekunder, minut, MinValue, månad, nu , Parsa, subtrahera andra Ticken, TimeOfDay, idag, ToString, UtcNow, år|
 |System.DateTimeKind|UTC|

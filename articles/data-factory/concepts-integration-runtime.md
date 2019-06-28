@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427151"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312063"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -74,7 +74,7 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC ta med din egen kluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning Uppdatera resursaktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET-anpassad aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
+- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC ta med din egen kluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning Uppdatera resursaktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet (körs på Azure Batch), Lookup-aktivitet och GetMetaData-aktivitet.
 
 > [!NOTE] 
 > Använda Integration Runtime med egen värd för att stödja datalager som kräver egen drivrutin, till exempel SAP Hana, MySQL osv.  Mer information finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

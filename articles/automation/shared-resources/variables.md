@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786198"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342164"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabler för tillgångar i Azure Automation
 
@@ -28,7 +28,7 @@ Variabler för tillgångar är värden som är tillgängliga för alla runbooks 
 
 Eftersom Automation-variabler är beständiga, är de tillgängliga även om runbook eller DSC-konfiguration misslyckas. Det här innebär att ett värde ställs in av en runbook som sedan används av en annan eller används av samma runbook eller DSC-konfigurationen nästa gång den körs.
 
-När en variabel har skapats kan du ange att lagras krypterade. Krypterade variabler lagras på ett säkert sätt i Azure Automation och dess värde kan inte hämtas från den [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet som levereras som en del av Azure PowerShell-modulen. Det enda sättet att ett krypterat värde kan hämtas är från den **Get-AutomationVariable** aktivitet i en runbook eller DSC-konfiguration.
+När en variabel har skapats kan du ange att lagras krypterade. Krypterade variabler lagras på ett säkert sätt i Azure Automation och dess värde kan inte hämtas från den [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet som levereras som en del av Azure PowerShell-modulen. Det enda sättet att ett krypterat värde kan hämtas är från den **Get-AutomationVariable** aktivitet i en runbook eller DSC-konfiguration. Om du vill ändra en krypterad variabel till icke krypterade måste du ta bort och återskapa variabeln inte krypterade.
 
 >[!NOTE]
 >Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault hanteras av en datorn. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången. Den här processen hanteras av Azure Automation.

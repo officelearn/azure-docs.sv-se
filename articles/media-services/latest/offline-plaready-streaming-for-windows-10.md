@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937473"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341766"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline Streaming för Windows 10
 
@@ -27,6 +27,9 @@ Azure Media Services stöder offline download/uppspelning med DRM-skydd. Den hä
 
 - [FairPlay-direktuppspelning offline för iOS](offline-fairplay-for-ios.md)
 - [Offline Widevine för direktuppspelning för Android](offline-widevine-for-android.md)
+
+> [!NOTE]
+> Offline DRM debiteras endast för att göra en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
 ## <a name="overview"></a>Översikt
 

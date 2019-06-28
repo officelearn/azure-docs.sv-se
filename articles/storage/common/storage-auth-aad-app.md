@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073429"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341622"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
@@ -121,7 +121,7 @@ Sedan uttryckligen tilldela den **Storage Blob Data-deltagare** rollen till det 
 
 När ditt program har åtkomst till Azure Storage, handlar det på användarens vägnar, vilket innebär att blob eller kön resurser används med behörigheterna för den användare som är inloggad. Om du vill testa detta kodexempel, behöver du ett webbprogram som uppmanar användaren att logga in med en Azure AD-identitet. Du kan skapa en egen eller använda det exempelprogram som tillhandahålls av Microsoft.
 
-Ett slutförda exempelwebbprogram som hämtar en token och används för att skapa en blob i Azure Storage är tillgängligt på [GitHub](http://aka.ms/aadstorage). Granska och köra den färdiga exemplet kan vara till hjälp för att förstå kodexemplen. Instruktioner om hur du kör det färdiga exemplet finns i avsnittet [visa och köra den färdiga exemplet](#view-and-run-the-completed-sample).
+Ett slutförda exempelwebbprogram som hämtar en token och används för att skapa en blob i Azure Storage är tillgängligt på [GitHub](https://aka.ms/aadstorage). Granska och köra den färdiga exemplet kan vara till hjälp för att förstå kodexemplen. Instruktioner om hur du kör det färdiga exemplet finns i avsnittet [visa och köra den färdiga exemplet](#view-and-run-the-completed-sample).
 
 #### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-satser  
 
@@ -235,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>Visa och köra den färdiga exemplet
 
-Om du vill köra exempelprogrammet, klona eller ladda ned det från [GitHub](http://aka.ms/aadstorage). Uppdatera sedan programmet enligt beskrivningen i följande avsnitt.
+Om du vill köra exempelprogrammet, klona eller ladda ned det från [GitHub](https://aka.ms/aadstorage). Uppdatera sedan programmet enligt beskrivningen i följande avsnitt.
 
 ### <a name="provide-values-in-the-settings-file"></a>Ange värden i filen
 

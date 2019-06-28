@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761944"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340866"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testa en Stream Analytics-fråga med exempeldata
 
-Du kan överföra data och test exempelfrågor i Azure portal utan att starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
+Med hjälp av Azure Stream Analytics kan du exempeldata från indata eller ladda upp exempeldata för att testa frågor i Azure portal utan att starta eller stoppa ett jobb.
 
 ## <a name="upload-sample-data-and-test-the-query"></a>Ladda upp exempeldata och testa frågan
 
@@ -28,11 +28,15 @@ Du kan överföra data och test exempelfrågor i Azure portal utan att starta el
 
 3. På Stream Analytics-jobbet kan under den **Jobbtopologi** väljer **fråga** att öppna Query editor-fönstret. 
 
-4. Testa din fråga med exempel på inmatade data genom att högerklicka på någon av dina indata.  Välj sedan **överför exempeldata från filen**. Data måste serialiseras i JSON, CSV eller AVRO. Exempelindata måste vara kodad i UTF-8 och inte komprimeras. Endast kommatecken (,) avgränsare stöds för att testa CSV indata på portalen.
+4. Om du vill testa frågan kan du sedan antingen exempeldata från en live indata eller ladda upp från en fil. Data måste serialiseras i JSON, CSV eller AVRO. Exempelindata måste vara kodad i UTF-8 och inte komprimeras. Endast kommatecken (,) avgränsare stöds för att testa CSV indata på portalen.
+
+    1. Med live indata: Högerklicka på någon av dina indata. Välj sedan **exempeldata från indata**. Du kan ange varaktigheten för exemplet på nästa skärm.
+
+    1. Med hjälp av filen: Högerklicka på någon av dina indata. Välj sedan **överför exempeldata från filen**. 
 
     ![test för Stream analytics fråga frågeredigeraren](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. När överföringen är klar, väljer **testa** att testa den här frågan mot exempeldata som du har angett.
+5. När datainsamling och ladda upp är avslutad, Välj **testa** att testa den här frågan mot exempeldata som du har angett.
 
     ![Stream analytics-fråga exempeldata för Redigeraren för testning](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 

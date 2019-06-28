@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191777"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339437"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Skapa en Azure-Skyddsmiljö-värd (förhandsversion)
 
@@ -41,7 +41,7 @@ Du måste registrera om du vill delta i den här förhandsversionen. Följ dessa
 
 Det här avsnittet hjälper dig att skapa en ny Azure Skyddsmiljö-resurs från Azure-portalen.
 
-1. På startsidan i den [ Azure-portalen – förhandsversion](http://aka.ms/BastionHost), klickar du på **+ skapa en resurs**. Kontrollera att du använder länken för att få åtkomst till portalen för den här förhandsversionen kan inte vanliga Azure-portalen.
+1. På startsidan i den [ Azure-portalen – förhandsversion](https://aka.ms/BastionHost), klickar du på **+ skapa en resurs**. Kontrollera att du använder länken för att få åtkomst till portalen för den här förhandsversionen kan inte vanliga Azure-portalen.
 
 1. På den **New** sidan den *Sök på Marketplace* skriver **Skyddsmiljö**, klicka sedan på **RETUR** till sökresultaten.
 

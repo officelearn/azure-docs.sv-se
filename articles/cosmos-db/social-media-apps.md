@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256881"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342112"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Det är bara för att skapa dokument som kan innehålla en lista över post ID: 
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Du kan ha en ”senaste” ström med inlägg sorterade efter skapandedatum. Eller du kan ha en ”hetaste” ström med dessa inlägg med mer likes under de senaste 24 timmarna. Du kan även implementera en anpassad dataström för varje användare baserat på logik som följare och intressen. Det vore fortfarande en lista över inlägg. Det är en fråga om hur du skapar dessa listor, men prestandan läsning förblir obehindrad. När du skaffar en av de här listorna du utfärda en enskild fråga till Cosmos DB med hjälp av den [i operatorn](how-to-sql-query.md#WhereClause) att hämta sidor för inlägg i taget.
+Du kan ha en ”senaste” ström med inlägg sorterade efter skapandedatum. Eller du kan ha en ”hetaste” ström med dessa inlägg med mer likes under de senaste 24 timmarna. Du kan även implementera en anpassad dataström för varje användare baserat på logik som följare och intressen. Det vore fortfarande en lista över inlägg. Det är en fråga om hur du skapar dessa listor, men prestandan läsning förblir obehindrad. När du skaffar en av de här listorna du utfärda en enskild fråga till Cosmos DB med hjälp av den [i nyckelordet](sql-query-keywords.md#in) att hämta sidor för inlägg i taget.
 
 Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/webjobs-create.md). När en post skapas behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs som utlösts med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementerar den Publicera spridning i strömmar som baseras på en egen anpassad logik.
 

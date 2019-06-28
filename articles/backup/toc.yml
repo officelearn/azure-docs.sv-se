@@ -144,8 +144,6 @@
           items:
             - name: Hantera säkerhetskopior av virtuella Azure-datorer
               href: backup-azure-manage-vms.md
-            - name: Övervaka aviseringar för virtuella Azure-säkerhetskopieringar
-              href: backup-azure-monitor-vms.md
         - name: Återställa virtuella Azure-datorer
           items:
             - name: Återställa virtuella Azure-datorer i portalen

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 42f290109ca380464cb07ac9f684cdde25b8fdcd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063773"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340728"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database för PostgreSQL – enskild Server
 
@@ -67,7 +67,7 @@ Lagringsgränserna ökar vi vår generell användning och Minnesoptimerad nivåe
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS |
 
 > [!IMPORTANT]
-> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, västra USA 2, Nordeuropa, Västeuropa, Sydostasien, Japan östra, Korea centrala; Australien, östra.
+> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, Nordeuropa, Västeuropa, Sydostasien, Japan östra, Korea centrala; Australien, östra.
 >
 >Förhandsversionen av stort lagringsutrymme stöder för närvarande inte:
 >

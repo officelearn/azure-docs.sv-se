@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951642"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357335"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -32,7 +32,7 @@ SQL Database använder SQL Server-teknik för att skapa [fullständiga säkerhet
 Du kan använda dessa säkerhetskopior till:
 
 - **Återställa en befintlig databas till point-in-time tidigare** inom kvarhållningsperioden med hjälp av Azure portal, Azure PowerShell, Azure CLI eller REST API. I enkel databas och elastiska pooler skapar den här åtgärden en ny databas på samma server som den ursprungliga databasen. I Managed Instance kan den här åtgärden skapar en kopia av databasen eller samma eller en annan hanterad instans i samma prenumeration.
-  - **[Ändra säkerhetskopiering kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period)**  mellan till 35 dagar för att konfigurera din säkerhetskopieringsprincip.
+  - **[Ändra säkerhetskopiering kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period)**  mellan 7 till 35 dagar för att konfigurera din säkerhetskopieringsprincip.
   - **Ändra principen för långsiktig kvarhållning upp till 10 år** på enkel databas och elastiska pooler med hjälp av [Azure-portalen](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
 - **Återställa en borttagen databas till den tidpunkt när den har tagits bort** eller när som helst inom kvarhållningsperioden. Den borttagna databasen kan endast återställas i samma logiska server eller hanterad instans där den ursprungliga databasen har skapats.
 - **Återställa en databas till en annan geografisk region**. GEO-återställning kan du återställa en geografisk katastrofåterställning när du inte åtkomst till din server och databas. En ny databas skapas i en befintlig server var som helst i världen.

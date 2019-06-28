@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075820"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341081"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -34,7 +34,7 @@ Läs mer om affärskontinuitet företagsscenarier och de funktioner som stöder 
 > Om du använder zonredundant Premium eller affärskritiska databaser eller pooler återställningen sker automatiskt och resten av detta material gäller inte.
 
 > [!NOTE]
-> Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt att den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Mer information finns i [uppgradera eller nedgradera som den primära databasen](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt att den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Mer information finns i [uppgradera eller nedgradera som den primära databasen](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Använda en eller flera grupper för växling vid fel för att hantera redundans för flera databaser.

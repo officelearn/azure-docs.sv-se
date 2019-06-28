@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f89105abc21f5ef6cce53ea55622a808f947e86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388739"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357307"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera förhandsversion av Azure Time Series Insights-miljön
 
@@ -88,5 +88,8 @@ Mer information finns i [forma händelser](./time-series-insights-send-events.md
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Granska [Azure Advisor](../advisor/advisor-overview.md) att planera konfiguration för företag återställningsalternativ.
+
 - Läs mer om [storage och ingående](./time-series-insights-update-storage-ingress.md) i Time Series Insights Preview.
+
 - Lär dig mer om [datamodellering](./time-series-insights-update-tsm.md) i Time Series Insights Preview.

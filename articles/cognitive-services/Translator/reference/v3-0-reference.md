@@ -3,19 +3,19 @@ title: Referens för Translator Text API-version 3.0
 titlesuffix: Azure Cognitive Services
 description: Referensdokumentation för Translator Text API V3.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.author: swmachan
+ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331829"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357673"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -58,7 +58,7 @@ Det finns tre rubriker som du kan använda för att autentisera din prenumeratio
 |Rubriker|Beskrivning|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
-|Auktorisering|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
+|Authorization|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Använd med flera tjänster Cognitive Services-prenumeration om du skickar en flera tjänster hemlig nyckel.*<br/>Värdet är regionen för flera tjänster prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration på flera tjänster.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel

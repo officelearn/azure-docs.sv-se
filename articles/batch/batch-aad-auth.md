@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922446"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341181"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
-Azure Batch stöder autentisering med [Azure Active Directory] [ aad_about] (Azure AD). Azure AD är Microsofts flera innehavare molnbaserad katalog- och identity management-tjänsten. Azure själva använder Azure AD för att autentisera dess kunder, administratörer och användare i organisationer.
+Azure Batch stöder autentisering med [Azure Active Directory][aad_about] (Azure AD). Azure AD är Microsofts flera innehavare molnbaserad katalog- och identity management-tjänsten. Azure själva använder Azure AD för att autentisera dess kunder, administratörer och användare i organisationer.
 
 När du använder Azure AD-autentisering med Azure Batch kan autentisera du på något av två sätt:
 
@@ -64,7 +64,7 @@ Använd den **Azure Batch resursslutpunkt** att hämta en token för att autenti
 
 ## <a name="register-your-application-with-a-tenant"></a>Registrera ditt program med en klient
 
-Det första steget i att autentisera med hjälp av Azure AD är att registrera ditt program i en Azure AD-klient. Registrera ditt program kan du anropa Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) från din kod. ADAL tillhandahåller ett API för att autentisera med Azure AD från ditt program. Registrera ditt program måste anges om du planerar att använda integrerad autentisering eller ett huvudnamn för tjänsten.
+Det första steget i att autentisera med hjälp av Azure AD är att registrera ditt program i en Azure AD-klient. Registrera ditt program kan du anropa Azure [Active Directory Authentication Library][aad_adal] (ADAL) från din kod. ADAL tillhandahåller ett API för att autentisera med Azure AD från ditt program. Registrera ditt program måste anges om du planerar att använda integrerad autentisering eller ett huvudnamn för tjänsten.
 
 När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett program-ID (även kallat en *klient-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om program-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -324,31 +324,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 När du använder ett huvudnamn för tjänsten, måste du ange klient-ID. Om du vill hämta klient-ID, följer du stegen som beskrivs i [hämta klient-ID för Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Referens för Batch-tjänstslutpunkt för resursen:  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Referera till ditt Batch-konto:
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Ange program-ID (klient-ID) för ditt program. Program-ID är tillgängligt från din appregistrering i Azure portal:
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Ange den hemliga nyckeln som du kopierade från Azure portal:
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Skapa en **ServicePrincipalCredentials** objekt:

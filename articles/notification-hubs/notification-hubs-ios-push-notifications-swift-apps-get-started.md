@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
-ms.openlocfilehash: a4773ddd8114659118e89cfee57e73ddb39ff6b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35044918876b2c7710e26f6b868bc1096c2f538
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116682"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340393"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Självstudier: Push-meddelanden till Swift iOS-appar som använder Notification Hubs REST API
 
@@ -87,12 +87,12 @@ I det här avsnittet ska du skapa iOS-app som ska ansluta till notification hub.
 
 1. Uppdatera **devsettings.plist** att inkludera följande konfigurationsposter med hjälp av dina egna värden från den meddelandehubb som du har etablerat:
 
-   | Nyckel                            | Typ                     | Värde                     |
+   | Nyckel                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    Du hittar värdena som krävs genom att gå till notification hub-resurs i Azure-portalen. I synnerhet de **notificationHubName** och **notificationHubNamespace** värden är i det övre högra hörnet av den **Essentials** sammanfattning inom **Översikt** sidan.
 
@@ -408,10 +408,10 @@ Följ dessa steg för att anropa den **installationer** API:
 
 1. Konfigurera begärandehuvuden enligt följande:
 
-   | Nyckel           | Värde            |
+   | Nyckel           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Auktorisering | <sasToken>       |
+   | Authorization | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. Välj den **kod** knapp som visas i det övre högra hörnet under den **spara** knappen. Begäran bör likna följande exempel:
@@ -656,10 +656,10 @@ Du kan skicka meddelanden via den [REST API](/rest/api/notificationhubs/) med hj
 
 1. Konfigurera begärandehuvuden enligt följande:
 
-   | Nyckel                            | Värde                          |
+   | Nyckel                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Auktorisering                  | <sasToken>                     |
+   | Authorization                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | mall                       |
    | Tags                           | "12345"                        |
 

@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755123"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341495"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -98,8 +98,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Labbskaparen](#lab-creator) | Kan du skapa, hantera och ta bort dina hanterade labbar under dina Azure Lab-konton. |
 | [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägget för virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure-lagring. Skapa och konfigurera automationskonton; lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser. |
 | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, även konfiguration av Azure-diagnostik visas på alla Azure-resurser. |
-| [Logic App-deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men inte tillgång till dem. |
-| [Logic App-operatör](#logic-app-operator) | Kan du läsa, aktivera och inaktivera logikappen. |
+| [Logic App-deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men inte ändra åtkomst till dem. |
+| [Logic App-operatör](#logic-app-operator) | Kan du läsa, aktivera, och inaktivera logikappar, men inte redigera eller uppdatera dem. |
 | [Operatörsroll för hanterat program](#managed-application-operator-role) | Du kan läsa och utföra åtgärder på hanterade resurser |
 | [Läsare för hanterade program](#managed-applications-reader) | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
 | [Hanterad Identitetsdeltagare](#managed-identity-contributor) | Skapa, läsa, uppdatera och ta bort Användartilldelad identitet |
@@ -1620,7 +1620,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera logikappar, men inte tillgång till dem. |
+> | **Beskrivning** | Låter dig hantera logikappar, men inte ändra åtkomst till dem. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -1654,7 +1654,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du läsa, aktivera och inaktivera logikappen. |
+> | **Beskrivning** | Kan du läsa, aktivera, och inaktivera logikappar, men inte redigera eller uppdatera dem. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -2494,7 +2494,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Gör det möjligt för hantering av storage-konton. Ger inte åtkomst till data i lagringskontot. |
+> | **Beskrivning** | Gör det möjligt för hantering av storage-konton. Ger åtkomst till kontonyckeln, som kan användas för att få åtkomst till data via delade nyckel auktorisering. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läsa alla auktorisering |

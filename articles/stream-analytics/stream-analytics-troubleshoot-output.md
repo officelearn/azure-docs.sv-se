@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761751"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340793"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics-utdata
 
@@ -90,6 +90,10 @@ Observera följande observationer när du konfigurerar IGNORE_DUP_KEY för flera
 * Du kan inte ange IGNORE_DUP_KEY på en primär nyckel eller en unik begränsning som använder ALTER INDEX måste du ta bort och återskapa indexet.  
 * Du kan ange alternativet IGNORE_DUP_KEY med hjälp av ALTER INDEX för ett unikt index som skiljer sig från primär nyckel/UNIQUE-begränsning och skapas med CREATE INDEX eller INDEX.  
 * Indexalternativet gäller inte för columnstore-index eftersom du inte kan framtvinga unikhet på sådana index.  
+
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Kolumnnamnen är lägre bokstäver av Azure Stream Analytics
+När du använder den ursprungliga kompatibilitetsnivån (1.0), används Azure Stream Analytics för att ändra kolumnnamnen till gemener. Det här problemet har åtgärdats i senare kompatibilitetsnivåer. För att bevara fallet, rekommenderar vi kunder att övergå till kompatibilitetsnivå 1.1 och senare. Du hittar mer information på [kompatibilitetsnivån för Azure Stream Analytics-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
 
 ## <a name="get-help"></a>Få hjälp
 

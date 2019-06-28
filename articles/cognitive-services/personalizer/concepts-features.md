@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027140"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340897"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -41,6 +41,12 @@ Personalizer föreskriver, begränsa eller åtgärda vilka funktioner som du kan
 
 Personalizer har stöd för funktionerna i sträng, numeriska och booleska typer.
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hur påverkar valet av funktionstyp Machine Learning i Personalizer
+
+* **Strängar**: För strängtyper skapar varje enskild kombination med nyckel- och nya vikterna i Personalizer-machine learning-modell. 
+* **Numeriska**: När antalet bör proportionellt påverkar personanpassning resultatet bör du använda numeriska värden. Detta är mycket scenariot beroende. I ett förenklat exempel t.ex. när anpassa en officiell uppstår NumberOfPetsOwned kan vara en funktion som är numeriska som du kanske vill att användare med 2 eller 3 husdjur att påverka resultatet personanpassning två gånger eller tre gånger om så mycket som har 1 husdjur. Funktioner som är baserade på numeriska enheter men där betydelse inte är linjär – till exempel ålder, temperatur eller Person höjd - är bäst kodade som strängar, och funktion kvaliteten vanligtvis kan förbättras genom att använda intervall. Till exempel ålder kan vara kodad som ”Age”: ”0-5”, ”Age” ”: 6 – 10”, osv.
+* **Booleska** värden som skickas med värdet ”false” act som om de inte tagit emot alls.
+
 Funktioner som inte finns ska utelämnas från begäran. Undvika att skicka funktioner med ett null-värde eftersom det kommer att behandlas som befintlig och med värdet ”null” vid utbildning av modellen.
 
 ## <a name="categorize-features-with-namespaces"></a>Kategorisera funktioner med namnområden
@@ -64,12 +70,15 @@ Du kan kalla funktionen namnområden efter egna konventioner så länge de är g
 
 I följande JSON `user`, `state`, och `device` är funktionen namnområden.
 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -115,7 +124,7 @@ Till exempel är en tidsstämpel till andra en mycket begränsad funktion. Det k
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandera funktionsuppsättningar med extrapolerade information
 
-Du kan också få fler funktioner genom att tänka på nytt attribut som kan härledas från information som du redan har. Till exempel i en lista över anpassning fiktiva film är du det möjliga som en helg vs vardag framkalla olika beteenden från användare? Tid kan utökas för att ha ett ”lördag” eller ”veckodag”-attribut. Kulturella helgdagar enhet uppmärksam på vissa typer av film? Attributet ”Halloween” är till exempel användbart på platser där det är relevant. Är det möjligt att regn väder har stor inverkan på valet av en film för många användare? En väder-tjänst kan ange att information och du kan lägga till den som en extra funktion för med tid och plats. 
+Du kan också få fler funktioner genom att tänka på nytt attribut som kan härledas från information som du redan har. Till exempel i en lista över anpassning fiktiva film är du det möjliga som en helg vs vardag elicits olika beteenden från användare? Tid kan utökas för att ha ett ”lördag” eller ”veckodag”-attribut. Kulturella helgdagar enhet uppmärksam på vissa typer av film? Attributet ”Halloween” är till exempel användbart på platser där det är relevant. Är det möjligt att regn väder har stor inverkan på valet av en film för många användare? En väder-tjänst kan ange att information och du kan lägga till den som en extra funktion för med tid och plats. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expandera funktionsuppsättningar med artificiell intelligens och cognitive services
 
@@ -190,6 +199,8 @@ I vissa fall kan det kan bara fastställas senare i din affärslogik om en som �
 
 När du anropar rankning, skickar du flera åtgärder för att välja mellan:
 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+
 ```json
 {
     "actions": [
@@ -198,7 +209,8 @@ När du anropar rankning, skickar du flera åtgärder för att välja mellan:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ När du anropar rankning, skickar du flera åtgärder för att välja mellan:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ När du anropar rankning, skickar du flera åtgärder för att välja mellan:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ När du anropar rankning, skickar du flera åtgärder för att välja mellan:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +280,8 @@ Programmet ansvarar för att läsa in information om kontexten från relevanta d
 
 Kontext uttrycks som ett JSON-objekt som ska skickas till API: et rangordning:
 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +299,9 @@ Kontext uttrycks som ett JSON-objekt som ska skickas till API: et rangordning:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

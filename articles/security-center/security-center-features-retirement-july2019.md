@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952135"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341561"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Tillbakadragning av Security Center-funktioner (juli 2019)
 
@@ -114,16 +114,18 @@ Vi rekommenderar att du kan använda kartan funktionerna aviseringar i Security 
 
 ## Anpassade aviseringsregler (förhandsversion)<a name="menu_customalerts"></a>
 
-Vi [tas ur bruk anpassat aviseringar upplevelse](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) den 30 juni 2019 eftersom tas ur bruk den underliggande infrastrukturen. Du kan redigera befintliga anpassade aviseringsregler fram till dess, men du inte kan komma att lägga till nya. Vi rekommenderar att du aktiverar [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) att automatiskt migrera dina befintliga aviseringar och skapa nya. Alternativt kan du skapa dina aviseringar med Azure Monitor log-aviseringar.
+Vi [tas ur bruk anpassat aviseringar upplevelse](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) den 30 juni 2019 eftersom tas ur bruk den underliggande infrastrukturen. Du kan redigera befintliga anpassade aviseringsregler fram till dess, men du inte kan komma att lägga till nya. Efter datumet för tillbakadragandet kommer alla anpassade aviseringar som definierats börjar inte gälla och säkerhetsaviseringar baserat på de här reglerna kommer att genereras.
+Vi rekommenderar att du aktiverar [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och återskapa dina anpassade aviseringar. Alternativt kan du skapa dina aviseringar med Azure Monitor log-aviseringar.
 
-Att hålla dina befintliga aviseringar och migrera dem till Azure Sentinel:
+Att hålla dina befintliga aviseringar och skapa dem med Azure Sentinel:
 
-1. Öppna Azure Sentinel och markera arbetsytan där din anpassade aviseringar lagras.
-1. Välj **Analytics** från menyn för att automatiskt migrera dina aviseringar.
+1. [Öppna Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) och välj arbetsytan där din anpassade aviseringar lagras
+1. Välj **Analytics** från menyn
+1. Följ instruktionerna i följande [självstudien](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) om hur du skapar anpassade aviseringar i Azure Sentinel
+
+Om du inte vill använda Azure Sentinel kan du skapa dina aviseringar med loggaviseringar i Azure Monitor. Anvisningar finns i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [Loggaviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Anpassade aviseringar][13]
-
-Om du inte är intresserad av att övergå till Azure Sentinel uppmanar vi dig att skapa aviseringar med Azure Monitor loggaviseringar. Anvisningar finns i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [Loggaviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 Mer information om anpassade aviseringar tillbakadragande finns [anpassade Aviseringsregler i Azure Security Center (förhandsversion)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 

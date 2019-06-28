@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cb0fe056ff7ff4794667d6b28782daad100609f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 206e501860691cccc0578a0df4eec2b161b99b4c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921026"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341367"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vad är standardbehörigheterna för användare i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typ av användare, deras [rolltilldelningar](active-directory-users-assign-role-azure-portal.md), och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användarbehörigheter kan ändras endast i användarinställningarna i Azure AD.
@@ -34,7 +34,7 @@ Standardbehörigheter för gäster är begränsade som standard. Gäster kan lä
 
 **Område** | **Användarbehörigheter för medlem** | **Användarbehörigheter för gäst**
 ------------ | --------- | ----------
-Användare och kontakter | Läsa alla offentliga egenskaper om användare och kontakter<br>Bjuda in gäster<br>Ändra eget lösenord<br>Hantera eget mobilnummer<br>Hantera eget foto<br>Ogiltigförklara egna uppdateringstokens | Läsa egna egenskaper<br>Läs visningsnamn, e-post, inloggningsnamn, foto, användarens huvudnamn och användartypegenskaper för andra användare och kontakter<br>Ändra eget lösenord
+Användare och kontakter | Läsa alla offentliga egenskaper om användare och kontakter<br>Bjuda in gäster<br>Ändra eget lösenord<br>Hantera eget mobilnummer<br>Hantera eget foto<br>Ogiltigförklara egna uppdateringstokens | Läsa egna egenskaper<br>Läsa visningsnamn, e-post, logga in namn, foto, användarens huvudnamn och typ av användaregenskaper för andra användare och kontakter<br>Ändra eget lösenord
 Grupper | Skapa säkerhetsgrupper<br>Skapa Office 365-grupper<br>Läsa alla icke-dolda egenskaper i grupper<br>Läsa icke-dolda gruppmeddelanden<br>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<br>Hantera egenskaper, ägarskapet och medlemskap i grupper som användaren äger<br>Lägga till gäster i egna grupper<br>Hantera inställningar för dynamiskt medlemskap<br>Ta bort egna grupper<br>Återställa grupper som ägs av Office 365 | Läsa alla icke-dolda egenskaper i grupper<br>Läsa icke-dolda gruppmeddelanden<br>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<br>Hantera egna grupper<br>Lägga till gäster i egna grupper (om detta är tillåtet)<br>Ta bort egna grupper<br>Återställa grupper som ägs av Office 365<br>Läsa egenskaper för grupper som de tillhör, inklusive medlemskap.
 Program | Registrera (Skapa) ett nytt program<br>Skrivskyddade egenskaper för registrerade program och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<br>Skapa eller ta bort programlösenord för användare<br>Ta bort egna program<br>Återställ egna program | Skrivskyddade egenskaper för registrerade program och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<br>Ta bort egna program<br>Återställ egna program
 Enheter | Läs alla enhetsegenskaper<br>Läs alla egenskaper för egna enheter<br> | Inga behörigheter<br>Ta bort egna enheter<br>
@@ -50,24 +50,83 @@ Standardbehörigheter för medlemmsanvändare kan begränsas på följande sätt
 Behörighet | Förklaring av inställning
 ---------- | ------------
 Användare kan registrera program | Ange det här alternativet på Nej förhindrar användare från att skapa programregistreringar. Möjligheten kan sedan få tillbaka till specifika personer genom att lägga till dem till rollen programutvecklare.
-Tillåt att användare ansluter arbets-eller skolkonton med LinkedIn | Ange det här alternativet på Nej förhindrar användare från att ansluta sina arbets- eller skolkonto konto med sina LinkedIn-konto.  Se [LinkedIn konto anslutningar Datadelning och medgivande](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) för mer information.
+Tillåt att användare ansluter arbets-eller skolkonton med LinkedIn | Ange det här alternativet på Nej förhindrar användare från att ansluta sina arbets- eller skolkonto konto med sina LinkedIn-konto. Mer information finns i [LinkedIn konto anslutningar Datadelning och medgivande](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
 Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer och användaradministratörer kan du fortfarande skapa säkerhetsgrupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer och användaradministratörer kommer fortfarande att kunna skapa Office 365-grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Begränsa åtkomst till Azure AD-administrationsportalen | Ange det här alternativet på Ja förhindrar användare från att komma åt Azure Active Directory via Azure portal.
-Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. Om den är $false får inga icke-administratörer läsa användarinformation från katalogen. Detta förhindrar inte läsning av användarinformation i andra Microsofttjänster, till exempel Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och det rekommenderas inte att ställa in den på $false.
+Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. $False att ställa in den här flaggan förhindrar alla icke-administratörer från att läsa användarinformation från katalogen. Den här flaggan förhindrar inte att läsa information i andra Microsoft-tjänster som Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och den här flaggan $false rekommenderas inte.
 
 ## <a name="object-ownership"></a>Objektägarskap
 
 ### <a name="application-registration-owner-permissions"></a>Ägarbehörigheter för programregistrering
 När en användare registrerar ett program, läggs de automatiskt till som ägare till programmet. De kan hantera metadata för programmet som ägare, till exempel namn och behörigheter för appen. De kan också hantera klient-specifik konfiguration av program, till exempel SSO-konfiguration och användartilldelningar. En ägare kan också lägga till eller ta bort andra ägare. Till skillnad från globala administratörer kan ägare bara hantera program som de äger.
 
-<!-- ### Enterprise application owner permissions
-
-When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
+### <a name="enterprise-application-owner-permissions"></a>Ägarbehörighet för Enterprise-program
+När en användare lägger till en ny företagsprogram, läggs de automatiskt som ägare. Ägare kan hantera de klientspecifik konfigurationen av programmet, till exempel SSO konfiguration, etablering och användartilldelningar. En ägare kan också lägga till eller ta bort andra ägare. Till skillnad från globala administratörer kan ägare hantera endast de program som de äger.
 
 ### <a name="group-owner-permissions"></a>Gruppägares behörigheter
-
 När en användare skapar en grupp, läggs de automatiskt som en ägare till gruppen. Ägare kan de hantera egenskaperna för en grupp, till exempel namnet, samt hantera gruppmedlemskap. En ägare kan också lägga till eller ta bort andra ägare. Till skillnad från globala administratörer och användaradministratörer kan ägare bara hantera grupper som de äger. Om du vill tilldela en gruppägare, se [Hantera ägare för en grupp](active-directory-accessmanagement-managing-group-owners.md).
+
+### <a name="ownership-permissions"></a>Ägarskap behörigheter
+I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Directory användare har över ägda objekt. Användaren har endast dessa behörigheter på objekt som de äger.
+
+#### <a name="owned-application-registrations"></a>Ägda programregistreringar
+Användarna kan utföra följande åtgärder för ägda programregistreringar.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.directory/applications/audience/update | Uppdatera applications.audience-egenskapen i Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Uppdatera applications.authentication-egenskapen i Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Uppdatera grundläggande egenskaper för program i Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Uppdatera applications.credentials-egenskapen i Azure Active Directory. |
+| Microsoft.Directory/Applications/delete | Ta bort program i Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Uppdatera applications.owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Uppdatera applications.permissions-egenskapen i Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Uppdatera applications.policies-egenskapen i Azure Active Directory. |
+| Microsoft.Directory/Applications/Restore | Återställa program i Azure Active Directory. |
+
+#### <a name="owned-enterprise-applications"></a>Ägda företagsprogram
+Användarna kan utföra följande åtgärder för ägda företagsprogram. Ett företagsprogram består av tjänstens huvudnamn, en eller flera principer för program och ibland ett programobjekt i samma klientorganisation som tjänstens huvudnamn.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.directory/auditLogs/allProperties/read | Läsa alla egenskaper (inklusive Privilegierade egenskaper) för auditLogs i Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
+| Microsoft.Directory/policies/delete | Ta bort principer i Azure Active Directory. |
+| Microsoft.Directory/policies/owners/Update | Uppdatera policies.owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera servicePrincipals.appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Uppdatera users.appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Uppdatera servicePrincipals.audience-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Uppdatera servicePrincipals.authentication-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för servicePrincipals i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Uppdatera servicePrincipals.credentials-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Ta bort servicePrincipals i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Uppdatera servicePrincipals.owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Uppdatera servicePrincipals.permissions-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Uppdatera servicePrincipals.policies-egenskapen i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läsa alla egenskaper (inklusive Privilegierade egenskaper) för signInReports i Azure Active Directory. |
+
+#### <a name="owned-devices"></a>Företagsägda enheter
+Användarna kan utföra följande åtgärder för företagsägda enheter.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Läsa devices.bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft.Directory/Devices/disable | Inaktivera enheter i Azure Active Directory. |
+
+#### <a name="owned-groups"></a>Ägda grupper
+Användarna kan utföra följande åtgärder för ägda grupper.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.directory/groups/appRoleAssignments/update | Uppdatera groups.appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft.Directory/groups/delete | Ta bort grupper i Azure Active Directory. |
+| microsoft.directory/groups/dynamicMembershipRule/update | Uppdatera groups.dynamicMembershipRule-egenskapen i Azure Active Directory. |
+| microsoft.directory/groups/members/update | Uppdatera groups.members-egenskapen i Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Uppdatera groups.owners-egenskapen i Azure Active Directory. |
+| Microsoft.Directory/groups/Restore | Återställa grupper i Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Uppdatera groups.settings-egenskapen i Azure Active Directory. |
 
 ## <a name="next-steps"></a>Nästa steg
 

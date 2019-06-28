@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4b6dd31d620603b765fd33494f399f97915af3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: be8048c05217fbdb2956e2a67be4eb3e17abed10
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784923"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341403"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -53,14 +53,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett program för 
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `UWP-App-calling-MsGraph`.
->      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
+>      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
 > 1. Expandera den **Desktop + enheter** avsnittet.  (Om **Desktop + enheter** syns inte först på den övre banderollen för att visa förhandsgranskning autentiseringsupplevelse)
 > 1. Under den **omdirigerings-URI** väljer **Lägg till URI: N**.  Typ **urn: ietf:wg:oauth:2.0:oob**.
 > 1. Välj **Spara**.
 
-> [!div renderon="portal" class="sxs-lookup alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -90,7 +90,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett program för 
 > > [!TIP]
 > > Hitta värdet för *program-ID*går du till den **översikt** avsnitt i portalen
 
-#### <a name="step-4-run-your-application"></a>Steg 4: Kör programmet
+#### <a name="step-4-run-your-application"></a>Steg 4: Köra ditt program
 
 Om du vill prova snabbstarten på din Windows-dator:
 

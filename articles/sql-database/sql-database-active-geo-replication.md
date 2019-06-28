@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387459"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341434"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -100,9 +100,6 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   Varje sekundär databas kan separat delta i en elastisk pool eller inte i någon elastisk pool alls. Pool-valmöjligheter för varje sekundär databas är separat och är inte beroende av konfigurationen av andra sekundära databasen (antingen primär eller sekundär). Varje elastisk pool ingår i en enda region, flera sekundära databaser i samma topologi kan därför aldrig delar en elastisk pool.
 
-- **Konfigurerbara beräkningsstorleken för den sekundära databasen**
-
-  Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. En sekundär med lägre beräkningsstorleken finns det risk för en ökad replikeringsfördröjning potentiella otillgängliga för sekundärt och därmed riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Andra risken är att efter en redundansväxling programmets prestanda påverkas på grund av brist på beräkningskapaciteten för den nya primärt förrän den har uppgraderats till en högre beräkningsstorleken. Tiden för uppgraderingen beror på databasens storlek. Dessutom kan för närvarande sådana uppgradering kräver att både den primära och sekundära databaser är online och därför kan inte slutföras förrän driftstörningarna har minimerats. Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-purchase-models.md).
 
 - **Användarstyrd redundans och återställning efter fel**
 
@@ -112,7 +109,19 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 Vi rekommenderar att du använder [databasnivå IP-brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma IP-brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
+## <a name="configuring-secondary-database"></a>Konfigurera sekundär databas
+
+Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Om den primära databasen upplever en tunga arbetsbelastning, kanske en sekundär med lägre beräkningsstorleken inte kan hålla jämna steg med den. Den kommer att orsaka gör om fördröjning på den sekundära, potentiella otillgängligheten och därför riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Det kan också resultera i fel eller fördröjs för andra arbetsbelastningar på primärt. 
+
+En andra följd av en imbalanced sekundära konfiguration är att programmets prestanda blir lidande efter växling vid fel på grund av otillräcklig beräkningskapaciteten för den nya primärt. Det kommer att behöva uppgradera till en högre beräkningarna till den nödvändiga nivån är inte möjlig förrän avbrottet har minimerats. 
+
+> [!NOTE]
+> För närvarande är uppgradering av den primära databasen inte möjligt om sekundärt är offline. 
+
+
+Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-purchase-models.md).
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Uppgradera eller nedgradera primära databasen
 
 Du kan uppgradera eller nedgradera en primär databas till en annan beräkningsstorleken (inom samma tjänstenivå, inte mellan generell användning och affärskritisk) utan att koppla från alla sekundära databaser. När du uppgraderar, rekommenderar vi att du först uppgraderar den sekundära databasen och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: Nedgradera primärt först och sedan nedgraderar sekundär. När du uppgraderar eller nedgraderar databasen till en annan tjänstnivå, tillämpas den här rekommendationen.
 
@@ -134,7 +143,7 @@ Kontinuerlig kopiering använder en asynkron replikeringsmekanism på grund av d
 
 ## <a name="monitoring-geo-replication-lag"></a>Övervakning av geo-replikeringsfördröjning
 
-Du övervakar fördröjning med avseende på RPO med *replication_lag_sec* kolumn med [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) på den primära databasen. Den visar fördröjning i sekunder mellan transaktioner allokerats på primärt och sparats på sekundärt. T.ex. Om värdet för fördröjningen är 1 sekund, det innebär att om primärt påverkas av driftstörningar just nu och växling vid fel är intiated, 1 sekund av den senaste transtions sparas inte. 
+Du övervakar fördröjning med avseende på RPO med *replication_lag_sec* kolumn med [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) på den primära databasen. Den visar fördröjning i sekunder mellan transaktioner allokerats på primärt och sparats på sekundärt. T.ex. Om värdet för fördröjningen är 1 sekund, innebär det om primärt påverkas av driftstörningar just nu och redundans initieras, 1 sekund av de senaste övergångarna sparas inte. 
 
 För att mäta fördröjning med avseende på ändringar på den primära databasen som har tillämpats på sekundärt, d.v.s. som kan läsas från sekundärt jämför *last_commit* tiden på den sekundära databasen med samma värde på primärt -databasen.
 

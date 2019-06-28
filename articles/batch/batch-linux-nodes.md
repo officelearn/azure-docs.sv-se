@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10a3c5a4f1c6eaceecb9dc5262d8694ee4265b48
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050626"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340186"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux-beräkningsnoder i Batch-pooler
 
-Du kan använda Azure Batch för att köra parallella beräkning av arbetsbelastningar på både Linux och Windows-datorer. Den här artikeln beskriver hur du skapar pooler för Linux-beräkningsnoder i Batch-tjänsten med både den [Batch Python] [ py_batch_package] och [Batch .NET] [ api_net]klientbibliotek.
+Du kan använda Azure Batch för att köra parallella beräkning av arbetsbelastningar på både Linux och Windows-datorer. Den här artikeln beskriver hur du skapar pooler för Linux-beräkningsnoder i Batch-tjänsten med både den [Batch Python][py_batch_package] and [Batch .NET][api_net] klientbibliotek.
 
 > [!NOTE]
 > Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016. Mer information om hur du använder programpaket för att distribuera program till dina Batch-noder finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
@@ -68,9 +68,9 @@ Batch-nodagenten är ett program som körs på varje nod i poolen och ger komman
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: Python för Batch
-Följande kodavsnitt visar ett exempel på hur du använder den [Microsoft Azure Batch-klientbiblioteket för Python] [ py_batch_package] att skapa en pool med Ubuntu Server compute-noder. Referensdokumentation för Batch Python-modulen finns på [azure.batch paketet] [ py_batch_docs] vid läsning dokumenten.
+Följande kodavsnitt visar ett exempel på hur du använder den [Microsoft Azure Batch-klientbiblioteket för Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package][py_batch_docs] vid läsning dokumenten.
 
-Det här kodfragmentet skapar en [ImageReference] [ py_imagereference] explicit och anger var och en av dess egenskaper (utgivare, erbjudande, SKU och version). I produktionskoden, men vi rekommenderar att du använder den [list_node_agent_skus] [ py_list_skus] metod för att fastställa och välj från de tillgängliga avbildning och node agent SKU kombinationerna vid körning.
+Det här kodfragmentet skapar en [ImageReference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] metod för att fastställa och välj från de tillgängliga avbildning och node agent SKU kombinationerna vid körning.
 
 ```python
 # Import the required modules from the
@@ -95,7 +95,7 @@ config = batch.BatchServiceClientConfiguration(creds, batch_url)
 client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)
+new_pool = batchmodels.PoolAddParameter(id=pool_id, vm_size=vm_size)
 new_pool.target_dedicated = node_count
 
 # Configure the start task for the pool
@@ -107,17 +107,17 @@ new_pool.start_task = start_task
 # Create an ImageReference which specifies the Marketplace
 # virtual machine image to install on the nodes.
 ir = batchmodels.ImageReference(
-    publisher = "Canonical",
-    offer = "UbuntuServer",
-    sku = "14.04.2-LTS",
-    version = "latest")
+    publisher="Canonical",
+    offer="UbuntuServer",
+    sku="14.04.2-LTS",
+    version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
 # the VM image reference and the Batch node agent to
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = "batch.node.ubuntu 14.04")
+    image_reference=ir,
+    node_agent_sku_id="batch.node.ubuntu 14.04")
 
 # Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
@@ -126,14 +126,15 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Som tidigare nämnts rekommenderar vi att istället för att skapa den [ImageReference] [ py_imagereference] explicit, du använder den [list_node_agent_skus] [ py_list_skus] metod för att dynamiskt urvalet stöds för närvarande noden agent/Marketplace-avbildning kombinationer. Python följande kodfragment visar hur du använder den här metoden.
+Som tidigare nämnts rekommenderar vi att istället för att skapa den [ImageReference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] metod för att dynamiskt urvalet stöds för närvarande noden agent/Marketplace-avbildning kombinationer. Python följande kodfragment visar hur du använder den här metoden.
 
 ```python
 # Get the list of node agents from the Batch service
 nodeagents = client.account.list_node_agent_skus()
 
 # Obtain the desired node agent
-ubuntu1404agent = next(agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+ubuntu1404agent = next(
+    agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
 
 # Pick the first image reference from the list of verified references
 ir = ubuntu1404agent.verified_image_references[0]
@@ -141,14 +142,14 @@ ir = ubuntu1404agent.verified_image_references[0]
 # Create the VirtualMachineConfiguration, specifying the VM image
 # reference and the Batch node agent to be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = ubuntu1404agent.id)
+    image_reference=ir,
+    node_agent_sku_id=ubuntu1404agent.id)
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: .NET för Batch
-Följande kodavsnitt visar ett exempel på hur du använder den [Batch .NET] [ nuget_batch_net] -klientbiblioteket för att skapa en pool med Ubuntu Server compute-noder. Du hittar den [Batch .NET-referensdokumentation] [ api_net] på docs.microsoft.com.
+Följande kodavsnitt visar ett exempel på hur du använder den [Batch .NET][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] på docs.microsoft.com.
 
-I följande kod kodfragment används den [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] metod för att välja från listan över för närvarande Marketplace-avbildning och node agent SKU kombinationer som stöds. Den här tekniken är önskvärt eftersom listan över kombinationer som stöds kan ändras då och då. Oftast läggs kombinationer som stöds.
+I följande kod kodfragment används den [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] metod för att välja från listan över för närvarande Marketplace-avbildning och node agent SKU kombinationer som stöds. Den här tekniken är önskvärt eftersom listan över kombinationer som stöds kan ändras då och då. Oftast läggs kombinationer som stöds.
 
 ```csharp
 // Pool settings
@@ -196,7 +197,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Även om i föregående kodfragment används den [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] metod för att dynamiskt listan och välj från avbildning och node agent SKU kombinationer stöds (rekommenderas), du kan också konfigurera en [ImageReference] [ net_imagereference] uttryckligen:
+Även om i föregående kodfragment används den [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] metod för att dynamiskt listan och välj från avbildning och node agent SKU kombinationer stöds (rekommenderas), du kan också konfigurera en [ ImageReference][net_imagereference] uttryckligen:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -207,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lista över avbildningar av virtuella datorer
-I följande tabell visas de virtuella datorn Marketplace-avbildningar som är kompatibla med de tillgängliga Batch node agenterna när den här artikeln senast uppdaterades. Det är viktigt att Observera att den här listan inte är slutgiltiga eftersom bilder och nod-agenter kan läggas till eller tas bort när som helst. Vi rekommenderar att Batch-program och tjänster alltid använder [list_node_agent_skus] [ py_list_skus] (Python) eller [ListNodeAgentSkus] [ net_list_skus] () Batch .NET) att avgöra och välj de för närvarande tillgängliga SKU: er.
+I följande tabell visas de virtuella datorn Marketplace-avbildningar som är kompatibla med de tillgängliga Batch node agenterna när den här artikeln senast uppdaterades. Det är viktigt att Observera att den här listan inte är slutgiltiga eftersom bilder och nod-agenter kan läggas till eller tas bort när som helst. Vi rekommenderar att Batch-program och tjänster alltid använder [list_node_agent_skus][py_list_skus] (Python) or [ListNodeAgentSkus][net_list_skus] (Batch .NET) för att fastställa och välj de för närvarande tillgängliga SKU: er.
 
 > [!WARNING]
 > I följande lista kan ändras när som helst. Använd alltid den **lista nodagentens SKU** metoder som finns tillgängliga i Batch-API: er att lista de kompatibla virtuella datorer och nodagentens SKU: er när du kör dina Batch-jobb.
@@ -275,8 +276,8 @@ credentials = batchauth.SharedKeyCredentials(
     batch_account_key
 )
 batch_client = batch.BatchServiceClient(
-        credentials,
-        base_url=batch_account_url
+    credentials,
+    base_url=batch_account_url
 )
 
 # Create the user that will be added to each node in the pool
@@ -316,16 +317,16 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Du kan ange en offentlig SSH-nyckel när du skapar en användare på en nod i stället för ett lösenord. I Python-SDK använder den **ssh_public_key** parametern på [ComputeNodeUser][py_computenodeuser]. I .NET, använder den [ComputeNodeUser][net_computenodeuser].[ SshPublicKey] [ net_ssh_key] egenskapen.
+Du kan ange en offentlig SSH-nyckel när du skapar en användare på en nod i stället för ett lösenord. I Python-SDK använder den **ssh_public_key** parametern på [ComputeNodeUser][py_computenodeuser]. In .NET, use the [ComputeNodeUser][net_computenodeuser].[ SshPublicKey][net_ssh_key] egenskapen.
 
 ## <a name="pricing"></a>Prissättning
-Azure Batch är byggd på Azure Cloud Services och virtuella datorer i Azure-teknik. Själva Batch-tjänsten erbjuds utan kostnad, vilket innebär att du debiteras bara för beräkningsresurserna som dina Batch-lösningar använder. När du väljer **Molntjänstkonfigurationen**, du debiteras baserat på den [molntjänster priser] [ cloud_services_pricing] struktur. När du väljer **konfiguration av virtuell dator**, du debiteras baserat på den [priser för virtuella datorer] [ vm_pricing] struktur. 
+Azure Batch är byggd på Azure Cloud Services och virtuella datorer i Azure-teknik. Själva Batch-tjänsten erbjuds utan kostnad, vilket innebär att du debiteras bara för beräkningsresurserna som dina Batch-lösningar använder. När du väljer **Molntjänstkonfigurationen**, du debiteras baserat på den [molntjänster priser][cloud_services_pricing] struktur. När du väljer **konfiguration av virtuell dator**, du debiteras baserat på den [priser för virtuella datorer][vm_pricing] struktur. 
 
 Om du distribuerar program till dina Batch-noder med [programpaket](batch-application-packages.md), du debiteras också för Azure Storage-resurser att använda dina programpaket. I allmänhet är Azure Storage-kostnader minimal. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den [kodexempel i Python] [ github_samples_py] i den [azure-batch-samples] [ github_samples] arkivet på GitHub innehåller skript som visar hur du utför vanliga batchåtgärder, till exempel pool, jobb och skapa uppgiften. Den [README] [ github_py_readme] som medföljer Python exempel innehåller information om hur du installerar de nödvändiga paketen.
+Den [kodexempel i Python][github_samples_py] in the [azure-batch-samples][github_samples] arkivet på GitHub innehåller skript som visar hur du utför vanliga Batch-åtgärder, till exempel pool, jobb och skapa uppgiften. Den [README][github_py_readme] som medföljer Python exempel innehåller information om hur du installerar de nödvändiga paketen.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx

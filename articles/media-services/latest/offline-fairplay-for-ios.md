@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937504"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341049"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming för iOS 
 
@@ -40,6 +40,9 @@ Offline-läge för skyddat innehåll är också en funktion som begärs ofta ut�
 * I vissa länder/regioner är internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i en lösning som är tillräckligt högt för en tillfredsställande tittarupplevelse. I det här fallet är problemet vanligtvis nätverkets tillgänglighet men begränsad nätverksbandbredd. Over-the-top (OTT) / plattform för onlinevideo (OVP)-providers begära stöd för offline-läge.
 
 Den här artikeln innehåller stöd för FairPlay Streaming (FPS) offline-läge som riktar sig mot enheter som kör iOS 10 eller senare. Den här funktionen stöds inte för andra Apple-plattformar, till exempel watchOS, tvOS eller Safari på macOS.
+
+> [!NOTE]
+> Offline DRM debiteras endast för att göra en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

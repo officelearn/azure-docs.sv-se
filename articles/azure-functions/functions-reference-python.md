@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050615"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341993"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Utvecklarguide för Azure Functions Python
 
@@ -73,10 +73,11 @@ Du kan också om du vill använda intellisense och komplettera funktionerna som 
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
-```  
+```
 
 Använda Python-anteckningar som ingår i den [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) paket att binda indata och utdata till din metoder.
 
@@ -154,6 +155,7 @@ Till exempel visar följande kod skillnaden mellan två:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -163,7 +165,7 @@ def main(req: func.HttpRequest,
 När funktionen anropas HTTP-begäran skickas till funktionen som `req`. En post som ska hämtas från Azure Blob-lagringen utifrån den _ID_ i URL: en väg och blir tillgängliga som `obj` i själva funktionen.  Storage-konto anges här är hitta anslutningssträngen i `AzureWebJobsStorage` som är samma lagringskonto som används av funktionsappen.
 
 
-## <a name="outputs"></a>Utdata
+## <a name="outputs"></a>outputs
 
 Resultatet kan uttryckas både i returvärdet och utdataparametrar. Om det finns bara en utdata, bör du använda det returnera värdet. För flera utdata kommer du behöva använda utdataparametrar.
 
@@ -200,6 +202,7 @@ För att skapa flera utdata, använda den `set()` metod som tillhandahålls av d
 ```python
 import azure.functions as func
 
+
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
 
@@ -216,6 +219,7 @@ I följande exempel loggar ett informationsmeddelande med när funktionen anropa
 
 ```python
 import logging
+
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -237,6 +241,8 @@ Vi rekommenderar att du skriver din Azure-funktion som en asynkron coroutine med
 
 ```python
 # Will be run with asyncio directly
+
+
 async def main():
     await some_nonblocking_socket_io_op()
 ```
@@ -245,6 +251,8 @@ Om funktionen main() är synkron (inga `async` kvalificerare) vi automatiskt att
 
 ```python
 # Would be run in an asyncio thread-pool
+
+
 def main():
     some_blocking_socket_io()
 ```
@@ -258,8 +266,9 @@ Exempel:
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest,
-            context: azure.functions.Context) -> str:
+         context: azure.functions.Context) -> str:
     return f'{context.invocation_id}'
 ```
 
@@ -280,6 +289,7 @@ Det är inte säkert att tillståndet för din app kommer att bevaras för framt
 
 ```python
 CACHED_DATA = None
+
 
 def main(req):
     global CACHED_DATA
@@ -335,6 +345,7 @@ Följande är till exempel en fingerad test av en HTTP-utlöst funktion:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -348,13 +359,14 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function', 
+            url='/my_function',
             params={'name': 'Test'})
 
         # Call the function.
@@ -362,7 +374,7 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp.get_body(), 
+            resp.get_body(),
             'Hello, Test!',
         )
 ```
@@ -372,6 +384,7 @@ Här är ett annat exempel med en funktion som utlöses av lagringskön:
 ```python
 # myapp/__init__.py
 import azure.functions as func
+
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
@@ -384,6 +397,7 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock Queue message.
@@ -395,10 +409,10 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp, 
+            resp,
             'msg body: test',
         )
-``` 
+```
 
 ## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor och svar
 

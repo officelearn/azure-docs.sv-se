@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236765"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310574"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
 
 Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Azure Cosmos DB indexerar automatiskt alla data som den matar in, effektivt som standard. Detta möjliggör snabbt och konsekvent [SQL](how-to-sql-query.md) (och [JavaScript](stored-procedures-triggers-udfs.md)) frågor för alla typer av data. 
 
-Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom, vilket ger en 99,99% tillgänglighet för alla och alla konton i flera regioner med Avslappnad konsekvens och 99,999% läsningstillgänglighet för alla databaskonton, Azure Cosmos DB erbjuder garanterad < 10 ms svarstid för läser och < 15 ms svarstid för (indexerade), vid skrivning vid 99: e percentilen. 
+Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom, vilket ger en 99,99% tillgänglighet för alla och alla konton i flera regioner med Avslappnad konsekvens och 99,999% läsningstillgänglighet för alla databaskonton, Azure Cosmos DB erbjuder garanterad < 10 ms svarstid för läsningar och för (indexerade) skrivningar, den 99: e percentilen. 
 
 ## <a name="why-we-use-request-units-rus"></a>Varför vi använder programbegäran (ru: er)
 

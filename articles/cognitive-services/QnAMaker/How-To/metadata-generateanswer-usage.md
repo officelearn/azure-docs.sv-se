@@ -3,19 +3,19 @@ title: Metadata med GenerateAnswer API – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker kan du lägga till metadata i form av nyckel/värde-par för din fråga/svar-uppsättningar. Du kan filtrera resultaten på användarförfrågningar och lagra ytterligare information som kan användas i Uppföljnings konversationer.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/17/2019
-ms.author: tulasim
-ms.openlocfilehash: d1e7a29e4ca94405e2d6b2000309ef6e2c3a777c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 99c076d7f26638833b568935e766cf319d21945e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164616"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443477"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer API och metadata
 
@@ -37,13 +37,13 @@ Varje entitet för frågor och svar har ett unikt och beständiga-ID. Du kan anv
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Få svar förutsägelser med GenerateAnswer-API
 
-Du använder GenerateAnswer-API: er i din robot eller ditt program för att fråga din kunskapsbas med en användare-fråga, för att få bästa möjliga matchning från frågor och svar anger.
+Du använder den [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) i din robot eller program för att fråga din kunskapsbas med en fråga för användare att få bästa möjliga matchning från frågor och svar anger.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer slutpunkten 
 
-När du har publicerat din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller genom att använda den [API](https://go.microsoft.com/fwlink/?linkid=2092179), du kan hämta information om din GenerateAnswer slutpunkt.
+När du har publicerat din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller genom att använda den [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), du kan hämta information om din GenerateAnswer slutpunkt.
 
 Hämta information om din slutpunkt:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -59,34 +59,21 @@ Du kan också få din slutpunktsinformation från den **inställningar** fliken 
 
 ## <a name="generateanswer-request-configuration"></a>GenerateAnswer begäran-konfiguration
 
-Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du anropar GenerateAnswer, finns det [snabbstarter](../quickstarts/csharp.md).
+Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du anropar GenerateAnswer, finns det [snabbstarter](../quickstarts/csharp.md). 
 
-Den **URL för begäran** har följande format: 
+POST-begäran använder:
+
+* Krävs [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Krävs [rubrik egenskapen](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, för säkerhet
+* Krävs [body egenskaper](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+
+GenerateAnswer-URL har följande format: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
-|--|--|--|--|
-|URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
-|URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på den **inställningar** sidan när du har publicerat i knowledge base. |
-|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
-|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar.|
-
-
-JSON-texten har flera inställningar:
-
-|Brödtext JSON-egenskap|Obligatoriskt|Typ|Syfte|
-|--|--|--|--|
-|`question`|Krävs|string|En användare-fråga som ska skickas till din kunskapsbas.|
-|`top`|Valfritt|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
-|`userId`|Valfritt|string|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
-|`scoreThreshold`|Valfritt|heltal|Endast svar med förtroendepoäng ovanför denna tröskel returneras. Standardvärdet är 0.|
-|`isTest`|Valfritt|Boolean|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
-|`strictFilters`|Valfritt|string|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
-|`RankerType`|Valfritt|string|Om tillhörigheten `QuestionOnly`, talar om för QnA Maker att söka efter frågor endast. Om inte anges söker QnA Maker frågor och svar.
+Kom ihåg att ange egenskapen HTTP-huvud för `Authorization` med ett värde av strängen `EndpointKey ` med ett avslutande blanksteg sedan slutpunktsnyckeln hittades på den **inställningar** sidan.
 
 Det ser ut som ett exempel på JSON-texten:
 
@@ -109,19 +96,7 @@ Det ser ut som ett exempel på JSON-texten:
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer responsegenskaperna
 
-Ett lyckat svar returneras statusen 200 och ett JSON-svar. 
-
-|Svar-egenskap (sorterat efter bedömning)|Syfte|
-|--|--|
-|poäng|En rangordning mellan 0 och 100.|
-|Id|Ett unikt ID för svaret.|
-|Frågor|Frågor som anges av användaren.|
-|Svar|Svaret på frågan.|
-|source|Namnet på källan svaret har extraherats, eller sparats i knowledge base.|
-|metadata|Metadata som associeras med svaret.|
-|metadata.name|Namn på metadata. (string, maximal längd: 100 krävs)|
-|metadata.value|Metadata-värde. (string, maximal längd: 100 krävs)|
-
+Den [svar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) är en JSON-objekt, inklusive all information du behöver för att visa svaret och nästa aktiverar i en konversation, om det är tillgängligt.
 
 ```json
 {

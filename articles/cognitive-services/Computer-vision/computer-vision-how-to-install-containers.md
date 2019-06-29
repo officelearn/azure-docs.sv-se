@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: IEvangelist
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 7a85ac72dfa428bfeddd1fc1ce74ae0af7b4e9af
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275171"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449356"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och köra Identifiera Text behållare
 
@@ -26,7 +26,7 @@ Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Doc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder identifiera Text behållare:
 
@@ -125,7 +125,7 @@ Mer [exempel](./computer-vision-resource-container-config.md#example-docker-run-
 
 Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. 
 
-Använd värden `https://localhost:5000`, för behållaren API: er.
+Använd värden `http://localhost:5000`, för behållaren API: er.
 
 ### <a name="asynchronous-text-recognition"></a>Asynkron textigenkänning
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a126456159776254408df8325f97fcee967835e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271946"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442728"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljning uppmanas du för att skapa flera varv en konversation
 
@@ -229,33 +229,14 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
-                    },
-                    {
-                        "displayOrder": 1,
-                        "qnaId": 17,
-                        "qna": null,
-                        "displayText": "Use Windows Hello to sign in"
-                    },
-                    {
-                        "displayOrder": 2,
-                        "qnaId": 18,
-                        "qna": null,
-                        "displayText": "Sign out"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 79,
-                        "qna": null,
-                        "displayText": "Create a Windows Account"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -269,15 +250,14 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -291,15 +271,14 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
 }
 ```
 
-Den `promptsToAdd` matris innehåller texten i den `displayText` egenskapen och `qnaId` värdet så att du kan visa dessa frågor som de nästa visas konversationen flödet skicka det valda värdet för QnA Maker i följande begäran. 
+Den `prompts` matris innehåller texten i den `displayText` egenskapen och `qnaId` värdet så att du kan visa dessa frågor som de nästa visas konversationen flow, skicka den valda `qnaId` tillbaka till QnA Maker i följande request . 
 
 <!--
 
@@ -345,8 +324,7 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         },
         {
@@ -360,15 +338,14 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -382,8 +359,7 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
@@ -407,6 +383,16 @@ Den [text som visas och visningsordning](https://docs.microsoft.com/rest/api/cog
 FIX - Need to go to parent, then answer column, then edit answer. 
 
 -->
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa en kunskapsbas med flera aktivera anvisningarna med Create API
+
+Du kan skapa ett ärende knowledge flera aktivera uppmaningar med hjälp av den [skapa API för QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Lägger till anvisningarna i den `context` egenskapens `prompts` matris. 
+
+
+## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Lägga till eller ta bort flera aktivera frågorna med Update-API
+
+Du kan lägga till eller ta bort flera Aktivera meddelanden med hjälp av den [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Lägger till anvisningarna i den `context` egenskapens `promptsToAdd` matris och `promptsToDelete` matris. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

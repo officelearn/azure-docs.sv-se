@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/11/2019
-ms.openlocfilehash: 480cec39e42e075ad83ad3e32b88c638094db64f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/26/2019
+ms.openlocfilehash: 79fa102fcaa5570849757cbd1c9cf58c44382247
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187619"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434148"
 ---
 > [!TIP]
 > Du kan använda den [docker-avbildningar](https://docs.docker.com/engine/reference/commandline/images/) kommando för att lista din hämtade behållaravbildningar. Till exempel visar följande kommando ID, databasen och taggen för varje hämtade behållaravbildningen, formaterad som en tabell:
@@ -18,5 +18,5 @@ ms.locfileid: "67187619"
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY              TAG
->  ebbee78a6baa       <container-name>         latest
->  ``` 
+>  <image-id>       <repository-path/name>         <tag-name>
+>  ```

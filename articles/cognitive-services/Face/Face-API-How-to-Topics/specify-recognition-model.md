@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411497"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449013"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
@@ -25,7 +25,7 @@ Ansikts-API använder machine learning-modeller för att utföra åtgärder på 
 
 Om du är en ny användare, rekommenderar vi att du använder den senaste modellen. Läs vidare för att Lär dig hur du anger den i olika ansikte åtgärder samtidigt som du undviker modellkonflikter. Om du är en avancerad användare och inte är säker på om du ska gå att växla till den senaste modellen, gå vidare till den [utvärdera olika modeller](#evaluate-different-models) avsnitt för att utvärdera den nya modellen och jämföra resultat med hjälp av dina aktuella data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du bör känna till begreppet AI ansiktsigenkänning och identifiering. Om du inte se dessa instruktionsguider först:
 
@@ -53,7 +53,7 @@ Om du lämnar den otilldelade, modell standardversionen (_recognition_01_) ska a
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>Identifiera ansikten med angivna modellen
@@ -67,7 +67,7 @@ Se följande kodexempel för .NET-klientbiblioteket.
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 I den här koden en **PersonGroup** med ID `mypersongroupid` skapas, och den är konfigurerad att använda den _recognition_02_ modellen för att extrahera ansikts-funktioner.
@@ -83,7 +83,7 @@ Du kan också ange en igenkänningsfunktion för för likheter sökning. Du kan 
 Se följande kodexempel för .NET-klientbiblioteket.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 Den här koden skapar en ansikts-lista som heter `My face collection`med hjälp av den _recognition_02_ modeller för extrahering av funktionen. När du söker ansikts-listan för liknande ansikten till identifierade utseende, den sida måste har identifierats ([Ansiktsigenkänning – identifiera]) med hjälp av den _recognition_02_ modell. Modellen måste vara konsekvent som i föregående avsnitt.

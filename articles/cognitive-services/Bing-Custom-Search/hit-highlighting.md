@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110126"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445572"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Med decoration markörer för att markera text
 
@@ -56,7 +56,7 @@ Om `textDecorations` är **SANT**, Bing kan innehålla följande markörer i vis
 |U+E018|\<sup>|Markerar starten av upphöjd innehåll
 |U+E019|\</sup>|Markerar slutet av upphöjd innehåll
 
-I följande exempel visas en `Computation` svar som innehåller nedsänkt markörer för en log(2) frågeterm. Den `expression` fältet innehåller markörer endast om ”textDecoration är **SANT**.
+I följande exempel visas en `Computation` svar som innehåller nedsänkt markörer för en log(2) frågeterm. Den `expression` fältet innehåller markörer endast om `textDecoration` är **SANT**.
 
 ![beräkningen markörer](./media/bing-markers-computation.PNG) 
 

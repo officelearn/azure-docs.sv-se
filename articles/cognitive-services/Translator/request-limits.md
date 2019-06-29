@@ -3,19 +3,19 @@ title: Begärandebegränsningar – Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln visar begäran gränser för Translator Text API. Debitering baserat på antal tecken, inte begäran frekvens med en gräns på 5 000 tecken per begäran. Tecknet gränserna är prenumerationsbaserade med F0 begränsat till 2 miljoner tecken per timme.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269225"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435034"
 ---
 # <a name="request-limits-for-translator-text"></a>Gränser för begäran för textöversättning
 
@@ -38,7 +38,11 @@ Följande tabell visar matris element och tecknet begränsningar för varje åtg
 
 ## <a name="character-limits-per-hour"></a>Tecknet gränserna per timme
 
-Din teckengränsen per timme baserat på textöversättning prenumeration nivå. Timvis kvot ska förbrukas jämnt under hela timmen. Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar. Det finns ingen gräns för samtidiga förfrågningar.
+Din teckengränsen per timme baserat på textöversättning prenumeration nivå. 
+
+Timvis kvot ska förbrukas jämnt under hela timmen. Till exempel på F0 nivå högst 2 miljoner tecken per timme, ska tecken förbrukas snabbare än ungefär 33,300 tecken per minut skjutfönster (2 miljoner tecken dividerat med 60 minuter).
+
+Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar. Det finns ingen gräns för samtidiga förfrågningar.
 
 | Nivå | Maximalt antal tillåtna tecken |
 |------|-----------------|

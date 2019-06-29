@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 61a76412d7619784582e1fddd2a5b60244159ebc
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272935"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444849"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuera språk identifiering av behållare till Azure Kubernetes Service
 
 Lär dig hur du distribuerar du behållaren för identifiering av språk. Den här proceduren visar dig hur skapa lokala Docker-behållare, överför behållarna till ditt eget privata behållarregister, köra behållaren i ett Kubernetes-kluster och testa den i en webbläsare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud shell.
 
@@ -81,7 +81,7 @@ Behållaravbildningarna måste vara tillgängliga för att distribuera behållar
     Spara resultatet att hämta den **loginServer** egenskapen. Det här är en del av värdbaserade behållarens-adress som används senare i den `language.yml` filen.
 
     ```console
-    >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)
-* Använd Text Analytics Connected Service] (.. / vs-text-ansluten-service.md)
+> [!div class="nextstepaction"]
+> [Cognitive Services-behållare](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

@@ -2,19 +2,19 @@
 title: Vad är utbildning och modellen? – Anpassade Translator
 titleSuffix: Azure Cognitive Services
 description: En modell är i systemet, vilket ger översättning för ett visst språk-par. Resultatet av en lyckad utbildning är en modell. När träna en modell, krävs tre ömsesidigt uteslutande datauppsättningar utbildning datauppsättning, justering datauppsättning och testningen datauppsättning.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-pawal
-ms.openlocfilehash: 530e87a84899b9659acd19f90c7c30ad3da3e7ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 5d82baf3e7458a42429df9dafc9c8d5e16744716
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66382312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436117"
 ---
 # <a name="what-are-trainings-and-models"></a>Vad är utbildningar och modeller?
 

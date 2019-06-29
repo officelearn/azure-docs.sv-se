@@ -3,19 +3,19 @@ title: Vad är en arbetsyta och projekt? – Anpassade Translator
 titleSuffix: Azure Cognitive Services
 description: En arbetsyta är en arbetsyta för att skapa och skapa dina anpassade översättningssystemet. En arbetsyta kan innehålla flera projekt, modeller och dokument. Ett projekt är en Omslutning för en modell, dokument och tester. Alla projekt som innehåller den automatiskt alla dokument som överförs till den arbetsytan som har rätt språk-par.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 312688ddccd6a65745b919e4c396a95f40a58d3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35f3911b591a0d9adccdc48dbdc17f8afb5ea00
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66382322"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447344"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad Translator-arbetsyta?
 

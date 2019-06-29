@@ -8,17 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606345"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449252"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-160-2019-june-release"></a>Tal SDK 1.6.0 eller senare: Juniversionen för 2019
+**Exempel**
+*   Snabbstartsexempel för Text till tal på UWP och Unity
+*   Snabbstartsexemplet för Swift på iOS
+*   Unity-exempel för tal & avsikt erkännande och översättning
+*   Uppdaterade snabbstartsexempel för DialogServiceConnector
+
+**Förbättringar av / ändras**
+* Dialogrutan namnområde:
+    * SpeechBotConnector har bytt namn till DialogServiceConnector
+    * BotConfig har bytt namn till DialogServiceConfig
+    * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
+    * Alla befintliga klienter för Direct Line tal fortfarande användas efter namnbytet
+* Uppdatera text till tal-REST-adaptern för att stödja proxy, permanent anslutning
+* Förbättra felmeddelande när en ogiltig region skickas
+
+**Felkorrigeringar**
+*   Korrigering för text till tal: där SpeakTextAsync framtiden returneras utan att vänta tills ljudet har slutförts rendering
+*   Korrigering för Ranger strängar i C# att aktivera fullständig språkstöd
+*   Korrigering för problem med .NET core appen att läsa in Kärnbibliotek med net461 målramverk i exemplen
+*   Korrigering för enstaka problem med att distribuera interna bibliotek till Utdatamappen i exemplen
+*   Korrigering för web socket stänger på ett tillförlitligt sätt
+*   Korrigering för möjliga krascher när du öppnar en anslutning mycket vid hög belastning på Linux
+
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 

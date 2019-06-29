@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342212"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434154"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och köra Speech Service-behållare
 
@@ -25,12 +25,12 @@ Två tal-behållare är **tal till text** och **text till tal**.
 
 |Funktion|Funktioner|senaste|
 |-|-|--|
-|Tal till text| <li>Transkriberar kontinuerlig i realtid tal eller batch ljudinspelningar till text med mellanliggande resultat.|1.1.1|
+|Tal till text| <li>Transkriberar kontinuerlig i realtid tal eller batch ljudinspelningar till text med mellanliggande resultat.|1.1.2|
 |Text till tal| <li>Konverterar text till naturligt tal. med indata oformaterad text eller tal syntes Markup Language (SSML). |1.1.0|
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder tal behållare:
 
@@ -101,10 +101,10 @@ Alla taggar, förutom för `latest` finns i följande format, där den `<culture
 Följande kod är ett exempel på format:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.2-amd64-en-us-preview
 ```
 
-I följande tabell visas de nationella inställningarna som stöds för **tal till text** 1.1.1 version av behållaren:
+I följande tabell visas de nationella inställningarna som stöds för **tal till text** i 1.1.2 version av behållaren:
 
 |Språkinställningen|Tags|
 |--|--|
@@ -129,7 +129,7 @@ Alla taggar, förutom för `latest` finns i följande format, där den `<culture
 Följande kod är ett exempel på format:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 I följande tabell visas de nationella inställningarna som stöds för **text till tal** i 1.1.0 versionen av behållaren:

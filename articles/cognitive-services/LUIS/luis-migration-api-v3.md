@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341840"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442525"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Förhandsversion: Migrera till API-version 3.x för LUIS-appar
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Förhandsversion: Migrera till API-version 3.x för LUIS-appar
 
 Fråga förutsägelse slutpunkten API: er har ändrats. Använd den här guiden för att förstå hur du migrerar till version 3-slutpunkten API: er. 
 
@@ -43,6 +43,27 @@ Följande funktioner i LUIS **stöds inte** i V3-API:
 * Bing Spell Check V7
 
 [Referensdokumentation](https://aka.ms/luis-api-v3) är tillgänglig för V3.
+
+## <a name="endpoint-url-changes-by-slot-name"></a>Slutpunkten URL ändringar av platsens namn
+
+Formatet för V3 endpoint HTTP-anropet har ändrats.
+
+|METODEN|URL|
+|--|--|
+|HÄMTA|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Slutpunkten URL ändringar av versions-ID
+
+Om du vill fråga efter version måste du först till [publicera via API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) med den `"directVersionPublish":true`. Fråga den slutpunkt som refererar till versions-ID i stället för plats-namn.
+
+
+|METODEN|URL|
+|--|--|
+|HÄMTA|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Fördefinierade entiteter med nya JSON
 

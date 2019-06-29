@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163680"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435938"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
 
@@ -24,11 +24,11 @@ Varje begäran till en Azure Cognitive Service måste innehålla en rubrik för 
 * [Autentisera med en flera tjänster prenumerationsnyckel](#authenticate-with-a-multi-service-subscription-key)
 * [Autentisera med en token](#authenticate-with-an-authentication-token)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du gör en begäran om behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto, har vi en guide som hjälper dig att konfigurera på några minuter: [Skapa ett Cognitive Services-konto för Azure](cognitive-services-apis-create-account.md).
 
-Du kan hämta din prenumerationsnyckel från den [Azure-portalen](cognitive-services-apis-create-account.md#access-your-resource) när du har skapat ditt konto eller aktivera en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Du kan hämta din prenumerationsnyckel från den [Azure-portalen](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) när du har skapat ditt konto eller aktivera en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Autentiseringshuvuden
 
@@ -38,7 +38,7 @@ Nu ska vi se snabbt autentiseringshuvuden som är tillgängliga för användning
 |--------|-------------|
 | OCP-Apim-Subscription-Key | Använd den här rubriken om du vill autentisera med en prenumerationsnyckel för en specifik tjänst eller en prenumerationsnyckel som flera tjänster. |
 | Ocp-Apim-Subscription-Region | Den här rubriken är endast krävs när du använder en prenumerationsnyckel som flera tjänster med den [Translator Text API](./Translator/reference/v3-0-reference.md). Använd den här rubriken anger prenumeration region. |
-| Auktorisering | Använd den här rubriken om du använder en autentiseringstoken. I följande avsnitt beskrivs stegen för att utföra en tokenutbytet. Det angivna värdet följer det här formatet: `Bearer <TOKEN>`. |
+| Authorization | Använd den här rubriken om du använder en autentiseringstoken. I följande avsnitt beskrivs stegen för att utföra en tokenutbytet. Det angivna värdet följer det här formatet: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Autentisera med en prenumerationsnyckel som en tjänst
 

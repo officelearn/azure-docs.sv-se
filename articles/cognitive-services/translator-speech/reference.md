@@ -3,20 +3,20 @@ title: Referens för Translator Speech API
 titleSuffix: Azure Cognitive Services
 description: Referensdokumentation för Translator Speech API.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539187"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446909"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -168,18 +168,18 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:---|:---|:---|:---|:---|
-|API-versionen|1.0|Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|DocumentDB   |string|
-|from|(tom)   |Anger språket inkommande tal. Värdet är en av de språk som identifierarna från den `speech` omfång i svaret från språk-API: et.|DocumentDB|string|
-|till|(tom)|Anger de språk för att översätta den transkriberade texten till. Värdet är en av de språk som identifierarna från den `text` omfång i svaret från språk-API: et.|DocumentDB|string|
-|funktioner|(tom)   |CSV-uppsättning funktioner som markerats av klienten. Tillgängliga funktioner:<ul><li>`TextToSpeech`: Anger att tjänsten måste returnera översatta ljudet från den sista översatta meningen.</li><li>`Partial`: Anger att tjänsten måste returnera mellanliggande resultat när ljudet strömmar till tjänsten.</li><li>`TimingInfo`: Anger att tjänsten måste returnera tidsinformation som är associerade med varje av.</li></ul>Exempelvis kan en klient anger `features=partial,texttospeech` att ta emot ofullständiga resultat och text till tal, men inga tidsinformation. Observera att strömmas alltid slutliga resultaten till klienten.|DocumentDB|string|
-|voice|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|DocumentDB|string|
-|format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|DocumentDB|string|
-|ProfanityAction    |(tom)    |Anger hur tjänsten ska hantera profanities som identifieras i tal. Giltiga åtgärder är:<ul><li>`NoAction`: Profanities lämnas skick.</li><li>`Marked`: Profanities ersätts med en markör. Se `ProfanityMarker` parametern.</li><li>`Deleted`: Profanities tas bort. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a .".`</li></ul>Standardvärdet är markerat.|DocumentDB|string|
-|ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av ett olämpligt språk XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|DocumentDB|string|
-|Auktorisering|(tom)  |Anger värdet för klientens ägartoken. Använd prefixet `Bearer` följt av värdet för den `access_token` värdet som returneras av token authentication-tjänsten.|sidhuvud   |string|
+|API-versionen|1.0|Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|query   |string|
+|from|(tom)   |Anger språket inkommande tal. Värdet är en av de språk som identifierarna från den `speech` omfång i svaret från språk-API: et.|query|string|
+|till|(tom)|Anger de språk för att översätta den transkriberade texten till. Värdet är en av de språk som identifierarna från den `text` omfång i svaret från språk-API: et.|query|string|
+|funktioner|(tom)   |CSV-uppsättning funktioner som markerats av klienten. Tillgängliga funktioner:<ul><li>`TextToSpeech`: Anger att tjänsten måste returnera översatta ljudet från den sista översatta meningen.</li><li>`Partial`: Anger att tjänsten måste returnera mellanliggande resultat när ljudet strömmar till tjänsten.</li><li>`TimingInfo`: Anger att tjänsten måste returnera tidsinformation som är associerade med varje av.</li></ul>Exempelvis kan en klient anger `features=partial,texttospeech` att ta emot ofullständiga resultat och text till tal, men inga tidsinformation. Observera att strömmas alltid slutliga resultaten till klienten.|query|string|
+|voice|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|query|string|
+|format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|query|string|
+|ProfanityAction    |(tom)    |Anger hur tjänsten ska hantera profanities som identifieras i tal. Giltiga åtgärder är:<ul><li>`NoAction`: Profanities lämnas skick.</li><li>`Marked`: Profanities ersätts med en markör. Se `ProfanityMarker` parametern.</li><li>`Deleted`: Profanities tas bort. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a .".`</li></ul>Standardvärdet är markerat.|query|string|
+|ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av ett olämpligt språk XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|query|string|
+|Authorization|(tom)  |Anger värdet för klientens ägartoken. Använd prefixet `Bearer` följt av värdet för den `access_token` värdet som returneras av token authentication-tjänsten.|sidhuvud   |string|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `Authorization` huvud har inte angetts.|sidhuvud|string|
-|access_token|(tom)   |Alternativa sätt att skicka en giltig OAuth-åtkomsttoken. Ägartoken tillhandahålls vanligtvis med rubriken `Authorization`. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `access_token` frågeparameter för att skicka en giltig token. När du använder en åtkomsttoken för autentisering, om `Authorization` huvud har inte angetts, sedan `access_token` måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter ska bara använda en metod för att skicka token.|DocumentDB|string|
-|prenumerationsnyckel|(tom)   |Alternativa sätt att överföra prenumerationsnyckel. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `subscription-key` frågeparameter för att skicka en giltig prenumeration-nyckel. När du använder en prenumerationsnyckel för autentisering, om `Ocp-Apim-Subscription-Key` huvud har inte angetts och prenumerationsnyckel måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter bör endast använda en metod för att skicka den `subscription key`.|DocumentDB|string|
+|access_token|(tom)   |Alternativa sätt att skicka en giltig OAuth-åtkomsttoken. Ägartoken tillhandahålls vanligtvis med rubriken `Authorization`. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `access_token` frågeparameter för att skicka en giltig token. När du använder en åtkomsttoken för autentisering, om `Authorization` huvud har inte angetts, sedan `access_token` måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter ska bara använda en metod för att skicka token.|query|string|
+|prenumerationsnyckel|(tom)   |Alternativa sätt att överföra prenumerationsnyckel. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `subscription-key` frågeparameter för att skicka en giltig prenumeration-nyckel. När du använder en prenumerationsnyckel för autentisering, om `Ocp-Apim-Subscription-Key` huvud har inte angetts och prenumerationsnyckel måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter bör endast använda en metod för att skicka den `subscription key`.|query|string|
 |X-ClientTraceId    |(tom)    |En klientgenererade GUID som används för att spåra en begäran. Klienter ska för rätt felsökning av problem, ange ett nytt värde för varje begäran och logga den.<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-ClientTraceId`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|string|
 |X-CorrelationId|(tom)    |En klientgenererade identifierare som används för att kombinera flera kanaler i en konversation. Du kan skapa flera speech translation-sessioner för att aktivera konversationer mellan användare. I sådana fall kan använda alla speech translation-sessioner samma Korrelations-ID för att koppla ihop kanaler. Detta underlättar spårning och diagnostik. Identifieraren ska följa: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-CorrelationId`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|string|
 |X-ClientVersion|(tom)    |Identifierar versionen av klientprogrammet. Exempel: "2.1.0.123".<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-ClientVersion`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|string|

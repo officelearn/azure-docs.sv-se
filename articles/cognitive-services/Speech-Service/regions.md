@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466995"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -35,7 +35,7 @@ Tal-SDK är tillgänglig i dessa regioner för **taligenkänning**, **text till 
   Region | Parametern för tal-SDK | Tal anpassning av portalen
  ------|-------|--------
  Västra USA | `westus` | https://westus.cris.ai
- USA, västra 2 | `westus2` | https://westus2.cris.ai
+ Västra USA 2 | `westus2` | https://westus2.cris.ai
  Östra USA | `eastus` | https://eastus.cris.ai
  USA, östra 2 | `eastus2` | https://eastus2.cris.ai
  Centrala USA | `centralus` | https://centralus.cris.ai
@@ -73,6 +73,20 @@ Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
  Sydamerika | Södra Brasilien | `brazilsouth`
 
 Det här är en delmängd av publishing regioner som stöds av den [tjänst för Språkförståelse (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### <a name="voice-first-virtual-assistants"></a>Röst första virtuella assistenter
+
+Den [tal SDK](speech-sdk.md) stöder **röst första virtuella assistenter** funktioner i dessa regioner:
+
+Region | Parametern för tal-SDK
+-------|---------------------
+Västra USA | `westus`
+Västra USA 2 | `westus2`
+Östra USA | `eastus`
+USA, östra 2 | `eastus2`
+Västra Europa | `westeurope`
+Norra Europa | `northeurope`
+Sydostasien | `southeastasia`
 
 ## <a name="rest-apis"></a>REST API:er
 

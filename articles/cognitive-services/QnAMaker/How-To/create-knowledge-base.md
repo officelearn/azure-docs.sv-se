@@ -3,20 +3,20 @@ title: Skapa en kunskapsbas
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: Använd QnA Maker API-tjänstportalen måste du lägger till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447451"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker API service-portalen
 

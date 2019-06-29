@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808450"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466971"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 
@@ -46,6 +46,9 @@ De tal SDK-filerna som krävs kan distribueras i samma katalog som ditt program.
 
 >[!NOTE]
 > Från och med 1.3.0 filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levereras i tidigare versioner) behövs inte längre. Funktionerna är nu integrerat i core SDK.
+
+>[!NOTE]
+> För Windows Forms-App (.NET Framework) C# projektet bör du kontrollera att bibliotek som ingår i ditt projekt distributionsinställningar. Du kan kontrollera detta under `Properties -> Publish Section`. Klicka på den `Application Files` knappen och hitta motsvarande bibliotek från Bläddra nedåt listan. Kontrollera att värdet anges till `Included`. Visual Studio innehåller filen när projektet är publicerade/distribuerade.
 
 ## <a name="linux"></a>Linux
 

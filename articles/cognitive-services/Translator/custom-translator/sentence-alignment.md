@@ -2,19 +2,19 @@
 title: Sentence pairing and alignment - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Under körningen utbildning ihop eller justerad meningar som finns i parallella dokument. Anpassade Translator lär sig översättningar en mening i taget, genom att läsa en mening översättningen av den här meningen. Sedan justerar ord och fraser i dessa två meningarna till varandra.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73c40704e10a8e2368ee1eb369ee3dccdf269ee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389602"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448318"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Mening parkoppling och justering i parallella dokument
 

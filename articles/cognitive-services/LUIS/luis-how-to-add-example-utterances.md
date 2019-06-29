@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341881"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442564"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
 Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om du vill hålla Språkförståelse (LUIS), måste du lägga till [exempel yttranden](luis-concept-utterance.md) till en [avsikt](luis-concept-intent.md).
 
-Vanligtvis du lägger till en exempel-uttryck i ett intent först och sedan skapa entiteter och märka yttranden på sidan avsikt. Om du skulle i stället först skapa entiteter, se [Lägg till entiteter](luis-how-to-add-entities.md).
+Vanligtvis du lägger till en exempel-uttryck i en avsiktlig första, och sedan skapa entiteter och märka yttranden på den **avsikter** sidan. Om du skulle i stället först skapa entiteter, se [Lägg till entiteter](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Markera entiteter i exempel yttranden
 
@@ -32,7 +32,7 @@ Vara det går inte att taggade vissa entitetstyper, till exempel förskapade ent
 
 ## <a name="add-a-simple-entity"></a>Lägg till en enkel enhet
 
-I följande procedur skapar du och tagga en anpassad entitet i följande uttryck på sidan avsikt:
+I följande procedur skapar du och tagga en anpassad entitet i följande uttryck den **avsikter** sidan:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Ett företag avdelning lista du kan ha normalized värden: `Accounting` och `Hum
 
     Du kan lägga till fler listobjekt eller flera objekt synonymer genom märkning andra uttryck eller genom att redigera entiteten från den **entiteter** i det vänstra navigeringsfönstret. [Redigera](luis-how-to-add-entities.md#add-list-entities) entiteterna ger dig alternativ för att ange ytterligare objekt med motsvarande synonymer eller importera en lista. 
 
-## <a name="add-composite-entity"></a>Lägg till sammansatt entitet
+## <a name="add-a-composite-entity"></a>Lägg till en sammansatt entitet
 
-Sammansatta entiteter skapas från befintliga **entiteter** till den överordnade-enheten. 
+Sammansatta entiteter skapas från befintliga **entiteter** för att bilda en överordnad enhet. 
 
 Om vi antar att uttryck, `Does John Smith work in Seattle?`, ett sammansatt uttryck kan returnera entitetsinformation av medarbetarnamn `John Smith`, och platsen `Seattle` i en sammansatt entitet. Underordnade entiteter måste redan finnas i appen och markeras i exempel-uttryck innan du skapar sammansatta entiteten.
 
@@ -131,15 +131,15 @@ Du kan utföra åtgärder på exempel yttranden som en vald grupp eller som ett 
 
 ### <a name="remove-entity-labels-from-utterances"></a>Ta bort entitet etiketter yttranden
 
-Du kan ta bort datorn lärt dig entitet etiketter från ett uttryck på sidan avsikt. Om enheten inte är datorn lärt dig, kan inte tas bort från ett uttryck. Om du vill ta bort en entitet som icke-machine-lärt dig från uttryck kan behöva du ta bort enheten från hela appen. 
+Du kan ta bort datorn lärt dig entitet etiketter från ett uttryck på sidan avsikter. Om enheten inte är datorn lärt dig, kan inte tas bort från ett uttryck. Om du vill ta bort en entitet som icke-machine-lärt dig från uttryck kan behöva du ta bort enheten från hela appen. 
 
 Om du vill ta bort en etikett för datorn lärt dig entitet från ett uttryck, väljer du entitet i uttryck. Välj sedan **ta bort etiketten** i den nedrullningsbara listrutan för entiteten som visas.
 
-### <a name="add-prebuilt-entity-label"></a>Lägg till fördefinierade entitet etikett
+### <a name="add-a-prebuilt-entity-label"></a>Lägg till en etikett med färdiga entitet
 
 När du lägger till de fördefinierade entiteterna LUIS-appen, behöver du inte taggen yttranden med dessa entiteter. Läs mer om fördefinierade entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Lägg till reguljärt uttryck entitet etikett
+### <a name="add-a-regular-expression-entity-label"></a>Lägg till en etikett för reguljärt uttryck entitet
 
 Om du lägger till entiteterna reguljärt uttryck LUIS-appen, behöver du inte att tagga yttranden med dessa entiteter. Läs mer om reguljärt uttryck entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Om du lägger till entiteterna reguljärt uttryck LUIS-appen, behöver du inte a
 Se [Lägg till mönster från befintliga uttryck på avsikten eller entitet](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Lägg till pattern.any entitet
+### <a name="add-a-patternany-entity"></a>Lägg till en pattern.any-entitet
 
 Om du lägger till entiteterna pattern.any LUIS-appen kan inte du märka yttranden med dessa entiteter. De är endast giltiga i ett mönster. Läs mer om pattern.any entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ När du lägger till, redigera eller ta bort yttranden, [träna](luis-how-to-tra
 
 ## <a name="next-steps"></a>Nästa steg
 
-När märkning yttranden i dina avsikter, kan du nu skapa en [sammansatt entitet](luis-how-to-add-entities.md).
+Efter märkning yttranden i din **avsikter**, nu kan du skapa en [sammansatt entitet](luis-how-to-add-entities.md).

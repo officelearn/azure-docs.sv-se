@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c5f7b0b739e9311e2527e63db7279d2075f0f1ff
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341288"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466952"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
@@ -87,7 +87,10 @@ Vi erbjuder snabbstarter som utformats för att du köra kod i mindre än 10 min
 
 | Snabbstart (SDK) | Plattform | API-referens |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Bläddra](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Bläddra](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Bläddra](https://aka.ms/csspeech/cppref) |
 

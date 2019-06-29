@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: dde5623bf5bd579a13fa7271dfba64f9df61bad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66576703"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449034"
 ---
 # <a name="specify-a-face-detection-model"></a>Ange en ansiktsavkänningsmodell
 
@@ -27,7 +27,7 @@ Läs vidare för att Lär dig hur du anger ansikte identifiering av modellen i v
 
 Om du är osäker på om du ska använda den senaste modellen, gå vidare till den [utvärdera olika modeller](#evaluate-different-models) avsnitt för att utvärdera den nya modellen och jämföra resultat med hjälp av dina aktuella data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du bör känna till begreppet AI ansiktsigenkänning. Om du inte se ansikte identifiering av konceptuell guiden eller här guiden:
 
@@ -52,7 +52,7 @@ Om du använder klientbiblioteket, kan du tilldela värdet för `detectionModel`
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Lägg till ansiktsigenkänning i Person med angivna modellen
@@ -64,9 +64,9 @@ Se följande kodexempel för .NET-klientbiblioteket.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 
-string personId = (await faceServiceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
+string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
@@ -82,7 +82,7 @@ Den här koden skapar en **PersonGroup** med ID `mypersongroupid` och lägger ti
 Du kan också ange en modell för identifiering av när du lägger till ett ansikte i en befintlig **FaceList** objekt. Se följande kodexempel för .NET-klientbiblioteket.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");

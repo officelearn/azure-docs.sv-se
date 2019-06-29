@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828061"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478397"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempelscenarier för användaren för API för textanalys
 
@@ -29,7 +29,7 @@ Hämta insikter från kundernas och medarbetarnas undersökningsresultatet genom
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analysera kundsamtal för inspelade inkommande
 
-Lyfta ut kunskaper från tjänster kundsamtal med Text till tal, Attitydanalys och nyckeln diskussionsämne. Visa resultatet i Power BI-instrumentpanel eller en portal för att bättre förstå kunder, markera customer servicetrender och enhet för kundengagemang. Skicka API-begäranden som en batch för rapportering eller i realtid för åtgärder. 
+Lyfta ut kunskaper från tjänster kundsamtal med Text till tal, Attitydanalys och nyckeln diskussionsämne. Visa resultatet i Power BI-instrumentpanel eller en portal för att bättre förstå kunder, markera customer servicetrender och enhet för kundengagemang. Skicka API-begäranden som en batch för rapportering eller i realtid för åtgärder. Se [exempelkoden](https://github.com/rlagh2/callcenteranalytics).
 
 ![En bild som beskriver hur du automatiserar få information från tjänsten kundsamtal med attitydanalys](media/use-cases/azure-inbound.svg)
 

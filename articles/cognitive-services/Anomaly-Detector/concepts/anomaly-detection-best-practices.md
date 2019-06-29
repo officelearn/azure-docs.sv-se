@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692203"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477815"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metodtips för API: T för Avvikelseidentifiering detektor
 
@@ -51,7 +51,7 @@ Nedan är samma data med hjälp av batch-avvikelseidentifiering. Modellen som by
 
 ## <a name="data-preparation"></a>Förberedelse av data
 
-API: T för Avvikelseidentifiering detektor accepterar tidsserier data formaterats som en JSON-begäran. En tidsserie kan vara numeriska data registreras med tiden i sekventiell ordning. Du kan skicka windows av time series-data till den Avvikelseidentifiering detektor API-slutpunkten för att förbättra prestanda för API: er. Det minsta antalet datapunkter som du kan skicka är 12, och högsta 8640 punkter. 
+API: T för Avvikelseidentifiering detektor accepterar tidsserier data formaterats som en JSON-begäran. En tidsserie kan vara numeriska data registreras med tiden i sekventiell ordning. Du kan skicka windows av time series-data till den Avvikelseidentifiering detektor API-slutpunkten för att förbättra prestanda för API: er. Det minsta antalet datapunkter som du kan skicka är 12, och högsta 8640 punkter. [Kornighet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) definieras som hastigheten som data samplas med. 
 
 Datapunkter som skickas till API: T för Avvikelseidentifiering detektor måste ha en giltig Coordinated Universal Time (UTC) tidsstämpel och numeriska värden. 
 
@@ -68,6 +68,15 @@ Datapunkter som skickas till API: T för Avvikelseidentifiering detektor måste 
         "value": 29615278
       },
     ]
+}
+```
+
+Om dina data samplas med ett tidsintervall som inte är standard, kan du ange den genom att lägga till den `customInterval` attribut i din begäran. Om din serien samplas var femte minut, du lägga till följande JSON-begäran:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

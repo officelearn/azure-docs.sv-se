@@ -2,50 +2,50 @@
 title: ta med fil
 description: ta med fil
 services: digital-twins
-author: alinamstanciu
+author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/26/2019
-ms.author: alinast
+ms.date: 06/28/2019
+ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f03ee57867185eac946be5b596477bf942643587
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 324f41055cf333081f308a3ff533ff7df6b33038
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459202"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67479253"
 ---
 >[!NOTE]
->Tänk på att äldre AAD appregistreringen som används här tas ur bruk snart. Det här avsnittet kommer att uppdateras när Azure Digital Twins är helt integrerade med den [ny AAD-appregistrering](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Under tiden kan du experimentera med ny appregistrering för AAD. Observera att du kommer behöva använda [offentlig klient (mobile och Desktop)](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) för den *omdirigerings-URI*. 
+>Det här avsnittet innehåller anvisningar om hur den [nya Azure AD-appregistrering](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Om du har fortfarande äldre inbyggd app-registrering, kan du använda den som stöds. Om det nya sättet att appen registation av någon anledning inte fungerar i din konfiguration, kan du dessutom försöker skapa en äldre inbyggd AAD-app. Läs [registrera din Azure Digital Twins-app med Azure Active Directory äldre](../articles/digital-twins/how-to-use-legacy-aad.md) för mer information. 
 
-1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
+1. I den [Azure-portalen](https://portal.azure.com)öppnar **Azure Active Directory** från den vänstra rutan och sedan öppna den **appregistreringar** fönstret. Välj den **ny registrering** knappen.
 
-    ![ID för Azure Active Directory-katalog](./media/digital-twins-permissions/aad-app-reg-tenant.png)
+    ![Registrerad App](./media/digital-twins-permissions/aad-app-register.png)
 
-1. I den [Azure-portalen](https://portal.azure.com)öppnar **Azure Active Directory** från den vänstra rutan och sedan öppna den **appregistreringar (äldre)** fönstret. Välj den **ny programregistrering** knappen.
-
-1. Ge appregistreringen ett eget namn i rutan **Namn**. Ställ in **Programtyp** på **Intern** och  **	Omdirigerings-URI** som `https://microsoft.com`. Välj **Skapa**.
+1. Ge appregistreringen ett eget namn i rutan **Namn**. Under den **omdirigerings-URI (valfritt)** väljer **offentlig klient (mobilappar och skrivbordsappar)** i listan till vänster och ange `https://microsoft.com` i textrutan till höger. Välj **Registrera**.
 
     ![Skapa fönster](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1.  Öppna den registrerade appen och kopiera värdet för fältet **Program-ID** till en temporär fil. Det här värdet identifierar din Azure Active Directory-app. Du använder program-ID:t för att konfigurera exempelprogrammet i följande avsnitt.
+1. Se till att [appen registreras som en *inbyggd app*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)öppnar den **autentisering** fönstret för appregistrering och rulla nedåt i det här fönstret. I den **standard klienttyp** väljer **Ja** för **hantera program som en offentlig klient**. 
+
+    ![Standard interna](./media/digital-twins-permissions/aad-app-default-native.png)
+
+1.  Öppna den **översikt** fönstret av appens registrerade och kopiera värdena för följande enheter till en temporär fil. Så här konfigurerar du exempelprogrammet i följande avsnitt ska du använda dessa värden.
+
+    - **ID för programmet (klient)**
+    - **Katalog (klient)-ID**
 
     ![ID för Azure Active Directory-programmet](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Öppna fönstret för registrering av din app. Välj **Inställningar** > **Nödvändiga behörigheter** och sedan:
+1. Öppna den **API-behörigheter** fönstret för appregistrering av din. Välj **lägga till en behörighet** knappen. I den **begär API-behörigheter** väljer den **API: er som min organisation använder** fliken och sök sedan efter **Azure Smart blanksteg**. Välj den **Azure Smart blanksteg Service** API.
 
-   a. Välj **Lägg till** längst upp till vänster för att öppna fönstret **Lägg till API-åtkomst**.
+    ![Sök-API](./media/digital-twins-permissions/aad-app-search-api.png)
 
-   b. Markera **Välj ett API** och sök efter **Azure Digital Twins**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället.
+1. Det valda API: T visas som **Azure Digital Twins** i samma **begär API-behörigheter** fönstret. Välj den **Läs (1)** listrutan och välj sedan **Read.Write** kryssrutan. Välj den **Lägg till behörigheter** knappen.
 
-   c. Välj **Azure Digital Twins (Azure Smart Spaces-tjänsten)** och sedan **Välj**.
+    ![Lägg till API-behörigheter](./media/digital-twins-permissions/aad-app-req-permissions.png)
 
-   d. Välj **Välj behörigheter**. Markera kryssrutan för **läs-/skrivbehörighet** för delegerade behörigheter och markera **Välj**.
+1. Beroende på organisationens inställningar kan behöva du vidta ytterligare åtgärder för att ge administratörsåtkomst till detta API. Kontakta administratören för mer information. När administratörsåtkomsten har godkänts i **ADMINISTRATÖREN godkänna krävs** kolumnen i den **API-behörigheter** fönstret visas liknar följande för dina API: er:
 
-   e. Markera **Klar** i fönstret **Lägg till API-åtkomst**.
+    ![Lägg till API-behörigheter](./media/digital-twins-permissions/aad-app-admin-consent.png)
 
-   f. I fönstret **Nödvändiga behörigheter** väljer du knappen **Bevilja behörigheter** och godkänner bekräftelsen som visas. Kontakta administratören om behörigheten inte beviljas för detta API.
-
-      ![Fönstret Nödvändiga behörigheter](./media/digital-twins-permissions/aad-app-req-permissions.png)
-
- 

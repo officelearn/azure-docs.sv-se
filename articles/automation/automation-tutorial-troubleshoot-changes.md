@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116642"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476865"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -34,7 +34,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Visa ändringar
 > * Konfigurera varningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -99,7 +99,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och klickar på **Spara**
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -112,7 +112,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Windows-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -127,7 +127,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Linux-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -197,7 +197,7 @@ Under **Aviseringslogik** går du till **Tröskelvärde** och anger **0**. När 
 
 Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
-Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
+Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)** , **Varning (Sev 1)** eller **Kritisk (Sev 0)** .
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
@@ -211,7 +211,7 @@ För att anpassa ämnesraden för e-postaviseringen går du till **Skapa regel**
 
 Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
 
-![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

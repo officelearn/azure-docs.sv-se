@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433719"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477835"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Projektet Akustik Unreal/Wwise Design självstudien
 Den här självstudien beskriver design, installation och arbetsflöde för projektet Akustik i Unreal och Wwise.
@@ -122,6 +122,11 @@ Du kan använda funktionen Force belastningen panel skissen för att hantera den
 Panelen måste redan anges innan du anropar Force belastningen panel. Exempelvis kan göra du något som liknar detta för att läsa in en ACE-fil, ange storleken på din panel och strömma i en region:
 
 ![Skärmbild av strömning installationsalternativ i Unreal](media/streaming-setup.png)
+
+Läs in Akustik Data skissen funktionen som används i det här exemplet har följande parametrar:
+
+* **Mål:** AcousticsSpace aktören.
+* **Ny ändamålet:** Akustik datatillgången ska läsas in. Lämna tomt/inställningen den till null tas det bort från den aktuella ändamålet utan att läsa in en ny.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Du kan också fråga om surface närhet
 Om du vill se hur nära Surface-enheter finns i en viss riktning runt lyssnaren kan du använda funktionen fråga avstånd. Den här funktionen kan vara användbar för att driva riktad fördröjd reflektioner, eller för andra spel logik som drivs av surface närhet. Frågan är billigare än en ray-cast eftersom resultaten hämtas från Akustik uppslagstabellen.

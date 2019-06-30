@@ -14,8 +14,6 @@
   items:
     - name: Planera för ESP-kluster
       href: apache-domain-joined-architecture.md
-    - name: Skapa ESP-kluster och synkronisera lokalt
-      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Konfigurera ESP-kluster med Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Synkronisera Azure AD-användare till ett HDInsight-kluster
@@ -30,26 +28,30 @@
       href: ../spark/apache-spark-eclipse-tool-plugin.md
     - name: Använda Apache Oozie i ESP-kluster
       href: hdinsight-use-oozie-domain-joined-clusters.md
-- name: Skydda data
-  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-- name: Nätverksåtkomst
+    - name: Skydda data
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Nätverksåtkomst
+      items:
+        - name: HDInsight i ett virtuellt Azure-nätverk
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: Ansluta HDInsight till det lokala nätverket
+          href: ../connect-on-premises-network.md
+        - name: Skapa Apache HBase-kluster i ett virtuellt Azure-nätverk
+          href: ../hbase/apache-hbase-provision-vnet.md
+        - name: Replikering av Apache HBase-kluster i ett virtuellt Azure-nätverk
+          href: ../hbase/apache-hbase-replication.md
+    - name: Övervaka med hjälp av Azure Monitor-loggar
+      items:
+        - name: Använda Azure Monitor-loggar
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Använda frågor med Azure Monitor-loggar
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Övervaka klusterprestanda
+          href: ../hdinsight-key-scenarios-to-monitor.md
+- name: Gör så här för att
   items:
-    - name: HDInsight i ett virtuellt Azure-nätverk
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-    - name: Ansluta HDInsight till det lokala nätverket
-      href: ../connect-on-premises-network.md
-    - name: Skapa Apache HBase-kluster i ett virtuellt Azure-nätverk
-      href: ../hbase/apache-hbase-provision-vnet.md
-    - name: Replikering av Apache HBase-kluster i ett virtuellt Azure-nätverk
-      href: ../hbase/apache-hbase-replication.md
-- name: Övervaka med hjälp av Azure Monitor-loggar
-  items:
-    - name: Använda Azure Monitor-loggar
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - name: Använda frågor med Azure Monitor-loggar
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-    - name: Övervaka klusterprestanda
-      href: ../hdinsight-key-scenarios-to-monitor.md
+    - name: Skapa ESP-kluster och synkronisera lokalt
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
 - name: Referens
   items:
     - name: Kodexempel

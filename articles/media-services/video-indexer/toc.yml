@@ -7,21 +7,24 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Kom igång
+    - name: Komma igång
       href: video-indexer-get-started.md
 - name: Självstudier
   items:
     - name: Använda Video Indexer-API
       href: video-indexer-use-apis.md
 - name: Begrepp
-  href: video-indexer-concepts.md
   items:
+    - name: Översikt
+      href: video-indexer-concepts.md
     - name: Jämföra förinställningar för Video Indexer och Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Hantera flera klientorganisationer
       href: manage-multiple-tenants.md
     - name: Anpassa innehållsmodeller
       items:
+        - name: Översikt
+          href: customize-content-models-overview.md
         - name: Varumärken
           href: customize-brands-model-overview.md
         - name: Språk
@@ -86,3 +89,5 @@
       href: faq.md
     - name: Efterlevnad
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Viktig information
+      href: release-notes.md

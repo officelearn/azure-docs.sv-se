@@ -50,10 +50,6 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: Skicka push-meddelanden till iOS-enheter
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Kindle
-      items:
-        - name: Skicka push-meddelanden med hjälp av Amazon Device Messaging
-          href: notification-hubs-kindle-amazon-adm-push-notification.md
     - name: Windows Phone
       items:
         - name: Skicka push-meddelanden till appar
@@ -129,8 +125,6 @@
           href: configure-windows-push-notification-service.md
         - name: Konfigurera Microsoft Push Notification Service
           href: configure-microsoft-push-notification-service.md
-        - name: Konfigurera Android Device Messaging
-          href: configure-android-device-messaging.md
         - name: Konfigurera Baidu Cloud Push
           href: configure-baidu-cloud-push.md
     - name: Registrera med serverdelen för programmet

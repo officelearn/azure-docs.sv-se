@@ -30,10 +30,6 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Skapa en Apache Spark-app i IntelliJ
       href: apache-spark-create-standalone-application.md
-    - name: Använda VSCode för att köra Apache Spark-frågor
-      href: ../hdinsight-for-vscode.md
-    - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
-      href: ../hdinsight-cluster-availability.md
 - name: Exempel
   items:
     - name: .NET-exempel
@@ -52,6 +48,8 @@
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
+      href: ../hdinsight-cluster-availability.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
@@ -158,8 +156,6 @@
               href: ../hdinsight-hadoop-customize-cluster-linux.md
             - name: Utveckla skriptåtgärder
               href: ../hdinsight-hadoop-script-actions-linux.md
-            - name: Installera och använda Presto
-              href: ../hdinsight-hadoop-install-presto.md
             - name: Lägga till Apache Hive-bibliotek
               href: ../hdinsight-hadoop-add-hive-libraries.md
             - name: Använda Apache Giraph

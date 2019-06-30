@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
+            - name: Azure Resource Manager-mall
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Skicka och ta emot meddelanden
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Service Bus-ämnen och prenumerationer
       items:
         - name: Skapa ämnen och prenumerationer
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Azure Portal
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure Resource Manager-mall
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publicera och prenumerera på meddelanden
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Skapa ett namnområde
               href: service-bus-resource-manager-namespace.md
-            - name: Skapa ett namnområde och en kö
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Skapa ett namnområde med ämne och prenumeration
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Skapa en auktoriseringsregel för namnområde och kö
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Skapa ett namnområde med ämne, prenumeration och regel'

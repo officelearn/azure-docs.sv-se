@@ -5,8 +5,8 @@ metadata:
   title: Dokumentation om Azure AD Domain Services
   description: Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
   keywords: 'Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page
@@ -32,7 +32,7 @@ sections:
             html: <p>Skapa en egen hanterad domän med hjälp av den här enkla genomgången.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            title: Kom igång
+            title: Komma igång
           - href: contact-us.md
             html: <p>Få hjälp när du behöver.</p>
             image:

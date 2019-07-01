@@ -62,7 +62,7 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
 
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
-| Åtgärden |ja |Värdet måste vara ”skala” |
+| operation |ja |Värdet måste vara ”skala” |
 | sendToSubscriptionAdministrator |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | sendToSubscriptionCoAdministrators |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | customEmails |ja |Värdet kan vara null [] eller Strängmatrisen av e-postmeddelanden |
@@ -106,19 +106,19 @@ När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttola
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
 | status |ja |Den status som indikerar att en åtgärd för automatisk skalning genererades |
-| Åtgärden |ja |För en ökning av instanser blir ”skala ut” och för en minskning i instanser, det är ”skala In” |
-| Kontext |ja |Åtgärd-kontexten automatisk skalning |
+| operation |ja |För en ökning av instanser blir ”skala ut” och för en minskning i instanser, det är ”skala In” |
+| context |ja |Åtgärd-kontexten automatisk skalning |
 | timestamp |ja |Tidsstämpel när autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för autoskalningsinställningen |
 | name |Ja |Namnet på autoskalningsinställningen |
-| detaljer |Ja |Förklaring av åtgärden tog för tjänsten för automatisk skalning och förändringen i instansantalet |
+| details |Ja |Förklaring av åtgärden tog för tjänsten för automatisk skalning och förändringen i instansantalet |
 | subscriptionId |Ja |Prenumerations-ID för målresursen som skalas |
 | resourceGroupName |Ja |Resursgruppsnamnet för målresursen som skalas |
 | resourceName |Ja |Namnet på målresursen som skalas |
-| ResourceType |Ja |Tre värden som stöds: ”microsoft.classiccompute/domainnames/slots/roles” - molntjänst roller, ”microsoft.compute/virtualmachinescalesets” - Virtual Machine Scale Sets och ”Microsoft.Web/serverfarms” - Webbapp |
+| resourceType |Ja |Tre värden som stöds: ”microsoft.classiccompute/domainnames/slots/roles” - molntjänst roller, ”microsoft.compute/virtualmachinescalesets” - Virtual Machine Scale Sets och ”Microsoft.Web/serverfarms” - Webbapp |
 | resourceId |Ja |Resource Manager-ID för målresursen som skalas |
 | portalLink |Ja |Azure portal-länk till sidan Sammanfattning av målresurs |
 | oldCapacity |Ja |Det aktuella (gamla) instansantalet när autoskalning tog en skalningsåtgärd |
 | newCapacity |Ja |Ny instansantalet som automatisk skalning skalas till resursen |
-| Egenskaper |Nej |Valfri. Uppsättning < nyckel, värde > par (till exempel Dictionary < String, String >). För egenskapsfältet är valfritt. I en anpassad användargränssnittet eller baserade logikapparbetsflöde kan ange du nycklar och värden som kan skickas med nyttolasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till det utgående webhook-anropet är att använda webhooken URI (som frågeparametrar) |
+| properties |Nej |Valfri. Uppsättning < nyckel, värde > par (till exempel Dictionary < String, String >). För egenskapsfältet är valfritt. I en anpassad användargränssnittet eller baserade logikapparbetsflöde kan ange du nycklar och värden som kan skickas med nyttolasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till det utgående webhook-anropet är att använda webhooken URI (som frågeparametrar) |
 

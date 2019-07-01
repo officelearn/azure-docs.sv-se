@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: E-postmeddelande
                   href: app/proactive-email-notification.md
+            - name: Tillgänglighet
+              items:
+                - name: URL-tester
+                  href: app/monitor-web-app-availability.md
+                - name: Tester i flera steg
+                  href: app/availability-multistep.md
+                - name: Tillgänglighetsaviseringar
+                  href: app/availability-alerts.md
+                - name: Felsökning
+                  href: app/troubleshoot-availability.md
+            - name: Prestandatestning
+              href: app/performance-testing.md
             - name: Skapa en resurs
               href: app/create-new-resource.md
             - name: Programdata till Log Analytics
@@ -554,6 +566,8 @@
                       href: insights/container-insights-enable-existing-clusters.md
                 - name: Analysera
                   href: insights/container-insights-analyze.md
+                - name: Konfigurera inställningar för agentsamlingar
+                  href: insights/container-insights-agent-config.md
                 - name: Inaktivera övervakning
                   href: insights/container-insights-optout.md
                 - name: Visa live-loggar
@@ -795,8 +809,6 @@
           items:
             - name: Aviseringsregler för program
               items:
-                - name: Tillgänglighet
-                  href: app/monitor-web-app-availability.md
                 - name: Måttaviseringar
                   href: app/alerts.md
             - name: Aviseringsregler för plattformsmått

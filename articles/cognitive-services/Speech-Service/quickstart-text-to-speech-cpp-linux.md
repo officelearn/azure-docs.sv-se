@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: b5b768e52a40652840e9e3d3069df8a9c895f77b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: a954d1d9466a35925726c36361dc00edfddfbf63
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001608"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484961"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Linux med hjälp av tal-SDK
 
@@ -23,7 +23,7 @@ Snabbstarter kan också användas för [taligenkänning](quickstart-cpp-linux.md
 
 I den här artikeln skapar du en C++ konsolen program för Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Du använder Cognitive Services [tal SDK](speech-sdk.md) att syntetisera tal från text i realtid och spela upp tal på datorns högtalare. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
@@ -31,7 +31,7 @@ Du behöver en Speech Services-prenumeration för att slutföra den här snabbst
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.5.1`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Speech SDK för Linux kan användas för att bygga både 64-bitars och 32-bitars program. De nödvändiga biblioteken och huvudfilerna kan laddas ned som en tar-fil från https://aka.ms/csspeech/linuxbinary.
 

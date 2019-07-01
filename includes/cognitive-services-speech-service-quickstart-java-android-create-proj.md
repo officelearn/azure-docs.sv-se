@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 5/23/2019
 ms.author: travisw
-ms.openlocfilehash: 92e75e2db516df513ff5997f3efcd85bccbeade2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8118d80e85d562fa4137ed1f1844e6bf9f1793e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067617"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485035"
 ---
 1. Starta Android Studio och välj alternativet för att **starta ett nytt Android Studio-projekt** i välkomstfönstret.
 
@@ -27,7 +27,7 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 
 [!INCLUDE [License Notice](cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.5.1`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
 Den finns i ett Maven-centrallager på https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfö
 
    ![Skärmbild av projektstrukturfönstret](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1`. Välj sedan **OK**.
+1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0`. Välj sedan **OK**.
    Speech SDK:n ska läggas till i listan över beroenden nu enligt nedan:
 
    ![Skärmbild av projektstrukturfönstret](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

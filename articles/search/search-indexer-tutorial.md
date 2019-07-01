@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025074"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485393"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Självstudie: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
@@ -35,7 +35,7 @@ I den här självstudien använder den [Azure Search .NET-klientbibliotek](https
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster, verktyg och data som används i den här snabbstarten. 
 
@@ -58,7 +58,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
 Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -99,7 +99,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
    ![SQL-databassida](./media/search-indexer-tutorial/hotels-db.png)
 
-4. I navigeringsfönstret klickar du på **frågeredigeraren (förhandsversion)**.
+4. I navigeringsfönstret klickar du på **frågeredigeraren (förhandsversion)** .
 
 5. Klicka på **Logga in** och ange användarnamnet och lösenordet för serveradministratören.
 
@@ -219,8 +219,8 @@ Ett indexer-objekt är plattformsagnostiska, där konfiguration, schemaläggning
 
 I det här steget kompilerar och kör du programmet. 
 
-1. In Solution Explorer högerklickar du på **DotNetHowToIndexers** och väljer **Build (Kompilera)**.
-2. Högerklicka på **DotNetHowToIndexers** följt av **Debug (Felsök)** > **Start new instance (Starta ny instans)**.
+1. In Solution Explorer högerklickar du på **DotNetHowToIndexers** och väljer **Build (Kompilera)** .
+2. Högerklicka på **DotNetHowToIndexers** följt av **Debug (Felsök)**  > **Start new instance (Starta ny instans)** .
 
 Programmet körs i felsökningsläge. I ett konsolfönster rapporteras status för varje åtgärd.
 

@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/13/2019
+ms.date: 06/24/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: be192e077485b8c7b060ad6627123157a302b039
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272187"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341060"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
@@ -25,6 +25,7 @@ Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla ex
 | [ISO 27001 Delade tjänster](./iso27001-shared/index.md) | Tillhandahåller en uppsättning kompatibla infrastrukturmönster och principriktlinjer som hjälper dig med attesteringen för ISO 27001. |
 | [ISO 27001 App Service-miljön/SQL Database-arbetsbelastning](./iso27001-ase-sql-workload/index.md) | Tillhandahåller ytterligare infrastruktur för skissexemplet [ISO 27001 Delade tjänster](./iso27001-shared/index.md). |
 | [Styrning av UK OFFICIAL](./ukofficial/control-mapping.md) | Tillhandahåller en uppsättning kompatibla infrastruktursmönster och principriktlinjer som hjälper dig med attesteringen för UK OFFICIAL. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Tillhandahåller efterlevnadsriktlinjer för NIST SP 800-53 R4. |
 
 ## <a name="next-steps"></a>Nästa steg
 

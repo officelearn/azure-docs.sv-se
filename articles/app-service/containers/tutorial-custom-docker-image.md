@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435439"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484506"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudier: Skapa en anpassad avbildning och kör i App Service från ett privat register
 
@@ -278,7 +278,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Om du vi
     > [!NOTE]
     > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH är endast tillgängligt via webbplatsen för Kudu/SCM. Kudu/SCM-webbplatsen autentiseras med Azure-kontot.
 
-* Den [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) kopior på [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) till den */etc/ssh/* directory.
+* Den [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) kopior på [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) filen i databasen till den */etc/ssh/* directory.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 772f815a3db0490cb461d07c56a37956ce15b383
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330395"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485835"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudier: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
@@ -39,7 +39,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10.x.x eller senare på utvecklingsdatorn.
 
@@ -186,7 +186,7 @@ Följande skärmbild visar utdata från serverdelsprogrammet och visar hur det �
 
 ![Serverdelsprogram](./media/tutorial-firmware-update/BackEnd2.png)
 
-På grund av latens i IoT Hub-enhetsidentitetsregistret kanske du inte kan se alla statusuppdateringar som skickas till serverdelsprogrammet. Du kan också visa måtten i portalen för avsnittet **Automatic device management -> IoT device configuration** (Automatisk enhetshantering -> Konfiguration av IoT-enhet) i din IoT Hub:
+Eftersom automatisk enhetskonfigurationer kör vid skapandet och sedan var femte minut syns kanske inte var status uppdatera skickas till backend-programmet. Du kan också visa måtten i portalen för avsnittet **Automatic device management -> IoT device configuration** (Automatisk enhetshantering -> Konfiguration av IoT-enhet) i din IoT Hub:
 
 ![Visa konfiguration i portalen](./media/tutorial-firmware-update/portalview.png)
 

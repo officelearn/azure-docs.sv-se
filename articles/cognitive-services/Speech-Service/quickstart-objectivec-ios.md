@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 023bb95eb55c88c7da548af003132bb391fdb7ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466630"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484985"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
@@ -35,7 +35,7 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.5.1`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Cognitive Services tal SDK för iOS är för närvarande distribueras som ett Cocoa ramverk.
 Den kan hämtas från [här](https://aka.ms/csspeech/iosbinary). Ladda ned filen till arbetskatalogen.

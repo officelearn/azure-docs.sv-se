@@ -158,7 +158,7 @@
       href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
   items:
-    - name: Kom igång
+    - name: Komma igång
       items:
         - name: Skapa ett konto – CLI
           href: create-account-cli-how-to.md
@@ -223,6 +223,14 @@
             - name: Med REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Skapa underklipp i en video
+          items:
+            - name: Med .NET
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: Med REST
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Använda Event Grid
       items:
         - name: Övervaka händelser – portalen

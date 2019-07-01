@@ -30,6 +30,8 @@
   items:
     - name: Kortkommandon
       href: azure-portal-keyboard-shortcuts.md
+    - name: 'Lägga till Azure-portalens URL:er i listan över säkra URL:er'
+      href: azure-portal-safelist-urls.md
     - name: Azure-instrumentpanelernas struktur
       href: azure-portal-dashboards-structure.md
 - name: Resurser

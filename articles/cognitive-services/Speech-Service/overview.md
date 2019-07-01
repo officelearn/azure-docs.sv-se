@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 4750937ee7ef6230ed4635d739a102a501b19a30
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a9af96c1defab4cbb10d917b5faa7e0e3ab837f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341807"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485064"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -41,6 +41,8 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 
 Läs mer om nyheterna med Azure Speech Services.
 
+* Juni 2019
+    * Publicerat tal SDK 1.6.0 eller senare. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).
 * Maj 2019 - dokumentation finns nu tillgänglig för [konversationen avskrift](conversation-transcription-service.md), [anropa Center avskrift](call-center-transcription.md), och [röst första virtuella assistenter](voice-first-virtual-assistants.md).
 * Maj 2019
     * Publicerat tal SDK 1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig](releasenotes.md).

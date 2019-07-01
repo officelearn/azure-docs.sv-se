@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: URL-omskrivning
       href: front-door-url-rewrite.md
+    - name: URL-omdirigering
+      href: front-door-url-redirect.md
     - name: Brandvägg för webbaserade program
       items:
         - name: Översikt
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Instruktionsguider
   items:
+    - name: Omdirigera trafik
+      items:
+        - name: Konfigurera en Front Door med omdirigering från HTTP till HTTPS
+          href: front-door-how-to-redirect-https.md
+    - name: Registrera anpassade domäner
+      items:
+        - name: Registrera en rotdomän eller basdomän
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Felsöka
       items:
         - name: Felsöka routningsproblem

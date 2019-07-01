@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: wolfma
-ms.openlocfilehash: 6a85281214fe28a48aa9d405f4f1120905495b83
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: c3f57d2050cbadc477ed00f931438125a27d7bec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002190"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485101"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK
 
@@ -26,7 +26,7 @@ Om du vill kan du växla till en annan programmeringsspråk och/eller miljö:<br
 
 I den här artikeln skapar du en C++ konsolen program för Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
@@ -34,7 +34,7 @@ Du behöver en Speech Services-prenumeration för att slutföra den här snabbst
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.5.1`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Speech SDK för Linux kan användas för att bygga både 64-bitars och 32-bitars program. De nödvändiga biblioteken och huvudfilerna kan laddas ned som en tar-fil från https://aka.ms/csspeech/linuxbinary.
 

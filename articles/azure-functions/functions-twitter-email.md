@@ -4,19 +4,19 @@ description: Skapa en funktion som integrerar med Azure Logic Apps och Azure Cog
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61037139"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480022"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).
@@ -58,7 +58,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
     | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Plats** | Västra USA | Använd platsen som är närmast dig. |
+    | **Location** | Västra USA | Använd platsen som är närmast dig. |
     | **prisnivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
@@ -145,7 +145,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Plats** | Östra USA | Välj en plats i närheten av dig. |    
+    | **Location** | Östra USA | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 

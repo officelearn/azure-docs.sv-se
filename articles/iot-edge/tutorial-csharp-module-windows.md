@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808769"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485937"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -43,7 +43,7 @@ Använd följande tabell för att förstå dina alternativ för utveckling och d
 | **Utveckla Windows AMD64** | ![Utveckla C# moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidigare självstudiekursen för att ställa in din utvecklingsmiljö [utveckla en IoT Edge-modul för en Windows-enhet](tutorial-develop-for-windows.md). När du har slutfört självstudien är bör redan du ha följande krav: 
 
@@ -54,7 +54,7 @@ Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidi
 * [Docker CE](https://docs.docker.com/install/) konfigurerats för att köra Windows-behållare.
 
 > [!TIP]
-> Om du använder Visual Studio 2017 (version 15.7 eller högre) plrease ladda ned och installera [verktyg för Azure IoT Edge (förhandsversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) för VS 2017 från Visual Studio marketplace
+> Om du använder Visual Studio 2017 (version 15.7 eller högre) plrease ladda ned och installera [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) för VS 2017 från Visual Studio marketplace
 
 ## <a name="create-a-module-project"></a>Skapa en modul-projekt
 

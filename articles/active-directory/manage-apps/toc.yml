@@ -45,24 +45,22 @@
           href: application-proxy-network-topology.md
         - name: Jämförelse mellan fjärråtkomstlösningar
           href: application-proxy-migration.md
+    - name: Enkel inloggning
+      items:
+        - name: Vad är enkel inloggning
+          href: what-is-single-sign-on.md
+        - name: Planera en distribution för enkel inloggning
+          href: plan-sso-deployment.md
+    - name: Enkel inloggning med ett klick
+      items:
+        - name: Vad är enkel inloggning med ett klick
+          href: one-click-sso-tutorial.md
     - name: Försörj användare och grupper
       items:
         - name: Automatisk användarförsörjning
-          href: configure-automatic-user-provisioning-portal.md
-        - name: SaaS-appar
           href: user-provisioning.md
-        - name: SCIM-aktiverade appar
+        - name: Automatisk etablering för SCIM-aktiverade appar
           href: use-scim-to-provision-users-and-groups.md
-        - name: Anpassa programattribut
-          href: Customize-application-attributes.md
-        - name: Skriva uttryck för attributmappningar
-          href: functions-for-customizing-application-data.md
-        - name: Omfångsfilter
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Rapportera om automatisk användaretablering
-          href: check-status-user-account-provisioning.md
-        - name: Felsöka användaretablering
-          href: application-provisioning-config-problem.md
     - name: Programsäkerhet
       items:
         - name: Åtkomstalternativ för appar
@@ -75,18 +73,8 @@
           href: tenant-restrictions.md
         - name: Konfigurera SAML-tokenkryptering (förhandsversion)
           href: howto-saml-token-encryption.md
-    - name: Enkel inloggning
-      items:
-        - name: Vad är enkel inloggning
-          href: what-is-single-sign-on.md
-        - name: Planera en distribution för enkel inloggning
-          href: plan-sso-deployment.md
     - name: Slutanvändarportaler
       href: end-user-experiences.md
-    - name: Enkel inloggning med ett klick
-      items:
-        - name: Vad är enkel inloggning med ett klick
-          href: one-click-sso-tutorial.md
 - name: Instruktionsguider
   items:
     - name: Lägga till en molnapp
@@ -157,12 +145,20 @@
               href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Konfigurera användarförsörjning
       items:
-        - name: Hur lång tid tar etableringen?
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Konfigurera användaretablering – galleriapp
+        - name: Användaretablering för galleriappar
           href: application-provisioning-config-how-to.md
-        - name: Synkronisera ett attribut för mappning – galleriappen
-          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Konfigurera automatisk användaretablering
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Anpassa programattribut
+          href: Customize-application-attributes.md
+        - name: Skriva uttryck för attributmappningar
+          href: functions-for-customizing-application-data.md
+        - name: Omfångsfilter
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Kontrollera etableringsstatus
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Rapportera om automatisk användaretablering
+          href: check-status-user-account-provisioning.md
     - name: Tilldela användare och hantera åtkomst till appar
       items:
         - name: Konfigurera användarmedgivande
@@ -235,10 +231,12 @@
               href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Felsöka användaretablering
           items:
+            - name: Felsöka användaretablering
+              href: application-provisioning-config-problem.md
+            - name: Synkronisera ett attribut för mappning – galleriappen
+              href: user-provisioning-sync-attributes-for-mapping.md
             - name: Tar flera timmar – galleriapp
               href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problem med att konfigurera användaretablering – galleriapp
-              href: application-provisioning-config-problem.md
             - name: Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp
               href: application-provisioning-config-problem-storage-limit.md
             - name: Användare har inte etablerats – galleriapp

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: v-rodixo
 ms.custom: seodec2018
-ms.openlocfilehash: 4186c422836771de4f8a283616d77214b91bfc02
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8ce3c66432f3d2d0cb973886498aa46e7820698c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462704"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485272"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Självstudie: Kombinera data från flera datakällor i en Azure Search-index
 
@@ -28,7 +28,7 @@ Den här självstudien används C#, .NET SDK för Azure Search och Azure-portale
 > * Ladda upp exempeldata och skapa datakällor
 > * Identifiera dokumentnyckeln
 > * Definiera och skapa indexet
-> * Index Hotelldata från CosmosDb
+> * Indexera Hotelldata från Azure Cosmos DB
 > * Slå samman hotell rummet data från blob storage
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -61,7 +61,7 @@ För att interagera med Azure Search-tjänsten, behöver du tjänstens URL och e
 
 1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
 Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende regelbundet per begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -134,7 +134,7 @@ Vid indexering av data från flera datakällor, kommer varje nyckel värdet för
 
 Azure Search-indexerare kan använda fältmappningar att byta namn på och även formatera om datafält under indexeringsprocessen, så att källdata kan dirigeras till rätt index-fältet.
 
-Till exempel i våra exempeldata CosmosDB, hotell ID kallas **HotelId**. Men i JSON blob-filerna för hotellrum, hotell identifieraren heter **Id**. Programmet ska hantera detta genom att mappa den **Id** från blobbarna-och den **HotelId** fält i indexet.
+Till exempel i vår Azure Cosmos DB exempeldata, hotell ID kallas **HotelId**. Men i JSON blob-filerna för hotellrum, hotell identifieraren heter **Id**. Programmet ska hantera detta genom att mappa den **Id** från blobbarna-och den **HotelId** fält i indexet.
 
 > [!NOTE]
 > I de flesta fall gör inte automatiskt genererade dokument nycklar, till exempel de som skapas som standard med några indexerare, bra dokumentet nycklar för kombinerade index. I allmänhet du vill använda ett beskrivande, unikt nyckelvärde som redan finns i eller enkelt kan läggas till dina datakällor.
@@ -146,8 +146,8 @@ När inställningar och konfiguration är på plats kan exemplet programmet i **
 Det här enkla C#/.NET-konsolapp utför följande uppgifter:
 * Skapar ett nytt Azure Search-index baserat på datastrukturen för den C# hotell klass (som även hänvisar till klasserna adress och rum).
 * Skapar en Azure Cosmos DB-datakälla och en indexerare som mappar Azure Cosmos DB-data till indexet fält.
-* Kör CosmosDB-indexeraren för att läsa in data för hotell.
-* Skapar en Azure Blob Storage-datakälla och en indexerare som mappar JSOn-Blob-data till indexet fält.
+* Kör Azure Cosmos DB-indexeraren för att läsa in data för hotell.
+* Skapar en Azure Blob Storage-datakälla och en indexerare som mappar JSON blob-data till indexet fält.
 * Kör Azure blob storage-indexeraren för att läsa in data om rum.
 
  Innan du kör programmet måste du ta en stund åt att studera koden och index och indexerare definitioner för det här exemplet. Den relevanta koden finns i två filer:

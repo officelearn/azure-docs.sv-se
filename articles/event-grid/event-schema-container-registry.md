@@ -158,7 +158,7 @@ En händelse har följande översta data:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |

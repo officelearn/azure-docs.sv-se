@@ -9,20 +9,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431140"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485079"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Språkförståelse
 
 Läs mer om nyheterna i tjänsten. De här objekten kan viktig information, videor, blogginlägg och andra typer av information. Bokmärk den här sidan för att hålla dig uppdaterad med tjänsten.  
 
 ## <a name="release-notes"></a>Viktig information 
+
+### <a name="june-24-2019"></a>24 juni 2019
+
+* [OrdinalV2 fördefinierade entitet](luis-reference-prebuilt-ordinal-v2.md) för sortering, till exempel nästa, föregående och efternamn. Engelska kultur.
 
 ### <a name="may-6-2019---build-conference"></a>6 maj 2019 - konferensen med //Build
 

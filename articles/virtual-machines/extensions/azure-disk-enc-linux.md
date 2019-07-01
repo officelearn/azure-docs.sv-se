@@ -152,7 +152,7 @@ Med hjälp av `AADClientCertificate`:
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | (valfritt) KeyVaultURL | url | string |
-| Lösenfras | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 

@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449252"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490181"
 ---
 # <a name="release-notes"></a>Viktig information
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Tal SDK 1.6.0 eller senare: Juniversionen för 2019
+
 **Exempel**
 *   Snabbstartsexempel för Text till tal på UWP och Unity
 *   Snabbstartsexemplet för Swift på iOS
@@ -35,6 +36,9 @@ ms.locfileid: "67449252"
     * Alla befintliga klienter för Direct Line tal fortfarande användas efter namnbytet
 * Uppdatera text till tal-REST-adaptern för att stödja proxy, permanent anslutning
 * Förbättra felmeddelande när en ogiltig region skickas
+* Swift/Objective-C:
+    * Förbättrad felrapportering: Metoder som kan orsaka fel finns nu i två versioner: En som Exponerar en `NSError` objekt för felhantering och en som genererar ett undantag. Det tidigare exponeras för Swift. Den här ändringen kräver anpassningar till befintliga Swift-kod.
+    * Förbättrad händelsehantering
 
 **Felkorrigeringar**
 *   Korrigering för text till tal: där SpeakTextAsync framtiden returneras utan att vänta tills ljudet har slutförts rendering
@@ -43,6 +47,8 @@ ms.locfileid: "67449252"
 *   Korrigering för enstaka problem med att distribuera interna bibliotek till Utdatamappen i exemplen
 *   Korrigering för web socket stänger på ett tillförlitligt sätt
 *   Korrigering för möjliga krascher när du öppnar en anslutning mycket vid hög belastning på Linux
+*   Korrigering för saknas metadata i framework-paketet för macOS
+*   Korrigering för problem med `pip install --user` på Windows
 
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1

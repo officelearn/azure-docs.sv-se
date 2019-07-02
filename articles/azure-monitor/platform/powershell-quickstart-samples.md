@@ -153,14 +153,14 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 | parameter | value |
 | --- | --- |
 | Namn |simpletestdiskwrite |
-| Platsen för den här aviseringsregeln |Östra USA |
+| Platsen för den här aviseringsregeln |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName om aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Se den `Get-MetricDefinitions` cmdlet om hur du hämtar exakt tjänstmåttets namn |
+| MetricName om aviseringen som har skapats |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | Operator |GreaterThan |
 | Tröskelvärdet (antal per sekund i för det här måttet) |1 |
 | Fönsterstorlek (: mm: ss-format) |00:05:00 |
-| Aggregator (statistik för mått, som använder Genomsnittligt antal i det här fallet) |Medel |
+| Aggregator (statistik för mått, som använder Genomsnittligt antal i det här fallet) |Average |
 | anpassade e-postmeddelanden (Strängmatrisen) |'foo@example.com','bar@example.com' |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 

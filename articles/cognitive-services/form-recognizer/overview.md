@@ -7,56 +7,64 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 82ee2aa5627ac5fa4584f5af6b6b80cc2813c667
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a17e47fb059c23ab2e6eb69f3cfe6f2f8d0e51b2
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441842"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502907"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
-Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen genom att använda ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt arbetsflöde eller program. För att komma igång behöver du bara fem ifyllt formulär dokument eller två ifyllda formulär plus en tom form av samma typ som ditt material som indata. Du kan snabbt få korrekta resultat som är skräddarsydda för din specifikt innehåll utan tunga manuella åtgärder eller omfattande data science-expertis.
+Azure formuläret Igenkännande är en cognitive tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formuläret dokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Du kan anropa anpassade formulär Igenkännande modellen genom att använda ett enkelt REST API för att minska komplexiteten och integrera enkelt i ditt arbetsflöde eller program. För att komma igång behöver du bara fem ifyllt formulär dokument eller två ifyllda formulär plus en tom form av samma typ som ditt material som indata. Du kan snabbt få korrekta resultat som är skräddarsydda för din specifikt innehåll utan tunga manuella åtgärder eller omfattande data science-expertis.
 
-## <a name="request-access"></a>Begär åtkomst
-Formuläret Igenkännande är tillgänglig i en förhandsversion med begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. Formuläret begär information om dig, ditt företag och Användarscenario som du använder formuläret Igenkännande. Om din begäran har godkänts av Azure Cognitive Services-teamet, får du ett e-postmeddelande med instruktioner för att komma åt tjänsten.
+## <a name="custom-models"></a>Anpassade modeller
 
-## <a name="what-it-does"></a>Vad läget gör
+Formuläret Igenkännande anpassade modellen träna till dina egna data och du behöver bara fem inkommande exempelformulär att starta. När du skickar in din indata algoritmen kluster formulären efter typ, identifierar vilka nycklar och tabeller finns och associerar värden till nycklar och poster till tabeller. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. När du tränar kan du testa och träna om den och använder den för att på ett tillförlitligt sätt extrahera data från flera formulär efter dina behov.
 
-När du skickar in din indata träna algoritmen, kluster formulär per typer, identifierar vilka nycklar och tabeller finns och lär sig att koppla värden till nycklar och poster till tabeller. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll. Däremot kräver standardiserad förtränade machine learning-modeller och är mindre exakta när det används med inkommande material som avviker från traditionella format som branschspecifika formulär.
+Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll. Däremot kräver förtränade machine learning-modeller standardiserad. Det är mindre exakta med inkommande material som avviker från traditionella format som branschspecifika formulär.
 
-När du tränar kan du testa och träna om den och använder den för att på ett tillförlitligt sätt extrahera data från flera formulär efter dina behov.
+## <a name="pre-built-receipt-model"></a>Färdiga kvitto modell
+
+Formuläret Igenkännande innehåller också en modell för att läsa in. Den här modellen extraherar viktig information, till exempel tiden och datumet för transaktionen, handlare information, mängder skatter och summor och mer. Dessutom kan tränas den färdiga kvitton att känna igen och returnera all text i en inleverans.
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 
-Formuläret Igenkännande är tillgängligt som ett REST-API. Du kan skapa, träna och betygsätta en modell genom att anropa API: et. Om du vill kan köra du modellen i en lokal dockerbehållare.
+Formuläret Igenkännande är tillgängligt som ett REST-API. Du kan skapa, träna, och en anpassad bedömningsmodell eller komma åt den färdiga modellen genom att aktivera dessa API: er. Om du vill kan du träna och kör anpassade modeller i en lokal dockerbehållare.
 
-## <a name="input-requirements"></a>Krav för indata
+## <a name="input-requirements-custom-model"></a>Inkommande krav (anpassade modellen)
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="request-access"></a>Begär åtkomst
+
+Formuläret Igenkännande är tillgänglig i en förhandsversion med begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret. Formuläret begär information om dig, ditt företag och Användarscenario som du använder formuläret Igenkännande. Om din begäran har godkänts av Azure Cognitive Services-teamet, får du ett e-postmeddelande med instruktioner för att komma åt tjänsten.
 
 ## <a name="where-do-i-start"></a>Vad ska jag börja med?
 
 **Steg 1:** Skapa en Form Igenkännande-resurs i Azure-portalen.
 
-**Steg 2:** Testa en Snabbstart för praktisk erfarenhet:
+**Steg 2:** Följ en Snabbstart för att använda REST-API:
 * [Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL](quickstarts/curl-train-extract.md)
 * [Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python](quickstarts/python-train-extract.md)
+* [Snabbstart: Extrahera kvitto data med cURL](quickstarts/curl-receipts.md)
+* [Snabbstart: Extrahera kvitto data med hjälp av Python](quickstarts/python-receipts.md)
 
-Vi rekommenderar att du använder den kostnadsfria tjänsten när du håller på att lära tekniken, men tänk på att antalet lediga sidor är begränsad till 500 sidor per månad.
+Vi rekommenderar att du använder den kostnadsfria tjänsten när du håller på att lära tekniken. Tänk på att antalet lediga sidor är begränsad till 500 per månad.
 
 **Steg 3:** Granska REST-API: er
 
-Använd följande API: er för att träna och extrahera strukturerade data från formulär.
+Du kan använda följande API: er för att träna och extrahera strukturerade data från formulär.
 
-| REST-API | Beskrivning |
-|-----|-------------|
-| Träna | Skapa en ny modell för att analysera dina formulär med hjälp av fem typer av samma typ. Eller öva med ett tomt formulär och två fyllts i formulär.  |
-| Analysera  |Analysera ett enskilt dokument som skickats in som en dataström för att extrahera nyckel / värde-par och tabeller i formuläret med din anpassade modell.  |
+|||
+|---|---|
+| Träningsmodell| Skapa en ny modell för att analysera dina formulär med hjälp av fem typer av samma typ. Eller öva med ett tomt formulär och två fyllts i formulär.  |
+| Analysera formulär |Analysera ett enskilt dokument som skickats in som en dataström för att extrahera nyckel/värde-par och tabeller i formuläret med din anpassade modell.  |
+| Analysera kvitto |Analysera ett enda kvitto dokument för att extrahera viktig information och andra kvittotext.|
 
-Utforska den [REST API-referensdokumentet](https://aka.ms/form-recognizer/api). 
+Utforska den [REST API-referensdokumentation](https://aka.ms/form-recognizer/api) vill veta mer. 
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 

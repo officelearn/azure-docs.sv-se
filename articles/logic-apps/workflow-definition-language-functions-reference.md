@@ -84,13 +84,13 @@ Strängfunktioner fungerar endast för strängar.
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Kombinera två eller flera strängar och returnera den kombinerade strängen. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrollera om en sträng som slutar med den angivna delsträngen. |
-| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
+| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera startpositionen för en delsträng. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera startpositionen för den sista förekomsten av en delsträng. |
-| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. |
+| [Ersätt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på en angiven avgränsare tecken i den ursprungliga strängen. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng som börjar med en viss delsträng. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
+| [delsträngen](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Returnera en sträng i gemener format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Returnera en sträng i versaler format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Ta bort inledande och avslutande blanksteg från en sträng och returnera den uppdaterade strängen. |
@@ -104,10 +104,10 @@ Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar,
 
 | Funktionen för samlingen | Aktivitet |
 | ------------------- | ---- |
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
-| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. |
-| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. |
+| [innehåller](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
+| [tom](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. |
+| [första](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
+| [skärningspunkten](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Returnerar en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Returnera det sista objektet från en samling. |
@@ -245,7 +245,7 @@ Fullständig referens om varje funktion finns i [lista i bokstavsordning](../log
 | [body](#body) | Returnerar en åtgärd `body` utdata vid körning. Se även [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Skapa en matris med värden som matchar ett nyckelnamn i *formulärdata* eller *formulärkodade* åtgärd utdata. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Returnera ett enstaka värde som matchar ett nyckelnamn i en åtgärd *formulärdata* eller *formulärkodade utdata*. |
-| [Objekt](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. |
 | [objekt](../logic-apps/workflow-definition-language-functions-reference.md#items) | När inuti en Foreach eller Until-loop, returnera det aktuella objektet från den angivna loopen.|
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Returnera indexvärdet för den aktuella upprepningen när inuti en Until-loop. Du kan använda den här funktionen i kapslade tills slingor. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Returnera ”Motringnings-URL” som anropar en utlösare eller åtgärder. |
@@ -1293,12 +1293,12 @@ createArray('<object1>', '<object2>', ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Objekt1*>, <*object2*>,... | Ja | Sådana finns, men inte blandat | Minst två objekt att skapa matrisen |
+| <*object1*>, <*object2*>, ... | Ja | Sådana finns, men inte blandat | Minst två objekt att skapa matrisen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<*Objekt1*>, <*object2*>,...] | Matris | Matrisen som skapats från alla inkommande objekt |
+| [<*object1*>, <*object2*>, ...] | Matris | Matrisen som skapats från alla inkommande objekt |
 ||||
 
 *Exempel*
@@ -1754,7 +1754,7 @@ equals('<object1>', '<object2>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Objekt1*>, <*object2*> | Ja | Olika | I värden, uttryck eller objekt att jämföra |
+| <*object1*>, <*object2*> | Ja | Olika | I värden, uttryck eller objekt att jämföra |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2230,7 +2230,7 @@ Och returnerar resultatet: `10`
 
 <a name="item"></a>
 
-### <a name="item"></a>Objekt
+### <a name="item"></a>item
 
 När den används inuti en upprepningsåtgärd över en matris, returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration.
 Du kan också få värdena från egenskaperna för det objektet.
@@ -3428,7 +3428,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Ja | String | Sträng vars tecken som du vill |
 | <*startIndex*> | Ja | Integer | Ett positivt tal som är lika med eller större än 0 som du vill använda som position eller index startvärde |
-| <*Längd*> | Ja | Integer | Ett positivt antal tecken som du vill ha i delsträngen |
+| <*length*> | Ja | Integer | Ett positivt antal tecken som du vill ha i delsträngen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3492,7 +3492,7 @@ Och returnerar resultatet i valfritt ”D”-format: `"Monday, January, 1, 2018"
 
 <a name="take"></a>
 
-### <a name="take"></a>ta
+### <a name="take"></a>take
 
 Returnera objekt från början av en samling.
 

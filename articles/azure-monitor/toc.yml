@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: Aktivera för befintligt kluster
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: Regionsmappningar
+                      href: insights/container-insights-region-mapping.md
                 - name: Analysera
                   href: insights/container-insights-analyze.md
                 - name: Konfigurera inställningar för agentsamlingar

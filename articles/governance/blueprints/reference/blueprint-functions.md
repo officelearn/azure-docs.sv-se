@@ -112,9 +112,9 @@ Några exempel på hämtning av data från den _myTemplateArtifact_ exempel är:
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | ”första” |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | ”Min sträng-value” |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {”myproperty”: ”min value”, ”anotherProperty”: true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | ”Min value” |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleskt | True |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 

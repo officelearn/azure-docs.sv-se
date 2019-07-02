@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427804"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508675"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Självstudier: Returnera Azure Data Box tung och verifiera ladda upp data till Azure (förhandsversion)
 
@@ -23,13 +23,13 @@ Den här självstudien beskrivs hur du returnerar Azure Data Box tung och verifi
 I den här självstudien får du lära dig om ämnen som:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Förbereda för att skicka
 > * Leverera Data Box aktiverat till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Raderingen av data från Data Box tung
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -43,11 +43,11 @@ Innan du börjar ska du kontrollera att:
 ## <a name="ship-data-box-heavy-back"></a>Leverera Data Box tung tillbaka
 
 1. Kontrollera att enheten är avstängd och alla kablar tas bort. Buffra och på ett säkert sätt placera 4 strömkablar i facket som du kan komma åt från baksidan av enheten.
-2. Om enheten är på väg i USA eller Europa, är transportföretaget FedEx.
+2. Enheten levereras LTL frakt via FedEx i USA och DHL inom EU
 
-    1. Ring det lokala numret för ditt transportföretag, och schemalägga för upphämtningen.
-    2. Nå ut till [Box dataåtgärder](mailto:DataBoxOps@microsoft.com) att informera om för upphämtningen och för att få returetiketten.
-    3. Se till att adressetikett visas på skärmen Rensa fram på enheten.
+    1. Nå ut till [Box dataåtgärder](mailto:DataBoxOps@microsoft.com) att informera om för upphämtningen och för att få returetiketten.
+    2. Ring det lokala numret för ditt transportföretag, och schemalägga för upphämtningen.
+    3. Se till att adressetikett visas på en framträdande plats utanpå leveransen.
     4. Kontrollera att de gamla leveransetiketter från föregående leveransen har tagits bort från enheten.
 3. När Data Box-tung plockas och genomsöks av din operatör, orderstatus i portalen uppdateringar **hämtas**. Du får också ett spårnings-ID.
 
@@ -89,7 +89,7 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Förbereda för att skicka
 > * Leverera Data Box aktiverat till Microsoft
 > * Kontrollera datauppladdning till Azure

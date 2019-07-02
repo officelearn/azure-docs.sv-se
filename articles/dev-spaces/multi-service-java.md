@@ -3,19 +3,18 @@ title: Köra flera beroende tjänster med Java och VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: DrEsteban
-ms.author: stevenry
+author: zr-msft
+ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-manager: yuvalm
-ms.openlocfilehash: a5afd093e0f961d048681465850419c5e8712557
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+ms.openlocfilehash: a93bda3392962a1c35e2bb2433d285ed497075d2
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800395"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503123"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 
@@ -39,7 +38,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
     2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
     ```
 
-1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips: Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips: I statusfältet för VS Code att Stäng orange och klickbara vinsingswebbadress.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen.
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 
@@ -70,35 +69,11 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
-1. Konfigurera en brytpunkt i den `index()`-metoden för `webapi`-projektet.
+1. Konfigurera en brytpunkt i den `index()` -metoden för den `mywebapi` projektet på [rad 19 i `Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
 1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi` på raden som börjar med `try`.
 1. Tryck på F5 i `webfrontend`-projektet (eller starta om felsökningsprogrammet om det körs).
 1. Anropa webbappen och stega igenom koden i båda tjänsterna.
 1. I webbappen visar sidan ”Om” ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi” (Hej från webfrontend och hej från mywebapi).
-
-### <a name="automatic-tracing-for-http-messages"></a>Automatisk spårning av HTTP-meddelanden
-Du har kanske märkt att även om *webfrontend* inte innehåller någon särskild kod för att skriva ut HTTP-anropet till *mywebapi* så kan du se att HTTP spårar meddelanden i utdatafönstret:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --ytv-> webfrontend:8080:
-   GET /greeting?_=1544503627515 HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend --ve4-> mywebapi:
-   GET / HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend <-ve4-- mywebapi:
-   HTTP/1.1 200
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-ytv-- webfrontend:8080:
-   HTTP/1.1 200
-   Hello from webfrontend and
-   Hello from mywebapi
-```
-Detta är en av de ”extra” förmåner du får från Dev Spaces-instrumenteringen. Vi har lagt till komponenter som spårar HTTP-förfrågningar när de passerar systemet, så att det blir enklare för dig att spåra komplexa anrop till flera tjänster under utvecklingen.
 
 ### <a name="well-done"></a>Bra gjort!
 Nu har du ett program med flera containrar där varje container kan utvecklas och distribueras separat.

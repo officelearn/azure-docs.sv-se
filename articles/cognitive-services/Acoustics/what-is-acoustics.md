@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432457"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502949"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Projektet Akustik är en wave Akustik motor för 3D-interaktiva upplevelser. Wave effekter som diffraction, portaling och eko effekterna i komplexa bakgrunder modellerar utan manuell zon markup. Den innehåller också game engine och ljud mellanprogram integration. Projektet Akustik filosofin liknar statiska belysning: Skapa detaljerade fysik offline för att tillhandahålla en fysisk baslinje, och använda en enkel körning med lättfattliga design kontroller för konstnärlig ändamålet.
@@ -51,7 +51,7 @@ Plugin-program för projektet Akustik runtime kan för närvarande distribueras 
   * Xbox-binärfiler och support kontakta oss via registrera dig formuläret nedan
 
 ## <a name="contact-us"></a>Kontakta oss
-* [Projektet Akustik forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Projektet Akustik diskussion och utfärda reporting](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Registrera dig för att få uppdateringar om projektet Akustik](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Nästa steg

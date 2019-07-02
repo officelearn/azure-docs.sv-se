@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 517951be2bc99f7607facaed3c9b04260fc6d3d8
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393166"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503185"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
 
@@ -137,18 +137,27 @@ Skanna konsolens utdata för information om den offentliga webbadressen som skap
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När containern körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
+Identifiera en offentlig URL för tjänsten i utdata från den `up` kommando. Det avslutas med `.azds.io`. I exemplet ovan är en offentlig URL `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Om du vill se din webbapp öppnar du en offentlig URL i en webbläsare. Lägg också märke till `stdout` och `stderr` utdata strömmas till den *azds trace* terminalfönstret som du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden under övergången till systemet. Detta gör det enklare för dig att spåra komplexa flera tjänster anrop under utveckling. Instrumentation som läggs till av Dev blanksteg ger den här begäran spårning.
 
 > [!Note]
-> Första gången det körs kan det ta några minuter innan DNS är redo. Om en offentlig URL inte matchar, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
-> ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
-> Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
+> Utöver den offentliga URL, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. Azure Dev blanksteg används Kubernetes *port och tydlig* funktioner kan mappa localhost-port till den behållare som körs i AKS. Detta underlättar interagera med tjänsten från din lokala dator.
+
+### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
+Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna kodfilen med namnet `src/main/java/com/ms/sample/webfrontend/Application.java` och redigera välkomstmeddelandet: `return "Hello from webfrontend in Azure!";`
+1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`, och redigera hälsningsmeddelande på [rad 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. Spara filen.
 1. Kör `azds up` i terminalfönstret.
 
@@ -181,7 +190,7 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Kontrollera att arbetsytan som du öppnade i VS Code är mappen som innehåller azds.yaml.
+> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Se till att den arbetsyta som du öppnade i VS Code är den mapp som innehåller `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
@@ -189,7 +198,7 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet i VS Code innehåller en klickbar URL.
+> I statusfältet för VS Code inaktiveras orange, som anger att felsökningsprogrammet är ansluten. Den visas också en klickbara URL som du kan använda för att öppna ditt program.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +216,9 @@ public String greeting()
 }
 ```
 
-Spara filen och klicka på knappen **Uppdatera** i **fönstret Felsökningsåtgärder**.
+Spara filen och i den **Debug åtgärdsfönstret**, klickar du på den **starta om** knappen.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/01/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 836b6bb76ff608fed0f34e40fe450d593fec540a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398298"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514167"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Redundans och återaktivera skyddet av virtuella Azure-datorer mellan regioner
 
@@ -28,7 +28,7 @@ Den här självstudien beskrivs hur du växlar över en Azure-dator (VM) till en
 > Den här självstudien innehåller enklaste sökvägen med standardinställningar och minsta anpassning. För mer komplicerade scenarier kan du använda artiklar under ”hur till” för virtuella Azure-datorer.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar bör du granska [vanliga frågor och svar](site-recovery-faq.md#failover) om redundans.
 - Se till att du genomfört ett [programåterställningstest](azure-to-azure-tutorial-dr-drill.md) och kontrollerat att allt fungerar som väntat.
@@ -46,7 +46,7 @@ Den här självstudien beskrivs hur du växlar över en Azure-dator (VM) till en
    * **Senaste bearbetade**: Återställer den virtuella datorn till den senaste återställningspunkten som bearbetats av Site Recovery-tjänsten.
    * **Anpassat**: Flyttas över till en specifik återställningspunkt. Det här alternativet är användbart för att utföra test av redundansväxling.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery för att stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen misslyckas. Site Recovery inte rensa upp källan efter en redundansväxling.
+3. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery för att stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Stäng av hjälper till att säkerställa att inga data går förlorade. Redundansväxlingen fortsätter även om avstängningen misslyckas. Site Recovery inte rensa upp källan efter en redundansväxling.
 
 4. Följ redundansförloppet på sidan **Jobb**.
 

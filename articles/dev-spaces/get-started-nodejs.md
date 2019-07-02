@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 30f912e9c1573b32247bb3c2a3f7d4026436748b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392797"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503025"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -134,24 +134,27 @@ Skanna konsolens utdata för information om den offentliga webbadressen som skap
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När containern körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
+Identifiera en offentlig URL för tjänsten i utdata från den `up` kommando. Det avslutas med `.azds.io`. I exemplet ovan är en offentlig URL `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Om du vill se din webbapp öppnar du en offentlig URL i en webbläsare. Lägg också märke till `stdout` och `stderr` utdata strömmas till den *azds trace* terminalfönstret som du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden under övergången till systemet. Detta gör det enklare för dig att spåra komplexa flera tjänster anrop under utveckling. Instrumentation som läggs till av Dev blanksteg ger den här begäran spårning.
 
 > [!Note]
-> Första gången det körs kan det ta några minuter innan DNS är redo. Om en offentlig URL inte matchar, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
+> Utöver den offentliga URL, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL kan verka det som behållaren körs lokalt, men att den körs i Azure. Azure Dev blanksteg används Kubernetes *port och tydlig* funktioner kan mappa localhost-port till den behållare som körs i AKS. Detta underlättar interagera med tjänsten från din lokala dator.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Ändra till exempel sidans bakgrundsfärg till en blå nyans:
+1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Till exempel ändra sidans bakgrundsfärgen till en nyans blå [på rad 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva containern har uppdaterats.
+1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva containern har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Nu bör du se färguppdateringen som du gjorde.
 
 Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node.js-processen startas om. Ett aktivt `azds up`-kommando synkroniserar i stället automatiskt modifierade innehållsfiler direkt i den aktiva containern i Azure, så att du snabbt ser dina innehållsändringar.
@@ -161,7 +164,7 @@ Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node
 
 Du kan komma runt det här problemet genom att lägga till en `viewport`-metatagg:
 1. Öppna filen `./public/index.html`
-1. Lägg till en `viewport`-metatagg i det befintliga `head`-elementet:
+1. Lägg till en `viewport` meta-tagg i det befintliga `head` elementet som börjar [på rad 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
 
     ```html
     <head>
@@ -225,16 +228,24 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en container skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet i VS Code innehåller en klickbar URL.
+> I statusfältet för VS Code inaktiveras orange, som anger att felsökningsprogrammet är ansluten. En klickbar URL som du kan använda för att snabbt öppna webbplatsen visas också.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Lägg till en brytpunkt i en kodfil på serversidan, t.ex. i `app.get('/api'...` i `server.js`. Uppdatera sidan i webbläsaren eller tryck på knappen ”Say It Again” (Säg det igen), så kommer du till brytpunkten och kan börja stega igenom koden.
+Konfigurera en brytpunkt i en serverkod-fil, till exempel inom den `app.get('/api'...` på [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('Hello from webfrontend');
+    });
+    ```
+
+Uppdatera webbläsaren eller genom att trycka på den *Say det igen* knappen, och du ska nå brytpunkten och kan gå igenom koden.
 
 Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Redigera koden och uppdatera felsökningssessionen
-Gör en kodändring medan felsökaren är aktiv. Du kan till exempel ändra hello-meddelandet igen:
+Med felsökningsprogrammet active gör du en kod som redigera; till exempel ändra hello-meddelande på [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) igen:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -242,9 +253,9 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Spara filen och klicka på knappen **Uppdatera** i **fönstret Felsökningsåtgärder**. 
+Spara filen och i den **Debug åtgärdsfönstret**, klickar du på den **starta om** knappen. 
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+![](media/common/debug-action-refresh.png)
 
 I stället för att skapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för att snabba upp redigerings- och felsökningsförloppet.
 

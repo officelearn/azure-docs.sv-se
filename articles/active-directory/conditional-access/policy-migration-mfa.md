@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112202"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509447"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal
 
@@ -76,42 +76,32 @@ Migreringen består av följande steg:
 
    1. Om du har valt alla användare i din klassiska principen, klickar du på **alla användare**. 
 
-   ![Villkorlig åtkomst](./media/policy-migration/35.png)
+      ![Villkorlig åtkomst](./media/policy-migration/35.png)
 
    1. Om du har valt i den klassiska principen grupper klickar du på **Välj användare och grupper**, och välj sedan de nödvändiga användare och grupper.
 
-   ![Villkorlig åtkomst](./media/policy-migration/36.png)
+      ![Villkorlig åtkomst](./media/policy-migration/36.png)
 
    1. Om du har de exkluderade grupperna, klickar du på den **undanta** fliken och välj sedan de nödvändiga användare och grupper. 
 
-   ![Villkorlig åtkomst](./media/policy-migration/37.png)
+      ![Villkorlig åtkomst](./media/policy-migration/37.png)
 
 1. På den **New** sidan för att öppna den **Molnappar** sidan den **tilldelning** klickar du på **Molnappar**.
-
 1. På den **Molnappar** utför följande steg:
-
-   ![Villkorlig åtkomst](./media/policy-migration/08.png)
-
    1. Klicka på **Välj appar**.
-
    1. Klicka på **Välj**.
-
    1. På den **Välj** sidan, Välj din molnapp och klicka sedan på **Välj**.
-
    1. På den **Molnappar** klickar du på **klar**.
-
 1. Om du har **kräva multifaktorautentisering** valda:
 
    ![Villkorlig åtkomst](./media/policy-migration/26.png)
 
    1. I den **åtkomstkontroller** klickar du på **bevilja**.
 
-   ![Villkorlig åtkomst](./media/policy-migration/27.png)
+      ![Villkorlig åtkomst](./media/policy-migration/27.png)
 
    1. På den **bevilja** klickar du på **bevilja åtkomst**, och klicka sedan på **kräva multifaktorautentisering**.
-
    1. Klicka på **Välj**.
-
 1. Klicka på **på** att aktivera din princip.
 
    ![Villkorlig åtkomst](./media/policy-migration/30.png)

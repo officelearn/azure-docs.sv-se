@@ -68,7 +68,7 @@ Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
 name | Namnet på if-villkoret. | String | Ja
 type | Måste vara inställt på **IfCondition** | String | Ja
-uttryck | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
+expression | Uttryck som måste utvärderas till true eller false | Uttryck med resultat skriver booleskt värde | Ja
 ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Array | Ja
 ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Array | Ja
 

@@ -8,7 +8,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Identifiera avvikelser i dina data
+    - name: REST-API
       items:
         - name: 'Använd C#'
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Använda Python
           href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK
+      items:
+        - name: 'Använd C#'
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Använda Python
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: Självstudier
   items:
     - name: Visualisera avvikelser som en batch med hjälp av Power BI

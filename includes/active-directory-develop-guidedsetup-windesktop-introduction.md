@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 301abe95b245603e5414eef84ce74cdc8de01d19
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66482451"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509928"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -28,7 +28,7 @@ Den här guiden visar hur ett internt program för Windows Desktop .NET (XAML) a
 När du har slutfört guiden för kommer ditt program att kunna anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också använda arbets- och skolkonton från alla företag eller organisation som använder Azure Active Directory.  
 
 > [!NOTE]
-> Guiden kräver Visual Studio 2015 Update 3 eller Visual Studio 2019. Inte har något av dessa versioner? [Ladda ned Visual Studio 2019 kostnadsfritt](https://www.visualstudio.com/downloads/).
+> Guiden kräver Visual Studio 2015 Update 3, Visual Studio 2017 eller Visual Studio 2019. Har inte något av dessa versioner? [Ladda ned Visual Studio 2019 kostnadsfritt](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 

@@ -121,6 +121,69 @@
         - name: Etablera dataflöde på containrar och databaser
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: SQL-frågereferens
+      items:
+        - name: Komma igång
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: Satser
+          items:
+            - name: VÄLJ
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: ORDNA EFTER
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: FÖRSKJUTNINGSGRÄNS
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: Underfråga
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: Kopplingar
+          displayName: join
+          href: sql-query-join.md
+        - name: Alias
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: Matriser och objekt
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: Nyckelord
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: Operatorer
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: Skalära uttryck
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Functions
+          items:
+            - name: Användardefinierade funktioner
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: Samlingar
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: Systemfunktioner
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: Parametriserad fråga
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ till SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: SQL-frågekörning
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Arbeta med ett Azure Cosmos-konto
       href: account-overview.md
     - name: Containrar och objekt
@@ -128,12 +191,6 @@
         - name: 'Arbeta med databaser, containrar och objekt'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: SQL-språkreferens
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: SQL-frågeexempel
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: Modelldokumentdata
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: Ansluta med Studio 3T
               href: mongodb-mongochef.md
+            - name: Ansluta med Compass
+              href: mongodb-compass.md
             - name: Ansluta med Robomongo
               href: mongodb-robomongo.md
             - name: Ansluta med Mongoose
@@ -548,9 +607,6 @@
           href: how-to-manage-indexing-policy.md
         - name: Definiera unika nycklar
           href: how-to-define-unique-keys.md
-        - name: Exempel på SQL-underfråga
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: Bästa praxis
       items:
         - name: Prestandatips
@@ -712,7 +768,9 @@
     - name: REST-resursprovider
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager-mall
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: Publiceringsinformation om emulatorn
+      href: local-emulator-release-notes.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

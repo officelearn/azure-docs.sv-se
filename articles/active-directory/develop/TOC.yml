@@ -301,6 +301,8 @@
               href: app-objects-and-service-principals.md
             - name: Hur och varför program läggs till i Azure AD
               href: active-directory-how-applications-are-added.md
+            - name: Restriktioner och begränsningar för omdirigerings-URI/svars-URL
+              href: reply-url.md
             - name: Appar för enskild klient eller flera klienter
               href: single-and-multi-tenant-apps.md
         - name: Behörigheter och samtycke

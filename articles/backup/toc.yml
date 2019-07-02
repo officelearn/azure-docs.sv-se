@@ -252,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: SAP HANA-säkerhetskopiering på virtuella Azure-datorer
+          href: backup-azure-sap-hana-database-troubleshoot.md
         - name: Systemtillstånd
           href: backup-azure-system-state-troubleshoot.md
     - name: Övervaka Azure Backup-arbetsbelastningar

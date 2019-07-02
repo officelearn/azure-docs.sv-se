@@ -22,6 +22,8 @@
       items:
         - name: Molnstyrd hantering för lokala arbetsbelastningar
           href: cloud-governed-management-for-on-premises.md
+        - name: Fyra steg för en stark identitetsgrund
+          href: four-steps.md
     - name: Azure AD Connect och Connect Health
       items:
         - name: Vad är Azure AD Connect och Connect Health?
@@ -68,6 +70,8 @@
       items:
         - name: Vad är Azure AD Connect Sync?
           href: how-to-connect-sync-whatis.md
+        - name: Azure ADSync-tjänstkonto
+          href: concept-adsync-service-account.md
         - name: Funktioner för Azure AD Connect-synkronisering
           href: how-to-connect-syncservice-features.md
         - name: Vad är tjänsthanteraren för Azure AD Connect-synkronisering?

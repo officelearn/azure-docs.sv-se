@@ -144,6 +144,13 @@
 - name: Referens
   items:
     - name: Referens för REST API
+      items:
+        - name: 'Redigera API:er'
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: API för GenerateAnswer
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: Tränings-API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faqs.md

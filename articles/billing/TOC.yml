@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: Förklaring av fakturavillkor – endast Microsoft-kundavtal
       href: billing-mca-understand-your-invoice.md
+    - name: Så här betalar du din faktura – endast Microsofts kundavtal
+      href: billing-how-to-pay-bill.md
     - name: Faktureringskonton för Microsoft-kundavtal
       href: billing-mca-overview.md
 - name: Hantera kostnader
@@ -79,7 +81,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: Programvarukostnader som inte ingår
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Användning för Betala per användning
+        - name: Användning för enskilda prenumerationer
           href: billing-understand-reserved-instance-usage.md
         - name: Användning för Enterprise
           href: billing-understand-reserved-instance-usage-ea.md

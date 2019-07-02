@@ -54,8 +54,10 @@
       href: pre-reqs.md
     - name: Nätverkstopologier för Azure SQL DB Managed Instance-migrering
       href: resource-network-topologies.md
-    - name: Kända problem
+    - name: Felsökning och kända problem
       items:
+        - name: Felsöka problem som gäller anslutning till källdatabaser
+          href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: Felsöka vanliga problem och fel
           href: known-issues-troubleshooting-dms.md
         - name: Kända problem – Onlinemigrering till Azure SQL DB

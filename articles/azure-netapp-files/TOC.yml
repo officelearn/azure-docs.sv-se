@@ -19,12 +19,20 @@
       href: azure-netapp-files-resource-limits.md
     - name: Mått för Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Prestandamått för Azure NetApp Files
-      href: azure-netapp-files-performance-benchmarks.md
+    - name: Prestanda
+      items:
+        - name: Prestandamått för Azure NetApp Files
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Saker att tänka på gällande prestanda för Azure NetApp Files
+          href: azure-netapp-files-performance-considerations.md
+        - name: Benchmark-testning för volymprestanda och mått med Azure NetApp Files
+          href: azure-netapp-files-performance-metrics-volumes.md
     - name: Kostnadsmodell för Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Riktlinjer för Azure NetApp Files-nätverksplanering
       href: azure-netapp-files-network-topologies.md
+    - name: Lösningsarkitekturer med Azure NetApp Files
+      href: azure-netapp-files-solution-architectures.md
     - name: Vanliga frågor och svar om Azure NetApp Files
       href: azure-netapp-files-faqs.md
 - name: Instruktionsguider

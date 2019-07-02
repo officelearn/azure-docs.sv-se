@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Instruktionsguider
   items:
+    - name: Skapa en träningsdatauppsättning
+      href: build-training-data-set.md
     - name: Använda containrar
       items:
         - name: Installera och köra containrar

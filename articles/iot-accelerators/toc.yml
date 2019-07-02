@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: Vad är OPC-valv
           href: overview-opc-vault.md
+        - name: Vad är OPC Publisher?
+          href: overview-opc-publisher.md
         - name: Vad är Ansluten fabrik
           href: iot-accelerators-connected-factory-features.md
     - name: Snabbstarter
@@ -153,8 +155,6 @@
           items:
             - name: Använd instrumentpanelen
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Använd OPC-utgivaren
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Konfigurera lösningsacceleratorn
               href: iot-accelerators-connected-factory-configure.md
             - name: Anpassa lösningsacceleratorn
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: Distribuera OPC-valvet från grunden
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC Publisher
+          items:
+            - name: Konfigurera OPC Publisher
+              href: howto-opc-publisher-configure.md
+            - name: Köra OPC Publisher
+              href: howto-opc-publisher-run.md
     - name: Resurser
       items:
         - name: GitHub-lagringsplats

@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: Begrepp
   items:
-    - name: Anpassade providrar
+    - name: Anpassade resursprovidrar i Azure
       href: custom-providers-overview.md
+    - name: Visa definitionsartefakt
+      href: concepts-view-definition.md
 - name: Instruktionsguider
   items:
+    - name: Anpassade resursprovidrar
+      items:
+        - name: Lägga till anpassade åtgärder i Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Lägga till anpassade resurser i Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Utgivare
       items:
         - name: Skapa portalgränssnitt
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: Referens
   items:
+    - name: Anpassade resursprovidrar
+      items:
+        - name: Skapa referens för resursproxy
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Skapa referens för resurscache
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: Regional tillgänglighet
       href: 'https://aka.ms/adregion'
+    - name: Användargenererat innehåll
+      href: user-generated-content.md
     - name: Gå med i rådgivningsgruppen för avvikelseidentifiering på Microsoft Teams
       href: 'https://aka.ms/adadvisorsjoin'
     - name: Referenslösningsarkitektur

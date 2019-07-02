@@ -106,6 +106,8 @@
       href: concept-accelerate-with-fpgas.md
     - name: ONNX- och ONNX-körning
       href: concept-onnx.md
+    - name: Övervakning av dataavvikelser
+      href: concept-data-drift.md
     - name: Säkerhet
       items:
         - name: Översikt över Enterprise Security
@@ -151,12 +153,6 @@
         - name: Utforska data
           displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
           href: how-to-explore-prepare-data.md
-        - name: Version och hantera datadefinitioner
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Ögonblicksbild av dina data
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
         - name: Hämta data från ett datalager
           displayName: blob get fileshare access storage
           href: how-to-access-data.md
@@ -178,12 +174,16 @@
           href: how-to-set-up-training-targets.md
         - name: Skapa uppskattningar i utbildning
           href: how-to-train-ml-models.md
+        - name: Använda Scikit-learn
+          href: how-to-train-scikit-learn.md
         - name: Använda TensorFlow
           href: how-to-train-tensorflow.md
         - name: Använda Keras
           href: how-to-train-keras.md
         - name: Använda PyTorch
           href: how-to-train-pytorch.md
+        - name: Använda Chainer
+          href: how-to-train-chainer.md
         - name: Justering av hyperparametrar
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -211,6 +211,8 @@
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Visa noggrannhetsmått
+          href: how-to-understand-accuracy-metrics.md
     - name: Distribuera och hantera modeller
       items:
         - name: Var och hur du distribuerar
@@ -224,6 +226,9 @@
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: Anpassad Docker-avbildning
           href: how-to-deploy-custom-docker-image.md
+        - name: Distribuera befintliga modeller
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
         - name: Felsöka
           href: how-to-troubleshoot-deployment.md
     - name: Konsumera webbtjänster
@@ -239,6 +244,8 @@
         - name: Samla in och utvärdera modelldata
           displayName: track production
           href: how-to-enable-data-collection.md
+        - name: Identifiera dataavvikelser
+          href: how-to-monitor-data-drift.md
         - name: Övervaka med Application Insights
           href: how-to-enable-app-insights.md
     - name: Skapa återanvändbara arbetsflöden

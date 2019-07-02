@@ -1,0 +1,36 @@
+- name: Dokumentation om Azure FXT Edge Filer
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure FXT Edge Filer?
+      href: fxt-overview.md
+- name: Självstudier
+  items:
+    - name: 1 – Installera maskinvaran
+      href: fxt-install.md
+    - name: 2 – Anslut nätverksportar och elkablar
+      href: fxt-network-power.md
+    - name: 3 – Ange lösenordet för maskinvaran
+      href: fxt-node-password.md
+    - name: 4 – Skapa ett kluster
+      href: fxt-cluster-create.md
+    - name: 5 – Lägg till klusternoder
+      href: fxt-add-nodes.md
+    - name: 6 – Lägg till lagringsutrymme för serverdelen och konfigurera ett virtuellt namnområde
+      href: fxt-add-storage.md
+    - name: 7 – Konfigurera klustrets nätverksinställningar
+      href: fxt-configure-network.md
+- name: Instruktionsguider
+  items:
+    - name: Montera klienter
+      href: fxt-mount-clients.md
+    - name: Övervaka maskinvaran för Azure FXT Edge Filer
+      href: fxt-monitor.md
+    - name: Stäng av en nod för maskinvaran på ett säkert sätt
+      href: fxt-power-off.md
+- name: Resurser
+  items:
+    - name: Maskinvaruspecifikationer
+      href: fxt-specs.md
+    - name: Ytterligare dokumentation
+      href: fxt-additional-doc.md

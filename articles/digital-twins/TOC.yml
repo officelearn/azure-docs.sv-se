@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: Vanliga frågemönster
           href: how-to-query-common-apis.md
+    - name: Registrera appen med äldre AAD
+      href: how-to-use-legacy-aad.md
 - name: Referens
   items:
     - name: Användardefinierade funktioner – klientbibliotek

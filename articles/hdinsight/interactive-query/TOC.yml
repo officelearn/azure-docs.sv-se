@@ -6,10 +6,15 @@
       href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Köra Apache Hive-frågor – Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: Kom igång
+- name: Självstudier
+  items:
+    - name: Analysera data med interaktiv fråga
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Begrepp
   items:
     - name: Installera HDInsight-appar
       href: ../hdinsight-apps-install-applications.md
@@ -104,9 +109,6 @@
           maintainContext: true
         - name: Analysera lagrade tweets
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Analysera flygförseningsdata
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Utöka kluster
       items:
@@ -246,9 +248,6 @@
         - name: OS-korrigering för HDInsight-kluster
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Felsöka
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -334,6 +333,11 @@
         - name: Övervaka klusterprestanda
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+- name: Gör så här för att
+  items:
+    - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel

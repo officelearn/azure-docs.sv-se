@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Installera och köra containrar
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>Skapa en datauppsättning som är optimerad för att träna en anpassad modell.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Skapa en träningsdatauppsättning
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

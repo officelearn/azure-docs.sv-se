@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Vanliga säkerhetsattribut i Azure
       href: expressroute-security-attributes.md
+    - name: Utforma för hög tillgänglighet
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Utforma för haveriberedskap
+      items:
+        - name: Privat peering
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Instruktionsguider
   items:
     - name: Skapa och ändra en krets

@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure FXT Edge Filer
+metadata:
+  title: Dokumentation om Azure FXT Edge Filer
+  description: Använda Azure FXT Edge Filer som cachelagringslager för läsintensiva uppgifter med databehandling med höga prestanda
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: v-erkell
+abstract:
+  description: 'Azure FXT Edge Filers hybridlagringscache är ett hybridsystem med maskin-och programvara som förbättrar dataåtkomsten för filbaserade, läsintensiva och högpresterande arbetsflöden för databehandling (HPC). Ett kluster med tre eller fler Azure FXT Edge Filer-enheter kan förbättra lagringsprestanda för lokala NAS-system (NetApp eller Dell EMC Isilon), molnlagring eller en kombination av lösningar.'
+sections:
+  - title: Stegvisa självstudier
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Installera maskinvara för Azure FXT Edge Filer</a>
+          - html: <a href="fxt-network-power">Skapa nätverksanslutningar för Azure FXT Edge Filer</a>
+          - html: <a href="fxt-node-password">Ange rotlösenord för maskinvarunoderna</a>
+          - html: <a href="fxt-cluster-create">Skapa klustret för hybridcachelagring</a>
+          - html: <a href="fxt-add-nodes">Lägga till klusternoder</a>
+          - html: <a href="fxt-add-storage">Lägga till lagringsutrymme för serverdelen och konfigurera ett virtuellt namnområde</a>
+          - html: <a href="fxt-configure-network">Konfigurera klustrets nätverksinställningar</a>
+  - title: Instruktionsguider
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">Ansluta klienter till Azure FXT Edge Filer-klustret</a>
+          - html: <a href="fxt-monitor">Övervaka Azure FXT Edge Filer</a>
+          - html: <a href="fxt-power-off">Stänga av en nod för maskinvara på ett säkert sätt</a>
+  - title: Resurser
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Maskinvaruspecifikationer</a>
+          - html: <a href="fxt-additional-doc">Ytterligare dokumentation</a>

@@ -62,12 +62,20 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: 'SDK:er'
       items:
-        - name: .NET SDK-referens
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: NuGet-paket
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: .NET SDK-referens
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: NuGet-paket
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Python
+          items:
+            - name: Pypi-paket
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Resurser
   items:
+    - name: Felsökning
+      href: troubleshooting.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Efterlevnad

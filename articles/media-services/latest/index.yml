@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Den här självstudien laddar upp en lokal videofil, kodar filen och strömmar det kodade innehållet.<p/>'
+          - html: '<p>Den här självstudien laddar upp en lokal videofil, kodar filen och strömmar det kodade innehållet.<p/>'
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Koda uppladdade filer och strömma video
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Den här självstudien förklarar hur du konfigurerar en live-händelse. Den visar även hur du använder .NET för att skapa en genomströmningstyp av en live-händelse.</p>
+          - html: <p>Den här självstudien förklarar hur du konfigurerar en live-händelse. Den visar även hur du skapar en strömningstyp för en live-händelse.</p>
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Sända direkt
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Den här självstudien visar hur du analyserar videor med Azure Media Services-API.</p>
+          - html: <p>Den här självstudien visar hur du analyserar videor med Azure Media Services-API.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Analysera din video
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med AES-128.</p>'
+          - html: '<p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med AES-128.</p>'
             href: /azure/media-services/latest/protect-with-aes128
             title: Kryptera dynamiskt med AES-128
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med multi-DRM (PlayReady, Widevine och FairPlay).</p>'
+          - html: '<p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med multi-DRM (PlayReady, Widevine och FairPlay).</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Kryptera dynamiskt med multi-DRM
-          - image:
-              src: media/index/rest.svg
-            html: <p>Den här självstudien visar hur du kodar en fjärrfil baserat på URL och strömmar videon.</p>
+          - html: <p>Den här självstudien visar hur du kodar en fjärrfil baserat på URL och strömmar videon.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Koda fjärrfiler och strömma videor
   - title: Exempel

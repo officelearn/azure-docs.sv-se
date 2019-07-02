@@ -548,8 +548,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Rensa SSISDB-loggar med Elastic Database-jobb
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: Körning av felsökningspaket i Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Skapa utlösare
       items:
         - name: Skapa en händelsebaserad utlösare
@@ -572,6 +570,12 @@
           href: solution-template-delta-copy-with-control-table.md
         - name: Transformera data med Databricks
           href: solution-template-databricks-notebook.md
+    - name: Felsökningsguide
+      items:
+        - name: Aktivitetsfelsökning
+          href: data-factory-troubleshoot-guide.md
+        - name: Körning av felsökningspaket i Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Referens
   items:
     - name: .NET

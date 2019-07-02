@@ -9,20 +9,20 @@
   items:
     - name: Skapa Apache Storm-topologi i HDInsight
       href: ./apache-storm-quickstart.md
-- name: Kom igång
+- name: Självstudier
   items:
-    - name: Skapa ett Apache Storm-kluster
-      href: apache-storm-tutorial-get-started-linux.md
-    - name: Installera HDInsight-appar
-      href: ../hdinsight-apps-install-applications.md
-    - name: Kapacitetsplanering
-      href: ../hdinsight-capacity-planning.md
+    - name: Använda Apache Storm för att skriva till lagring
+      href: apache-storm-write-data-lake-store.md
 - name: Begrepp
   items:
     - name: Apache Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Installera HDInsight-appar
+      href: ../hdinsight-apps-install-applications.md
+    - name: Kapacitetsplanering
+      href: ../hdinsight-capacity-planning.md
 - name: Gör så här för att
   items:
     - name: Utveckla Apache Storm-topologier
@@ -47,10 +47,6 @@
           href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
         - name: 'Event Hub och Apache Storm (C# och Java)'
           href: apache-storm-develop-csharp-event-hub-topology.md
-        - name: Azure Storage/Data Lake Storage (Java)
-          href: apache-storm-write-data-lake-store.md
-        - name: 'Event Hub, Apache HBase (Java)'
-          href: apache-storm-sensor-data-analysis.md
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap

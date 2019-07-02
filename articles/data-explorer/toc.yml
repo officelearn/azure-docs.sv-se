@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Data Explorer?
+    - name: Vad är Azure Data Explorer?
       href: data-explorer-overview.md
 - name: Snabbstarter
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Webbgränssnitt
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: Självstudier
   items:
     - name: Mata in data utan att använda kod
@@ -68,12 +66,18 @@
       items:
         - name: Skriva frågor
           href: write-queries.md
-        - name: Time Series-analys
-          href: time-series-analysis.md
-        - name: Identifiering av avvikelser och prognoser
-          href: anomaly-detection.md
-        - name: Maskininlärning
-          href: machine-learning-clustering.md
+        - name: Fråga data i Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Time Series-analys och Machine Learning
+          items:
+            - name: Time Series-analys
+              href: time-series-analysis.md
+            - name: Identifiering av avvikelser och prognoser
+              href: anomaly-detection.md
+            - name: Maskininlärning
+              href: machine-learning-clustering.md
     - name: Visualisera data
       items:
         - name: Power BI

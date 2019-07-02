@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Haveriberedskapsalternativ för Oracle
       href: oracle-disaster-recovery.md
+- name: Instruktionsguider
+  items:
+    - name: Sammankoppling av Azure och OCI – förhandsversion
+      href: configure-azure-oci-networking.md
 - name: Resurser
   items:
     - name: Azure-översikt

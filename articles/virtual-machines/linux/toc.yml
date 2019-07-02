@@ -274,13 +274,13 @@
           items:
             - name: Översikt
               href: image-builder-overview.md
-            - name: Använda CLI
+            - name: Använda Azure CLI
               href: image-builder.md
             - name: Mallreferens
               href: image-builder-json.md
-            - name: Använda med gallerier
+            - name: Skapa för avbildningsgallerier
               href: image-builder-gallery.md
-            - name: Uppdatera en avbildningsversion
+            - name: Uppdatera en befintlig avbildning
               href: image-builder-gallery-update-image-version.md
             - name: Felsöka
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'

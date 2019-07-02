@@ -19,6 +19,8 @@
     - name: Utveckla program
       expanded: true
       items:
+        - name: Använda utkast
+          href: kubernetes-draft.md
         - name: Använda Java (VS Code och CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: Skapa en intern lastbalanserare
           href: internal-lb.md
+        - name: Använda en Standard Load Balancer (förhandsversion)
+          href: load-balancer-standard.md
         - name: Använda en statisk IP-adress
           href: static-ip.md
         - name: Ingress
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: Definiera API-serverauktoriserade IP-intervall (förhandsversion)
           href: api-server-authorized-ip-ranges.md
+        - name: Kontrollera distributioner med Azure Policy (förhandsversion)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Uppdatera autentiseringsuppgifterna för tjänstens huvudnamn i klustret
           href: update-credentials.md
         - name: Begränsa och kontrollera utgående klustertrafik (förhandsversion)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Köra program med Helm
           href: kubernetes-helm.md
-        - name: Utveckla program med Draft
-          href: kubernetes-draft.md
         - name: Använda Open Service Broker för Azure
           href: integrate-azure.md
         - name: Använda API för Cosmos DB för MongoDB med OSBA

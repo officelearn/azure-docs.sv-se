@@ -267,13 +267,13 @@
           items:
             - name: Översikt
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: Använda CLI
+            - name: Använda Azure CLI
               href: image-builder.md
-            - name: Använda med gallerier
+            - name: Skapa för avbildningsgallerier
               href: image-builder-gallery.md
-            - name: Uppdatera en avbildningsversion
+            - name: Uppdatera en befintlig avbildning
               href: image-builder-gallery-update-image-version.md
-            - name: Använda skript i Azure Storage
+            - name: Lagra skript
               href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Mallreferens
               href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

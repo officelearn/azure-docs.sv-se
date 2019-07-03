@@ -18,7 +18,7 @@ ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742456"
@@ -823,7 +823,7 @@ Ska vara värd för tjänsten i Internet Information Services, skulle en utveckl
    ```
 
 ### <a name="handling-endpoint-authentication"></a>Hantering av slutpunktsautentisering
-Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory-klienten för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”: https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ”.  I det här exemplet basadressen för anspråksvärdet, https://sts.windows.net , identifierar Azure Active Directory som utfärdaren, medan relativt adressen segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, är en unik identifierare för Azure Active Directory-klient för vilket token utfärdats.  Om token har utfärdats för att komma åt Azure Active Directory Graph-webbtjänsten ska identifierare för tjänsten, 00000002-0000-0000-c000-000000000000, i värdet för den token aud anspråk.  Var och en av de program som är registrerade i en enda klient kan få samma `iss` anspråk med SCIM-begäranden.
+Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory-klienten för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”:"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  I det här exemplet basadressen för anspråksvärdet, https://sts.windows.net , identifierar Azure Active Directory som utfärdaren, medan relativt adressen segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, är en unik identifierare för Azure Active Directory-klient för vilket token utfärdats.  Om token har utfärdats för att komma åt Azure Active Directory Graph-webbtjänsten ska identifierare för tjänsten, 00000002-0000-0000-c000-000000000000, i värdet för den token aud anspråk.  Var och en av de program som är registrerade i en enda klient kan få samma `iss` anspråk med SCIM-begäranden.
 
 Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att skapa en SCIM-tjänst kan autentisera begäranden från Azure Active Directory med hjälp av Microsoft.Owin.Security.ActiveDirectory-paketet genom att följa dessa steg: 
 

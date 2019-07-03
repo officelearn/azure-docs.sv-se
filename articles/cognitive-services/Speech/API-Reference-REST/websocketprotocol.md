@@ -227,7 +227,7 @@ System.version-elementet i den `speech.config` meddelandet innehåller versionen
 
 | Fält | Beskrivning | Användning |
 |-|-|-|
-| Device.Manufacturer | Enhetstillverkaren för maskinvara | Obligatoriskt |
+| device.manufacturer | Enhetstillverkaren för maskinvara | Obligatoriskt |
 | device.model | Enhetsmodell | Obligatoriskt |
 | device.version | Enhetens programvaruversion som tillhandahålls av tillverkaren av enheten. Det här värdet anger en version av den enhet som kan spåras av tillverkaren. | Obligatoriskt |
 

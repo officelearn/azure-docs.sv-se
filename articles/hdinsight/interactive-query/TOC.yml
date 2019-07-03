@@ -24,6 +24,9 @@
       maintainContext: true
 - name: Gör så här för att
   items:
+    - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
     - name: Använda klusterlagring
       items:
         - name: Använda Azure Storage
@@ -100,6 +103,9 @@
           href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Ansluta Power BI till Apache Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
+          maintainContext: true
+        - name: Fråga Hive med PowerShell och ODBC
+          href: apache-hive-query-odbc-driver-powershell.md
           maintainContext: true
         - name: Ansluta Excel till Apache Hadoop
           href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
@@ -333,11 +339,6 @@
         - name: Övervaka klusterprestanda
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Gör så här för att
-  items:
-    - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel

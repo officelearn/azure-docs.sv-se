@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: Expandera ett privat moln
               href: expand-private-cloud.md
+            - name: Krympa ett privat moln
+              href: shrink-private-cloud.md
             - name: Mappa din Azure-prenumeration
               href: azure-subscription-mapping.md
             - name: Eskalera privilegier

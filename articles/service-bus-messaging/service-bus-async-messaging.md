@@ -52,7 +52,7 @@ Det finns flera sätt att hantera problem med meddelandet och entiteten och det 
 Service Bus innehåller ett antal åtgärder för de här problemen. I följande avsnitt beskrivs olika problemen och deras respektive åtgärder.
 
 ### <a name="throttling"></a>Begränsning
-Med Service Bus kan begränsning samverkande meddelande rate management. Varje enskild nod i Service Bus innehåller många entiteter. Var och en av dessa entiteter blir krav på systemet när det gäller processor, minne, lagring och andra aspekter. När någon av dessa fasetter identifierar användning som överskrider definierade tröskelvärden, Service Bus kan neka en viss begäran. Anroparen får en [ServerBusyException] [ ServerBusyException] och återförsök efter 10 sekunder.
+Med Service Bus kan begränsning samverkande meddelande rate management. Varje enskild nod i Service Bus innehåller många entiteter. Var och en av dessa entiteter blir krav på systemet när det gäller processor, minne, lagring och andra aspekter. När någon av dessa fasetter identifierar användning som överskrider definierade tröskelvärden, Service Bus kan neka en viss begäran. Anroparen får en [ServerBusyException][ServerBusyException] och återförsök efter 10 sekunder.
 
 Som en migrering av koden läsa felet och stoppa alla återförsök för meddelandet i minst 10 sekunder. Eftersom felet kan inträffa mellan delar av programmet för kunden, förväntas det att varje del oberoende körs logik för omprövning. Koden kan minska sannolikheten för begränsas genom att aktivera partitionering på en kö eller ämne.
 
@@ -62,7 +62,7 @@ Andra komponenter i Azure kan ibland ha problem med tjänsten. Till exempel när
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus-fel på ett enda undersystem
 Med alla program kan omständigheter orsaka en intern komponenten i Service Bus blir inkonsekventa. När Service Bus upptäcker att detta, samlar in data från program som gör det enklare att diagnostisera vad som hände. När data har samlats in startas programmet i ett försök att returnera den till ett konsekvent tillstånd. Den här processen sker ganska snabbt och resultatet i en entitet som ser ut att vara otillgänglig för upp till ett par minuter, även om de typiska stopptider är mycket kortare.
 
-I dessa fall kan klientprogrammet genererar en [System.TimeoutException] [ System.TimeoutException] eller [MessagingException] [ MessagingException] undantag. Service Bus innehåller en lösning för det här problemet i form av logik för omprövning av automatiserade klienten. När försök under perioden är slut och meddelandet skickas inte, du kan utforska med annan anges i artikeln om [hantera avbrott och katastrofer][handling outages and disasters].
+I dessa fall kan klientprogrammet genererar en [System.TimeoutException][System.TimeoutException] eller [MessagingException][MessagingException] undantag. Service Bus innehåller en lösning för det här problemet i form av logik för omprövning av automatiserade klienten. När försök under perioden är slut och meddelandet skickas inte, du kan utforska med annan anges i artikeln om [hantera avbrott och katastrofer][handling outages and disasters].
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna för asynkrona meddelanden i Service Bus, Läs mer om [hantera avbrott och katastrofer][handling outages and disasters].

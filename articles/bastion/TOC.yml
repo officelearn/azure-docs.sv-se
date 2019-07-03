@@ -22,10 +22,6 @@
           href: bastion-vm-full-screen.md
     - name: Arbeta med nätverkssäkerhetsgrupper
       href: bastion-nsg.md
-- name: Referens
-  items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/network-gateway'
 - name: Resurser
   items:
     - name: Vanliga frågor och svar om Bastion

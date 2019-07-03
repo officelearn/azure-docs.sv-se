@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 7/2/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a256a0ff5164ec9b25aea3849f20643ee3719fac
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446745"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541430"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Skapa ett Azure Cosmos DB-konto med Azure Cosmos DB:s API för MongoDB med Azure CLI
 
@@ -22,6 +22,8 @@ Det här CLI-exempelskriptet skapar ett Cosmos-konto med Azure Cosmos DB:s API f
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+
+[!NOTE] Läs mer om databasen och behållaren namngivningskonventioner i, [arbeta med databaser, behållare och objekt i Azure Cosmos DB](../databases-containers-items.md).
 
 ## <a name="sample-script"></a>Exempelskript
 

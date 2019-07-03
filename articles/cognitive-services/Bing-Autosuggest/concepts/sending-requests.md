@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449079"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542632"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skicka förfrågningar till automatiska förslag i Bing.
 
-Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du använda API för automatiska förslag för Bing till att förbättra användarnas sökupplevelse. API för automatiska förslag för Bing returnerar en lista med föreslagna frågor som baseras på den partiella frågesträngen i sökrutan. Som tecken anges i en sökruta i ditt program, kan du visa förslag i en nedrullningsbar listruta. Använd den här artikeln om du vill veta mer om att skicka förfrågningar till detta API.
+Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du använda API för automatiska förslag för Bing till att förbättra användarnas sökupplevelse. API för automatiska förslag för Bing returnerar en lista med föreslagna frågor som baseras på den partiella frågesträngen i sökrutan. Som tecken anges i en sökruta i ditt program, kan du visa förslag i en nedrullningsbar listruta. Använd den här artikeln om du vill veta mer om att skicka förfrågningar till detta API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Automatiska förslag i Bing API-slutpunkt
 
@@ -44,7 +44,7 @@ Exempel på grundläggande begäranden med hjälp av API för automatiska försl
 ## <a name="bing-autosuggest-api-requests"></a>Begäranden för automatiska förslag i Bing
 
 > [!NOTE]
-> Begäranden till API för automatiska förslag i Bing måste använda HTTPS-protokollet.
+> * Begäranden till API för automatiska förslag i Bing måste använda HTTPS-protokollet.
 
 Vi rekommenderar att alla förfrågningar kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger mer möjlighet skadliga från tredje part-åtkomst. Dessutom tillhandahåller samtal från en server en enkel uppgradering för framtida uppdateringar.
 
@@ -100,6 +100,8 @@ Följande web förslag grupp är ett svar på begäran. Gruppen innehåller en l
 Fältet `displayText` innehåller den föreslagna frågan som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.  
 
 Om användaren väljer en fråga från den nedrullningsbara listan, kan du använda den för att anropa en av de [API: er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultaten själv, eller skicka användaren till Bing resultatsidan med hjälp av den returnerade `url` fält.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

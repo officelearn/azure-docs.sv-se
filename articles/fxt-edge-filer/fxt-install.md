@@ -5,14 +5,14 @@ services: ''
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 45f4e12a06e012a06e0b2659d729fce3a191cd32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450424"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543485"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Självstudier: Install Azure FXT Edge Filer 
 
@@ -34,9 +34,7 @@ Den här självstudiekursen beskrivs dessa installationssteg:
 Innan du börjar måste du kontrollera att datacenter och rack som du använder har dessa funktioner:
 
 * En tillgänglig 1U fack på racket där du vill montera enheten.
-* AC-strömförsörjning och kylning system som uppfyller behoven hos Azure FXT Edge-Filer. 
-
-  Hjälper dig att planera och ändra storlek på installationen, läsa [kraft och termiska specifikationer](fxt-specs.md#power-and-thermal-specifications) vill veta mer om märkskylten omdömen och termiska utdata under vanliga.  
+* AC-strömförsörjning och kylning system som uppfyller behoven hos Azure FXT Edge-Filer. (Läs [kraft och termiska specifikationer](fxt-specs.md#power-and-thermal-specifications) för hjälp med att planera och ändra storlek på installationen.)  
 
   > [!NOTE] 
   > Om du vill dra full nytta av två redundant strömförsörjning (PSUs), Använd kraftfördelningsenheter på två olika gren kretsar nätström. Läs [ansluta strömkablar](fxt-network-power.md#connect-power-cables) mer information.  
@@ -156,8 +154,6 @@ Valfritt hårda montering skruvar tillhandahålls för att skydda system till ra
 
 Ett valfritt kabel hanteringsarmen (CMA) medföljer FXT Edge-Filer. Skriva ut anvisningar för att installera den finns i paketet. 
 
-<!-- need current images in electronic form from Dell - these are scans -->
-
 1. Packa upp och identifiera komponenterna i arm-kit kabel management:
    * CMA fack (1)
    * CMA (2)
@@ -168,7 +164,7 @@ Ett valfritt kabel hanteringsarmen (CMA) medföljer FXT Edge-Filer. Skriva ut an
    > [!TIP] 
    > Om du vill skydda CMA för leverans i racket loopa koppla radbryter runt både korgar och fack och cinch dem ordentligt. Skydda CMA på det här sättet kommer även skydda ditt system i instabil miljöer.
 
-   ![Bild av CMA delar](media/fxt-install/cma-parts-scan-400.png)
+   ![Bild av CMA delar](media/fxt-install/cma-kit-400.png)
 
 2. Installera CMA fack.
 
@@ -178,7 +174,7 @@ Ett valfritt kabel hanteringsarmen (CMA) medföljer FXT Edge-Filer. Skriva ut an
    1. Skicka facket fram tills det klickar på plats. (1)
    1. Ta bort facket klämma knapparna spärr versionen mot mitten och hämta systemfältet utanför mottagare hakparenteser (2).
 
-   ![Bild av CMA systemfältet installation](media/fxt-install/cma-tray-scan-400.png)
+   ![Bild av CMA systemfältet installation](media/fxt-install/cma-tray-install-400.png)
 
 3. Installera CMA bilaga hakparenteser. 
 
@@ -188,7 +184,7 @@ Ett valfritt kabel hanteringsarmen (CMA) medföljer FXT Edge-Filer. Skriva ut an
    > * För att underlätta för att montera CMA på sida motsatt strömförsörjning (sida A). Om den är monterad på sida B, måste CMA kopplas från för att ta bort den yttre strömförsörjningen. 
    > * Innan du tar bort kraften tillhandahåller alltid ta bort enheten. 
 
-   ![Bild av CMA hakparentes installation](media/fxt-install/cma-brackets-scan-400.png)
+   ![Bild av CMA hakparentes installation](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Välj den lämpliga CMA bilaga parentesen för den sida där du vill montera CMA (sida B eller sida A).
    1. Installera CMA bilaga hakparentes med motsvarande sida-A- eller sida B märkning på baksidan bild rail.
@@ -200,11 +196,11 @@ Ett valfritt kabel hanteringsarmen (CMA) medföljer FXT Edge-Filer. Skriva ut an
    1. Anpassa andra spärr i slutet av den yttersta hakparentesen förrän låset som engagerar (2). 
    1. Ta bort CMA genom att koppla ur båda Lås genom att trycka på knapparna CMA versionen överst i inre och yttre spärr höljen (3).
 
-   ![Illustration av den huvudsakliga CMA installation](media/fxt-install/cma-install-scan-400.png)
+   ![Illustration av den huvudsakliga CMA installation](media/fxt-install/cma-install-400.png)
 
    CMA kan roteras bort från systemet för åtkomst och tjänsten. Slutet upphängd lyft CMA bort från enheten om du vill ta bort det (1). När det är unseated från fack svänga CMA bort från systemet (2).
 
-   ![Bild av CMA roteras öppen för tjänsten](media/fxt-install/cma-open-scan-400.png)
+   ![Bild av CMA roteras öppen för tjänsten](media/fxt-install/cma-swing-over-tray-400.png)
 
 ## <a name="install-the-front-bezel-optional"></a>Installera på klientsidan ramen (valfritt)
 
@@ -222,7 +218,7 @@ Ta bort front ram:
 1. Tryck på knappen versionen på vänster sida och dra den vänstra änden av ram från chassit.
 1. Koppla loss till höger och ta bort ram.
    
-   ![Bild som visar knappen versionen längst till vänster på ram och hur du tar bort den genom att dra ut till vänster](media/fxt-install/remove-bezel-updated-600.png)
+   ![Bild som visar knappen versionen längst till vänster på ram och hur du tar bort den genom att dra ut till vänster](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

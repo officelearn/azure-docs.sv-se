@@ -36,7 +36,7 @@ SendGrid är en [molnbaserade e-posttjänsten] som ger tillförlitliga [transakt
 * Vidarebefordran av kundfrågor
 * E-postmeddelanden från ditt program
 
-Mer information finns i [ https://sendgrid.com ] [ https://sendgrid.com].
+Mer information finns i [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 

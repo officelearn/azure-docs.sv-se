@@ -4,14 +4,14 @@ description: Så här skapar du ett cachekluster för lagring av hybrid med Azur
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1bfe8f0efce0a844263fc65df0ad927114886769
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450543"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543579"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Självstudier: Skapa Filer för Azure FXT Edge-kluster
 
@@ -34,7 +34,10 @@ Den här proceduren tar mellan 15 och 45 minuter beroende på hur mycket forskni
 
 Slutföra förutsättningarna innan du påbörjar den här självstudiekursen:
 
-* Installera minst tre Azure FXT Edge Filer maskinvarusystem i ditt datacenter 
+* Installera din Azure FXT Edge Filer maskinvarusystem i ditt datacenter 
+
+  Du behöver bara en nod för att skapa klustret, men du behöver [lägga till minst två noder](fxt-add-nodes.md) innan du kan konfigurera klustret och redo att använda. 
+
 * Anslut lämplig kraft och nätverk-kablar i systemet  
 * Starta minst en nod i Azure FXT Edge Filer och [Ställ in dess rotlösenordet](fxt-node-password.md)
 
@@ -114,7 +117,7 @@ Använd kommandot `ifconfig` att se de adresserna som tilldelats till det här s
 
 Till exempel kommandot `ifconfig | grep -B5 inet` söker efter portar med internet-adresser och ger fem rader med kontext för att visa identifieraren.
 
-Anteckna IP-adresser visas i ifconfig-rapporten. Adresser som visas i listan med portnamn som e0a eller e0b alternativen är bra. Använd inte alla IP-adresser som visas i listan med e7 * namn, eftersom dessa namn används bara för IPMI portar inte vanlig nätverksportar.  
+Anteckna IP-adresser visas i ifconfig-rapporten. Adresser som visas i listan med portnamn som e0a eller e0b alternativen är bra. Använd inte alla IP-adresser som visas i listan med e7 * namn, eftersom dessa namn används bara för iDRAC/IPMI tjänstportar.  
 
 ## <a name="load-the-cluster-configuration-wizard"></a>Läsa in guiden Konfigurera kluster
 
@@ -213,7 +216,7 @@ Inställningarna i den **Management** avsnittet avser det nätverk som tillhanda
 
 * **MTU** – om det behövs justera den högsta överföringsenheten (MTU) för hantering av klusternätverk.
 
-* **Använd 1Gb mgmt nätverk** – den här kryssrutan om du vill tilldela två 1GbE nätverket portar på dina FXT noder till hanteringsnätverket endast. Om du inte markerar kryssrutan, använder hanteringsnätverket det högsta hastighet portnummer som är tillgängliga. 
+* **Använd 1Gb mgmt nätverk** – den här kryssrutan om du vill tilldela två 1GbE nätverket portar på dina FXT noder till hanteringsnätverket endast. (Du måste ha 25GbE/10 GbE-portar som är tillgängliga för all annan trafik.) Om du inte markerar kryssrutan, använder hanteringsnätverket det högsta hastighet portnummer som är tillgängliga. 
 
 ### <a name="configure-the-cluster-network"></a>Konfigurera klusternätverket 
 
@@ -281,7 +284,7 @@ Använda Kontrollpanelen Webbgränssnitt för att ställa in det nya klustret. F
 
 Logga in på webbgränssnitt med användarnamnet `admin` och lösenordet som du anger när du skapar klustret.
 
-![webbläsaren och visar panelen inloggningen fält för kontroll](media/fxt-cluster-config/admin-login.png)
+![webbläsaren och visar panelen inloggningen fält för kontroll](media/fxt-cluster-create/admin-login.png)
 
 Kontrollpanelen öppnas och visar den **instrumentpanelen** sidan. Eftersom det är klar att skapa ett kluster, avmarkera alla varningsmeddelanden som visas.
 
@@ -289,7 +292,7 @@ Klicka på den **inställningar** fliken för att konfigurera klustret.
 
 På den **inställningar** fliken i vänster Sidopanel visas en meny med konfigurationssidor. Sidorna är ordnade efter kategori. Klicka på + eller - kontroll högst upp på kategorinamn för att visa eller dölja enskilda sidor.
 
-![Inställningsfliken i Kontrollpanelen (i webbläsaren) med klustret > Allmänt-konfigurationssidan läses in](media/fxt-cluster-config/settings-tab-populated.png)
+![Inställningsfliken i Kontrollpanelen (i webbläsaren) med klustret > Allmänt-konfigurationssidan läses in](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## <a name="cluster-setup-steps"></a>Steg för konfiguration av kluster
 
@@ -315,7 +318,7 @@ Dessa steg behövs för de flesta eller alla kluster.
 
   Läs [konfigurera namnområdet](fxt-add-storage.md#configure-the-namespace) mer information. Det här steget omfattar:
   * Skapa vservers
-  * Konfigurera vägkorsningar mellan den klienten nätverkslagring vy och serverdelen 
+  * Konfigurera vägkorsningar mellan nätverk-klienten visar och backend-lagring 
   * Definiera vilka klient-IP hanteras adresser av varje vserver
 
   > [!Note] 
@@ -370,7 +373,7 @@ Följ dessa steg för att konfigurera stöd för överföringar.
 
 1. Navigera till den **kluster** > **Support** inställningssidan. Godkänn sekretesspolicyn. 
 
-   ![Skärmbild som visar på Kontrollpanelen och popup-fönster med bekräfta-knappen för att acceptera sekretesspolicy](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Skärmbild som visar på Kontrollpanelen och popup-fönster med bekräfta-knappen för att acceptera sekretesspolicy](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Klicka på triangeln till vänster om **kundinformation** att expandera avsnittet.
 1. Klicka på den **Revalidate överföringsinformation** knappen.
@@ -378,17 +381,17 @@ Följ dessa steg för att konfigurera stöd för överföringar.
 1. Markera kryssrutorna för **statistik övervakning**, **allmän Information överför**, och **krascha ladda upp Information**.
 1. Klicka på **Skicka**.  
 
-   ![Skärmbild som innehåller slutfört kunden info-avsnittet i inställningssidan för support](media/fxt-cluster-config/fxt-support-info.png)
+   ![Skärmbild som innehåller slutfört kunden info-avsnittet i inställningssidan för support](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Klicka på triangeln till vänster om **skydda proaktiv Support (Service Pack)** att expandera avsnittet.
 1. Markera kryssrutan för **aktivera Service Pack-länk**.
 1. Klicka på **Skicka**.
 
-   ![Skärmbild som innehåller slutfört skydda proaktiv stöder avsnittet på inställningssidan för support](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Skärmbild som innehåller slutfört skydda proaktiv stöder avsnittet på inställningssidan för support](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 När du har skapat grundläggande klustret och accepterat sekretesspolicy, lägga till resten av noderna i klustret. 
 
 > [!div class="nextstepaction"]
-> [Lägg till noder](fxt-add-nodes.md)
+> [Lägga till klusternoder](fxt-add-nodes.md)

@@ -8,7 +8,7 @@ metadata:
   author: cherylmc
   ms.service: Bastion
   ms.topic: landing-page
-  ms.date: 06/13/2019
+  ms.date: 07/02/2019
   ms.author: cherylmc
 abstract:
   description: Lär dig hur du använder Azure Bastion för att ansluta till en virtuell dator. Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress.
@@ -33,11 +33,3 @@ sections:
           - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Ansluta till en virtuell Windows-dator</a>
           - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Ansluta till en virtuell Linux-dator</a>
           - html: <a href="/azure/bastion/bastion-faq">Läs igenom vanliga frågor och svar om Azure Bastion</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API-referens</a></p>'

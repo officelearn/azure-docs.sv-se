@@ -145,8 +145,8 @@ Använd denna cmdlet för att hämta medlemsinformation eller lista över medlem
 
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
-| Namn | Namnet på den Blockchain Service-medlemmen som du vill hämta information om. När ett namn har angetts returnerar medlemmens information. När ett namn utelämnas, returneras en lista över alla consortium medlemmar. | Nej |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Name | Namnet på den Blockchain Service-medlemmen som du vill hämta information om. När ett namn har angetts returnerar medlemmens information. När ett namn utelämnas, returneras en lista över alla consortium medlemmar. | Nej |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
@@ -174,8 +174,8 @@ Ta bort medlem blockchain med hjälp av denna cmdlet.
 
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
-| Namn | Medlemsnamn för att ta bort | Ja |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Name | Medlemsnamn för att ta bort | Ja |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account objekt hämtas från Import Web3Account | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 
@@ -196,10 +196,10 @@ Consortium administratörer kan ange **DisplayName** och **rollen** för alla me
 
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
-| Namn | Namnet på medlemmen blockchain | Ja |
+| Name | Namnet på medlemmen blockchain | Ja |
 | displayName | Nytt namn | Nej |
 | AccountAddress | Kontoadress | Nej |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account objekt hämtas från Import Web3Account | Ja |
 | Web3Client |  Web3Client objekt hämtas från New-Web3Connection| Ja |
 
@@ -223,8 +223,8 @@ Använd denna cmdlet för att bjuda in nya medlemmar till consortium.
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för medlemmen att bjuda in | Ja |
-| Roll | Rollen consortium. Värden kan vara administratör eller användare. ADMINISTRATÖREN kan en administratör för consortium. ANVÄNDAREN är medlemsroller consortium. | Ja |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Role | Rollen consortium. Värden kan vara administratör eller användare. ADMINISTRATÖREN kan en administratör för consortium. ANVÄNDAREN är medlemsroller consortium. | Ja |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account objekt hämtas från Import Web3Account | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 
@@ -243,7 +243,7 @@ Använd denna cmdlet för att hämta eller visa status för medlem consortium in
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID för medlemmen att bjuda in Azure-prenumeration. Om prenumerationen ID har angetts returnerar prenumerationen ID information om inbjudan. Om prenumerations-ID utelämnas, returnerar en lista över alla medlem inbjudningar. | Nej |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
@@ -270,7 +270,7 @@ Använd denna cmdlet för att återkalla inbjudan för medlem consortium.
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för medlemmen som ska återkalla | Ja |
-| Medlemmar | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Members | Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account objekt hämtas från Import Web3Account | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 
@@ -290,8 +290,8 @@ Använd denna cmdlet för att ange den **rollen** för en befintlig inbjudan. En
 | Parameter | Beskrivning | Obligatoriskt |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för medlemmen att bjuda in | Ja |
-| Roll | Ny consortium roll för inbjudan. Värdena kan vara **användaren** eller **ADMIN**. | Ja |
-| Medlemmar |  Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
+| Role | Ny consortium roll för inbjudan. Värdena kan vara **användaren** eller **ADMIN**. | Ja |
+| Members |  Medlemmar objekt hämtas från Import ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account objekt hämtas från Import Web3Account | Ja |
 | Web3Client | Web3Client objekt hämtas från New-Web3Connection | Ja |
 

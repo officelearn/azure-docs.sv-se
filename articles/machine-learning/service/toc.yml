@@ -197,6 +197,9 @@
         - name: Spåra experiment med MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: Visualisera experiment med TensorBoard
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: Azure-maskininlärning
       displayName: 'automl, auto ml'
       items:
@@ -304,6 +307,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: Ta bort dubblettrader
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Koppla data
+              href: ../algorithm-module-reference/join-data.md
             - name: Dela data
               href: ../algorithm-module-reference/split-data.md
             - name: Normalisera Data
@@ -352,12 +357,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: K-means-klustring
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Python-språkmoduler
+        - name: Moduler för Python och R-språk
           items:
             - name: Köra Python-skript
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Skapa Python-modell
               href: ../algorithm-module-reference/create-python-model.md
+            - name: Köra R-skript
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: Felmeddelanden och koder
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resurser

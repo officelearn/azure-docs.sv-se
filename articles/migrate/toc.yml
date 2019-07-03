@@ -42,6 +42,8 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: resources-faq.md
+    - name: Molnmigrering i Cloud Adoption Framework
+      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Resource Manager-mall

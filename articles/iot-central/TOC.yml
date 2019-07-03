@@ -62,7 +62,7 @@
         - name: Använda enhetsuppsättningar
           href: howto-use-device-sets.md
         - name: Version av enhetsmall
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Övervakning och analys
       items:
         - name: Skapa regel för telemetri
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Konfigurera instrumentpanelen för program
           href: howto-configure-homepage.md
+        - name: Använda paneler på instrumentpanelen
+          href: howto-use-tiles.md
         - name: Anpassa användargränssnitt i program
           href: howto-customize-ui.md
         - name: Använda programmallar

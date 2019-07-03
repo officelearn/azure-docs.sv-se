@@ -7,7 +7,7 @@
 - name: Snabbstarter
   expaned: true
   items:
-    - name: Träna modellen och extrahera data
+    - name: Träna en anpassad modell och extrahera data
       items:
         - name: Använda REST API
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: Använda en inbyggd kvittomodell
+      items:
+        - name: Använda REST API
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: Instruktionsguider
   items:
     - name: Skapa en träningsdatauppsättning

@@ -1,6 +1,6 @@
 - name: Översikt
   items:
-    - name: Kom igång
+    - name: Komma igång
       href: get-started.md
     - name: Certifieringar
       href: sap-certifications.md
@@ -168,6 +168,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans
               href: high-availability-guide-rhel.md
+            - name: Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans med Azure NetApp Files
+              href: high-availability-guide-rhel-netapp-files.md
         - name: Förberedelse av Azure-infrastruktur
           items:
             - name: Windows med delad disk för (A)SCS-instans
@@ -194,6 +196,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: Hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
               href: high-availability-guide-rhel.md
+            - name: Red Hat Enterprise Linux med NFS för (A)SCS-instans med Azure NetApp Files
+              href: high-availability-guide-rhel-netapp-files.md
         - name: SAP – flera säkerhetsidentifierare
           items:
             - name: Windows med delad disk för (A)SCS-instans

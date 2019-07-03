@@ -460,10 +460,12 @@
               href: tutorial-query-graph.md
         - name: Instruktionsguider
           items:
-            - name: Importera diagramdata
-              href: bulk-executor-graph-dotnet.md
+            - name: Diagramdatamodellering
+              href: graph-modeling.md
             - name: Partitionering av diagramdata
               href: graph-partitioning.md
+            - name: Importera diagramdata
+              href: bulk-executor-graph-dotnet.md
             - name: Optimera Gremlin-frågor
               href: graph-execution-profile.md
             - name: Lagra och hantera Spring Data

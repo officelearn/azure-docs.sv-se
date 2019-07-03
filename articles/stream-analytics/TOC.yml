@@ -36,6 +36,8 @@
   items:
     - name: Välja en strömningsanalysteknik
       href: streaming-technologies.md
+    - name: Välja ett jobbutvecklingsverktyg
+      href: feature-comparison.md
     - name: Indatatyper för ett jobb
       items:
         - name: Översikt över indata

@@ -93,6 +93,8 @@
       items:
         - name: Översikt över ACR-uppgifter
           href: container-registry-tasks-overview.md
+        - name: Schemalagda uppgifter
+          href: container-registry-tasks-scheduled.md
         - name: Uppgifter i flera steg
           href: container-registry-tasks-multi-step.md
         - name: Använda med hanterad identitet

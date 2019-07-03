@@ -221,8 +221,8 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
 
     | Värde | Beskrivning
     |-------|-------------
-    | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
-    | \<Ethereum kontoadress\> | Ethereum kontoadress som skapats i transaktionen standardnoden
+    | \<alpha node public key\> | Offentlig nyckel för noden alpha
+    | \<Ethereum account address\> | Ethereum kontoadress som skapats i transaktionen standardnoden
 
     I det här exemplet är det första värdet i den **storeData** värdet är inställt på 42.
 
@@ -392,8 +392,8 @@ Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor
 
     | Värde | Beskrivning
     |-------|-------------
-    | \<Alpha noden offentlig nyckel\> | Offentlig nyckel för noden alpha
-    | \<Ethereum kontoadress\> | Ethereum kontoadress har skapats i transaktionen standardnoden.
+    | \<alpha node public key\> | Offentlig nyckel för noden alpha
+    | \<Ethereum account address\> | Ethereum kontoadress har skapats i transaktionen standardnoden.
 
     **privateFor** definierar noderna som transaktionen är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare.
 

@@ -42,10 +42,10 @@ En blockchain-program innehåller configuration metadata, arbetsflöden och anv�
 | Fält | Beskrivning | Obligatoriskt |
 |-------|-------------|:--------:|
 | ApplicationName | Unikt programnamn. Motsvarande smarta kontrakt måste använda samma **ApplicationName** för tillämpliga avtal.  | Ja |
-| displayName | Eget namn för programmet. | Ja |
-| Beskrivning | Beskrivning av programmet. | Nej |
+| DisplayName | Eget namn för programmet. | Ja |
+| Description | Beskrivning av programmet. | Nej |
 | ApplicationRoles | Insamling av [ApplicationRoles](#application-roles). Användarroller som kan fungera eller delta i programmet.  | Ja |
-| Arbetsflöden | Insamling av [arbetsflöden](#workflows). Varje arbetsflöde fungerar som en tillståndsdator att styra flödet av affärslogik. | Ja |
+| Workflows | Insamling av [arbetsflöden](#workflows). Varje arbetsflöde fungerar som en tillståndsdator att styra flödet av affärslogik. | Ja |
 
 Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 

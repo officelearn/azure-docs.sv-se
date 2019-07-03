@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797527"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540301"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > - Sök efter kommandoradsargument
 > - Skapa och kör appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Hämta en kostnadsfri kopia av plattformsoberoende [Visual Studio Code](https://code.visualstudio.com/download) redigeraren.
 - Ladda ned och installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -227,6 +227,14 @@ Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande me
    ```
 
 2. Spara filen.
+
+Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande som innehåller binära data, rekommenderar vi att du Base64-koda meddelandet.
+
+Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange valfri positivt tal för meddelandet time to live. Om du vill lägga till ett meddelande som inte upphör att gälla, använda `Timespan.FromSeconds(-1)` i anrop till **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Ut meddelanden ur kön
 

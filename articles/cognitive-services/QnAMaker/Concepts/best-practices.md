@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c796114d124c64ac1c373baacabe00c7dcd70aa7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd4f85822a5e6615e7ea6e31b4231c04c9d4e88c
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447637"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542856"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 
@@ -97,7 +97,7 @@ Kontrollera att du gör på bästa sätt rangordning-funktioner som har stöd f�
 
 ### <a name="choosing-a-threshold"></a>Välja ett tröskelvärde
 
-Standard [förtroendepoäng](confidence-score.md#) som används som ett tröskelvärde är 50, men du kan [ändra tröskelvärdet](confidence-score.md#set-threshold) för din Kunskapsbas utifrån dina behov. Eftersom varje KB skiljer sig, bör du testa och välj tröskelvärde som passar bäst för din Kunskapsbas. 
+Standard [förtroendepoäng](confidence-score.md) som används som ett tröskelvärde är 50, men du kan [ändra tröskelvärdet](confidence-score.md#set-threshold) för din Kunskapsbas utifrån dina behov. Eftersom varje KB skiljer sig, bör du testa och välj tröskelvärde som passar bäst för din Kunskapsbas. 
 
 ### <a name="choosing-ranker-type"></a>Välja rankningen typ
 Som standard söker QnA Maker genom frågor och svar. Om du vill söka igenom frågor endast kan använda för att generera ett svar på `RankerType=QuestionOnly` i själva POST GenerateAnswer begäran.

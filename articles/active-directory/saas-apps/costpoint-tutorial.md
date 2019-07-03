@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ebc5d1d7cac78066fa4e6028b1921211cb05bf5
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144643"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536845"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Självstudier: Integrera Costpoint med Azure Active Directory
 
@@ -33,7 +33,7 @@ I de här självstudierna lär du dig att integrera Costpoint med Azure Active D
 
 Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -78,14 +78,18 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** avsnittet programmet är förkonfigurerad och nödvändiga URL: er är redan ifyllda på förhand med Azure. Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen och utföra följande steg:
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    a. Klicka på **Ange ytterligare URL:er**.
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<CostpointURI>`
 
-    b. I den **Vidarebefordransstatus** textrutan anger du ett värde med hjälp av följande mönster:`<SYSTEM VALUE>`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<CostpointURI>/LoginServlet.cps`
+
+    c. Klicka på **Ange ytterligare URL:er**.
+
+    d. I den **Vidarebefordransstatus** textrutan anger du ett värde med hjälp av följande mönster:`<SYSTEM VALUE>`
 
     > [!NOTE]
-    > Vidarebefordransstatus-värdet är inte verkliga. Uppdatera det här värdet med den faktiska vidarebefordransstatusen. Kontakta [Costpoint klienten supportteamet](https://www.deltek.com/about/contact-us) att hämta det här värdet.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL och Vidarebefordransstatus. Kontakta [Costpoint klienten supportteamet](https://www.deltek.com/about/contact-us) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Om du vill konfigurera programmet i **SP**-initierat läge gör du följande:
 

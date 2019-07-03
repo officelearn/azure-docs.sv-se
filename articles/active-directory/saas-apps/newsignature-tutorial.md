@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd54033f10833d2de6b33fad95cfc9affa2beff2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb6e034005902d478b94a12e2cbe44a00228735
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096140"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Självstudier: Azure Active Directory-integrering med Cloud Management Portal for Microsoft Azure
 
@@ -34,7 +34,7 @@ Integreringen av Cloud Management Portal for Microsoft Azure med Azure AD medfö
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Cloud Management Portal for Microsoft Azure behöver du följande:
 
@@ -125,7 +125,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cloud
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
     | `https://<subdomain>.newsignature.com` |
-    | `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+    | `https://<subdomain>.newsignature.com/<instancename>` |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [kundsupporten för Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) to och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

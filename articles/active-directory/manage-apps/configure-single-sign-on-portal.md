@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825020"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550473"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Självstudie: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory
 
@@ -75,10 +75,10 @@ Konfigurera domänen och URL:erna:
     | Konfigurationsuppsättning | SP-initierad | idP-initierad | Beskrivning |
     |:--|:--|:--|:--|
     | Identifierare (entitets-ID) | Krävs för vissa appar | Krävs för vissa appar | Identifierar unikt programmet som enkel inloggning har konfigurerats för. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet.|
-    | Svars-URL | Valfritt | Obligatoriskt | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). |
-    | Inloggnings-URL | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. När det är tomt används Azure AD som förlitar sig på identitetsprovider att starta enkel inloggning när en användare startar programmet.|
-    | Vidarebefordransstatus | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Värdet är vanligtvis en giltig URL för programmet. Men använder vissa program det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | Utloggnings-URL | Valfritt | Valfritt | Används för att skicka SAML-utloggning svar tillbaka till programmet.
+    | Svars-URL | Valfri | Obligatoriskt | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). |
+    | Inloggnings-URL | Obligatoriskt | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. När det är tomt används Azure AD som förlitar sig på identitetsprovider att starta enkel inloggning när en användare startar programmet.|
+    | Vidarebefordransstatus | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Värdet är vanligtvis en giltig URL för programmet. Men använder vissa program det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
+    | Utloggnings-URL | Valfri | Valfri | Används för att skicka SAML-utloggning svar tillbaka till programmet.
 
 
 2. Om du vill redigera grundalternativ för SAML-konfiguration, Välj den **redigera** ikon (en penna) i det övre högra hörnet av den **SAML grundkonfiguration** avsnittet.
@@ -138,7 +138,7 @@ Tilldela en användare eller grupp till programmet:
 
 Nästan klart.  Du måste konfigurera programmet till att använda Azure AD som en SAML-identitetsprovider som ett sista steg. 
 
-1. Rulla ned till den **konfigurera <applicationName>**  avsnittet. Den här självstudien det här avsnittet kallas **konfigurera GitHub-test**. 
+1. Rulla ned till den **konfigurera \<applicationName >** avsnittet. Den här självstudien det här avsnittet kallas **konfigurera GitHub-test**. 
 2. Kopiera värdet från varje rad i det här avsnittet. Klistra sedan in varje värde i rätt rad i den **SAML grundkonfiguration** avsnittet. Till exempel kopiera den **inloggnings-URL** värdet från den **konfigurera GitHub-test** avsnittet och klistra in den i den **inloggning på URL: en** i den **grundläggande SAML-konfiguration**  avsnittet och så vidare.
 3. När du har klistrat in alla värden i lämpliga fält, Välj **spara**.
 
@@ -147,15 +147,15 @@ Nästan klart.  Du måste konfigurera programmet till att använda Azure AD som 
 Är du redo att testa dina inställningar.  
 
 1. Öppna inställningarna för enkel inloggning för programmet. 
-2. Bläddra till den **Validera enkel inloggning med <applicationName>**  avsnittet. Den här självstudien det här avsnittet kallas **konfigurera GitHub-test**.
+2. Bläddra till den **Validera enkel inloggning med \<applicationName >** avsnittet. Den här självstudien det här avsnittet kallas **konfigurera GitHub-test**.
 3. Välj **Test**. Testningsalternativen visas.
 4. Välj **logga in som aktuell användare**. Med det här testet kan du först se om enkel inloggning fungerar för dig, administratören.
 
 Om det finns något fel visas ett felmeddelande. Utför följande steg:
 
-1. Kopiera och klistra in informationen i rutan **Hur ser felet ut?**.
+1. Kopiera och klistra in informationen i rutan **Hur ser felet ut?** .
 
-    ![Få råd om upplösning](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Få råd om lösning](media/configure-single-sign-on-portal/error-guidance.png)
 
 2. Välj **få vägledning för lösning**. Rotorsaken och råd om lösning visas.  I det här exemplet hade användaren inte tilldelats till programmet.
 

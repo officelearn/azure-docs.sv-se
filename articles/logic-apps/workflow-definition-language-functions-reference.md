@@ -90,7 +90,7 @@ Strängfunktioner fungerar endast för strängar.
 | [Ersätt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på en angiven avgränsare tecken i den ursprungliga strängen. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng som börjar med en viss delsträng. |
-| [delsträngen](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Returnera en sträng i gemener format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Returnera en sträng i versaler format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Ta bort inledande och avslutande blanksteg från en sträng och returnera den uppdaterade strängen. |
@@ -104,9 +104,9 @@ Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar,
 
 | Funktionen för samlingen | Aktivitet |
 | ------------------- | ---- |
-| [innehåller](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
 | [tom](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. |
-| [första](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
 | [skärningspunkten](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Returnerar en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. |
@@ -128,7 +128,7 @@ Fullständig referens om varje funktion finns i [lista i bokstavsordning](../log
 | --------------------------- | ---- |
 | [och](../logic-apps/workflow-definition-language-functions-reference.md#and) | Kontrollera om alla uttryck utvärderas som true. |
 | [är lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrollera om båda värdena är likvärdiga. |
-| [större](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Kontrollera om det första värdet är större än det andra värdet. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Kontrollera om det första värdet är större än det andra värdet. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Kontrollera om det första värdet är större än eller lika med det andra värdet. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Kontrollera om ett uttryck är SANT eller FALSKT. Baserat på resultatet kan returnera ett angivet värde. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Kontrollera om det första värdet är mindre än det andra värdet. |
@@ -1109,7 +1109,7 @@ Och returnerar resultatet: `"HelloWorld"`
 
 <a name="contains"></a>
 
-### <a name="contains"></a>innehåller
+### <a name="contains"></a>contains
 
 Kontrollera om en samling har ett specifikt objekt.
 Returnerar värdet true när hitta objektet, eller returnera false när hittades inte.
@@ -2026,7 +2026,7 @@ Och returnerar resultatet: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-### <a name="greater"></a>större
+### <a name="greater"></a>greater
 
 Kontrollera om det första värdet är större än det andra värdet.
 Returnerar värdet true när det första värdet är mer eller returnerar false när mindre.
@@ -3415,7 +3415,7 @@ Och returnerar resultatet: `10`
 
 <a name="substring"></a>
 
-### <a name="substring"></a>delsträngen
+### <a name="substring"></a>substring
 
 Returnera tecken från en sträng, med början från den angivna positionen eller index.
 Indexera värden start med siffran 0.

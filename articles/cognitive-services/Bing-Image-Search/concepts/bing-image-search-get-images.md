@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389417"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542770"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Hämta avbildningar från webben med sökning i Bing
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+Använd den [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) frågeparameter för url-kodade sökordet. Exempel: Om du anger *avseglingen dinghies*anger `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+
 > [!IMPORTANT]
 > * Alla begäranden måste göras från en server och inte från en klient.
 > * Om det är första gången du anropar någon av Bing search API: er omfattar inte rubrik för klient-ID. Inkludera endast klient-ID om du har tidigare kallade ett Bing-API som returnerade ett klient-ID för användaren och enheten kombination.
-> * Avbildningar måste visas i den ordning som anges i svaret.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Hämta bilder från en specifik domän
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
-
-I följande exempel visas hur du hämtar små bilder från ContosoSailing.com som Bing har identifierat den senaste veckan.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>Filtrera avbildningar
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
- > [!NOTE]
- > Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.
-
 I följande exempel visar hur du hämtar små bilder från ContosoSailing.com som Bing identifierats under den senaste veckan.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Bildsökning i Bing svarsformat
 
 Svarsmeddelandet från Bing innehåller en [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) svar som innehåller en lista med avbildningar som Cognitive Services är relevant för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) objekt i listan innehåller följande information om avbildningen: URL: en, dess storlek, dess dimensioner, dess kodningsformat, en URL till en miniatyrbild för avbildningen och den miniatyrbilden dimensioner.
+
+> [!NOTE]
+> * Avbildningar måste visas i den ordning som anges i svaret.
+> * Eftersom URL-format och parametrar kan ändras utan föregående meddelande, använder alla URL: er som – är. Du bör inte ta beroenden på URL-format eller parametrar om inget annat anges.
 
 ```json
 {

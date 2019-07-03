@@ -4,20 +4,20 @@ description: Lär dig hur du skapar ett enkelsidigt program som frågar och åte
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735353"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544068"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
-Den här självstudien vägleder dig genom processen med att skapa egna enkelsidiga webbprogram (SPA) att komma åt Azure Time Series Insights-data. 
+Den här självstudien vägleder dig genom processen med att skapa egna enkelsidiga webbprogram (SPA) att komma åt Azure Time Series Insights-data.
 
 I den här självstudiekursen lär du dig:
 
@@ -30,7 +30,7 @@ I den här självstudiekursen lär du dig:
 > * Källkoden för den här självstudien finns på [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Time Series Insights [klienten exempelapp](https://insights.timeseries.azure.com/clientsample) är värd för att visa den färdiga appen som används i den här självstudien.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Registrera dig för en [kostnadsfritt Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har ett.
 
@@ -50,54 +50,13 @@ Den här självstudien använder också data från exempelprogrammets Time Serie
 
 ## <a name="register-the-application-with-azure-ad"></a>Registrera ett program med Azure AD
 
-Innan du skapar programmet måste du registrera den med Azure AD. Registreringen ger identity-konfigurationen så att programmet kan använda OAuth-stöd för enkel inloggning. OAuth kräver SPA att använda implicita beviljandetyp. Du kan uppdatera auktoriseringen i manifestet. Ett programmanifest är en JSON-representation av programmets identitetskonfiguration.
-
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ditt Azure-prenumeration.  
-1. Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
-
-   [![Azure portal – börja med Azure AD-programregistrering](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
-
-1. I den **skapa** rutan, fyller du i de obligatoriska parametrarna.
-
-   Parameter|Beskrivning
-   ---|---
-   **Namn** | Ange ett beskrivande registrering namn.  
-   **Programtyp** | Lämna som **Web app/API**.
-   **Inloggnings-URL** | Ange URL: en för den inloggning (hemsida) av programmet. Eftersom programmet kommer senare att finnas i Azure App Service, måste du använda en URL i https:\//azurewebsites.net domän. I det här exemplet baseras namnet på registreringsnamnet.
-
-   Välj **skapa** att skapa ny programregistrering.
-
-   [![Azure portal – sidan Skapa alternativ i fönstret Azure AD application registrering](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
-
-1. Resursprogram ger REST API: er som kan använda för andra program. API: erna också är registrerade med Azure AD. API: er ger detaljerade och säker åtkomst till program genom att exponera *scope*. Eftersom programmet anropar Azure Time Series Insights API, måste du ange API och omfång. Tillstånd beviljas för API och scope vid körning. Välj **inställningar** > **nödvändiga behörigheter** > **Lägg till**.
-
-   [![Azure portal – Lägg till alternativet för att lägga till Azure AD-behörigheter](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
-
-1. I den **Lägg till API-åtkomst** väljer **1 Välj en API** att ange Azure Time Series Insights API. I den **Välj en API** fönstret i sökrutan anger **azure tid**. Välj **Azure Time Series Insights** i resultatlistan. Välj **Välj**.
-
-   [![Azure portal – sökfunktionen för att lägga till Azure AD-behörigheter](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
-
-1. Markera ett omfång för API i den **Lägg till API-åtkomst** väljer **2 Select-behörigheter**. I den **Aktivera åtkomst** väljer den **åtkomst Azure Time Series Insights-tjänsten** omfång. Välj **Välj**. Du kommer tillbaka till den **Lägg till API-åtkomst** fönstret. Välj **Done** (Klar).
-
-   [![Azure portal – ange en omfattning för att lägga till Azure AD-behörigheter](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
-
-1. I den **nödvändiga behörigheter** fönstret Azure Time Series Insights API visas nu. Du måste också ange före medgivande behörighet för programmet åtkomst till API och omfång för alla användare. Välj **bevilja**, och välj sedan **Ja**.
-
-   [![Behörigheter som krävs för Azure portal – The bevilja behörigheter alternativet för att lägga till Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
-
-1. Som vi beskrivs tidigare kan uppdatera du även applikationsmanifestet. I menyn högst upp i fönstret (”dynamiska”) till vågrät väljer du namnet på programmet för att återgå till den **registrerad app** fönstret. Välj **Manifest**, ändra den `oauth2AllowImplicitFlow` egenskap `true`, och välj sedan **spara**.
-
-   [![Azure portal – uppdatering med Azure AD-manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
-
-1. I sökvägen, väljer du namnet på programmet för att återgå till den **registrerad app** fönstret. Kopiera värdena för **startsida** och **program-ID** för ditt program. Du kan använda de här egenskaperna senare under kursen.
-
-   [![Azure portal – Kopiera URL-Adressen och program-ID-värden för ditt program](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
 ## <a name="build-and-publish-the-web-application"></a>Bygg och publicera webbappen
 
 1. Skapa en katalog för att lagra din apps projektfiler. Gå sedan till var och en av följande webbadresser. Högerklicka på den **Raw** länken i det övre högra hörnet på sidan och välj sedan **Spara som** att spara filerna i projektkatalogen.
 
-   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML och JavaScript för sidan
+   - [*index.HTML*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML och JavaScript för sidan
    - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS-formatmall
 
    > [!NOTE]
@@ -142,7 +101,7 @@ Innan du skapar programmet måste du registrera den med Azure AD. Registreringen
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. För att konfigurera appen att använda Azure AD app registrerings-ID, ändra den `clientID` och `postLogoutRedirectUri` värden som ska användas av värdena för **program-ID** och **startsida** som du kopierade i steg 9 i [ Registrera programmet med Azure AD](#register-the-application-with-azure-ad).
+   1. För att konfigurera appen att använda Azure AD app registrerings-ID, ändra den `clientID` värde som ska användas i den **program-ID** du kopierade i **steg 3** när du [registrerade programmet till Använd Azure AD](#register-the-application-with-azure-ad). Om du har skapat en **URL för utloggning** i Azure AD, ange värdet som den `postLogoutRedirectUri` värde.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -182,9 +141,9 @@ Innan du skapar programmet måste du registrera den med Azure AD. Registreringen
 
 Felkod/-villkor | Beskrivning
 ---------------------| -----------
-*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registrering saknas den **svars-URL** egenskapen. Gå till **inställningar** > **Svarswebbadresser** för din Azure AD-programregistrering. Kontrollera att den **inloggning** URL som anges i steg 3 i [registrera programmet med Azure AD](#register-the-application-with-azure-ad) finns.
-*AADSTS50011: Svaret från den url som anges i begäran matchar inte svars-URL som konfigurerats för programmet: '\<GUID för program-ID >'.* | Den `postLogoutRedirectUri` angav i steg 6 i [skapa och publicera webbapplikationen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under **inställningar** > **Svarswebbadresser** i registrering för din Azure AD-program. Se till att även ändra värdet för **mål-URL** att använda *https* per steg 5 i [skapa och publicera webbapplikationen](#build-and-publish-the-web-application).
-Webbprogrammet har lästs in, men den har en formatmängden, endast text på inloggningssidan, med en vit bakgrund. | Kontrollera att de sökvägar som beskrivs i steg 4 [skapa och publicera webbapplikationen](#build-and-publish-the-web-application) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
+*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registrering saknas den **svars-URL** egenskapen. Gå till **inställningar** > **Svarswebbadresser** för din Azure AD-programregistrering. Kontrollera att den **omdirigerings-URI** du hade kan ange i **steg 2** när du [registrerade programmet till att använda Azure AD](#register-the-application-with-azure-ad) finns.
+*AADSTS50011: Svaret från den url som anges i begäran matchar inte svars-URL som konfigurerats för programmet: '\<GUID för program-ID >'.* | Den `postLogoutRedirectUri` anges i **steg 6** i [skapa och publicera webbapplikationen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under **inställningar**  >  **Svarswebbadresser** i din Azure AD-programregistrering. Se till att även ändra värdet för **mål-URL** att använda *https* per **steg 5** i [skapa och publicera webbapplikationen](#build-and-publish-the-web-application).
+Webbprogrammet har lästs in, men den har en formatmängden, endast text på inloggningssidan, med en vit bakgrund. | Kontrollera att sökvägarna som beskrivs i **steg 4** i [skapa och publicera webbapplikationen](#build-and-publish-the-web-application) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a16e654ff92c450438ac91c590b42d22201d015
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450459"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543274"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Självstudier: Lägg till backend-lagring och konfigurera virtuella namnområdet 
 
@@ -59,7 +59,7 @@ Definiera en core-filer genom att klicka på den **skapa** knappen på den **Cor
 
 ![Klicka på knappen Skapa ovanför listan med core filter på sidan Hantera grundläggande filter](media/fxt-cluster-config/create-core-filer-button.png)
 
-Den **lägga till nya Core Filer** guiden vägleder dig genom processen att skapa en core-filer som länkar till backend-lagring. Konfigurationsguide för kluster har steg för steg-beskrivning av processen, vilket skiljer sig för NFS/NAS-lagring och för molnlagring (länkar är ovan). 
+Den **lägga till nya Core Filer** guiden vägleder dig genom processen att skapa en core-filer som länkar till backend-lagringen. Konfigurationsguide för kluster har steg för steg-beskrivning av processen, vilket skiljer sig för NFS/NAS-lagring och för molnlagring (länkar är ovan). 
 
 Underuppgifter är:
 
@@ -77,7 +77,7 @@ Underuppgifter är:
 
 * Du måste ange de cloud service och autentiseringsuppgifterna för åtkomst, bland andra parametrar för molnlagring. Mer information finns [molnbaserad tjänst och protokoll](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) i konfigurationsguiden för klustret.
 
-  ![Viktig information för filer i guiden Ny Core-Filer i molnet](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Viktig information för filer i guiden Ny Core-Filer i molnet](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   Om du redan har lagt till molnautentiseringsuppgifter för det här klustret som de visas i listan. Uppdatera och lägga till autentiseringsuppgifter i den **kluster** > **Molnautentiseringsuppgifter** inställningssidan. 
 
@@ -161,4 +161,4 @@ Läs guiden för konfiguration av kluster-artikeln [styra åtkomst till Core Fil
 Efter att lägga till och konfigurera klientinriktade namnområdet kan slutföra installationen för ditt kluster: 
 
 > [!div class="nextstepaction"]
-> [Konfigurera inställningar för klustrets](fxt-configure-network.md)
+> [Konfigurera klustrets nätverksinställningar](fxt-configure-network.md)

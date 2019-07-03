@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 970639eec8c16540d8d7653f1d8bb01e4a397080
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d84b98b4ab936bbb6978144eb2e89b5e19df7069
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450501"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543229"
 ---
 # <a name="tutorial-add-cluster-nodes"></a>Självstudier: Lägg till noder 
 
@@ -51,7 +51,7 @@ Den **FXT noder – kopplas** listan visar alla otilldelade FXT noderna (de fles
 > Om du inte hittar nod du vill ha på de **Unjoined** listan, kontrollera att den uppfyller dessa krav:
 > 
 > * Den är påslagen och har haft en [rot lösenordsändring](fxt-node-password.md).
-> * Den är ansluten till ett nätverk som du kan komma åt. Om du använder virtuella lokala nätverk måste finnas på samma VLAN som klustret.
+> * Den är ansluten till ett nätverk som du kan komma åt. Om du använder virtuella lokala nätverk, måste den vara på samma VLAN som klustret.
 > * Den kan identifieras med Bonjour-protokollet. 
 >
 >   Vissa brandväggsinställningar blockera TCP/UDP-portar som används av Bonjour, vilket förhindrar att operativsystemet FXT identifieras automatiskt noderna.

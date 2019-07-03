@@ -4,18 +4,21 @@ description: Lär dig hur du konfigurerar multimaster i dina program i Azure Cos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204790"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538089"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera multimaster i dina program som använder Azure Cosmos DB
 
-Om du vill använda funktionen flera huvudservrar i ditt program, måste du aktivera skrivningar flera regioner och konfigurera funktionen med flera värdar i Azure Cosmos DB. Skicka namnet på regionen där programmet har distribuerats till egenskapen SetCurrentLocation om du vill konfigurera flera värdar. Detta automatiskt fyller egenskapen PreferredLocations baserat på geo-närhet från platsen som har skickats in. Om en ny region senare läggs till kontot, programmet behöver inte uppdateras eller omdistribueras och identifierar automatiskt regionen närmare kommer automatisk-startsidan in det görs en regional händelse.
+När du har skapat ett konto med flera Skriv-regioner som är aktiverad, måste du göra två ändringar i din app för ConnectionPolicy för DocumentClient att aktivera funktioner för flera huvudservrar och flera värdar i Azure Cosmos DB. Ange UseMultipleWriteLocations till true och skicka namnet på regionen där programmet har distribuerats till SetCurrentLocation inom ConnectionPolicy. Detta kan du fylla i egenskapen PreferredLocations baserat på geo-närhet från platsen som har skickats in. Om en ny region senare läggs till kontot, programmet behöver inte uppdateras eller omdistribueras och identifierar automatiskt regionen närmare kommer automatisk-startsidan in det görs en regional händelse.
+
+> [!TIP]
+> Cosmos-kontona som skapats inte ursprungligen konfigurerade för multimaster kan migreras med noll stillestånd. Läs mer i [konfigurera flera-Skriv-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

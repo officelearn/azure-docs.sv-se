@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295255"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537098"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -28,7 +28,7 @@ Följande videoklipp visar hur du använder den här behållaren.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna köra LUIS-behållare, måste du ha följande: 
 
@@ -175,16 +175,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | Redigering nyckeln för LUIS-konto för den publicerade LUIS-appen.<br/>Du kan hämta din redigering nyckeln från den **användarinställningar** sida på LUIS-portalen. |
 |{AZURE_REGION} | Lämplig Azure-regionen:<br/><br/>```westus``` – USA, västra<br/>```westeurope``` –, Västra Europa<br/>```australiaeast``` – Australien, östra |
 
-Du kan använda följande CURL-kommando för att hämta publicerade paketet, och ersätt dina egna värden:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-Om detta lyckas är svaret en LUIS-paketfil. Spara filen på den lagringsplats som har angetts för den inkommande monteringen i behållaren. 
+För att hämta det publicerade paketet, finns det [API-dokumentationen här][download-published-package]. Om laddas ned är svaret en LUIS-paketfil. Spara filen på den lagringsplats som har angetts för den inkommande monteringen i behållaren. 
 
 ### <a name="export-trained-apps-package-from-api"></a>Exportera tränade app-paket från API: et
 
@@ -203,16 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | Redigering nyckeln för LUIS-konto för den publicerade LUIS-appen.<br/>Du kan hämta din redigering nyckeln från den **användarinställningar** sida på LUIS-portalen.  |
 |{AZURE_REGION} | Lämplig Azure-regionen:<br/><br/>```westus``` – USA, västra<br/>```westeurope``` –, Västra Europa<br/>```australiaeast``` – Australien, östra |
 
-Använd följande CURL-kommando för att hämta tränade paketet:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-Om detta lyckas är svaret en LUIS-paketfil. Spara filen på den lagringsplats som har angetts för den inkommande monteringen i behållaren. 
+Om du vill hämta tränade paketet finns i den [API-dokumentationen här][download-trained-package]. Om laddas ned är svaret en LUIS-paketfil. Spara filen på den lagringsplats som har angetts för den inkommande monteringen i behållaren. 
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med `docker run`
 
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* Det här exemplet används katalogen av den `c:` enhet för att undvika eventuella behörighetskonflikter på Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
+* Det här exemplet används katalogen av den `C:` enhet för att undvika eventuella behörighetskonflikter på Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
 * Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 * Om du använder ett annat operativsystem, Använd rätt konsolen/terminal, mappen syntax för monterar och tecknet för fortsättning för ditt system. De här exemplen antar vi att en Windows-konsolen med en fortsättning tecknet `^`. Eftersom behållaren är en Linux-operativsystem, använder target montera en Linux-style mappen syntax.
-
-
 
 Det här kommandot:
 
@@ -324,7 +304,6 @@ Välj din app från LUIS-portalen och välj sedan **importera endpoint loggarna*
 
 När loggen har överförts [granska slutpunkten](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) yttranden i LUIS-portalen.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ Du kan använda en LUIS-programmet om det **omfattar inte** någon av följande 
 
 Konfigurationer som inte stöds|Information|
 |--|--|
-|Kulturer som stöds inte behållare| Nederländska (nl-NL)<br>Japanese (ja-JP)<br>Tyska stöds endast med den [1.0.1 tokenizer eller senare](luis-language-support.md#custom-tokenizer-versions).|
+|Kulturer som stöds inte behållare| Nederländska (nl-NL)<br>Japanese (ja-JP)<br>Tyska stöds endast med den [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Stöds inte entiteter för alla kulturer|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) fördefinierade entitet för alla kulturer|
 |Stöds inte entiteter för engelska (en-US) kultur|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) fördefinierade entiteter|
 |Tal promotor|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
@@ -390,3 +368,7 @@ I den här artikeln beskrivs begrepp och arbetsflöde för att hämta, installer
 * Granska [konfigurera behållare](luis-container-configuration.md) för konfigurationsinställningar
 * Referera till [felsökning](troubleshooting.md) att lösa problem som rör LUIS-funktioner.
 * Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

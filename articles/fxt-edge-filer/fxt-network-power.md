@@ -4,14 +4,14 @@ description: Hur du kabelanslut nätverksportar och kopplar ström för Azure FX
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 444835a94559a352bfd749cfa1cb2cd8c3a39373
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae179e8ce2a2ba772a7fb14825660e0fff9e7410
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450312"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542916"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Självstudier: Kontrollera nätverksanslutningar och ange kraften att noden Azure FXT Edge Filer
 
@@ -43,7 +43,7 @@ Identifiera de olika portarna på baksidan av din Azure FXT Edge-Filer.
 
 Den här artikeln beskriver också hur du [ansluta nätström](#connect-power-cables) för noden. 
 
-Den här artikeln beskriver också hur du ansluter till noden [serieport](#serial-port-only-when-necessary), men den seriella porten används endast för avancerad felsökning. 
+Den här artikeln beskriver också hur du ansluter till noden [serieport](#serial-port-only-when-necessary)om det behövs för specialiserad felsökning. 
 
 ### <a name="network-ports"></a>Nätverksportar 
 
@@ -75,7 +75,7 @@ Vilken typ av anslutningar till att använda systemets beror på din datacenterm
   * SFP28 typ 25GbE-kompatibla direktansluten twinaxial kabel
   * SFP28 typ 10 GbE-kompatibla direktansluten twinaxial kabel
 
-* Nätverksportar 1GbE som används för hantering av klustertrafik. Kontrollera den **använda 1Gb mgmt nätverk** när du skapar klustret (beskrivs i [konfigurera hanteringsnätverket](fxt-cluster-create.md#configure-the-management-network)). Kabelanslut portar med standard dra Cat5 eller bättre kabel enligt beskrivningen i listan stöds kablar.
+* Nätverksportar 1GbE som används för hantering av klustertrafik. Kontrollera den **använda 1Gb mgmt nätverk** när du skapar klustret om du vill skapa ett fysiskt separata nätverk för klusterkonfiguration (som beskrivs i [konfigurera hanteringsnätverket](fxt-cluster-create.md#configure-the-management-network)). Kabelanslut portar med standard dra Cat5 eller bättre kabel enligt beskrivningen i listan stöds kablar.
 
   Du kan lämna 1GbE portarna uncabled om du planerar att använda hög hastighet portar för all trafik. Som standard används inte nätverksportar 1GbE om en högre hastighet dataport är tillgänglig.  
 
@@ -115,12 +115,12 @@ Följ dessa instruktioner för att dirigera kablar via CMA:
 1. Dirigera kabel paket via de inre och yttre korgar (2) med CMA i tjänsten position.
 1. Använda förinstallerade remmar för hook och slinga början eller slutet av korgar för att skydda kablarna (3).
 1. Hamnar CMA tillbaka på rätt plats på fack (4).
-1. Använda förinstallerade status indikator kabel på baksidan av systemet och skydda kabeln genom Routning via CMA. Anslut den andra änden av kabeln till hörnet av yttre CMA korgen (5). 
+1. Installera status indikator kabel på baksidan av systemet och skydda kabeln genom Routning via CMA. Anslut den andra änden av kabeln till hörnet av yttre CMA korgen (5). 
 
    > [!CAUTION]
    > Skydda alla slack status indikator kabeln för att undvika eventuella skador från skjuter ut kablar efter routning denna kabel via CMA. 
 
-![Bild av CMA med kablar installerad](media/cma-cabling-scan-400.png)
+![Bild av CMA med kablar installerad](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
 >  Om du inte har installerat CMA använder två hook och loopa remmar i rail kit att dirigera kablar på baksidan av systemet.
@@ -129,7 +129,7 @@ Följ dessa instruktioner för att dirigera kablar via CMA:
 >  2. Paketera kablarna försiktigt, att de Rensa av system-anslutningarna till vänster och höger.
 >  3. Tråd hook och slinga remmar via tooled fack på yttre CMA hakparenteserna på båda sidor av systemet för att skydda en kabel-paket.
 > 
->     ![Kablar dirigeras utan en CMA](media/fxt-route-cables-no-cma-400.png)
+>     ![Kablar dirigeras utan en CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## <a name="about-ip-address-requirements"></a>Om IP-adresskraven
 

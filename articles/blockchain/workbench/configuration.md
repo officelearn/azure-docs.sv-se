@@ -39,7 +39,7 @@ Varje definierad arbetsflöde anger du följande:
 
 En blockchain-program innehåller configuration metadata, arbetsflöden och användaren roller som kan fungera eller delta i programmet.
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Description | Obligatoriskt |
 |-------|-------------|:--------:|
 | ApplicationName | Unikt programnamn. Motsvarande smarta kontrakt måste använda samma **ApplicationName** för tillämpliga avtal.  | Ja |
 | DisplayName | Eget namn för programmet. | Ja |
@@ -49,15 +49,15 @@ En blockchain-program innehåller configuration metadata, arbetsflöden och anv�
 
 Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 
-## <a name="workflows"></a>Arbetsflöden
+## <a name="workflows"></a>Workflows
 
 Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtgärder gör att flödet av affärslogik flytta från ett tillstånd till en annan. Ett arbetsflöde är en samling av sådana tillstånd och åtgärder. Varje arbetsflöde består av en eller flera smarta kontrakt som representerar affärslogiken i kodfiler. Ett körbart kontrakt är en instans av ett arbetsflöde.
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja | 50 |
-| displayName | Eget namn för arbetsflödet. | Ja | 255 |
-| Beskrivning | Beskrivning av arbetsflödet. | Nej | 255 |
+| DisplayName | Eget namn för arbetsflödet. | Ja | 255 |
+| Description | Beskrivning av arbetsflödet. | Nej | 255 |
 | Initierare | Insamling av [ApplicationRoles](#application-roles). Roller som är tilldelade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja | |
 | StartState | Namnet på det ursprungliga tillståndet för arbetsflödet. | Ja | |
 | Egenskaper | Insamling av [identifierare](#identifiers). Representerar data som kan läsas av kedjan eller visualiserade i en användare få verktyget. | Ja | |
@@ -71,7 +71,7 @@ Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-examp
 
 Datatyper som stöds.
 
-| Typ | Beskrivning |
+| Typ | Description |
 |-------|-------------|
 | Adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare*. |
 | matris    | Enskild nivå matris av typen heltal, bool, pengar och tid. Matriser kan vara statisk eller dynamisk. Använd **ElementType** Ange datatyp för element i matrisen. Se [exempelkonfiguration](#example-configuration-of-type-array). |
@@ -174,7 +174,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Definierar indataparametrar för en instans av ett arbetsflöde.
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Description | Obligatoriskt |
 |-------|-------------|:--------:|
 | Parametrar | Insamling av [identifierare](#identifiers) initiera ett smarta kontrakt. | Ja |
 
@@ -207,11 +207,11 @@ Definierar indataparametrar för en instans av ett arbetsflöde.
 
 Definierar funktioner som kan köras i arbetsflödet.
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja | 50 |
-| displayName | Eget namn för funktionen. | Ja | 255 |
-| Beskrivning | Beskrivning av funktionen | Nej | 255 |
+| DisplayName | Eget namn för funktionen. | Ja | 255 |
+| Description | Beskrivning av funktionen | Nej | 255 |
 | Parametrar | Insamling av [identifierare](#identifiers) motsvarar parametrarna för funktionen. | Ja | |
 
 ### <a name="functions-example"></a>Functions-exempel
@@ -255,11 +255,11 @@ Definierar funktioner som kan köras i arbetsflödet.
 
 En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett steg i den affärslogik Kontrollflöde. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja | 50 |
-| displayName | Eget namn för tillståndet. | Ja | 255 |
-| Beskrivning | Beskrivning av tillstånd. | Nej | 255 |
+| DisplayName | Eget namn för tillståndet. | Ja | 255 |
+| Description | Beskrivning av tillstånd. | Nej | 255 |
 | Värdet för procent färdigt | Ett heltalsvärde som visas i användargränssnittet för Blockchain Workbench för att visa förloppet i kontrollflödet för business logic. | Ja | |
 | stil | Visuella tips som anger om tillståndet representerar tillståndet har lyckats eller misslyckats. Det finns två giltiga värden: `Success` eller `Failure`. | Ja | |
 | Övergångar | Samling av tillgängliga [övergångar](#transitions) från det aktuella tillståndet för nästa uppsättning tillstånd. | Nej | |
@@ -324,12 +324,12 @@ En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett 
 
 Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en åtgärd på varje tillstånd, där en åtgärd kan överföra ett tillstånd till ett annat tillstånd i arbetsflödet. 
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Description | Obligatoriskt |
 |-------|-------------|:--------:|
 | AllowedRoles | Lista över roller som program tillåts för att initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
 | AllowedInstanceRoles | Lista med användarroller deltar eller anges i det smarta kontrakt som tillåts att initiera övergången. Instansroller definieras i **egenskaper** i arbetsflöden. AllowedInstanceRoles representerar en användare som deltar i en instans av ett smarta kontrakt. AllowedInstanceRoles ger dig möjlighet att begränsa att utföra en åtgärd till en användarroll i en kontrakt-instans.  Till exempel kanske du bara vill tillåta användaren som skapade kontraktet (InstanceOwner) för att kunna avsluta i stället för alla användare i rolltyp (ägare) om du har angett rollen i AllowedRoles. | Nej |
-| displayName | Övergången eget visningsnamn. | Ja |
-| Beskrivning | Beskrivning av övergången. | Nej |
+| DisplayName | Övergången eget visningsnamn. | Ja |
+| Description | Beskrivning av övergången. | Nej |
 | Funktion | Namnet på funktionen för att initiera övergången. | Ja |
 | NextStates | En samling av potentiella nästa tillstånd efter en lyckad övergång. | Ja |
 
@@ -369,10 +369,10 @@ Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en 
 
 Programroller definierar en uppsättning roller som kan tilldelas till användare som vill fungera eller delta i programmet. Programroller kan användas för att begränsa åtgärder och delta i blockchain-program och motsvarande arbetsflöden. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet för programrollen. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga rollen. Bastypen namn är reserverade. Du kan kalla en programroll med samma namn som [typ](#type)| Ja | 50 |
-| Beskrivning | Beskrivning av programrollen. | Nej | 255 |
+| Description | Beskrivning av programrollen. | Nej | 255 |
 
 ### <a name="application-roles-example"></a>Exempel på roller
 
@@ -392,11 +392,11 @@ Programroller definierar en uppsättning roller som kan tilldelas till användar
 
 Identifierare som representerar en mängd information som används för att beskriva egenskaperna för arbetsflödet, konstruktor och funktionsparametrar. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja | 50 |
-| displayName | Eget visningsnamn för egenskap eller parametern. | Ja | 255 |
-| Beskrivning | Beskrivning av den egenskapen eller parametern. | Nej | 255 |
+| DisplayName | Eget visningsnamn för egenskap eller parametern. | Ja | 255 |
+| Description | Beskrivning av den egenskapen eller parametern. | Nej | 255 |
 
 ### <a name="identifiers-example"></a>Exempel för identifierare
 

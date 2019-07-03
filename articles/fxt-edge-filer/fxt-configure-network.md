@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 6b7c3099415aed9529727a1de30cd832189db58d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36ed354304cb1c88e48088f4b36c1ad0350af0dc
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450382"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542997"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudier: Konfigurera inställningar för klustrets 
 
@@ -23,7 +23,7 @@ Du kommer att lära dig:
 
 > [!div class="checklist"]
 > * Vilka nätverksinställningar kan behöva uppdateras när du har skapat ett kluster
-> * Användningsfall för vilka FXT Edge Filer kräver en AD-server eller en DNS-server 
+> * Användningsfall för vilka Azure FXT Edge Filer kräver en AD-server eller en DNS-server 
 > * Så här konfigurerar du resursallokering DNS (RRDNS) att automatiskt klienten belastningsutjämna förfrågningar till FXT-kluster
 
 Hur lång tid det tar för att slutföra de här stegen beror på hur många konfigurationsändringar krävs i systemet:
@@ -105,7 +105,7 @@ Konfigurera din DNS-server för att hantera klientinriktade kluster-adresser som
 
 En kluster-vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klientåtkomstpunkt med A-poster och pekare som på bilden.
 
-![Klustret resursallokering DNS-diagram - detaljerad alternativtext länk följer bild](media/fxt-rrdns-diagram.png) 
+![Klustret resursallokering DNS-diagram - detaljerad alternativtext länk följer bild](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [detaljerad beskrivning](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Varje klientinriktade IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet klientens IP-adresser är namngivna vs1-klient - IP-* för tydlighetens skull, men i produktion bör du välja något kortare, som klienten *.)

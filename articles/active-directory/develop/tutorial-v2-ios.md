@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780da9359aaf645abc9b685fa9d90bbea9199759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962159"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550562"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-app
 
@@ -45,7 +45,7 @@ Mer specifikt:
 
 Det här exemplet använder Microsoft Authentication library (MSAL) för att implementera autentisering. MSAL kommer automatiskt förnya token, leverera enkel inloggning mellan andra appar på enheten och hantera konton.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - XCode version 10.x krävs för exemplet som skapas i den här guiden. Du kan hämta XCode från den [iTunes webbplats](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode hämta URL: en").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda Beroendehanteraren eller lägga till manuellt. Det finns avsnittet nedan med [mer](#add-msal). 
@@ -382,7 +382,7 @@ När du har en token via `self.accessToken`, din app kan använda det här värd
 
 | Huvud-nyckel    | value                 |
 | ------------- | --------------------- |
-| Auktorisering | Ägar < åtkomsttoken > |
+| Authorization | Ägar \<åtkomst-token > |
 
 Lägg till följande till `ViewController.swift`:
 
@@ -500,7 +500,7 @@ Passa på att öppna ett ärende i det här dokumentet eller i biblioteket MSAL 
 
 Första gången en användare loggar in på din app, uppmanas de av Microsoft identity samtycker till att de behörigheter som begärdes.  De flesta användare är kapabel att samtycka, har vissa Azure AD-klienter inaktiverat användargodkännande - att kräva att administratörer kan ge samtycke åt alla användare.  För att stödja det här scenariot måste du registrera din app omfång i Azure-portalen.
 
-## <a name="help-and-support"></a>Hjälp och support
+## <a name="help-and-support"></a>Hjälp och Support
 
 Hade problem med den här självstudien eller med Microsoft identity-plattformen? Se [hjälp och support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
 

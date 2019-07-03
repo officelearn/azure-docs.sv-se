@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe362eb90793c831fc48d6fdc5a871c12e1b560
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f897653442a3e1b2d6098b3be60c85e75ca54f9a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442762"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551480"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>Självstudier: Integrera Amazon Web Services (AWS) med Azure Active Directory
 
@@ -114,7 +114,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
     | Namn  | Källattribut  | Namnrymd |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Roll            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | ”ange ett värde mellan 900 sekunder (15 minuter) och 43 200 sekunder (12 timmar)” |  https://aws.amazon.com/SAML/Attributes |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -229,32 +229,19 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     b. I principdokumentet lägger du till nedanstående JSON.
 
-    ```
-
+    ```json
     {
-
-    "Version": "2012-10-17",
-
-    "Statement": [
-
-    {
-
-    "Effect": "Allow",
-
-    "Action": [
-
-    "iam:ListRoles"
-
-    ],
-
-    "Resource": "*"
-
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                "iam:ListRoles"
+                ],
+                "Resource": "*"
+            }
+        ]
     }
-
-    ]
-
-    }
-
     ```
 
     c. Klicka på knappen för att **granska princip** för att verifiera principen.

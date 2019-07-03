@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 41284712942b2d01510f91d5cc50d92ae3241127
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462718"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543631"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med interaktiv fråga i Azure HDInsight
 
@@ -32,7 +32,7 @@ Den här självstudien omfattar följande uppgifter:
 
 * Ett interaktivt frågekluster på HDInsight. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **Klustertyp**.
 
-* En Azure SQL-databas. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](/../sql-database/sql-database-single-database-get-started.md).
+* En Azure SQL-databas. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](/azure/sql-database/sql-database-single-database-get-started).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

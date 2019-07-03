@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: dd74b82d4edad2b0176a3724176d924c2387f6fe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450326"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542971"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Självstudier: Montera klustret
 
@@ -61,11 +61,9 @@ Det finns tre element i mount-kommandot:
 
 Kluster-sökvägen är en kombination av vserver *IP-adress* plus sökvägen till en *namnområde knutpunkt*. Knutpunkt för namnområdet är en virtuell sökväg som du angav när du [har lagts till lagringssystemet](fxt-add-storage.md#create-a-junction).
 
-Exempel: Om du använde ``/avere/files`` som sökväg för namnområdet klienterna monterar *IP-adress*: / avere/filer till deras lokala monteringspunkt. 
+Exempel: Om du använde ``/fxt/files`` som sökväg för namnområdet klienterna monterar *IP-adress*: / fxt/filer till deras lokala monteringspunkt. 
 
-<!-- to do: update screenshot to use fxt/files instead of avere/files -->
-
-![”Lägg till ny knutpunkt” dialogen med/avere/filer i sökvägsfältet namnområde](media/fxt-mount/fxt-create-junction-example.png)
+![”Lägg till ny knutpunkt” dialogen med/avere/filer i sökvägsfältet namnområde](media/fxt-mount/fxt-junction-example.png)
 
 IP-adressen är en av de IP-adresser för klientinriktade som definierats för vserver. Du kan hitta intervallet för IP-adresser på två platser i klustret på Kontrollpanelen för klientinriktade:
 

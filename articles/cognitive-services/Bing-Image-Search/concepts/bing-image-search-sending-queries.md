@@ -1,5 +1,5 @@
 ---
-title: Skicka avbildningen frågor – bildsökning i Bing
+title: Anpassa och föreslå bild sökfrågor - bildsökning i Bing
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om hur du anpassar sökfrågor som du skickar till sökning i Bing.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384406"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542749"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Skicka frågor till sökning i Bing
+# <a name="customize-and-suggest-image-search-queries"></a>Anpassa och föreslå sökfrågor för avbildning
 
-Sökning i Bing ger en upplevelse som liknar Bing.com/Images. Du kan använda den för att skicka en sökfråga till Bing och få tillbaka en lista över relevanta avbildningar.
+Använd den här artikeln om du vill lära dig hur du anpassar frågor och föreslå söktermer att skicka till sökning i Bing.
 
-## <a name="use-and-suggest-search-terms"></a>Använd och föreslå söktermer
-
-När ett sökvillkor har angetts, URL-koda termen innan du anger den [ **q** ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) frågeparameter. Exempel: Om du anger *avseglingen dinghies*anger `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Föreslå söktermer
 
 Om din app har en sökruta där sökvillkor har angetts, kan du använda den [automatiska förslag i Bing](../../bing-autosuggest/get-suggested-search-terms.md) att förbättra upplevelsen. API: et kan visa föreslagna sökvillkor i realtid. API: et returnerar föreslagna frågesträngar utifrån partiella söktermer och Cognitive Services.
 

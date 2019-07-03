@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 642fa87f8c838e10c4f18d8f4bdbab58d9501477
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 1990077e6466e08c1b6c463dafe9809b52df6d14
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502877"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537605"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med cURL
 
@@ -34,13 +34,13 @@ För att slutföra den här snabbstarten måste du ha:
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”.
+Först behöver du en uppsättning träningsdata i en Azure Storage blob. Du bör ha minst fem ifyllda former (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”. Se [skapa en datauppsättning för träning för en anpassad modell](../build-training-data-set.md) tips och alternativ för att sätta ihop dina utbildningsdata.
 
-För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra cURL-kommando som följer. Innan du kör kommandot gör dessa ändringar:
+För att träna en modell för formuläret Igenkännande med dokument i Azure blob-behållare, anropa den **träna** API genom att köra följande cURL-kommando. Innan du kör kommandot gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Klicka på nästa dialogruta och kopiera värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Ersätt `<subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
+1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Kontrollera att den **Läs** och **lista** behörigheter kontrolleras och på **skapa**. Kopiera sedan värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"

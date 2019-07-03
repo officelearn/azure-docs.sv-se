@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 6119bacee7be65588f2d9cb5becb86296fcf1559
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: b9985bfa15cf300f82a0d24400ed1167a2d3f135
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502854"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537577"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
 
@@ -34,13 +34,14 @@ För att slutföra den här snabbstarten måste du ha:
 
 ## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
 
-Först behöver du en uppsättning träningsdata i en Azure Storage blob-behållare. Du bör ha minst fem exempelformulär (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”.
+Först behöver du en uppsättning träningsdata i en Azure Storage blob-behållare. Du bör ha minst fem ifyllda former (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”. Se [skapa en datauppsättning för träning för en anpassad modell](../build-training-data-set.md) tips och alternativ för att sätta ihop dina utbildningsdata.
 
-För att träna en modell för formuläret Igenkännande med hjälp av dokument i Azure blob-behållare, anropa den **träna** API genom att köra python-kod som följer. Innan du kör koden gör dessa ändringar:
+För att träna en modell för formuläret Igenkännande med dokument i Azure blob-behållare, anropa den **träna** API genom att köra följande python-kod. Innan du kör koden gör dessa ändringar:
 
 1. Ersätt `<Endpoint>` med slutpunkts-URL för formuläret Igenkännande resursen i Azure-region där du har fått din prenumerationsnycklar.
-1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Klicka på nästa dialogruta och kopiera värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Ersätt `<Subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
+1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Om du vill hämta detta, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Kontrollera att den **Läs** och **lista** behörigheter kontrolleras och på **skapa**. Kopiera sedan värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post

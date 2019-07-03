@@ -8,25 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: b8879bcbd807f3a74938a09da0abb57a1e0eeb4d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 25cb4845de9b23b04aa25140fae88f50e77cc72c
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388830"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542793"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Skicka sökbegäranden till API:et för entitetssökning i Bing
 
-API:et för entitetsökning i Bing skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Platsresultat omfattar restauranger, hotell eller andra lokala företag. För platser kan frågan specificera namnet på det lokala företaget eller fråga efter en lista (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är turistattraktioner, tillstånd, länder/regioner, osv. 
-
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+API:et för entitetsökning i Bing skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Platsresultat omfattar restauranger, hotell eller andra lokala företag. För platser kan frågan specificera namnet på det lokala företaget eller fråga efter en lista (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är turistattraktioner, tillstånd, länder/regioner, osv.
 
 ## <a name="the-endpoint"></a>Slutpunkten
 
 För att få sökresultat för entitet och plats skickar du en GET-begäran till följande slutpunkt:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
@@ -69,6 +67,8 @@ Om det är den första gången du anropar ett Bing-API inkluderar du inte klient
 ## <a name="the-response"></a>Svaret
 
 Nedan visas svaret på den tidigare begäran. Exemplet visar också Bing-specifika svarshuvuden. Mer information om svarsobjektet finns i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

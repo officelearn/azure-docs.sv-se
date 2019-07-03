@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432857"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543863"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudier: Generera simulerade enhetsdata
 
@@ -121,9 +121,9 @@ Nu när vi har projektet att skapa, ansluta till din IoT-hubb för att komma åt
 
 1. Observera att enheter läggs till IoT-hubb och att enheterna som visas i grönt att ange dessa data som skickas via den enheten.
 
-1. Du kan visa meddelandena som skickas till hubben genom att högerklicka på valfri enhet och välja **börja övervaka D2C-meddelande**. Meddelandena visas i utdatafönstret i Visual Studio Code.
+1. Du kan visa meddelandena som skickas till hubben genom att högerklicka på valfri enhet och välja **starta inbyggda händelse slutpunkt för övervakning av**. Meddelandena visas i utdatafönstret i Visual Studio Code.
 
-1. Stoppa övervakning genom att klicka i den **Azure IoT Hub Toolkit** utdata rutan och välj **stoppa övervakning av D2C-meddelande**.
+1. Stoppa övervakning genom att klicka i den **Azure IoT Hub Toolkit** utdata rutan och välj **stoppa inbyggda händelse slutpunkt för övervakning av**.
 
 1. Låt programmet att slutföras, vilket tar några minuter.
 

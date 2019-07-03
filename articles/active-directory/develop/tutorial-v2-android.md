@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111084"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550580"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -45,7 +45,7 @@ Mer specifikt:
 
 Det här exemplet använder Microsoft Authentication library för Android (MSAL) för att implementera autentisering. MSAL kommer automatiskt förnya token, leverera enkel inloggning mellan andra appar på enheten och hantera konton.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här guidade konfigurationen använder Android Studio.
 * Android 16 eller senare krävs (19 + rekommenderas).
@@ -465,7 +465,7 @@ När vi har lyckats få en token, kan vi skicka en förfrågan till Microsoft Gr
 
 | Huvud-nyckel    | value                 |
 | ------------- | --------------------- |
-| Auktorisering | Ägar < åtkomsttoken > |
+| Authorization | Ägar \<åtkomst-token > |
 
 Lägg till följande två metoder i din app att anropa graph och uppdatera Användargränssnittet för att göra det i koden: 
 

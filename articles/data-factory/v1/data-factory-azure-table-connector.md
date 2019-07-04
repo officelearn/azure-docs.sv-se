@@ -477,7 +477,7 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 
 | OData-datatypen | .NET-typ | Information |
 | --- | --- | --- |
-| Edm.Binary |byte |En matris med byte upp till 64 KB. |
+| Edm.Binary |byte[] |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar från midnatt, 1 januari, 1601 e. kr. (C.E.), UTC. Intervallet som slutar på den 31 December 9999. |
 | Edm.Double |double |Ett 64-bitars flytande punktvärde. |

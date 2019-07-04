@@ -81,11 +81,11 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 | Egenskap | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
-| namn |Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Saknas |
+| name |Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Saknas |
 | type |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
 | structure |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Saknas |
 | typeProperties | Typegenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#Type). |Ja |Saknas |
-| extern | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. Om datauppsättningen för indata för en aktivitet inte skapas av den nuvarande pipelinen, ange den här flaggan till true. Ange den här flaggan till true för indatauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
+| external | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. Om datauppsättningen för indata för en aktivitet inte skapas av den nuvarande pipelinen, ange den här flaggan till true. Ange den här flaggan till true för indatauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
 | availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion för datauppsättningen. Varje enhet med data används och produceras av en aktivitet körs kallas för en datasektor. Om tillgängligheten för en utdatauppsättning anges för varje dag (frekvens - dag, interval - 1), produceras en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för datauppsättningar. <br/><br/>Mer information om datauppsättningen uppdelning modellen finns det [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln. |Ja |Saknas |
 | policy |Definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. <br/><br/>Mer information finns i [datauppsättning princip](#Policy) avsnittet. |Nej |Ej tillämpligt |
 
@@ -193,7 +193,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på kolumnen. |Ja |
+| name |Namnet på kolumnen. |Ja |
 | type |Datatypen för kolumnen.  |Nej |
 | culture |. NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
 | format |Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |

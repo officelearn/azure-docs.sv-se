@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: ef32fb9615d36d68da613c4cb1b443dfd928e807
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137379"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441431"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Vad är Enterprise Security Package i Azure HDInsight
 
@@ -49,7 +49,7 @@ Granska all åtkomst till klusterresurserna och data, krävs för att spåra obe
 
 Administratören kan visa och rapportera all åtkomst till HDInsight-klusterresurser och data. Administratören kan också visa och rapportera alla ändringar åtkomstkontrollprinciper som skapats i stöds av Apache Ranger-slutpunkter. 
 
-Ett HDInsight-kluster med ESP använder det välbekanta Apache Ranger-Användargränssnittet för att söka igenom granskningsloggar. På backend-servern använder Ranger [Apache Solr](http://lucene.apache.org/solr/) för att lagra och söka igenom loggar.
+Ett HDInsight-kluster med ESP använder det välbekanta Apache Ranger-Användargränssnittet för att söka igenom granskningsloggar. På backend-servern använder Ranger [Apache Solr](https://lucene.apache.org/solr/) för att lagra och söka igenom loggar.
 
 ## <a name="encryption"></a>Kryptering
 Skydda data är viktigt för att uppfylla organisationens säkerhets- och krav. Tillsammans med att begränsa åtkomsten till data från obehöriga anställda, bör du krypterar den. 

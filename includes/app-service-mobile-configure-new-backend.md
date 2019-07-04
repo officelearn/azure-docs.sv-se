@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455137"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440196"
 ---
 1. Ladda ned klienten SDK snabbstarter för följande plattformar:
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455137"
 
         4. Välj **Apptjänst** som publicerar mål, sedan klickar du på **Välj befintligt**, klicka sedan på den **publicera** knappen längst ned i fönstret.
 
-        5. Du måste logga in på Visual Studio med din Azure-prenumeration först. Välj den `Subscription`, `Resource Group`, och välj sedan namnet på din app. När du är klar klickar du på **OK**, detta distribuerar .NET server-projektet som du har lokalt till App Service-serverdelen. När distributionen är klar kommer du att omdirigeras till `http://{zumoappname}.azurewebsites.net/` i webbläsaren.
-        
-           ![Serverdelen är igång](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. Du måste logga in på Visual Studio med din Azure-prenumeration först. Välj den `Subscription`, `Resource Group`, och välj sedan namnet på din app. När du är klar klickar du på **OK**, detta distribuerar .NET server-projektet som du har lokalt till App Service-serverdelen. När distributionen är klar kommer du att omdirigeras till `http://{zumoappname}.azurewebsites.net/` i webbläsaren.                   

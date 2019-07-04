@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: ec5d99e160e739f59e2bf2ea369fe83e9900a1f1
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 4679ecda210fa78aad4315bc6602b67dd1795ce9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295301"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427979"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Ta bort ett undernät när du tar bort en Azure SQL Database-hanterad instans
 
 Den här artikeln innehåller riktlinjer för hur du manuellt ta bort ett undernät när du tar bort den senaste Azure SQL Database-hanterad instans som finns i den.
 
-SQL Database använder en [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) som innehåller den hanterade instansen har tagits bort. Det virtuella klustret varar i 12 timmar efter borttagningen instans, så att du kan snabbt skapa hanterade instanser i samma undernät. Det är kostnadsfritt för att hålla ett tomt virtuellt kluster. Det undernät som är associerade med det virtuella klustret kan inte tas bort under denna period.
+SQL Database använder en [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) som innehåller den hanterade instansen har tagits bort. Det virtuella klustret varar i 12 timmar efter borttagningen instans, så att du kan snabbt skapa hanterade instanser i samma undernät. Det är kostnadsfritt för att hålla ett tomt virtuellt kluster. Det undernät som är associerat med det virtuella klustret kan inte tas bort under denna period.
 
 Om du inte vill att vänta i 12 timmar och föredra att ta bort det virtuella klustret och dess undernät direkt, kan du göra det manuellt. Ta bort det virtuella klustret manuellt med hjälp av Azure-portalen eller virtuella kluster API.
 
@@ -41,6 +41,9 @@ När du har hittat det virtuella klustret som du vill ta bort, Välj den här re
 ![Skärmbild av Azure portal virtuella kluster instrumentpanelen med alternativet Ta bort markerade](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
 Området meddelanden i Azure portal visar bekräftelse på att det virtuella klustret har tagits bort. Det virtuella klustret bort Frigör omedelbart undernätet för återanvändning.
+
+> [!TIP]
+> Om inga hanterade instanser som visas i det virtuella klustret och du kan inte ta bort det virtuella klustret, kontrollerar du att du inte har en pågående distribution pågår. Detta inkluderar igång och avbrutna distributioner som fortfarande pågår. Granska distributioner fliken resursgruppen instansen har distribuerats till visar alla distributioner pågår. I det här fallet await för distributionen har slutförts, ta bort hanterad instans och sedan på det virtuella klustret.
 
 ## <a name="delete-virtual-cluster-by-using-the-api"></a>Ta bort virtuellt kluster med hjälp av API
 

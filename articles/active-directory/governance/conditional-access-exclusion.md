@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110402"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471844"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
@@ -36,7 +36,7 @@ Som IT-administratör kan du använda [Azure AD villkorlig åtkomst](../conditio
 
 Du kan använda ett annat exempel är [namngivna platser](../conditional-access/location-condition.md) i villkorlig åtkomst för att konfigurera en uppsättning regioner och regioner som du inte vill ge användare åtkomst till deras klientorganisationer.
 
-![Namngivna platser](./media/conditional-access-exclusion/named-locations.png)
+![Namngivna platser för villkorlig åtkomst](./media/conditional-access-exclusion/named-locations.png)
 
 Användare kan dock i vissa fall kan ha en bra anledning till att logga in från dessa blockerade länder/regioner. Användare kan till exempel resa för arbete eller personligt orsaker. I det här exemplet har principen för villkorlig åtkomst för att blockera dessa länder/regioner ett dedikerat moln säkerhetsgrupp för användare som är undantagna från principen. Användare som behöver åtkomst under resa kan lägga till sig själva till en grupp med [grupphantering för Azure AD-självbetjäning](../users-groups-roles/groups-self-service-management.md).
 
@@ -68,7 +68,7 @@ Följ stegen nedan för att skapa en ny Azure AD-grupp och en princip för villk
 
 1. Markera de användare som ska ingå i den här undantagsgrupp och klicka sedan på **skapa**.
 
-    ![Den nya gruppen rutan](./media/conditional-access-exclusion/new-group.png)
+    ![Den nya gruppen rutan i Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Skapa en princip för villkorlig åtkomst som inte omfattar gruppen
 
@@ -93,7 +93,7 @@ Nu kan du skapa en princip för villkorlig åtkomst som använder den här undan
 
 1. Fortsätt med att konfigurera principen för villkorlig åtkomst baserat på din organisations krav.
 
-    ![Välj exkluderade användare](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![Välj exkluderade användare fönstret för villkorlig åtkomst](./media/conditional-access-exclusion/select-excluded-users.png)
 
 Vi beskriver två exempel där du kan använda åtkomstgranskningar för att hantera undantag i principer för villkorlig åtkomst.
 
@@ -116,7 +116,7 @@ Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten från
 
 6. Aktivera e-postaviseringar så att användarna meddelas om start och slutförande av åtkomstgranskningen.
 
-    ![Skapa en åtkomstgranskning](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![Skapa en rutan över granska åtkomst till exempel 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exempel 2: Åtkomstgranskning för användare som kommer åt med äldre autentisering
 
@@ -134,7 +134,7 @@ Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten för 
 
 6. Aktivera e-postaviseringar så att användarna meddelas om start och slutförande av åtkomstgranskningen.
 
-    ![Skapa en åtkomstgranskning](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![Skapa en rutan över granska åtkomst till exempel 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Pro-tipset**: Om du har många undantagsgrupper och därför måste du skapa flera åtkomstgranskningar, nu har vi ett API i Microsoft Graph beta-slutpunkt som gör det möjligt att skapa och hantera dem via programmering. Kom igång genom att se den [API-referens för Azure AD-åtkomstgranskningar](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) och [exempel för att hämta Azure AD-åtkomst går igenom via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
@@ -148,11 +148,11 @@ Nu när du har allt på plats, grupp, princip för villkorlig åtkomst och åtko
 
 1. Klicka på **resultat** att se vem som har godkänts kvar på listan och som har tagits bort.
 
-    ![Åtkomstgranskningar resultat](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Åtkomstgranskningar resultat visas som har godkänts](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. Klicka sedan på **granskningsloggar** att se de åtgärder som vidtagits under den här granskningen.
 
-    ![Åtkomstgranskningar granskningsloggar](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![Åtkomstgranskningar granskningsloggar lista åtgärder](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 Som IT-administratör kan vet du att hantera undantagsgrupper i dina principer ibland är ofrånkomligt. Dock granskar underhålla dessa grupper, granska dem regelbundet av företagsägaren eller användarna själva och granskning dessa ändringar kan enklare med Azure AD åtkomst.
 

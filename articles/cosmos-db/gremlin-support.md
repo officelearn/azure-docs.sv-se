@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978939"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502731"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB stöder [Apache Tinkerpop](https://tinkerpop.apache.org) graph edge traversal språk, kallas [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
 
-Azure Cosmos DB ger dig företagsklara funktioner diagramdatabaser. Dessa funktioner innefattar global distribution, oberoende skalning av lagring och dataflöde, förutsägbara latensvärden svarstider, automatisk indexering, serviceavtal, lästillgänglighet för databaskonton i två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin kan migrera du enkelt program som är skrivna med hjälp av en annan kompatibla grafdatabas. Dessutom tack vare stöd för Gremlin, integreras Azure Cosmos DB smidigt med TinkerPop-aktiverade ramverk för analys som [Apache Spark GraphX](https://spark.apache.org/graphx/). 
-
 I den här artikeln har vi tillhandahåller en snabb genomgång av Gremlin och räkna upp de Gremlin-funktionerna som stöds av Gremlin-API.
 
-## <a name="gremlin-by-example"></a>Gremlin efter exempel
-Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  
+## <a name="compatible-client-libraries"></a>Kompatibla klientbibliotek
 
-![Exempeldatabas som visar personer, enheter och intressen](./media/gremlin-support/sample-graph.png) 
+Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
-Det här diagrammet innehåller följande brytpunktstyper (kallas etikett i Gremlin):
+| Ladda ned | source | Komma igång | Version av anslutningsappen som stöds |
+| --- | --- | --- | --- |
+| [NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med Python](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) | 3.1.0 |
+| [Gremlin-konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-dokument](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- Personer: Diagrammet innehåller tre personer, Robin, Thomas och Ben
-- Intressen: Deras intressen, i det här exemplet, Fotboll
-- Enheter: De enheter som personerna använder
-- Operativsystem: De operativsystem som enheterna körs på
-
-Vi representerar relationerna mellan dessa entiteter via följande kanttyper/etiketter:
-
-- Känner: till exempel, Thomas känner Robin
-- Intressen: Representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
-- KörOS: den bärbara datorn kör Windows-operativsystemet
-- Använder: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
-
-Vi kör några åtgärder mot det här diagrammet med [Gremlin-konsolen](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET).  Innan vi tittar på vad som stöds i Azure Cosmos DB ska vi titta på några exempel för att bekanta oss med syntaxen.
-
-Först ska vi titta på CRUD. Följande Gremlin-uttryck infogar Thomas-brytpunkten i diagrammet:
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-Därefter infogar följande Gremlin-uttryck en känner-kant mellan Thomas och Robin.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-Följande fråga returnerar person-brytpunkten i fallande ordning efter deras förnamn:
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-Där diagram verkligen kommer till sin rätt är när det gäller att svara på frågor som Vilka operativsystem använder Thomas vänner? Du kan köra den här Gremlin-genomgång för att hämta informationen från diagrammet:
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-Nu ska vi titta på vad Azure Cosmos DB tillhandahåller för Gremlin-utvecklare.
-
-## <a name="gremlin-features"></a>Gremlin-funktioner
+## <a name="supported-graph-objects"></a>Graph-objekt som stöds
 TinkerPop är en standard som omfattar en mängd olika diagramtekniker. Därför har den standardterminologi som beskriver vilka funktioner som tillhandahålls av en diagramprovider. Azure Cosmos DB tillhandahåller en beständig, skrivbar diagramdatabas med hög samtidighet som kan partitioneras över flera servrar eller kluster. 
 
 Följande tabell visar den TinkerPop-funktioner som implementeras av Azure Cosmos DB: 
@@ -125,10 +91,10 @@ Följande kodavsnitt visar exempelvis en GraphSON-representation av en brytpunkt
 
 Egenskaper som används av GraphSON för hörn beskrivs nedan:
 
-| Egenskap  | Beskrivning | 
+| Egenskap | Beskrivning | 
 | --- | --- | --- |
 | `id` | ID för brytpunkten. Måste vara unika (i kombination med värdet för `_partition` om tillämpligt). Om inget värde har angetts och kommer den att automatiskt tillgång till ett GUID | 
-| `label` | Etiketten för brytpunkten. Det här används för att beskriva entitetstypen. |
+| `label` | Etiketten för brytpunkten. Den här egenskapen används för att beskriva entitetstypen. |
 | `type` | Används för att särskilja brytpunkter från icke-diagramdokument |
 | `properties` | En uppsättning användardefinierade egenskaper associerade med brytpunkten. Varje egenskap kan ha flera värden. |
 | `_partition` | Partitionsnyckeln för brytpunkten. Används för [grafpartitionering](graph-partitioning.md). |
@@ -184,12 +150,12 @@ Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständ
 | `sample` | Används för exempelresultat för bläddringen | [sample step](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Används för att projicera resultat från bläddringen |  [select step](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Används för icke-blockerande sammanställningar från bläddringen | [store step](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med början av en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med av en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med innehållet i en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte börjar med en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte avslutas med en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte innehåller en given sträng | [TextP predikat](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med början av en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med av en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap med innehållet i en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte börjar med en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte avslutas med en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Sträng som filtrerande funktion. Den här funktionen används som ett predikat för den `has()` steg så att den matchar en egenskap som inte innehåller en given sträng | [TextP predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Sammanställ sökvägar från en brytpunkt i ett träd | [tree step](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Rulla upp en iterator som ett steg| [unfold step](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Sammanfoga resultat från flera bläddringar| [union step](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

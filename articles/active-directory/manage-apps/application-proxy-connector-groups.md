@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22d44b02b3cc25c855361cab17132c46fa04794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783703"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481332"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper
 
@@ -42,7 +42,7 @@ Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha
 1. Välj **Azure Active Directory** > **företagsprogram** > **programproxy**.
 2. Välj **ny anslutningsgrupp**. Ny Anslutningsgrupp bladet visas.
 
-   ![Välj ny anslutningsgrupp](./media/application-proxy-connector-groups/new-group.png)
+   ![Visar skärmen för att välja en ny anslutningsgrupp](./media/application-proxy-connector-groups/new-group.png)
 
 3. Namnge din ny anslutningsgrupp och sedan använda den nedrullningsbara menyn för att välja vilka kopplingar som tillhör den här gruppen.
 4. Välj **Spara**.
@@ -74,25 +74,25 @@ För program som är installerade på IaaS för molnåtkomst anger anslutningsap
 
 Ta som exempel en organisation som har flera virtuella datorer som är anslutna till sina egna IaaS finns virtuellt nätverk. Om du vill låta de anställda använder dessa program, är dessa privata nätverk anslutna till företagsnätverket med hjälp av plats-till-plats-VPN. Detta ger en bra upplevelse för anställda som finns lokalt. Men det kanske inte är perfekt för fjärranslutna anställda, eftersom den kräver ytterligare lokal infrastruktur för att dirigera åtkomst, som du ser i diagrammet nedan:
 
-![AzureAD IaaS-nätverk](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagram som visar Azure AD-IaaS-nätverk](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Du kan aktivera en common service att säkra åtkomst till alla program utan att skapa ytterligare beroende på företagets nätverk med Azure AD Application Proxy connector grupper:
 
-![AzureAD IaaS flera Molnleverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS flera Molnleverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Flera skogar – olika anslutningsapp-grupper för varje skog
 
 De flesta kunder som har distribuerat Application Proxy använder affärsmodellen single-sign-on (SSO) genom att utföra Kerberos-begränsad delegering (KCD). Kopplingens datorer måste vara ansluten till en domän som kan delegera användare till programmet för att uppnå detta. KCD stöder mellan skogar funktioner. Men för företag som har olika miljöer med Multi-Forest utan förtroende mellan dem, en enda anslutning kan inte användas för alla skogar. 
 
 I det här fallet kan specifika anslutningsappar distribueras per skog, och ange att leverera program som har publicerats så att den stöder enbart användare av den specifika skogen. Varje anslutningsgrupp representerar en annan skog. När klienten och de flesta av upplevelsen är enhetligt för alla skogar, kan användare tilldelas till skogen program med hjälp av Azure AD-grupper.
- 
+
 ### <a name="disaster-recovery-sites"></a>Katastrofåterställningsplatser
 
 Det finns två olika metoder som du kan använda med en plats för disaster recovery (DR), beroende på hur dina webbplatser implementeras:
 
 * Om din DR-plats har skapats i aktivt-aktivt läge där det är precis som den huvudsakliga platsen och har samma nätverks- och AD-inställningar, kan du skapa kopplingar på DR-plats i anslutningsgruppen samma som den huvudsakliga platsen. Detta gör att Azure AD för att identifiera redundansväxlingar för dig.
 * Om din DR-plats som är separat från den huvudsakliga platsen, kan du skapa en annan anslutningsgrupp i DR-plats, och antingen (1) har säkerhetskopieringsprogram eller 2) manuellt använda ett annat befintligt program till anslutningsgrupp DR efter behov.
- 
+
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Hantera flera företag från en enda klient
 
 Det finns många olika sätt att implementera en modell där en enda tjänstleverantör distribuerar och underhåller Azure AD-relaterade tjänster för flera företag. Anslutningsappgrupper hjälpa administratören att särskilja kopplingar och program i olika grupper. Ett sätt som är lämplig för små företag, är att ha en enda Azure AD-klient och olika företag har sina egna domännamn och nätverk. Detta gäller även för M & A scenarier och situationer där en enskild IT-avdelning har flera företag regler eller företag skäl. 
@@ -100,32 +100,30 @@ Det finns många olika sätt att implementera en modell där en enda tjänstleve
 ## <a name="sample-configurations"></a>Exempel-konfigurationer
 
 Några exempel som du kan implementera är följande anslutningsapp-grupper.
- 
+
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Standardkonfigurationen – ingen användning för anslutningsapp-grupper
 
 Om du inte använder anslutningsapp-grupper, konfigurationen skulle se ut så här:
 
-![AzureAD ingen Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
- 
+![Exemplet Azure AD utan Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+
 Den här konfigurationen är tillräckligt för mindre distributioner och tester. Det fungerar också bra om din organisation har en fast nätverkstopologi.
- 
+
 ### <a name="default-configuration-and-an-isolated-network"></a>Standardkonfigurationen och ett isolerat nätverk
 
-Den här konfigurationen är en utveckling av standardvärdet, där det finns en viss app som körs i ett isolerat nätverk, till exempel IaaS virtuellt nätverk: 
+Den här konfigurationen är en utveckling av standardvärdet, där det finns en viss app som körs i ett isolerat nätverk, till exempel IaaS virtuellt nätverk:
 
-![AzureAD ingen Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
- 
+![Exemplet Azure AD utan Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Rekommenderade konfiguration – flera specifika grupper och en standardgrupp för inaktiv
 
 Den rekommenderade konfigurationen för stora och komplexa organisationer är att ha anslutningsgrupp standard som en grupp som betjänar inte alla program och används för inaktiva eller nyligen installerade kopplingar. Alla program som hanteras med hjälp av anpassade anslutningsapp-grupper. På så sätt kan alla komplexitet scenarier som beskrivs ovan.
 
-I exemplet nedan har två datacenter, A och B, med två kopplingar som betjänar varje plats i företaget. Varje plats har olika program som körs på den. 
+I exemplet nedan har två datacenter, A och B, med två kopplingar som betjänar varje plats i företaget. Varje plats har olika program som körs på den.
 
-![AzureAD ingen Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
- 
+![Exempel på företag med 2 datacenter och 2 kopplingar](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
 * [Aktivera enkel inloggning](what-is-single-sign-on.md)
-
-

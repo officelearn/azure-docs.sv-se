@@ -2,27 +2,21 @@
 title: Så här fungerar enkel inloggning till lokala resurser på Azure AD-anslutna enheter | Microsoft Docs
 description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/20/2018
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45941de6a90a5824ebc1e5d31b18b68f5fd9d493
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353201"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482061"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Så här fungerar enkel inloggning till lokala resurser på Azure AD-anslutna enheter
 
@@ -34,21 +28,17 @@ Den här artikeln förklarar hur det fungerar.
 
 Eftersom du måste komma ihåg bara ett enda användarnamn och lösenord, enkel inloggning underlättar åtkomst till resurser och förbättrar säkerheten för din miljö. Med en Azure AD-ansluten enhet har användarna redan enkel inloggning till molnappar i din miljö. Om din miljö har en Azure AD och har en lokal AD, vill du förmodligen att expandera omfattningen för SSO-upplevelse till din lokala rad Affärsappar (LOB) appar, delade filer och skrivare.  
 
-
 Azure AD-anslutna enheter har ingen kunskap om dina lokala AD-miljön eftersom de inte är anslutna till den. Men du kan ange ytterligare information om din lokala AD till dessa enheter med Azure AD Connect.
 En miljö som har både, en Azure AD och har en lokal AD, är också kända har hybridmiljö. Om du har en hybridmiljö, är det troligt att du redan har Azure AD Connect för att synkronisera din lokala identitetsinformation till molnet. Som en del av synkroniseringsprocessen synkroniserar Azure AD Connect lokala domäninformation till Azure AD. När en användare loggar in med Azure AD ansluten enhet i en hybridmiljö:
 
 1. Azure AD skickar namnet på den lokala domänen användaren är medlem i tillbaka till enheten. 
-
-2. Tjänsten lokala security authority (LSA) gör det möjligt för Kerberos-autentisering på enheten.
+1. Tjänsten lokala security authority (LSA) gör det möjligt för Kerberos-autentisering på enheten.
 
 Vid ett åtkomstförsök till en resurs i användarens lokala domän, enheten:
 
 1. Använder domäninformation för att hitta en domänkontrollant (DC). 
-
-2. Skickar lokalt autentiseringsuppgifter för domänen och att hitta domänkontrollanten att hämta den användare som autentiseras.
-
-3. Tar emot en Kerberos [biljettbeviljande biljett (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) som används för att få åtkomst till AD-anslutna resurser.
+1. Skickar lokalt autentiseringsuppgifter för domänen och att hitta domänkontrollanten att hämta den användare som autentiseras.
+1. Tar emot en Kerberos [biljettbeviljande biljett (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) som används för att få åtkomst till AD-anslutna resurser.
 
 Alla appar som är konfigurerade för **Windows-integrerad autentisering** sömlöst få SSO när en användare försöker komma åt dem.  
 
@@ -59,19 +49,14 @@ Windows Hello för företag kräver ytterligare konfiguration för att aktivera 
 Ansluten enhet som du kan med enkel inloggning, på en Azure AD: 
 
 - Få åtkomst till en UNC-sökväg på en medlemsserver i AD
-
 - Få åtkomst till en AD medlemmen server som är konfigurerad för Windows-integrerad säkerhet 
-
-
 
 Om du vill hantera din lokala AD från en Windows-enhet, installera den [Remote Server Administration Tools för Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
 
 Du kan använda:
 
 - Active Directory-användare och datorer (ADUC) snapin-modulen att administrera alla AD-objekt. Du måste dock ange den domän som du vill ansluta till manuellt.
-
 - DHCP-snapin-modulen att administrera en AD-anslutna DHCP-server. Du kan dock behöva ange DHCP-servernamn eller adress.
-
  
 ## <a name="what-you-should-know"></a>Det här bör du känna till
 

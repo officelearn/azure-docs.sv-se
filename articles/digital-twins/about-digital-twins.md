@@ -3,31 +3,30 @@ title: Översikt över Azure Digital Twins | Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072176"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459026"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
-Azure Digital Twins är en Azure IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
+Förhandsversionen av Azure Digital Twins är en Azure-IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
 
-Med Azure Digital Twins kan du köra frågor mot data från ett fysiskt utrymme i stället för ett stort antal skilda sensorer. Den här tjänsten hjälper dig att skapa återanvändbara, mycket skalbara, spatialt medvetna upplevelser som länkar strömmande data över hela den digitala och den fysiska världen. Dina appar har förbättrats med funktionerna för unikt relevant sammanhangsberoende. Azure Digital Twins kan användas för följande exempeluppgifter för att:
+Med Azure Digital Twins kan du köra frågor mot data från ett fysiskt utrymme i stället för ett stort antal skilda sensorer. Den här tjänsten hjälper dig att skapa återanvändbara, mycket skalbara, spatialt medvetna upplevelser som länkar strömmande data över hela den digitala och den fysiska världen. Dina appar har förbättrats med funktionerna för unikt relevant sammanhangsberoende. 
+
+Azure Digital Twins gäller för alla typer av miljöer, t.ex, informationslager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Här följer några scenarier där Azure Digital Twins kan vara till hjälp:
 
 - Förutse underhållsbehov för en fabrik.
 - Analysera energikrav i realtid för ett elnät.
 - Optimera användningen av tillgängliga utrymmen för ett kontor.
-
-Azure Digital Twins gäller för alla typer av miljöer. Några exempel är lager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Azure Digital Twins kan användas i följande exempelscenarier för att:
-
 - Spåra daglig temperatur för flera tillstånd.
 - Övervaka upptagna drönarvägar.
 - Identifiera autonoma fordon.
@@ -46,15 +45,15 @@ Azure Digital Twins har följande viktiga funktioner.
 
 ### <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 
-[*Diagrammet för spatial intelligens*](./concepts-objectmodel-spatialgraph.md), eller *den rumsliga grafen*, är en virtuell representation av den fysiska miljön. Du kan använda det för att skapa relationer mellan personer, platser och enheter.
+[*Diagrammet för spatial intelligens*](./concepts-objectmodel-spatialgraph.md#graph), eller *den rumsliga grafen*, är en virtuell representation av den fysiska miljön. Du kan använda det för att skapa relationer mellan personer, platser och enheter.
 
 Tänk dig en smart verktygsapp som hanterar flera elmätare som är anslutna i ett stadsområde. Tillverkaren av det smarta verktyget måste korrekt övervaka och förutse användning av och debitering för elektricitet. Varje enhet och sensorn måste modelleras med kontext om platsen och den kund som ska faktureras. Du kan använda diagrammet för spatial intelligens för att modellera de här typerna av komplexa relationer.
 
 ### <a name="digital-twin-object-models"></a>Digitala tvillingobjektmodeller
 
-[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md) är fördefinierade enhetsprotokoll och dataschema. De justerar lösningens domänspecifika behov att påskynda och förenkla utvecklingen.
+[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#model) är fördefinierade enhetsprotokoll och dataschema. De justerar lösningens domänspecifika behov att påskynda och förenkla utvecklingen.
 
-Till exempel skulle ett program för rumsanvändning kunna använda fördefinierade utrymmestyper som campus, våning och rum.
+Ett rum användandet program kan exempelvis använda fördefinierade typer, till exempel olika platser, skapa, våning och utrymme.
 
 ### <a name="multiple-and-nested-tenants"></a>Flera och kapslade klientorganisationer
 

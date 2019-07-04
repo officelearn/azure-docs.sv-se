@@ -5,45 +5,80 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190521"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485983"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
-Den här artikeln beskriver hur du övervakar distributionen av Azure File Sync med hjälp av Azure-portalen och Windows Server.
+Den här artikeln beskriver hur du övervakar distributionen av Azure File Sync med Azure Monitor, Storage Sync-tjänsten och Windows Server.
 
 Följande övervakningsalternativ finns för närvarande.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-monitor"></a>Azure Monitor
 
-Du kan visa registrerad server hälsotillstånd, Servertillstånd slutpunkt (sync hälsa) och mått i Azure-portalen.
+Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) vill visa mått och konfigurera aviseringar för synkronisering, molntjänster lagringsnivåer och anslutning.  
 
-### <a name="storage-sync-service"></a>Storage Sync-tjänsten
+### <a name="metrics"></a>Mått
+
+Mätvärden för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15: e minut.
+
+Om du vill visa Azure File Sync-mått i Azure Monitor, Välj den **lagringstjänster för synkronisering** resurstyp.
+
+Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
+
+| Måttnamn | Beskrivning |
+|-|-|
+| Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning).<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Lagringsnivåer återkallande i molnet | Storlek på data som har återkallats.<br><br>**Obs!** Det här måttet tas bort i framtiden. Använda molnet lagringsnivåer återkallande storlek mått för att övervaka storleken på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Servernamn |
+| Lagringsnivåer återkallande storlek i molnet | Storlek på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Server Name, Synkroniseringsgruppsnamn |
+| Molnet lagringsnivåer storlek för återkallande av program | Storlek på data som återställs av programmet.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Programmet namn, Server-namn, Synkroniseringsgruppsnamn |
+| Molnet lagringsnivåer återkallande dataflöde | Storleken på data återkallande dataflöde.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Server Name, Synkroniseringsgruppsnamn |
+| Filer som inte synkroniserar | Antal filer som inte kan synkroniseras.<br><br>Enhet: Count<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning).<br><br>Enhet: Count<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Onlinestatus för Server | Antal pulsslag togs emot från servern.<br><br>Enhet: Count<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
+| Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Count<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+
+### <a name="alerts"></a>Aviseringar
+
+Välj Storage Sync-tjänsten för att konfigurera aviseringar i Azure Monitor, och välj sedan den [Azure File Sync mått](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) ska användas för aviseringen.  
+
+I följande tabell visas några exempelscenarier för att övervaka och rätt mått som ska användas för aviseringen:
+
+| Scenario | Mått som ska användas för avisering |
+|-|-|
+| Serverhälsa-slutpunkt i portalen = fel | Synkronisera session resultat |
+| Filer inte kan synkroniseras till en server eller Molnets slutpunkt | Filer som inte synkroniserar |
+| Registrerad server kan inte kommunicera med Storage Sync-tjänsten | Onlinestatus för Server |
+| Molnet lagringsnivåer återkallande storlek har överskridit 500GiB under en dag  | Lagringsnivåer återkallande storlek i molnet |
+
+Mer information om hur du konfigurerar aviseringar i Azure Monitor finns [översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="storage-sync-service"></a>Storage Sync-tjänsten
 
 Om du vill visa registrerad server hälsotillstånd, Servertillstånd för slutpunkten och mått, går du till Storage Sync-tjänsten i Azure-portalen. Du kan visa registrerad server health i den **registrerade servrar** bladet och server slutpunktshälsa i den **synkronisera grupper** bladet.
 
-Registrerad server health:
+### <a name="registered-server-health"></a>Registrerad server health
 
 - Om den **registrerad server** tillstånd är **Online**, servern kan kommunicera med tjänsten.
 - Om den **registrerad server** tillstånd är **visas Offline**, verifiera att processen övervakaren lagring för synkronisering (AzureStorageSyncMonitor.exe) på servern körs. Om servern finns bakom en brandvägg eller proxyserver kan du läsa [i den här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) att konfigurera brandväggen och proxyservern.
 
-Serverhälsa-slutpunkten:
+### <a name="server-endpoint-health"></a>Serverhälsa-slutpunkt
 
 - Serverhälsa för slutpunkten i portalen är baserad på Synkronisera händelser som loggas i händelseloggen telemetri på servern (ID 9102 och 9302). Om en synkroniseringssessionen misslyckas på grund av ett tillfälligt fel, t.ex. fel har avbrutits visas sync fortfarande felfri i portalen så länge som den aktuella synkroniseringssessionen är framsteg. Händelse-ID 9302 används för att avgöra om filer som används. Mer information finns i [synkronisera hälsotillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisera förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Om portalen visar ett synkroniseringsfel eftersom synkronisering inte gör framsteg, se den [Felsökningsdokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) anvisningar.
 
-Mått:
+### <a name="metric-charts"></a>Måttdiagram
 
-- Följande mått kan visas i den Lagringssynkroniseringstjänst-portalen:
+- Följande måttdiagram kan visas i den Lagringssynkroniseringstjänst-portalen:
 
   | Måttnamn | Beskrivning | Namn på bladet |
   |-|-|-|
@@ -57,26 +92,6 @@ Mått:
 
   > [!Note]  
   > Diagrammen i den Lagringssynkroniseringstjänst portalen har ett tidsintervall på 24 timmar. Använd Azure Monitor för att visa olika tidsintervall eller dimensioner.
-
-### <a name="azure-monitor"></a>Azure Monitor
-
-Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) att övervaka sync, lagringsnivåer för moln och anslutning. Mätvärden för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15: e minut.
-
-Om du vill visa Azure File Sync-mått i Azure Monitor, Välj den **lagringstjänster för synkronisering** resurstyp.
-
-Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
-
-| Måttnamn | Beskrivning |
-|-|-|
-| Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning).<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Lagringsnivåer återkallande i molnet | Storlek på data som har återkallats.<br><br>Obs! Det här måttet tas bort i framtiden. Använda molnet lagringsnivåer återkallande storlek mått för att övervaka storleken på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Servernamn |
-| Lagringsnivåer återkallande storlek i molnet | Storlek på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Server Name, Synkroniseringsgruppsnamn |
-| Molnet lagringsnivåer storlek för återkallande av program | Storlek på data som återställs av programmet.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Programmet namn, Server-namn, Synkroniseringsgruppsnamn |
-| Molnet lagringsnivåer återkallande dataflöde | Storleken på data återkallande dataflöde.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Server Name, Synkroniseringsgruppsnamn |
-| Filer som inte synkroniserar | Antal filer som inte kan synkroniseras.<br><br>Enhet: Count<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning).<br><br>Enhet: Count<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Onlinestatus för Server | Antal pulsslag togs emot från servern.<br><br>Enhet: Count<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
-| Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Antal<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 
 ## <a name="windows-server"></a>Windows Server
 

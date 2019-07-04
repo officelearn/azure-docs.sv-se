@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784962"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540716"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -30,7 +30,7 @@ I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta 
 
 ![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -96,6 +96,10 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Generera en ny klienthemlighet]()
     
+    > [!div renderon="portal"]
+    > > [!NOTE]
+    > > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Där:
     >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
@@ -104,7 +108,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 
     > [!div renderon="docs"]
     > > [!TIP]
-    > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
+    > > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
     
 #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
@@ -157,7 +161,7 @@ Du bör se en lista över användare i Azure AD-katalogen som resultat.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Enligt beskrivningen, begär den här snabbstarten token genom att använda egna Programidentitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)*. Läs mer om hur du använder MSAL.NET med flödet, [i den här artikeln](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Enligt beskrivningen, begär den här snabbstarten token genom att använda egna Programidentitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)* . Läs mer om hur du använder MSAL.NET med flödet, [i den här artikeln](https://aka.ms/msal-net-client-credentials).
 
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 

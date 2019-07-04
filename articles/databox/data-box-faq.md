@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236287"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561401"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -53,7 +53,7 @@ A. Data Box har en råkapacitet på 100 TB och en användbar kapacitet på 80 
 A.  Information på vilka länder/regioner Data Box är tillgänglig, går du till [regiontillgänglighet](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>F. I vilka regioner kan jag lagra data med Data Box?
-A. Data Box stöds i alla regioner inom USA, Västeuropa, Nordeuropa, Frankrike och Storbritannien. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte. Mer information finns i [Regional tillgänglighet](data-box-overview.md#region-availability).
+A. Data Box har stöd för alla regioner i USA, Västeuropa, Nordeuropa, Frankrike, Storbritannien, Japan, Australien och Kanada. Mer information finns i [Regional tillgänglighet](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>F. Vem kontaktar jag om jag får problem med Data Box?
 A. Om du får problem med Data Box [kontaktar du Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>F. Kan jag använda flera lagringskonton med Data Box?
-A.  Ja. Högst tio lagringskonton, GA-version (generell användning), klassisk eller bloblagring stöds med Data Box. Det går att använda både högfrekvent och lågfrekvent blob. När versionen för generell användning är tillgänglig stöds lagringskontona i alla regioner inom USA, Västeuropa, Nordeuropa, Frankrike och Storbritannien i det offentliga Azure-molnet.
+A.  Ja. Högst tio lagringskonton, GA-version (generell användning), klassisk eller bloblagring stöds med Data Box. Det går att använda både högfrekvent och lågfrekvent blob. 
 
 
 ## <a name="ship-device"></a>Skicka en enhet

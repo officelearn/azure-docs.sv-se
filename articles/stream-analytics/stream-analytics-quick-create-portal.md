@@ -4,20 +4,20 @@ description: Den här snabbstarten visar hur du kommer igång genom att skapa et
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493362"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449236"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
-Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser realtidsbaserade strömningsdata och filtrerar meddelanden med en temperatur högre än 27. Stream Analytics-jobbet läser data från en IoT Hub-enhet, transformerar data och skriver data tillbaka till en container i bloblagring. De indata som används i den här snabbstarten genereras av en Raspberry Pi-onlinesimulator. 
+Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser realtidsbaserade strömningsdata och filtrerar meddelanden med en temperatur högre än 27. Ditt Stream Analytics-jobb ska läsa data från IoT Hub, transformera data och skriva data tillbaka till en behållare i blob storage. De indata som används i den här snabbstarten genereras av en Raspberry Pi-onlinesimulator. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -27,7 +27,7 @@ Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analyt
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
-Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senare konfigureras som jobbindata. Förbered de indata som krävs för jobbet genom att utföra följande steg:
+Innan du definierar Stream Analytics-jobb, förbereder du indata. Realtidssensordata matas till IoT Hub som senare har konfigurerats som indata-jobbet. Förbered de indata som krävs för jobbet genom att utföra följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -179,7 +179,7 @@ I det här avsnittet konfigurerar du en IoT-hubbenhetsinmatning till Stream Anal
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+Ta bort resursgruppen, Stream Analytics-jobb och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure-portalen och välj sedan namnet på den resurs du skapade.  
 

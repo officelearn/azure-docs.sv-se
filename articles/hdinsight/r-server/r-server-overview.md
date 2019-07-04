@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 26dd7554cc713d85a9e03649bcb6d41139cbdf27
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137186"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448889"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -27,7 +27,7 @@ Du kan hämta modeller eller förutsägelser som uppstår vid analys för lokal 
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster på HDInsight
 
-För att skapa en ML-Services-kluster i Azure HDInsight, Välj den **ML tjänster** typ av kluster när du skapar ett HDInsight-kluster med Azure portal. Klustertypen ML-tjänster omfattar ML Server på datanoder i klustret och på en kantnod, vilket fungerar som en startsida zon för ML-Services-baserad analys. Se [komma igång med ML-tjänster på HDInsight](r-server-get-started.md) stegvisa anvisningar för hur du skapar klustret.
+För att skapa en ML-Services-kluster i Azure HDInsight, Välj den **ML tjänster** typ av kluster när du skapar ett HDInsight-kluster med Azure portal. Klustertypen ML-tjänster omfattar ML Server på datanoder i klustret och på en kantnod, vilket fungerar som en startsida zon för ML-Services-baserad analys. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) stegvisa anvisningar för hur du skapar klustret.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>Varför välja ML-tjänster i HDInsight?
 
@@ -68,13 +68,13 @@ Följande funktioner ingår i ML-tjänster på HDInsight.
 
 Standardlagring för HDFS-filsystemets av HDInsight-kluster kan associeras med ett Azure Storage-konto eller ett Azure Data Lake Storage. Den här associationen säkerställer att data har överförts till klustret lagring under analysen görs beständiga och data är tillgängliga även när klustret tas bort. Det finns olika verktyg för hantering av dataöverföring till lagringsalternativ du väljer, inklusive funktionen portalbaserad uppladdning av storage-konto och [AzCopy](../../storage/common/storage-use-azcopy.md) verktyget.
 
-Har du möjlighet att bevilja åtkomst till ytterligare Blob och Data lake lagras under klustret etableringsprocessen oavsett alternativet primär lagring som används. Se [komma igång med ML-tjänster på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) information om hur du lägger till åtkomst till ytterligare konton. Se [alternativ för Azure Storage för ML-tjänster på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) du lär dig mer om hur du använder flera lagringskonton.
+Har du möjlighet att bevilja åtkomst till ytterligare Blob och Data lake lagras under klustret etableringsprocessen oavsett alternativet primär lagring som används.  Se [alternativ för Azure Storage för ML-tjänster på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) du lär dig mer om hur du använder flera lagringskonton.
 
 Du kan också använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) som ett lagringsalternativ för användning på gränsnoden. Azure Files kan du montera en filresurs som har skapats i Azure Storage till Linux-filsystem. Mer information om dessa alternativ för lagring av data för ML-tjänster på HDInsight-kluster finns i [alternativ för Azure Storage för ML-tjänster på HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Kantnod ML-tjänster för åtkomst
 
-Du kan ansluta till Microsoft ML Server på gränsnoden med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [hämta stared ML-tjänster på HDInsight](r-server-get-started.md). Du kan också ansluta till en klustergränsnoden från kommandoraden med hjälp av SSH/PuTTY åtkomst till R-konsolen.
+Du kan ansluta till Microsoft ML Server på gränsnoden med en webbläsare. Den installeras som standard när klustret skapas.  Du kan också ansluta till en klustergränsnoden från kommandoraden med hjälp av SSH/PuTTY åtkomst till R-konsolen.
 
 ## <a name="develop-and-run-r-scripts"></a>Utveckla och köra R-skript
 
@@ -142,6 +142,6 @@ De priser som är kopplade till en ML-tjänster HDInsight-kluster är strukturer
 
 Mer information om hur du använder ML-tjänster på HDInsight-kluster finns i följande avsnitt:
 
-* [Kom igång med ML-Services-kluster i HDInsight](r-server-get-started.md)
+* [Köra ett R-skript på ett kluster som ML-tjänster i Azure HDInsight med hjälp av RStudio Server](machine-learning-services-quickstart-job-rstudio.md)
 * [Alternativ för beräkningskontexter för ML-tjänstkluster i HDInsight](r-server-compute-contexts.md)
 * [Lagringsalternativ för ML-Services-kluster i HDInsight](r-server-storage.md)

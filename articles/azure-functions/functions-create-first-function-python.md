@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496556"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444579"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -26,15 +26,15 @@ Den här artikeln visar hur du använder kommandoradsverktyg för att skapa en P
 
 Den här artikeln är först av två snabbstarter för Azure Functions. När du har slutfört den här artikeln får du [lägga till ett Azure Storage köutdatabindningen](functions-add-output-binding-storage-queue-python.md) till din funktion.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
 + Installera [Python 3.6](https://www.python.org/downloads/).
 
-+ Installera [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
++ Installera [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.1071 eller en senare version.
 
-+ Installera [Azure CLI](/cli/azure/install-azure-cli) version 2.x eller senare.
++ Installera den [Azure CLI](/cli/azure/install-azure-cli) version 2.x eller en senare version.
 
 + En aktiv Azure-prenumeration.
 
@@ -44,18 +44,18 @@ Innan du börjar måste du ha följande:
 
 För att lokalt utveckla och testa Python-funktioner, måste du arbeta i en miljö med Python 3.6. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.env`.
 
-### <a name="bash-or-a-terminal-window"></a>Bash- eller ett terminalfönster:
+### <a name="bash"></a>Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell eller en Windows-kommandotolk:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 De resterande kommandona körs i den virtuella miljön.
@@ -66,7 +66,7 @@ Functions-projekt är motsvarigheten till en funktionsapp i Azure. Den kan ha fl
 
 I den virtuella miljön genom att köra följande kommando, välja **python** som worker-runtime.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ En mapp med namnet _MyFunctionProj_ skapas, som innehåller följande tre filer:
 
 Navigera till mappen MyFunctionProj:
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 Därefter uppdaterar du filen host.json om du vill aktivera tillägget paket.  
 
-## <a name="reference-bindings"></a>Referens-bindningar
-
-Tillägget buntar gör det enklare att lägga till tillägg av bindning ned vägen. Det tar också bort kravet för att installera .NET Core 2.x SDK. Tillägget paket kräver version 2.6.1071 av de viktigaste verktygen eller en senare version. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-Nu kan du lägga till en funktion i projektet.
-
 ## <a name="create-a-function"></a>Skapa en funktion
 
 Lägg till en funktion i projektet genom att köra följande kommando:
 
-```command
+```console
 func new
 ```
 

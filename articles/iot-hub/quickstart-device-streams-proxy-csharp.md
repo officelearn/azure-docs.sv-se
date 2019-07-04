@@ -1,21 +1,20 @@
 ---
 title: Azure IoT Hub device strömmar C# Snabbstart för SSH- och RDP (förhandsversion) | Microsoft Docs
 description: I den här snabbstarten kör du två exempel C# program som möjliggör scenarier för SSH och RDP över en IoT Hub device-dataström.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 1d5fbb410a61419f6f6d2e80cdb1a16c07672fe9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 914568ee4b669605807c8a0e386cd540145c9522
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446103"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabbstart: Aktivera SSH och RDP över en ström för IoT Hub-enhet med hjälp av en C# proxyprogrammet (förhandsversion)
 
@@ -48,7 +47,7 @@ Följande bild visar hur enheten lokala och service-lokala proxy-program i det h
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förhandsversionen av enheten strömmar stöds för närvarande endast för IoT-hubbar som har skapats i följande regioner:
 

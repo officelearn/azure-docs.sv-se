@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b52453bab661531461a2bec2f15f7659ec15a1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331697"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441708"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Komma igång med enkla databaser i Azure SQL Database
 
@@ -51,3 +51,4 @@ Med de här snabbstarterna kan du snabbt skapa eller importera databasen till Az
 - Det finns mer avancerade anvisningar i [så använder du en enkel databas i Azure SQL Database](sql-database-howto-single-database.md).
 - Det finns fler exempelskript skrivna i [PowerShell](sql-database-powershell-samples.md) och [Azure CLI](sql-database-cli-samples.md).
 - Läs mer om det [API för hantering](sql-database-single-databases-manage.md) som du kan använda för att konfigurera databaserna.
+- [Identifiera rätt Azure SQL Database/hanterad instans SKU: N för den lokala databasen](/sql/dma/dma-sku-recommend-sql-db/).

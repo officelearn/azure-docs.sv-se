@@ -2,26 +2,21 @@
 title: Azure Active Directory-enhetshantering vanliga frågor och svar | Microsoft Docs
 description: Azure Active Directory enhetshantering vanliga frågor och svar.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110652"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481757"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -61,17 +56,15 @@ Om du vill registrera, måste du utföra en manuell åtgärd på enheten.
 
 Om du vill ta bort anslutningstillståndet från Windows 10 och Windows Server 2016 som är en lokal Active Directory-domänanslutna, gör du följande:
 
-1.  Öppna Kommandotolken som administratör.
-
-2.  Ange `dsregcmd.exe /debug /leave`.
-
-3.  Logga ut och logga in att utlösa den schemalagda aktiviteten som registreras igen med Azure AD. 
+1. Öppna Kommandotolken som administratör.
+1. Ange `dsregcmd.exe /debug /leave`.
+1. Logga ut och logga in att utlösa den schemalagda aktiviteten som registreras igen med Azure AD. 
 
 För äldre Windows OS-versioner som är en lokal Active Directory-domänanslutna, gör du följande:
 
-1.  Öppna Kommandotolken som administratör.
-2.  Ange `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Ange `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1. Öppna Kommandotolken som administratör.
+1. Ange `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+1. Ange `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -79,13 +72,10 @@ För äldre Windows OS-versioner som är en lokal Active Directory-domänanslutn
 
 **S:**
 
--   För Windows 10 och Windows Server 2016 kan orsaka upprepade försöker frånkoppling från och återansluta till samma enhet dubblettposter. 
-
--   Varje Windows-användare som använder **Lägg till arbets- eller Skolkonto** skapar en ny enhetspost med samma enhetsnamn.
-
--   För äldre Windows OS-versioner som är en lokal Azure Directory domänanslutna skapar automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
-
--   En domänansluten dator i Azure AD som har rensats, installeras om och återkopplas med samma namn som visas som en annan post med samma enhetsnamn.
+- För Windows 10 och Windows Server 2016 kan orsaka upprepade försöker frånkoppling från och återansluta till samma enhet dubblettposter. 
+- Varje Windows-användare som använder **Lägg till arbets- eller Skolkonto** skapar en ny enhetspost med samma enhetsnamn.
+- För äldre Windows OS-versioner som är en lokal Azure Directory domänanslutna skapar automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
+- En domänansluten dator i Azure AD som har rensats, installeras om och återkopplas med samma namn som visas som en annan post med samma enhetsnamn.
 
 ---
 
@@ -110,7 +100,6 @@ För äldre Windows OS-versioner som är en lokal Active Directory-domänanslutn
 
 **S:** 
 - Anslutna enheter, se till att inaktivera automatisk registrering för Azure AD. Den schemalagda aktiviteten registrera inte sedan enheten igen. Öppna en kommandotolk som administratör och ange `dsregcmd.exe /debug /leave`. Eller kör detta kommando som ett skript på flera enheter vid frånkoppling från gruppvis.
-
 - Anslutna enheter, kontrollera att du har ett lokalt administratörskonto som är offline eller skapa en för ren Azure AD. Du kan inte logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Disconnect**. Följ anvisningarna och ange autentiseringsuppgifterna som lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
 
 ---
@@ -125,7 +114,7 @@ Användare som inte har registrerat i tidigare inte åtkomst till enheten. Det f
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>F: Inaktiverade eller borttagna användare loggar in till Azure AD-anslutna enheter?
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>F: En inaktiverad eller borttagen användare kan logga in på en Azure AD-anslutna enheter
 
 **S:** Ja, men endast under en begränsad tid. När en användare tas bort eller inaktiveras i Azure AD, kallas den inte direkt till Windows-enheten. Så kan användare som loggat in tidigare åt skrivbordet med cachelagrade användarnamn och lösenord. 
 
@@ -166,7 +155,6 @@ Har tagits bort eller är inaktiverad användare som inte har registrerat i tidi
 Det här beteendet:
 
 - Är tillämpliga på Azure AD ansluten och Azure AD-registrerade enheter – men inte för hybrid Azure AD-anslutna enheter.
-
 - Gäller inte för alla användare som loggar in på enheten. Så alla andra användare som har åtkomst till enheten får en Multi-Factor Authentication-utmaning. De kan sedan komma åt program som kräver Multifaktorautentisering.
 
 ---
@@ -176,11 +164,8 @@ Det här beteendet:
 **S:** Vanliga orsaker till det här scenariot är följande:
 
 - Dina autentiseringsuppgifter är inte längre giltig.
-
 - Datorn kan inte kommunicera med Azure Active Directory. Sök efter eventuella problem med nätverksanslutningen.
-
 - Federerad inloggningar kräver federationsservern som stöd för WS-Trust-slutpunkter som är aktiverade och tillgänglig. 
-
 - Du har aktiverat direktautentisering. Därför måste din tillfälliga lösenordet ändras när du loggar in.
 
 ---
@@ -205,10 +190,9 @@ Det här beteendet:
 
 ### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why visas flera utgångna certifikat som utfärdats av MS-organisation-P2P-åtkomst på våra Windows 10-enheter? Hur kan jag ta bort dem?
 
-**S:** Det uppstod ett problem som identifieras på Windows 10 version 1709 och lägre där utgångna certifikat för MS-organisation-P2P-åtkomst fortsätter finns på datorn på grund av kryptografiska problem. Användarna kunde stöter på problem med nätverksanslutningen, om du använder ingen VPN-klient (t.ex. Cisco AnyConnect) som inte kan hantera ett stort antal utgångna certifikat. Det här problemet har åtgärdats i Windows 10-1803 versionen automatiskt ta bort sådana utgångna certifikat MS-organisation-P2P-åtkomst. Du kan lösa det här problemet genom att uppdatera dina enheter till Windows 10-1803. Om det inte går att uppdatera kan du ta bort dessa certifikat utan någon negativ inverkan.  
+**S:** Det uppstod ett problem som identifieras på Windows 10 version 1709 och lägre där utgångna certifikat för MS-organisation-P2P-åtkomst fortsätter finns på datorn på grund av kryptografiska problem. Användarna kunde stöter på problem med nätverksanslutningen, om du använder någon VPN-klienter (till exempel Cisco AnyConnect) som inte kan hantera ett stort antal utgångna certifikat. Det här problemet har åtgärdats i Windows 10-1803 versionen automatiskt ta bort sådana utgångna certifikat MS-organisation-P2P-åtkomst. Du kan lösa det här problemet genom att uppdatera dina enheter till Windows 10-1803. Om det inte går att uppdatera kan du ta bort dessa certifikat utan någon negativ inverkan.  
 
 ---
-
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Hybrid Azure AD-anslutning vanliga frågor och svar
 
@@ -217,7 +201,6 @@ Det här beteendet:
 **S:** Information om felsökning finns i dessa artiklar:
 
 - [Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
-
 - [Felsöka hybrid Azure Active Directory-anslutna äldre enheter](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>F: Varför ser jag en duplicerad Azure AD registrerade post för min Windows 10 Azure AD ansluten enhet i enhetslistan för Azure AD?
@@ -226,27 +209,25 @@ Det här beteendet:
 
 Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillstånd. Så anses enheten vara hybrid Azure AD-anslutna för autentisering och utvärderingen av villkorlig åtkomst. Du kan ta bort posten för Azure AD-registrerad enhet från Azure AD-portalen. Lär dig hur du [undvika eller rensa den här dubbla tillstånd på Windows 10-dator](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>F: Varför Mina användare har problem på Windows 10 hybrid Azure AD-anslutna enheter när du har ändrat deras UPN?
 
-**S:** För närvarande UPN ändringar stöds fullständigt inte med hybrid Azure AD-anslutna enheter. Användare kan logga in på enheten och komma åt sina lokala program, misslyckas autentiseringen med Azure AD när ett UPN ändra. Därför kan användare använda enkel inloggning och villkorlig åtkomst utfärdar på sina enheter. För närvarande måste du frånkoppling från enheten från Azure AD (kör ”dsregcmd /leave” med utökade privilegier) och ansluta på nytt (sker automatiskt) att lösa problemet. Vi arbetar med att lösa problemet. Användare som loggar in med Windows Hello för företag dock inte stöter på problemet. 
+**S:** För närvarande UPN ändringar stöds fullständigt inte med hybrid Azure AD-anslutna enheter. Användare kan logga in på enheten och komma åt sina lokala program, misslyckas autentiseringen med Azure AD när ett UPN ändra. Därför kan användare använda enkel inloggning och villkorlig åtkomst utfärdar på sina enheter. För närvarande måste du frånkoppling från enheten från Azure AD (kör ”dsregcmd /leave” med utökade privilegier) och återansluta till (sker automatiskt) att lösa problemet. Vi arbetar med att lösa problemet. Användare som loggar in med Windows Hello för företag dock inte stöter på problemet. 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>F: Kräver Windows 10 hybrid Azure AD-anslutna enheter åtkomst till domänkontrollanten för att få åtkomst till resurser i molnet?
 
-**S:** Allmänt Nej, utom när användarens lösenord har ändrats. Enare Windows 10 hybrid Azure AD join är klar och användaren har loggat in minst en gång, enheten kräver inte åtkomst till domänkontrollanten för att komma åt resurser i molnet. Windows 10 kan få enkel inloggning till Azure AD-program från var som helst med en Internetanslutning, utom när ett lösenord ändras. Användare som loggar in med Windows Hello för företag fortfarande få enkel inloggning till Azure AD-program även efter att en lösenordsändring även om de inte har åtkomst till sina domänkontrollant. 
+**S:** Nej, utom när användarens lösenord har ändrats. När Windows 10 hybrid Azure AD join är klar och användaren har loggat in minst en gång, behöver åtkomst till domänkontrollanten för att få åtkomst till molnresurser med enheten. Windows 10 kan få enkel inloggning till Azure AD-program från var som helst med en Internetanslutning, utom när ett lösenord ändras. Användare som loggar in med Windows Hello för företag fortfarande få enkel inloggning till Azure AD-program även efter det att ändra ett lösenord, även om de inte har åtkomst till sina domänkontrollant. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>F: Vad händer om en användare ändrar sitt lösenord och försöker att logga in på sina Windows 10-hybrid Azure AD ansluten enhet utanför företagsnätverket?
 
-**S:** Om ett lösenord har ändrats utanför företagets nätverk (till exempel med hjälp av Azure AD SSPR), misslyckas användaren loggar in med det nya lösenordet. Lokala Active Directory är den primära utfärdaren för hybrid Azure AD-anslutna enheter. När en enhet inte har åtkomst till domänkontrollanten, är det inte att verifiera det nya lösenordet. Därför användare behöver upprätta anslutning med domänkontrollanten (antingen via VPN eller att den finns i företagsnätverket) innan de är kunna logga in till enheten med sitt nya lösenord. I annat fall kan de bara logga in med sina gamla lösenord på grund av cachelagrade inloggningsmöjlighet i Windows. Men det gamla lösenordet betraktas som inaktuella av Azure AD under tokenbegäranden och därför förhindrar enkel inloggning på och misslyckas alla principer för enhetsbaserad villkorlig åtkomst. Det här problemet inträffar inte om du använder Windows Hello för företag. 
+**S:** Om ett lösenord har ändrats utanför företagets nätverk (till exempel med hjälp av Azure AD SSPR) kan misslyckas användaren logga in med det nya lösenordet. Lokala Active Directory är den primära utfärdaren för hybrid Azure AD-anslutna enheter. När en enhet inte har åtkomst till domänkontrollanten, är det inte att verifiera det nya lösenordet. Därför användare behöver upprätta anslutning med domänkontrollanten (antingen via VPN eller att den finns i företagsnätverket) innan de är kunna logga in till enheten med sitt nya lösenord. I annat fall kan de bara logga in med sina gamla lösenord på grund av cachelagrade logga i funktionen i Windows. Men det gamla lösenordet betraktas som inaktuella av Azure AD under tokenbegäranden och därför förhindrar att enkel inloggning och misslyckas alla principer för enhetsbaserad villkorlig åtkomst. Det här problemet inträffar inte om du använder Windows Hello för företag. 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Registrera dig av vanliga frågor om med Azure AD
 
@@ -259,11 +240,15 @@ Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillst�
 **S:** Utför följande steg:
 
 1.  [Skapa en efterlevnadsprincip](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definiera principer för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
+1.  [Definiera principer för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
 
 **Anmärkning:**
 
 - Användare som ingår i din behovet av principen för villkorlig åtkomst en [version av Office som stöds för macOS](../conditional-access/technical-reference.md#client-apps-condition) att komma åt resurser. 
-
 - Under det första försöket för åtkomst uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
 
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [Azure AD-registrerade enheter](concept-azure-ad-register.md)
+- Läs mer om [Azure AD-anslutna enheter](concept-azure-ad-join.md)
+- Läs mer om [hybrid Azure AD-anslutna enheter](concept-azure-ad-join-hybrid.md)

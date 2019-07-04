@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236600"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428501"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -23,7 +23,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende p
 
 Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en befintlig ASP.NET Core-webbapp. Läs om hur du konfigurerar Application Insights utan Visual Studio checka ut detta [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -47,16 +47,16 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 1. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
-   ![lägg till en Application Insights-resurs](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Om det här är första gången du skapar en Application Insights-resurs du kan lära dig mer genom att besöka den [skapa en Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) dokument.
 
     En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        |  Värde           | Beskrivning  |
+   | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
-   | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Programtyp** | ASP.NET-webbapp | Typen av app du övervakar |
+   | **Name**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Plats** | Östra USA | Välj en plats nära dig eller nära där appen finns |
+   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 

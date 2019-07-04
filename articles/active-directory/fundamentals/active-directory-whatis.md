@@ -2,24 +2,24 @@
 title: Vad är Azure Active Directory? – Azure Active Directory | Microsoft Docs
 description: Översikt och konceptuell information om Azure Active Directory, inklusive terminologi, vilka licenser är tillgängliga och en lista över associerade funktioner med länkar till mer information.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4c0bbe4e4ef1cfbd4d9da92d6fcfac509f45ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110423"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440533"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
-Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och access management-tjänsten, som hjälper till att de anställdas logga in och komma åt resurser i:
+Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och management-tjänsten, som hjälper till att dina anställda använder logga in och komma åt resurser i:
 
 - Externa resurser, som Microsoft Office 365, Azure-portalen och tusentals andra SaaS-program.
 
@@ -48,7 +48,7 @@ För att förbättra din Azure AD-implementering kan du lägga till betalfunktio
 >
 >Azure Active Directory Premium P1, Premium P2 och Azure Active Directory Basic stöds för närvarande inte i Kina. Mer information om priser för Azure AD, kontaktar du den [Azure Active Directory-forumet](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Azure Active Directory Free.** Innehåller användar- och grupphantering, lokal katalogsynkronisering, enkla rapporter och enkel inloggning i Azure, Office 365 och många populära SaaS-appar.
+- **Azure Active Directory Free.** Innehåller användar- och grupphantering, lokal katalogsynkronisering, grundläggande rapporter, ändring av lösenord för molnanvändare och enkel inloggning i Azure, Office 365 och många populära SaaS-appar.
 
 - **Azure Active Directory Basic.** Utöver Free-funktionerna innehåller Basic även molncentrerad appåtkomst, gruppbaserad åtkomsthantering, lösenordsåterställning med självbetjäning för molnappar och Azure AD-programproxy, där du kan publicera webbappar med hjälp av Azure AD.
 
@@ -66,12 +66,14 @@ Att bättre förstå Azure AD och dess dokumentation, rekommenderar vi granska f
 
 |Term eller begrepp|Beskrivning|
 |---------------|-----------|
+|Identitet| En sak som kan få autentiseras. En identitet kan vara en användare med ett användarnamn och lösenord. Identiteter kan även innehålla program eller andra servrar som kan kräva autentisering via hemliga nycklar och certifikat.|
+|Konto| En identitet som har data som är associerade med den. Du kan inte ha ett konto utan en identitet.|
+|Azure AD-konto| En identitet som skapas via Azure AD eller någon annan Microsoft-molntjänst, till exempel Office 365. Identiteter lagras i Azure AD och är tillgängliga för organisationens prenumerationer på molntjänster. Det här kontot kallas ibland även för arbets- eller skolkonto.|
 |Azure-prenumeration| Används för att betala för Azure-molntjänster. Du kan ha många prenumerationer och de är länkade till ett kreditkort.|
 |Azure-klientorganisation| En dedikerad och betrodd instans av Azure AD som skapas automatiskt när organisationen registrerar sig för en Microsoft-molntjänstprenumeration som Microsoft Azure, Microsoft Intune eller Office 365. En Azure-klientorganisation representerar en enskild organisation.|
 |Enskild klientorganisation| Azure-klienter som har åtkomst till andra tjänster i en dedikerad miljö betraktas som en enskild klientorganisation.|
 |Flera innehavare| Azure-klientorganisationer som har åtkomst till andra tjänster i en delad miljö, i flera organisationer, anses vara för flera innehavare.|
 |Azure AD-katalog|Varje Azure-klientorganisation har en dedikerad och betrodd Azure AD-katalog. Azure AD-katalogen innehåller klientorganisationens användare, grupper och appar och används till att utföra identitets- och åtkomsthanteringsfunktioner för klientresurser.|
-|Azure AD-konto | En identitet som skapas via Azure AD eller någon annan Microsoft-molntjänst, till exempel Office 365. Identiteter lagras i Azure AD och är tillgängliga för organisationens prenumerationer på molntjänster. Det här kontot kallas ibland även för arbets- eller skolkonto.|
 |Anpassad domän|Varje ny Azure AD-katalog levereras med ett initialt domännamn, domännamn.onmicrosoft.com. Utöver det ursprungliga namnet kan du även lägga till organisationens domännamn, som inkluderar de namn du använder för att göra affärer och dina användare använder för att få åtkomst till organisationens resurser, i listan. När du lägger till anpassade domännamn kan du skapa användarnamn som är bekanta för dina användare, till exempel alain@contoso.com.|
 |Kontoadministratör|Den här administratörsrollen för klassiska prenumerationer är begreppsmässigt faktureringsägaren av en prenumeration. Den här rollen har åtkomst till [Azure-kontocenter](https://account.azure.com/Subscriptions) och med den kan du hantera alla prenumerationer på ett konto. Mer information finns i [administratörsroller för klassiska prenumeration, roller för Azure rollbaserad åtkomstkontroll (RBAC) och Azure AD-administratörsroller](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Tjänstadministratör|Med den här administratörsrollen för klassiska prenumerationer kan du hantera alla Azure-resurser, inklusive åtkomst. Den här rollen har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget. Mer information finns i [Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|

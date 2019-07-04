@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147567"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444826"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
 
@@ -59,6 +59,13 @@ Azure DNS tillhandahåller följande funktioner:
 * **Vidarebefordra DNS-matchningen stöds mellan olika virtuella nätverk som är länkade till den privata zonen**. För flera virtuella nätverk DNS-matchning finns ingen explicit beroende så att de virtuella nätverken är peer-kopplade med varandra. Dock kanske du vill peerkoppla virtuella nätverk för andra scenarier (till exempel HTTP-trafik).
 
 * **Omvänd DNS-sökning stöds inom omfånget för virtuellt nätverk**. Omvänd DNS-sökning för en privat IP-adress inom det virtuella nätverket som tilldelats en privat zon returnerar det FQDN som innehåller värden/postens namn och zonnamnet som suffix.
+
+## <a name="known-issues"></a>Kända problem
+Följande är kända buggar och problem i förhandsversionen:
+* Om du tar bort ett virtuellt nätverk som är länkat till en privat DNS-zon tas inte bort länkarna till den privata DNS-zonen. Länken fungerar inte om du återskapar det virtuella nätverket med samma namn och resursgrupp och försöker länka det till alla privata DNS-zon. Undvik problemet genom att skapa det virtuella nätverket i en annan resursgrupp eller med ett annat namn i samma resursgrupp.
+* Om du flyttar ett virtuellt nätverk till en annan resursgrupp eller prenumeration, uppdateras den inte länkarna till privata DNS-zon. Namnmatchning för det virtuella nätverket som flyttats fortsätter att fungera, men visas gamla ARM-ID för det virtuella nätverket när du visar virtuella nätverkslänkar på privata DNS-zonen.
+* För närvarande länkade virtuella nätverk som finns i Förenade Arabemiraten, norra, Förenade Arabemiraten, centrala, Sydafrika, västra, Sydafrika, norra, Kanada, östra, Frankrike, södra misslyckas och du kan se återkommande problem med namnmatchning DNS. 
+
 
 ## <a name="other-considerations"></a>Annat att tänka på
 

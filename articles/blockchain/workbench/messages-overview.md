@@ -40,7 +40,7 @@ Begäran kräver följande fält:
 | lastName             | Efternamn för användaren                               |
 | emailAddress         | E-postadressen för användaren                           |
 | externalId           | Azure AD-objekt-ID för användaren                      |
-| ConnectionId         | Unik identifierare för blockchain-anslutning |
+| connectionId         | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion | Meddelanden schemaversion                            |
 | messageName          | **CreateUserRequest**                               |
 
@@ -66,11 +66,11 @@ Blockchain Workbench returnerar ett svar med följande fält:
 | requestId             | Klienten angivna GUID |
 | userId                | ID för den användare som har skapats |
 | userChainIdentifier   | Adress för den användare som har skapats i blockchain-nätverket. I Ethereum, adressen är användarens **i kedjan** adress. |
-| ConnectionId          | Unik identifierare för blockchain-anslutning|
+| connectionId          | Unik identifierare för blockchain-anslutning|
 | messageSchemaVersion  | Meddelanden schemaversion |
 | messageName           | **CreateUserUpdate** |
 | status                | Status för skapa användarbegäran.  Om lyckas, är värdet **lyckades**. Värdet är på fel, **fel**.     |
-| AdditionalInformation | Ytterligare informationen baserat på status |
+| additionalInformation | Ytterligare informationen baserat på status |
 
 Exempel lyckad **skapa användare** svar från Blockchain Workbench:
 
@@ -119,7 +119,7 @@ Begäran kräver följande fält:
 | version              | Versionen av programmet. Obligatoriskt om du har flera versioner av programmet aktiverat. Annars är version valfritt. Läs mer om programmet versionshantering [Azure Blockchain Workbench programmet versionshantering](version-app.md). |
 | WorkflowName         | Namnet på arbetsflödet |
 | parameters           | Parametrar som har angetts för skapande av kontrakt |
-| ConnectionId         | Unik identifierare för blockchain-anslutning |
+| connectionId         | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion | Meddelanden schemaversion |
 | messageName          | **CreateContractRequest** |
 
@@ -155,11 +155,11 @@ Blockchain Workbench returnerar ett svar med följande fält:
 | requestId                | Klienten angivna GUID                                                             |
 | contractId               | Unik identifierare för kontraktet inuti Azure Blockchain Workbench |
 | contractLedgerIdentifier | Kontraktet på redovisningen-adress                                            |
-| ConnectionId             | Unik identifierare för blockchain-anslutning                               |
+| connectionId             | Unik identifierare för blockchain-anslutning                               |
 | messageSchemaVersion     | Meddelanden schemaversion                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
 | status                   | Status för begäran om kontrakt skapas.  Möjliga värden: **Skickat**, **allokerat**, **fel**.  |
-| AdditionalInformation    | Ytterligare informationen baserat på status                              |
+| additionalInformation    | Ytterligare informationen baserat på status                              |
 
 Exempel på en skickade **skapa kontrakt** svar från Blockchain Workbench:
 
@@ -223,7 +223,7 @@ Begäran kräver följande fält:
 | version                  | Versionen av programmet. Obligatoriskt om du har flera versioner av programmet aktiverat. Annars är version valfritt. Läs mer om programmet versionshantering [Azure Blockchain Workbench programmet versionshantering](version-app.md). |
 | workflowFunctionName     | Namnet på arbetsflödesfunktion |
 | parameters               | Parametrar som har angetts för skapande av kontrakt |
-| ConnectionId             | Unik identifierare för blockchain-anslutning |
+| connectionId             | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion     | Meddelanden schemaversion |
 | messageName              | **CreateContractActionRequest** |
 
@@ -258,11 +258,11 @@ Blockchain Workbench returnerar ett svar med följande fält:
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | Klienten angivna GUID|
 | contractId            | Unik identifierare för kontraktet inuti Azure Blockchain Workbench |
-| ConnectionId          | Unik identifierare för blockchain-anslutning |
+| connectionId          | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion  | Meddelanden schemaversion |
 | messageName           | **CreateContractActionUpdate** |
 | status                | Status för begäran om åtgärden kontraktet. Möjliga värden: **Skickat**, **allokerat**, **fel**.                         |
-| AdditionalInformation | Ytterligare informationen baserat på status |
+| additionalInformation | Ytterligare informationen baserat på status |
 
 Exempel på en skickade **skapa kontrakt åtgärd** svar från Blockchain Workbench:
 
@@ -385,10 +385,10 @@ Innehåller information om enskilda block. Den *BlockMessage* innehåller ett av
 |------|-------------|
 | Blockera | Innehåller [blockera information](#block-information) |
 | transaktioner | Innehåller en samling [transaktionsinformation](#transaction-information) för blocket |
-| ConnectionId | Unik identifierare för anslutningen |
+| connectionId | Unik identifierare för anslutningen |
 | messageSchemaVersion | Meddelanden schemaversion |
 | messageName | **BlockMessage** |
-| AdditionalInformation | Ytterligare information |
+| additionalInformation | Ytterligare information |
 
 #### <a name="block-information"></a>Blockera information
 
@@ -457,10 +457,10 @@ Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med
 | contractLedgerIdentifier | Unik identifierare för kontraktet på redovisningen |
 | contractProperties | [Egenskaper för kontraktet](#contract-properties) |
 | isNewContract | Anger huruvida det här kontraktet skapades nyligen. Möjliga värden är: SANT: det här kontraktet har ett nytt kontrakt skapas. FALSKT: det här kontraktet är en kontrakt-uppdatering. |
-| ConnectionId | Unik identifierare för anslutningen |
+| connectionId | Unik identifierare för anslutningen |
 | messageSchemaVersion | Meddelanden schemaversion |
 | messageName | **ContractMessage** |
-| AdditionalInformation | Ytterligare information |
+| additionalInformation | Ytterligare information |
 
 #### <a name="modifying-transaction-information"></a>Ändra transaktionsinformation
 
@@ -570,10 +570,10 @@ Innehåller information när ett kontrakt-funktionen anropas som funktionsnamnet
 | parameters                  | [Parameterinformation](#parameter-information) |
 | Transaktionen                 | Transaktionsinformation |
 | inTransactionSequenceNumber | Sekvensnumret för transaktionen i blocket |
-| ConnectionId                | Unik identifierare för anslutningen |
+| connectionId                | Unik identifierare för anslutningen |
 | messageSchemaVersion        | Meddelanden schemaversion |
 | messageName                 | **EventMessage** |
-| AdditionalInformation       | Ytterligare information |
+| additionalInformation       | Ytterligare information |
 
 #### <a name="caller-information"></a>Anroparen information
 
@@ -651,10 +651,10 @@ Innehåller information när ett program har överförts till Workbench, t.ex. n
 | contractCodes | Insamling av [kontrakt koder](#contract-code-information) för programmet |
 | ApplicationRoles | Insamling av [programroller](#application-role-information) för programmet |
 | applicationWorkflows | Insamling av [programarbetsflöden](#application-workflow-information) för programmet |
-| ConnectionId | Unik identifierare för anslutningen |
+| connectionId | Unik identifierare för anslutningen |
 | messageSchemaVersion | Meddelanden schemaversion |
 | messageName | **EventMessage** |
-| AdditionalInformation | Mer information finns här innehåller programtillstånd för arbetsflödet och övergången information. |
+| additionalInformation | Mer information finns här innehåller programtillstånd för arbetsflödet och övergången information. |
 
 #### <a name="contract-code-information"></a>Kontrakt-kodinformation
 
@@ -844,10 +844,10 @@ Innehåller information om en användare har tilldelats en roll i Workbench, til
 | applicationRole        | Information om den [programroll](#roleassignment-application-role) |
 | assigner               | Information om den [tilldelare](#roleassignment-assigner) |
 | Tilldelad person               | Information om den [tilldelad person](#roleassignment-assignee) |
-| ConnectionId           | Unik identifierare för anslutningen |
+| connectionId           | Unik identifierare för anslutningen |
 | messageSchemaVersion   | Meddelanden schemaversion |
 | messageName            | **EventMessage** |
-| AdditionalInformation  | Ytterligare information |
+| additionalInformation  | Ytterligare information |
 
 #### <a name="roleassignment-application-role"></a>RoleAssignment programroll
 

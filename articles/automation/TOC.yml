@@ -124,6 +124,8 @@
         - name: Felsöka runbook-flöden
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: Starta/stoppa virtuella datorer
+          href: troubleshoot/start-stop-vm.md
 - name: Uppdateringshantering
   items:
     - name: Översikt över Uppdateringshantering
@@ -313,6 +315,8 @@
   items:
     - name: Vidarebefordra jobbdata från Azure Automation till Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Regioner som stöds för mappningar för Log Analytics-arbetsyta
+      href: how-to/region-mappings.md
 - name: Migrera
   items:
     - name: Migrera från Orchestrator

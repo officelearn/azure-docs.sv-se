@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Mata in exempeldata
       href: ingest-sample-data.md
-    - name: Söka i data
-      items:
-        - name: Webbgränssnitt
-          href: web-query-data.md
+    - name: Fråga efter data med webbanvändargränssnittet
+      href: web-query-data.md
 - name: Självstudier
   items:
     - name: Mata in data utan att använda kod
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: SQL-fråga
               href: power-bi-sql-query.md
-        - name: ODBC-anslutningsapp
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: ODBC-anslutningsapp
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Hantera
       items:
         - name: Hantera databasbehörigheter

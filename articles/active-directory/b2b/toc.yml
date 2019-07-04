@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: Autentisering med engångskoder
               href: one-time-passcode.md
+            - name: Direkt federation
+              href: direct-federation.md
+            - name: Exempel på direkt federation med AD FS
+              href: direct-federation-adfs.md
             - name: Tillåta eller blockera inbjudningar
               href: allow-deny-list.md
             - name: Lägga till B2B-användare utan inbjudan

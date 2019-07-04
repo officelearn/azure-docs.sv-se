@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Distribuera till AKS med hjälp av blått/grönt mönster
               href: jenkins-aks-blue-green-deployment.md
+            - name: CI/CD med Azure Dev Spaces
+              href: tutorial-jenkins-dev-spaces.md
         - name: App Service
           items:
             - name: Skapa Azure-resurser i ett pipeline-jobb

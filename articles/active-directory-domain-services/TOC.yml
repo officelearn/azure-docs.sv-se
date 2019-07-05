@@ -37,10 +37,12 @@
       items:
         - name: Scenarier
           href: scenarios.md
-        - name: Välja ett virtuellt nätverk
+        - name: Planera ett virtuellt nätverk
           href: network-considerations.md
     - name: Hantera Azure AD DS
       items:
+        - name: Aktivera säkerhetsgranskningshändelser (förhandsversion)
+          href: security-audit-events.md
         - name: Kontrollera en hanterad domäns hälsostatus
           href: check-health.md
         - name: Konfigurera begränsad synkronisering från Azure AD till en hanterad domän

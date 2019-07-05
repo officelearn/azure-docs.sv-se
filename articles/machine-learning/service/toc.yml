@@ -197,7 +197,7 @@
         - name: Spåra experiment med MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
-        - name: Visualisera experiment med TensorBoard
+        - name: Visualisera körningar med TensorBoard
           displayName: 'log, monitor, metrics'
           href: how-to-monitor-tensorboard.md
     - name: Azure-maskininlärning

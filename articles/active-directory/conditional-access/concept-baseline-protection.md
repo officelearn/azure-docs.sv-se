@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112593"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440779"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är principer för baslinjen?
 
@@ -30,18 +30,18 @@ Hantera anpassade principer för villkorlig åtkomst kräver en Azure AD Premium
 
 Det finns fyra grundläggande principer som organisationer kan aktivera:
 
-* [Kräva MFA för administratörer](howto-baseline-protect-administrators.md)
+* [Kräva MFA för administratörer (förhandsversion)](howto-baseline-protect-administrators.md)
 * [Slutanvändaren protection (förhandsgranskningsversion)](howto-baseline-protect-end-users.md)
 * [Blockera äldre authentication (förhandsversion)](howto-baseline-protect-legacy-auth.md)
 * [Kräva MFA för tjänsthantering (förhandsversion)](howto-baseline-protect-azure.md)
 
 Alla fyra av dessa principer påverkar äldre autentiseringsflöden som POP, IMAP och äldre stationära Office-klienter.
 
-### <a name="require-mfa-for-admins"></a>Kräva MFA för administratörer
+### <a name="require-mfa-for-admins-preview"></a>Kräva MFA för administratörer (förhandsversion)
 
 På grund av den kraft och åtkomst-administratörskonton har, bör du hantera dem med särskild försiktighet. En vanlig metod för att förbättra skyddet av Privilegierade konton är att kräva en starkare form av verifiering för kontot när de används för att logga in. Du kan få en starkare Kontoverifiering genom att kräva att administratörer kan registrera sig för och använder Azure Multi-Factor Authentication i Azure Active Directory.
 
-[Kräva MFA för administratörer](howto-baseline-protect-administrators.md) är en baslinjeprincip som kräver multifaktorautentisering (MFA) för följande katalogroller, anses vara de mest Privilegierade rollerna för Azure AD:
+[Kräva MFA för administratörer (förhandsversion)](howto-baseline-protect-administrators.md) är en baslinjeprincip som kräver multifaktorautentisering (MFA) för följande katalogroller, anses vara de mest Privilegierade rollerna för Azure AD:
 
 * Global administratör
 * SharePoint-administratör
@@ -52,7 +52,7 @@ På grund av den kraft och åtkomst-administratörskonton har, bör du hantera d
 * Faktureringsadministratör
 * Användaradministratör
 
-Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Du kan utesluta specifika användarkonton från baslinje-principen som en tillfällig lösning.
+Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Slutanvändaren protection (förhandsgranskningsversion)
 
@@ -96,7 +96,7 @@ Mer information finns i:
 
 * [Fem steg för att skydda din infrastruktur för Identitetshantering](../../security/azure-ad-secure-steps.md)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)
-* [Kräva MFA för administratörer](howto-baseline-protect-administrators.md)
+* [Kräva MFA för administratörer (förhandsversion)](howto-baseline-protect-administrators.md)
 * [Slutanvändaren protection (förhandsgranskningsversion)](howto-baseline-protect-end-users.md)
 * [Blockera äldre authentication (förhandsversion)](howto-baseline-protect-legacy-auth.md)
 * [Kräva MFA för tjänsthantering (förhandsversion)](howto-baseline-protect-azure.md)

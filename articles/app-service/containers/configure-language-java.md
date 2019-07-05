@@ -3,22 +3,22 @@ title: Konfigurera Linux Java - appar i Azure App Service | Microsoft Docs
 description: Lär dig hur du konfigurerar Java-appar som körs i Azure App Service på Linux.
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 services: app-service
-author: rloutlaw
-manager: angerobe
+author: bmitchell287
+manager: douge
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/28/2019
-ms.author: routlaw
+ms.date: 06/26/2019
+ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341375"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509644"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -53,7 +53,7 @@ Mer information finns i [Direktuppspelningsloggar med Azure CLI](../troubleshoot
 
 ### <a name="app-logging"></a>App-loggning
 
-Aktivera [programloggning](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) via Azure portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) att konfigurera App Service för att skriva ditt programs standard konsolens utdata och felströmmar för standard-konsolen till lokalt filsystem eller Azure Blob Storage. Loggning till lokala App Service-filsystemet inaktiveras instans 12 timmar efter att den är konfigurerad. Om du behöver längre kvarhållning kan du konfigurera programmet att skriva utdata till ett Blob storage-behållare. Din Java och Tomcat apploggarna finns i den `/home/LogFiles/Application/` directory.
+Aktivera [programloggning](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) via Azure portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) att konfigurera App Service för att skriva ditt programs standard konsolens utdata och felströmmar för standard-konsolen till lokalt filsystem eller Azure Blob Storage. Loggning till lokala App Service-filsystemet inaktiveras instans 12 timmar efter att den är konfigurerad. Om du behöver längre kvarhållning kan du konfigurera programmet att skriva utdata till ett Blob storage-behållare. Din Java och Tomcat apploggarna finns i den */home/LogFiles/program/* directory.
 
 Om programmet använder [Logback](https://logback.qos.ch/) eller [Log4j](https://logging.apache.org/log4j) för att analysera och du kan vidarebefordra spårning för granskning i Azure Application Insights med hjälp av loggning framework konfigurationsanvisningar i [Utforska Java spårningsloggar i Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -76,7 +76,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Kör kommandot nedan för att starta en 30 sekunder inspelning av JVM. Det här JVM-profilen och skapa en JFR-fil med namnet `jfr_example.jfr` i arbetskatalogen. (Ersätt 116 med process-ID för din Java-app).
+Kör kommandot nedan för att starta en 30 sekunder inspelning av JVM. Det här JVM-profilen och skapa en JFR-fil med namnet *jfr_example.jfr* i arbetskatalogen. (Ersätt 116 med process-ID för din Java-app).
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -96,7 +96,7 @@ Mer information finns i den [Jcmd kommandoreferens](https://docs.oracle.com/java
 
 ### <a name="analyzing-recordings"></a>Analysera inspelningar
 
-Använd [FTPS](../deploy-ftp.md) hämtningen JFR till den lokala datorn. Om du vill analysera filen JFR, ladda ned och installera [Zulu Sambandscentral](https://www.azul.com/products/zulu-mission-control/). Anvisningar för Zulu Sambandscentral finns i den [Azul dokumentation](https://docs.azul.com/zmc/) och [Installationsinstruktioner](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Använd [FTPS](../deploy-ftp.md) hämtningen JFR till den lokala datorn. Om du vill analysera filen JFR, ladda ned och installera [Zulu Sambandscentral](https://www.azul.com/products/zulu-mission-control/). Anvisningar för Zulu Sambandscentral finns i den [Azul dokumentation](https://docs.azul.com/zmc/) och [Installationsinstruktioner](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Anpassning och justering
 
@@ -133,7 +133,7 @@ Utvecklare som kör ett program med en distributionsplats i deras App Service-pl
 
 När programmet heap justeringsinställningar, granska information om din App Service-plan och ta hänsyn till flera program och distributionsplats måste hitta den optimala allokeringen av minne.
 
-Om du distribuerar ett JAR-program kan det ha namnet `app.jar` så att den inbyggda avbildningen kan identifiera din app. (Maven-pluginprogrammet gör den här byta namn på automatiskt.) Om du inte vill att byta namn på din JAR till `app.jar`, du kan ladda upp ett kommandoskript med kommandot för att köra dina JAR-filen. Klistra in den fullständiga sökvägen till skriptet i den [startfil](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textrutan i konfigurationsavsnittet i portalen.
+Om du distribuerar ett JAR-program kan det ha namnet *app.jar* så att den inbyggda avbildningen kan identifiera din app. (Maven-pluginprogrammet gör den här byta namn på automatiskt.) Om du inte vill att byta namn på din JAR till *app.jar*, du kan ladda upp ett kommandoskript med kommandot för att köra dina JAR-filen. Klistra in den fullständiga sökvägen till skriptet i den [startfil](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textrutan i konfigurationsavsnittet i portalen.
 
 ### <a name="turn-on-web-sockets"></a>Aktivera webbsockets
 
@@ -173,7 +173,7 @@ Om ditt Java-program är särskilt stor, bör du öka tidsgräns för start. Gö
 
 ## <a name="secure-applications"></a>Säkra program
 
-Java-program som körs i App Service för Linux har samma uppsättning [säkerhetsmetoder](/azure/security/security-paas-applications-using-app-services) som andra program. 
+Java-program som körs i App Service för Linux har samma uppsättning [säkerhetsmetoder](/azure/security/security-paas-applications-using-app-services) som andra program.
 
 ### <a name="authenticate-users"></a>Autentisera användare
 
@@ -215,7 +215,7 @@ Om du vill inaktivera den här funktionen, skapa programinställning med namnet 
 
 #### <a name="spring-boot"></a>Spring Boot
 
-Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er. Se till att öka den högsta huvudstorlek i din `application.properties` fil. Vi rekommenderar ett värde på `16384`.
+Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er. Se till att öka den högsta huvudstorlek i din *application.properties* fil. Vi rekommenderar ett värde på `16384`.
 
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 
@@ -239,11 +239,11 @@ Det här avsnittet visar hur du ansluter Java-program som distribueras på Azure
 ### <a name="configure-new-relic"></a>Konfigurera New Relic
 
 1. Skapa ett konto för NewRelic på [NewRelic.com](https://newrelic.com/signup)
-2. Ladda ned Java-agenten från NewRelic, den kommer att ha ett filnamn som liknar `newrelic-java-x.x.x.zip`.
+2. Ladda ned Java-agenten från NewRelic, den kommer att ha ett filnamn som liknar *newrelic-java-x.x.x.zip*.
 3. Kopiera licensnyckeln, måste den att konfigurera agenten senare.
-4. [SSH till din App Service-instans](app-service-linux-ssh-support.md) och skapa en ny katalog `/home/site/wwwroot/apm`.
-5. Ladda upp uppackat NewRelic Java-agentfilerna till en katalog under `/home/site/wwwroot/apm`. Filer för hanteringsagenten måste vara i `/home/site/wwwroot/apm/newrelic`.
-6. Ändra YAML-fil på `/home/site/wwwroot/apm/newrelic/newrelic.yml` och Ersätt platshållarvärdet licens med din egen licensnyckel.
+4. [SSH till din App Service-instans](app-service-linux-ssh-support.md) och skapa en ny katalog */home/site/wwwroot/apm*.
+5. Ladda upp uppackat NewRelic Java-agentfilerna till en katalog under */home/site/wwwroot/apm*. Filer för hanteringsagenten måste vara i */home/site/wwwroot/apm/newrelic*.
+6. Ändra YAML-fil på */home/site/wwwroot/apm/newrelic/newrelic.yml* och Ersätt platshållarvärdet licens med din egen licensnyckel.
 7. Bläddra till ditt program i App Service i Azure-portalen och skapa en ny inställning för programmet.
     - Om din app använder **Java SE**, skapa miljövariabeln `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - Om du använder **Tomcat**, skapa miljövariabeln `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
@@ -253,25 +253,25 @@ Det här avsnittet visar hur du ansluter Java-program som distribueras på Azure
 ### <a name="configure-appdynamics"></a>Konfigurera AppDynamics
 
 1. Skapa ett konto för AppDynamics på [AppDynamics.com](https://www.appdynamics.com/community/register/)
-1. Hämta Java-agenten från webbplatsen AppDynamics, namnet på filen ska vara detsamma som `AppServerAgent-x.x.x.xxxxx.zip`
-1. [SSH till din App Service-instans](app-service-linux-ssh-support.md) och skapa en ny katalog `/home/site/wwwroot/apm`.
-1. Ladda upp Java-agentfilerna till en katalog under `/home/site/wwwroot/apm`. Filer för hanteringsagenten måste vara i `/home/site/wwwroot/apm/appdynamics`.
-1. Bläddra till ditt program i App Service i Azure-portalen och skapa en ny inställning för programmet.
+2. Hämta Java-agenten från webbplatsen AppDynamics, namnet på filen ska vara detsamma som *AppServerAgent x.x.x.xxxxx.zip*
+3. [SSH till din App Service-instans](app-service-linux-ssh-support.md) och skapa en ny katalog */home/site/wwwroot/apm*.
+4. Ladda upp Java-agentfilerna till en katalog under */home/site/wwwroot/apm*. Filer för hanteringsagenten måste vara i */home/site/wwwroot/apm/appdynamics*.
+5. Bläddra till ditt program i App Service i Azure-portalen och skapa en ny inställning för programmet.
     - Om du använder **Java SE**, skapa miljövariabeln `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är din App Service-namn.
     - Om du använder **Tomcat**, skapa miljövariabeln `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är din App Service-namn.
     - Om du använder **WildFly**, finns i dokumentationen för AppDynamics [här](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) anvisningar om hur du installerar Java-agenten och JBoss konfiguration.
-    
+
 ## <a name="configure-jar-applications"></a>Konfigurera JAR-program
 
 ### <a name="starting-jar-apps"></a>Startar JAR-appar
 
-Som standard, App-tjänsten förväntas JAR-programmet för att få namnet `app.jar`. Om så är det här namnet, körs den automatiskt. För Maven-användare, kan du ange JAR namn genom att inkludera `<finalName>app</finalName>` i den `<build>` delen av din `pom.xml`. [Du kan göra samma i Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) genom att ange den `archiveFileName` egenskapen.
+Som standard, App-tjänsten förväntas JAR-programmet för att få namnet *app.jar*. Om så är det här namnet, körs den automatiskt. För Maven-användare, kan du ange JAR namn genom att inkludera `<finalName>app</finalName>` i den `<build>` delen av din *pom.xml*. [Du kan göra samma i Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) genom att ange den `archiveFileName` egenskapen.
 
 Om du vill använda ett annat namn för din JAR måste du också ange den [startkommandot](app-service-linux-faq.md#built-in-images) som kör JAR-filen. Till exempel `java -jar my-jar-app.jar`. Du kan ange värdet för din startkommandot i portalen under konfiguration > allmänna inställningar eller med en programinställning med namnet `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Serverport
 
-App Service Linux dirigerar inkommande begäranden till port 80, så att ditt program ska lyssna på port 80 samt. Du kan göra detta i programmets konfiguration (till exempel Spring's `application.properties` fil), eller i din startkommandot (till exempel `java -jar spring-app.jar --server.port=80`). Se följande dokumentation för vanliga Java-ramverk:
+App Service Linux dirigerar inkommande begäranden till port 80, så att ditt program ska lyssna på port 80 samt. Du kan göra detta i programmets konfiguration (till exempel Spring's *application.properties* fil), eller i din startkommandot (till exempel `java -jar spring-app.jar --server.port=80`). Se följande dokumentation för vanliga Java-ramverk:
 
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-use-short-command-line-arguments)
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
@@ -309,24 +309,24 @@ Därefter fastställer om datakällan ska vara tillgänglig till ett program ell
 
 #### <a name="application-level-data-sources"></a>Programnivå datakällor
 
-1. Skapa en `context.xml` fil i den `META-INF/` katalogen i ditt projekt. Skapa den `META-INF/` katalogen om den inte finns.
+1. Skapa en *context.xml* fil i den *META-INF /* katalogen i ditt projekt. Skapa den *META-INF /* katalogen om den inte finns.
 
-2. I `context.xml`, lägga till en `Context` element att länka datakällan till en JNDI-adress. Ersätt den `driverClassName` med drivrutinens klassnamn från tabellen ovan.
+2. I *context.xml*, lägga till en `Context` element att länka datakällan till en JNDI-adress. Ersätt den `driverClassName` med drivrutinens klassnamn från tabellen ovan.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
     ```
 
-3. Uppdatera ditt programs `web.xml` att använda datakällan i ditt program.
+3. Uppdatera ditt programs *web.xml* att använda datakällan i ditt program.
 
     ```xml
     <resource-env-ref>
@@ -337,24 +337,25 @@ Därefter fastställer om datakällan ska vara tillgänglig till ett program ell
 
 #### <a name="shared-server-level-resources"></a>Delade resurser på servernivå
 
-1. Kopiera innehållet i `/usr/local/tomcat/conf` till `/home/tomcat/conf` instans på din App Service på Linux med SSH om du inte har en konfiguration för det redan.
-    ```
+1. Kopiera innehållet i */usr/local/tomcat/conf* till */home/tomcat/conf* instans på din App Service på Linux med SSH om du inte har en konfiguration för det redan.
+
+    ```bash
     mkdir -p /home/tomcat
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
 
-2. Lägg till en kontext-element i din `server.xml` inom den `<Server>` element.
+2. Lägg till en kontext-element i din *server.xml* inom den `<Server>` element.
 
     ```xml
     <Server>
     ...
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -362,7 +363,7 @@ Därefter fastställer om datakällan ska vara tillgänglig till ett program ell
     </Server>
     ```
 
-3. Uppdatera ditt programs `web.xml` att använda datakällan i ditt program.
+3. Uppdatera ditt programs *web.xml* att använda datakällan i ditt program.
 
     ```xml
     <resource-env-ref>
@@ -375,7 +376,8 @@ Därefter fastställer om datakällan ska vara tillgänglig till ett program ell
 
 Slutligen placera drivrutinen JAR-filer i Tomcat-klassökvägen och starta om App Service.
 
-1. Se till att JDBC-drivrutinsfilerna är tillgängliga för Tomcat classloader genom att placera dem i den `/home/tomcat/lib` directory. (Skapa den här katalogen om den inte redan finns.) Utför följande steg om du vill överföra filerna till din App Service-instans:
+1. Se till att JDBC-drivrutinsfilerna är tillgängliga för Tomcat classloader genom att placera dem i den */home/tomcat/lib* directory. (Skapa den här katalogen om den inte redan finns.) Utför följande steg om du vill överföra filerna till din App Service-instans:
+
     1. I den [Cloud Shell](https://shell.azure.com), installera tillägget webapp:
 
       ```azurecli-interactive
@@ -388,7 +390,7 @@ Slutligen placera drivrutinen JAR-filer i Tomcat-klassökvägen och starta om Ap
       az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
       ```
 
-    3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den `/home/tomcat/lib` mapp.
+    3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den */home/tomcat/lib* mapp.
 
     Du kan också använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ dessa [instruktioner för att hämta dina autentiseringsuppgifter för FTP-](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
@@ -396,13 +398,13 @@ Slutligen placera drivrutinen JAR-filer i Tomcat-klassökvägen och starta om Ap
 
 ### <a name="spring-boot"></a>Spring Boot
 
-För att ansluta till datakällor i Spring Boot-program, föreslår vi att skapa anslutningssträngar och infoga dem till din `application.properties` fil.
+För att ansluta till datakällor i Spring Boot-program, föreslår vi att skapa anslutningssträngar och infoga dem till din *application.properties* fil.
 
 1. Ange ett namn för strängen i avsnittet ”Configuration” i App Service-sidan, klistra in JDBC-anslutningssträngen i värdefältet och ange till ”anpassad”. Du kan också ange den här anslutningssträngen som platsinställning.
 
     Den här anslutningssträngen är tillgänglig för vårt program som en miljövariabel som heter `CUSTOMCONNSTR_<your-string-name>`. Till exempel den anslutningssträng som vi skapade ovan får namnet `CUSTOMCONNSTR_exampledb`.
 
-2. I din `application.properties` fil, referera till den här anslutningssträngen med miljövariabeln. I vårt exempel använder vi följande.
+2. I din *application.properties* filen, referera till den här anslutningssträngen med miljövariabeln. I vårt exempel använder vi följande.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -415,47 +417,49 @@ Finns det [Spring Boot-dokumentationen på dataåtkomst](https://docs.spring.io/
 > [!NOTE]
 > Java Enterprise Edition i App Service på Linux är för närvarande i förhandsversion. Den här stacken är **inte** rekommenderas för produktion-riktade arbete. information om hur våra Java SE och Tomcat-stackar.
 
-Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala Java (EE Java) program på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](https://wildfly.org/) programserver.
+Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala Java (EE Java) program på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [WildFly](https://wildfly.org/) programserver.
 
-[Skala med App Service](#scale-with-app-service)
-[anpassa programmet serverkonfiguration](#customize-application-server-configuration)
-[moduler och beroenden](#modules-and-dependencies)
-[Data källor](#data-sources)
-[Aktivera meddelanden providers](#enable-messaging-providers)
-[konfigurera sessionen management cachelagring](#configure-session-management-caching)
+Det här avsnittet innehåller följande underavsnitt:
+
+- [Skala med App Service](#scale-with-app-service)
+- [Anpassa programmet serverkonfiguration](#customize-application-server-configuration)
+- [Installera moduler och beroenden](#install-modules-and-dependencies)
+- [Konfigurera datakällor](#configure-data-sources)
+- [Aktivera meddelanden providers](#enable-messaging-providers)
+- [Konfigurera sessionen management cachelagring](#configure-session-management-caching)
 
 ### <a name="scale-with-app-service"></a>Skala med App Service
 
 Programservern WildFly som körs i App Service på Linux körs i fristående läge, inte i en domänkonfiguration. När du skalar ut App Service-planen konfigureras varje WildFly-instans som en fristående server.
 
- Skala ditt program vågrätt eller lodrätt med [regler](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) och av [ökar din instansantalet](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Skala ditt program vågrätt eller lodrätt med [regler](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) och av [ökar din instansantalet](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="customize-application-server-configuration"></a>Anpassa programmet serverkonfiguration
 
-Web App-instanserna är tillståndslösa, så att varje ny instans som är igång måste konfigureras på Start som stöder Wildfly-konfiguration som krävs av programmet.
+Web App-instanserna är tillståndslösa, så att varje ny instans som är igång måste konfigureras på Start som stöder WildFly-konfiguration som krävs av programmet.
 Du kan skriva en start Bash-skript för att anropa WildFly CLI för att:
 
 - Skapa datakällor
 - Konfigurera meddelanden-providrar
-- Lägga till andra moduler och beroenden i Wildfly serverkonfigurationen.
+- Lägga till andra moduler och beroenden i WildFly serverkonfigurationen.
 
- Skriptet körs när Wildfly är igång, men innan programmet startas. Skriptet bör använda den [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) anropas från `/opt/jboss/wildfly/bin/jboss-cli.sh` att konfigurera application server med en konfiguration eller ändringar som behövs när servern startas.
+Skriptet körs när WildFly är igång, men innan programmet startas. Skriptet bör använda den [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) anropas från */opt/jboss/wildfly/bin/jboss-cli.sh* att konfigurera application server med en konfiguration eller ändringar som behövs när servern startas.
 
-Använd inte interaktivt läge i CLI för att konfigurera Wildfly. I stället, du kan ange ett skript med kommandon till JBoss CLI med hjälp av den `--file` kommandot, till exempel:
+Använd inte interaktivt läge i CLI för att konfigurera WildFly. I stället, du kan ange ett skript med kommandon till JBoss CLI med hjälp av den `--file` kommandot, till exempel:
 
 ```bash
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Ladda upp startskriptet att `/home/site/deployments/tools` i din App Service-instans. Se [det här dokumentet](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#userscope) anvisningar om hur du hämtar din FTP-autentiseringsuppgifter.
+Använda FTP för att överföra startskriptet till en plats i din App Service-instans under din */home* katalogen, till exempel */home/site/deployments/tools*. Mer information finns i [distribuera din app till Azure App Service med FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-Ange den **startskript** fältet i Azure-portalen till platsen för din start shell-skript, till exempel `/home/site/deployments/tools/your-startup-script.sh`.
+Ange den **startskript** fältet i Azure-portalen till platsen för din start shell-skript, till exempel */home/site/deployments/tools/your-startup-script.sh*.
 
 Ange [appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) i programkonfigurationen att skicka miljövariabler för användning i skriptet. Programinställningar Behåll anslutningssträngar och andra hemligheter som behövs för att konfigurera ditt program utanför versionskontroll.
 
-### <a name="modules-and-dependencies"></a>Moduler och beroenden
+### <a name="install-modules-and-dependencies"></a>Installera moduler och beroenden
 
-För att installera moduler och deras beroenden i klassökvägen Wildfly via JBoss CLI, behöver du skapa följande filer i sina egna katalogen. Vissa moduler och beroenden kanske behöver ytterligare konfiguration, till exempel JNDI naming eller andra API-konfiguration, så att den här listan är en minimiuppsättning för vad du behöver konfigurera ett beroende i de flesta fall.
+För att installera moduler och deras beroenden i klassökvägen WildFly via JBoss CLI, behöver du skapa följande filer i sina egna katalogen. Vissa moduler och beroenden kanske behöver ytterligare konfiguration, till exempel JNDI naming eller andra API-konfiguration, så att den här listan är en minimiuppsättning för vad du behöver konfigurera ett beroende i de flesta fall.
 
 - En [XML-modulen descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Den här XML-filen definierar namn, attribut och beroenden modulens. Detta [module.xml-exempelfil](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definierar en Postgres-modul, beroendet JDBC JAR-filen och andra modulberoenden som krävs.
 - Alla nödvändiga JAR-filen beroenden för din modul.
@@ -463,23 +467,170 @@ För att installera moduler och deras beroenden i klassökvägen Wildfly via JBo
 - Ett Bash-startskript att anropa JBoss CLI och köra skriptet i föregående steg. Den här filen ska utföras när din App Service-instans startas eller när nya instanser som levereras under en skalbar. Den här startskript är där du kan utföra alla andra inställningar för ditt program som JBoss kommandon skickas till JBoss CLI. Den här filen kan vara ett enda kommando för att skicka ditt kommando JBoss CLI-skript till JBoss CLI minimum:
 
 ```bash
-`/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli`
+/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-När du har de filer och innehåll för din modul, följer du stegen nedan för att lägga till modulen på programservern Wildfly.
+När du har de filer och innehåll för din modul, följer du stegen nedan för att lägga till modulen på programservern WildFly.
 
-1. FTP-filer till `/home/site/deployments/tools` i din App Service-instans. Se det här dokumentet för instruktioner om hur du hämtar din FTP-autentiseringsuppgifter.
-2. I den **Configuration** > **allmänna inställningar** sidan i Azure portal, Ställ in ”startskriptet” fältet till platsen för din start shell-skript, till exempel `/home/site/deployments/tools/your-startup-script.sh` .
+1. Använda FTP för att överföra dina filer till en plats i din App Service-instans under din */home* katalogen, till exempel */home/site/deployments/tools*. Mer information finns i [distribuera din app till Azure App Service med FTP/S](../deploy-ftp.md).
+2. I den **Configuration** > **allmänna inställningar** i Azure-portalen, ange den **startskript** fältet till platsen för start shell-skript för exempel */home/site/deployments/tools/startup.sh*.
 3. Starta om din App Service-instans genom att trycka på den **starta om** knappen i den **översikt** avsnittet i portalen eller med hjälp av Azure CLI.
 
-### <a name="configure-data-source-connections"></a>Konfigurera anslutningar till datakälla
+### <a name="configure-data-sources"></a>Konfigurera datakällor
 
-Följ samma process som beskrivs ovan i avsnittet Installera moduler och beroenden för att konfigurera Wildfly för anslutning till en datakälla. Du kan följa samma steg för alla Azure-databastjänsten.
+Om du vill konfigurera WildFly/JBoss för att komma åt en datakälla kan du använda den allmänna processen som beskrivs ovan i avsnittet ”Installera moduler och beroenden”. Följande avsnitt innehåller information om den här processen för PostgreSQL, MySQL och SQL Server-datakällor.
 
-1. Ladda ned JDBC-drivrutinen för din databas smak. För enkelhetens skull följer drivrutinerna för [Postgres](https://jdbc.postgresql.org/download.html) och [MySQL](https://dev.mysql.com/downloads/connector/j/). Packa upp hämtningen för att hämta .jar-filen.
-2. Följ stegen disposition i ”moduler och beroenden” kan skapa och överföra din XML-modulen descriptor JBoss CLI-skript, startskript och JDBC .jar-beroendet.
+Det här avsnittet förutsätter att du redan har en app, en App Service-instans och en Azure Database-tjänstinstans. Anvisningarna nedan avser App Service-namn, en resursgrupp och databasen anslutningsinformation. Du hittar den här informationen på Azure portal.
 
-Mer information om hur du konfigurerar Wildfly med [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), och [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) är tillgänglig. Du kan använda dessa anpassade anvisningar tillsammans med den generaliserade metoden ovan för att lägga till definitioner av datakällor i din server.
+Om du vill gå igenom hela processen från början med hjälp av en exempelapp, se [självstudien: Skapa en Java EE och Postgres-webbapp i Azure](tutorial-java-enterprise-postgresql-app.md).
+
+Följande steg beskriver kraven för att ansluta din befintliga App Service och databas.
+
+1. Ladda ned JDBC-drivrutinen för [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), eller [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). Packa upp det nedladdade arkivet för att få .jar-filen för drivrutinen.
+
+2. Skapa en fil med ett namn som liknar *module.xml* och Lägg till följande markering. Ersätt den `<module name>` platshållaren (inklusive hakparenteser) med `org.postgres` för PostgreSQL `com.mysql` för MySQL, eller `com.microsoft` för SQL Server. Ersätt `<JDBC .jar file path>` med namnet på .jar-filen från föregående steg, inklusive den fullständiga sökvägen till platsen du lägger till filen i din App Service-instans. Detta kan vara valfri plats under den */home* directory.
+
+    ```xml
+    <?xml version="1.0" ?>
+    <module xmlns="urn:jboss:module:1.1" name="<module name>">
+        <resources>
+           <resource-root path="<JDBC .jar file path>" />
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.transaction.api"/>
+        </dependencies>
+    </module>
+    ```
+
+3. Skapa en fil med ett namn som liknar *datasource-commands.cli* och Lägg till följande kod. Ersätt `<JDBC .jar file path>` med värdet som du använde i föregående steg. Ersätt `<module file path>` med filnamnet och sökvägen för App Service från föregående steg, till exempel */home/module.xml*.
+
+    **PostgreSQL**
+
+    ```console
+    module add --name=org.postgres --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres,driver-module-name=org.postgres,driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=$DATABASE_CONNECTION_URL --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
+
+    reload --use-current-server-config=true
+    ```
+
+    **MySQL**
+
+    ```console
+    module add --name=com.mysql --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
+
+    data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=$DATABASE_CONNECTION_URL --driver-name=mysql --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
+
+    reload --use-current-server-config=true
+    ```
+
+    **SQL Server**
+
+    ```console
+    module add --name=com.microsoft --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name=sqlserver,driver-module-name=com.microsoft,driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
+
+    data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=$DATABASE_CONNECTION_URL --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
+
+    reload --use-current-server-config=true
+    ```
+
+    Den här filen körs av startskriptet som beskrivs i nästa steg. Det installerar JDBC-drivrutinen som en WildFly-modul, skapar motsvarande WildFly datakällan och hämtar servern för att säkerställa att ändringarna träder i kraft.
+
+4. Skapa en fil med ett namn som liknar *startup.sh* och Lägg till följande kod. Ersätt `<JBoss CLI script>` med namnet på den fil du skapade i föregående steg. Se till att inkludera den fullständiga sökvägen till platsen du lägger till filen i din App Service-instans, till exempel */home/datasource-commands.cli*.
+
+    ```bash
+    #!/usr/bin/env bash
+    /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=<JBoss CLI script>
+    ```
+
+5. Använda FTP för att överföra JDBC .jar-filen, XML-filen för modulen, JBoss CLI-skript och startskriptet till din App Service-instans. Placera filerna i den plats du angav i föregående steg, till exempel */home*. Mer information om FTP Se [distribuera din app till Azure App Service med FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+6. Använda Azure CLI för att lägga till inställningar till App Service som innehåller anslutningsinformation databas. Ersätt `<resource group>` och `<webapp name>` med värdena som används av din App Service. Ersätt `<database server name>`, `<database name>`, `<admin name>`, och `<admin password>` med din anslutningsinformation för databasen. Du kan få din App Service och databasen information från Azure-portalen.
+
+    **PostgreSQL:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:postgresql://<database server name>:5432/<database name>?ssl=true \
+            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
+            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
+    ```
+
+    **MySQL:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT \
+            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
+            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
+    ```
+
+    **SQL Server:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    ```
+
+    DATABASE_CONNECTION_URL värdena är olika för varje databasserver och helt olika dem på Azure portal. URL-format som visas här (och i kodavsnitten ovan) krävs för användning av WildFly:
+
+    * **PostgreSQL:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
+    * **MySQL:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
+    * **SQLServer:** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
+
+7. Navigera till din App Service i Azure-portalen och hitta den **Configuration** > **allmänna inställningar** sidan. Ange den **startskript** fältet till namn och placering av dina startskript, till exempel */home/startup.sh*.
+
+Nästa gång som din App Service har startats om den startskriptet körs och utför nödvändiga konfigurationssteg. Om du vill testa att den här konfigurationen sker korrekt, kan du komma åt din App Service med hjälp av SSH och kör sedan startskriptet själv från Bash-Kommandotolken. Du kan också granska App Service-loggarna. Mer information om alternativen finns i [loggning och felsökning av appar](#logging-and-debugging-apps).
+
+Därefter behöver du uppdatera konfigurationen av WildFly för din app och distribuera om den. Använd följande steg:
+
+1. Öppna den *src/main/resources/META-INF/persistence.xml* -filen för din app och hitta den `<jta-data-source>` element. Ersätt innehållet som visas här:
+
+    **PostgreSQL**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
+    ```
+
+    **MySQL**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
+    ```
+
+    **SQL Server**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
+    ```
+
+2. Återskapa och distribuera om din app med följande kommando i Bash-Kommandotolken:
+
+    ```bash
+    mvn package -DskipTests azure-webapp:deploy
+    ```
+
+3. Starta om din App Service-instans genom att trycka på den **starta om** knappen i den **översikt** avsnitt av Azure portal eller med hjälp av Azure CLI.
+
+Din App Service-instans har nu konfigurerats för att komma åt databasen.
+
+Mer information om hur du konfigurerar databasanslutning med WildFly finns i [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), eller [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
 ### <a name="enable-messaging-providers"></a>Aktivera meddelanden providers
 
@@ -500,7 +651,7 @@ Som standard App Service på Linux ska använda sessionscookies tillhörighet at
 - Om en programinstans startas om och skalas, går användaren sessionstillstånd i programservern förlorad.
 - Om program har lång timeout sessionsinställningar eller ett fast antal användare, kan det ta lite tid för autoscaled nya instanser kan ta emot belastning eftersom endast nya sessioner kommer att dirigeras till de nyligen startats instanserna.
 
-Du kan konfigurera Wildfly om du vill använda en extern session butik som [Azure Cache för Redis](/azure/azure-cache-for-redis/). Behöver du [inaktivera den befintliga instansen ARR-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfiguration för att stänga av sessionen cookie-baserad Routning och tillåta arkivet session konfigurerade Wildfly att fungera utan störningar.
+Du kan konfigurera WildFly om du vill använda en extern session butik som [Azure Cache för Redis](/azure/azure-cache-for-redis/). Behöver du [inaktivera den befintliga instansen ARR-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfiguration för att stänga av sessionen cookie-baserad Routning och tillåta arkivet session konfigurerade WildFly att fungera utan störningar.
 
 ## <a name="docker-containers"></a>Docker-containrar
 
@@ -534,4 +685,3 @@ Om en stöds Java runtime kommer att dras tillbaka, får Azure-utvecklare som an
 Gå till den [Azure for Java Developers](/java/azure/) center för att hitta Azure snabbstarter, självstudier och referensdokumentation för Java.
 
 Allmänna frågor om hur du använder App Service för Linux som inte är specifika för Java-utveckling besvaras inom den [App Service Linux vanliga frågor och svar](app-service-linux-faq.md).
-

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150446"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542653"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 
@@ -34,15 +34,17 @@ Den överordnade resursen för en Azure-filresurs är ett Azure storage-konto. E
 
 ## <a name="azure-files-scale-targets"></a>Azure filer skala mål
 
-### <a name="premium-scale-targets"></a>Premium skala mål
+Det finns tre typer av begränsningar att överväga för Azure Files: storage-konton, resurser och filer.
 
-Det finns tre typer av begränsningar att överväga för premium-filresurser: storage-konton, resurser och filer.
+Exempel: En enda resurs kan uppnå 100 000 IOPS med premium-filresurser och en enskild fil kan skala upp till 5 000 IOPS. Så om du har tre filer i en resurs är den högsta IOPS som du kan hämta från resursen 15 000.
 
-Exempel: En enda resurs kan uppnå 100 000 IOPS och en enskild fil kan skala upp till 5 000 IOPS. Därför är till exempel, om det finns tre filer i en resurs den högsta IOPS som du kan hämta från resursen 15 000.
+### <a name="standard-storage-account-limits"></a>Standard lagringskontogränser
+
+Se den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) för dessa gränser.
 
 ### <a name="premium-filestorage-account-limits"></a>Premium FileStorage gränser
 
-Premium-filresurser har etablerats i ett särskilt lagringskonto med namnet **filestorage (förhandsversion)** . Det här kontot har något annorlunda skala mål än lagringskontot som används för standard-filresurser. Mål för storage-konto skala, finns i tabellen i den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) avsnittet.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Lagringskontogränser gäller för alla resurser. Skala upp till är max för FileStorage konton endast möjligt om det finns bara en resurs per FileStorage konto.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444538"
 ---
 # <a id="troubleshooting"></a> Felsöka problem med att aktivera Application Insights Snapshot Debugger och visa ögonblicksbilder
 Om du aktiverade Application Insights Snapshot Debugger för ditt program, men inte ser ögonblicksbilder för undantag, kan du använda de här anvisningarna för att felsöka. Det kan finnas många olika skäl varför ögonblicksbilder inte genereras. Du kan köra hälsokontroller ögonblicksbild för att identifiera möjliga vanliga orsaker.
@@ -38,6 +38,10 @@ Om det inte löser problemet, referera till följande manuella åtgärder för f
 ## <a name="verify-the-instrumentation-key"></a>Kontrollera instrumenteringsnyckeln
 
 Kontrollera att du använder rätt instrumenteringsnyckeln i ditt publicerade program. Instrumenteringsnyckeln är vanligtvis läsa från filen ApplicationInsights.config. Kontrollera att värdet är samma som instrumenteringsnyckeln för Application Insights-resursen som visas i portalen.
+
+## <a name="preview-versions-of-net-core"></a>Förhandsversioner av .NET Core
+Om programmet använder en förhandsversion av .NET Core och Snapshot Debugger har aktiverats via den [Application Insights-fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen sedan Snapshot Debugger startar inte. Följ anvisningarna på [aktiverar Snapshot Debugger för andra miljöer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) först för att inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet med programmet ***dessutom*** aktivering via den [Application Insights-fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 

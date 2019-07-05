@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449199"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågeparallellisering i Azure Stream Analytics
 Den här artikeln visar hur du drar nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
 Som ett krav kan du vara bekant med begreppet enhet för strömning som beskrivs i [förstå och justera Direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Vilka är delarna av ett Stream Analytics-jobb?
-Ett Stream Analytics-jobbdefinitionen innehåller indata, en fråge- och utdata. Indata är där jobbet läser från dataströmmen. Frågan används för att omvandla Indataströmmen data och utdata är där jobbet skickar resultatet till jobbet.  
+Ett Stream Analytics-jobbdefinitionen innehåller indata, en fråge- och utdata. Indata är där jobbet läser från dataströmmen. Frågan används för att omvandla Indataströmmen data och utdata är där jobbet skickar resultatet till jobbet.
 
 Ett jobb kräver minst en Indatakällan för strömmande data. Datakälla för stream inkommande kan lagras i en Azure-händelsehubb eller i Azure blob storage. Mer information finns i [introduktion till Azure Stream Analytics](stream-analytics-introduction.md) och [komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
@@ -248,11 +248,65 @@ Den här frågan kan skalas till 24 SUs.
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>Uppnå högre genomströmning i stor skala
 
+En [embarrassingly parallel](#embarrassingly-parallel-jobs) jobb är nödvändigt men inte tillräckliga för att upprätthålla en högre dataflöde i stor skala. Varje lagringssystemet och dess motsvarande Stream Analytics-utdata har varianter på hur du uppnår bästa möjliga skrivning dataflödet. Som med alla scenarier i skala, det finns några utmaningar som kan lösas genom att använda rätt konfigurationer. Det här avsnittet beskriver konfigurationer för några vanliga utdata och innehåller exempel för tjänstemål enligt datainmatningsfrekvensen 1K, 5K och 10K händelser per sekund.
 
+Följande observationer använda ett Stream Analytics-jobb med tillståndslösa (genomströmning) fråga, en grundläggande JavaScript UDF som skriver till Event Hub, Azure SQL DB eller Cosmos DB.
 
+#### <a name="event-hub"></a>Händelsehubb
+
+|Frekvensen för inmatning (händelser per sekund) | Enheter för strömning | Utdata-resurser  |
+|--------|---------|---------|
+| 1K     |    1    |  2 DATAFLÖDESENHETER   |
+| 5K     |    6    |  6 DATAFLÖDESENHETER   |
+| 10 000    |    12   |  10 DATAFLÖDESENHETER  |
+
+Den [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) lösning skalas linjärt när det gäller strömmande enheter (SU) och dataflöde, vilket gör det mest effektiva och bästa sättet att analysera och strömma data från Stream Analytics. Jobb kan skalas upp till 192 SU, vilket motsvarar ungefär för bearbetning av upp till 200 MB/s eller 19 biljoner händelser per dag.
+
+#### <a name="azure-sql"></a>Azure SQL
+|Frekvensen för inmatning (händelser per sekund) | Enheter för strömning | Utdata-resurser  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10 000  |   36 |  P6   |
+
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) stöd för skrivning parallellt, kallas ärver partitionering, men det är inte aktiverad som standard. Men kanske att aktivera ärver partitionering, tillsammans med en fullständigt parallell fråga inte tillräckliga för att uppnå högre genomströmning. Genomströmning för skrivning av SQL beror avsevärt på din SQL Azure database configuration och tabellschemat. Den [prestanda som SQL](./stream-analytics-sql-output-perf.md) artikeln innehåller mer information om de parametrar som kan maximera din genomströmning för skrivning. Enligt vad som anges i den [Azure Stream Analytics-utdata till Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikeln, den här lösningen inte skalas linjärt som en fullständigt parallella pipeline utöver 8 partitioner och kan behöva partitionera om innan SQL-utdata (se [ I](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium-SKU: er som krävs för att kunna fortsätta arbeta höga i/o-nivåer tillsammans med tillhörande information från säkerhetskopieringar sker varje par minuter.
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|Frekvensen för inmatning (händelser per sekund) | Enheter för strömning | Utdata-resurser  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10 000  |  48   | 120K RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) utdata från Stream Analytics har uppdaterats för att använda intern integrering under [kompatibilitetsnivå 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Kompatibilitetsnivån 1.2 kan avsevärt högre dataflöde och minskar RU förbrukning jämfört med 1.1, vilket är standardkompatibilitetsnivån för nya jobb. Lösningen använder cosmos DB-behållare som partitioneras måttgrupperna /deviceId och resten av lösningen konfigureras identiskt.
+
+Alla [direktuppspelning i skala azure-exempel](https://github.com/Azure-Samples/streaming-at-scale) använda en Händelsehubb som skickats av belastning som simulerar testklienter som indata. Varje händelse är ett 1KB JSON-dokument, vilket motsvarar enligt konfigurerade datainmatningsfrekvensen dataflöde priser (1MB/s, 5MB/s och 10MB/s) enkelt. Händelser simulera en IoT-enhet skickar följande JSON-data (i en förkortning) för upp till 1 K-enheter:
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> Konfigurationerna som kan komma att ändras på grund av de olika komponenterna som används i lösningen. Anpassa exemplen för att passa ditt scenario för en mer tillförlitlig uppskattning.
+
+### <a name="identifying-bottlenecks"></a>Identifiera flaskhalsar
+
+Använda fönstret mått i Azure Stream Analytics-jobb för att identifiera flaskhalsar i din pipeline. Granska **indata/utdata-händelser** för dataflöde och [”vattenstämpel fördröjning”](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** att se om jobbet är att hålla igång med indata. För Event Hub-mått, leta efter **begränsade begäranden** och justera tröskelvärdet enheter därefter. Cosmos DB-mått, granska **Max konsumerade RU/s per partitionsnyckelintervall** under dataflöde för att se till att partitionen nyckelintervall används ett enhetligt sätt. Azure SQL DB, övervaka **logg-IO** och **CPU**.
 
 ## <a name="get-help"></a>Få hjälp
+
 För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg

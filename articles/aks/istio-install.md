@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850405"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465696"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes Service (AKS)
 
-[Istio] [ istio-github] är en öppen källkod service-nät som ger en nyckeluppsättning av funktioner i mikrotjänster i ett Kubernetes-kluster. Dessa funktioner innefattar trafikhantering, identitet och säkerhet, genomförande av principer och observability. Mer information om Istio finns i officiellt [vad är Istio?] [ istio-docs-concepts] dokumentation.
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] dokumentation.
 
 Den här artikeln visar hur du installerar Istio. Istio `istioctl` binära klienten har installerats på klientdatorn och Istio-komponenter är installerade i en Kubernetes-kluster i AKS.
 
 > [!NOTE]
 > Dessa instruktioner referera Istio version `1.1.3`.
 >
-> Istio `1.1.x` versioner har testats av teamet Istio mot Kubernetes-versioner `1.11`, `1.12`, `1.13`. Du hittar ytterligare Istio versioner på [GitHub - Istio släpper] [ istio-github-releases] och information om alla versioner på [Istio – viktig information] [ istio-release-notes].
+> Istio `1.1.x` versioner har testats av teamet Istio mot Kubernetes-versioner `1.11`, `1.12`, `1.13`. Du hittar ytterligare Istio versioner på [GitHub - Istio versioner][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
 
 I den här artikeln kan du se hur du:
 
@@ -40,7 +40,7 @@ I den här artikeln kan du se hur du:
 
 Stegen som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.11` och ovan, med RBAC aktiverad) och har upprättat en `kubectl` anslutning med klustret. Om du behöver hjälp med något av dessa objekt läser den [AKS-Snabbstart][aks-quickstart].
 
-Du behöver [Helm] [ helm] att följa dessa anvisningar och installera Istio. Vi rekommenderar att du har version `2.12.2` eller senare korrekt installerat och konfigurerat i klustret. Om du behöver hjälp med att installera Helm läser den [vägledning för installation av AKS Helm][helm-install]. Alla Istio poddar måste också schemaläggas att köras på Linux-noder.
+Du behöver [Helm][helm] att följa dessa anvisningar och installera Istio. Vi rekommenderar att du har version `2.12.2` eller senare korrekt installerat och konfigurerat i klustret. Om du behöver hjälp med att installera Helm läser den [AKS Helm installation vägledning][helm-install]. Alla Istio poddar måste också schemaläggas att köras på Linux-noder.
 
 Den här artikeln separerar Istio installation vägledning i flera separata steg. Slutresultatet är samma i struktur som den officiella Istio installationen [vägledning][istio-install-helm].
 
@@ -83,6 +83,8 @@ I PowerShell använder `Invoke-WebRequest` ladda ned den senaste versionen av Is
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -167,13 +169,13 @@ Nu gå vidare till nästa avsnitt för att [installera Istio CRD på AKS](#insta
 > [!IMPORTANT]
 > Kontrollera att du kört stegen i det här avsnittet från den översta mappen av Istio-versionen som du har hämtat och extraherat.
 
-Istio använder [anpassade Resursdefinitionerna (CRD)] [ kubernetes-crd] att hantera dess runtime-konfigurationen. Vi måste du installera Istio CRD först, eftersom komponenten Istio har ett beroende på dem. Använd Helm och `istio-init` diagram om du vill installera Istio CRD till den `istio-system` namnområde i AKS-klustret:
+Istio använder [anpassade Resursdefinitionerna (CRD)][kubernetes-crd] att hantera dess runtime-konfigurationen. Vi måste du installera Istio CRD först, eftersom komponenten Istio har ett beroende på dem. Använd Helm och `istio-init` diagram om du vill installera Istio CRD till den `istio-system` namnområde i AKS-klustret:
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
-[Jobb] [ kubernetes-jobs] distribueras som en del av den `istio-init` Helm-diagrammet för att installera CRD. Dessa jobb bör ta mellan 1 till 2 minuter att slutföra beroende på klustermiljön. Du kan verifiera att jobben har slutförts på följande sätt:
+[Jobb][kubernetes-jobs] distribueras som en del av den `istio-init` Helm-diagrammet för att installera CRD. Dessa jobb bör ta mellan 1 till 2 minuter att slutföra beroende på klustermiljön. Du kan verifiera att jobben har slutförts på följande sätt:
 
 ```azurecli
 kubectl get jobs -n istio-system
@@ -208,7 +210,7 @@ Om du har hittills sedan det innebär att du har installerat Istio CRD. Nu gå v
 > [!IMPORTANT]
 > Kontrollera att du kört stegen i det här avsnittet från den översta mappen av Istio-versionen som du har hämtat och extraherat.
 
-Vi kommer att installera [Grafana] [ grafana] och [Kiali] [ kiali] som en del av vår Istio-installationen. Grafana tillhandahåller analys och övervakning av instrumentpaneler och Kiali tillhandahåller en nät observability instrumentpanel. I vår installationsprogrammet, var och en av komponenterna kräver autentiseringsuppgifter som måste anges som en [hemlighet][kubernetes-secrets].
+Vi kommer att installera [Grafana][grafana] and [Kiali][kiali] som en del av vår Istio-installationen. Grafana tillhandahåller analys och övervakning av instrumentpaneler och Kiali tillhandahåller en nät observability instrumentpanel. I vår installationsprogrammet, var och en av komponenterna kräver autentiseringsuppgifter som måste anges som en [hemlighet][kubernetes-hemligheter].
 
 Innan vi kan installera Istio-komponenter, måste vi skapa hemligheterna för både Grafana och Kiali. Skapa dessa hemligheter genom att köra kommandona lämplig för din miljö.
 
@@ -344,7 +346,7 @@ Nu har du distribuerat Istio till AKS-klustret. För att säkerställa att vi ha
 
 ## <a name="validate-the-istio-installation"></a>Verifiera installationen Istio
 
-Först bekräfta att de förväntade tjänsterna har skapats. Använd den [kubectl hämta svc] [ kubectl-get] kommando för att visa tjänsterna som körs. Fråga den `istio-system` namnområdet, där komponenterna för Istio och tillägg har installerats av den `istio` Helm-diagrammet:
+Först bekräfta att de förväntade tjänsterna har skapats. Använd den [kubectl hämta svc][kubectl-get] kommando för att visa tjänsterna som körs. Fråga den `istio-system` namnområdet, där komponenterna för Istio och tillägg har installerats av den `istio` Helm-diagrammet:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -379,7 +381,7 @@ tracing                  ClusterIP      10.0.165.210   <none>          80/TCP   
 zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
-Bekräfta sedan att nödvändiga poddarna har skapats. Använd den [kubectl hämta poddar] [ kubectl-get] kommando och fråga igen den `istio-system` namnområde:
+Bekräfta sedan att nödvändiga poddarna har skapats. Använd den [kubectl hämta poddar][kubectl-get] kommando och fråga igen den `istio-system` namnområde:
 
 ```console
 kubectl get pods --namespace istio-system
@@ -409,11 +411,11 @@ kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
 prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
-Det bör finnas två `istio-init-crd-*` poddar med en `Completed` status. Dessa poddar var ansvarig för att köra de jobb som skapats i CRD i ett tidigare steg. Alla andra poddarna bör ha statusen `Running`. Om dina poddar inte har dessa statusar, vänta en minut eller två tills de gör. Om alla poddar rapportera ett problem, använder du den [kubectl beskriver pod] [ kubectl-describe] att granska sina utdata och status.
+Det bör finnas två `istio-init-crd-*` poddar med en `Completed` status. Dessa poddar var ansvarig för att köra de jobb som skapats i CRD i ett tidigare steg. Alla andra poddarna bör ha statusen `Running`. Om dina poddar inte har dessa statusar, vänta en minut eller två tills de gör. Om alla poddar rapportera ett problem, använder du den [kubectl beskriver pod][kubectl-describe] att granska sina utdata och status.
 
 ## <a name="accessing-the-add-ons"></a>Åtkomst till tillägg
 
-Ett antal tillägg har installerats Istio i vår installationsprogrammet som ger ytterligare funktioner. Användargränssnitt för tilläggen exponeras inte offentligt via en extern ip-adress. För att komma åt användargränssnitt tillägg, använda den [kubectl port och tydlig] [ kubectl-port-forward] kommando. Det här kommandot skapar en säker anslutning mellan klientdatorn och relevanta pod AKS-klustret.
+Ett antal tillägg har installerats Istio i vår installationsprogrammet som ger ytterligare funktioner. Användargränssnitt för tilläggen exponeras inte offentligt via en extern ip-adress. För att komma åt användargränssnitt tillägg, använda den [kubectl port och tydlig][kubectl-port-forward] kommando. Det här kommandot skapar en säker anslutning mellan klientdatorn och relevanta pod AKS-klustret.
 
 Vi lagt till ett extra lager av säkerhet för Grafana och Kiali genom att ange autentiseringsuppgifter för dem tidigare i den här artikeln.
 

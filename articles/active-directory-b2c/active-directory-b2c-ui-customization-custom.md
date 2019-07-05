@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507674"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438821"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "66507674"
 
 När du har slutfört den här artikeln har du en anpassad princip för registrering och logga in med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C), du får nästan fullständig kontroll över HTML och CSS-innehåll som visas för användarna. När du använder en anpassad princip kan konfigurera du anpassning av Användargränssnittet i XML istället för att använda kontroller i Azure-portalen. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
@@ -31,7 +31,7 @@ Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-st
 
 Med hjälp av funktionen sida Användargränssnittet anpassning, kan du anpassa utseendet och känslan av en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 
-Så fungerar här det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
+Så här fungerar det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
 
 ## <a name="create-your-html5-content"></a>Skapa din HTML5 innehåll
 
@@ -79,18 +79,19 @@ Om du vill vara värd för den här HTML-innehåll i Blob storage, gör du följ
 
 Om du vill skapa en offentlig behållare i Blob storage, gör du följande:
 
-1. Klicka på den **översikt** fliken.
-2. Klicka på **behållare**.
-3. För **namn**, typ **$root**.
-4. Ange **åtkomsttyp** till **Blob**.
-5. Klicka på **$root** att öppna den nya behållaren.
+1. Under **Blobtjänst** i den vänstra menyn och väljer **Blobar**.
+2. Klicka på **+ behållare**.
+3. För **namn**, ange *rot*. Detta kan vara ett namn du väljer, till exempel *VingspetsLeksaker*, men vi använder *rot* i det här exemplet för enkelhetens skull.
+4. För **offentlig åtkomstnivå**väljer **Blob**, sedan **OK**.
+5. Klicka på **rot** att öppna den nya behållaren.
 6. Klicka på **Överför**.
 7. Klicka på mappikonen bredvid **Välj en fil**.
-8. Gå till **anpassa ui.html**, som du skapade tidigare i avsnittet Page UI-anpassning.
-9. Klicka på **Överför**.
-10. Välj den blob som anpassa ui.html som du överförde.
-11. Bredvid **URL**, klickar du på **kopiera**.
-12. Klistra in den kopierade Webbadressen i en webbläsare och gå till webbplatsen. Om platsen inte är tillgänglig, kontrollera att behållaren åtkomsttyp anges till **blob**.
+8. Navigera till och markera **anpassa ui.html** som du skapade tidigare i avsnittet Page UI-anpassning.
+9. Om du vill ladda upp till en undermapp, expandera **Avancerat** och ange ett mappnamn i **ladda upp till mapp**.
+10. Välj **Överför**.
+11. Välj den **anpassa ui.html** blob som du överförde.
+12. Till höger om den **URL** textrutan, väljer den **kopiera till Urklipp** ikon för att kopiera Webbadressen till Urklipp.
+13. Gå till den URL som du kopierade för att kontrollera den blob som du överfört är tillgänglig i webbläsare. Om det är otillgänglig, till exempel om det uppstår en `ResourceNotFound` fel, kontrollera att behållaren åtkomsttyp anges till **blob**.
 
 ## <a name="configure-cors"></a>Konfigurera CORS
 
@@ -159,6 +160,7 @@ Om du vill konfigurera anpassningar du kopiera den **ContentDefinition** och des
 
 ## <a name="reference"></a>Referens
 
+### <a name="sample-templates"></a>Exempelmallar
 Du hittar exempelmallar för anpassning av Användargränssnittet här:
 
 ```
@@ -174,6 +176,16 @@ Sample_templates/wingtip-mappen innehåller följande HTML-filer:
 | *selfasserted.html* | Använd den här filen som en mall för en registreringssida för socialt konto, en registreringssida för lokalt konto eller ett lokalt konto på inloggningssidan. |
 | *unified.html* | Använd den här filen som en mall för en enhetlig sida för registrering eller inloggning. |
 | *updateprofile.html* | Använd den här filen som en mall för en uppdatering profilsida. |
+
+Här följer stegen för hur du använder exemplet. 
+1. Klona lagringsplatsen på din lokala dator. Välj en mallmapp under sample_templates. Du kan använda `wingtip` eller `contoso`.
+2. Överför alla filer under den `css`, `fonts`, och `images` mappar till Blob-lagring enligt beskrivningen i föregående avsnitt. 
+3. Därefter öppnar varje \*HTML-fil i roten av antingen `wingtip` eller `contoso` (beroende på vilket som du valde i det första steget) och Ersätt alla förekomster av ”http://localhost” med URL: er css, bilder och teckensnitt filer som du överförde i steg 2.
+4. Spara den \*.html-filer och överföra dem till Blob storage.
+5. Nu ändra tilläggsfilen som tidigare nämnts i [ändra tilläggsfilen](#modify-the-extensions-file).
+6. Om du ser saknas teckensnitt, bilder eller css, kontrollera dina referenser i princip för tillägg och \*.html-filer.
+
+### <a name="content-defintion-ids"></a>Content-definitionslänken ID: N
 
 I Ändra anpassad princip för registrering eller inloggning-avsnittet du konfigurerat innehållsdefinition för `api.idpselections`. Den fullständiga uppsättningen innehåll Definitions-ID som identifieras av Azure AD B2C-identitetsramverk och deras beskrivningar finns i följande tabell:
 

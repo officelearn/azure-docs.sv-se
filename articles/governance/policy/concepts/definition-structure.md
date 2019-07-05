@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979556"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428763"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -72,6 +72,10 @@ Alla exempel för Azure Policy finns på [Azure Policy-exempel](../samples/index
 
 ## <a name="mode"></a>Läge
 
+**Läget** är konfigurerad beroende om principen är inställd på en Azure Resource Manager-egenskap eller en Resource Provider-egenskap.
+
+### <a name="resource-manager-modes"></a>Resource Manager-lägen
+
 Den **läge** avgör vilka typer av resurser kommer att utvärderas för en princip. De stödda lägena är:
 
 - `all`: utvärdera resursgrupper och alla resurstyper
@@ -80,6 +84,13 @@ Den **läge** avgör vilka typer av resurser kommer att utvärderas för en prin
 Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användning i `all` läge. Om du använder PowerShell eller Azure CLI kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** , den standardvärdet `all` i Azure PowerShell och till `null` i Azure CLI. En `null` läge är detsamma som att använda `indexed` att stödja bakåtkompatibilitet kompatibilitet.
 
 `indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Resource Provider-lägen
+
+Den enda Resource Provider-läge som stöds för närvarande är `Microsoft.ContainerService.Data` för att hantera åtkomst controller regler på [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy för Kubernetes](rego-for-aks.md) finns i offentlig förhandsversion och endast har stöd för inbyggda principdefinitioner.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -389,6 +400,7 @@ Azure Policy har stöd för följande typer av effekt:
 - **AuditIfNotExists**: aktiverar granskning om en resurs inte finns
 - **DeployIfNotExists**: distribuerar en resurs om den inte redan finns
 - **Inaktiverad**: inte utvärdera resurser för principregeln
+- **EnforceRegoPolicy**: konfigurerar öppna Principagent sjukhusvistelse controller i Azure Kubernetes Service (förhandsversion)
 
 För **lägga till**, måste du ange följande information:
 

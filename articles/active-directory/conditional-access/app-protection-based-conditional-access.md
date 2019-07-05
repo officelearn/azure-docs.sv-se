@@ -2,28 +2,21 @@
 title: Kräv princip för cloud app-åtkomst med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att kräva appens skyddsprincip för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory.
 services: active-directory
-keywords: Villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 4/4/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e2e43f13352c56f947f5e560049ab0acf871599
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112748"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509466"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Kräv appskyddsprincip för cloud app-åtkomst med villkorlig åtkomst (förhandsversion)
 
@@ -55,7 +48,6 @@ Liknar efterlevnad som rapporteras av Intune för iOS och Android för en hanter
 - Användare som inte kan ta emot en Intune-appskyddsprincip.
 - Intune app protection policy appar som inte är konfigurerade för att ta emot en princip.
 
-
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du är bekant med:
@@ -65,8 +57,7 @@ Den här artikeln förutsätter att du är bekant med:
 - Grundläggande begrepp för [villkorlig åtkomst i Azure Active Directory](overview.md).
 - Så här [konfigurerar principer för villkorlig åtkomst](app-based-mfa.md).
 
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en app protection-baserad princip för villkorlig åtkomst måste du:
 
@@ -87,7 +78,7 @@ Det här scenariot förutsätter att en användare:
 - Tar emot ett e-postmeddelande som indikerar att access är tillgängliga med Outlook-appen.
 - Hämtar programmet med länken.
 - Öppnas Outlook-programmet och loggar in med autentiseringsuppgifter för Azure AD.
-- Uppmanas att installera antingen Microsoft Authenticator för iOS eller Intunes företagsportal för Android använder att fortsätta.
+- Uppmanas att installera antingen den **Microsoft Authenticator-appen** eller **Intune Company Portal** att fortsätta.
 - Installerar programmet och returnerar Outlook-appen för att fortsätta.
 - Uppmanas att registrera en enhet.
 - Kan ta emot en Intune-appskyddsprincip.
@@ -104,27 +95,23 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/01.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**.
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**.
+1. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** :
+   1. I **enhetsplattformar**väljer **Android** och **iOS**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** :
+   1. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    a. I **enhetsplattformar**väljer **Android** och **iOS**.
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
+1. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
 
-    b. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
-
-5. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
- 
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
 
 **Steg 2: Konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med ActiveSync (EAS)**
 
@@ -133,38 +120,30 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/06.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**.
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
+1. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**.
+   1. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
+   1. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
 
-    a. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
-
-    b. Under **åtkomstkontroller**väljer **kräver appskyddsprincip (förhandsversion)** .
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
 
 **Steg 3: Konfigurera Intunes appskyddsprincip för iOS och Android-klientprogram**
-
 
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/09.png)
 
 Mer information finns i [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>App protection-baserade eller kompatibel enhetsprincip för Exchange Online
 
 Det här scenariot består av en app protection-baserade eller kompatibel enhet princip för villkorlig åtkomst för åtkomst till Exchange Online.
-
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
 
@@ -177,7 +156,6 @@ Det här scenariot förutsätter att:
 - Användaren kan komma åt e-postmeddelande med Outlook och en Intune-appskyddsprincip om inte registrerats.
 - Användaren har åtkomst till e-postmeddelande med Outlook om enheten har registrerats.
 
-
 ### <a name="configuration"></a>Konfiguration
 
 **Steg 1: Konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online**
@@ -187,34 +165,27 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/62.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**. 
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**. 
-
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
-
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
+1. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
  
-    a. I **enhetsplattformar**väljer **Android** och **iOS**.
+   1. I **enhetsplattformar**väljer **Android** och **iOS**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
 
-    b. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
+   1. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
 
 5. Under **åtkomstkontroller**, väljer du följande alternativ:
-
    - **Kräv att enheten är markerad som kompatibel**
-
    - **Kräv appskyddsprincip (förhandsversion)**
-
    - **Begär en av de valda kontrollerna**   
  
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/11.png)
 
 **Steg 2: Konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med ActiveSync**
 
@@ -223,62 +194,48 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/06.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**. 
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**. 
+1. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
+   I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
 
-    I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
-
-5. Under **åtkomstkontroller**, väljer du följande alternativ:
-
+1. Under **åtkomstkontroller**, väljer du följande alternativ:
    - **Kräv att enheten är markerad som kompatibel**
-
    - **Kräv appskyddsprincip (förhandsversion)**
-
    - **Begär en av de valda kontrollerna**
 
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/11.png)
 
 **Steg 3: Konfigurera Intunes appskyddsprincip för iOS och Android-klientprogram**
-
 
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/09.png)
 
 Mer information finns i [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
-
-
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>App protection-baserade och kompatibel enhetsprincip för Exchange Online
 
 Det här scenariot består av en app-protection-baserade och kompatibel enhet princip för villkorlig åtkomst för åtkomst till Exchange Online.
-
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
 
 Det här scenariot förutsätter att en användare:
  
--   Konfigurerar e-post med hjälp av en intern e-postprogrammet på iOS eller Android för att ansluta till Exchange.
--   Tar emot ett e-postmeddelande som anger att åtkomst kräver att enheten registreras.
--   Laddar ned Intune-Företagsportalen och loggar in på portalen.
--   Kontrollerar e-post och uppmanas att använda Outlook-appen.
--   Laddar ned Outlook-appen.
--   Öppnar Outlook-appen och anger de autentiseringsuppgifter som används i registreringen.
--   Kan ta emot en Intune-appskyddsprincip.
--   Kan komma åt e-postmeddelande med Outlook och en Intune-appskyddsprincip.
+- Konfigurerar e-post med hjälp av en intern e-postprogrammet på iOS eller Android för att ansluta till Exchange.
+- Tar emot ett e-postmeddelande som anger att åtkomst kräver att enheten registreras.
+- Laddar ned Intune-Företagsportalen och loggar in på portalen.
+- Kontrollerar e-post och uppmanas att använda Outlook-appen.
+- Laddar ned Outlook-appen.
+- Öppnar Outlook-appen och anger de autentiseringsuppgifter som används i registreringen.
+- Kan ta emot en Intune-appskyddsprincip.
+- Kan komma åt e-postmeddelande med Outlook och en Intune-appskyddsprincip.
 
 Alla Intunes appskyddsprinciper aktiveras innan åtkomst beviljas till företagets data. Principerna kan uppmana användaren att starta om programmet eller använda en ytterligare PIN-kod. Detta är fallet om principerna som har konfigurerats för programmet och plattform.
-
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -289,34 +246,26 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/01.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**. 
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**. 
+1. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
+   1. I **enhetsplattformar**väljer **Android** och **iOS**.
 
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
- 
-    a. I **enhetsplattformar**väljer **Android** och **iOS**.
+   1. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
 
-    b. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
-
-5. Under **åtkomstkontroller**, väljer du följande alternativ:
-
+1. Under **åtkomstkontroller**, väljer du följande alternativ:
    - **Kräv att enheten är markerad som kompatibel**
-
    - **Kräv appskyddsprincip (förhandsversion)**
-
    - **Kräv de valda kontrollerna**   
  
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
-
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
 
 **Steg 2: Konfigurera en princip för Azure AD villkorlig åtkomst för Exchange Online med ActiveSync**
 
@@ -325,44 +274,33 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/06.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**. 
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**. 
+1. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/07.png)
+   I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-4. I **villkor**, konfigurera **klientappar (förhandsgranskning)** . 
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
 
-    I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/92.png)
-
-5. Under **åtkomstkontroller**, väljer du följande alternativ:
-
+1. Under **åtkomstkontroller**, väljer du följande alternativ:
    - **Kräv att enheten är markerad som kompatibel**
-
    - **Kräv appskyddsprincip (förhandsversion)**
-
    - **Kräv de valda kontrollerna**   
  
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
-
-
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
 
 **Steg 3: Konfigurera Intunes appskyddsprincip för iOS och Android-klientprogram**
-
 
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/09.png)
 
 Mer information finns i [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
 ## <a name="app-protection-based-or-app-based-policy-for-exchange-online-and-sharepoint-online"></a>App-protection-baserade eller appbaserad princip för Exchange Online och SharePoint Online
 
 Det här scenariot består av en princip för åtkomst till Exchange Online och SharePoint Online protection-baserade eller godkända appar.
-
 
 ### <a name="scenario-playbook"></a>Scenariot spelbok
 
@@ -396,45 +334,34 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/62.png)
 
 1. Ange namnet på din princip för villkorlig åtkomst.
+1. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+1. I **Molnappar**väljer **Office 365 Exchange Online**. 
 
-2. Under **tilldelningar**i **användare och grupper**väljer minst en användare eller grupp för varje princip för villkorlig åtkomst.
+   ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/02.png)
 
-3. I **Molnappar**väljer **Office 365 Exchange Online**. 
+1. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
+   1. I **enhetsplattformar**väljer **Android** och **iOS**.
 
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/02.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
 
-4. I **villkor**, konfigurera **enhetsplattformar** och **klientappar (förhandsgranskning)** . 
- 
-    a. I **enhetsplattformar**väljer **Android** och **iOS**.
+   1. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/03.png)
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
 
-    b. I **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
-
-    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/91.png)
-
-5. Under **åtkomstkontroller**, väljer du följande alternativ:
-
+1. Under **åtkomstkontroller**, väljer du följande alternativ:
    - **Kräv godkänd klientapp**
-
    - **Kräv appskyddsprincip (förhandsversion)**
-
    - **Begär en av de valda kontrollerna**
  
-     ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/12.png)
-
+      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/12.png)
 
 **Steg 2: Konfigurera Intunes appskyddsprincip för iOS och Android-klientprogram**
-
 
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/09.png)
 
 Mer information finns i [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
-
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).

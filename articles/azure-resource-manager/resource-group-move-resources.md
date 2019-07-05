@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 6cb2f49113a67a8dc6cea70ae58bd440f420a1d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332020"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442798"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -49,6 +49,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * API Management
 * App Service-appar (webbappar) – Se [begränsningar för App Service](#app-service-limitations)
 * App Service-certifikat – Se [begränsningar för App Service Certificate](#app-service-certificate-limitations)
+* App Service-domän
 * Automation - Runbooks måste finnas i samma resursgrupp som Automation-kontot.
 * Azure Active Directory B2C
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).

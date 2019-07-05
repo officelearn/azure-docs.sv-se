@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190101"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449896"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en premium Azure-filresurs
-Premium-filresurser (förhandsversion) erbjuds på Solid State disk (SSD) lagringsmedia och är användbara för i/o-intensiva arbetsbelastningar, inklusive som är värd för databaser och databehandling höga prestanda (HPC). Premium-filresurser finns i ett särskilt ändamål storage-kontotyp, kallas ett FileStorage-konto. Premium-filresurser är utformat för hög prestanda och skalning av företagsprogram, ger konsekvent låg latens, hög IOPS och dataflöden resurser.
+Premium-filresurser erbjuds på Solid State disk (SSD) lagringsmedia och är användbara för i/o-intensiva arbetsbelastningar, inklusive som är värd för databaser och databehandling höga prestanda (HPC). Premium-filresurser finns i ett särskilt ändamål storage-kontotyp, kallas ett FileStorage-konto. Premium-filresurser är utformat för hög prestanda och skalning av företagsprogram, ger konsekvent låg latens, hög IOPS och dataflöden resurser.
 
 Den här artikeln visar hur du skapar det här nya kontot typ med [Azure-portalen](https://portal.azure.com/), Azure PowerShell och Azure CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma åt Azure-resurser, inklusive premium Azure-filresurser, behöver du en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -30,7 +30,7 @@ För att komma åt Azure-resurser, inklusive premium Azure-filresurser, behöver
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för filestorage (förhandsversion)
+### <a name="create-a-filestorage-storage-account"></a>Skapa ett lagringskonto för filestorage
 
 Nu är du redo att skapa ditt lagringskonto.
 
@@ -47,10 +47,10 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 1. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
 1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
 1. För **prestanda** Välj **Premium**.
-1. Välj **typ av konto** och välj **FileStorage (förhandsversion)** .
+1. Välj **typ av konto** och välj **FileStorage**.
 1. Lämna **replikering** inställt på standardvärdet för **lokalt redundant lagring (LRS)** .
 
-    ![Så här skapar du ett lagringskonto för en premium-filresurs](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![Så här skapar du ett lagringskonto för en premium-filresurs](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
 1. Välj **Skapa**.
@@ -59,7 +59,7 @@ När du har skapat din resursen för lagringskonton, navigera till den.
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-1. I den vänstra menyn för lagringskontot bläddrar du till den **Filtjänst** avsnittet och välj sedan **filer (förhandsversion)** .
+1. I den vänstra menyn för lagringskontot bläddrar du till den **Filtjänst** avsnittet och välj sedan **filer**.
 1. Välj **+ filresurs** att skapa en filresurs för premium.
 1. Ange ett namn och en önskad kvot för filresursen och välj sedan **skapa**.
 
@@ -82,14 +82,14 @@ Sedan kan uppgradera din powershell-modulen, logga in på Azure-prenumerationen,
 
 ### <a name="upgrade-your-powershell-module"></a>Uppgradera din PowerShell-modul
 
-För att interagera med en premium-filresurs från med PowerShell, måste du installera den senaste Az.Storage-modulen.
+För att interagera med en premium-filresurs från med PowerShell, måste du installera en Az.Storage Modulversion 1.4.0 eller den senaste Az.Storage-modulen.
 
 Starta genom att öppna en PowerShell-session med förhöjd behörighet.
 
 Installera modulen Az.Storage:
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in på Azure-prenumerationen
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för FileStorage (förhandsversion)
+### <a name="create-a-filestorage-storage-account"></a>Skapa ett lagringskonto för FileStorage
 
-Du kan skapa ett lagringskonto för filestorage (förhandsversion) från PowerShell med den [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) kommando:
+Du kan skapa ett lagringskonto för filestorage från PowerShell med den [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) kommando:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Om du vill starta Azure Cloud Shell, logga in på den [Azure-portalen](https://portal.azure.com).
 
-Logga in på den lokala installationen av CLI genom att köra inloggningskommandot:
+Om du vill logga in på den lokala installationen av CLI du först kontrollera att du har den senaste versionen kan sedan köra inloggningskommandot:
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>Lägg till förhandsversionen lagring CLI-tillägg
-
-Eftersom premium-filresurser är en förhandsgranskningsfunktion, måste du lägga till tillägget förhandsversion i gränssnittet. Det gör du genom att ange följande kommando i Cloud Shell eller ett lokalt gränssnitt: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

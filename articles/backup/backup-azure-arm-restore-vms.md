@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65906502"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460221"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
@@ -185,7 +185,7 @@ Det finns ett antal saker att tänka på när du återställer en virtuell dator
 
 - Tillägg som finns under konfigurationen för säkerhetskopiering är installerad men inte aktiverad. Om du ser ett problem kan du installera om tilläggen.
 - Om den säkerhetskopierade virtuella datorn en statisk IP-adress måste har den återställda virtuella datorn en dynamisk IP-adress för att undvika konflikter. Du kan [lägga till en statisk IP-adress till den återställda virtuella datorn](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
-- En återställd virtuell dator inte har en tillgänglighet ange. Om organisationsenheten Använd alternativet Återställ disk till dig kan [ange en tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
+- En återställd virtuell dator inte har en tillgänglighet ange. Om du använder alternativet Återställ disk, kan du [ange en tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
 - Om du använder en cloud-init-baserade Linux-distribution, till exempel Ubuntu, blockeras lösenordet av säkerhetsskäl efter återställningen. Använda VMAccess-tillägget på den återställda virtuella datorn till [återställa lösenordet](../virtual-machines/linux/reset-password.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner, så du inte behöver återställa lösenordet efter återställningen.
 
 

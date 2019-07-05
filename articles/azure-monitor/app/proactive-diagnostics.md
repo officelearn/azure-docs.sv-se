@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ee2dea364253d871d5624242d15d8a81ab6f08f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299676"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465900"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
- Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
+ Smart identifiering varnar automatiskt dig om potentiella prestandaproblem och avvikelser i fel i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
 
-Du kan komma åt Smart identifiering aviseringar både från e-postmeddelanden som du får och från bladet Smart identifiering.
+Du kan komma åt identifieringar som utfärdats av Smart identifiering både från e-postmeddelanden som du får och från bladet Smart identifiering.
 
 ## <a name="review-your-smart-detections"></a>Granska dina smarta identifieringar
 Du kan identifiera identifieringar på två sätt:
@@ -32,24 +32,24 @@ Du kan identifiera identifieringar på två sätt:
     ![E-postavisering](./media/proactive-diagnostics/03.png)
   
     Klicka på en stor knapp för att öppna detalj i portalen.
-* **Smart identifiering panelen** på appens översikt bladet visar antalet nya varningar. Klicka på panelen om du vill se en lista över de senaste aviseringarna.
+* **Bladet Smart identifiering** i Application Insights. Välj **Smart identifiering** under den **Undersök** menyn för att se en lista över de senaste identifieringar.
 
 ![Visa senaste identifieringar](./media/proactive-diagnostics/04.png)
 
-Välj en avisering om du vill visa dess information.
+Välj en identifiering för att visa information om.
 
 ## <a name="what-problems-are-detected"></a>Vilka problem har identifierats?
-Det finns tre typer av identifiering:
+Smart identifiering upptäcker och meddelas om olika problem, till exempel:
 
 * [Smart identifiering – Felavvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md). Vi använder maskininlärning att ange förväntade frekvensen för misslyckade begäranden för din app, korrelera med belastning och andra faktorer. Om misslyckade går utanför det förväntade kuvertet kan skicka vi en avisering.
 * [Smart identifiering – Prestandaavvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md). Du får meddelanden om svarstid för en åtgärd eller beroende varaktighet långsammare jämfört med historisk baslinje eller om vi identifierar ett avvikande mönster i svarstid eller sidinläsningstiden.   
-* [Smart identifiering – Azure Cloud Service problem](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Du får aviseringar om din app finns i Azure Cloud Services och en rollinstans har startfel, vanligt återkommande återanvändning eller runtime-krascher.
+* Allmän försämringar och problem, som [spåra nedsatt](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [minnesläcka](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [Abnormal ökad volym för undantag](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) och [Security antimönster](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
 
 (Hjälplänkar i varje meddelande tar dig till artiklarna.)
 
 ## <a name="smart-detection-email-notifications"></a>Smart identifiering av e-postaviseringar
 
-Alla regler för Smart identifiering, förutom regler som markerats som förhandsversion, är konfigurerade som standard skickar e-postmeddelanden när identifieringar hittas.
+Alla regler för Smart identifiering, förutom regler som markerats som _förhandsversion_, konfigureras som standard skickar e-postmeddelanden när identifieringar hittas.
 
 Konfigurera e-postmeddelanden för en viss regel för Smart identifiering kan göras genom att öppna Smart identifiering **inställningar** bladet och välja regeln, vilket öppnar den **Redigera regeln** bladet.
 

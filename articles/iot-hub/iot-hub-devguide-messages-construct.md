@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252803"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450086"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -55,7 +55,7 @@ I följande tabell visar uppsättningen Systemegenskaper i IoT Hub-meddelanden.
 | sekvensnummer |Ett tal (unika per enhet kö) IoT Hub har tilldelats varje moln-till-enhet-meddelande. | Nej för C2D-meddelanden. Ja annars. |
 | till |Ett mål som anges i [moln till enhet](iot-hub-devguide-c2d-guidance.md) meddelanden. | Nej för C2D-meddelanden. Ja annars. |
 | absolute-expiry-time |Datum och tid för förfallodatum för meddelanden. | Ja |
-| iothub-enqueuedtime |Datum och tid i [moln till enhet](iot-hub-devguide-c2d-guidance.md) meddelande togs emot av IoT Hub. | Nej för C2D-meddelanden. Ja annars. |
+| iothub-enqueuedtime |Datum och tid i [enhet till moln](iot-hub-devguide-d2c-guidance.md) meddelande togs emot av IoT Hub. | Nej för D2C-meddelanden. Ja annars. |
 | Korrelations-id |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. | Ja |
 | användar-id |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. | Nej |
 | iothub-ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |

@@ -1,92 +1,122 @@
 ---
-title: Ansluta till alla HTTP-slutpunkt med Azure Logic Apps | Microsoft Docs
-description: Automatisera uppgifter och arbetsflöden som kommunicerar med valfri HTTP-slutpunkt med hjälp av Azure Logic Apps
+title: Ansluta till HTTP eller HTTPS-slutpunkter från Azure Logic Apps
+description: Övervaka HTTP eller HTTPS-slutpunkterna i automatiserade uppgifter, processer och arbetsflöden med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
-ms.topic: article
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 08/25/2018
-ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa5fd3ef8b144826468f56ea2a14be592cef5dc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713809"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541249"
 ---
-# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
+# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med hjälp av Azure Logic Apps
 
-Med Azure Logic Apps och Hypertext Transfer Protocol (HTTP)-anslutningstjänsten kan automatisera du arbetsflöden som kommunicerar med HTTP eller HTTPS-slutpunkten genom att skapa logikappar. Du kan till exempel övervaka tjänstslutpunkten för din webbplats. När en händelse inträffar vid den slutpunkten, till exempel din webbplats slutar fungera, händelsen utlöses logikappens arbetsflöde och kör de angivna åtgärderna.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda HTTP-anslutningen kan du automatisera arbetsflöden som regelbundet anropa valfri HTTP eller HTTPS-slutpunkt genom att skapa logikappar. Du kan till exempel övervaka tjänstslutpunkten för din webbplats genom att kontrollera att slutpunkten enligt ett angivet schema. När en viss händelse inträffar vid den slutpunkten, till exempel din webbplats slutar fungera, händelsen utlöser logikappens arbetsflöde och kör de angivna åtgärderna.
 
-Du kan använda HTTP-utlösaren som det första steget i din arbetsflödet för att kontrollera eller *avsökning* en slutpunkt med jämna mellanrum. För varje kontroll utlösaren skickar ett anrop eller *begäran* till slutpunkten. Slutpunktens svaret avgör om din logikapp arbetsflödet körs. Utlösaren skickar med innehåll från svaret till åtgärder i din logikapp. 
+Kontrollera eller *avsökning* en slutpunkt med jämna mellanrum, du kan använda HTTP-utlösaren som det första steget i arbetsflödet. För varje kontroll utlösaren skickar ett anrop eller *begäran* till slutpunkten. Slutpunktens svaret avgör om din logikapp arbetsflödet körs. Utlösaren skickar med innehåll från svaret till åtgärder i din logikapp.
 
-Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa slutpunkten när du vill. Slutpunktens svaret avgör hur din återstående arbetsflödesåtgärder köras. 
+Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa slutpunkten när du vill. Slutpunktens svaret avgör hur din återstående arbetsflödesåtgärder köras.
 
-Baserade kapaciteten för mål-slutpunkten, den här anslutningen har stöd för Transport Layer Security (TLS) version 1.0, 1.1 och 1.2. Logic Apps förhandlar med slutpunkten jämfört med den högsta versionen som stöds möjligt. Så, till exempel om slutpunkten stöder 1.2, anslutningsappen använder 1.2 först. Annars kan används anslutningen den nästa högsta versionen som stöds.
+Baserat på mål-slutpunkten funktionen stöder HTTP-anslutningen Transport Layer Security (TLS) version 1.0, 1.1 och 1.2. Logic Apps förhandlar med slutpunkten jämfört med den högsta versionen som stöds möjligt. Så, till exempel om slutpunkten stöder 1.2, anslutningsappen använder 1.2 först. Annars kan används anslutningen den nästa högsta versionen som stöds.
 
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
+* URL-Adressen för den mål-slutpunkt som du vill anropa
 
-* URL-Adressen för slutpunkten som mål som du vill anropa 
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Logikapp från där du vill anropa mål-slutpunkten. Du kommer igång med HTTP-utlösaren [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Starta din logikapp med en utlösare som du vill om du vill använda HTTP-åtgärden. Det här exemplet använder HTTP-utlösaren som det första steget.
 
-* Logikappen som du vill att anropa mål-slutpunkt för att börja med HTTP-utlösare från [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Starta din logikapp med en utlösare för att använda HTTP-åtgärden.
+## <a name="add-an-http-trigger"></a>Lägg till en HTTP-utlösare
 
-## <a name="add-http-trigger"></a>Lägg till HTTP-utlösare
+Den här inbyggda utlösaren gör ett HTTP-anrop till den angivna URL: en för en slutpunkt och returnerar ett svar.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen tom i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din tom logikapp i Logic App Designer.
 
-1. I sökrutan anger du ”http” som filter. Under listan över utlösare, väljer du den **HTTP** utlösaren. 
+1. På designern i sökrutan anger du ”http” som filter. Från den **utlösare** väljer den **HTTP** utlösaren.
 
    ![Välj HTTP-utlösare](./media/connectors-native-http/select-http-trigger.png)
 
-1. Ange den [HTTP-utlösare parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) du vill ska ingå i anropet till mål-slutpunkten. Konfigurera upprepningen för hur ofta du vill att utlösaren för att kontrollera slutpunkten som mål.
+   Det här exemplet byter namn på utlösare till ”HTTP-utlösare” så att steget innehåller ett mer beskrivande namn. Dessutom exemplet lägger till senare en HTTP-åtgärd, och båda måste vara unika.
+
+1. Ange värden för den [http-utlösaren parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) som du vill ska ingå i anropet till mål-slutpunkten. Konfigurera upprepningen för hur ofta du vill att utlösaren för att kontrollera slutpunkten som mål.
 
    ![Ange parametrar för HTTP-utlösare](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Mer information om HTTP-utlösare, parametrar och värden finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
+   Läs mer om typer av autentisering som är tillgängliga för HTTP, [autentisera HTTP-utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Om du vill lägga till andra tillgängliga parametrar, öppna den **Lägg till ny parameter** och välj de parametrar som du vill.
 
 1. Fortsätt att skapa din logikapp arbetsflöde med åtgärder som körs när den utlöses.
 
-## <a name="add-http-action"></a>Lägg till HTTP-åtgärd
+1. När du är klar, gjort, Kom ihåg att spara din logikapp. På verktygsfältet för appdesignern väljer **spara**.
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+## <a name="add-an-http-action"></a>Lägg till en HTTP-åtgärd
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+Den här inbyggda åtgärden ett HTTP-anrop till den angivna URL: en för en slutpunkt och returnerar ett svar.
 
-1. Under det sista steget där du vill lägga till HTTP-åtgärden, väljer **nytt steg**. 
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna logikappen i Logic App Designer.
 
-   I det här exemplet börjar logikappen med HTTP-utlösaren som det första steget.
+   Det här exemplet använder HTTP-utlösaren som det första steget.
 
-1. I sökrutan anger du ”http” som filter. Under åtgärdslistan väljer du den **HTTP** åtgärd.
+1. Under det steget där du vill lägga till HTTP-åtgärden, väljer **nytt steg**.
+
+   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. Klicka på plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+
+1. På designern i sökrutan anger du ”http” som filter. Från den **åtgärder** väljer den **HTTP** åtgärd.
 
    ![Välj HTTP-åtgärd](./media/connectors-native-http/select-http-action.png)
 
-   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Det här exemplet byter namn på åtgärden som ska ”HTTP-åtgärd” så att steget innehåller ett mer beskrivande namn.
 
-1. Ange den [HTTP-åtgärd parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) du vill ska ingå i anropet till mål-slutpunkten. 
+1. Ange värden för den [HTTP åtgärdsparametrar](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) som du vill ska ingå i anropet till mål-slutpunkten.
 
    ![Ange HTTP-åtgärdsparametrar](./media/connectors-native-http/http-action-parameters.png)
 
-1. När du är klar kan du kontrollera att du sparar din logikapp. Välj **Spara** i designerverktygsfältet. 
+   Läs mer om typer av autentisering som är tillgängliga för HTTP, [autentisera HTTP-utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-## <a name="authentication"></a>Autentisering
+1. Om du vill lägga till andra tillgängliga parametrar, öppna den **Lägg till ny parameter** och välj de parametrar som du vill.
 
-Om du vill ange autentisering, Välj **visa avancerade alternativ** inuti åtgärd eller utlösare. Mer information om tillgängliga autentiseringstyper för HTTP-utlösare och åtgärder finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+1. När du är klar, Kom ihåg att spara din logikapp. På verktygsfältet för appdesignern väljer **spara**.
 
-## <a name="get-support"></a>Få support
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
+Mer information om utlösare och åtgärd parametrar finns i följande avsnitt:
+
+* [Parametrar för HTTP-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
+* [HTTP-åtgärdsparametrar](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+
+### <a name="output-details"></a>Utdatainformation
+
+Här finns mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar den här informationen:
+
+| Egenskapsnamn | Typ | Beskrivning |
+|---------------|------|-------------|
+| Rubriker | object | Rubriker i begäran |
+| body | object | JSON-objekt | Objektet med brödtext i begäran |
+| Statuskod | int | Statuskoden i begäran |
+|||
+
+| Statuskod | Beskrivning |
+|-------------|-------------|
+| 200 | Ok |
+| 202 | Accepterat |
+| 400 | Felaktig förfrågan |
+| 401 | Behörighet saknas |
+| 403 | Förbjudna |
+| 404 | Det gick inte att hitta |
+| 500 | Internt serverfel. Okänt fel uppstod. |
+|||
 
 ## <a name="next-steps"></a>Nästa steg
 

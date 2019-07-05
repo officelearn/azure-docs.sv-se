@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163664"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543684"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -67,9 +67,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 
     När ansluten, kan HDInsight som installerats i Resource Manager-nätverk interagera med resurser i det klassiska nätverket.
 
-2. Använder du Tvingad tunneltrafik? Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. HDInsight stöder inte tvingande dirigering. Antingen bort Tvingad tunneltrafik innan du distribuerar HDInsight i ett befintligt undernät eller skapar ett nytt undernät ingen Tvingad tunneltrafik för HDInsight.
-
-3. Använder du nätverkssäkerhetsgrupper, användardefinierade vägar eller virtuella nätverksinstallationer för att begränsa trafik till eller från det virtuella nätverket?
+2. Använder du nätverkssäkerhetsgrupper, användardefinierade vägar eller virtuella nätverksinstallationer för att begränsa trafik till eller från det virtuella nätverket?
 
     Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till flera IP-adresser i Azure-datacentret. Uppdatera alla befintliga nätverkssäkerhetsgrupper eller användardefinierade vägar för att tillåta kommunikation med dessa IP-adresser.
     
@@ -108,7 +106,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 
         Mer information finns i den [Felsökningsvägar](../virtual-network/diagnose-network-routing-problem.md) dokumentet.
 
-4. Skapa ett HDInsight-kluster och välj det virtuella Azure-nätverk under konfigurationen. Använd stegen i följande dokument för att förstå klusterskapningsprocessen:
+3. Skapa ett HDInsight-kluster och välj det virtuella Azure-nätverk under konfigurationen. Använd stegen i följande dokument för att förstå klusterskapningsprocessen:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) (Skapa HDInsight med hjälp av Azure-portalen)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Skapa HDInsight med hjälp av Azure PowerShell)
@@ -247,14 +245,14 @@ Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik fr
 
 ## <a id="hdinsight-ip"></a> Den begärda IP-adresser
 
-> [!IMPORTANT]  
-> Azure hälso- och management-tjänster måste kunna kommunicera med HDInsight. Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, Tillåt trafik från IP-adresser för dessa tjänster att nå HDInsight.
->
+Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar för att styra trafik, måste du tillåta trafik från IP-adresser för Azure hälso- och management-tjänster så att de kan kommunicera med ditt HDInsight-kluster. Vissa av de IP-adresserna är region som är specifika och vissa av dem som gäller för alla Azure-regioner. Du kan även behöva tillåta trafik från Azure DNS-tjänsten om du inte använder anpassad DNS. Du måste även tillåta trafik mellan virtuella datorer i undernätet. Använd följande steg för att hitta IP-adresser som måste tillåtas:
+
+> [!Note]  
 > Om du inte använder nätverkssäkerhetsgrupper eller användardefinierade vägar Kontrollera trafik, kan du ignorera det här avsnittet.
 
-Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azuretjänsterna för hälso- och nå HDInsight-kluster på port 443. Du måste även tillåta trafik mellan virtuella datorer i undernätet. Använd följande steg för att hitta IP-adresser som måste tillåtas:
+1. Om du använder Azure-tillhandahållna DNS-tjänsten kan du tillåta åtkomst från __168.63.129.16__ på port 53. Mer information finns i den [namnmatchning för virtuella datorer och rollen instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentet. Om du använder anpassade DNS kan du hoppa över det här steget.
 
-1. Du måste alltid tillåta trafik från följande IP-adresser:
+2. Tillåta trafik från följande IP-adresser för Azure-hälsa och hantering av tjänster som gäller för alla Azure-regioner:
 
     | Källans IP-adress | Mål  | Direction |
     | ---- | ----- | ----- |
@@ -263,12 +261,12 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     | 168.61.48.131 | \*:443 | Inkommande |
     | 138.91.141.162 | \*:443 | Inkommande |
 
-2. Om ditt HDInsight-kluster är i något av följande regioner, måste du tillåta trafik från IP-adresser som visas för regionen:
+3. Tillåta trafik från IP-adresser som anges för Azure hälso- och management-tjänsterna i den specifika regionen där resurserna finns:
 
     > [!IMPORTANT]  
     > Om du använder den Azure-region inte visas kan sedan bara använda fyra IP-adresser från steg 1.
 
-    | Land | Region | Tillåtna käll-IP-adresser | Tillåtna mål | Direction |
+    | Country | Region | Tillåtna käll-IP-adresser | Tillåtna mål | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asien | Östasien | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkommande |
     | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
@@ -296,15 +294,13 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     | Storbritannien | Storbritannien, västra | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkommande |
     | &nbsp; | Storbritannien, södra | 51.140.47.39</br>51.140.52.16 | \*:443 | Inkommande |
     | USA | Centrala USA | 13.89.171.122</br>13.89.171.124 | \*:443 | Inkommande |
-    | &nbsp; | Östra USA | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkommande |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkommande |
     | &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | \*:443 | Inkommande |
     | &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | \*:443 | Inkommande |
     | &nbsp; | Västra USA | 13.64.254.98</br>23.101.196.19 | \*:443 | Inkommande |
     | &nbsp; | Västra USA 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inkommande |
 
     Information om IP-adresser för Azure Government finns i den [Azure Government information + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentet.
-
-3. Du måste även tillåta åtkomst från __168.63.129.16__. Den här adressen är Azures rekursiva matchare. Mer information finns i den [namnmatchning för virtuella datorer och rollen instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentet.
 
 Mer information finns i den [styra nätverkstrafiken](#networktraffic) avsnittet.
 

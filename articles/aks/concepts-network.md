@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afb7acda67eb5818ace8169dc4e98fb86bdbeaa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431311"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442009"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -68,25 +68,57 @@ I AKS, kan du distribuera ett kluster som använder någon av följande två mod
 
 Den *kubenet* nätverk alternativet är standardkonfigurationen för att skapa för AKS-kluster. Med *kubenet*, noder hämta en IP-adress från det virtuella Azure-undernätet. Poddar ta emot en IP-adress från en logiskt olika adressutrymmen till undernätet för Azure-nätverk av noderna. Network adress translation (NAT) konfigureras sedan så att poddarna kan nå resurser på Azure-nätverket. Källans IP-adress av trafiken är skulle NAT till nodens primära IP-adress.
 
-Noder använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken för dig eller välja att distribuera din AKS-kluster till ett befintligt undernät för virtuellt nätverk. Återigen endast noderna får en dirigerbara IP-adress och poddarna använder NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
+Noder använder den [kubenet][kubenet] Kubernetes-plugin-programmet. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken för dig eller välja att distribuera din AKS-kluster till ett befintligt undernät för virtuellt nätverk. Återigen endast noderna får en dirigerbara IP-adress och poddarna använder NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
 
-Mer information finns i [Konfigurera nätverk för ett AKS-kluster kubenet][aks-configure-kubenet-networking].
+Mer information finns i [konfigurera kubenet nätverk för ett AKS-kluster][aks-configure-kubenet-networking].
 
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI (Avancerat)-nätverk
 
-Med Azure CNI varje pod får en IP-adress från undernätet och kan nås direkt. Dessa IP-adresser måste vara unikt för ditt adressutrymme för nätverket och måste planeras i förväg. Varje nod har en konfigurationsparameter för det maximala antalet poddar som stöds. Det motsvarande antalet IP-adresser per nod reserveras sedan direkt för noden. Den här metoden kräver mer planering och leder ofta till IP-adress överbelastning eller att behöva återskapa kluster i ett större undernät allteftersom dina behov växer.
+Med Azure CNI varje pod får en IP-adress från undernätet och kan nås direkt. Dessa IP-adresser måste vara unikt för ditt adressutrymme för nätverket och måste planeras i förväg. Varje nod har en konfigurationsparameter för det maximala antalet poddar som stöds. Det motsvarande antalet IP-adresser per nod reserveras sedan direkt för noden. Den här metoden kräver planering, som annars kan leda till IP-adress överbelastning eller att behöva återskapa kluster i ett större undernät allteftersom dina behov växer.
 
-Noder använder den [Azure behållare nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes-plugin-programmet.
+Noder använder den [Azure behållare nätverk gränssnitt (CNI)][cni-networking] Kubernetes-plugin-programmet.
 
 ![Diagram över två noder med bryggor ansluta dem till ett enda Azure virtuellt nätverk][advanced-networking-diagram]
 
-Azure CNI tillhandahåller följande funktioner över kubenet nätverk:
-
-- Varje pod i klustret tilldelas en IP-adress i det virtuella nätverket. Poddarna kan kommunicera direkt med andra poddar i klustret och andra noder i det virtuella nätverket.
-- Poddar i ett undernät som har aktiverat Tjänsteslutpunkter kan på ett säkert sätt ansluta till Azure-tjänster, till exempel Azure Storage och SQL DB.
-- Du kan skapa användardefinierade vägar (UDR) för att dirigera trafik från poddar till en virtuell nätverksenhet.
-
 Mer information finns i [konfigurera Azure CNI för ett AKS-kluster][aks-configure-advanced-networking].
+
+### <a name="compare-network-models"></a>Jämför modeller för nätverk
+
+Både kubenet och Azure CNI ger nätverksanslutning för AKS-kluster. Det finns emellertid fördelar och nackdelar för varje. På hög nivå gäller följande överväganden:
+
+* **kubenet**
+    * Sparar IP-adressutrymme.
+    * Använder Kubernetes interna eller externa belastningsutjämnare för att nå poddar från utanför klustret.
+    * Du måste manuellt hantera och underhålla användardefinierade vägar (Udr).
+    * Högst 400 noder per kluster.
+* **Azure CNI**
+    * Poddar få fullständig virtuell nätverksanslutning och direkt kan nås från utanför klustret.
+    * Kräver mer IP-adressutrymme.
+
+Följande beteende skillnader finns mellan kubenet och Azure CNI:
+
+| Funktion                                                                                   | Kubenet   | Azure CNI |
+|----------------------------------------------------------------------------------------------|-----------|-----------|
+| Distribuera kluster i befintliga eller nya virtuella nätverket                                            | Stöd för: Udr använde manuellt | Stöds |
+| Pod-pod-anslutning                                                                         | Stöds | Stöds |
+| Pod-VM-anslutning; Virtuell dator i samma virtuella nätverk                                          | Fungerar när initieras av poddar | Fungerar åt båda hållen |
+| Pod-VM-anslutning; Virtuella datorer i peer-kopplade virtuella nätverk                                            | Fungerar när initieras av poddar | Fungerar åt båda hållen |
+| Lokal åtkomst med VPN eller Express Route                                                | Fungerar när initieras av poddar | Fungerar åt båda hållen |
+| Åtkomst till resurser som skyddas av Tjänsteslutpunkter                                             | Stöds | Stöds |
+| Visa Kubernetes-tjänster som använder en load balancer tjänst eller App Gateway ingående styrenhet | Stöds | Stöds |
+| Azure DNS och privata zoner                                                          | Stöds | Stöds |
+
+### <a name="support-scope-between-network-models"></a>Supportens omfattning mellan nätverk modeller
+
+Oavsett modellen nätverk du använder kan både kubenet och Azure CNI distribueras på något av följande sätt:
+
+* Azure-plattformen kan automatiskt skapa och konfigurera de virtuella nätverksresurserna när du skapar ett AKS-kluster.
+* Du kan manuellt skapa och konfigurera de virtuella nätverksresurserna och kopplas till dessa resurser när du skapar AKS-klustret.
+
+Även om funktioner som Tjänsteslutpunkter eller udr: er stöds med både kubenet och Azure CNI den [stöder principer för AKS][support-policies] definierar vilka ändringar som du kan göra. Exempel:
+
+* Om du manuellt skapa virtuella nätverksresurser för ett AKS-kluster stöds när du konfigurerar dina egna udr: er eller Tjänsteslutpunkter.
+* Om Azure-plattformen automatiskt skapar virtuella nätverksresurser för AKS-klustret, går den inte att manuellt ändra dessa AKS-hanterade resurser för att konfigurera din egen udr: er eller Tjänsteslutpunkter.
 
 ## <a name="ingress-controllers"></a>Ingress-styrenheter
 
@@ -116,7 +148,7 @@ Mer information finns i [skydda trafik mellan poddar med hjälp av principer fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Att komma igång med AKS nätverk, skapa och konfigurera ett AKS-kluster med dina egna IP-adressintervall med hjälp av [kubenet] [ aks-configure-kubenet-networking] eller [Azure CNI] [ aks-configure-advanced-networking].
+Att komma igång med AKS nätverk, skapa och konfigurera ett AKS-kluster med dina egna IP-adressintervall med hjälp av [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
 
 Associerade metodtips finns [bästa praxis för nätverksanslutning och säkerhet i AKS][operator-best-practices-network].
 
@@ -151,3 +183,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
+[support-policies]: support-policies.md

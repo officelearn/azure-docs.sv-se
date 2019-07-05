@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299105"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465890"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – Felavvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) meddelar i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning av HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade förfrågningar vanligtvis de med svarskoder på 400 eller högre. För att hjälpa dig att hantera och diagnostisera problemet, finns en analys av egenskaperna för fel och relaterad telemetri i meddelandet. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder machine learning-algoritmer för att förutsäga normalt felintervall.
 
-Den här funktionen fungerar för Java- och ASP.NET web apps, finns i molnet eller på dina egna servrar. Den fungerar även för alla appar som genererar begäran eller beroende telemetri – till exempel om du har en arbetsroll som anropar [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Den här funktionen fungerar för alla webbappar, finns i molnet eller på dina servrar som genererar begäran eller beroende telemetri – till exempel om du har en arbetsroll som anropar [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 När du har installerat [Application Insights för ditt projekt](../../azure-monitor/app/app-insights-overview.md), och under förutsättning att din app genererar en viss minsta mängd telemetri, Smart identifiering av avvikelser i fel tar 24 timmar att lära dig det normala beteendet för din app, innan den är aktiverat och som kan skicka aviseringar.
 
@@ -43,6 +43,26 @@ Observera att du:
 * En karakteristisk mönster som är associerade med felen. I det här exemplet finns en viss svarskod, namnet på begäran (åtgärd) och programversion. Som informerar du omedelbart var du vill börja söka i din kod. Andra möjligheter kan vara ett specifikt operativsystem webbläsare eller klient.
 * De undantag, loggspårningar och beroendefel (databaser eller andra externa komponenter) som visas som ska associeras med utmärkande felen.
 * Länkar direkt till relevanta sökningar på telemetri i Application Insights.
+
+## <a name="failure-anomalies-v2"></a>Fel vid avvikelser v2
+Det finns nu en ny version av Felavvikelser varningsregeln. Den här nya versionen körs på den nya Azure aviseringsdata plattformen och introducerar ett antal förbättringar över den befintliga versionen.
+
+### <a name="whats-new-in-this-version"></a>Vad är nytt i den här versionen?
+- Snabbare identifiering av problem
+- En bredare uppsättning åtgärder - regeln har skapats med en associerad [åtgärdsgrupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) med namnet ”Application Insights Smart identifiering” som innehåller e-post och webhook-åtgärder, och kan utökas för att utlösa ytterligare åtgärder när aviseringen utlöses.
+- Mer fokuserar meddelanden – e-postmeddelanden som skickas från den här aviseringsregeln skickas nu som standard till användare som är kopplade till prenumerationens övervakning läsare och deltagare för övervakning av roller. Mer information om detta finns [här](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Enklare konfiguration via ARM-mallar – Se exempel [här](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Schemastöd för vanliga avisering - meddelanden som skickas från den här aviseringsregeln följer den [gemensamma avisering schemat](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Enhetlig e-postmall - e-meddelanden från den här aviseringsregeln har ett konsekvent utseende och känner med andra aviseringstyper. Med den här ändringen finns inte längre alternativet för att få aviseringar om avvikelser i fel med detaljerad diagnostikinformation.
+
+### <a name="how-do-i-get-the-new-version"></a>Hur får jag den nya versionen?
+- Nyligen skapade Application Insights-resurser är nu utrustad med den nya versionen av Felavvikelser varningsregeln.
+- Befintliga Application Insights-resurser med den klassiska versionen av den Felavvikelser Avisera regeln får den nya versionen en gång som värd prenumerationen har migrerats till den nya aviseringsdata plattformen som en del av den [klassisk aviseringar tillbakadragande process ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> Den nya versionen av Felavvikelser varningsregeln återstående ledigt. Dessutom kan e-post och webhook-åtgärder utlöses av den associerade ”Application Insights Smart identifiering” åtgärdsgrupp är även kostnadsfria.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Fördelarna med Smart identifiering
 Vanlig [måttaviseringar](../../azure-monitor/app/alerts.md) talar om det kan finnas ett problem. Men Smart identifiering startar diagnostiska arbetet åt dig, utför mycket analys som du annars skulle behöva göra själv. Du får de resultat som snyggt paketeras, vilket hjälper dig att snabbt komma till roten till problemet.

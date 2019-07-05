@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 69ec3869f7bfd74b150db537a01e604cae87570f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074024"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441988"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och -kluster i Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Som standard Kubernetes API-servern använder en offentlig IP-adress och namnge 
 
 AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Linux-noder som kör en optimerad Ubuntu-distribution med Moby behållare runtime. Windows Server-noder (för närvarande i förhandsversion i AKS) kör en optimerad Windows Server 2019 släpp och även använda Moby behållare runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
 
-Azure-plattformen gäller automatiskt OS säkerhetsuppdateringar för Linux-noder på basis av varje natt. Om en säkerhetsuppdatering för Linux-operativsystem måste startas om för värden, utförs inte att starta om automatiskt. Du kan manuellt starta om Linux-noder eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [ aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
+Azure-plattformen gäller automatiskt OS säkerhetsuppdateringar för Linux-noder på basis av varje natt. Om en säkerhetsuppdatering för Linux-operativsystem måste startas om för värden, utförs inte att starta om automatiskt. Du kan manuellt starta om Linux-noder eller en vanlig metod är att använda [Kured][kured] , an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
 
 Windows Server-noder (för närvarande i förhandsversion i AKS), Windows Update inte automatiskt köra och gäller för de senaste uppdateringarna. Med jämna mellanrum kring Windows-versionen uppdateringscykeln och egna verifieringsprocessen, bör du utföra en uppgradering på Windows Server-nod lagringspoolerna AKS-klustret. Den här uppgraderingsprocessen skapar noderna som kör den senaste Windows Server-avbildning och de uppdateringar och sedan tar bort äldre noderna. Mer information om den här processen finns i [uppgradera en nodpool i AKS][nodepool-upgrade].
 
@@ -73,7 +73,7 @@ Azure använder regler för nätverkssäkerhetsgrupper för att filtrera trafikf
 
 En Kubernetes *hemlighet* används för att mata in känsliga data i poddar, till exempel autentiseringsuppgifter eller nycklar. Först skapar du en hemlighet med hjälp av Kubernetes-API. När du definierar din pod eller distribution av kan en särskild hemlighet begäras. Hemligheter ges endast till noder som har en schemalagd pod som kräver och hemligheten lagras i *tmpfs*, inte skriftliga till disk. När den sista pod på en nod som kräver en hemlighet tas bort raderas hemligheten från nodens tmpfs. Hemligheter lagras i ett visst namnområde och kan bara användas av poddar inom samma namnområde.
 
-Användning av hemligheter minskar den känsliga informationen som definieras i pod eller YAML manifest-tjänsten. I stället kan du begära hemligheten som lagras i Kubernetes API-servern som en del av ditt YAML-manifest. Den här metoden ger endast specifika pod-åtkomst till hemligheten.
+Användning av hemligheter minskar den känsliga informationen som definieras i pod eller YAML manifest-tjänsten. I stället kan du begära hemligheten som lagras i Kubernetes API-servern som en del av ditt YAML-manifest. Den här metoden ger endast specifika pod-åtkomst till hemligheten. Observera: raw hemliga manifestfiler innehåller hemliga data i base64-format (se den [officiella dokumentationen][secret-risks] för mer information). Därför kan bör den här filen vara behandlas som känslig information och aldrig allokerat till källkontroll.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -92,6 +92,7 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

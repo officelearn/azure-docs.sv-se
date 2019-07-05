@@ -11,22 +11,22 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc80fcde8de3fb2d6dd6f59804f6019b76aa8727
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295604"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443935"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera PyTorch modeller i hög skala med Azure Machine Learning-tjänsten
 
-Den här artikeln visar hur du tränar och registrera en PyTorch-modellen med hjälp av Azure Machine Learning-tjänsten. Den är baserad på [Pytorchs induktiv inlärning självstudien](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) som skapar en klassificerare för djupa neurala nätverk (DNN) efter bilder på myror och bin.
+Den här artikeln visar hur du tränar och registrera en PyTorch-modellen med hjälp av Azure Machine Learning-tjänsten. Den är baserad på [Pytorchs induktiv inlärning självstudien](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) som skapar en klassificerare för djupa neurala nätverk (DNN) efter bilder på kycklingar och kalkoner.
 
 [PyTorch](https://pytorch.org/) är en öppen källkod och databaserad ramverk som ofta används för att skapa djupa neurala nätverk (DNN). Med Azure Machine Learning-tjänsten kan du snabbt skala ut öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser. Du kan också spåra ditt träningskörningar, version modeller, distribuera modeller och mycket mer.
 
 Om du utvecklar en modell för PyTorch från grunden eller du behöver en befintlig modell i molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden på något av dessa miljöer:
 
@@ -75,19 +75,19 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 
-Skapa ett experiment och en mapp för att lagra dina utbildningsskript. I det här exemplet skapar du ett experiment som kallas ”pytorch-hymenoptera”.
+Skapa ett experiment och en mapp för att lagra dina utbildningsskript. I det här exemplet skapar du ett experiment som kallas ”pytorch-namnet”.
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### <a name="get-the-data"></a>Hämta data
 
-Datauppsättningen består av cirka 120 utbildning avbildningar för myror och bin med 75 verifiering avbildningar för varje klass. Hymenoptera är i prioritetsordning insekter som innehåller myror och bin. Ladda ned och extrahera datauppsättningen som en del av vår inlärningsskript `pytorch_train.py`.
+Datauppsättningen består av cirka 120 utbildning avbildningar för kalkoner och kycklingar, med 100 verifiering bilder för varje klass. Vi ska ladda ned och extrahera datauppsättningen som en del av vår inlärningsskript `pytorch_train.py`. Bilderna är en delmängd av den [öppna bilder v5 datauppsättning](https://storage.googleapis.com/openimages/web/index.html).
 
 ### <a name="prepare-training-scripts"></a>Förbereda utbildningsskript
 

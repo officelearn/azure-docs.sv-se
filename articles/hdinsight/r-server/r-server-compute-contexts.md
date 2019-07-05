@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681773"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444346"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräkningskontexter för ML-tjänster på HDInsight
 
@@ -76,6 +76,5 @@ Du kan även gå till den [distribuerade översikt över](https://docs.microsoft
 I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körning parallelliseras över kärnor för kantnoden eller HDInsight-kluster. Mer information om hur du använder ML-tjänster med HDInsight-kluster finns i följande avsnitt:
 
 * [Översikt över ML-tjänster för Apache Hadoop](r-server-overview.md)
-* [Kom igång med ML-tjänster för Apache Hadoop](r-server-get-started.md)
 * [Alternativ för Azure Storage för ML-tjänster på HDInsight](r-server-storage.md)
 

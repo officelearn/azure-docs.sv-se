@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074051"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443306"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Kopiera data från SAP-tabellen med hjälp av Azure Data Factory
 
@@ -40,7 +40,7 @@ Mer specifikt stöder den här tabellen för SAP-anslutningen:
 - Kopiera data med hjälp av **grundläggande autentisering** eller **SNC** (skydda nätverkskommunikation) om SNC har konfigurerats.
 - Ansluta till **programserver** eller **Message Server**.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här tabellen för SAP-anslutningsappen, måste du:
 
@@ -206,16 +206,16 @@ För att kopiera data från SAP-tabell, stöds följande egenskaper.
 
 | Egenskap                         | Beskrivning                                                  | Krävs |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | Type-egenskapen måste anges till **SapTableSource**.       | Ja      |
+| type                             | Type-egenskapen måste anges till **SapTableSource**.         | Ja      |
 | Radantal                         | Antal rader som ska hämtas.                              | Nej       |
 | rfcTableFields                   | Fält att kopiera från SAP-tabellen. Till exempel `column0, column1`. | Nej       |
 | rfcTableOptions                  | Alternativ för att filtrera raderna i SAP-tabellen. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. Se mer beskrivning under den här tabellen. | Nej       |
-| customRfcReadTableFunctionModule | Anpassade RFC funktionsmodul som kan användas för att läsa data från SAP-tabellen. | Nej       |
+| customRfcReadTableFunctionModule | Anpassade RFC funktionsmodul som kan användas för att läsa data från SAP-tabellen.<br>Du kan använda anpassade RFC funktionsmodul för att definiera hur data hämtas från SAP-system och tillbaka till ADF. När du måste du komma ihåg anpassad funktionsmodul måste ha liknande gränssnitt (import, export, tabeller), ungefär som/SAPDS/RFC_READ_TABLE2 som är som standard används av ADF. | Nej       |
 | partitionOption                  | Mekanismen partition för att läsa från SAP-tabellen. Alternativ som stöds är: <br/>- **Ingen**<br/>- **PartitionOnInt** (normal heltal eller heltalsvärden med noll utfyllnad till vänster, till exempel 0000012345)<br/>- **PartitionOnCalendarYear** (4 siffror i formatet ”åååå”)<br/>- **PartitionOnCalendarMonth** (6 siffror i formatet ”YYYYMM”)<br/>- **PartitionOnCalendarDate** (8 siffror i formatet ”ååååmmdd”) | Nej       |
-| partitionColumnName              | Namnet på kolumnen att partitionera data. | Nej       |
+| partitionColumnName              | Namnet på kolumnen att partitionera data.                | Nej       |
 | partitionUpperBound              | Det maximala värdet för den angivna i kolumnen `partitionColumnName` som ska användas för att partitionera om du fortsätter. | Nej       |
 | partitionLowerBound              | Det minsta värdet för den angivna i kolumnen `partitionColumnName` som ska användas för att partitionera om du fortsätter. | Nej       |
-| maxPartitionsNumber              | Det maximala antalet partitioner för att dela upp data till. | Nej       |
+| maxPartitionsNumber              | Det maximala antalet partitioner för att dela upp data till.     | Nej       |
 
 >[!TIP]
 >- Om din SAP-tabell har stora mängder data, till exempel flera miljarder rader använder `partitionOption` och `partitionSetting` för att dela upp data i små partitioner, då data läses av partitioner och varje datapartition hämtas från SAP-servern via en enda RFC-anrop.<br/>

@@ -12,202 +12,96 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111243"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444759"
 ---
-# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
-I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett Service Bus-namnområde av typen **Messaging** med en **Standard** SKU. Artikeln definierar också de parametrar som har angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Läs den fullständiga mallen, den [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
+# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
 
-> [!NOTE]
-> Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution. 
-> 
-> * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
-> * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
-> * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
-> 
-> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter Service Bus.
+Lär dig hur du distribuerar en Azure Resource Manager-mall för att skapa ett Service Bus-namnområde. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om hur du skapar mallar finns i [dokumentation om Azure Resource Manager](/azure/azure-resource-manager/).
 
+Följande mallar kan också användas för att skapa Service Bus-namnområden:
+
+* [Skapa ett Service Bus-namnområde med kö](./service-bus-resource-manager-namespace-queue.md)
+* [Skapa ett Service Bus-namnområde med ämne och en prenumeration](./service-bus-resource-manager-namespace-topic.md)
+* [Skapa ett Service Bus-namnområde med kön och auktorisering](./service-bus-resource-manager-namespace-auth-rule.md)
+* [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](./service-bus-resource-manager-namespace-topic-with-rule.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="quick-deployment"></a>Snabb distribution
-Välj på följande knapp om du vill köra exemplet utan att skriva någon JSON och köra PowerShell/CLI-kommando:
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-[![Distribuera till Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för service bus
 
-Gå igenom följande avsnitt i den här artikeln för att skapa och distribuera mallen manuellt.
+I den här snabbstarten använder du en [befintlig Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) från [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/):
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Du hittar mer mallexempel [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
-Om du vill använda **Azure CLI** att distribuera Resource Manager-mallen [installera Azure CLI]( /cli/azure/install-azure-cli).
+Skapa en service bus-namnområde genom att distribuera en mall:
 
-## <a name="create-the-resource-manager-template-json"></a>Skapa Resource Manager-mallens JSON 
-Skapa en JSON-fil med namnet **MyServiceBusNamespace.json** med följande innehåll: 
+1. Välj **prova** från följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud shell.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusSku": {
-            "type": "string",
-            "allowedValues": [
-                "Basic",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Standard",
-            "metadata": {
-                "description": "The messaging tier for service Bus namespace"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-04-01",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/namespaces",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('serviceBusSku')]"
-            }
-        }
-    ]
-}
+    ```azurepowershell-interactive
+    $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${serviceBusNamespaceName}rg"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Resursgruppens namn är den service bus-namnrymden med **rg** sist.
+
+2. Välj **Kopiera** för att kopiera PowerShell-skriptet.
+3. Högerklicka på shell-konsolen och välj sedan **klistra in**.
+
+Det tar en stund att skapa en händelsehubb.
+
+## <a name="verify-the-deployment"></a>Verifiera distributionen
+
+Om du vill se distribuerade service bus-namnområdet, kan du antingen öppna resursgruppen från Azure-portalen eller använda följande Azure PowerShell-skript. Om cloudshell är fortfarande öppen, behöver du inte att kopiera/köra de första och andra raderna i skriptet nedan.
+
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
+
+Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBusNamespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-Den här mallen skapar en standard Service Bus-namnområdet. JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.servicebus/namespaces) mallreferensen.
+Azure PowerShell används för att distribuera mallen i den här självstudien. Andra metoder för distribution av mallen, finns här:
 
-## <a name="create-the-parameters-json"></a>Skapa JSON-parametrar
-Den mall du skapade i föregående steg har ett avsnitt som heter `Parameters`. Du kan definiera parametrar för de värden som varierar utifrån det projekt som du distribuerar eller utifrån målmiljön. Den här mallen definierar följande parametrar: **serviceBusNamespaceName**, **serviceBusSku**, och **plats**. Läs mer om SKU: er för Service Bus i [SKU: er för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) att skapa.
+* [Med hjälp av Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [Med hjälp av Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [Med hjälp av REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
-Skapa en JSON-fil med namnet **MyServiceBusNamespace-Parameters.json** med följande innehåll: 
+## <a name="clean-up-resources"></a>Rensa resurser
 
-> [!NOTE] 
-> Ange ett namn för Service Bus-namnområdet. 
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om cloudshell är fortfarande öppen, behöver du inte att kopiera/köra de första och andra raderna i skriptet nedan.
 
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "serviceBusNamespaceName": {
-      "value": "<Specify a name for the Service Bus namespace>"
-    },
-    "serviceBusSku": {
-      "value": "Standard"
-    },
-    "location": {
-        "value": "East US"
-    }
-  }
-}
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
-
-
-## <a name="use-azure-powershell-to-deploy-the-template"></a>Använda Azure PowerShell för att distribuera mallen
-
-### <a name="sign-in-to-azure"></a>Logga in på Azure
-1. Starta Azure PowerShell
-
-2. Kör följande kommandon för att logga in på Azure:
-
-   ```azurepowershell
-   Login-AzAccount
-   ```
-3. Om du har kan du utfärda följande kommandon för att ange den aktuella prenumerationskontexten:
-
-   ```azurepowershell
-   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
-   ```
-
-### <a name="deploy-resources"></a>Distribuera resurser
-Växla till den mapp där du har sparat JSON-filer för att distribuera resurser med Azure PowerShell och kör följande kommandon:
-
-> [!IMPORTANT]
-> Ange ett namn för Azure-resursgrupp som ett värde för $resourceGroupName innan du kör kommandona. 
-
-1. Deklarera en variabel för resursgruppens namn och ange ett värde för den. 
-
-    ```azurepowershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
-    ```
-2. Skapa en Azure-resursgrupp.
-
-    ```azurepowershell
-    New-AzResourceGroup $resourceGroupName -location 'East US'
-    ```
-3. Distribuera Resource Manager-mallen. Ange namnen på distributionen själva, resursgrupp, JSON-filen för mallen, JSON-fil för parametrar
-
-    ```azurepowershell
-    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
-    ```
-
-## <a name="use-azure-cli-to-deploy-the-template"></a>Använd Azure CLI för att distribuera mallen
-
-### <a name="sign-in-to-azure"></a>Logga in på Azure
-
-1. Kör följande kommandon för att logga in på Azure:
-
-    ```azurecli
-    az login
-    ```
-2. Ange den aktuella prenumerationskontexten. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
-
-    ```azurecli
-    az account set --subscription <Name of your Azure subscription>
-    ``` 
-
-### <a name="deploy-resources"></a>Distribuera resurser
-Växla till mappen med JSON-filer för att distribuera resurser med Azure CLI, och kör följande kommandon:
-
-> [!IMPORTANT]
-> Ange ett namn för Azure-resursgrupp i gruppen az skapa kommando. .
-
-1. Skapa en Azure-resursgrupp. 
-    ```azurecli
-    az group create --name <YourResourceGroupName> --location eastus
-    ```
-
-2. Distribuera Resource Manager-mallen. Ange namn på resursgruppen, distribution, JSON-filen för mallen och JSON-fil för parametrar.
-
-    ```azurecli
-    az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyServiceBusNamespace.json --parameters @MyServiceBusNamespace-Parameters.json
-    ```
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har skapat du ett Service Bus-namnområde. Se de andra snabbstarterna och lär dig att skapa köer, ämnen/prenumerationer och använda dem: 
 
-- [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-- [Kom igång med Service Bus-ämnen](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+I den här artikeln har skapat du ett Service Bus-namnområde. Se de andra snabbstarterna och lär dig att skapa köer, ämnen/prenumerationer och använda dem:
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+* [Kom igång med Service Bus-ämnen](service-bus-dotnet-how-to-use-topics-subscriptions.md)

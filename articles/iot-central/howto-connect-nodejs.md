@@ -3,17 +3,17 @@ title: Ansluta en allmän Node.js-klientprogram till Azure IoT Central | Microso
 description: Som utvecklare av enheten, hur du ansluter en allmän Node.js-enhet till Azure IoT Central programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888966"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444222"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -62,12 +62,24 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamn
 
 Lägg till följande händelse på den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Severity |
+| Visningsnamn | Fältnamn  | Allvarsgrad |
 | ------------ | ----------- | -------- |
 | Överhettning  | överhettas    | Fel    |
 
 > [!NOTE]
 > Datatypen för måttet händelse är sträng.
+
+### <a name="location-measurements"></a>Plats mätning av faktisk användning
+
+Lägg till följande plats måttet på de **mätningar** sidan:
+
+| Visningsnamn | Fältnamn  |
+| ------------ | ----------- |
+| Location     | location    |
+
+Plats-mätning datatyp består av två flytande punkt siffror för longitud och latitud och en valfri Flyttalsnummer för höjd.
+
+Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande kod för enheten, kan platsen inte visas i programmet.
 
 ### <a name="device-properties"></a>Enhetsegenskaper
 
@@ -144,12 +156,14 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Uppdatera platshållaren `{your device connection string}` med den [enhetsanslutningssträngen](tutorial-add-device.md#generate-connection-string). I det här exemplet du initiera `targetTemperature` till noll och, du kan använda den aktuella läsningen från enheten eller ett värde från enhetstvillingen.
 
-1. Om du vill skicka telemetri, tillstånd och händelsen mått till programmet Azure IoT Central, lägger du till följande funktion i filen:
+1. Om du vill skicka telemetri, tillstånd, händelse och mått för plats till Azure IoT Central programmet, lägger du till följande funktion i filen:
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
 * Visa telemetri på den **mätningar** sidan:
 
     ![Visa telemetrin](media/howto-connect-nodejs/viewtelemetry.png)
+
+* Visa på den **mätningar** sidan:
+
+    ![Visa plats mätning av faktisk användning](media/howto-connect-nodejs/viewlocation.png)
 
 * Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskapen paneler uppdaterats när enheten ansluter:
 

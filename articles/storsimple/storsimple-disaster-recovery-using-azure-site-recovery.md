@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c82170cf9cff1870739bb13db9ac0e348a46c07
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150515"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443072"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
 
@@ -37,7 +37,7 @@ Det här dokumentet beskriver i detalj hur du kan skapa en lösning för haverib
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Stöds Azure Site Recovery-distributionsalternativ
 Kunder kan distribuera filservrar som fysiska eller virtuella datorer (VM) som körs på Hyper-V eller VMware och skapa filresurser från volymerna högg av StorSimple-lagring. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till en sekundär plats eller till Azure. Det här dokumentet innehåller information om en katastrofåterställningslösning med Azure som återställningsplats för en filserver som är värd för virtuell dator på Hyper-V och filresurser på StorSimple-lagring. Andra scenarier där filen server-dator är på en VMware-VM eller en fysisk dator kan implementeras på samma sätt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Implementera en lösning för katastrofåterställning med ett klick som använder Azure Site Recovery för filresurser som finns på StorSimple-lagring har följande krav:
 
    - En lokal fil för Windows Server 2012 R2-servern virtuell dator i Hyper-V eller VMware eller en fysisk dator
@@ -171,16 +171,16 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
 1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
 
    - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
-   - *RecoveryPlanName* **-ManagerName**: StorSimple-resursen med StorSimple-enheten.
-   - *RecoveryPlanName* **-DeviceName**: StorSimple-enheten som har växlas.
-   - *RecoveryPlanName* **-DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **nätverk** &gt; **DNS-inställningarna** grupp).
-   - *RecoveryPlanName* **-VolumeContainers**: En kommaavgränsad sträng med volymbehållare på enheten som behöver växlas; till exempel: volcon1 volcon2, volcon3.
-   - *RecoveryPlanName* **-TargetDeviceName**: StorSimple-Molninstallationen som är behållarna som ska redundansväxlas.
-   - *RecoveryPlanName* **-TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** grupp &gt; **nätverk** fliken).
-   - *RecoveryPlanName* **-StorageAccountName**: Namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
-   - *RecoveryPlanName* **-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
-   - *RecoveryPlanName* **-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
+   - _RecoveryPlanName_ **-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
+   - _RecoveryPlanName_ **-ManagerName**: StorSimple-resursen med StorSimple-enheten.
+   - _RecoveryPlanName_ **-DeviceName**: StorSimple-enheten som har växlas.
+   - _RecoveryPlanName_ **-DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **nätverk** &gt; **DNS-inställningarna** grupp).
+   - _RecoveryPlanName_ **- VolumeContainers**: En kommaavgränsad sträng med volymbehållare på enheten som behöver växlas; till exempel: volcon1 volcon2, volcon3.
+   - _RecoveryPlanName_ **-TargetDeviceName**: StorSimple-Molninstallationen som är behållarna som ska redundansväxlas.
+   - _RecoveryPlanName_ **-TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** grupp &gt; **nätverk** fliken).
+   - _RecoveryPlanName_ **-StorageAccountName**: Namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
+   - _RecoveryPlanName_ **-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
+   - _RecoveryPlanName_ **-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
 
      Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
 

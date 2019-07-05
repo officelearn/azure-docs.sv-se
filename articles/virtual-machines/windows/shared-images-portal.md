@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465720"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa en delad bildgalleriet med Azure portal
 
@@ -53,6 +53,9 @@ När du börjar med den här artikeln, Ersätt namnges resursgrupp och virtuell 
 ## <a name="create-vms-from-an-image"></a>Skapa virtuella datorer från en avbildning
 
 När versionsnumret för avbildningen är klar kan skapa du en eller flera nya virtuella datorer. 
+
+> [!IMPORTANT]
+> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan azure-klient. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter, måste du använda den [Azure CLI](../linux/shared-images.md#create-a-vm) eller [Powershell](shared-images.md#create-vms-from-an-image).
 
 Det här exemplet skapar en virtuell dator med namnet *myVMfromImage*i den *myResourceGroup* i den *USA, östra* datacenter.
 

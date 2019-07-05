@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357580"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514211"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357580"
 
 
 > [!NOTE]
-> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera den [Office 365-anslutning](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) istället för att använda stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösning med en förbättrad konfigurationsupplevelse. Vill du ansluta Azure AD-loggar använder du [anslutningsprogrammet för Azure Sentinel Azure AD](../../sentinel/connect-azure-active-directory.md), som ger bättre loggdata än Office 365-hanteringsloggar. 
+> Den rekommenderade metoden för att installera och konfigurera Office 365-lösningen är att aktivera den [Office 365-anslutning](../../sentinel/connect-office-365.md) i [Azure Sentinel](../../sentinel/overview.md) istället för att använda stegen i den här artikeln. Det här är en uppdaterad version av Office 365-lösning med en förbättrad konfigurationsupplevelse. För att ansluta Azure AD-loggar, du kan använda antingen den [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md) eller [Konfigurera diagnostikinställningar för Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), vilket ger bättre loggdata än Office 365-management-loggar. 
 >
 > När du [Sentinel-publicera Azure](../../sentinel/quickstart-onboard.md), ange Log Analytics-arbetsytan som du vill installerad i Office 365-lösning. När du har aktiverat kopplingen lösningen blir tillgängliga i arbetsytan och används likadant som andra övervakningslösningar som du har installerat.
 >
@@ -42,7 +42,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azur
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs innan den här lösningen som den installeras och konfigureras.
 
@@ -541,7 +541,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 | Egenskap | Description |
 |:--- |:--- |
-| Typ | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
@@ -740,7 +740,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl \| sortera efter antal asc|

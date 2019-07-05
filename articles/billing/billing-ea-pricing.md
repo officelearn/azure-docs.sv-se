@@ -1,37 +1,34 @@
 ---
-title: Visa och hämta din organisations Azure priser | Microsoft Docs
+title: Visa och hämta din organisations Azure-prissättning
 description: Lär dig mer om att visa och hämta priser eller beräkna dina kostnader med priser för din organisation.
-services: ''
-documentationcenter: ''
-author: adpick
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7f7da197a06dbbb730a7386882e534b8381cf9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127641"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491357"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och hämta din organisations Azure-prissättning
 
-Azure-kunder med ett Enterprise Agreement (EA) eller [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement) kan visa och hämta sina priser från Azure-portalen. Om du har ett Microsoft-kundavtal Se Visa och ladda ned priserna för ditt Microsoft-kundavtal.
+Azure-kunder med ett Azure Enterprise Agreement (EA) eller [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement) kan visa och hämta sina priser på Azure-portalen.
 
-## <a name="view-and-download-ea-pricing"></a>Visa och hämta EA-priser
+## <a name="ea-pricing"></a>EA-priser
 
 Beroende på vilka principer som angetts för din organisation av företagsadministratören ger endast vissa administrativa roller åtkomst till din organisations EA prisinformation. Mer information finns i [förstå Azure Enterprise-avtal administrativa roller i Azure](billing-understand-ea-roles.md).
 
-1. Som en Enterprise-administratör kan logga in på [Azure-portalen](https://portal.azure.com/).
-1. Sök på **Cost Management + fakturering**.
+1. Som en Enterprise-administratör kan logga in på den [Azure-portalen](https://portal.azure.com/).
+1. Sök efter *Cost Management + fakturering*.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
@@ -40,31 +37,32 @@ Beroende på vilka principer som angetts för din organisation av företagsadmin
    ![Skärmbild som visar användning och avgifter under fakturering](./media/billing-ea-pricing/ea-pricing-usage-charges-nav.png)
 
 1. Välj ![skärmbild som visar Azure portal-sökning](./media/billing-ea-pricing/download-icon.png) **hämta** för månaden.
+
 1. Under **Prisdokument**väljer **ladda ned csv**.
 
    ![Skärmbild som visar prisdokumentet ladda ned csv-knappen](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="view-and-download-pricing-for-your-microsoft-customer-agreement"></a>Visa och ladda ned priserna för ditt Microsoft-kundavtal
+## <a name="microsoft-customer-agreement-pricing"></a>Microsoft kundavtal priser
 
 Du måste vara den fakturering profilens ägare, deltagare, läsare eller faktura manager att visa och hämta priser. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Ladda ned prisdokument för den aktuella faktureringsperioden
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök på **Cost Management + fakturering**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com).
+1. Sök efter *Cost Management + fakturering*.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
-1. I den **översikt** bladet hitta nedladdningslänkarna under månaden-till-date-avgifter.
+1. I den **översikt** området hitta nedladdningslänkarna under månaden-till-date-avgifter.
 1. Välj **Azure prisdokument**.
 ![Skärmbild som visar nedladdning från översikt](./media/billing-ea-pricing/open-pricing.png)
 
 ### <a name="download-price-sheets-for-billed-charges"></a>Ladda ned prisdokument för fakturerade kostnader
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök på **Cost Management + fakturering**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com).
+1. Sök efter *Cost Management + fakturering*.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. Välj **Fakturor**.
 1. Hitta raden motsvarar prisdokument som du vill hämta fakturans i rutnätet för fakturan.
-1. Klicka på ellipsknappen (`...`) i slutet av raden.
+1. Klicka på ellipsen (`...`) i slutet av raden.
 ![Skärmbild som visar de tre punkterna valt](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
 
 1. Om du vill se priserna för tjänster i den valda fakturan väljer **faktura prisdokument**.
@@ -85,7 +83,7 @@ Du kan också använda organisationens priser uppskatta kostnader med Azures pri
 
 1. Välj vilken organisation.
 1. Välj **Använd**.
-1. Sök och Lägg till produkter i beräkningen.
+1. Sök efter och Lägg sedan till produkter i beräkningen.
 1. Beräknad priserna baseras på priserna för den organisation som du har valt.
 
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Kontrollera din åtkomst till en Microsoft-kundavtal

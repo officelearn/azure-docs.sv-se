@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616474"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491410"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 
@@ -56,9 +56,9 @@ Läs mer om fakturan [förstå fakturan för Microsoft Azure](billing-understand
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Ladda ned fakturor för en Microsoft-kundavtal
 
-Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#understand-billing-profiles) i Microsoft kundavtal. Du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att ladda ner fakturor från Azure-portalen.
+Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#billing-profiles) i Microsoft kundavtal. Du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att ladda ner fakturor från Azure-portalen.
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 2. Välj en profil för fakturering.
 3. Välj **Fakturor**.
 4. Hitta raden på fakturan som du vill hämta i rutnätet för fakturan.
@@ -108,7 +108,7 @@ Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och kl
 
 Om du har ett Microsoft-kundavtal, kan du välja för att hämta din faktura i ett e-postmeddelande. Alla fakturering profil ägare, deltagare, läsare och faktura chefer får fakturan via e-post. Läsare kan inte uppdatera dina inställningar för e-faktura.
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 1. Välj en profil för fakturering.
 1. Under **inställningar**väljer **egenskaper**.
 1. Under **e-Postfaktura**väljer **inställning för Update e-faktura**.
@@ -169,7 +169,7 @@ Om du vill visa och hämta användningsdata för en profil för fakturering, må
 
 #### <a name="download-usage-for-billed-charges"></a>Ladda ned användningsdata för fakturerade kostnader
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 2. Välj en profil för fakturering.
 3. Välj **Fakturor**.
 4. Hitta raden på fakturan som motsvarar den användning som du vill hämta i rutnätet för fakturan.
@@ -180,7 +180,7 @@ Om du vill visa och hämta användningsdata för en profil för fakturering, må
 
 Du kan också hämta månad hittills användning för den aktuella faktureringsperioden, vilket innebär att kostnaderna som inte har fakturerats ännu.
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 2. Välj en profil för fakturering.
 3. I den **översikt** bladet klickar du på **ladda ned Azure-användning och avgifter**.
 

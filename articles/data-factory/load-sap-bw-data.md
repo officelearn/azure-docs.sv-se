@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152418"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449690"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 > [!TIP]
 > Allmän information om hur du kopierar data från SAP BW, inklusive SAP BW Open Hub-integrering och delta extrahering av flow finns i [kopiera data från SAP Business Warehouse via öppna hubben med hjälp av Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure Data Factory**: Om du inte har något, följer du stegen för att [skapa en datafabrik](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
@@ -125,7 +125,7 @@ Gå till din datafabrik i Azure-portalen. Välj **författare och Övervakare** 
 
     ![Detaljer för aktiviteten utdata](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="do-an-incremental-copy-from-sap-bw-open-hub"></a>Göra en inkrementell kopia från SAP BW Open Hub
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>Inkrementell kopia från SAP BW Open Hub
 
 > [!TIP]
 > Se [öppna hubben för SAP BW connector delta extrahering flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) att lära dig hur anslutningstjänsten SAP BW Open Hub i Data Factory kopierar inkrementella data från SAP BW. Den här artikeln kan också hjälpa dig att förstå grundläggande kopplingskonfiguration.

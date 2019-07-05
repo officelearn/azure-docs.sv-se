@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967903"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551703"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -32,7 +32,7 @@ Anvisningar om hur du anger principer med hjälp av PowerShell finns i [snabbsta
 > Security Center igång dess integrering med Azure Policy. Befintliga kunder kommer att migreras automatiskt till det nya inbyggda initiativet i Azure Policy, i stället för föregående säkerhetsprinciper i Security Center. Den här ändringen påverkar inte dina resurser eller miljö utom förekomst av det nya initiativet i Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
-En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../governance/policy/overview.md).
+En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personuppgifter eller kundinformation, kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../governance/policy/overview.md).
 
 Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
 
@@ -73,13 +73,6 @@ Visa dina säkerhetsprinciper i Security Center:
    > [!NOTE]
    > - Instrumentpanelen i Security Center kan indikera ett högre antal prenumerationer under **prenumerationstäckning** än antalet prenumerationer som visas under **principhantering**. Prenumerationstäckningen visar antalet prenumerationer av typen Standard, Kostnadsfri och Omfattas inte. ”Inte motsvarar”-prenumerationer har inte Security Center aktiverat och visas inte **principhantering**.
    >
-
-   Tabellens kolumner:
-
-   - **Principinitiativsuppgift** – Security Center [inbyggda principer](security-center-policy-definitions.md) och initiativ som har tilldelats en prenumerations- eller grupp.
-   - **Täckning** – identifierar prisnivån kostnadsfri eller Standard som hanteringsgruppen, prenumeration eller arbetsyta körs på.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
-   - **Inställningar för** – prenumerationer har länken **redigera inställningar för**. Att välja **redigera inställningar för** låter dig uppdatera ditt [Security Center-inställningar](security-center-policies-overview.md) för varje prenumerations- eller grupp.
-   - **Säker poäng** – [säker poäng](security-center-secure-score.md) ger ett mått på hur säker din arbetsbelastning säkerhetsposition och hjälper dig att prioritera rekommendationer för förbättring.
 
 2. Välj den prenumeration eller hanteringsgrupp grupp vars principer som du vill visa.
 
@@ -132,11 +125,11 @@ Som en del av den interna integreringen med Azure Policy kan Azure Security Cent
 
 Viktiga begrepp i Azure Policy: 
 
-- En **principdefinition** är en regel 
+- En **principdefinitionen** är en regel 
 
-- En **initiativ** är en samling principdefinitioner (regler) 
+- En **initiativ** är en samling principdefinitioner (regler) 
 
-- En **tilldelning** är ett program i ett initiativ eller en princip för ett visst område (hanteringsgruppen, prenumeration osv.) 
+- En **tilldelning** är ett program i ett initiativ eller en princip för ett visst område (hanteringsgruppen, prenumeration osv.) 
 
 Security Center har en inbyggd initiativ som innehåller alla dess säkerhetspolicys. För att kunna utvärdera Security Center-principerna på dina Azure-resurser, bör du skapa en tilldelning på hanteringsgruppen eller prenumerationen som du vill utvärdera.  
 

@@ -3,7 +3,7 @@ title: Lägg till autentisering i din app för Universal Windows Platform (UWP) 
 description: 'Lär dig hur du använder Azure App Service Mobile Apps för att autentisera användare i appen Universal Windows Platform (UWP) med olika identitetsleverantörer, inklusive: AAD, Google, Facebook, Twitter och Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: panarasi
-ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128006"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440238"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Lägg till autentisering i din Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) idag.
+>
+
+## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du lägger till molnbaserad autentisering till din mobilapp. I den här självstudien får du lägga till autentisering till snabbstartsprojektet Universal Windows Platform (UWP) för Mobilappar som använder en identitetsprovider som stöds av Azure App Service. Efter att har autentiseras och auktoriseras av din mobilappsserverdel, visas användar-ID-värdet.
 
 Den här självstudien är baserad på Mobile Apps-Snabbstart. Du måste slutföra kursen [Kom igång med Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296175"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551600"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor: Säkerhetskopiera virtuella Azure-datorer
 
@@ -46,10 +46,6 @@ Om du är deltagare VM, kan du aktivera säkerhetskopiering på den virtuella da
 Om dina Recovery Services-valv och en virtuell dator har olika resursgrupper kan du kontrollera att du har skrivbehörighet i resursgruppen för Recovery Services-valvet.  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Vilka virtuella datorer i Azure kan du säkerhetskopiera med hjälp av Azure Backup?
-
-Granska den [stödmatris](backup-support-matrix-iaas.md) för information om support och begränsningar.
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Använder en säkerhetskopiering på begäran samma kvarhållningsschema som schemalagda säkerhetskopieringar?
 Nej. Ange kvarhållningsintervallet för en säkerhetskopiering på begäran. Som standard den finns kvar i 30 dagar när den utlöses från portalen.
 
@@ -73,17 +69,12 @@ Om du låser den resursgrupp som skapats av Azure Backup-tjänsten startar säke
 
 Användaren måste ta bort låset och ta bort samlingen med återställningspunkter från resursgruppen för att att framtida säkerhetskopieringar ska lyckas, [gör så här](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) att ta bort samlingen med återställningspunkter.
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Betraktar säkerhetskopieringspolicyn sommartid (DST)?
-Nej. Datum och tid på den lokala datorn är lokal med aktuella sommartid används. Den tid som angetts för schemalagda säkerhetskopieringar kan skilja sig från den lokala tiden på grund av Sommartid.
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Hur många datadiskar kan jag ansluta till en virtuell dator som backas upp av Azure Backup?
-Azure Backup kan säkerhetskopiera virtuella datorer med upp till 16 diskar. Stöd för 16 diskar finns i den [omedelbar återställning](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Har Azure stöd för säkerhetskopiering SSD hanterade standarddiskar?
 Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-hanterade diskar har en ny typ av beständig lagring för virtuella Azure-datorer. Stöd för SSD hanterade diskar finns i den [omedelbar återställning](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en WA Write Accelerator-aktiverade disk?
-Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till omedelbar återställning.
+Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Write Accelerator (WA) diskar och SAP HANA installerad. Hur kan jag säkerhetskopiera?
 Azure Backup kan inte säkerhetskopiera disken WA-aktiverade men kan undanta den från en säkerhetskopia. Säkerhetskopian Ange inte dock databaskonsekvens eftersom informationen på WA-aktiverade inte har säkerhetskopierats. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemdisken, och säkerhetskopiering av diskar som inte är WA-aktiverade.
@@ -93,6 +84,8 @@ Vi använder privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Vad är den längsta tillåtna fördröjningen som jag kan förvänta sig i starttid för säkerhetskopiering från den schemalagda tiden för säkerhetskopiering som jag har angett i min princip för säkerhetskopiering av virtuell dator?
 Den schemalagda säkerhetskopieringen aktiveras inom två timmar efter den schemalagda tiden för säkerhetskopiering. För t.ex. Om 100 virtuella datorer har starttid för säkerhetskopiering schemalagd vid 02:00:00, sedan har av högst 4:00 am alla 100VMs säkerhetskopieringsjobb pågår. Om schemalagda säkerhetskopieringar har pausats på grund av avbrott och återupptas/göras kan säkerhetskopiering starta utanför det här schemalagda 2 hr-fönstret.
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Vad är det minsta tillåtna kvarhållningsintervallet för daglig säkerhetskopieringspunkt?
+Princip för säkerhetskopiering av Azure virtuella datorer stöder ett minsta Kvarhållningsintervall på 7 dagar upp till 9 999 dagar. Alla ändringar av säkerhetskopieringsprincip för en befintlig virtuell dator med mindre än 7 dagar kräver en uppdatering för att uppfylla minsta Kvarhållningsintervall på 7 dagar.
 
 ## <a name="restore"></a>Återställ
 

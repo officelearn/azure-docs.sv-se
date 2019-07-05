@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 906024ecb3e95c75c45efddafbbf76944c6aea29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443000"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från inställningarna för virtuella datorer
 
@@ -72,7 +72,8 @@ För att säkerhetskopiera virtuella Azure-datorer, installerar Azure Backup ett
 
 
 > [!NOTE]
-> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i avsnittet ”Behåll omedelbar återställning ögonblicksbild” i Azure VM Backup-principen. Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.
+> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i avsnittet ”Behåll omedelbar återställning ögonblicksbild” i Azure VM Backup-principen. Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.<br>
+Den här resursgruppen ska också undantas från namn/taggen begränsningar som en princip som begränsar skulle blockera skapandet av Resource punkt samlingar i den igen orsakar fel vid säkerhetskopiering.
 
 
 ## <a name="run-a-backup-immediately"></a>Köra en säkerhetskopia omedelbart

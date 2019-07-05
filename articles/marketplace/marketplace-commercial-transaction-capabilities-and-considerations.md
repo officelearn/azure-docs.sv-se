@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d266b314f19979578b7e7b8de4e7a7090200c9d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849709"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445442"
 ---
-# <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace affärstransaktion funktioner och överväganden
+# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Kommersiella marketplace transaktion funktioner och överväganden
 
-Publiceringsalternativ för Azure Marketplace erbjuder unika sätt att ansluta molnleverantörer för program och tjänster med kunder. Den här artikeln beskriver följande commerce-relaterade ämnen i Azure Marketplace:
+Den här artikeln beskriver följande commerce-relaterade ämnen för kommersiella marketplace
 
 * Marketplace publiceringsalternativ
 * Transact allmän översikt
@@ -26,21 +26,22 @@ Publiceringsalternativ för Azure Marketplace erbjuder unika sätt att ansluta m
 
 ## <a name="marketplace-publishing-options"></a>Marketplace publiceringsalternativ
 
-Följande publiceringsalternativ är tillgängliga för Azure Marketplace-utgivare.
+Följande publiceringsalternativ är tillgänglig för kommersiella marketplace-utgivare.
 
 ### <a name="list--trial-publishing-options"></a>Lista & utvärderingsversion publiceringsalternativ
 
-I Azure Marketplace, utgivare kan använda i listan och utvärderingsversion publiceringsalternativ för erbjudanden och användaren förvärv syften. Microsoft deltar inte direkt i utgivarens programvara licens transaktioner med i listan eller utvärderingsversion publiceringsalternativ och det finns inga associerade transaktionsavgift. Utgivare har ansvaret för att stödja alla aspekter av programvara licens transaktioner, inklusive men inte begränsat till: ordning, utförande, Avläsning av programvara, fakturering, fakturering, betalning och samling. Med i listan och utvärderingsversion publiceringsalternativ Behåll utgivare 100% av utgivare licensavgifter som samlas in från kunden. 
+Utgivare kan använda i listan, utvärdering och BYOL publiceringsalternativ för erbjudanden och användaren förvärv syften. Microsoft deltar inte direkt i utgivarens programvara licens transaktioner med dessa alternativ, och det finns inga associerade transaktionsavgift. Utgivare har ansvaret för att stödja alla aspekter av programvara licens transaktioner, inklusive men inte begränsat till: ordning, utförande, Avläsning av programvara, fakturering, fakturering, betalning och samling. Med i listan och utvärderingsversion publiceringsalternativ Behåll utgivare 100% av utgivare licensavgifter som samlas in från kunden. 
 
 ### <a name="transact-publishing-option"></a>Transact publiceringsalternativ
 
-Förutom i listan och utvärderingsversion publiceringsalternativ är transact publiceringsalternativ tillgängliga för Azure Marketplace-utgivare.   Den drar nytta av Microsofts globalt tillgänglig commerce-funktioner. Det här alternativet kan värden molnet marketplace transaktioner för utgivaren Microsoft.
+Förutom i listan och utvärderingsversion publiceringsalternativ är transact publiceringsalternativ tillgängliga för utgivare. Detta drar nytta av Microsofts globalt tillgänglig commerce funktioner och kan Microsoft värd molnet marketplace transaktioner för utgivaren.
 
 ## <a name="transact-general-overview"></a>Transact allmän översikt
 
-När du använder transact publicera alternativet, kan Microsoft försäljningen av programvara från tredje part och distribution av vissa typer av erbjudanden till kundens Azure-prenumeration. Utgivare måste ta hänsyn till att faktureringen för Azure-infrastrukturavgifter och de utgivarens egna licensavgifter, när du väljer en fakturering modellera och erbjudandetyp på Azure Marketplace.
+När du använder transact publicera alternativet, kan Microsoft försäljningen av programvara från tredje part och distribution av vissa typer av erbjudanden till kundens Azure-prenumeration. Utgivaren måste ta hänsyn till att faktureringen för infrastrukturavgifter, och de utgivarens egna licensavgifter, när du väljer en fakturering modellera och erbjudandetyp.
 
-Transact publiceringsalternativ på Azure Marketplace stöds för tillfället för följande typer av erbjudanden: Virtuella datorer, Azure-program eller SaaS-appar.
+Transact publiceringsalternativ stöds för tillfället för följande typer av erbjudanden: Virtuella datorer, Azure-program och SaaS-appar.
+
 
 ![[Hanterar man gör transaktioner Enterprise på Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,7 +65,7 @@ Beroende på Transaktionsalternativet används kan utgivarens programvarulicensa
 
 * Pay-as-you-go: Programvarulicensavgifter visas som en per timme, per kärna (vCPU) prissättning baserad på Azure-infrastrukturen används. Detta gäller endast för virtuella datorer och program i Azure.
 
-* Prenumeration priser (plats-baserad): Programvarulicensavgifter visas som en avgift per månad, återkommande.  Detta gäller endast för SaaS-appar och program i Azure-hanterade appar.
+* • Prenumerationspriser: Programvarulicensavgifter visas som en per månad eller årlig, återkommande avgift debiteras som en fast avgift eller per klient. Detta gäller endast för SaaS-appar och program i Azure-hanterade appar.
 
 * Kostnadsfri utvärderingsversion: Ingen extra kostnad för programvarulicenser för 30 dagar eller 90 dagar.
 
@@ -74,11 +75,10 @@ När du publicerar ett erbjudande med kostnadsfri eller bring-your-own-license t
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Betala per användning och prenumerationspriser (plats-baserad)
 
-När du publicerar ett erbjudande med betala per användning eller prenumeration transaktion, tillhandahåller Microsoft tekniken och tjänsterna att processen programvara licensinköp, returnerar och återbetalningar. I det här scenariot godkänner utgivaren att Microsoft ska fungera som en agent för dessa ändamål. Utgivaren kan Microsoft för att underlätta transaktion samtidigt som du behåller deras beteckning som försäljning, leverantör, distributören och licensgivare för programvarulicenser.
+WPay-som-du-go och prenumerationspriser när du publicerar ett erbjudande med betala per användning eller prenumeration transaktion, Microsoft tillhandahåller tekniken och tjänster för att bearbeta programvarulicensen köp, returnerar och återbetalningar. I det här scenariot godkänner utgivaren att Microsoft ska fungera som en agent för dessa ändamål. Utgivaren kan Microsoft för att underlätta transaktion samtidigt som du behåller deras beteckning som försäljning, leverantör, distributören och licensgivare för programvarulicenser.
 
-Microsoft ger kunder möjlighet att beställa, licensiera och använda utgivarprogramvaran, utsätta till de allmänna villkoren för både Azure Marketplace och utgivarens licensavtalet för slutanvändare (se partnerportalen i molnet). Utgivare måste ange sina licensavtalet för slutanvändare i marketplace-erbjudande.
+Microsoft ger kunder möjlighet att ordning, licens och Använd utgivarens programvara, utsätta till villkoren i Microsofts kommersiella Marketplace såväl utgivarens licensavtalet för slutanvändare. Utgivare måste ange sina licensavtalet för slutanvändare och välja den [standardavtal](https://docs.microsoft.com/azure/marketplace/standard-contract) när du skapar erbjudandet.
 
-Order bearbetas via marketplace faktureras till kundens Azure-prenumeration i en enda faktura, på samma fakturera som kundens Azure-infrastrukturkostnader. Kunder kan använda det önskade fakturering och instrument som används för deras Azure-prenumeration fakturering.
 
 ### <a name="free-software-trials"></a>Kostnadsfri programvara utvärderingsversioner
 
@@ -86,9 +86,10 @@ För transact publishing scenarier, utgivaren kan göra en programvara som licen
 
 ### <a name="private-offers"></a>Privata erbjudanden
 
-Förutom att använda erbjuder typer och faktureringsmodellerna att tjäna pengar på ett erbjudande, utgivare kan hantera en privat version av lösningen, erbjudande, med den förhandlade, erbjudande-specifika prissättning, och anpassade konfigurationer med hjälp av en anpassad avbildning. Privata erbjudanden som stöds av alla 3 transact publiceringsalternativ.
+Förutom att använda erbjuder typer och faktureringsmodellerna att tjäna pengar på ett erbjudande, utgivare kan hantera ett privat erbjudande med förhandlade, erbjudande-specifika prissättning eller anpassade konfigurationer. Privata erbjudanden som stöds av alla 3 transact publiceringsalternativ.
 
-Det här prisalternativet kan vara högre eller lägre än offentligt visade priset.  Privata erbjudanden kan användas till att rabatt eller Lägg till en premium i ett erbjudande. Privata erbjudanden kan göras tillgängliga för kunder med en eller flera av vitt lista över sin Azure-prenumeration på erbjudandet nivå.
+Det här alternativet kan priset för högre eller lägre än offentligt tillgängliga erbjudandet. Privata erbjudanden kan användas till att rabatt eller Lägg till en premium i ett erbjudande. Privata erbjudanden kan göras tillgängliga för kunder med en eller flera av vitt lista över sin Azure-prenumeration på erbjudandet nivå.
+
 
 ### <a name="examples"></a>Exempel
 
@@ -125,11 +126,10 @@ Det här prisalternativet kan vara högre eller lägre än offentligt visade pri
 |Microsoft behåller kostnaden för Azure-användning    |   $0.14 per timme     |
 |Microsoft behåller 0% av dina kostnader för licens   |  $0,00 per timme       |
 
-**SaaS-App-prenumeration (sälj via Azure)**
+**SaaS-App-prenumeration**
 
-Det här alternativet måste konfigureras för att sälja via Microsoft och kan skilja sig med hjälp av en eller flera fasta månatliga planer som definierats på nivån erbjudandet.
-
-* Om du aktiverar sälj via Azure måste ha du följande kostnadsstruktur.
+Det här alternativet måste konfigureras för att sälja via Microsoft och kan skilja sig enligt en fast avgift eller per användare per månad eller årlig.
+• Om du aktiverar sälj via Microsoft-alternativ för ett SaaS-erbjudande du har följande kostnadsstrukturen.
 
 |Din licens kostnad       | $100,00 per månad  |
 |--------------|---------|
@@ -205,13 +205,13 @@ När prenumerationen eller betala per användning prismodellerna är markerade, 
 * Kunder köpa vanligtvis med Enterprise-avtal eller ett kreditkort aktiverade användningsbaserad avtal. Avtalstypen anger fakturering, fakturering, samling och betalnings tidsinställningar.
 
 >[!NOTE] 
->Alla rapporter och insikter för transact publicera alternativ är tillgängliga via avsnittet insikter i partnerportalen i molnet.
+>Alla rapporter och insikter för transact publicera alternativ är tillgängliga via avsnittet insikter i avsnittet partnerportalen i molnet eller analys av Partner Center.
 
 #### <a name="billing-questions-and-support"></a>Frågor om fakturering och support
 
 Mer information och juridiska principer finns i den [Publiceringsavtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (tillgängligt i Cloud Partner Portal).
 
-Få hjälp med faktureringsfrågor, [skapa ett supportärende](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) och välj virtuella datorer eller Web Apps (även kallat SaaS-appar) beroende på den typ av erbjudande som används.
+Om du vill ha hjälp om fakturering frågor, kontakta [kommersiella marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Transact krav
 
@@ -219,13 +219,11 @@ Transact-kraven för olika erbjudandetyper beskrivs i det här avsnittet.
 
 ### <a name="requirements-for-all-offer-types"></a>Krav för alla erbjuder typer
 
-**Dev Center och Microsoft-konto** 
+- Ett Microsoft-konto och finansiell information krävs för transact publicera alternativet, oavsett erbjudandet prismodell.
+- Obligatorisk finansiell information innehåller betalnings-konto och skatt profil.
 
-* Både ett Dev Center och ett Microsoft-konto krävs för transact publicera alternativet, oavsett erbjudandet prismodell.
-* Dev Center-konto innehåller alla relevanta finansiell information som behövs för Microsoft att samla in avgifter från kunden på utgivarens åt dig och betala ut utgivaren.
-* Men du kan använda samma organisationens eller inloggningsinformation för Microsoft-konton som båda, är ett separat konto från Cloud Partner Portal-konto i Dev Center. Om du vill använda transact publiceringsalternativ måste utgivaren Dev Center-konto registreringen slutförs, förutom att registrera dig för åtkomst till partnerportalen i molnet.
+Mer information om hur du konfigurerar dessa konton finns i [hantera Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
 
-*Mer information om hur du konfigurerar dessa konton finns i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 
 ### <a name="requirements-for-specific-offer-types"></a>Krav för specifika erbjudandetyper
 
@@ -237,10 +235,9 @@ Välj från modeller som ledigt, bring-your-own-license eller betala per använd
 
 **Azure-program: Lösningsmallen eller hanterad App** 
 
-Etablera en eller flera virtuella datorer och hämtar via summan av priser för virtuella datorer. För hanterade appar på ett enda abonnemang kan du välja en fast månatlig prenumeration enligt priserna modellera i stället priser för virtuella datorer. I båda fallen skickas avgifter för användning av Azure-infrastrukturen till kunden separat från programvarulicensavgifter, men samma debiteras på.
+Etablera en eller flera virtuella datorer och hämtar via summan av priser för virtuella datorer. För hanterade appar på ett enda abonnemang kan du välja en fast månatlig prenumeration enligt priserna modellera i stället priser för virtuella datorer. I vissa fall skickas avgifter för användning av Azure-infrastrukturen till kunden separat från programvarulicensavgifter, men samma debiteras på. Men om du konfigurerar en hanterad App erbjudande för ISV-infrastrukturavgifter, Azure-resurser faktureras till utgivaren och kunden får en fast avgift som inkluderar kostnaden för infrastrukturen, licenser för program och tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska krav för berättigande i publiceringsalternativ erbjudandet typ avsnittet för att slutföra valet av och konfigurationen av ditt erbjudande.
 * Granska publicering mönster genom butik för exempel på hur din lösning mappar till en typ av erbjudande och konfiguration.
-* Bli en Marketplace-utgivare och logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com) du skapar och konfigurerar ditt erbjudande.

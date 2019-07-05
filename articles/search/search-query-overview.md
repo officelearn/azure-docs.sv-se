@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595974"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485175"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -29,7 +29,7 @@ I följande tabell visas de API: er och verktyg-baserade metoderna för att skic
 | Metod | Beskrivning |
 |-------------|-------------|
 | [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och api-versionen. Resultaten returneras som JSON-dokument. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
-| [Postman eller Fiddler](search-fiddler.md) | Testverktyg för webb-är ett utmärkt alternativ för att utforma REST-anrop. REST API har stöd för varje möjlig åtgärd i Azure Search. I den här artikeln lär du dig hur du ställer in en HTTP-frågehuvudet och brödtext för att skicka begäranden till Azure Search.  |
+| [Postman eller Fiddler](search-get-started-postman.md) | Testverktyg för webb-är ett utmärkt alternativ för att utforma REST-anrop. REST API har stöd för varje möjlig åtgärd i Azure Search. I den här artikeln lär du dig hur du ställer in en HTTP-frågehuvudet och brödtext för att skicka begäranden till Azure Search.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga en Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Söka efter dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET eller POST-metoder i ett index med hjälp av frågeparametrar för ytterligare indata.  |
 

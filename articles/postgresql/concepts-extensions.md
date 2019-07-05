@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293207"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448111"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL – enskild Server
 PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -48,7 +48,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Hanterar partitionerade tabeller genom tid eller -ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Innehåller funktioner och operatorer för att fastställa likheten mellan alfanumerisk text baserat på trigram matchning. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Innehåller funktioner som manipulerar hela tabeller, inklusive korstabell. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genererar universell unik identifierare (UUID). |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genererar universell unik identifierare (UUID). (Se nedan för en anteckning i det här tillägget). |
 > | [orafce](https://github.com/orafce/orafce) | Tillhandahåller en deluppsättning av funktioner och paket som emuleras från kommersiella databaser. |
 
 ### <a name="full-text-search-extensions"></a>Fulltextsökning tillägg
@@ -118,6 +118,10 @@ Det finns en kompromiss mellan körning frågeinformationen pg_stat_statements g
 dblink och postgres_fdw kan du ansluta från en PostgreSQL-server till en annan eller till en annan databas på samma server. Mottagande servern måste tillåta anslutningar från den sändande servern via dess brandvägg. När du använder dessa tillägg för att ansluta till Azure Database for PostgreSQL-servrar, kan detta göras genom att ställa in ”Tillåt åtkomst till Azure-tjänster” till ON. Detta krävs också om du vill använda tilläggen för att gå tillbaka till samma server. Inställningen ”Tillåt åtkomst till Azure-tjänster” finns på sidan för Azure portal för Postgres-servern under anslutningssäkerhet. Aktivera ”Tillåt åtkomst till Azure-tjänster” på vitlistor alla Azure-IP-adresser.
 
 För närvarande stöds utgående anslutningar från Azure Database för PostgreSQL inte, förutom anslutningar till andra Azure Database for PostgreSQL-servrar.
+
+## <a name="uuid"></a>uuid
+Om du planerar att använda `uuid_generate_v4()` från uuid ossp-tillägg, Överväg att jämföra med `gen_random_uuid()` från tillägget pgcrypto för prestandafördelarna.
+
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB är en time series-databas som är packade som ett tillägg för PostgreSQL. TimescaleDB innehåller tid inriktad analytiska funktioner, optimeringar, och skalar Postgres för time series-arbetsbelastningar.

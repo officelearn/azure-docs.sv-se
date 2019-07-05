@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153871"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563917"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal
 
@@ -42,6 +42,11 @@ När du har fastställt lämplig omfattning för en rolltilldelning, navigerar d
 
 I följande avsnitt beskrivs var och en av de här stegen i detalj.
 
+> [!NOTE]
+> Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller en behållare eller en kö.
+> 
+> Du kan inte tilldela en roll som är begränsade till en behållare eller en kö om ditt storage-konto har ett hierarkiskt namnområde aktiverat.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Tilldela en inbyggd RBAC-roll
 
 Innan du tilldelar en roll till en säkerhetsprincip måste du Överväg omfattningen för de behörigheter som du beviljar. Granska den [Bestäm resource omfattning](#determine-resource-scope) avsnitt för att bestämma lämpliga omfattningar.
@@ -65,11 +70,6 @@ Proceduren som visas här tilldelas en roll som är begränsade till en behålla
     ![Skärmbild som visar listan över användare som har tilldelats en roll](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 Du kan följa liknande steg om du vill tilldela en roll som är begränsade till storage-konto, resursgrupp eller prenumeration.
-
-> [!NOTE]
-> Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller en behållare eller en kö.
-> 
-> Du kan inte tilldela en roll som är begränsade till en behållare eller en kö om ditt storage-konto har ett hierarkiskt namnområde aktiverat.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Tilldela rollen Läsare för portalåtkomst
 

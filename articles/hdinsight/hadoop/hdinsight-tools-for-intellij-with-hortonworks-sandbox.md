@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696131"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450113"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge
 
@@ -22,9 +22,9 @@ Lär dig hur du använder HDInsight Tools för IntelliJ för att utveckla Apache
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) är en integrerad utvecklingsmiljö (IDE) för Java för att utveckla programvara. När du utvecklar och testar dina program på begränsat Hortonworks-läge, du kan flytta program till [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar den här självstudiekursen behöver du följande:
+Innan du påbörjar den här artikeln måste du ha följande objekt:
 
 - Hortonworks Data Platform (HDP) 2.4 på begränsat Hortonworks-läge som körs på den lokala datorn. Om du vill konfigurera HDP Se [Kom igång med Apache Hadoop-ekosystemet med ett begränsat Hadoop-läge på en virtuell dator](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -142,7 +142,7 @@ Att skicka ett projekt till en emulator:
 2. Utför följande steg:
 
     1. I den **Spark-kluster (endast Linux)** listrutan väljer du din lokala begränsat Hortonworks-läge.
-    2. I den **Main klassnamn** markerar eller ange namnet main-klass. Den här självstudien namnet är **GroupByTest**.
+    2. I den **Main klassnamn** markerar eller ange namnet main-klass. Den här artikeln är namn **GroupByTest**.
 
 3. Välj **skicka**. Jobbet skicka loggarna visas i fönstret Spark bidrag verktyget.
 

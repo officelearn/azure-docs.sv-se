@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077057"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446845"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -33,7 +33,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure vanliga lagringsklientbiblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -82,7 +82,7 @@ Du kan använda NuGet för att hämta dessa paket. Följ de här stegen:
 > [!NOTE]
 > Bibliotek för lagring klientpaket ingår även i den [Azure SDK för .NET](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar Storage-klientbibliotek från NuGet för att säkerställa att du alltid har de senaste versionerna.
 >
-> ODataLib-beroenden i Storage-klientbibliotek för .NET matchas med ODataLib-paketen tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av lagringsklientbiblioteken är [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), och [avstånds](http://nuget.org/packages/System.Spatial/). Dessa bibliotek som används av Azure-tabellagringsklasserna, men de arbetar nödvändiga beroenden för programmering med Storage-klientbibliotek.
+> ODataLib-beroenden i Storage-klientbibliotek för .NET matchas med ODataLib-paketen tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av lagringsklientbiblioteken är [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), och [avstånds](https://nuget.org/packages/System.Spatial/). Dessa bibliotek som används av Azure-tabellagringsklasserna, men de arbetar nödvändiga beroenden för programmering med Storage-klientbibliotek.
 
 ### <a name="determine-your-target-environment"></a>Fastställ målmiljön
 

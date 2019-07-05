@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288473"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476391"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Godkänn eller neka begäranden för Azure-resursroller i PIM
 
@@ -38,15 +38,15 @@ Som en delegerad godkännaren får du ett e-postmeddelande när en begäran om A
 
 1. Klicka på **godkänna förfrågningar**.
 
-    ![Azure-resurser – Godkänn ansökningar](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Godkänna begäranden - Azure-resurssidan som visar begäran om att granska](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     I den **förfrågningar om rollaktiveringar** avsnittet visas en lista över begäranden väntar på ditt godkännande.
 
 ## <a name="approve-requests"></a>Godkänn förfrågningar
 
-1. Hitta och på begäran som du vill godkänna. En godkännande-fönstret visas.
+1. Hitta och på begäran som du vill godkänna. En Godkänn eller neka visas fönstret.
 
-    ![Godkänna begäranden fönstret](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Godkänna förfrågningar – Godkänn eller neka fönstret med information om och motivering box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. I den **motivering** skriver en orsak.
 
@@ -54,13 +54,13 @@ Som en delegerad godkännaren får du ett e-postmeddelande när en begäran om A
 
     Ett meddelande visas med ditt godkännande.
 
-    ![Godkänn meddelande](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Godkänn meddelandet om begäran har godkänts](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>Neka förfrågningar
 
-1. Hitta och klicka på den begäran som du vill neka. En godkännande-fönstret visas.
+1. Hitta och klicka på den begäran som du vill neka. En Godkänn eller neka visas fönstret.
 
-    ![Godkänna begäranden fönstret](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Godkänna förfrågningar – Godkänn eller neka fönstret med information om och motivering box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. I den **motivering** skriver en orsak.
 

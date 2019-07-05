@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050594"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551890"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM), VM-skalningsuppsättningar, IaaS-behållare och icke-Azure (inklusive lokalt) datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Agenten Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -46,12 +46,12 @@ När automatisk etablering är aktiverat etablerar Security Center Microsoft Mon
 
 
 Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
-1. Huvudmenyn i Security Center, Välj **säkerhetsprincip**.
-2. Klicka på **redigera inställningar för** i kolumnen inställningar i den önskade prenumerationen i listan.
+1. Huvudmenyn i Security Center, Välj **priser och inställningar**.
+2. Klicka på den tillämpliga prenumerationen
 
    ![Välj en prenumeration][7]
 
-3. Under **Säkerhetsprincip** väljer du **Datainsamling**.
+3. Välj **datainsamling**.
 4. Under **Automatisk etablering**väljer **på** att aktivera automatisk etablering.
 5. Välj **Spara**.
 
@@ -131,11 +131,11 @@ Att välja en befintlig Log Analytics-arbetsyta:
 
 5. Välj prisnivå för den önskade arbetsytan som du vill ange Microsoft Monitoring agent. <br>Ställer in prisnivån för arbetsytan om du vill använda en befintlig arbetsyta. Detta installerar security Center-lösning på arbetsytan om något inte redan finns.
 
-    a.  I huvudmenyn i Security Center väljer **säkerhetsprincip**.
+    a.  I huvudmenyn i Security Center väljer **priser och inställningar**.
      
-    b.  Välj önskad arbetsyta där du tänker ansluta agenten genom att klicka på **redigera inställningar för** i kolumnen inställningar i den önskade prenumerationen i listan.
-        ![Välj arbetsyta][8] c. Ställer in prisnivån.
-        ![Välj prisnivå][9] 
+    b.  Välj önskad arbetsyta där du tänker ansluta agenten.
+        ![Välj arbetsyta][7] c. Ställer in prisnivån.
+        ![Välj prisnivå][9]
    
    >[!NOTE]
    >Om arbetsytan finns redan en **Security** eller **SecurityCenterFree** lösning som har aktiverats, priserna anges automatiskt. 
@@ -165,8 +165,8 @@ Dessa uppsättningar har utformats för att hantera vanliga scenarier. Se till a
 
 Att fastställa de händelser som hör till den **vanliga** och **Minimal** händelse mängder, vi har samarbetat med kunder och branschstandarder för att lära dig om ofiltrerade frekvensen för varje händelse och deras användning. Vi använde följande riktlinjer i den här processen:
 
-- **Minimal** – se till att den här uppsättningen omfattar endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Exempelvis kan den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den innehåller inte utloggning som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
-- **Vanliga** -ange en fullständig användarspårning i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och utloggningar (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
+- **Minimal** – se till att den här uppsättningen omfattar endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den inte innehåller logga ut som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
+- **Vanliga** -ange en fullständig användarspårning i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och användare logga detaljer (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
 
 Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga skälet att välja det över alla händelser är att minska mängden och inte för att filtrera bort specifika händelser.
 
@@ -191,7 +191,7 @@ Här är en fullständig uppdelning av säkerhets- och AppLocker händelse-ID f�
 >
 
 Att välja din filtreringsprincip:
-1. På den **säkerhetsprincip datainsamling** bladet Välj din filtreringsprincip under **säkerhetshändelser**.
+1. På den **datainsamling** väljer du din filtreringsprincip under **säkerhetshändelser**.
 2. Välj **Spara**.
 
    ![Välj filtrera principer][5]

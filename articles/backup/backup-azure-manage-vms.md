@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219376"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434214"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
 
@@ -103,25 +103,36 @@ Om du vill spåra på jobbets status på instrumentpanelen för valvet, Välj de
 
 Det finns två sätt att sluta skydda en virtuell dator:
 
-- Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter. I detta fall använder du inte återställa den virtuella datorn.
-- Stoppa alla framtida säkerhetskopieringsjobb och behålla återställningspunkterna. Även om du behöver betala att behålla återställningspunkter i valvet, kommer du att kunna återställa den virtuella datorn om det behövs. Mer information finns i [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* **Stoppa skyddet och Behåll säkerhetskopieringsdata**. Det här alternativet stoppas alla framtida säkerhetskopieringsjobb från att skydda din virtuella dator; Azure Backup-tjänsten kommer dock behålla återställningspunkter som har säkerhetskopierats.  Du måste betala för att behålla återställningspunkter i valvet (se [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/) information). Du kommer att kunna återställa den virtuella datorn om det behövs. Om du vill återuppta skydd av virtuell dator så kan du använda *återuppta säkerhetskopiering* alternativet.
+* **Stoppa skyddet och ta bort säkerhetskopieringsdata**. Det här alternativet kommer att stoppa alla framtida säkerhetskopieringsjobb från att skydda den virtuella datorn och ta bort alla återställningspunkter. Du kan inte återställa den virtuella datorn eller använda *återuppta säkerhetskopiering* alternativet.
 
 >[!NOTE]
 >Om du tar bort en datakälla utan att stoppa säkerhetskopiering misslyckas nya säkerhetskopior. Gamla återställningspunkterna upphör att gälla enligt principen, men en senaste återställningspunkten är alltid kvar tills du stoppar säkerhetskopieringarna och ta bort data.
 >
 
-Sluta skydda en virtuell dator:
+### <a name="stop-protection-and-retain-backup-data"></a>Stoppa skyddet och behålla säkerhetskopierade data
+
+Stoppa skyddet och behålla data för en virtuell dator:
 
 1. På den [valv objektets instrumentpanelen](#view-vms-on-the-dashboard)väljer **stoppa säkerhetskopiering**.
-2. Välj om du vill behålla eller ta bort säkerhetskopierade data och bekräfta valet efter behov. Lägg till en kommentar om du vill. Om du inte är säker på objektnamnet hovra över utropstecken ska visa namnet.
+2. Välj **Behåll säkerhetskopieringsdata**, och bekräftar valet efter behov. Lägg till en kommentar om du vill. Om du inte är säker på objektnamnet hovra över utropstecken ska visa namnet.
 
-    ![Sluta skydda](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Behåll säkerhetskopieringsdata](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Ett meddelande talar om att säkerhetskopiera jobb har stoppats.
+Ett meddelande talar om att säkerhetskopiera jobb har stoppats.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Stoppa skyddet och ta bort säkerhetskopierade data
+
+Stoppa skyddet och ta bort data för en virtuell dator:
+
+1. På den [valv objektets instrumentpanelen](#view-vms-on-the-dashboard)väljer **stoppa säkerhetskopiering**.
+2. Välj **ta bort säkerhetskopieringsdata**, och bekräftar valet efter behov. Ange namnet på säkerhetskopieringsobjektet och Lägg till en kommentar om du vill.
+
+    ![Ta bort säkerhetskopieringsdata](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Återuppta skyddet av en virtuell dator
 
-Om du behåller säkerhetskopierade data när du stoppar den virtuella datorn, kan du senare återuppta skyddet. Du kan inte återuppta skydd om du tar bort säkerhetskopierade data.
+Om du hade valt [sluta skydda och Behåll säkerhetskopieringsdata](#stop-protection-and-retain-backup-data) alternativet under stoppa skydd av virtuell dator, kan du använda **återuppta säkerhetskopiering**. Det här alternativet är inte tillgängligt om du väljer [stoppa skyddet och ta bort säkerhetskopieringsdata](#stop-protection-and-delete-backup-data) alternativet eller [ta bort säkerhetskopieringsdata](#delete-backup-data).
 
 Att återuppta skyddet av en virtuell dator:
 
@@ -134,23 +145,25 @@ Att återuppta skyddet av en virtuell dator:
 
 ## <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
 
-Du kan ta bort en virtuell dators säkerhetskopierade data under den **stoppa säkerhetskopiering** jobb eller när säkerhetskopieringen är klar. Innan du tar bort säkerhetskopierade data, Tänk på följande information:
+Det finns två sätt att ta bort säkerhetskopierade data för en virtuell dator:
 
-- Det kan vara en bra idé att vänta dagar eller veckor innan du tar bort återställningspunkterna.
-- Till skillnad från processen för att återställa återställningspunkter när du tar bort säkerhetskopierade data, du kan inte välja specifika återställningspunkter som ska tas bort. Om du tar bort dina säkerhetskopierade data kan du ta bort alla associerade återställningspunkter.
+- Från instrumentpanelen för valvet objekt väljer du stoppa säkerhetskopiering och följer anvisningarna för [stoppa skyddet och ta bort säkerhetskopieringsdata](#stop-protection-and-delete-backup-data) alternativet.
 
-När du stoppa eller inaktivera säkerhetskopiering för den virtuella datorn, kan du ta bort säkerhetskopierade data:
+  ![Välja Avbryt säkerhetskopiering](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- Välj Ta bort säkerhetskopierade data från instrumentpanelen för valvet objekt. Det här alternativet är aktiverat om du har valt att [sluta skydda och Behåll säkerhetskopieringsdata](#stop-protection-and-retain-backup-data) under stoppa skydd av virtuell dator
 
-1. På den [instrumentpanelen för valvet objekt](#view-vms-on-the-dashboard)väljer **ta bort säkerhetskopieringsdata**.
+  ![Välj Ta bort säkerhetskopia](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Välj Ta bort säkerhetskopia](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - På den [instrumentpanelen för valvet objekt](#view-vms-on-the-dashboard)väljer **ta bort säkerhetskopieringsdata**.
+  - Skriv namnet på säkerhetskopieringsobjektet att bekräfta att du vill ta bort återställningspunkterna.
 
-1. Skriv namnet på säkerhetskopieringsobjektet att bekräfta att du vill ta bort återställningspunkterna.
+    ![Ta bort säkerhetskopieringsdata](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Bekräfta att du vill ta bort återställningspunkterna](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Om du vill ta bort säkerhetskopierade data för objektet, Välj **ta bort**. Ett meddelande kan du vet att dina säkerhetskopierade data har tagits bort.
 
-1. Om du vill ta bort säkerhetskopierade data för objektet, Välj **ta bort**. Ett meddelande kan du vet att dina säkerhetskopierade data har tagits bort.
+  > [!NOTE]
+  > När du tar bort säkerhetskopierade data tar du bort alla associerade återställningspunkter. Du kan inte välja specifika återställningspunkter som ska tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [säkerhetskopiera virtuella Azure-datorer från den Virtuella datorns inställningar](backup-azure-vms-first-look-arm.md).

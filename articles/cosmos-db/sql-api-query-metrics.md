@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237870"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447262"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -272,7 +272,7 @@ Här är några exempelfrågor och så här tolkar du några av mätvärdena som
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om stöds SQL frågeoperatorer och nyckelorden i [SQL-fråga](how-to-sql-query.md). 
+* Läs om stöds SQL frågeoperatorer och nyckelorden i [SQL-fråga](sql-query-getting-started.md). 
 * Läs om begäransenheter i [programbegäran](request-units.md).
 * Läs om indexeringsprincip i [indexeringsprincip](index-policy.md) 
 

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111485"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482729"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory
 
@@ -37,7 +37,6 @@ Ladda ned och installera den Mina appar skyddat Inloggningstillägg genom att an
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>Testa SAML-baserad enkel inloggning
 
 Testa SAML-baserad enkel inloggning mellan Azure AD och ett målprogram:
@@ -48,26 +47,24 @@ Testa SAML-baserad enkel inloggning mellan Azure AD och ett målprogram:
 1. Öppna SAML-baserad enkel inloggning för testning upplevelsen genom att gå till **testa enkel inloggning** (steg 5). Om den **Test** knappen är nedtonad, måste du först fylla ut och spara obligatoriska attribut i den **SAML grundkonfiguration** avsnittet.
 1. I den **testa enkel inloggning** bladet använda företagets autentiseringsuppgifter för inloggning till målprogrammet. Du kan logga in som den aktuella användaren eller som en annan användare. Om du loggar in som en annan användare, en uppmaning blir du ombedd att autentisera.
 
-    ![Testa SAML-sidan](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![Skärmbild som visar testet SAML SSO-sidan](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 Om du har loggat in, har testet skickats. Azure AD utfärdats i det här fallet en SAML-token för svaret till programmet. Programmet som en SAML-token har logga in.
 
 Om du har ett fel på inloggningssidan för företaget eller programmets sida kan du använda något av följande avsnitt för att lösa problemet.
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Lös felet logga in på ditt företag på inloggningssidan
 
 När du försöker logga in kan du se ett fel på ditt företag på inloggningssidan som liknar följande exempel.
 
-![Inloggningsfel](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Exempel som visar ett fel i inloggningssidan för företag](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-Om du vill felsöka det här felet, behöver du ett felmeddelande och SAML-begäran. I Mina appar skyddat Inloggningstillägg denna information samlas in automatiskt och visar vägledning för lösning på Azure AD. 
+Om du vill felsöka det här felet, behöver du ett felmeddelande och SAML-begäran. I Mina appar skyddat Inloggningstillägg denna information samlas in automatiskt och visar vägledning för lösning på Azure AD.
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Om du vill åtgärda felet logga in med den Mina appar skyddat Inloggningstillägg har installerats
 
-1. När ett fel uppstår tillägget omdirigeras du tillbaka till Azure AD **testa enkel inloggning** bladet. 
-1. På den **testa enkel inloggning** bladet väljer **hämta SAML-begäran**. 
+1. När ett fel uppstår tillägget omdirigeras du tillbaka till Azure AD **testa enkel inloggning** bladet.
+1. På den **testa enkel inloggning** bladet väljer **hämta SAML-begäran**.
 1. Du bör se viss upplösning som vägledning baserat på felet och värdena i SAML-begäran.
 1. Du ser en **Lösningslänk** knappen för att automatiskt uppdatera konfigurationen i Azure AD för att lösa problemet. Om du inte ser den här knappen, sedan logga in problemet är inte på grund av felaktig konfiguration i Azure AD.
 
@@ -88,24 +85,23 @@ Vi rekommenderar att du använder feedback textrutan för att informera oss om d
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Lösa ett fel på programsidan
 
-Du kan logga in och ett felmeddelande visas på sidan i programmet. Detta inträffar när Azure AD utfärdat en token för programmet, men programmet accepterar inte svaret.   
+Du kan logga in och ett felmeddelande visas på sidan i programmet. Detta inträffar när Azure AD utfärdat en token för programmet, men programmet accepterar inte svaret.
 
 Följ dessa steg för att lösa problemet:
 
 1. Om programmet är i Azure AD-galleriet kan du kontrollera att du har följt alla steg för att integrera programmet med Azure AD. Integreringsanvisningar för ditt program finns i den [lista över självstudier för integrering av SaaS-program](../saas-apps/tutorial-list.md).
 1. Hämta SAML-svar.
     - Om den Mina appar skyddat inloggningstillägg installeras från den **testa enkel inloggning** bladet klickar du på **hämta SAML-svar**.
-    - Om tillägget inte är installerad, använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-svar. 
+    - Om tillägget inte är installerad, använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-svar.
 1. Lägg märke till de här elementen i svaret SAML-token:
    - Unik identifierare för användaren för NameID-värde och format
    - Anspråk som utfärdats i token
-   - Certifikatet som används för att signera token. 
+   - Certifikatet som används för att signera token.
 
      Mer information om SAML-svar finns [enkel inloggning SAML-protokoll](single-sign-on-saml-protocol.md).
 
 1. Nu när du har granskat SAML-svar, se [fel på sidan för ett program när du har registrerat](../manage-apps/application-sign-in-problem-application-error.md) anvisningar om hur du löser problemet. 
 1. Om du fortfarande inte kan logga in, kan du be programleverantören vad som saknas från SAML-svar.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

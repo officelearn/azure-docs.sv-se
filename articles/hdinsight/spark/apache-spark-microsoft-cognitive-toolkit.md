@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695071"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448688"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft Cognitive Toolkit deep learning-modell med Azure HDInsight Spark-kluster
 
@@ -23,15 +23,15 @@ I den här artikeln får göra du följande steg.
 
 2. Ladda upp en [Jupyter Notebook](https://jupyter.org/) till den [Apache Spark](https://spark.apache.org/) klustret för att se hur du använder en träningsmodell Microsoft Cognitive Toolkit djupinlärning för filer i en Azure Blob Storage-konto med hjälp av den [ Spark Python API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
+* **En Azure-prenumeration**. Du måste ha en Azure-prenumeration innan du påbörjar den här artikeln. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
 * **Azure HDInsight Spark-kluster**. Skapa ett Spark 2.0-kluster i den här artikeln. Anvisningar finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-does-this-solution-flow"></a>Hur går den här lösningen?
 
-Den här lösningen delas mellan den här artikeln och en Jupyter-anteckningsbok som du laddar upp som en del av den här självstudien. I den här artikeln får utföra du följande steg:
+Den här lösningen delas mellan den här artikeln och en Jupyter-anteckningsbok som du laddar upp som en del av den här artikeln. I den här artikeln får utföra du följande steg:
 
 * Kör en skriptåtgärd på ett HDInsight Spark-kluster för att installera Microsoft Cognitive Toolkit och Python-paket.
 * Ladda upp Jupyter-anteckningsboken som kör lösningen till HDInsight Spark-kluster.
@@ -83,7 +83,7 @@ Om du vill använda Microsoft Cognitive Toolkit med Azure HDInsight Spark-kluste
 
 4. Klicka på **överför** igen.
 
-5. När den bärbara datorn har överförts klickar du på namnet på den bärbara datorn och följ sedan anvisningarna i anteckningsboken själva att läsa in datauppsättningen och utför i självstudiekursen.
+5. När den bärbara datorn har överförts klickar du på namnet på den bärbara datorn och följ sedan anvisningarna i anteckningsboken själva att läsa in datauppsättningen och utföra artikeln.
 
 ## <a name="see-also"></a>Se också
 * [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)

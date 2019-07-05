@@ -8,31 +8,25 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275955"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509546"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
 En mall för enheten är en skiss som definierar egenskaper och beteenden för en typ av enhet som ansluter till ett Azure IoT Central program.
 
-Hjälpverktyg kan till exempel skapa en mall för enheten för en IoT-anslutna fläkt som har a:
+Hjälpverktyg kan till exempel skapa en mall för enheten för en ansluten fläkt som har följande egenskaper:
 
 - Temperaturen som telemetri mätning
-
+- Mätning av plats
 - Fläkt meddelar fel händelse mätning
-
 - Fläkt fungerar tillstånd mätning
-
 - Fläkt hastighet
-
-- Egenskapen Location
-
 - Regler som skickar aviseringar
-
 - Instrumentpanel som ger dig en övergripande vy av enheten
 
 Från den här enheten mallen en operatör kan skapa och ansluta riktiga fläkt enheter med namn som **fläkt-1** och **fläkt 2**. Alla dessa fans ha mått, inställningar, egenskaper, regler och en instrumentpanel som användare av ditt program kan övervaka och hantera.
@@ -61,6 +55,7 @@ Mätning av faktisk användning är de data som kommer från din enhet. Du kan l
 - **Telemetri** måtten är numeriska datapunkter som din enhet som samlar in över tid. De är representeras som en löpande ström. Ett exempel är temperatur.
 - **Händelsen** måtten är point-in-time-data som representerar något signifikanta på enheten. En allvarlighetsgrad som representerar vikten av en händelse. Ett exempel är ett meddelar fläkt-fel.
 - **Tillstånd** mått representerar tillståndet för enheten eller dess komponenter under en viss tidsperiod. Till exempel ett fläkt-läge kan definieras som att ha **Operating** och **stoppad** som två möjliga tillstånd.
+- **Plats** måtten är longitud och latitud koordinaterna för enheten under en viss tidsperiod i. Exempelvis kan en fläkt flyttas från en plats till en annan.
 
 ### <a name="create-a-telemetry-measurement"></a>Skapa ett telemetri-mått
 
@@ -78,7 +73,7 @@ Om du vill lägga till ett nytt mått i telemetri, Välj **+ ny mätning**, Väl
 
 När du har valt **spara**, **temperatur** mått visas i listan över mått. I en liten stund visas visualisering av temperaturdata från den simulerade enheten.
 
-När du visar telemetri som du kan välja bland följande alternativ för aggregeringen: Medelvärde, lägsta, högsta, Sum och Count. **Genomsnittlig** väljs som standard aggregering i diagrammet. 
+När du visar telemetri som du kan välja bland följande alternativ för aggregeringen: Medelvärde, lägsta, högsta, Sum och Count. **Genomsnittlig** väljs som standard aggregering i diagrammet.
 
 > [!NOTE]
 > Datatypen för måttet telemetri är en flytande peka tal.
@@ -127,6 +122,32 @@ Om enheten skickar för många datapunkter i en liten varaktighet, visas mätnin
 > [!NOTE]
 > Datatypen för måttet tillstånd är sträng.
 
+### <a name="create-a-location-measurement"></a>Skapa en plats
+
+Om du vill lägga till en ny plats mätning, Välj **+ ny mätning**, Välj **plats** som värdet skriver och ange information den **skapa mått** formuläret.
+
+Du kan till exempel lägga till en ny plats telemetri mätning:
+
+| Visningsnamn        | Fältnamn    |
+| --------------------| ------------- |
+| Tillgången plats      |  assetloc     |
+
+![”Skapa plats” formuläret med information om plats mätning](./media/howto-set-up-template/locationmeasurementsform.png)
+
+När du har valt **spara**, **plats** mått visas i listan över mått. I en liten stund visas visualisering av platsdata från den simulerade enheten.
+
+Vid visning av plats måste du kan välja mellan följande alternativ: senaste plats och platshistorik. **Platshistorik** tillämpas endast via det valda tidsintervallet.
+
+Datatypen för måttet plats är ett objekt som innehåller longitud, latitud och en valfri höjd. Följande kodfragment visar JavaScript-struktur:
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
+
 ## <a name="settings"></a>Inställningar
 
 Inställningar styr en enhet. De operatörer kan ange indata till enheten. Du kan lägga till flera inställningar till mallen för enheten som visas som paneler på den **inställningar** fliken för operatörer att använda. Du kan lägga till många typer av inställningar: tal, text, datum, växla, plocklista och områdesetikett.
@@ -151,12 +172,12 @@ När du har valt **spara**, **fläkthastighet** inställningen visas som en pane
 
 ## <a name="properties"></a>Egenskaper
 
-Egenskaperna är metadata som associeras med enheten, till exempel enhetsplats och serienummer. Lägga till flera egenskaper i mallen för enheten som visas som paneler på den **egenskaper** fliken. En egenskap kan ha en typ som tal, text, datum, växla, enhetsegenskap, etikett eller plats. En operatör kan ange värden för egenskaper när de skapar en enhet och de kan redigera dessa värden när som helst. Enhetsegenskaper är skrivskyddade och skickas från enheten till programmet. En operatör kan inte ändra egenskaper för enhet. När en riktig enhet ansluter är egenskapen enhetspanelen uppdateringar i programmet.
+Egenskaperna är metadata som associeras med enheten, till exempel en fast enhetsplats och serienummer. Lägga till flera egenskaper i mallen för enheten som visas som paneler på den **egenskaper** fliken. En egenskap har en typ som tal, text, datum, växla, enhetsegenskap, etikett eller en fast plats. En operator anger värden för egenskaper när de skapar en enhet och de kan redigera dessa värden när som helst. Enhetsegenskaper är skrivskyddade och skickas från enheten till programmet. En operatör kan inte ändra egenskaper för enhet. När en riktig enhet ansluter uppdaterar egenskapen enhetspanelen i programmet.
 
 Det finns två kategorier med egenskaper:
 
 - _Enhetsegenskaper_ som enheten rapporterar till programmet IoT Central. Enhetsegenskaper är skrivskyddade värdena som rapporteras av enheten och uppdateras i programmet när en riktig enhet är ansluten.
-- _Programegenskaper_ som lagras i programmet och kan redigeras av operatorn. Enheten inte kan identifiera egenskaper för program.
+- _Programegenskaper_ som lagras i programmet och kan redigeras av operatorn. Programegenskaper lagras endast i programmet och ses aldrig av en enhet.
 
 Du kan till exempel lägga till datum för senaste underhållna för enheten som en ny **datum** egenskapen (en programegenskap) på den **egenskaper** fliken:
 
@@ -170,14 +191,17 @@ När du har valt **spara**, senaste servas datum för enheten visas som en panel
 
 När du har skapat panelen kan du ändra egenskapsvärdet för program i den **Device Explorer**.
 
-### <a name="create-a-location-property-through-azure-maps"></a>Skapa en Platsegenskapen via Azure Maps
+### <a name="create-a-location-property"></a>Skapa en plats-egenskap
 
-Du kan ge geografisk kontext till dina platsdata i Azure IoT Central och mappa alla latitud och longitud koordinaterna för en gatuadress. Eller så kan du mappa latitud och longitud koordinater. Azure Maps gör det möjligt för den här funktionen i IoT Central.
+Du kan ge geografisk kontext till dina platsdata i Azure IoT Central och mappa alla latitud och longitud koordinater eller en gatuadress. Azure Maps gör det möjligt för den här funktionen i IoT Central.
 
 Du kan lägga till två typer av platsegenskaper:
 
-- **Plats som en programegenskap**, som lagras i programmet. Enheten inte kan identifiera egenskaper för program.
-- **Plats som en enhetsegenskap**, som enheten rapporterar till programmet.
+- **Plats som en programegenskap**, som lagras i programmet. Programegenskaper lagras endast i programmet och ses aldrig av en enhet.
+- **Plats som en enhetsegenskap**, som enheten rapporterar till programmet. Den här typen av egenskapen passar bäst för en statisk plats.
+
+> [!NOTE]
+> En historik registreras inte i platsen som en egenskap. Om historik är det önskade kan du använda ett plats-mått.
 
 #### <a name="add-location-as-an-application-property"></a>Lägg till-plats som en egenskap för programmet
 
@@ -190,7 +214,7 @@ Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i
 3. Konfigurera **visningsnamn**, **fältnamn**, och (frivilligt) **ursprungsvärdet** för platsen.
 
     | Visningsnamn  | Fältnamn | Initialt värde |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Installationen adress | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![”Konfigurera platsen” formuläret med information om plats](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -220,7 +244,7 @@ Du kan skapa en plats-egenskap som en enhet som enheten rapporterar. Exempel: Om
 
    ![”Konfigurera enhetsegenskaper” formuläret med information om plats](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-När den faktiska enheten är ansluten, uppdateras den plats som du har lagt till som en enhetsegenskap med värdet som skickas från enheten. Nu när du har konfigurerat din Platsegenskapen, kan du [lägga till en karta för att visualisera plats i instrumentpanelen för enheten](#add-an-azure-maps-location-in-the-dashboard).
+När den faktiska enheten är ansluten, platsen du lagt till som en enhetsegenskap uppdateras med värdet som skickas från enheten. När du har konfigurerat din Platsegenskapen, kan du [lägga till en karta för att visualisera plats i instrumentpanelen för enheten](#add-a-location-in-the-dashboard).
 
 ## <a name="commands"></a>Kommandon
 
@@ -250,7 +274,7 @@ Regler för operatörerna kan övervaka enheter i nära realtid. Regler för anr
 
 ## <a name="dashboard"></a>Instrumentpanel
 
-Instrumentpanelen är där en operatör kan gå för att se information om en enhet. Du kan lägga till paneler på den här sidan för att hjälpa operatörer att förstå hur enheten fungerar som ett verktyg. Du kan lägga till flera paneler på instrumentpanelen till mallen för enheten. Du kan lägga till många typer av paneler som bild, linjediagram, stapeldiagram, nyckeltal (KPI), inställningar och egenskaper och etiketten.
+Instrumentpanelen är där en operatör går för att se information om en enhet. Som en builder du lägga till paneler till den här sidan för att hjälpa operatörer att förstå hur enheten fungerar. Du kan lägga till många typer av paneler som bild, linjediagram, stapeldiagram, nyckeltal (KPI), inställningar och egenskaper och etiketten.
 
 Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper genom att välja den **instrumentpanelen** fliken och panel från biblioteket:
 
@@ -258,27 +282,29 @@ Du kan till exempel lägga till en **inställningar och egenskaper** rutan för 
 
 Nu när en operatör visar instrumentpanelen på den **Device Explorer**, de kan se panelen.
 
-### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Lägg till en Azure Maps-plats på instrumentpanelen
+### <a name="add-a-location-in-the-dashboard"></a>Lägg till en plats på instrumentpanelen
 
-Om du har konfigurerat en Platsegenskapen kan du visualisera platsen med hjälp av en karta i instrumentpanelen i enheten.
+Om du har konfigurerat ett plats-mått, kan du visualisera plats med en karta i instrumentpanelen i enheten.
 
 1. Navigera till den **instrumentpanelen** fliken.
 
 1. På instrumentpanelen för enheten väljer **kartan** från biblioteket.
 
-1. Ge kartan en rubrik. I följande exempel har rubriken **installationsplats**. Välj sedan egenskapen location som du tidigare har konfigurerat på den **egenskaper** fliken. I följande exempel **Installation adress** har valts.
+1. Ge kartan en rubrik. I följande exempel har rubriken **aktuella enhetsplats**. Välj plats-mått som du tidigare har konfigurerat på den **mätningar** fliken. I följande exempel visas den **tillgången plats** mätning:
 
    ![”Konfigurera kartan” formuläret med information om namn och egenskaper](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. Välj **Spara**. Panelen tjänstkarta visar nu den plats som du har valt.
+1. Välj **Spara**. Panelen tjänstkarta visar nu den plats som du har valt.
 
-Du kan ändra storlek på kartan till din önskade storlek. Nu när en operatör visar instrumentpanelen på den **Device Explorer**, paneler på instrumentpanelen att du har konfigurerat, inklusive en platskarta är synliga.
+Du kan ändra storlek på panelen tjänstkarta. När en operatör visar instrumentpanelen på den **Device Explorer**, paneler på instrumentpanelen att du har konfigurerat, inklusive en platskarta är synliga.
+
+Mer information om hur du använder paneler i Azure IoT Central finns [använda instrumentpaneler](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du ställer in en mall för enheten i Azure IoT Central programmet, kan du:
 
 > [!div class="nextstepaction"]
-> [Skapa en ny enhet mallversion](howto-version-devicetemplate.md)
+> [Skapa en ny enhet mallversion](howto-version-device-template.md)
 > [ansluta en MXChip IoT DevKit enhet till Azure IoT Central programmet](howto-connect-devkit.md)
 > [ansluta ett allmänt klientprogram till din Azure IoT Central-program (Node.js)](howto-connect-nodejs.md)

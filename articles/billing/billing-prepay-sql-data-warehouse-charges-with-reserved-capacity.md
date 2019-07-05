@@ -1,19 +1,19 @@
 ---
-title: Betala i förskott för SQL Data Warehouse-kostnader med Azure reserverad kapacitet | Microsoft Docs
+title: Betala i förskott för SQL Data Warehouse-kostnader med Azure reserverad kapacitet
 description: Lär dig hur du kan betala i förskott för SQL Data Warehouse avgifter med reserverad kapacitet att spara pengar.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371197"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565364"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Betala i förskott för SQL Data Warehouse avgifter med reserverad kapacitet
 
@@ -43,14 +43,15 @@ Anta exempelvis att din total förbrukning av SQL Data Warehouse är DW3000c. Du
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Köp SQL Data Warehouse reserverad kapacitet
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **alla tjänster** > **reservationer**.
 3. Välj en prenumeration. Använd listan prenumeration för att välja den prenumeration som används för att betala för reserverad kapacitet. Betalningsmetoden för prenumerationen debiteras startavgifter för reserverad kapacitet. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
   - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
   - Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.
 4. Välj ett omfång. Använd listan omfång för att välja en prenumeration omfattning.
-  - Med den **enda** , reservationsrabatten tillämpas på SQL Data Warehouse distribueras i den valda prenumerationen.
-  - Med den **delad** , reservationsrabatten tillämpas på instanser som körs på alla prenumerationer i din faktureringskontexten.
+  - **Enkel resurs Gruppomfång** – reservationsrabatten avser matchande resurserna i den valda resursgruppen bara.
+  - **Enkel prenumerationsomfattningen** – reservationsrabatten avser de matchande resurserna i den valda prenumerationen.
+  - **Dela omfattning** – gäller rabatten för matchande resurser i berättigade prenumerationer som är i kontexten för fakturering. För Enterprise Agreement-kunder är faktureringskontexten registreringen. För enskilda prenumerationer med användningsbaserad betalning är fakturering omfattningen alla berättigade prenumerationer som skapats av kontoadministratören.
     - För företagskunder är faktureringskontexten EA-avtal.
     - För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.
 5. Välj en region för att välja en Azure-region som täcks av reserverad kapacitet.

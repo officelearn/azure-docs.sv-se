@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112389"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560968"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)
 
@@ -31,8 +31,6 @@ Med Azure Resource Manager för att hantera dina tjänster är en mycket Privile
 **Kräva MFA för tjänsthantering** är en [baslinjeprincip](concept-baseline-protection.md) som kräver MFA för alla användare åtkomst till Azure portal, Azure PowerShell eller Azure CLI. Den här principen gäller för alla användare åtkomst till Azure Resource Manager, oavsett om de är en administratör.
 
 När den här principen är aktiverad i en klient, kommer du måste alla användare som loggar in på Azure management-resurser med Multi-Factor authentication. Om användaren inte har registrerats för MFA, uppmanas användaren att registrera med Microsoft Authenticator-appen för att fortsätta.
-
-![Kräva MFA för Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
 
 För interaktiv inloggning med [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), använda den [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
@@ -54,17 +52,6 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 Eftersom den **kräver MFA för tjänsthantering** principen gäller för alla Azure Resource Manager-användare, flera saker som behöver göras för att säkerställa en smidig distribution. Dessa överväganden omfattar identifiera användare och tjänsten principer i Azure AD som inte kan eller inte utför MFA, samt program och klienter som används av din organisation och som inte stöder modern autentisering.
 
-### <a name="user-exclusions"></a>Undantag för användaren
-
-Den här baslinjeprincip ger dig möjlighet att exkludera användare. Innan du aktiverar principen för din klient, rekommenderar vi att du exkluderar följande konton:
-
-* **För åtkomst vid akutfall** eller **glas** konton för att förhindra klienttäckande kontoutelåsning. I det osannolika scenariot alla administratörer har låsts ute från din klient, kan dina administrativa åtkomstkonto i nödfall användas för att logga in på klienten gör stegen tillgång.
-   * Mer information finns i artikeln [hantera åtkomst vid akutfall i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänstkonton** och **tjänsten principer**, till exempel Azure AD Connect Sync-kontot. Tjänstkonton är icke-interaktiva konton som inte är knutna till en viss användare. De som vanligtvis används av backend-tjänster och Tillåt Programmeringsåtkomst till program. Tjänstkonton ska uteslutas eftersom inte går att slutföra MFA genom programmering.
-   * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan undanta du dessa specifika konton från baslinje-principen.
-* Användare som inte har eller inte kommer att kunna använda en Smartphone.
-   * Den här principen kräver att användare registrerar sig för MFA med hjälp av Microsoft Authenticator-appen.
-
 ## <a name="enable-the-baseline-policy"></a>Aktivera baslinjeprincip för
 
 Principen **baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
@@ -75,7 +62,6 @@ Att aktivera den här principen och skydda dina administratörer:
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för tjänsthantering (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
-1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.
 
 ## <a name="next-steps"></a>Nästa steg

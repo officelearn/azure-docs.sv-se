@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457559"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager följande begränsningar gäller endast för nätverksresurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -75,7 +75,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Virtuella nätverk |50 |100 |
+| Virtuella nätverk |100 |100 |
 | Lokala nätverksplatser |20 |Kontakta supporten. |
 | DNS-servrar per virtuellt nätverk |20 |20 |
 | Privata IP-adresser per virtuellt nätverk |4,096 |4,096 |
@@ -84,8 +84,8 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | NSG-regler per NSG |1,000 |1,000 |
 | Användardefinierade vägtabeller |200 |200 |
 | Användardefinierade vägar vägtabell |400 |400 |
-| Offentliga IP-adresser (dynamiska) |5 |Kontakta supporten |
-| Reserverade offentliga IP-adresser |20 |Kontakta supporten |
+| Offentliga IP-adresser (dynamiska) |500 |500 |
+| Reserverade offentliga IP-adresser |500 |500 |
 | Offentlig VIP per distribution |5 |Kontakta supporten |
 | Privat VIP (intern belastningsutjämning) per distribution |1 |1 |
 | Slutpunkten åtkomstkontrollistor (ACL) |50 |50 |

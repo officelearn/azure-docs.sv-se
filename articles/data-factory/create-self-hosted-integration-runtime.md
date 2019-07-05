@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190842"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446223"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -72,9 +72,9 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 - Även om datalagret är i molnet på en virtuell Azure IaaS-dator måste du använda en lokal integration runtime.
 - Uppgifter kan misslyckas på en lokal integration runtime som är installerad på en Windows-server på vilken FIPS-kompatibel kryptering är aktiverat. Undvik problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering, kan du ändra följande registervärde från 1 (aktiverad) på 0 (inaktiverad): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Versionerna av operativsystem som stöds är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Installationen av den lokala integreringskörningen på en domänkontrollant stöds inte.
+- Versionerna av operativsystem som stöds är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 och Windows Server 2019. Installationen av den lokala integreringskörningen på en domänkontrollant stöds inte.
 - .NET framework 4.6.1 eller senare krävs. Om du installerar den lokala integreringskörningen på en Windows 7-dator, installera .NET Framework 4.6.1 eller senare. Se [systemkrav för .NET Framework](/dotnet/framework/get-started/system-requirements) mer information.
 - Den rekommenderade konfigurationen för den lokala installationen av integration runtime-datorn är minst 2 GHz, fyra kärnor, 8 GB RAM och en 80GB-disk.
 - Om värddatorn i viloläge, svarar lokal integration runtime inte på databegäranden. Konfigurera en lämplig energischema på datorn innan du installerar den lokala integreringskörningen. Om datorn är konfigurerad för att viloläge, anvisningarna lokal integration runtime för ett meddelande.
@@ -129,7 +129,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
  *Information (parametrar / egenskapen):* 
 
-| Egenskap                                                    | Beskrivning                                                  | Krävs |
+| Egenskap                                                    | Beskrivning                                                  | Obligatoriskt |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | RegisterNewNode "`<AuthenticationKey>`"                     | Registrera noden för Integration Runtime (lokal installation) med den angivna nyckeln för autentisering | Nej       |
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet och/eller om du aktiverar inställningen av autentiseringsuppgifter direkt mot en lokal IR (utan att gå via ADF-service) med hjälp av  **Ny AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet från en fjärrdator i samma nätverk. | Nej       |

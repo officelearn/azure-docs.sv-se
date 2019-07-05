@@ -3,17 +3,17 @@ title: Kör PowerShell-skript i en Windows-dator i Azure
 description: Det här avsnittet beskriver hur du kör PowerShell-skript i en Windows Azure-dator som kör kommandot
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575322"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476775"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -62,7 +62,7 @@ När kommandot har valts klickar du på **kör** att köra skriptet. Skriptet k�
 
 Den här tabellen visas listan över kommandon som är tillgängliga för virtuella Windows-datorer. Den **RunPowerShellScript** kommando kan användas för att köra alla anpassade skript som du vill.
 
-|**Namn**|**Beskrivning**|
+|**Name**|**Beskrivning**|
 |---|---|
 |**RunPowerShellScript**|Kör ett PowerShell.skript|
 |**EnableRemotePS**|Konfigurerar datorn om du vill aktivera fjärr-PowerShell.|

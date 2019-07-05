@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166219"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484590"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package-kluster i Azure HDInsight
 
 Enterprise-säkerhetspaketet för Azure HDInsight ger dig åtkomst till Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomstkontroll för dina Apache Hadoop-kluster i Azure. ESP för HDInsight-kluster kan organisationer som följer strikta företagets säkerhetsprinciper, att bearbeta känsliga data på ett säkert sätt.
 
-Målet med den här guiden är korrekt konfigurerad nödvändiga resurser så som den lokala användare kan logga in på en ESP aktiverat HDInsight-kluster. Den här artikeln beskriver de steg som krävs för att skapa ett Azure HDInsight-kluster för Enterprise Security Package aktiverat. Stegen beskriver hur du skapar en virtuell dator IaaS Windows med Active Directory & Services DNS (Domain Name) aktiverat. Den här servern ska fungera som en ersättning för din **faktiska** i lokala miljöer och gör att du kan gå igenom stegen för installation och konfiguration så att du kan upprepa dem senare i din egen miljö. Den här guiden beskriver också hur du skapar en hybridmiljö identitet med hjälp av lösenordshashsynkronisering med Azure Active Directory.
+Målet med den här guiden är korrekt konfigurera nödvändiga resurser så att den lokala användare kan logga in på en ESP aktiverad HDInsight-kluster. Den här artikeln beskriver de steg som krävs för att skapa ett Azure HDInsight-kluster för Enterprise Security Package aktiverat. Stegen beskriver hur du skapar en virtuell dator IaaS Windows med Active Directory & Services DNS (Domain Name) aktiverat. Den här servern ska fungera som en ersättning för din **faktiska** i lokala miljöer och gör att du kan gå igenom stegen för installation och konfiguration så att du kan upprepa dem senare i din egen miljö. Den här guiden beskriver också hur du skapar en hybridmiljö identitet med hjälp av lösenordshashsynkronisering med Azure Active Directory.
 
 Den här guiden är avsedd att komplettera [Använd Enterprise Security Package i HDInsight](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med Azu
 1. Logga in på Azure Portal.
 1. Klicka på **skapa resurs**, ange **domäntjänster** och välj **Azure AD Domain Services**.
 1. På den **grunderna** skärmen gör du följande:
-    1. Under **katalognamnet** väljer Azure Active Directory som skapats i den här självstudien **HDIFabrikam**.
+    1. Under **katalognamnet** väljer Azure Active Directory som skapats i den här artikeln **HDIFabrikam**.
     1. Ange en **DNS-domännamn** av **HDIFabrikam.com**.
     1. Välj din prenumeration.
     1. Ange resursgrupp **HDIFabrikam CentralUS** och **plats** av **centrala USA**.
@@ -219,7 +219,7 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med Azu
 
     ![Välj nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. På den **administratörsgruppen** skärmen, bör du se ett meddelande som en grupp med namnet **AAD DC-administratörer** har redan skapats för att administrera den här gruppen. Du kan ändra medlemskap i den här gruppen, men det krävs inte för stegen i den här självstudien. Klicka på **OK**.
+1. På den **administratörsgruppen** skärmen, bör du se ett meddelande som en grupp med namnet **AAD DC-administratörer** har redan skapats för att administrera den här gruppen. Du kan ändra medlemskap i den här gruppen, men det krävs inte för stegen i den här artikeln. Klicka på **OK**.
 
     ![Visa administratörsgruppen](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 

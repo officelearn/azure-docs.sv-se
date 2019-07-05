@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142832"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433422"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -29,7 +29,7 @@ Du kan också använda Oozie för att schemalägga jobb som är specifika för e
 > Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [använda Apache Pig- och Apache Hive med Data Factory][azure-data-factory-pig-hive]. Använda Oozie i kluster med Enterprise Security Package finns [kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Hadoop-kluster på HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -127,7 +127,7 @@ Använd följande steg för att skapa en Hive-fråga (HiveQL) språkskript som d
 
    * `${hiveDataFolder}`: Innehåller platsen för att lagra datafiler för tabellen.
 
-     Definitionsfilen för arbetsflödet, workflow.xml i den här självstudien skickar dessa värden till den här HiveQL-skript vid körning.
+     Definitionsfilen för arbetsflödet, workflow.xml i den här artikeln skickar dessa värden till den här HiveQL-skript vid körning.
 
 4. Om du vill spara filen, Välj Ctrl + X, ange `Y`, och välj sedan **RETUR**.  
 
@@ -708,7 +708,7 @@ Till exempel för jobbet i det här dokumentet använder du följande steg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får du har lärt dig hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb. Mer information om hur du arbetar med HDInsight finns i följande artiklar:
+I den här artikeln beskrivs hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb. Mer information om hur du arbetar med HDInsight finns i följande artiklar:
 
 * [Överföra data för Apache Hadoop-jobb i HDInsight][hdinsight-upload-data]
 * [Använd Apache Sqoop med Apache Hadoop i HDInsight][hdinsight-use-sqoop]

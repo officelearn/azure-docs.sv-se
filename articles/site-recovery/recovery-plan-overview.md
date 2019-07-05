@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471438"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514563"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
 Den här artikeln beskriver återställningsplaner i [Azure Site Recovery](site-recovery-overview.md).
 
-En återställningsplan samlar datorer i grupper för återställning. Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den. När en plan har definierats kan köra du en redundans på den.
-
+En återställningsplan samlar datorer i grupper för återställning. Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den. När en plan har definierats kan köra du en redundans på den.  Datorer kan refereras i flera Återställningsplaner, där efterföljande planer hoppar över distribution/startas datorn om den redan har distribuerats via en annan återställningsplan.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Varför ska jag använda en återställningsplan?

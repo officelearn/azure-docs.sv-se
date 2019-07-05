@@ -1,7 +1,6 @@
 ---
-title: Skapa avsnitt på din faktura för att organisera dina kostnader – Azure | Microsoft Docs
+title: Skapa avsnitt på din faktura för att organisera dina kostnader – Azure
 description: Lär dig att organisera dina kostnader med faktura avsnitt.
-services: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -9,18 +8,18 @@ tags: billing
 ms.service: billing
 ms.topic: conceptual
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eadaf34dc5bdd93af532362e8f8542de3f17f414
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371612"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490788"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Skapa avsnitt på din faktura för att organisera dina kostnader
 
-Skapa avsnitt på din faktura för att organisera dina kostnader med en avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Sedan ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning eller köp för prenumerationerna visas i avsnittet faktura. Visar den totala kostnaden för avsnittet på din faktura, på Azure-portalen eller granska dem i Azure kostnadsanalys. Mer information finns i [Visa transaktioner med faktura avsnitt](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Skapa avsnitt på din faktura för att organisera dina kostnader med en avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Sedan ge andra användare behörighet att skapa Azure-prenumerationer som faktureras till avsnitt. Alla avgifter för användning och inköp för prenumerationerna som faktureras sedan till avsnittet. Du kan visa den totala kostnaden för avsnittet på din faktura, på Azure-portalen eller granska dem i Azure kostnadsanalys. Mer information finns i [Visa transaktioner med faktura avsnitt](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
@@ -30,33 +29,31 @@ Om du vill skapa en faktura-avsnittet, måste du vara en **fakturering profiläg
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
 3. Välj **faktura avsnitt** från det vänstra fönstret. Beroende på din åtkomst, du kan behöva välja en profil för fakturering eller något faktureringskonto och välj sedan **faktura avsnitt**.
 
-   ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
+   ![Skärmbild som visar fakturan avsnittet lista](./media/billing-mca-section-invoice/mca-select-invoice-sections.png)
 
 4. Välj **Lägg till** längst upp på sidan.
 
-5. Ange namnet på avsnittet faktura.
+5. Ange ett namn för faktura-avsnittet och välj en profil för fakturering. I avsnittet visas på den här fakturering profilen faktura återger användningen av varje prenumeration och inköp som du har tilldelat till avsnittet. 
 
    ![Skärmbild som visar sidan för att skapa avsnittet faktura](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Välj en profil för fakturering. Alla avgifter för användning eller köp för avsnittet faktura visas på fakturering profilens faktura.
-
-7. Välj **Skapa**.
+6. Välj **Skapa**.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="next-steps"></a>Nästa steg
-
-- [Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal](billing-mca-create-subscription.md)
-- [Ge andra användare behörighet att skapa Azure-prenumeration](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
-- [Få faktureringsägarskapet för Azure-prenumerationer från användare i andra fakturering konton](billing-mca-request-billing-ownership.md)
-
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
 Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal](billing-mca-create-subscription.md)
+- [Ge andra användare behörighet att skapa Azure-prenumeration](billing-mca-create-subscription.md#give-others-permission)
+- [Få faktureringsägarskapet för Azure-prenumerationer från användare i andra fakturering konton](billing-mca-request-billing-ownership.md)

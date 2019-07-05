@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807379"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508167"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resursen, egenskapen eller variabel iteration i Azure Resource Manager-mallar
 
@@ -50,6 +50,8 @@ Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-
 Om du vill ange antalet iterationer, ange ett värde för egenskapen count. Antalet får inte överskrida 800.
 
 Antalet får inte vara ett negativt tal. Om du distribuerar en mall med REST API-version **2019-05-10** eller senare, du kan ange antal till noll. Tidigare versioner av REST API stöder inte noll för count. För närvarande, stöder Azure CLI eller PowerShell inte noll för antal, men som stöd kommer att läggas till i en framtida version.
+
+Vara försiktig med [slutföra läge distributionen](deployment-modes.md) med kopia. Om du distribuerar om med fullständig läge till en resursgrupp, raderas alla resurser som inte anges i mallen när du har löst kopiera loop.
 
 Gränser för antalet är samma oavsett om de används med en resurs, variabel eller egenskapen.
 

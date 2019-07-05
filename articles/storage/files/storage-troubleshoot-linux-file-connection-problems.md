@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295075"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449848"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -103,7 +103,7 @@ Minska antalet samtidiga öppna referenser genom att stänga några referenser o
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för alla överföring mellan två filresurser.
     - Med hjälp av cp med parallella kunde förbättra kopia hastighet, antalet trådar som beror på användningsfall och arbetsbelastning. Det här exemplet används sex: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Verktyg med öppen källkod från tredje part som:
-        - [GNU parallella](http://www.gnu.org/software/parallel/).
+        - [GNU parallella](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) – sorterar filerna och hanteringspaket dem i partitioner.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -använder Fpart och en kopieringsverktyget skapa flera instanser att migrera data från src_dir till dst_url.
         - [Flera](https://github.com/pkolano/mutil) -flertrådiga cp och md5sum baserat på GNU coreutils.

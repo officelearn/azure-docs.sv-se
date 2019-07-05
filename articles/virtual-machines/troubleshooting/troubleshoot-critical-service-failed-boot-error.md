@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593229"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449804"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar ”kritiska tjänsten misslyckades” på blå skärm när du startar en virtuell Azure-dator
 Den här artikeln beskriver felet ”kritiska tjänsten misslyckades” som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Det ger felsökningssteg för att hjälpa dig att lösa problemen. 
@@ -30,7 +30,7 @@ Den här artikeln beskriver felet ”kritiska tjänsten misslyckades” som kan 
 
 En virtuell Windows-dator startar inte. När du checkar Start skärmbilderna [Startdiagnostik](./boot-diagnostics.md), du ser något av följande felmeddelanden på en blå skärm:
 
-- ”Datorn råkade ut för ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar på http://windows.com/stopcode. Om du tar kontakt supporttekniker kan du ge dem den här informationen: Stoppa kod: DET GICK INTE ATT KRITISKA TJÄNSTEN ” 
+- ”Datorn råkade ut för ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar på https://windows.com/stopcode. Om du tar kontakt supporttekniker kan du ge dem den här informationen: Stoppa kod: DET GICK INTE ATT KRITISKA TJÄNSTEN ” 
 - ”Datorn råkade ut för ett problem och måste startas om. Vi samlar in bara viss felinformation och vi ska starta om för dig. Om du vill veta mer kan du söka online senare för det här felet: CRITICAL_SERVICE_FAILED ”
 
 ## <a name="cause"></a>Orsak

@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417851"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491747"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
@@ -35,7 +35,7 @@ Site Recovery erbjuder skydd och återställning på programnivå enligt följan
 * App-oberoende replikering för alla arbetsbelastningar som körs på en dator som stöds.
 * Nästintill synkron replikering med RPO:er så låga som 30 sekunder, för att uppfylla kraven för de mest kritiska affärsapparna.
 * Appkonsekventa ögonblicksbilder för program med en eller flera nivåer.
-* Integrering med SQL Server AlwaysOn och samverkan med andra replikeringstekniker på programnivå som AD-replikering, SQL AlwaysOn, Exchange-databastillgänglighetsgrupper (DAG, Database Availability Group) och Oracle Data Guard.
+* Integrering med SQL Server AlwaysOn och samverkan med andra på programnivå replikeringstekniker på AD-replikering, SQL AlwaysOn, Exchange Database Availability Groups (dag).
 * Flexibla återställningsplaner som gör att du kan återställa en hel programstack med ett enda klick och ta med externa skript och manuella åtgärder i planen.
 * Avancerad nätverkshantering i Site Recovery och Azure för att förenkla nätverkskraven för appar, inklusive möjligheten att reservera IP-adresser, konfigurera belastningsutjämning och integrera med Azure Traffic Manager för låga RTO-nätverksväxlingar.
 * Ett omfattande automationsbibliotek som ger tillgång till produktionsklara, programspecifika skript som kan ladas ned och integreras med återställningsplaner.

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293053"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508234"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributionstekniker i Azure Functions
 
@@ -50,16 +50,18 @@ Det är viktigt att lära dig några viktiga begrepp som är nödvändiga för a
 När du ändrar någon av dina utlösare måste Functions-infrastruktur vara medveten om dessa ändringar. Synkroniseringen sker automatiskt för många distributionstekniker. Men i vissa fall måste du manuellt synkronisera din utlösare. När du distribuerar dina uppdateringar med hjälp av ett externt paket URL, lokal Git, molnsynkronisering eller FTP, måste du vara noga med att manuellt synkronisera din utlösare. Du kan synkronisera utlösare på något av tre sätt:
 
 * Starta om din funktionsapp i Azure portal
-* Skicka en HTTP POST-begäran till `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` med hjälp av den [huvudnyckeln](functions-bindings-http-webhook.md#authorization-keys).
+* Skicka en HTTP POST-begäran till `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` med hjälp av den [huvudnyckeln](functions-bindings-http-webhook.md#authorization-keys).
 * Skicka en HTTP POST-begäran till `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Ersätt platshållarna med ditt prenumerations-ID, resursgruppens namn och namnet på din funktionsapp.
 
 ## <a name="deployment-technology-details"></a>Distributionsinformation för teknik  
+
+Dessa följande distributionsmetoder stöds av Azure Functions.
 
 ### <a name="external-package-url"></a>Externt paket-URL
 
 Kan du referera till en fjärransluten paketfil (.zip) som innehåller din funktionsapp. Filen laddas ned från den tillhandahållna URL: en och appen körs i [kör från paketet](run-functions-from-deployment-package.md) läge.
 
->__Hur du använder det:__ Lägg till `WEBSITE_RUN_FROM_PACKAGE` till programinställningarna. Värdet för den här inställningen ska vara en URL - platsen för specifika paketfilen du vill köra. Du kan lägga till inställningar antingen [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) eller [med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Om du använder Azure blob-lagring, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) att ge funktioner åtkomst till paketet. När som helst programmet startar om den ska hämta en kopia av innehållet, vilket innebär att din referens måste gälla för hela programmets livslängd.
+>__Hur du använder det:__ Lägg till `WEBSITE_RUN_FROM_PACKAGE` till programinställningarna. Värdet för den här inställningen ska vara en URL - platsen för specifika paketfilen du vill köra. Du kan lägga till inställningar antingen [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) eller [med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Om du använder Azure blob-lagring, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) att ge funktioner åtkomst till paketet. När som helst programmet startar om den ska hämta en kopia av innehållet, vilket innebär att din referens måste gälla för hela programmets livslängd.
 
 >__När du ska använda den:__ Det här är den enda distributionsmetod som stöds för Azure Functions som körs på Linux i förbrukningsplan (förhandsversion). När du uppdaterar paketfilen refererar till en funktionsapp, måste du [manuellt synkronisera utlösare](#trigger-syncing) som talar om för Azure att ditt program har ändrats.
 
@@ -88,11 +90,11 @@ Distribuera en Linux-behållaravbildning som innehåller din funktionsapp.
 
 ### <a name="web-deploy-msdeploy"></a>Webdeploy (MSDeploy)
 
-Paket och distribuerar dina Windows-program till alla IIS-servern, inklusive din Azure-funktion-appar som körs på Windows.
+Paket och distribuerar dina Windows-program till alla IIS-servern, inklusive dina funktionsappar som körs på Windows i Azure.
 
->__Hur du använder det:__ Använd den [Visual Studio-verktyg för Azure Functions](functions-create-your-first-function-visual-studio.md), och inte skalstreck den `Run from package file (recommended)` markerar du kryssrutan.
+>__Hur du använder det:__ Använd den [Visual Studio-verktyg för Azure Functions](functions-create-your-first-function-visual-studio.md), och avmarkera de `Run from package file (recommended)` box.
 >
->Du kan också anropa `MSDeploy.exe` direkt när du hämtat [Web distribuera 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+> Du kan också hämta [Web distribuera 3.6](https://www.iis.net/downloads/microsoft/web-deploy) och anropa `MSDeploy.exe` direkt.
 
 >__När du ska använda den:__ Den här distributionstekniken som stöds och har inga problem, men den rekommenderade metoden är nu [Zip distribuera kör från paketet aktiverat](#zip-deploy). Mer information finns i [Utvecklingsguide för Visual Studio](functions-develop-vs.md#publish-to-azure).
 

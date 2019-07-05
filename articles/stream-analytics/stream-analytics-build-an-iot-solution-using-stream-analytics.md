@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201524"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443682"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -138,7 +138,8 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
 10. Efter en liten stund visas ett meddelande som bekräftar den **distributionen lyckades**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Granska Azure Stream Analytics TollApp-resurser
-1. Logga in på Azure-portalen
+
+1. Logga in på Azure Portal
 
 2. Leta upp den resursgrupp som du angav i föregående avsnitt.
 
@@ -171,7 +172,7 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
    - **Registrering** indata är en Azure Blob storage-anslutning som pekar på en statisk registration.json-fil som används för sökningar efter behov. Den här referensindata används i senare varianter av frågesyntaxen.
 
 4. Granska utdata för jobbet TollApp exemplet.
-   - **Cosmos DB** utdata är en samling för Cosmos-databas som tar emot utdatahändelserna för mottagare. Observera att dessa utdata används i INTO-sats för strömmande frågan.
+   - **Cosmos DB** utdata är en behållare för Cosmos-databas som tar emot utdatahändelserna för mottagare. Observera att dessa utdata används i INTO-sats för strömmande frågan.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Starta direktuppspelningsjobbet TollApp
 Följ dessa steg för att starta direktuppspelningsjobbet:

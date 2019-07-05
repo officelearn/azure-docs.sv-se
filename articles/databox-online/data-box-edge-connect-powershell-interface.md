@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717497"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448631"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Hantera en Azure Data Box Edge-enhet via Windows PowerShell
 
@@ -52,8 +52,9 @@ Du kan också ladda upp IoT Edge-certifikat för att aktivera en säker anslutni
 I följande exempel visas användningen av denna cmdlet för att installera IoT Edge-certifikat:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+När du kör denna cmdlet, uppmanas du att ange lösenordet för nätverksresursen.
 
 Mer information om certifikat finns i [Azure IoT Edge certifikat](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) eller [installera certifikat på en gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
@@ -75,13 +76,12 @@ Du kan också få beräkning loggarna via PowerShell-gränssnittet om beräkning
     I följande exempel visas användningen av denna cmdlet:
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Här följer en beskrivning av de parametrar som används för cmdleten:
     - `Path`: Ange en nätverkssökväg till den resurs där du vill skapa beräkning log-paketet.
-    - `Credential`: Ange användarnamnet och lösenordet för nätverksresursen.
-    - `RoleInstanceName`: Ange den här strängen `IotRole` för den här parametern.
+    - `Credential`: Ange användarnamnet för nätverksresursen. När du kör denna cmdlet behöver du att ange lösenordet för resursen.
     - `FullLogCollection`: Den här parametern säkerställer att log-paketet innehåller alla loggar för beräkning. Som standard innehåller log-paketet endast en delmängd av loggar.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Övervaka och felsöka beräkning moduler

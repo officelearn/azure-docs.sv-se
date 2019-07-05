@@ -3,17 +3,17 @@ title: Hur du använder Azure IoT Hub Device Provisioning-tjänsten Automatisk e
 description: Hur du använder Azure IoT Hub Device Provisioning-tjänsten Automatisk etablering för att registrera MXChip IoT DevKit med IoT Hub.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122836"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439496"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning-tjänsten Automatisk etablering för att registrera MXChip IoT DevKit med IoT Hub
 
@@ -30,7 +30,7 @@ Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino-kom
 
 För att slutföra stegen i den här självstudien måste du först göra följande uppgifter:
 
-* Konfigurera din DevKit Wi-Fi och Förbered din utvecklingsmiljö genom att följa stegen i [ansluta IoT DevKit AZ3166 på Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Konfigurera din DevKit Wi-Fi och Förbered din utvecklingsmiljö genom att följa avsnittet ”Prepare the development environment” steg i [ansluta IoT DevKit AZ3166 på Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Uppgradera till den senaste inbyggda programvaran (1.3.0 eller senare) med den [DevKit för uppdatering av inbyggd programvara](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) självstudien.
 * Skapa och länka en IoT-hubb med en Device Provisioning-tjänstinstans genom att följa stegen i [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](/azure/iot-dps/quick-setup-auto-provision).
 

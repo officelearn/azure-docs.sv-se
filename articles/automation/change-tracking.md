@@ -4,18 +4,18 @@ description: Lösningen ändringsspårning kan du identifiera programvara och Wi
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927289"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478631"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -271,7 +271,7 @@ Förutom den information som tillhandahålls i portalen, kan du göra sökningar
 
 Följande tabell innehåller exempel på loggsökningar för ändra poster som samlas in av den här lösningen:
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
 |ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppad”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men har rapporterats som stoppas<br>Frågeresultaten har begränsats till den senaste posten för den SoftwareName och Computer      |
 |ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated fall|Visar ändringsposter för borttagna program|
@@ -300,7 +300,7 @@ Efter alla parametrar och logik ställs in, kan vi använda aviseringen för mil
 
 Varna vid ändringar i värdfilen är en bra tillämpning av aviseringar för ändringsspårning och inventering data, finns men det många fler scenarier för avisering, inklusive fall som definierats tillsammans med deras exempelfrågor i avsnittet nedan.
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
 |ConfigurationChange <br>&#124;där ConfigChangeType == ”filer” och FileSystemPath innehåller ”c:\\windows\\system32\\drivrutiner\\”|Användbart för att spåra ändringar av kritiska systemfiler|
 |ConfigurationChange <br>&#124;där FieldsChanged innehåller ”FileContentChecksum” och FileSystemPath == ”c:\\windows\\system32\\drivrutiner\\osv\\värdar”|Användbart för att spåra ändringar av viktiga konfigurationsfiler|

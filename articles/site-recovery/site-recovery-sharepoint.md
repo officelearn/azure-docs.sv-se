@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472155"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491838"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera haveriberedskap för en SharePoint-flernivåapp för haveriberedskap med hjälp av Azure Site Recovery
 
@@ -34,7 +34,7 @@ Du kan titta på den nedan video om hur du återställer ett flerskiktat program
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du förstår följande:
 
@@ -65,7 +65,7 @@ VMware-datorer med Windows Server 2012 R2 Enterprise användes för att skapa de
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
-**Azure** | Saknas | Ja
+**Azure** | Ej tillämpligt | Ja
 
 ### <a name="sharepoint-versions"></a>SharePoint-versioner
 Följande SharePoint server-versioner stöds.
@@ -111,7 +111,7 @@ För platser som riktas mot internet [skapa en Traffic Manager-profil av typen �
 
 | **där** | **Källa** | **Mål**|
 | --- | --- | --- |
-| Offentliga DNS | Offentliga DNS för SharePoint-webbplatser <br/><br/> Exempel: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
+| Offentligt DNS | Offentliga DNS för SharePoint-webbplatser <br/><br/> Exempel: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | Den lokala DNS | sharepointonprem.contoso.com | Offentlig IP-adress på en lokal grupp |
 
 
@@ -196,7 +196,7 @@ Följ [den här vägledningen](site-recovery-test-failover-to-azure.md) att gör
 
 Anvisningar om hur du gör redundanstestningen för AD och DNS, referera till [testa redundans överväganden för AD- och DNS](site-recovery-active-directory.md#test-failover-considerations) dokumentet.
 
-Vägledning om hur du gör redundanstestningen för SQL Always ON-Tillgänglighetsgrupper finns i [gör testa redundansväxlingen för SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) dokumentet.
+Vägledning om hur du gör redundanstestningen för SQL Always ON-Tillgänglighetsgrupper finns i [programmet utför DR med Azure Site Recovery och gör redundanstestningen](site-recovery-sql.md#disaster-recovery-of-application) dokumentet.
 
 ## <a name="doing-a-failover"></a>Gör en redundansväxling
 Följ [den här vägledningen](site-recovery-failover.md) för att göra en redundansväxling.

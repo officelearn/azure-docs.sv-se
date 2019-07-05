@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Läsa in data till Azure SQL Data Warehouse | Microsoft Docs'
-description: I den här självstudien används Azure Portal och SQL Server Management Studio för att läsa in informationslagret WideWorldImportersDW från en offentlig Azure-blob till Azure SQL Data Warehouse.
+description: Självstudien används Azure portal och SQL Server Management Studio för att läsa in informationslagret wideworldimportersdw från en global Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461851"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in data till Azure SQL Data Warehouse
 
@@ -38,9 +38,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa ett tomt SQL-informationslager
 
@@ -132,7 +132,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20171113.database.windows.net. 
 
@@ -158,7 +158,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
-5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **mySampleDatabase** så visas objekten i den nya databasen.
+5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **SampleDW** så visas objekten i den nya databasen.
 
     ![databasobjekt](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ Det första steget för att läsa in data är att logga in som LoaderRC60.
 
 Du är redo att börja läsa in data till ditt nya informationslager. För framtida behov kan du läsa i [översikten om inläsning](sql-data-warehouse-overview-load.md) om hur du flyttar dina data till Azure blobblagring eller läser in dem direkt från källan till SQL Data Warehouse.
 
-Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Informationen finns i en offentlig Azure-blobb.
+Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Data finns i globala Azure-Blob.
 
 1. I föregående avsnitt loggade du in på ditt informationslager som Loader RC60. Högerklicka på **SampleDW** i SSMS under LoaderRC60-anslutningen och välj **Ny fråga**.  Ett nytt frågefönster visas. 
 
@@ -231,7 +231,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     CREATE MASTER KEY;
     ```
 
-4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) för att definiera platsen för Azure-blobben. Det är här som dina externa taxi-data finns.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
+4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) för att definiera platsen för Azure-blobben. Det här är platsen för den externa världen över importers-data.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     );
     ```
 
-8. Expandera SampleDW i Object Explorer om du vill se en lista över externa tabeller som du just har skapat.
+8. Expandera SampleDW om du vill se en lista över externa tabeller som du skapade i Object Explorer.
 
     ![Visa externa tabeller](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Läsa in data till informationslagret
 
-Det här avsnittet använder de externa tabeller som du precis har definierat för att läsa in exempeldata från Azure-blobb till SQL Data Warehouse.  
+Det här avsnittet använder de externa tabeller som du definierat för att läsa in exempeldata från Azure Blob till SQL Data Warehouse.  
 
 > [!NOTE]
 > De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Det här avsnittet använder de externa tabeller som du precis har definierat f�
 
 Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell importerar SQL Data Warehouse data till en relationsdatabastabell i informationslagret. 
 
-Det här skriptet läser inte in data till tabellerna wwi.dimension_Date och wwi.fact_Sales. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
+Det här skriptet inte att läsa in data i tabellerna wwi.dimension_Date och wwi.fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
 
 1. Kör följande skript för att läsa in data till nya tabeller i informationslagret.
 
@@ -750,7 +750,7 @@ Det här skriptet läser inte in data till tabellerna wwi.dimension_Date och wwi
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Skapa tabeller och procedurer för att generera datum- och säljtabellerna
 
-I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sales. Det skapar också lagrade procedurer som kan generera miljontals rader i tabellerna wwi.dimension_Date och wwi.fact_Sales.
+Det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det skapar också lagrade procedurer som kan generera miljontals rader i tabellerna wwi.dimension_Date och wwi.fact_Sale.
 
 1. Skapa tabellerna dimension_Date och fact_Sale.  
 
@@ -893,7 +893,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sales. De
     DROP table #days;
     END;
     ```
-4. Skapa den här proceduren som fyller i tabellerna wwi.dimension_Date och wwi.fact_Sales. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
+4. Skapa den här proceduren som fyller på tabellerna wwi.dimension_Date och wwi.fact_Sale. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sales. De
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generera miljontals rader
-Använd de lagrade procedurer som du skapade för att generera miljontals rader i tabellen wwi.fact_Sales och motsvarande data i tabellen wwi.dimension_Date. 
+Använd de lagrade procedurer som du skapade för att generera miljontals rader i tabellen wwi.fact_Sale och motsvarande data i tabellen wwi.dimension_Date. 
 
 
 1. Kör den här proceduren om du vill lägga till flera rader i [wwi]. [seed_Sale].
@@ -958,7 +958,7 @@ Använd de lagrade procedurer som du skapade för att generera miljontals rader 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Kör den här proceduren för att fylla i wwi.fact_Sales med 100 000 rader per dag för varje dag under år 2000.
+2. Kör den här proceduren för att fylla i wwi.fact_Sale med 100 000 rader per dag för varje dag under år 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1094,11 +1094,11 @@ Du debiteras för beräkningsresurser och data som du har läst in i ditt inform
 
 Följ dessa steg för att rensa resurser enligt dina önskemål.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på ditt informationslager.
+1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på ditt informationslager.
 
     ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen kommer du bara att debiteras för datalagringen och du kan återuppta beräkningen när du är redo att arbeta med dina data. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas knappen **Starta**.  Klicka på **Starta** om du vill återuppta beräkningarna.
+2. Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen kommer du bara att debiteras för datalagringen och du kan återuppta beräkningarna när du är redo att arbeta med data. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas knappen **Starta**.  Klicka på **Starta** om du vill återuppta beräkningarna.
 
 3. Om du vill undvika framtida avgifter kan du ta bort informationslagret. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 

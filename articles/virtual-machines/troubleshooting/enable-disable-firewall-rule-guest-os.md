@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444653"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Aktivera eller inaktivera en brandväggsregel på Azure VM gäst-OS
 
@@ -99,7 +99,7 @@ Om den virtuella datorn är online och kan kommas åt på en annan virtuell dato
 
 1.  Starta Registereditorn (regedit.exe) på Virtuellt felsökningsdatorn, och välj sedan **filen** > **ansluta register**.
 
-2.  Öppna den *MÅLDATORN*\SYSTEM grenen och ange följande värden:
+2.  Öppna den *MÅLDATORN*\SYSTEM grenen och ange följande värden:
 
     * Öppna följande registervärde för att aktivera en regel:
     
@@ -123,26 +123,26 @@ Om den virtuella datorn är online och kan kommas åt på en annan virtuell dato
 
 Om du inte åtkomst till den virtuella datorn med varje metod, med hjälp av tillägget för anpassat skript kommer att misslyckas och du måste arbeta i OFFLINE-läge genom att arbeta direkt med hjälp av systemdisken.
 
-Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
-3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera att enheten enhetsbokstaven som är tilldelad till den anslutna systemdisken.
+3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera att enheten enhetsbokstaven som är tilldelad till den anslutna systemdisken.
 
 4.  Innan du gör några ändringar kan du skapa en kopia av mappen \windows\system32\config om en återställning av ändringarna är nödvändigt.
 
 5.  Starta Registereditorn (regedit.exe) på Virtuella felsökningsdatorn.
 
-6.  Markera den **HKEY_LOCAL_MACHINE** nyckel och välj sedan **filen** > **Läs in registreringsdatafil** på menyn.
+6.  Markera den **HKEY_LOCAL_MACHINE** nyckel och välj sedan **filen** > **Läs in registreringsdatafil** på menyn.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Leta upp och öppna sedan filen \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Du uppmanas att ange ett namn. Ange **BROKENSYSTEM**, och expandera sedan **HKEY_LOCAL_MACHINE**. Nu visas en ytterligare nyckel som heter **BROKENSYSTEM**. För den här felsökning monterar vi dessa problem registreringsdatafilerna som **BROKENSYSTEM**.
+    > Du uppmanas att ange ett namn. Ange **BROKENSYSTEM**, och expandera sedan **HKEY_LOCAL_MACHINE**. Nu visas en ytterligare nyckel som heter **BROKENSYSTEM**. För den här felsökning monterar vi dessa problem registreringsdatafilerna som **BROKENSYSTEM**.
 
 8.  Gör följande ändringar på BROKENSYSTEM gren:
 
@@ -164,7 +164,7 @@ Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den
         
         **v2.22 | Åtgärd = Tillåt | Aktiva = FALSE | Dir = In | Protocol = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Namn =\@FirewallAPI.dll-28775 | Desc =\@FirewallAPI.dll-28756 | EmbedCtxt =\@FirewallAPI.dll-28752 |**
 
-9.  Markera **BROKENSYSTEM**, och välj sedan **filen** > **ta bort registreringsdata** på menyn.
+9.  Markera **BROKENSYSTEM**, och välj sedan **filen** > **ta bort registreringsdata** på menyn.
 
 10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395873"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479802"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -62,7 +62,9 @@ Innan du kan skapa en anslutning, måste du lägga till lösning för ITSM-anslu
 
 3. I den **OMS-arbetsyta** väljer Azure Log Analytics-arbetsytan där du vill installera lösningen.
    >[!NOTE]
-   >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
+   > * Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
+   > * ITSM-anslutningsprogrammet kan bara installeras i Log Analytics-arbetsytor i följande regioner: Östra USA, Västeuropa, Sydostasien, sydöstra Australien, västra centrala USA, östra Japan, södra Storbritannien, centrala Indien, centrala Kanada.
+
 4. I den **inställningar för OMS-arbetsyta** väljer du den resursgrupp där du vill skapa resursen lösning.
 
    ![ITSMC arbetsyta](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -214,7 +216,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - source
 - Tilldelad till
 - Titel
-- Typ
+- Type
 - Category
 - Status
 - Eskalering
@@ -266,7 +268,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Stängts av |
 | AssignedTo_s | Tilldelad till  |
 | Title_s|  Kort beskrivning |
-| Type_s|  Typ |
+| Type_s|  Type |
 | Category_s|  Category |
 | CRState_s|  Status|
 | Urgency_s|  Angelägenhetsgrad |

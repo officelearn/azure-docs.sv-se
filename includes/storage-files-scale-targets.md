@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9f259c3e403e933c847ac56000b1db2cd594caf5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449943"
 ---
-| Resource | Standard-filresurser | Premium-filresurser (förhandsversion) |
+| Resource | Standard-filresurser | Premium-filresurser |
 |----------|---------------|------------------------------------------|
 | Minsta storlek på en filresurs | Någon lägsta gräns; betala | 100 giB; etablerad |
 | Maximal storlek på en filresurs | 5 TiB (GA), 100 TiB (förhandsversion) | 100 TiB |

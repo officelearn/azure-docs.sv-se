@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735076"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488691"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -32,6 +32,8 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 |Namn|Definition|Beskrivning|
 |---|---|---|
 |widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs:** URL-param widgetar stöds inte i version 2. |
+|Nationella inställningar|En kort språkkod|Styr insights-språk. Standardvärdet är `en`. Till exempel: `language=de`.|
+|tabb|Den valda fliken standard|Styr fliken insikter som återges som standard. `tab=timeline` återger insikterna med fliken tidslinje markerad.|
 
 ### <a name="player-widget"></a>Spelarwidget
 
@@ -39,12 +41,12 @@ Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. 
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: t=60|
-|captions|Språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: captions=sv-SE|
-|showCaptions|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: showCaptions=true|
-|type||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: type=audio|
-|autoplay|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: autoplay=false|
-|language|Språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: language=de-DE|
+|t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: `t=60`.|
+|captions|En språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: `captions=en-US`.|
+|showCaptions|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: `showCaptions=true`.|
+|type||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: `type=audio`.|
+|autoplay|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: `autoplay=false`.|
+|language|En språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Bädda in offentligt innehåll
 

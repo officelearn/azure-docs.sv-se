@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272415"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561179"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -28,13 +28,13 @@ ms.locfileid: "67272415"
 
 *Jag har dataförlust slumpmässigt.*
 
-* Kontrollera om du upplever dataförlust sker på [telemetri kanal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Kontrollera om du upplever dataförlust sker på [telemetri kanal](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Sök efter kända problem i telemetri kanal [Github-lagringsplatsen](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *Jag har dataförlust i Konsolapp eller på Web App om appen håller på att stoppa.*
 
-* SDK-kanal behålls telemetri i bufferten och skickar dem i batchar. Om programmet stängs av, kan du behöva explicit anropa [Flush()](api-custom-events-metrics.md#flushing-data). Beteendet för `Flush()` beror på den faktiska [kanal](telemetry-channels.md#built-in-telemetrychannels) används.
+* SDK-kanal behålls telemetri i bufferten och skickar dem i batchar. Om programmet stängs av, kan du behöva explicit anropa [Flush()](api-custom-events-metrics.md#flushing-data). Beteendet för `Flush()` beror på den faktiska [kanal](telemetry-channels.md#built-in-telemetry-channels) används.
 
 ## <a name="no-data-from-my-server"></a>Inga data från Min server
 *Jag har installerat min app på webbservern och nu jag ser inte någon telemetri från den. Det fungerade OK på min utvecklingsdator.*
@@ -215,7 +215,9 @@ Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramver
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installera den [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
+1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
+
+Den senaste versionen av Microsoft.ApplicationInsights.AspNetCore är 2.7.1 och den refererar till Microsoft.ApplicationInsights version 2.10. Därför bör Microsoft.AspNet.ApplicationInsights.HostingStartup installeras vara 2.10.0
 
 2. Ändra `ConfigureServices` -metod i din `Startup.cs` klass.:
 

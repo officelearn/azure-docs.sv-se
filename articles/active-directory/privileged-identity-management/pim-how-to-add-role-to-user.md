@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289470"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476511"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Tilldela Azure AD-roller i PIM
 
@@ -42,17 +42,17 @@ Följ dessa steg om du vill göra en användare som är berättigade till en Azu
 
 1. Klicka på **roller** eller **medlemmar**.
 
-    ![Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD-roller med roller och medlemmar menyalternativen markerat](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Klicka på **Lägg till medlem** öppna Lägg till hanterade medlemmar.
 
 1. Klicka på **Välj en roll**, klickar du på en roll som du vill hantera och klicka sedan på **Välj**.
 
-    ![Välj en roll](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Välj en roll-fönstret där Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Klicka på **Välj medlemmar**, markera de användare som du vill tilldela rollen och klickar sedan på **Välj**.
 
-    ![Välj en roll](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Välj medlemmar fönster där du kan välja en användare](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Lägg till hanterade medlemmar, klicka på **OK** att lägga till användaren till rollen.
 
@@ -60,7 +60,7 @@ Följ dessa steg om du vill göra en användare som är berättigade till en Azu
 
      När rollen tilldelas den användaren som du har valt visas i listan över medlemmar som **berättigade** för rollen.
 
-    ![Användare som är berättigade till en roll](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Medlemmar i en roll visas tillsammans med deras aktiveringsstatus](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. Nu när du är berättigad till rollen kan informera dem om att de kan aktivera enligt anvisningarna i [aktivera Mina Azure AD-roller i PIM](pim-how-to-activate-role.md).
 
@@ -76,17 +76,17 @@ Som standard är endast nya användare berättigade till en Azure AD-administrat
 
 1. Klicka på **medlemmar**.
 
-    ![Listan över medlemmar](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD-roller - medlemmar lista som visar tillståndet för rollen och aktivering](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Klicka på en **berättigade** roll som du vill göra permanenta.
 
 1. Klicka på **mer** och klicka sedan på **gör permanent**.
 
-    ![Göra rolltilldelning permanenta](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Öppna fönstret visa en lista över användare som är berättigade till en roll med flera menyalternativ](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     Rollen visas nu som **permanent**.
 
-    ![Listan över medlemmar med permanent ändring](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Medlemmar i listan som visar rollen och aktivering tillstånd som nu är permanent](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Ta bort en användare från en roll
 
@@ -100,17 +100,17 @@ Följ dessa steg om du vill ta bort en specifik användare från en Azure AD-adm
 
 1. Klicka på **medlemmar**.
 
-    ![Listan över medlemmar](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD-roller - medlemmar lista som visar rollen och aktivering stat](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Klicka på en rolltilldelning som du vill ta bort.
 
 1. Klicka på **mer** och klicka sedan på **ta bort**.
 
-    ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Öppna fönstret visa en lista över en användare som har en permanent roll med flera menyalternativ](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. Klicka på meddelandet som ber dig bekräfta **Ja**.
 
-    ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Meddelande som frågar om du vill ta bort medlem från roll](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Rolltilldelningen har tagits bort.
 
@@ -140,13 +140,13 @@ Följ dessa steg om du vill tilldela rollen Administratör för användaråtkoms
 
 1. I den **Välj** listan, hitta och välj den **MS-PIM** tjänstens huvudnamn.
 
-   ![Lägg till behörigheter för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Lägg till rollen tilldelningsfönstret – lägga till behörigheter för MS-PIM-tjänstens huvudnamn](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Välj **spara** du tilldela rollen.
 
    Efter en liten stund tilldelas MS-PIM-tjänstens huvudnamn rollen Administratör för användaråtkomst prenumerationsområde.
 
-   ![Rollen Administratör för användaråtkomst för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Åtkomstkontroll (IAM)-bladet som visar administratör för användaråtkomst rolltilldelning för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

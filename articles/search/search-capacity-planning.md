@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308765"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485705"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
 När du [Välj en prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att du kan också öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal faktureringsenheter. Den här artikeln beskriver hur du allokera dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörning, indexering och lagring.
@@ -47,6 +47,7 @@ Om du vill öka eller ändra allokeringen av repliker och partitioner, bör du a
 Sökprogram behöver i allmänhet fler repliker än partitioner, särskilt när tjänståtgärderna är prioriterar frågearbetsbelastningar. I avsnittet om [hög tillgänglighet](#HA) förklarar varför.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj search-tjänst.
+
 2. I **inställningar**öppnar den **skala** att ändra repliker och partitioner. 
 
    Följande skärmbild visar ett standard-tjänsten med en replik respektive partition. Formeln längst ned anger hur många search-enheter som ska användas (1). Om enhetspriset var $100 (inte en verklig kostnad), är månatliga kostnaden för att köra den här tjänsten $100 i genomsnitt.
@@ -108,6 +109,7 @@ Eftersom det är enkelt och relativt snabbt att skala upp allmänhet rekommender
 Allmänna rekommendationer för hög tillgänglighet är:
 
 * Två repliker för hög tillgänglighet för skrivskyddade arbetsbelastningar (frågor)
+
 * Tre eller fler repliker för hög tillgänglighet för Läs/Skriv-arbetsbelastningar (frågor plus indexering när enskilda dokument läggs till, uppdateras eller tas bort)
 
 Servicenivåavtal (SLA) för Azure Search riktas på frågeåtgärder och uppdateringar av index som består av att lägga till, uppdatera eller ta bort dokument.

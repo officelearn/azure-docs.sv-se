@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298966"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565585"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB API för MongoDB online med DMS
 
@@ -43,7 +43,7 @@ I den här självstudien får migrera du en datauppsättning i MongoDB som finns
 
 I den här artikeln beskrivs en onlinemigrering från MongoDB till Azure Cosmos DB:s API för MongoDB. Läs mer i [Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS](tutorial-mongodb-cosmos-db.md) om offlinemigrering.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -150,7 +150,14 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
      * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
 
-   Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
+    > [!IMPORTANT]
+    > Det rekommenderas inte för att använda ett självsignerat certifikat på mongo-server. Men om ett sådant används, Anslut till servern med **anslutningssträngsläge** och kontrollera att anslutningssträngen har ””
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 
    ![Ange källinformation](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

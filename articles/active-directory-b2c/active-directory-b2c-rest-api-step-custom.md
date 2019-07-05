@@ -1,5 +1,5 @@
 ---
-title: REST API-anspråk utbyten - Azure Active Directory B2C | Microsoft Docs
+title: REST API-anspråk utbyten - Azure Active Directory B2C
 description: Lägg till REST API anspråk utbyten i anpassade principer i Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508770"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439003"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Lägg till REST API anspråk utbyten i anpassade principer i Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Interaktionen innehåller ett anspråk utbyta information mellan REST API-anspr�
 - Kan utformas som ett orchestration-steg.
 - Kan utlösa en extern åtgärd. Det kan exempelvis logga en händelse i en extern databas.
 - Kan användas för att hämta ett värde och sedan lagra den i databasen.
-- Kan ändra flödet av körningen. 
+- Kan ändra flödet av körningen.
 
 Det scenario som representeras i den här artikeln innehåller följande åtgärder:
 
@@ -36,7 +36,7 @@ Det scenario som representeras i den här artikeln innehåller följande åtgär
 2. Hämta staden där användaren har registrerats.
 3. Returnera attributet för programmet som ett anspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 - En REST API-slutpunkt för att interagera med. Den här artikeln använder en enkel Azure fungerar som ett exempel. För att skapa Azure-funktion, se [skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md).
@@ -45,9 +45,16 @@ Det scenario som representeras i den här artikeln innehåller följande åtgär
 
 I det här avsnittet ska du förbereda Azure-funktion som tar emot ett värde för `email`, och returnerar sedan värdet för `city` som kan användas av Azure AD B2C som ett anspråk.
 
-Ändra filen run.csx för Azure-funktion som du skapade för att använda följande kod: 
+Ändra filen run.csx för Azure-funktion som du skapade för att använda följande kod:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>Konfigurera anspråksutbytet
 
-Tekniska profilen innehåller konfigurationen för anspråk för exchange. 
+Tekniska profilen innehåller konfigurationen för anspråk för exchange.
 
-Öppna den *TrustFrameworkExtensions.xml* filen och Lägg till följande XML-element inuti den **ClaimsProvider** element.
+Öppna den *TrustFrameworkExtensions.xml* filen och Lägg till följande **ClaimsProvider** XML-element inuti den **ClaimsProviders** element.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Lägga till ett steg i användarresan för profilen redigera. När användaren h
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ Sista XML för användarresan bör se ut som i följande exempel:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Redigera den *ProfileEdit.xml* filen och Lägg till `<OutputClaim ClaimTypeRefer
 När du lägger till nytt anspråk den tekniska profilen ser ut som i följande exempel:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

@@ -7,16 +7,16 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442100"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Marketplace för kommersiella
 
-Du kan visa dina befintliga erbjudanden på den **erbjuder** fliken den [kommersiella Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) Partner Center.
+Du kan visa dina befintliga erbjudanden på den **översikt** fliken den [kommersiella Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) Partner Center.
 
 Om du vill uppdatera ett befintligt erbjudande som används för närvarande Direktmigrering i marketplace: 
 

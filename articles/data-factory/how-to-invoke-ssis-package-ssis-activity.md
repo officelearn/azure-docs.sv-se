@@ -8,26 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33259fff17633cc4864a342609f747ebb9902ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153026"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484840"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
-Den här artikeln beskriver hur du kör ett SSIS-paket i Azure Data Factory (ADF) pipeline med aktiviteten kör SSIS-paket. 
+Den här artikeln beskriver hur du kör ett SQL Server Integration Services (SSIS)-paket i Azure Data Factory (ADF) pipeline med aktiviteten kör SSIS-paket. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Skapa en Azure-SSIS Integration Runtime (IR) om du inte har redan genom att följa de stegvisa anvisningarna i den [självstudien: Distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md).
+Skapa en Azure-SSIS Integration Runtime (IR) om du inte har redan genom att följa de stegvisa anvisningarna i den [självstudien: Etablera Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Kör ett paket i Azure portal
 I det här avsnittet ska du använda ADF User Interface (UI) / appen att skapa en ADM pipeline med köra SSIS-paket-aktivitet som kör SSIS-paket.
@@ -51,25 +51,63 @@ I det här steget använder du ADF användargränssnitt/app för att skapa en pi
 
    ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. På den **inställningar** för aktiviteten kör SSIS-paket, Välj din Azure-SSIS IR som är associerad med SSISDB-databasen där paketet har distribuerats. Om ditt paket använder Windows-autentisering för att få åtkomst till datalager, t.ex. SQL-servrar/filresurser lokalt, Azure Files osv., kontrollera den **Windows-autentisering** kryssrutan och ange domän/användarnamn/lösenord för ditt paket körning. Om ditt paket måste 32-bitars runtime för att köra, kontrollera den **32-bitars runtime** kryssrutan. För **loggningsnivån**, väljer du en fördefinierad omfattning av loggning för körning av paket. Kontrollera den **anpassad** markerar du kryssrutan om du vill ange namnet på din anpassade loggning i stället. När din Azure-SSIS IR körs och **manuella transaktioner** kryssrutan är avmarkerad kan du bläddra och välj din befintliga mappar/projekt /-paket/miljöer från SSISDB. Klicka på den **uppdatera** knappen för att hämta dina nyligen tillagda mappar/projekt /-paket/miljöer från SSISDB, så att de är tillgängliga för bläddring och val av. 
+4. På den **inställningar** för aktiviteten kör SSIS-paket, Välj en Azure-SSIS IR där du vill köra ditt paket. Om ditt paket använder Windows-autentisering för att få åtkomst till datalager, t.ex. SQL-servrar/filresurser lokalt, Azure Files osv., kontrollera den **Windows-autentisering** kryssrutan och ange värden för dina autentiseringsuppgifter för körning av paketet (**Domän**/**användarnamn**/**lösenord**). Du kan också använda hemligheter som lagras i din Azure Key Vault (AKV) som deras värden. Om du vill göra det klickar du på den **AZURE KEY VAULT** kryssrutan bredvid de relevanta autentiseringsuppgifterna väljer/Redigera din befintliga AKV länkad tjänst eller skapa en ny och välj sedan den hemliga namn/versionen för din autentiseringsuppgiftsvärde.  När du skapar eller redigerar AKV länkade tjänsten, kan du markera och redigera dina befintliga AKV eller skapa en ny, men ge ADF hanterad identitet åtkomst till din AKV om du inte har gjort det redan. Du kan också ange dina hemligheter direkt i följande format: `<AKV linked service name>/<secret name>/<secret version>`. Om ditt paket måste 32-bitars runtime för att köra, kontrollera den **32-bitars runtime** kryssrutan. 
+
+   För **paketera plats**väljer **SSISDB**, **File System (paket)** , eller **File System (projekt)** . Om du väljer **SSISDB** som din plats för paketet, som väljs automatiskt om din Azure-SSIS IR etablerades med SSIS-katalogen (SSISDB) som värd för Azure SQL Database-server/hanterad instans, måste du ange ditt paket Om du vill köra som har distribuerats till SSISDB. Om din Azure-SSIS IR körs och **manuella transaktioner** kryssrutan är avmarkerad kan du bläddra och välj din befintliga mappar/projekt /-paket/miljöer från SSISDB. Klicka på den **uppdatera** knappen för att hämta dina nyligen tillagda mappar/projekt /-paket/miljöer från SSISDB, så att de är tillgängliga för bläddring och val av. 
+   
+   För **loggningsnivån**, väljer du en fördefinierad omfattning av loggning för körning av paket. Kontrollera den **anpassad** markerar du kryssrutan om du vill ange namnet på din anpassade loggning i stället. 
 
    ![Ange egenskaper på fliken Inställningar - automatisk](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   När din Azure-SSIS IR inte körs eller **manuella transaktioner** är markerad, du kan ange sökvägar för paket- och miljö från SSISDB direkt i följande format: `<folder name>/<project name>/<package name>.dtsx` och `<folder name>/<environment name>`.
+   Om din Azure-SSIS IR inte körs eller **manuella transaktioner** är markerad, du kan ange sökvägar för paket- och miljö från SSISDB direkt i följande format: `<folder name>/<project name>/<package name>.dtsx` och `<folder name>/<environment name>`.
 
    ![Ange egenskaper på fliken inställningar - manuellt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. På den **SSIS parametrar** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat, den befintliga SSIS-parametrar i ditt valda projekt /-paket från SSISDB visas som du kan tilldela dem värden. Annars kan ange du dem genom en för att tilldela dem värden manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din Azure Key Vault (AKV) som deras värden. Om du vill göra det klickar du på den **AZURE KEY VAULT** kryssrutan bredvid den relevanta parametern väljer/Redigera din befintliga AKV länkad tjänst eller skapa en ny och välj sedan den hemliga namn/versionen för din parametervärde.  När du skapar eller redigerar AKV länkade tjänsten, kan du markera och redigera dina befintliga AKV eller skapa en ny, men ge ADF hanterad identitet åtkomst till din AKV om du inte har gjort det redan. Du kan också ange dina hemligheter direkt i följande format: `<AKV linked service name>/<secret name>/<secret version>`.
+   Om du väljer **File System (paket)** som din plats för paketet, som väljs automatiskt om din Azure-SSIS IR etablerades utan SSISDB, måste du ange ditt paket ska köras genom att tillhandahålla en Universal Naming Convention ( UNC-sökväg) till din paketfil (`.dtsx`) i den **paketsökväg**. Till exempel, om du sparar dina paket i Azure Files, dess paketsökväg debiteras `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   
+   Om du konfigurerar ditt paket i en separat fil kan du också behöva ange en UNCsökväg till konfigurationsfilen (`.dtsConfig`) i den **konfigurationssökväg**. Till exempel om du sparar din konfiguration i Azure Files, dess konfigurationssökväg kommer att `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
+
+   ![Ange egenskaper på fliken inställningar - manuellt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+
+   Om du väljer **File System (projekt)** som din plats för paketet, måste du ange ditt paket ska köras genom att ange en UNCsökväg till projektfilen (`.ispac`) i den **Projektsökväg** och ett paket () `.dtsx`) från ditt projekt i den **paketnamn**. Till exempel om du sparar ditt projekt i Azure Files, dess Projektsökväg kommer att `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+
+   ![Ange egenskaper på fliken inställningar - manuellt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+
+   Därefter måste du ange autentiseringsuppgifter för att komma åt dina projekt/paket/konfiguration-filer. Om du har tidigare angett värdena för dina autentiseringsuppgifter för körning paketet (se ovan) kan du återanvända dem genom att markera den **densamma som paketet körning autentiseringsuppgifter** kryssrutan. I annat fall måste du ange värdena för dina autentiseringsuppgifter för åtkomst av paketet (**domän**/**användarnamn**/**lösenord**). Om du lagrar dina projekt/paket/konfiguration i Azure Files, till exempel den **domän** är `Azure`; **användarnamn** är `<storage account name>`; och **lösenord**är `<storage account key>`. Du kan också använda hemligheter som lagras i din AKV som deras värden (se ovan). Dessa autentiseringsuppgifter används för att komma åt paket- och underordnade paketen i köra paketet uppgiften från sina egna sökväg/samma projekt, samt inställningar, till exempel de som anges i dina paket. 
+   
+   Om du har använt den **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection nivå när du skapar ditt paket via SQL Server Data Tools (SSDT), måste du ange värdet lösenordet i den **Krypteringslösenord**. Du kan också använda en hemlighet som lagras i din AKV som sitt värde (se ovan). Om du har använt den **EncryptSensitiveWithUserKey** skyddsnivån, du måste ange på nytt dina känsliga värden i konfigurationsfiler eller på den **SSIS parametrar** /  **Anslutningen chefer**/**egenskapen åsidosätter** flikarna (se nedan). Om du har använt den **EncryptAllWithUserKey** skyddsnivån, är det som inte stöds, så du behöver konfigurera om ditt paket om du vill använda andra skyddsnivån via SSDT eller `dtutil` kommandoradsverktyget. 
+   
+   För **loggningsnivån**, väljer du en fördefinierad omfattning av loggning för körning av paket. Kontrollera den **anpassad** markerar du kryssrutan om du vill ange namnet på din anpassade loggning i stället. Om du vill logga dina paket körningar än genom att använda standardloggen-leverantörer som kan anges i ditt paket måste du ange din loggmappen genom att ange dess UNC-sökväg i den **Loggningssökvägen**. Till exempel om du lagrar dina loggar i Azure Files kan din Loggningssökvägen blir `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. En undermapp skapas i den här sökvägen för varje enskild paketet körning och med namnet på aktiviteten kör SSIS-paket körnings-ID, som loggfiler ska skapas var femte minut. 
+   
+   Slutligen kan behöva du även ange autentiseringsuppgifter för att komma åt din loggmappen. Om du har tidigare angett värdena för dina autentiseringsuppgifter för paketet (se ovan) kan du återanvända dem genom att kontrollera den **densamma som paketet autentiseringsuppgifter** kryssrutan. I annat fall måste du ange värdena för dina autentiseringsuppgifter för åtkomst av loggning (**domän**/**användarnamn**/**lösenord**). Om du lagrar dina loggar i Azure Files, till exempel den **domän** är `Azure`; **användarnamn** är `<storage account name>`; och **lösenord** är `<storage account key>`. Du kan också använda hemligheter som lagras i din AKV som deras värden (se ovan). Dessa autentiseringsuppgifter används för att lagra dina loggar. 
+   
+   För alla UNC-sökvägar som nämns ovan, fullständigt kvalificerade filnamnet måste vara kortare än 260 tecken och katalognamnet måste innehålla färre än 248 tecken.
+
+5. På den **SSIS parametrar** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR körs **SSISDB** är markerad som plats för paketet och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat, befintliga SSIS-parametrar i ditt valda projekt /-paket från SSISDB visas som du kan tilldela dem värden. Annars kan ange du dem genom en för att tilldela dem värden manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. 
+   
+   Om du har använt den **EncryptSensitiveWithUserKey** skyddsnivån när du skapar ditt paket via SSDT och **File System (paket)** /**File System (projekt)** är markerad som plats för paketet du också behöva ange dina känsliga parametrar för att tilldela dem värden i konfigurationsfiler eller på den här fliken på nytt. 
+   
+   När du tilldelar värden till parametrarna, kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din AKV som deras värden (se ovan).
 
    ![Ange egenskaper på fliken SSIS-parametrar](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. På den **anslutning chefer** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat den befintliga anslutning hanterare i ditt valda projekt /-paket från SSISDB visas för att tilldela värden till deras egenskaper. Annars kan ange du dem genom en för att tilldela värden till deras egenskaper manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din Azure Key Vault (AKV) som deras egenskapsvärden. Om du vill göra det klickar du på den **AZURE KEY VAULT** kryssrutan bredvid egenskapen relevanta väljer/Redigera din befintliga AKV länkad tjänst eller skapa en ny och välj sedan den hemliga namn/versionen för din egenskapsvärde.  När du skapar eller redigerar AKV länkade tjänsten, kan du markera och redigera dina befintliga AKV eller skapa en ny, men ge ADF hanterad identitet åtkomst till din AKV om du inte har gjort det redan. Du kan också ange dina hemligheter direkt i följande format: `<AKV linked service name>/<secret name>/<secret version>`.
+6. På den **anslutning chefer** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR körs **SSISDB** är markerad som plats för paketet och **manuella transaktioner**kryssrutan på **inställningar** fliken är avmarkerat, den befintliga anslutning hanterare i ditt valda projekt /-paket från SSISDB visas för att tilldela värden till deras egenskaper. Annars kan ange du dem genom en för att tilldela värden till deras egenskaper manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. 
+   
+   Om du har använt den **EncryptSensitiveWithUserKey** skyddsnivån när du skapar ditt paket via SSDT och **File System (paket)** /**File System (projekt)** är markerad som plats för paketet du också behöva ange dina känsliga anslutningsegenskaper manager för att tilldela dem värden i konfigurationsfiler eller på den här fliken på nytt. 
+   
+   När du tilldelar värden till din manager anslutningsegenskaper, du kan lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din AKV som deras värden (se ovan).
 
    ![Ange egenskaper på fliken anslutning chefer](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. På den **egenskapen åsidosätter** fliken för aktiviteten kör SSIS-paket, kan du ange sökvägar för befintliga egenskaper i ditt valda paket från SSISDB i taget för att tilldela dem värden manuellt – kontrollera att de finns och är korrekt angiven för körning av paket ska lyckas, t.ex. Om du vill åsidosätta värdet för användarvariabeln att ange dess sökväg i formatet: `\Package.Variables[User::YourVariableName].Value`. Du kan också lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna.
+7. På den **egenskapen åsidosätter** fliken för aktiviteten kör SSIS-paket, kan du ange sökvägar för befintliga egenskaper i ditt valda paket en i taget för att tilldela dem värden manuellt – kontrollera att de finns och är korrekt har angetts för körning av paket ska lyckas, t.ex. Om du vill åsidosätta värdet för användarvariabeln att ange dess sökväg i formatet: `\Package.Variables[User::<variable name>].Value`. 
+   
+   Om du har använt den **EncryptSensitiveWithUserKey** skyddsnivån när du skapar ditt paket via SSDT och **File System (paket)** /**File System (projekt)** är markerad som plats för paketet du också behöva ange dina känsliga egenskaper för att tilldela dem värden i konfigurationsfiler eller på den här fliken på nytt. 
+   
+   När du tilldelar värden till dina egenskaper, kan du lägga till dynamiskt innehåll genom att använda uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna.
 
    ![Ange egenskaper på fliken egenskapen åsidosätter](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+
+   De värden som angetts i konfigurationsfiler och på den *SSIS parametrar* fliken kan åsidosättas med hjälp av den **anslutning chefer**/**egenskapen åsidosätter** flikar, medan de tilldelas den **anslutning chefer** fliken också kan åsidosättas med hjälp av den **egenskapen åsidosätter** fliken.
 
 8. Verifiera pipeline-konfigurationen genom att klicka på **verifiera** i verktygsfältet. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>** .
 
@@ -102,7 +140,7 @@ I det här steget ska utlösa du en pipelinekörning.
 
    ![Verifiera paketet körningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. Du kan också hämta SSISDB körnings-ID från utdata från aktiviteten pipelinekörning och använda det ID: T för att kontrollera mer omfattande körningsloggar och felmeddelanden i SSMS.
+4. Du kan också hämta SSISDB körnings-ID från utdata från aktiviteten pipelinekörning och använda det ID: T för att kontrollera mer omfattande körningsloggar och felmeddelanden i SQL Server Management Studio (SSMS).
 
    ![Få körnings-ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 

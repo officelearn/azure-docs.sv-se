@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153218"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460693"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -119,7 +119,7 @@ Autentiseringsuppgifterna för dina lokala datalager alltid krypteras och lagras
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Portar som används när du krypterar länkad tjänst på lokal integration runtime
-Som standard använder PowerShell port 8050 på datorn med lokal integration runtime för säker kommunikation. Om det behövs kan du ändra den här porten.  
+Som standard använder PowerShell port 8060 på datorn med lokal integration runtime för säker kommunikation. Om det behövs kan du ändra den här porten.  
 
 ![HTTPS-port för gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Ja. Mer information finns [här](https://azure.microsoft.com/blog/sharing-a-self
 
 **Vilka är portkraven för den lokala integreringskörningen ska fungera?**
 
-Lokal integration runtime gör HTTP-baserade anslutningar för att ansluta till internet. Utgående portarna 443 måste vara tillgänglig för den lokala integreringskörningen att upprätta anslutningen. Öppna inkommande port 8050 endast på datornivå (inte företagets brandvägg nivå) för Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källan eller målet, måste du öppna port 1433 samt. Mer information finns i den [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of-gateway) avsnittet. 
+Lokal integration runtime gör HTTP-baserade anslutningar för att ansluta till internet. Utgående portarna 443 måste vara tillgänglig för den lokala integreringskörningen att upprätta anslutningen. Öppna inkommande port 8060 endast på datornivå (inte företagets brandvägg nivå) för Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källan eller målet, måste du öppna port 1433 samt. Mer information finns i den [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of-gateway) avsnittet. 
 
 
 ## <a name="next-steps"></a>Nästa steg

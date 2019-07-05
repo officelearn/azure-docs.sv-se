@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till och från SQL Server med Azure Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data till/från SQL Server-databas som finns lokalt eller i en Azure-dator med Azure Data Factory.
+title: Kopiera data till och från SQL Server med hjälp av Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du flyttar data till och från SQL Server-databas som finns lokalt eller i en Azure virtuell dator med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,39 +12,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 62845557f33fd9c4f3c2ec4e239213c75101955d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a6767c7c8931898c44fd748dbe4299b8ed23eb9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275976"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443278"
 ---
-# <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med hjälp av Azure Data Factory
+> [!div class="op_single_selector" title1="Välj versionen av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Aktuell version](connector-sql-server.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till en SQL Server-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till en SQL Server-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från/till SQL Server-databas till alla mottagare som stöds eller kopiera data från alla dataarkiv till SQL Server-databas. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från och till en SQL Server-databas till alla datalager för mottagare som stöds. Eller du kan kopiera data från alla dataarkiv till en SQL Server-databas. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder den här SQL Server-anslutningen:
 
-- SQL Server version 2016, 2014, 2012, 2008 R2, 2008 och 2005
-- Kopiera data med hjälp av **SQL** eller **Windows** autentisering.
-- Hämta data med SQL-fråga eller lagrad procedur som källan.
-- Som mottagare, data läggs till måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
+- SQL Server-versioner 2016, 2014, 2012, 2008 R2, 2008 och 2005.
+- Kopiera data med hjälp av SQL- eller Windows-autentisering.
+- Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
+- Som en mottagare, lägga till data till en måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
 
 >[!NOTE]
->SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** stöds inte nu av den här anslutningen. Du kan använda för att arbeta runt [allmän ODBC-anslutningsprogram](connector-odbc.md) och ODBC-drivrutinen. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) med ODBC-drivrutinen nedladdning och anslutningen sträng konfigurationer.
+>SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte av denna koppling nu. Du kan använda för att arbeta runt en [allmän ODBC-anslutningsprogram](connector-odbc.md) och en ODBC-drivrutinen. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) med ODBC-drivrutinen nedladdning och anslutningen sträng konfigurationer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda data från en SQL Server-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information. Integreringskörningen innehåller en inbyggd drivrutin för SQL Server-databas, måste du därför inte installera några drivrutinen manuellt när du kopierar data från/till SQL Server-databas.
+Om du vill använda data från en SQL Server-databas som inte är offentligt tillgänglig, måste du konfigurera en lokal integration runtime. Mer information finns i [integration runtime med egen värd](create-self-hosted-integration-runtime.md). Integration runtime får en inbyggd drivrutin för SQL Server-databasen. Du behöver inte installera några drivrutinen manuellt när du kopierar data från eller till SQL Server-databasen.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -56,16 +56,16 @@ Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **SqlServer** | Ja |
-| connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel.<br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
-| userName |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
-| password |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| type | Type-egenskapen måste anges till **SqlServer**. | Ja |
+| connectionString |Ange **connectionString** information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel.<br/>Markera det här fältet som **SecureString** ska lagras på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösenord i Azure Key Vault. Om den är SQL-autentisering kan du hämta den `password` konfiguration av anslutningssträngen. Mer information finns i JSON-exemplet som följer tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| userName |Ange ett användarnamn om du använder Windows-autentisering. Ett exempel är **domainname\\användarnamn**. |Nej |
+| password |Ange ett lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som **SecureString** ska lagras på ett säkert sätt i Azure Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
+| connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Du kan använda en lokal integration runtime eller Azure integration runtime om ditt datalager är tillgänglig för allmänheten. Om den inte anges används standard Azure integration runtime. |Nej |
 
 >[!TIP]
->Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
+>Om du stöter på ett fel med felkod ”UserErrorFailedToConnectToSqlServer” och ett meddelande som ”sessionens tidsgräns för databasen är XXX och har nåtts”, lägger du till `Pooling=false` till din anslutningssträng och försök igen.
 
-**Exempel 1: med SQL-autentisering**
+**Exempel 1: Använda SQL-autentisering**
 
 ```json
 {
@@ -86,7 +86,7 @@ Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 }
 ```
 
-**Exempel 2: med SQL-autentisering med lösenord i Azure Key Vault**
+**Exempel 2: Använda SQL-autentisering med ett lösenord i Azure Key Vault**
 
 ```json
 {
@@ -115,7 +115,7 @@ Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 }
 ```
 
-**Exempel 3: med hjälp av Windows-autentisering**
+**Exempel 3: Använd Windows-autentisering**
 
 ```json
 {
@@ -145,14 +145,14 @@ Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SQL Server-datauppsättningen.
 
-För att kopiera data från/till SQL Server-databas, stöds följande egenskaper:
+För att kopiera data från och till en SQL Server-databas, stöds följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
-| tableName |Namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
+| type | Type-egenskapen för datauppsättningen måste anges till **SqlServerTable**. | Ja |
+| tableName |Den här egenskapen är namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
-**Exempel:**
+**Exempel**
 
 ```json
 {
@@ -174,25 +174,25 @@ För att kopiera data från/till SQL Server-databas, stöds följande egenskaper
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SQL Server-datakälla och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för användning att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SQL Server-källa och mottagare.
 
-### <a name="sql-server-as-source"></a>SQL Server som källan
+### <a name="sql-server-as-a-source"></a>SQL Server som en källa
 
-För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiviteten till **SqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiviteten till **SqlSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitet källa:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SqlSource** | Ja |
-| sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. |Nej |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SqlSource**. | Ja |
+| sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. |Nej |
+| sqlReaderStoredProcedureName |Den här egenskapen är namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
+| storedProcedureParameters |Det är dessa parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 
 **Saker att Observera:**
 
-- Om den **sqlReaderQuery** har angetts för SqlSource, Kopieringsaktivitet körs den här frågan mot SQL Server-källa för att hämta data. Du kan också ange en lagrad procedur genom att ange den **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
-- Om du inte anger ”sqlReaderQuery” eller ”sqlReaderStoredProcedureName” de kolumner som definierats i avsnittet ”struktur” i datauppsättningen JSON används för att skapa en fråga (`select column1, column2 from mytable`) ska köras mot SQL Server. Om definitionen för datauppsättningen inte har ”strukturen”, markeras alla kolumner från tabellen.
+- Om **sqlReaderQuery** har angetts för **SqlSource**, Kopieringsaktivitet körs den här frågan mot SQL Server-källa för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** tar parametrar för den lagrade proceduren.
+- Om du inte anger något **sqlReaderQuery** eller **sqlReaderStoredProcedureName**, de kolumner som definierats i avsnittet ”struktur” i datauppsättningen JSON som används för att skapa en fråga. Frågan `select column1, column2 from mytable` körs mot SQL Server. Om definitionen för datauppsättningen inte har ”struktur”, markeras alla kolumner från tabellen.
 
-**Exempel: med SQL-fråga**
+**Exempel: Använd SQL-fråga**
 
 ```json
 "activities":[
@@ -224,7 +224,7 @@ För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiv
 ]
 ```
 
-**Exempel: använda lagrad procedur**
+**Exempel: Använda en lagrad procedur**
 
 ```json
 "activities":[
@@ -260,7 +260,7 @@ För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiv
 ]
 ```
 
-**Definitionen av lagrade proceduren:**
+**Definitionen för lagrad procedur**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -279,24 +279,24 @@ END
 GO
 ```
 
-### <a name="sql-server-as-sink"></a>SQL Server som mottagare
+### <a name="sql-server-as-a-sink"></a>SQL Server som en mottagare
 
 > [!TIP]
-> Läs mer om stöds skrivning beteenden, konfigurationer och bästa praxis från [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Mer information om den stöds skrivning beteenden, konfigurationer och bästa praxis från [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
+För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitet mottagare:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
-| writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är: heltal (antal rader). Som standard Data Factory dynamiskt kan bestämma lämpliga batchstorleken baserat på radstorleken. |Nej |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
-| preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till SQL Server. Det ska bara anropas en gång per kopia som kör. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen.<br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
-| sqlWriterTableType |Ange ett tabellnamn typ som ska användas i den lagrade proceduren. Kopieringsaktivitet tillhandahåller data som flyttas i en temporär tabell med den här tabellen. Lagrad procedur kod kan sedan sammanfoga data kopieras med befintliga data. |Nej |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja |
+| writeBatchSize |Antalet rader att infoga i SQL-tabell *per batch*.<br/>Tillåtna värden är heltal för hur många rader. Som standard anger Azure Data Factory dynamiskt lämplig batchstorlek baserat på radstorleken. |Nej |
+| writeBatchTimeout |Denna egenskap anger väntetiden batch Infoga åtgärd ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är för tidsangivelse. Ett exempel är ”00: 30:00” i 30 minuter. |Nej |
+| preCopyScript |Den här egenskapen anger en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till SQL Server. Den anropas bara en gång per kopia som kör. Du kan använda den här egenskapen för att rensa upp de förinstallerade data. |Nej |
+| sqlWriterStoredProcedureName |Det här namnet är för den lagrade proceduren som definierar hur du använder källdata i måltabellen.<br/>Den här lagrade proceduren är *anropas per batch*. För att göra en åtgärd som körs bara en gång och har inget att göra med källdata, till exempel ta bort eller trunkera använder den `preCopyScript` egenskapen. |Nej |
+| storedProcedureParameters |Dessa parametrar används för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrarna måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
+| sqlWriterTableType |Den här egenskapen anger ett tabellnamn typ som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data som flyttas i en temporär tabell med den här tabellen. Lagrad procedur kod kan sedan sammanfoga de data som ska kopieras med befintliga data. |Nej |
 
-**Exempel 1: Lägg till data**
+**Exempel 1: Lägga till data**
 
 ```json
 "activities":[
@@ -328,9 +328,9 @@ För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten 
 ]
 ```
 
-**Exempel 2: anropa en lagrad procedur vid kopiering**
+**Exempel 2: Anropa en lagrad procedur vid kopiering**
 
-Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -369,31 +369,31 @@ Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-proce
 
 ## <a name="best-practice-for-loading-data-into-sql-server"></a>Bästa praxis för inläsning av data i SQL Server
 
-När du kopierar data till SQL Server kan kräva olika skrivning beteende:
+När du kopierar data till SQL Server, kan du kräva olika skrivning beteende:
 
-- **[Lägg till](#append-data)** : min källdata har bara nya poster;
-- **[Upsert](#upsert-data)** : min källdata har både infogningar och uppdateringar.
-- **[Skriv över](#overwrite-entire-table)** : Jag vill fylla på hela dimensionstabellen varje gång;
-- **[Skriva med anpassad logik](#write-data-with-custom-logic)** : Jag behöver ytterligare bearbetning innan den slutliga infogningen i måltabellen.
+- [Lägg till](#append-data): Mina källdata har endast nya poster.
+- [Upsert](#upsert-data): Mina källdata har både infogningar och uppdateringar.
+- [Skriv över](#overwrite-the-entire-table): Jag vill fylla på hela dimensionstabellen varje gång.
+- [Skriva med anpassad logik](#write-data-with-custom-logic): Jag behöver ytterligare bearbetning innan den slutliga infogningen i måltabellen.
 
-Finns i respektive avsnitt om hur du konfigurerar i ADF och bästa praxis.
+Finns i respektive avsnitt att konfigurera i Azure Data Factory och bästa praxis.
 
 ### <a name="append-data"></a>Lägga till data
 
-Det här är standardinställningen för den här SQL Server-anslutningen för mottagare och ADF gör **massinfogning** att skriva till din tabell effektivt. Du kan helt enkelt konfigurera källa och mottagare i enlighet med detta i kopieringsaktiviteten.
+Data läggs till är standardbeteendet för den här SQL Server-anslutningen för mottagare. Azure Data Factory har en massinfogning att skriva till din tabell effektivt. Du kan konfigurera källa och mottagare i enlighet med detta i kopieringsaktiviteten.
 
 ### <a name="upsert-data"></a>Upserta data
 
-**Alternativet jag** (föreslås särskilt när du har stora mängder data att kopiera): den **metod för de flesta högpresterande** göra upsert är följande: 
+**Alternativ 1:** När du har en stor mängd data för att kopiera, Använd följande metod för att göra en upsert: 
 
-- Det första utnyttja en [temporära tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) till massinläsning alla poster med hjälp av Kopieringsaktivitet. Eftersom åtgärder mot tillfälliga tabeller inte loggas, du kan läsa in miljontals poster i sekunder.
-- Kör en lagringsprocedur-aktivitet i ADF att tillämpa en [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (eller infoga/uppdatera)-instruktionen och Använd temporära tabellen som källa för att utföra alla uppdaterar eller infogar som en enda transaktion vilket minskar mängden görs och logga åtgärder. Temporär tabell kan trunkeras för att vara redo för nästa cykel för upsert i slutet av aktiviteten lagringsprocedur. 
+- Använd först en [temporära tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) till massinläsning alla poster med hjälp av kopieringsaktiviteten. Eftersom åtgärder mot tillfälliga tabeller inte är inloggad, du kan läsa in flera miljoner poster i sekunder.
+- Kör en lagrad procedur-aktivitet i Azure Data Factory för att tillämpa en [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) eller INSERT/UPDATE-instruktion. Använda den temporära tabellen som en källa för att utföra alla uppdaterar eller infogar som en enda transaktion. På så vis minskar antalet sändningar och log operations. Den temporära tabellen kan trunkeras om du vill vara redo för nästa cykel för upsert i slutet av aktivitet för lagrad procedur.
 
-I Azure Data Factory, till exempel skapa en pipeline med en **Kopieringsaktivitet** sammankedjade med en **lagringsprocedur-aktivitet** om åtgärden lyckades. Tidigare kopierar data från din källagringen till en tillfällig tabell i databasen säg ” **##UpsertTempTable**” som tabellnamnet i datauppsättningen, sedan det senare anropar en lagringsprocedur för att sammanfoga information från den temporära tabellen i måltabellen, och rensa temporära tabellen.
+I Azure Data Factory, till exempel skapa en pipeline med en **Kopieringsaktivitet** sammankedjade med en **lagringsprocedur-aktivitet**. Tidigare kopierar data från din källagringen till en tillfällig tabell i databasen exempelvis **##UpsertTempTable**, som tabellnamn i datauppsättningen. Det senare sedan anropar en lagrad procedur för att sammanfoga information från den temporära tabellen i måltabellen och rensa den temporära tabellen.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Definiera en lagringsprocedur med MERGE logik som liknar följande, som refereras till från aktiviteten ovan lagringsprocedur i din databas. Förutsatt att målet **marknadsföring** tabell med tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**, och gör upsert baserat på den **profil-ID** kolumn.
+Definiera en lagrad procedur med MERGE logik som i följande exempel, som refereras till från den föregående aktiviteten lagrad procedur i din databas. Anta att målet är den **marknadsföring** tabell med tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -412,28 +412,31 @@ BEGIN
 END
 ```
 
-**Alternativ II:** du kan också välja att [anropa lagrade proceduren i kopieringsaktiviteten](#invoking-stored-procedure-for-sql-sink), vid Obs den här metoden körs för varje rad i källtabellen i stället för att utnyttja bulk insert som standard-metoden i kopieringsaktiviteten, alltså plats inte för storskaliga upsert.
+**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i kopieringsaktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden körs varje rad i källtabellen istället för att använda massinfogning som standard-metod i kopieringsaktiviteten, vilket inte är lämplig för storskalig upsert.
 
-### <a name="overwrite-entire-table"></a>Skriv över hela tabellen
+### <a name="overwrite-the-entire-table"></a>Skriv över hela tabellen
 
-Du kan konfigurera **preCopyScript** -egenskapen i kopieringsaktiviteten mottagare, i vilket fall för varje körningen av kopieringsaktiviteten, ADF kör skriptet först kör kopia om du vill infoga data. Om du vill skriva över hela tabellen med den senaste informationen, kan du till exempel ange ett skript för att först ta bort alla poster innan massinläsning nya data från källan.
+Du kan konfigurera den **preCopyScript** -egenskapen i Kopiera aktivitet mottagare. I det här fallet för varje kopieringsaktiviteten som kör kör Azure Data Factory skriptet först. Sedan körs kopia om du vill infoga data. Exempel: Om du vill skriva över hela tabellen med den senaste informationen, anger du ett skript för att först ta bort alla poster innan du massimportera läsa in nya data från källan.
 
 ### <a name="write-data-with-custom-logic"></a>Skriva data med anpassad logik
 
-Liknande enligt beskrivningen i [Upsert data](#upsert-data) avsnittet när du ska använda ytterligare bearbetning innan sista inmatningen av källdata i tabellen, kan du en) för stor skala in till en tillfällig tabell och sedan anropa en lagrad proceduren eller b) anropar en lagrad procedur vid kopiering.
+Stegen för att skriva data med anpassad logik liknar de som beskrivs i den [Upsert data](#upsert-data) avsnittet. När du ska använda extra bearbetning innan sista inmatningen av källdata i måltabellen för storskalig, du kan göra något av följande: 
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> Anropa lagrade procedur från SQL-mottagare
+- Läsa in till en tillfällig tabell och sedan anropa en lagrad procedur. 
+- Anropa en lagrad procedur vid kopiering.
 
-När du kopierar data till SQL Server-databas, kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar.
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Anropa en lagrad procedur från en SQL-mottagare
+
+När du kopierar data till en SQL Server-databas du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar.
 
 > [!TIP]
-> Anropa lagrade proceduren bearbetar den data rad för rad i stället för massredigering, vilket inte rekommenderas för storskaliga kopia. Läs mer i [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Anropa en lagrad procedur bearbetar data rad för rad i stället för med hjälp av en bulkåtgärd som vi inte rekommenderar för storskaliga kopia. Läs mer i [bästa praxis för inläsning av data i SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-Du kan använda en lagrad procedur när inbyggd kopiera mekanismer som inte servar syfte, t.ex. tillämpa ytterligare bearbetning innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är merge kolumner, leta upp ytterligare värden och infogning i mer än en tabell.
+Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar. Ett exempel är när du vill tillämpa ytterligare bearbetning innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är när du vill slå ihop kolumner, leta upp ytterligare värden och infoga data i mer än en tabell.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
+I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Anta att indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 
-**Datauppsättningen för utdata:** ”tableName” ska vara samma typ parametern tabellnamnet i den lagrade proceduren (se lagrad procedur-skriptet nedan).
+**Datauppsättningen för utdata:** ”TableName” är samma typ parametern tabellnamnet i den lagrade proceduren som visas i följande lagrade proceduren skript:
 
 ```json
 {
@@ -452,7 +455,7 @@ I följande exempel visas hur du använder en lagrad procedur för att göra en 
 }
 ```
 
-Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande sätt.
+Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande sätt:
 
 ```json
 "sink": {
@@ -467,7 +470,7 @@ Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande 
 }
 ```
 
-I databasen, definierar du den lagrade proceduren med samma namn som den **SqlWriterStoredProcedureName**. Den hanterar indata från angivna källan och sammanfogar i utdatatabellen. Parameternamnet av tabelltypen i den lagrade proceduren bör vara samma som den **tableName** definierats i datauppsättningen.
+I databasen, definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den hanterar indata från angivna källan och sammanfogar i utdatatabellen. Parameternamnet av tabelltypen i den lagrade proceduren är samma som **tableName** definierats i datauppsättningen.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -484,7 +487,7 @@ BEGIN
 END
 ```
 
-Definiera tabelltyp med samma namn som sqlWriterTableType i din databas. Observera att schemat för tabelltypen ska vara samma som det schema som returnerades av dina indata.
+I databasen, definierar du tabelltyp med samma namn som **sqlWriterTableType**. Schemat för tabelltypen är samma som det schema som returnerades av dina indata.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -494,13 +497,13 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-Den lagrade proceduren funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
+Den lagrade proceduren funktionen utnyttjar [tabellvärdeparametrar](https://msdn.microsoft.com/library/bb675163.aspx).
 
-## <a name="data-type-mapping-for-sql-server"></a>Datatypen mappning för SQLServer
+## <a name="data-type-mapping-for-sql-server"></a>Datatypsmappningen för SQL Server
 
-När du kopierar data från/till SQL Server, används följande mappningar från SQL Server-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från och till SQL Server, används följande mappningar från SQL Server-datatyper till Azure Data Factory tillfälliga-datatyper. Läs hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren i [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md).
 
-| SQL Server-datatypen | Data factory tillfälliga datatyp |
+| SQL Server-datatypen | Azure Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -536,26 +539,26 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | xml |Xml |
 
 >[!NOTE]
-> För typer mappas till decimaltyp tillfällig stöder för närvarande ADF precision upp till 28. Om du har data med precision som är större än 28, Överväg för att konvertera till en sträng i SQL-frågan.
+> För information om vilka datatyper som mappar till decimaltyp tillfällig stöder för närvarande Azure Data Factory precision upp till 28. Överväg att konvertera till en sträng i en SQL-fråga om du har data som kräver precision som är större än 28.
 
-## <a name="troubleshooting-connection-issues"></a>Felsöka anslutningsproblem
+## <a name="troubleshoot-connection-issues"></a>Felsök anslutningsproblem
 
-1. Konfigurera din SQL Server för att acceptera fjärranslutningar. Starta **SQL Server Management Studio**, högerklicka på **server**, och klicka på **egenskaper**. Välj **anslutningar** i listan och kontrollera **Tillåt fjärranslutningar till servern**.
+1. Konfigurera SQL Server-instansen för att acceptera fjärranslutningar. Starta **SQL Server Management Studio**, högerklicka på **server**, och välj **egenskaper**. Välj **anslutningar** i listan och välj den **Tillåt fjärranslutningar till den här servern** markerar du kryssrutan.
 
     ![Aktivera fjärranslutningar](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    Se [konfigurerar fjärråtkomst Serverkonfigurationsalternativet](https://msdn.microsoft.com/library/ms191464.aspx) detaljerade anvisningar.
+    Detaljerade anvisningar finns i [konfigurera serverkonfigurationsalternativet för fjärråtkomst](https://msdn.microsoft.com/library/ms191464.aspx).
 
-2. Starta **SQL Server Configuration Manager**. Expandera **nätverkskonfiguration för SQL Server** för den instans du vill och väljer **protokoll för MSSQLSERVER**. Du bör se protokoll i den högra rutan. Aktivera TCP/IP genom att högerklicka på **TCP/IP** och klicka på **aktivera**.
+2. Starta **SQL Server Configuration Manager**. Expandera **nätverkskonfiguration för SQL Server** för den instans du vill och väljer **protokoll för MSSQLSERVER**. Protokoll visas i den högra rutan. Aktivera TCP/IP genom att högerklicka på **TCP/IP** och välja **aktivera**.
 
     ![Aktivera TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    Se [aktivera eller inaktivera ett Server-nätverksprotokoll](https://msdn.microsoft.com/library/ms191294.aspx) information och alternativa sätt för att aktivera TCP/IP-protokollet.
+    Mer information och alternativa sätt för att aktivera TCP/IP-protokollet finns i [aktivera eller inaktivera ett server-nätverksprotokoll](https://msdn.microsoft.com/library/ms191294.aspx).
 
-3. I samma fönster dubbelklickar du på **TCP/IP** att starta **TCP/IP-egenskaper** fönster.
-4. Växla till den **IP-adresser** fliken. Rulla ned för att se **IPAll** avsnittet. Anteckna den **TCP-Port** (standardvärdet är **1433**).
-5. Skapa en **regeln för Windows-brandväggen** på datorn för att tillåta inkommande trafik via den här porten.  
-6. **Verifiera anslutningen**: Anslut till SQL-servern med fullständigt kvalificerade namnet genom att använda SQL Server Management Studio från en annan dator. Till exempel: `"<machine>.<domain>.corp.<company>.com,1433"`.
+3. I samma fönster dubbelklickar du på **TCP/IP** att starta den **TCP/IP-egenskaper** fönster.
+4. Växla till den **IP-adresser** fliken. Rulla ned för att se den **IPAll** avsnittet. Anteckna den **TCP-Port**. Standardvärdet är **1433**.
+5. Skapa en **regeln för Windows-brandväggen** på datorn för att tillåta inkommande trafik via den här porten. 
+6. **Verifiera anslutningen**: Anslut till SQL Server med hjälp av ett fullständigt kvalificerat namn genom att använda SQL Server Management Studio från en annan dator. Ett exempel är `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

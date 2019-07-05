@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067062"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491653"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -143,6 +143,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database-databaser. Observera 
 * Förutom nvarchar(max) stöds inte LOB-typerna (inklusive spatial typer) i extern tabelldefinitioner. Som en lösning kan du skapa en vy på fjärrdatabasen som kastar LOB-typ till nvarchar(max), definiera din extern tabell över vyn i stället för bastabellen och skicka den tillbaka till den ursprungliga LOB-typen i dina frågor.
 * Kolumner av datatypen nvarchar(max) i resultatet set inaktivera avancerade batchbearbetning technics som används i elastisk fråga implementering och kan påverka prestanda för fråga om en storleksordning eller två i storlek i icke-kanoniska användningsfall där det är stor mängd ej sammanräknade data överförs till följd av frågan.
 * Kolumnstatistik via externa tabeller stöds inte för närvarande. Tabellstatistik stöds, men måste därför skapas manuellt.
+* Elastisk fråga fungerar bara med Azure SQL Database. Du kan inte använda den för att fråga en lokal SQL Server eller SQL Server på en virtuell dator.
 
 ## <a name="feedback"></a>Feedback
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059259"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442359"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en arbetsyta för Azure Machine Learning-tjänsten?
 
@@ -83,7 +83,7 @@ Kom igång med tjänsten genom att [skapar en arbetsyta](setup-create-workspace.
 När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar docker-behållare som du använder vid träning och när du distribuerar en modell. För att minimera kostnader, ACR är **lazy-loaded** tills distributionsavbildningar har skapats.
-+ [Azure Storage-konto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.
++ [Azure Storage-konto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.  Jupyter-anteckningsböcker som används med dina notebook virtuella datorer lagras här också.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Butiker övervakningsinformation om dina modeller.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Butiker hemligheter som används av compute mål och annan känslig information som behövs av arbetsytan.
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255015"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565690"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella datorer i Azure med PowerShell
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas. 
+Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas.
 
 > [!NOTE]
 > Vi rekommenderar starkt att använda den **TargetResourceGroupName** parametern för att återställa hanterade diskar eftersom det leder till betydande prestandaförbättringar. Dessutom från Az för Azure Powershell-modulen 1.0 och senare, den här parametern är obligatorisk vid en återställning med hanterade diskar
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 När du har återställt diskarna, går du till nästa avsnitt för att skapa den virtuella datorn.
+
+## <a name="replace-disks-in-azure-vm"></a>Ersätt diskar i Azure VM
+
+Ersätt diskar och konfigurationsinformation genom att utföra de stegen nedan:
+
+- Steg 1: [Återställ diskar](backup-azure-vms-automation.md#restore-the-disks)
+- Steg 2: [Koppla från datadisk med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Steg 3: [Koppla datadisken till Windows virtuell dator med PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Skapa en virtuell dator från återställda diskar
 
@@ -718,6 +727,7 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Återställa filer från en virtuell Azure-säkerhetskopiering
 

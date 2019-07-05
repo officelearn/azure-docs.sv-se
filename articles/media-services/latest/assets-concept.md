@@ -1,5 +1,5 @@
 ---
-title: Tillgångar i Media Services – Azure | Microsoft Docs
+title: Tillgångar i Azure Media Services | Microsoft Docs
 description: Den här artikeln innehåller en förklaring av vad tillgångar är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551764"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565815"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Ett fullständigt exempel se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md). I Media Services v3, en jobbindata kan även skapa från HTTPS-URL: er (se [skapa en jobbindata från en HTTPS-URL](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
+## <a name="map-v3-asset-properties-to-v2"></a>Kartegenskaper på v3-tillgång till v2
 
-Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
+I följande tabell visas hur [tillgången](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s egenskaper i v3 mappa till tillgångens egenskaper i v2.
+
+|v3-egenskaper|v2-egenskaper|
+|---|---|
+|ID - (unika) den fullständiga sökvägen i Azure Resource Manager, se exemplen i [tillgången](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|namn – (unika) finns i [namngivningskonventioner](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|ID - värdet (unika) börjar med den `nb:cid:UUID:` prefix.|
+|Skapat|Skapad|
+|description|Namn|
+|lastModified|senast ändrad|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Alternativ - alternativ för att skapa|
+|type||
 
 ## <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
 
@@ -104,6 +117,10 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 <sup>1</sup> medan Media Services har stöd för hantering av innehållet i klartext/utan någon form av kryptering, göra så rekommenderas inte.
 
 <sup>2</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
+
+## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
+
+Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

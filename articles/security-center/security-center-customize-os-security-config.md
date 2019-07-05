@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573600"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551373"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
@@ -56,13 +56,11 @@ Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Cent
 
 1.  Öppna instrumentpanelen för **Security Center**.
 
-2.  I den vänstra rutan väljer **säkerhetsprincip**.      
+2.  I den vänstra rutan väljer **priser och inställningar**.
 
     ![Security Policy list](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Klicka på raden i den prenumeration som du vill anpassa och **redigera inställningar för**.
-
-4. Välj **redigera säkerhetskonfigurationerna**.  
+4. Välj prenumerationen som är tillämpliga och välj **redigera säkerhetskonfigurationerna**.  
 
     ![Fönstret ”Redigera säkerhetskonfigurationerna”](media/security-center-customize-os-security-config/blade.png)
 

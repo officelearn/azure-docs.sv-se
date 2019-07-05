@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427108"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514472"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner
 
@@ -42,7 +42,7 @@ Bild 1 – Azure regionala par
 | Indien |Indien, västra |Södra Indien |
 | Japan |Östra Japan |Västra Japan |
 | Korea |Sydkorea, centrala |Sydkorea, södra |
-| Nordamerika |Östra USA |Västra USA |
+| Nordamerika |East US |Västra USA |
 | Nordamerika |USA, östra 2 |Centrala USA |
 | Nordamerika |Norra centrala USA |Södra centrala USA |
 | Nordamerika |Västra USA 2 |Västra centrala USA 
@@ -77,7 +77,7 @@ Enligt figur 2.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – måste du etablera ytterligare beräkningsresurser i förväg för att säkerställa att resurser är tillgängliga i en annan region vid ett haveri. Mer information finns i [Azure återhämtning, tekniska riktlinjer](resiliency/resiliency-technical-guidance.md).
 
-![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -Geo-Redundant lagring (GRS) är konfigurerat som standard när ett Azure Storage-konto har skapats. Med GRS, är dina data automatiskt replikeras tre gånger inom den primära regionen och tre gånger i den parade regionen. Mer information finns i [redundansalternativ för Azure Storage](storage/common/storage-redundancy.md).
+![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** – om du använder hanterade diskar, Lär dig mer om [interregionala säkerhetskopior](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [replikera datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) från en region till en annan med Azure Site Recovery. Om du använder storage-konton, konfigureras geo-redundant lagring (GRS) som standard när ett Azure Storage-konto har skapats. Med GRS, är dina data automatiskt replikeras tre gånger inom den primära regionen och tre gånger i den parade regionen. Mer information finns i [redundansalternativ för Azure Storage](storage/common/storage-redundancy.md).
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – med Azure SQL Database Geo-replikering, kan du konfigurera asynkron replikering av transaktioner till alla regioner i världen; men vi rekommenderar att du distribuerar dessa resurser i en länkad region för de flesta scenarier med haveriberedskap. Mer information finns i [Geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 

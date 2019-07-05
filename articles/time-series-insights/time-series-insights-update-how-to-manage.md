@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237596"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446818"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights Preview
 
@@ -45,7 +45,7 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
 
 1. Välj den **PAYG** knappen den **SKU** menyn. Ange ett namn på miljö och välj vilken prenumerationsgrupp och vilken resursgrupp som du använder. Välj en plats som stöds för den miljö som ska köras i.
 
-   [![Skapa en Azure Time Series Insights-instans.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Skapa en Azure Time Series Insights-instans.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Ange en tidsserie-ID.
 
@@ -56,7 +56,7 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
 
 1. Skapa ett Azure storage-konto genom att välja ett lagringskontonamn och utse ett alternativ för replikering. Gör automatiskt skapar ett Azure Storage general-purpose v1-konto. Det kommer att skapas i samma region som förhandsversion av Azure Time Series Insights-miljö som du valde tidigare.
 
-    [![Skapa ett Azure storage-konto för din instans](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Skapa ett Azure storage-konto för din instans](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Alternativt kan du lägga till en händelsekälla.
 
@@ -67,11 +67,11 @@ Följande steg beskriver hur du skapar en förhandsversion av Azure Time Series 
      > [!TIP]
      > Kötid meddelande kanske inte den bästa konfigurerade inställningen för att använda batch händelse eller historiska data överför scenarier. Se till att kontrollera ditt beslut att använda eller inte använda en tidsstämpel-egenskapen i sådana fall.
 
-     [![Händelse-flik för datakälla](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Händelse-flik för datakälla](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Bekräfta att din miljö har etablerats med de önskade inställningarna.
 
-    [![Granska + skapa flik](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Granska + skapa flik](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Hantera miljön
 
@@ -88,7 +88,7 @@ Du kan hantera din förhandsversion av Azure Time Series Insights-miljö med hj�
 
 * Azure-portalens **referensdata** bladet har tagits bort i förhandsversionen av Azure Time Series Insights eftersom referensdata inte är en komponent i PAYG-miljöer.
 
-[![Time Series Insights Preview-miljö i Azure portal](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Time Series Insights Preview-miljö i Azure portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

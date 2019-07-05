@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734464"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491990"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -186,7 +186,7 @@ Belastningsutjämnare är ändamålsenligt flexibla i samband med Tillgänglighe
 
 Belastningsutjämnaren gör det enkelt att ha en enda IP-adress som en zonredundant klientdel. En zonredundant IP-adress på ett säkert sätt kan fungera en zonindelade resursen i alla zoner och kan överleva en eller flera zonen fel så länge en zon är felfri för regionen. En zonindelad klientdel är däremot en minskning av tjänsten till en enskild zon och resurser öde med respektive zonen.
 
-Redundans innebär inte hitless datapath eller kontrollplanet;  Det är uttryckligen dataplanet. Zonredundant flöden kan använda alla zoner och flöden för en kund använder alla felfria zoner i en region. Om zonen kraschar påverkas inte trafikflöden med felfri zoner i det här läget i tid.  Trafikflöden med hjälp av en zon vid tidpunkten för felet zon kan påverkas men program kan återställas och dessa flöden kan fortsätta i återstående felfria zonerna i regionen vid återöverföring eller reestablishment när Azure har konvergerats runt zon-fel.
+Redundans innebär inte hitless datapath eller kontrollplanet;  Det är uttryckligen dataplanet. Zonredundant flöden kan använda alla zoner och flöden för en kund använder alla felfria zoner i en region. Om zonen kraschar påverkas inte trafikflöden med felfri zoner i det här läget i tid.  Trafikflöden med hjälp av en zon vid tidpunkten för felet zon kan påverkas men program kan återställas. Dessa flöden kan fortsätta i återstående felfria zonerna i regionen vid återöverföring eller reestablishment, när Azure har konvergerats runt zon-fel.
 
 ### <a name="xzonedesign"></a> Mellan zon gränser
 

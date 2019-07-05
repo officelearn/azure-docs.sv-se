@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461569"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477868"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera regler för smart identifiering för Application Insights med hjälp av Azure Resource Manager-mallar
 
@@ -29,12 +29,14 @@ Den här metoden kan användas när du distribuerar nya Application Insights-res
 
 Du kan konfigurera följande inställningar för en regel för smart identifiering:
 - Om regeln är aktiverad (standard är **SANT**.)
-- Om e-postmeddelanden ska skickas till prenumerationsägare, deltagare och läsare när en identifiering hittas (standardinställningen är **SANT**.)
+- Om e-postmeddelanden ska skickas till användare som är kopplad till prenumerationens [övervakning läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervakning deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roller när en identifiering hittas (standardinställningen är **SANT**.)
 - Eventuella ytterligare e-mottagare som ska få ett meddelande när en identifiering hittas.
-- * E-postkonfigurationen är inte tillgänglig för regler för Smart identifiering märkta _förhandsversion_.
+    -  E-postkonfigurationen är inte tillgänglig för regler för Smart identifiering märkta _förhandsversion_.
 
 För att konfigurera regelinställningar för via Azure Resource Manager måste regelkonfigurationen för smart identifiering är nu tillgänglig som en inre resurs i Application Insights-resurs med namnet **ProactiveDetectionConfigs**.
 Varje regel för smart identifiering kan konfigureras med unika meddelandeinställningar för maximal flexibilitet.
+
+## 
 
 ## <a name="examples"></a>Exempel
 
@@ -136,12 +138,46 @@ Se till att ersätta resursnamnet för Application Insights och för att ange de
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Varningsregel för misslyckat avvikelser v2 (inte klassisk)
+
+Azure Resource Manager-mallen visar konfigurera en aviseringsregel för Felavvikelser-v2 med en allvarlighetsgrad 2. Den här nya versionen av Felavvikelser varningsregeln är en del av den nya Azure avisering plattform och ersätter den klassiska versionen som dras som en del av den [klassisk aviseringar tillbakadragande processen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Azure Resource Manager-mallen är unika för varningsregeln Felavvikelser v2 och skiljer sig från de andra klassiska reglerna för Smart identifiering beskrivs i den här artikeln.   
+
 ## <a name="smart-detection-rule-names"></a>Namn på smart identifiering
 
 Nedan visas en tabell med smart identifiering namn som de visas i portalen, tillsammans med sina interna namn som ska användas i Azure Resource Manager-mallen.
 
 > [!NOTE]
-> Regler för smart identifiering markerats som förhandsversion inte stöder e-postmeddelanden. Du kan därför bara ange egenskapen enabled för dessa regler. 
+> Regler för smart identifiering märkta _förhandsversion_ stöder inte e-postmeddelanden. Därför kan du kan bara ange den _aktiverat_ -egenskapen för de här reglerna. 
 
 | Azure portal Regelnamn | Internt namn
 |:---|:---|
@@ -154,18 +190,7 @@ Nedan visas en tabell med smart identifiering namn som de visas i portalen, till
 | Onormal uppgång av undantagsvolym (förhandsversion) | extension_exceptionchangeextension |
 | Potentiell minnesläcka har identifierats (förhandsversion) | extension_memoryleakextension |
 | Potentiella säkerhetsproblem har identifierats (förhandsversion) | extension_securityextensionspackage |
-| Resursen användning problem har identifierats (förhandsversion) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
-
-Det här avsnittet endast gäller för klassiska aviseringar för smart identifiering och hjälper dig att optimera dina aviseringar till att säkerställa att endast dina önskade mottagare får meddelanden. Vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md) och det nya aviseringsgränssnittet referera till den [aviseringar översikten](../platform/alerts-overview.md). Smart identifiering varnar för närvarande endast stöd för klassiska aviseringar uppstår. Det enda undantaget är [aviseringar för smart identifiering på Azure-molntjänster](./proactive-cloud-services.md). Kontrollera avisering meddelande för smart identifiering aviseringar i Azure cloud services användning [åtgärdsgrupper](../platform/action-groups.md).
-
-* Vi rekommenderar användning av specifika mottagare för smart identifiering/klassisk varningsmeddelanden.
-
-* För smart identifiering aviseringar den **grupp/grupp** kryssrutan alternativet, om aktiverad, skickar till användare med ägare, deltagare eller läsare roller i prenumerationen. I praktiken _alla_ användare med åtkomst till prenumerationen Application Insights-resursen omfattas och ska ta emot meddelanden. 
-
-> [!NOTE]
-> Om du använder den **grupp/grupp** kryssrutan alternativet, och inaktivera det, kommer du inte kunna återställa ändringen.
+| Onormal uppgång av dagliga datavolymen (förhandsversion) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Nästa steg
 

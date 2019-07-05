@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752567"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551769"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
@@ -71,7 +71,7 @@ Att publicera servrar till Security Center, klickar du på **gå till Azure Secu
 
 ## <a name="enable-windows-defender-atp-integration"></a>Aktivera Windows Defender ATP-integrering
 
-Om du vill visa om Windows Defender ATP-integrering aktiverat, Välj **Säkerhetscenter** > **säkerhetsprincip** > **prenumeration**  >  **Redigera inställningar för**.
+Om du vill visa om Windows Defender ATP-integrering aktiverat, Välj **Säkerhetscenter** > **priser och inställningar** > klickar du på din prenumeration.
 
   ![Azure Security Center-principhantering](media/security-center-wdatp/policy-management.png)
 

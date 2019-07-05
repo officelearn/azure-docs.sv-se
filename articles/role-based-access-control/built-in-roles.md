@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341495"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442876"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -54,9 +54,15 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs Runbook - egenskaperna för att kunna skapa jobb för runbook. |
 | [Avere deltagare](#avere-contributor) | Kan skapa och hantera ett Avere vFXT-kluster. |
 | [Avere Operator](#avere-operator) | Används av Avere vFXT klustret för att hantera klustret |
+| [Azure Event Hubs-Dataägaren (förhandsversion)](#azure-event-hubs-data-owner-preview) | Tillåter fullständig åtkomst till Azure Event Hubs-resurser. |
+| [Azure Event Hubs Data mottagare (förhandsversion)](#azure-event-hubs-data-receiver-preview) | Gör att få åtkomst till Azure Event Hubs-resurser. |
+| [Azure Event Hubs Data avsändaren (förhandsversion)](#azure-event-hubs-data-sender-preview) | Kan skicka åtkomst till Azure Event Hubs-resurser. |
 | [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Lista över kluster administratörsåtgärd autentiseringsuppgifter. |
 | [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Lista över autentiseringsuppgifter för kluster användaråtgärd. |
 | [Azure Maps Data-läsare (förhandsgranskning)](#azure-maps-data-reader-preview) | Beviljar åtkomst till Läs mappa relaterade data från ett Azure maps-konto. |
+| [Azure Service Bus-Dataägaren (förhandsversion)](#azure-service-bus-data-owner-preview) | Tillåter fullständig åtkomst till Azure Service Bus-resurser. |
+| [Azure Service Bus Data mottagare (förhandsversion)](#azure-service-bus-data-receiver-preview) | Möjliggör får tillgång till Azure Service Bus-resurser. |
+| [Azure Service Bus Data avsändaren (förhandsversion)](#azure-service-bus-data-sender-preview) | Kan skicka åtkomst till Azure Service Bus-resurser. |
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Hjälper dig att hantera säkerhetskopieringstjänsten, men de kan inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera Säkerhetskopieringstjänster, med undantag för borttagning av säkerhetskopiering, skapa valv eller ge åtkomst till andra |
@@ -88,7 +94,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, start, starta om och stänga av virtuella datorer i Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig kontrollera vem som har åtkomst till dem inte. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [Dataägaren för Event Hubs](#event-hubs-data-owner) | Ger fullständig åtkomst till Azure Event Hubs-resurser | 
 | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera EventGrid händelseåtgärder för prenumerationen. |
 | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Kan du läsa EventGrid händelseprenumerationer. |
 | [HDInsight-kluster-Operator](#hdinsight-cluster-operator) | Kan du läsa och ändra konfigurationerna för HDInsight-kluster. |
@@ -119,7 +124,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Säkerhetsadministratör](#security-admin) | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 | [Säkerhetshanteraren (bakåtkompatibel)](#security-manager-legacy) | Det här är en äldre roll. Använd säkerhetsadministratör istället |
 | [Security Reader](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
-| [Service Bus-Dataägaren](#service-bus-data-owner) | Tillåter fullständig åtkomst till Azure Service Bus-resurser |
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery Operator](#site-recovery-operator) | Låter dig redundans och återställning efter fel, men inte utföra andra Site Recovery-hanteringsåtgärder |
 | [Site Recovery Reader](#site-recovery-reader) | Kan du visa Site Recovery-status men inte utföra andra hanteringsåtgärder |
@@ -130,15 +134,15 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [SQL-hanterad instans-deltagare](#sql-managed-instance-contributor) | Låter dig hantera SQL-hanterade instanser och krävs för nätverkskonfiguration, men det går inte att ge åtkomst till andra. |
 | [SQL Security Manager](#sql-security-manager) | Låter dig hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte tillgång till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Låter dig hantera SQL-servrar och databaser, men inte åtkomst till dem och deras-säkerhetsrelaterade principer. |
-| [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men inte tillgång till dem. |
-| [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Storage-konto operatörer av lagringskontonycklar får lista och återskapa nycklar till Lagringskonton |
-| [Storage Blob Data-deltagare](#storage-blob-data-contributor) | Tillåter Läs-, skriva och ta bort åtkomst till Azure Storage blob-behållare och data |
-| [Storage Blob Data-ägare](#storage-blob-data-owner) | Tillåter fullständig åtkomst till Azure Storage blob-behållare och data, inklusive tilldela POSIX-åtkomstkontroll. |
-| [Storage Blob Data-läsare](#storage-blob-data-reader) | Tillåter läsåtkomst till Azure Storage blob-behållare och data |
-| [Lagringsködata-deltagare](#storage-queue-data-contributor) | Tillåter Läs-, Skriv- och borttagningssåtkomst till Azure Storage-köer och Kömeddelanden |
-| [Storage-kö registerförare meddelande](#storage-queue-data-message-processor) | Tillåter för peek, ta emot och ta bort åtkomst till Azure Storage-Kömeddelanden |
-| [Storage-kö Data meddelandets avsändare](#storage-queue-data-message-sender) | Tillåter för att skicka meddelanden för Azure Storage-kö |
-| [Lagringsködata-läsare](#storage-queue-data-reader) | Tillåter läsåtkomst till Azure Storage-köer och Kömeddelanden |
+| [Lagringskontodeltagare](#storage-account-contributor) | Gör det möjligt för hantering av storage-konton. Ger inte åtkomst till data i lagringskontot. |
+| [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Tillåter att lista och återskapa åtkomstnycklarna för lagringskontot. |
+| [Storage Blob Data-deltagare](#storage-blob-data-contributor) | Läsa, skriva och ta bort Azure Storage-behållare och blobbar. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage Blob Data-ägare](#storage-blob-data-owner) | Ger fullständig åtkomst till Azure Storage blob-behållare och data, inklusive tilldela POSIX-åtkomstkontroll. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage Blob Data-läsare](#storage-blob-data-reader) | Läsning och listor Azure Storage-behållare och blobbar. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Lagringsködata-deltagare](#storage-queue-data-contributor) | Läsa, skriva och ta bort Azure Storage-köer och Kömeddelanden. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage-kö registerförare meddelande](#storage-queue-data-message-processor) | Granska, hämta och ta bort ett meddelande från ett Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage-kö Data meddelandets avsändare](#storage-queue-data-message-sender) | Lägga till meddelanden i en Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Lagringsködata-läsare](#storage-queue-data-reader) | Läsning och listor Azure Storage-köer och Kömeddelanden. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Supportförfrågningsdeltagare](#support-request-contributor) | Kan du skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig kontrollera vem som har åtkomst till dem inte. |
 | [Administratör för användaråtkomst](#user-access-administrator) | Kan du hantera användaråtkomsten till Azure-resurser. |
@@ -548,6 +552,51 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs-Dataägaren (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Event Hubs-resurser. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Åtgärder** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs Data mottagare (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Gör att få åtkomst till Azure Event Hubs-resurser. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Åtgärder** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs Data avsändaren (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan skicka åtkomst till Azure Event Hubs-resurser. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Åtgärder** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Administratörsroll för Azure Kubernetes Service-kluster
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus-Dataägaren (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Service Bus-resurser. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Åtgärder** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus Data mottagare (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Möjliggör får tillgång till Azure Service Bus-resurser. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Åtgärder** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus Data avsändaren (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan skicka åtkomst till Azure Service Bus-resurser. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Åtgärder** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Azure Stack-registrering ägare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -625,7 +723,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhetskopieringsjobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Skapa och hantera metadata som rör hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av åtgärder för hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Skapa och hantera principer för säkerhetskopiering |
@@ -691,7 +788,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhetskopieringsjobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av åtgärder för hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
@@ -758,7 +854,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returnerar resultat från säkerhetskopiering för Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
@@ -1409,22 +1504,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="event-hubs-data-owner"></a>Dataägaren för Event Hubs
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Event Hubs-resurser. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **Åtgärder** |  |
-> | Microsoft.EventHubs/* | Tillåter fullständig åtkomst till Event Hubs-namnområde |
-> | **NotActions** |  |
-> | *Ingen* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Tillåter fullständig dataåtkomst till Event Hubs-namnområdet |
-> | **NotDataActions** |  |
-> | *Ingen* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1721,9 +1800,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Skapa, läsa, uppdatera och ta bort Användartilldelad identitet |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Åtgärder** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Hämtar en befintlig Användartilldelad identitet |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Skapar en ny Användartilldelad identitet eller uppdaterar taggarna associerade med en befintlig Användartilldelad identitet |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Tar bort en befintlig Användartilldelad identitet |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -2073,22 +2152,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | *Ingen* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
-> | **NotDataActions** |  |
-> | *Ingen* |  |
-
-## <a name="service-bus-data-owner"></a>Service Bus-Dataägaren
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Service Bus-resurser. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **Åtgärder** |  |
-> | Microsoft.ServiceBus/* | Tillåter fullständig åtkomst till Service Bus-namnområde |
-> | **NotActions** |  |
-> | *Ingen* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Tillåter fullständig dataåtkomst till Service Bus-namnområde |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 

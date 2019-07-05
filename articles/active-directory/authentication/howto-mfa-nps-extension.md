@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204658"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560764"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar vidarebefordra autentiseringsbegäranden, så att de behöver känna till de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 NPS-tillägget är avsedda att fungera med din befintliga infrastruktur. Kontrollera att du har följande krav innan du börjar.
 
@@ -76,14 +76,14 @@ När du installerar tillägget måste katalog-ID och administratörsautentiserin
 
 NPS-servern måste kunna kommunicera med följande webbadresser över portarna 80 och 443.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
 Dessutom kan anslutningen till följande URL: er för att slutföra den [installationen av kortet använder tillhandahållna PowerShell-skript](#run-the-powershell-script)
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -121,9 +121,14 @@ Det finns två faktorer som påverkar vilka autentiseringsmetoder är tillgängl
 1. Lösenord krypteringsalgoritmen som används mellan RADIUS-klienten (VPN, Netscaler-server, eller andra) och NPS-servrar.
    - **PAP** har stöd för alla autentiseringsmetoder av Azure MFA i molnet: telefonsamtal, enkelriktad SMS, mobilapp och mobilapp-Verifieringskod.
    - **CHAPv2** och **EAP** stöd för telefonsamtal och mobilapp.
-2. Inmatningsmetoder som klientprogrammet (VPN, Netscaler-server, eller andra) kan hantera. Till exempel har VPN-klienten något sätt att tillåta användaren att ange en Verifieringskod från en text- eller mobilappen?
 
-När du distribuerar NPS-tillägget kan du använda dessa faktorer för att utvärdera vilka metoder är tillgängliga för användarna. Om RADIUS-klienten stöder PAP, men klienten UX saknar inmatningsfält för en Verifieringskod, sedan telefonsamtal och mobilappen är de två alternativ som stöds.
+      > [!NOTE]
+      > När du distribuerar NPS-tillägget kan du använda dessa faktorer för att utvärdera vilka metoder är tillgängliga för användarna. Om RADIUS-klienten stöder PAP, men klienten UX saknar inmatningsfält för en Verifieringskod, sedan telefonsamtal och mobilappen är de två alternativ som stöds.
+      >
+      > Dessutom om VPN-klienten UX stöder indata arkiverat och du har konfigurerat Nätverksåtkomstpolicy - kan autentiseringen lyckas, men ingen av RADIUS-attributen i nätverksprincipen tillämpas på varken åtkomst nätverksenheten, som RRAS-servern eller VPN-klienten. VPN-klienten kan därför ha mer åtkomst än önskad eller mindre på Ingen åtkomst.
+      >
+
+2. Inmatningsmetoder som klientprogrammet (VPN, Netscaler-server, eller andra) kan hantera. Till exempel har VPN-klienten något sätt att tillåta användaren att ange en Verifieringskod från en text- eller mobilappen?
 
 Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#verification-methods) i Azure.
 
@@ -132,11 +137,10 @@ Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#v
 Innan du distribuerar och använder NPS-tillägget kan måste användare som krävs för att utföra tvåstegsverifiering vara registrerad för MFA. Fler omedelbart behöver testa tillägget när du distribuerar den, du minst ett test-konto som helt har registrerats för Multifaktorautentisering.
 
 Använd de här stegen för att få ett testkonto igång:
-1. Logga in på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) med ett testkonto. 
-2. Följ anvisningarna för att ställa in en verifieringsmetod.
-3. Skapa en princip för villkorlig åtkomst eller [ändra användartillståndet](howto-mfa-userstates.md) att kräva tvåstegsverifiering för testkonto. 
 
-Användarna måste också att följa dessa steg för att registrera innan de kan autentisera med NPS-tillägget.
+1. Logga in på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) med ett testkonto.
+2. Följ anvisningarna för att ställa in en verifieringsmetod.
+3. [Skapa en princip för villkorlig åtkomst](howto-mfa-getstarted.md#create-conditional-access-policy) att kräva multifaktorautentisering för testkonto.
 
 ## <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 
@@ -188,6 +192,14 @@ Om din tidigare datorcertifikat har upphört att gälla och ett nytt certifikat 
 
 > [!NOTE]
 > Om du använder egna certifikat i stället för att certifikat med PowerShell-skriptet kan du se till att de justeras till NPS-namngivningskonventionen. Ämnesnamnet måste vara **CN =\<TenantID\>, OU = Microsoft NPS-tillägget**. 
+
+### <a name="certificate-rollover"></a>Förnya certifikatet
+
+Versionen stöds nu 1.0.1.32 av NPS-tillägget läser flera certifikat. Den här funktionen kommer att underlätta löpande certifikatuppdateringar innan de gått ut. Om organisationen använder en tidigare version av NPS-tillägget, bör du uppgradera till version 1.0.1.32 eller högre.
+
+Certifikat som skapats av den `AzureMfaNpsExtnConfigSetup.ps1` skript är giltiga i 2 år. IT-organisationer bör övervaka certifikat för upphör att gälla. Certifikat för NPS-tillägget är placerade i lokala datorns certifikatarkiv under Personal och utfärdat till klient-ID för skriptet.
+
+När förfallodatumet närmar sig ett certifikat, skapas ett nytt certifikat för att ersätta den.  Den här processen sker genom att köra den `AzureMfaNpsExtnConfigSetup.ps1` igen och hålla samma klient-ID när du tillfrågas. Den här processen ska upprepas på varje NPS-server i din miljö.
 
 ## <a name="configure-your-nps-extension"></a>Konfigurera NPS-tillägget
 
@@ -291,6 +303,10 @@ Kontrollera det lokala datorkontot Certificate Store med hjälp av MMC för att 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och chiffersviter
 
 Vi rekommenderar att äldre och svagare krypteringssviter inaktiveras eller tas bort om inte krävs av din organisation. Information om hur du slutför den här aktiviteten finns i artikeln om hur du [hanterar SSL/TLS-protokoll och chiffersviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+
+### <a name="additional-troubleshooting"></a>Ytterligare felsökning
+
+Ytterligare felsökning vägledning och möjliga lösningar finns i artikeln [åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

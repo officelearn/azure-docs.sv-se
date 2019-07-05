@@ -1,5 +1,5 @@
 ---
-title: Hur du använder MLflow med Azure Machine Learning-tjänsten
+title: Använda MLflow med Azure Machine Learning-tjänsten
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du loggar in mått och artefakter med MLflow-biblioteket till Azure Machine Learning-tjänsten
 services: machine-learning
@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144028"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461658"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>Hur du använder MLflow med Azure Machine Learning-tjänsten (förhandsversion)
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Använda MLflow med Azure Machine Learning-tjänsten (förhandsversion)
 
 Den här artikeln visar hur du använder Mlflows spåra URI och loggning API, gemensamt kallas även MLflow spårning, med Azure Machine Learning-tjänsten för att spåra och logga dina experiment mätvärden och artefakter i din [Azure Machine Learning arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbetsytan en centraliserad, säker och skalbar plats att lagra dina modeller och utbildning mått.
 
 [MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för att hantera livscykeln för din machine learning-experiment. [Spårning av MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) är en komponent i MLflow som loggar och spårar utbildning kör mått och modellen artefakter, oavsett om dina experiment körs lokalt, på en virtuell dator eller på en fjärransluten beräkningskluster.
 ![mlflow med azure machine learning-diagram](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>Jämför MLflow och Azure Machine Learning-tjänsten klienter
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Jämför MLflow och Azure Machine Learning-klienter
 
  I tabellen nedan sammanfattas de olika klienterna som kan använda Azure Machine Learning-tjänsten och deras respektive funktion-funktioner.
 
@@ -41,7 +41,7 @@ Den här artikeln visar hur du använder Mlflows spåra URI och loggning API, ge
 | Hantera beräkning   |   | ✓ | ✓  | ✓ |
 | Distribuera modeller    |   | ✓ |   ✓ | ✓ |
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning Python SDK på den lokala datorn och skapa en Azure Machine Learning-arbetsyta](setup-create-workspace.md#sdk). SDK innehåller anslutning för MLflow att få åtkomst till din arbetsyta.

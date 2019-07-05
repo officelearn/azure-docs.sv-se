@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079670"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428663"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Referens för OData-uttryckssyntax för Azure Search
 
-Använder Azure Search [OData uttryck](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i hela API: et. Oftast OData-uttryck används för den `$orderby` och `$filter` parametrar. Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men som även enkla OData-uttryck egenskapen sökvägar används i många delar av Azure Search REST API. Till exempel sökvägsuttryck används för att referera till underordnade fält av komplexa fält var som helst i API, till exempel när lista icke fält i en [förslagsställare](index-add-suggesters.md), ett [bedömning funktionen](index-add-scoring-profiles.md), `$select` parameter , eller till och med [fielded sökning i Lucene frågor](query-lucene-syntax.md).
+Använder Azure Search [OData uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i hela API: et. Oftast OData-uttryck används för den `$orderby` och `$filter` parametrar. Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men som även enkla OData-uttryck egenskapen sökvägar används i många delar av Azure Search REST API. Till exempel sökvägsuttryck används för att referera till underordnade fält av komplexa fält var som helst i API, till exempel när lista icke fält i en [förslagsställare](index-add-suggesters.md), ett [bedömning funktionen](index-add-scoring-profiles.md), `$select` parameter , eller till och med [fielded sökning i Lucene frågor](query-lucene-syntax.md).
 
 Den här artikeln beskrivs alla dessa typer av OData-uttryck med hjälp av en formell grammatik. Det finns också en [interaktiva diagram](#syntax-diagram) för att visuellt utforska grammatik.
 

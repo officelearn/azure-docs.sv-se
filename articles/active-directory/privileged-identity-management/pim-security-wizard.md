@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286967"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476226"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Säkerhetsguiden för Azure AD-roller i PIM
 
@@ -43,27 +43,27 @@ Det andra steget i guiden ger dig möjlighet att ändra administratörens rollti
 
 1. Klicka på **Azure AD-roller** och klicka sedan på **guiden**.
 
-    ![Azure AD-roller - guiden](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD-roller - sidan i guiden som visar 3 steg för att köra guiden](./media/pim-security-wizard/wizard-start.png)
 
 1. Klicka på **1 identifiera Privilegierade roller**.
 
 1. Granska listan över Privilegierade roller för att se vilka användare som är permanenta eller berättigade.
 
-    ![Identifiera Privilegierade roller användare](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Identifiera Privilegierade roller - rollen fönster som visar permanent och dessa medlemmar](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Klicka på **nästa** att välja de medlemmar som du vill berättiga.
 
-    ![Konvertera medlemmar till kvalificerade](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Konvertera medlemmar till berättigade sida med alternativ att välja medlemmar som du vill göra berättigade för roller](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. När du har valt medlemmar, klickar du på **nästa**.
 
-    ![Granska ändringar](./media/pim-security-wizard/review-changes.png)
+    ![Granska ändringar sidan som visar medlemmar med permanent rolltilldelningar som ska konverteras](./media/pim-security-wizard/review-changes.png)
 
 1. Klicka på **OK** att konvertera permanent tilldelningar till kvalificerade.
 
     När konverteringen har slutförts visas ett meddelande.
 
-    ![Meddelanden](./media/pim-security-wizard/notification-completion.png)
+    ![Meddelande som visar status för en konvertering](./media/pim-security-wizard/notification-completion.png)
 
 Om du vill konvertera andra Privilegierade rolltilldelningar till berättigade kan köra du guiden igen. Om du vill använda PIM-gränssnittet i stället för att guiden finns i [tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md).
 

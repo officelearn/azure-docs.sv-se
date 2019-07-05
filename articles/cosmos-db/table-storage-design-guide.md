@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966093"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447287"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
 
@@ -255,7 +255,7 @@ Många design måste uppfylla kraven för att aktivera sökning efter enheter ba
 Frågeresultat som returneras av tabelltjänsten är sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**.
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure Table-API i Azure DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure Table-API i Azure Cosmos DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Nycklar i Azure Storage-tabell är strängvärden och för att säkerställa att numeriska värden sorteras korrekt, bör du konvertera dem till en fast längd och fylla dem med nollor. Exempelvis anställdas id-värde som du använder som den **RowKey** är ett heltal, bör du konvertera anställnings-id **123** till **00000123**. 
 
@@ -723,7 +723,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Hämta den *n* entiteter som nyligen lagt till en partition med hjälp av en **RowKey** värde som sorteras listan i omvänd datum- och tidsordning.  
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure Table-API i Azure DB sorteras inte efter partitionsnyckel och radnyckel. Det här mönstret är därför lämplig för Azure Table Storage och inte Azure Cosmos DB. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure Table-API i Azure Cosmos DB sorteras inte efter partitionsnyckel och radnyckel. Det här mönstret är därför lämplig för Azure Table Storage och inte Azure Cosmos DB. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt krav är att kunna hämta de senast skapade entiteterna, till exempel de senaste tio utgifter ansökningar som görs av en medarbetare. Tabellen frågar stöd för en **$top** fråga åtgärden att returnera först *n* entiteter från en uppsättning: det finns inga motsvarande frågeåtgärden att returnera de sista n entiteterna i en uppsättning.  

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707971"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433726"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
@@ -21,7 +21,7 @@ Lär dig hur du ställer in [Apache HBase](https://hbase.apache.org/) replikerin
 
 Kluster-replikering använder en käll-push-metod. Ett HBase-kluster kan vara en källa eller ett mål eller det uppfyller båda rollerna samtidigt. Replikering är asynkrona. Målet för replikering är slutlig konsekvens. När källan får redigerar du en kolumnfamilj när replikering har aktiverats, sprids redigera till alla målkluster. När data replikeras från ett kluster till ett annat, spåras källklustret och alla kluster som redan har förbrukat data, för att förhindra replikering slingor.
 
-I den här självstudien konfigurerar du en källa-mål-replikering. Andra klustertopologier finns i den [referensguiden för Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+I den här artikeln kan du ställa in en källa-mål-replikering. Andra klustertopologier finns i den [referensguiden för Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Följande är HBase-replikering användning ärenden för ett enda virtuellt nätverk:
 
@@ -38,8 +38,8 @@ Följande är HBase-replikering användning ärenden för två virtuella nätver
 
 Du kan replikera kluster med hjälp av [skripta åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+## <a name="prerequisites"></a>Förutsättningar
+Du måste ha en Azure-prenumeration innan du påbörjar den här artikeln. Se [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Ställ in miljöer
 
@@ -85,7 +85,7 @@ Vissa hårdkodade värden i mallen:
 
 | Egenskap | Värde |
 |----------|-------|
-| Location | Östra USA |
+| Location | East US |
 | Namn på virtuellt nätverk | &lt;ClusterNamePrevix>-vnet2 |
 | Adressutrymmets prefix | 10.2.0.0/16 |
 | Namn på undernät | subnät 1 |
@@ -396,7 +396,7 @@ Den `print_usage()` delen av den [skriptet](https://raw.githubusercontent.com/Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du konfigurerar Apache HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk. Om du vill veta mer om HDInsight och Apache HBase kan du läsa följande artiklar:
+I den här artikeln beskrivs hur du konfigurerar Apache HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk. Om du vill veta mer om HDInsight och Apache HBase kan du läsa följande artiklar:
 
 * [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase-översikt](./apache-hbase-overview.md)

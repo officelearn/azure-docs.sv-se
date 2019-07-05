@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252783"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508792"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop-tjänster på HDInsight
 
@@ -41,7 +41,7 @@ Alla noder i ett HDInsight-kluster finns i Azure Virtual Network och kan inte n�
 | sshd |23 |SSH |Ansluter klienter till sshd på den sekundära huvudnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
 | Ambari |443 |HTTPS |Ambari-webbgränssnittet. Se [hantera HDInsight med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Se [hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST-API. Se [använda Apache Hive med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda Apache Pig med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda MapReduce med Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST-API. Se [använda MapReduce med Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Ansluter till Hive med ODBC. Se [Anslut Excel till HDInsight med Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Ansluter till ApacheHive med JDBC. Se [Anslut till Apache Hive på HDInsight med Hive JDBC-drivrutinen](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 

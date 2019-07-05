@@ -5,17 +5,17 @@ keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738843"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477718"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
@@ -232,6 +232,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 |Kontrollera Onboarding - Läs VM      | Microsoft.Compute/virtualMachines/read         | Virtuell dator         |
 |Publiceringsstatus för Kontrollera – Läs konto      | Microsoft.Automation/automationAccounts/read  |  Automation-konto   |
 | Onboarding-arbetsyta-kontroll för VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Prenumeration         |
+| Registrera providern Log Analytics |Microsoft.Insights/register/action | Prenumeration|
 
 <sup>1</sup> den här behörigheten krävs för att publicera via en VM-Portal.
 
@@ -251,6 +252,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 |Skapa/redigera sparad sökning     | Microsoft.OperationalInsights/workspaces/write        | Arbetsyta        |
 |Skapa/redigera scope-config     | Microsoft.OperationalInsights/workspaces/write        | Arbetsyta        |
 |Länk-lösning i scope-konfigurationen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Lösning         |
+| Registrera providern Log Analytics |Microsoft.Insights/register/action | Prenumeration|
 |**Steg 2 – publicera flera virtuella datorer**     |         |         |
 |VMOnboarding bladet – skapa MMA-tillägg     | Microsoft.Compute/virtualMachines/write           | Virtuell dator        |
 |Skapa / redigera sparad sökning     | Microsoft.OperationalInsights/workspaces/write           | Arbetsyta        |

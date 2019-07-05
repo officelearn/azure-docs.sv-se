@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538301"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501887"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
 
@@ -55,7 +55,7 @@ Den `type` är resurstyp som måste vara `"Microsoft.VirtualMachineImages/imageT
 
 Platsen är den region där den anpassade avbildningen skapas. För Image Builder-förhandsversionen stöds följande regioner:
 
-- Östra USA
+- East US
 - USA, östra 2
 - Västra centrala USA
 - Västra USA
@@ -331,6 +331,8 @@ Detta stöds av kataloger för Windows och Linux-sökvägar, men det finns någr
  
  
 Om det finns ett fel att ladda ned filen eller placerar den i en angiven katalog anpassa steg misslyckas och detta kommer att finnas i customization.log.
+
+>> Obs! Filen systemanpassare är bara lämplig för små hämtbara < 20MB. För större filhämtningar använder ett skript eller en infogad kommando, Använd koden för att hämta filer, till exempel Linux `wget` eller `curl`, Windows, `Invoke-WebRequest`.
 
 Filer i filen systemanpassare kan laddas ned från Azure Storage med hjälp av [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

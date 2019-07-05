@@ -3,7 +3,7 @@ title: Kom igång med autentisering för Mobile Apps i Xamarin Forms-app | Micro
 description: Lär dig hur du använder Mobile Apps du autentiserar användare i din Xamarin Forms-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: panarasi
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -12,23 +12,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019794"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446309"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Lägg till autentisering i din Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) idag.
+>
+
 ## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du autentiserar användare i en App Service Mobile App från ditt klientprogram. I den här självstudien lägger du till autentisering till snabbstartsprojektet Xamarin Forms med hjälp av en identitetsprovider som stöds av App Service. Efter att har autentiseras och auktoriseras av din Mobilapp, användar-ID-värdet visas och du kommer att kunna få åtkomst till begränsade tabelldata.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För bästa resultat med den här självstudien rekommenderar vi att du först slutföra den [skapa en Xamarin Forms-app] [ 1] självstudien. När du har slutfört den här självstudien har du ett Xamarin Forms-projekt som är en app för flera plattformar TodoList.
+## <a name="prerequisites"></a>Förutsättningar
+För bästa resultat med den här självstudien rekommenderar vi att du först slutföra den [skapa en Xamarin Forms-app][1] självstudien. När du har slutfört den här självstudien har du ett Xamarin Forms-projekt som är en app för flera plattformar TodoList.
 
 Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket ditt projekt. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps][2].
 
@@ -53,7 +57,8 @@ Säker autentisering måste du definiera en ny URL-schema för din app. På så 
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Lägg till autentisering i portabelt klassbibliotek
-Mobile Apps använder den [LoginAsync] [ 3] tilläggsmetod på den [MobileServiceClient] [ 4] att logga in en användare med App Service autentisering. Det här exemplet används en hanterad server autentiseringsflödet som visar leverantörens i inloggningsgränssnittet i appen. Mer information finns i [Server-hanterad autentisering][5]. För att ge en bättre användarupplevelse i din produktionsapp, bör du överväga att använda [hanteras med klientprogram autentisering][6].
+Mobile Apps använder den [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
+uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. För att ge en bättre användarupplevelse i din produktionsapp, bör du överväga att använda [hanteras med klientprogram autentisering][6].
 
 För att autentisera med ett projekt i Xamarin Forms, definiera en **IAuthenticate** gränssnittet i klassbiblioteket i bärbar för appen. Lägg sedan till en **inloggning** knappen för att användargränssnittet som definierats i bärbar klassbiblioteket, som du klickar på Starta autentisering. Data har lästs in från serverdelen för mobilappen efter en lyckad autentisering.
 

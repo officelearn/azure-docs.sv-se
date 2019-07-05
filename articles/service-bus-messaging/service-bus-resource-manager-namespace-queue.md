@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111500"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444776"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde och en kö med en Azure Resource Manager-mall
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder en Azure Resource Manager-mall som skap
 
 Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
-Läs den fullständiga mallen, den [Service Bus-namnområde och kö mallen] [ Service Bus namespace and queue template] på GitHub.
+Läs den fullständiga mallen, den [Service Bus-namnområde och kö mallen][Service Bus namespace and queue template] på GitHub.
 
 > [!NOTE]
 > Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
@@ -37,7 +37,7 @@ Läs den fullständiga mallen, den [Service Bus-namnområde och kö mallen] [ Se
 > * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
 > * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
+> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar][Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat och distribuerat resurser med hjälp av Azure Resource Manager, lär du dig hur du hanterar dessa resurser genom att visa de här artiklarna:
+Se följande avsnitt som visar hur du skapar en auktoriseringsregel för namnområde/kön: [Skapa en Service Bus-auktoriseringsregel för namnområde och kö med en Azure Resource Manager-mall](service-bus-resource-manager-namespace-auth-rule.md)
+
+Lär dig hur du hanterar dessa resurser genom att visa de här artiklarna:
 
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
 * [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

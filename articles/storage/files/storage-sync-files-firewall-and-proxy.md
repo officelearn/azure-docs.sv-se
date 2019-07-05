@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696754"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449819"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -111,20 +111,31 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 
 | Molnet  | Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL |
 |--------|--------|----------------------|---------------|---------------|
-| Offentligt |Östra Australien | https://kailani-aue.one.microsoft.com | Sydöstra Australien | https://kailani-aue.one.microsoft.com |
+| Offentligt |Östra Australien | https://kailani-aue.one.microsoft.com | Sydöstra Australien | https://tm-kailani-aue.one.microsoft.com |
 | Offentligt |Sydöstra Australien | https://kailani-aus.one.microsoft.com | Östra Australien | https://tm-kailani-aus.one.microsoft.com |
+| Offentligt | Södra Brasilien | https://brazilsouth01.afs.azure.net | Södra centrala USA | https://tm-brazilsouth01.afs.azure.net |
 | Offentligt | Centrala Kanada | https://kailani-cac.one.microsoft.com | Östra Kanada | https://tm-kailani-cac.one.microsoft.com |
 | Offentligt | Östra Kanada | https://kailani-cae.one.microsoft.com | Centrala Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Offentligt | Indien, centrala | https://kailani-cin.one.microsoft.com | Södra Indien | https://tm-kailani-cin.one.microsoft.com |
 | Offentligt | Centrala USA | https://kailani-cus.one.microsoft.com | USA, östra 2 | https://tm-kailani-cus.one.microsoft.com |
 | Offentligt | Östasien | https://kailani11.one.microsoft.com | Sydostasien | https://tm-kailani11.one.microsoft.com |
-| Offentligt | Östra USA | https://kailani1.one.microsoft.com | Västra USA | https://tm-kailani1.one.microsoft.com |
+| Offentligt | East US | https://kailani1.one.microsoft.com | Västra USA | https://tm-kailani1.one.microsoft.com |
 | Offentligt | USA, östra 2 | https://kailani-ess.one.microsoft.com | Centrala USA | https://tm-kailani-ess.one.microsoft.com |
+| Offentligt | Östra Japan | https://japaneast01.afs.azure.net | Västra Japan | https://tm-japaneast01.afs.azure.net |
+| Offentligt | Västra Japan | https://japanwest01.afs.azure.net | Östra Japan | https://tm-japanwest01.afs.azure.net |
+| Offentligt | Sydkorea, centrala | https://koreacentral01.afs.azure.net/ | Sydkorea, södra | https://tm-koreacentral01.afs.azure.net/ |
+| Offentligt | Sydkorea, södra | https://koreasouth01.afs.azure.net/ | Sydkorea, centrala | https://tm-koreasouth01.afs.azure.net/ |
+| Offentligt | Norra centrala USA | https://northcentralus01.afs.azure.net | Södra centrala USA | https://tm-northcentralus01.afs.azure.net |
 | Offentligt | Norra Europa | https://kailani7.one.microsoft.com | Västra Europa | https://tm-kailani7.one.microsoft.com |
+| Offentligt | Södra centrala USA | https://southcentralus01.afs.azure.net | Norra centrala USA | https://tm-southcentralus01.afs.azure.net |
+| Offentligt | Södra Indien | https://kailani-sin.one.microsoft.com | Indien, centrala | https://tm-kailani-sin.one.microsoft.com |
 | Offentligt | Sydostasien | https://kailani10.one.microsoft.com | Östasien | https://tm-kailani10.one.microsoft.com |
 | Offentligt | Storbritannien, södra | https://kailani-uks.one.microsoft.com | Storbritannien, västra | https://tm-kailani-uks.one.microsoft.com |
 | Offentligt | Storbritannien, västra | https://kailani-ukw.one.microsoft.com | Storbritannien, södra | https://tm-kailani-ukw.one.microsoft.com |
+| Offentligt | Västra centrala USA | https://westcentralus01.afs.azure.net | Västra USA 2 | https://tm-westcentralus01.afs.azure.net |
 | Offentligt | Västra Europa | https://kailani6.one.microsoft.com | Norra Europa | https://tm-kailani6.one.microsoft.com |
-| Offentligt | Västra USA | https://kailani.one.microsoft.com | Östra USA | https://tm-kailani.one.microsoft.com |
+| Offentligt | Västra USA | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Offentligt | Västra USA 2 | https://westus201.afs.azure.net | Västra centrala USA | https://tm-westus201.afs.azure.net |
 | Government | Arizona (USA-förvaltad region) | https://usgovarizona01.afs.azure.us | Texas (USA-förvaltad region) | https://tm-usgovarizona01.afs.azure.us |
 | Government | Texas (USA-förvaltad region) | https://usgovtexas01.afs.azure.us | Arizona (USA-förvaltad region) | https://tm-usgovtexas01.afs.azure.us |
 

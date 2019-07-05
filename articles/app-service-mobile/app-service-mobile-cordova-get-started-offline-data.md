@@ -2,7 +2,7 @@
 title: Aktivera synkronisering offline för din Azure-Mobilapp (Cordova) | Microsoft Docs
 description: Lär dig hur du använder App Service Mobile App till cache och synkronisering av offlinedata i din Cordova-App
 documentationcenter: cordova
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111002"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443528"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Aktivera synkronisering offline för din Cordova-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data) idag.
+>
+
+## <a name="overview"></a>Översikt
 Den här självstudien innehåller funktionen offline-synkronisering i Azure Mobile Apps för Cordova. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas.  När enheten är online igen kan har de här ändringarna synkroniserats med fjärrtjänsten.
 
 Den här självstudien är baserad på lösning för Cordova-Snabbstart för Mobile Apps som du skapar när du slutför självstudien [Snabbstart för Apache Cordova]. I den här självstudien får uppdatera du quickstart-lösningen för att lägga till Offlinefunktioner för Azure Mobile Apps.  Vi kan också markera offline-specifik kod i appen.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077329"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471663"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -80,11 +80,17 @@ Om du använder parametriserade datauppsättningar, måste du ange parametervär
 
 ![Kör flödet Dataarametrar](media/data-flow/params.png "parametrar")
 
-### <a name="debugging-parameterized-data-flows"></a>Felsökning parametriserade dataflöden
+## <a name="parameterized-data-flows"></a>Parametriserade dataflöden
 
-Du kan bara felsöka dataflöden med parametriserade datauppsättningar från pipelinen felsöka körs med aktiviteten kör data flöde. Interaktiva debug sessioner i ADF dataflöde fungerar för närvarande inte med parametriserade datauppsättningar. Pipeline-körningar och debug körs fungerar med parametrar.
+Om du har parametrar i ditt dataflöde, anger du de dynamiska värdena för ditt flöde dataarametrar här i avsnittet Parametrar för aktiviteten kör dataflöde. Du kan använda ADF Pipeline Uttrycksspråk (endast för parametern strängtyper) eller Uttrycksspråk Data flöda för att ange parametervärden med dynamiska uttryck eller literal statiska värden.
 
-Ett bra tips är att skapa ditt dataflöde med en statisk datauppsättning så att du har fullständig metadata kolumn spridning är tillgängliga i designläge. Ersätt statiska datauppsättningen med en dynamisk parametriserade datauppsättning när du utföra åtgärder för din datapipeline för flödet.
+![Kör flödet parametern exempel](media/data-flow/parameter-example.png "parametern-exempel")
+
+### <a name="debugging-data-flows-with-parameters"></a>Felsökning dataflöden med parametrar
+
+I det aktuella läget kan du bara felsöka dataflöden med parametrar från pipelinen felsöka körs med aktiviteten kör data flöde. Interaktiv debug sessioner i ADF dataflöde kommer snart. Pipeline-körningar och debug körs, men kommer att fungera med parametrar.
+
+Ett bra tips är att skapa ditt dataflöde med statiskt innehåll så att du har fullständig metadata kolumn spridning tillgängliga vid designtillfället för felsökning. Ersätt statiska datauppsättningen med en dynamisk parametriserade datauppsättning när du utföra åtgärder för din datapipeline för flödet.
 
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 

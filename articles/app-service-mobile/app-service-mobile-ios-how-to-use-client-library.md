@@ -3,7 +3,7 @@ title: Så här används iOS SDK för Azure Mobile Apps
 description: Så här används iOS SDK för Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122463"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440391"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här används iOS-klientbiblioteket för Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) idag.
+>
+
+## <a name="overview"></a>Översikt
 Den här guiden lär du dig att utföra vanliga scenarier med senast [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps slutföra [Azure mobila appar Snabbstart] för att skapa en serverdel, skapa en tabell och ladda ned ett färdiga iOS Xcode-projekt. I den här guiden fokuserar vi på klientsidan iOS SDK. Mer information om SDK för serversidan för serverdelen finns Server SDK HOWTOs.
 
 ## <a name="reference-documentation"></a>Referensdokumentation
@@ -435,7 +440,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Du kan använda ett anpassat API för att lägga upp heller serverdel. Det behöver inte mappas till en Tabellåtgärd. Inte bara får du större kontroll över meddelanden, du kan även läsa/set rubriker och ändra brödtext svarsformat. Läs hur du skapar ett anpassat API på serverdelen [anpassade API: er](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-För att anropa en anpassad API kan anropa `MSClient.invokeAPI`. Begäran och svaret innehåll behandlas som JSON. Att använda andra medietyper [Använd överlagringen för `invokeAPI` ] [ 5].  Att göra en `GET` begär i stället för en `POST` begära en parameter för `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har meddelandekroppen.) Om ditt anpassade API stöder andra HTTP-verb, ändra `HTTPMethod` på rätt sätt.
+För att anropa en anpassad API kan anropa `MSClient.invokeAPI`. Begäran och svaret innehåll behandlas som JSON. Att använda andra medietyper [Använd överlagringen för `invokeAPI` ][5].  Att göra en `GET` begär i stället för en `POST` begära en parameter för `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har meddelandekroppen.) Om ditt anpassade API stöder andra HTTP-verb, ändra `HTTPMethod` på rätt sätt.
 
 **Objective-C**:
 
@@ -516,7 +521,7 @@ Alla taggar tas bort från begäran för säkerhet.  Om du vill lägga till tagg
 
 När du anropar en mobil serverdel i Azure App Service, slutförande blocket innehåller en `NSError` parametern. När ett fel uppstår, är den här parametern inte är noll. I din kod, bör du kontrollera den här parametern och hantera felet efter behov, som visas i föregående kodfragment.
 
-Filen [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] definierar konstanterna `MSErrorResponseKey`, `MSErrorRequestKey`, och `MSErrorServerItemKey`. Att få mer information om felet:
+Filen [ `<WindowsAzureMobileServices/MSError.h>` ][6] definierar konstanterna `MSErrorResponseKey`, `MSErrorRequestKey`, och `MSErrorServerItemKey`. Att få mer information om felet:
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Du kan använda Active Directory Authentication Library (ADAL) för att registrera användare i ditt program med Azure Active Directory. Flow klientautentisering med hjälp av en identitetsprovider SDK är bättre än att använda den `loginWithProvider:completion:` metoden.  Flow klientautentisering ger en mer interna UX-design och tillåter för ytterligare anpassning.
 
-1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning] [ 7] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram. För iOS-, rekommenderar vi att omdirigerings-URI: N är i formatet `<app-scheme>://<bundle-id>`. Mer information finns i den [ADAL iOS Snabbstart][8].
+1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning][7] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram. För iOS-, rekommenderar vi att omdirigerings-URI: N är i formatet `<app-scheme>://<bundle-id>`. Mer information finns i den [ADAL iOS Snabbstart][8].
 2. Installera ADAL med Cocoapods. Redigera din Podfile för att inkludera följande definition ersätta **YOUR-projekt** med namnet på ditt Xcode-projekt:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 Du kan använda med Facebook SDK för iOS för att registrera användare i ditt program med Facebook.  Med hjälp av ett flöde klientautentisering är bättre än att använda den `loginWithProvider:completion:` metoden.  Flow klientautentisering ger en mer interna UX-design och tillåter för ytterligare anpassning.
 
-1. Konfigurera mobilappsserverdelen för Facebook-inloggning genom att följa den [så här konfigurerar du App Service för Facebook-inloggning] [ 9] självstudien.
-2. Installera Facebook-SDK för iOS genom att följa den [Facebook SDK för iOS – komma igång] [ 10] dokumentation. Istället för att skapa en app kan du lägga till iOS-plattformen i din befintliga registrering.
+1. Konfigurera mobilappsserverdelen för Facebook-inloggning genom att följa den [så här konfigurerar du App Service för Facebook-inloggning][9] självstudien.
+2. Installera Facebook-SDK för iOS genom att följa den [Facebook SDK för iOS – komma igång][10] dokumentation. Istället för att skapa en app kan du lägga till iOS-plattformen i din befintliga registrering.
 3. Facebooks dokumentationen innehåller vissa Objective-C-koden i App-delegaten. Om du använder **Swift**, du kan använda följande översättningar för AppDelegate.swift:
 
     ```swift

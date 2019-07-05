@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206075"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449581"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -472,7 +472,10 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
 När dina källdata inte uppfyller villkoret i föregående avsnitt, aktivera kopiering via en mellanliggande mellanlagring Azure Blob storage-instans. Den kan inte Azure Premium Storage. Azure Data Factory körs i det här fallet automatiskt transformationer på data för att uppfylla formatkraven data med PolyBase. Sedan används PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensar den tillfälliga data från blob-lagringen. Se [mellanlagrad kopiering](copy-activity-performance.md#staged-copy) mer information om hur du kopierar data via en mellanlagrings Azure Blob storage-instans.
 
-Om du vill använda denna funktion kan du skapa en [länkad Azure Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure storage-konto med tillfälliga blob-lagringen. Ange sedan den `enableStaging` och `stagingSettings` egenskaper för Kopieringsaktiviteten som du ser i följande kod:
+Om du vill använda denna funktion kan du skapa en [Azure Blob Storage-länkade tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure storage-konto med tillfälliga blob-lagringen. Ange sedan den `enableStaging` och `stagingSettings` egenskaper för Kopieringsaktiviteten som du ser i följande kod.
+
+>[!IMPORTANT]
+>Om din tillfälliga Azure Storage konfigureras med VNet-tjänstslutpunkt, måste du använda hanterade identitetsautentisering - avser [effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig konfigurationerna som krävs i Data Factory från [Azure Blob - hanterad identitetsautentisering](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[

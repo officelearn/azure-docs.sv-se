@@ -1,33 +1,29 @@
 ---
-title: Förstå Azure-fakturan | Microsoft Docs
-description: Lär dig att läsa och förstå din användningen och fakturan för din Azure-prenumeration
-services: ''
-documentationcenter: ''
-author: tonguyen10
+title: Förstå Azure-fakturan
+description: Lär dig mer om att läsa och förstå din användningen och fakturan för din Azure-prenumeration.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8b0d6febbffb80cb4e8bcbf62febb51d059282c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370190"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490319"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Förstå fakturan för Microsoft Azure
-Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
+För att förstå fakturan för Azure, Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen.
 
 Den här artikeln gäller inte för Azure-kunder med ett Enterprise-avtal (EA-kunder). Om du är en EA-kund, se [förstå fakturan för Azure-kunder med ett Enterprise Agreement](billing-understand-your-bill-ea.md).
 
-Den här artikeln gäller inte för Azure-kunder med ett Microsoft-kundavtal. Om du har något faktureringskonto för en Microsoft-kundavtal Se [förstå Azure-avgifter på fakturan Microsoft kundavtal](billing-mca-understand-your-bill.md).
+Den här artikeln gäller inte för Azure-kunder med en [Microsoft kundavtal](#check-access-to-a-microsoft-customer-agreement). Om du har ett Microsoft-kundavtal Se [förstå Azure-avgifter på fakturan Microsoft kundavtal](billing-mca-understand-your-bill.md).
 
 En beskrivning av hur fakturering fungerar i Azure Cloud Solution Provider (Azure CSP)-program, inklusive fakturering cykel, priser och användning, se [fakturering översikt över Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -39,7 +35,7 @@ Om det finns en avgift på fakturan som du vill ha mer information om, kan du j�
 
 ### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Alternativ 1: Jämför användning och kostnader med användningsfil
 
-Detaljerad användning CSV-filen visar dina kostnader per faktureringsperiod och daglig användning. Filen finns [hämta din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
+Detaljerad användning CSV-filen visar dina kostnader per faktureringsperiod och daglig användning. Om du vill ladda ned eller visa filen, se [hämta din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
 
 Avgifter för användning visas på nivån mätaren. Följande villkor betyda samma sak i både fakturan och detaljerad användningsfil. Till exempel är faktureringsperiod på fakturan samma som den faktureringsperioden som visas i filen detaljerad användning.
 
@@ -47,14 +43,14 @@ Avgifter för användning visas på nivån mätaren. Följande villkor betyda sa
  | --- | --- |
 |Faktureringscykel | Faktureringsperiod |
  |Namn |Mätarkategori |
- |Typ |Mätarunderkategori |
+ |Type |Mätarunderkategori |
  |Resource |Mätarnamn |
  |Region |Mätarregion |
  |Förbrukad |Förbrukat antal |
  |Ingår |Inkluderad mängd |
  |Faktureringsbar |Överbliven kvantitet |
 
-Den **Användningskostnader** delen av din faktura finns det totala värdet för varje mätare som förbrukades under din faktureringsperiod. Följande skärmbild visar till exempel användning debiteras du för tjänsten Azure Scheduler.
+Den **Användningskostnader** avsnittet på fakturan visas det totala värdet för varje mätare som förbrukades under din faktureringsperiod. Följande bild visar exempelvis användning debiteras du för tjänsten Azure Scheduler.
 
 ![Avgifter för användning av faktura](./media/billing-understand-your-bill/1.png)
 
@@ -62,7 +58,7 @@ Den **instruktionen** delen av detaljerad användningsinformation CSV visas samm
 
 ![Avgifter för användning av CSV](./media/billing-understand-your-bill/2.png)
 
-Om du vill se en daglig sammanställning av den här avgiften, går du till den **daglig användning** avsnittet i CSV-filen. Filtrera efter *Scheduler* under *Mätningskategori*. Du kan se vilka dagar mätaren har använts och hur mycket förbrukades. Den *Resource* och *resursgrupp* informationen visas också för jämförelse. Den *förbrukade* värden bör lägga till vad som visas på fakturan.
+Om du vill se en daglig sammanställning av kostnaden, går du till den **daglig användning** i CSV-filen. Filtrera efter *Scheduler* under *Mätningskategori*. Du kan se vilka dagar mätaren har använts och hur mycket förbrukades. Den *Resource* och *resursgrupp* information visas även för jämförelse. Den *förbrukade* värden ska lägga till upp till och matchar vad som ska visas på fakturan.
 
 ![Avsnittet för daglig användning i CSV-filen](./media/billing-understand-your-bill/3.png)
 
@@ -84,7 +80,7 @@ Azure-portalen kan också hjälpa dig att kontrollera dina kostnader. Visa manag
 
    ![Cost analysis-vyn i Azure-portalen](./media/billing-understand-your-bill/4.png)
 
-1. Välj den raden att se dagliga kostnadsdata.
+1. Välj raden som visar kostnaden för att se dagliga kostnadsdata.
 
    ![KOSTNADSHISTORIK vyn i Azure-portalen](./media/billing-understand-your-bill/5.png)
 
@@ -135,6 +131,9 @@ Kontrollera statusen för din betalning [skapa ett supportärende](https://porta
   - [Totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator)
   - [Detaljerad information om priser för varje tjänst](https://azure.microsoft.com/pricing/)
 - [Granska användning och kostnader regelbundet i Azure-portalen](billing-getting-started.md#costs).
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

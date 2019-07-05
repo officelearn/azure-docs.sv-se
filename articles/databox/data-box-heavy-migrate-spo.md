@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446720"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592341"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Använda Azure Data Box tung för att migrera din resurs filinnehåll till SharePoint Online
 
@@ -23,7 +23,7 @@ Microsoft Azure Data Box är en tjänst som kan du beställa en enhet från Micr
 
 - [Data Box-Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) med 35 TB användbar kapacitet per beställning för små till medelstora datauppsättningar.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) med 80 TB användbar kapacitet per enhet för medelstora till stora datauppsättningar.
-- [Data Box tung](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) med 770 TB användbar kapacitet per enhet för stora datauppsättningar. Data Box tung förhandsvisas just nu.
+- [Data Box tung](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) med 770 TB användbar kapacitet per enhet för stora datauppsättningar.
 
 Den här artikeln handlar specifikt om hur du använder Data Box-tung för att migrera din resurs filinnehåll till SharePoint Online.
 

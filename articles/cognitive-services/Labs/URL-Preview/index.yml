@@ -12,6 +12,6 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/19/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: 'API för förhandsversion av Bing-URL: hämtar kortfattad information om en mål-URL, inklusive beskrivning, flaggan isFamilyFriendly, representativ bild samt länk till sidan.'

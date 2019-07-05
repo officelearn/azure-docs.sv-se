@@ -143,6 +143,14 @@
               items:
                 - name: Via SMB
                   href: data-box-heavy-deploy-copy-data.md
+                - name: Via NFS
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: Via REST
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Via datakopieringstjänst
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: Till hanterade diskar
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 – Returnera, ladda upp, bekräfta'
               href: data-box-heavy-deploy-picked-up.md
         - name: Begrepp

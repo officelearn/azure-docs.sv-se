@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271721"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592378"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Självstudier: Ansluta och ansluta till din Azure Data Box tung (förhandsversion)
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Självstudier: Ansluta och ansluta till din Azure Data Box tung
 
 
 Den här självstudien beskrivs hur du kabelanslut, Anslut och aktivera din Azure Data Box tung.
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Kabelanslut din Data Box-aktiverat
 > * Ansluta till din Data Box-aktiverat
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545776"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482679"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabbstart: Konfigurera ett program att exponera webb API: er
 
@@ -30,7 +30,7 @@ Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram geno
 
 I den här snabbstarten lär du dig hur du konfigurerar en app att exponera ett nytt omfång för att göra den tillgänglig för klientprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -52,7 +52,7 @@ Innan du kan konfigurera appen gör du följande:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exponera ett nytt omfång via användargränssnittet
 
-[![Exponera ett API med hjälp av användargränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Visar hur du kan exponera ett API med hjälp av Användargränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Så här exponerar du ett nytt omfång via användargränssnittet:
 

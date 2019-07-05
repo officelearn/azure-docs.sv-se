@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274704"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477708"
 ---
 # <a name="mapping-data-flow-parameters"></a>Mappa parametrar för flödet av Data
 
@@ -37,6 +37,12 @@ Om du vill lägga till parametrar till ditt dataflöde, klickar du på den tomma
 Parametrar kan användas i ett uttryck för flödet av data. Parametrar börja med $ och är inte kan ändras. Du hittar listan över tillgängliga parametrar inom Uttrycksverktyget under fliken ”Parameters”.
 
 ![Dataflöde parametern expression](media/data-flow/parameter-expression.png "parametern expression för dataflöde")
+
+## <a name="use-parameters-in-your-data-flow"></a>Använda parametrar i ditt dataflöde
+
+* Du kan använda parametervärden inuti omvandling-uttryck. Du hittar listan över under fliken Parametrar i Uttrycksverktyget. ![Använd Data flöda parametrar](media/data-flow/params9.png "användning av dataflöde parametrar")
+
+* Parametrar används också för att konfigurera dynamiska värden för din källa och mottagare omvandling inställningar. När du klickar inuti konfigurerbara fält visas länken ”Lägg till dynamiska contect” visas. Klicka på det tar dig till en Uttrycksverktyget där du kan använda parametrar för att använda dynamiska värden. ![Dataflöde dynamiskt innehåll](media/data-flow/params6.png "dataflöde dynamiskt innehåll")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Ställa in parametrar för mappning av dataflöde från pipeline
 

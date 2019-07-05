@@ -4,7 +4,7 @@ description: Azure App Service i Linux vanliga frågor och svar.
 keywords: Azure apptjänst, webbapp, vanliga frågor och svar, linux, oss, webbapp för behållare, flera behållare, multicontainer
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594276"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448428"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -119,10 +119,7 @@ Ja, under en Git-distribution Kudu bör identifierar att du distribuerar en PHP-
 
 **Jag använder en egen anpassad behållare. Jag vill ha den plattform du monterar en SMB-filresurs till den `/home/` directory.**
 
-Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen *SANT*. Tänk på att detta innebär att behållaren startas om när plattformen storage går igenom en ändring.
-
->[!NOTE]
->Om den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är Ospecificerad eller inställd på *FALSKT*, `/home/` directory delas inte mellan instanser för skalning och filer som skrivs det sparas inte mellan omstarter.
+Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE` är **Ospecificerad** eller Ställ in på *SANT*, `/home/` directory **delas** mellan instanser för skalning och filerna som skrivits **behålls** mellan omstarter. Uttryckligen ange `WEBSITES_ENABLE_APP_SERVICE_STORAGE` till *FALSKT* inaktiverar monterings.
 
 **Min anpassade behållaren tar lång tid att starta och plattformen startar om behållaren innan den är klar startar.**
 

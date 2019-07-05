@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024643"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485403"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
 Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**,  **Standard**, eller **Lagringsoptimerade** prisnivåer.
@@ -29,7 +29,7 @@ Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, do
 + **Optimerad lagring** körs på dedikerade virtuella datorer med mer totalt lagringsutrymme, lagring, bandbredd och minne än **Standard**. Optimerad lagring finns i två nivåer: L1 och L2
 
 > [!NOTE]
-> Tjänstnivåer Lagringsoptimerade finns för närvarande finns som förhandsversion till rabatterade priser för testning och experimentering med målet att samla in feedback. Slutlig prissättning kommer att tillkännages senare när de här nivåerna är allmänt tillgängliga. Vi rekommenderar mot att använda de här nivåerna för program i produktion.
+> Alla nivåer är allmänt tillgängliga, inklusive Lagringsoptimerade-nivå från och med den 1 juli. Alla priser finns på den [prisinformation om](https://azure.microsoft.com/pricing/details/search/) sidan.
 
   S3 High Density (S3 HD) är utformat för specifika arbetsbelastningar: [multitenans](search-modeling-multitenant-saas-applications.md) och stora mängder små index (en miljon dokument per index, tre tusen index per tjänst). Den här nivån ger inte den [indexeraren funktionen](search-indexer-overview.md). På S3 HD måste datainmatning använda push-metoden, med hjälp av API-anrop till skicka data från källa till index. 
 

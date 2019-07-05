@@ -4,14 +4,14 @@ description: Visar en lista över alla resource provider-namnområden för Azure
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f5ffbd9b1f2bde08023d1758792fab54c2885f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235569"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442595"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursproviders för Azure-tjänster
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
-| Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
+| Microsoft.AzureStack | kärna |
 | Microsoft.Batch | [Batch](../batch/index.yml) |
 | Microsoft.Billing | [Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing-kartor](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -61,6 +61,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.CostManagement | [Kostnadshantering](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
 | Microsoft.CustomerLockbox | Customer Lockbox för Microsoft Azure |
+| Microsoft.CustomProviders | [Azure anpassade Providers](../managed-applications/custom-providers-overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Azure Data Box Edge](../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
@@ -73,7 +74,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.DBforMySQL | [Azure Database för MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
-| Microsoft.Devices | [IoT Hub](/azure/iot-hub/) |
+| Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -115,7 +116,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial ankare](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp-filer](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Lastbalanserare](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN-Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure-brandväggen](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
+| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Lastbalanserare](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN-Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure-brandväggen](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml)<br />[Azure Bastion](/azure/bastion/) |
 | Microsoft.NotificationHubs | [Notification Hubs](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
@@ -126,6 +127,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Site Recovery](../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../service-bus-relay/relay-what-is-it.md) |
+| Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | kärna |
 | Microsoft.Resources | [Azure Resource Manager](index.yml) |
 | Microsoft.SaaS | kärna |
@@ -148,6 +150,7 @@ Den här artikeln visar hur resource provider-namnområden som mappar till Azure
 | microsoft.support | kärna |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../time-series-insights/index.yml) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [App Service](../app-service/index.yml)<br />[Funktioner](../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |

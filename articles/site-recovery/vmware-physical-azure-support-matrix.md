@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341456"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491648"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -186,8 +186,8 @@ Gäst/server iSCSI | Nej
 Gäst/server SMB 3.0 | Nej
 Gäst/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB<br/><br/> Disken måste vara större än 1 024 MB.
-Gäst/server disk med 4K logisk och 4 k fysisk sektorstorlek | Ja
-Gäst/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja
+Gäst/server disk med 4K logisk och 4 k fysisk sektorstorlek | Nej
+Gäst/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Nej
 Gäst/server-volym med stripe-disk > 4 TB <br/><br/>Hantering av logisk volym (LVM)| Ja
 Gäst/server - lagringsutrymmen | Nej
 Gäst/server frekvent Lägg till/ta bort disk | Nej
@@ -218,7 +218,7 @@ Kryptering i vila (SSE)| Ja
 Premium Storage | Ja
 Import/export-tjänsten | Nej
 Azure Storage-brandväggar för virtuella nätverk | Ja.<br/> Konfigurerad på mållagringskontot för lagring/cache (används för att lagra data för replikering).
-Generell användning v2-konton (frekventa och lågfrekventa nivåer) | Nej
+Generell användning v2-konton (frekventa och lågfrekventa nivåer) | Ja (transaktion kostnader är betydligt högre för V2 jämfört med V1)
 
 ## <a name="azure-compute"></a>Azure-beräkning
 
@@ -286,7 +286,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer inom och mellan olika prenumer
 
 ## <a name="obtain-latest-components"></a>Hämta senaste komponenter
 
-**Namn** | **Beskrivning** | **Detaljer**
+**Name** | **Beskrivning** | **Detaljer**
 --- | --- | ---
 Konfigurationsservern | Installerad lokalt.<br/> Samordnar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) konfigurationsservern.<br/> - [Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uppgradera till den senaste versionen.<br/> - [Lär dig mer om](vmware-azure-deploy-configuration-server.md) konfigurerar konfigurationsservern. 
 Processervern | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar det till Azure.<br/> Allt eftersom distributionen växer kan du lägga till ytterligare processervrar för att hantera större mängder replikeringstrafik. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig mer om](vmware-azure-manage-process-server.md#upgrade-a-process-server) uppgradera till den senaste versionen.<br/> - [Lär dig mer om](vmware-physical-large-deployment.md#set-up-a-process-server) konfigurerar skala ut processervrar.

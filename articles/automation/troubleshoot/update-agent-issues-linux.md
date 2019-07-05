@@ -2,19 +2,19 @@
 title: Förstå Linux-agenten kontrollera resultaten i Azure uppdateringshantering
 description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c37d8be8862e75a6520ccefe4b9df93dd993b2a8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597799"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477122"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 

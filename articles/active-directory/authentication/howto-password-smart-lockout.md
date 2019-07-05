@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358148"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483306"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -41,7 +41,9 @@ Smart kontoutelåsning kan integreras med hybriddistributioner, använder hash-s
 När du använder [direktautentisering](../hybrid/how-to-connect-pta.md), måste du se till att:
 
 * Tröskelvärde för låsning av Azure AD är **mindre** än tröskelvärde för kontoutelåsning Active Directory. Ange värden så att Active Directory-kontoutelåsningströskelvärde är minst två eller tre gånger som är längre än tröskelvärde för låsning av Azure AD. 
-* Azure AD-utelåsningstid **sekundsnabbt** är **längre** än Active Directory Återställ räknaren för kontoutelåsning efter längd **minuter**.
+* Azure AD-utelåsningstid måste anges längre tid än Active Directory Återställ räknaren för kontoutelåsning efter längd. Tänk på att Azure AD-varaktighet är inställd på några sekunder, samtidigt som AD anges varaktighet i minuter. 
+
+Till exempel om du vill att din Azure AD-räknaren högre än AD skulle sedan Azure AD vara 120 sekunder (2 minuter) när din on prem AD har angetts till 1 minut (60 sekunder).
 
 > [!IMPORTANT]
 > En administratör inte för närvarande inte låsa upp användarnas molnkonton om de har låsts ute för Smart kontoutelåsning kapaciteten. Administratören måste vänta tills utelåsningstid att upphöra att gälla.

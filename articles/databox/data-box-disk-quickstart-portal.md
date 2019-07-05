@@ -9,14 +9,26 @@ ms.topic: quickstart
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306214"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477788"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure-portalen
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Kom igång med Azure Data Box-Disk med hjälp av Azure portal
+
+::: zone-end
+
+::: zone target="docs"
 
 Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen beskriver bland annat hur du snabbt skapar en order, tar emot diskar, packar upp och ansluter diskar samt kopierar data till diskarna så att de laddas upp till Azure.
 
@@ -24,7 +36,17 @@ Detaljerade stegvisa instruktioner för distribution och spårning finns i [Sjä
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+::: zone-end
+
+::: zone target="chromeless"
+
+Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen är bland annat Granska krav, låsa upp diskarna, Anslut och kopiera data till diskarna så som överför till Azure.
+
+::: zone-end
+
+::: zone target="docs"
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -33,6 +55,23 @@ Innan du börjar:
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Du har lagt in en order för Data Box-Disk med hjälp av den [självstudien: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
+- Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.
+- Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
+
+    - Kör en [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Har [annan nödvändig programvara](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installeras om det är en Windows-klient.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="order"></a>Beställa
 
@@ -123,3 +162,5 @@ I den här snabbstarten har du distribuerat Azure Data Box Disk för att importe
 
 > [!div class="nextstepaction"]
 > [Administrera Data Box Disk via Azure Portal](data-box-portal-ui-admin.md)
+
+::: zone-end

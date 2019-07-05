@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 320611f05190d755c85a94a8e8eb9a1c04b3310e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523355"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508819"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
@@ -52,7 +52,7 @@ Om du använder den `azure hdinsight job` kommandon för att skicka jobb till di
 
 * [Köra MapReduce-jobb med Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Kör Apache Hive-frågor med Apache Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-hive-curl.md)
-* [Kör Apache Pig-jobb med Apache Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-pig-curl.md)
+
 
 Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Apache Pig interaktivt finns [använda MapReduce med Hadoop i HDInsight](hadoop/hdinsight-use-mapreduce.md), [använda Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md), och [använda Apache Pig med Apache Hadoop på HDInsight](hadoop/hdinsight-use-pig.md).
 
@@ -213,7 +213,6 @@ Nytt kommando:
 #### <a name="other-samples"></a>Andra exempel
 * [Skapa HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Skicka Apache Hive-jobb](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Skicka Apache Pig-jobb](hadoop/apache-hadoop-use-pig-powershell.md)
 * [Skicka Apache Sqoop jobb](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrera till ny HDInsight .NET SDK
@@ -231,7 +230,6 @@ Det här avsnittet innehåller länkar till mer information om hur du utför upp
 | Autentisera program interaktivt med hjälp av Azure Active Directory med .NET SDK |Se [kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Kodfragmentet i den här artikeln använder metod för interaktiv autentisering. |
 | Autentisera program icke-interaktivt med hjälp av Azure Active Directory med .NET SDK |Se [skapa icke-interaktiva program för HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Skicka ett Apache Hive-jobb med .NET SDK |Se [skicka Apache Hive-jobb](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| Skicka ett Apache Pig-jobb med hjälp av .NET SDK |Se [skicka Apache Pig-jobb](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
 | Skicka ett Apache Sqoop-jobb med hjälp av .NET SDK |Se [skicka Apache Sqoop jobb](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | Lista över HDInsight-kluster med .NET SDK |Se [lista HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Skala HDInsight-kluster med .NET SDK |Se [skala HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |

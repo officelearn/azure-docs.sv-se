@@ -4,19 +4,19 @@ description: Förstå hur du använder Azure Table storage-bindningar i Azure Fu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511876"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480084"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -507,7 +507,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**tableName** | **TableName** | Namnet på tabellen.| 
 |**partitionKey** | **partitionKey** |Valfri. Partitionsnyckeln för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**RowKey** |**RowKey** | Valfri. Radnyckel för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
-|**ta** |**ta** | Valfri. Det maximala antalet enheter för att läsa i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
+|**take** |**ta** | Valfri. Det maximala antalet enheter för att läsa i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**filter** |**Filter** | Valfri. En OData-filteruttryck för tabellen som indata i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
@@ -532,7 +532,7 @@ Indatabindningen för Table storage har stöd för följande scenarier:
 
   Ange den `filter` och `take` egenskaper. Konfigurerar inte `partitionKey` eller `rowKey`. Få åtkomst till den inkommande tabell (eller de entiteter) med hjälp av `context.bindings.<name>`. De avserialiserade objekt har `RowKey` och `PartitionKey` egenskaper.
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Output
 
 Använda en Azure Table storage-utdatabindning för att skriva entiteter till en tabell i ett Azure Storage-konto.
 

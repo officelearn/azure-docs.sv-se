@@ -1,6 +1,6 @@
 ---
 title: Azure filer prestanda felsökningsguide
-description: Kända problem med prestanda med Azure premium-filresurser (förhandsversion) och associerade lösningar.
+description: Kända problem med prestanda med Azure-filresurser och associerade lösningar.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190042"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445676"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files-prestandaproblem
 
-Den här artikeln innehåller några vanliga problem som rör premium Azure-filresurser (förhandsversion). Det ger möjliga orsaker och lösningar när problemen uppstår.
+Den här artikeln innehåller några vanliga problem som rör Azure-filresurser. Det ger möjliga orsaker och lösningar när problemen uppstår.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Lång svarstid och lågt dataflöde Allmänt prestandaproblem
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Orsak 1: Dela filsystemanvändningen begränsning
 
-Standardkvoten på en resurs är 100 GiB som ger 100 baslinje IOPS (med potentiella kunna tillhandahålla upp till 300 i en timme). Läs mer på etablera och dess förhållande till IOPS, den [etableras resurser](storage-files-planning.md#provisioned-shares) avsnitt av Planeringsguiden.
+Standardkvoten på en premium-resurs är 100 GiB som ger 100 baslinje IOPS (med potentiella kunna tillhandahålla upp till 300 i en timme). Läs mer på etablera och dess förhållande till IOPS, den [etableras resurser](storage-files-planning.md#provisioned-shares) avsnitt av Planeringsguiden.
 
 Du kan utnyttja Azure-mått i portalen för att bekräfta om din resurs har begränsats.
 
@@ -39,7 +39,7 @@ Du kan utnyttja Azure-mått i portalen för att bekräfta om din resurs har begr
 
 1. Välj **transaktioner** som mått.
 
-1. Lägg till ett filter för **ResponseType** och kontrollera om alla begäranden har en svarskod **SuccessWithThrottling**.
+1. Lägg till ett filter för **ResponseType** och kontrollera om alla begäranden har en svarskod **SuccessWithThrottling** (för SMB) eller **ClientThrottlingError** (för REST).
 
 ![Mått-alternativ för filresurser är premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Om programmet som används av kunden är enkla trådar kan resultera detta i bet
 
 ### <a name="cause"></a>Orsak
 
-Virtuella klientdatorer kan finnas i en annan region än premium-filresurs.
+Virtuella klientdatorer kan finnas i en annan region än filresursen.
 
 ### <a name="solution"></a>Lösning
 
-- Kör programmet från en virtuell dator som finns i samma region som filresursen premium.
+- Kör programmet från en virtuell dator som finns i samma region som filresursen.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå största möjliga dataflöde som stöds av nätverket
 
@@ -121,6 +121,10 @@ I/o-djup som är större än ett stöds inte på CentOS/RHEL.
 
 - Uppgradera till CentOS 8 / RHEL 8.
 - Ändra till Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam filkopieringen till och från Azure Files i Linux
+
+Om du upplever långsam filkopieringen till och från Azure Files, ta en titt på de [långsam filkopieringen till och från Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) avsnittet vid felsökning av Linux guide.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Darrig/saw-tooth mönster för IOPS
 

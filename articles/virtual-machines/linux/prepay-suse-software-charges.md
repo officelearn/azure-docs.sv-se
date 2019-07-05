@@ -1,23 +1,21 @@
 ---
-title: Betala i förskott för programvaruplaner - Azure-reservationer | Microsoft Docs
+title: Betala i förskott för programvaruplaner - Azure-reservationer
 description: Lär dig hur du kan betala i förskott för programvaruplaner för att spara pengar jämfört din betala per användning.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771251"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489884"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
 
@@ -25,7 +23,7 @@ När du betalar i förskott för din användning av SUSE och RedHat programvara 
 
 Du kan köpa SUSE och RedHat programvaruplaner i Azure-portalen. Att köpa en plan:
 
-- Du måste ha rollen ägare för minst en Enterprise eller användningsbaserad betalning.
+- Du måste ha rollen ägare för minst en Enterprise eller enskild prenumeration med användningsbaserad betalning.
 - För Enterprise-prenumerationer, den **lägga till reserverade instanser** måste vara aktiverad i den [EA-portalen](https://ea.azure.com/). Om inställningen är inaktiverad, måste du vara en EA-administratör för prenumerationen.
 - Efter programmet Cloud Solution Provider (CSP) köp admin-agenter eller försäljning agents programvaruplaner.
 
@@ -35,12 +33,12 @@ Du kan köpa SUSE och RedHat programvaruplaner i Azure-portalen. Att köpa en pl
 2. Klicka på **Lägg till** och välj sedan den plan för programvara som du vill köpa.
 Fyll i fälten som krävs. Alla SUSE Linux VM eller RedHat VM som matchar attribut för vad du köper hämtar rabatten. Det faktiska antalet distributioner som får rabatten är beroende av omfång och kvantitet som väljs.
 3. Välj en prenumeration. Används för att betala för abonnemanget.
-Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
+Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller enskilda avtal med användningsbaserad betalning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
     - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
-    - För användningsbaserad betalning debiteras avgifterna till prenumerationens kreditkort eller faktura betalningsmetod.
+    - För en enskild prenumeration med användningsbaserad prissättning faktureras avgifterna till prenumerationens kreditkort eller faktura betalningsmetod.
 4. Välj ett omfång. Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning).
     - Enstaka prenumeration - plan rabatt tillämpas på matchar användning i prenumerationen.
-    - Delad – rabatten plan på matchande instanser i alla prenumerationer i din faktureringskontexten. För företagskunder fakturering kontexten är registreringen och innehåller alla prenumerationer i registreringen. För kunder med användningsbaserad betalning är faktureringskontexten alla betala per användning-prenumerationer som skapas av kontoadministratören.
+    - Delad – rabatten plan på matchande instanser i alla prenumerationer i din faktureringskontexten. För företagskunder fakturering kontexten är registreringen och innehåller alla prenumerationer i registreringen. För enskilda plan med användningsbaserad prissättning kunder är faktureringskontexten alla enskilda prenumerationer med användningsbaserad prissättning prenumerationer som skapats av kontoadministratören.
 5. Välj en produkt för att välja virtuella datorstorlek och bildtypen. Rabatten gäller för den valda VM-storleken bara.
 6. Markera en term om ett eller tre år.
 7. Välj en kvantitet, vilket är antalet förbetalda VM-instanser som kan få fakturering rabatt.

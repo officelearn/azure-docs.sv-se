@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494851"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537587"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Ansluta till Azure Data Explorer med ODBC
 
@@ -20,9 +20,15 @@ Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) är en ac
 
 I bakgrunden program anropa i gränssnittet ODBC-funktioner som är implementerade i databasspecifika moduler som kallas *drivrutiner*. Azure Data Explorer stöder en delmängd av det SQL Server-protokollet ([MS TDS](/azure/kusto/api/tds/)), så att den kan använda ODBC-drivrutinen för SQL Server.
 
-I den här artikeln får du lära dig hur du använder ODBC-drivrutinen så att du kan ansluta till Datautforskaren i Azure från alla program som har stöd för ODBC.
+Med hjälp av följande video, du kan lära dig att skapa en ODBC-anslutning. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+Du kan också [konfigurera ODBC-datakällan](#configure-the-odbc-data-source) enligt beskrivning nedan. 
+
+I artikeln får du lära dig hur du använder ODBC-drivrutinen så att du kan ansluta till Datautforskaren i Azure från alla program som har stöd för ODBC. 
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande:
 

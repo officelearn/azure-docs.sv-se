@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111616"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483077"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 
@@ -79,8 +79,10 @@ Som programobjekt, kan tjänstens huvudnamn skapas via flera sökvägar, inklusi
 * Programmässigt via Azure AD Graph API eller PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hur är programobjekt och tjänstens huvudnamn relaterade till varandra?
+
 Ett program har ett programobjekt i sin hemkatalog som refereras av en eller flera tjänsthuvudnamn i var och en av de kataloger som där den fungerar (inklusive programmets arbetskatalog).
-![Ett diagram som illustrerar hur programobjekt och tjänstens huvudnamn ska interagera med varandra och Azure AD-instanser.][apps_service_principals_directory]
+
+![Visar relationen mellan appen och tjänstens huvudnamn][apps_service_principals_directory]
 
 I det föregående diagrammet Microsoft har två kataloger internt (visas till vänster) som används för att publicera program:
 
@@ -96,6 +98,7 @@ Program som du lägger till dig själv (som **App (själv)** i diagrammet) inklu
 * Appar som du publicerat med hjälp av Azure AD-programproxyn
 
 ### <a name="notes-and-exceptions"></a>Viktig information och undantag
+
 * Inte alla tjänsthuvudnamn refererar till ett programobjekt. När Azure AD har ursprungligen skapats de tjänster som tillhandahålls till program var mer begränsade och tjänstens huvudnamn har tillräckliga för att upprätta en Programidentitet. Ursprungliga tjänstens huvudnamn var närmare i formen för Windows Server Active Directory-tjänstkontot. Därför är det fortfarande möjligt att skapa tjänstens huvudnamn via olika vägar, till exempel med Azure AD PowerShell, utan att först skapa ett programobjekt. Azure AD Graph API kräver ett programobjekt innan du skapar ett tjänstens huvudnamn.
 * Inte alla de uppgifter som beskrivs ovan är för närvarande visas programmässigt. Följande är endast tillgängliga i Användargränssnittet:
   * Regler för omvandling av anspråk
@@ -105,6 +108,7 @@ Program som du lägger till dig själv (som **App (själv)** i diagrammet) inklu
   * [Tjänstens huvudnamn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför program integreras med Azure AD?
+
 Program läggs till Azure AD för att använda en eller flera av de tjänster, bland annat:
 
 * Program-autentisering och auktorisering
@@ -116,6 +120,7 @@ Program läggs till Azure AD för att använda en eller flera av de tjänster, b
 * Programpublicering och proxy - publicera ett program från ett privat nätverk till internet
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program i min Azure AD-instans?
+
 Det finns några uppgifter som att endast globala administratörer kan utföra (till exempel lägga till program från appgalleriet och konfigurera ett program att använda Application Proxy) som standard alla användare i katalogen har behörighet att registrera program objekt som de är utveckla och gottfinnande över vilka program som de resurs/ge åtkomst till sin organisations data via ditt medgivande. Om en person är den första användaren i din katalog för att logga in till ett program och ge ditt medgivande, som skapar ett huvudnamn för tjänsten i din klient; i annat fall lagras medgivande bevilja information på den befintliga tjänsten huvudnamn.
 
 Så att användarna kan registrera och samtycka till program kan ursprungligen ljud om, men tänk på följande:
@@ -132,10 +137,11 @@ Om du vill förhindra att användare i din katalog från att registrera program 
 
 * Att hindra användare från principer för program på egen hand:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) avsnittet under företagsprogram.
-  2. Ändra **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** till **nr**. 
+  2. Ändra **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** till **nr**.
      
      > [!NOTE]
-     > Om du vill stänga av användarens medgivande kan en administratör krävas samtycker till att alla nya program som en användare behöver använda.    
+     > Om du vill stänga av användarens medgivande kan en administratör krävas samtycker till att alla nya program som en användare behöver använda.
+
 * Att hindra användare från att registrera sina egna program:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) avsnittet under Azure Active Directory
   2. Ändra **användare kan registrera program** till **nr**.
@@ -145,4 +151,3 @@ Om du vill förhindra att användare i din katalog från att registrera program 
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

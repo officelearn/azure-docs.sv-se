@@ -9,37 +9,31 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f3d31fa25ea5781bc3af7297719b77723597e17
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187140"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444614"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
 I Visual Studio Code kan du publicera funktionsprojektet direkt på Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen.
 
-Den här artikeln förutsätter att du skapar en ny funktionsapp. 
+Som standard skapar alla Azure resurser som krävs för att skapa din funktionsapp med Visual Studio. Namnen på de här resurserna baseras på funktionsappens namn du väljer. Om du behöver ha fullständig kontroll över de skapade resurserna kan du i stället [publicera med hjälp av avancerade alternativ](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+
+Det här avsnittet förutsätter att du skapar en ny funktionsapp i Azure.
 
 > [!IMPORTANT]
 > Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure.
 
-1. I den **Azure: Functions** området, Välj för att distribuera till Funktionsapp-ikon.
-
-    ![Funktionsappinställningar](./media/functions-publish-project-vscode/function-app-publish-project.png)
+1. I Visual Studio Code trycker du på F1 för att öppna kommandopaletten. I kommandopaletten, Sök efter och välj `Azure Functions: Deploy to function app...`.
 
 1. Om inte loggat in, uppmanas du att **logga in på Azure**. Du kan också **skapa ett kostnadsfritt konto**. Efter lyckad inloggning i webbläsaren, gå tillbaka till Visual Studio Code. 
 
 1. Om du har flera prenumerationer **Välj en prenumeration** för funktionsappen, välj sedan **+ Skapa ny Funktionsapp i Azure**.
 
 1. Ange ett globalt unikt namn som identifierar funktionsappen och tryck på Retur. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`.
-
-1. Välj **+ Skapa ny resursgrupp**, ange ett resursgruppsnamn, till exempel `myResourceGroup`, och tryck på Retur. Du kan också använda en befintlig resursgrupp.
-
-1. Välj **+ Skapa nytt lagringskonto**, ange ett globalt unikt namn på det nya lagringskonto som ska användas av funktionsappen och tryck på Retur. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto.
-
-1. Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som används av dina funktioner.
 
     När du trycker på RETUR, skapas följande Azure-resurser i din prenumeration:
 

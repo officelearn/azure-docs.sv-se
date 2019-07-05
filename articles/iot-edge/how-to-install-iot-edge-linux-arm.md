@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7004edf2bab0e22d4d1e4c1200d6e8b8ef729b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152738"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485950"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)
 
@@ -27,7 +27,11 @@ Den här artikeln innehåller steg för att installera Azure IoT Edge-körningen
 >[!NOTE]
 >Paket i databaser för Linux-programvara är gäller under licensvillkor som finns i varje paket (/ usr/dela/docs/*paketnamn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
 
-## <a name="install-the-container-runtime"></a>Installera runtime behållare
+## <a name="install-the-latest-version"></a>Installera den senaste versionen
+
+Använd följande avsnitt för att installera den senaste versionen av tjänsten Azure IoT Edge på Linux ARM-enheter. 
+
+### <a name="install-the-container-runtime"></a>Installera runtime behållare
 
 Azure IoT Edge förlitar sig på en [OCI-kompatibla](https://www.opencontainers.org/) behållare runtime. I produktionsscenarier rekommenderas du använder den [Moby-baserade](https://mobyproject.org/) motor som anges nedan. Det är den enda behållare motorn officiellt stöds med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby-baserade-runtime.
 
@@ -47,7 +51,7 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 sudo apt-get install -f
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>Installera Daemon för IoT Edge-säkerhet
+### <a name="install-the-iot-edge-security-daemon"></a>Installera Daemon för IoT Edge-säkerhet
 
 Den **IoT Edge security daemon** tillhandahåller och underhåller säkerhetsstandarder på IoT Edge-enhet. Daemonen startar vid varje start och startar enheten genom att starta resten av IoT Edge-körningen. 
 
@@ -66,7 +70,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>Anslut enheten till en IoT-hubb 
+När IoT Edge har installerats uppmanas du att uppdatera konfigurationsfilen i utdata. Följ stegen i den [konfigurera Azure IoT Edge security daemon](#configure-the-azure-iot-edge-security-daemon) avsnitt för att avsluta etablering av enheten. 
+
+## <a name="install-a-specific-version"></a>Installera en specifik version
+
+Om du vill installera en specifik version av Azure IoT Edge kan du rikta komponentfiler direkt från IoT Edge GitHub-lagringsplatsen. Använd samma `curl` kommandon som visas i föregående avsnitt för att få alla IoT Edge-komponenterna på din enhet: Moby-motorn och CLI, libiothsm och slutligen daemonen IoT Edge-säkerhet. Den enda skillnaden är att du ersätter den **aka.ms** URL: er med länkar direkt som pekar på versionen av varje komponent som du vill använda.
+
+Navigera till den [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases), och hitta den utgivna versionen som du vill använda. Expandera den **tillgångar** för versionen och välja de filer som matchar din IoT-Edge enhetens arkitektur. Varje IoT Edge-versionen innehåller **iotedge** och **libiothsm** filer. Inte alla versioner innehåller **moby-engine** eller **moby cli**. Om du inte redan har Moby container-motorn installerad, titta igenom äldre versioner tills du hittar en som innehåller Moby-komponenter. 
+
+När IoT Edge har installerats uppmanas du att uppdatera konfigurationsfilen i utdata. Följ stegen i nästa avsnitt för att avsluta etablering av enheten. 
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Konfigurera Azure IoT Edge security daemon
 
 Konfigurera IoT Edge-körningen för att länka den fysiska enheten med en enhetsidentitet som finns i Azure IoT hub. 
 

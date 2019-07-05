@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affe9084c488984747c4bafca5b8e9536cd6dba8
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595912"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485426"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Fråga exempel med ”full” Lucene Söksyntaxen (avancerade frågor i Azure Search)
 
@@ -31,7 +31,7 @@ Lucene-parsern har stöd för komplex fråga konstruktioner som fältbegränsade
 
 I följande exempel utnyttja NYC Jobs sökindex som består av jobben tillgängliga baserat på en datauppsättning som tillhandahålls av den [stad New York OpenData](https://opendata.cityofnewyork.us/) initiativ. Dessa data ska inte betraktas aktuella eller klar. Indexet ligger på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller ett Azure Search för att prova de här frågorna.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att utfärda HTTP-begäranden på GET. Mer information finns i [utforska med REST-klienter](search-fiddler.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att utfärda HTTP-begäranden på GET. Mer information finns i [utforska med REST-klienter](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Ange huvudet för begäran
 

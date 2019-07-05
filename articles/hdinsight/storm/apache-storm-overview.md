@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd377d731b9e916414c7d1a568c7267e73d6bf33
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137225"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483824"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
@@ -44,7 +44,7 @@ Storm på HDInsight har följande funktioner:
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Kom igång med Storm, se [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md).
+Kom igång med Storm, se [skapa och övervaka en Apache Storm-topologi i Azure HDInsight](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Hur fungerar Apache Storm
 
@@ -68,7 +68,7 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 ## <a name="ease-of-creation"></a>Enkelt att skapa
 
-Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [Kom igång med Storm på HDInsight](apache-storm-tutorial-get-started-linux.md).
+Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Användbarhet
 
@@ -176,5 +176,5 @@ En exempeltopologi som visar hur du konfigurerar loggning finns i ett exempel p�
 
 Läs mer om lösningar för realtidsanalys med Apache Storm på HDInsight:
 
-* [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Skapa och övervaka en Apache Storm-topologi i Azure HDInsight](apache-storm-quickstart.md)
 * [Exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md)

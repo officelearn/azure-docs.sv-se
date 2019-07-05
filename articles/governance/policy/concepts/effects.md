@@ -8,25 +8,26 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116209"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448575"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
 Varje princip i Azure Policy har en enda effekt. Denna påverkan anger vad som händer när principregeln utvärderas så att de matchar. Effekterna beter sig annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
 
-Det finns för närvarande sex effekter som stöds i en definition av principen:
+Dessa effekter stöds för närvarande i en definition av principen:
 
-- Lägg till
-- Granska
-- AuditIfNotExists
-- Neka
-- DeployIfNotExists
-- Disabled
+- [Lägg till](#append)
+- [Granska](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Neka](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [Inaktiverad](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (förhandsversion)
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
@@ -39,7 +40,9 @@ Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager ut
 
 När Resursprovidern returnerar en framgångskod **AuditIfNotExists** och **DeployIfNotExists** utvärdera för att fastställa om ytterligare kompatibilitet loggning eller åtgärd krävs.
 
-## <a name="disabled"></a>Disabled
+Det finns för närvarande inte alla utvärderingsordningen för den **EnforceRegoPolicy** effekt.
+
+## <a name="disabled"></a>Inaktiverad
 
 Detta är användbart för att testa situationer eller för när principdefinitionen har parameteriserat effekten. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för den principen.
 
@@ -332,6 +335,58 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
                     }
                 }
             }
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Den här effekten används med en principdefinition *läge* av `Microsoft.ContainerService.Data`. Används för att skicka kontrollregler för åtkomst som definierats med [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) till [öppna Principagent](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy för Kubernetes](rego-for-aks.md) finns i offentlig förhandsversion och endast har stöd för inbyggda principdefinitioner.
+
+### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy utvärdering
+
+Öppna Principagent åtkomst controller utvärderar varje ny begäran på klustret i realtid.
+Var femte minut, en fullständig skanning av klustret har slutförts och resultatet rapporteras till Azure Policy.
+
+### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy egenskaper
+
+Den **information** egenskapen på EnforceRegoPolicy effekten har subegenskaperna som beskriver Kontrollregel för Rego åtkomst.
+
+- **policyId** [krävs]
+  - Ett unikt namn som skickas som en parameter för Kontrollregel för Rego åtkomst.
+- **principen** [krävs]
+  - Anger URI för Kontrollregel för Rego åtkomst.
+- **policyParameters** [valfritt]
+  - Definierar alla parametrar och värden ska skickas till rego principen.
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy exempel
+
+Exempel: Rego åtkomstkontroll regel för att tillåta endast de angivna behållaravbildningarna i AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
         }
     }
 }

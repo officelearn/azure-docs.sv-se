@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071441"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435941"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -44,13 +44,7 @@ Du kan aktivera statisk webbplats som är värd för med hjälp av den [Azure ko
 
 1. Först, öppnar den [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI lokalt, öppna ett kommando-konsolprogram som Windows PowerShell.
 
-2. Installera tillägget storage förhandsversion kommandofönstret som du har öppnat.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. Om din identitet är associerad med mer än en prenumeration, anger du dina aktiv prenumeration prenumeration på det lagringskonto som är värd för din statiska webbplats.
+2. Om din identitet är associerad med mer än en prenumeration, anger du dina aktiv prenumeration prenumeration på det lagringskonto som är värd för din statiska webbplats.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ Du kan aktivera statisk webbplats som är värd för med hjälp av den [Azure ko
 
    Ersätt den `<subscription-id>` platshållarvärdet med ID: T för din prenumeration.
 
-4. Aktivera som är värd för statisk webbplats.
+3. Aktivera som är värd för statisk webbplats.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ Du kan aktivera statisk webbplats som är värd för med hjälp av den [Azure ko
 
    * Ersätt den `<index-document-name>` platshållare med namnet på indexet dokumentet. Det här dokumentet är ofta ”index.html”.
 
-5. Överföra objekt till den *$web* behållare från en källkatalog.
+4. Överföra objekt till den *$web* behållare från en källkatalog.
 
    > [!NOTE]
    > Om du använder Azure Cloud Shell, bör du lägga till en `\` escape-tecknet när det gäller den `$web` behållare (till exempel: `\$web`). Om du använder en lokal installation av Azure CLI, behöver du inte använda escape-tecken.

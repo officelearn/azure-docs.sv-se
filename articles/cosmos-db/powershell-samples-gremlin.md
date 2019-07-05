@@ -4,14 +4,14 @@ description: Azure PowerShell-exempel för Azure Cosmos DB - Gremlin-API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: ea4afaa39f80b6848bf2c8ee08ecdd567cde4852
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4183137c6066dd8862f7e9f56e11b99390f4559b
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245663"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566207"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Azure PowerShell-exempel för Azure Cosmos DB Gremlin-API
 
@@ -21,6 +21,7 @@ I följande tabell innehåller länkar till Azure PowerShell-exempelskript för 
 |---|---|
 |[Skapa ett konto, databas och en graf](scripts/powershell/gremlin/ps-gremlin-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, databas och graf. |
 |[Visa eller hämta databaser eller diagram](scripts/powershell/gremlin/ps-gremlin-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta databasen eller graf. |
+|[Hämta RU/s](scripts/powershell/gremlin/ps-gremlin-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta RU/s för en databas eller en graf. |
 |[Uppdatera RU/s](scripts/powershell/gremlin/ps-gremlin-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera RU/s för en databas eller en graf. |
 |[Lägger till en region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Få ett Azure Cosmos-konto och lägger till en region i listan över platser. |
 |[Ändra redundansprioritet för](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ändra redundansprioritet för ett Azure Cosmos-konto med en manuell redundans-utlösare. |

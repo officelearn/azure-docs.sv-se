@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148935"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501929"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurera ett anpassat domännamn för ditt Azure storage-konto
 
@@ -34,10 +34,10 @@ I följande tabell visas några exempel-URL: er för blob-data som finns i ett l
 
 | Resurstyp | Standard-URL | URL: en anpassad domän |
 | --- | --- | --- |
-| Lagringskonto | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Rotbehållare | http://mystorageaccount.blob.core.windows.net/myblob eller http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob eller http://www.contoso.com/ $root/myblob |
-| Webb |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] eller http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] eller http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web eller http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/ $web eller http://www.contoso.com/ eller http://www.contoso.com/ $web / [indexdoc] eller http://www.contoso.com/ [indexdoc] |
+| Lagringskonto | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Rotbehållare | http:\//mystorageaccount.blob.core.windows.net/myblob eller http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob eller http:\//www.contoso.com/$ root/myblob |
+| Webb |  http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web/[indexdoc] eller http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] eller http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web eller http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http:\//www.contoso.com/$ webb- eller http:\//www.contoso.com/ eller http:\//www.contoso.com/$ web / [indexdoc] eller http:\//www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > I följande avsnitt visas gäller även alla exempel för blob service-slutpunkt för web service-slutpunkt.

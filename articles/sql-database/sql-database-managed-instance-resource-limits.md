@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272237"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447807"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database managed instance resursbegränsningar
 
@@ -42,6 +42,9 @@ Azure SQL Database-hanterad instans kan distribueras på två maskinvarugenerati
 | Maximal InMemory-OLTP-minne | Gräns för instans: 3 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 8 GB per databas<br/> – 16 kärnor: 20 GB per databas<br/> -24 kärnor: 36 GB per databas | Gräns för instans: 2,5 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 13 GB per databas<br/> – 16 kärnor: 32 GB per databas |
 | Maximal instans lagring (generell användning) |  8 TB | 8 TB |
 | Maximal instans lagring (affärskritisk) | 1 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
+
+> [!IMPORTANT]
+> Nya Gen4 databaser stöds inte längre i regionen Australien.
 
 ### <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 

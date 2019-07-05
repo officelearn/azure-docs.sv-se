@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237565"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461014"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Datamodellering i förhandsversionen av Azure Time Series Insights
 
@@ -29,12 +29,12 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 
 1. Gå till panelen väljare Time Series-modeller och välj **typer** på menyn. Dölj panelen för att fokusera på modeller för Time Series-typer.
 
-    [![Skapa en enda typ](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Skapa en enda typ](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. Välj **Lägg till**.
 1. Ange all information som rör typer och välj **skapa**. Den här åtgärden skapar typer i miljön.
 
-    [![Lägga till en typ](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Lägga till en typ](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Massöverför en eller flera typer
 
@@ -42,21 +42,21 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 1. Välj den fil som innehåller typen nyttolasten.
 1. Välj **Överför**.
 
-    [![Ladda upp JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![Ladda upp JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Redigera en enda typ
 
 1. Välj typ och **redigera**. 
 1. Gör nödvändiga ändringar och välj **spara**.
 
-    [![Redigera en typ](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Redigera en typ](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Ta bort en typ
 
 1. Välj typ och **ta bort**.
 1. Om inga instanser är associerade med typerna, tas den bort.
 
-    [![Ta bort en typ](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Ta bort en typ](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hierarkier
 
@@ -64,19 +64,19 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 
 1. Gå till panelen väljare Time Series-modeller och välj **hierarkier** på menyn. Dölj panelen för att fokusera på modeller för Time Series-hierarkier.
 
-    [![Välj hierarkier](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Välj hierarkier](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Välj **Lägg till**.
 
-    [![Lägg till en hierarki](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Lägg till en hierarki](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. Välj **Lägg till nivå** i den högra rutan.
 
-    [![Lägga till en nivå](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Lägga till en nivå](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Ange information för hierarkin och välj **skapa**.
 
-    [![Skapa en nivå](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Skapa en nivå](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Massöverför en eller flera hierarkier
 
@@ -84,21 +84,21 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 1. Välj den fil som innehåller nyttolasten i hierarkin.
 1. Välj **Överför**.
 
-    [![Massinläsning uppladdning hierarkier](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Massinläsning uppladdning hierarkier](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Redigera en hierarki
 
 1. Välj hierarkin och **redigera**.
 1. Gör nödvändiga ändringar och välj **spara**.
 
-    [![Redigera en hierarki](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Redigera en hierarki](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Ta bort en hierarki
 
 1. Välj hierarkin och **ta bort**. 
 1. Om inga instanser är associerade med hierarkin, tas den bort.
 
-    [![Ta bort en hierarki](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Ta bort en hierarki](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>instanser
 
@@ -106,11 +106,11 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 
 1. Gå till panelen väljare Time Series-modeller och välj **instanser** på menyn. Dölj panelen för att fokusera på modeller för Time Series-instanser.
 
-    [![Skapa en enda instans](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Skapa en enda instans](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Välj **Lägg till**.
 
-    [![Lägga till en instans](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Lägga till en instans](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Ange instansinformation, Välj typ och hierarki associationen och välj **skapa**.
 
@@ -119,7 +119,7 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 1. Välj **ladda upp JSON**.
 1. Välj den fil som innehåller nyttolasten instanser.
 
-    [![Massöverför en eller flera instanser](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
+    [![Massöverför en eller flera instanser](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Välj **Överför**.
 
@@ -128,7 +128,7 @@ Mer information om hur du använder uppdateringen [förhandsversion av Azure Tim
 1. Välj instansen och välj **redigera**. 
 1. Gör nödvändiga ändringar och välj **spara**.
 
-    [![Redigera en enskild instans](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
+    [![Redigera en enskild instans](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

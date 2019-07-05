@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979626"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444736"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -33,12 +33,12 @@ Ett program som använder Azure AD RBAC behöver inte hantera SAS regler och nyc
 
 Azure ger den nedan inbyggda RBAC-roller för att auktorisera åtkomst till en Service Bus-namnområde:
 
-* [Service Bus-Dataägaren (förhandsversion)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Aktiverar åtkomst till Service Bus-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
+* [Azure Service Bus-Dataägaren (förhandsversion)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Aktiverar åtkomst till Service Bus-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
 
 >[!IMPORTANT]
 > Vi tidigare stöd för att lägga till hanterad identitet till den **”ägare”** eller **”bidragsgivare”** roll.
 >
-> Men data behörighet för **”ägare”** och **”bidragsgivare”** rollen kommer inte längre att hanteras. Om du använde den **”ägare”** eller **”bidragsgivare”** roll och de måste anpassas till att använda den **”Service Bus-Dataägaren”** roll.
+> Men data behörighet för **”ägare”** och **”bidragsgivare”** rollen kommer inte längre att hanteras. Om du använde den **”ägare”** eller **”bidragsgivare”** roll och de måste anpassas till att använda den **”Azure Service Bus Dataägaren (förhandsversion)”** roll.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Använda Service Bus med ett användarkonto för Azure AD-domän
 

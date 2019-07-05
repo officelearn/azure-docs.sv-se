@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399576"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491875"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -31,7 +31,7 @@ Komponenterna som ingår i haveriberedskap för virtuella Azure-datorer sammanfa
 **Virtuella datorer i källregionen** | En av flera virtuella Azure-datorer i en [stöds källregionen](azure-to-azure-support-matrix.md#region-support).<br/><br/> Virtuella datorer kan köras på valfritt [operativsystem som stöds](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Källa VM-lagring** | Virtuella Azure-datorer kan hanteras, eller ha icke-hanterade diskar som är fördelade på storage-konton.<br/><br/>[Lär dig mer om](azure-to-azure-support-matrix.md#replicated-machines---storage) stöds Azure storage.
 **Virtuella datornätverk som källa** | Virtuella datorer kan finnas i ett eller flera undernät i ett virtuellt nätverk (VNet) i källregionen. [Läs mer](azure-to-azure-support-matrix.md#replicated-machines---networking) om nätverkskrav.
-**Cachelagringskonto** | Du behöver ett cachelagringskonto i källnätverket. Under replikering lagras ändringar i virtuella datorer i cachen innan den skickas till mål-lagringskontot.<br/><br/> Använda en cache garanterar minimal inverkan på produktionsprogram som körs på en virtuell dator.<br/><br/> [Läs mer](azure-to-azure-support-matrix.md#cache-storage) om cache lagringskrav. 
+**Cachelagringskonto** | Du behöver ett cachelagringskonto i källnätverket. Under replikering lagras ändringar i virtuella datorer i cachen innan den skickas till mål-lagringskontot.  Cachelagringskonton måste vara Standard.<br/><br/> Använda en cache garanterar minimal inverkan på produktionsprogram som körs på en virtuell dator.<br/><br/> [Läs mer](azure-to-azure-support-matrix.md#cache-storage) om cache lagringskrav. 
 **Målresurser** | Målresurser används vid replikering och redundans inträffar. Site Recovery kan ställa in målresurs som standard, eller du kan skapa/anpassa dem.<br/><br/> Kontrollera att det går att skapa virtuella datorer och att din prenumeration har tillräckligt med resurser som stöder VM-storlekar som krävs i målregionen i målregion. 
 
 ![Käll- och replikering](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

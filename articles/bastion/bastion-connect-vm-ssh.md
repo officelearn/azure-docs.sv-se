@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572043598c71a400e154c5c2e9e6c2f1e9b4ab49
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 69548541d16db95f633400808f72aebaf59cff08
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191803"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477782"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion-preview"></a>Ansluta med SSH till en Linux-dator med hjälp av Azure Skyddsmiljö (förhandsversion)
 
@@ -42,7 +42,7 @@ För att upprätta en anslutning, krävs följande roller:
 ## <a name="username"></a>Anslut: Med användarnamn och lösenord
 
 
-1. I den [Azure-portalen](https://aka.ms/BastionHost) för förhandsversionen av Skyddsmiljö, navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
+1.  Använd [den här länken](https://aka.ms/BastionHost) att öppna sidan preview portal för Azure Skyddsmiljö. Navigera till den virtuella datorn som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
 1. När du klickar på Anslut visas ett sida-fält som har tre flikar – RDP och SSH Skyddsmiljö. Om Skyddsmiljö etablerades för det virtuella nätverket, är fliken Skyddsmiljö aktiv som standard. Om du inte har etablerat Skyddsmiljö för det virtuella nätverket, se [konfigurera Skyddsmiljö](bastion-create-host-portal.md). Om du inte ser **Skyddsmiljö** visas, du har inte öppnat preview-portalen. Öppna portalens med [den här länken](https://aka.ms/BastionHost).
 
       ![VM-anslutning](./media/bastion-connect-vm-ssh/bastion.png)
@@ -52,7 +52,7 @@ För att upprätta en anslutning, krävs följande roller:
 
 ## <a name="privatekey"></a>Anslut: Ange manuellt en privat nyckel
 
-1. I den [Azure-portalen](https://aka.ms/BastionHost) för förhandsversionen av Skyddsmiljö, navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
+1.  Använd [den här länken](https://aka.ms/BastionHost) att öppna sidan preview portal för Azure Skyddsmiljö. Navigera till den virtuella datorn som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
 1. När du klickar på Anslut visas ett sida-fält som har tre flikar – RDP och SSH Skyddsmiljö. Om Skyddsmiljö etablerades för det virtuella nätverket, är fliken Skyddsmiljö aktiv som standard. Om du inte har etablerat Skyddsmiljö för det virtuella nätverket, se [konfigurera Skyddsmiljö](bastion-create-host-portal.md). Om du inte ser **Skyddsmiljö** visas, du har inte öppnat preview-portalen. Öppna portalens med [den här länken](https://aka.ms/BastionHost).
 
       ![VM-anslutning](./media/bastion-connect-vm-ssh/bastion.png)
@@ -63,7 +63,7 @@ För att upprätta en anslutning, krävs följande roller:
 
 ## <a name="ssh"></a>Anslut: Med hjälp av en fil för privat nyckel
 
-1. I den [Azure-portalen](https://aka.ms/BastionHost) för förhandsversionen av Skyddsmiljö, navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
+1.  Använd [den här länken](https://aka.ms/BastionHost) att öppna sidan preview portal för Azure Skyddsmiljö. Navigera till den virtuella datorn som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Linux-dator när du använder en SSH-anslutning.
 
     ![VM-anslutning](./media/bastion-connect-vm-ssh/connect.png)
 

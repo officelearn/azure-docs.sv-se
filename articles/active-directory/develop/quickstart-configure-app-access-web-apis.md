@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545807"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482682"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för att komma åt webb-API:er
 
@@ -42,7 +42,7 @@ I den här snabbstarten visas hur du konfigurerar din app för att:
 * [Lägg till autentiseringsuppgifter i ditt webbprogram](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -74,14 +74,14 @@ Lägga till en omdirigerings-URI för appen:
 1. Gör följande för att lägga till en anpassad omdirigerings-URI för webbappar och offentliga klientprogram:
 
    1. Leta reda på avsnittet **Omdirigerings-URI**.
-   1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)**.
+   1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)** .
    1. Ange omdirigerings-URI för appen.
       * För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
       * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel https://MyFirstApp.
 
 1. Gör följande för att välja mellan föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator):
 
-    1. Leta reda på avsnittet för **föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator)**.
+    1. Leta reda på avsnittet för **föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator)** .
     1. Välj en eller flera lämpliga omdirigerings-URI:er med hjälp av kryssrutorna.
 
 ## <a name="add-credentials-to-your-web-application"></a>Lägga till autentiseringsuppgifter i webbappen
@@ -110,7 +110,7 @@ Så här lägger du till en autentiseringsuppgift för webbappen:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Lägga till behörigheter för att få åtkomst till webb-API:er
 
-[![Lägga till API-behörigheter](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+[![Visar skärmen där du kan lägga till API-behörigheter](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 Så lägger du till behörigheter för att komma åt resurs-API:er från klienten:
 

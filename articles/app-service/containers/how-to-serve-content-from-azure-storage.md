@@ -8,18 +8,18 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956023"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484422"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Leverera innehåll från Azure Storage i App Service i Linux
 
-Den här guiden visar hur du hantera statiskt innehåll i App Service i Linux med hjälp av [Azure Storage](/azure/storage/common/storage-introduction). Fördelar skyddat innehåll, innehåll portabilitet, åtkomst till flera appar och flera metoder för överföring. 
+Den här guiden visar hur du hantera statiskt innehåll i App Service i Linux med hjälp av [Azure Storage](/azure/storage/common/storage-introduction). Fördelar skyddat innehåll, innehåll portabilitet, åtkomst till flera appar och flera metoder för överföring.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En befintlig webbapp (App Service på Linux eller Web App for Containers).
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).
@@ -28,6 +28,8 @@ Den här guiden visar hur du hantera statiskt innehåll i App Service i Linux me
 
 > [!NOTE]
 > Azure Storage är icke-standard storage och faktureras separat, ingår inte i webbappen.
+>
+> Ta med din egen storage stöder inte användning av Storage brandväggskonfigurationen på grund av infrastrukturbegränsningar.
 >
 
 Skapa en Azure [Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).

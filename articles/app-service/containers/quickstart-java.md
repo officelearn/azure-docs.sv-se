@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 09a3ad182ff5ee19a81b03557b3277343912a774
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510861"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461424"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -62,50 +62,69 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
-        <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
-            <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
-   
-            <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime> 
-            <deployment>
-                <resources>
-                    <resource>
-                        <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
-                    </resource>
-                </resources>
-            </deployment>
-        </configuration>
+        <version>1.7.0</version>
     </plugin>
 </plugins>
-```    
+```
 
+Under distribueringen till Azure App Service används autentiseringsuppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter.
 
-> [!NOTE] 
+```azurecli
+az login
+```
+
+Du kan konfigurera distributionen, kör kommandot maven `mvn azure-webapp:config` i Kommandotolken och använda standardkonfigurationerna genom att trycka på **RETUR** fram till den **bekräfta (J/N)** frågar sedan Tryck på **”y”** och konfigurationen är klar.
+
+```cmd
+~@Azure:~/helloworld$ mvn azure-webapp:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< example.demo:helloworld >-----------------------
+[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ helloworld ---
+[WARNING] The plugin may not work if you change the os of an existing webapp.
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use:
+Define value for javaVersion(Default: jre8):
+1. jre8 [*]
+2. java11
+Enter index to use:
+Define value for runtimeStack(Default: TOMCAT 8.5):
+1. TOMCAT 9.0
+2. jre8
+3. TOMCAT 8.5 [*]
+4. WILDFLY 14
+Enter index to use:
+Please confirm webapp properties
+AppName : helloworld-1558400876966
+ResourceGroup : helloworld-1558400876966-rg
+Region : westeurope
+PricingTier : Premium_P1V2
+OS : Linux
+RuntimeStack : TOMCAT 8.5-jre8
+Deploy to slot : false
+Confirm (Y/N)? : Y
+```
+
+> [!NOTE]
 > I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
+Gå till `pom.xml` igen för att visa konfigurationen av plugin-programmet har uppdaterats, du kan ändra andra konfigurationer för App Service direkt i pom-filen om det behövs, vissa vanliga som anges nedan:
 
-Uppdatera följande platshållare i konfigurationen av plugin-program:
-
-| Platshållare | Beskrivning |
-| ----------- | ----------- |
-| `SUBSCRIPTION_ID` | Unikt ID för prenumerationen som du vill distribuera din app. Standard prenumerations-ID finns från Cloud Shell eller CLI med den `az account show` kommando. Använd för alla tillgängliga prenumerationer den `az account list` kommando.|
-| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resursgruppnamn, till exempel *TestResources*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
-| `WEBAPP_NAME` | Appnamnet är en del av värdnamnet för appen när den distribueras till Azure (WEBAPP_NAME.azurewebsites.net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
-| `REGION` | En Azure-region där appen hanteras, till exempel `westus2`. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
+ Egenskap | Krävs | Beskrivning | Version
+---|---|---|---
+`<schemaVersion>` | false | Ange versionen av Konfigurationsschemat. Värden som stöds är: `v1`, `v2`. | 1.5.2
+`<resourceGroup>` | true | Azure-resursgrupp för din Webbapp. | 0.1.0+
+`<appName>` | true | Namnet på din Webbapp. | 0.1.0+
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Anger den region där Webbappen ska finnas; Standardvärdet är **westus**. Alla giltiga regioner på [stöds regioner](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) avsnittet. | 0.1.0+
+[`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | Prisnivån för din Webbapp. Standardvärdet är **P1V2**.| 0.1.0+
+[`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | Runtime-miljökonfigurationen kan du få se detaljerat [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0+
+[`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | Distributionskonfigurationen, kan du se information [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0+
 
 ## <a name="deploy-the-app"></a>Distribuera appen
 
@@ -117,11 +136,19 @@ mvn package azure-webapp:deploy
 
 När distributionen är klar bläddrar du till den distribuerade tillämpningen med hjälp av följande webbadress i webbläsaren, till exempel `http://<webapp>.azurewebsites.net`. 
 
-![Exempelapp som körs i Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
+![Exempelapp som körs i Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 **Grattis!** Du har distribuerat din första Java-app till App Service på Linux.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Rensa resurser
+
+I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resursgruppen genom att köra följande kommando i Cloud Shell:
+
+```azurecli-interactive
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+Det kan några minuter att köra kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 

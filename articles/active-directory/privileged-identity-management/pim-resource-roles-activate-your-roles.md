@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e8615cc5534255308c35fa1f675ef3a85aa84e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdce060006f65f2b0fb08023066ee504578bc552
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438531"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501658"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 
@@ -38,37 +38,37 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
 1. Klicka på **Mina roller**.
 
-    ![Azure AD-roller och Azure-resursroller - Mina roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Mina rollsidan som visar roller som du kan aktivera](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Klicka på **Azure-resursroller** att se en lista över dina berättigade Azure-resursroller.
 
-   ![Azure-resursroller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Mina roller - rollsidan för Azure-resurs](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. I den **Azure-resursroller** listan, hitta den roll som du vill aktivera.
 
-    ![Azure-resursroller - listan roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Azure-resursroller - listan berättigade roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. Klicka på **aktivera** att öppna fönstret Aktivera.
 
 1. Om din roll kräver multifaktorautentisering (MFA), klickar du på **verifiera din identitet innan du fortsätter**. Du behöver bara autentiseras en gång per session.
 
-    ![Verifiera med MFA innan rollaktivering](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Verifiera min identitet med MFA innan rollaktivering](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Klicka på **verifiera min identitet** och följ anvisningarna för att tillhandahålla ytterligare säkerhetsverifiering.
 
-    ![Ytterligare säkerhetskontroll](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Skärmen för att ge en säkrare verifiering, till exempel en PIN-kod](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. Om du vill ange ett lägre omfång, klickar du på **omfång** att öppna filterfönstret för resursen.
 
     Det är en bra idé att bara begära åtkomst till de resurser du behöver. Du kan ange resursgrupper eller resurser som du behöver åtkomst till i filterrutan resurs.
 
-    ![Aktivera - resursfilter](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![Aktivera - resurs filterfönstret för att ange omfång](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. Om det behövs kan du ange en starttid för anpassade aktivering. Medlemmen skulle aktiveras efter den valda tiden.
 
 1. I den **orsak** anger orsaken till aktiveringsbegäran.
 
-    ![Slutförda Aktivera fönstret](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![Slutförda Aktivera fönstret med omfång, starttid, varaktighet och orsak](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Klicka på **Aktivera**.
 
@@ -76,7 +76,7 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
     Om den [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktivera, visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
 
-    ![Förfrågan väntar på meddelande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![Begäran om aktivering är meddelande om väntar på godkännande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
 
@@ -102,7 +102,7 @@ Du kan visa statusen för väntande förfrågningar om att aktivera.
 
 1. Klicka på **Mina förfrågningar** att se en lista över dina Azure AD-rollen och Azure-resursrollen begär.
 
-    ![Azure AD-roller och Azure-resursroller - Mina begäranden](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Mina begäranden - Azure-resurs-sidan som visar väntande förfrågningar](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Bläddra till höger för att visa den **begär Status** kolumn.
 
@@ -118,22 +118,19 @@ Om du inte behöver aktivering av en roll som kräver godkännande kan avbryta d
 
     När du klickar på Avbryt avbryts begäran. Om du vill aktivera rollen igen och måste du skicka en ny begäran om aktivering.
 
-   ![Avbryta väntande begäran](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![Min listan över begäranden med Avboka markerat](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Felsöka
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Behörigheter som beviljas inte efter aktivering av en roll
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter aktivering av en roll
 
-När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. När aktiveringen är klar, logga ut från Azure-portalen och logga in för att börja använda den nyligen aktiverade rollen.
+När du aktiverar en roll i PIM kan aktiveringen inte direkt spridas till alla portaler som kräver privilegierad roll. Ibland även om ändringen sprids kan web cachelagring i en portal resultera i att ändringen börjar inte gälla omedelbart. Om aktiveringen dröjer är här vad du bör göra.
 
-För ytterligare felsökning, se [felsökning förhöjd behörighet](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+1. Logga ut från Azure portal och sedan logga in igen.
 
-### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Det går inte att aktivera en roll på grund av en resurslås
+    När du aktiverar rollen för en Azure-resurs, visas olika aktiveringen. När alla steg har slutförts, visas en **logga ut** länk. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiveringsfördröjning.
 
-Om du får ett meddelande om att en Azure-resurs är låst när du försöker aktivera en roll, det kan bero på en resurs inom omfånget för en rolltilldelning har ett resurslås. Lås skydda resurser mot oavsiktlig borttagning eller oväntade ändringar. Ett lås förhindrar också att PIM tar bort en rolltilldelning på resursen i slutet av aktiveringsperioden. Eftersom PIM är det går inte att fungera korrekt när ett lås används förhindrar PIM användare aktiverar roller på resursen. Det finns två sätt att du kan lösa problemet:
-
-- Ta bort låset enligt beskrivningen i [låsa resurser för att förhindra oväntade ändringar](../../azure-resource-manager/resource-group-lock-resources.md).
-- Om du vill behålla låset göra rolltilldelningen permanenta eller Använd en glas-konto.
+1. I PIM, kontrollerar du att du står som medlem i rollen.
 
 ## <a name="next-steps"></a>Nästa steg
 

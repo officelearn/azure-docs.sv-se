@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719718"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458810"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
 
@@ -46,7 +46,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
     |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
-    |**Plats**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
+    |**Location**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
     |**Klustertyp**     | Välj **Hadoop**. |
     |**Klusternamn**     | Ange ett namn för Apache Hadoop-kluster. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
     |**Inloggningsnamn och lösenord för klustret**     | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
@@ -66,7 +66,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
     
 
 > [!NOTE]  
-> Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). 
+> Information om andra kluster metoder för att skapa och förstå de egenskaper som används i den här artikeln finns i [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Få åtkomst till Grafana-instrumentpanel
 
@@ -108,7 +108,7 @@ När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lag
 I den här artikeln beskrivs hur du skapar ett Linux-baserade HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Apache Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med hjälp av Apache Hive på HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extrahera, transformera och läsa in data med hjälp av interaktiva frågor på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 

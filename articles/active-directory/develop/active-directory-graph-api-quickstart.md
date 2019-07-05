@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544672"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483180"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Anvisningar: Använd Azure AD Graph API:n
 
@@ -65,7 +65,7 @@ Du kan använda Azure AD Graph-testaren för Azure AD Graph API för att fråga 
 
 Skärmbilden nedan är utdata visas om du skulle gå till Azure AD Graph Explorer, logga in och ange `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` att visa alla användare i den inloggade användarens katalog:
 
-![Azure AD graph api-Utforskaren](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Exempel på utdata i Azure AD Graph API-Utforskaren](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Läsa in Azure AD Graph-testaren**: För att läsa in verktyget går du till [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Klicka på **inloggning** och logga in med din Azure AD-autentiseringsuppgifter för att köra Azure AD Graph-testaren mot din klient. Om du kör Azure AD Graph-testaren mot din egen klientorganisation måste du eller din administratör att godkänna under inloggning. Om du har en Office 365-prenumeration kan har du automatiskt en Azure AD-klient. Autentiseringsuppgifterna som du använde för att logga in på Office 365 i själva verket är Azure AD-konton, och du kan använda dessa autentiseringsuppgifter med Azure AD Graph Explorer.
 

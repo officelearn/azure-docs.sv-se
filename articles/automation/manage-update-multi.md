@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du hanterar uppdateringar för Azur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a4990673479c913777a5a7c410460d3d3b31264
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055578"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478320"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -25,7 +25,7 @@ Du kan använda lösningen för uppdateringshantering för att hantera uppdateri
 - Schemalägga installation av nödvändiga uppdateringar
 - Granska distributionsresultaten för att verifiera att uppdateringarna har tillämpats för alla virtuella datorer som uppdateringshantering är aktiverat
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda uppdateringshantering behöver du:
 

@@ -2,22 +2,22 @@
 title: inkludera fil (enhetsströmmar)
 description: ta med fil
 services: iot-hub
-author: rezas
+author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733296"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445977"
 ---
 Om du planerar att fortsätta till nästa artikel om rekommenderade kan du hålla och återanvända resurser som du redan har skapat.
 
-I annat fall kan du för att undvika avgifter kan ta bort Azure-resurser som du skapade i den här artikeln. 
+I annat fall kan du för att undvika avgifter kan ta bort Azure-resurser som du skapade i den här artikeln.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du skapat IoT-hubben inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bort bara IoT hub resursen, inte resursgruppen.
@@ -27,7 +27,7 @@ Ta bort en resursgrupp med namnet:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-1. I den **filtrera efter namn** anger du namnet på resursgruppen som innehåller din IoT-hubb. 
+1. I den **filtrera efter namn** anger du namnet på resursgruppen som innehåller din IoT-hubb.
 
 1. I resultatlistan till höger om resursgruppen, Välj ellipsen ( **...** ), och välj sedan **ta bort resursgrupp**.
 

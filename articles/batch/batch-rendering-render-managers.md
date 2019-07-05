@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436164"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Med Azure Batch med rendering gruppen Chefer
 
@@ -23,7 +23,7 @@ Azure ger inbyggt stöd eller tillägg till populära rendering chefer. Du kan l
 Följande rendering chefer stöds:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal rendering](http://www.royalrender.de/)
+* [Royal rendering](https://www.royalrender.de/)
 * [Thinkbox tidsgräns](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Med hjälp av Azure med PipelineFX Qube
@@ -32,7 +32,7 @@ Skript och instruktioner för att aktivera Azure Batch-poolen virtuella datorer 
 
 ## <a name="using-azure-with-royal-render"></a>Med hjälp av Azure med Royal rendering
 
-Royal rendering har Azure och Azure Batch-integrering inbyggda, så att du kan utöka en renderingsgrupp med Azure-baserade virtuella datorer. En sammanfattning finns [hjälpfilerna](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Royal rendering har Azure och Azure Batch-integrering inbyggda, så att du kan utöka en renderingsgrupp med Azure-baserade virtuella datorer. En sammanfattning finns [hjälpfilerna](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Ett exempel på Royal rendera kund som använder Azure-integrering finns i den [Jellyfish bilder kundberättelsen](https://customers.microsoft.com/story/jellyfishpictures).
 

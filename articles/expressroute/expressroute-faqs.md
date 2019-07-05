@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754742"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488490"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -123,9 +123,13 @@ Du kommer inte att förlora anslutningen om en av flera anslutningar misslyckas.
 
 Flera ExpressRoute-kretsar från olika peeringplatser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om att en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen till prioriterar föredrar du en specifik krets. Vi rekommenderar starkt att kunder konfigurera minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
+Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för design för hög tillgänglighet och [här](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) för utformning för katastrofåterställning.  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur jag implementera redundans på Microsoft-peering?
 
 Vi rekommenderar starkt när kunder använder Microsoft-peering för att komma åt offentliga Azure-tjänster som Azure Storage eller Azure SQL samt kunder som använder Microsoft-peering för Office 365 att implementera flera-kretsar i olika peering platser för att undvika felkritiska faiure. Kunder kan antingen annonsera prefixet samma på både kretsar och använda [AS PATH-prepending](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökvägen från en lokal plats.
+
+Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för design för hög tillgänglighet.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutet till ExpressRoute?
 

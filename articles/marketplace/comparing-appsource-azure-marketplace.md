@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 905901c2a21c59bab9f48bf4229333663bc39131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de536f687272283b816e6724e41eb61e3a22cd0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938611"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442338"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace
 Butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) fungerar unika kundbehov. Använd butiker till målkunder efter roll. Du kan erbjuda rätt lösning eller tjänst beroende på kunden.
@@ -29,8 +29,8 @@ I följande tabell beskrivs fördelarna med att använda en butik:
 
 | Fördelar | AppSource | Azure Marketplace |
 |:--- |:--- | :--- |
-| **Faktureringsflexibilitet** | Etablerar en utvärderingsmiljö. För närvarande erbjuder inte en commerce-aktiverade publiceringsalternativ. Du kan använda den aktuella sorteringen och fakturering infrastrukturen utan ytterligare investeringar eller ändringar. | För virtuella datorer kan använda betala per användning faktureringsalternativ Microsoft Enterprise-avtal (EAs) eller web direct försäljning modeller. Priserna omfattar en prenumeration på kostnadsfri nivå, där ett erbjudande är alltid gratis. Prisalternativ även innehålla en Prova nu-prenumeration. En prenumeration med Prova nu tillhandahålls kostnadsfritt under en begränsad period. När den har löpt ut, konverteras den virtuella datorn till en betald prenumeration. Bring Your Own License (BYOL) aktivering är också ett alternativ som du kan använda för kunder.<br /><br/>Både faktureringsalternativ och de Virtuella erbjudandena faktureras alla etablerade Azure-resurser direkt till kunden:<ul> <li>Azure-appar: Hanterad app</li> <li>Azure-appar: Lösningsmall</li> </ul> |
-| **Anslutningar med andra partner** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. | 
+| **Faktureringsflexibilitet** | AppSource stöder kostnadsfria, utvärdering, BYOL och transactable erbjudandetyper. Transactable erbjudanden är prenumerationsbaserade SaaS-produkter som kan fakturering eller månadsvis på en per plats eller fasta.| Azure Marketplace-stöder kostnadsfria, utvärdering, BYOL och transactable erbjudandetyper. Transactable erbjudanden är antingen förbrukningsbaserad eller prenumerationsbaserade. Förbrukningsbaserad erbjudanden debiteras per användning per timme och kan tillhandahålla en inledande gratisperioden. Prenumerationen-baserade tjänster faktureras eller månadsvis på en per klient eller en fast avgift.|
+|**Anslutningar med andra partner** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. | 
 | **Automation** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. Dra nytta av automatiserade programvara som en tjänst (SaaS) med tillägget etablering. Använd Azure-appar: Lösningsmallen publicera alternativet för att automatisera scenarier för insamling och distribution av SaaS-baserade data. |
 | **Flera molntyper** | För närvarande stöd inte för Azure Stack, Azure Government eller nationella moln. | Publicera lösningar för både det offentliga molnet och lokalt med hjälp av följande typer:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nationella moln, inklusive Kina och Tyskland</li></ul> |
 | **Kontextbaserad presentation för kunder** | Nå fler kunder genom appupplevelsen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365. | Tillgängliggöra din lösning i Azure-portal-upplevelsen för sammanhangsbaserad sökning. Använd de virtuella datorn och Azure-apparna: Lösningen publiceringsalternativ för mallen. |

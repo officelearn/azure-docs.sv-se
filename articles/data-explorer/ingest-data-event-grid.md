@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494752"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490138"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
 
@@ -20,7 +20,7 @@ Azure Data Explorer är en snabb och skalbar tjänst för Kunskapsutveckling fö
 
 I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigera händelser till Datautforskaren i Azure via en händelsehubb. Om du vill börja, bör du ha ett lagringskonto med en event grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar en Event Grid-dataanslutning och se data flödet i hela systemet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 * [Ett kluster och databasen](create-cluster-database-portal.md).
@@ -112,10 +112,10 @@ Nu ansluta till event grid från Azure Data Explorer så att data som flödar ti
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimeringsalternativ som stöds: Postnummer och GZip |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
 Nu när Azure Data Explorer och lagringskontot som är ansluten kan du skapa exempeldata och överföra den till blob-lagringen.

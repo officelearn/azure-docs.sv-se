@@ -14,26 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620489"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544150"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
-Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1 versionen, samt viktig information för tidigare versioner.
+Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0 versionen, samt viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
+## <a name="version-190"></a>Version 1.9.0
+7/1/2019
+
+### <a name="download-azure-storage-explorer-190"></a>Hämta Azure Storage Explorer 1.9.0
+- [Azure Storage Explorer 1.9.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.9.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.9.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Ny
+
+* Nu kan du koppla Blob-behållare via Azure AD (RBAC eller ACL-behörighet). Den här funktionen är avsedd att hjälpa användare som har åtkomst till behållare men inte de Lagringskonton som behållarna som finns i. Se vår Kom igång-guiden för mer information om den här funktionen.
+* Hämta och avbryta lånet nu fungerar med RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* Hantera principer för åtkomst och ange offentlig åtkomstnivå nu arbeta med RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* Ta bort blob mappar fungerar nu med RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* Ändra blobåtkomstnivån nu fungerar med RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* Du kan nu snabbt återställa Snabbåtkomst via ”Hjälp” → ”återställning”. [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>Förhandsversionsfunktioner
+
+* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
+* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+
+### <a name="fixes"></a>Korrigeringar
+
+* Fast att det inte går att läsa in mer än 50 prenumerationer för ett konto. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* Fasta knappen ”Logga in” fungerar inte på Informationsfältet som visas när en direktlänk misslyckas. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* Fasta var inte att ladda upp .app filer på macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* Fast ”försök alla” fungerar inte för en misslyckad blob-byta. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* Fast ”Avbryt” fungerar inte när du öppnar en blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* Fasta flera stavning och knappbeskrivning problem i hela produkten. Stort tack till alla som har rapporterat dessa problem! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>Kända problem
+
+* När du utför en icke - AzCopy Blob-nedladdning, verifieras inte MD5 för stora filer. Detta beror på en bugg i Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
+* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
+* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
+   * Filresurser
+   * Åtkomstnivåer
+   * Mjuk borttagning
+   * ADLS Gen2
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 1.8.1](#version-181)
+* [Version 1.8.0](#version-180)
+* [Version 1.7.0](#version-170)
+* [Version 1.6.2](#version-162)
+* [Version 1.6.1](#version-161)
+* [Version 1.6.0](#version-160)
+* [Version 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0 eller senare](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 och 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 till och och 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 och 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-181"></a>Version 1.8.1
 5/13/2019
-
-### <a name="download-azure-storage-explorer-181"></a>Hämta Azure Storage Explorer 1.8.1
-- [Azure Storage Explorer 1.8.1 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.8.1 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.8.1 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
 * I vissa fall skulle att klicka på ”inläsning mer” på resursnivån inte returnerar nästa sida i resurser. Problemet har åtgärdats. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
@@ -89,52 +182,8 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.8.1
 
 * Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
 
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 1.8.0](#version-180)
-* [Version 1.7.0](#version-170)
-* [Version 1.6.2](#version-162)
-* [Version 1.6.1](#version-161)
-* [Version 1.6.0](#version-160)
-* [Version 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0 eller senare](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 och 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 till och och 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 och 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-180"></a>Version 1.8.0
 5/1/2019
-
-### <a name="download-azure-storage-explorer-180"></a>Hämta Azure Storage Explorer 1.8.0
-- [Azure Storage Explorer 1.8.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.8.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.8.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 
@@ -1277,7 +1326,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Uppdaterade Electron versionen till 1.7.2 för att kunna dra nytta av flera kritiska säkerhetsuppdateringar
 * Du kan nu snabbt komma åt online felsökningsguide för Hjälp-menyn
 * Felsöka Lagringsutforskaren [Guide][2]
-* [Instruktioner] [ 3] om hur du ansluter till en Azure Stack-prenumeration
+* [Instruktioner][3] om hur du ansluter till en Azure Stack-prenumeration
 
 ### <a name="known-issues"></a>Kända problem
 
@@ -1302,7 +1351,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 #### <a name="new"></a>Ny
 
 * Felsöka Lagringsutforskaren [Guide][2]
-* [Instruktioner] [ 3] om hur du ansluter till en Azure Stack-prenumeration
+* [Instruktioner][3] om hur du ansluter till en Azure Stack-prenumeration
 
 #### <a name="fixes"></a>Korrigeringar
 

@@ -1,8 +1,6 @@
 ---
-title: Utföra åtgärder för Enterprise-avtal i Microsoft kundavtal – Azure | Microsoft Docs
+title: Utföra åtgärder för Enterprise-avtal i Microsoft kundavtal - Azure
 description: Lär dig hur du utför uppgifterna i Enterprise-avtal i ditt nya faktureringskonto.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371347"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490717"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Utför Enterprise-avtal uppgifter i ditt faktureringskonto för en Microsoft-kundavtal
 
 Om din organisation har undertecknat ett avtal med Microsoft kunden att förnya ditt Enterprise Agreement-registrering, skapas en ny faktureringskonto för avtalet. Fakturering i det nya kontot organiseras annorlunda än ditt Enterprise Agreement. Den här artikeln beskrivs hur du kan använda det nya faktureringskontot för att utföra uppgifter som du utförde i ditt Enterprise Agreement.
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>Hur organiseras fakturering i det nya kontot
+## <a name="billing-organization-in-the-new-account"></a>Fakturering organisation i det nya kontot
 
 Följande diagram visar hur fakturering är ordnade i ditt nya faktureringskonto.
 
@@ -33,16 +31,16 @@ Följande diagram visar hur fakturering är ordnade i ditt nya faktureringskonto
 
 | Enterprise-avtal   | Microsofts kundavtal    |
 |------------------------|--------------------------------------------------------|
-| Registrering            | Du kan använda en profil för fakturering för att hantera fakturering för din organisation, som ditt Enterprise Agreement-registrering. Företagsadministratörer bli ägare av fakturering profilen. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
-| Avdelning            | Du kan använda en faktura-avsnittet för att organisera dina kostnader, liknar avdelningar i ditt Enterprise Agreement-registrering. Avdelning blir faktura avsnitt och avdelning administratörer bli ägare av avsnitten respektive faktura. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#understand-invoice-sections). |
+| Registrering            | Du kan använda en profil för fakturering för att hantera fakturering för din organisation, som ditt Enterprise Agreement-registrering. Företagsadministratörer bli ägare av fakturering profilen. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#billing-profiles).
+| Avdelning            | Du kan använda en faktura-avsnittet för att organisera dina kostnader, liknar avdelningar i ditt Enterprise Agreement-registrering. Avdelning blir faktura avsnitt och avdelning administratörer bli ägare av avsnitten respektive faktura. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#invoice-sections). |
 | Konto               | De konton som har skapats i ditt Enterprise Agreement stöds inte i det nya faktureringskontot. Kontots prenumerationer som hör till avsnittet respektive faktura för sina fakultet. Kontoinnehavare kan skapa och hantera prenumerationer för sin faktura-avsnitt. |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Ändringar för Företagsadministratörer i det nya faktureringskontot
+## <a name="changes-for-enterprise-administrators"></a>Ändringar för Företagsadministratörer
 
 Följande ändringar gäller för företagets administratörer med ett Enterprise Agreement som har förnyats till en Microsoft-kundavtal.
 
-- En fakturering profil har skapats för din registrering. Du använder fakturering profilen för att hantera fakturering för din organisation, t.ex. ditt Enterprise Agreement-registrering. Mer information om fakturering profiler [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
-- Ett avsnitt faktura skapas för varje avdelning i ditt Enterprise Agreement-registrering. Du använder faktura-avsnitt för att hantera dina avdelningar. Du kan skapa nya faktura avsnitt för att ställa in ytterligare avdelningar. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#understand-invoice-sections).
+- En fakturering profil har skapats för din registrering. Du använder fakturering profilen för att hantera fakturering för din organisation, t.ex. ditt Enterprise Agreement-registrering. Mer information om fakturering profiler [förstå fakturering profiler](billing-mca-overview.md#billing-profiles).
+- Ett avsnitt faktura skapas för varje avdelning i ditt Enterprise Agreement-registrering. Du använder faktura-avsnitt för att hantera dina avdelningar. Du kan skapa nya faktura avsnitt för att ställa in ytterligare avdelningar. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#invoice-sections).
 - Du använder Azure-prenumeration skapare-rollen på fakturan avsnitt för att ge andra användare behörighet att skapa Azure-prenumeration, t.ex. konton som har skapats i Enterprise Agreement-registrering.
 - Du kommer att använda den [Azure-portalen](https://portal.azure.com) att hantera faktureringen för din organisation, i stället för Azure EA-portalen.
 
@@ -76,7 +74,7 @@ En månadsfaktura skapas för varje fakturering profil i ditt faktureringskonto.
 
 Läs hur du laddar ned Azure användning och avgifter csv-fil i [ladda ned användningsdata för ditt Microsoft-kundavtal](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
 
-Läs hur du laddar ned prisdokument i [ladda ned priserna för ditt Microsoft-kundavtal](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
+Läs hur du laddar ned prisdokument i [ladda ned priserna för ditt Microsoft-kundavtal](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
 
 Läs hur du laddar ned skattedokument i [visa skattedokument för ditt Microsoft-kundavtal](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -92,13 +90,13 @@ Skapa en faktura-avsnittet för att organisera dina kostnader utifrån dina beho
 
 ### <a name="create-a-new-account"></a>Skapa ett nytt konto
 
-Tilldela användare rollen Azure-prenumeration skapare på fakturan avsnitt ge dem behörighet att skapa Azure-prenumeration, t.ex. konton som skapas i Enterprise Agreement-registrering. Mer information finns i [ge andra användare behörighet att skapa Azure-prenumerationer](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Tilldela användare rollen Azure-prenumeration skapare på fakturan avsnitt ge dem behörighet att skapa Azure-prenumeration, t.ex. konton som skapas i Enterprise Agreement-registrering. Mer information finns i [ge andra användare behörighet att skapa Azure-prenumerationer](billing-mca-create-subscription.md#give-others-permission).
 
-## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>Ändringar för avdelning administratörer i det nya faktureringskontot
+## <a name="changes-for-department-administrators"></a>Ändringar för avdelning administratörer
 
 Följande ändringar gäller avdelning administratörer med ett Enterprise Agreement som har förnyats till en Microsoft-kundavtal.
 
-- Ett avsnitt faktura skapas för varje avdelning i ditt Enterprise Agreement-registrering. Du använder faktura-avsnitt för att hantera dina department(s). Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#understand-invoice-sections).
+- Ett avsnitt faktura skapas för varje avdelning i ditt Enterprise Agreement-registrering. Du använder faktura-avsnitt för att hantera dina department(s). Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#invoice-sections).
 - Du använder Azure-prenumeration skapare roll i avsnittet faktura för att ge andra användare behörighet att skapa Azure-prenumeration, t.ex. konton som skapas i Enterprise Agreement-registrering.
 - Du kommer använda Azure-portalen för att hantera fakturering för din organisation, i stället för Azure EA-portalen.
 
@@ -118,7 +116,7 @@ Läs hur du ger åtkomst till din faktura-avsnittet i [hantera fakturering rolle
 
 ### <a name="create-a-new-account-in-your-department"></a>Skapa ett nytt konto på din avdelning
 
-Tilldela användare rollen Azure-prenumeration skapare på fakturan avsnitt som har skapats för din avdelning. Mer information finns i [ge andra användare behörighet att skapa Azure-prenumerationer](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Tilldela användare rollen Azure-prenumeration skapare på fakturan avsnitt som har skapats för din avdelning. Mer information finns i [ge andra användare behörighet att skapa Azure-prenumerationer](billing-mca-create-subscription.md#give-others-permission).
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Visa debiteringar för konton i dina fakultet
 
@@ -126,7 +124,7 @@ De konton som har skapats i ditt Enterprise Agreement-registrering stöds inte i
 
 Om du vill visa sammanlagda kostnaden för prenumerationer som tillhör ett konto på din avdelning, måste du ange ett kostnadsställe för varje prenumeration. Du kan sedan använda filen Azure användning och avgifter för att filtrera prenumerationer av kostnadsstället.
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Ändringar för kontoinnehavare i det nya faktureringskontot
+## <a name="changes-for-account-owners"></a>Ändringar för kontoinnehavare
 
 Kontoinnehavare på Enterprise-avtal får behörighet att skapa Azure-prenumerationer på det nya faktureringskontot. Din befintliga Azure-prenumerationer som hör till avsnittet faktura som har skapats för din avdelning. Om ditt konto inte tillhör en avdelning, tillhör dina prenumerationer en faktura-avsnittet med namnet standardavsnittet faktura.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Java på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Java, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393467"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503094"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Java i Kubernetes med Azure Dev blanksteg
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur du:
 - Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -195,7 +195,7 @@ return "Hello from webfrontend in Azure while debugging!";
 
 Spara filen. Klicka på *felsöka* sedan *starta om felsökning* eller i den *Debug verktygsfältet*, klickar du på den *starta om felsökning* knappen.
 
-![Uppdatera felsökning](media/get-started-java/debug-action-refresh.png)
+![Uppdatera felsökning](media/common/debug-action-refresh.png)
 
 Öppna din tjänst i en webbläsare och Observera uppdaterade meddelandet visas.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145138"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514073"
 ---
 # <a name="algorithm--module-reference-overview"></a>Algoritm- och modulreferens referens-översikt
 
@@ -33,8 +33,8 @@ Moduler som är ordnade efter funktioner:
 | --- |--- | ---- |
 | Dataformatkonverteringar | Konvertera data mellan olika filformat som används i machine learning | [Konvertera till CSV](convert-to-csv.md) |
 | Data indata och utdata | Flytta data från molntjänster i experimentet. Skriv din resultatet eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, samtidigt som du kör ett experiment, eller använda molnlagring för att utbyta data mellan experiment.  | [Importera Data](import-data.md)<br/>[Exportera Data](export-data.md)<br/>[Ange Data manuellt](enter-data-manually.md) |
-| Dataomvandling | Åtgärder på data som är unika för maskininlärning, till exempel normaliserar eller datagruppering data, val av funktioner och minskar dimensionalitet.| [Välj kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Edit Metadata](edit-metadata.md) <br/> [Rensa Data som saknas](clean-missing-data.md) <br/> [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [Split Data](split-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och ta prover](partition-and-sample.md) |
-| Python-modulen | Skriva kod och bädda in den i en modul för att integrera Python med experimentet. | [Köra Python-skriptet](execute-python-script.md)   <br/> [Skapa Python-modell](create-python-model.md)
+| Dataomvandling | Åtgärder på data som är unika för maskininlärning, till exempel normaliserar eller datagruppering data, val av funktioner och minskar dimensionalitet.| [Välj kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Edit Metadata](edit-metadata.md) <br/> [Rensa Data som saknas](clean-missing-data.md) <br/> [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [Ansluta till Data](join-data.md) <br/> [Split Data](split-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och ta prover](partition-and-sample.md) |
+| Python- och R-moduler | Skriva kod och bädda in den i en modul för att integrera Python och R med experimentet. | [Köra Python-skriptet](execute-python-script.md)   <br/> [Skapa Python-modell](create-python-model.md) <br/> [Köra R-skript](execute-r-script.md)
 |  | **Machine learning-algoritmer**: | |
 | Klassificering | Förutsäga en klass.  Välj bland binary (tvåklassförhöjt) eller inom algoritmer.| [Beslutsskog med multiclass](multiclass-decision-forest.md) <br/> [Inom Logistic Regression](multiclass-logistic-regression.md)  <br/> [Inom Neuralt nätverk](multiclass-neural-network.md)  <br/>  [Två Logistic Regression](two-class-logistic-regression.md)  <br/>[Två genomsnitt Perceptron](two-class-averaged-perceptron.md) <br/> [Två&nbsp;förstärkta&nbsp;beslut&nbsp;trädet](two-class-boosted-decision-tree.md)  <br/> [Beslutsskog med två](two-class-decision-forest.md)  <br/> [Två Neuralt nätverk](two-class-neural-network.md)  <br/> [Två&#8209;klass&nbsp;Support&nbsp;vektor&nbsp;dator](two-class-support-vector-machine.md) 
 | Klustring | Gruppera data.| [K-Means klustring](k-means-clustering.md)

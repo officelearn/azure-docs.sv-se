@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078565"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543830"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomstnycklar för lagringskontot
 
@@ -23,7 +23,7 @@ Lär dig hur du ändrar åtkomstnycklarna för Azure Storage-konton som används
 
 Av säkerhetsskäl kan du behöva ändra åtkomstnycklarna för ett Azure Storage-konto. När du återskapar åtkomstnyckeln måste du uppdatera Azure Machine Learning för att använda den nya nyckeln. Azure Machine Learning kanske använder storage-konto för båda modell-lagring och som ett datalager.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i den [skapa en arbetsyta](setup-create-workspace.md) artikeln.
 
@@ -72,7 +72,7 @@ Använd följande steg för att uppdatera Azure Machine Learning-tjänsten så a
 > [!IMPORTANT]
 > Utföra alla steg som uppdaterar både arbetsytan med CLI och datalager med hjälp av Python. Kan orsaka fel om du uppdaterar ena eller den andra förrän båda har uppdaterats.
 
-1. Återskapa nyckeln. Information om en åtkomstnyckeln finns i den [hantera ett lagringskonto](/azure/storage/common/storage-account-manage.md#access-keys) artikeln. Spara den nya nyckeln.
+1. Återskapa nyckeln. Information om en åtkomstnyckeln finns i den [hantera ett lagringskonto](/azure/storage/common/storage-account-manage#access-keys) artikeln. Spara den nya nyckeln.
 
 1. Använd följande steg för att uppdatera arbetsytan om du vill använda den nya nyckeln:
 

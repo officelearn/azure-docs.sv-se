@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606184"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508053"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med .NET SDK
 
@@ -27,7 +27,7 @@ Lär dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster i 
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -393,7 +393,6 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att 
 
 ### <a name="run-jobs"></a>Kör jobb
 * [Kör Apache Hive-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Kör Apache Pig-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Kör Apache Sqoop jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Kör Apache Oozie-jobb i HDInsight](hdinsight-use-oozie-linux-mac.md)
 

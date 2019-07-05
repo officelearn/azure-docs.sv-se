@@ -2,18 +2,18 @@
 title: Konfigurera replikering för Azure Disk Encryption-aktiverade virtuella datorer i Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar replikering för Azure Disk Encryption-aktiverade virtuella datorer från en Azure-region till en annan med hjälp av Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60791019"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449222"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
@@ -22,23 +22,23 @@ Den här artikeln beskriver hur du replikerar Azure Disk Encryption-aktiverade v
 >[!NOTE]
 >Azure Site Recovery stöder för närvarande endast virtuella Azure-datorer som kör ett Windows-operativsystem och som är [aktiverat för kryptering med Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Nödvändiga användarbehörigheter
+## <a id="required-user-permissions"></a> Nödvändiga användarbehörigheter
 Site Recovery kräver att användaren har behörighet att skapa nyckelvalvet i mål-region och kopiera nycklarna till regionen.
 
 Om du vill aktivera replikering av Disk Encryption-aktiverade virtuella datorer från Azure-portalen, användaren måste du ha följande behörigheter:
 
 - Nyckelvalvet behörigheter
-    - Visa lista
+    - List
     - Skapa
     - Hämta
 
 -   Nyckelvalv hemliga behörigheter
-    - Visa lista
+    - List
     - Skapa
     - Hämta
 
 - Nyckelvalv nyckelns behörigheter (krävs endast om de virtuella datorerna använder viktiga krypteringsnyckel för att kryptera diskkrypteringsnycklarna)
-    - Visa lista
+    - List
     - Hämta
     - Skapa
     - Kryptera
@@ -139,18 +139,25 @@ Du kan använda [ett skript](#copy-disk-encryption-keys-to-the-dr-region-by-usin
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Felsöka nyckelvalv behörighetsproblem vid replikering av virtuella datorer i Azure till Azure
 
-**Orsak 1:** Du kan ha valt från målregionen ett redan skapat nyckelvalv som inte har behörigheterna som krävs i stället för att låta Site Recovery skapa ett. Kontrollera att nyckelvalvet har den kräver behörigheter, enligt beskrivningen ovan.
+Azure Site Recovery kräver minst läsbehörighet för källa region Key Vault- och skrivbehörighet på mål-region nyckelvalvet att läsa hemligheten och kopiera den till nyckelvalvet för mål-region. 
+
+**Orsak 1:** Du har inte ”hämta” behörighet den **källa region Key vault** att läsa nycklarna. </br>
+**Så här åtgärdar du:** Oavsett om du är en prenumerationsadministratör eller inte, är det viktigt att du har get-behörighet i nyckelvalvet.
+
+1. Gå till källan region Key vault, som i det här exemplet är ”ContososourceKeyvault” > **åtkomstprinciper** 
+2. Under **Välj huvudkonto** lägga till användarnamnet till exempel ”:dradmin@contoso.com”
+3. Under **Nyckelbehörigheter** väljer du hämta 
+4. Under **hemlighet behörighet** väljer du hämta 
+5. Spara åtkomstprincipen
+
+**Orsak 2:** Du har inte nödvändig behörighet den **nyckelvalv för mål-region** att skriva nycklarna. </br>
 
 *Till exempel*: Försök att replikera en virtuell dator som har nyckelvalvet *ContososourceKeyvault* på en källregionen.
 Du har alla behörigheter för källnyckelvalvet-region. Men vid skydd, väljer du redan skapat nyckelvalvet ContosotargetKeyvault som inte har behörighet. Ett fel inträffar.
 
-**Så här åtgärdar du:** Gå till **Start** > **Keyvaults** > **ContososourceKeyvault** > **åtkomstprinciper** och Lägg till de behörigheter som krävs.
+Behörighet som krävs på [target Key vault](#required-user-permissions)
 
-**Orsak 2:** Du kan ha valt från målregionen ett redan skapat nyckelvalv som inte har kryptera behörigheter i stället för att låta Site Recovery skapa en dekryptering. Se till att du har Kryptera dekryptera behörigheter om du krypterar även nyckeln i källregionen.</br>
-
-*Till exempel*: Försök att replikera en virtuell dator som har ett nyckelvalv *ContososourceKeyvault* i källregionen. Du har nödvändig behörighet på källnyckelvalvet-region. Men vid skydd, väljer du redan skapat nyckelvalvet ContosotargetKeyvault som inte har behörighet att dekryptera och kryptera. Ett fel inträffar.</br>
-
-**Så här åtgärdar du:** Gå till **Start** > **Keyvaults** > **ContososourceKeyvault** > **åtkomstprinciper**. Lägg till behörigheter under **Nyckelbehörigheter** > **kryptografiska åtgärder**.
+**Så här åtgärdar du:** Gå till **Start** > **Keyvaults** > **ContosotargetKeyvault** > **åtkomstprinciper** och Lägg till de behörigheter som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 

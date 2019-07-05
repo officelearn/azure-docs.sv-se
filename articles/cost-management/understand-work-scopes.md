@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991383"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490116"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -100,19 +100,19 @@ Azure-prenumerationer kapslas under registreringskonton. Fakturering användare 
 
 Fakturering användare har inte åtkomst till hanteringsgrupper uttryckligen inte faller under en viss faktureringskonto. Åtkomst måste uttryckligen beviljas till hanteringsgrupper. -Hanteringsgrupper samlad kostnaderna från alla kapslade prenumerationer. Men innehåller de endast användningsbaserad inköp. De omfattar inte inköp, till exempel reservationer och Marketplace-erbjudanden från tredje part. Du kan visa dessa kostnader med faktureringskonto för EA.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>Omfång för enskilda avtal (betala per användning)
+## <a name="individual-agreement-scopes"></a>Enskilda avtal scope
 
-Betala per användning (PAYG) prenumerationer, inklusive relaterade typer som kostnadsfri utvärderingsversion/och utveckling och testning, inte har en explicit omfattning för fakturering konto. I stället har varje prenumeration en ägare eller kontoadministratören som EA ägare.
+Azure-prenumerationer som skapas från enskilda erbjudanden som betalar per användning och relaterade typer som kostnadsfri utvärderingsversion och utveckling och testning, inte har en explicit omfattning för fakturering konto. I stället har varje prenumeration en ägare eller kontoadministratören som EA ägare.
 
 - [**Faktureringskonto** ](../billing/billing-view-all-accounts.md) -representerar en enskild ägare för en eller flera Azure-prenumerationer. Det stöder för närvarande inte bevilja åtkomst till flera personer eller åtkomst till aggregerad kostnaden vyer.
 
     Resurstyp: Inte tillämpligt
 
-Konto för PAYG prenumerationsadministratörer kan visa och hantera faktureringen data, till exempel fakturor och betalningar, från den [Azure Kontocenter](https://account.azure.com/subscriptions). Men kan inte de visa kostnadsdata eller hantera resurser i Azure-portalen. Om du vill bevilja åtkomst till kontoadministratören, använda Cost Management-roller som tidigare nämnts.
+Enskild Azure-prenumeration kontoadministratörer kan visa och hantera faktureringen data, till exempel fakturor och betalningar, från den [Azure Kontocenter](https://account.azure.com/subscriptions). Men kan inte de visa kostnadsdata eller hantera resurser i Azure-portalen. Om du vill bevilja åtkomst till kontoadministratören, använda Cost Management-roller som tidigare nämnts.
 
-Till skillnad från EA, kan PAYG konto prenumerationsadministratörer se sina fakturor i Azure-portalen. Tänk på att Cost Management läsare och deltagare i Cost Management inte ger åtkomst till fakturor. Mer information finns i [hur du ger åtkomst till PAYG-fakturor](../billing/billing-manage-access.md#give-access-to-billing).
+Till skillnad från EA, kan individuell Azure-prenumeration kontoadministratörer se sina fakturor i Azure-portalen. Tänk på att Cost Management läsare och deltagare i Cost Management inte ger åtkomst till fakturor. Mer information finns i [hur du ger åtkomst till fakturor](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="customer-agreement-scopes"></a>Kundens avtal scope
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft kundavtal scope
 
 Fakturering kundavtal för Microsoft-konton har följande områden:
 
@@ -148,7 +148,7 @@ Partner för cloud Solution Provider (CSP) stöds inte i Cost Management idag. A
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan scope i Cost Management
 
-Alla Cost Management-vyer i Azure-portalen innehåller en **omfång** pill längst upp till vänster i vyn. Du kan använda den för att snabbt ändra omfång. Klicka på den **omfång** pill att öppna omfattningsväljaren. Den visar fakturering konton, rot-hanteringsgruppen och prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på **Välj** längst ned på sidan. Om du vill gå in på kapslade omfång som resursgrupper i en prenumeration, klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen när som helst kapslade **Välj det här &lt;omfång&gt;**  överst i omfattningsväljaren.
+Alla Cost Management-vyer i Azure-portalen innehåller en **omfång** val av pill längst upp till vänster i vyn. Du kan använda den för att snabbt ändra omfång. Klicka på den **omfång** pill att öppna omfattningsväljaren. Den visar fakturering konton, rot-hanteringsgruppen och prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på **Välj** längst ned på sidan. Om du vill gå in på kapslade omfång som resursgrupper i en prenumeration, klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen när som helst kapslade **Välj det här &lt;omfång&gt;**  överst i omfattningsväljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 002e2e06201688638df98e16c45282187f593a3a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106838"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444328"
 ---
 # <a name="opc-twin-architecture"></a>OPC-Twin-arkitektur
 
@@ -35,6 +35,6 @@ Följande diagram visar OPC-Twin-arkitekturen.
 
    ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. Twin service REST-gränssnittet kan också användas för att skapa övervakade objekt och prenumerationer i OPC-utgivaren. OPC Publisher kan telemetri skickas från OPC UA-serversystem till IoT Hub. Mer information om OPC Publisher finns i den [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) arkivet på GitHub.
+1. Twin service REST-gränssnittet kan också användas för att skapa övervakade objekt och prenumerationer i OPC-utgivaren. OPC Publisher kan telemetri skickas från OPC UA-serversystem till IoT Hub. Mer information om OPC Publisher finns i [vad är OPC Publisher](overview-opc-publisher.md).
 
    ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin4.png)

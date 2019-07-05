@@ -1,21 +1,20 @@
 ---
 title: Kommunicera med en app för enheter i C via Azure IoT Hub device strömmar (förhandsversion) | Microsoft Docs
 description: I den här snabbstarten kör du ett C enhetssidan program som kommunicerar med en IoT-enhet via en dataström med enheten.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 6a2fe71a1086559d90adf5c464323f353be431aa
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 4b6f987c68f9fe3ef95c82017b7d8be1d83083ea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733315"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446135"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett enhetsprogram i C via IoT Hub-enhetsströmmar (förhandsversion)
 
@@ -39,7 +38,7 @@ Koden visar hur initiation du en enhet ström, samt hur du använder den för at
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förhandsversionen av enheten strömmar stöds för närvarande endast för IoT-hubbar som har skapats i följande regioner:
 

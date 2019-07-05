@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275195"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461831"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -30,6 +30,7 @@ Vanliga användningsområden för en DNS-alias är följande fall:
 - Skapa ett enkelt sätt att komma ihåg namn för en Azure SQL Server.
 - Under inledande utvecklingsarbete kan ditt alias referera till ett test SQL Database-server. När programmet lanseras, kan du ändra alias att referera till produktionsservern. Övergången från test till produktion kräver inte någon ändring av konfigurationer flera klienter som ansluter till databasservern.
 - Anta att databasen i ditt program har flyttats till en annan SQL Database-server. Här kan du ändra alias utan att behöva ändra konfigurationerna för flera klienter.
+- Du använder geo-återställning för att återställa din databas i en annan server och en region under ett regionalt strömavbrott. Du kan ändra ditt befintliga alias så att den pekar till den nya servern så att befintliga klientprogram kan återansluta till den. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>Domain Name System (DNS) över Internet
 

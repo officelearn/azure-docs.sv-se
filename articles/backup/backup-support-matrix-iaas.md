@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743183"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508192"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -164,7 +164,7 @@ Datadiskstorleken | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om din
 Lagringstyp | Standard HDD, SSD som standard, premium SSD. <br/><br/> Standard SSD stöds om dina valv har uppgraderats till den senaste versionen av virtuell Azure-säkerhetskopiering (kallas omedelbar återställning). [Läs mer](backup-instant-restore-capability.md).
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Azure virtuella datorer aktiveras med Azure Disk Encryption kan säkerhetskopieras (med eller utan Azure AD-app).<br/><br/> Inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa en hel virtuell dator.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
-Diskar med Write Accelerator-aktiverade | Stöds ej.<br/><br/> Om du kör den senaste versionen av virtuell Azure-säkerhetskopiering (kallas även [omedelbar återställning](backup-instant-restore-capability.md)), du kan utesluta diskar med Write Accelerator-aktiverade från en säkerhetskopia.
+Diskar med Write Accelerator-aktiverade | Stöds ej.<br/><br/> Azure backup inkluderas diskar med Write Accelerator-aktiverade under säkerhetskopieringen. Eftersom de inte säkerhetskopieras, kan du inte återställa diskarna från återställningspunkterna för den virtuella datorn.
 Säkerhetskopiera deduplicerade diskar | Stöds ej.
 Lägg till disk till skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
@@ -233,8 +233,8 @@ Säkerhetskopiering stöder komprimering av säkerhetskopieringstrafik, som samm
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-Lokala Windows-datorer utan DPM/MABS | Saknas | ![Ja][green]
-Virtuella Azure-datorer | Saknas | Saknas
+Lokala Windows-datorer utan DPM/MABS | Ej tillämpligt | ![Ja][green]
+Virtuella Azure-datorer | Ej tillämpligt | Ej tillämpligt
 Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
 Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
 

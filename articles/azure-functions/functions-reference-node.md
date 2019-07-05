@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729471"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460203"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json). Namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion.
 
-Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
+Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="exporting-a-function"></a>Exportera en funktion
 
@@ -136,7 +136,7 @@ Indata är indelade i två kategorier i Azure Functions: en är indata för arbe
    };
    ```
 
-### <a name="outputs"></a>Utdata
+### <a name="outputs"></a>outputs
 Utdata (bindningarna för `direction === "out"`) kan skrivas till av en funktion på flera olika sätt. I samtliga fall den `name` egenskapen för bindningen som definierats i *function.json* motsvarar namnet på medlemmen objekt skrivs till i din funktion. 
 
 Du kan tilldela data till utdatabindningar i något av följande sätt (inte kombinera dessa metoderna):
@@ -421,7 +421,7 @@ I följande tabell visas Node.js-version som används av varje huvudversion av F
 | Functions-version | Node.js-version | 
 |---|---|
 | 1.x | 6.11.2 (låst av körningen) |
-| 2.x  | _Aktiva LTS_ och jämna _aktuella_ Node.js-versioner (8.11.1 och 10.14.1 rekommenderas). Ange version med hjälp av WEBSITE_NODE_DEFAULT_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Aktiva LTS_ och _Underhåll LTS_ Node.js-versioner (8.11.1 och 10.14.1 rekommenderas). Ange version med hjälp av WEBSITE_NODE_DEFAULT_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Du kan se den aktuella versionen som körningen använder genom att kontrollera inställningarna ovan appen eller genom att skriva ut `process.version` från valfri funktion.
 
@@ -576,7 +576,7 @@ Det sätt som du utvecklar lokalt och distribuera från en TypeScript-projektet 
 
 Den [Azure Functions för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) tillägg kan du utveckla dina funktioner med TypeScript. De viktigaste verktygen är ett krav för Azure Functions-tillägget.
 
-Om du vill skapa en funktionsapp i TypeScript i Visual Studio Code du helt enkelt välja `TypeScript` när du skapar en funktionsapp och uppmanas att välja önskat språk.
+Om du vill skapa en funktionsapp i TypeScript i Visual Studio Code, Välj `TypeScript` som ditt språk när du skapar en funktionsapp.
 
 När du trycker på **F5** för att köra appen lokalt, transpilation görs innan värden (func.exe) har initierats. 
 
@@ -584,7 +584,7 @@ När du distribuerar appen till Azure med den **distribuera funktionsappen...** 
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Du måste ange alternativet typescript språk när du skapar funktionsappen för att skapa en TypeScript-funktionsappsprojekt med Core Tools. Du kan göra detta på något av följande sätt:
+Du måste ange alternativet TypeScript språk när du skapar funktionsappen för att skapa en TypeScript-funktionsappsprojekt med Core Tools. Du kan göra detta på något av följande sätt:
 
 - Kör den `func init` kommando, Välj `node` som ditt språk stack och välj sedan `typescript`.
 
@@ -614,6 +614,55 @@ När börjar utveckla Azure Functions i utan server som värd modellen kalla är
 ### <a name="connection-limits"></a>Anslutningsgränser
 
 När du använder en tjänstspecifika klient i ett program för Azure Functions kan inte skapa en ny klient med varje funktionsanrop. Skapa i stället en enda, statisk klient i det globala området. Mer information finns i [hantera anslutningar i Azure Functions](manage-connections.md).
+
+### <a name="use-async-and-await"></a>Använd `async` och `await`
+
+När du skriver Azure Functions i JavaScript, ska du skriva kod med hjälp av den `async` och `await` nyckelord. Skriva kod med `async` och `await` i stället för återanrop eller `.then` och `.catch` med löften hjälper till att undvika två vanliga problem:
+ - Utlöser undantag utan felhantering som [krascha Node.js-processen](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentiellt påverkar för körningen av andra funktioner.
+ - Oväntade resultat, till exempel saknas loggar från context.log, på grund av asynkrona anrop som korrekt inte har slutförts.
+
+I exemplet nedan asynkron metod `fs.readFile` anropas med ett fel vid första återanropsfunktion som dess andra parameter. Den här koden gör båda av de problem som nämns ovan. Ett undantag som inte uttryckligen har fastnat i rätt omfattning kraschat hela processen (problemet #1). Anropa `context.done()` utanför omfattningen av återanrop funktionen innebär att funktionsanrop kan avslutas innan filen ska läsas (utfärda #2). I det här exemplet anropar `context.done()` för tidigt resulterar i saknas loggposter som börjar med `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Med hjälp av den `async` och `await` nyckelord hjälper till att undvika båda dessa fel. Du bör använda Node.js verktygsfunktionen [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) att fel första återanrop-style funktioner awaitable funktioner.
+
+I exemplet nedan visas växla ett ohanterat undantag när funktionen körs bara enskilda anrop som utlöste ett undantag. Den `await` nyckelordet innebär att stegen följande `readFileAsync` endast körs efter `readFile` har slutförts. Med `async` och `await`, också behöver du inte anropa den `context.done()` återanrop.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

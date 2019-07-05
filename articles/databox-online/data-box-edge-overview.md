@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 438e25a72361866acd449024b6e7e8c06ed6c9c7
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144221"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484764"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
@@ -55,7 +55,7 @@ Data Box Edge har följande funktioner:
 |Funktion |Beskrivning  |
 |---------|---------|
 |Höga prestanda     | Helt automatiserad och optimerad dataöverföring och bandbredd.|
-|Protokoll som stöds     | Stöd för SMB- och NFS-standardprotokoll för datainmatning. <br> Mer information om versioner som stöds finns i [systemkraven för Data Box Edge](https://aka.ms/dbe-docs).|
+|Protokoll som stöds     | Stöd för SMB- och NFS-standardprotokoll för datainmatning. <br> Mer information om versioner som stöds finns i [systemkraven för Data Box Edge](data-box-edge-system-requirements.md).|
 |Databehandling       |Möjliggör analys, bearbetning och filtrering av data.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet.|
 |Snabb åtkomst     | Lokal cache på enheten för snabb åtkomst till de senast använda filerna.|
@@ -75,13 +75,13 @@ Data Box Edge-lösningen består av Data Box Edge-resursen, en fysisk Data Box E
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Mer information finns i [Använda Data Box Edge-tjänsten för att administrera din Data Box Edge-enhet](https://aka.ms/dbe-docs).
+    Mer information går du till [skapa en order för din Data Box Edge-enhet](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Lokalt Data Box-webbgränssnitt** – Använd det lokala webbgränssnittet till att köra diagnostik, stänga och starta om Data Box Edge-enheten, visa kopieringsloggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Information om hur du använder det webbaserade gränssnittet finns i [Använda det webbaserade gränssnittet för att administrera din Data Box](https://aka.ms/dbe-docs).
+    Information om hur du använder det webbaserade gränssnittet finns i [Använda det webbaserade gränssnittet för att administrera din Data Box](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet

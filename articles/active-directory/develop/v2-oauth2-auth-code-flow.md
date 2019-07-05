@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 235fe1fbe7febc193826cf09202365ee4a788194
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b8244707ec44b9afc51d5f2c21c3e95ff0692cfb
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164765"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482344"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-plattformen och OAuth 2.0-auktoriseringskodflöde
 
@@ -147,7 +147,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Försök att köra den här begäran i Postman! (Glöm inte att ersätta den `code`) [ ![kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra den här begäran i Postman! (Glöm inte att ersätta den `code`) [ ![försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 | Parameter  | Krävs/valfritt | Beskrivning     |
 |------------|-------------------|----------------|
@@ -228,7 +228,7 @@ Felsvar ser ut:
 Nu när du har skaffat har en `access_token`, du kan använda token i begäranden till webb-API: er genom att inkludera den i den `Authorization` rubrik:
 
 > [!TIP]
-> Kör den här begäran i Postman! (Ersätt den `Authorization` rubrik första) [ ![kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Kör den här begäran i Postman! (Ersätt den `Authorization` rubrik första) [ ![försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 GET /v1.0/me/messages
@@ -259,7 +259,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Försök att köra den här begäran i Postman! (Glöm inte att ersätta den `refresh_token`) [ ![kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra den här begäran i Postman! (Glöm inte att ersätta den `refresh_token`) [ ![försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
 | Parameter     |                | Beskrivning        |

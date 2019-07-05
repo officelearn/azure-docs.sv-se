@@ -5,18 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/27/2019
+ms.openlocfilehash: 686adfb2998eff10ef4b9f378163b164ba970c56
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067412"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461844"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurera SSL-anslutning i Azure Database för PostgreSQL – enskild Server
-Azure Database för PostgreSQL föredrar ansluter dina klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
+Azure Database för PostgreSQL föredrar ansluter dina klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Att framtvinga SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man-in-the-middle”-attacker genom att kryptera dataströmmen mellan servern och ditt program.
 
-Som standard konfigureras PostgreSQL-databastjänst för att kräva SSL-anslutning. Du kan också inaktivera att kräva SSL för att ansluta till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning. 
+Som standard konfigureras PostgreSQL-databastjänst för att kräva SSL-anslutning. Du kan välja att inaktivera SSL-kravet om klientprogrammet inte har stöd för SSL-anslutning. 
 
 ## <a name="enforcing-ssl-connections"></a>Att framtvinga SSL-anslutningar
 Tillämpning av SSL-anslutningar är aktiverat som standard för alla Azure Database for PostgreSQL-servrar som tillhandahålls genom Azure portal och CLI. 
@@ -41,48 +41,23 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Se till att ditt program eller framework stöder SSL-anslutningar
-Många vanliga programramverk med PostgreSQL för sina databastjänster, till exempel Drupal och Django, aktivera inte SSL som standard under installationen. Aktivera SSL-anslutning måste göras efter installationen eller via CLI-kommandon som är specifika för programmet. Om din PostgreSQL-server är att framtvinga SSL-anslutningar och det associerade programmet är inte korrekt konfigurerad, kan programmet misslyckas att ansluta till databasservern. Dokumentationen för ditt program om du vill veta hur du aktiverar SSL-anslutningar.
+Vissa programramverk med PostgreSQL för sina databastjänster Aktivera inte SSL som standard under installationen. Om din PostgreSQL-server använder SSL-anslutningar, men programmet har inte konfigurerats för SSL, kan programmet misslyckas att ansluta till databasservern. Dokumentationen för ditt program om du vill veta hur du aktiverar SSL-anslutningar.
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Program som kräver certifikatet för SSL-anslutning
-I vissa fall kan kräver program en lokal certifikatfil som genereras från en betrodd certifikatutfärdare (CA) certifikatfil (.cer) att ansluta på ett säkert sätt. Se följande steg för att hämta .cer-filen, avkoda certifikatet och binda det till ditt program.
+I vissa fall kan kräver program en lokal certifikatfil som genereras från en betrodd certifikatutfärdare (CA) certifikatfil (.cer) att ansluta på ett säkert sätt. Certifikatet som ska ansluta till en Azure Database för PostgreSQL-server finns på https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Ladda ned certifikatfilen och spara den på din primära plats. 
 
-### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Ladda ned certifikatfilen från den certifikatutfärdaren (CA) 
-Det certifikat som krävs för kommunikation via SSL med din Azure Database för PostgreSQL-servern finns [här](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Ladda ned certifikatfilen lokalt.
+### <a name="connect-using-psql"></a>Ansluta med psql
+I följande exempel visas hur du ansluter till din PostgreSQL-server med psql-kommandoradsverktyget. Använd den `sslmode=verify-full` inställning för anslutningssträngen att framtvinga SSL-certifikatverifiering. Skicka lokala certifikatarkivet sökvägen till den `sslrootcert` parametern.
 
-### <a name="install-a-cert-decoder-on-your-machine"></a>Installera en certifikat-avkodare på din dator 
-Du kan använda [OpenSSL](https://github.com/openssl/openssl) att avkoda certifikatfil som krävs för ditt program på ett säkert sätt ansluta till databasservern. Om du vill lära dig mer om att installera OpenSSL, se den [OpenSSL Installationsinstruktioner](https://github.com/openssl/openssl/blob/master/INSTALL). 
-
-
-### <a name="decode-your-certificate-file"></a>Avkoda certifikatfil
-Den hämta rot-CA-filen är i krypterat format. Använd OpenSSL för att avkoda certifikatfilen. Du gör detta genom att köra det här OpenSSL-kommandot:
-
+Nedan visas ett exempel på psql-anslutningssträng:
 ```
-openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
+psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
-### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Ansluter till Azure Database för PostgreSQL med SSL-certifikatautentisering
-Nu när du har har avkodas ditt certifikat, kan du nu ansluta till databasservern på ett säkert sätt via SSL. Om du vill tillåta serververifiering för certifikat måste certifikatet placeras i filen ~/.postgresql/root.crt i användarens arbetskatalog. (På Microsoft Windows filen heter % APPDATA%\postgresql\root.crt.). 
+> [!TIP]
+> Bekräfta att värdet som skickas till `sslrootcert` matchar filsökvägen för det certifikatet som du sparade.
 
-#### <a name="connect-using-psql"></a>Ansluta med psql
-I följande exempel visar hur du ansluta till din PostgreSQL-server med psql-kommandoradsverktyget. Använd den `root.crt` filen som skapades och `sslmode=verify-ca` eller `sslmode=verify-full` alternativet.
-
-Med hjälp av PostgreSQL-kommandoradsgränssnittet, kör du följande kommando:
-```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
-```
-Om detta lyckas visas följande utdata:
-```bash
-Password for user mylogin@mydemoserver:
-psql (9.6.2)
-WARNING: Console code page (437) differs from Windows code page (1252)
-     8-bit characters might not work correctly. See psql reference
-     page "Notes for Windows users" for details.
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-Type "help" for help.
-
-postgres=>
-```
 
 ## <a name="next-steps"></a>Nästa steg
-Granska olika anslutningsalternativ för programmet efter [anslutningsbibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).
+Granska olika anslutningsalternativ för programmet i [anslutningsbibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).

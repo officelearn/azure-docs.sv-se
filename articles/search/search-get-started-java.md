@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure Search i Java – Azure Search
-description: Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk.
+title: 'Java Quickstart: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
+description: 'Beskriver hur du skapar ett index, läsa in data och kör frågor med Java och Azure Search REST-API: er.'
 services: search
 author: jj09
 manager: jlembicz
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289883"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450107"
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
+# <a name="quickstart-create-an-azure-search-index-in-java"></a>Snabbstart: Skapa ett Azure Search-index i Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [NET](search-howto-dotnet-sdk.md)
@@ -36,7 +36,7 @@ Vi använde följande programvara när vi skapade och testade det här exemplet:
 ## <a name="about-the-data"></a>Om de data som används
 Det här exempelprogrammet använder data från [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
-I det här programmet bygger och läser programmet **SearchServlet.java** in indexet med hjälp av en [indexeringskonstruktion](https://msdn.microsoft.com/library/azure/dn798918.aspx) och hämtar den filtrerade USGS-datauppsättningen från en offentlig Azure SQL-databas. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
+I det här programmet i **SearchServlet.java** programmet bygger och läser in indexet med hjälp av en [indexeraren](https://msdn.microsoft.com/library/azure/dn798918.aspx) konstruktion, hämtar den filtrerade USGS-datauppsättningen från en Azure SQL Database. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
 
 > [!NOTE]
 > Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Om du använder standardnivån så gäller inte den här gränsen och du kan ändra koden om du vill använda en större datauppsättning. Mer information om kapaciteten för varje prisnivå finns i [Gränser och begränsningar](search-limits-quotas-capacity.md).
@@ -51,13 +51,13 @@ Följande lista beskriver de filer som är relevanta för det här exemplet.
 * SearchServiceClient.java: Hanterar HTTP-begäranden
 * SearchServiceHelper.java: En hjälparklass som tillhandahåller statiska metoder
 * Document.java: Tillhandahåller datamodellen
-* config.properties: Anger Search-tjänstens URL och api-nyckel
+* config.properties: Anger URL: en för Search-tjänsten och `api-key`
 * pom.xml: Ett Maven-beroende
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
-Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en API-nyckel. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Leta reda på tjänstnamnet och `api-key` för Azure Search-tjänsten
+Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en `api-key`. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I snabbåtkomstfältet klickar du på **Söktjänst** för att visa en lista över Azure Search-tjänsterna som har etablerats för din prenumeration.
@@ -84,10 +84,10 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 3. Klicka på **Slutför**.
 4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
 
-## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel
-1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
-2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
-3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Nästa, tjänstens namn (den första delen av URL: en https://servicename.search.windows.net) ersätter ”service name” i samma fil.
+## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och `api-key`
+1. I **Projektutforskaren**, dubbelklicka på **config.properties** att redigera konfigurationsinställningarna som innehåller servernamnet och `api-key`.
+2. Följ stegen tidigare i den här artikeln, där du letade tjänstens URL och `api-key` i den [Azure-portalen](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
+3. I **config.properties**, Ersätt ”API Key” med den `api-key` för din tjänst. Nästa, tjänstens namn (den första delen av URL: en https://servicename.search.windows.net) ersätter ”service name” i samma fil.
    
     ![][5]
 

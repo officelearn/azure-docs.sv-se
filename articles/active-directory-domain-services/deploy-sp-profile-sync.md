@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Aktivera stöd för SharePoint a
 description: Konfigurera Azure Active Directory Domain Services hanterade domäner för profilsynkronisering för SharePoint-Server
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: ergreenl
-ms.openlocfilehash: deef9b317f394213eabb5ce0ce31dd294bc0dfd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 4293052f19ad883c9df7f177456d55c0997072e1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246156"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473491"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Konfigurera en hanterad domän för profilsynkronisering för SharePoint-Server
 SharePoint Server innehåller en användarprofiltjänsten som används för synkronisering av användarprofiler. Om du vill konfigurera användarprofiltjänsten måste rätt behörigheter beviljas på en Active Directory-domän. Mer information finns i [ge Active Directory Domain Services-behörigheter för profilsynkronisering i SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).

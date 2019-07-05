@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050578"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448358"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -68,6 +68,9 @@ Följande steg Använd npm för att installera Core Tools på Windows. Du kan oc
     ```bash
     npm install -g azure-functions-core-tools
     ```
+
+   Det kan ta några minuter för npm för att ladda ned och installera paketet Core Tools.
+
 1. Om du inte planerar att använda [tillägget paket], installera den [.NET Core 2.x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS med Homebrew
@@ -82,6 +85,7 @@ Följande steg använda Homebrew för att installera de viktigaste verktygen på
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+
 1. Om du inte planerar att använda [tillägget paket], installera [.NET Core 2.x SDK för macOS](https://www.microsoft.com/net/download/macos).
 
 
@@ -115,6 +119,7 @@ I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera C
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
 1. Om du inte planerar att använda [tillägget paket], installera [.NET Core 2.x SDK för Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
@@ -163,53 +168,16 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Som standard version 2.x av de viktigaste verktygen skapar funktionen app-projekt för .NET-runtime som [C#-klass projekt](functions-dotnet-class-library.md) (.csproj). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testningen och när du publicerar till Azure. Om du istället vill skapa och arbeta med samma C#-skript (.csx) filer som skapades i version 1.x och i portalen, måste du inkludera den `--csx` parameter när du skapar och distribuerar funktioner.
 
-## <a name="register-extensions"></a>Registrera tillägg
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-I version 2.x av Azure Functions-runtime som du behöver registrera de tillägg av bindning (bindningstyper) som du använder i din funktionsapp.
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-Mer information finns i [Azure Functions-utlösare och bindningar begrepp](./functions-bindings-expressions-patterns.md).
-
-## <a name="local-settings-file"></a>Fil för lokala inställningar
-
-Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Inställningarna i filen local.settings.json används endast av Functions tools när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Värdena i **ConnectionStrings** aldrig har publicerats. Filen har följande struktur:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
-    "AzureWebJobsStorage": "<connection-string>",
-    "AzureWebJobsDashboard": "<connection-string>",
-    "MyBindingConnection": "<binding-connection-string>"
-  },
-  "Host": {
-    "LocalHttpPort": 7071,
-    "CORS": "*",
-    "CORSCredentials": false
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "<sqlclient-connection-string>"
-  }
-}
-```
-
-| Inställning      | Beskrivning                            |
-| ------------ | -------------------------------------- |
-| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `false`. |
-| **`Values`** | Samling av programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar appinställningar i din funktionsapp i Azure, till exempel [ `AzureWebJobsStorage` ]. Många utlösare och bindningar har en egenskap som refererar till en appinställning för anslutningssträngen, till exempel `Connection` för den [Blob storage-utlösare](functions-bindings-storage-blob.md#trigger---configuration). För egenskaper, behöver du en programinställning som definierats i den `Values` matris. <br/>[`AzureWebJobsStorage`] är en obligatorisk app inställning för utlösare än HTTP. <br/>Version 2.x av funktionskörningen kräver den [ `FUNCTIONS_WORKER_RUNTIME` ] som genereras för ditt projekt med Core Tools. <br/> När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installerat lokalt kan du ange [ `AzureWebJobsStorage` ] till `UseDevelopmentStorage=true` och Core Tools använder emulatorn. Detta är användbart under utvecklingen, men du bör testa med en faktisk lagringsanslutning före distributionen. |
-| **`Host`** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
-| **`LocalHttpPort`** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
-| **`CORS`** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
-| **`CORSCredentials`** |  Ändra det till SANT för att låta `withCredentials` begäranden |
-| **`ConnectionStrings`** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den `ConnectionStrings` avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den `Connection strings` insamling av din funktionsappinställningarna. Om du skapar en [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** i portalen med dina andra anslutningar. |
+Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Observera att värdena i **ConnectionStrings** aldrig har publicerats.
 
 Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i dessa språkspecifika referensämnen:
 
 * [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
 * [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -439,7 +407,7 @@ Följande alternativ för publicera gäller för både versioner, 1.x och 2.x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan. Om du använder lagringsemulatorn kan du ändra appinställningen en [faktiska lagringsanslutning](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan. Om du använder lagringsemulatorn först ändra appinställningen en [faktiska lagringsanslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Ignorera skrivs appinställningar när `--publish-local-settings -i` används.|
 
 Följande alternativ för publicera stöds bara i version 2.x:
@@ -497,4 +465,4 @@ Till filen en bugg eller funktionen begäran [öppna ett GitHub-ärende](https:/
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[tillägget paket]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[tillägget paket]: functions-bindings-register.md#extension-bundles

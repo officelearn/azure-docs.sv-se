@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369226"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490273"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Visa Azure reservationer i Azure portal
 
@@ -32,7 +32,7 @@ Mer information finns i [Lägg till eller ändra användare som kan hantera en r
 Visa en reservation ägare eller läsare,
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök på **reservationer**.
+2. Sök efter **reservationer**.
     ![Skärmbild som visar Azure portal-sökning](./media/billing-view-reservation/portal-reservation-search.png)  
 3. I listan visas alla bokningar där du har rollen ägare eller läsare. Varje reservation visar det senaste kända nätverksutnyttjandet i procent.  
     ![Exemplet visar en lista med reservationer](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ Om du vill ändra omfattningen för en reservation kan dela en reservation eller
 Visa transaktioner för reserverade Azure-portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 
     ![Skärmbild som visar Azure portal-sökning](./media/billing-view-reservation/portal-cm-billing-search.png)
 

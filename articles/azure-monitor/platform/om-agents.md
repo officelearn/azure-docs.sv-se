@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60255099"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445307"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
 
@@ -40,7 +40,7 @@ I följande diagram visas anslutningen mellan hanteringsservrarna och agenterna 
 
 Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, kan hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen till mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningarna aktiverad. Mer information och anvisningar om hur du konfigurerar din Operations Manager-hanteringsgrupp att kommunicera via en gateway för Log Analytics till Azure Monitor kan du se [ansluta datorer till Azure Monitor med Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Förutsättningar
 
 Granska följande krav innan du börjar.
 
@@ -48,7 +48,19 @@ Granska följande krav innan du börjar.
 * Integrera System Center Operations Manager 2016 med molnet för amerikanska myndigheter kräver ett uppdaterat Advisor management pack som ingår med Samlad uppdatering 2 eller senare. System Center Operations Manager 2012 R2 kräver ett uppdaterat Advisor management pack som ingår med Samlad uppdatering 3 eller senare.
 * Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenterna är på den lägsta uppdateringen, annars Windows agentkommunikationen kan misslyckas och genererar fel i händelseloggen för Operations Manager.
 * En Log Analytics-arbetsyta. Mer information, [Log Analytics arbetsyta-översikt](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* Du kan autentisera till Azure med ett konto som är medlem i den [Log Analytics Contributor rollen](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
+* Du kan autentisera till Azure med ett konto som är medlem i den [Log Analytics Contributor rollen](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+
+* Regioner som stöds – endast följande Azure-regioner stöds av System Center Operations Manager för att ansluta till en Log Analytics-arbetsyta:
+    - Västra centrala USA
+    - Sydöstra Australien
+    - Västra Europa
+    - East US
+    - Sydostasien
+    - Östra Japan
+    - Storbritannien, södra
+    - Indien, centrala
+    - Centrala Kanada
+    - Västra USA 2
 
 >[!NOTE]
 >Ändringar i Azure API: er kommer att kunder inte kan konfigurera integrering mellan sina hanteringsgrupp och Azure Monitor för första gången. För kunder som redan har integrerat deras hanteringsgruppen med tjänsten kan påverkas du inte om du inte behöver konfigurera om din befintliga anslutning.  
@@ -90,7 +102,7 @@ Informationen nedan proxy och brandvägg konfigurationsuppgifter som efterfråga
 
 ### <a name="tls-12-protocol"></a>TLS 1.2-protokollet
 
-Om du vill se till att skydda data under överföring till Azure Monitor, rekommenderar vi starkt att du kan konfigurera gruppen agent och en hanteringsserver för att kunna använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**. Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Om du vill se till att skydda data under överföring till Azure Monitor, rekommenderar vi starkt att du kan konfigurera gruppen agent och en hanteringsserver för att kunna använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**. Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
 
@@ -105,7 +117,7 @@ Vid första registreringen av din Operations Manager-hanteringsgrupp med en arbe
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-När du har slutfört följande steg för att integrera med Azure Monitor kan du ta bort konfigurationen genom att köra `netsh winhttp reset proxy` och sedan använda den **konfigurera proxyservern** alternativet i Operations-konsolen för att ange proxy- eller Log Analytics gateway-servern. 
+När du har slutfört följande steg för att integrera med Azure Monitor kan du ta bort konfigurationen genom att köra `netsh winhttp reset proxy` och sedan använda den **konfigurera proxyservern** alternativet i Operations-konsolen för att ange proxy- eller Log Analytics gateway-servern.
 
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
@@ -113,14 +125,14 @@ När du har slutfört följande steg för att integrera med Azure Monitor kan du
 1. På den **guiden Operations Management Suite Onboarding: Autentisering** sidan, anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är associerad med OMS-prenumerationen och på **logga in**.
 
    >[!NOTE]
-   >Operations Management Suite-namnet har tagits bort. 
-   
+   >Operations Management Suite-namnet har tagits bort.
+
 1. När du har autentiserats, på den **guiden Operations Management Suite Onboarding: Välj arbetsyta** sidan, uppmanas du för att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta. Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
-   
+
    > [!NOTE]
    > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och de datorer som har registrerats i Azure Monitor med den föregående arbetsytan tas bort från Azure Monitor.
-   > 
-   > 
+   >
+   >
 1. På den **guiden Operations Management Suite Onboarding: Sammanfattning** , bekräfta dina inställningar och om de är korrekta, klickar du på **skapa**.
 1. På den **guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
 
@@ -180,11 +192,11 @@ Om du vill fortsätta efter din befintliga Ändra kontroll process för att styr
 1. Expandera Log Analytics och markera **anslutningar**.
 1. Välj länken för att **konfigurera om Operation Management Suite** i mitten av fönstret.
 1. Följ den **guiden för Log Analytics Onboarding** och ange den e-postadress eller telefonnummer tal och lösenordet för administratörskontot som är associerad med den nya Log Analytics-arbetsytan.
-   
+
    > [!NOTE]
    > Den **guiden Operations Management Suite Onboarding: Välj arbetsyta** visar den befintliga arbetsytan som används.
-   > 
-   > 
+   >
+   >
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Verifiera Operations Manager-integrering med Azure Monitor
 
@@ -194,9 +206,9 @@ Det finns några olika sätt som du kan kontrollera att Azure Monitor för att i
 
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver.
 1. Välj arbetsyta i listan över Log Analytics-arbetsytor.  
-1. Välj **Avancerade inställningar**, **Anslutna källor**, och sedan **System Center**. 
+1. Välj **Avancerade inställningar**, **Anslutna källor**, och sedan **System Center**.
 1. Du bör se namnet på hanteringsgruppen tillsammans med antalet agenter och status när data togs emot senast i tabellen i avsnittet System Center Operations Manager.
-   
+
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Bekräfta integrationen från Operations-konsolen
@@ -205,7 +217,7 @@ Det finns några olika sätt som du kan kontrollera att Azure Monitor för att i
 1. Välj **Hanteringspaket** och i textrutan för att **söka** skriver du **Advisor** eller **Intelligence**.
 1. Beroende på vilka lösningar du har aktiverat kan du se motsvarande hanteringspaket i sökresultaten.  Om du har aktiverat lösningen för aviseringshantering visas hanteringspaket Microsoft System Center Advisor aviseringshantering i listan.
 1. Från vyn **Övervakning** navigerar du till vyn **Operations Management Suite\Hälsotillstånd**.  Välj en hanteringsserver under fönstret för **hanteringsservertillstånd** och i fönstret **Detaljvy** kontrollerar du att värdet för egenskapen **Authentication service URI** (URI för autentiseringstjänst) matchar Log Analytics-arbetsytans ID.
-   
+
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Ta bort integrering med Azure Monitor
@@ -215,34 +227,34 @@ Flera steg måste utföras för att ta bort anslutningen och konfigurationen kor
 Hanteringspaketen för lösningarna du har aktiverat som integrerar med Operations Manager och de hanteringspaket som krävs för att stödja integrering med Azure Monitor kan inte enkelt tas bort från hanteringsgruppen. Det beror på att en del av Azure Monitor-hanteringspaket har beroenden på andra relaterade hanteringspaket. För att ta bort hanteringspaket med beroenden i andra hanteringspaket laddar du ned skriptet [ för att ta bort hanteringspaket med ett beroende](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) från TechNet Script Center.  
 
 1. Öppna Operations Manager kommandotolken med ett konto som är medlem i rollen Operations Manager-administratörer.
-   
+
     > [!WARNING]
     > Kontrollera att du inte har några anpassade hanteringspaket som innehåller ordet Advisor eller IntelligencePack i namnet innan du fortsätter. I annat fall kan du ta bort dem från hanteringsgruppen.
-    > 
+    >
 
 1. Från kommandotolken skriver du: `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Skriv sedan `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
- 
+
     > [!NOTE]
     > Steg för att ta bort Advisor-hanteringspaketen med PowerShell tas inte bort Microsoft System Center Advisor eller Microsoft System Center Advisor internt hanteringspaket automatiskt.  Försök inte att ta bort dem.  
     >  
 
 1. Öppna Operations-konsolen i Operations Manager med ett konto som har rollen Operations Manager-administratör.
 1. Under **Administration** väljer du noden **Hanteringspaket** och i rutan för att **söka** skriver du **Advisor** och kontrollerar att följande hanteringspaket fortfarande importeras i hanteringsgruppen:
-   
+
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
 1. I Azure-portalen klickar du på den **inställningar** panelen.
 1. Välj **anslutna källor**.
 1. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i System Center Operations Manager-avsnittet. Under kolumnen **Senaste data** klickar du på **Ta bort**.  
-   
+
     > [!NOTE]
     > Länken **Ta bort** blir inte tillgänglig förrän efter att den anslutna hanteringsgruppen känner av 14 dagar utan aktivitet.  
-    > 
+    >
 
-1. Ett fönster visas där du uppmanas att bekräfta att du vill ta bort volymen.  Klicka på **Ja** för att gå vidare. 
+1. Ett fönster visas där du uppmanas att bekräfta att du vill ta bort volymen.  Klicka på **Ja** för att gå vidare.
 
 För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor.DataConnector och Advisor Connector – sparar du PowerShell-skriptet nedan på datorn och kör det med följande exempel:
 
@@ -253,8 +265,8 @@ För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor
 
 > [!NOTE]
 > Den dator som du kör skriptet från (om det inte är en hanteringsserver) bör ha Operations Manager-kommandogränssnittet installerat, beroende på version av hanteringsgruppen.
-> 
-> 
+>
+>
 
 ```powershell
     param(

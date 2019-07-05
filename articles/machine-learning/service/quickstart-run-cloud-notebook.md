@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115018"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476048"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd en molnbaserad notebook-server för att komma igång med Azure Machine Learning
 
@@ -74,9 +74,12 @@ När Virtuellt datorn körs, använda den **Notebook virtuella datorer** avsnitt
 
 1. På webbsidan för Jupyter-anteckningsbok är den främsta mappnamn ditt användarnamn.  Välj den här mappen.
 
+    > [!TIP]
+    > Den här mappen finns på den [lagringsbehållare](concept-workspace.md#resources) i din arbetsyta i stället för i anteckningsboken Virtuella datorn.  Du kan ta bort anteckningsboken VM och samtidigt hålla ditt arbete.  När du skapar en ny anteckningsbok VM senare, den läser in denna mapp.
+
 1. Exempel-mappnamn innehåller ett versionsnummer, till exempel **exempel 1.0.33.1**.  Välj mappen samples.
 
-1. Välj den **snabbstarten** anteckningsboken.
+1. Välj den **snabbstarten** mapp.
 
 ## <a name="run-the-notebook"></a>Köra anteckningsboken
 
@@ -115,11 +118,11 @@ Kör en bärbar dator som beräknar pi och loggas felet i din arbetsyta.
 
 1. Klicka på den **länk till Azure-portalen** att visa information om körningen på din arbetsyta.  Den här länken öppnar din arbetsyta i Azure-portalen.
 
-1. De linjer med loggade värden som visas skapades automatiskt på arbetsytan. När du loggar flera värden med samma parameter genereras ett diagram automatiskt åt dig.
+1. De linjer med loggade värden som visas skapades automatiskt på arbetsytan. När du loggar flera värden med samma parameter genereras ett diagram automatiskt åt dig. Här är ett exempel:
 
    ![Visa historik](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Eftersom koden för att göra en uppskattning av pi använder slumpmässiga värden visar dina diagram olika värden.  
+Eftersom koden för ungefärlig pi använder slumpmässiga värden kan din områden kan se annorlunda ut.  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -154,7 +157,9 @@ I den här snabbstarten har slutfört du uppgifterna:
 * Köra anteckningsboken.
 * Visa loggade felvärdena i din arbetsyta.  Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på information som genereras i ett skript. 
 
-Bläddra bland andra anteckningsböcker i mappen samples vill veta mer om Azure Machine Learning-tjänsten på Jupyter Notebook-webbsidan.
+På webbsidan Jupyter Notebook i den **snabbstarten** mapp, öppna och kör den **02.deploy-web-service.ipynb** anteckningsboken för att lära dig hur du distribuerar en webbtjänst.
+
+Även på Jupyter Notebook-webbsidan, bläddra igenom andra anteckningsböcker i mappen samples vill veta mer om Azure Machine Learning-tjänsten.
 
 Följ självstudierna om Machine Learning för att träna och distribuera en modell om du vill ha en djupgående arbetsflödesupplevelse:  
 

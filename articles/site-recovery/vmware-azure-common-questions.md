@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417770"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491700"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om VMware till Azure replikering
 
@@ -85,6 +85,10 @@ För en detaljerad uppskattning av kostnaderna kör distributionsplaneringsverkt
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Finns det någon skillnad i kostnaden för mellan replikerar till lagring eller direkt till hanterade diskar?
 
 Hanterade diskar debiteras lite annorlunda från storage-konton. [Läs mer](https://azure.microsoft.com/pricing/details/managed-disks/) om priser för hanterad disk.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Är det någon skillnad i kostnaden för att replikera till lagringskonto för generell användning v2?
+
+Normalt ser du en ökning av transaktioner kostnader som uppstår på GPv2-konton eftersom Azure Site Recovery är tungt transaktioner. [Läs mer](../storage/common/storage-account-upgrade.md#pricing-and-billing) att beräkna ändringen.
 
 ## <a name="mobility-service"></a>Mobilitetstjänsten
 
@@ -293,7 +297,7 @@ Uppdateringar versioner 9,24 och senare nu visas den [hälsotillståndet för pr
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Hur uppdaterar jag processervern till version 9.24 eller senare för korrekt hälsoinformation?
 
-Från och med [version 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), fler aviseringar har lagts till indikerar tillståndet för processervern. [Uppdatera din Site Recovery-komponenter till version 9.24 eller senare] (service-updates-how-to.md#links-to-currently-supported-update-rollups) så att alla aviseringar genereras.
+Från och med [version 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), fler aviseringar har lagts till indikerar tillståndet för processervern. [Uppdatera din Site Recovery-komponenter till version 9.24 eller senare](service-updates-how-to.md#links-to-currently-supported-update-rollups) så att alla aviseringar genereras.
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
 

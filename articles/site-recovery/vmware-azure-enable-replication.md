@@ -3,21 +3,21 @@ title: Aktivera replikering av virtuella VMware-datorer på haveriberedskap till
 description: Den här artikeln beskriver hur du aktiverar virtuella VMware-datorer för replikering till Azure för haveriberedskap med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540767"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491723"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 Den här artikeln beskriver hur du aktiverar replikering av lokala virtuella VMware-datorer till Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har:
 
@@ -37,11 +37,13 @@ När du replikerar virtuella VMware-datorer, Tänk på den här informationen:
 ## <a name="enable-replication"></a>Aktivera replikering
 
 Observera följande innan du följer stegen i det här avsnittet:
-* Azure Site Recovery replikerar nu direkt till hanterade diskar för alla nya replikeringar. Processervern skriver replikeringsloggar till ett cachelagringskonto i målregionen. De här loggarna används för att skapa återställningspunkter i hanterade replikeringsdiskar.
+* Azure Site Recovery replikerar nu direkt till hanterade diskar för alla nya replikeringar. Processervern skriver replikeringsloggar till ett cachelagringskonto i målregionen. De här loggarna används för att skapa återställningspunkter i hanterade replikeringsdiskar som har namngivningskonvention för asrseeddisk.
+* PowerShell-stöd för att replikera till hanterade diskar är tillgänglig från [Az.RecoveryServices Modulversion 2.0.0 och senare](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Vid tidpunkten för växling vid fel används den återställningspunkt som du väljer för att skapa mål-hanterad disk.
 * Virtuella datorer som konfigurerats tidigare för att replikera till mållagringskonton påverkas inte.
 * Replikering till storage-konton för en ny virtuell dator är bara tillgängligt via en REST Representational State Transfer () API och Powershell. Använd Azure REST-API version 2016-08-10 eller 2018-01-10 för att replikera till storage-konton.
 
+Följ stegen nedan för att aktivera replikering:
 1. Gå till **steg 2: Replikera program** > **källa**. När du aktiverar replikering för första gången väljer **+ replikera** i valvet för att aktivera replikering för ytterligare virtuella datorer.
 2. I den **källa** sidan > **källa**, Välj configuration server.
 3. För **datortyp**väljer **virtuella datorer** eller **fysiska datorer**.

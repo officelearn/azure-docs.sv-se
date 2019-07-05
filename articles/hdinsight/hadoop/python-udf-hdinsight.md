@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702228"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484203"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Apache Hive och Apache Pig i HDInsight
 
@@ -25,7 +25,7 @@ Python2.7 installeras som standard på HDInsight 3.0 och senare. Apache Hive kan
 
 HDInsight omfattar även Jython, vilket är en Python-implementering skriven i Java. Jython körs direkt på Java Virtual Machine och används inte för direktuppspelning. Jython är den rekommenderade Python-tolken när du använder Python med Pig.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Hadoop-kluster på HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -161,9 +161,6 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
     ```
 
 ### <a name="upload-file-powershell"></a>Ladda upp fil (PowerShell)
-
-> [!IMPORTANT]  
-> Dessa PowerShell-skript fungerar inte om [säker överföring](../../storage/common/storage-require-secure-transfer.md) är aktiverad.  Använd shell-kommandon antingen eller inaktivera säker överföring.
 
 PowerShell kan också användas för att köra Hive-frågor via en fjärranslutning. Se till att arbetskatalogen är där `hiveudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som använder den `hiveudf.py` skript:
 
@@ -433,9 +430,6 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
 
 
 ### <a name="upload-file-powershell"></a>Ladda upp fil (PowerShell)
-
-> [!IMPORTANT]  
-> Dessa PowerShell-skript fungerar inte om [säker överföring](../../storage/common/storage-require-secure-transfer.md) är aktiverad.  Använd shell-kommandon antingen eller inaktivera säker överföring.
 
 PowerShell kan också användas för att köra Hive-frågor via en fjärranslutning. Se till att arbetskatalogen är där `pigudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som använder den `pigudf.py` skript:
 

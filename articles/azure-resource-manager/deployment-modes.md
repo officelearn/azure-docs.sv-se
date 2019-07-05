@@ -4,14 +4,14 @@ description: Beskriver hur du anger om du vill använda en fullständig eller in
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206553"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508216"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
@@ -22,6 +22,8 @@ Resource Manager försöker skapa alla resurser som angetts i mallen för båda 
 ## <a name="complete-mode"></a>Fullständig läge
 
 I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men inte anges i mallen. Resurser som har angetts i mallen, men inte distribueras eftersom en [villkor](resource-group-authoring-templates.md#condition) utvärderas till false, tas inte bort.
+
+Var försiktig med fullständig läge med [kopiera slingor](resource-group-create-multiple.md). Alla resurser som inte anges i mallen när du har löst kopiera loop tas bort.
 
 Det finns vissa skillnader i hur resurstyper hantera fullständiga läge borttagningar. Överordnad resurser tas bort automatiskt när inte i en mall som har distribuerats i fullständiga läge. Vissa underordnade resurser bort inte automatiskt när inte i mallen. Men tas dessa underordnade resurser bort om den överordnade resursen tas bort. 
 

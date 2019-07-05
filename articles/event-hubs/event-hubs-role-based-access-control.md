@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978313"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448147"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -29,10 +29,10 @@ Ett program som använder Azure AD RBAC behöver inte hantera SAS regler och nyc
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs roller och behörigheter
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till ett Event Hubs-namnområde:
 
-Den [Dataägaren (förhandsversion) för Event Hubs](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rollen kan åtkomst till ett Event Hubs-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
+Den [Dataägaren (förhandsversion) för Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) rollen kan åtkomst till ett Event Hubs-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
 
 >[!IMPORTANT]
-> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren för Event Hubs** roll.
+> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren (förhandsversion) för Azure Event Hubs** roll.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Använda Event Hubs med ett användarkonto för Azure AD-domän

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544872"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482149"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och godkännande i Microsoft identity-plattformen slutpunkten
 
@@ -89,7 +89,7 @@ Om en app utför logga in med hjälp av [OpenID Connect](active-directory-v2-pro
 
 Den `email` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till användarens primära e-postadress i form av den `email` anspråk. Den `email` anspråk som ingår i en token endast om en e-postadress är associerad med det användarkonto som inte alltid fallet. Om den använder den `email` omfattning, din app ska vara beredd att hantera ett fall där den `email` anspråk finns inte i token.
 
-### <a name="profile"></a>Profil
+### <a name="profile"></a>profile
 
 Den `profile` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till en stor mängd information om användaren. Den kan komma åt informationen inkluderar, men inte begränsat till, användarens förnamn, efternamn, primära användarnamn och objekt-ID. En fullständig lista över anspråk för profilen som är tillgängliga i parametern id_tokens för en viss användare ser den [ `id_tokens` referens](id-tokens.md).
 
@@ -124,7 +124,7 @@ När användaren anger sina autentiseringsuppgifter, Microsoft identity-plattfor
 > [!NOTE]
 > För närvarande den `offline_access` (”ha tillgång till data som du har beviljat åtkomst till den”) och `user.read` (”logga in och läsa din profil”) behörigheter ingår automatiskt i det inledande medgivandet till ett program.  Dessa behörigheter krävs normalt för rätt funktionalitet - `offline_access` ger åtkomst till appen att uppdatera token, kritiska för intern och web apps, medan `user.read` ger åtkomst till den `sub` anspråk, vilket gör att klienten eller app med korrekt identifiera användaren över tid och åtkomst rudimentära användarinformation.  
 
-![Arbeta konto medgivande](./media/v2-permissions-and-consent/work_account_consent.png)
+![Exemplet på skärmbilden som visar work konto medgivande](./media/v2-permissions-and-consent/work_account_consent.png)
 
 När användaren godkänner begäran behörighet, medgivande registreras och användaren behöver inte godkänna igen på efterföljande inloggningar till programmet.
 

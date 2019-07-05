@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417663"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482992"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
 
@@ -36,7 +36,7 @@ Microsoft identity-plattformen slutpunkten för identity-as-a-service med bransc
 
 I nästan alla flöden som OAuth 2.0 och OpenID Connect finns det fyra parter som ingår i exchange:
 
-![OAuth 2.0-roller](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram över OAuth 2.0-roller](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * Den **Auktoriseringsservern** är Microsoft identity-plattformen slutpunkt och ansvarar för att användarens identitet, bevilja och återkalla åtkomst till resurser och utfärda token. Auktoriseringsservern även känt som identitetsprovider - den på ett säkert sätt hanterar något att göra med information om användaren, deras åtkomst och förtroenderelationer mellan parterna i ett flöde.
 * Den **Resursägaren** är vanligtvis användaren. Det är den part som äger data och har rätt att tillåta tredje part att få åtkomst till den data- eller resursen.

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734571"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471909"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -28,7 +28,7 @@ ms.locfileid: "66734571"
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar för gruppmedlemmar eller programåtkomst.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 - Global administratör eller Användaradministratör
@@ -43,7 +43,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
 1. Klicka på **ny åtkomstgranskning** att skapa en ny åtkomstgranskning.
 
-    ![Åtkomstgranskning - kontroller](./media/create-access-review/access-reviews.png)
+    ![Åtkomstgranskningar fönstret i Identitetshantering](./media/create-access-review/access-reviews.png)
 
 1. Namnet åtkomstgranskningen. Du kan också ge granskningen en beskrivning. Namn och beskrivning visas granskarna.
 
@@ -91,7 +91,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
 1. Om du vill ange vad som händer när en granskning är klar, expandera den **vid slutförande-inställningar** avsnittet.
 
-    ![Vid slutförande-inställningar](./media/create-access-review/upon-completion-settings.png)
+    ![Skapa en åtkomstgranskning – vid slutförande-inställningar](./media/create-access-review/upon-completion-settings.png)
 
 1. Om du vill att automatiskt ta bort åtkomst för användare som nekades anger **tillämpa automatiskt resultaten på resursen** till **aktivera**. Om du vill tillämpa resultaten manuellt när granskningen har slutförts kan du ange växeln **inaktivera**.
 
@@ -106,7 +106,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
 1. Om du vill ange ytterligare inställningar, expandera den **avancerade inställningar** avsnittet.
 
-    ![Avancerade inställningar](./media/create-access-review/advanced-settings.png)
+    ![Skapa en åtkomstgranskning - avancerade inställningar](./media/create-access-review/advanced-settings.png)
 
 1. Ange **visa rekommendationer** till **aktivera** för att visa granskarna systemet rekommendationer baserat information om användaren åtkomst.
 
@@ -122,7 +122,7 @@ Mer information finns i [vilka användare måste ha licenser?](access-reviews-ov
 
 När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**. Åtkomstgranskningen visas i listan med en indikator för dess status.
 
-![Åtkomstgranskningar lista](./media/create-access-review/access-reviews-list.png)
+![Lista över åtkomstgranskningar och deras status](./media/create-access-review/access-reviews-list.png)
 
 Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst till grupper eller program](perform-access-review.md). Om din granskning är för gäster att granska sin egen åtkomst, visas instruktioner för hur du [granska åtkomst själv till grupper eller program](review-your-access.md).
 

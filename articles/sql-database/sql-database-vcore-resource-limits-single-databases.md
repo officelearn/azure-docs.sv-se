@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118073"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536235"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen
 
@@ -34,6 +34,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 > Skala vägledning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Tjänstnivå för allmänna ändamål: Lagringsstorlekar och storlekar
+
+> [!IMPORTANT]
+> Nya Gen4 databaser stöds inte längre i regionen Australien.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Tjänstnivå för allmänna ändamål: Generation 4-beräkningsplattformen (del 1)
 
@@ -157,6 +160,9 @@ Den [serverlös Beräkningsnivån](sql-database-serverless.md) är en förhandsv
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Företag kritiska tjänstnivå för etablerade Beräkningsnivån
 
+> [!IMPORTANT]
+> Nya Gen4 databaser stöds inte längre i regionen Australien.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Kritiska-affärsnivå: Generation 4-beräkningsplattformen (del 1)
 
 |Beräkna storlek|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ Den [serverlös Beräkningsnivån](sql-database-serverless.md) är en förhandsv
 |Maximal storlek (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB-storlek (GB)|64|128|256|384|384|384|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Mål-IOPS (64 KB)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
+|Mål-IOPS (64 KB)| [Anmärkning 1](#note-1) |[Anmärkning 1](#note-1)|[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) | [Anmärkning 1](#note-1) |
 |I/o-svarstid (ungefärlig)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ Den [serverlös Beräkningsnivån](sql-database-serverless.md) är en förhandsv
 |Inkluderad lagring av säkerhetskopior |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Nästa steg
+### <a name="note-1"></a>Anmärkning 1
+
+Hyperskala är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiva IOPS beror på arbetsbelastningen.
+
+### <a name="next-steps"></a>Nästa steg
 
 - DTU-resursgränser för en enskild databas, se [resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-single-databases.md)
 - VCore-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-elastic-pools.md)

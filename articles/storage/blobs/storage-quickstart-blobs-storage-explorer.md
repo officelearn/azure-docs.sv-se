@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 929ba7e28bca608359e76f9eeb130c61ba3235a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391998"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435809"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer
 
 I den här snabbstarten får du lära dig hur du skapar en container och en blob med [Azure Storage Explore](https://azure.microsoft.com/features/storage-explorer/). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för containrar och skapar en signatur för delad åtkomst.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -35,7 +35,7 @@ Första gången programmet startas visas fönstret **Microsoft Azure Storage Exp
 |Använda en anslutningssträng eller en signatur-URI för delad åtkomst | Kan användas för direkt åtkomst till en container eller ett lagringskonto med en SAS-token eller en delad anslutningssträng. |
 |Använda lagringskontots namn och nyckel| Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.|
 
-Välj **Lägg till ett Azure-konto** och klicka på **Logga in...**. Följ anvisningarna på skärmen för att logga in på ditt Azure-konto.
+Välj **Lägg till ett Azure-konto** och klicka på **Logga in...** . Följ anvisningarna på skärmen för att logga in på ditt Azure-konto.
 
 ![Fönstret Microsoft Azure Storage Explorer – anslut](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -47,7 +47,7 @@ När anslutningen är klar läses Azure Storage Explorer in med fliken **Utforsk
 
 Blobar laddas alltid upp till en container. På så vis kan du ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Om du vill skapa en container ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på blob-containern. Se avsnittet [Skapa containern och ange behörigheter](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) för en lista över regler och begränsningar vid namngivning av blob-containrar. Skapa blob-containern när du är klar genom att trycka på **Retur**. När en blob-behållare har skapats visas den i mappen **Blob Containers** (Blob-behållare) för det valda lagringskontot.
+Om du vill skapa en container ska du expandera det lagringskonto som du skapade i föregående steg. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på blob-containern. Se den [skapa en behållare](storage-quickstart-blobs-dotnet.md#create-a-container) avsnittet för en lista över regler och begränsningar för namngivning av blob-behållare. Skapa blob-containern när du är klar genom att trycka på **Retur**. När en blob-behållare har skapats visas den i mappen **Blob Containers** (Blob-behållare) för det valda lagringskontot.
 
 ## <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 

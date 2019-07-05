@@ -4,17 +4,17 @@ description: Beskriver hur du skapar och hämta utdata och meddelanden från run
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61227013"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476926"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata. Dessa utdata kan ett felmeddelande till användaren eller ett komplext objekt som du planerar att använda med en annan runbook. Windows PowerShell innehåller [flera strömmar](/powershell/module/microsoft.powershell.core/about/about_redirection) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar på olika sätt med var och en av dessa strömmar. Du bör följa bästa praxis för hur du använder när du skapar en runbook.

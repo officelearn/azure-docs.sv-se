@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290048"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476490"
 ---
 # <a name="start-using-pim"></a>Börja använda PIM
 
@@ -27,7 +27,7 @@ Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), som 
 
 Den här artikeln beskriver hur du aktiverar och börja använda PIM.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda PIM måste du ha en av följande licenser:
 
@@ -56,25 +56,25 @@ Om du vill börja använda PIM i din katalog, måste du först aktivera PIM.
 
 1. I listan klickar du på **Samtyck till PIM**.
 
-    ![Samtyck till PIM](./media/pim-getting-started/consent-pim.png)
+    ![Samtyck till PIM att aktivera PIM](./media/pim-getting-started/consent-pim.png)
 
 1. Klicka på **verifiera min identitet** verifiera din identitet med Azure MFA. Du ombeds välja ett konto.
 
-    ![Välj ett konto](./media/pim-getting-started/pick-account.png)
+    ![Välj en konto-fönstret för att verifiera din identitet](./media/pim-getting-started/pick-account.png)
 
 1. Om det krävs mer information för verifiering, får du guidas genom processen. Mer information finns i [få hjälp med tvåstegsverifiering](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![Mer information krävs](./media/pim-getting-started/more-information-required.png)
+    ![Fönstret krävs mer information om din organisation behöver mer information](./media/pim-getting-started/more-information-required.png)
 
     Du kan till exempel bli ombedd att tillhandahålla verifiering via telefon.
 
-    ![Ytterligare säkerhetskontroll](./media/pim-getting-started/additional-security-verification.png)
+    ![Ytterligare verifiering sida där du tillfrågas så här kontaktar du](./media/pim-getting-started/additional-security-verification.png)
 
 1. När du har slutfört verifieringen, klickar du på den **godkänna** knappen.
 
 1. I det meddelande som visas, klickar du på **Ja** samtycker till att PIM-tjänsten.
 
-    ![Samtycka till PIM-meddelande](./media/pim-getting-started/consent-pim-message.png)
+    ![Godkänna i PIM-meddelandet för att slutföra medgivande](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Registrera PIM för Azure AD-roller
 
@@ -100,7 +100,7 @@ När du har aktiverat PIM för din katalog, kommer du behöva registrera PIM att
 
 Du kan utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
 
-![Toppnivåaktiviteter för PIM - skärmbild](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Navigering i PIM som visar uppgifter och hantera alternativ](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Uppgift + hantera | Beskrivning |
 | --- | --- |
@@ -125,11 +125,11 @@ Om du vill göra det enklare att öppna PIM, bör du lägga till en PIM-panel p�
 
 1. Kontrollera **Fäst bladet på instrumentpanelen** att fästa PIM Snabbstart-bladet på instrumentpanelen.
 
-    ![Fäst bladet på instrumentpanelen](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Kartnålsikon till PIM Fäst bladet på instrumentpanelen](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     På Azure-instrumentpanelen visas en panel så här:
 
-    ![Snabbstart för PIM-panel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Snabbstart för PIM-panelen på instrumentpanelen](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

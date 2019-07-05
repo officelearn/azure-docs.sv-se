@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540533"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482958"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -38,7 +38,7 @@ Den här artikeln visar hur du listar ett program i Azure AD-programgalleriet, i
 - Gemensamma kunder få en självstudie med stegvisa konfiguration.
 - Kunder som använder SCIM kan använda etablering för samma app.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - För federerade program (Öppna ID och SAML/WS-Fed), måste programmet stöder SaaS-modellen för att bli listad i Azure AD-galleriet. Galleriet företagsprogram ska ha stöd för kundkonfigurationer med flera och inte en specifik kund.
 
@@ -117,21 +117,21 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD app-galleri
 
 Kunder kan skicka begäran för att visa en lista över ett program genom att klicka på **appen begär av kunder** -> **Skicka ny begäran**.
 
-![Kunden begärda appar sida vid sida](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Visar de begärda appar sida vid sida](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Nedan visas flödet av kunden begärt program-
 
-![Kunden begärde appar flöde](./media/howto-app-gallery-listing/customer-request.png)
+![Visar kunden begärt appar flöde](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tidslinjer
 
 Tidslinje för att visa en lista över en SAML 2.0 eller WS-Fed program i galleriet är 7 – 10 arbetsdagar.
 
-   ![Tidslinje för att visa en lista över saml-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
+   ![Tidslinje för att visa en lista över SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
 
 Tidslinje för att visa en lista över ett OpenID Connect-program i galleriet är 2 – 5 arbetsdagar.
 
-   ![Tidslinje för att visa en lista över saml-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
+   ![Tidslinje för att visa en lista över SAML-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Ökningar av
 

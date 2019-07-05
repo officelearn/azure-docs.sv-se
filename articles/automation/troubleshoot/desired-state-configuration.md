@@ -4,17 +4,17 @@ description: Den här artikeln innehåller information om hur du felsöker Desir
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514452"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477527"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
 
@@ -164,6 +164,24 @@ Det här felet uppstår vanligen när noden har tilldelats ett nodnamn konfigura
 
 * Kontrollera att du tilldelar nod med en nodkonfigurationsnamn som exakt matchar namnet i tjänsten.
 * Du kan välja att inte inkludera namnet på noden konfigurationen, vilket leder onboarding noden men inte tilldela en nodkonfiguration
+
+### <a name="failure-linux-temp-noexec"></a>Scenario: Tillämpa en konfiguration i Linux, uppstår ett fel med ett allmänt fel
+
+#### <a name="issue"></a>Problem
+
+När du använder en konfiguration i Linux, inträffar ett fel med felet:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Orsak
+
+Kunder har identifierat att den aktuella versionen av DSC kommer inte att tillämpa konfigurationer om/tmp-plats har angetts till noexec.
+
+#### <a name="resolution"></a>Lösning
+
+* Ta bort alternativet noexec från/tmp-platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 

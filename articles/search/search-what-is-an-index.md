@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024434"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485206"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -36,7 +36,7 @@ Rätt index-design som kommer uppnås vanligtvis via flera iterationer. Använda
   
    När du klickar på **skapa**, alla fysiska strukturer som stöder ditt index skapas i din söktjänst.
 
-3. Hämta den index schema med hjälp av [hämta Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) och en webbplats testning verktyg som [Postman](search-fiddler.md). Nu har du en JSON-representation av det index som du skapade i portalen. 
+3. Hämta den index schema med hjälp av [hämta Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) och en webbplats testning verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av det index som du skapade i portalen. 
 
    Du byter till en kodbaserad metod i det här läget. Portalen är inte passar bra för iteration eftersom du inte kan redigera ett index som redan har skapats. Men du kan använda Postman och RESTEN för de återstående aktiviteterna.
 
@@ -48,7 +48,7 @@ Rätt index-design som kommer uppnås vanligtvis via flera iterationer. Använda
 
 Eftersom fysiska strukturer skapas i tjänsten [släppa och återskapa index](search-howto-reindex.md) är nödvändigt när du gör betydande ändringar av en befintlig fältdefinition. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
 
-Koden i stället för en portal metod som rekommenderas för upprepad konstruktion. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan verktyg som [Postman och REST API](search-fiddler.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan göra inkrementella ändringar i en Indexdefinition i en begärandetext och skicka begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
+Koden i stället för en portal metod som rekommenderas för upprepad konstruktion. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan verktyg som [Postman och REST API](search-get-started-postman.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan göra inkrementella ändringar i en Indexdefinition i en begärandetext och skicka begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
 
 ## <a name="components-of-an-index"></a>Komponenter i ett index
 
@@ -146,7 +146,7 @@ Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
 ### <a name="data-types"></a>Datatyper
-| Typ | Beskrivning |
+| Type | Beskrivning |
 | --- | --- |
 | *Edm.String* |Text som kan tokeniseras för textsökning (radbrytning, ordstamsigenkänning och så vidare). |
 | *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
@@ -160,16 +160,22 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Indexattribut
+
+Exakt ett fält i indexet måste definieras som en **nyckel** fält som unikt identifierar varje dokument.
+
+Andra attribut bestämmer hur ett fält som ska användas i ett program. Till exempel den **sökbara** attributet tilldelas till varje fält som ska ingå i en fulltextsökning. 
+
+API: er som du använder för att skapa ett index har olika standardbeteenden. För den [REST API: er](https://docs.microsoft.com/rest/api/searchservice/Create-Index), de flesta attribut är aktiverade som standard (till exempel **sökbara** och **hämtningsbar** är sanna för strängfält) och du ofta bara behöver ange dem om du vill inaktivera dem för. Motsatsen är true för .NET-SDK. Om en egenskap som du inte uttryckligen anges är standardvärdet att inaktivera motsvarande sökbeteendet såvida inte du uttryckligen aktiverar den.
+
 | Attribut | Beskrivning |
 | --- | --- |
-| *Nyckel* |En sträng som innehåller det unika ID:t för varje dokument och som används för att leta upp dokument. Alla index måste ha en nyckel. Endast ett fält kan vara nyckeln och dess typ måste anges till Edm.String. |
-| *Hämtningsbar* |Anger om ett fält kan returneras i sökresultat. |
-| *Filtrerbar* |Gör att fältet kan användas i filterfrågor. |
-| *Sorterbar* |Gör att en fråga kan sortera sökresultat med hjälp av det här fältet. |
-| *Fasettbar* |Gör att ett fält kan användas i en struktur för [aspektbaserad navigering](search-faceted-navigation.md) för filtrering av användaren. Oftast fungerar fält med upprepade värden som kan användas för att gruppera flera dokument (till exempel flera dokument som hör till samma varumärkes- eller tjänstkategori) bäst som aspekter. |
-| *Sökbar* |Markerar fältet som fulltextsökbart. |
+| `key` |En sträng som innehåller det unika ID:t för varje dokument och som används för att leta upp dokument. Alla index måste ha en nyckel. Endast ett fält kan vara nyckeln och dess typ måste anges till Edm.String. |
+| `retrievable` |Anger om ett fält kan returneras i sökresultat. |
+| `filterable` |Gör att fältet kan användas i filterfrågor. |
+| `Sortable` |Gör att en fråga kan sortera sökresultat med hjälp av det här fältet. |
+| `facetable` |Gör att ett fält kan användas i en struktur för [aspektbaserad navigering](search-faceted-navigation.md) för filtrering av användaren. Oftast fungerar fält med upprepade värden som kan användas för att gruppera flera dokument (till exempel flera dokument som hör till samma varumärkes- eller tjänstkategori) bäst som aspekter. |
+| `searchable` |Markerar fältet som fulltextsökbart. |
 
-Mer detaljerad information om [indexattributen i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Storage effekter
 

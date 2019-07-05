@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 8eb297c555d2d7f95419b2a9aa11a26cf5c7230f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 89d25c9c0a45b740bfb60a71f6d85bfbf4a4686a
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137475"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459871"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Hadoop-kluster i Azure HDInsight med hjälp av Resource Manager-mall
 
@@ -81,4 +81,4 @@ När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras
 I den här snabbstarten har du lärt dig hur du skapar ett Apache Hadoop-kluster i HDInsight med en Resource Manager-mall. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med hjälp av Apache Hive på HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extrahera, transformera och läsa in data med hjälp av interaktiva frågor på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

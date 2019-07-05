@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191894"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478406"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Ansluta till en Windows-dator med hjälp av Azure Skyddsmiljö (förhandsversion)
 
@@ -34,7 +34,7 @@ För att upprätta en anslutning, krävs följande roller:
 
 ## <a name="rdp"></a>Ansluta med RDP
 
-1. I den [Azure-portalen](https://aka.ms/BastionHost) för förhandsversionen av Skyddsmiljö, navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Windows-dator när du använder en RDP-anslutning.
+1. Använd [den här länken](https://aka.ms/BastionHost) att öppna sidan preview portal för Azure Skyddsmiljö. Navigera till den virtuella datorn som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Windows-dator när du använder en RDP-anslutning.
 
     ![VM-anslutning](./media/bastion-connect-vm-rdp/connect.png)
 

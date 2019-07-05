@@ -1,5 +1,5 @@
 ---
-title: Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
+title: Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb
 description: Den här artikeln beskriver hur du använder en SQL-databas som referensindata för Azure Stream Analytics-jobb i Azure-portalen och i Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304974"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461738"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb
 
 Azure Stream Analytics har stöd för Azure SQL Database som en källa av indata för referensdata. Du kan använda SQL-databas som referensdata för ditt Stream Analytics-jobb i Azure-portalen och i Visual Studio med Stream Analytics-verktyg. Den här artikeln visar hur du gör båda metoderna.
 

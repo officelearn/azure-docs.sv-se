@@ -1,5 +1,5 @@
 ---
-title: Så här konfigurerar du ett nytt program för flera klienter | Microsoft Docs
+title: Så här konfigurerar du enkel inloggning | Microsoft Docs
 description: Hur du konfigurerar enkel inloggning för ett anpassat program som du utvecklar och registrera med Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d151d4d7f32c479f2cfb4d71a8ed667f42e03b49
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545458"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465680"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Så här konfigurerar du ett nytt program för flera innehavare
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Så här konfigurerar du enkel inloggning för ett program
 
 Aktivera federerad enkel inloggning (SSO) i din app aktiveras automatiskt när federering via Azure AD för OpenID Connect, SAML 2.0 eller WS-Fed. Om slutanvändarna har problem att logga in trots redan har en befintlig session med Azure AD, är det troligt att din app kan vara felkonfigurerad.
 

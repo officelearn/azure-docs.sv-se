@@ -5,25 +5,29 @@ services: app-service\mobile
 documentationcenter: ios
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: crdun
-ms.openlocfilehash: 4d56453eb05e88c3558b66250439d6211e8069fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 5ab968e88331f888dfcecd2cc30a658b0b0f53ec
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445367"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Lägg till Push-meddelanden till din iOS-App
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-push) idag.
+>
 
 ## <a name="overview"></a>Översikt
 

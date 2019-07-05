@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424656"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466843"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
 Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet resurser Application Insights-resurser som ska inkluderas i en enskild fråga är begränsad till 100.  
@@ -141,7 +141,7 @@ I följande tabell visas schemaolikheter mellan Log Analytics och Application In
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _url |
+| URL | url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Nästa steg

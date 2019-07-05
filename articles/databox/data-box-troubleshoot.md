@@ -6,22 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc0681a8ea15f736a7b253d6bd7ba2f7928d2a32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257290"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439400"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem med Azure Data Box och Azure Data Box tunga
 
-Den här artikeln innehåller information om hur du felsöker problem uppstå när du använder Azure Data Boxn eller Azure Data Box tung.
+Den här artikeln innehåller information om hur du felsöker problem uppstå när du använder Azure Data Box eller Azure Data Box tung. Artikeln innehåller listan över möjliga fel som visas när data kopieras till Data Box eller när data har överförts från Data Box.
 
-## <a name="errors-during-data-copy"></a>Fel vid kopiering av data
+## <a name="error-classes"></a>Felklasser
 
-Alla fel som visas vid kopiering av data sammanfattas i följande avsnitt.
+Fel i Data Box och Data Box tunga kan sammanfattas på följande sätt:
+
+| Fel kategori *        | Beskrivning        | Rekommenderad åtgärd    |
+|----------------------------------------------|---------|--------------------------------------|
+| Namn på behållare eller filresurs | Behållare eller resurs som följer inte Azure namnregler.  |Hämta fel-listor. <br> Byt namn på behållare och filresurser. [Läs mer](#container-or-share-name-errors).  |
+| Storleksgräns för behållare eller filresurs | Den totala mängden data i behållare eller resurser överskrider gränsen för Azure.   |Hämta fel-listor. <br> Minska den övergripande data i behållare eller filresurs. [Läs mer](#container-or-share-size-limit-errors).|
+| Storleksgräns för objekt eller en fil | Objektet eller filer i behållare eller resurser överskrider gränsen för Azure.|Hämta fel-listor. <br> Minska filstorleken i behållare eller filresurs. [Läs mer](#object-or-file-size-limit-errors). |    
+| Data eller filtyp | Filtypen eller dataformatet stöds inte. |Hämta fel-listor. <br> Kontrollera att data är 512 byte justerad och kopieras till mapparna skapats i förväg för sidblobar eller hanterade diskar. [Läs mer](#data-or-file-type-errors). |
+| Icke-kritiska fel för blob eller fillagring  | Blob eller fillagring namnen följer inte Azure namnregler eller att filtypen stöds inte. | Dessa blob eller filer får inte kopieras eller namnen kan ändras. [Lär dig hur du åtgärdar de här felen](#non-critical-blob-or-file-errors). |
+
+\* De första fyra felkategorier är kritiska fel och måste åtgärdas innan du går till Förbered för att skicka.
+
+
+## <a name="container-or-share-name-errors"></a>Behållare eller filresurs namngivningsfel
+
+Det här är fel som rör behållare och dela namn.
 
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
@@ -78,17 +93,9 @@ Alla fel som visas vid kopiering av data sammanfattas i följande avsnitt.
 
     Mer information finns i Azure namnkonventionerna för [behållarnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resursnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
+## <a name="container-or-share-size-limit-errors"></a>Behållare eller filresurs storlek gränsen fel
 
-**Felbeskrivning:** Felaktig behållarnamn har angetts för hanterad diskresurser.
-
-**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
-
-- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar. Endast data från dessa behållare överförs till Azure.
-- En annan mapp som skapas på samma nivå som Premium SSD och HDD-Standard Standard SSD motsvarar inte en giltig prestandanivån och kan inte användas.
-- Ta bort filer eller mappar som skapas utanför prestandanivåer.
-
-Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+Det här är fel som rör data som överskrider storleken på data som tillåts i en behållare eller en resurs.
 
 ### <a name="errorcontainerorsharecapacityexceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
@@ -97,6 +104,65 @@ Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-fro
 **Föreslagen lösning:** På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
 
 Identifiera de mappar som har det här problemet från felloggarna och kontrollera att filerna i mappen är under 5 TB.
+
+
+## <a name="object-or-file-size-limit-errors"></a>Fel i gränsen storlek objekt eller en fil
+
+Det här är fel som rör data som överskrider den maximala storleken för objektet eller den fil som är tillåtet i Azure. 
+
+### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
+
+**Felbeskrivning:** Filstorleken överskrider den maximala filstorleken för uppladdning.
+
+**Föreslagen lösning:** Blob eller filstorleken överskrider maxgränsen som tillåts för överföring.
+
+- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
+- Se till att blob- och storlekar inte överskrider storleksgränserna Azure-objekt.
+
+## <a name="data-or-file-type-errors"></a>Felaktiga data eller en fil
+
+Det här är fel som rör filtypen eller datatyp hittades i behållare eller filresurs. 
+
+### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
+
+**Felbeskrivning:** Blobben eller filen är felaktigt justerad.
+
+**Föreslagen lösning:** Sidan blob-resurs på Data Box eller Data Box tung endast har stöd för filer som är 512 byte justerade (till exempel VHD-/ VHDX). Alla data som kopierats till sidan blob resursen har överförts till Azure som sidblobar.
+
+Ta bort alla icke-VHD/VHDX-data från sidan blob-resursen. Du kan använda resurser för blockblob eller Azure files för allmänna data.
+
+Mer information finns i [översikt av sidblobbar](../storage/blobs/storage-blob-pageblob-overview.md).
+
+### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
+
+**Felbeskrivning:** En filtyp finns i en hanterad disk-resurs. Endast fasta virtuella hårddiskar är tillåtna.
+
+**Föreslagen lösning:**
+
+- Kontrollera att du bara ladda upp de fasta virtuella hårddiskarna för att skapa hanterade diskar.
+- VHDX-filer eller **dynamisk** och **differentierande** VHD: er stöds inte.
+
+### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
+
+**Felbeskrivning:** En katalog är inte tillåtet i någon av de befintliga mapparna för hanterade diskar. Endast fasta virtuella hårddiskar är tillåtna i dessa mappar.
+
+**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande tre mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
+
+- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar.
+- En mapp eller katalog tillåts inte i dessa befintliga mappar. Ta bort de mappar som du har skapat i de befintliga mapparna.
+
+Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+
+### <a name="reparsepointerror"></a>REPARSE_POINT_ERROR
+
+**Felbeskrivning:** Symboliska länkar är inte tillåtna i Linux. 
+
+**Föreslagen lösning:** Symboliska länkar är vanligtvis länkar, pipes och andra sådana filer. Ta bort länkar, eller matcha länken och kopiera data.
+
+
+## <a name="non-critical-blob-or-file-errors"></a>Icke-kritiska fel för blob eller fillagring
+
+Alla fel som visas vid kopiering av data sammanfattas i följande avsnitt.
 
 ### <a name="errorbloborfilenamecharactercontrol"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
@@ -163,42 +229,16 @@ Mer information finns i Azure namnkonventionerna för blob och filnamn.
 - På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
 - Se till att den [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivningskonventionerna Azure.
 
-### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Felbeskrivning:** Filstorleken överskrider den maximala filstorleken för uppladdning.
+### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
-**Föreslagen lösning:** Blob eller filstorleken överskrider maxgränsen som tillåts för överföring.
+**Felbeskrivning:** Felaktig behållarnamn har angetts för hanterad diskresurser.
 
-- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-- Se till att blob- och storlekar inte överskrider storleksgränserna Azure-objekt.
+**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
 
-### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
-
-**Felbeskrivning:** Blobben eller filen är felaktigt justerad.
-
-**Föreslagen lösning:** Sidan blob-resurs på Data Box eller Data Box tung endast har stöd för filer som är 512 byte justerade (till exempel VHD-/ VHDX). Alla data som kopierats till sidan blob resursen har överförts till Azure som sidblobar.
-
-Ta bort alla icke-VHD/VHDX-data från sidan blob-resursen. Du kan använda resurser för blockblob eller Azure files för allmänna data.
-
-Mer information finns i [översikt av sidblobbar](../storage/blobs/storage-blob-pageblob-overview.md).
-
-### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
-
-**Felbeskrivning:** En filtyp finns i en hanterad disk-resurs. Endast fasta virtuella hårddiskar är tillåtna.
-
-**Föreslagen lösning:**
-
-- Kontrollera att du bara ladda upp de fasta virtuella hårddiskarna för att skapa hanterade diskar.
-- VHDX-filer eller **dynamisk** och **differentierande** VHD: er stöds inte.
-
-### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
-
-**Felbeskrivning:** En katalog är inte tillåtet i någon av de befintliga mapparna för hanterade diskar. Endast fasta virtuella hårddiskar är tillåtna i dessa mappar.
-
-**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande tre mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
-
-- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar.
-- En mapp eller katalog tillåts inte i dessa befintliga mappar. Ta bort de mappar som du har skapat i de befintliga mapparna.
+- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar. Endast data från dessa behållare överförs till Azure.
+- En annan mapp som skapas på samma nivå som Premium SSD och HDD-Standard Standard SSD motsvarar inte en giltig prestandanivån och kan inte användas.
+- Ta bort filer eller mappar som skapas utanför prestandanivåer.
 
 Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 

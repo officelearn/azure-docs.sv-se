@@ -5,17 +5,17 @@ keywords: powershell-arbetsflöde, powershell-arbetsflödesexempel, arbetsflöde
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 347ff3d4290350708200fe78806fb38caabf7fae
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740015"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477737"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "60740015"
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) i Azure Automation. Du börjar med en enkel runbook som du testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Till sist göra du runbooken mer robust genom att lägga till runbook-parametrar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 

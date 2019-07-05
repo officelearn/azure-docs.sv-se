@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66518584"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446739"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box tung med Azure portal
 
@@ -21,7 +21,7 @@ Den här snabbstarten beskriver hur du distribuerar på Azure Data Box tung med 
 
 Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självstudie: Ordning Azure Data Box aktiverat](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande konfigurationskraven för av installationsplatsen, Data Box-tjänsten och enheten innan du distribuerar enheten.
 
@@ -57,7 +57,7 @@ Innan du börjar ska du kontrollera att:
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Beställa
 
@@ -95,7 +95,7 @@ Det här steget tar cirka 10 – 15 minuter för att slutföra.
 
 Det här steget tar cirka 5–7 minuter att slutföra.
 
-1. Hämta lösenordet för enheten på **Allmänt > Enhetsinformation** på [Azure-portalen](http://portal.azure.com). Samma lösenord ska användas för båda noderna i enheten.
+1. Hämta lösenordet för enheten på **Allmänt > Enhetsinformation** på [Azure-portalen](https://portal.azure.com). Samma lösenord ska användas för båda noderna i enheten.
 2. Tilldela en statisk IP-adress på 192.168.100.5 och undernät 255.255.255.0 till Ethernet-adaptern på den dator som du använder för att ansluta till Data Box tung. Öppna det lokala webbgränssnittet på enheten på `https://192.168.100.10`. Anslutningen kan upp till 5 minuter att slutföra efter att du slagit på enheten.
 3. Logga in med lösenordet från Azure-portalen. Ett felmeddelande visas som anger ett problem med webbplatsens säkerhetscertifikat. Följ de webbläsarspecifika instruktionerna för att fortsätta till webbsidan.
 4. Nätverksinställningar för de gränssnitt (förutom MGMT) är konfigurerade som DHCP som standard. Om det behövs kan du konfigurera dessa gränssnitt som statiskt och ange en IP-adress.

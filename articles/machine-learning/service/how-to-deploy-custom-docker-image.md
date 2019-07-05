@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272760"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543860"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuera en modell med en anpassad dockeravbildning
 
@@ -38,7 +38,7 @@ Det här dokumentet är uppdelad i två delar:
 * Skapa en anpassad avbildning: Innehåller information för administratörer och DevOps för att skapa en anpassad avbildning och konfigurera autentisering för ett Azure Container Registry med Azure CLI och Machine Learning CLI.
 * Använd en anpassad avbildning: Innehåller information till Dataforskare och DevOps/MLOps om hur du använder anpassade avbildningar när du distribuerar en tränad modell från Python SDK eller ML CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Arbetsgrupp för en Azure Machine Learning-tjänsten. Mer information finns i den [skapa en arbetsyta](setup-create-workspace.md) artikeln.
 * Azure Machine Learning SDK. Mer information finns i avsnittet SDK för Python i den [skapa en arbetsyta](setup-create-workspace.md#sdk) artikeln.
@@ -55,14 +55,14 @@ Informationen i det här avsnittet förutsätter att du använder ett Azure Cont
 
     När med hjälp av avbildningar lagras i den __behållarregister för arbetsytan__, du behöver inte autentisera till registret. Autentisering utförs av arbetsytan.
 
-    > [!TIP]
-    > Container registry för arbetsytan skapas första gången du träna eller distribuera en modell med hjälp av arbetsytan. Om du inte har skapat en ny arbetsyta, men tränats eller skapat en modell, finns inga Azure Container Registry för arbetsytan.
+    > [!WARNING]
+    > Azure Container Rzegistry för arbetsytan är __skapas första gången du träna eller distribuera en modell__ använda arbetsytan. Om du inte har skapat en ny arbetsyta, men tränats eller skapat en modell, finns inga Azure Container Registry för arbetsytan.
 
     Information om hur du hämtar namnet på Azure Container Registry för din arbetsyta finns i den [Get behållarregisternamnet](#getname) i den här artikeln.
 
     När med hjälp av avbildningar lagras i en __fristående behållarregister__, behöver du konfigurera ett huvudnamn för tjänsten som har minst skrivskyddad åtkomst. Du sedan ange ID för tjänstens huvudnamn (användarnamn) och lösenord för alla som använder avbildningar från registret. Undantaget är om du gör behållarregistret offentligt tillgängliga.
 
-    Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat behållarregister](/azure/container-registry/container-registery-get-started-azure-cli).
+    Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat behållarregister](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Information om hur du använder tjänstens huvudnamn med Azure Container Registry finns i [Azure Container Registry-autentisering med tjänstens huvudnamn](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -80,8 +80,8 @@ Informationen i det här avsnittet förutsätter att du använder ett Azure Cont
 
 I det här avsnittet lär du dig hur du hämtar namnet på Azure Container Registry för tjänsten Azure Machine Learning-arbetsytan.
 
-> [!TIP]
-> Container registry för arbetsytan skapas första gången du träna eller distribuera en modell med hjälp av arbetsytan. Om du inte har skapat en ny arbetsyta, men tränats eller skapat en modell, finns inga Azure Container Registry för arbetsytan.
+> [!WARNING]
+> Azure Container Registry för arbetsytan är __skapas första gången du träna eller distribuera en modell__ använda arbetsytan. Om du inte har skapat en ny arbetsyta, men tränats eller skapat en modell, finns inga Azure Container Registry för arbetsytan.
 
 Om du har redan tränats eller distribuerat modeller med hjälp av Azure Machine Learning-tjänsten, har ett behållarregister skapats för din arbetsyta. Använd följande steg för att hitta namnet på det här behållarregistret:
 
@@ -153,9 +153,9 @@ Stegen i den här genomgången för avsnittet Skapa en anpassad dockeravbildning
     Run ID: cda was successful after 2m56s
     ```
 
-Mer information om hur du bygger avbildningar med ett Azure Container Registry finns i [skapa och köra en behållaravbildning med hjälp av Azure Container Registry uppgifter](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Mer information om hur du bygger avbildningar med ett Azure Container Registry finns i [skapa och köra en behållaravbildning med hjälp av Azure Container Registry uppgifter](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Mer information om att ladda upp befintlig avbildning till ett Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarregister](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Mer information om att ladda upp befintlig avbildning till ett Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarregister](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Använda en anpassad avbildning
 

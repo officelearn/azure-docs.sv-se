@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203304"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509247"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -115,7 +115,7 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn.
 >Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
 >- **Kopiera data verktyget** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har frågor om hur du beviljar behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet fungerar fortfarande så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
+>Om du har frågor om hur du beviljar behörighet på kontonivå, under redigering, hoppar du över anslutning och indata som en överordnad sökväg med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 De här egenskaperna har stöd för den länkade tjänsten:
 
@@ -169,7 +169,7 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurs-aut
 >Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
 >- **Kopiera data verktyget** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har frågor om hur du beviljar behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet fungerar fortfarande så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
+>Om du har frågor om hur du beviljar behörighet på kontonivå, under redigering, hoppar du över anslutning och indata som en överordnad sökväg med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 >[!IMPORTANT]
 >Om du använder PolyBase för att läsa in data från Data Lake Storage Gen2 till SQL Data Warehouse, när du använder hanterade identitetsautentisering för Data Lake Storage Gen2, se till att du även följa steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) till 1) registrera din SQL Database-server med Azure Active Directory (Azure AD) och 2) deltagarrollen Storage Blob Data till SQL Database-servern; resten hanteras av Data Factory. Om dina Data Lake Storage Gen2 konfigureras med en Azure Virtual Network-slutpunkt, för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.

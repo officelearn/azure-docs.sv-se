@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050710"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447718"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
-Azure Functions Tools för Visual Studio-2019 är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C# funktioner till Azure. Om det här är din första med Azure Functions, kan du läsa mer på [en introduktion till Azure Functions](functions-overview.md).
+Med Azure Functions Tools är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C# funktioner till Azure. Om det här är din första med Azure Functions, kan du läsa mer på [en introduktion till Azure Functions](functions-overview.md).
 
 Azure Functions Tools ger följande fördelar: 
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions To
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utvecklingen i samma funktionsapp. När du publicerar från ett lokalt projekt till en funktionsapp skriver distributionsprocessen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Med Azure Functions Tools ingår i arbetsbelastningen Azure development av [Visual Studio 2017](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure development** arbetsbelastningen i Visual Studio 2019 installationen:
 
@@ -42,13 +42,11 @@ Med Azure Functions Tools ingår i arbetsbelastningen Azure development av [Visu
 
 Se till att din Visual Studio är uppdaterad och att du använder den [den senaste versionen](#check-your-tools-version) av Azure Functions-verktyg.
 
-### <a name="other-requirements"></a>Andra krav
+### <a name="azure-resources"></a>Azure-resurser
 
-För att skapa och distribuera functions, behöver du:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* En aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration [kostnadsfria konton](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) är tillgängliga.
-
-* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto kan du läsa mer i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+Andra resurser som du behöver, till exempel ett Azure Storage-konto skapas i din prenumeration under publiceringsprocessen.
 
 ### <a name="check-your-tools-version"></a>Kontrollera vilken version av verktyg
 
@@ -80,12 +78,20 @@ Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Function
 
 * **host.json**: Kan du konfigurera Functions-värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [referens för host.json](functions-host-json.md).
 
-* **local.settings.json**: Sparar inställningarna som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för miljövariabler som behövs i funktionerna. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
+* **local.settings.json**: Sparar inställningarna som används när du kör funktioner lokalt. De här inställningarna används inte vid körning i Azure. Mer information finns i [lokala inställningsfilen](#local-settings-file).
 
     >[!IMPORTANT]
     >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdatakatalog** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
 
 Mer information finns i [Functions klassbiblioteksprojektet](functions-dotnet-class-library.md#functions-class-library-project).
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Inställningarna i local.settings.json överförs inte automatiskt när du publicerar projektet. För att säkerställa att de här inställningarna även finnas i din funktionsapp i Azure, måste du överföra dem när du har publicerat ditt projekt. Mer information finns i [fungera appinställningar](#function-app-settings).
+
+Värdena i **ConnectionStrings** aldrig har publicerats.
+
+Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i [miljövariabler](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
@@ -133,8 +139,9 @@ I förväg kompilerad funktion definieras de bindningar som används av funktion
         }
     }
     ```
+
     En bindning-specifika attribut tillämpas på varje bindningsparametern som angetts för metoden. Attributet tar bindningsinformationen som parametrar. I exemplet ovan den första parametern har en **QueueTrigger** attributet tillämpas, som anger funktion som utlöses kö. Könamn och namn på anslutningssträng inställningen skickas som parametrar till den **QueueTrigger** attribut. Mer information finns i [Azure Queue storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 Du kan använda proceduren ovan för att lägga till fler funktioner i ditt funktionsappsprojekt. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 ## <a name="add-bindings"></a>Lägga till bindningar
@@ -183,11 +190,14 @@ Mer information om hur du använder Azure Functions Core Tools finns [kod och te
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
+När du publicerar från Visual Studio, används en av två metoder för distribution:
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): paket och distribuerar Windows-appar till alla IIS-servern.
+* [ZIP-distribuera med aktiverad kör-från-Package](functions-deployment-technologies.md#zip-deploy): rekommenderas för distributioner av Azure Functions.
+
+Använd följande steg för att publicera ditt projekt till en funktionsapp i Azure.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### <a name="deployment-technology"></a>Distributionstekniken
-
-När du publicerar från Visual Studio, för en av två teknikerna att utföra distributionen: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) och [Zip distribuera med aktiverad kör-från-Package (rekommenderas)](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>Funktionsappinställningar
 

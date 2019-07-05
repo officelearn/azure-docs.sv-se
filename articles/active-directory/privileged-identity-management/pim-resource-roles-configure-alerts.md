@@ -15,42 +15,44 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7ce8b79644a9ffc9481ba825ec5623a9268983
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66253838"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476339"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses visas den på sidan aviseringar. 
 
-![Sidan varningar](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
+![Azure-resurser – aviseringar sida där aviseringen, risknivå och antal](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Granska aviseringar
 Välj en avisering om du vill se en rapport som visar den användare eller de roller som utlöste aviseringen, tillsammans med reparation råd.
 
-![Aviseringsrapport](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+![Aviseringsrapport som visar senaste genomsökning tid, beskrivning, säkerhetsåtgärder, typ, allvarlighetsgrad, Säkerhetspåverkan och hur du förhindrar detta nästa gång](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Aviseringar
-| Varning | Severity | Utlösare | Rekommendation |
+| Varning | Allvarsgrad | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
 | **För många ägare har tilldelats till en resurs** |Medel |För många användare har rollen ägare. |Granska användare i listan och omtilldela några mindre privilegierade roller. |
 | **För många permanenta ägare har tilldelats till en resurs** |Medel |För många användare tilldelas permanent till en roll. |Granska användare i listan och tilldela några kräver aktivering för rollen. |
 | **En duplicerad roll skapades** |Medel |Flera roller har samma villkor. |Använd bara en av dessa roller. |
 
 
-### <a name="severity"></a>Severity
+### <a name="severity"></a>Allvarsgrad
 * **Hög**: Kräver omedelbara åtgärder på grund av en Policyöverträdelse. 
 * **Medel**: Kräver inte omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
 * **Låg**: Kräver inte omedelbar åtgärd men föreslår en önskad ändring.
 
 ## <a name="configure-security-alert-settings"></a>Konfigurera säkerhetsaviseringsinställningar
 Från sidan aviseringar går du till **inställningar**.
-![Inställningar](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+
+![Aviseringssidan med inställningar som är markerat](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Anpassa inställningar för olika aviseringar för att arbeta med din miljö och säkerhetsmål.
-![Anpassa inställningar](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+
+![Inställningen för en avisering för att aktivera och konfigurera inställningar](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

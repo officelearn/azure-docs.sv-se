@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/26/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358031"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441959"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Med *Azure CNI*, ett vanligt problem är det tilldelade IP-adressintervallet är
 
 Som en svaghet, kan du skapa ett AKS-kluster som använder *kubenet* och Anslut till ett befintligt undernät för virtuellt nätverk. Den här metoden gör att noderna får definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser direkt för alla potentiella poddarna som kan köras i klustret.
 
-Med *kubenet*, du kan använda ett mycket mindre IP-adressintervall och att kunna stödja stora kluster och behov. Till exempel ännu med en */27* IP-adressintervall, du kan köra ett kluster med 20-25 noder med tillräckligt med utrymme för att skala eller uppgradera. Den här klusterstorleken stöder upp till *2200 2,750* poddar (med standard högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *kubenet* i AKS är 250.
+Med *kubenet*, du kan använda ett mycket mindre IP-adressintervall och att kunna stödja stora kluster och behov. Till exempel ännu med en */27* IP-adressintervall, du kan köra ett kluster med 20-25 noder med tillräckligt med utrymme för att skala eller uppgradera. Den här klusterstorleken stöder upp till *2200 2,750* poddar (med standard högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *kubenet* är 110 i AKS.
 
 Följande grundläggande beräkningar jämför skillnaden i nätverket modeller:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150328"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564406"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -83,29 +83,24 @@ Standard-filresurser backas upp av hårddiskar (HDD). Standard-filresurser ger t
 Standard-filresurser upp till 5 TiB i storlek är tillgängliga som en GA-erbjudande. Större filresurser som är alla resurser som är större än 5 TiB, upp till högst 100 TiB är för närvarande tillgängligt som en förhandsversion.
 
 > [!IMPORTANT]
-> - Måste du skapa ett nytt lagringskonto i generell användning (det går inte att utöka de befintliga lagringskontona).
-> - Är bara tillgängliga med LRS.
-> - Tillgänglig i tre regioner: Västra USA 2, Västeuropa och Sydostasien regioner.
-> - LRS till GRS-konto konverteringen går inte på alla nya lagringskonton som skapas efter att prenumerationen har godkänts till större filförhandsgranskning för filresurser.
+> Se den [publicera till större filresurser (standard-nivån)](#onboard-to-larger-file-shares-standard-tier) avsnittet anvisningar för hur du publicerar, samt omfång och begränsningar för förhandsgranskningen.
 
-Om du vill publicera till förhandsversionen av dessa större filstorlekar för resursen kan lämna denna [formuläret](https://aka.ms/azurefilesatscalesurvey). 
+### <a name="premium-file-shares"></a>Premium-filresurser
 
-### <a name="premium-file-shares-preview"></a>Premium-filresurser (förhandsversion)
-
-Premium-filresurser (förhandsversion) backas upp av SSD-diskar (SSD). Premium-filresurser ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser.
+Premium-filresurser backas upp av SSD (solid-state drive). Premium-filresurser ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, som är värd för webbplatsen och utvecklingsmiljöer. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser.
 
 Azure Backup är tillgängligt för premium-filresurser och Azure Kubernetes Service har stöd för premium-filresurser i version 1.13 och senare.
 
 Om du vill veta hur du skapar en premium-filresurs finns i vår artikel om ämnet: [Så här skapar du ett Azure premium storage-konto filen](storage-how-to-create-premium-fileshare.md).
 
-För närvarande kan konvertera du inte direkt mellan en standard filresurs och en premium-filresurs. Om du vill byta till antingen nivån, måste du skapa en ny filresurs i den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resursen som du skapade. Du kan göra detta med hjälp av någon av verktyg för Azure Files stöds kopia, till exempel AzCopy.
+För närvarande kan konvertera du inte direkt mellan en standard filresurs och en premium-filresurs. Om du vill byta till antingen nivån, måste du skapa en ny filresurs i den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resursen som du skapade. Du kan göra detta med hjälp av någon av Azure Files stöds kopiera verktyg, till exempel Robocopy eller AzCopy.
 
 > [!IMPORTANT]
-> Premium-filresurser är fortfarande i förhandsversion, är bara tillgängliga med LRS och är tillgängliga i de flesta regioner som erbjuder storage-konton. Om du vill veta om premium-filresurser är tillgängliga i din region finns i den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure.
+> Premium-filresurser är bara tillgängliga med LRS och är tillgängliga i de flesta regioner som erbjuder storage-konton. Om du vill veta om premium-filresurser är tillgängliga i din region finns i den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure.
 
 ### <a name="provisioned-shares"></a>Etablerade resurser
 
-Premium-filresurser (förhandsversion) har etablerats utifrån ett fast GiB/IOPS/dataflödet-förhållande. För varje GiB som etablerats utfärdas resursen en IOPS och 0,1 MiB/s genomströmning för upp till de maximala gränserna per resurs. Minsta tillåtna etablering är 100 GiB med min IOPS/dataflödet.
+Premium-filresurser har etablerats utifrån ett fast GiB/IOPS/dataflödet-förhållande. För varje GiB som etablerats utfärdas resursen en IOPS och 0,1 MiB/s genomströmning för upp till de maximala gränserna per resurs. Minsta tillåtna etablering är 100 GiB med min IOPS/dataflödet.
 
 Efter bästa förmåga Utöka alla resurser upp till tre IOPS per GiB etablerad lagring i 60 minuter eller längre beroende på storleken på resursen. Nya resurser börjar med den fullständiga burst-krediten baserat på etablerad kapacitet.
 
@@ -137,6 +132,9 @@ I följande tabell visas några exempel på dessa produkter för de etablerade r
 |51,200      | 51,200  | Upp till 100 000 | 3,132 | 2,088   |
 |102,400     | 100,000 | Upp till 100 000 | 6,204 | 4,136   |
 
+> [!NOTE]
+> Filen resurser prestanda lyder under datorreglerna för nätverk, tillgänglig nätverksbandbredd, i/o-storlekar, parallellitet bland många andra faktorer. För att uppnå högsta prestanda skalas kan sprida belastningen över flera virtuella datorer. Se [felsökningsguide för](storage-troubleshooting-files-performance.md) för vissa vanliga problem med prestanda och lösningar.
+
 ### <a name="bursting"></a>Bursting
 
 Premium-filresurser kan utöka sina IOPS upp till en faktor på tre. Bursting sker automatiskt och fungerar baserat på ett kredit-system. Bursting fungerar på bästa förmåga och burst-gränsen är ingen garanti, filresurser kan öka användningsgraden *upp till* gränsen.
@@ -160,7 +158,7 @@ Nya start på grund av fil-resurser med fullständig antal krediter i dess burst
 
 Azure standard filresurser stöder tre alternativ för dataredundans: lokalt redundant lagring (LRS), zonredundant lagring (ZRS) och geo-redundant lagring (GRS).
 
-Azure filer premium delar endast har stöd för lokalt redundant lagring (LRS).
+Azure premium-filresurser har endast stöd för lokalt redundant lagring (LRS).
 
 I följande avsnitt beskrivs skillnaderna mellan de olika redundansalternativ:
 
@@ -192,6 +190,48 @@ Ha de här punkterna i åtanke när du bestämmer vilket replikeringsalternativ 
 * Zonredundant lagring (ZRS) ger hög tillgänglighet med synkron replikering och kan vara ett bättre alternativ för vissa scenarier än GRS. Mer information om ZRS finns i [ZRS](../common/storage-redundancy-zrs.md).
 * Asynkron replikering innebär en fördröjning från den tidpunkt då data skrivs till den primära regionen till när de replikeras till den sekundära regionen. I händelse av ett regionalt haveri kan ändringar som ännu inte har replikerats till den sekundära regionen gå förlorade om dessa data inte kan återställas från den primära regionen.
 * Med GRS repliken är inte tillgängligt för Läs- eller skrivbehörighet om inte Microsoft initierar en växling till den sekundära regionen. När det gäller en redundans, du kommer har läs- och skrivåtkomst till dessa data efter växlingen har slutförts. Mer information finns i [vägledning om Haveriberedskap](../common/storage-disaster-recovery-guidance.md).
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Kom igång med större filresurser (standard-nivån)
+
+Det här avsnittet gäller endast för standard-filresurser. Alla premium-filresurser är tillgängliga med 100 TiB som ett erbjudande för allmän tillgänglighet.
+
+### <a name="restrictions"></a>Begränsningar
+
+- Måste du skapa ett nytt lagringskonto i generell användning (det går inte att utöka de befintliga lagringskontona).
+- LRS till GRS-konto konverteringen går inte på alla nya lagringskonton som skapas efter att prenumerationen har godkänts till större filförhandsgranskning för filresurser.
+
+### <a name="regional-availability"></a>Regional tillgänglighet
+
+Standard-filresurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner, den är tillgänglig med 100 TiB gräns, dessa regioner visas i följande tabell:
+
+|Region  |Stöds redundans  |Stöder befintliga lagringskonton  |
+|---------|---------|---------|
+|Sydostasien     |LRS|Nej         |
+|Västra Europa     |LRS|Nej         |
+|Västra USA 2     |LRS, ZRS|Nej         |
+
+
+### <a name="steps-to-onboard"></a>Steg för att publicera
+
+Kör följande PowerShell-kommandon för att registrera din prenumeration på den större resurser filförhandsgranskning:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+Din prenumeration godkänns automatiskt när båda kommandon körs.
+
+Du kan köra följande kommando för att verifiera din registreringsstatus:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Det kan ta upp till 15 minuter för din statusen att uppdateras till **registrerad**. När din status är **registrerad**, du ska kunna använda funktionen.
+
+### <a name="use-larger-file-shares"></a>Använda större filresurser
+
+Om du vill komma igång med större filresurser måste skapa ett nytt lagringskonto för generell användning v2 och en ny filresurs.
 
 ## <a name="data-growth-pattern"></a>Tillväxt datamönster
 

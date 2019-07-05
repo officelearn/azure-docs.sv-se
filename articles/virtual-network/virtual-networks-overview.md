@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0d6762c8f3034923ddc0fe7dcf0cc2df34bd3629
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332109"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542838"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -27,7 +27,7 @@ Azure-nätverk (VNet) är det grundläggande byggblocket för ditt privata nätv
 ## <a name="vnet-concepts"></a>VNet-begreppen
 
 - **Adressutrymme:** När du skapar ett virtuellt nätverk, måste du ange ett anpassat privat IP-adressutrymme med offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar. Till exempel om du distribuerar en virtuell dator i ett virtuellt nätverk med adressutrymmet kommer 10.0.0.0/16, den virtuella datorn att tilldelas en privat IP-adress som adressen 10.0.0.4.
-- **Undernät:** Undernät kan du segmentera det virtuella nätverket i ett eller flera underordnade nätverk och allokera en del av det virtuella nätverkets adressutrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett specifikt undernät. Precis som i ett traditionellt nätverk kan undernät du segmentera din VNet-adressutrymmet i segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även adress allokering effektivitet. Du kan skydda resurser i undernät med Nätverkssäkerhetsgrupper. Mer information finns i [säkerhetsgrupper](/security-overview.md).
+- **Undernät:** Undernät kan du segmentera det virtuella nätverket i ett eller flera underordnade nätverk och allokera en del av det virtuella nätverkets adressutrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett specifikt undernät. Precis som i ett traditionellt nätverk kan undernät du segmentera din VNet-adressutrymmet i segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även adress allokering effektivitet. Du kan skydda resurser i undernät med Nätverkssäkerhetsgrupper. Mer information finns i [säkerhetsgrupper](security-overview.md).
 - **Regioner**: Virtuellt nätverk är begränsad till en enda region/plats; dock kan flera virtuella nätverk från olika regioner vara anslutna till varandra med Peering för virtuellt nätverk.
 - **Prenumeration:** Virtuellt nätverk är begränsad till en prenumeration. Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 

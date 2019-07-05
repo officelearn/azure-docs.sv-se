@@ -11,13 +11,13 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 4ef0f9ff6f8620109f2ef6f6bd5f549281b4de54
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709050"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472149"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av Azure Resource Manager-mall
 
@@ -29,142 +29,31 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [köpmodellerna](sql-database-purchase-models.md). När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 
-Följande JSON-filen är den mall som används i den här artikeln. Mallen lagras i ett Azure Storage-konto. Mer Azure SQL database-mallexempel finns [här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+Följande JSON-filen är den mall som används i den här artikeln. Mallen finns i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Mer Azure SQL database-mallexempel finns i [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "serverName": {
-      "type": "string",
-      "defaultValue": "[concat('server-', uniqueString(resourceGroup().id, deployment().name))]",
-      "metadata": {
-        "description": "Name for the SQL server"
-      }
-    },
-    "shouldDeployDb": {
-      "type": "string",
-      "allowedValues": [
-        "Yes",
-        "No"
-      ],
-      "defaultValue": "Yes",
-      "metadata": {
-        "description": "Whether an Azure SQL Database should be deployed under the server"
-      }
-    },
-    "databaseName": {
-      "type": "string",
-      "defaultValue": "[concat('db-', uniqueString(resourceGroup().id, deployment().name), '-1')]",
-      "metadata": {
-        "description": "Name for the SQL database under the SQL server"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for server and optional DB"
-      }
-    },
-    "emailAddresses": {
-      "type": "array",
-      "defaultValue": [
-        "user1@example.com",
-        "user2@example.com"
-      ],
-      "metadata": {
-        "description": "Email addresses for receiving alerts"
-      }
-    },
-    "adminUser": {
-      "type": "string",
-      "metadata": {
-        "description": "Username for admin"
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Password for admin"
-      }
-    }
-  },
-  "variables": {
-    "databaseServerName": "[toLower(parameters('serverName'))]",
-    "databaseName": "[parameters('databaseName')]",
-    "shouldDeployDb": "[parameters('shouldDeployDb')]",
-    "databaseServerLocation": "[parameters('location')]",
-    "databaseServerAdminLogin": "[parameters('adminUser')]",
-    "databaseServerAdminLoginPassword": "[parameters('adminPassword')]",
-    "emailAddresses": "[parameters('emailAddresses')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Sql/servers",
-      "name": "[variables('databaseServerName')]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2015-05-01-preview",
-      "properties": {
-        "administratorLogin": "[variables('databaseServerAdminLogin')]",
-        "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-        "version": "12.0"
-      },
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      },
-      "resources": [
-        {
-          "type": "securityAlertPolicies",
-          "name": "DefaultSecurityAlert",
-          "apiVersion": "2017-03-01-preview",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "state": "Enabled",
-            "emailAddresses": "[variables('emailAddresses')]",
-            "emailAccountAdmins": true
-          }
-        }
-      ]
-    },
-    {
-      "condition": "[equals(variables('shouldDeployDb'), 'Yes')]",
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(string(variables('databaseServerName')), '/', string(variables('databaseName')))]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2017-10-01-preview",
-      "dependsOn": [
-        "[concat('Microsoft.Sql/servers/', variables('databaseServerName'))]"
-      ],
-      "properties": {},
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      }
-    }
-  ]
-}
-```
+[!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Välj följande bild för att logga in på Azure och öppna en mall.
+1. Välj **prova** från följande PowerShell-kodblock att öppna Azure Cloud Shell.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatesql%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+    $adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+    $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
 
-2. Välj eller ange följande värden.  
+    $resourceGroupName = "${projectName}rg"
 
-    ![Skapa azure sql-databas för Resource Manager-mall](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
-    Om den har angetts Använd standardvärden.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
 
-    * **Prenumeration**: välj en Azure-prenumeration.
-    * **Resursgrupp**: Välj **Skapa nytt**, ange ett unikt namn för resursgruppen och klicka sedan på **OK**. 
-    * **Plats**: välj en plats.  Välj till exempel **USA, centrala**.
-    * **Administratörsanvändare**: Ange ett administratörsanvändarnamn för SQL database-server.
-    * **Adminlösenord**: Ange ett administratörslösenord. 
-    * **Jag godkänner villkoren ovan**: Välj.
-3. Välj **Köp**.
+    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ```
+
+1. Välj **kopia** kopiera PowerShell-skriptet till Urklipp.
+1. Högerklicka på shell-fönstret och välj sedan **klistra in**.
+
+    Det tar en stund att skapa databasservern och databasen.
 
 ## <a name="query-the-database"></a>Fråga databasen
 
@@ -174,17 +63,15 @@ Om du vill söka i databasen, se [fråga databasen](./sql-database-single-databa
 
 Behåll den här resursgruppen, databasservern och den enkla databasen om du vill gå till [Nästa steg](#next-steps). Nästa steg visar hur du ansluter och kör frågor mot din databas med olika metoder.
 
-Ta bort resursgruppen med hjälp av Azure CLI eller Azure Powershell:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName 
-```
+Ta bort resursgruppen med Azure Powershell:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName 
+$projectName = Read-Host -Prompt "Enter the same project name"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -193,5 +80,5 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
   - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Information om hur du skapar enkla databaser med hjälp av Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
-- Information om hur du skapar enkla databaser med hjälp av Azure PowerShell finns i [Azure PowerShell-exempel](sql-database-powershell-samples.md).
+- För att skapa en enskild databas med Azure CLI, se [Azure CLI-exempel](sql-database-cli-samples.md).
+- För att skapa en enskild databas med Azure PowerShell, se [Azure PowerShell-exempel](sql-database-powershell-samples.md).

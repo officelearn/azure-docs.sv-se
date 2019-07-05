@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762792"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445634"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -44,6 +44,9 @@ Den här artikeln innehåller en översikt över SQL Database-resursgränser fö
 > När antalet databaser som närmar sig gränsen per SQL Database-server, kan följande inträffa:
 > - Öka fördröjning vid körning av frågor mot huvuddatabasen.  Detta inkluderar vyer av Resursstatistik, till exempel sys.resource_stats.
 > - Ökad svarstid i hanteringsåtgärder och rendering portal översiktsvyer som rör uppräkning av databaser på servern.
+
+### <a name="storage-size"></a>Lagringsstorlek
+- Enkla databaser rources finns i antingen [DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-single-databases.md) eller [vCore-baserade resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md) för storleksgränser för storage per prisnivå.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource har nått
 

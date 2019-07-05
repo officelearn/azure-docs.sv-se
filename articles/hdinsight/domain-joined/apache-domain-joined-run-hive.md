@@ -8,17 +8,17 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ffe2cfc19a7ce94e47046839f6973793b73c118
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707371"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441401"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Ett HDInsight-kluster med Enterprise Security Package. Se [konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
 
@@ -37,7 +37,7 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
     För närvarande fungerar Ranger bara med Yarn och Hive.
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
-Se [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), information om hur du skapar hiveruser1 och hiveuser2. Du kan använda två användarkonton i den här självstudien.
+Se [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), information om hur du skapar hiveruser1 och hiveuser2. Du använder de två användarkontona i den här artikeln.
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
 I det här avsnittet skapar du två Ranger-principer för att komma åt hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med hjälp av [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa två principer i Excel.

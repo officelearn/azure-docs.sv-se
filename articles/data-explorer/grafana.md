@@ -6,19 +6,25 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399917"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537789"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Data Explorer i Grafana
 
 Grafana är en analysplattform som gör det möjligt att fråga och visualisera data, sedan skapa och dela instrumentpaneler som baseras på dina visualiseringar. Grafana ger en Azure Data Explorer *plugin-programmet*, vilket gör att du kan ansluta till och visualisera data från Azure Data Explorer. Du lär dig hur du konfigurerar Datautforskaren i Azure som en datakälla för Grafana och visualisera data från ett kluster i exemplet i den här artikeln.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Med hjälp av följande video, du kan lära dig att använda Grafanas Datautforskaren i Azure-plugin-programmet, konfigurera Datautforskaren i Azure som en datakälla för Grafana och visualisera data. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Du kan också [Konfigurera datakälla för](#configure-the-data-source) och [visualisera data](#visualize-data) enligt beskrivningen i artikeln nedan.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här så här:
 
@@ -121,7 +127,7 @@ Nu när du har ett huvudnamn för tjänsten kan du lägga till den till den *vis
 
 1. Gå till Datautforskaren i Azure-kluster i Azure-portalen och välj **fråga**.
 
-    ![Fråga](media/grafana/query.png)
+    ![Söka i data](media/grafana/query.png)
 
 1. Kör följande kommando i frågefönstret. Använd det program-ID och klient-ID från Azure-portalen eller CLI.
 

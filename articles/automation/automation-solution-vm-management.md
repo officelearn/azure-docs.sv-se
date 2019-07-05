@@ -4,17 +4,17 @@ description: Denna lösning för hantering av virtuell dator startar och stoppar
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389114"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476881"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -41,7 +41,7 @@ Följande är begränsningar i den aktuella lösningen:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Runbooks för den här lösningen fungerar med en [kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
 
@@ -140,7 +140,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    Här kan uppmanas du att:
    - Ange den **rikta ResourceGroup namn**. Dessa värden är Resursgruppsnamn som innehåller virtuella datorer som hanteras av den här lösningen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** variabler.
    - Ange den **VM uteslutningslista (sträng)** . Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds. Det här värdet lagras i den **External_ExcludeVMNames** variabeln.
-   - Välj en **schema**. Det här värdet är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat i 30 minuter från nu. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedules).
+   - Välj en **schema**. Välj ett datum och tid för schemat. Ett återkommande dagsschema skapas från och med den tid som du har valt. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedules).
    - Att ta emot **e-postmeddelanden** från en åtgärdsgrupp godkänner du standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) som skapas med giltiga e-postadresser avgränsade med kommatecken. Du måste också aktivera följande regler för avisering:
 
      - AutoStop_VM_Child
@@ -345,7 +345,7 @@ När du utför en loggsökning som returnerar poster kategori av **JobLogs** ell
 
 Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen.
 
-|Fråga | Beskrivning|
+|Söka i data | Beskrivning|
 |----------|----------|
 |Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|

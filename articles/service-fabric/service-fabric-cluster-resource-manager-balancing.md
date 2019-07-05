@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809445"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446755"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Belastningsutjämning service fabric-kluster
 Service Fabric Cluster Resource Manager har stöd för dynamisk ändringar, reagera på tillägg eller borttagning av noder eller tjänster. Den korrigerar också automatiskt begränsningen överträdelser och balanserar proaktivt klustret. Men hur ofta tas de här åtgärderna och vad utlöser dem?
@@ -36,9 +36,9 @@ Den första uppsättningen kontroller runt belastningsutjämning är en uppsätt
 Var och en av dessa olika typer av ändringar Cluster Resource Manager kan göra styrs av en annan timer som styr frekvensen. När varje utlöses har uppgiften schemalagts. Som standard Resource Manager:
 
 * söker igenom tillståndet och tillämpar uppdateringar (till exempel spela in som en nod är nere) var 1/10 av en sekund
-* Anger flaggan för kontroll av placering 
+* Anger flaggan placering kontrollera varje sekund
 * Anger att begränsningen kontrollera varje sekund
-* Anger flaggan belastningsutjämning var femte sekund.
+* Anger flaggan belastningsutjämning var femte sekund
 
 Exempel på konfigurationen reglerar dessa timers är nedan:
 

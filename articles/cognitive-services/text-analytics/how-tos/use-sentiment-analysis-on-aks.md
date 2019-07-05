@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 4d5e1da01be531550915a38bed17dd8e57be907a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a419ed3b9c0d2c4db9c552642dc5c662786f6730
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454954"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561258"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>Distribuera en Attitydanalys-behållare till Azure Kubernetes Services (AKS)
 
@@ -69,7 +69,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
     code .
     ```
 
-1. Skapa en ny fil med namnet i textredigeraren _sentiment.yaml_ och klistra in följande YAML till den:
+1. Skapa en ny fil med namnet i textredigeraren _sentiment.yaml_ och klistra in följande YAML till den. Se till att ersätta den `billing/value` och `apikey/value` med dina egna.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -91,9 +91,9 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
             - name: EULA
               value: "accept"
             - name: billing
-              value: "https://westus2.api.cognitive.microsoft.com/"
+              value: # < Your endpoint >
             - name: apikey
-              value: "16c12e3419f54ba49a3222177cef781d"
+              value: # < Your API Key >
      
     --- 
     apiVersion: v1
@@ -115,7 +115,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
     kuberctl apply -f sentiment.yaml
     ```
 
-    När kommandot har tillämpats distributionskonfigurationen, är ett meddelande som liknar följande utdata:
+    När kommandot har tillämpats distributionskonfiguration, ett meddelande som liknar följande utdata:
 
     ```
     deployment.apps "sentiment" created

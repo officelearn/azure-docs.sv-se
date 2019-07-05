@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728920"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448764"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analysera webbplatsloggar med hjälp av en anpassad Python-bibliotek med Apache Spark-kluster i HDInsight
 
 Den här anteckningsboken visar hur du analyserar loggdata som använder ett anpassat bibliotek med Apache Spark i HDInsight. Det anpassade biblioteket som vi använder är ett Python-bibliotek som kallas **iislogparser.py**.
 
 > [!TIP]  
-> Den här självstudien är också tillgängligt som en Jupyter-anteckningsbok i ett kluster med Spark (Linux) som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. För att genomföra vägledningen i en bärbar dator, skapa ett Spark-kluster, starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), och sedan köra anteckningsboken **analysera loggar med Spark med en anpassad library.ipynb** under den **PySpark**  mapp.
+> Den här artikeln är också tillgängligt som en Jupyter-anteckningsbok i ett kluster med Spark (Linux) som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. Om du vill utföra artikeln från inom en bärbar dator, skapa ett Spark-kluster, starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), och sedan köra anteckningsboken **analysera loggar med Spark med en anpassad library.ipynb** under den **PySpark** mapp.
 >
 >
 

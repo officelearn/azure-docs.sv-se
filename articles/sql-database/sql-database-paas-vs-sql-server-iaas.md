@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584864"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447760"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Välja rätt SQL Server-alternativ i Azure
 
@@ -167,3 +167,4 @@ För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en t
 - Se [Din första Azure SQL-databas](sql-database-single-database-get-started.md) för att komma igång med SQL Database.
 - Se [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 - Se [Etablera en virtuell SQL Server-dator i Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) för att komma igång med SQL Server på virtuella Azure-datorer.
+- [Identifiera rätt Azure SQL Database/hanterad instans SKU: N för den lokala databasen](/sql/dma/dma-sku-recommend-sql-db/).

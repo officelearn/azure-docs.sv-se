@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833a22635c1d53dce9086aa3e11220d5868a302c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110378"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471982"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -36,6 +36,90 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 - Planer för ändringar
 
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. Om du letar efter objekt som är äldre än sex månader kan du hitta dem i den [Arkiveringsjobb för vad som är nytt i Azure Active Directory](whats-new-archive.md).
+
+---
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="new-riskdetections-api-for-microsoft-graph-public-preview"></a>Ny riskDetections API för Microsoft Graph (offentlig förhandsversion)
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Identity Protection  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+
+Vi är glada att kunna presentera den nya riskDetections API för Microsoft Graph är nu i offentlig förhandsversion. Du kan använda den här nya API: et för att visa en lista över organisationens Identity Protection-relaterade användar- och inloggningsrisk identifieringar. Du kan också använda den här API: et för att mer effektivt fråga din risk-identifieringar, inklusive information om identifiering av typen, status, nivå med mera.
+
+Mer information finns i den [riskerar identifiering av API-referensdokumentation](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2019"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - juni 2019
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** 3 part Integration
+
+I juni 2019 har vi lagt till stöd för dessa 22 nya appar med Federation i app-galleriet:
+
+[Azure AD-SAML Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [Azure VPN-klienten](https://portal.azure.com/), [ExpenseIn](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial), [ Helper Helper](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial), [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial), [Mercedes-Benz i bilen Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [ Oracle Cloud infrastruktur-konsolen](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [CyberArk SAML-autentisering](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial), [Perceptyx ](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/property-software/), [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Oracle Accessmanager för Oracle Retail-marknadsföring, Oracle Accessmanager för Oracle E-Business Suite, Oracle IDCS för E-Business Suite, Oracle IDCS för PeopleSoft, Oracle IDCS för JD Edwards
+
+Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatisera etablering av användarkonto för dessa nya stöds SaaS-appar
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** Övervakning och rapportering
+
+Du kan nu automatisera skapa, uppdatera och ta bort användarkonton för dessa nya integrerade appar:
+
+- [Zooma](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
+
+- [Envoy](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-provisioning-tutorial)
+
+- [Proxyclick](https://docs.microsoft.com/azure/active-directory/saas-apps/proxyclick-provisioning-tutorial)
+
+- [4me](https://docs.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial)
+
+Läs mer om hur du bättre skydda din organisation genom att använda automatiska användarkontoetablering [automatisera användaretablering för SaaS-program med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+
+---
+
+### <a name="view-the-real-time-progress-of-the-azure-ad-provisioning-service"></a>Visa i realtid förloppet för den Azure AD-etableringstjänsten
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** App-etablering  
+**Produkten kapacitet:** Identitetslivcykelhantering
+
+Vi har uppdaterat Azure AD etableringsupplevelsen för att inkludera en ny förloppsindikator som visar hur långt du befinner dig i processen för användaretablering. Den här uppdaterade upplevelsen tillhandahåller även information om hur många användare som tillhandahålls under den aktuella cykeln, samt hur många användare har etablerats hittills.
+
+Mer information finns i [Kontrollera status för användaretablering](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+
+---
+
+### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>Företagsanpassning nu visas på Logga ut och fel skärmar
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Autentiseringar (inloggningar)  
+**Produkten kapacitet:** Användarautentisering
+
+Vi har uppdaterat Azure AD så att din företagsanpassning nu visas på Logga ut och fel skärmar, samt på inloggningssidan. Du behöver göra något för att aktivera den här funktionen, Azure AD använder bara de resurser som du redan har konfigurerat i den **Varumärkesexponering** område i Azure-portalen.
+
+Läs mer om hur du konfigurerar din företagsanpassning [Lägg till företagsanpassning till din organisations Azure Active Directory-sidor](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
+
+---
+
+### <a name="azure-multi-factor-authentication-mfa-server-is-no-longer-available-for-new-deployments"></a>Azure Multi-Factor Authentication (MFA) Server är inte längre tillgänglig för nya distributioner
+
+**Typ:** Inaktuell  
+**Tjänstekategori:** MFA  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+
+Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering i deras organisation, måste nu använda molnbaserade Azure Multi-Factor Authentication. Kunder som har aktiverat MFA Server före 1 juli Se inte en ändring. Du kommer fortfarande att kunna hämta den senaste versionen, hämta framtida uppdateringar och skapa autentiseringsuppgifter för aktivering.
+
+Mer information finns i [komma igång med Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Läs mer om molnbaserad Azure Multi-Factor Authentication, [planera en molnbaserad Azure Multi-Factor Authentication-distribution](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
 
@@ -732,211 +816,5 @@ Mer information finns i den [Microsoft Authenticator-appen vanliga frågor och s
 Privileged Identity Management (PIM) administratörer kan nu exportera alla aktiva och berättigade rolltilldelningar för en specifik resurs, vilket innefattar rolltilldelningar för alla underordnade resurser. Tidigare, det var svårt för administratörer att få en fullständig lista över rolltilldelningar för en prenumeration och de tvungna att exportera rolltilldelningar för varje specifik resurs.
 
 Mer information finns i [visa aktivitet och granska historik för Azure-resursroller i PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
-
----
-
-## <a name="novemberdecember-2018"></a>November/December 2018
-
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Ta bort användare från synkronisering omfång någon längre växel till molnbaserad konton
-
-**Typ:** Fast  
-**Tjänstekategori:** Användarhantering  
-**Produkten kapacitet:** Katalog
-
->[!Important]
->Vi har hört och förstå din frustrationen på grund av den här snabbkorrigeringen. Därför kan har vi återställts ändringen tills att vi kan göra korrigeringen enklare att implementera i din organisation.
-
-Vi har ett fel har åtgärdats där flaggan DirSyncEnabled för en användare skulle bytas felaktigt en uppmaning till **FALSKT** när Active Directory Domain Services (AD DS)-objektet har undantas från omfånget för synkronisering och sedan flyttades till Papperskorgen i Azure AD på följande synkroniseringscykel. Till följd av denna snabbkorrigering om användaren uteslutas från synkronisering av omfång och därefter återställts från Azure AD-Papperskorgen, användarkontot är kvar som synkroniseras från en lokal AD, som förväntat och kan inte hanteras i molnet eftersom dess auktoritetskälla (SoA) finns kvar som lokala AD.
-
-Innan den här snabbkorrigeringen uppstod ett problem när flaggan DirSyncEnabled har växlats till False. Denna lösning gav fel intryck av att dessa konton har omvandlats till molnbaserad objekt och att konton som kan hanteras i molnet. Dock konton fortfarande kvar sina SoA som lokalt och alla synkroniserade egenskaper (shadow attribut) kommer från lokala AD. Det här tillståndet orsakade flera problem i Azure AD och andra arbetsbelastningar i molnet (till exempel Exchange Online) som förväntas hantera dessa konton som synkroniseras från AD, men har nu fungerar, t.ex. molnbaserad konton.
-
-För tillfället är det enda sättet att verkligen konvertera ett synkroniserad från AD-konto till molnbaserad konto genom att inaktivera DirSync på klientnivån, vilket då även utlöser en backend-åtgärder för att överföra SoA. Den här typen av SoA ändring kräver (men är inte begränsat till) rensar alla lokala relaterade attribut (till exempel LastDirSyncTime och shadow attribut) och skicka en signal till andra arbetsbelastningar att ha sitt respektive objekt konverteras till ett endast molnbaserat konto för .
-
-Den här snabbkorrigeringen förhindrar därför direkt uppdateringar på attributet ImmutableID för en användare som synkroniseras från AD, vilket i vissa scenarier tidigare krävdes. Avsiktligt är ImmutableID för ett objekt i Azure AD som namnet antyder avsedd att vara inte kan ändras. Nya funktioner som implementeras i Azure AD Connect Health och Azure AD Connect-synkronisering klienten är tillgängliga för att bemöta sådana scenarier:
-
-- **Uppdatering av storskaliga ImmutableID för många användare i en stegvis metod**
-  
-  Exempelvis kan behöva du göra en långa migrering för AD DS-skog. Lösning: Använda Azure AD Connect till **konfigurera Källankare** och när du migrerar kopierar du befintliga ImmutableID värden från Azure AD till den lokala AD DS-användarens ms-DS-konsekvens-Guid-attribut för den nya skogen. Mer information finns i [med ms-DS-ConsistencyGuid som sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
-
-- **Storskaliga ImmutableID uppdateringar för många användare i en bild**
-
-  Till exempel när du implementerar Azure AD Connect du gör ett misstag och nu behöver du ändra SourceAnchor-attribut. Lösning: Inaktivera DirSync på klientnivån och rensa alla ogiltiga ImmutableID-värden. Mer information finns i [stänga av katalogsynkronisering för Office 365](/office365/enterprise/turn-off-directory-synchronization).
-
-- **Rematch lokala användare med en befintlig användare i Azure AD** exempelvis kan en användare som har varit återskapas i AD DS genererar en dubblett i Azure AD-konto i stället för rematching med ett befintligt Azure AD-konto (överblivna objekt). Lösning: Använda Azure AD Connect Health i Azure-portalen för att mappa om källan ankare/ImmutableID. Mer information finns i [Orphaned objekt scenariot](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
-
-### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Icke-bakåtkompatibel ändring: Uppdateringar av gransknings- och logga in loggar schema via Azure Monitor
-
-**Typ:** Ändrad funktion  
-**Tjänstekategori:** Rapportering  
-**Produkten kapacitet:** Övervakning och rapportering
-
-Vi publicerar för närvarande både gransknings- och logga in log strömmar via Azure Monitor så att du kan smidigt integrera loggfilerna med din SIEM-verktyg eller med Log Analytics. Baserat på din feedback och inför den här funktionen är allmänt meddelande gör vi följande ändringar i våra schemat. Dessa schemaändringar och dess relaterade dokumentationsuppdateringar sker genom den första veckan i januari.
-
-#### <a name="new-fields-in-the-audit-schema"></a>Nya fält i gransknings-schema
-Vi lägger till en ny **åtgärdstypen** fältet om du vill ange vilken typ av åtgärd som utförs på resursen. Till exempel **Lägg till**, **uppdatering**, eller **ta bort**.
-
-#### <a name="changed-fields-in-the-audit-schema"></a>Ändrade fält i gransknings-schema
-Följande fält ändras Audit schemat:
-
-|Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
-|----------|------------|----------|----------|
-|Category|Det var den **tjänstnamn** fält. Nu är det den **Audit kategorier** fält. **Tjänstnamnet** har bytt namn till den **loggedByService** fält.|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösenordsåterställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Apphantering</li></ul>|
-|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
-|loggedByService|Innehåller namnet på tjänsten som genererade granskningsloggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
-|Resultat|Ger resultatet för granskningsloggar. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
-
-#### <a name="changed-fields-in-the-sign-in-schema"></a>Ändrade fält i inloggning-schema
-Logga in schemat ändras följande fält:
-
-|Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
-|----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Det var den **conditionalaccessPolicies** fält. Nu är det den **appliedConditionalAccessPolicies** fält.|Ingen förändring|Ingen förändring|
-|conditionalAccessStatus|Ger resultatet för villkorlig åtkomst Principstatusen vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Inaktiverad</li></ul>|
-|appliedConditionalAccessPolicies: result|Ger resultatet för enskilda villkorlig åtkomst Principstatus vid inloggning. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Inaktiverad</li></ul>|
-
-Mer information om schemat finns i [tolkningar Azure AD granskningsloggar schemat i Azure Monitor (förhandsversion)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
-
----
-
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Identity Protection förbättringar av övervakade machine learning-modellen och risken poäng motor
-
-**Typ:** Ändrad funktion  
-**Tjänstekategori:** Identity Protection  
-**Produkten kapacitet:** Riskpoäng
-
-Förbättringar av Identity Protection-relaterade användare och logga in risken utvärdering av motorn kan hjälpa till att förbättra användaren risk Precision och täckning. Administratörer kanske märker att risknivån är inte längre direkt kopplad till risknivån för specifika identifieringar och att det finns en ökning av antalet och andelen riskfyllda inloggningshändelser.
-
-Risk identifieringar är nu utvärdera de övervakade machine learning-modell som beräknar användarrisk genom att använda ytterligare funktioner i användarens inloggningar och ett mönster av identifieringar. Baserat på den här modellen kan kanske administratören användare med hög riskpoäng, även om identifieringar som är associerade med användaren är för låg eller medelhög risk. 
-
----
-
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Administratörer kan återställa sina egna lösenord med hjälp av Microsoft Authenticator-appen (offentlig förhandsversion)
-
-**Typ:** Ändrad funktion  
-**Tjänstekategori:** Lösenordsåterställning självbetjäning via  
-**Produkten kapacitet:** Användarautentisering
-
-Azure AD-administratörer kan nu återställa sina egna lösenord med meddelanden för Microsoft Authenticator-appen eller en kod från en mobil autentiserare eller maskinvara token. Om du vill återställa sina egna lösenord, blir nu administratörer kan använda två av följande metoder:
-
-- Avisering för Microsoft Authenticator-appen
-
-- Andra mobil autentiserare / maskinvara token kod
-
-- E-post
-
-- Telefonsamtal
-
-- Textmeddelande
-
-Läs mer om hur du använder Microsoft Authenticator-appen för att återställa lösenord, [Azure AD lösenordsåterställning via självbetjäning - mobilappen och SSPR (förhandsversion)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
-
----
-
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Ny Molnenhetsadministratör för Azure AD-roll (offentlig förhandsversion)
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Enhetsregistrering och hantering  
-**Produkten kapacitet:** Åtkomstkontroll
-
-Administratörer kan tilldela användare till den nya Molnenhetsadministratör rollen att utföra administrationsåtgärder i cloud enhet. Användare som har tilldelats rollen Cloud Enhetsadministratörer kan aktivera, inaktivera och ta bort enheter i Azure AD, tillsammans med ska kunna läsa Windows 10 BitLocker-nycklar (om sådan finns) i Azure-portalen.
-
-Mer information om roller och behörigheter finns i [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
-
----
-
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Hantera dina enheter med hjälp av den nya aktivitet tidsstämpeln i Azure AD (förhandsversion)
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Enhetsregistrering och hantering  
-**Produkten kapacitet:** Livscykeln för enhetshantering
-
-Vi förstår att tiden du måste uppdatera och dra tillbaka din organisations enheter i Azure AD för att förhindra att inaktuella enheter i din miljö. För att hjälpa till med den här processen, uppdaterar Azure AD nu dina enheter med en ny aktivitet tidsstämpel, vilket hjälper dig att hantera enhetslivscykeln för din.
-
-Läs mer om hur du hämtar och använder den här tidsstämpeln [How To: Hantera inaktuella enheter i Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
-
----
-
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Administratörer kan kräva att användarna ska acceptera användningsvillkor på varje enhet
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Användningsvillkor  
-**Produkten kapacitet:** Styrning
- 
-Administratörer kan nu aktivera den **användare måste samtycka på alla enheter** att kräva användarna godkänna dina användningsvillkor på varje enhet de använder på din klient.
-
-Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azure Active Directory-villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Administratörer kan konfigurera användningsvillkor att gå ut baserat på ett återkommande schema
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Användningsvillkor  
-**Produkten kapacitet:** Styrning
- 
-
-Administratörer kan nu aktivera den **upphör att gälla medgivanden** alternativ för att göra användningsvillkor upphör att gälla för alla användare baserat på ditt angivna återkommande schema. Schemat kan vara årligen, bi årligen, Kvartalsvis eller varje månad. När användningsvillkoren upphör att gälla, måste användarna måste godkänna.
-
-Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory-villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Administratörer kan konfigurera användningsvillkor att gå ut baserat på varje användares schema
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Användningsvillkor  
-**Produkten kapacitet:** Styrning
-
-Administratörer kan nu ange en varaktighet som användaren måste godkänna användningsvillkor. Administratörer kan till exempel ange att användare måste godkänna användningsvillkoren efter 90 dagar.
-
-Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory-villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
- 
----
-
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Nya Azure AD Privileged Identity Management (PIM) e-postmeddelanden för Azure Active Directory-roller
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Privileged Identity Management  
-**Produkten kapacitet:** Privileged Identity Management
- 
-Kunder som använder Azure AD Privileged Identity Management (PIM) kan nu få en veckovis sammanfattad e-post, inklusive följande information för de senaste sju dagarna:
-
-- Översikt över de främsta berättigade och permanenta rolltilldelningarna
-
-- Antal användare aktiverar roller
-
-- Antalet användare som tilldelas till roller i PIM
-
-- Antalet användare som tilldelas till roller utanför PIM
-
-- Antal användare ”göras permanent” i PIM
-
-Läs mer om PIM och de tillgängliga e-postmeddelanden, [e-postmeddelanden i PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications).
-
----
-
-### <a name="group-based-licensing-is-now-generally-available"></a>Gruppbaserad licensiering är nu allmänt tillgänglig
-
-**Typ:** Ändrad funktion  
-**Tjänstekategori:** Annat  
-**Produkten kapacitet:** Katalog
-
-Gruppbaserad licensiering är utanför offentlig förhandsversion och är nu allmänt tillgänglig. Som en del av den här kommersiella utgåvan blir tillgänglig, vi har gjort den här funktionen mer skalbart och har lagt till möjligheten att Ombearbeta gruppbaserad licensiering tilldelningar för en enskild användare och möjligheten att använda gruppbaserad licensiering med Office 365 E3/A3-licenser.
-
-Mer information om gruppbaserad licensiering finns i [nyheter gruppbaserad licensiering i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal)
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - November 2018
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Företagsappar  
-**Produkten kapacitet:** 3 part Integration
- 
-I November 2018 har vi lagt till dessa 26 nya appar med stöd för app-galleriet:
-
-[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [gr Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [ftimme](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [oändlig Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [ HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [Drift](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy för företag centrala 365](https://accounting.zenegy.com/), [Everbridge medlem Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [Plex appar – Klassiska Test](https://test.plexonline.com/signon), [Plex appar – klassisk](https://www.plexonline.com/signon), [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex appar – UX](https://cloud.plex.com/sso), [Plex appar – IAM](https://accounts.plex.com/), [KONST - barnomsorg poster, närvaro och finansiella spårningssystemet](https://getcrafts.ca/craftsregistration) 
-
-Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
 
 ---

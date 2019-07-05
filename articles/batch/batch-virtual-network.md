@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550226"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436260"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
@@ -24,7 +24,7 @@ När du skapar ett Azure Batch-pool kan du etablera poolen i ett undernät för 
 
 Ett Azure Batch-pool har inställningar för compute-noder att kommunicera med varandra – till exempel, för att köra aktiviteter med flera instanser. De här inställningarna kräver inte ett separat virtuellt nätverk. Noderna inte kan dock kommunicera med virtuella datorer som inte är en del av Batch-pool, till exempel en server eller en server som standard. Du kan etablera poolen i ett undernät för ett virtuellt Azure nätverk för att tillåta compute-noder i poolen kan kommunicera säkert med andra virtuella datorer eller med ett lokalt nätverk. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). 
 
@@ -56,7 +56,7 @@ Du kan behöva kraven i din organisation omdirigering (force) Internet-bunden tr
 
 För att säkerställa att dina beräkningsnoder för Azure Batch-poolen fungerar i ett virtuellt nätverk som har Tvingad tunneltrafik är aktiverat, måste du lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) för undernätet:
 
-* Batch-tjänsten behöver för att kommunicera med beräkningsnoder i poolen för schemaläggning av uppgifter. Lägg till en användardefinierad väg för varje IP-adress som används av Batch-tjänsten i den region där Batch-kontot finns om du vill aktivera den här kommunikationen. Om du vill hämta listan över IP-adresser för Batch-tjänsten kontaktar du Azure-supporten.
+* Batch-tjänsten behöver för att kommunicera med beräkningsnoder i poolen för schemaläggning av uppgifter. Lägg till en användardefinierad väg för varje IP-adress som används av Batch-tjänsten i den region där Batch-kontot finns om du vill aktivera den här kommunikationen. Läs hur du hämtar listan över IP-adresser för Batch-tjänsten i [Tjänsttaggar i lokala](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Se till att all utgående trafik till Azure Storage (mer specifikt URL: er i formatet `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, och `<account>.blob.core.windows.net`) inte har blockerats via ditt lokala nätverk installationen.
 

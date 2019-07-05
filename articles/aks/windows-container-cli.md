@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b753d643b4651cd6665b5b85dcb8b7c5f0b3583d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303560"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444131"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Förhandsgranskning – skapa en Windows Server-behållare i ett Azure Kubernetes Service (AKS)-kluster med Azure CLI
 
@@ -41,15 +41,16 @@ När du har skapat ditt kluster som kan köra Windows Server-behållare måste d
 > * [Vanliga frågor om Azure-Support][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
-    
-CLI-kommandon för att skapa och hantera flera nodpooler är tillgängliga i den *aks-förhandsversion* CLI-tillägg. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] kommandot, som visas i följande exempel:
+
+Om du vill använda Windows Server-behållare, måste den *aks-förhandsversion* CLI tilläggsversion 0.4.1 eller högre. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] kommandot::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Om du tidigare har installerat den *förhandsversionen av aks* tillägg, installera alla tillgängliga uppdateringar med hjälp av den `az extension update --name aks-preview` kommando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-windows-preview-feature"></a>Registrera Windows-funktionen för förhandsgranskning
 
@@ -222,10 +223,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -338,3 +339,5 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [use-advanced-networking]: configure-advanced-networking.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

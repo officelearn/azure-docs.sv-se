@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706324"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565613"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning för att skapa en pool med virtuella datorer 
 
@@ -34,7 +34,7 @@ Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera f
 - **Val av disktyper.** Du kan välja mellan att använda premium storage för OS-disk och datadisken.
 - **Pooler att växa till stora storlekar.** När du använder en hanterad anpassad avbildning för att skapa en pool kan växa poolen utan att behöva göra kopior av avbildningsblob virtuella hårddiskar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En hanterad avbildningsresurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning som du behöver ha eller skapa en hanterad avbildning-resurs i samma Azure-prenumeration och region som Batch-kontot. Avbildningen skapas från ögonblicksbilder av den Virtuella datorns OS-disken och eventuellt dess anslutna datadiskar. Mer information och stegen för att förbereda en hanterad avbildning finns i följande avsnitt.
   - Använd en anpassad avbildning som är unika för varje pool som du skapar.
@@ -49,7 +49,7 @@ I Azure kan du förbereda en hanterad avbildning från ögonblicksbilder av en A
 
 ### <a name="prepare-a-vm"></a>Förbered en virtuell dator
 
-Om du skapar en ny virtuell dator för avbildningen, kan du använda en första part Azure Marketplace-avbildning stöds av Batch som basavbildning för en hanterad avbildning. Avbildningar från första part kan bara användas som en basavbildning. För att få en fullständig lista över Azure Marketplace-bildreferenser som stöds av Azure Batch kan se den [lista nodagent](/rest/api/batchservice/account/listnodeagentskus) igen.
+Om du skapar en ny virtuell dator för avbildningen, kan du använda en första part Azure Marketplace-avbildning stöds av Batch som basavbildning för en hanterad avbildning. Avbildningar från första part kan bara användas som en basavbildning. För att få en fullständig lista över Azure Marketplace-bildreferenser som stöds av Azure Batch kan se den [lista nodagent](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) igen.
 
 > [!NOTE]
 > Du kan inte använda en tredjeparts-avbildning som har ytterligare en licens och köp villkoren som ditt basavbildningen. Information om dessa Marketplace-avbildningar finns i riktlinjerna för [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

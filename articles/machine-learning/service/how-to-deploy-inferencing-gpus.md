@@ -1,7 +1,7 @@
 ---
 title: Distribuera en modell för inferens med GPU
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar en deep learning-modell som en webbtjänst som använder en GPU för inferens. I den här artikeln distribueras en Tensorflow-modell till en Azure Kubernetes Service-kluster. Klustret använder en GPU-aktiverad dator till värden webbtjänsten och poäng inferens begäranden.
+description: Den här artikeln lär du dig hur du använder Azure Machine Learning-tjänsten för att distribuera en GPU-aktiverade Tensorflow som deep learning-modell som en web-service.service och poäng inferens begäranden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,36 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 05/02/2019
-ms.openlocfilehash: 5f455d4f972153af934ab8966d0f1753fc55aa21
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/01/2019
+ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205919"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543806"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en modell för djupinlärning för inferens med GPU
 
-Lär dig hur du använder GPU inferens för en maskininlärningsmodell som distribueras som en webbtjänst. Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata.
+Den här artikeln lär du dig hur du använder Azure Machine Learning-tjänsten för att distribuera en GPU-aktiverade Tensorflow som deep learning-modell som en webbtjänst.
 
-Den här artikeln lär du dig hur du använder Azure Machine Learning-tjänsten för att distribuera ett exempel Tensorflow deep learning-modell till ett Azure Kubernetes Service (AKS)-kluster på en GPU-aktiverad virtuell dator (VM). När begäranden skickas till tjänsten, använder modellen GPU för att köra arbetsbelastningar för inferens.
+Distribuera din modell till ett Azure Kubernetes Service (AKS)-kluster för att göra GPU-aktiverade inferensjobb. Inferensjobb eller modell bedömning är fasen där distribuerade modellen används för förutsägelse. Med GPU: er i stället för processorer erbjudandet prestandafördelar på mycket kan beräkning.
 
-GPU: er erbjuder prestandafördelar jämfört med processorer på mycket kan beräkning. Utmärkt användningsområden för GPU-aktiverade virtuella datorer är djupinlärning modellera utbildning och inferens, särskilt för stora batchar med begäranden.
+Även om det här exemplet används en TensorFlow-modell, kan du använda följande steg till alla machine learning-ramverk som stöder GPU: er genom att göra små ändringar till bedömningsfil och miljöfil. 
 
-Det här exemplet visar hur du distribuerar en TensorFlow spara modellen till Azure Machine Learning. Du kan utföra följande steg:
+I den här självstudien gör du följande:
 
 * Skapa en GPU-aktiverade AKS-kluster
 * Distribuera en Tensorflow GPU-modell
+* Utfärda en exempelfråga i din distribuerade modell
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänster
-* En Python-distribution
-* En registrerad Tensorflow spara modellen. Läs hur du registrerar modeller i [distribuera modeller](../service/how-to-deploy-and-where.md#registermodel).
+* En arbetsyta för Azure Machine Learning-tjänster.
+* En Python-distribution.
+* En registrerad Tensorflow spara modellen.
+    * Läs hur du registrerar modeller i [distribuera modeller](../service/how-to-deploy-and-where.md#registermodel).
 
-Den här artikeln är baserad på Jupyter-anteckningsboken [Tensorflow distribuera modeller till AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb). Jupyter-anteckningsboken använder TensorFlow sparade modeller och distribuerar dem till ett AKS-kluster. Du kan också använda anteckningsboken för alla machine learning-ramverk som stöder GPU: er genom att göra små ändringar till bedömningsfil och miljöfil.  
+Du kan slutföra första delen i det här instruktionsserie [hur du tränar en modell för TensorFlow](how-to-train-tensorflow.md), för att uppfylla kraven.
 
 ## <a name="provision-an-aks-cluster-with-gpus"></a>Etablera ett AKS-kluster med GPU: er
 
@@ -44,16 +46,25 @@ Azure har många olika GPU-alternativ. Du kan använda någon av dem för infere
 
 Mer information om att använda AKS med Azure Machine Learning-tjänsten finns i [hur du distribuerar och var](../service/how-to-deploy-and-where.md#deploy-aks).
 
-```python
-# Provision AKS cluster with GPU machine
-prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
+```Python
+# Choose a name for your cluster
+aks_name = "aks-gpu"
 
-# Create the cluster
-aks_target = ComputeTarget.create(
-    workspace=ws, name=aks_name, provisioning_configuration=prov_config
-)
+# Check to see if the cluster already exists
+try:
+    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    # Provision AKS cluster with GPU machine
+    prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
 
-aks_target.wait_for_deployment()
+    # Create the cluster
+    aks_target = ComputeTarget.create(
+        workspace=ws, name=aks_name, provisioning_configuration=prov_config
+    )
+
+    aks_target.wait_for_completion(show_output=True)
 ```
 
 > [!IMPORTANT]
@@ -64,66 +75,49 @@ aks_target.wait_for_deployment()
 Spara följande kod i din arbetskatalog som `score.py`. Den här filen poängsätter bilder när de skickas till din tjänst. Den läser in sparade TensorFlow-modellen, skickar in avbildningen till TensorFlow-session på varje POST-begäran och returnerar sedan resulterande poängen. Andra inferensjobb ramverk kräver olika bedömningsfilerna.
 
 ```python
-import tensorflow as tf
+import json
 import numpy as np
-import ujson
+import os
+import tensorflow as tf
+
 from azureml.core.model import Model
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
-    global session
-    global input_name
-    global output_name
+    global X, output, sess
+    tf.reset_default_graph()
+    model_root = Model.get_model_path('tf-dnn-mnist')
+    saver = tf.train.import_meta_graph(os.path.join(model_root, 'mnist-tf.model.meta'))
+    X = tf.get_default_graph().get_tensor_by_name("network/X:0")
+    output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
     
-    session = tf.Session()
+    sess = tf.Session()
+    saver.restore(sess, os.path.join(model_root, 'mnist-tf.model'))
 
-    model_path = Model.get_model_path('resnet50')
-    model = tf.saved_model.loader.load(session, ['serve'], model_path)
-    if len(model.signature_def['serving_default'].inputs) > 1:
-        raise ValueError("This score.py only supports one input")
-    input_name = [tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
-    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
-    
-
-@rawhttp
-def run(request):
-    if request.method == 'POST':
-        reqBody = request.get_data(False)
-        resp = score(reqBody)
-        return AMLResponse(resp, 200)
-    if request.method == 'GET':
-        respBody = str.encode("GET is not supported")
-        return AMLResponse(respBody, 405)
-    return AMLResponse("bad request", 500)
-
-def score(data):
-    result = session.run(output_name, {input_name: [data]})
-    return ujson.dumps(result[1])
-
-if __name__ == "__main__":
-    init()
-    with open("lynx.jpg", 'rb') as f: #load file for testing locally
-        content = f.read()
-        print(score(content))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    out = output.eval(session=sess, feed_dict={X: data})
+    y_hat = np.argmax(out, axis=1)
+    return y_hat.tolist()
 
 ```
-
 ## <a name="define-the-conda-environment"></a>Definiera conda-miljö
 
 Skapa en conda miljö-fil med namnet `myenv.yml` ange beroenden för din tjänst. Det är viktigt att ange att du använder `tensorflow-gpu` att uppnå högre prestanda.
 
 ```yaml
-name: aml-accel-perf
-channels:
-  - defaults
+name: project_environment
 dependencies:
-  - tensorflow-gpu = 1.12
-  - numpy
-  - ujson
-  - pip:
-    - azureml-core
-    - azureml-contrib-services
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6.2
+
+- pip:
+  - azureml-defaults==1.0.43.*
+- numpy
+- tensorflow-gpu=1.12
+channels:
+- conda-forge
 ```
 
 ## <a name="define-the-gpu-inferenceconfig-class"></a>Definiera GPU InferenceConfig-klass
@@ -134,12 +128,12 @@ Skapa en `InferenceConfig` objekt som gör att de GPU: er och säkerställer att
 from azureml.core.model import Model
 from azureml.core.model import InferenceConfig
 
-aks_service_name ='gpu-rn'
+aks_service_name ='aks-dnn-mnist'
 gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled = False, 
                                                     num_replicas = 3, 
                                                     cpu_cores=2, 
                                                     memory_gb=4)
-model = Model(ws,"resnet50")
+model = Model(ws,"tf-dnn-mnist")
 
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
@@ -173,18 +167,30 @@ print(aks_service.state)
 
 Mer information finns i [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-a-sample-query-to-your-deployed-model"></a>Utfärda en exempelfråga i din distribuerade modell
+## <a name="issue-a-sample-query-to-your-model"></a>Utfärda en exempelfråga i din modell
 
-Skicka en Testfråga till distribuerad modell. När du skickar en JPEG-bild till modellen poängsätter avbildningen.
+Skicka en Testfråga till distribuerad modell. När du skickar en JPEG-bild till modellen poängsätter avbildningen. Följande kodexempel används en funktion för externa verktyg för att läsa in bilder. Du hittar den relevanta koden på pir [TensorFlow-exemplet på GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
 
 ```python
-scoring_url = aks_service.scoring_uri
-api_key = aks_service.get_key()(0)
-IMAGEURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Lynx_lynx_poing.jpg/220px-Lynx_lynx_poing.jpg"
+# Used to test your webservice
+from utils import load_data 
 
-headers = {'Authorization':('Bearer '+ api_key)}
-img_data = read_image_from(IMAGEURL).read()
-r = requests.post(scoring_url, data = img_data, headers=headers)
+# Load test data from model training
+X_test = load_data('./data/mnist/test-images.gz', False) / 255.0
+y_test = load_data('./data/mnist/test-labels.gz', True).reshape(-1)
+
+# send a random row from the test set to score
+random_index = np.random.randint(0, len(X_test)-1)
+input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
+
+api_key = aks_service.get_keys()[0]
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+resp = requests.post(aks_service.scoring_uri, input_data, headers=headers)
+
+print("POST to url", aks_service.scoring_uri)
+#print("input data:", input_data)
+print("label:", y_test[random_index])
+print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]

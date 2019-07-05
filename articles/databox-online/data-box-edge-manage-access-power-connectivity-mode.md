@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476898"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442959"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Hantera åtkomst, power och anslutningsläget för Azure Data Box-Edge
 
@@ -66,7 +66,7 @@ När du genererar aktiveringsnyckeln för Data Box Edge-enhet eller utföra åtg
 -  Skapa en resurs med ett associerat lagringskonto.
 -  Skapa en användare som har åtkomst till resurser på enheten.
 
-Du bör ha en `User` åtkomst till i Active Directory-klient som du behöver för att kunna `Read all directory objects`. Du kan inte vara en gästanvändare som de inte har behörighet att `Read all directory objects`. Om du är en gäst och åtgärder som till exempel generering av en aktiveringsnyckel för, skapa en resurs på din Data Box Edge-enhet sedan, misslyckas skapandet av en användare alla.
+Du bör ha en `User` åtkomst till i Active Directory-klient som du behöver för att kunna `Read all directory objects`. Du kan inte vara en gästanvändare som de inte har behörighet att `Read all directory objects`. Om du är en gäst och åtgärder som till exempel generation av en aktivering nyckel, skapa en resurs på din Data Box Edge-enhet, skapandet av en användare, konfiguration av Edge compute roll, återställning av lösenordet misslyckas alla.
 
 Mer information om hur du ger åtkomst till användare till Azure Active Directory Graph API finns i [standard åtkomst för administratörer, användare och gästanvändare](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 

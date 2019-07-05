@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fceea6273f00fdf16d8934533f08bc3494795bc4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479133"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433287"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Överföra data för Apache Hadoop-jobb i HDInsight
 
 Azure HDInsight ger en fullständig Hadoop distributed file system (HDFS) över Azure Storage och Azure Data Lake Storage (Gen1 och Gen2). Azure Storage och Data Lake Storage Gen1 och Gen2 är utformade som HDFS-tillägg för att ge kunderna en sömlös upplevelse. De gör en fullständig uppsättning komponenter i Hadoop-ekosystemet att arbeta direkt på de data som den hanterar. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta filsystem som är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med Azure Storage finns i [använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md), [Använd Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md), och [Använd Data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav innan du börjar:
 
@@ -82,7 +82,7 @@ Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta 
 | [Microsoft Visual Studio-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer för Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 

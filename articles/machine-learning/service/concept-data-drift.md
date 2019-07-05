@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333219"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442388"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>Vad är data avviker övervakning (förhandsversion)?
 
@@ -37,7 +37,7 @@ Om du tror att indata för din distribuerade modell kan ändras, bör du överv�
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Hur data drift övervakas i Azure Machine Learning-tjänsten
 
-Med hjälp av **Azure Machine Learning-tjänsten**, data drift övervakas via datauppsättningar eller distributioner. För att övervaka data drift, har en baslinje-datauppsättning – vanligtvis utbildning datauppsättningen för en modell - angetts. En andra datauppsättning – vanligtvis modellen inkommande data som samlats in från en distribution – testas mot baslinje-datauppsättningen. Båda datauppsättningar är [profileras](how-to-create-dataset-snapshots.md) och indata till data avviker övervakningstjänsten. En machine learning-modell tränas att identifiera skillnader mellan de två datauppsättningarna. Modellens prestanda konverteras till koefficienten drift mäter omfattning för drift mellan de två datauppsättningarna. Med hjälp av [modellera interpretability](machine-learning-interpretability-explainability.md) de funktioner som bidragit till drift-koefficienten beräknas. Statistisk information om varje funktion spåras från profilen för en datauppsättning. 
+Med hjälp av **Azure Machine Learning-tjänsten**, data drift övervakas via datauppsättningar eller distributioner. För att övervaka data drift, har en baslinje-datauppsättning – vanligtvis utbildning datauppsättningen för en modell - angetts. En andra datauppsättning – vanligtvis modellen inkommande data som samlats in från en distribution – testas mot baslinje-datauppsättningen. Båda datauppsättningar är [profileras](how-to-explore-prepare-data.md#explore-with-summary-statistics) och indata till data avviker övervakningstjänsten. En machine learning-modell tränas att identifiera skillnader mellan de två datauppsättningarna. Modellens prestanda konverteras till koefficienten drift mäter omfattning för drift mellan de två datauppsättningarna. Med hjälp av [modellera interpretability](machine-learning-interpretability-explainability.md) de funktioner som bidragit till drift-koefficienten beräknas. Statistisk information om varje funktion spåras från profilen för en datauppsättning. 
 
 ## <a name="data-drift-metric-output"></a>Metrisk utdataporten för drift
 

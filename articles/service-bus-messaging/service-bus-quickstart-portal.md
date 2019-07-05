@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992021"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513633"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
-Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+Den här snabbstarten beskriver hur du skickar och tar emot meddelanden till och från en Service Bus-kö med hjälp av den [Azure-portalen][Azure portal] att skapa ett namnområde för meddelanden och en kö i namnområdet och för att hämta autentiseringsuppgifterna på som namnområde. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -35,7 +35,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
-Efter att namnområdet och kön har etablerats och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+Efter att namnområdet och kön har etablerats och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Om du vill köra koden gör du följande:
 

@@ -3,6 +3,7 @@ title: Viktigaste skillnaderna för Azure SQL Database Machine Learning Services
 description: Det här avsnittet beskrivs viktiga skillnader mellan Azure SQL Database Machine Learning Services (med R) och SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725049"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485996"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Viktiga skillnader mellan Machine Learning-tjänster i Azure SQL Database (förhandsversion) och SQL Server
 
@@ -43,12 +44,15 @@ R-pakethantering och installationen fungerar olika mellan SQL Database och SQL S
 - Paket kan inte utföra utgående nätverksanrop. Den här begränsningen liknar den [standard brandväggsregler för Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) i SQL Server, men kan inte ändras i SQL-databas.
 - Det finns inget stöd för paket som är beroende av externa körningar (till exempel Java) eller behöver åtkomst till OS APIs för installation och användning.
 
+## <a name="writing-to-a-temporary-table"></a>Skrivning till en tillfällig tabell
+
+Om du använder RODBC i Azure SQL Database, så du kan inte skriva till en tillfällig tabell om den har skapats inuti eller utanför den `sp_execute_external_script` session. Lösningen är att använda [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) och [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (med överskrivning = FALSKT och lägger till = ”rader”) att skriva till en global tillfällig tabell som skapats före den `sp_execute_external_script` fråga.
+
 ## <a name="resource-governance"></a>Resursstyrning
 
 Det går inte att begränsa R-resurser via [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
 
 Den offentliga förhandsversionen, R-resurser är inställda på högst 20% av SQL Database-resurser, och beror på vilken tjänstenivå som du väljer. Mer information finns i [Azure SQL Database köpa modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-
 ### <a name="insufficient-memory-error"></a>Otillräckligt med minne-fel
 
 Om det finns inte tillräckligt med minne för R, får du ett felmeddelande. Vanliga felmeddelanden är:

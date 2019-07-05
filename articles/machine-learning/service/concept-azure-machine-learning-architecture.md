@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331725"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461474"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
 Läs mer om arkitekturen, begrepp och arbetsflöde för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram:
 
-[![Azure Machine Learning-service-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning-service-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>Arbetsflöde
 
-Machine learning-arbetsflöde Allmänt följer den här sekvensen:
+De machine learning-modell arbetsflöde Allmänt följer den här sekvensen:
 
-1. Utveckla maskininlärning utbildning skript i **Python** eller med det visuella gränssnittet.
-1. Skapa och konfigurera en **beräkningsmålet**.
-1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Posterna i körningen sparas som **körs** i den **arbetsytan** och grupperade under **experiment**.
-1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
-1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
-1. Utveckla ett bedömningsskript som använder modellen och **distribuera modellen** som en **webbtjänsten** i Azure eller till en **IoT Edge-enhet**.
+1. **Träna**
+    + Utveckla maskininlärning utbildning skript i **Python** eller med det visuella gränssnittet.
+    + Skapa och konfigurera en **beräkningsmålet**.
+    + **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Posterna i körningen sparas som **körs** i den **arbetsytan** och grupperade under **experiment**.
 
-Du utför de här stegen med någon av följande:
-+ [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code-tillägg](how-to-vscode-tools.md)
-+  Den [visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten](ui-concept-visual-interface.md)
+1. **Paketet** – när du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
 
+1. **Verifiera** - **fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
+
+1. **Distribuera** – utveckla ett bedömningsskript som använder modellen och **distribuera modellen** som en **webbtjänsten** i Azure eller till en **IoT Edge-enhet**.
+
+1. **Övervaka** -Övervakare för **data drift** mellan utbildningsdata för datauppsättningen och inferens av en distribuerad modell. När det behövs kan köras i slinga gå tillbaka till steg 1 för att träna modellen med nya träningsdata.
+
+## <a name="tools-for-azure-machine-learning"></a>Verktyg för Azure Machine Learning 
+
+Använd dessa verktyg för Azure Machine Learning:
+
++  Interagera med service i valfri Python-miljö med den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Automatisera din machine learning-aktiviteter med den [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Skriv kod i Visual Studio Code med [Azure Machine Learning VS Code-tillägg](how-to-vscode-tools.md) 
++ Använd den [visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten](ui-concept-visual-interface.md) att utföra stegen utan att skriva kod.
 
 ## <a name="glossary-of-concepts"></a>Ordlista med begrepp
 

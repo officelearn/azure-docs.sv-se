@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138563"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443687"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
 Användare av Azure Storage vill ofta kunna visa/interagera med sina data med ett Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi placera ett ”X” i varje block om tjänsten ger möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktyg är kostnadsfria eller inte. ”Utvärderingsversion” anger att det finns en kostnadsfri utvärderingsversion, men den fullständiga produkten är inte kostnadsfri. ”J/N” anger att en version är tillgänglig kostnadsfritt, medan en annan version är tillgänglig för köp.
@@ -178,7 +178,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

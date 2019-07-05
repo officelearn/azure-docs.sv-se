@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065775"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514037"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -24,6 +24,57 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+
+## <a name="2019-07-01"></a>2019-07-01
+
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning Data Förbered SDK v1.1.7
+
+Vi har återställts en ändring som förbättrad prestanda, eftersom den orsakar problem för vissa kunder som använder Azure Databricks. Om du har haft problemet finns på Azure Databricks kan du uppgradera till version 1.1.7 med någon av metoderna nedan:
+1. Kör det här skriptet för att uppgradera: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Återskapa klustret, som installerar den senaste Data Prep SDK-versionen.
+
+## <a name="2019-06-25"></a>2019-06-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning-SDK för Python v1.0.45
+
++ **Nya funktioner**
+  + Lägg till beslut trädet surrogate modell för att efterlikna förklaring i paketet för azureml-förklara-modell
+  + Möjlighet att ange en CUDA-version som ska installeras på Inferensjobb avbildningar. Stöd för CUDA 9.0, 9.1 och 10.0.
+  + Information om Azure ML-utbildning Källavbildningen är nu tillgängliga med [GitHub-lagringsplatsen för Azure ML-behållare](https://github.com/Azure/AzureML-Containers) och [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Har lagts till CLI har stöd för pipeline-schema. Kör ”az ml pipeline -h” om du vill veta mer
+  + Anpassade Kubernetes namnområde parametern har lagts till distributionskonfiguration för AKS-webbtjänsten och CLI.
+  + Föråldrad hash_paths parametern för alla steg i pipeline
+  + Model.register stöder nu registrera flera enskilda filer som en enda modell med användning av den `child_paths` parametern.
+  
++ **Förhandsversionsfunktioner**
+    + Bedömnings explainers kan nu om du vill spara conda och pip information för mer tillförlitlig serialisering och deserialisering.
+    + Buggfix för automatisk funktionen väljare.
+    + Uppdaterade mlflow.azureml.build_image till den nya API: et korrigerade buggar som exponeras av den nya implementeringen.
+
++ **Större ändringar**
+
++ **Felkorrigeringar och förbättringar**
+  + Borttagna paramiko beroende från azureml kärnor. Varningar om utfasning har lagts till för äldre beräkningsmål koppla metoder.
+  + Förbättra prestanda för run.create_children
+  + Åtgärda ordningen på sannolikhet i mimic förklaring med binär klassificerare när lärare sannolikheten används för att skala formdata värden
+  + Förbättrad felhantering och ett meddelande för automatisk machine learning. 
+  + Iteration timeout-problem för automatisk machine learning har åtgärdats.
+  + Bättre prestanda för time series-transformering för automatisk machine learning.
+
+## <a name="2019-06-24"></a>2019-06-24
+
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning Data Förbered SDK v1.1.6
+
++ **Nya funktioner**
+  + Lagt till funktioner för antal värden att sammanfatta (`SummaryFunction.TOPVALUES`) och lägsta värdena (`SummaryFunction.BOTTOMVALUES`).
+
++ **Felkorrigeringar och förbättringar**
+  + Avsevärt bättre prestanda hos `read_pandas_dataframe`.
+  + En bugg som skulle orsaka `get_profile()` på dataflöde, som pekar på binära filer som misslyckas.
+  + Exponeras `set_diagnostics_collection()` för programmässig aktivering/inaktivering av samlingen telemetri.
+  + Ändra beteendet för `get_profile()`. NaN nu ignoreras i Min, medelvärde, standard och Summa, som överensstämmer med Pandas beteende.
+
 
 ## <a name="2019-06-10"></a>2019-06-10
 
@@ -38,7 +89,6 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + STL upplärda för prognostisering
     + KMeans klustring har aktiverats för funktionen oinskränkt
   + AmlCompute kvot godkännanden blev just snabbare! Vi har nu automatiserat processen för att godkänna din kvot förfrågningar inom ett tröskelvärde. Mer information om hur kvoter fungerar lär du dig [hantera kvoter](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
- 
 
 + **Förhandsversionsfunktioner**
     + Integrering med [MLflow](https://mlflow.org) 1.0.0 spåra via azureml-mlflow paketet ([exempel anteckningsböcker](https://aka.ms/azureml-mlflow-examples)).

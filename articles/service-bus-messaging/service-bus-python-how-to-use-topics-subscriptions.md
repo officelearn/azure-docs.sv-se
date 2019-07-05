@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992003"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543668"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
@@ -33,7 +33,7 @@ I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerat
 - Ta emot meddelanden från en prenumeration
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 Prenumerationer på ämnen skapas också med den **ServiceBusService** objekt. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar uppsättningen av meddelanden som levereras till prenumerationens virtuella kö.
 
 > [!NOTE]
-> Prenumerationer är beständiga och fortsätter att existera tills antingen de eller ämnet som de prenumererar, tas bort.
+> Som standard prenumerationer är beständiga och fortsätter att existera tills antingen de eller ämnet som de prenumererar, tas bort.
 > 
-> 
+> Du kan ha prenumerationer bort automatiskt genom att ange den [auto_delete_on_idle egenskapen](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 
@@ -178,7 +178,7 @@ I händelse av att programmet kraschar efter behandlingen av meddelandet men inn
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
 
-Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt. I följande exempel visas hur du tar bort ämnet med namnet `mytopic`:
+Ämnen och prenumerationer är beständiga såvida inte den [auto_delete_on_idle egenskapen](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) har angetts. De kan vara bort antingen via den [Azure-portalen][Azure portal] eller programmässigt. I följande exempel visas hur du tar bort ämnet med namnet `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

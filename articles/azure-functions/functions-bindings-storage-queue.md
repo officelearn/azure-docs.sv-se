@@ -4,7 +4,7 @@ description: Förstå hur du använder Azure Queue storage-utlösare och -utdata
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472296"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480146"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindningar för Azure Functions
 
@@ -307,7 +307,7 @@ Kö-utlösare förhindrar automatiskt en funktion från att bearbeta ett kömedd
 
 Den [host.json](functions-host-json.md#queues) filen innehåller inställningar som styr beteendet för kö-utlösare. Se den [host.json inställningar](#hostjson-settings) information om tillgängliga inställningar.
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Output
 
 Använd den Azure Queue storage-utdatabindning för att skriva meddelanden till en kö.
 

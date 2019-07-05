@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596107"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444694"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -43,7 +43,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Norra Kina |\* |\* |
 | Kina, norra 2 |Tillgängligt |Endast Gen2 |
 | Östasien |Tillgängligt |Den 1 juni 2019 |
-| Östra USA |Tillgängligt |Den 1 juni 2019 |
+| East US |Tillgängligt |Den 1 juni 2019 |
 | USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
 | Frankrike, centrala |\* |Den 1 juni 2019 |
 | Centrala Tyskland |\* |\* |
@@ -67,7 +67,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
 
-Baserat på Tillgänglighetsdiagrammet ovan kan kommer vi att schemalägga automatiska uppgraderingar för Gen1-instanser. För att undvika oväntade avbrott på tillgängligheten för datalagret, schemaläggs automatiserade uppgraderingar under ditt underhållsschema. Möjligheten att skapa en ny instans av Gen1 inaktiveras i regioner som håller på att automatiskt uppgraderas till Gen2. Mer information om scheman finns [visa ett underhållsschema](viewing-maintenance-schedule.md)
+Baserat på Tillgänglighetsdiagrammet ovan kan kommer vi att schemalägga automatiska uppgraderingar för Gen1-instanser. För att undvika oväntade avbrott på tillgängligheten för datalagret, schemaläggs automatiserade uppgraderingar under ditt underhållsschema. Möjligheten att skapa en ny instans av Gen1 inaktiveras i regioner som håller på att automatiskt uppgraderas till Gen2. Gen1 upphör att gälla när de automatiska uppgraderingarna har slutförts. Mer information om scheman finns [visa ett underhållsschema](viewing-maintenance-schedule.md)
 
 Uppgraderingen kommer att omfatta en kort minskning i anslutningen (cirka 5 minuter) som vi starta om ditt informationslager.  När ditt informationslager har startats om, kommer det att helt tillgängliga för användning. Försämrade prestanda kan dock uppstå medan uppgraderingen fortsätter att uppgradera datafiler i bakgrunden. Den totala tiden för försämrade prestanda varierar beroende på storleken på dina filer.
 

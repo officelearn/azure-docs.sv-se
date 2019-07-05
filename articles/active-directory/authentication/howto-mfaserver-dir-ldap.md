@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057359"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536913"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-autentisering och Azure Multi-Factor Authentication Server
 
@@ -49,6 +49,9 @@ Upprepa de här stegen för att lägga till ytterligare LDAP-klienter.
 ### <a name="configure-the-ldap-directory-connection"></a>Konfigurera LDAP-kataloganslutningen
 
 När Azure Multi-Factor Authentication har konfigurerats att ta emot LDAP-autentiseringar måste dessa autentiseringar skickas via en proxyanslutning till LDAP-katalogen. Därför visar fliken Mål endast ett nedtonat alternativ för att använda ett LDAP-mål.
+
+> [!NOTE]
+> Katalogintegrering är inte säkert att arbeta med kataloger än Active Directory Domain Services.
 
 1. För att konfigurera anslutningen till LDAP-katalogen, klickar du på ikonen **Katalogintegrering**.
 2. På fliken Inställningar väljer du alternativknappen **Använd specifik LDAP-konfiguration**.

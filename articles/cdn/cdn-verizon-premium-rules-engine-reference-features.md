@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080776"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443483"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium regler – funktioner
 
@@ -320,7 +320,7 @@ Viktig information:
 - Ange en eller flera parameternamn för frågan sträng och avgränsa varje parameternamn med ett enda blanksteg.
 - Den här funktionen anger om parametrar för frågesträngen är inkluderas eller uteslutas från cache-nyckeln. Ytterligare information har angetts för varje alternativ i följande tabell.
 
-Typ|Beskrivning
+Type|Beskrivning
 --|--
  Inkludera|  Anger att varje angiven parameter ska ingå i cache-nyckeln. En unik cache-nyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen.
  Omfatta alla  |Anger att en unik cache-nyckel har skapats för varje begäran till en tillgång som innehåller en unik frågesträng. Den här typen av konfiguration rekommenderas vanligtvis inte eftersom det kan leda till en liten andel av cacheträffar. Ett lågt antal cacheträffar ökar belastningen på den ursprungliga servern, eftersom den måste hantera fler begäranden. Den här konfigurationen duplicerar ett cachelagringsfunktionssätt som kallas ”unika-cache” på sidan cachelagring av frågesträng.
@@ -456,7 +456,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 - Klientens IP-adress
 - Cookie-Parameter
 - Cookie parametern Regex
-- Land
+- Country
 - Enhet
 - Microsoft Edge Cname
 - Refererande domän
@@ -588,7 +588,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 - Klientens IP-adress
 - Cookie-Parameter
 - Cookie parametern Regex
-- Land
+- Country
 - Enhet
 - Edge Cname
 - Refererande domän
@@ -715,7 +715,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 - Klientens IP-adress
 - Cookie-Parameter
 - Cookie parametern Regex
-- Land
+- Country
 - Enhet
 - Edge Cname
 - Refererande domän
@@ -799,7 +799,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 - Klientens IP-adress
 - Cookie-Parameter
 - Cookie parametern Regex
-- Land
+- Country
 - Enhet
 - Edge Cname
 - Refererande domän
@@ -867,7 +867,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 - Klientens IP-adress
 - Cookie-Parameter
 - Cookie parametern Regex
-- Land
+- Country
 - Enhet
 - Edge Cname
 - Refererande domän
@@ -1128,7 +1128,7 @@ Den här funktionen kan en kund ursprungsservern att ta reda på klient-IP-adres
 
 Se till att den angivna huvudnamn inte matchar någon av följande namn:
 
-- Standard begäran rubriknamn. En lista över standard rubriknamn finns i [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Standard begäran rubriknamn. En lista över standard rubriknamn finns i [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Reserverade rubriknamn:
     - vidarebefordras för
     - host

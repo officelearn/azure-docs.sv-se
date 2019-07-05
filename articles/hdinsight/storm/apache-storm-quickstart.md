@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 49da6ad20b29193f0430a66658f1bf80625704b3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 12001aef970d3b465a7f5c8e0c7af072b8f4ec80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274120"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428447"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Snabbstart: Skapa och övervaka en Apache Storm-topologi i Azure HDInsight
 
@@ -21,7 +21,7 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 
 I den här snabbstarten använder du ett exempel från Apache [storm starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm-topologi i ett befintligt Apache Storm-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm-kluster på HDInsight. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **Klustertyp**.
 
@@ -108,4 +108,4 @@ Om du vill ta bort ett kluster, se [ta bort ett HDInsight-kluster med din webbl�
 I den här snabbstarten använde du ett exempel från Apache [storm starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm-topologi i ett befintligt Apache Storm-kluster. Gå vidare till nästa artikel om du vill lära dig grunderna för hantering och övervakning av Apache Storm-topologier.
 
 > [!div class="nextstepaction"]
->[Distribuera och hantera Apache Storm-topologier i Azure HDInsight ](./apache-storm-deploy-monitor-topology-linux.md)
+>[Distribuera och hantera Apache Storm-topologier i Azure HDInsight](./apache-storm-deploy-monitor-topology-linux.md)

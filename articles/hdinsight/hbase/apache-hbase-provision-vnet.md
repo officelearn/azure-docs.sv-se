@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730375"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433794"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster i HDInsight i Azure-nätverk
 Lär dig hur du skapar Azure HDInsight Apache HBase-kluster i en [Azure Virtual Network][1].
@@ -24,10 +24,10 @@ Med virtual network-integration, kan Apache HBase-kluster bara distribueras till
 * Förbättrad prestanda genom att inte låta trafiken går över flera gatewayer och belastningsutjämnare.
 * Möjligheten att bearbeta känslig information på ett säkrare sätt utan att exponera en offentlig slutpunkt.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du börjar den här självstudiekursen behöver du följande:
+### <a name="prerequisites"></a>Förutsättningar
+Innan du påbörjar den här artikeln måste du ha följande objekt:
 
-* **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **En arbetsstation med Azure PowerShell**. Se [installera och använda Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Skapa Apache HBase-kluster i virtuellt nätverk
@@ -63,7 +63,7 @@ I det här avsnittet skapar du ett Linux-baserade Apache HBase-kluster med beroe
    * **Jag godkänner villkoren och de villkor som anges ovan**: (Välj)
 3. Klicka på **Köp**. Det tar cirka 20 minuter att skapa ett kluster. När klustret har skapats klickar du på klusterbladet i portalen för att öppna den.
 
-När du har slutfört självstudien kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Anvisningar för att ta bort ett kluster finns i [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+När du har slutfört artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Anvisningar för att ta bort ett kluster finns i [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Om du vill börja arbeta med din nya HBase-kluster måste du använda de procedurer som finns i [komma igång med Apache HBase med Apache Hadoop i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -233,7 +233,7 @@ Om du vill använda den här informationen i ett Java-program, kan du följa ste
 > Mer information om namnmatchning i Azure virtuella nätverk, inklusive hur du använder en egen DNS-server finns i [Name Resolution (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att skapa ett Apache HBase-kluster. Du kan läsa mer här:
+I den här artikeln har du lärt dig hur du skapar ett Apache HBase-kluster. Du kan läsa mer här:
 
 * [Kom igång med HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Använda tomma kantnoder i HDInsight](../hdinsight-apps-use-edge-node.md)

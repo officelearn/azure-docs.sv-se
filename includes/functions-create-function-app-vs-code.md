@@ -4,32 +4,35 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 894ca0e78dfb75dffc124d3d25aa7a8e72adf627
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9b853f0e86fc298ab35421928492ba813d85827
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065544"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444595"
 ---
-## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
+## <a name="create-an-azure-functions-project"></a>Skapa din Functions-projekt med en funktion 
 
 Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. I Visual Studio Code, väljer du den Azure logotypen som ska visas i **Azure: Functions** område och välj sedan ikonen Skapa nytt projekt.
+1. I Visual Studio Code trycker du på F1 för att öppna kommandopaletten. I kommandopaletten, Sök efter och välj `Azure Functions: Create new project...`.
 
-    ![Skapa ett funktionsapprojekt](./media/functions-create-function-app-vs-code/create-function-app-project.png)
-
-1. Välj en plats för projektarbetsytan och välj **Välj**.
+1. Välj en directory-plats för projektarbetsytan och välj **Välj**.
 
     > [!NOTE]
-    > Den här artikeln har utformats för att genomföras utanför en arbetsyta. Välj i det här fallet inte en projektmapp som ingår i en arbetsyta.
+    > De här stegen har utformats för att slutföras utanför en arbetsyta. Välj i det här fallet inte en projektmapp som ingår i en arbetsyta.
 
-1. Välj språk för ditt funktionsappsprojekt. I den här artikeln används JavaScript.
-    ![Välj projektspråk](./media/functions-create-function-app-vs-code/create-function-app-project-language.png)
+1. Ange följande information följer sedan anvisningarna:
 
-1. Välj en mall för den första funktionen för ditt projekt. Ange ett namn för din funktion.
-    ![Välj första funktion](./media/functions-create-function-app-vs-code/create-function-app-project-first-function.png)
+    | Uppmaning | Värde | Beskrivning |
+    | ------ | ----- | ----------- |
+    | Välj ett språk för ditt funktionsappsprojekt | C# eller JavaScript | Har stöd för den här artikeln C# och JavaScript. För Python, se [i den här artikeln Python](https://code.visualstudio.com/docs/python/tutorial-azure-functions), och PowerShell, se [den här PowerShell-artikeln](../articles/azure-functions/functions-create-first-function-powershell.md).  |
+    | Välj en mall för ditt projekt första funktion | HTTP-utlösare | Skapa en HTTP-utlöst funktion i den nya funktionsappen. |
+    | Ange ett funktionsnamn | HttpTrigger | Tryck på RETUR för att använda standardnamnet. |
+    | Ange ett namnområde | My.Functions | (C# endast) C# klassbibliotek måste ha ett namnområde.  |
+    | Auktorisationsnivå | Funktion | Kräver en [funktionsnyckel](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) att anropa funktionens HTTP-slutpunkt. |
+    | Välj hur du vill öppna ditt projekt | Lägg till arbetsytan | Skapar funktionsappen i den aktuella arbetsytan. |
 
-1. Välj **Lägg till på arbetsyta** när du uppmanas att göra det.
+I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../articles/azure-functions/functions-host-json.md) och [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. 
 
-I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../articles/azure-functions/functions-host-json.md) och [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. Du får också en ny Git-lagringsplats i projektmappen.
+En ny HTTP-utlöst funktion skapas också i mappen HttpTrigger i funktionen app-projekt.

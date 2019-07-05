@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 98e0732ece3d046b7c073ac075b7eae89d36c125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fee35d8035238737f6be72d112fba382e00f0875
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391254"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501280"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
@@ -40,7 +40,7 @@ Virtuella datorer med burst B-serien är idealiska för arbetsbelastningar som i
 Exemplen omfattar utveckling och testning, webbservrar med låg trafik, små databaser, mikrotjänster, servrar för proof-of-concept, kompileringsservrar.
 
 
-| Storlek             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för virtuell dator | Max CPU-prestanda för virtuell dator | Inledande krediter | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
+| Size             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | CPU-basprestanda för VM | CPU-maxprestanda för VM | Initial kredit | Kredit till bank/timme | Max kredit till bank | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
@@ -49,6 +49,9 @@ Exemplen omfattar utveckling och testning, webbservrar med låg trafik, små dat
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1 200 %                   | 360                   | 121                 | 2 909           | 16                                     | 6480 / 75                                 | 4320 / 50                                 | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270 %                  | 1 600 %                   | 480                   | 162                 | 3 888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337 %                  | 2 000 %                   | 600                   | 203                 | 4 860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup> B1ls stöds endast på Linux
 
@@ -63,13 +66,14 @@ Premium Storage cachelagring:  Stöds
 Dsv3-seriens storlekar bygger på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell)-processor som kan 3,5 GHz med Intel Turbo Boost Technology 2.0 och använda premium storage. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
 
-| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4000 / 32 (50)                                                       | 3200 / 48                                | 2/1 000                                   |
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2/2 000                                   |
 | Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16000 / 128 (200)                                                    | 12800 / 192                              | 4 / 4000                                      |
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32000 / 256 (400)                                                    | 25600 / 384                              | 8 / 8000                                      |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64000 / 512 (800)                                                    | 51200 / 768                              | 8/16 000                                               |
+| Standard_D48s_v3 | 48     | 192          | 384            | 32             | 96000 / 768 (1200)                                                    | 76800 / 1152                               | 8 / 24000                                               |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128000 / 1024 (1600)                                                    | 80000 / 1200                              | 8 / 30000                                               |
 
 <sup>1</sup> Dsv3-serien Virtuella datorns funktion Intel® Hyper-Threading Technology
@@ -94,6 +98,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 | Standard_D8_v3  | 8         | 32          | 200            | 16             | 12 000/187/93                                             | 4 / 4000                    |
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24 000/375/187                                            | 8 / 8000                    |
 | Standard_D32_v3 | 32        | 128         | 800            | 32             | 48 000/750/375                                            | 8/16 000                   |
+| Standard_D48_v3 | 48        | 192          | 1200            | 32             | 96 000/1 000/500                                            | 8 / 24000                             |
 | Standard_D64_v3 | 64        | 256         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30000                   |
 
 <sup>1</sup> Dv3-serien Virtuella datorns funktion Intel® Hyper-Threading Technology
@@ -106,7 +111,7 @@ Premium-lagring:  Stöds
 
 Premium Storage cachelagring:  Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |4 |4000 / 32 (43) |3200 / 48 |2/750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8000 / 64 (86) |6400 / 96 |2/1 500 |
@@ -122,7 +127,7 @@ Premium-lagring:  Stöds inte
 
 Premium Storage cachelagring:  Stöds inte
 
-| Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar | Dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar | Dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 4              | 4 × 500            | 2/750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 8              | 8 × 500            | 2/1 500                                     |
@@ -139,7 +144,7 @@ Premium-lagring:  Stöds inte
 Premium Storage cachelagring:  Stöds inte
 
 
-| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
+| Size            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500               | 2/250                 |
 | Standard_A2_v2  | 2         | 4           | 20             | 2 000 / 40 / 20                                           | 4 / 4 x 500               | 2/500                 |
@@ -157,7 +162,7 @@ Premium Storage cachelagring: Stöds
 
 
 
-| Storlek          | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size          | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2/1 500                                     |
 | Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |

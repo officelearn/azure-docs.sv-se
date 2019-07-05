@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110997"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482418"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -38,7 +38,7 @@ Flödet för OAuth 2.0 Behalf (OBO) gör att ett program som anropar en tjänst 
 
 OBO-flödet startar när användaren har autentiserats på ett program som använder den [flöde beviljat med OAuth 2.0-auktoriseringskod](v1-protocols-oauth-code.md). I det här läget skickar programmet en åtkomsttoken (token A) till mellannivå webb-API (API-A) som innehåller användarens anspråk och medgivande till att komma åt API A. Därefter gör API A en autentiserad begäran till underordnade webb-API (API-B).
 
-De här stegen utgör On-Behalf-Of-flöde: ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De här stegen utgör On-Behalf-Of-flöde: ![Visar stegen i OAuth2.0 On-Behalf-Of-flöde](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. Klientprogrammet skickar en begäran till API A med token A.
 1. API-A autentiserar till Azure AD-slutpunkten för utfärdande och begär en token för att komma åt API B.

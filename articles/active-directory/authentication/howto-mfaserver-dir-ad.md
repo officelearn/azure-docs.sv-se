@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055993"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536987"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
@@ -31,6 +31,9 @@ Använd avsnittet Katalogintegrering i Azure MFA Server om du vill integrera med
 Som standard konfigureras Azure Multi-Factor Authentication (MFA) Server att importera eller synkronisera användare från Active Directory.  På fliken Katalogintegrering kan du åsidosätta standardbeteendet och binda till en annan LDAP-katalog, en ADAM-katalog eller en särskild Active Directory-domänkontrollant.  Fliken innehåller också inställningar för användning av LDAP-autentisering via proxy eller för LDAP-bindning som ett RADIUS-mål, förautentisering för IIS-autentisering eller primär autentisering för användarportalen.  De enskilda inställningarna beskrivs i följande tabell.
 
 ![Redigera LDAP-konfiguration i MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Katalogintegrering är inte säkert att arbeta med kataloger än Active Directory Domain Services.
 
 | Funktion | Beskrivning |
 | --- | --- |

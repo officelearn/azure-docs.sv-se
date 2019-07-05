@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754254"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514601"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -32,7 +32,7 @@ Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.6](https://www.python.org/downloads/), med den `python` körbar fil som är tillgängliga i din `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -184,13 +184,13 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 4. I fönstret för den integrerade terminalen kontrollerar du att du befinner dig i mappen azure-cosmos-db-python-getting-started. Om du inte är det kör du följande kommando för att växla till exempelmappen. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Kör följande kommando för att installera paketet azure-cosmos. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 6. Kör följande kommando för att köra exemplet och skapa och lagra nya dokument i Azure Cosmos dB.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

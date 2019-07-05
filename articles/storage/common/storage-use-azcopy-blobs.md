@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f95af348eb11abee5a46a89e08da5bf4eb873c42
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125796"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566134"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob storage
 
@@ -149,7 +149,7 @@ Du kan hämta innehållet i en katalog utan att kopiera katalogen som innehålle
 Du kan använda AzCopy för att kopiera BLOB-objekt till andra storage-konton. Kopieringsåtgärden är synkron så när kommandot returnerar, som anger att alla filer har kopierats.
 
 > [!NOTE]
-> Det här scenariot stöds för närvarande bara för konton som inte har ett hierarkiskt namnområde.
+> Det här scenariot stöds för närvarande bara för konton som inte har ett hierarkiskt namnområde. 
 
 AzCopy använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, så att data har kopierats direkt mellan lagringsservrar. Dessa kopieringsåtgärder använda inte bandbredd på datorn.
 
@@ -161,33 +161,36 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en behållare till ett annat lagringskonto
 > * Kopiera alla behållare, kataloger och filer till ett annat lagringskonto
 
+> [!NOTE]
+> I den aktuella versionen måste du lägga till en SAS-token till varje Käll-URL. Om du anger autentiseringsuppgifter med hjälp av Azure Active Directory (AD) kan du utelämna den SAS-token från mål-URL. 
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Kopiera en blobb till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>"` |
-| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>"` |
+| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Kopiera en katalog till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
-| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
+| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
 
 ### <a name="copy-a-containers-to-another-storage-account"></a>Kopiera en behållare till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
-| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
+| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
 ### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>Kopiera alla behållare, kataloger och filer till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/" "https://<destination-storage-account-name>.blob.core.windows.net/" --recursive"` |
-| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net" "https://mydestinationaccount.blob.core.windows.net" --recursive` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/" --recursive"` |
+| **Exempel** | `azcopy cp "https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net" --recursive` |
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 

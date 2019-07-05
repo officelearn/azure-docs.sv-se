@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784100"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439851"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Aktivera felsökning av ögonblicksbild för .NET-appar i Azure App Service
 
@@ -29,6 +29,8 @@ Följ anvisningarna nedan om du vill aktivera felsökning av ögonblicksbild fö
 * [Azure Service Fabric-tjänster](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure virtuella datorer och VM-skalningsuppsättningar](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Lokala virtuella eller fysiska datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+Om du använder en förhandsversion av .NET Core, följer du anvisningarna för [aktiverar Snapshot Debugger för andra miljöer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) först för att inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet paket med programmet och sedan slutföra resten av instruktionerna nedan. 
 
 Application Insights Snapshot Debugger är förinstallerade som en del av App Services runtime, men du måste stänga in get-ögonblicksbilder för App Service-appen. När du har distribuerat en app, även om du har inkluderat Application Insights SDK i källkoden, följer du stegen nedan för att aktivera snapshot debugger.
 
@@ -52,7 +54,9 @@ Vi rekommenderar att du har Snapshot Debugger aktiverad på alla dina appar för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Arbeta med Application Insights i Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- Generera trafik till ditt program som kan utlösa ett undantag. Vänta 10 till 15 minuter för ögonblicksbilder som ska skickas till Application Insights-instans.
+- Se [ögonblicksbilder](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) i Azure-portalen.
+- Om du vill ha hjälp med felsökning av problem med Snapshot Debugger finns i [Snapshot Debugger felsökning](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

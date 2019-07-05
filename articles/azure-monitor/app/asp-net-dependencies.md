@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299280"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565376"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroendespårning i Azure Application Insights 
 
@@ -104,7 +104,7 @@ För ASP.NET-program samlas fullständiga SQL-fråga med hjälp av byte kod inst
 | --- | --- |
 | Azure-webbapp |I din Kontrollpanelen för webbappar, [öppnar du bladet Application Insights](../../azure-monitor/app/azure-web-apps.md) och aktivera SQL-kommandon under .NET |
 | IIS-Server (virtuell Azure-dator, en lokal och så vidare.) | [Installera Status Monitor på servern där programmet körs](../../azure-monitor/app/monitor-performance-live-website-now.md) och starta om IIS.
-| Azure Cloud Service |[Använd startåtgärd](../../azure-monitor/app/cloudservices.md) till [installera Status Monitor](monitor-performance-live-website-now.md#download) |
+| Azure Cloud Service | Lägg till [startåtgärd för att installera StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Din app ska vara integrerat ApplicationInsights SDK vid Byggtiden genom att installera NuGet-paket för [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) eller [ASP.NET Core-program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Stöds inte
 
 I sådana fall det korrekta sättet verifiera vilken instrumentation motorn är korrekt installerad är genom att verifiera att den SDK-versionen av insamlade `DependencyTelemetry` är 'rddp'. 'rdddsd' eller 'rddf' anger beroenden som samlas in via DiagnosticSource eller EventSource återanrop och kan därför fullständiga SQL-frågan inte kan avbildas.
@@ -113,47 +113,25 @@ I sådana fall det korrekta sättet verifiera vilken instrumentation motorn är 
 
 * [Programavbildning](app-map.md) hjälper dig att visualisera beroenden mellan din app och Närliggande komponenter.
 * [Transaktionsdiagnostik](transaction-diagnostics.md) visar unified, korrelerade serverdata.
-* [Bladet webbläsare](javascript.md#ajax-performance) visar AJAX-anrop från användarnas webbläsare.
+* [Fliken webbläsare](javascript.md#ajax-performance) visar AJAX-anrop från användarnas webbläsare.
 * Klicka dig igenom från långsamma eller misslyckade begäranden om att kontrollera deras beroendeanrop.
-* [Analytics](#analytics) kan användas för att köra frågor mot beroendedata.
+* [Analytics](#logs-analytics) kan användas för att köra frågor mot beroendedata.
 
 ## <a name="diagnosis"></a> Diagnostisera långsamma begäranden
 
 Varje begäran händelse är associerad med beroendeanrop, undantag och andra händelser som spåras medan appen är bearbetar begäran. Så om vissa begäranden gör felaktigt, kan du ta reda om det är på grund av långsam svar från ett beroende.
 
-Låt oss gå igenom ett exempel på det.
-
 ### <a name="tracing-from-requests-to-dependencies"></a>Spåra från begäranden till beroenden
 
-Öppna bladet prestanda och titta på rutnät med begäranden:
+Öppna den **prestanda** fliken och navigera till den **beroenden** fliken längst bredvid åtgärder.
 
-![Lista över begäranden med medelvärden och antal](./media/asp-net-dependencies/02-reqs.png)
+Klicka på en **beroendenamn** under övergripande. När du har valt ett beroende som ett diagram över det beroendet fördelningen av varaktigheterna visas till höger.
 
-Den främsta som tar lång tid. Låt oss se om vi kan ta reda på var tid det tar.
+![I prestanda fliken klickar du på fliken beroende överst sedan beroendenamn i diagrammet](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Klicka på den rad för att visa enskilda förfrågningar om händelser:
+Klicka på det blå fältet **exempel** knappen längst ner till höger och sedan på ett sampel kan se vilka transaktion slutpunkt till slutpunkt.
 
-![Lista med förekomsterna av begäran](./media/asp-net-dependencies/03-instances.png)
-
-Klicka på alla tidskrävande instanser för att granska den ytterligare och rulla ned till de fjärranslutna beroendeanrop som rör denna begäran:
-
-![Hitta anrop till Fjärrberoenden, identifiera onormal varaktighet](./media/asp-net-dependencies/04-dependencies.png)
-
-Det ser ut som de flesta av tid behandlingen denna begäran spenderades i ett anrop till en lokal tjänst.
-
-Välj den raden vill ha mer information:
-
-![Klicka dig igenom remote sambandet att identifiera orsaken](./media/asp-net-dependencies/05-detail.png)
-
-Det verkar som det här beroendet är var problemet finns. Vi har är utmärkt problemet, så nu vi nyss måste du ta reda på varför anropet tar så lång tid.
-
-### <a name="request-timeline"></a>Tidslinje för begäran
-
-I annat fall finns ingen beroendeanropet som är särskilt lång. Men genom att växla till tidslinjevyn kan vi se var fördröjningen uppstod i våra interna bearbetningen:
-
-![Hitta anrop till Fjärrberoenden, identifiera onormal varaktighet](./media/asp-net-dependencies/04-1.png)
-
-Det verkar vara ett stort mellanrum efter det första beroendet anropar, så vi ska titta på vår kod för att avgöra varför det är.
+![Klicka på ett exempel kan se vilka transaktion slutpunkt till slutpunkt](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>Profilera live-webbplatsen
 
@@ -161,35 +139,35 @@ Ingen aning där tiden går? Den [Application Insights-profileraren](../../azure
 
 ## <a name="failed-requests"></a>Misslyckade förfrågningar
 
-Misslyckade förfrågningar kan också vara kopplad till misslyckade anrop till beroenden. Vi kan igen, klicka vidare för att hitta orsaken till problemet.
+Misslyckade förfrågningar kan också vara kopplad till misslyckade anrop till beroenden.
 
-![Klicka på diagram över misslyckade begäranden](./media/asp-net-dependencies/06-fail.png)
+Vi kan gå till den **fel** fliken till vänster och klicka sedan på den **beroenden** fliken högst upp.
 
-Klicka här för att en förekomst av en misslyckad begäran och titta på dess associerade händelserna.
+![Klicka på diagram över misslyckade begäranden](./media/asp-net-dependencies/4-fail.png)
 
-![Klicka på en typ av begäran, instansen som ska komma till en annan vy av samma instans, klickar du på den för att få information om undantag.](./media/asp-net-dependencies/07-faildetail.png)
+Här kommer du att kunna se antal misslyckade beroenden. Få mer information om en misslyckad förekomst försök att klicka på ett beroendenamn i den nedre tabellen. Du kan klicka på det blå fältet **beroenden** knappen längst ned till höger att hämta transaktionsinformation för slutpunkt till slutpunkt.
 
-## <a name="analytics"></a>Analytics
+## <a name="logs-analytics"></a>Loggar (analys)
 
 Du kan spåra beroenden i den [Kusto-frågespråket](/azure/kusto/query/). Här följer några exempel.
 
 * Hitta alla misslyckade beroendeanrop:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * Hitta AJAX-anrop:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * Hitta beroendeanrop som associeras med förfrågningar:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ Du kan spåra beroenden i den [Kusto-frågespråket](/azure/kusto/query/). Här 
 
 * Hitta AJAX-anrop som är associerade med sidvyer:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -220,7 +194,6 @@ Du kan spåra beroenden i den [Kusto-frågespråket](/azure/kusto/query/). Här 
 
 ## <a name="open-source-sdk"></a>Öppen källkod-SDK
 Precis som alla Application Insights SDK är beroende datainsamlingsmodulen även öppen källkod. Läsa och bidra till koden eller rapportera problem vid [officiella GitHub-lagringsplatsen](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357335"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460667"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
-SQL-databas skapas automatiskt säkerhetskopior av databasen sparas mellan 7 och 35 dagar och använder Azure [läsåtkomst till geografiskt redundant lagring (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) så att de bevaras även om datacentret är tillgänglig. Dessa säkerhetskopior skapas automatiskt och utan extra kostnad. Du behöver inte göra något för att det ska hända. Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid (upp till 10 år), kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md) på Singleton-databaser och elastiska pooler.
+SQL-databas skapas automatiskt säkerhetskopior av databasen sparas mellan 7 och 35 dagar och använder Azure [läsåtkomst till geografiskt redundant lagring (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) så att de bevaras även om datacentret är tillgänglig. Dessa säkerhetskopior skapas automatiskt. Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid (upp till 10 år), kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md) på Singleton-databaser och elastiska pooler.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

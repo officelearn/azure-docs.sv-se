@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241472"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433672"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -24,17 +24,17 @@ Från ditt icke-interaktiv .NET-program behöver du:
 * Azure Active Directory (Azure AD)-programmets klients-ID. Se [skapar ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) och [hämta ett program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 * Den Azure AD hemlig nyckeln för program. Se [autentiseringsnyckeln för Get-programmet](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Ett HDInsight-kluster. Se den [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Tilldela en roll till Azure AD-programmet
-Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-roles.md), för att bevilja behörigheter för att utföra åtgärder. Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheterna som ärvs till lägre nivåer av omfång. (Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I den här självstudien får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
+Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-roles.md), för att bevilja behörigheter för att utföra åtgärder. Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheterna som ärvs till lägre nivåer av omfång. (Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I den här artikeln får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
 
 **Att lägga till rollen ägare till Azure AD-programmet**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Resursgrupper** på den vänstra menyn.
-3. Välj den resursgrupp som innehåller HDInsight-klustret som du ska köra Hive-frågan senare i den här självstudien. Om du har ett stort antal resursgrupper kan använda du filtret för att hitta det du vill använda.
+3. Välj den resursgrupp som innehåller HDInsight-klustret som du ska köra Hive-frågan senare i den här artikeln. Om du har ett stort antal resursgrupper kan använda du filtret för att hitta det du vill använda.
 4. På resursgruppmenyn, väljer **åtkomstkontroll (IAM)** .
 5. Välj den **rolltilldelningar** fliken för att se de aktuella rolltilldelningarna.
 6. Längst ned på sidan Välj **Lägg till rolltilldelning**.

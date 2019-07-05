@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992098"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540998"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Använd Service Bus-ämnen och prenumerationer med Node.js och azure-sb-paketet
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node.js för operativsystem"]
@@ -40,7 +40,7 @@ Scenarier som beskrivs här är:
 
 Läs mer om ämnen och prenumerationer, [nästa steg](#next-steps) avsnittet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
 
@@ -48,7 +48,7 @@ Läs mer om ämnen och prenumerationer, [nästa steg](#next-steps) avsnittet.
     > Skapar du en **avsnittet** och en **prenumeration** till ämnet med hjälp av **Node.js** i den här snabbstarten. 
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
-Skapa en tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till en Azure Web Site], [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell eller webbplats med WebMatrix.
+Skapa en tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till en Azure Web Site], [Node.js molntjänst][Node.js Cloud Service] med Windows PowerShell eller -webbplats med WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet att använda Service Bus
 Ladda ned Node.js Azure-paketet om du vill använda Service Bus. Det här paketet innehåller en uppsättning klientbibliotek som kommunicerar med Service Bus REST-tjänster.
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Ämnesprenumerationer skapas också med den **ServiceBusService** objekt. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar uppsättningen av meddelanden som levereras till prenumerationens virtuella kö.
 
 > [!NOTE]
-> Prenumerationer är beständiga förrän antingen de eller ämnet som de är associerade med, tas bort. Om programmet innehåller logik för att skapa en prenumeration, det först ska kontrollera om prenumerationen som finns med hjälp av den `getSubscription` metoden.
+> Som standard prenumerationer är beständiga förrän antingen de eller ämnet som de är associerade med, tas bort. Om programmet innehåller logik för att skapa en prenumeration, det först ska kontrollera om prenumerationen som finns med hjälp av den `getSubscription` metoden.
 >
->
+> Du kan ha prenumerationer bort automatiskt genom att ange den [AutoDeleteOnIdle egenskapen](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 Den **MatchAll** filtret är det standardfilter som används när en prenumeration skapas. När du använder **MatchAll**-filtret kommer alla meddelanden som publiceras till ämnet att placeras i prenumerationens virtuella kö. I följande exempel skapar en prenumeration med namnet AllMessages och använder förvalet **MatchAll** filter.
@@ -166,7 +166,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>Skapa prenumerationer med filter
 Du kan även skapa filter som gör att du omfattning som meddelanden skickas till ett ämne visas inom en viss ämnesprenumeration.
 
-Den mest flexibla typen av filter som stöds av prenumerationerna är den **SqlFilter**, som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Mer information om uttryck som kan användas med ett SQL-filter granskar den [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] syntax.
+Den mest flexibla typen av filter som stöds av prenumerationerna är den **SqlFilter**, som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Mer information om uttryck som kan användas med ett SQL-filter granskar den [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
 Filter kan läggas till en prenumeration med hjälp av den `createRule` -metoden för den **ServiceBusService** objekt. Den här metoden kan du lägga till nya filter i en befintlig prenumeration.
 
@@ -314,7 +314,7 @@ Det finns också en tidsgräns som är associerade med ett meddelande som ligger
 I den händelse att programmet kraschar efter behandlingen av meddelandet men innan den `deleteMessage` metoden anropas, meddelandet once till programmet när den startas om. Det här beteendet kallas ofta *bearbetning minst en gång*. Det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör du lägga till logik i ditt program för att hantera duplicerad meddelandeleverans. Du kan använda den **MessageId** för meddelandet, förblir konstant under alla leveransförsök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt.
+Ämnen och prenumerationer är beständiga såvida inte den [autoDeleteOnIdle egenskapen](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) anges och måste vara explicit bort antingen via den [Azure-portalen][Azure portal] eller programmässigt.
 I följande exempel visar hur du tar bort ämnet med namnet `MyTopic`:
 
 ```javascript
@@ -343,7 +343,7 @@ Nu när du har lärt dig grunderna i Service Bus-ämnen kan du följa dessa län
 
 * Se [köer, ämnen och prenumerationer][Queues, topics, and subscriptions].
 * API-referens för [SqlFilter][SqlFilter].
-* Gå till den [Azure SDK för Node] [ Azure SDK for Node] arkivet på GitHub.
+* Gå till den [Azure SDK för Node][Azure SDK for Node] arkivet på GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

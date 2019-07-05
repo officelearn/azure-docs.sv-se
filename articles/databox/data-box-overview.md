@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603459"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551513"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -59,7 +59,7 @@ Den Data Box-enheten har följande funktioner i den här versionen.
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
 | Vikt                                                  | < 23 kg                |
-| Mått                                              | Enhet – Bredd: 309,0 mm Höjd: 430,4 mm Djup: 502,0 mm |            
+| Dimensioner                                              | Enhet – Bredd: 309,0 mm Höjd: 430,4 mm Djup: 502,0 mm |            
 | Rackutrymme                                              | 7 U när den placeras i rack på sidan (kan inte rackmonteras)|
 | Kablar som krävs                                         | 1 x strömkabel (ingår) <br> 2 RJ45-kablar <br> 2 x SFP + Twinax-kopparkablar|
 | Lagringskapacitet                                        | 100 TB-enheten har 80 TB användbar kapacitet efter RAID 5-skydd|
@@ -116,6 +116,9 @@ Data Box kan överföra data baserat på den region där tjänsten distribueras,
     - EU – Europa, västra och Europa, norra.
     - Storbritannien – Storbritannien, södra och Storbritannien, västra.
     - Frankrike – Frankrike, centrala och Frankrike, södra.
+    - Japan – Japan, östra och Japan, västra.
+    - Australien – Australien, östra och sydöstra Australien.
+    - Kanada – Östra Kanada och centrala Kanada.
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
 

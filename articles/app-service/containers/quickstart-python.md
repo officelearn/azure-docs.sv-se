@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919613"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514534"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en Python-app i Azure App Service i Linux
 
@@ -27,7 +27,7 @@ I den här snabbstarten distribuerar du en enkel Python-app till [App Service i 
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 Spara dina ändringar och avsluta redigeraren. Använd kommandot `^S` för att spara och `^Q` för att avsluta.
 
-Distribuera om appen med den [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) kommando. Ersätt namnet på din app för `<app-name>`, och ange en plats för `<location-name>` (med någon av de värden som visas från den [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
+Distribuera om appen med den [ `az webapp up` ](/cli/azure/webapp#az-webapp-up) kommando. Ersätt namnet på din app för `<app-name>`, och ange en plats för `<location-name>` (med någon av de värden som visas från den [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

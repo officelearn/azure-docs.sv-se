@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Python- och REST API: er – Azure Search'
-description: Skapa, läsa in och fråga ett index med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
+title: 'Python-Snabbstart: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
+description: Beskriver hur du skapar ett index, läsa in data och kör frågor med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,27 +10,27 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302284"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485476"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Snabbstart: Skapa ett Azure Search-index med Python i Jupyter-anteckningsböcker
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Search-index i Python med Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search-index med hjälp av Python och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du bygger en anteckningsbok steg för steg, med början från grunden. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till den[lagringsplats för azure-aearch-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search-index med hjälp av Python och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du bygger en anteckningsbok steg för steg, med början från grunden. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till den[lagringsplatsen för azure search-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg som används i den här snabbstarten. 
 
@@ -46,7 +46,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
 Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -275,7 +275,7 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
 
     ![Söka i ett index](media/search-get-started-python/search-index.png "söka i ett index")
 
-1. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan ersätta söksträngen med följande exempel och kör sedan sökbegäran. 
+1. Testa några andra fråga exempel för att få en bild av syntaxen. Du kan ersätta den `searchstring` med följande exempel och kör sedan igen sökbegäran. 
 
    Ett filter: 
 

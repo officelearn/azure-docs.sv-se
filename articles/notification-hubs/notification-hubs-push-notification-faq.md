@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730452"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488653"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -69,7 +69,7 @@ Server-SDK: er är tillgängliga för .NET, Java, Node.js, PHP och Python. Notif
 
 ### <a name="which-client-platforms-do-you-support"></a>Vilka klientplattformar stöder ni?
 
-Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Kina (Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
+Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android Kina ( via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Har du stöd för SMS, e-post eller webb-meddelanden?
 
@@ -85,7 +85,7 @@ Om du har en befintlig serverdel för mobilappen och du vill lägga till bara m�
 
 Referera till den [Prisinformation om Notification hub] för information om hur många enheter som stöds.
 
-Om du behöver stöd för fler än 10 miljoner registrerade enheter, [Kontakta oss](https://azure.microsoft.com/overview/contact-us/) direkt och vi hjälpa dig att skala din lösning.
+Om du behöver stöd för fler än 10 miljoner registrerade enheter måste du dela dina enheter över flera hubbar.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Hur många push-meddelanden kan jag skicka ut?
 

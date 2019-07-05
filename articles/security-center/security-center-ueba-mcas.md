@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332405"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551791"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA för Azure-resurser och användare 
 
@@ -31,7 +31,7 @@ Azure Security Center partner med Microsoft Cloud App Security för att få avis
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En giltig aktiverat [Microsoft Cloud App Security-licens](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)
 - [Security Center Standard-nivån](https://azure.microsoft.com/pricing/details/security-center/)
@@ -55,8 +55,8 @@ Security Center har stöd för Cloud App Security aviseringarna för avvikelseid
 
 Dessa aviseringar är aktiverade som standard, men du kan inaktivera dem:
 
-1. I Security Center-bladet väljer **säkerhetsprincip**. För den prenumeration som du vill ändra, klickar du på **redigera inställningar för**.
-2.  Klicka på **Hotidentifiering**.
+1. I Security Center-bladet väljer **priser och inställningar** och välj prenumerationen som är tillämpligt.
+2. Klicka på **Hotidentifiering**.
 3. Under **för att göra integreringar**, avmarkera **Tillåt Microsoft Cloud App Security åtkomst till Mina data**, och klicka på **spara**.
 
    ![Varning för hot](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

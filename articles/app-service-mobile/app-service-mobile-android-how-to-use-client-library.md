@@ -3,7 +3,7 @@ title: Hur du använder Azure Mobile Apps-SDK för Android | Microsoft Docs
 description: Hur du använder Azure Mobile Apps-SDK för Android
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859400"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443546"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
+
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) idag.
+>
 
 Den här guiden visar hur du använder Android-klient SDK för Mobile Apps för att implementera vanliga scenarier, till exempel:
 
@@ -29,11 +33,11 @@ Den här guiden visar hur du använder Android-klient SDK för Mobile Apps för 
 * Hantera fel.
 * Anpassning av klienten.
 
-Den här guiden fokuserar på klientsidan Android SDK.  Läs mer om SDK: er för serversidan för Mobile Apps i [arbeta med SDK för .NET-serverdel] [ 10] eller [hur du använder SDK för Node.js-serverdel][11].
+Den här guiden fokuserar på klientsidan Android SDK.  Läs mer om SDK: er för serversidan för Mobile Apps i [arbeta med SDK för .NET-serverdel][10] or [How to use the Node.js backend SDK][11].
 
 ## <a name="reference-documentation"></a>Referensdokumentation
 
-Du hittar den [Javadocs API-referens] [ 12] för Android-klientbiblioteket på GitHub.
+Du hittar den [Javadocs API-referens][12] för Android-klientbiblioteket på GitHub.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
@@ -45,7 +49,7 @@ Slutför den [Mobile Apps-Snabbstart](app-service-mobile-android-get-started.md)
 
 Om du inte väljer att slutföra Snabbstart-självstudien utför du följande uppgifter:
 
-* [Skapa en mobilappsserverdel] [ 13] ska användas med din Android-app.
+* [Skapa en mobilappsserverdel][13] ska användas med din Android-app.
 * I Android Studio [uppdatering såg Gradle skapa filer](#gradle-build).
 * [Aktivera internet behörighet](#enable-internet).
 
@@ -197,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Läs hur du skapar ytterligare tabeller i Mobile Apps-serverdel i [så här: Definiera en] [ 15] (.NET-serverdel) eller [definiera tabeller med hjälp av en dynamiskt Schema] [ 16] (Node.js-serverdel).
+Läs hur du skapar ytterligare tabeller i Mobile Apps-serverdel i [så här: Definiera en][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js-serverdel).
 
 En tabell för Azure Mobile Apps-serverdel definierar fem särskilda fält, fyra av som är tillgängliga för klienter:
 
-* `String id`: Globalt unikt ID för posten.  Som bästa praxis, se id strängrepresentation av en [UUID] [ 17] objekt.
+* `String id`: Globalt unikt ID för posten.  Som bästa praxis, se id strängrepresentation av en [UUID][17] objekt.
 * `DateTimeOffset updatedAt`: Datum/tid för den senaste uppdateringen.  Fältet updatedAt anges av-servern och aldrig ska anges genom att klientkoden.
 * `DateTimeOffset createdAt`: Datum och tid då objektet skapades.  Fältet createdAt anges av-servern och aldrig ska anges genom att klientkoden.
 * `byte[] version`: Vanligtvis representeras som en sträng, anges versionen också av servern.
 * `boolean deleted`: Anger att posten har tagits bort men inte rensats ännu.  Använd inte `deleted` som en egenskap i klassen.
 
-Fältet `id` är obligatoriskt.  Den `updatedAt` fält och `version` används för offlinesynkronisering (för inkrementell synkronisering och konflikt matchning respektive).  Den `createdAt` fält anges referens och inte används av klienten.  Namnen ”över under” namnen på egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan objektet och ”över under” namnen med hjälp av den [gson] [ 3] biblioteket.  Exempel:
+Fältet `id` är obligatoriskt.  Den `updatedAt` fält och `version` används för offlinesynkronisering (för inkrementell synkronisering och konflikt matchning respektive).  Den `createdAt` fält anges referens och inte används av klienten.  Namnen ”över under” namnen på egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan objektet och ”över under” namnen med hjälp av den [gson][3] biblioteket.  Exempel:
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Skapa en tabellreferens
 
-Om du vill få åtkomst till en tabell måste du först skapa en [MobileServiceTable] [ 8] objekt genom att anropa den **getTable** metoden på den [MobileServiceClient] [9].  Den här metoden har två överlagringar:
+Om du vill få åtkomst till en tabell måste du först skapa en [MobileServiceTable][8] objekt genom att anropa den **getTable** metoden på den [MobileServiceClient][9].  Den här metoden har två överlagringar:
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Föregående exempel returnerar alla resultat (upp till den maximala sidstorleken som angetts av servern).  Den `.execute()` metoden Kör frågan på serverdelen.  Frågan konverteras till en [OData v3] [ 19] fråga innan informationen överförs till Mobile Apps-serverdel.  Om konverterar Mobile Apps-serverdel frågan till en SQL-instruktion innan det körs på den SQL Azure-instansen.  Eftersom nätverksaktivitet tar lite tid den `.execute()` metoden returnerar en [ `ListenableFuture<E>` ] [ 18].
+Föregående exempel returnerar alla resultat (upp till den maximala sidstorleken som angetts av servern).  Den `.execute()` metoden Kör frågan på serverdelen.  Frågan konverteras till en [OData v3][19] fråga innan informationen överförs till Mobile Apps-serverdel.  Om konverterar Mobile Apps-serverdel frågan till en SQL-instruktion innan det körs på den SQL Azure-instansen.  Eftersom nätverksaktivitet tar lite tid den `.execute()` metoden returnerar en [ `ListenableFuture<E>` ][18].
 
 ### <a name="filtering"></a>Filtrera returnerade data
 
@@ -609,7 +613,7 @@ Du är nu redo att använda databindning. Följande kod visar hur du hämtar obj
 
 Anropa kortet när du ändrar den **ToDoItem** tabell. Eftersom ändringar görs på basis av post med, kan du hantera en enskild rad i stället för en samling. När du infogar ett objekt anropar den **lägga till** metod på kortet; när du tar bort, kan du anropa den **ta bort** metod.
 
-Du hittar ett komplett exempel i den [Android Snabbstartsprojektet][21].
+Du hittar ett komplett exempel i den [Android Quickstart-projektet][21].
 
 ## <a name="inserting"></a>Infoga data i serverdelen
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 När du har skapat en instans av den **MobileServiceJsonTable**, den har i stort sett samma API tillgängligt som med de typangivna programmeringsmodellen. I vissa fall kan ta metoderna som en utan angiven parameter i stället för en typifierad parameter.
 
 ### <a name="json_insert"></a>Infoga i en ej typbestämd tabell
-Följande kod visar hur du gör en infogning. Det första steget är att skapa en [JsonObject][1], vilket är en del av den [gson] [ 3] biblioteket.
+Följande kod visar hur du gör en infogning. Det första steget är att skapa en [JsonObject][1] , which is part of the [gson][3] biblioteket.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1081,7 +1085,7 @@ Ersätt den `onSuccess()` metod med det kod som du vill använda på en lyckad i
 
 Du kan använda Active Directory Authentication Library (ADAL) för att registrera användare i ditt program med Azure Active Directory. Med en inloggning på klienten flödet är ofta bättre än att använda den `loginAsync()` metoder som det ger en mer interna UX-design och möjliggör ytterligare anpassning.
 
-1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning] [ 22] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram.
+1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning][22] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram.
 2. Installera ADAL genom att ändra build.gradle-filen för att inkludera följande definitioner:
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Konfigurera automatisk serialisering
 
-Du kan ange en konverteringsstrategin som gäller för varje kolumn med hjälp av den [gson] [ 3] API. Android-klientbiblioteket använder [gson] [ 3] i bakgrunden att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  I följande kod används den **setFieldNamingStrategy()** metoden för att ange strategin. Det här exemplet tar bort det första tecknet (en ”m”), och sedan gemena nästa tecken för varje fältnamn. Till exempel skulle den göra ”mId” till ”id”.  Implementera en konvertering strategi för att minska behovet av `SerializedName()` anteckningar på de flesta fält.
+Du kan ange en konverteringsstrategin som gäller för varje kolumn med hjälp av den [gson][3] API. Android-klientbiblioteket använder [gson][3] i bakgrunden att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  I följande kod används den **setFieldNamingStrategy()** metoden för att ange strategin. Det här exemplet tar bort det första tecknet (en ”m”), och sedan gemena nästa tecken för varje fältnamn. Till exempel skulle den göra ”mId” till ”id”.  Implementera en konvertering strategi för att minska behovet av `SerializedName()` anteckningar på de flesta fält.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

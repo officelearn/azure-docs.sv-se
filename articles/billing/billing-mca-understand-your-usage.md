@@ -1,55 +1,51 @@
 ---
-title: Förstå villkoren på Azure-användning och kostnader CSV för en Microsoft-kundavtal | Microsoft Docs
-description: Lär dig hur du har läst och förstått avsnitt av Azure-användning och kostnader CSV för din faktureringsinformation profil
-services: ''
-documentationcenter: ''
+title: Villkoren i filen Azure användning och avgifter för en Microsoft-kundavtal
+description: Lär dig mer om att läsa och förstå avsnitt av Azure-användning och kostnader CSV för fakturering profilen.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371316"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490632"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Förstå villkoren på Azure-användning och kostnader CSV för en Microsoft-kundavtal
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Villkoren i filen Azure användning och avgifter för en Microsoft-kundavtal
 
 Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
-Azure användning och avgifter CSV-filen innehåller avgifter för användning av varje dag och mätare för den aktuella faktureringsperioden.
+Azure användning och avgifter CSV-filen innehåller mätaren servernivå och dagliga användningsdebitering för den aktuella faktureringsperioden.
 
-För att få din Azure-användning och avgifter kan se [visa och ladda ned Azure-användning och kostnader för ditt Microsoft-kundavtal](billing-download-azure-daily-usage.md).
-Det är tillgängligt i en fil med kommaavgränsade värden (.csv)-format som kan öppnas i ett kalkylbladsprogram.
+För att få din Azure-användning och avgifter kan se [visa och ladda ned Azure-användning och kostnader för ditt Microsoft-kundavtal](billing-download-azure-daily-usage.md). Det är tillgängligt i en fil med kommaavgränsade värden (.csv)-format som kan öppnas i ett kalkylbladsprogram.
 
 Användningsdebitering är det totala antalet **månatliga** debiteringar i en prenumeration. Avgifter för användning beakta inte en kredit eller rabatt.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Ändringar i Enterprise Agreement Azure-användning och kostnader CSV
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Ändringar från Azure EA-användning och avgifter
 
-Om du har ett EA-kund, märker du som villkoren i fakturering profilen Azure-användning CSV-filen skiljer sig från villkoren i CSV-filen EA Azure-användning. Här är en mappning av villkoren för EA-användning för perioder Användarvillkor profil:
+Om du har ett EA-kund, märker du att villkoren i Azure fakturering profil användning CSV-filen skiljer sig från villkoren i Azure EA användning CSV-filen. Här är en mappning av villkoren för EA-användning för perioder Användarvillkor profil:
 
-| EA Azure-användning CSV | Microsoft Customer Agreement Azure-användning och avgifter CSV |
+| Användningen av Azure EA CSV | Microsoft Customer Agreement Azure-användning och avgifter CSV |
 | --- | --- |
 | Date | date |
 | Månad| date |
 | Dag | date |
 | År | date |
-| Product | Produkten |
+| Product | product |
 | MeterId | meterID |
 | MeterCategory | meterCategory |
 | MeterSubCategory | meterSubCategory |
 | MeterRegion | meterRegion |
 | meterName | meterName |
 | ConsumedQuantity | kvantitet |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | resourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Om du har ett EA-kund, märker du som villkoren i fakturering profilen Azure-anv
 | AdditionalInfo | AdditionalInfo |
 | Tags | taggar |
 | StoreServiceIdentifier | Gäller inte |
-| Avdelningsnamn | invoiceSection | <!-- this was highlighted -->
+| Avdelningsnamn | invoiceSection |
 | Kostnadsställe | costCenter |
 | unitOfMeasure | unitofMeasure |
-| ResourceGroup | ResourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ResourceGroup | resourceGroup |
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Detaljerade villkor och beskrivningar
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Detaljerade villkor och beskrivningar i din Azure-användning och avgifter
-
-I följande avsnitt beskrivs viktiga termer som visas i Azure-användning och avgifter.
+Följande villkor visas i Azure-användning och avgifter.
 
 Term | Beskrivning
 --- | ---
@@ -98,7 +92,7 @@ meterSubCategory | Namnet på underkategori för mätning klassificering
 meterRegion | Namnet på den region där mätaren för tjänsten är tillgänglig. Identifierar platsen för datacenter för vissa tjänster som prissätts baserat på datacenterplats.
 erbjudande | Namnet på erbjudandet har köpt
 productId | Unik identifierare för den produkt som betalar avgifterna
-Produkten | Namnet på den produkt som betalar avgifterna
+product | Namnet på den produkt som betalar avgifterna
 prenumerations-ID | Unik identifierare för den prenumeration betalar avgifterna
 subscriptionName | Namnet på den prenumeration betalar avgifterna
 reservationId | Unik identifierare för den köpta reservation-instansen
@@ -108,7 +102,7 @@ PublisherName | Utgivare för Marketplace-tjänster
 resourceGroupId | Unik identifierare för resursgruppen som hör till resursen
 resourceGroupName | Namnet på resursgruppen som hör till resursen
 resourceId | Unik identifierare för resursinstansen
-ResourceType | Typ av resursinstans
+resourceType | Typ av resursinstans
 resourceLocation | Identifierar platsen för det datacenter där resursen körs.
 location | Normaliserade platsen för resursen om olika platser är konfigurerade för samma regioner
 kvantitet | Antalet enheter som har köpt eller förbrukat
@@ -120,9 +114,9 @@ serviceInfo2 | Äldre fält som samlar in valfria tjänstspecifika metadata
 AdditionalInfo | Ytterligare tjänstspecifika metadata.
 taggar | Taggar som du tilldelar till resursen
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Hur gör jag till att kostnader på min Azure användning och avgifter fil är korrekta?
+### <a name="make-sure-that-charges-are-correct"></a>Se till att kostnader är korrekta
 
-Om det finns en avgift på din detaljerad användning-fil som du vill ha mer information på, se [förstå debiteringar på din faktureringsinformation profil faktura](billing-mca-understand-your-bill.md)
+Om du vill se till att avgifter i dina detaljerad användningsfil är korrekta, kan du kontrollera dem. Se [förstå debiteringar på din faktureringsinformation profil faktura](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

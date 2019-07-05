@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322589"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485856"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Automatisk IoT-enhetshantering i stor skala med Azure CLI
 
@@ -29,7 +29,9 @@ Automatisk fungerar genom att uppdatera en uppsättning enhetstvillingar med ön
 
 * Den **rikta innehåll** definierar önskade egenskaper för att läggas till eller uppdateras i de aktuella enhetstvillingar. Innehållet inkluderar en sökväg till avsnittet i önskade egenskaper som ska ändras.
 
-* Den **mått** definiera sammanfattning av antalet olika konfigureringstillstånd som **lyckades**, **pågår**, och **fel**. Anpassade mått har angetts som frågor på enhet enhetstvillingens egenskaper.  Systemmått är standard-mått som mäter twin uppdateringsstatus, till exempel antalet enhetstvillingar som angetts som mål och antal twins som har uppdaterats. 
+* Den **mått** definiera sammanfattning av antalet olika konfigureringstillstånd som **lyckades**, **pågår**, och **fel**. Anpassade mått har angetts som frågor på enhet enhetstvillingens egenskaper.  Systemmått är standard-mått som mäter twin uppdateringsstatus, till exempel antalet enhetstvillingar som angetts som mål och antal twins som har uppdaterats.
+
+Automatisk enhetskonfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. Mått frågor köras varje gång automatisk enhetskonfigurationen körs.
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
@@ -56,7 +58,7 @@ Innan du skapar en konfiguration, måste du ange vilka enheter som du vill påve
 
 ## <a name="define-the-target-content-and-metrics"></a>Definiera rikta innehåll och mått
 
-Rikta innehåll och mått frågor har angetts som JSON-dokument som beskriver enheten twin önskade egenskaper i uppsättningen och rapporterade egenskaper ska mätas.  Om du vill skapa en automatisk konfiguration med hjälp av Azure CLI, spara rikta innehåll och mått lokalt som .txt-filer. Du kan använda sökvägarna i ett senare avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
+Rikta innehåll och mått frågor har angetts som JSON-dokument som beskriver enheten twin önskade egenskaper i uppsättningen och rapporterade egenskaper ska mätas.  Om du vill skapa en automatisk konfiguration med hjälp av Azure CLI, spara rikta innehåll och mått lokalt som .txt-filer. Du kan använda sökvägarna i ett senare avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet.
 
 Här är ett grundläggande mål innehåll exempel:
 

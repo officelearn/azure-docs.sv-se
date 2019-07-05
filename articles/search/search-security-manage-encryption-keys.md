@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753937"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485320"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-kryptering med Kundhanterade nycklar i Azure Key Vault
 
@@ -31,7 +31,7 @@ Kryptering med Kundhanterade nycklar har konfigurerats på index eller synonymen
 
 Du kan använda olika nycklar från olika nyckelvalv. Det innebär att en enda söktjänst kan vara värd för flera krypterade indexes\synonym kartor, var och en krypterad potentiellt med hjälp av en annan kundhanterad nyckel, tillsammans med indexes\synonym maps som inte är krypterade med Kundhanterade nycklar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster används i det här exemplet. 
 
@@ -41,7 +41,7 @@ Följande tjänster används i det här exemplet.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurationsåtgärder.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhandsversionen av REST API. Det finns ingen portal eller .NET SDK-stöd för Kundhanterade kryptering just nu.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhandsversionen av REST API. Det finns ingen portal eller .NET SDK-stöd för Kundhanterade kryptering just nu.
 
 ## <a name="1---enable-key-recovery"></a>1 – Aktivera återställning av nyckel
 

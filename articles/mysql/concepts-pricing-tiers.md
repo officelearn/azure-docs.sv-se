@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 06/27/2019
+ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339936"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445437"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -62,12 +62,12 @@ Lagringsgränserna ökar vi vår generell användning och Minnesoptimerad nivåe
 |              | **Generell användning** | **Optimerat minne** |
 |:-------------|:--------------------|:---------------------|
 | Lagringstyp | Azure Premium Storage | Azure Premium Storage |
-| Lagringsstorlek | 32 GB till 16 TB| 32-16 TB |
+| Lagringsstorlek | 32 GB till 16 TB| 32 GB till 16 TB |
 | Öka lagringsstorleken | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS |
 
 > [!IMPORTANT]
-> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, Nordeuropa, Västeuropa, Sydostasien, Japan östra, Korea centrala; Australien, östra.
+> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, Nordeuropa, Västeuropa, Storbritannien, södra, Storbritannien, västra, Sydostasien, östra Asien, östra Japan, östra och Japan, västra, Korea, centrala Korea, södra, Australien, Östra Australien sydöstra.
 >
 > Förhandsversionen av stort lagringsutrymme stöder för närvarande inte:
 >

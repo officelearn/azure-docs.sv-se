@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080463"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428321"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera ansluten fabrik lösningsaccelerator
 
@@ -29,7 +29,7 @@ Varje Contoso factory har produktionsrader som består av tre stationer. Varje s
 * Testa station
 * Förpackningsstation
 
-Dessa OPC UA-servrar har OPC UA-noder och [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) skickar värdena för dessa noder till ansluten fabrik. Det här omfattar:
+Dessa OPC UA-servrar har OPC UA-noder och [OPC Publisher](overview-opc-publisher.md) skickar värdena för dessa noder till ansluten fabrik. Det här omfattar:
 
 * Aktuella driftstatus, till exempel aktuell energiförbrukning.
 * Produktionsinformation, till exempel hur många produkter gav.
@@ -307,7 +307,7 @@ För vissa åtgärder, till exempel visualisera det sista värdet eller skapa Ti
 
   Identifierar Nodvärdet i OPC UA-servern. Formatet på egenskapen måste vara som angetts i OPC UA-specifikationen. I de inmatade meddelandena skickas den här egenskapen som **NodeId**.
 
-Kontrollera [detta](https://github.com/Azure/iot-edge-opc-publisher) GitHub-sidan för mer information om hur dessa data matas in ansluten fabrik med hjälp av OPC Publisher.
+Se [vad är OPC Publisher](overview-opc-publisher.md) för mer information om hur dessa data matas in ansluten fabrik.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exempel: Hur KPI1 beräknas
 

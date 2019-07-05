@@ -7,23 +7,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: fa838f371607f3c0b0f76f81d6755c842a5901f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687972"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448964"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
 I den här artikeln får du lära dig hantera ett befintligt kluster för ML-tjänster på Azure HDInsight för att utföra uppgifter som att lägga till flera samtidiga användare, fjärransluta till ett kluster som ML-tjänster, ändra beräkningskontext osv.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* **En ML-Services-kluster i HDInsight**: Anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
+* En ML-Services-kluster i HDInsight. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **ML tjänster** för **Klustertyp**.
 
-* **En Secure Shell-klient (SSH)** : En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* En Secure Shell (SSH)-klient: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Aktivera flera samtidiga användare
@@ -107,123 +108,7 @@ Mer information finns i avsnittet ”med hjälp av Microsoft Machine Learning Se
 
 ## <a name="use-a-compute-context"></a>Använda en beräkningskontext
 
-Med en beräkningskontext kan du kontrollera om beräkningen utförs lokalt på kantnoden eller om den ska distribueras mellan noderna i HDInsight-klustret.
-
-1. Från RStudio Server eller R-konsolen (i en SSH-session) använder du följande kod till att läsa in exempeldata till standardlagringen för HDInsight:
-
-        # Set the HDFS (WASB) location of example data
-        bigDataDirRoot <- "/example/data"
-
-        # create a local folder for storaging data temporarily
-        source <- "/tmp/AirOnTimeCSV2012"
-        dir.create(source)
-
-        # Download data to the tmp folder
-        remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
-        download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
-        download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
-        download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
-        download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
-        download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
-        download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
-        download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
-        download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
-        download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
-        download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
-        download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
-        download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
-
-        # Set directory in bigDataDirRoot to load the data into
-        inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
-
-        # Make the directory
-        rxHadoopMakeDir(inputDir)
-
-        # Copy the data from source to input
-        rxHadoopCopyFromLocal(source, bigDataDirRoot)
-
-2. Därefter skapa lite datainfo och definiera två datakällor.
-
-        # Define the HDFS (WASB) file system
-        hdfsFS <- RxHdfsFileSystem()
-
-        # Create info list for the airline data
-        airlineColInfo <- list(
-             DAY_OF_WEEK = list(type = "factor"),
-             ORIGIN = list(type = "factor"),
-             DEST = list(type = "factor"),
-             DEP_TIME = list(type = "integer"),
-             ARR_DEL15 = list(type = "logical"))
-
-        # get all the column names
-        varNames <- names(airlineColInfo)
-
-        # Define the text data source in hdfs
-        airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
-
-        # Define the text data source in local system
-        airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
-
-        # formula to use
-        formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
-
-3. Kör en logistisk regression mot data med den lokala beräkningskontexten.
-
-        # Set a local compute context
-        rxSetComputeContext("local")
-
-        # Run a logistic regression
-        system.time(
-           modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
-        )
-
-        # Display a summary
-        summary(modelLocal)
-
-    Du bör se utdata som slutar med rader som liknar följande kodavsnitt:
-
-        Data: airOnTimeDataLocal (RxTextData Data Source)
-        File name: /tmp/AirOnTimeCSV2012
-        Dependent variable(s): ARR_DEL15
-        Total independent variables: 634 (Including number dropped: 3)
-        Number of valid observations: 6005381
-        Number of missing observations: 91381
-        -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
-
-        Coefficients:
-                         Estimate Std. Error z value Pr(>|z|)
-         (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
-         ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
-         ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
-         ......
-         DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
-         DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
-         DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
-         DEST=BPT         Dropped    Dropped Dropped  Dropped
-
-         ---
-
-         Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-         Condition number of final variance-covariance matrix: 11904202
-         Number of iterations: 7
-
-4. Kör samma logistiska regression med Spark-kontext. Spark-kontexten distribuerar bearbetningen mellan alla arbetsnoder i HDInsight-klustret.
-
-        # Define the Spark compute context
-        mySparkCluster <- RxSpark()
-
-        # Set the compute context
-        rxSetComputeContext(mySparkCluster)
-
-        # Run a logistic regression
-        system.time(  
-           modelSpark <- rxLogit(formula, data = airOnTimeData)
-        )
-
-        # Display a summary
-        summary(modelSpark)
-
+Med en beräkningskontext kan du kontrollera om beräkningen utförs lokalt på kantnoden eller om den ska distribueras mellan noderna i HDInsight-klustret.  Ett exempel på hur en beräkningskontext med RStudio Server Se [köra ett R-skript på ett kluster som ML-tjänster i Azure HDInsight med hjälp av RStudio Server](machine-learning-services-quickstart-job-rstudio.md).
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuera R-kod till flera noder
 

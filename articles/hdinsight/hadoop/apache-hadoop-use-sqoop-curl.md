@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 345f492c5b2c754cbbcfa150561ee06b5a4154a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ede0538e90e9f35797546f34bfed757c2727b194
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718679"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508873"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Kör Apache Sqoop jobb i HDInsight med Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -21,7 +21,7 @@ Lär dig hur du använder Curl för att köra Apache Sqoop jobb på en Apache Ha
 
 CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av rådata HTTP-begäranden att köra, övervaka och hämta resultaten för Sqoop jobb. Detta fungerar med WebHCat REST API (tidigare kallat Templeton) tillhandahålls av ditt HDInsight-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutförandet av [skapa testmiljö](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) från [Använd Apache Sqoop med Hadoop i HDInsight](./hdinsight-use-sqoop.md).
 
@@ -115,4 +115,4 @@ För andra HDInsight curl artiklar som rör:
 * [Skapa Apache Hadoop-kluster med Azure REST-API](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 * [Kör Apache Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST](apache-hadoop-use-hive-curl.md)
 * [Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av REST](apache-hadoop-use-mapreduce-curl.md)
-* [Kör Apache Pig-jobb med Apache Hadoop på HDInsight med cURL](apache-hadoop-use-pig-curl.md)
+

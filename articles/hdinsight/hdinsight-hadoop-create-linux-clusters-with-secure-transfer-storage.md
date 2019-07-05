@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72e8b1331005db59be572e033bfaaaf5ceeea0b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685227"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433609"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop-kluster med säker överföring storage-konton i Azure HDInsight
 
 Funktionen [Säker överföring krävs](../storage/common/storage-require-secure-transfer.md) förbättrar säkerheten för ditt Azure Storage-konto genom att kräva att alla förfrågningar till ditt konto görs via en säker anslutning. Den här funktionen och wasbs-schemat stöds endast av HDInsight-kluster med version 3.6 eller senare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du börjar den här vägledningen måste du ha:
+## <a name="prerequisites"></a>Förutsättningar
+Innan du påbörjar den här artikeln måste du ha:
 
 * **Azure-prenumeration**: Om du vill skapa ett kostnadsfritt utvärderingskonto för en månad, bläddra till [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-quickstart-create-account.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring).
@@ -31,7 +31,7 @@ Innan du börjar den här vägledningen måste du ha:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Mallen finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Mallen finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa den här artikeln. Information om andra kluster metoder för att skapa och förstå de egenskaper som används i den här artikeln finns i [skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal.
 
@@ -61,7 +61,7 @@ Det finns flera alternativ för att lägga till ytterligare lagringskonton som a
 - Använd skriptåtgärder om du vill lägga till fler lagringskonton som använder säker överföring i ett befintligt HDInsight-kluster. Mer information finns i [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md) (Lägga till fler lagringskonton till HDInsight).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen har du lärt dig hur du skapar ett HDInsight-kluster och hur du aktiverar säker överföring för lagringskontona.
+I den här artikeln har du lärt dig hur du skapar ett HDInsight-kluster och aktivera säker överföring för lagringskontona.
 
 Mer information om att analysera data med HDInsight finns i följande artiklar:
 

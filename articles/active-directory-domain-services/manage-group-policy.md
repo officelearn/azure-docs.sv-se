@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administrera Grupprincip i hante
 description: Administrera Grupprincip i Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: db5fd06bc4d9a923279095ab187d867a6624480a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245856"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473106"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrera Grupprincip i en Azure AD Domain Services-hanterad domän
 Azure Active Directory Domain Services innehåller inbyggda grupprincipobjekt (GPO) för behållarna ”AADDC-användare” och ”AADDC-datorer”. Du kan anpassa dessa inbyggda grupprincipobjekt för att konfigurera en Grupprincip på den hanterade domänen. Medlemmar i gruppen ”AAD DC-administratörer” kan även skapa egna anpassade organisationsenheter i den hanterade domänen. De kan också skapa anpassade grupprincipobjekt och koppla dem till dessa anpassade organisationsenheter. Användare som tillhör gruppen ”AAD DC-administratörer” beviljas som gruppolicy administratörsbehörighet för den hanterade domänen.

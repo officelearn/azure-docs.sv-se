@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 07c1a726e33eb8287634b63ef2e309483c05c3f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 424995369ca0d993d78a5d5e4dd1e2b52a0d64d9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962113"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428339"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -38,9 +38,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/read | Läsa Ou-behållare |
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/write | Skriva Organisationsenhetsbehållaren |
 > | Åtgärd | Microsoft.AAD/domainServices/read | Read Domain Services |
-> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/delete | Ta bort klustret webbplats |
-> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/read | Läs Klusterplatser |
-> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/write | Skriva Klusterplatser |
+> | Åtgärd | Microsoft.AAD/domainServices/replicaSets/delete | Ta bort klustret webbplats |
+> | Åtgärd | Microsoft.AAD/domainServices/replicaSets/read | Läs Klusterplatser |
+> | Åtgärd | Microsoft.AAD/domainServices/replicaSets/write | Skriva Klusterplatser |
 > | Åtgärd | Microsoft.AAD/domainServices/write | Write Domain Service |
 > | Åtgärd | Microsoft.AAD/locations/operationresults/read |  |
 > | Åtgärd | Microsoft.AAD/Operations/read |  |
@@ -152,6 +152,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Advisor/configurations/write | Konfiguration av skapar/uppdateringar |
 > | Åtgärd | Microsoft.Advisor/generateRecommendations/action | Genererar rekommendationer |
 > | Åtgärd | Microsoft.Advisor/generateRecommendations/read | Hämtar generera rekommendationer status |
+> | Åtgärd | Microsoft.Advisor/metadata/read | Get Metadata |
 > | Åtgärd | Microsoft.Advisor/operations/read | Hämtar åtgärderna för Microsoft Advisor |
 > | Åtgärd | Microsoft.Advisor/recommendations/available/action | Ny rekommendation är tillgängligt i Microsoft advisor |
 > | Åtgärd | Microsoft.Advisor/recommendations/read | Läser rekommendationer |
@@ -651,9 +652,11 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/delete | Tar bort en befintlig Blockchain-medlem. |
+> | Åtgärd | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Hämtar eller listar befintliga Blockchain medlem Api-nycklar. |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/read | Hämtar eller listar befintliga Blockchain medlem (mar). |
 > | DataAction | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Ansluter till en medlem i Blockchain transaktion nod. |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/transactionNodes/delete | Tar bort en befintlig Blockchain medlem transaktion nod. |
+> | Åtgärd | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | Hämtar eller listar befintliga Blockchain medlem-transaktion noden Api-nycklar. |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Hämtar eller listar befintliga Blockchain medlem transaktion nod(er). |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Skapar eller uppdaterar en Blockchain medlem transaktion nod. |
 > | Åtgärd | Microsoft.Blockchain/blockchainMembers/write | Skapar eller uppdaterar en Blockchain-medlem. |
@@ -1099,6 +1102,17 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | Den här åtgärden extraherar en omfattande uppsättning visuella funktioner baserat på innehållet i.  |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | Den här åtgärden returnerar en avgränsningsruta omkring området är viktigast för avbildningen. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | Den här åtgärden genererar en beskrivning av en avbildning i mänskliga läsbara språk med fullständiga meningar.<br> Beskrivningen är baserad på en uppsättning innehåll taggar som returneras också av åtgärden.<br>Fler än en beskrivning kan genereras för varje bild.<br> Beskrivningar ordnas efter deras förtroendepoäng.<br>Alla beskrivningar är på engelska. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | Den här åtgärden utför objektidentifiering på den angivna avbildningen.  |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/generatethumbnail/action | Den här åtgärden genererar en miniatyrbild med användardefinierade bredd och höjd.<br> Som standard tjänsten analyserar avbildningen, identifierar region of interest (ROI) och genererar smart beskärning koordinater baserat på vad du TJÄNAR.<br> Smart beskärning hjälper dig när du anger proportionerna som skiljer sig från inmatad bild |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/models/analyze/action | Den här åtgärden identifierar innehåll inuti en avbildning genom att tillämpa en domänspecifika-modell.<br> Listan över domänspecifika modeller som stöds av den API för visuellt innehåll kan hämtas med hjälp av /models GET-begäran.<br> För närvarande API: et tillhandahåller följande domänspecifika modeller: kändisar, landmärken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/models/read | Den här åtgärden returnerar listan över domänspecifika modeller som stöds av den API för visuellt innehåll.  API: et stöder för närvarande följande domänspecifika modeller: kändisar igenkännande, Landmärke Igenkännande. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/ocr/action | Optisk teckenläsning (OCR) identifierar text i en bild och extraherar lästa tecken till en dator teckenström.    |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Använd det här gränssnittet för att hämta resultatet av en identifiera Text-åtgärd. När du använder gränssnittet identifiera Text innehåller svaret ett fält med namnet ”åtgärden plats”. ”Åtgärden plats” innehåller den URL som du måste använda för att utföra åtgärden hämta identifiera Text resultatet för åtgärden. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | Den här åtgärden genererar en lista över ord eller taggar, som är relevanta för innehållet i den angivna avbildningen.<br>I API för visuellt innehåll returnerar taggar baserat på objekt, levande varelser, landskap eller åtgärder som finns i avbildningar.<br>Till skillnad från kategorier, taggar inte är uppdelade enligt ett hierarkisk klassificeringssystem, men motsvarar innehållet.<br>Taggar kan innehålla tips för att undvika tvetydighet eller tillhandahålla kontext, till exempel taggen ”cello” kan åtföljas av tipset ”musik betalningsinstrument”.<br>Alla taggar är på engelska. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | Det här gränssnittet används för att hämta identifiera text resultat. URL-Adressen till det här gränssnittet ska hämtas från <b>”åtgärden plats”</b> fält som returneras från identifiera Text-gränssnittet. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/delete | Tar bort API-konton |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/detect/action | Identifiera ansikten i en bild, gå tillbaka ansiktsrektanglar och eventuellt med faceIds, landmärken och attribut. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Ta bort en angiven ansikts-lista. Ansikts-relaterade bilder i listan över ansikte tas bort, för. |
@@ -1143,6 +1157,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Skapa en ny persongrupp med angivna personGroupId, namn och användaren userData. Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Kontrollera om två ansikten tillhör samma person eller om ett ansikte tillhör en person. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/listKeys/action | Lista över nycklar |
+> | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Hämtar förutsägelsen publicerade slutpunkten för den givna frågan. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/read | Läser API-konton. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/regenerateKey/action | Återskapa nyckeln |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/skus/read | Läser tillgängliga SKU: er för en befintlig resurs. |
@@ -1152,9 +1167,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | API:t returnerar en poäng mellan 0 och 1.<br>Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd.<br>Ett resultat på 0,5 anger bristen på sentiment (t.ex.)<br>en factoid-instruktion). |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/usages/read | Hämta kvotanvändning för en befintlig resurs. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/write | Skriver API-konton. |
-> | Åtgärd | Microsoft.CognitiveServices/checkDomainAvailability/action | Läser tillgängliga SKU: er för en prenumeration. |
 > | Åtgärd | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Läser tillgängliga SKU: er för en prenumeration. |
-> | Åtgärd | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Meddelande från Microsoft.Network av att ta bort virtuella nätverk eller undernät. |
 > | Åtgärd | Microsoft.CognitiveServices/Operations/read | Lista över alla tillgängliga åtgärder |
 > | Åtgärd | Microsoft.CognitiveServices/register/action | Registrerar prenumerationen för Cognitive Services |
 
@@ -1300,6 +1313,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | Kör ett fördefinierat skript på en virtuell datorinstans i Virtual Machine Scale Sets. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | Startar en virtuell datorinstans i en Skaluppsättning. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | Uppdaterar egenskaperna för en virtuell dator i VM Scale Sets |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/vmSizes/read | Lista över tillgängliga storlekar för att skapa eller uppdatera en virtuell dator i Virtual Machine Scale Sets |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/write | Skapar en ny VM-Skalningsuppsättning eller uppdaterar en befintlig |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
@@ -1630,7 +1644,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Skapar eller uppdaterar bandbredd-scheman |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Tar bort Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Ladda ned uppdateringar i enhet |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Hämtar resurs utökad information |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | Hämtar resurs utökad information |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Installera uppdateringar på enheten |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Visar en lista över eller hämtar jobb |
@@ -1684,7 +1697,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Databricks/locations/getNetworkPolicies/action | Hämta avsikt nätverksprinciper för ett undernät baserat på den plats som används av NRP |
 > | Åtgärd | Microsoft.Databricks/register/action | Registrera på Databricks. |
 > | Åtgärd | Microsoft.Databricks/workspaces/delete | Tar bort en Databricks-arbetsyta. |
 > | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Anger tillgängliga diagnostikinställningarna för Databricks-arbetsyta |
@@ -1698,6 +1710,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DataCatalog/catalogs/delete | Ta bort kataloger resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/catalogs/read | Läs kataloger resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/catalogs/write | Skriv kataloger resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/checkNameAvailability/read | Kontrollera namntillgänglighet för katalogen för Data Catalog-Resursprovidern. |
 > | Åtgärd | Microsoft.DataCatalog/datacatalogs/delete | Ta bort DataCatalog resurs för Data Catalog-Resursprovidern. |
 > | Åtgärd | Microsoft.DataCatalog/datacatalogs/read | Läs DataCatalog resurs för Data Catalog-Resursprovidern. |
 > | Åtgärd | Microsoft.DataCatalog/datacatalogs/write | Skriv DataCatalog resurs för Data Catalog-Resursprovidern. |
@@ -1924,6 +1940,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforMariaDB/checkNameAvailability/action | Kontrollera om namn angivna servern är tillgänglig för etablering i hela världen för en viss prenumeration. |
 > | Åtgärd | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | Returnera MariaDB Server Åtgärdsresultat |
 > | Åtgärd | Microsoft.DBforMariaDB/locations/operationResults/read | Gå tillbaka ResourceGroup baserat MariaDB Server Åtgärdsresultat |
 > | Åtgärd | Microsoft.DBforMariaDB/locations/operationResults/read | Returnera MariaDB Server Åtgärdsresultat |
@@ -1933,6 +1950,15 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforMariaDB/operations/read | Returnera listan över MariaDB-åtgärder. |
 > | Åtgärd | Microsoft.DBforMariaDB/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
 > | Åtgärd | Microsoft.DBforMariaDB/register/action | Registrera Resursprovidern för MariaDB |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/administrators/delete | Tar bort en befintlig administratör för MariaDB-server. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/administrators/read | Hämtar en lista över MariaDB serveradministratörer. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/administrators/write | Skapar eller uppdaterar MariaDB serveradministratör med de angivna parametrarna. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/createRecommendedActionSession/action | Skapa en ny rekommendation åtgärd session |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/read | Returnera lista över rådgivare |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/read | Returnera en advisor |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | Returnera en rekommenderad åtgärd |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/configurations/write | Uppdatera värdet för den angivna konfigurationen |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/databases/delete | Tar bort en befintlig databas för MariaDB. |
@@ -1948,16 +1974,21 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för MariaDB-servrar |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/queryTexts/action | Returnera texten till en lista över frågor |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/queryTexts/action | Returnera texten i en fråga |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/recoverableServers/read | Returnera den återställningsbara MariaDB Server-informationen |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/replicas/read | Få läsa replikeringar av en MariaDB-server |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/restart/action | Startar om en specifik server. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | Hämta information om den server threat principen konfigurerats på en viss server |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | Returnera listan över Frågestatistik för de viktigaste frågorna. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | Returnera en fråga statistik |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/updateConfigurations/action | Uppdatera konfigurationer för den angivna servern |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Tar bort en befintlig regel för virtuella nätverk |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | Returnera listan över virtuella nätverk regler eller hämtar egenskaperna för regeln för angivna virtuella nätverket. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | Skapar en virtuell nätverksregel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna virtuella nätverk regeln. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/waitStatistics/read | Vänta statistik för en instans |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/waitStatistics/read | Returnera en wait-statistik |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -1965,6 +1996,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforMySQL/checkNameAvailability/action | Kontrollera om namn angivna servern är tillgänglig för etablering i hela världen för en viss prenumeration. |
 > | Åtgärd | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | Returnera resultat för MySQL Server igen |
 > | Åtgärd | Microsoft.DBforMySQL/locations/operationResults/read | Gå tillbaka ResourceGroup baserat Åtgärdsresultat för MySQL-Server |
 > | Åtgärd | Microsoft.DBforMySQL/locations/operationResults/read | Returnera resultat för MySQL Server igen |
@@ -1974,6 +2006,15 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforMySQL/operations/read | Returnera listan över MySQL-åtgärder. |
 > | Åtgärd | Microsoft.DBforMySQL/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
 > | Åtgärd | Microsoft.DBforMySQL/register/action | Registrera Resursprovidern för MySQL |
+> | Åtgärd | Microsoft.DBforMySQL/servers/administrators/delete | Tar bort en befintlig administratör för MySQL-server. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/administrators/read | Hämtar en lista över MySQL server-administratörer. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/administrators/write | Skapar eller uppdaterar MySQL server-administratören med de angivna parametrarna. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/createRecommendedActionSession/action | Skapa en ny rekommendation åtgärd session |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/read | Returnera lista över rådgivare |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/read | Returnera en advisor |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
+> | Åtgärd | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | Returnera en rekommenderad åtgärd |
 > | Åtgärd | Microsoft.DBforMySQL/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/configurations/write | Uppdatera värdet för den angivna konfigurationen |
 > | Åtgärd | Microsoft.DBforMySQL/servers/databases/delete | Tar bort en befintlig MySQL-databas. |
@@ -1989,16 +2030,21 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för MySQL-servrar |
 > | Åtgärd | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 > | Åtgärd | Microsoft.DBforMySQL/servers/queryTexts/action | Returnera texten till en lista över frågor |
+> | Åtgärd | Microsoft.DBforMySQL/servers/queryTexts/action | Returnera texten i en fråga |
 > | Åtgärd | Microsoft.DBforMySQL/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/recoverableServers/read | Returnera den återställningsbara MySQL-Server-informationen |
+> | Åtgärd | Microsoft.DBforMySQL/servers/replicas/read | Få läsa replikeringar av en MySQL-server |
+> | Åtgärd | Microsoft.DBforMySQL/servers/restart/action | Startar om en specifik server. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | Hämta information om den server threat principen konfigurerats på en viss server |
 > | Åtgärd | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
 > | Åtgärd | Microsoft.DBforMySQL/servers/topQueryStatistics/read | Returnera listan över Frågestatistik för de viktigaste frågorna. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/topQueryStatistics/read | Returnera en fråga statistik |
 > | Åtgärd | Microsoft.DBforMySQL/servers/updateConfigurations/action | Uppdatera konfigurationer för den angivna servern |
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Tar bort en befintlig regel för virtuella nätverk |
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Returnera listan över virtuella nätverk regler eller hämtar egenskaperna för regeln för angivna virtuella nätverket. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Skapar en virtuell nätverksregel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna virtuella nätverk regeln. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/waitStatistics/read | Vänta statistik för en instans |
+> | Åtgärd | Microsoft.DBforMySQL/servers/waitStatistics/read | Returnera en wait-statistik |
 > | Åtgärd | Microsoft.DBforMySQL/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -2006,6 +2052,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforPostgreSQL/checkNameAvailability/action | Kontrollera om namn angivna servern är tillgänglig för etablering i hela världen för en viss prenumeration. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Returnera resultat från åtgärd för PostgreSQL-Server |
 > | Åtgärd | Microsoft.DBforPostgreSQL/locations/operationResults/read | Gå tillbaka ResourceGroup baserat Åtgärdsresultat för PostgreSQL-Server |
 > | Åtgärd | Microsoft.DBforPostgreSQL/locations/operationResults/read | Returnera resultat från åtgärd för PostgreSQL-Server |
@@ -2015,6 +2062,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforPostgreSQL/operations/read | Returnera listan över åtgärder för PostgreSQL. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/register/action | Registrera Resursprovidern med PostgreSQL |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/administrators/delete | Tar bort en befintlig administratör för PostgreSQL-server. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/administrators/read | Hämtar en lista över PostgreSQL server-administratörer. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/administrators/write | Skapar eller uppdaterar PostgreSQL server-administratören med de angivna parametrarna. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/read | Returnera lista över rådgivare |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Se rekommendationer |
@@ -2036,6 +2086,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/queryTexts/read | Returnera texten till en lista över frågor |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/recoverableServers/read | Returnera den återställningsbara PostgreSQL-Server-informationen |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/replicas/read | Få läsa replikeringar av en PostgreSQL-server |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/restart/action | Startar om en specifik server. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/read | Hämta information om den server threat principen konfigurerats på en viss server |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/topQueryStatistics/read | Returnera listan över Frågestatistik för de viktigaste frågorna. |
@@ -2189,6 +2241,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DevTestLab/labs/formulas/write | Lägg till eller ändra formler. |
 > | Åtgärd | Microsoft.DevTestLab/labs/galleryImages/read | Läsa galleriavbildningar. |
 > | Åtgärd | Microsoft.DevTestLab/labs/GenerateUploadUri/action | Generera en URI för att ladda upp anpassade diskavbildningar till ett labb. |
+> | Åtgärd | Microsoft.DevTestLab/labs/idleShutdowns/delete | Ta bort inaktiva avstängningar. |
+> | Åtgärd | Microsoft.DevTestLab/labs/idleShutdowns/read | Läsa inaktiv avstängningar. |
+> | Åtgärd | Microsoft.DevTestLab/labs/idleShutdowns/write | Lägg till eller ändra inaktiv avstängningar. |
 > | Åtgärd | Microsoft.DevTestLab/labs/ImportVirtualMachine/action | Importera en virtuell dator till ett annat labb. |
 > | Åtgärd | Microsoft.DevTestLab/labs/ListVhds/action | Lista över diskavbildningar som är tillgängliga för att skapa en anpassad avbildning. |
 > | Åtgärd | Microsoft.DevTestLab/labs/notificationChannels/delete | Ta bort notificationchannels. |
@@ -2281,39 +2336,53 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccountNames/read | Söker efter namn är tillgängliga. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | Ta bort en samling. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'mongodb'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | Läsa en samling eller visa en lista över alla samlingar. Gäller endast för API-typer: 'mongodb'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/read | Läsningsdataflöde som är en samling. Gäller endast för API-typer: 'mongodb'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/write | Uppdatera en samling genomströmning. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'mongodb'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read | Läsningsdataflöde som är en samling. Gäller endast för API-typer: 'mongodb'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/write | Uppdatera en samling genomströmning. Gäller endast för API-typer: 'mongodb'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | Skapa eller uppdatera en samling. Gäller endast för API-typer: 'mongodb'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | Ta bort en behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'sql'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | Läsa en behållare eller lista över alla behållare. Gäller endast för API-typer: 'sql'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/read | Läs en dataflöden i behållare. Gäller endast för API-typer: 'sql'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/write | Uppdatera en dataflöden i behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'sql'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/read | Läs en dataflöden i behållare. Gäller endast för API-typer: 'sql'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write | Uppdatera en dataflöden i behållare. Gäller endast för API-typer: 'sql'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | Skapa eller uppdatera en behållare. Gäller endast för API-typer: 'sql'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | Ta bort en databas. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | Ta bort en graf. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'gremlin'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | Läsa ett diagram eller visa en lista över alla diagram. Gäller endast för API-typer: 'gremlin'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/read | Läsa ett graph-dataflöde. Gäller endast för API-typer: 'gremlin'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/write | Uppdatera en graph-genomströmning. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/read | Läsa ett graph-dataflöde. Gäller endast för API-typer: 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write | Uppdatera en graph-genomströmning. Gäller endast för API-typer: 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | Skapa eller uppdatera ett diagram. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | Läsa en databas eller lista över alla databaser. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/read | Läsa ett databas-dataflöde. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/write | Uppdatera en databas-genomströmning. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: sql, mongodb, 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/read | Läsa ett databas-dataflöde. Gäller endast för API-typer: sql, mongodb, 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/write | Uppdatera en databas-genomströmning. Gäller endast för API-typer: sql, mongodb, 'gremlin'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | Skapa en databas. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | Ta bort ett keyspace. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'cassandra'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Läsa ett keyspace eller visa en lista över alla keyspaces. Gäller endast för API-typer: 'cassandra'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | Läsa ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | Uppdatera ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read | Läsa ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write | Uppdatera ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Ta bort en tabell. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'cassandra'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Läsa en tabell eller alla tabeller. Gäller endast för API-typer: 'cassandra'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'cassandra'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'cassandra'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Skapa eller uppdatera en tabell. Gäller endast för API-typer: 'cassandra'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Skapa ett keyspace. Gäller endast för API-typer: 'cassandra'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Ta bort en tabell. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'tabell'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Läsa en tabell eller alla tabeller. Gäller endast för API-typer: 'tabell'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'tabell'. |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read | Läsa statusen för den asynkrona åtgärden. Gäller endast för API-typer: 'tabell'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'tabell'. Gäller endast för att ställa in typer: 'dataflöde'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'tabell'. Gäller endast för att ställa in typer: 'dataflöde'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | Skapa eller uppdatera en tabell. Gäller endast för API-typer: 'tabell'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/backup/action | Skicka en begäran om att konfigurera säkerhetskopiering |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | Ändra resursgruppen för ett databaskonto |
@@ -2341,7 +2410,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/percentile/sourceRegion/targetRegion/metrics/read | Läsa mått för datainmatningssvarstider för en specifik källa och mål-region |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/percentile/targetRegion/metrics/read | Läsa mått för datainmatningssvarstider för ett specifikt mål-region |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionProxies/delete | Ta bort en proxy för anslutning av privat slutpunkt av databaskonto |
-> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionProxies/operationResults/read | Läsa Status för privateEndpointConnectionProxies asynkron åtgärd |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionProxies/read | Läsa en proxy för anslutning av privat slutpunkt av databaskonto |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionProxies/validate/action | Validera en proxy för anslutning av privat slutpunkt av databaskonto |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionProxies/write | Skapa eller uppdatera en privat slutpunkt anslutning proxy av databaskonto |
@@ -2357,9 +2425,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/restore/action | Skicka en begäran om återställning |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/usages/read | Läser databasen konto användningar. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/write | Uppdatera en databaskonton. |
-> | Åtgärd | Microsoft.DocumentDB/locations/asyncoperations/read | Läser Status för asynkrona åtgärder |
 > | Åtgärd | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/action | Aviserar Microsoft.DocumentDB att VirtualNetwork eller undernät tas bort |
 > | Åtgärd | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/operationResults/read | Läsa Status för deleteVirtualNetworkOrSubnets asynkron åtgärd |
+> | Åtgärd | Microsoft.DocumentDB/locations/operationsStatus/read | Läser Status för asynkrona åtgärder |
 > | Åtgärd | Microsoft.DocumentDB/operationResults/read | Läsa status för asynkron åtgärd |
 > | Åtgärd | Microsoft.DocumentDB/operations/read | Läs-och skrivåtgärder som är tillgängliga för DocumentDB-Microsoft  |
 > | Åtgärd | Microsoft.DocumentDB/register/action |  Registrera resursprovidern Microsoft DocumentDB för prenumerationen |
@@ -2438,9 +2506,15 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.EventHub/availableClusterRegions/read | Läsåtgärd att lista tillgängliga företablerade kluster av Azure-region. |
 > | Åtgärd | Microsoft.EventHub/checkNameAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. |
 > | Åtgärd | Microsoft.EventHub/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd CheckNameAvailability istället. |
+> | Åtgärd | Microsoft.EventHub/clusters/delete | Tar bort en befintlig resurs i klustret. |
+> | Åtgärd | Microsoft.EventHub/clusters/namespaces/read | Lista över namnområde ARM-ID: N för namnområden i ett kluster. |
+> | Åtgärd | Microsoft.EventHub/clusters/operationresults/read | Hämta status för en asynkron klusteråtgärden. |
 > | Åtgärd | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över klustermått resursbeskrivningar |
+> | Åtgärd | Microsoft.EventHub/clusters/read | Hämtar den beskrivning av klusterresurs |
+> | Åtgärd | Microsoft.EventHub/clusters/write | Skapar eller ändrar en befintlig resurs i klustret. |
 > | Åtgärd | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Tar bort VNet-regler i EventHub-Resursprovidern för det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.EventHub/namespaces/authorizationRules/action | Uppdateringar Namespace-auktoriseringsregeln. Detta API är inaktuell. Använd ett PUT-anrop för att uppdatera auktoriseringsregeln Namespace istället... Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.EventHub/namespaces/authorizationRules/delete | Ta bort auktoriseringsregel för Namespace. Auktoriseringsregel för standard Namespace kan inte tas bort.  |
@@ -2513,9 +2587,11 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/delete | Ta bort tilldelningen för gäst-konfiguration. |
 > | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Hämta gäst configuration tilldelning. |
 > | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Konfigurationsrapport för tilldelning på Get gäst. |
 > | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Skapa ny tilldelning för gäst-konfiguration. |
+> | Åtgärd | Microsoft.GuestConfiguration/register/action | Registrerar prenumerationen för resursprovidern Microsoft.GuestConfiguration. |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -2804,6 +2880,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/MetricAlerts/Read | Läs en måttavisering |
 > | Åtgärd | Microsoft.Insights/MetricAlerts/Status/Read | Läs måttaviseringsstatus |
 > | Åtgärd | Microsoft.Insights/MetricAlerts/Write | Skapa eller uppdatera en metrisk varning |
+> | Åtgärd | Microsoft.Insights/MetricBaselines/Read | Läsa mått baslinjer |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
@@ -2888,8 +2965,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.KeyVault/vaults/eventGridFilters/read | Aviserar Microsoft.KeyVault att visas en EventGrid-prenumeration för Key Vault |
 > | Åtgärd | Microsoft.KeyVault/vaults/eventGridFilters/write | Aviserar Microsoft.KeyVault att skapas en ny EventGrid-prenumeration för Key Vault |
 > | Åtgärd | Microsoft.KeyVault/vaults/read | Visa egenskaperna för ett nyckelvalv |
-> | Åtgärd | Microsoft.KeyVault/vaults/secrets/read | Visa egenskaperna för en hemlighet, men inte dess värde |
-> | Åtgärd | Microsoft.KeyVault/vaults/secrets/write | Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet |
+> | Åtgärd | Microsoft.KeyVault/vaults/secrets/read | Visa egenskaperna för en hemlighet, men inte dess värde. |
+> | Åtgärd | Microsoft.KeyVault/vaults/secrets/write | Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet. |
 > | Åtgärd | Microsoft.KeyVault/vaults/write | Skapa ett nytt nyckelvalv eller uppdatera egenskaperna för ett befintligt nyckelvalv |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -2898,6 +2975,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Kusto/Clusters/Activate/action | Startar klustret. |
+> | Åtgärd | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | Tar bort en resurs för konfiguration av anslutna databasen. |
+> | Åtgärd | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Läser en konfiguration för anslutna databasresurser. |
+> | Åtgärd | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Skriver en konfiguration för anslutna databasresurser. |
 > | Åtgärd | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Kontrollerar tillgängligheten för klustret namn. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | Lägger till huvudkonton. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | Kontrollerar tillgängligheten för namnet för en viss typ. |
@@ -2952,6 +3032,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/write | Lägg till eller ändra miljöer. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/Publish/action | Etablerar/deprovisions krävs resurser för en miljö som inställningen baserat på aktuell status för laboratoriemiljön /-inställningen. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | Inställningen för Läs miljö. |
+> | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/ResetPassword/action | Återställer lösenordet på den virtuella datorn för mallen. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | Sparar aktuella mall-bild till delade galleriet i labbkonto |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | Ta bort scheman. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | Läsa scheman. |
@@ -2987,169 +3068,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.LabServices/users/ResetPassword/action | Återställer användarlösenord i en miljö |
 > | Åtgärd | Microsoft.LabServices/users/StartEnvironment/action | Startar en miljö genom att starta alla resurser i miljön. |
 > | Åtgärd | Microsoft.LabServices/users/StopEnvironment/action | Stoppar en miljö genom att stoppa alla resurser i miljön |
-
-## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Åtgärdstyp | Åtgärd | Beskrivning |
-> | --- | --- | --- |
-> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Läsa data från tabellen ADAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Läsa data från tabellen ADReplicationResult |
-> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Läsa data från tabellen ADSecurityAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Läsa data från tabellen avisering |
-> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Läsa data från tabellen AlertHistory |
-> | DataAction | Microsoft.LogAnalytics/logs/AppCenterError/read | Läsa data från tabellen AppCenterError |
-> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Läsa data från tabellen ApplicationInsights |
-> | DataAction | Microsoft.LogAnalytics/logs/AuditLogs/read | Läsa data från tabellen AuditLogs |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Läsa data från tabellen AzureActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Läsa data från tabellen AzureMetrics |
-> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | Läsa data från tabellen BoundPort |
-> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Läsa data från tabellen CommonSecurityLog |
-> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Läsa data från tabellen ComputerGroup |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | Läsa data från tabellen ConfigurationChange |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | Läsa data från tabellen ConfigurationData |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | Läsa data från tabellen ContainerImageInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Läsa data från tabellen ContainerInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Läsa data från tabellen ContainerLog |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Läsa data från tabellen ContainerServiceLog |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Läsa data från tabellen DeviceAppCrash |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Läsa data från tabellen DeviceAppLaunch |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Läsa data från tabellen DeviceCalendar |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | Läsa data från tabellen DeviceCleanup |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | Läsa data från tabellen DeviceConnectSession |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | Läsa data från tabellen DeviceEtw |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | Läsa data från tabellen DeviceHardwareHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | Läsa data från tabellen devicehealth koppla |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | Läsa data från tabellen DeviceHeartbeat |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | Läsa data från tabellen DeviceSkypeHeartbeat |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | Läsa data från tabellen DeviceSkypeSignIn |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | Läsa data från tabellen DeviceSleepState |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | Läsa data från tabellen DHAppFailure |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | Läsa data från tabellen DHAppReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | Läsa data från tabellen DHDriverReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | Läsa data från tabellen DHLogonFailures |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | Läsa data från tabellen DHLogonMetrics |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | Läsa data från tabellen DHOSCrashData |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | Läsa data från tabellen DHOSReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | Läsa data från tabellen DHWipAppLearning |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | Läsa data från tabellen DnsEvents |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | Läsa data från tabellen DnsInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Läsa data från tabellen ETWEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Läsa data från tabellen händelse |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Läsa data från tabellen ExchangeAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Läsa data från tabellen ExchangeOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Läsa data från tabellen pulsslag |
-> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Läsa data från tabellen IISAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Läsa data från tabellen InboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeEvents/read | Läsa data från tabellen KubeEvents |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | Läsa data från tabellen KubeNodeInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | Läsa data från tabellen KubePodInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeServices/read | Läsa data från tabellen KubeServices |
-> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Läsa data från tabellen LinuxAuditLog |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | Läsa data från tabellen MAApplication |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | Läsa data från tabellen MAApplicationHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | Läsa data från tabellen MAApplicationHealthAlternativeVersions |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | Läsa data från tabellen MAApplicationHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | Läsa data från tabellen MAApplicationInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | Läsa data från tabellen MAApplicationInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | Läsa data från tabellen MAApplicationReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | Läsa data från tabellen MADeploymentPlan |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | Läsa data från tabellen MADevice |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeviceNotEnrolled/read | Läsa data från tabellen MADeviceNotEnrolled |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | Läsa data från tabellen MADevicePnPHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | Läsa data från tabellen MADevicePnPHealthAlternativeVersions |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | Läsa data från tabellen MADevicePnPHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | Läsa data från tabellen MADeviceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | Läsa data från tabellen MADriverInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | Läsa data från tabellen MADriverReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | Läsa data från tabellen MAOfficeAddin |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | Läsa data från tabellen MAOfficeAddinHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | Läsa data från tabellen MAOfficeAddinHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | Läsa data från tabellen MAOfficeAddinInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | Läsa data från tabellen MAOfficeAddinInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | Läsa data från tabellen MAOfficeAddinReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | Läsa data från tabellen MAOfficeApp |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | Läsa data från tabellen MAOfficeAppHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | Läsa data från tabellen MAOfficeAppInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | Läsa data från tabellen MAOfficeAppReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | Läsa data från tabellen MAOfficeBuildInfo |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | Läsa data från tabellen MAOfficeCurrencyAssessment |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | Läsa data från tabellen MAOfficeCurrencyAssessmentDailyCounts |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | Läsa data från tabellen MAOfficeDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | Läsa data från tabellen MAOfficeMacroHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | Läsa data från tabellen MAOfficeMacroHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | Läsa data från tabellen MAOfficeMacroIssueInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | Läsa data från tabellen MAOfficeMacroIssueReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | Läsa data från tabellen MAOfficeMacroSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | Läsa data från tabellen MAOfficeSuite |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | Läsa data från tabellen MAOfficeSuiteInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | Läsa data från tabellen MAProposedPilotDevices |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | Läsa data från tabellen MAWindowsBuildInfo |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | Läsa data från tabellen MAWindowsCurrencyAssessment |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | Läsa data från tabellen MAWindowsCurrencyAssessmentDailyCounts |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | Läsa data från tabellen MAWindowsDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | Läsa data från tabellen MAWindowsSysReqInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | Läsa data från tabellen NetworkMonitoring |
-> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | Läsa data från tabellen OfficeActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Läsa data från tabellen åtgärden |
-> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Läsa data från tabellen OutboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Läsa data från tabellen Perf |
-> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Läsa data från tabellen ProtectionStatus |
-> | Åtgärd | Microsoft.LogAnalytics/logs/read | Läsa data från alla loggar |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Läsa data från tabellen ReservedAzureCommonFields |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Läsa data från tabellen ReservedCommonFields |
-> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Läsa data från tabellen SCCMAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | Läsa data från tabellen SCOMAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Läsa data från tabellen SecurityAlert |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Läsa data från tabellen SecurityBaseline |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Läsa data från tabellen SecurityBaselineSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Läsa data från tabellen SecurityDetection |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Läsa data från tabellen SecurityEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Läsa data från tabellen ServiceFabricOperationalEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Läsa data från tabellen ServiceFabricReliableActorEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Läsa data från tabellen ServiceFabricReliableServiceEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | Läsa data från tabellen SfBAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | Läsa data från tabellen SfBOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | Läsa data från tabellen SharePointOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SigninLogs/read | Läsa data från tabellen SigninLogs |
-> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Läsa data från tabellen SPAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Läsa data från tabellen SQLAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Läsa data från tabellen SQLQueryPerformance |
-> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Läsa data från tabellen Syslog |
-> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Läsa data från tabellen SysmonEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/Tables.Custom/read | Läsa data från någon annan anpassad logg |
-> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | Läsa data från tabellen UAApp |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | Läsa data från tabellen UAComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | Läsa data från tabellen UAComputerRank |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | Läsa data från tabellen UADriver |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | Läsa data från tabellen UADriverProblemCodes |
-> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | Läsa data från tabellen UAFeedback |
-> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | Läsa data från tabellen UAHardwareSecurity |
-> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | Läsa data från tabellen UAIESiteDiscovery |
-> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | Läsa data från tabellen UAOfficeAddIn |
-> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | Läsa data från tabellen UAProposedActionPlan |
-> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | Läsa data från tabellen UASysReqIssue |
-> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | Läsa data från tabellen UAUpgradedComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Läsa data från tabellen Update |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | Läsa data från tabellen UpdateRunProgress |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Läsa data från tabellen UpdateSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Läsa data från tabellen användning |
-> | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | Läsa data från tabellen VMBoundPort |
-> | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | Läsa data från tabellen VMConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Läsa data från tabellen W3CIISLog |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | Läsa data från tabellen WaaSDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | Läsa data från tabellen WaaSInsiderStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | Läsa data från tabellen WaaSUpdateStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | Läsa data från tabellen WDAVStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | Läsa data från tabellen WDAVThreat |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | Läsa data från tabellen WindowsClientAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsEvent/read | Läsa data från tabellen WindowsEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Läsa data från tabellen WindowsFirewall |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Läsa data från tabellen WindowsServerAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Läsa data från tabellen WireData |
-> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | Läsa data från tabellen WorkloadMonitoringPerf |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Läsa data från tabellen WUDOAggregatedStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Läsa data från tabellen WUDOStatus |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -3288,16 +3206,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.MachineLearningCompute/operationalizationClusters/write | Skapa eller uppdatera eventuella värdbaserade konto |
 > | Åtgärd | Microsoft.MachineLearningCompute/register/action | Registrerar prenumerations-ID till resursprovidern och gör det möjligt att skapa en machine learning-beräkningsresurser |
 
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Åtgärdstyp | Åtgärd | Beskrivning |
-> | --- | --- | --- |
-> | Åtgärd | Microsoft.MachineLearningModelManagement/accounts/delete | Ta bort alla som värd-konto |
-> | Åtgärd | Microsoft.MachineLearningModelManagement/accounts/read | Läs valfri värd-konto |
-> | Åtgärd | Microsoft.MachineLearningModelManagement/accounts/write | Skapa eller uppdatera eventuella värdbaserade konto |
-> | Åtgärd | Microsoft.MachineLearningModelManagement/register/action | Registrerar prenumerations-ID till resursprovidern och gör det möjligt att skapa en värdtjänst konto |
-
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -3314,6 +3222,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/read | Hämtar beräkningsresurserna i Machine Learning Services arbetsytor |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/write | Skapar eller uppdaterar beräkningsresurser i Machine Learning-tjänster |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/delete | Tar bort de Machine Learning Services arbetsytor |
+> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/write | Skapar eller uppdaterar experiment i Machine Learning Services arbetsytor |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista över hemligheterna för en arbetsyta för Machine Learning-tjänster |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/read | Hämtar de Machine Learning Services arbetsytor |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/write | Skapar eller uppdaterar en arbetsyta/arbetsytor för Machine Learning-tjänster |
@@ -3328,30 +3237,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Tar bort en befintlig Användartilldelad identitet |
 > | Åtgärd | Microsoft.ManagedIdentity/userAssignedIdentities/read | Hämtar en befintlig Användartilldelad identitet |
 > | Åtgärd | Microsoft.ManagedIdentity/userAssignedIdentities/write | Skapar en ny Användartilldelad identitet eller uppdaterar taggarna associerade med en befintlig Användartilldelad identitet |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Åtgärdstyp | Åtgärd | Beskrivning |
-> | --- | --- | --- |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/CreateLab/action | Skapa ett labb i ett labbkonto. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/delete | Ta bort lab-konton. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/delete | Ta bort labs. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/delete | Ta bort miljöinställning. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/environments/delete | Ta bort miljöer. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/environments/read | Läs miljö. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/environments/write | Lägg till eller ändra miljöer. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/read | Inställningen för Läs miljö. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/environmentSettings/write | Lägg till eller ändra inställningen för miljön. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/labVms/delete | Ta bort virtuella datorer för testlabbet. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/labVms/read | Läsa virtuella datorer för testlabbet. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/labVms/write | Lägg till eller ändra labb virtuella datorer. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/read | Läsa labs. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/labs/write | Lägg till eller ändra labb. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/read | Läsa lab-konton. |
-> | Åtgärd | Microsoft.ManagedLab/labAccounts/write | Lägg till eller ändra labb-konton. |
-> | Åtgärd | Microsoft.ManagedLab/locations/operations/read | Läsåtgärder. |
-> | Åtgärd | Microsoft.ManagedLab/register/action | Registrerar prenumerationen |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
@@ -3419,6 +3304,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.MarketplaceOrdering/agreements/read | Returnera alla avtal under den angivna prenumerationen |
 > | Åtgärd | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read | Hämta ett avtal för en viss marketplace-objekt för virtuell dator |
 > | Åtgärd | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write | Logga in eller Avbryt ett avtal för en viss marketplace-objekt för virtuell dator |
+> | Åtgärd | Microsoft.MarketplaceOrdering/operations/read | Lista över alla möjliga åtgärder i API: et |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -3492,11 +3378,42 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/assessments/read | Listor utvärderingar i ett projekt |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/delete | Tar bort projektet utvärdering |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/assessments/assessedmachines/read | Hämta egenskaperna för en utvärderad dator |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/assessments/delete | Tar bort en utvärdering |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/assessments/downloadurl/action | Hämtar en utvärderingsrapport URL |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/assessments/read | Hämtar egenskaperna för en utvärdering |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/assessments/write | Skapar en ny utvärdering eller uppdaterar en befintlig utvärdering |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/delete | Tar bort en grupp |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/read | Hämta egenskaperna för en grupp |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/updateMachines/action | Uppdateringsgrupp genom att lägga till eller ta bort datorer |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/groups/write | Skapar en ny grupp eller uppdaterar en befintlig grupp |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/hypervcollectors/delete | Tar bort Hyper-v-insamlaren |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/hypervcollectors/read | Hämtar egenskaperna för Hyper-v-insamlare |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/hypervcollectors/write | Skapar en ny Hyper-v-insamlare eller uppdaterar en befintlig Hyper-v-insamlare |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/machines/read | Hämtar egenskaperna för en virtuell dator |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/read | Hämtar egenskaperna för utvärderingsprojekt |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/vmwarecollectors/delete | Tar bort insamlaren VMware |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/vmwarecollectors/read | Hämtar egenskaperna för VMware-insamlare |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/vmwarecollectors/write | Skapar en ny VMware-insamlare eller uppdaterar en befintlig VMware-insamlare |
+> | Åtgärd | Microsoft.Migrate/assessmentprojects/write | Skapar ett nytt utvärderingsprojekt eller uppdaterar ett befintligt utvärderingsprojekt |
 > | Åtgärd | Microsoft.Migrate/locations/assessmentOptions/read | Hämtar de utvärderingsalternativ som är tillgängliga i den angivna platsen |
 > | Åtgärd | Microsoft.Migrate/locations/checknameavailability/action | Kontrollerar tillgängligheten för resursnamnet för den givna prenumerationen på den angivna platsen |
-> | Åtgärd | Microsoft.Migrate/migrateprojects/read | Hämtar egenskaperna för migrate-projekt. |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/DatabaseInstances/read | Hämtar egenskaperna för en databasinstans |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/Databases/read | Hämtar egenskaperna för en databas |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/delete | Tar bort ett migrate-projekt |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/machines/read | Hämtar egenskaperna för en virtuell dator |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/MigrateEvents/Delete | Tar bort en migrera händelse |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/MigrateEvents/read | Hämtar egenskaperna för en migrera händelser. |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/read | Hämtar egenskaperna för migrate-projekt |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/registerTool/action | Registrerar verktyget till ett migrate-projekt |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/cleanupData/action | Rensa datamigrering för projekt-lösning |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/Delete | Tar bort en lösning för migrate-projekt |
 > | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/getconfig/action | Hämtar migrera lösning projektkonfiguration |
-> | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/read | Hämtar egenskaperna för migrera projektlösning. |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/read | Hämtar egenskaperna för migrera projektlösning |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/solutions/write | Skapar en ny lösning för migrate-projekt eller uppdaterar en befintlig lösning för migrate-projekt |
+> | Åtgärd | Microsoft.Migrate/migrateprojects/write | Skapar ett nytt migrate-projekt eller uppdaterar ett befintligt migrate-projekt |
 > | Åtgärd | Microsoft.Migrate/Operations/read | Visar en lista över åtgärder som är tillgängliga på resursprovidern Microsoft.Migrate |
 > | Åtgärd | Microsoft.Migrate/projects/assessments/read | Listor utvärderingar i ett projekt |
 > | Åtgärd | Microsoft.Migrate/projects/delete | Tar bort projektet |
@@ -3702,6 +3619,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/frontDoors/routingRules/write | Skapar eller uppdaterar en routningsregel |
 > | Åtgärd | Microsoft.Network/frontDoors/validateCustomDomain/action | Verifierar en frontend-slutpunkt för en ytterdörren |
 > | Åtgärd | Microsoft.Network/frontDoors/write | Skapar eller uppdaterar en ytterdörren |
+> | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallManagedRuleSets/read | Hämtar Brandvägg för webbaserade program hanteras regeluppsättningar |
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Tar bort en brandväggsprincip för Web Application |
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/read | Hämtar en brandväggsprincip för Web Application |
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Skapar eller uppdaterar en brandväggsprincip för Web Application |
@@ -3727,11 +3645,13 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/localnetworkgateways/delete | Tar bort LocalNetworkGateway |
 > | Åtgärd | Microsoft.Network/localnetworkgateways/read | Hämtar LocalNetworkGateway |
 > | Åtgärd | Microsoft.Network/localnetworkgateways/write | Skapar eller uppdaterar en befintlig LocalNetworkGateway |
+> | Åtgärd | Microsoft.Network/locations/autoApprovedPrivateLinkServices/read | Hämtar automatiskt godkänd privat länk tjänster |
 > | Åtgärd | Microsoft.Network/locations/availableDelegations/read | Hämtar tillgängliga delegeringar |
-> | Åtgärd | Microsoft.Network/locations/availablePrivateEndpointResources/read | Hämtar tillgängliga privata Endpoint-resurser |
+> | Åtgärd | Microsoft.Network/locations/availablePrivateEndpointTypes/read | Hämtar tillgängliga privata Endpoint-resurser |
 > | Åtgärd | Microsoft.Network/locations/bareMetalTenants/action | Allokerar eller validerar en Bare Metal-klient |
 > | Åtgärd | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Kontrollerar stöd för Accelererat nätverk |
 > | Åtgärd | Microsoft.Network/locations/checkDnsNameAvailability/read | Kontrollerar om dns-etikett är tillgängliga på den angivna platsen |
+> | Åtgärd | Microsoft.Network/locations/checkPrivateLinkServiceVisibility/action | Kontrollerar privat Länktjänsten synlighet |
 > | Åtgärd | Microsoft.Network/locations/operationResults/read | Hämtar resultat av en asynkron INLÄGG eller borttagningsåtgärd |
 > | Åtgärd | Microsoft.Network/locations/operations/read | Hämtar åtgärden resurs som representerar statusen för en asynkron åtgärd |
 > | Åtgärd | Microsoft.Network/locations/serviceTags/read | Hämta Tjänsttaggar |
@@ -3811,6 +3731,39 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Hämtar en P2S Vpn-anslutningen hälsotillstånd för P2SVpnGateway |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/read | Hämtar en P2SVpnGateway. |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/write | Placerar en P2SVpnGateway. |
+> | Åtgärd | Microsoft.Network/privateDnsOperationResults/read | Hämtar resultaten av en privat DNS åtgärden |
+> | Åtgärd | Microsoft.Network/privateDnsOperationStatuses/read | Hämtar status för en privat DNS åtgärden |
+> | Åtgärd | Microsoft.Network/privateDnsZones/A/delete | Ta bort uppsättningen av poster för ett givet namn och skriver ”A” från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/A/read | Hämta postuppsättningen av typen ”A” i en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/A/write | Skapa eller uppdatera en postuppsättning av typen ”A” i en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/AAAA/delete | Ta bort uppsättningen av poster för ett givet namn och skriva AAAA om du från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/AAAA/read | Hämta postuppsättningen av typen AAAA om du i en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/AAAA/write | Skapa eller uppdatera en postuppsättning av typen ”AAAA” inom en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/ALL/read | Hämtar privata DNS-postuppsättningar för typer |
+> | Åtgärd | Microsoft.Network/privateDnsZones/CNAME/delete | Ta bort uppsättningen av poster för ett givet namn och skriver CNAME om du från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/CNAME/read | Hämta postuppsättningen av typen CNAME om du i en privat DNS-zon i JSON-format. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/CNAME/write | Skapa eller uppdatera en postuppsättning av typen ”CNAME” inom en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/delete | Ta bort en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/MX/delete | Ta bort uppsättningen av poster för ett givet namn och skriver ”MX” från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/MX/read | Hämta postuppsättningen av typen ”MX” inom en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/MX/write | Skapa eller uppdatera en postuppsättning av typen ”MX” inom en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/PTR/delete | Ta bort uppsättningen av poster för ett givet namn och skriver PTR om du från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/PTR/read | Hämta postuppsättningen av typen PTR om du i en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/PTR/write | Skapa eller uppdatera en postuppsättning av typen ”PTR” inom en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/read | Hämta privata DNS zonegenskaper i JSON-format. Observera att det här kommandot inte hämta virtuella nätverk som den privata DNS-zonen är länkad eller registrerar postuppsättningar finns i zonen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/recordsets/read | Hämtar privata DNS-postuppsättningar för typer |
+> | Åtgärd | Microsoft.Network/privateDnsZones/SOA/read | Hämta postuppsättningen av typen SOA om du i en privat DNS-zon i JSON-format. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/SOA/write | Uppdatera en postuppsättning av typen ”SOA” inom en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/SRV/delete | Ta bort uppsättningen av poster för ett givet namn och skriver ”SRV” från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/SRV/read | Hämta postuppsättningen av typen ”SRV” inom en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/SRV/write | Skapa eller uppdatera en postuppsättning av typen ”SRV” inom en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/TXT/delete | Ta bort uppsättningen av poster för ett givet namn och skriver ”TXT” från en privat DNS-zon. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/TXT/read | Hämta postuppsättningen av typen ”TXT” inom en privat DNS-zon i JSON-format. Uppsättningen av poster innehåller en lista med poster som TTL, taggar och etag. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/TXT/write | Skapa eller uppdatera en postuppsättning av typen ”TXT” inom en privat DNS-zon. De poster som anges kommer att ersätta de aktuella posterna i postuppsättningen. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/virtualNetworkLinks/delete | Ta bort en privat DNS-zon länk till virtuellt nätverk. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Hämta privata DNS zon länk till egenskaper för virtuellt nätverk i JSON-format. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | Skapa eller uppdatera en privat DNS-zon länk till det virtuella nätverket. |
+> | Åtgärd | Microsoft.Network/privateDnsZones/write | Skapa eller uppdatera en privat DNS-zon i en resursgrupp. Observera att det här kommandot inte kan användas för att skapa eller uppdatera virtuella nätverkslänkar eller uppsättningar av poster i zonen. |
 > | Åtgärd | Microsoft.Network/privateEndpoints/delete | Tar bort en privat slutpunktsresurs. |
 > | Åtgärd | Microsoft.Network/privateEndpoints/read | Hämtar en privat slutpunktsresurs. |
 > | Åtgärd | Microsoft.Network/privateEndpoints/write | Skapar en ny privat slutpunkt eller uppdaterar en befintlig privat slutpunkt. |
@@ -4047,8 +4000,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.operationalinsights/Workspaces/Operations/Read | Hämtar status för en OperationalInsights arbetsyta-åtgärd. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/purge/action | Ta bort angivna data från arbetsytan |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesAccountLogon/read | Läsa data från tabellen AADDomainServicesAccountLogon |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesAccountManagement/read | Läsa data från tabellen AADDomainServicesAccountManagement |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesDirectoryServiceAccess/read | Läsa data från tabellen AADDomainServicesDirectoryServiceAccess |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesLogonLogoff/read | Läsa data från tabellen AADDomainServicesLogonLogoff |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | Läsa data från tabellen AADDomainServicesPolicyChange |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | Läsa data från tabellen AADDomainServicesPrivilegeUse |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesSystemSecurity/read | Läsa data från tabellen AADDomainServicesSystemSecurity |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Läsa data från tabellen ADAssessmentRecommendation |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | Läsa data från tabellen ADFActivityRun |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | Läsa data från tabellen ADFPipelineRun |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Läsa data från tabellen ADFTriggerRun |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Läsa data från tabellen ADReplicationResult |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Läsa data från tabellen ADSecurityAssessmentRecommendation |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/Alert/read | Läsa data från tabellen avisering |
@@ -4060,7 +4021,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Läsa data från tabellen AutoscaleScaleActionsLog |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | Läsa data från tabellen AWSCloudTrail |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Läsa data från tabellen AzureActivity |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Läsa data från tabellen AzureAssessmentRecommendation |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Läsa data från tabellen AzureMetrics |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | Läsa data från tabellen BlockchainApplicationLog |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Läsa data från tabellen BlockchainProxyLog |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Läsa data från tabellen BoundPort |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | Läsa data från tabellen CommonSecurityLog |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | Läsa data från tabellen ComputerGroup |
@@ -4172,6 +4136,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Läsa data från tabellen MAWindowsDeploymentStatus |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Läsa data från tabellen MAWindowsDeploymentStatusNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Läsa data från tabellen MAWindowsSysReqInstanceReadiness |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | Läsa data från tabellen MicrosoftWebApplicationLog |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | Läsa data från tabellen MicrosoftWebFunctionExecutionLogs |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebStdOutStdErrLog/read | Läsa data från tabellen MicrosoftWebStdOutStdErrLog |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebW3CLog/read | Läsa data från tabellen MicrosoftWebW3CLog |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Läsa data från tabellen NetworkMonitoring |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Läsa data från tabellen OfficeActivity |
@@ -4344,60 +4311,60 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
 > | Åtgärd | Microsoft.RecoveryServices/locations/allocateStamp/action | Allocatedstamp är en intern åtgärd som används av tjänsten |
-> | Åtgärd | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
-> | Åtgärd | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Åtgärd | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Locations/backupStatus/action | Kontrollera Säkerhetskopieringsstatus för Recovery Services-valv |
-> | Åtgärd | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validera funktioner |
+> | Åtgärd | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
+> | Åtgärd | microsoft.recoveryservices/Locations/backupProtectedItem/write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Locations/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Locations/backupStatus/action | Kontrollera Säkerhetskopieringsstatus för Recovery Services-valv |
+> | Åtgärd | microsoft.recoveryservices/Locations/backupValidateFeatures/action | Validera funktioner |
 > | Åtgärd | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Kontrollera Namntillgänglighet för resursen är en API för att kontrollera om resursnamnet är tillgänglig |
 > | Åtgärd | Microsoft.RecoveryServices/locations/operationStatus/read | Hämtar Åtgärdsstatus för en viss åtgärd |
 > | Åtgärd | Microsoft.RecoveryServices/operations/read | Åtgärden returnerar listan över åtgärder för en Resursprovider |
 > | Åtgärd | Microsoft.RecoveryServices/register/action | Registrerar prenumerationen för den angivna Resursprovidern |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupconfig/read | Returnerar konfiguration för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupconfig/write | Uppdaterar konfiguration för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupEngines/read | Returnerar alla säkerhetskopieringshanteringsservrar registrerade i valvet. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Ta bort en säkerhetskopia för Avsiktsskydd |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Hämta en säkerhetskopia för Avsiktsskydd |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för Avsiktsskydd |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Returnerar status för åtgärden |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Hämta alla behållare som kan skyddas |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Tar bort registrerad behållare |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Gör förfrågan om arbetsbelastningar inom en behållare |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Hämta alla objekt i en behållare |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Hämtar resultat från utförd åtgärd på skyddsbehållare. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Säkerhetskopierar ett skyddat objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Tar bort skyddat objekt |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returnerar status för utförd åtgärd på skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar information om det skyddade objektet |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Tillhandahåll direkt Objektåterställning för skyddat objekt |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Hämta återställningspunkter för skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Återskapa återställningspunkter för skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla direkt Objektåterställning för skyddat objekt |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade behållare |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Skapar en registrerad behållare |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Avbryt jobbet |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returnerar resultat från säkerhetskopiering för Recovery Services-valvet. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returnerar Säkerhetskopieringsstatus för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Tar bort en Skyddsprincip |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Hämta Status för principåtgärd. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Skapar en Skyddsprincip |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Returnerar lista över alla objekt som ska skyddas. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returnerar alla behållare som hör till prenumerationen |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista över alla backup Protection avsikter |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Returnerar säkerhetskod Information för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Returnerar lagringskonfiguration för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Uppdaterar lagringskonfiguration för Recovery Services-valv. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returnerar sammanfattning av skyddade objekt och skyddade servrar för Recovery Services. |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validera åtgärden på skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupconfig/read | Returnerar konfiguration för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupconfig/write | Uppdaterar konfiguration för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupEngines/read | Returnerar alla säkerhetskopieringshanteringsservrar registrerade i valvet. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | Ta bort en säkerhetskopia för Avsiktsskydd |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | Hämta en säkerhetskopia för Avsiktsskydd |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för Avsiktsskydd |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Returnerar status för åtgärden |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Hämta alla behållare som kan skyddas |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Tar bort registrerad behållare |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Gör förfrågan om arbetsbelastningar inom en behållare |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Hämta alla objekt i en behållare |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Hämtar resultat från utförd åtgärd på skyddsbehållare. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Säkerhetskopierar ett skyddat objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Tar bort skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returnerar status för utförd åtgärd på skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar information om det skyddade objektet |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Tillhandahåll direkt Objektåterställning för skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Hämta återställningspunkter för skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Återskapa återställningspunkter för skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla direkt Objektåterställning för skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade behållare |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | Skapar en registrerad behållare |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Avbryt jobbet |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupJobsExport/action | Export-jobb |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupOperationResults/read | Returnerar resultat från säkerhetskopiering för Recovery Services-valvet. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupOperations/read | Returnerar Säkerhetskopieringsstatus för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupPolicies/delete | Tar bort en Skyddsprincip |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | Hämta Status för principåtgärd. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupPolicies/write | Skapar en Skyddsprincip |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupProtectableItems/read | Returnerar lista över alla objekt som ska skyddas. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Returnerar alla behållare som hör till prenumerationen |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | Lista över alla backup Protection avsikter |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Returnerar säkerhetskod Information för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Returnerar lagringskonfiguration för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Uppdaterar lagringskonfiguration för Recovery Services-valv. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Returnerar sammanfattning av skyddade objekt och skyddade servrar för Recovery Services. |
+> | Åtgärd | microsoft.recoveryservices/Vaults/backupValidateOperation/action | Validera åtgärden på skyddat objekt |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/certificates/write | Åtgärden Uppdatera Resurscertifikat uppdateras certifikatet för resurs/valv-autentiseringsuppgifter. |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/delete | Ta bort valv raderas den angivna Azure-resursen av typen ”vault' |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | Med Hämta utökad information hämtas utökad information för ett objekt som representerar Azure-resursen av typen ?valv? |
@@ -4509,8 +4476,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | Läsa  |
 > | Åtgärd | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | Skapa eller uppdatera alla  |
 > | Åtgärd | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Läsa alla vCenters |
+> | Åtgärd | microsoft.recoveryservices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Åtgärd | Microsoft.RecoveryServices/vaults/usages/read | Läsa alla Valvanvändning |
-> | Åtgärd | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Valvtokenåtgärden kan användas för att hämta Valvtoken för serverdelsåtgärder på valvnivå. |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/write | Med skapa valv så skapas en Azure-resurs av typen valv |
 
@@ -4580,6 +4547,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Resourcehealth/healthevent/Resolved/action | Anger ändringen i hälsotillståndet för den angivna resursen |
 > | Åtgärd | Microsoft.Resourcehealth/healthevent/Updated/action | Anger ändringen i hälsotillståndet för den angivna resursen |
 > | Åtgärd | Microsoft.ResourceHealth/impactedResources/read | Hämta resurser som påverkas för angiven prenumeration |
+> | Åtgärd | Microsoft.ResourceHealth/metadata/read | Gets Metadata |
 > | Åtgärd | Microsoft.ResourceHealth/Operations/read | Hämta åtgärderna som är tillgängliga för Microsoft ResourceHealth |
 > | Åtgärd | Microsoft.ResourceHealth/register/action | Registrerar prenumerationen för Microsoft ResourceHealth |
 > | Åtgärd | Microsoft.ResourceHealth/unregister/action | Avregistrerar prenumerationen för Microsoft ResourceHealth |
@@ -4857,19 +4825,20 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.SignalRService/locations/checknameavailability/action | Kontrollerar om ett namn är tillgängliga för användning med en ny SignalR-tjänst |
-> | Åtgärd | Microsoft.SignalRService/locations/operationresults/signalr/read | Fråga efter statusen för en asynchorous-åtgärd |
-> | Åtgärd | Microsoft.SignalRService/locations/operationstatus/operationId/read |  |
+> | Åtgärd | Microsoft.SignalRService/locations/operationresults/signalr/read | Fråga efter statusen för en asynkron åtgärd |
+> | Åtgärd | Microsoft.SignalRService/locations/operationStatuses/operationId/read | Fråga efter statusen för en asynkron åtgärd |
 > | Åtgärd | Microsoft.SignalRService/locations/usages/read | Hämta kvot användningar för Azure SignalR service |
-> | Åtgärd | Microsoft.SignalRService/operationresults/read | Fråga efter statusen för en asynchorous-åtgärd |
-> | Åtgärd | Microsoft.SignalRService/operationstatus/read |  |
+> | Åtgärd | Microsoft.SignalRService/operationresults/read | Fråga efter statusen för en asynkron åtgärd |
+> | Åtgärd | Microsoft.SignalRService/operationstatus/read | Fråga efter statusen för en asynkron åtgärd |
 > | Åtgärd | Microsoft.SignalRService/register/action | Registrerar 'Microsoft.SignalRService'-resursprovidern med en prenumeration |
 > | Åtgärd | Microsoft.SignalRService/SignalR/delete | Ta bort hela SignalR-tjänsten |
-> | Åtgärd | Microsoft.SignalRService/SignalR/listFeatures/read | Lista över anpassade FeatureFlags av en SignalR-tjänst. Som standard de som undantas. |
+> | Åtgärd | Microsoft.SignalRService/SignalR/eventGridFilters/delete | Ta bort en event grid-filtret från en SignalR. |
+> | Åtgärd | Microsoft.SignalRService/SignalR/eventGridFilters/read | Hämta egenskaperna för den angivna event grid-filtret eller listor event grid filter för den angivna SignalR. |
+> | Åtgärd | Microsoft.SignalRService/SignalR/eventGridFilters/write | Skapa eller uppdatera en event grid-filtret för en SignalR med de angivna parametrarna. |
 > | Åtgärd | Microsoft.SignalRService/SignalR/listkeys/action | Visa värdet för åtkomstnycklarna för SignalR i hanteringsportalen eller via API: et |
 > | Åtgärd | Microsoft.SignalRService/SignalR/read | Visa SignalR inställningar och konfigurationer i hanteringsportalen eller via API: et |
 > | Åtgärd | Microsoft.SignalRService/SignalR/regeneratekey/action | Ändra värdet för SignalR åtkomstnycklar i hanteringsportalen eller via API: et |
 > | Åtgärd | Microsoft.SignalRService/SignalR/restart/action | Starta om en Azure SignalR service i hanteringsportalen eller via API: et. Det kommer att vissa avbrott. |
-> | Åtgärd | Microsoft.SignalRService/SignalR/switchFeatures/action | Växla på/av SignalR FeatureFlags med egenskaper som stöds i hanteringsportalen eller via API: et. |
 > | Åtgärd | Microsoft.SignalRService/SignalR/write | Ändra SignalR inställningar och konfigurationer i hanteringsportalen eller via API: et |
 > | Åtgärd | Microsoft.SignalRService/unregister/action | Avregistrerar 'Microsoft.SignalRService'-resursprovidern med en prenumeration |
 
@@ -4944,6 +4913,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/locations/managedInstanceKeyOperationResults/read | Hämtar pågående åtgärder på transparent datakryptering hanterade instans nycklar |
 > | Åtgärd | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | Hämtar pågående åtgärder på hanterade databasen transparent datakryptering |
 > | Åtgärd | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | Hämtar pågående åtgärder på hanterade databasen transparent datakryptering |
+> | Åtgärd | Microsoft.Sql/locations/privateEndpointConnectionAzureAsyncOperation/read | Hämtar resultaten för en åtgärd för anslutning av privat slutpunkt |
+> | Åtgärd | Microsoft.Sql/locations/privateEndpointConnectionOperationResults/read | Hämtar resultaten för en åtgärd för anslutning av privat slutpunkt |
 > | Åtgärd | Microsoft.Sql/locations/privateEndpointConnectionProxyAzureAsyncOperation/read | Hämtar resultaten för en privat slutpunkt anslutning proxy-åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/privateEndpointConnectionProxyOperationResults/read | Hämtar resultaten för en privat slutpunkt anslutning proxy-åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/read | Hämtar tillgängliga platser för en viss prenumeration |
@@ -4962,6 +4933,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/read | Hämtar en kort sikt bevarandeprincip för en hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | Uppdaterar en kort sikt bevarandeprincip för en hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | Lista känslighet etiketter för en viss databas |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/write | Batch update känslighet etiketter |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/delete | Tar bort en befintlig hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för resursen |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen |
@@ -5055,9 +5027,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/databases/azureAsyncOperation/read | Hämtar status för en databasåtgärd. |
 > | Åtgärd | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/read | Returnera listan över principer för säkerhetskopiering arkivering av en angiven databas. |
 > | Åtgärd | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/write | Skapa eller uppdatera en databas arkivering princip för säkerhetskopiering. |
+> | Åtgärd | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/read | Hämtar en kort sikt bevarandeprincip för en databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/write | Uppdaterar en kort sikt bevarandeprincip för en databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/connectionPolicies/read | Hämta information om principen konfigurerats på en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/connectionPolicies/write | Ändra princip för en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/currentSensitivityLabels/read | Lista känslighet etiketter för en viss databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/currentSensitivityLabels/write | Batch update känslighet etiketter |
 > | Åtgärd | Microsoft.Sql/servers/databases/dataMaskingPolicies/read | Returnera listan över databasdata maskering av principer. |
 > | Åtgärd | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/delete | Ta bort datamaskning principregel för en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/read | Hämta information om datamaskning principregeln som konfigurerats på en viss databas |
@@ -5072,6 +5047,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/databases/extendedAuditingSettings/write | Ändra utökade blobben granskningsprincipen för en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/extensions/read | Hämtar en samling med tillägg för databasen. |
 > | Åtgärd | Microsoft.Sql/servers/databases/extensions/write | Ändra filnamnstillägget för en viss databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/failover/action | Initierad av kund databasredundans. |
 > | Åtgärd | Microsoft.Sql/servers/databases/geoBackupPolicies/read | Hämta principer för geo-säkerhetskopiering för en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/geoBackupPolicies/write | Skapa eller uppdatera en databas geobackup princip |
 > | Åtgärd | Microsoft.Sql/servers/databases/importExportOperationResults/read | Hämtar pågående import/export-åtgärder |
@@ -5173,6 +5149,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/delete | Ta bort befintlig elastisk pool |
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/elasticPoolActivity/read | Hämta aktiviteter och information om en viss elastic database-pool |
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/elasticPoolDatabaseActivity/read | Hämta aktiviteter och information om en viss databas som ingår i elastic database-pool |
+> | Åtgärd | Microsoft.Sql/servers/elasticPools/failover/action | Kunden initiera redundans för elastisk pool. |
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/metricDefinitions/read | Returnera typer av mått som är tillgängliga för elastiska databaspooler |
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/metrics/read | Returnera mått för elastiska databaspooler |
 > | Åtgärd | Microsoft.Sql/servers/elasticPools/operations/cancel/action | Avbryter Azure SQL-databaspool väntande asynkron åtgärd som inte har slutförts ännu. |
@@ -5213,6 +5190,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/privateEndpointConnectionProxies/write | Skapar en privat slutpunkt anslutning proxy med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna privata slutpunkt anslutning proxyn. |
 > | Åtgärd | Microsoft.Sql/servers/privateEndpointConnections/delete | Tar bort en befintlig privat slutpunkt-anslutning |
 > | Åtgärd | Microsoft.Sql/servers/privateEndpointConnections/read | Returnerar listan över privat slutpunkt anslutningar eller hämtar egenskaperna för den angivna privata slutpunkt-anslutningen. |
+> | Åtgärd | Microsoft.Sql/servers/privateEndpointConnections/write | Godkänner eller avvisar en befintlig privat slutpunkt-anslutning |
+> | Åtgärd | Microsoft.Sql/servers/privateLinkResources/read | Hämta privat länk-resurser för motsvarande sql-server |
 > | Åtgärd | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för servrar |
 > | Åtgärd | Microsoft.Sql/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Hämta mått för rekommenderade elastic database-pooler för en viss server |
@@ -5249,6 +5228,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Storage/checknameavailability/read | Kontrollerar att kontonamnet är giltigt och används inte. |
+> | Åtgärd | Microsoft.Storage/locations/checknameavailability/read | Kontrollerar att kontonamnet är giltigt och används inte. |
 > | Åtgärd | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Aviserar Microsoft.Storage om att virtuella nätverket eller undernätet tas bort |
 > | Åtgärd | Microsoft.Storage/locations/usages/read | Returnerar gränsen och det aktuella antalet användningar för resurser i den angivna prenumerationen |
 > | Åtgärd | Microsoft.Storage/operations/read | Avsöker status för en asynkron åtgärd. |
@@ -5292,6 +5272,13 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/delete | Ta bort hanteringsprinciper för lagringskonto |
 > | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/read | Hämta kontoprinciper |
 > | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/write | Placera hanteringsprinciper för lagringskonto |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete | Ta bort slutpunkten för privat anslutning proxyservrar |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/validate/action | Verifiera privat slutpunkt anslutning proxyservrar |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write | Placera privat slutpunkt anslutning proxyservrar |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnections/delete | Ta bort slutpunkten för privat anslutning |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | Hämta slutpunkten för privat anslutning |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateEndpointConnections/write | Placera privat slutpunkt-anslutning |
+> | Åtgärd | Microsoft.Storage/storageAccounts/privateLinkResources/read | Hämta StorageAccount groupids |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returnerar resultatet av att ta bort en kö |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returnerar resultatet av att lägga till ett meddelande |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
@@ -5305,6 +5292,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/write | Returnerar resultatet av att ställa in egenskaper för kötjänst |
 > | Åtgärd | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapar åtkomstnycklarna för det angivna lagringskontot. |
+> | Åtgärd | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | Återställa blob adressintervall till tillståndet för den angivna tiden |
 > | Åtgärd | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Återkallar alla nycklar för delegering för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Skapa/uppdatera diagnostikinställningar för lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/tableServices/read | Hämta egenskaper för tabell |

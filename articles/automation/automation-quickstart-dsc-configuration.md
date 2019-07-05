@@ -11,18 +11,18 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738305"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477608"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
 Genom att aktivera önskat tillstånd-konfiguration, DSC (Desired State Configuration), kan du hantera och övervaka konfigurationerna för dina Windows- och Linux-servrar. Konfigurationer som avviker från den önskade konfigurationen kan identifieras och korrigeras automatiskt. Den här snabbstarten går igenom registrering på en virtuell Linux-dator och distribution av en LAMP-stack med DSC.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -38,7 +38,7 @@ Det finns många olika metoder för att registrera en dator och aktivera DSC. I 
 
 1. I det vänstra fönstret i Azure Portal väljer du **Automation-konton**. Om det inte visas i det vänstra fönstret klickar du på **Alla tjänster** och söker efter den resulterande vyn.
 1. Välj ett Automation-konto i listan.
-1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)**.
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** .
 2. Klicka på **Lägg till** att öppna sidan för att välja virtuell dator.
 3. Leta reda på den virtuella dator du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
 4. Klicka på den virtuella datorn och välj sedan **Anslut**

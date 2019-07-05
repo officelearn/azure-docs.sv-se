@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570636"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561129"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -74,7 +74,7 @@ När NPS-tillägget för Azure är integrerad med NPS, resulterar ett flöde fö
 7. När anslutningsförsöket både autentiseras och auktoriseras NPS där tillägget installeras skickar en RADIE *nekad* meddelandet till VPN-server (RADIUS-klient).
 8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet beskrivs de krav som måste slutföras innan du kan integrera MFA med VPN-anslutningen. Innan du börjar måste du ha följande krav på plats:
 
@@ -246,7 +246,7 @@ I det här avsnittet konfigurerar du VPN-servern för RADIUS-autentisering. Anvi
 
     b. För den **delad hemlighet**väljer **ändra**, och ange sedan det delade hemliga lösenordet som du skapade och antecknade tidigare.
 
-    c. I den **timeout (sekunder)** väljer du ett värde från **30** via **60**.  
+    c. I den **timeout (sekunder)** anger värdet **30**.  
     Timeout-värdet är nödvändigt för att tillräckligt med tid att slutföra den andra faktorn för autentisering.
 
     ![Lägg till RADIUS-Server fönstret konfigurera timeout-värde](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ Om du vill felsöka problemen är en perfekt ställe att börja att undersöka s
 
 ## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor Authentication
 
-För att få hjälp att konfigurera användare för Multifaktorautentisering finns i artiklar [kräva tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md) och [konfigurerar mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md)
+För att få hjälp att konfigurera användare för Multifaktorautentisering finns i artiklar [planera en molnbaserad Azure Multi-Factor Authentication-distribution](howto-mfa-getstarted.md#create-conditional-access-policy) och [konfigurerar mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installera och konfigurera NPS-tillägget
 

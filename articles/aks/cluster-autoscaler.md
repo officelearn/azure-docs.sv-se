@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475645"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491559"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Förhandsgranskning – automatiskt skala ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
@@ -32,30 +32,34 @@ Den här artikeln kräver att du kör Azure CLI version 2.0.65 eller senare. Kö
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
 
-AKS-kluster som har stöd för autoskalningen kluster måste använda VM-skalningsuppsättningar och kör Kubernetes-version *1.12.7* eller senare. Den här stöd finns i förhandsversion. Om du vill anmäla dig och skapa kluster som använder skalningsuppsättningar, först installera den *aks-förhandsversion* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot enligt följande Exempel:
+Du behöver för att använda kluster autoskalningen den *aks-förhandsversion* CLI tilläggsversion 0.4.1 eller högre. Installera den *förhandsversionen av aks* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] kommandot::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Om du tidigare har installerat den *förhandsversionen av aks* tillägg, installera alla tillgängliga uppdateringar med hjälp av den `az extension update --name aks-preview` kommando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-scale-set-feature-provider"></a>Registrera scale set funktionen providern
 
-Så här skapar du ett AKS som använder skala, du måste även aktivera en funktionsflagga i prenumerationen. Att registrera den *VMSSPreview* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Så här skapar du ett AKS som använder skala, du måste även aktivera en funktionsflagga i prenumerationen. Att registrera den *VMSSPreview* funktion flaggan, använda den [az funktionen registrera][az-feature-register] kommandot som visas i följande exempel:
+
+> [!CAUTION]
+> När du registrerar en funktion i en prenumeration kan du inte för närvarande avregistrera den funktionen. När du aktiverar vissa funktioner i förhandsversion, kan standardinställningar användas för alla AKS-kluster som skapas i prenumerationen. Inte aktivera förhandsversionsfunktioner för produktion-prenumerationer. Använd en separat prenumeration för att testa funktioner och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan][az-feature-list] kommando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register] [ az-provider-register] kommando:
+När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -66,7 +70,6 @@ az provider register --namespace Microsoft.ContainerService
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder autoskalningen klustret:
 
 * Tillägg till routning för HTTP-program kan inte användas.
-* Flera nodpooler (för närvarande i förhandsversion i AKS) kan för närvarande inte användas.
 
 ## <a name="about-the-cluster-autoscaler"></a>Om klustret autoskalningen
 
@@ -85,7 +88,7 @@ Vågrät pod autoskalningen såväl kluster autoskalningen kan då också minska
 
 Läs mer om hur klustret autoskalningen kanske inte att skala ned [vilka typer av poddar kan förhindra att klustret autoskalningen tar bort en nod?][autoscaler-scaledown]
 
-Autoskalningen klustret använder startparametrar för saker som tidsintervall mellan skalningshändelser och resurströskelvärden. Dessa parametrar definieras av Azure-plattformen och visas inte för närvarande att justera. Mer information om vilka parametrar som klustret autoskalningen använder, finns i [vad är autoskalningen Klusterparametrar?] [autoscaler-parameters].
+Autoskalningen klustret använder startparametrar för saker som tidsintervall mellan skalningshändelser och resurströskelvärden. Dessa parametrar definieras av Azure-plattformen och visas inte för närvarande att justera. Mer information om vilka parametrar som klustret autoskalningen använder, finns i [vad är autoskalningen Klusterparametrar?][autoscaler-parameters].
 
 Två autoscalers kan fungera tillsammans och ofta båda distribueras i ett kluster. I kombination, fokuserar vågrät pod autoskalningen på Kör antalet poddar som krävs för att uppfylla programmets efterfrågan. Klustret autoskalningen fokuserar på Kör antalet noder som krävs för att stödja schemalagda poddarna.
 
@@ -94,7 +97,7 @@ Två autoscalers kan fungera tillsammans och ofta båda distribueras i ett klust
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Skapa ett AKS-kluster och aktivera autoskalningen kluster
 
-Om du vill skapa ett AKS-kluster kan du använda den [az aks skapa] [ az-aks-create] kommando. Ange en *--kubernetes-version* som uppfyller eller överskrider det lägsta versionsnumret som krävs enligt beskrivningen i det föregående [innan du börjar](#before-you-begin) avsnittet. Om du vill aktivera och konfigurera autoskalningen kluster måste använda den *--enable-kluster-autoskalningen* parametern och ange en nod *– minsta antal* och *--maximalt antal*.
+Om du vill skapa ett AKS-kluster kan du använda den [az aks skapa][az-aks-create] kommando. Ange en *--kubernetes-version* som uppfyller eller överskrider det lägsta versionsnumret som krävs enligt beskrivningen i det föregående [innan du börjar](#before-you-begin) avsnittet. Om du vill aktivera och konfigurera autoskalningen kluster måste använda den *--enable-kluster-autoskalningen* parametern och ange en nod *– minsta antal* och *--maximalt antal*.
 
 > [!IMPORTANT]
 > Autoskalningen kluster är en Kubernetes-komponent. Även om AKS-klustret använder en VM-skalningsuppsättning för noderna kan inte manuellt aktivera eller redigera inställningarna för scale set automatisk skalning i Azure portal eller med hjälp av Azure CLI. Låt Kubernetes-kluster autoskalningen hantera de obligatoriska inställningarna. Mer information finns i [kan jag ändra AKS-resurser i resursgruppen MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
@@ -120,7 +123,7 @@ Det tar några minuter att skapa klustret och konfigurera klusterinställningarn
 
 ### <a name="enable-the-cluster-autoscaler-on-an-existing-aks-cluster"></a>Aktivera autoskalningen kluster i ett befintligt AKS-kluster
 
-Du kan aktivera autoskalningen klustret på ett AKS-kluster som uppfyller kraven som beskrivs i det föregående [innan du börjar](#before-you-begin) avsnittet. Använd den [az aks uppdatera] [ az-aks-update] kommandot och väljer att *--enable-kluster-autoskalningen*, ange sedan en nod *– minsta antal* och *--maximalt antal*. I följande exempel aktiveras klustret autoskalningen i ett befintligt kluster som använder minst *1* och högst *3* noder:
+Du kan aktivera autoskalningen klustret på ett AKS-kluster som uppfyller kraven som beskrivs i det föregående [innan du börjar](#before-you-begin) avsnittet. Använd den [az aks uppdatera][az-aks-update] kommandot och väljer att *--enable-kluster-autoskalningen*, ange sedan en nod *– minsta antal* och *--maximalt antal* . I följande exempel aktiveras klustret autoskalningen i ett befintligt kluster som använder minst *1* och högst *3* noder:
 
 ```azurecli-interactive
 az aks update \
@@ -137,7 +140,7 @@ Om det lägsta nodantalet är större än det befintliga antalet noder i klustre
 
 I föregående steg för att skapa eller uppdatera ett befintligt AKS-kluster, autoskalningen minsta antalet klusternoder var inställd *1*, och det högsta antalet noder har angetts *3*. Som programmet ändrar kraven kan du behöva justera antalet klusternoder autoskalningen.
 
-Du kan ändra antalet noder med den [az aks uppdatera] [ az-aks-update] kommandot och ange ett lägsta och högsta värde. I följande exempel anges den *– minsta antal* till *1* och *--maximalt antal* till *5*:
+Du kan ändra antalet noder med den [az aks uppdatera][az-aks-update] kommandot och ange ett lägsta och högsta värde. I följande exempel anges den *– minsta antal* till *1* och *--maximalt antal* till *5*:
 
 ```azurecli-interactive
 az aks update \
@@ -155,7 +158,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Inaktivera autoskalningen kluster
 
-Om du inte längre vill använda autoskalningen kluster kan du inaktivera den med hjälp av den [az aks uppdatera] [ az-aks-update] kommando. Noder tas inte bort när klustret autoskalningen är inaktiverad.
+Om du inte längre vill använda autoskalningen kluster kan du inaktivera den med hjälp av den [az aks uppdatera][az-aks-update] kommando. Noder tas inte bort när klustret autoskalningen är inaktiverad.
 
 Om du vill ta bort klustret autoskalningen, ange den *--disable-kluster-autoskalningen* parametern, som visas i följande exempel:
 
@@ -166,7 +169,7 @@ az aks update \
   --disable-cluster-autoscaler
 ```
 
-Du kan manuellt skala ditt kluster med hjälp av den [az aks skala] [ az-aks-scale] kommando. Om du använder horisontell pod autoskalningen funktionen fortsätter att köras med klustret autoskalningen inaktiverad, men poddar kan det sluta kunde inte schemaläggas om noden resurser finns i användning.
+Du kan manuellt skala ditt kluster med hjälp av den [az aks skala][az-aks-scale] kommando. Om du använder horisontell pod autoskalningen funktionen fortsätter att köras med klustret autoskalningen inaktiverad, men poddar kan det sluta kunde inte schemaläggas om noden resurser finns i användning.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -185,9 +188,10 @@ Den här artikeln visade hur du automatiskt skala antalet AKS-noder. Du kan ocks
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

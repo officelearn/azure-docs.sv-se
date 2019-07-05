@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure Search i Node.js – Azure Search
-description: Se hur du bygger ett sökprogram på en värd- och molnbaserad söktjänst i Azure med Node.js som programmeringsspråk.
+title: 'Snabbstart för node.js: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
+description: 'Beskriver hur du skapar ett index, läsa in data och kör frågor med hjälp av Node.js och Azure Search REST-API: er.'
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289211"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450030"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i Node.js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Snabbstart: Skapa ett Azure Search-index i Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ Om du vill köra det här exemplet måste du ha en Azure Search-tjänst, som du 
 ## <a name="about-the-data"></a>Om de data som används
 Det här exempelprogrammet använder data från [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
-I det här programmet bygger och läser programmet **DataIndexer** in indexet med hjälp av en [indexeringskonstruktion](https://msdn.microsoft.com/library/azure/dn798918.aspx) och hämtar den filtrerade USGS-datauppsättningen från en offentlig Azure SQL-databas. Autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs.
+I det här programmet i **DataIndexer** programmet bygger och läser in indexet med hjälp av en [indexeraren](https://msdn.microsoft.com/library/azure/dn798918.aspx) konstruktion, hämtar den filtrerade USGS-datauppsättningen från en Azure SQL Database. Autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs.
 
 > [!NOTE]
 > Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Den här begränsningen gäller inte om du använder standardnivån. Mer information om kapaciteten för varje prisnivå finns i [Tjänstbegränsningar för Search](search-limits-quotas-capacity.md).

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b54d5003f67a1bd79e1e52eef87df858bc68ade1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780034"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551917"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -51,7 +51,7 @@ Använder TCP tunneling du kan skapa en nätverksanslutning mellan din utvecklin
 
 Om du vill komma igång kan du behöva installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill se hur det fungerar utan att installera Azure CLI, öppna [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumerations-id >_ ,  _\<-namn >_ och \_< appnamn > _ för din app.
+Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumerations-id >_ ,  _\<-namn >_ och \_ \<appens namn-> _ för din app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

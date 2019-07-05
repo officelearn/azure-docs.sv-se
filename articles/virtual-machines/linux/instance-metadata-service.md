@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e527d9c35ccc87f270755947cd969c7acee380b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779549"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449175"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -41,7 +41,7 @@ Regions                                        | Tillgänglighet?               
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Offentliga västra centrala USA](https://azure.microsoft.com/regions/)                           | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -62,7 +62,7 @@ När nya versioner läggs kan äldre versioner fortfarande användas för kompat
 
 När ingen version anges, returneras ett fel med en lista över de senaste versionerna som stöds.
 
-> [!NOTE] 
+> [!NOTE]
 > Svaret är en JSON-sträng. Följande exempelsvar är pretty ut för läsbarhet.
 
 **Förfrågan**
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -537,8 +537,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Svar**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+Molnet och värdena för Azure-miljön finns nedan.
+
+ Molnet   | Azure Environment
+---------|-----------------
+[Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Hämtar taggarna för den virtuella datorn
 
@@ -619,11 +627,11 @@ När du har hämtat signaturen ovan kan du kontrollera att signaturen är från 
 > [!NOTE]
 > Certifikatet för offentliga moln och nationellt moln är olika.
 
- Regions | Certifikat
+ Molnet | Certifikat
 ---------|-----------------
 [Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash

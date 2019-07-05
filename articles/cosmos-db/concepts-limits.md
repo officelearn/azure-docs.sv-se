@@ -1,19 +1,19 @@
 ---
-title: Begränsningar i Azure Cosmos DB
+title: Gränser i Azure Cosmos DB
 description: Den här artikeln beskriver begränsningarna i Azure Cosmos DB.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969499"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561237"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Begränsningar i Azure Cosmos DB
+# <a name="limits-in-azure-cosmos-db"></a>Gränser i Azure Cosmos DB
 
 Den här artikeln innehåller en översikt över begränsningar i Azure Cosmos DB-tjänsten.
 
@@ -37,7 +37,6 @@ När du har skapat ett Azure Cosmos-konto i din prenumeration kan du hantera dat
 
 En Cosmos-behållare (eller delade dataflöde databasen) måste ha ett minsta dataflöde på 400 ru: er. När behållaren växer, beror det minsta dataflödet som stöds även på följande faktorer:
 
-* Det maximala lagringsutrymmet som förbrukas i behållaren mäts i steg om 40 ru: er per GB förbrukad lagring. Till exempel om en behållare innehåller 100 GB data, måste sedan dataflödet vara minst 4000 ru: er
 * Det maximala dataflöde som någonsin har etablerats på behållaren. Tjänsten stöder sänka dataflödet för en behållare till 10% av det etablerade högsta. Till exempel om ditt dataflöde har ökat till 10000 ru: er, är sedan det lägsta möjliga dataflöden 1000 ru: er
 * Det totala antalet behållare som du tidigare har skapat i en delad dataflöde-databas, mätt på 100 ru: er per behållare. Till exempel om du har skapat fem behållare i en delad dataflöde databas kan måste sedan dataflödet vara minst 500 ru: er
 
@@ -48,7 +47,6 @@ Den aktuella och lägsta genomströmningen i en behållare eller en databas kan 
 | Minsta ru: er per behållare ([dedikerat dataflöde etablerat läge](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minsta ru: er per databas ([delade etablerade genomflödesläge](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minsta ru: er per behållare i en delad dataflöde-databas | 100 |
-| Minsta Begäransenheter per GB förbrukad lagring | 40 |
 
 Cosmos DB stöder elastisk skalning av dataflöde (ru) per behållare eller databasen via SDK: er eller portalen. Varje behållare kan skala direkt och synkront inom ett intervall för skala med 10 till 100 gånger mellan lägsta och högsta värden. Om det begärda genomströmning värdet ligger utanför intervallet, utförs skalning asynkront. Asynkrona skalning kan det ta några minuter till timmar att slutföra beroende på det begärda dataflöde och lagringsstorlek för data i behållaren.  
 

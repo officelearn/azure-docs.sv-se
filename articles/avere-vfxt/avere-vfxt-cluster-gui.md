@@ -4,14 +4,14 @@ description: Hur du ansluter till klustret vFXT och webbläsarbaserade Avere Kon
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794284"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439977"
 ---
 # <a name="access-the-vfxt-cluster"></a>Åtkomst till vFXT klustret
 
@@ -27,9 +27,11 @@ Eftersom vFXT klustret är placerad i ett privat virtuellt nätverk, måste du s
 
 Innan du ansluter ska du kontrollera att SSH offentliga/privata nyckelparet som du använde när du skapar klustret controller är installerad på den lokala datorn. Läs dokumentationen för SSH-nycklar för [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) eller för [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) om du behöver hjälp. (Om du har använt ett lösenord i stället för en offentlig nyckel, uppmanas du att ange den när du ansluter.) 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>SSH-tunnel med en Linux-värd
+## <a name="create-an-ssh-tunnel"></a>Skapa en SSH-tunnel 
 
-Om du använder en Linux-baserad klient Använd en SSH tunneling kommandot med det här formuläret: 
+Du kan skapa en SSH-tunnel från kommandoraden för en Linux-baserade eller Windows 10 klientsystemet. 
+
+Använd en SSH tunneling kommandot med det här formuläret: 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ Exempel:
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-Autentisering sker automatiskt om du har använt din offentliga SSH-nyckel för att skapa klustret och motsvarande nyckel är installerad på klientdatorn. Om du har använt ett lösenord uppmanas du att ange den.
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>SSH-tunnel med en Windows-värd
-
-Det här exemplet används vanliga Windows-baserade terminal verktyget PuTTY.
-
-Fyll i PuTTY **värdnamn** med controller klusternamn och IP-adress: *your_username*\@*controller_public_IP*.
-
-Exempel: ``azureuser@203.0.113.51``
-
-I den **Configuration** panelen:
-
-1. Expandera **anslutning** > **SSH** till vänster. 
-1. Klicka på **tunnlar**. 
-1. Ange en källport som 8443. 
-1. Ange vFXT klustrets IP-adress för hantering och port 443 för målet. 
-   Exempel: ``203.0.113.51:443``
-1. Klicka på **Lägg till**.
-1. Klicka på **öppna**.
-
-![Skärmbild av Putty-tillämpning som visar var du ska klicka för att lägga till en tunnel](media/avere-vfxt-ptty-numbered.png)
 
 Autentisering sker automatiskt om du har använt din offentliga SSH-nyckel för att skapa klustret och motsvarande nyckel är installerad på klientdatorn. Om du har använt ett lösenord uppmanas du att ange den.
 

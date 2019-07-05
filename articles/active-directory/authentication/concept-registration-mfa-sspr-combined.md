@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113517"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537012"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -136,6 +136,8 @@ En användare som redan har konfigurerat minst en metod som kan användas för m
 ## <a name="next-steps"></a>Nästa steg
 
 [Aktivera kombinerade registrering i din klient](howto-registration-mfa-sspr-combined.md)
+
+[SSPR och MFA-användningen och insikter för rapportering](howto-authentication-methods-usage-insights.md)
 
 [Tillgängliga metoder för Multifaktorautentisering och SSPR](concept-authentication-methods.md)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754999"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443760"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -68,7 +68,7 @@ Jämfört med gpv2 och blob storage-konton, ger block blob storage-konton låg o
 
 Block blob storage-konton stöder för närvarande inte lagringsnivåer för frekvent, lågfrekvent eller arkivnivå åtkomst.
 
-### <a name="filestorage-preview-storage-accounts"></a>Lagringskonton för FileStorage (förhandsversion)
+### <a name="filestorage-storage-accounts"></a>FileStorage storage-konton
 
 Ett FileStorage storage-konto är ett specialanpassat lagringskonto som används för att lagra och skapa premium-filresurser. FileStorage lagringskonton erbjuder unika dedikerade prestandaegenskaper, till exempel IOPS bursting. Mer information om dessa egenskaper finns i den [prestandanivåer för filen resursen](../files/storage-files-planning.md#file-share-performance-tiers) avsnittet filernas Planeringshandbok.
 
@@ -88,7 +88,7 @@ Allmänna lagringskonton kan konfigureras för något av följande prestandaniv�
 
 Block blob storage-konton ger en premium-prestandanivån för att lagra blockblobbar och tilläggsblobbar.
 
-FileStorage (förhandsversion) storage-konton har en premium-prestandanivån för Azure-filresurser.
+FileStorage storage-konton har en premium-prestandanivån för Azure-filresurser.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Åtkomstnivåerna för block blob-data
 

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288412"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476307"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurera Azure-resurs rollinställningar i PIM
 
@@ -38,19 +38,19 @@ Följ stegen nedan för att öppna inställningarna för en roll i Azure-resurs.
 
 1. Klicka på resursen som du vill hantera, till exempel en prenumerations- eller grupp.
 
-    ![Lista över Azure-resurser att hantera](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Azure-resurser sida där resurser som kan hanteras](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Klicka på **rollinställningar**.
 
-    ![Rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Rollinställningar sidan lista Azure-resursroller](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Klicka på den roll som du vill konfigurera inställningarna.
 
-    ![Information om rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Inställningen information rollsidan lista över flera inställningar för tilldelning och aktivering](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Klicka på **redigera** att öppna inställningsfönstret för rollen.
 
-    ![Redigera rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Redigera inställningar för rollsidan med alternativ för att uppdatera inställningarna för tilldelning och aktivering](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Det finns flera inställningar som du kan konfigurera i fönstret för roll-inställningen för varje roll.
 
@@ -109,7 +109,7 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. Klicka på **Välj godkännare** att öppna dialogrutan Välj ett fönster som är medlem eller grupp.
 
-    ![Välj en medlem eller en grupp](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Välj en medlem eller grupp rutan och välj godkännare](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Välj minst en medlem eller gruppen och klicka sedan på **Välj**. Du kan lägga till valfri kombination av medlemmar och grupper. Du måste välja minst en godkännare. Det finns inga standard godkännare.
 

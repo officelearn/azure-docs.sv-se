@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a56006e5209a8ff6c15a2c626a752c00fcf131e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243925"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509188"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Kopiera data från SAP ECC med Azure Data Factory
 
@@ -36,7 +36,7 @@ Mer specifikt stöder den här SAP ECC-anslutningen:
 >[!TIP]
 >Du kan använda för att kopiera data från SAP ECC via SAP tabell/vy, [SAP tabell](connector-sap-table.md) anslutningstjänsten som är bättre och skalbar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I allmänhet exponerar SAP ECC entiteter via OData-tjänster via SAP-Gateway. Om du vill använda denna SAP ECC-anslutning måste du:
 
@@ -124,7 +124,7 @@ För att kopiera data från SAP ECC, ange typ av datakälla i kopieringsaktivite
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SapEccSource** | Ja |
-| query | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: (URL: en som anges i den länkade tjänsten) / (sökväg som anges i datauppsättningen)? (fråga som anges i kopieringskälla för aktiviteten). Referera till [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| query | OData-frågealternativ att filtrera data. Exempel ”: $select = namn, beskrivning och $top = 10”.<br/><br/>SAP ECC connector kopierar data från den kombinerade URL: `(url specified in linked service)/(path specified in dataset)?(query specified in copy activity source)`. Referera till [OData-URL komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel:**
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242696"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483413"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Välj en analys i realtid och streaming bearbetningsteknik i Azure
 
@@ -44,7 +44,7 @@ Azure Stream Analytics har en omfattande produkten. Du kan omedelbart dra nytta 
 
 ### <a name="you-need-to-input-from-or-output-to-kafka"></a>Du behöver indata från eller utdata till Kafka
 
-Azure Stream Analytics inte har ett Apache Kafka-indata eller utdata nätverkskort. Om du har händelser som hamnar i eller skicka till Kafka och du inte har ett krav att köra dina egna Kafka-kluster, kan du fortsätta att använda Stream Analytics genom att skicka händelser till Event Hubs med Event Hubs Kafka-API: N utan att ändra avsändaren händelse. Om du behöver att köra dina egna Kafka-kluster, kan du använda Spark Structured Streaming, som har fullt stöd för [Azure Databricks](../azure-databricks/index.yml), eller för Storm på [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+Azure Stream Analytics inte har ett Apache Kafka-indata eller utdata nätverkskort. Om du har händelser som hamnar i eller skicka till Kafka och du inte har ett krav att köra dina egna Kafka-kluster, kan du fortsätta att använda Stream Analytics genom att skicka händelser till Event Hubs med Event Hubs Kafka-API: N utan att ändra avsändaren händelse. Om du behöver att köra dina egna Kafka-kluster, kan du använda Spark Structured Streaming, som har fullt stöd för [Azure Databricks](../azure-databricks/index.yml), eller för Storm på [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Vill du skriva UDF och UDA anpassade deserializers i ett annat språk än JavaScript ellerC#
 

@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347121"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509921"
 ---
 Avbildningar av standardiserad virtuella datorer (VM) gör att organisationer kan migrera till molnet och säkerställa konsekvens i distributionen. -Avbildningar omfattar vanligtvis fördefinierade inställningar för säkerhet och konfiguration och programvara som krävs. Konfigurera en egen avbildning pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder innehåller bara en enkel konfiguration som beskriver din avbildning, skickar den till tjänsten och avbildningen har skapats och distribuerats.
  
-Azure VM Image Builder (Azure Image Builder) kan du börja med en Windows eller Linux-baserade Azure Marketplace-avbildning, befintliga anpassade avbildningar eller Red Hat Enterprise Linux (RHEL) ISO och börja lägga till dina egna anpassningar. Eftersom Image Builder bygger på [HashiCorp Packer](https://packer.io/), du kan också importera din befintliga Packer provisioner kommandoskript. Du kan också ange var du vill att dina avbildningar som finns i Azures delade bildgalleri (virtual-machines-common-shared-image-galleries.md), som en hanterad avbildning eller en virtuell Hårddisk.
+Azure VM Image Builder (Azure Image Builder) kan du börja med en Windows eller Linux-baserade Azure Marketplace-avbildning, befintliga anpassade avbildningar eller Red Hat Enterprise Linux (RHEL) ISO och börja lägga till dina egna anpassningar. Eftersom Image Builder bygger på [HashiCorp Packer](https://packer.io/), du kan också importera din befintliga Packer provisioner kommandoskript. Du kan också ange var du vill att dina avbildningar som finns i den [Azures delad bildgalleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), som en hanterad avbildning eller en virtuell Hårddisk.
 
 > [!IMPORTANT]
 > Azure Image Builder är för närvarande i offentlig förhandsversion.
@@ -35,7 +35,7 @@ För förhandsversionen av stöds dessa funktioner:
 
 ## <a name="regions"></a>Regions
 Azure Image Builder Service blir tillgänglig som förhandsversion i dessa regioner. Bilder kan fördelas utanför dessa regioner.
-- Östra USA
+- East US
 - USA, östra 2
 - Västra centrala USA
 - Västra USA
@@ -50,6 +50,12 @@ AIB har stöd för Azure Marketplace grundläggande OS-avbildningar:
 - Windows 2016
 - Windows 2019
 
+AIB stöder RHEL ISO'S, som en källa för:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 stöds inte, men testas.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 

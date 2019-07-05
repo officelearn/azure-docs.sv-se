@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: c876c012c48298268f682b5ee428ec0f27979b84
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298945"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565549"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 I den här självstudien får migrera du en datauppsättning i MongoDB som finns i en Azure virtuell dator till Azure Cosmos DB-API för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -122,7 +122,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
    * **Anslutningssträngsläge** som tar emot en MongoDB-anslutningssträng som beskrivs i artikeln [URI-anslutningssträngens format](https://docs.mongodb.com/manual/reference/connection-string/).
    * **Data från Azure-lagring** som tar emot en blobcontainers SAS-URL. Välj **Bloben innehåller BSON-dumpar** om blobcontainern innehåller BSON-dumpar som producerats av MongoDB:s [bsondump-verktyg](https://docs.mongodb.com/manual/reference/program/bsondump/) och avmarkera den om containern innehåller JSON-filer.
 
-    Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
+     Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
 
      ```
      https://blobnameurl/container?SASKEY
@@ -133,6 +133,13 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
      * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
 
      * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
+
+    > [!IMPORTANT]
+    > Det rekommenderas inte för att använda ett självsignerat certifikat på mongo-server. Men om ett sådant används, Anslut till servern med **anslutningssträngsläge** och kontrollera att anslutningssträngen har ””
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
 
    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 

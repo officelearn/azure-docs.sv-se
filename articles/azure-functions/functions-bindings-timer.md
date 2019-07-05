@@ -4,7 +4,7 @@ description: Förstå hur du använder timerutlösare i Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: db80155b39602ad5810c83e03913fb0f3ccb4281
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342221"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508274"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -269,12 +269,7 @@ Varje fält kan ha något av följande typer av värden:
 |En uppsättning värden (`,` operatorn)|<nobr>"5,8,10 * * * * *"</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH: mm är varje minut av varje timme (3 gånger en minut)|
 |Ett intervallvärde (`/` operatorn)|<nobr>"0 */5 * * * *"</nobr>|vid hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
 
-Om du vill ange månader eller dagar kan du använda numeriska värden, namn eller förkortningar namn på:
-
-* I dagar är de numeriska värdena 0-6 där 0 börjar med söndag.
-* Namn är på engelska. Exempel: `Monday`, `January`.
-* Är skiftlägeskänsliga.
-* Namnen kan förkortas. Tre bokstäver är den rekommenderade förkortning.  Exempel: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>CRON-exempel
 

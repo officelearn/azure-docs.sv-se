@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479456"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433630"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
@@ -51,6 +51,9 @@ En skriptåtgärder är Bash-skript som körs på noderna i ett HDInsight-kluste
       * ADLS Gen1: Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Storage måste ha läsbehörighet till skriptet. URI-format för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
       
       * En blob i ett Azure Storage-konto som antingen primära eller ytterligare lagringskontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagringskonton när klustret skapas.
+
+        > [!IMPORTANT]  
+        > Rotera inte lagringsnyckel för det här Azure Storage-kontot eftersom det gör efterföljande skriptåtgärder med skript som lagras där för att misslyckas.
 
       * En offentlig fildelning tjänst som är tillgängliga via http:// sökvägar. Exempel är Azure Blob, GitHub, OneDrive.
 
@@ -147,7 +150,6 @@ HDInsight tillhandahåller skript för att installera följande komponenter i HD
 | --- | --- |
 | Lägg till ett Azure Storage-konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagringskonton till HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [installera och använda Hue på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
-| Installera Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Se [installera och använda Presto på Hadoop-baserade HDInsight-kluster](hdinsight-hadoop-install-presto.md). |
 | Installera Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Se [installera Apache Giraph på HDInsight Hadoop-kluster](hdinsight-hadoop-giraph-install-linux.md). |
 | Förhandsladda Hive-bibliotek |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Se [lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
 

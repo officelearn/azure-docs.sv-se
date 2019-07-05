@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550147"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439115"
 ---
 # <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
 
@@ -24,12 +24,12 @@ Om du vill börja hantera, kryptera, kodning, analysera och strömma medieinneh�
 
 Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar starkt att använda storage-konton på samma plats som Media Services-konto för att undvika extra kostnader för svarstid och utgående
 
-Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). 
+Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). <br/>Endast blob-konton tillåts inte som **primära**. 
 
->[!NOTE]
-> Endast blob-konton tillåts inte som **primära**. 
+Vi rekommenderar att du använder GPv2, så du kan dra nytta av de senaste funktionerna och prestanda. Mer information om lagringskonton finns [översikt över Azure Storage-konto](../../storage/common/storage-account-overview.md).
 
-Vi rekommenderar att du använder GPv2, så att du kan dra nytta av att välja mellan frekvent och lågfrekvent lagringsnivå. Mer information om lagringskonton finns [översikt över Azure Storage-konto](../../storage/common/storage-account-overview.md). 
+> [!NOTE]
+> Endast frekvent åtkomstnivå har stöd för användning med Azure Media Services, även om andra åtkomstnivåer som kan användas för att minska lagringskostnaderna för innehåll som aktivt inte används.
 
 Det finns olika SKU: er som du kan välja för ditt lagringskonto. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS`, som ger geografisk replikering för affärskontinuitet. 
 

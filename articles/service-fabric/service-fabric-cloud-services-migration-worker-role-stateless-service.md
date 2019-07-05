@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110020"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550376"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb- och Worker-roller till tillståndslös Service Fabric-tjänster
 Den här artikeln beskriver hur du migrerar dina Cloud Services Web och Worker-roller till tillståndslös Service Fabric-tjänster. Det här är den enklaste migreringsvägen från Cloud Services till Service Fabric för program vars övergripande arkitekturen kommer att vara ungefär detsamma.
@@ -32,7 +32,7 @@ Skillnaden är att Cloud Service-projekt kombinerar programdistribution med en V
 ![Jämförelse mellan Service Fabric och Cloud Services-projekt][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Worker-roll till tillståndslös tjänst
-Den övergripande representerar en Arbetsroll en tillståndslös arbetsbelastning, vilket innebär att varje instans av arbetsbelastning är identiska och kan begäranden dirigeras till en valfri instans när som helst. Varje instans förväntades inte att komma ihåg tidigare begäran. Tillstånd som arbetsbelastningen som körs på hanteras av en extern tillståndslager, till exempel Azure Table Storage eller Azure Document DB. I Service Fabric kan representeras den här typen av arbetsbelastning av en tillståndslös tjänst. Det enklaste sättet att migrera en Arbetsroll till Service Fabric kan göras genom att konvertera Arbetsroll kod till en tillståndslös tjänst.
+Den övergripande representerar en Arbetsroll en tillståndslös arbetsbelastning, vilket innebär att varje instans av arbetsbelastning är identiska och kan begäranden dirigeras till en valfri instans när som helst. Varje instans förväntades inte att komma ihåg tidigare begäran. Tillstånd som arbetsbelastningen som körs på hanteras av en extern tillståndslager, till exempel Azure Table Storage eller Azure Cosmos DB. I Service Fabric kan representeras den här typen av arbetsbelastning av en tillståndslös tjänst. Det enklaste sättet att migrera en Arbetsroll till Service Fabric kan göras genom att konvertera Arbetsroll kod till en tillståndslös tjänst.
 
 ![Worker-roll till tillståndslös tjänst][4]
 

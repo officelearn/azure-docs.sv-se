@@ -1,91 +1,130 @@
 ---
-title: Översikt över Azure anpassade Providers förhandsversion
-description: Beskriver konceptet för att skapa en anpassad resurs-provider med Azure Resource Manager
-author: MSEvanhi
+title: Översikt över Azure anpassade Resursprovidrar
+description: Läs mer om Azure anpassade Resursprovidrar och hur du utökar Azure API-plan för att passa dina arbetsflöden.
+author: jjbfour
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/01/2019
-ms.author: evanhi
-ms.openlocfilehash: bbfb10f612690af0f4fd3683e0f58986a21048d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.author: jobreen
+ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159862"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67475949"
 ---
-# <a name="azure-custom-providers-preview-overview"></a>Översikt över Azure anpassade Providers förhandsversion
+# <a name="azure-custom-resource-providers-overview"></a>Översikt över Azure anpassad resurs-Providers
 
-Med Azure anpassade Providers, kan du utöka Azure för att arbeta med din tjänst. Du skapar en egen resource provider, inklusive anpassade resurstyperna och åtgärderna. Den anpassade providern är integrerad med Azure Resource Manager. Du kan använda Resource Manager-funktioner, till exempel malldistributioner och rollbaserad åtkomstkontroll för att distribuera och skydda din tjänst.
+Azure anpassade Resource Providers är en plattform för utökningsbarhet till Azure. Det kan du definiera anpassade API: er som kan användas för att utöka standard Azure-upplevelse. Den här dokumentationen beskrivs:
 
-Den här artikeln innehåller en översikt över anpassade providers och dess funktioner. Följande bild visar arbetsflödet för resurser och åtgärder som definierats i en anpassad provider.
+- Så här att skapa och distribuera en Azure Resource Provider för anpassad.
+- Hur du använder Azure anpassade Resource Providers för att utöka befintliga arbetsflöden.
+- Var du hittar guider och kodexempel för att komma igång.
 
 ![Översikt över anpassad provider](./media/custom-providers-overview/overview.png)
 
 > [!IMPORTANT]
 > Anpassade Providers är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="define-your-custom-provider"></a>Definiera den anpassade providern
+## <a name="what-can-custom-resource-providers-do"></a>Vad kan anpassade resursprovidrar?
 
-Du startar genom att låta Azure Resource Manager veta om den anpassade providern. Du distribuerar till Azure en anpassad provider-resurs, som använder resurstypen för **Microsoft.CustomProviders/resourceProviders**. I resursen måste definiera du resurser och åtgärder för din tjänst.
+Här följer några exempel på vad du kan uppnå med Azure anpassade Resource Providers:
 
-Om din tjänst måste en resurstyp som heter exempelvis **användare**, du inkluderar den resurstypen i anpassad provider-definition. För varje resurstyp tillhandahåller du en slutpunkt som erbjuder REST-åtgärder (PUT, hämta, ta bort) för den resurstypen. Slutpunkten kan köras på alla miljöer och innehåller logik för hanteringen av åtgärder på resurstypen i din tjänst.
+- Utöka Azure Resource Manager REST API för att inkludera interna och externa tjänster.
+- Aktivera anpassade scenarier på befintliga Azure-arbetsflöden.
+- Anpassa Azure Resource Manager-mallar kontroll och effekt.
 
-Du kan också definiera anpassade åtgärder för din resursprovider. Åtgärder som representerar POST-åtgärder. Använda åtgärder för åtgärder som till exempel starta, stoppa eller starta om. Du kan ange en slutpunkt som hanterar begäran.
+## <a name="what-is-a-custom-resource-provider"></a>Vad är en anpassad resurs-provider
 
-I följande exempel visas hur du definierar en anpassad provider med en åtgärd och en resurstyp.
+Azure anpassad Resursprovidrar görs genom att skapa ett avtal mellan Azure och en slutpunkt. Det här kontraktet definierar en lista över nya resurser och åtgärder via en ny resurs, **Microsoft.CustomProviders/resourceProviders**. Anpassade resursprovidern utsätter sedan dessa nya API: er i Azure. Azure anpassade Resursprovidrar består av tre delar: anpassade resursprovidern **slutpunkter**, och anpassade resurser.
 
-```json
+## <a name="how-to-build-custom-resource-providers"></a>Hur du skapar anpassade resursprovidrar
+
+Anpassade resursproviders är en lista över avtal mellan Azure och slutpunkter. Det här avtalet beskriver hur Azure ska samverka med en slutpunkt. Resurs-providern fungerar som en proxy och vidarebefordrar begäranden och svar till och från den angivna **endpoint**. En resursprovider kan ange två typer av kontrakt: [ **resurstyper** ](./custom-providers-resources-endpoint-how-to.md) och [ **åtgärder**](./custom-providers-action-endpoint-how-to.md). De aktiveras via slutpunktsdefinitionerna. En slutpunktsdefinition består av tre fält: **namn**, **routingType**, och **endpoint**.
+
+Exemplet slutpunkt:
+
+```JSON
 {
-  "apiVersion": "2018-09-01-preview",
-  "type": "Microsoft.CustomProviders/resourceProviders",
-  "name": "[parameters('funcName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "actions": [
-      {
-        "name": "ping",
-        "routingType": "Proxy",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ],
-    "resourceTypes": [
-      {
-        "name": "users",
-        "routingType": "Proxy,Cache",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ]
-  }
-},
-```
-
-För **routingType**, de godkända värdena är `Proxy` och `Cache`. Proxy innebär att begäranden för resurstypen eller åtgärden hanteras av slutpunkten. Cache-inställningen stöds endast för resurstyper, inte åtgärder. Om du vill ange cache, måste du även ange proxy. Cache innebär lagras svaren från slutpunkten för att optimera läsåtgärder. Med hjälp av cache-inställningen gör det enklare att implementera en API som är konsekvent och kompatibel med andra Resource Manager-tjänster.
-
-## <a name="deploy-your-resource-types"></a>Distribuera din resurstyper
-
-När du har definierat den anpassade providern, kan du distribuera dina anpassade resurstyper. I följande exempel visar JSON som du inkluderar i mallen för att distribuera resurstypen för den anpassade providern. Den här resurstypen kan distribueras i samma mall som med andra Azure-resurser.
-
-```json
-{
-    "apiVersion": "2018-09-01-preview",
-    "type": "Microsoft.CustomProviders/resourceProviders/users",
-    "name": "[concat(parameters('rpname'), '/santa')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "FullName": "Santa Claus",
-        "Location": "NorthPole"
-    }
+  "name": "{endpointDefinitionName}",
+  "routingType": "Proxy",
+  "endpoint": "https://{endpointURL}/"
 }
 ```
 
-## <a name="manage-access"></a>Hantera åtkomst
+Egenskap | Krävs | Beskrivning
+---|---|---
+name | *Ja* | Namnet på slutpunktsdefinitionen. Azure visas detta namn via dess API under ”/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+routingType | *no* | Anger kontraktstypen med den **endpoint**. Om inte anges kommer det standard ”Proxy”.
+endpoint | *Ja* | Slutpunkt för att dirigera begäranden till. Det hanterar svaret samt effekterna på serversidan av begäran.
 
-Använd Azure [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) att hantera åtkomst till din resursprovider. Du kan tilldela [inbyggda roller](../role-based-access-control/built-in-roles.md) som ägare, deltagare eller läsare för användare. Eller, du kan definiera [anpassade roller](../role-based-access-control/custom-roles.md) som är specifika för åtgärderna i din resursprovider.
+### <a name="building-custom-resources"></a>Att skapa anpassade resurser
+
+**Resurstyper** Beskriver nya anpassade resurser som läggs till Azure. Dessa exponera grundläggande RESTful CRUD-metoder. Se [mer om hur du skapar anpassade resurser](./custom-providers-resources-endpoint-how-to.md)
+
+Exempel på anpassade Resursprovidern med **resurstyper**:
+
+```JSON
+{
+  "properties": {
+    "resourceTypes": [
+      {
+        "name": "myCustomResources",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API: er som har lagts till i Azure för exemplet ovan:
+
+HttpMethod | Exemplet URI | Beskrivning
+---|---|---
+PLACERA | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Azure REST API-anropet till att skapa en ny resurs.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Azure REST API-anrop att ta bort en befintlig resurs.
+HÄMTA | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Azure REST API-anropet att hämta en befintlig resurs.
+HÄMTA | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | Azure REST API-anrop till hämta listan över befintliga resurser.
+
+### <a name="building-custom-actions"></a>Att skapa anpassade åtgärder
+
+**Åtgärder** Beskriver nya åtgärder som läggs till Azure. Dessa kan visas på resursprovidern eller kapslat under en **resourceType**. Se [mer om hur du skapar anpassade åtgärder](./custom-providers-action-endpoint-how-to.md)
+
+Exempel på anpassade Resursprovidern med **åtgärder**:
+
+```JSON
+{
+  "properties": {
+    "actions": [
+      {
+        "name": "myCustomAction",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API: er som har lagts till i Azure för exemplet ovan:
+
+HttpMethod | Exemplet URI | Beskrivning
+---|---|---
+POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | Azure REST API-anrop till aktivera åtgärden.
+
+## <a name="looking-for-help"></a>Behöver hjälp
+
+Om du har frågor för Azure Resource Provider för anpassad utveckling fråga [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). En liknande fråga kanske har redan och svar och besvarade, så kontrollera först innan bokföring. Lägga till taggen ```azure-custom-providers``` att få snabba svar!
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig om anpassade providers. Gå till nästa artikel för att skapa en anpassad provider.
 
-> [!div class="nextstepaction"]
-> [Självstudie: Skapa anpassad provider och distribuera anpassade resurser](create-custom-provider.md)
+- [Självstudie: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Anvisningar: Att lägga till anpassade åtgärder i Azure REST-API](./custom-providers-action-endpoint-how-to.md)
+- [Anvisningar: Att lägga till anpassade resurser i Azure REST-API](./custom-providers-resources-endpoint-how-to.md)

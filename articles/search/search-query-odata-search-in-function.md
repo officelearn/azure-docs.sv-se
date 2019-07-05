@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f72a59aac448796cf15220e15a3c8a4f12803bb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079735"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449975"
 ---
 # <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` funktion i Azure Search
 
@@ -40,7 +40,7 @@ Men det finns ett kortare sätt att skriva detta med hjälp av den `search.in` f
 > Förutom att kortare och lättare att läsa med `search.in` innehåller också [prestandafördelarna](#bkmk_performance) och undvika vissa [storlek begränsningar av filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller tusentals värden ska ingå i filtret. Därför rekommenderar vi använder `search.in` i stället för en mer komplex disjunktion av likhet uttryck.
 
 > [!NOTE]
-> Version 4.01 av OData-standarden har nyligen har introducerats i [ `in` operatorn](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), som har samma problem som den `search.in` funktionen i Azure Search. Men Azure Search stöder inte den här operatorn, så du måste använda den `search.in` i stället.
+> Version 4.01 av OData-standarden har nyligen har introducerats i [ `in` operatorn](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), som har samma problem som den `search.in` funktionen i Azure Search. Men Azure Search stöder inte den här operatorn, så du måste använda den `search.in` i stället.
 
 ## <a name="syntax"></a>Syntax
 
@@ -70,7 +70,7 @@ Det finns två överlagringar av den `search.in` funktionen:
 
 Parametrarna har definierats i tabellen nedan:
 
-| Parameternamn | Typ | Beskrivning |
+| Parameternamn | Type | Beskrivning |
 | --- | --- | --- |
 | `variable` | `Edm.String` | En sträng fältreferens (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). |
 | `valueList` | `Edm.String` | En sträng som innehåller en avgränsad lista med värdena för att matcha mot den `variable` parametern. Om den `delimiters` parametern inte anges, standard-avgränsarna är blanksteg och kommatecken. |

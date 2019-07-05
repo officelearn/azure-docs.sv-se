@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356963"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514086"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -27,7 +27,13 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 
 Du kan kopiera data från Dynamics 365 (Common Data Service) eller Dynamics CRM till alla datalager för mottagare som stöds. Du kan också kopiera data från alla dataarkiv till Dynamics 365 (Common Data Service) eller Dynamics CRM. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Den här Dynamics-anslutningsappen stöder följande versioner av Dynamics och typer av autentisering. (IFD är kort för distribution av mot internet.)
+Den här Dynamics-anslutningsappen stöder Dynamics version 7.x till 9.x för både online eller lokalt. Mer specifikt
+
+- Version 7.x mappar till Dynamics CRM 2015
+- Version 8.x mappar till Dynamics CRM 2016 och den tidigare versionen av Dynamics 365
+- Version 9.x mappar till den senare versionen av Dynamics 365
+
+Se tabellen nedan på de typer av autentisering stöds och konfigurationer för respektive Dynamics versioner produkter. (IFD är kort för distribution av mot internet.)
 
 | Dynamics-versioner | Autentiseringstyper | Länkad tjänst-exempel |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ För Dynamics 365 mer specifikt kan stöds följande programtyper:
 - Dynamics 365 för marknadsföring
 
 Andra programtyper t.ex. finans och åtgärder, personal, etc. stöds inte av den här anslutningen.
+
+Den här Dynamics-kopplingen är byggt ovanpå [Dynamics XRM verktyg](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Kopiera data från **Dynamics 365 Finance and Operations**, du kan använda den [Dynamics AX-anslutning](connector-dynamics-ax.md).
@@ -341,9 +349,8 @@ Konfigurera den motsvarande datatypen för Data Factory i en dataset-struktur ba
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Dynamics-datatyper AttributeType.CalendarRules och AttributeType.PartyList stöds inte.
+> Dynamics-datatyper AttributeType.CalendarRules, AttributeType.MultiSelectPicklist och AttributeType.PartyList stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

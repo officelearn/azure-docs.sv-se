@@ -6,20 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399977"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491801"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Växla över virtuella datorer och fysiska servrar 
 
 Den här artikeln beskrivs hur du redundansväxling för virtuella datorer och fysiska servrar som skyddas av Site Recovery.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 1. Innan du utför en redundansväxling gör en [redundanstest](site-recovery-test-failover-to-azure.md) så att allt fungerar som förväntat.
 1. [Förbered nätverket](site-recovery-network-design.md) på målplatsen innan du gör en redundansväxling.  
 
@@ -70,9 +70,9 @@ Virtuella datorer/fysiska servrar som skyddas med Site Recovery också stöd fö
 
 > [!NOTE]
 > Under en redundansväxling av Hyper-v-datorer från en lokal plats till en annan lokal plats till gå tillbaka till den primära lokala platsen måste du först **omvänd replikering** den virtuella datorn tillbaka till primär plats och sedan utlösa redundans. Om den primära virtuella datorn inte är tillgängligt sedan innan du startar till **omvänd replikering** du måste återställa den virtuella datorn från en säkerhetskopia.   
-> 
-> 
-> ## <a name="failover-job"></a>Redundansjobbet skapades
+ 
+ 
+## <a name="failover-job"></a>Redundansjobbet skapades
 
 ![Redundans](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Du kanske vill automatisera vissa åtgärder när du gör en redundansväxling. 
 ## <a name="post-failover-considerations"></a>Publicera tänka på vid
 Efter redundans du beakta följande rekommendationer:
 ### <a name="retaining-drive-letter-after-failover"></a>Behåller enhetsbeteckningen efter redundans
-Om du vill behålla enhetsbeteckning på virtuella datorer efter en redundansväxling kan du ställa in den **SAN-princip** för den virtuella datorn till **OnlineAll**. [Läs mer](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery hanterar kvarhållning av enhetsbeteckningar. [Läs mer](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) på hur man gör när du väljer att undanta vissa diskar.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 

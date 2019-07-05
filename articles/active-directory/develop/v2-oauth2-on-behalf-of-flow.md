@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110852"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482156"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
 
@@ -42,7 +42,7 @@ Anta att användaren har autentiserats på ett program med hjälp av den [flöde
 
 De steg som följer utgör OBO-flödet och beskrivs med hjälp av följande diagram.
 
-![OAuth2.0 On-Behalf-Of-flöde](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Visar OAuth2.0 On-Behalf-Of-flöde](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. Klientprogrammet skickar en begäran till API A med token A (med en `aud` anspråk av API-A).
 1. API-A autentiserar till Microsoft identity-plattformen utfärdande-slutpunkten och begär en token för att komma åt API B.

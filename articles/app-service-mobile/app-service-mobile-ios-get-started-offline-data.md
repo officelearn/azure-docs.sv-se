@@ -2,7 +2,7 @@
 title: Aktivera offline synkroniseras med iOS-mobilappar | Microsoft Docs
 description: Lär dig hur du använder Azure Apptjänst mobile apps till cache och synkronisering av offlinedata i iOS-program.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446376"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera offline synkroniseras med iOS-appar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) idag.
+>
 
 ## <a name="overview"></a>Översikt
 Den här självstudien tar upp offline synkroniseras med funktionen Mobile Apps i Azure App Service för iOS. Med offline synkroniserar slutanvändare kan interagera med en mobil app att visa, lägga till eller ändra data, även när de har någon nätverksanslutning. Ändringarna sparas i en lokal databas. När enheten är online igen, har ändringarna synkroniserats med remote backend-servern.
@@ -159,7 +163,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 ![MS_TableOperations tabellattribut][defining-core-data-tableoperations-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
 | id | Heltal 64 |
 | itemId | String |
@@ -172,7 +176,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![MS_TableOperationErrors tabellattribut][defining-core-data-tableoperationerrors-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
 | id |String |
 | operationId |Heltal 64 |
@@ -183,7 +187,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
 | id |String |
 | key |String |
@@ -195,7 +199,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 **TodoItem**
 
-| Attribut | Typ | Obs! |
+| Attribut | Type | Obs! |
 | --- | --- | --- |
 | id | Sträng, markeras krävs |primärnyckeln i fjärrlager |
 | Slutför | Boolean | Fältet för att göra-objekt |

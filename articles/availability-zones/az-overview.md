@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 70f03ee9f6d806733f70994cc152826d31f5c353
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 848d0eddb9870f7690989e5bfa01985883e4308e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295784"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508858"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -44,7 +44,7 @@ Kombinationer av Azure-tjänster och regioner som har stöd för Tillgänglighet
 
 |                                 |Nord- och Sydamerika |              |           |           | Europa |              |          |              | Asien och stillahavsområdet |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |Centrala USA|Östra USA|USA, östra 2|Västra USA 2|Frankrike, centrala|Norra Europa|Storbritannien, södra|Västra Europa|Östra Japan|Sydostasien|
+|          |Centrala USA|East US|USA, östra 2|Västra USA 2|Frankrike, centrala|Norra Europa|Storbritannien, södra|Västra Europa|Östra Japan|Sydostasien|
 | **Compute**                         |            |              |           |           |                |              |          |             |            |                |
 | Virtuella Linux-datorer          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Virtuella Windows-datorer        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
@@ -62,7 +62,7 @@ Kombinationer av Azure-tjänster och regioner som har stöd för Tillgänglighet
 | **Databaser**                     |            |              |           |           |                |              |          |             |            |                |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
 | Azure Cache for Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
-| Azure Cosmos DB                    |    |    |   |  |       |     | &#10003; |     |            | &#10003;       |
+| Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; |  |       |     | &#10003; |     |            | &#10003;       |
 | **Analys**                       |            |              |           |           |                |              |          |             |            |                |
 | Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | **Integrering**                     |            |              |           |           |                |              |          |             |            |                |

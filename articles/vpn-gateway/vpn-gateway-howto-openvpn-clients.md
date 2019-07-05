@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147246"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477846"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway
 
@@ -67,9 +67,9 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 4. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Se [exportera den offentliga nyckeln](vpn-gateway-certificates-point-to-site.md#cer) information om hur du exporterar ett certifikat för att få den kodade offentliga nyckeln.
 5. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Se [exportera den privata nyckeln](https://openvpn.net/community-resources/how-to/#pki) information om hur man extraherar en privat nyckel.
 6. Ändra inte några andra fält. Använd den ifyllda konfigurationen i klientindata för att ansluta till VPN.
-7. Dubbelklicka på profilfilen för att skapa profilen i tunnelblik.
-8. Starta Tunnelblik från mappen program.
-9. Klicka på ikonen Tunnelblik i systemfältet och Välj Anslut.
+7. Dubbelklicka på profilfilen för att skapa profilen i Tunnelblick.
+8. Starta Tunnelblick från mappen program.
+9. Klicka på ikonen Tunnelblick i systemfältet och Välj Anslut.
 
 > [!IMPORTANT]
 >Endast iOS 11.0 och senare och MacOS 10.13 och senare stöds med OpenVPN-protokollet.

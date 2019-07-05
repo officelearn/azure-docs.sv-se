@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159818"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540323"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Snabbstart: Använda .NET för att skapa en kö i Azure Storage
 
 I den här snabbstarten lär du dig hur du använder Azure Storage-klientbiblioteket för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 Därefter lägger exemplet till ett meddelande sist i kön. 
 
-Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande innehåller binära data rekommenderar Microsoft att du Base64-kodar meddelandet.
+Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande som innehåller binära data, rekommenderar vi att du Base64-koda meddelandet.
 
-Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange valfritt positivt tal för meddelandets livslängd, eller -1 för att ange att meddelandet inte upphör att gälla.
+Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange valfri positivt tal för meddelandet time to live.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Om du vill lägga till ett meddelande som inte upphör att gälla, använda `Timespan.FromSeconds(-1)` i anrop till [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Granska ett meddelande i kön

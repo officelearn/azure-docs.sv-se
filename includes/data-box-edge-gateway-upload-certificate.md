@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/23/2019
+ms.date: 06/26/2019
 ms.author: alkohli
-ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09d9b5bbf3f9ca7a4eef37891d03c9c865e7f74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187800"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448639"
 ---
 En korrekt SSL-certifikat säkerställer att du skickar krypterad information till rätt server. Förutom kryptering, certifikatet kan även användas för autentisering. Du kan överföra en egen betrott SSL-certifikat via PowerShell-gränssnittet på enheten.
 
@@ -18,11 +18,11 @@ En korrekt SSL-certifikat säkerställer att du skickar krypterad information ti
 
    - `CertificateFilePath` – Sökvägen till resursen certifikatfilen i *.pfx* format.
    - `CertificatePassword` – Ett lösenord som används för att skydda certifikatet.
-   - `Credentials` -Användarnamn och lösenord för att få åtkomst till den resurs som innehåller certifikatet.
+   - `Credentials` -Användarnamnet för att få åtkomst till resursen som innehåller certifikatet. Ange lösenordet för nätverksresursen när du tillfrågas.
 
      I följande exempel visas användningen av denna cmdlet:
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"
      ```
 

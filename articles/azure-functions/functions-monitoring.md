@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922968"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442301"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -623,6 +623,10 @@ Om du vill visa direktuppspelningsloggarna i portal, Välj den **plattformsfunkt
 Det här ansluter din app till loggen strömningstjänst och programloggar visas i fönstret. Du kan växla mellan **programloggar** och **Web serverloggar**.  
 
 ![Visa direktuppspelningsloggarna i portalen](./media/functions-monitoring/streaming-logs-window.png)
+
+### <a name="visual-studio-code"></a>Visual Studio-koden
+
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

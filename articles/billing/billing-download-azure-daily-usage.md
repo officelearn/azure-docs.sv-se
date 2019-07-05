@@ -1,26 +1,23 @@
 ---
-title: Visa och ladda ned Azure-användning och avgifter | Microsoft Docs
+title: Visa och ladda ned Azure-användning och avgifter
 description: Beskriver hur du ladda ned eller visa din dagliga användning och kostnader.
 keywords: Debiterad användning, hämta avgifter för användning, användning, visa användning azure faktura, azure-användning
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919009"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491432"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och hämta din Azure-användning och kostnader
 
@@ -77,11 +74,11 @@ Om du har ett Microsoft-kundavtal, kan du hämta din Azure-användning och kostn
 ### <a name="download-usage-for-billed-charges"></a>Ladda ned användningsdata för fakturerade kostnader
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter *Cost Management + fakturering*.
 3. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 4. Välj **Fakturor**.
 5. Hitta raden på fakturan som motsvarar den användning som du vill hämta i rutnätet för fakturan.
-6. Klicka på ellipsknappen (`...`) i slutet av raden.
+6. Klicka på ellipsen (`...`) i slutet av raden.
 
     ![Skärmbild som visar de tre punkterna i slutet av raden](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 
@@ -94,9 +91,9 @@ Om du har ett Microsoft-kundavtal, kan du hämta din Azure-användning och kostn
 Du kan också hämta månad hittills användning för den aktuella faktureringsperioden. Dessa kostnader som inte har fakturerats ännu.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter *Cost Management + fakturering*.
 3. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
-4. I den **översikt** bladet hitta nedladdningslänkarna under månaden-till-date-avgifter.
+4. I den **översikt** området hitta nedladdningslänkarna under månaden-till-date-avgifter.
 5. Välj **Azure-användning och kostnader**.
 
     ![Skärmbild som visar nedladdning från översikt](./media/billing-download-azure-usage/open-usage.png)
@@ -104,7 +101,7 @@ Du kan också hämta månad hittills användning för den aktuella faktureringsp
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Kontrollera din åtkomst till en Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 

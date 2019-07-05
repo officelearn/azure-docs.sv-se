@@ -6,25 +6,25 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123922"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508781"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
 Den här artikeln beskriver hur du ställer in din lokala miljö att börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
 - En Recovery Services-valv i den [Azure-portalen](https://portal.azure.com "Azure-portalen").
 - En fysisk dator som du vill installera konfigurationsservern.
-- Om du har inaktiverat TLS 1.0 på datorn där du installerar configuration server kan du kontrollera att TLs 1.2 är aktiverat och att .NET Framework 4.6 eller senare har installerats på datorn (med stark kryptografi inaktiverad). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Om du har inaktiverat TLS 1.0 på datorn där du installerar configuration server kan du kontrollera att TLs 1.2 är aktiverat och att .NET Framework 4.6 eller senare har installerats på datorn (med stark kryptografi aktiverat). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Minsta konfigurationskrav för server
 I följande tabell visas de minimikraven på maskinvara, programvara och nätverkskrav för en konfigurationsserver.

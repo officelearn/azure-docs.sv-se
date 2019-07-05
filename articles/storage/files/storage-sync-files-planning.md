@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303922"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449861"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -183,6 +183,12 @@ För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync
 - För pågående dedupliceringsjobben molnlagringsnivåer med datum princip kommer försenas av Datadeduplicering [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) inställningen, om filen inte redan är nivåindelade. 
     - Exempel: Om inställningen MinimumFileAgeDays är 7 dagar och principer för lagringsnivåer datum i molnet är 30 dagar, kommer principen datum delar filer efter 37 dagar.
     - Obs! När en fil är nivåer av Azure File Sync, optimering dedupliceringsjobb hoppar över filen.
+- Om en server som kör Windows Server 2012 R2 med Azure File Sync-agenten installerad uppgraderas till Windows Server 2016 eller Windows Server 2019, måste följande steg utföras för att stödja Datadeduplicering och lagringsnivåer för moln på samma volym:  
+    - Avinstallera Azure File Sync-agenten för Windows Server 2012 R2 och starta om servern.
+    - Ladda ned Azure File Sync-agenten för den nya server-operativsystemsversionen (Windows Server 2016 eller Windows Server 2019).
+    - Installera Azure File Sync-agenten och starta om servern.  
+    
+    Obs! Azure File Sync-konfigurationsinställningarna på servern bevaras när agenten avinstallerats och installerats om.
 
 ### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
 Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
@@ -255,7 +261,7 @@ Azure File Sync är tillgänglig i följande regioner:
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
 | Östasien | Hongkong SAR |
-| Östra USA | Virginia |
+| East US | Virginia |
 | USA, östra 2 | Virginia |
 | Sydkorea, centrala| Seoul |
 | Sydkorea, södra| Busan |
@@ -296,7 +302,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
-| Östra USA             | Västra USA            |
+| East US             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
 | Östra Japan          | Västra Japan         |
 | Västra Japan          | Östra Japan         |
@@ -314,7 +320,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | Västra Europa         | Norra Europa       |
 | Västra centrala USA     | Västra USA 2          |
-| Västra USA             | Östra USA            |
+| Västra USA             | East US            |
 | Västra USA 2           | Västra centrala USA    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten

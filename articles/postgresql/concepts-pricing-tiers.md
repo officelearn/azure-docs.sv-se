@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340728"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448084"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database för PostgreSQL – enskild Server
 
@@ -64,16 +64,16 @@ Lagringsgränserna ökar vi vår generell användning och Minnesoptimerad nivåe
 | Lagringstyp | Azure Premium Storage | Azure Premium Storage |
 | Lagringsstorlek | 32 GB till 16 TB| 32-16 TB |
 | Öka lagringsstorleken | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Högst 20 000 IOPS |
 
 > [!IMPORTANT]
-> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, Nordeuropa, Västeuropa, Sydostasien, Japan östra, Korea centrala; Australien, östra.
+> Stora lagring är för närvarande i offentlig förhandsversion i följande regioner: Östra USA, östra USA 2, centrala USA, västra USA, Nordeuropa, Västeuropa, Storbritannien, södra, Storbritannien, västra, Sydostasien, östra Asien, östra Japan, östra och Japan, västra, Korea, centrala Korea, södra, Australien, Östra Australien sydöstra.
 >
->Förhandsversionen av stort lagringsutrymme stöder för närvarande inte:
+> Förhandsversionen av stort lagringsutrymme stöder för närvarande inte:
 >
 > * Inkommande anslutningar via tjänstslutpunkter i virtuella nätverk
 > * Geografiskt redundanta säkerhetskopieringar
-> * Mellan region replikering
+> * Skrivskyddade repliker
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 

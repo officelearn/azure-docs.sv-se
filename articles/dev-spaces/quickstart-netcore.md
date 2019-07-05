@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bab7b4daf8b03115c73b6fbaefe352cecc761b6f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393434"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502998"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio Code)
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla iterativt koden i behållare med hjälp av Visual Studio Code och kommandoraden.
 - Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -191,7 +191,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Spara filen. Klicka på *felsöka* sedan *starta om felsökning* eller i den *Debug verktygsfältet*, klickar du på den *starta om felsökning* knappen.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Öppna din tjänst i en webbläsare och Observera uppdaterade meddelandet visas.
 

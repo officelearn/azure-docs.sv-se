@@ -10,17 +10,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 56c0e906203a010a1356beae4b6e5d66e34cfc2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b3c4e5380c65b2ab6c736e7fabe1813fe32afc2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159847"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466490"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela galleriet VM-avbildningar i Azure-klienter
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+
+> [!IMPORTANT]
+> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan azure-klient. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter, måste du använda den [Azure CLI](../linux/share-images-across-tenants.md) eller Powershell.
 
 ## <a name="create-a-vm-using-powershell"></a>Skapa en virtuell dator med hjälp av PowerShell
 

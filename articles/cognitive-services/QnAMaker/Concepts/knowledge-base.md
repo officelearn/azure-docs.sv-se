@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e40af9b2362ee52a1d00f29cdc112d3c2b9a842
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447579"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565857"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Vad är en Maker kunskapsbaser?
 
@@ -40,7 +40,7 @@ Metadatafält består av nyckel / värde-par avgränsade med kolon **(produkt: f
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Hur QnA Maker bearbetar en användarfråga för att välja det bästa svaret
 
-Den tränade och [publicerade](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker kunskapsbas tar emot en användarfråga, från en bot eller andra klientprogram på den [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api). Följande diagram illustrerar processen när användarfrågan tas emot.
+Den tränade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker kunskapsbas tar emot en användarfråga, från en bot eller andra klientprogram på den [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användarfrågan tas emot.
 
 ![Rangordning processen för en användarfråga](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
@@ -48,7 +48,7 @@ Processen beskrivs i följande tabell:
 
 |Steg|Syfte|
 |--|--|
-|1|Klientprogrammet skickar användarfråga till den [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
+|1|Klientprogrammet skickar användarfråga till den [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|Qna Maker Förbearbeta användarfråga med språkidentifiering och spellers orddelare.|
 |3|Den här Förbearbeta tas att ändra användarfråga för bästa resultat från.|
 |4|Den här ändrade frågan skickas till Azure Search-Index, ta emot den `top` antal resultat. Om det inte finns i de här resultaten returneras rätt svar, öka värdet på `top` något. Allmänt värdet 10 för `top` fungerar i 90% av frågor.|

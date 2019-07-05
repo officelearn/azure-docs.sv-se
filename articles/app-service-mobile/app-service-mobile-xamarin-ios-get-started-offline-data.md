@@ -2,7 +2,7 @@
 title: Aktivera synkronisering offline för din Azure-Mobilapp (Xamarin-iOS)
 description: Lär dig hur du använder App Service Mobile App till cache och synkronisering av offlinedata i ditt Xamarin iOS-program
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: cfowler
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 6a43ed0a50082cc37587752631c707bf9b5059ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b87a1d86370e3abdb200b691d5216b1262512b3e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097471"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440044"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Aktivera offlinesynkronisering för en Xamarin.iOS-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-offline-data) idag.
+>
 
 ## <a name="overview"></a>Översikt
 Den här självstudien innehåller funktionen offline-synkronisering i Azure Mobile Apps för Xamarin.iOS. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app – visa, lägga till eller ändra data – även när det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas. När enheten är online igen kan har de här ändringarna synkroniserats med fjärrtjänsten.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023756"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448456"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du bearbetar och extrahera information från bilder i scenarier med kognitiv sökning
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver bildbearbetning i detalj och innehåller anvisningar
 
 Som en del av dokumentknäckning finns det en ny uppsättning konfigurationsparametrar för indexeraren för att hantera bildfiler eller bilder som är inbäddade i filer. Dessa parametrar används för att normalisera avbildningar för ytterligare nedströms bearbetning. Normaliserar avbildningar gör dem mer enhetlig. Stora bilder ändras till en maximal höjd och bredd så att de ska använda. För avbildningar med metadata om orientering kan justeras Bildrotation för lodrät läses in. Justering av metadata som avbildas i en komplex typ som skapas för varje bild. 
 
-Du kan inte inaktivera normalisering av avbildningen. Som en itererar över avbildningar förväntar sig normaliserade avbildningar.
+Du kan inte inaktivera normalisering av avbildningen. Som en itererar över avbildningar förväntar sig normaliserade avbildningar. Aktiverar avbildning normalisering på en indexerare kräver att en kompetens kopplas till den här indexeraren.
 
 | Konfigurationsparameter | Beskrivning |
 |--------------------|-------------|

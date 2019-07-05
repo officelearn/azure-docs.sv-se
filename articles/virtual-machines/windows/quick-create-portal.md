@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 08c33068845855fca85f793c21264582be423c2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3f972fadfa972b581474c1a61769564f81260af
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61078446"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560466"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator på Azure-portalen
 
@@ -95,7 +95,7 @@ I portalen väljer du den virtuella datorn, och i översikten för den virtuella
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen för den virtuella datorn. Välj sedan **Ta bort** och kontrollera namnet på resursgruppen som du vill ta bort.
+Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Välj resursgrupp för den virtuella datorn och sedan **ta bort**. Bekräfta namnet på resursgruppen som ska ta bort resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

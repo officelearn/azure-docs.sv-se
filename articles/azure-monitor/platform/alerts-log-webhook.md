@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cad1b0ab484d172000bd62146a88a27bfab1e9f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448776"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -41,7 +41,7 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Namnet på regeln. |
-| Severity |#severity |Allvarlighetsgrad för aviseringen skickades log. |
+| Allvarsgrad |#severity |Allvarlighetsgrad för aviseringen skickades log. |
 | AlertThresholdOperator |#thresholdoperator |Tröskeloperator för regeln.  *Större än* eller *mindre än*. |
 | AlertThresholdValue |#thresholdvalue |Tröskelvärde för regeln. |
 | LinkToSearchResults |#linktosearchresults |Länka till Analytics-portalen som returnerar poster från den fråga som skapade aviseringen. |
@@ -51,9 +51,10 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Sök efter intervall StartTime |#searchintervalstarttimeutc |Starttid för frågan i UTC, format - mm/dd/åååå hh: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Logga sökfråga används av regeln. |
 | SearchResults |"IncludeSearchResults": true|Poster som returneras av frågan som en JSON-tabell, begränsad till de första 1 000 posterna. Om ”IncludeSearchResults”: true läggs till i anpassade JSON webhook-definition som en översta egenskap. |
+| Typ av avisering| #alerttype | Typ av loggvarningsregel konfigurerat – [mått mätning](alerts-unified-log.md#metric-measurement-alert-rules) eller [Number resultat](alerts-unified-log.md#number-of-results-alert-rules).|
 | WorkspaceID |#workspaceid |ID för Log Analytics-arbetsytan. |
 | Program-ID:t |#applicationid |ID för Application Insights app. |
-| Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används med Application Insights. 
+| Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används. 
 
 > [!NOTE]
 > LinkToSearchResults skickar parametrar som SearchQuery, Sök intervall StartTime & intervallslut för sökning i URL: en till Azure-portalen för visning i Analytics-avsnittet. Azure-portalen har URI storleksgränsen på cirka 2 000 tecken och kommer *inte* öppna länken i aviseringar om parametervärdena överskrider denna gräns. Användarna kan manuellt ange information om du vill visa resultatet i Analytics-portalen eller använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) att hämta resultat programmässigt 
@@ -88,8 +89,18 @@ Följande är ett exempel på en nyttolast för en standard webhook-åtgärd *ut
 
 ```json
 {
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": "log alert rule",
+    "Severity": "Warning",
     "SearchResult":
         {
         "tables":[
@@ -107,15 +118,8 @@ Följande är ett exempel på en nyttolast för en standard webhook-åtgärd *ut
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "Warning"
+    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "AlertType": "Metric measurement"
  }
  ```
 
@@ -131,7 +135,17 @@ Följande är ett exempel på en nyttolast för en standard webhook *utan anpass
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"requests | where resultCode == \"500\"",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "3",
     "SearchResult":
         {
         "tables":[
@@ -149,16 +163,8 @@ Följande är ett exempel på en nyttolast för en standard webhook *utan anpass
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "3",
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
+    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+    "AlertType": "Number of results"
     }
 }
 ```

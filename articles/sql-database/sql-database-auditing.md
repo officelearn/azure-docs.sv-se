@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b3a6a18d10b9d9f6ab6456ae2911e54f5c56a71
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827761"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544091"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -138,7 +138,7 @@ Om du har valt att skriva granskningsloggar till Event Hub:
 
 Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns det flera metoder som du kan använda för att visa loggfilerna:
 
-- Granskningsloggar räknas samman på kontot du valde i installationsprogrammet. Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure storage granskningsloggarna sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
+- Granskningsloggar räknas samman på kontot du valde i installationsprogrammet. Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure storage granskningsloggarna sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**. Mer information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [loggformat för SQL Database-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning** klickar du på **visa granskningsloggar**.
 
@@ -233,10 +233,12 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
 
 **PowerShell-cmdletar (inklusive WHERE-satsen stöd för ytterligare filtrering)** :
 
-- [Skapa eller uppdatera databasen granskningsprincip (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Skapa eller uppdatera princip för Server granskning (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Hämta databasen granskningsprincip (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Hämta Server granskningsprincip (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Skapa eller uppdatera databasen granskningsprincip (Set-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Skapa eller uppdatera princip för Server granskning (Set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [Hämta databas granskningsprincip (Get-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Hämta Server granskningsprincip (Get-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [Ta bort databasen granskningsprincip (Remove-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Ta bort princip för Server granskning (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

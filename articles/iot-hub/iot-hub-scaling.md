@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697339"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514491"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -62,6 +62,9 @@ När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till stand
 
 Partitionskonfigurationen ändras inte när du migrerar från basic-nivån till standardnivån.
 
+> [!NOTE]
+> Den kostnadsfria nivån har inte stöd för att uppgradera till basic eller standard.
+
 ## <a name="iot-hub-rest-apis"></a>REST API:er för IoT Hub
 
 Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT Hub innebär att vissa API-anrop inte fungerar med nivån basic hubs. I följande tabell visas vilka API: er är tillgängliga:
@@ -70,26 +73,25 @@ Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT 
 | --- | ---------- | ------------- |
 | [Ta bort enhet](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
 | [Få enhet](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |
-| Ta bort modul | Ja | Ja |
-| Hämta modul | Ja | Ja |
+| [Ta bort modul](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Ja | Ja |
+| [Hämta modul](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Ja | Ja |
 | [Få statistik för registret](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Ja | Ja |
 | [Hämta statistik för tjänster](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Ja | Ja |
 | [Skapa eller uppdatera enhet](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Ja | Ja |
-| PUT-modulen | Ja | Ja |
+| [Skapa eller uppdatera modulen](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Ja | Ja |
 | [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Ja | Ja |
-| Fråga moduler | Ja | Ja |
 | [Skapa filöverföringen SAS-URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Ja | Ja |
 | [Ta emot meddelande om enheten som är bunden](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Ja | Ja |
 | [Skicka enhetshändelse](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Ja | Ja |
-| Skicka modulen händelse | Ja | Ja |
+| Skicka modulen händelse | AMQP och MQTT endast | AMQP och MQTT endast |
 | [Uppdatera filuppladdningsstatus](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
-| [Bulkåtgärd för enhet](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Ja, förutom IoT Edge-funktioner | Ja | 
+| [Bulkåtgärd för enhet](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Ja, förutom IoT Edge-funktioner | Ja |
 | [Rensa kön för kommandot](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Ja |
 | [Hämta enhetstvilling](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Ja |
-| Hämta modultvilling |   | Ja |
+| [Hämta modultvilling](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Ja |
 | [Anropa enhetsmetoden](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Ja |
-| [Uppdatera enhetstvillingen](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Ja | 
-| Uppdatera modultvilling |   | Ja | 
+| [Uppdatera enhetstvillingen](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Ja |
+| [Uppdatera modultvilling](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Ja |
 | [Lämna meddelande om enheten som är bunden](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Ja |
 | [Fullständig enhet bunden meddelande](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Ja |
 | [Avbryt jobb](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Ja |

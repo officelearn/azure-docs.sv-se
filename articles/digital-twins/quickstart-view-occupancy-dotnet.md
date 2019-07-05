@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: alinast
-ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459064"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -27,7 +27,7 @@ Följande videoklipp innehåller en sammanfattning av snabbstartsinstallationen:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har något Azure-konto [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

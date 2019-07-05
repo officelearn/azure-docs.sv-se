@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67f9e9ad99ccd6267de9dbb9fd0c64adb41f0cb
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481521"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565564"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resursgrupp grupp
-Den här artikeln vägleder dig genom hur du flyttar en Windows virtuell dator (VM) mellan resursgrupper eller prenumerationer. Flytta mellan prenumerationer kan vara användbart om du skapade en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration och fortsätt ditt arbete.
+Den här artikeln vägleder dig genom hur du flyttar en Windows virtuell dator (VM) mellan resursgrupper eller prenumerationer. Flytta mellan prenumerationer kan vara användbart om du skapade en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration och fortsätt ditt arbete. Du behöver inte starta den virtuella datorn för att flytta den och det bör fortsätta att köras under förflyttningen.
 
 > [!IMPORTANT]
 >Ny resurs-ID: N skapas som en del av migreringen. När den virtuella datorn har flyttats, kommer du behöva uppdatera dina verktyg och skript för att använda nya resurs-ID. 
@@ -37,7 +35,7 @@ Den här artikeln vägleder dig genom hur du flyttar en Windows virtuell dator (
 Om du vill flytta en virtuell dator till en annan resursgrupp måste du se till att du också flytta alla beroende resurser. Hämta en lista med resurs-ID för var och en av de här resurserna med den [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
 
 ```azurepowershell-interactive
- Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-list -wrap -Property ResourceId 
 ```
 
 Du kan använda utdata från föregående kommando som en kommaavgränsad lista med resurs-ID: N till [flytta AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) att flytta varje resurs till målet. 

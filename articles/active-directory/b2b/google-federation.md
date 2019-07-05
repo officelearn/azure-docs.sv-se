@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 06/25/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65891904"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441113"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Lägga till Google som en identitetsprovider för B2B-gästanvändare (förhandsgranskning)
+
+|     |
+| --- |
+| Google federation är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
 
 Genom att konfigurera federation med Google, kan du tillåta inbjudna användare att logga in på din delade appar och resurser med sina egna Google-konton utan att behöva skapa Microsoft-Accounts (MSA: er) eller Azure AD-konton.  
 > [!NOTE]

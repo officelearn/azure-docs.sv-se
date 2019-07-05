@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 5cd88eeb2016a90a95f0e54a334eb3c88cb75744
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078747"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461728"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database för MySQL-prestandan med Query Store
 
 **Gäller för:**  Azure Database för MySQL 5.7
 
 > [!NOTE]
-> Query Store är i förhandsversion. Stöd för Query Store i Azure-portalen distribueras och ännu inte tillgängliga i din region.
+> Query Store är i förhandsversion.
 
 Query Store-funktionen i Azure Database for MySQL ger ett sätt att spåra prestanda för frågor över tid. Query Store förenklar prestandafelsökning genom att hjälpa dig snabbt hitta körs längst och mest resurskrävande frågor. Query Store avbildas automatiskt en historik över frågor och körningsstatistik och den lagrar dem för granskning. När du delar den upp data efter tidsfönster så att du kan se databasanvändningsmönster. Data för alla användare, databaser och frågor lagras i den **mysql** schemadatabas i Azure Database for MySQL-instans.
 
@@ -29,10 +29,6 @@ Frågearkivet kan användas på flera olika scenarier, inklusive följande:
 - Identifiera försämrad frågor
 - Avgör hur många gånger har en fråga utförts under en viss tidsperiod
 - Jämföra Genomsnittlig körningstid för en fråga över tidsfönster att visa stora deltan
-- Identifiera längsta frågor som körs i förflutna X timmar
-- Identifiera de x främsta Felgrupperna frågor som väntar på resurser
-- Förstå vänta karaktär för en fråga
-- Förstå trender för resursen väntar och där det inte finns resurskonkurrens
 
 ## <a name="enabling-query-store"></a>Aktivera Query Store
 
@@ -120,7 +116,7 @@ Frågor normaliserade genom att titta på deras struktur när du tar bort tidsli
 
 Den här vyn returnerar alla data i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID och fråga-ID.
 
-| **Namn** | **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
+| **Name** | **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NO | Namnet på schemat |
 | `query_id`| bigint(20) | NO| Unikt ID som genereras för frågan, om samma fråga som körs i olika schema, ett nytt ID genereras |
@@ -153,7 +149,7 @@ Den här vyn returnerar alla data i Query Store. Det finns en rad för varje dis
 
 Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
-| **Namn**| **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
+| **Name**| **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Början av intervallet (15 minuters räkna upp)|
 | `interval_end` | timestamp | NO| Slutet av intervallet (15 minuters räkna upp)|
@@ -167,7 +163,7 @@ Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad fö
 
 ### <a name="functions"></a>Functions
 
-| **Namn**| **Beskrivning** |
+| **Name**| **Beskrivning** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Tar bort alla query store-data innan den givna tidsstämpeln |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Alla återställningspunkter vänta händelsedata innan den givna tidsstämpeln |

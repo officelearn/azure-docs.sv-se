@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 357be801914017aceb7e827a3b49960cf7c3e386
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304289"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565412"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -25,7 +25,7 @@ Framöver kommer åtkomst till dessa hemligheter kräver den `Microsoft.HDInsigh
 
 Lanserar vi även en ny [HDInsight-kluster operatorn](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) roll som kommer att kunna hämta hemligheter utan beviljas administratörsbehörighet för deltagare eller ägare. Sammanfattningsvis:
 
-| Roll                                  | Tidigare                                                                                       | Vi rekommenderar att       |
+| Role                                  | Tidigare                                                                                       | Vi rekommenderar att       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Läsare                                | -Läs-åtkomst, inklusive hemligheter                                                                   | -Läsbehörighet, **exklusive** hemligheter |           |   |   |
 | HDInsight-kluster-Operator<br>(Ny roll) | Gäller inte                                                                                              | Läs-/ skrivåtkomst, inklusive hemligheter         |   |   |
@@ -121,10 +121,10 @@ Uppdatera till [version 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Ma
 
 Uppdatera till [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) eller senare av HDInsight SDK för Python. Minimal kodändringar kan krävas om du använder en metod som påverkas av ändringarna:
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) kommer **inte längre returneras känsliga parametrar** som lagringsnycklar (core-plats) eller HTTP-autentiseringsuppgifter (gateway).
-    - Använd för att hämta alla inställningar, till exempel känsliga parametrar [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) framöver.  Observera att användare med rollen ”läsare” inte kommer att kunna använda den här metoden. Det möjliggör detaljerad kontroll över vilka användare kan komma åt känslig information för ett kluster. 
-    - Använd för att hämta bara HTTP-gateway-autentiseringsuppgifter, [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) Nu är föråldrade och har ersatts av [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
+- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) kommer **inte längre returneras känsliga parametrar** som lagringsnycklar (core-plats) eller HTTP-autentiseringsuppgifter (gateway).
+    - Använd för att hämta alla inställningar, till exempel känsliga parametrar [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) framöver.  Observera att användare med rollen ”läsare” inte kommer att kunna använda den här metoden. Det möjliggör detaljerad kontroll över vilka användare kan komma åt känslig information för ett kluster. 
+    - Använd för att hämta bara HTTP-gateway-autentiseringsuppgifter, [ `ClusterOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) Nu är föråldrade och har ersatts av [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
 
 ### <a name="sdk-for-java"></a>SDK för Java
 

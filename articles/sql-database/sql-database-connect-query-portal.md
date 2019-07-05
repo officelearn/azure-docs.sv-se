@@ -8,23 +8,23 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409089"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508753"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
 
 SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -32,14 +32,14 @@ För att slutföra den här kursen behöver du:
 
   || Enskild databas |
   |:--- |:--- |
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| 
+  | Skapa| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Kontrollera att alternativet **Tillåt åtkomst till Azure-tjänster** är inställt på **PÅ** i inställningarna för SQL Server-brandväggen. Det här alternativet ger SQL-frågeredigeraren åtkomst till dina databaser och datalager.
+> Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress i serverns tillåtna brandväggsregler för att få åtkomst till dina databaser och datalager.
 
 ## <a name="sign-in-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -49,13 +49,13 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **SQL-databaser** på menyn till vänster och välj sedan **mySampleDatabase**.
 
-2. På menyn till vänster hittar och väljer du **Frågeredigeraren (förhandsversion)**. Sidan **Inloggning** visas.
+2. På menyn till vänster hittar och väljer du **Frågeredigeraren (förhandsversion)** . Sidan **Inloggning** visas.
 
     ![hitta frågeredigerare](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 3. Välj **Auktoriseringstyp** på den nedrullningsbara menyn, välj **SQL Server-autentisering** och ange användar-ID och lösenord för det serveradministratörskonto som används för att skapa databasen.
 
-    ![logga in](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![logga in](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Välj **OK**.
 
@@ -78,8 +78,8 @@ Genom att konfigurera en Active Directory-administratör (AD) kan du använda en
 
 4. Välj **Spara** på AD-administratörssidan.
 
-5. Gå till databasen **mySampleDatabase** och välj **Frågeredigeraren (förhandsversion)** på menyn till vänster. Sidan **Inloggning** visas. Om du är AD-administratör visas ett meddelande till höger under **Active Directory – enkel inloggning** om att du har loggats in. 
-   
+5. Gå till databasen **mySampleDatabase** och välj **Frågeredigeraren (förhandsversion)** på menyn till vänster. Sidan **Inloggning** visas. Om du är AD-administratör visas ett meddelande till höger under **Active Directory – enkel inloggning** om att du har loggats in.
+
 6. Välj **OK**.
 
 
@@ -160,7 +160,7 @@ Kör följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transa
 
 Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
-* Du kan inte använda frågeredigeraren för att fråga SQL-serverdatabaser i ett virtuellt nätverk.
+* Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress i serverns tillåtna brandväggsregler för att få åtkomst till dina databaser och datalager.
 
 * Om du trycker på F5 uppdateras frågeredigerarens sida och frågan som bearbetas går förlorad.
 

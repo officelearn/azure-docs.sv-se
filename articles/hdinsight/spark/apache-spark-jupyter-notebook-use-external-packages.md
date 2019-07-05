@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6af25b95aa3a38c4a2e9f3bd8147604dccae0abb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02b5b7a3673b3df3ba27e7814851e3519e473633
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715143"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448715"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använda externa paket med Jupyter notebooks i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Du kan söka i [Maven databasen](https://search.maven.org/) för en fullständig
 
 I den här artikeln får du lära dig hur du använder den [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
@@ -61,7 +61,7 @@ Du måste ha följande:
 
 1. Fragmentet ovan förväntar sig maven-koordinaterna för det externa paketet i Maven Central Repository. I det här kodfragmentet `com.databricks:spark-csv_2.10:1.4.0` är maven-koordinat för **spark-csv** paketet. Här är hur du konstruerar koordinaterna för ett paket.
    
-    a. Leta upp paketet i Maven-centrallagret. Den här självstudien använder vi [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Leta upp paketet i Maven-centrallagret. I den här artikeln använder vi [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Samla in värden för från databasen, **GroupId**, **ArtifactId**, och **Version**. Kontrollera att de värden som du har samlat in matchar ditt kluster. I det här fallet använder vi en 2.10 Scala och Spark 1.4.0-paket, men du kan behöva välja olika versioner för lämpliga Scala och Spark-version i klustret. Du hittar den Scala-versionen i ditt kluster genom att köra `scala.util.Properties.versionString` på Spark Jupyter-kernel eller på Spark-submit. Du hittar den Spark-versionen i ditt kluster genom att köra `sc.version` i Jupyter-anteckningsböcker.
    

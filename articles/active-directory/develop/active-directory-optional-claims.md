@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119725"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536826"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
-Den här funktionen används av programutvecklare för att ange vilka anspråk som de vill ha i token som skickas till sina program. Du kan använda valfria anspråk till:
+Utvecklare kan använda valfria anspråk i sina Azure AD-appar för att ange vilka anspråk som de vill ha i token som skickas till sina program. 
+
+Du kan använda valfria anspråk till:
 
 - Välj ytterligare anspråk ska ingå i token för ditt program.
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i token.
@@ -34,23 +36,23 @@ Den här funktionen används av programutvecklare för att ange vilka anspråk s
 
 Listan över standard anspråk finns i den [åtkomsttoken](access-tokens.md) och [id_token](id-tokens.md) anspråk dokumentation. 
 
-Finns stöd för valfria anspråk i såväl v1.0 och v2.0 format token, som SAML-tokens får de flesta av deras värde när du flyttar från v1.0 till v2.0. Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter. Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.
+Finns stöd för valfria anspråk i såväl v1.0 och v2.0 format token, som SAML-tokens får de flesta av deras värde när du flyttar från v1.0 till v2.0. Ett av målen med den [v2.0 Microsoft identity-plattformen slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter. Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.
 
 **Tabell 1: Tillämplighet**
 
 | Kontotyp | V1.0 token | V2.0-token  |
 |--------------|---------------|----------------|
-| Personligt Microsoft-konto  | Gäller inte  | Stöds|
+| Personligt Microsoft-konto  | Gäller inte  | Stöds |
 | Azure AD-konto      | Stöds | Stöds |
 
-## <a name="v10-and-v20-optional-claims-set"></a>V1.0 och V2.0 valfria anspråk
+## <a name="v10-and-v20-optional-claims-set"></a>Ange valfria anspråk i v1.0 och v2.0
 
 Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan. Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](#configuring-directory-extension-optional-claims)nedan. När du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet. Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
 
 > [!NOTE]
 > Flesta av dessa anspråk kan tas med i JWTs för v1.0 och v2.0 token, men inte SAML-tokens, utom där annat anges i kolumnen tokentypen. Konsument-konton har en delmängd av de här anspråken som markerats i kolumnen ”användartyp”.  Många av de anspråk som anges gäller inte för konsumentanvändare (de har ingen klient, så `tenant_ctry` har inte något värde).  
 
-**Tabell 2: V1.0 och V2.0 valfritt anspråksuppsättningen**
+**Tabell 2: v1.0 och v2.0 valfritt anspråksuppsättningen**
 
 | Namn                       |  Beskrivning   | Tokentyp | Användartyp | Anteckningar  |
 |----------------------------|----------------|------------|-----------|--------|
@@ -70,7 +72,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `xms_pl`                   | Användarens förvalda språk  | JWT ||Användaren prioriterade språk, om ange. Ursprung sina startklientorganisation i scenarier för gäst-åtkomst. Formaterad lla kopia (”en-us”). |
 | `xms_tpl`                  | Klient-språk| JWT | | Resurs-klienten prioriterade språk, om ange. Formaterad lla (”SV”). |
 | `ztdid`                    | Zero touch-distributions-ID | JWT | | Enhetsidentitet används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | MSA, AAD | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).| 
+| `email`                    | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | MSA, Azure AD | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).| 
 | `groups`| Valfritt formatering för gruppanspråk |JWT, SAML| |Används tillsammans med inställningen GroupMembershipClaims i den [programmanifestet](reference-app-manifest.md), som också måste anges. Mer information finns i [gruppen anspråk](#Configuring-group-optional claims) nedan. Läs mer på gruppanspråk [så här konfigurerar du gruppanspråk](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Status för användare i klienten. | JWT, SAML | | Om användaren är medlem i klienten, är värdet `0`. Om de är en gäst, är värdet `1`. |
 | `upn`                      | UserPrincipalName anspråk. | JWT, SAML  |           | Även om det här anspråket medföljer automatiskt, kan du ange det som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende i fallet för gäst-användare.  |
@@ -79,7 +81,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 
 De här anspråken är alltid är inkluderad i v1.0 Azure AD-token, men inte ingår i v2.0 token såvida inte begär. De här anspråken gäller endast för JWTs (ID-token och åtkomsttoken). 
 
-**Tabell 3: Endast v2.0 valfria anspråk**
+**Tabell 3: endast v2.0 valfria anspråk**
 
 | JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
 |---------------|---------------------------------|-------------|-------|
@@ -89,8 +91,8 @@ De här anspråken är alltid är inkluderad i v1.0 Azure AD-token, men inte ing
 | `pwd_url`     | Ändra lösenord URL             | En URL som användaren kan besöka för att ändra sina lösenord.   |   |
 | `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är inte anspråket är inkluderat.   |  Baserade ut från den [tillförlitliga IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) inställningar i MFA.    |
 | `nickname`    | Nickname                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. | 
-| `family_name` | Efternamn                       | Innehåller den senaste namn, efternamn eller namn för användaren som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och AAD   |
-| `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som angetts på användarobjektet.<br>"given_name": ”Frank”                   | Stöds i MSA och AAD  |
+| `family_name` | Efternamn                       | Innehåller den senaste namn, efternamn eller namn för användaren som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och Azure AD   |
+| `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som angetts på användarobjektet.<br>"given_name": ”Frank”                   | Stöds i MSA och Azure AD  |
 | `upn`         | Användarens huvudnamn | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
@@ -190,7 +192,8 @@ Om det stöds av specifika anspråk, kan du också ändra beteendet för Optiona
 Du kan också konfigurera token för att inkludera directory-schemautökningar utöver uppsättningen standard valfria anspråk. Mer information finns i [Directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Den här funktionen är användbar för att bifoga ytterligare information som din app kan använda – till exempel, en ytterligare identifierare eller viktiga konfigurationsalternativ som användaren har angett. 
 
 > [!Note]
-> Directory-schematillägg är en funktion för endast AAD-så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte.
+> - Directory-schemautökningar är en Azure AD endast funktion, så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte.
+> - Azure AD valfria anspråk fungerar bara med Azure AD-tillägget och fungerar inte fungerar med Microsoft Graph-directory-tillägget. Både API: er kräver den `Directory.ReadWriteAll` behörigheter, som användaren kan bara godkänna av administratörer.
 
 ### <a name="directory-extension-formatting"></a>Directory-tillägget formatering
 
@@ -203,11 +206,12 @@ I SAML-tokens kommer dessa anspråk genereras med följande URI-format: `http://
 ## <a name="configuring-group-optional-claims"></a>Konfigurera valfria gruppanspråk
 
    > [!NOTE]
-   > Möjligheten att generera gruppnamn för användare och grupper som synkroniserats från en lokal plats är allmänt tillgänglig förhandsversion
+   > Möjligheten att generera gruppnamn för användare och grupper som synkroniserats från en lokal plats är allmänt tillgänglig förhandsversion.
 
-Det här avsnittet beskrivs konfigurationsalternativ under valfria anspråk för att ändra gruppattributen som används i gruppanspråk från standard grupp objectID för attribut som synkroniseras från Active Directory för den lokala Windows
+Det här avsnittet beskriver konfigurationsalternativ under valfria anspråk för att ändra gruppattributen som används i gruppanspråk från standard grupp objectID för attribut som synkroniseras från en lokal Windows Active Directory.
+
 > [!IMPORTANT]
-> Se [konfigurera gruppanspråk för program med Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) mer information, inklusive viktiga varningar för den offentliga förhandsversionen av gruppanspråk från en lokal attribut.
+> Se [konfigurera gruppanspråk för program med Azure AD](../hybrid/how-to-connect-fed-group-claims.md) mer information, inklusive viktiga varningar för den offentliga förhandsversionen av gruppanspråk från en lokal attribut.
 
 1. I portalen Azure Active Directory -> program -> registreringar -> Välj program -> Manifest
 
@@ -250,7 +254,7 @@ Det här avsnittet beskrivs konfigurationsalternativ under valfria anspråk för
    }
    ```
 
-   | Valfria anspråk Schema | Värde |
+   | Valfria anspråk schema | Värde |
    |----------|-------------|
    | **Namn:** | Måste vara ”grupper” |
    | **Källa:** | Används inte. Utelämna eller ange null |

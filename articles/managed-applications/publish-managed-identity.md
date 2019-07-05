@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434869"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure-hanterade program med hanterad identitet
 
@@ -323,7 +323,22 @@ Token för hanterade program kan nu kommas åt via den `listTokens` api från pu
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Brödtextparametrar för begäran:
+
+Parameter | Obligatoriskt | Beskrivning
+---|---|---
+authorizationAudience | *no* | App-ID URI för målresursen. Det är också den `aud` (målgrupp) anspråk i utfärdade token. Standardvärdet är ”https://management.azure.com/”
+userAssignedIdentities | *no* | Lista över användartilldelade hanterade identiteter för att hämta en token för. Om inte anges `listTokens` returnerar token för systemtilldelade hanterad identitet.
+
 
 En exempelsvaret kan se ut:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+Svaret innehåller en matris med token under den `value` egenskapen:
+
+Parameter | Beskrivning
+---|---
+access_token | Den begärda åtkomst-token.
+expires_in | Hur många sekunder som åtkomsttoken kommer att gälla.
+expires_on | Timespan när åtkomsttoken upphör att gälla. Detta visas i hur många sekunder från epoch.
+not_before | Timespan när åtkomsttoken träder i kraft. Detta visas i hur många sekunder från epoch.
+authorizationAudience | Den `aud` (målgrupp) åtkomsttoken har begäran om. Det här är samma som vad som har angetts i den `listTokens` begäran.
+resourceId | Azure-resurs-ID för utfärdade token. Det här är hanterade program-ID eller Användartilldelad identitet-ID.
+token_type | Typ av token.
 
 ## <a name="next-steps"></a>Nästa steg
 

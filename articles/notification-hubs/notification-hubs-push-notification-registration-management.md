@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685397"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488636"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
@@ -90,6 +90,9 @@ En installation kan innehålla följande egenskaper. En fullständig lista över
 > Som standard, registreringar och installationer inte upphör att gälla.
 
 Registreringar och installationer måste innehålla en giltig PNS-handtag för varje enhet/kanal. Eftersom PNS-handtag kan endast hämtas i en klientapp på enheten, är ett mönster att registrera direkt på enheten med klientappen. Å andra sidan kan säkerhetsaspekter och affärslogik som rör taggar kräva att du hanterar registrering av enheter i appens serverdel.
+
+> [!NOTE]
+> API: et för installationer stöder inte Baidu-tjänsten (även om registreringar API: et gör). 
 
 ### <a name="templates"></a>Mallar
 

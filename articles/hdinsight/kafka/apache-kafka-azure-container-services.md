@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723679"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446459"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänst med Apache Kafka på HDInsight
 
@@ -24,7 +24,7 @@ Lär dig hur du använder Azure Kubernetes Service (AKS) med [Apache Kafka](http
 > [!NOTE]  
 > Fokus i det här dokumentet är på de steg som krävs för att aktivera Azure Kubernetes Service för att kommunicera med Kafka på HDInsight. I exempel själva är bara en grundläggande Kafka klient till visar att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration
@@ -35,7 +35,7 @@ Det här dokumentet förutsätter att du är bekant med att skapa och använda f
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-Det här dokumentet förutsätter också att du har gått igenom de [självstudie för Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Den här självstudien skapar du en behållartjänst, skapar ett Kubernetes-kluster, ett behållarregister och konfigurerar den `kubectl` verktyget.
+Det här dokumentet förutsätter också att du har gått igenom de [självstudie för Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Den här artikeln skapar en behållartjänst, skapar ett Kubernetes-kluster, ett behållarregister och konfigurerar den `kubectl` verktyget.
 
 ## <a name="architecture"></a>Arkitektur
 

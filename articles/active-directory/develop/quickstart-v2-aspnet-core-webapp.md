@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 04d13786dc731627ba2000ab6069ea06ed3183ba
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190857"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565462"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 
@@ -86,6 +86,10 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
+
 > [!div renderon="docs"]
 > Där:
 > - `Enter_the_Application_Id_here` – är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
@@ -95,7 +99,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 >   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
 >
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 ## <a name="more-information"></a>Mer information
 

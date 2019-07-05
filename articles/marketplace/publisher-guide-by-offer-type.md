@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937670"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442054"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
 När du [besluta om en publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), du är redo att välja den typ av erbjudande som används för att presentera ditt erbjudande. 
 
-Erbjudandet är det publicera objekt som du ska skapa, publicera och hantera i den [Cloud Partner Portal](https://cloudpartner.azure.com). Den *erbjudandetyp* definierar strukturen för erbjudandet, som innehåller metadata, artefakter och annat innehåll som används för att presentera erbjudandet i marketplace.
+ Den *erbjudandetyp* definierar strukturen för erbjudandet, som innehåller metadata, artefakter och annat innehåll som används för att presentera erbjudandet i marketplace.
 
 Innan du kan skapa ett erbjudande, måste du välja en typ av erbjudande. Typ av erbjudande motsvarar typ av lösning, app, eller tjänsterbjudande som du önskar att publicera, samt dess justering till Microsoft-produkter och tjänster. 
 
-En typ av erbjudande kan konfigureras på olika sätt i Cloud Partner Portal att aktivera olika publiceringsalternativ anrop till åtgärden, etablering och priser. Publicering alternativet och konfigurationen av typ av erbjudande också justera erbjudandet behörighet och tekniska krav. 
+En typ av erbjudande kan konfigureras på olika sätt för att aktivera olika publiceringsalternativ anrop till åtgärden, etablering och priser. Publicering alternativet och konfigurationen av typ av erbjudande också justera erbjudandet behörighet och tekniska krav. 
 
 Glöm inte att granska storefront och erbjuda typ behörighetskraven och de tekniska kraven för publicering innan du skapar ditt erbjudande.
 
@@ -39,8 +39,8 @@ Typer av Azure Marketplace-erbjudanden visas i tabellen nedan.
 | [**SaaS-program**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Aktivera kunden att köpa din SaaS-baserade, teknisk lösning som en prenumeration med hjälp av erbjudandetypen för SaaS-app. |
 | [**Behållare-erbjudanden**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Använd typ av erbjudande behållaren när din lösning är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserade Azure-behållartjänst. |
 | [**IoT Microsoft Edge-moduler**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge-moduler är de minsta beräkning enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster 3 part eller din egen Lösningsspecifika kod. |
-| [**Konsulttjänster**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Konsulttjänster på Azure Marketplace hjälpa till att ansluta kunder med stöd för och utöka deras användning av Azure-tjänster. |
-| [**AppSource-erbjudanden**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | AppSource-storefront innehåller erbjudanden som bygger på eller utöka Dynamics 365, Office 365, Power BI och Power Apps. |
+| [**Konsulttjänster**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Konsulttjänster hjälpa till att ansluta kunder med tjänster för att stödja och utöka deras användning av Azure, Dynamics 365 eller Power Suite-tjänster.|
+
 
 Slutligen finns i [ **Azure AD-kraven** ](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) genom att visa en lista över alternativ och tillhandahåller mer information om kraven för enkel inloggning.
 
@@ -48,4 +48,4 @@ Slutligen finns i [ **Azure AD-kraven** ](https://docs.microsoft.com/azure/marke
 
 *   Granska krav för berättigande i publiceringsalternativ erbjudandet typ avsnittet för att slutföra valet av och konfigurationen av ditt erbjudande.
 *   Granska publicering mönster genom butik för exempel på hur din lösning mappar till en typ av erbjudande och konfiguration.
-*   Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com) du skapar och konfigurerar ditt erbjudande.
+

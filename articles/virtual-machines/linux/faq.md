@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 335b5b87de0a625e357bdfaa7d5a4c0a7a9e4997
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c184b3c38db53caed31b9fc463ad68f11c73479
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339403"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550337"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor och svar om virtuella Linux-datorer
 Den här artikeln tar upp några vanliga frågor om Linux-datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Windows-version av det här avsnittet finns [vanliga frågor och svar om Windows virtuella datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -29,7 +29,7 @@ Den här artikeln tar upp några vanliga frågor om Linux-datorer som skapats i 
 Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Mer information finns i [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
-Varje datadisk kan vara upp till 4 TB (4095 GB). Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Varje datadisk kan vara upp till 32 767 GiB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Azure Managed Disks är de rekommenderade disklagringsalternativet för användning med Azure Virtual Machines för beständig datalagring. Du kan använda flera Managed Disks till varje virtuell dator. Hanterade diskar två typer av erbjudanden lagringsalternativ: Premium och Standard Managed Disks. Information om priser finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726455"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484123"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
@@ -21,7 +21,7 @@ Lär dig hur du skapar en [Apache HBase](https://hbase.apache.org/) program i Ja
 
 Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) att skapa och bygga projektet. Maven är en programvara för projekthantering och förståelsen verktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache HBase-kluster på HDInsight. Se [Kom igång med Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -34,9 +34,6 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
 * Om du använder PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
 
 * En textredigerare. Den här artikeln använder Microsoft Notepad.
-
-> [!IMPORTANT]  
-> Azure PowerShell-cmdlets [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) och [Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) för närvarande fungerar inte när [säker överföring](../../storage/common/storage-require-secure-transfer.md) är aktiverat för lagringskontot .
 
 ## <a name="test-environment"></a>Testmiljö
 Den miljö som ska användas för den här artikeln har en dator som kör Windows 10.  Kommandona utfördes i en kommandotolk och de olika filerna har redigerats med anteckningar. Ändra för din miljö.

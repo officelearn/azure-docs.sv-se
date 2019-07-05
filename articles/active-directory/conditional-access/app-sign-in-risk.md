@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8de4e785bbe2496ca38b33512da1c85f9ff76f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112767"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509047"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en session risk identifieras med Azure Active Directory villkorsstyrd åtkomst  
 
@@ -28,16 +28,13 @@ Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-versionen** -medan villkorlig åtkomst är en funktion i Azure AD Premium P1, P2-versionen måste eftersom scenariot i den här snabbstarten kräver Identity Protection.
-
 - **Identitetsskydd** -scenariot i den här snabbstarten kräver Identity Protection är aktiverat. Om du inte vet hur du aktiverar du Identity Protection, se [aktiverar Azure Active Directory Identity Protection](../identity-protection/enable.md).
-
-- **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som **inloggningar från anonyma IP-adresser**, som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
-
+- **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som inloggningar från anonyma IP-adresser som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
 - **Ett testkonto kallas Alain Charon** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning
@@ -67,7 +64,6 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
 **Konfigurera principer för villkorlig åtkomst:**
 
 1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
-
 1. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
@@ -93,13 +89,9 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
    ![Villkorlig åtkomst](./media/app-sign-in-risk/107.png)
 
    1. Klicka på **Välj användare och grupper**, och välj sedan **användare och grupper**.
-
    1. Klicka på **Välj**.
-
    1. På den **Välj** väljer **Alain Charon**, och klicka sedan på **Välj**.
-
    1. På den **användare och grupper** klickar du på **klar**.
-
 1. Klicka på **Molnappar**.
 
    ![Molnappar](./media/app-sign-in-risk/08.png)
@@ -109,9 +101,7 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
    ![Villkorlig åtkomst](./media/app-sign-in-risk/109.png)
 
    1. Klicka på **alla molnappar**.
-
    1. Klicka på **Klar**.
-
 1. Klicka på **villkor**.
 
    ![Åtkomstkontroller](./media/app-sign-in-risk/19.png)
@@ -121,15 +111,10 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
    ![Risknivå för inloggning](./media/app-sign-in-risk/21.png)
 
    1. Klicka på **inloggningsrisk**.
-
    1. Som **konfigurera**, klickar du på **Ja**.
-
    1. Logga in risknivå väljer **medel**.
-
    1. Klicka på **Välj**.
-
    1. På den **villkor** klickar du på **klar**.
-
 1. I den **åtkomstkontroller** klickar du på **bevilja**.
 
    ![Åtkomstkontroller](./media/app-sign-in-risk/10.png)
@@ -139,9 +124,7 @@ Det här avsnittet visar hur du skapar du önskad princip för villkorlig åtkom
    ![Villkorlig åtkomst](./media/app-sign-in-risk/105.png)
 
    1. Välj **blockera åtkomst**.
-
    1. Klicka på **Välj**.
-
 1. I den **aktiverar principen** klickar du på **på**.
 
    ![Aktivera princip](./media/app-sign-in-risk/18.png)
@@ -185,7 +168,6 @@ Om du vill testa din princip, försöker logga in på din [Azure-portalen](https
 När den inte längre behövs kan du ta bort testanvändaren, Tor Browser och principen för villkorlig åtkomst:
 
 - Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)

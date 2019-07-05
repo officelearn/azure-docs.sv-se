@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969065"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490152"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
-Den här artikeln hjälper dig att bättre förstå vilka data som ingår i Azure Cost Management. Och det förklarar hur ofta data bearbetas som samlas in, visas och stängda. Du faktureras för användningen av Azure varje månad. Dock avgör din typ av Azure-prenumeration då Faktureringsmånad slutar. Hur ofta kostnadshantering tar emot användning data varierar baserat på olika faktorer. Sådana faktorer är hur lång tid det tar för att bearbeta data och hur ofta användningen av faktureringssystemet generera i Azure-tjänster.
+Den här artikeln hjälper dig att bättre förstå Azure-kostnader och användning data som ingår i Azure Cost Management. Den förklarar hur ofta data bearbetas som samlas in, visas och stängda. Du faktureras för användningen av Azure varje månad. Även om faktureringscykel är Månadsperioder, cykelstart och slut-datum varierar beroende på typ av prenumeration. Hur ofta kostnadshantering tar emot användning data varierar baserat på olika faktorer. Sådana faktorer är hur lång tid det tar för att bearbeta data och hur ofta användningen av faktureringssystemet generera i Azure-tjänster.
 
-Kostnadshantering omfattar all användning och inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise Agreement (EA)-konton. Avtal för Microsoft-kund (MCA)-konton och prenumerationer med användningsbaserad betalning innefattar endast användning från Azure och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och inte ta med i kredit.
+Kostnadshantering omfattar all användning och inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise Agreement (EA)-konton. Avtal för Microsoft-kund (MCA)-konton och enskilda prenumerationer med användningsbaserad betalning innefattar endast användning från Azure och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och inte ta med i kredit.
 
-## <a name="supported-microsoft-offers"></a>Microsoft-erbjudanden som stöds
+## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure-erbjudanden som stöds
 
-Följande information visar för närvarande stöds [Microsoft Azure erbjuder](https://azure.microsoft.com/support/legal/offer-details/) i Azure Cost Management.  Ett Azure-erbjudande är typ av Azure-prenumerationen som du har.
+Följande information visar för närvarande stöds [Microsoft Azure erbjuder](https://azure.microsoft.com/support/legal/offer-details/) med Azure Cost Management. Ditt signerade avtal för en Azure-erbjudande avgör vilken typ av Azure-prenumerationen som du har.
 
 | Category  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Följande information visar för närvarande stöds [Microsoft Azure erbjuder](h
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-I följande tabell visar erbjudanden som inte stöds.
+I följande tabell visar Azure-erbjudanden som inte stöds av Cost Management.
 
 | Category  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ I följande tabell visar erbjudanden som inte stöds.
 | **Supportavtal** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Supportavtal** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-För kunder med användningsbaserad betalning, MSDN och Visual Studio erbjudandet kategorier är data tillgängliga i Cost Management från och med 2018-02-10. Du kan använda för att komma åt data för din prenumeration innan 2018-02-10 den [Azure Kontocenter](https://account.azure.com/subscriptions) information i en CSV-fil att ladda ned din användning eller du kan använda den [användning information API](/rest/api/consumption/usagedetails).
+För kunder med användningsbaserad betalning, MSDN och Visual Studio erbjuder kategorier, data är tillgängliga i Cost Management från och med 2018-02-10. Du kan använda för att komma åt data för din prenumeration innan 2018-02-10 den [Azure Kontocenter](https://account.azure.com/subscriptions) information i en CSV-fil att ladda ned din användning eller du kan använda den [användning information API](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Fastställa erbjudandetypen av ditt
 Om du inte ser data för en prenumeration och du vill fastställa om din prenumeration omfattas stöds erbjudanden, kan du verifiera att det finns stöd för din prenumeration. För att verifiera att det finns stöd för en Azure-prenumeration kan logga in på den [Azure-portalen](https://portal.azure.com). Välj sedan **alla tjänster** i den vänstra meny-rutan. Välj i listan över tjänster, **prenumerationer**. Klicka på den prenumeration som du vill verifiera i listmenyn prenumeration. Din prenumeration visas på fliken Översikt och du kan se den **erbjuder** och **erbjudande-ID**. I följande bild visas ett exempel.
@@ -116,7 +116,7 @@ Prenumerationer med användningsbaserad betalning – om den aktuella fakturerin
 
 ### <a name="rerated-data"></a>Rerated data
 
-Om du använder den [Cost Management API: er](https://aka.ms/costmgmt/docs), Power BI eller Azure-portalen för att hämta data, förväntar du dig den aktuella faktureringsperioden avgifter för att hämta klassificerade igen, och därmed ändra tills fakturan stängs.
+Om du använder den [Cost Management API: er](index.yml), Power BI eller Azure-portalen för att hämta data, förväntar du dig den aktuella faktureringsperioden avgifter för att hämta klassificerade igen, och därmed ändra tills fakturan stängs.
 
 ## <a name="usage-data-update-frequency-varies"></a>Uppdateringsfrekvensen för användning data varierar
 
@@ -129,7 +129,7 @@ Vissa tjänster sända användning oftare än andra. Därför kan du se data i C
 
 ## <a name="historical-data-might-not-match-invoice"></a>Historiska data kanske inte överensstämmer med faktura
 
-Historiska data för kredit-baserade och betala i förskott kanske inte överensstämmer med din faktura. Vissa Azure betala per användning, MSDN och Visual Studio-erbjudanden kan ha Azure-krediter och avancerade betalningar enligt fakturan. Historiska data som visas i Cost Management är dock baserat på dina uppskattade förbrukningsavgifter. Cost Management historiska data omfattar inte betalningar och krediter. Historiska data som visas för följande erbjudanden kanske därför inte matchar exakt med din faktura.
+Historiska data för kredit-baserade och betala i förskott kanske inte överensstämmer med din faktura. Vissa Azure betala per användning, MSDN och Visual Studio erbjuder kan har använt Azure-krediter och avancerade betalningar för fakturan. Historiska data som visas i Cost Management är dock baserat på dina uppskattade förbrukningsavgifter. Cost Management historiska data omfattar inte betalningar och krediter. Historiska data som visas för följande erbjudanden kanske därför inte matchar exakt med din faktura.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

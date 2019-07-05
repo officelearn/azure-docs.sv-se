@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023771"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536815"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
 Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs i Azure-prenumerationen med hjälp av portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 * **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
@@ -37,7 +37,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 2. I **Analysis Services** fyller du i de fält som krävs och trycker sedan på **Skapa**.
    
-   * **Servernamn**: Skriv ett unikt namn som används för att referera till servern.
+   * **Servernamn**: Skriv ett unikt namn som används för att referera till servern. Servernamnet måste börja med en gemen bokstav och innehålla mellan 3 och 128 gemener och siffror. Blanksteg och specialtecken tillåts inte.
    * **Prenumeration**: Välj den prenumeration som den här servern ska associeras med.
    * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/resource-group-overview.md).
    * **Plats**: Den här Azure-datacenterplatsen är värd för servern. Välj en plats närmast din största användarbas.

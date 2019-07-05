@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: bcd66d1a8077b4cc87c184f34b43cc5846a83f2f
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144430"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443246"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program i Azure
 I den här artikeln visar vi säkerhetsaktiviteter och kontroller att tänka på när du utvecklar program för molnet. Säkerhetsfrågor och begrepp att överväga under faser för implementering och verifiering av Microsofts [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla en säkrare program.
@@ -139,7 +139,7 @@ I [fuzz testning](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 
 Granska risken för angrepp när kodifyllning hjälper till att säkerställa att alla design eller implementering ändras till ett program eller system har bedömts vara. Det säkerställer att nya attackvektorer som skapades på grund av ändringar, inklusive hotmodeller, har granskat och undvikas.
 
-Du kan skapa en bild av risken för angrepp genom att skanna programmet. Microsoft erbjuder en attack surface analysverktyget kallas [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). Du kan välja bland många kommersiella dynamisk testning och granskar säkerhetsrisker verktyg och tjänster, inklusive [OWASP Okaliserad Attack Proxy-projekt](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](http://code.google.com/p/skipfish/), och [w3af](http://w3af.sourceforge.net/). Dessa genomsökningsverktyg crawla din app och mappa de delar av programmet som är tillgängliga via webben. Du kan också söka på Azure Marketplace efter liknande [utvecklarverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+Du kan skapa en bild av risken för angrepp genom att skanna programmet. Microsoft erbjuder en attack surface analysverktyget kallas [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). Du kan välja bland många kommersiella dynamisk testning och granskar säkerhetsrisker verktyg och tjänster, inklusive [OWASP Okaliserad Attack Proxy-projekt](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), och [w3af](http://w3af.sourceforge.net/). Dessa genomsökningsverktyg crawla din app och mappa de delar av programmet som är tillgängliga via webben. Du kan också söka på Azure Marketplace efter liknande [utvecklarverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### <a name="perform-security-penetration-testing"></a>Utföra security penetrationstester
 

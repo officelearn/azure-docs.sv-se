@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523076"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485445"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -118,7 +118,7 @@ Du kan använda REST API för att indexera JSON-blobar, följa ett arbetsflöde 
 
 Du kan granska [REST-exempelkod](#rest-example) i slutet av det här avsnittet som visar hur du skapar alla tre objekt. Det här avsnittet innehåller även information om [JSON-parsning lägen](#parsing-modes), [enkel blobar](#parsing-single-blobs), [JSON-matriser](#parsing-arrays), och [kapslade matriser](#nested-json-arrays).
 
-Använd för kodbaserad JSON indexering, [Postman](search-fiddler.md) och REST-API för att skapa de här objekten:
+Använd för kodbaserad JSON indexering, [Postman](search-get-started-postman.md) och REST-API för att skapa de här objekten:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument 
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
 
-För varje begäran måste du ange namnet på tjänsten och admin-nyckel för Azure Search (i rubriken POST) och lagringskontonamn och nyckel för blob storage. Du kan använda [Postman](search-fiddler.md) att skicka HTTP-begäranden till Azure Search.
+För varje begäran måste du ange namnet på tjänsten och admin-nyckel för Azure Search (i rubriken POST) och lagringskontonamn och nyckel för blob storage. Du kan använda [Postman](search-get-started-postman.md) att skicka HTTP-begäranden till Azure Search.
 
 Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en begäran:
 

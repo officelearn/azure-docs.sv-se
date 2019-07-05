@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442886"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar för Azure ytterdörren Service
 
@@ -79,25 +79,34 @@ Azure ytterdörren Service är en globalt distribuerad tjänst för flera inneha
 
 ### <a name="is-http-https-redirection-supported"></a>Är HTTP -> HTTPS-omdirigering stöds?
 
-Ja. I själva verket Azure ytterdörren Service har stöd för värden, sökväg och fråga sträng omdirigering som en del av URL-omdirigering. Läs mer om [URL-omdirigering](front-door-url-redirect.md). 
+Ja. I själva verket Azure ytterdörren Service har stöd för värden, sökväg, och fråga sträng omdirigering såväl som en del av URL-omdirigering. Läs mer om [URL-omdirigering](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>I vilken ordning bearbetas routningsregler?
 
 Vägar för ytterdörren sorteras inte och en specifik väg väljs baserat på bästa möjliga matchning. Läs mer om [hur ytterdörren matchar begäranden till en routningsregel](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>Hur jag låsa åtkomsten till min serverdel till endast Azure ytterdörren Service?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Hur jag låsa åtkomsten till min serverdel till endast Azure åtkomsten?
 
-Du kan konfigurera IP-ACLing för serverdelen för att godkänna endast trafik från Azure ytterdörren-tjänsten. Du kan begränsa dina program ta emot inkommande anslutningar enbart från IP-adressutrymmet för serverdelen för Azure ytterdörren Service. Vi arbetar för att integrera med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) men du kan nu finns IP-adressintervall enligt nedan:
+Om du vill låsa programmet accepterar endast trafik från ytterdörren specifika, behöver du konfigurera IP-åtkomstkontrollistor för din serverdel och sedan begränsar uppsättningen av godkända värden för sidhuvudet ”X-vidarebefordrade-värd, skickas genom Azure ytterdörren. De här stegen beskrivs ut enligt nedan:
+
+- Konfigurera IP-ACLing för serverdelen för att ta emot trafik från Azure Front dörren backend IP-adressutrymme och Azures infrastrukturtjänster endast. Vi arbetar för att integrera med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) men du kan nu finns IP-adressintervall enligt nedan:
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - Front dörren **IPv4** backend-IP-adressutrymme: `147.243.0.0/16`
+    - Front dörren **IPv6** backend-IP-adressutrymme: `2a01:111:2050::/44`
+    - Azures [grundläggande infrastrukturtjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) genom virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
 
-> [!WARNING]
-> Vår backend-IP-adressutrymme kan ändras senare, men vi kommer innan se till att det sker så att vi skulle har integrerat med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519). Vi rekommenderar att du prenumererar på [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) för alla ändringar och uppdateringar. 
+    > [!WARNING]
+    > Front dörren backend IP-adressutrymme kan ändras senare, men vi kommer innan se till att det sker så att vi skulle har integrerat med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519). Vi rekommenderar att du prenumererar på [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) för alla ändringar och uppdateringar.
+
+-   Filter på värden för inkommande rubriken ”**X-vidarebefordrade-värd**' skickas av ytterdörren. De enda tillåtna värdena för sidhuvudet bör vara alla frontend-värdar som definierats i ytterdörren config. I själva verket ännu mer specifikt endast de värdnamn som du vill ta emot trafik från, på den här specifika serverdelen av alla storlekar.
+    - Exempel – Låt oss säga att ytterdörren-config har följande frontend-värdar _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), och _`notifications.contoso.com`_ (D). Anta att du har två serverdelar X och Y. 
+    - Serverdelen X tar bara trafik från värdnamn A och B. serverdel Y kan ta trafik från A, C och D.
+    - Därför i serverdelen X du bör bara godkänna trafik med rubriken ”**X-vidarebefordrade-värd**” inställd på antingen _`contoso.azurefd.net`_ eller _`www.contoso.com`_ . För alla andra bör serverdel X avvisa trafiken.
+    - På samma sätt på serverdelen Y du bör bara godkänna trafik med rubriken ”**X-vidarebefordrade-värd**” inställd på antingen _`contoso.azurefd.net`_ , _`api.contoso.com`_ eller  _`notifications.contoso.com`_ . För alla andra bör serverdel Y avvisa trafiken.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Anycast IP-Adressen kan ändras med livslängden för min åtkomsten?
 
-Frontend-IP för anycast för ytterdörren vanligtvis bör inte ändra och kan vara statisk under livslängden för åtkomsten. Det finns dock **inga garantier** för samma. Se inte vidta några direkta beroenden på IP-Adressen.  
+Frontend-IP för anycast för ytterdörren vanligtvis bör inte ändra och kan vara statisk under livslängden för åtkomsten. Det finns dock **inga garantier** för samma. Se inte vidta några direkta beroenden på IP-Adressen.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Stöder Azure ytterdörren Service statiska eller dedikerade IP-adresser?
 
@@ -142,10 +151,10 @@ Dörren har stöd för TLS 1.0, 1.1 och 1.2. TLS 1.3 stöds inte ännu.
 Om du vill aktivera HTTPS-protokollet för att säkert leverera innehåll på en anpassad domän ytterdörren, kan du använda ett certifikat som hanteras av Azure ytterdörren Service eller använda ditt eget certifikat.
 Åtkomsten hanteras alternativet tillhandahåller ett standard SSL-certifikat via Digicert och lagras framför dörrens Key Vault. Om du väljer att använda ditt eget certifikat så du kan registrera ett certifikat från en Certifikatutfärdare som stöds och kan vara ett standard SSL, utökad validering certifikat eller även ett jokerteckencertifikat. Självsignerade certifikat stöds inte. Lär dig [aktivera HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Stöder ytterdörren automatisk rotation av certifikat?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Stöder ytterdörren autorotationen av certifikat?
 
-För dina egna anpassade SSL-certifikat stöds inte automatisk rotation. Liknande hur den är installationen första gången för en viss anpassade domän, du behöver till punkt åtkomsten till rätt certifikat-versionen i Key Vault och kontrollera att tjänstens huvudnamn för ytterdörren fortfarande har åtkomst till Key Vault. Den här uppdaterade certifikatåtgärden distributionen genom att åtkomsten är helt atomiska och inte orsakar några angivna ämnesnamnet att produktionen påverkas eller SAN-nätverk för certifikatet ändras inte.
-</br>För alternativet ytterdörren hanteras certifikat är certifikat roterats automatiskt av ytterdörren.
+För alternativet ytterdörren hanteras certifikat är certifikat autorotated genom ytterdörren. Om du använder ett ytterdörren hanterade certifikat och se att förfallodatum för certifikat som är mindre än 60 dagar, ett supportärende.
+</br>Autorotationen finns inte stöd för dina egna anpassade SSL-certifikat. Liknande hur det har ställts in första gången för en viss anpassade domän, du behöver till punkt åtkomsten till rätt certifikat-versionen i Key Vault och kontrollera att tjänstens huvudnamn för ytterdörren fortfarande har åtkomst till Key Vault. Den här uppdaterade certifikatåtgärden distributionen genom att åtkomsten är atomiska och inte orsakar några angivna ämnesnamnet att produktionen påverkas eller SAN-nätverk för certifikatet ändras inte.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Vilka är de aktuella krypteringssviter som stöds av Azure ytterdörren Service?
 
@@ -176,7 +185,7 @@ Ja, Azure ytterdörren Service har stöd för SSL-avlastning och slutpunkt till 
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-princip för att styra SSL-protokoll version?
 
-Nej, ytterdörren stöder inte för närvarande för att neka specifika TLS-versioner eller kan ange minimal TLS-versioner. 
+Nej, ytterdörren stöder inte för närvarande för att neka specifika TLS-versioner eller kan ange den lägsta TLS-versionen. 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan jag konfigurera åtkomsten för endast specifika krypteringssviter?
 

@@ -3,7 +3,7 @@ title: Kom igång med Mobile Apps i Xamarin Android-autentisering
 description: Lär dig hur du använder Mobile Apps du autentiserar användare i din Xamarin Android-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 7a0b2c54c2d2a9daba56ea1d05c18e72a2d7a7a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447058"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-users) idag.
+>
+
+## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du autentiserar användare i en Mobilapp från klientprogrammet. I den här självstudien lägger du till autentisering till snabbstartsprojektet med hjälp av en identitetsprovider som stöds av Azure Mobile Apps. Efter att har autentiseras och auktoriseras i Mobile App måste visas användaren ID-värdet.
 
 Den här självstudien är baserad på Snabbstart för Mobile App. Du måste också slutföra kursen [skapa en Xamarin.Android-app]. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket ditt projekt. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).

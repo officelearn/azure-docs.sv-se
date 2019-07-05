@@ -6,27 +6,23 @@ author: msmbaldwin
 manager: barbkess
 services: key-vault
 ms.author: mbaldwin
-ms.date: 03/05/2019
+ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722468"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566229"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET
 
-För att autentisera till Azure Key Vault behöver du en autentiseringsuppgift för Azure Active Directory (AD), en delad hemlighet eller ett certifikat. Hantera dessa autentiseringsuppgifter kan vara svårt och det är lockande att bifoga autentiseringsuppgifter i en app genom att inkludera dem i käll- eller configuration-filer.
+För att autentisera till Azure Key Vault behöver du en autentiseringsuppgift för Azure Active Directory (AD), en delad hemlighet eller ett certifikat. 
 
-Den `Microsoft.Azure.Services.AppAuthentication` för .NET-bibliotek förenklar det här problemet. Utvecklarens autentiseringsuppgifter används för att autentisera under lokal utveckling. När lösningen distribueras senare till Azure, växlar biblioteket automatiskt till programmet autentiseringsuppgifter.  
+Hantera dessa autentiseringsuppgifter kan vara svårt och det är lockande att bifoga autentiseringsuppgifter i en app genom att inkludera dem i käll- eller configuration-filer.  Den `Microsoft.Azure.Services.AppAuthentication` för .NET-bibliotek förenklar det här problemet. Utvecklarens autentiseringsuppgifter används för att autentisera under lokal utveckling. När lösningen distribueras senare till Azure, växlar biblioteket automatiskt till programmet autentiseringsuppgifter.    Med developer autentiseringsuppgifter under lokal utveckling är säkrare eftersom du inte behöver skapa autentiseringsuppgifter för Azure AD eller dela autentiseringsuppgifter mellan utvecklare.
 
-Med developer autentiseringsuppgifter under lokal utveckling är säkrare eftersom du inte behöver skapa autentiseringsuppgifter för Azure AD eller dela autentiseringsuppgifter mellan utvecklare.
-
-Den `Microsoft.Azure.Services.AppAuthentication` biblioteket hanterar autentisering automatiskt, vilket i sin tur gör att du kan fokusera på din lösning i stället för dina autentiseringsuppgifter.
-
-Den `Microsoft.Azure.Services.AppAuthentication` biblioteket har stöd för lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD-integrerad autentisering. När de distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](../active-directory/msi-overview.md). Ingen kod eller konfigurationsändringar krävs. Biblioteket stöder även direkt användning av Azure AD [klientautentiseringsuppgifter](../azure-resource-manager/resource-group-authenticate-service-principal.md) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhetskontext som inte kan fastställas under lokal utveckling.
+Den `Microsoft.Azure.Services.AppAuthentication` biblioteket hanterar autentisering automatiskt, vilket i sin tur gör att du kan fokusera på din lösning i stället för dina autentiseringsuppgifter.  Det har stöd för lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD-integrerad autentisering. När de distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](../active-directory/msi-overview.md). Ingen kod eller konfigurationsändringar krävs. Biblioteket stöder även direkt användning av Azure AD [klientautentiseringsuppgifter](../azure-resource-manager/resource-group-authenticate-service-principal.md) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhetskontext som inte kan fastställas under lokal utveckling.
 
 ## <a name="using-the-library"></a>Med hjälp av klientbiblioteket
 
@@ -53,22 +49,9 @@ Den `AzureServiceTokenProvider` klass cachelagrar token i minnet och hämtar fr�
 
 Den `GetAccessTokenAsync` metoden kräver en resursidentifierare. Mer information finns i [vilka Azure-tjänster stöder hanterade identiteter för Azure-resurser](../active-directory/msi-overview.md).
 
-## <a name="samples"></a>Exempel
-
-Följande exempel visar den `Microsoft.Azure.Services.AppAuthentication` bibliotek i praktiken:
-
-1. [Använda en hanterad identitet för att hämta en hemlighet från Azure Key Vault vid körning](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
-
-2. [Distribuera en Azure Resource Manager-mall från en Azure virtuell dator med en hanterad identitet programmässigt](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
-
-3. [Använda .NET Core-exemplet och en hanterad identitet för att anropa Azure-tjänster från en virtuell Linux-dator](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
-
 ## <a name="local-development-authentication"></a>Lokal utveckling autentisering
 
-Det finns två scenarier för primär autentisering för lokal utveckling:
-
-- [Autentisera till Azure-tjänster](#authenticating-to-azure-services)
-- [Autentisering till anpassade tjänster](#authenticating-to-custom-services)
+Det finns två scenarier för primär autentisering för lokal utveckling: [autentisera till Azure-tjänster](#authenticating-to-azure-services), och [autentisering till anpassade tjänster](#authenticating-to-custom-services).
 
 ### <a name="authenticating-to-azure-services"></a>Autentisera till Azure-tjänster
 
@@ -114,7 +97,7 @@ Det här kommandot genererar utdata endast vid fel.  Om du vill kontrollera inst
 az account list
 ```
 
-### <a name="authenticating-with-azure-ad-integrate-authentication"></a>Autentisering med Azure AD-integrera autentisering
+### <a name="authenticating-with-azure-ad-authentication"></a>Autentisering med Azure AD-autentisering
 
 Om du vill använda Azure AD-autentisering, kontrollerar du att:
 
@@ -135,9 +118,8 @@ När du skapar en tjänst som anropar en anpassad tjänst kan du använda autent
 
     2.  Använd Azure CLI för att logga in:
 
-        ```
-        az login --service-principal -u <principal-id> --password <password>
-           --tenant <tenant-id> --allow-no-subscriptions
+        ```azurecli
+        az login --service-principal -u <principal-id> --password <password> --tenant <tenant-id> --allow-no-subscriptions
         ```
 
         Eftersom tjänstens huvudnamn inte kan ha åtkomst till en prenumeration, använda den `--allow-no-subscriptions` argumentet.
@@ -150,27 +132,36 @@ Detta gäller endast för lokal utveckling. När lösningen har distribuerats ti
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Kör programmet med hanterad identitet eller Användartilldelad identitet 
 
-När du kör koden på en Azure App Service eller en Azure-dator med en hanterad identitet aktiverat använder biblioteket automatiskt den hanterade identitet. Inga kodändringar krävs. 
+När du kör koden på en Azure App Service eller en Azure-dator med en hanterad identitet aktiverat använder biblioteket automatiskt den hanterade identitet. 
 
-Du kan också autentisera med en Användartilldelad identitet. Läs mer på användartilldelade identiteter, [om hanteras av identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Anslutningssträngen har angetts i den [sträng anslutningssupport](#connection-string-support) nedan.
+Du kan också autentisera med en Användartilldelad identitet. Läs mer på användartilldelade identiteter, [om hanteras av identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Du måste ange klient-ID för Användartilldelad identitet i anslutningssträngen för att autentisera med en Användartilldelad identitet. Anslutningssträngen har angetts i den [sträng anslutningssupport](#connection-string-support) nedan.
 
 ## <a name="running-the-application-using-a-service-principal"></a>Kör programmet med ett huvudnamn för tjänsten 
 
 Det kan vara nödvändigt att skapa en Azure AD-klienten autentiseringsuppgifter för att autentisera. Vanliga exempel:
 
-1. Koden körs på en lokal utvecklingsmiljö, men inte under utvecklarens identitet.  Service Fabric kan till exempel använder den [kontot NetworkService](../service-fabric/service-fabric-application-secret-management.md) för lokal utveckling.
+- Koden körs på en lokal utvecklingsmiljö, men inte under utvecklarens identitet.  Service Fabric kan till exempel använder den [kontot NetworkService](../service-fabric/service-fabric-application-secret-management.md) för lokal utveckling.
  
-2. Din kod körs på en lokal utvecklingsmiljö och du autentiserar till en anpassad tjänst så att du inte kan använda din developer-identitet. 
+- Din kod körs på en lokal utvecklingsmiljö och du autentiserar till en anpassad tjänst så att du inte kan använda din developer-identitet. 
  
-3. Din kod körs på en Azure-beräkningsresurs som inte har stöd för hanterade identiteter för Azure-resurser, till exempel Azure Batch.
+- Din kod körs på en Azure-beräkningsresurs som inte har stöd för hanterade identiteter för Azure-resurser, till exempel Azure Batch.
 
-Du använder ett certifikat för att logga in på Azure AD:
+Det finns tre huvudsakliga sätt för att använda ett huvudnamn för tjänsten för att köra programmet. Om du vill använda någon av dem måste du först [skapa ett huvudnamn för tjänsten](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-1. Skapa en [tjänstobjektscertifikatet](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
+### <a name="use-a-certificate-in-local-keystore-to-sign-into-azure-ad"></a>Använda ett certifikat i lokal keystore att logga in på Azure AD
 
-2. Distribuera certifikatet till antingen den *LocalMachine* eller *CurrentUser* lagra. 
+1. Skapa en tjänstobjektets certifikat med hjälp av Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando. 
 
-3. Ange en miljövariabel som heter **AzureServicesAuthConnectionString** till:
+    ```azurecli
+    az ad sp create-for-rbac --create-cert
+    ```
+
+    Detta skapar en .pem-fil (privata nyckeln) som lagras i din arbetskatalog. Distribuera det här certifikatet till antingen den *LocalMachine* eller *CurrentUser* lagra. 
+
+    > [!Important]
+    > CLI-kommando genererar en .pem-fil, men endast innehåller inbyggt stöd för PFX-certifikat i Windows. Om du vill generera ett PFX-certifikat i stället använder du PowerShell-kommandon som visas här: [Skapa tjänstens huvudnamn med självsignerat certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Dessa kommandon distribuera automatiskt certifikat samt.
+
+1. Ange en miljövariabel som heter **AzureServicesAuthConnectionString** till:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
@@ -179,11 +170,11 @@ Du använder ett certifikat för att logga in på Azure AD:
  
     Ersätt *{AppId}* , *{TenantId}* , och *{Thumbprint}* med värden som skapades i steg 1. Ersätt *{CertificateStore}* med antingen `LocalMachine` eller `CurrentUser`, baserat på din distributionsplan.
 
-4. Kör appen. 
+1. Kör appen. 
 
-Om du vill logga in med en Azure delad AD hemlig autentiseringsuppgifter:
+### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Använda en delad hemlighet autentiseringsuppgift för att logga in på Azure AD
 
-1. Skapa en [tjänstens huvudnamn med ett lösenord](../azure-resource-manager/resource-group-authenticate-service-principal.md) och ge det åtkomst till Key Vault. 
+1. Skapa en tjänstobjektets certifikat med ett lösenord med [az ad sp create-for-rbac--lösenord](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). 
 
 2. Ange en miljövariabel som heter **AzureServicesAuthConnectionString** till:
 
@@ -197,6 +188,33 @@ Om du vill logga in med en Azure delad AD hemlig autentiseringsuppgifter:
 
 När allt har konfigurerats korrekt, utan ytterligare kodändringar krävs.  `AzureServiceTokenProvider` använder miljövariabeln och certifikatet för att autentisera till Azure AD. 
 
+### <a name="use-a-certificate-in-key-vault-to-sign-into-azure-ad"></a>Använda ett certifikat i Key Vault för att logga in på Azure AD
+
+Det här alternativet kan du lagra klientcertifikat för tjänstens huvudnamn i Key Vault och använda den för autentisering av tjänstens huvudnamn. Du kan använda detta för följande scenarier:
+
+* Lokal autentisering, där du vill autentisera med hjälp av ett explicit tjänstobjekt och vill behålla tjänstens huvudnamn autentiseringsuppgifter på ett säkert sätt i ett nyckelvalv. Developer-konto måste ha åtkomst till nyckelvalvet. 
+* Autentisering från Azure där du vill använda explicita autentiseringsuppgifter (t.ex. för scenarier med flera klienter) och vill behålla tjänstens huvudnamn autentiseringsuppgifter på ett säkert sätt i ett nyckelvalv. Hanterad identitet måste ha åtkomst till nyckelvalvet. 
+
+Den hanterade identitet eller developer-identitet måste ha behörighet att hämta klientcertifikatet från Key Vault. AppAuthentication biblioteket använder hämtade certifikatet som autentiseringsuppgifter för tjänstens huvudnamn-klienten.
+
+Att använda ett klientcertifikat för autentisering av tjänstens huvudnamn
+
+1. Skapa en tjänstobjektets certifikat och lagra den automatiskt i din keyvault med Azure CLI [az ad sp create-for-rbac--keyvault <keyvaultname> --cert <certificatename> --skapa-cert--skip-tilldelning](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
+
+    ```azurecli
+    az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
+    ```
+    
+    Certifikat-ID ska vara en URL i formatet `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+
+1. Ersätt `{KeyVaultCertificateSecretIdentifier}` i den här anslutningssträngen med certifikat-ID:
+
+```
+RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+```
+
+Om exempelvis ditt nyckelvalv anropades ”Mittkeyvault” och du har skapat ett certifikat som kallas ”myCert”, certifikat-ID blir `https://myKeyVault.vault.azure.net/secrets/myCert`, och anslutningssträngen skulle vara `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+
 ## <a name="connection-string-support"></a>Stödet för sträng
 
 Som standard `AzureServiceTokenProvider` använder flera metoder för att hämta en token. 
@@ -205,18 +223,27 @@ Du kontrollerar processen genom att använda en anslutningssträng som skickas t
 
 Följande alternativ stöds:
 
-| Anslutningen&nbsp;sträng&nbsp;alternativet | Scenario | Kommentar|
+| Alternativ för anslutningssträngen | Scenario | Kommentar|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokal utveckling | AzureServiceTokenProvider använder AzureCli för att hämta token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokal utveckling | AzureServiceTokenProvider använder Visual Studio för att hämta token. |
 | `RunAs=CurrentUser` | Lokal utveckling | AzureServiceTokenProvider använder Azure AD-integrerad autentisering för att hämta token. |
 | `RunAs=App` | [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider använder en hanterad identitet för att hämta token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Användartilldelad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider använder en Användartilldelad identitet för att hämta token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Tjänstens huvudnamn | `AzureServiceTokenProvider` använder certifikat för att hämta åtkomsttoken från Azure AD. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autentisering av anpassade tjänster | KeyVaultCertificateSecretIdentifier = certifikatets hemlig identifierare. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Tjänstens huvudnamn | `AzureServiceTokenProvider` använder certifikat för att hämta åtkomsttoken från Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Tjänstens huvudnamn | `AzureServiceTokenProvider` använder certifikat för att hämta åtkomsttoken från Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Tjänstens huvudnamn |`AzureServiceTokenProvider` använder hemlighet för att hämta åtkomsttoken från Azure AD. |
 
+## <a name="samples"></a>Exempel
 
+Se den `Microsoft.Azure.Services.AppAuthentication` bibliotek i åtgärden, finns i följande kodexempel.
+
+1. [Använda en hanterad identitet för att hämta en hemlighet från Azure Key Vault vid körning](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+
+2. [Distribuera en Azure Resource Manager-mall från en Azure virtuell dator med en hanterad identitet programmässigt](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+
+3. [Använda .NET Core-exemplet och en hanterad identitet för att anropa Azure-tjänster från en virtuell Linux-dator](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 ## <a name="next-steps"></a>Nästa steg
 

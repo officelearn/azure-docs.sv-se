@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165035"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561381"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -98,7 +98,6 @@ Du kan skala det etablerade dataflödet i en behållare eller en databas när so
 |---------|---------|---------|
 |Minsta ru: er |400 (varje ytterligare behållare kräver minst 100 ru: er per sekund efter de första fyra behållarna.) |400|
 |Minsta ru: er per behållare|100|400|
-|Minsta ru: er som krävs för att använda 1 GB lagringsutrymme|40|40|
 |Maximal ru: er|Obegränsade för databasen.|Obegränsade behållare.|
 |RU: er tilldelade eller tillgängligt för en specifik behållare|Inga garantier. RU: er som har tilldelats en viss behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnycklar behållare som delar dataflödet, distribution av arbetsbelastningen och antalet behållare. |Alla ru: er som har konfigurerats på behållaren är enbart för behållaren.|
 |Maximalt lagringsutrymme för en behållare|Obegränsad.|Obegränsad.|

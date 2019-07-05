@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440500"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection gör det möjligt för organisationer att konfigurera automatiska svar till identifierade misstänkta åtgärder relaterade till användaridentiteter.
+Azure Active Directory [identitet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection gör det möjligt för organisationer att konfigurera automatiska svar till identifierade misstänkta åtgärder relaterade till användaridentiteter.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -69,7 +69,7 @@ Azure Active Directory Identity Protection är mer än en övervakning och rappo
 
 För att belastningsutjämna hanteringsaktiviteter runt implementeringen Identity Protection kan du tilldela flera roller. Azure AD Identity Protection har stöd för 3 katalogroller:
 
-| Roll | Kan göra | Det går inte att göra |
+| Role | Kan göra | Det går inte att göra |
 | :-- | --- | --- |
 | Global administratör | Fullständig åtkomst till Identity Protection, publicera Identity Protection| |
 | Säkerhetsadministratör | Fullständig åtkomst till Identity Protection | Publicera Identity Protection kan återställa lösenord för en användare |

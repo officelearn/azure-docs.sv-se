@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5f8fd9b2ecb58b34476bf8ecca7aa08dfc446040
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273404"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561457"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudier: Beställa en Azure Data Box Disk
 
@@ -27,7 +27,7 @@ I den här självstudien beskriver vi hur du kan beställa Azure Data Box-diskar
 > * Spåra beställningen
 > * Avbryta beställningen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tjänsten och Data Box Disk.
 
@@ -87,7 +87,7 @@ Gör följande för ordning Data Box-Disk.
     |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i USA, västra och norra Europa, Kanada och Australien. |
     |Beräknad datastorlek i TB| Ange en uppskattning i TB. <br>Microsoft skickar baserat på datastorlek ett lämpligt antal SSD-diskar på vardera 8 TB (7 TB användbar kapacitet). <br>Den maximala kapaciteten som kan användas på 5 diskar är upp till 35 TB. |
     |Disknyckel| Ange disknyckeln om du markerar **Använd anpassad nyckel istället för en nyckel som skapats av Azure**. <br> Ange en alfanumerisk nyckel på 12 till 32 tecken som har minst ett numeriskt tecken och ett specialtecken. Tillåtna specialtecken är `@?_+`. <br> Du kan välja att hoppa över det här alternativet och använder den Azure-genererade nyckeln för att låsa upp dina diskar.|
-    |Lagringsplats     | Välj från storage-konto eller hanterade diskar, eller bådadera. <br> Baserat på den angivna Azure-regionen, Välj ett lagringskonto i den filtrerade listan över ett befintligt lagringskonto. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa en ny **General-purpose v1**, **gpv2**, eller **Blob storage-konto**. <br>Det går inte att använda lagringskonton som har konfigurerade regler. Lagringskonton måste **tillåta åtkomst från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
+    |Lagringsplats     | Välj från storage-konto eller hanterade diskar, eller bådadera. <br> Baserat på den angivna Azure-regionen, Välj ett lagringskonto i den filtrerade listan över ett befintligt lagringskonto. Data Box-Disk kan länkas med endast 1 lagringskonto. <br> Du kan också skapa en ny **General-purpose v1**, **gpv2**, eller **Blob storage-konto**. <br>Storage-konton med virtuella nätverk stöds. Aktivera betrodda tjänster inom storage-konto nätverksinställningar brandväggen så att Data Box-tjänsten att arbeta med säker storage-konton. Läs mer om hur du [lägga till Azure Data Box som en betrodd tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Om du använder storage-konto som lagringsplats, visas följande skärmbild:
 

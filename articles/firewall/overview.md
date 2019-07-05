@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/21/2019
+ms.date: 6/26/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
-ms.translationtype: HT
+ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312690"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442917"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -24,15 +24,13 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 Du kan centralt skapa, framtvinga och logga principer för tillämpning och nätverksanslutning över prenumerationer och virtuella nätverk. Azure Firewall använder en statisk offentlig IP-adress för din virtuella nätverksresurser som tillåter att externa brandväggar identifierar trafik som kommer från ditt virtuella nätverk.  Tjänsten är helt integrerad med Azure Monitor för loggning och analys.
 
-## <a name="features"></a>Funktioner
-
 Azure Firewall erbjuder följande funktioner:
 
-### <a name="built-in-high-availability"></a>Inbyggd hög tillgänglighet
+## <a name="built-in-high-availability"></a>Inbyggd hög tillgänglighet
 
 Hög tillgänglighet är inbyggd i, så att det krävs några ytterligare belastningsutjämnare och du behöver konfigurera något.
 
-### <a name="availability-zones-public-preview"></a>Tillgänglighetszoner (förhandsversion)
+## <a name="availability-zones-public-preview"></a>Tillgänglighetszoner (förhandsversion)
 
 Azure-brandväggen kan konfigureras vid distribution till sträcker sig över flera Tillgänglighetszoner för ökad tillgänglighet. Med Availability Zones ökar tillgängligheten till din till 99,99% garanterad drifttid. Mer information finns i Azure-brandväggen [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). 99,99% garanterad drifttid serviceavtal (SLA) erbjuds när två eller fler Tillgänglighetszoner har markerats.
 
@@ -47,41 +45,41 @@ Tillgänglighetszoner i Azure-brandväggen är tillgängliga i regioner som har 
 
 Läs mer om Tillgänglighetszoner [vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md)
 
-### <a name="unrestricted-cloud-scalability"></a>Obegränsad molnskalbarhet
+## <a name="unrestricted-cloud-scalability"></a>Obegränsad molnskalbarhet
 
 Azure Firewall kan skala upp så mycket du behöver för att hantera föränderliga nätverkstrafikflöden, så du behöver inte budgetera för hög trafikbelastning.
 
-### <a name="application-fqdn-filtering-rules"></a>Programmets FQDN-filtreringsregler
+## <a name="application-fqdn-filtering-rules"></a>Programmets FQDN-filtreringsregler
 
 Du kan begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning.
 
-### <a name="network-traffic-filtering-rules"></a>Regler för filtrering av nätverkstrafik
+## <a name="network-traffic-filtering-rules"></a>Regler för filtrering av nätverkstrafik
 
 Du kan centralt skapa nätverksfiltreringsreglerna *tillåt* eller *neka* efter källans och målets IP-adress, port och protokoll. Azure Firewall är helt tillståndskänslig så att den kan identifiera legitima paket för olika typer av anslutningar. Regler tillämpas och loggas i flera prenumerationer och virtuella nätverk.
 
-### <a name="fqdn-tags"></a>FQDN-taggar
+## <a name="fqdn-tags"></a>FQDN-taggar
 
 FQDN-taggar gör det enkelt att tillåta välkänd Azure-tjänstnätverkstrafik via brandväggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
 
-### <a name="service-tags"></a>Tjänsttaggar
+## <a name="service-tags"></a>Tjänsttaggar
 
 En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler. Du kan inte skapa egna tjänsttaggar eller ange vilka IP-adresser som ingår i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras.
 
-### <a name="threat-intelligence"></a>Hotinformation
+## <a name="threat-intelligence"></a>Hotinformation
 
 Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-feeden.
 
-### <a name="outbound-snat-support"></a>Stöd för utgående SNAT
+## <a name="outbound-snat-support"></a>Stöd för utgående SNAT
 
 Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till den offentliga Azure Firewall-IP-adressen (Source Network Address Translation). Du kan identifiera och tillåta trafik som kommer från ditt virtuella nätverk till fjärranslutna Internetmål. Azure-brandväggen inte SNAT när mål-IP är en privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Om din organisation använder en offentlig IP-adressintervall för privata nätverk, kommer Azure brandvägg SNAT trafik till en brandvägg privata IP-adresser i AzureFirewallSubnet.
 
-### <a name="inbound-dnat-support"></a>Stöd för inkommande DNAT
+## <a name="inbound-dnat-support"></a>Stöd för inkommande DNAT
 
 Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts (Destination Network Address Translation) och filtreras till de privata IP-adresserna på dina virtuella nätverk.
 
-### <a name="multiple-public-ips-public-preview"></a>Flera offentliga IP-adresser (offentlig förhandsversion)
+## <a name="multiple-public-ips-public-preview"></a>Flera offentliga IP-adresser (offentlig förhandsversion)
 
-Du kan associera flera offentliga IP-adresser (upp till 600) med brandväggen.
+Du kan associera flera offentliga IP-adresser (upp till 100) med brandväggen.
 
 På så sätt kan följande scenarier:
 
@@ -91,7 +89,7 @@ På så sätt kan följande scenarier:
 > [!NOTE]
 > Den offentliga förhandsversionen, om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg kanske befintliga inkommande anslutningar med hjälp av DNAT regler inte fungerar i 40-120 sekunder. Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.
 
-### <a name="azure-monitor-logging"></a>Azure Monitor-loggning
+## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
 Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
 
@@ -113,6 +111,7 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Det går inte att ta bort första offentlig IP-adress|Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.|Det här är avsiktligt.|
 |Om du lägger till eller ta bort en offentlig IP-adress, fungerar inte DNAT reglerna tillfälligt.| Om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg fungerar inte befintliga inkommande anslutningar med hjälp av DNAT regler i 40-120 sekunder.|Det här är en begränsning i den offentliga förhandsversionen för den här funktionen.|
 |Med Availability zones kan endast konfigureras under distributionen.|Med Availability zones kan endast konfigureras under distributionen. Du kan inte konfigurera Tillgänglighetszoner när en brandvägg som har distribuerats.|Det här är avsiktligt.|
+|Använda SNAT för inkommande anslutningar|Förutom DNAT, anslutningar via brandväggen offentliga IP-adress (inkommande) är SNATed till någon av brandväggen privata IP-adresser. Det här kravet idag (även för aktiva Nva) så symmetrisk routning.|Överväg att använda för att bevara den ursprungliga källan för HTTP/S, [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) rubriker. Till exempel använda en tjänst som [Azure ytterdörren](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) framför brandväggen. Du kan också lägga till WAF som en del av Azure ytterdörren och kedja brandväggen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203710"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484044"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
@@ -46,7 +46,7 @@ Till exempel konfigurera med dessa programmeringsmetoder kan du alternativ i des
 
 Information om hur du installerar ytterligare komponenter på HDInsight-kluster under tiden för skapandet finns i [anpassa HDInsight-kluster med skriptåtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder PowerShell, måste den [Az modulen](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -133,7 +133,7 @@ Du kan använda bootstrap i Resource Manager-mall:
 ![HDInsight Hadoop anpassar kluster bootstrap Azure Resource Manager-mall](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Se också
-* [Skapa Apache Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
+* [Skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skriptåtgärder skript för HDInsight][hdinsight-write-script]
 * [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]
 * [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
@@ -149,9 +149,6 @@ Du kan använda bootstrap i Resource Manager-mall:
 ## <a name="appendix-powershell-sample"></a>Tillägg: PowerShell-exempel
 
 Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning. Se till att ange värden för `$nameToken`, `$httpPassword`, och `$sshPassword`.
-
-> [!IMPORTANT]  
-> Värdena för `DefaultStorageAccount`, och `DefaultStorageContainer` returneras inte från [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) när [säker överföring](../storage/common/storage-require-secure-transfer.md) är aktiverat för lagringskontot.
 
 > [!WARNING]  
 > Storage-kontotyp `BlobStorage` kan inte användas för HDInsight-kluster.

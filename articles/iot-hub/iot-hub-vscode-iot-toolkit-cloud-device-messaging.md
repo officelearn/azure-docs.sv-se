@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440084"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543825"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
@@ -62,11 +62,11 @@ Du lär dig hur du använder Azure IoT-verktyg för Visual Studio Code att över
 
 Följ dessa steg för att övervaka meddelanden som skickas från enheten till IoT hub:
 
-1. Högerklicka på enheten och välj **börja övervaka D2C-meddelande**.
+1. Högerklicka på enheten och välj **starta inbyggda händelse slutpunkt för övervakning av**.
 
 2. Övervakade meddelandena visas i **utdata** > **Azure IoT Hub Toolkit** vy.
 
-3. Stoppa övervakning genom att högerklicka på den **utdata** visa och välja **stoppa övervakning av D2C-meddelande**.
+3. Stoppa övervakning genom att högerklicka på den **utdata** visa och välja **stoppa inbyggda händelse slutpunkt för övervakning av**.
 
 ## <a name="send-cloud-to-device-messages"></a>Skicka meddelanden från moln till enhet
 

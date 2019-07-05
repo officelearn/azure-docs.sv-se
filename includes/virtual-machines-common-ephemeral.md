@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391428"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457557"
 ---
 Tillfälliga operativsystemdiskar skapas i den lokala lagringen för virtuell dator (VM) och inte sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar där program är toleranta för enskilda VM-fel, men är mer orolig för den tid det tar för storskaliga distributioner eller tid att återställa avbildningen av de enskilda Virtuella datorinstanserna. Det är också lämpliga för program som distribueras med den klassiska distributionsmodellen för att flytta till Resource Manager-distributionsmodellen. Med Ephemeral OS Disk får du lägre svarstider för läs- och skrivåtgärder till OS-disken och det går snabbare att återställa VM-avbildningar. Dessutom kan tillfälliga OS-disken är kostnadsfria, du betalar inga lagringskostnaden för OS-disken. 
  

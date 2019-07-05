@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306479"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458736"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -43,7 +43,7 @@ Skapa en ny Azure Active Directory global administratör logga in på ditt Azure
 Om du vill bevilja administratörsåtkomst för klustret, synkroniseras medlemskap i en Azure AD-säkerhetsgrupp i OpenShift grupp ”osa-kund-administratörer”. Om inte anges kommer att beviljas ingen administratörsåtkomst för klustret.
 
 1. Öppna den [Azure Active Directory-grupper](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) bladet.
-2. Klicka på **+ ny grupp**
+2. Klicka på **+ ny grupp**.
 3. Ange ett namn och beskrivning.
 4. Ange **grupptyp** till **Security**.
 5. Ange **Medlemskapstyp** till **tilldelad**.
@@ -54,7 +54,7 @@ Om du vill bevilja administratörsåtkomst för klustret, synkroniseras medlemsk
 7. Välj den Azure AD-användare som du skapade ovan i listan över medlemmar.
 8. Längst ned i portalen klickar du på **Välj** och sedan **skapa** att skapa gruppen.
 
-    Anteckna värdet för grupp-ID
+    Anteckna värdet för grupp-ID.
 
 9. När gruppen har skapats visas den i listan över alla grupper. Klicka på den nya gruppen.
 10. På sidan som visas, kopiera den **objekt-ID**. Vi kommer att referera till det här värdet som `GROUPID` i den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
@@ -83,17 +83,34 @@ Generera en klienthemlighet för att autentisera din app till Azure Active Direc
 4. Ange **förfaller** hur länge du föredrar, till exempel **i 2 år**.
 5. Klicka på **Lägg till** och nyckelvärdet visas i den **klienten hemligheter** på sidan.
 6. Kopiera nyckelvärdet. Vi kommer att referera till det här värdet som `SECRET` i den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
- 
+
 ![Skärmbild av fönstret certifikat och hemligheter](./media/howto-create-tenant/create-key.png)
- 
-Mer information om Azure programobjekt finns [program och tjänstobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+
+Läs mer om Azure programobjekt [program och tjänstobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 Mer information om hur du skapar en ny Azure AD-program finns i [registrera en app med Azure Active Directory v1.0 slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## <a name="add-api-permissions"></a>Lägg till API-behörigheter
+
+1. I den **hantera** klickar du på avsnittet **API-behörigheter**.
+2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory Graph** sedan **delegerade behörigheter**
+3. Expandera **användaren** i listan nedan och se till att **User.Read** är aktiverad.
+4. Rulla uppåt och välj **programbehörigheter**.
+5. Expandera **Directory** i listan nedan och aktivera **Directory.ReadAll**
+6. Klicka på **Lägg till behörigheter** att godkänna ändringarna.
+7. Panelen API behörigheter bör nu visa både *User.Read* och *Directory.ReadAll*. Lägg märke till varning i **administratörens godkännande krävs** kolumnen bredvid *Directory.ReadAll*.
+8. Om du är den *Azure Prenumerationsadministratören*, klickar du på **bevilja administratörens godkännande för *prenumerationsnamn***  nedan. Om du inte är den *Azure Prenumerationsadministratören*, begära medgivande från din administratör.
+![Skärmbild av panelen API-behörigheter. User.Read och Directory.ReadAll behörigheter har lagts till administratörens godkännande krävs för Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> Synkronisering av gruppen Administratörer kluster fungerar endast efter att godkännande har beviljats. Du ser en grön cirkel med en bock och ett meddelande ”beviljas för *prenumerationsnamn*” i den *administratörens godkännande krävs* kolumn.
+
+Mer information om hur du hanterar administratörer och andra roller finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## <a name="resources"></a>Resurser
 
-* [Program och tjänstobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Snabbstart: Registrera en app med Azure Active Directory v1.0 slutpunkt](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Program och tjänstobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Snabbstart: Registrera en app med Azure Active Directory v1.0 slutpunkt](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305479c8872883e434731b5062b408f97f68cc43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2182708ea459b578a2a9a94213ab41e76821aefc
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055934"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514350"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett enkelsidigt program för JavaScript
 
@@ -29,7 +29,7 @@ I den här snabbstarten får du lära dig hur du använder ett kodexempel som vi
 
 ![Så här exempelappen i den här snabbstarten fungerar](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kräver följande inställningar:
 * Kör projektet med en Node.js-server genom att ladda ned och installera [Node.js](https://nodejs.org/en/download/).
@@ -105,6 +105,11 @@ var msalConfig = {
 };
 
 ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
+
+
 > [!div renderon="docs"]
 >
 > Där:

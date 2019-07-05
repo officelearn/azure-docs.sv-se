@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 6f4bd125847aa789f6f3ed06e808b40738e12260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c8d4d2b26b356c524523d73d53fd641eef5f3cb
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304112"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465826"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på.
@@ -73,6 +73,9 @@ Utdata ser ut ungefär så här:
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> Vi rekommenderar att du använder de senaste versionerna av fdisk eller åtskilda som är tillgängliga för din distribution.
 
 Här kan *sdc* är den disk som vi vill. Partitionera disken med `parted`om disken är 2 tebibyte (TiB) eller större måste du använda GPT partitionering, om det är under 2TiB, kan du använda antingen MBR eller GPT partitionering. Om du använder MBR partitionering, kan du använda `fdisk`. Gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
 

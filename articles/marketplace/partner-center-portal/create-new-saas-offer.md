@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072636"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514065"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -42,7 +42,9 @@ Exempel: test-erbjudande-1
 
 Välj **Skapa**.  En **erbjuder översikt** sida skapas för det här erbjudandet.  
 
-![Översikt för erbjudandet på Partner Center](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>Erbjudande-översikt
 
@@ -260,11 +262,11 @@ Lägga till upp till tio (10) e-postadresser manuellt eller 20 (20) om och över
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Den **teknisk konfiguration** fliken definierar teknisk information (URL-sökvägen, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Den här anslutningen gör det möjligt för oss att tillhandahålla ditt erbjudande som en resurs i kundens Azure-prenumeration om de väljer att hämta den.
+Den **teknisk konfiguration** fliken definierar teknisk information (URL-sökvägen, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Den här anslutningen gör det möjligt för oss att tillhandahålla ditt erbjudande för slutkunden om de väljer att hämta den. Diagram som beskriver användningen av fälten som samlas in finns i dokumentationen för [SaaS techtrends API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **Webbadress för informationssida** (krävs): Definiera platsen URL som kunder kommer att dirigeras till hamnar på när du hämtar ditt erbjudande från marketplace. Den här URL: en kommer också att den slutpunkt som ska ta emot anslutningen API: er för att underlätta handel med Microsoft.
+- **Webbadress för informationssida** (krävs): Definiera webbplats-URL som kunder hamnar på när du hämtar ditt erbjudande från marketplace. Den här URL: en blir den slutpunkt som tar emot en token när en kund dirigeras till sidan. Denna token kan utbyta för etablering beskriver hur man använder Lös i utförande API: er. Detaljer och alla andra som du samlar in kan användas som en del av en kund-interaktiv webbsida som skapats i din upplevelse för att slutföra registreringen och aktivera sitt inköp.
 
-- **Anslutningen webhook** (krävs): För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: Azure-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, den enklaste konfigurationen är att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt (t.ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutningen webhook** (krävs): För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: SaaS-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, den enklaste konfigurationen är att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt (t.ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-klient-ID** (krävs): I Azure-portalen kräver vi att du [skapa en app i Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. Att hitta den [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gå till Azure Active Directory och välj **egenskaper**, leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -438,7 +440,7 @@ Skapa och tillhandahålla en separat, unika Azure-prenumeration för att distrib
 
 - **Azure AD app-ID** (krävs): Ange din Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **appregistreringar**, leta efter den **program-ID** tal i listan (t.ex. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-appnyckeln** (krävs): Ange din Azure Active Directory (AD) [programnyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **appregistreringar** och välj sedan **inställningar**  >  **Nycklar**.
+- **Klienthemlighet för Azure AD** (krävs): Ange din Azure AD-program [klienthemlighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Om du vill ta reda på värdet, logga in på den [Azure-portalen](https://portal.azure.com/). Välj den **Azure Active Directory** flik i den vänstra menyn och välj **appregistreringar**, välj sedan din test drive-appen. Välj sedan **certifikat och hemligheter**väljer **nya klienthemligheten**, ange en beskrivning, Välj **aldrig** under **förfaller**, sedan Välj **Lägg till**. Se till att kopiera värdet. (Inte navigera bort från sidan innan du gör detta, eller så att du inte har tillgång till värdet.)
 
 Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 

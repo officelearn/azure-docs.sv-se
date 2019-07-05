@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077163"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433439"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg (förhandsversion)
 
@@ -54,13 +54,13 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
 
 1. Ange en **namn**, **prioritet**, och klicka på **Tillåt** från den **åtgärd** listrutan och ange följande regler i **FQDN taggar avsnittet** :
 
-   | **Namn** | **Källadress** | **FQDN Tag** | **Anteckningar** |
+   | **Name** | **Källadress** | **FQDN Tag** | **Anteckningar** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight och WindowsUpdate | Krävs för HDI-tjänster |
 
 1. Lägg till följande regler för att den **Target FQDN avsnittet** :
 
-   | **Namn** | **Källadress** | **Protokoll: Port** | **Målets fullständiga domännamn** | **Anteckningar** |
+   | **Name** | **Källadress** | **Protokoll: Port** | **Målets fullständiga domännamn** | **Anteckningar** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Tillåter Windows inloggningsaktivitet |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Om ditt kluster backas upp av WASB, sedan lägga till en regel för WASB. För att använda endast https-anslutningar kan du till att [”säker överföring krävs”](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverat för lagringskontot. |
@@ -78,7 +78,7 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
 1. På den **Lägg till nätverk regelsamlingen** anger en **namn**, **prioritet**, och klicka på **Tillåt** från den **åtgärd** nedrullningsbara menyn.
 1. Skapa följande regler i den **IP-adresser** avsnittet:
 
-   | **Namn** | **Protokoll** | **Källadress** | **Måladress** | **Målport** | **Anteckningar** |
+   | **Name** | **Protokoll** | **Källadress** | **Måladress** | **Målport** | **Anteckningar** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Tidstjänst |
    | Rule_2 | Alla | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Om du använder Enterprise Security Package (ESP), sedan lägga till en regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domänkontrollanterna i AAD-DS-avsnittet i portalen | 
@@ -87,9 +87,9 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
 
 1. Skapa följande regler i den **Tjänsttaggar** avsnittet:
 
-   | **Namn** | **Protokoll** | **Källadress** | **Tjänsttaggar** | **Målport** | **Anteckningar** |
+   | **Name** | **Protokoll** | **Källadress** | **Tjänsttaggar** | **Målport** | **Anteckningar** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Konfigurera en regel i avsnittet Tjänsttaggar för SQL som gör att du kan logga in och granska SQL-trafik, såvida inte du har konfigurerat Tjänsteslutpunkter för SQL Server på HDInsight-undernät som ska passera brandväggen. |
+   | Rule_7 | TCP | * | SQL | `1433` | Konfigurera en regel i avsnittet Tjänsttaggar för SQL som gör att du kan logga in och granska SQL-trafik, såvida inte du har konfigurerat Tjänsteslutpunkter för SQL Server på HDInsight-undernät som ska passera brandväggen. |
 
 1. Klicka på **Lägg till** för att skapa regelsamlingen nätverk.
 
@@ -114,12 +114,12 @@ Till exempel för att konfigurera routningstabellen för ett kluster som skapats
 
 | Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | Saknas |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | Saknas |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | Saknas |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | Saknas |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | Saknas |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | Saknas |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | Ej tillämpligt |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | Ej tillämpligt |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | Ej tillämpligt |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | Ej tillämpligt |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | Ej tillämpligt |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | Ej tillämpligt |
 | 0.0.0.0 | 0.0.0.0/0 | Virtuell installation | 10.1.1.4 |
 
 Slutför routningskonfigurationen för tabellen:

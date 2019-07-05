@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546401"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441586"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
@@ -35,7 +35,7 @@ Din logikapp kan nu komma åt direkt system som finns i eller anslutet till det 
 Den här översikten innehåller mer information om hur en ISE ger dina logic apps och integrering konton direkt åtkomst till Azure-nätverk och jämför skillnaderna mellan en ISE och globala Logic Apps-tjänsten.
 
 > [!NOTE]
-> Logic apps, inbyggda utlösare, inbyggda åtgärder och kopplingar som körs i ISE-användning av en prisplanen skiljer sig från förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
+> Logic apps, inbyggda utlösare, inbyggda åtgärder och kopplingar som körs i ISE-användning av en prisplanen skiljer sig från förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md). Din ISE har också ökat gränser på varaktighet för körning, kvarhållning, dataflöde, HTTP-begäran och svaret tidsgränser, meddelandestorlek och anpassad anslutningsapp begäranden. Mer information finns i [gränser och konfigurering för Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ Skillnaden mellan ISE och icke-ISE-anslutningar är i de platser där utlösare 
 
   ![Välj ISE-tjänster](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+En ISE ger också ökade gränser för varaktighet för körning, kvarhållning, dataflöde, HTTP-begäran och svaret tidsgränser, meddelandestorlek och anpassad anslutningsapp begäranden. Mer information finns i [gränser och konfigurering för Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Åtkomst till lokala datakällor
 
 För lokala system som är anslutna till ett Azure-nätverk, att mata in en ISE i nätverket så att dina logikappar har direkt åtkomst dessa system med någon av dessa objekt:
 
 * ISE-version connector för systemet, till exempel SQL Server
-  
 * HTTP-åtgärd
-  
 * Anpassad anslutningsapp
 
   * Om du har anpassade anslutningar som kräver en lokal datagateway och du har skapat dessa anslutningar utanför en ISE, kan logic apps i en ISE också använda dessa anslutningar.

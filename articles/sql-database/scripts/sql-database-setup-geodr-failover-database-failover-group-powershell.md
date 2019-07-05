@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel på geo-replikering av redundans för enkel grupp med Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering av redundansgrupp för en enkel databas i Azure SQL Database och sedan redundansväxlar den.
+title: PowerShell exempel – aktiv geo-replikering – Azure SQL Database enkel databas | Microsoft Docs
+description: Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering för en enkel databas i Azure SQL Database och sedan redundansväxlar den.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729201"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561488"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Använd PowerShell för att konfigurera en aktiv geo-replikering av en redundansgrupp för en enkel databas i Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering för en enkel databas i Azure SQL Database
 
 Det här PowerShell-skriptexemplet konfigurerar en aktiv geo-replikering av en redundansgrupp för en enkel databas och redundansväxlar den till en sekundär replik av databasen.
 

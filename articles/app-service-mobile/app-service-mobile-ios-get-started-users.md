@@ -3,7 +3,7 @@ title: Lägg till autentisering på iOS med Azure Mobile Apps
 description: Lär dig hur du använder Azure Mobile Apps du autentiserar användare i din iOS-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128157"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449125"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Lägg till autentisering i din iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) idag.
+>
 
 I den här självstudien lägger du till autentisering till den [Snabbstart för iOS] projektet med en identitetsprovider som stöds. Den här självstudien är baserad på den [Snabbstart för iOS] kursen måste du slutföra först.
 
@@ -77,7 +81,7 @@ I Xcode, trycker du på **kör** starta appen. Ett undantagsfel genereras efters
     }
     ```
 
-    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner] [ 1] i din app.
+    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner][1] i din app.
 
     Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till programmet när autentiseringsbegäran är klar.
 
@@ -163,7 +167,7 @@ I Xcode, trycker du på **kör** starta appen. Ett undantagsfel genereras efters
     }
     ```
 
-    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner] [ 1] i din app.
+    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner][1] i din app.
 
     Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till programmet när autentiseringsbegäran är klar.
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303406"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449957"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -26,7 +26,8 @@ Följande versioner av Azure File Sync-agenten stöds:
 | Milstolpe | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
 | V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | Den 19 juni 2019 | [Förhandsversionstestning](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Samlad - uppdatering i juni 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | Den 13 juni 2019 | Stöds (rekommenderad version) |
+| Samlad - uppdatering i juni 2019 [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | Den 27 juni 2019 | Stöds (rekommenderad version) |
+| Samlad - uppdatering i juni 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | Den 13 juni 2019 | Stöds |
 | Samlad - uppdatering för maj 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | Den 7 maj 2019 | Stöds |
 | V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | Den 21 april 2019 | Stöds |
 | Samlad - uppdatering i april 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 april 2019 | Stöds |
@@ -113,6 +114,14 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 ### <a name="cloud-tiering"></a>Lagringsnivåer för moln
 - Om en nivåindelad fil kopieras till en annan plats med Robocopy så kommer den kopierade filen inte att vara nivåindelad. Offline-attributet kan anges eftersom Robocopy felaktigt tar med det attributet i kopieringsåtgärder.
 - När du kopierar filer med hjälp av robocopy, kan du använda alternativet/MIR för att bevara filen tidsstämplar. Detta säkerställer att äldre filer nivåindelas tidigare än nyligen öppnade filer.
+
+## <a name="agent-version-6300"></a>Agentversion 6.3.0.0
+Följande viktiga information gäller 6.3.0.0 av Azure File Sync-agenten gavs ut den 27 juni 2019. Detta är viktig för version 6.0.0.0.
+
+Lista över problem som åtgärdas i den här versionen:  
+- Åtkomst till eller sökning en serverplats slutpunkt över SMB är långsam på Windows Server 2012 R2 
+- Ökade CPU-användning när du har installerat Azure File Sync v6-agenten
+- Förbättringar av lagringsnivåer telemetri i molnet
 
 ## <a name="agent-version-6200"></a>Agentversion 6.2.0.0
 Följande viktiga information gäller 6.2.0.0 av Azure File Sync-agenten gavs ut den 13 juni 2019. Detta är viktig för version 6.0.0.0.

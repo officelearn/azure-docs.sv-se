@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718995"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508072"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight med hjälp av Azure PowerShell Az-modulen. Lista över HDInsight PowerShell-cmdlets finns i den [Az.HDInsight referens](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -150,10 +150,6 @@ Det är på samma sätt som Grant/revoke HTTP-åtkomst. Om klustret har beviljat
 ## <a name="find-the-default-storage-account"></a>Hitta standardkontot för lagring
 Följande PowerShell-skript visar hur du hämtar standard lagringskontonamn och relaterad information:
 
-> [!IMPORTANT]  
-> Värdena för `DefaultStorageAccount`, och `DefaultStorageContainer` returneras inte från [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) när [säker överföring](../storage/common/storage-require-secure-transfer.md) är aktiverat för lagringskontot.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -197,10 +193,6 @@ Se [kör MapReduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-sam
 **Att skicka Apache Hive-jobb**
 
 Se [kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**Skicka Apache Pig-jobb**
-
-Se [kör Apache Pig-jobb med hjälp av PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **Skicka Apache Sqoop jobb**
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436339"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -54,7 +54,8 @@ Om du inte redan loggat in på ditt konto, logga in på den [Azure-portalen](htt
 
 
 > [!NOTE]
-> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i *Behåll omedelbar återställning ögonblicksbild* i principen för säkerhetskopiering av Azure virtuella datorer.  Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.
+> Azure Backup-tjänsten skapar en separat resursgrupp (andra än resursgrupp för virtuell dator) för att lagra ögonblicksbild med namnformatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resursgruppen ska behållas för varaktighet i dagar som anges i *Behåll omedelbar återställning ögonblicksbild* i principen för säkerhetskopiering av Azure virtuella datorer.  Tillämpa ett lås på den här resursgruppen kan orsaka fel vid säkerhetskopiering.<br>
+Den här resursgruppen ska också undantas från namn/taggen begränsningar som en princip som begränsar skulle blockera skapandet av Resource punkt samlingar i den igen orsakar fel vid säkerhetskopiering.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopiering när du har skapat den virtuella datorn

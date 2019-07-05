@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa400d678fb1e0793ea1a0cfd53bdfb715a5bc77
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 067e2b73ce914860126b66668ca8cbeb28a4d7d1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785022"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540724"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -52,7 +52,7 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 > 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://aka.ms/MobileAppReg) sidan.
 > 1. Välj **ny registrering**.
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `Win-App-calling-MsGraph`.
->      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
+>      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
 > 1. Expandera den **Desktop + enheter** avsnittet.  (Om **Desktop + enheter** syns inte först på den övre banderollen för att visa förhandsgranskning autentiseringsupplevelse)
@@ -82,6 +82,9 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
     private static string ClientId = "Enter_the_Application_Id_here";
     private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Där:
@@ -92,7 +95,7 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 >   - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`
 >
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 ## <a name="more-information"></a>Mer information
 

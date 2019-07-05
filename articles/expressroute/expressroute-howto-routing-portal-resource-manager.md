@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: f6061710fb15d4183bd42a82c4bd269a69fc9be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964436"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484337"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
@@ -55,9 +55,17 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 
 ### <a name="to-create-microsoft-peering"></a>Så här skapar du Microsoft-peering
 
-1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be din anslutningsleverantör för att Microsoft peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig, när du har skapat kretsen, fortsätter du med nästa steg.
+1. Konfigurera ExpressRoute-kretsen. Kontrollera den **Providerstatus** att se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter.
 
-   ![lista över Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be din anslutningsleverantör för att Microsoft peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig, när du har skapat kretsen, fortsätter du med dessa steg.
+
+   **Circuit - Providerstatus: Inte etablerats**
+
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Providerstatus: Inte etablerats")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
+   **Circuit - Providerstatus: etablerad**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Providerstatus = etablerad")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Konfigurera Microsoft-peering för kretsen. Kontrollera att du har följande information innan du fortsätter.
 
    * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix som du äger och har registrerat i en RIR/IR. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
@@ -70,42 +78,35 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
    * **Valfritt –** en MD5-hash om du väljer att använda en.
 3. Du kan välja den peering som du vill konfigurera, som visas i följande exempel. Välj Microsofts peering-rad.
 
-   ![Välj Microsofts peering-rad](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
-4. Konfigurera Microsoft-peering. Följande bild visar ett Konfigurationsexempel:
+   [![Välj Microsofts peering-rad](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Välj Microsofts peering-rad")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+4. Konfigurera Microsoft-peering. **Spara** konfigurationen när du har angett alla parametrar. Följande bild visar en exempelkonfiguration:
 
-   ![Konfigurera Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
-5. Spara konfigurationen när du har angett alla parametrar.
+   ![Konfigurera Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
-   Om din krets kommer till en ”verifiering krävs” tillstånd (som visas i bild), måste du öppna ett supportärende för att bevisa ägarskapet för prefixen till supportteamet.
+   Om din krets kommer till en ”verifiering krävs” tillstånd, måste du öppna ett supportärende för att bevisa ägarskapet för prefixen till supportteamet. Du kan öppna ett supportärende direkt från portalen, enligt följande exempel:
 
-   ![Spara konfigurationen för Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Verifiering krävs - supportärende](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)
 
-   Du kan öppna ett supportärende direkt från portalen, enligt följande exempel:
+5. När konfigurationen har tagits emot, visas något som liknar följande bild:
 
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
-
-
-1. När konfigurationen har tagits emot, visas något som liknar följande bild:
-
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![Peering-status: Konfigurerad](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering-status: Konfigurerad")]
 
 ### <a name="getmsft"></a>Så här visar du Microsofts peering-information
 
-Du kan visa egenskaperna för Microsoft-peering genom att välja den peeringen.
+Du kan visa egenskaperna för Microsoft-peering genom att välja raden för peering.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
-
+[![Visa egenskaper för Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "visa egenskaper")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
 ### <a name="updatemsft"></a>Att uppdatera konfigurationen för Microsoft-peering
 
-Du kan välja raden för peering och ändra peering-egenskaperna.
+Du kan välja raden för peering som du vill ändra, ändra peering-egenskaperna och spara ändringarna.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+![Välj peering-raden](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
 
 ### <a name="deletemsft"></a>Ta bort Microsoft-peering
 
-Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort enligt följande bild:
+Du kan ta bort peering-konfigurationen genom att klicka på ikonen Ta bort enligt följande bild:
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+![Ta bort peering](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
 ## <a name="private"></a>Azures privata peering
 
@@ -113,9 +114,18 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
 ### <a name="to-create-azure-private-peering"></a>Så här skapar du Azures privata peering
 
-1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig, när du har skapat kretsen, fortsätter du med nästa steg.
+1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. 
 
-   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig, när du har skapat kretsen, fortsätter du med nästa steg.
+
+   **Circuit - Providerstatus: Inte etablerats**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Providerstatus = inte etablerats")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+
+   **Circuit - Providerstatus: etablerad**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Providerstatus = etablerats")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+
 2. Konfigurera Azures privata peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
 
    * Ett /30 undernät för den primära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
@@ -123,27 +133,27 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen förutom tal från 65515 till 65520, portintervallet.
    * **Valfritt –** en MD5-hash om du väljer att använda en.
-3. Välj den Azure-privata peering-raden som visas i följande exempel:
+3. Välj den Azure privata peering-raden som visas i följande exempel:
 
-   ![privat](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. Konfigurera privat peering. Följande bild visar ett Konfigurationsexempel:
+   [![Välj den privata peering-raden](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "väljer den privata peering-raden")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+4. Konfigurera privat peering. **Spara** konfigurationen när du har angett alla parametrar.
 
-   ![Konfigurera privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. Spara konfigurationen när du har angett alla parametrar. När konfigurationen har tagits emot, visas något som liknar följande exempel:
+   ![Konfigurera privat peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
+5. När konfigurationen har tagits emot, visas något som liknar följande exempel:
 
-   ![Spara privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![Spara privat peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>Så här visar du Azures privata peering-information
 
 Du kan visa egenskaperna för Azures privata peering genom att välja den peeringen.
 
-![Visa privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+[![Visa egenskaper för privat peering](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "visa egenskaper för privat peering")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
 ### <a name="updateprivate"></a>Att uppdatera konfigurationen av Azures privata peering
 
-Du kan välja raden för peering och ändra peering-egenskaperna.
+Du kan välja raden för peering och ändra peering-egenskaperna. När du har uppdaterat, spara dina ändringar.
 
-![Uppdatera privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+![Uppdatera privat peering](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
 ### <a name="deleteprivate"></a>Att ta bort Azures privata peering
 
@@ -154,7 +164,7 @@ Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort enligt f�
 > 
 > 
 
-![ta bort privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+![ta bort privat peering](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 ## <a name="public"></a>Azures offentliga peering
 
@@ -164,45 +174,17 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 > Azures offentliga peering är inaktuell för nya kretsar. Mer information finns i [ExpressRoute-peering](expressroute-circuit-peerings.md).
 >
 
-### <a name="to-create-azure-public-peering"></a>Så här skapar du Azures offentliga peering
-
-1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures offentliga peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
-
-   ![lista över offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Konfigurera Azures offentliga peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
-
-   * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router. 
-   * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
-   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-   * **Valfritt –** en MD5-hash om du väljer att använda en.
-3. Välj den Azure offentliga peering-raden som visas i följande bild:
-
-   ![Välj offentliga peering-raden](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. Konfigurera offentlig peering. Följande bild visar ett Konfigurationsexempel:
-
-   ![Konfigurera offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. Spara konfigurationen när du har angett alla parametrar. När konfigurationen har tagits emot, visas något som liknar följande exempel:
-
-   ![Spara offentlig peering-konfigurationen](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
 ### <a name="getpublic"></a>Så här visar du Azures offentliga peering-information
 
-Du kan visa egenskaperna för Azures offentliga peering genom att välja den peeringen.
-
-![Visa egenskaper för offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+Visa egenskaperna för Azures offentliga peering genom att välja den peeringen.
 
 ### <a name="updatepublic"></a>Att uppdatera konfigurationen av Azures offentliga peering
 
-Du kan välja raden för peering och ändra peering-egenskaperna.
-
-![Välj offentliga peering-raden](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+Välj raden för peering och ändra peering-egenskaperna.
 
 ### <a name="deletepublic"></a>Att ta bort Azures offentliga peering
 
-Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort som visas i följande exempel:
-
-![ta bort offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
+Ta bort peering-konfigurationen genom att välja ikonen Ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

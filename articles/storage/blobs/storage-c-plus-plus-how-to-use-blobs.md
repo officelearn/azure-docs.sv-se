@@ -9,12 +9,12 @@ ms.date: 03/21/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 519190b6aeb313f25eddd717bce1a72148c8c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32601fc15e6b6a25a1005b6d95499d4aae4fb0d2
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148451"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461172"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
 
@@ -68,7 +68,7 @@ Om du vill starta Azure storage-emulatorn, Välj den **starta** knapp eller geno
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.  
 
-## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
+## <a name="retrieve-your-storage-account"></a>Hämta ditt storage-konto
 Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen för lagring. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.  
 
 ```cpp

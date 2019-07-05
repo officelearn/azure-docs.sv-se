@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991424"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566063"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån
 Azure Service Bus erbjuds tidigare namnområden endast på standard-nivån. Namnområden är inställningar för flera innehavare som är optimerade för utvecklarmiljöer och lågt dataflöde. Premium-nivån erbjuder dedikerade resurser per namnområde för förutsägbar latens och ökat genomflöde till ett fast pris. Premium-nivån är optimerat för stora dataflöden och produktionsmiljöer som kräver ytterligare företagsfunktioner.
@@ -117,6 +117,28 @@ Migrering med hjälp av Azure portal har det samma logiska flödet som att migre
 1. Granska ändringar på sammanfattningssidan. Välj **fullständig migrering** att växla namnområden och slutföra migreringen.
     ![Växla namnområde - växel menyn][] bekräftelsesidan som visas när migreringen är klar.
     ![Växeln namnområde – lyckades][]
+
+## <a name="caveats"></a>Varningar
+
+Några av funktionerna som tillhandahålls av Azure Service Bus Standard-nivån stöds inte av Azure Service Bus Premium-nivån. Det här är avsiktligt eftersom premium-nivån erbjuder dedikerade resurser för förutsägbart dataflöde och svarstid.
+
+Här är en lista över funktioner som inte stöds av Premium och deras minskning- 
+
+### <a name="express-entities"></a>Expressenheter
+
+   Expressenheter som inte genomför någon meddelandedata till lagring stöds inte i Premium. Dedikerade resurser tillhandahålla förbättringar av betydande dataflödet samtidigt som man säkerställer att data sparas, som är förväntat från alla företags meddelandesystem.
+   
+   Under migreringen, kommer någon av dina expressenheter i Standard-namnområdet skapas på Premium-namnområde som en icke-express-enhet.
+   
+   Om du använder Azure Resource Manager (ARM)-mallar, se till att du tar bort flaggan 'enableExpress' från distributionskonfigurationen så att dina automatiserade arbetsflöden som körs utan fel.
+
+### <a name="partitioned-entities"></a>Partitionerade enheter
+
+   Partitionerade enheter har stöd för standardnivån för att ge bättre tillgänglighet i en inställning för flera innehavare. Med tillhandahållandet av dedikerade resurser som är tillgängliga per namnområde på Premium-nivån, är detta inte längre behövs.
+   
+   Under migreringen skapas en partitionerad entitet i Standard-namnområdet på Premium-namnområde som en icke-partitionerad entitet.
+   
+   Om din ARM-mall anger 'enablePartitioning' till 'true' för en viss kö eller ämne, kommer sedan den att ignoreras av den asynkrona meddelandekön.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 

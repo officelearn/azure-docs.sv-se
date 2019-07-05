@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/17/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c461da44d3d9075d66a68fe8994a4e970288fca
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152622"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543753"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
@@ -41,12 +41,14 @@ Kontrollera vilken version av daemonen security som körs på din enhet med hjä
 
 ### <a name="linux-devices"></a>Linux-enheter
 
-Använd apt-get eller chefen lämpligt paket för att uppdatera daemonen säkerhet på Linux-enheter. 
+Använd apt-get eller chefen lämpligt paket för att uppdatera daemonen säkerhet på Linux x64 enheter. 
 
 ```bash
 apt-get update
 apt-get install libiothsm iotedge
 ```
+
+På Linux ARM32 enheter kan använda stegen i [installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) att installera den senaste versionen av daemonen säkerhet. 
 
 ### <a name="windows-devices"></a>Windows-enheter
 
@@ -62,7 +64,7 @@ Om du vill installera en specifik version av daemonen security kan hämta Micros
 
 ## <a name="update-the-runtime-containers"></a>Uppdatera körningsbehållarna
 
-Hur du uppdaterar IoT Edge-agenten och IoT Edge hub behållare beror på om du använder löpande taggar (till exempel 1.0) eller särskilda taggar (till exempel 1.0.2) i distributionen. 
+Hur du uppdaterar IoT Edge-agenten och IoT Edge hub behållare beror på om du använder löpande taggar (till exempel 1.0) eller särskilda taggar (till exempel 1.0.7) i distributionen. 
 
 Kontrollera versionen av IoT Edge-agenten och IoT Edge hub-moduler för närvarande på din enhet med hjälp av kommandona `iotedge logs edgeAgent` eller `iotedge logs edgeHub`. 
 
@@ -73,7 +75,7 @@ Kontrollera versionen av IoT Edge-agenten och IoT Edge hub-moduler för närvara
 IoT Edge-agenten och IoT Edge hub-avbildningar är märkta med IoT Edge-version som de är associerade med. Det finns två olika sätt att använda taggar med runtime-avbildningar: 
 
 * **Löpande taggar** -använder de två första värdena versionsnummer för att hämta den senaste avbildningen som matchar dessa siffror. Till exempel uppdateras 1.0 när det finns en ny version så att den pekar till den senaste versionen av 1.0.x. Om container runtime på din IoT Edge-enhet hämtar avbildningen igen, har runtime-moduler uppdaterats till den senaste versionen. Den här metoden rekommenderas för utveckling. Distributioner från Azure portal standard till rullande taggar. 
-* **Särskilda taggar** -använda alla tre värdena för det lägre versionsnumret för att uttryckligen ställa in versionsnumret för avbildningen. Till exempel ändras 1.0.2 inte när den första versionen. Du kan deklarera ett nytt versionsnummer i manifestet distribution när du är redo att uppdatera. Den här metoden rekommenderas för produktion.
+* **Särskilda taggar** -använda alla tre värdena för det lägre versionsnumret för att uttryckligen ställa in versionsnumret för avbildningen. Exempel: 1.0.7 ändras inte när den första versionen. Du kan deklarera ett nytt versionsnummer i manifestet distribution när du är redo att uppdatera. Den här metoden rekommenderas för produktion.
 
 ### <a name="update-a-rolling-tag-image"></a>Uppdatera en löpande tagg-avbildning
 
@@ -92,7 +94,7 @@ IoT Edge-tjänsten använder de senaste versionerna av runtime-avbildningar och 
 
 ### <a name="update-a-specific-tag-image"></a>Uppdatera en specifik tagg-avbildning
 
-Om du använder specifika taggar i distributionen (till exempel mcr.microsoft.com/azureiotedge-hub:**1.0.2**) så är allt du behöver göra är att uppdatera taggen i ditt manifest för distributionen och sparar ändringarna till din enhet. 
+Om du använder specifika taggar i distributionen (till exempel mcr.microsoft.com/azureiotedge-hub:**1.0.7**) så är allt du behöver göra är att uppdatera taggen i ditt manifest för distributionen och sparar ändringarna till din enhet. 
 
 I Azure-portalen distributionsavbildningar runtime deklareras i den **konfigurera avancerade Edge-körningsinställningar** avsnittet. 
 
@@ -105,7 +107,7 @@ I manifestet för en JSON-distribution, uppdatera modulen avbildningar i den **s
   "edgeAgent": {
     "type": "docker",
     "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-agent:1.0.2",
+      "image": "mcr.microsoft.com/azureiotedge-agent:1.0.7",
       "createOptions": ""
     }
   },
@@ -114,12 +116,24 @@ I manifestet för en JSON-distribution, uppdatera modulen avbildningar i den **s
     "status": "running",
     "restartPolicy": "always",
     "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-hub:1.0.2",
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0.7",
       "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
     }
   }
 },
 ```
+
+## <a name="update-to-a-release-candidate-version"></a>Uppdatera till en release candidate-version
+
+Azure IoT Edge släpper regelbundet nya versioner av IoT Edge-tjänsten. Innan varje stabil version finns en eller flera release candidate (RC) versioner. RC versioner innehåller alla planerade funktioner för versionen, men är fortfarande går igenom testning och validering processer som krävs för en stabil version. Om du vill testa en ny funktion tidigt, kan du installera RC-versionen och ge feedback via GitHub. 
+
+Förhandsversionerna följer samma regler för numrering av versioner, men har **-rc** plus ett inkrementellt nummer läggas till i slutet. Du kan se versionen kandidater i samma lista över [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases) som stabil versioner. Till exempel hitta **1.0.7-rc1** och **1.0.7-rc2**, två viktig kandidater som kommer före **1.0.7**. Du kan också se att RC versioner är markerade med **förhandsversioner** etiketter. 
+
+Som förhandsversionerna av förhandsversionerna inkluderas inte som den senaste versionen som installationsprogram för vanliga mål. I stället måste du manuellt rikta in tillgångar för RC-versionen som du vill testa. Beroende på operativsystemet IoT Edge-enhet att använda följande avsnitt för att uppdatera IoT Edge till en viss version:
+
+* [Linux X64](how-to-install-iot-edge-linux.md#install-a-specific-version)
+* [Linux ARM32](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)
+* [Windows](how-to-install-iot-edge-windows.md#offline-installation)
 
 ## <a name="next-steps"></a>Nästa steg
 

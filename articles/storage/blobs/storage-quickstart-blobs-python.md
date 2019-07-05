@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0c40d0985b0d6c967a55b1954a1cb54feeb15361
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149390"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514585"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
 I den här snabbstarten lär du dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage. BLOB-lagring är bara de objekt som kan innehålla vilken mängd text eller binära data (till exempel bilder, dokument, strömmande media, arkivera data, etc.) och skiljer sig i Azure Storage från filresurser, schemalös tabeller och meddelandeköer. (Mer information finns i [introduktion till Azure Storage](/azure/storage/common/storage-introduction).)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -54,11 +54,13 @@ Det här exemplet skapar en testfil i mappen *Dokument*. Exempelprogrammet ladda
 
 Först installerar du beroenden genom att köra `pip install`:
 
+```python
     pip install azure-storage-blob
+```
 
 Sedan kör du exemplet. Meddelandena ser ut ungefär som i följande utdata:
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt

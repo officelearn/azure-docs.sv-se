@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440653"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476429"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ Följande avsnitt hjälper dig att identifiera alla intressenter som ingår i pr
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Intressenter: PIM för Azure AD-roller
 
-| Namn | Roll | Åtgärd |
+| Namn | Role | Åtgärd |
 | --- | --- | --- |
 | Namn och e-post | **Identitet architect eller Global administratör för Azure**<br/>En representant från identity management-teamet ansvarar för definierar hur den här ändringen justeras med grundläggande identity management-infrastruktur i din organisation. | SO/R/I |
 | Namn och e-post | **Service ägare / rad manager**<br/>En representant från IT-ägare av en tjänst eller en grupp med tjänster. De är nyckeln i att fatta beslut och hjälper till att lansera PIM för sina team. | SO/R/I |
@@ -109,7 +109,7 @@ Följande avsnitt hjälper dig att identifiera alla intressenter som ingår i pr
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Intressenter: PIM för Azure-resursroller
 
-| Namn | Roll | Åtgärd |
+| Namn | Role | Åtgärd |
 | --- | --- | --- |
 | Namn och e-post | **Prenumeration / resursägaren**<br/>En representant från IT-ägare till varje prenumeration eller resursgrupp som du vill distribuera PIM för | SO/R/I |
 | Namn och e-post | **Security ägare**<br/>En representant från säkerhetsteamet som kan logga ut att planen uppfyller säkerhetskraven för din organisation. | SO/R |
@@ -143,7 +143,7 @@ Följ dessa steg för att tillämpa principen om lägsta behörighet för din Az
 
 1. Lista som har privilegierad roller i din organisation. Du kan använda den [PIM guiden](pim-security-wizard.md#run-the-wizard) att komma till en sida som liknar följande.
 
-    ![Identifiera Privilegierade roller](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Identifiera Privilegierade roller fönster som visar vem som har Privilegierade roller](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Ta reda på varför de måste rollen för alla globala administratörer i din organisation. Baserat på läser den föregående dokumentationen om personens jobbet kan utföras av en eller flera detaljerade administratörsroller, bör du ta bort dem från den globala administratörsrollen och Ställ därefter tilldelningar i Azure Active Directory (som referens: Microsoft har för närvarande bara cirka 10 administratörer med rollen Global administratör. Läs mer på [hur Microsoft använder PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Följ dessa steg för att tillämpa principen om lägsta behörighet för din Az
 
 Du kan använda funktionen åtkomst granska i PIM för att automatisera steg 3 och 4. Följa stegen i [starta en åtkomstgranskning för Azure AD-roller i PIM](pim-how-to-start-security-review.md), du kan ställa in en åtkomstgranskning för varje Azure AD-roller som har en eller flera medlemmar.
 
-![Skapa en åtkomstgranskning](./media/pim-deployment-plan/create-access-review.png)
+![Skapa en ruta för granskning av åtkomst för Azure AD-roller](./media/pim-deployment-plan/create-access-review.png)
 
 Du bör ange granskarna **medlemmar (själv)** . Detta skickar ett e-postmeddelande till alla medlemmar i rollen att få dem att bekräfta om de behöver åtkomst. Du bör också aktivera **Kräv orsak vid godkännande** i de avancerade inställningarna så att användarna kan ange varför de måste rollen. Baserat på den här informationen kan kommer du att kunna ta bort användare från onödiga roller och delegera mer detaljerade administratörsroller när det gäller globala administratörer.
 
@@ -240,7 +240,7 @@ Innan du implementerar din PIM-lösning är det bra att utkast PIM inställninga
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>PIM-inställningar för Azure AD-roller
 
-| Roll | Kräv MFA | Avisering | Biljett för incident | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Permanent administratör |
+| Role | Kräv MFA | Avisering | Biljett för incident | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | För åtkomst vid akutfall |
 | Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Ingen | 2 timmar | Ingen |
@@ -248,7 +248,7 @@ Innan du implementerar din PIM-lösning är det bra att utkast PIM inställninga
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>PIM-inställningar för Azure-resursroller
 
-| Roll | Kräv MFA | Avisering | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Active-administratör | Aktiva upphör att gälla | Berättigade upphör att gälla |
+| Role | Kräv MFA | Avisering | Kräv godkännande | Godkännare | Varaktighet för rollaktivering | Active-administratör | Aktiva upphör att gälla | Berättigade upphör att gälla |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Ägare av kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | Saknas | 3-månaders |
 | Administratör för användaråtkomst mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :x: | Ingen | 1 timme | Ingen | Saknas | 3-månaders |
@@ -258,7 +258,7 @@ I följande tabell beskrivs var och en av inställningarna.
 
 | Inställning | Beskrivning |
 | --- | --- |
-| Roll | Namnet på den roll som du definierar inställningarna för. |
+| Role | Namnet på den roll som du definierar inställningarna för. |
 | Kräv MFA | Om behörig användare behöver utföra MFA innan du aktiverar rollen.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** du införa MFA för alla administratörsroller, särskilt om rollerna har gästanvändare. |
 | Avisering | Om sant, Global administratör, privilegierad Rolladministratör och säkerhetsadministratörer i organisationen får ett e-postmeddelande när en behörig användare aktiverar rollen.<br/><br/>**Obs:** Vissa organisationer har inte en e-postadress som är kopplad till deras administratörskonton, att få dessa e-postmeddelanden, bör du gå anger en alternativ e-postadress så administratörer får dessa e-postmeddelanden. |
 | Biljett för incident | Om behörig användare behöver registrera en incident Biljettnummer när du aktiverar deras roll. Den här inställningen hjälper en organisation att identifiera varje aktivering med en intern incident för att undvika oönskad aktiveringar.<br/><br/> :heavy_check_mark: **Microsoft rekommenderar att du** att utnyttja incident Biljettnummer att knyta PIM med ditt interna system. Detta är särskilt användbart för godkännare som behöver kontext för aktiveringen. |
@@ -318,7 +318,7 @@ Nu när du har identifierat testanvändarna kan du använda det här steget för
 
 Du bör använda det här steget för att verifiera om all konfiguration du ställs in för rollerna fungerar korrekt. Använd följande tabell för att dokumentera dina tester. Du bör också använda det här steget för att optimera kommunikationen med användare som påverkas.
 
-| Roll | Förväntat beteende under aktiveringen | De faktiska resultaten |
+| Role | Förväntat beteende under aktiveringen | De faktiska resultaten |
 | --- | --- | --- |
 | Global administratör | (1) Kräv MFA<br/>(2) Kräv godkännande<br/>(3) godkännare tar emot ett meddelande och kan godkänna<br/>(4) rollen upphör att gälla efter en förinställd tid |  |
 | Ägare av prenumerationen *X* | (1) Kräv MFA<br/>(2) berättigad uppgift upphör att gälla efter konfigurerad tidsperiod |  |

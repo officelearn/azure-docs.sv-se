@@ -1,18 +1,18 @@
 ---
 title: Förstå Azure IoT Hub-frågespråk | Microsoft Docs
 description: Utvecklarguide – beskrivning av IoT-hubben som SQL-liknande frågespråk som används för att hämta information om enheten/modultvillingar och jobb från IoT hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137718"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450064"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 Den **från < from_specification >** satsen kan anta att bara tre värden: **FRÅN enheter** att fråga enhetstvillingar, **från devices.modules** att fråga modultvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
 
-
 ## <a name="where-clause"></a>WHERE-satsen
+
 Den **där < filter_condition >** -satsen är valfritt. Anger ett eller flera villkor att JSON-dokument i samlingen från måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” som ska ingå i resultatet.
 
 Tillåtna villkor beskrivs i avsnittet [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 För närvarande val av satser skiljer sig från **Välj*** stöds endast i mängdfrågor på enhetstvillingar.
 
 ## <a name="group-by-clause"></a>GROUP BY-sats
+
 Den **GROUP BY < group_specification >** -satsen är ett valfritt steg som körs efter det filter som angetts i WHERE-satsen och innan projektionen som anges i listan Välj. Den grupperar dokument baserat på värdet för ett attribut. Dessa grupper används för att generera sammanställda värden som anges i SELECT-satsen.
 
 Ett exempel på en fråga med GROUP BY är:
@@ -393,9 +394,9 @@ GROUP BY-satsen stöds för närvarande bara när du frågar efter enhetstvillin
 > [!IMPORTANT]
 > Termen `group` hanteras för närvarande som en särskild nyckelord i frågor. I om du använder `group` din egenskapsnamn, bör du omgivande med dubbla hakparenteser för att undvika fel, t.ex. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Uttryck och villkor
+
 På hög nivå, en *uttryck*:
 
 * Returnerar en instans av en JSON-typ (till exempel boolesk, tal, sträng, matrisen eller objekt).
@@ -443,6 +444,7 @@ För att förstå vad varje symbol i uttryck syntax står för, finns i följand
 | string_literal |Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler omges av enkla citattecken eller dubbla citattecken. Tillåtna visar: `\'`, `\"`, `\\`, `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
 
 ### <a name="operators"></a>Operatorer
+
 Följande operatorer som stöds:
 
 | Familj | Operatorer |
@@ -452,6 +454,7 @@ Följande operatorer som stöds:
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
+
 När du frågar efter tvillingar och jobb som det går endast att är funktionen:
 
 | Funktion | Beskrivning |

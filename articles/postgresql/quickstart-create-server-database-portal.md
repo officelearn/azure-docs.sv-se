@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.openlocfilehash: af1918b24afafce076f6d1efa5fd00b6df1ac537
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/25/2019
+ms.openlocfilehash: 152e93fefecaeaab3502ad5d974ba923727f919b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073265"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443119"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
@@ -48,11 +48,11 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
     servernamn |*mydemoserver*|Ett unikt namn som identifierar Azure Database för PostgreSQL-servern. Domännamnet *postgres.database.azure.com* läggs till i det servernamn du anger. Servernamnet får bara innehålla gemener, siffror och bindestreck (-). Det måste innehålla minst 3 och upp till 63 tecken.
     Datakälla | *Ingen* | Välj *ingen* att skapa en ny server från grunden. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
-    Administratörens användarnamn |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_**.
+    Administratörens användarnamn |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_** .
     Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Location|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
-    Compute + lagring | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera server**. Sedan väljer du fliken **Generell användning**. *5: e generationen*, *4 vCores*, *100 GB*, och *7 dagar* standardvärdena för **Compute-generering**,  **vCore**, **Storage**, och **kvarhållningsperiod**. Du kan lämna dessa skjutreglage som de är eller anpassa dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Beräkning och lagring | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera server**. Sedan väljer du fliken **Generell användning**. *5: e generationen*, *4 vCores*, *100 GB*, och *7 dagar* standardvärdena för **Compute-generering**,  **vCore**, **Storage**, och **kvarhållningsperiod**. Du kan lämna dessa skjutreglage som de är eller anpassa dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med prissättning](https://azure.microsoft.com/pricing/details/postgresql/).
@@ -103,57 +103,47 @@ När du skapar din Azure Database för PostgreSQL-server skapas även en standar
 
 Det finns ett antal program som du kan använda för att ansluta till Azure Database för PostgreSQL-servern. Om din klientdator har PostgreSQL installerat, kan du använda en lokal instans av [psql](https://www.postgresql.org/docs/current/static/app-psql.html) för att ansluta till en Azure PostgreSQL-server. Nu använder vi psql-kommandoradsverktyget för att ansluta till Azure PostgreSQL-servern.
 
-1. I ett gränssnitt ansluter du till din Azure Database för PostgreSQL-server genom att skriva in psql-kommandoraden.
+1. Kör följande psql-kommando för att ansluta till en Azure Database för PostgreSQL-server
+   ```bash
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-    Använd följande format för att ansluta till en Azure Database för PostgreSQL-server med [psql](https://www.postgresql.org/docs/current/static/app-psql.html)-verktyget:
-    ```bash
-    psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
-    ```
+   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
+  
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-    Till exempel ansluter följande kommando till en exempelserver:
+   > [!TIP]
+   > Om du vill använda en URL-sökväg för att ansluta till Postgres URL koda den @-tecknet användarnamn med `%40`. Exempel är anslutningssträngen för psql, 
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-    ```bash
-    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-    ```
+   När du har anslutit visar psql-verktyget en postgres-kommandotolk där du skriver sql-kommandon. Vid den första anslutningen kanske en varning visas eftersom det psql-verktyg du använder kan vara en annan version än Azure Database for PostgreSQL-serverversionen. 
 
-    psql-parameter |Värde|Beskrivning
-    ---|---|---
-    --host | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Exempelservern som visas är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet (**\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
-    --port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
-    --username | Inloggningsnamn för serveradministratör |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
-    --dbname | *postgres* | Det systemgenererade standarddatabasnamnet som skapades för den första anslutningen. Senare kan du skapa en egen databas.
-
-    När du har kört psql-kommandot med egna parametervärden uppmanas du att ange lösenordet för serveradministratören. Det här är samma lösenord som du angav när du skapade servern. 
-
-    psql-parameter |Föreslaget värde|Beskrivning
-    ---|---|---
-    password | Ditt administratörslösenord | Det angivna lösenordet visas inte i bash-kommandotolken. Tryck på Retur när du har skrivit alla tecken för att autentisera och ansluta.
-
-    När du har anslutit visar psql-verktyget en postgres-kommandotolk där du skriver sql-kommandon. Vid den första anslutningen kanske en varning visas eftersom det psql-verktyg du använder kan vara en annan version än Azure Database for PostgreSQL-serverversionen. 
-    
-    Exempel på psql-utdata:
-    ```bash
-    psql (9.5.7, server 9.6.2)
-    WARNING: psql major version 9.5, server major version 9.6.
-        Some psql features might not work.
+   Exempel på psql-utdata:
+   ```bash
+   psql (9.5.7, server 9.6.2)
+   WARNING: psql major version 9.5, server major version 9.6.
+    Some psql features might not work.
     SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-    Type "help" for help.
-   
-    postgres=> 
-    ```
+   Type "help" for help.
 
-    > [!TIP]
-    > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
-    > 
-    > ”psql: Oåterkalleligt fel: ingen pg_hba.conf post för värd `<IP address>`, användaren ”myadmin” databas ”postgres”, SSL på oåterkalleligt fel: SSL-anslutning krävs. Specify SSL options and retry.
-    > 
-    > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet ”Konfigurera en brandväggsregel på servernivå” i artikeln.
+   postgres=> 
+   ```
+
+   > [!TIP]
+   > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
+   > 
+   > ”psql: Oåterkalleligt fel: ingen pg_hba.conf post för värd `<IP address>`, användaren ”myadmin” databas ”postgres”, SSL på oåterkalleligt fel: SSL-anslutning krävs. Specify SSL options and retry.
+   > 
+   > Bekräfta din klients IP tillåts i brandväggen regler stegen ovan.
 
 2. Skapa en tom databas med namnet "mypgsqldb" i kommandotolken genom att skriva följande kommando:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
-    Det kan ta några minuter att slutföra kommandot. 
 
 3. I kommandotolken kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**:
     ```bash
@@ -182,12 +172,12 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
     pgAdmin-parameter |Värde|Beskrivning
     ---|---|---
-    Värdnamn/-adress | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Vår exempelserver är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet (**\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
+    Värdnamn/-adress | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Vår exempelserver är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet ( **\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
     Port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
     Underhållsdatabas | *postgres* | Systemgenererat standardnamn för databasen.
     Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
     Lösenord | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
-    Roll | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
+    Role | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
     SSL-läge | *Kräv* | Du kan ställa in SSL-läge på SSL-fliken i pgAdmin. Som standard skapas alla Azure Database for PostgreSQL-servrar med tvingande SSL aktiverat. Om du vill inaktivera tvingande SSL kan läsa informationen om [tvingande SSL](./concepts-ssl-connection-security.md).
     
 5. Välj **Spara**.

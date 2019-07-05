@@ -1,24 +1,21 @@
 ---
 title: Förstå fakturering administrativa roller för Microsoft-avtal för kund - Azure
 description: Läs mer om fakturering roller för konton i Azure-fakturering för Microsoft kundens avtal.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370975"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490430"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå Microsoft kundavtal administrativa roller i Azure
 
@@ -30,7 +27,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 I följande tabell beskrivs fakturering roller som du använder för att hantera ditt faktureringskonto fakturering profiler och fakturera avsnitt.
 
-|Roll|Beskrivning|
+|Role|Beskrivning|
 |---|---|
 |Fakturering Kontoägare|Hantera allt för fakturering konto|
 |Fakturerings-kontodeltagare|Hantera allt utom behörigheterna på faktureringskontot|
@@ -46,7 +43,7 @@ I följande tabell beskrivs fakturering roller som du använder för att hantera
 
 ## <a name="billing-account-roles-and-tasks"></a>Fakturering kontoroller och uppgifter
 
-Ett faktureringskonto kan du hantera faktureringen för din organisation. Du kan använda faktureringskonto för att organisera kostnader, övervaka kostnader och fakturor och fakturering åtkomstkontroll för din organisation. Mer information finns i [förstå faktureringskonto](billing-mca-overview.md#understand-billing-account).
+Ett faktureringskonto kan du hantera faktureringen för din organisation. Du kan använda faktureringskonto för att organisera kostnader, övervaka kostnader och fakturor och fakturering åtkomstkontroll för din organisation. Mer information finns i [förstå faktureringskonto](billing-mca-overview.md#your-billing-account).
 
 Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband med faktureringskontot.
 
@@ -92,7 +89,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ## <a name="billing-profile-roles-and-tasks"></a>Fakturering profil roller och uppgifter
 
-En profil för fakturering kan du hantera dina fakturor och betalningsmetoder. En månadsfaktura genereras för Azure-prenumerationer och andra produkter som har köpt med hjälp av fakturering profilen. Du kan använda metoderna betalningar för att betala fakturan. Mer information finns i [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
+En profil för fakturering kan du hantera dina fakturor och betalningsmetoder. En månadsfaktura genereras för Azure-prenumerationer och andra produkter som har köpt med hjälp av fakturering profilen. Du kan använda metoderna betalningar för att betala fakturan. Mer information finns i [förstå fakturering profiler](billing-mca-overview.md#billing-profiles).
 
 Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband med fakturering profilen.
 
@@ -142,7 +139,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 
 ## <a name="invoice-section-roles-and-tasks"></a>Faktura avsnittet roller och uppgifter
 
-En faktura-avsnittet kan du organisera kostnader på din faktura. Du kan skapa ett avsnitt för att organisera dina kostnader per avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning och köp i prenumerationer därefter visa på avsnittet i fakturan. Mer information finns i [förstå fakturan avsnittet](billing-mca-overview.md#understand-invoice-sections).
+En faktura-avsnittet kan du organisera kostnader på din faktura. Du kan skapa ett avsnitt för att organisera dina kostnader per avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning och köp i prenumerationer därefter visa på avsnittet i fakturan. Mer information finns i [förstå fakturan avsnittet](billing-mca-overview.md#invoice-sections).
 
 Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband med faktura avsnitt.
 
@@ -185,7 +182,7 @@ I följande tabell visar vilken roll som du behöver utföra uppgifter i samband
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du hanterar Python 2-paket i Azure 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b1454ff59eae62bcab7792fd7fd742babfb23
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60500148"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478219"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera Python 2-paket i Azure Automation
 

@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288541"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476419"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses, visas det i PIM-instrumentpanelen. Välj vilken avisering du vill se en rapport som visar den användare eller de roller som utlöste aviseringen.
 
-![Säkerhetsaviseringar PIM - skärmbild](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD-roller - avisering fönstret med aviseringar och allvarlighetsgrad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 
@@ -122,11 +122,11 @@ Du kan anpassa vissa av säkerhetsvarningar i PIM att arbeta med din miljö och 
 
 1. Klicka på **inställningar** och sedan **aviseringar**.
 
-    ![Navigera till säkerhetsinställningar för aviseringar](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD-roller - inställningar med aviseringar som har valts](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Klicka på ett namn på avisering och konfigurera inställningen för den här aviseringen.
 
-    ![Säkerhetsaviseringsinställningar](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![För den valda aviseringen, security aviseringsinställningar rutan](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

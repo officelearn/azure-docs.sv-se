@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342318"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443204"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Lägg till en Azure Storage-kö-bindning till din funktion
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage-kö-bindning till din Python-funktion
 
 Azure Functions kan du ansluta Azure-tjänster och andra resurser på funktioner utan att skriva egen kod för integrering. Dessa *bindningar*, som representerar både indata och utdata, har deklarerats i definitionen. Data från bindningar har angetts för funktionen som parametrar. En utlösare är en särskild typ av indatabindning. En funktion har bara en utlösare, kan den ha flera indatafiler och utdatabindningar. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
@@ -26,13 +26,13 @@ Den här artikeln visar hur du integrerar funktionen som du skapade i den [tidig
 
 De flesta bindningar kräver en lagrade anslutningssträng som Functions använder för att komma åt bundna tjänsten. Om du vill göra det enklare, kan du använda det lagringskonto som du skapade med din funktionsapp. Anslutningen till det här kontot lagras redan i en app som inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här artikeln bör du slutföra stegen i [del 1 av Python-quickstart](functions-create-first-function-python.md).
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned funktionsappinställningarna
 
-I tidigare i snabbstartsartikeln skapat du en funktionsapp i Azure tillsammans med ett Storage-konto. Anslutningssträngen för det här kontot lagras på ett säkert sätt i appen inställningar i Azure. I den här artikeln får skriva du meddelanden till en lagringskö i samma konto. För att ansluta till ditt Storage-konto när du kör funktionen lokalt, måste du hämta app-inställningar i filen local.settings.json. Kör följande Azure Functions Core Tools-kommando för att hämta inställningar i local.settings.json, ersätta `<APP_NAME>` med namnet på din funktionsapp från föregående artikel:
+I tidigare i snabbstartsartikeln skapat du en funktionsapp i Azure tillsammans med nödvändiga Storage-konto. Anslutningssträngen för det här kontot lagras på ett säkert sätt i appen inställningar i Azure. I den här artikeln får skriva du meddelanden till en lagringskö i samma konto. För att ansluta till ditt Storage-konto när du kör funktionen lokalt, måste du hämta app-inställningar i filen local.settings.json. Kör följande Azure Functions Core Tools-kommando för att hämta inställningar i local.settings.json, ersätta `<APP_NAME>` med namnet på din funktionsapp från föregående artikel:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -45,13 +45,19 @@ Du kan behöva logga in på ditt Azure-konto.
 
 Du behöver värdet `AzureWebJobsStorage`, vilket är anslutningssträngen för Lagringskonto. Du kan använda den här anslutningen för att kontrollera att utdatabindningen fungerar som förväntat.
 
+## <a name="enable-extension-bundles"></a>Aktivera tillägget paket
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Nu kan du lägga till en lagringen utdatabindning i projektet.
+
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
 I funktioner, varje typ av bindning kräver en `direction`, `type`, och ett unikt `name` definieras i filen function.json. Beroende på bindningstyp av kan eventuellt ytterligare egenskaper som krävs. Den [kö utdata configuration](functions-bindings-storage-queue.md#output---configuration) beskriver de fält som krävs för en bindning för Azure Storage-kö.
 
 För att skapa en bindning måste du lägga till ett konfigurationsobjekt för bindningen till den `function.json` filen. Redigera filen function.json i mappen HttpTrigger att lägga till ett objekt för att den `bindings` matris som har följande egenskaper:
 
-| Egenskap | Value | Beskrivning |
+| Egenskap | Värde | Beskrivning |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | Namn som identifierar bindningsparametern som refereras till i din kod. |
 | **`type`** | `queue` | Bindningen är en bindning för Azure Storage-kö. |
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Eftersom föregående artikel hade du aktivera tillägget paket i host.json, den [Storage bindningstillägget](functions-bindings-storage-blob.md#packages---functions-2x) har hämtats och installerats för dig under starten.
+> Eftersom föregående artikel hade du aktivera tillägget paket i host.json, den [Storage bindningstillägget](functions-bindings-storage-blob.md#packages---functions-2x) har hämtats och installerats för dig under starten, tillsammans med andra Microsoft-bindning tillägg.
 
 Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Du bör se samma svaret i webbläsaren som du gjorde i föregående artikel.
 

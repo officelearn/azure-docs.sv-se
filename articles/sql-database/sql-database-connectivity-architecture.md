@@ -1,23 +1,23 @@
 ---
-title: Dirigera Azure trafik till Azure SQL Database och SQL Data Warehouse | Microsoft Docs
-description: Det här dokumentet beskriver Azcure SQL onnectivity arkitekturen för databasanslutningar från Azure eller från utanför Azure.
+title: Azure SQL Database och SQL Data Warehouse Anslutningsarkitektur | Microsoft Docs
+description: Det här dokumentet beskriver arkitekturen för Azure SQL-anslutning för databasanslutningar från Azure eller från utanför Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164469"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537927"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -57,48 +57,47 @@ Om du ansluter från platser utanför Azure, dina anslutningar har en princip f�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 
-Om du vill ansluta till en Azure SQL database från lokala resurser, som du vill tillåta utgående trafik till Azure SQL Database-gatewayen för din Azure-region. Dina anslutningar bara gå via gatewayen när du ansluter i `Proxy` läge, vilket är standard när du ansluter från lokala resurser.
+Tabellen nedan visar en lista över IP-adresser för gateway per region. Om du vill ansluta till en Azure SQL Database, måste du tillåta nätverkstrafik till och från **alla** gatewayer för regionen.
 
-I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL Database-gateway för alla dataområden. Det finns två IP-adresser för vissa regioner. Den primära IP-adressen är den aktuella IP-adressen till gatewayen i dessa regioner och den andra IP-adressen är en IP-adress för redundans. Redundans-adressen är den adress som vi kan också flytta din server för att hålla hög tjänsternas tillgänglighet. För dessa regioner rekommenderar vi att du tillåter utgående trafik till båda IP-adresserna. Den andra IP-adressen ägs av Microsoft och lyssnar inte på alla tjänster förrän den aktiveras genom Azure SQL Database för att acceptera anslutningar.
+Framöver kommer vi lägga till flera Gateways i varje region och dra tillbaka gatewayer i kolumnen ur Gateway-IP-adress i tabellen nedan. Mer information om hur du inaktiverar processen som anges i följande artikel: [Azure SQL Database trafik migrering till nyare Gateways](sql-database-gateway-migration.md)
 
-| Regionsnamn | Primär IP-adress | Sekundär IP-adress |
-| --- | --- |--- |
-| Östra Australien | 13.75.149.87 | 40.79.161.1 |
-| Sydöstra Australien | 191.239.192.109 | 13.73.109.251 |
-| Södra Brasilien | 104.41.11.5 | |
-| Centrala Kanada | 40.85.224.249 | |
-| Östra Kanada | 40.86.226.166 | |
-| Centrala USA | 23.99.160.139 | 13.67.215.62 |
-| Östra Kina 1 | 139.219.130.35 | |
-| Kina, östra 2 | 40.73.82.1 | |
-| Norra Kina 1 | 139.219.15.17 | |
-| Kina, norra 2 | 40.73.50.0 | |
-| Östasien | 191.234.2.139 | 52.175.33.150 |
-| Östra USA 1 | 191.238.6.43 | 40.121.158.30 |
-| USA, östra 2 | 191.239.224.107 | 40.79.84.180 * |
-| Frankrike, centrala | 40.79.137.0 | 40.79.129.1 |
-| Centrala Tyskland | 51.4.144.100 | |
-| Nordöstra Tyskland | 51.5.144.179 | |
-| Centrala Indien | 104.211.96.159 | |
-| Södra Indien | 104.211.224.146 | |
-| Västra Indien | 104.211.160.80 | |
-| Östra Japan | 191.237.240.43 | 13.78.61.196 |
-| Västra Japan | 191.238.68.11 | 104.214.148.156 |
-| Sydkorea, centrala | 52.231.32.42 | |
-| Sydkorea, södra | 52.231.200.86 |  |
-| Norra centrala USA | 23.98.55.75 | 23.96.178.199 |
-| Norra Europa | 191.235.193.75 | 40.113.93.91 |
-| Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
-| Sydostasien | 23.100.117.95 | 104.43.15.0 |
-| Storbritannien, södra | 51.140.184.11 | |
-| Storbritannien, västra | 51.141.8.11| |
-| Västra centrala USA | 13.78.145.25 | |
-| Västra Europa | 191.237.232.75 | 40.68.37.158 |
-| Västra USA 1 | 23.99.34.75 | 104.42.238.205 |
-| Västra USA 2 | 13.66.226.202 | |
-||||
 
-\* **OBS:** *Östra USA 2* har också en tertiär IP-adressen för `52.167.104.0`.
+| Regionsnamn          | Gatewayens IP-adress | Inaktiverade Gateway </br> IP-adress| Anmärkningar om inaktivera | 
+| --- | --- | --- | --- |
+| Östra Australien       | 13.75.149.87, 40.79.161.1 | | |
+| Sydöstra Australien | 191.239.192.109, 13.73.109.251 | | |
+| Södra Brasilien         | 104.41.11.5        |                 | |
+| Centrala Kanada       | 40.85.224.249      |                 | |
+| Östra Kanada          | 40.86.226.166      |                 | |
+| Centrala USA           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Inga anslutningar efter den 1 September 2019 |
+| Östra Kina 1         | 139.219.130.35     |                 | |
+| Kina, östra 2         | 40.73.82.1         |                 | |
+| Norra Kina 1        | 139.219.15.17      |                 | |
+| Kina, norra 2        | 40.73.50.0         |                 | |
+| Östasien            | 191.234.2.139, 52.175.33.150 |       | |
+| Östra USA 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Inga anslutningar efter den 1 September 2019 |
+| USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Inga anslutningar efter den 1 September 2019 |
+| Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |           | |
+| Centrala Tyskland      | 51.4.144.100       |                 | |
+| Nordöstra Tyskland   | 51.5.144.179       |                 | |
+| Centrala Indien        | 104.211.96.159     |                 | |
+| Södra Indien          | 104.211.224.146    |                 | |
+| Västra Indien           | 104.211.160.80     |                 | |
+| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Inga anslutningar efter den 1 September 2019 |
+| Västra Japan           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Inga anslutningar efter den 1 September 2019 |
+| Sydkorea, centrala        | 52.231.32.42       |                 | |
+| Sydkorea, södra          | 52.231.200.86      |                 | |
+| Norra centrala USA     | 23.96.178.199      | 23.98.55.75     | Inga anslutningar efter den 1 September 2019 |
+| Norra Europa         | 40.113.93.91       | 191.235.193.75  | Inga anslutningar efter den 1 September 2019 |
+| Södra centrala USA     | 13.66.62.124       | 23.98.162.75    | Inga anslutningar efter den 1 September 2019 |
+| Sydostasien      | 104.43.15.0        | 23.100.117.95   | Inga anslutningar efter den 1 September 2019 |
+| Storbritannien, södra             | 51.140.184.11      |                 | |
+| Storbritannien, västra              | 51.141.8.11        |                 | |
+| Västra centrala USA      | 13.78.145.25       |                 | |
+| Västra Europa          | 191.237.232.75, 40.68.37.158 |       | |
+| Västra USA 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Västra USA 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra principen för Azure SQL Database-anslutning
 
@@ -111,10 +110,7 @@ Du kan ändra principen för Azure SQL Database för en Azure SQL Database-serve
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
-
-> [!IMPORTANT]
-> Det här skriptet kräver den [Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska. Följande skript kräver den [Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 Följande PowerShell-skript visar hur du ändrar principen.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > Det här skriptet kräver den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Följande CLI-skript visar hur du ändrar principen.
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i bash-gränssnittet
+
+> [!IMPORTANT]
+> Det här skriptet kräver den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Följande CLI-skript visar hur du ändrar principen i ett bash-gränssnitt.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI från Kommandotolken för Windows
+
+> [!IMPORTANT]
+> Det här skriptet kräver den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Följande CLI-skript visar hur du ändrar principen från en Windows kommandotolk (med Azure CLI installerat).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Nästa steg

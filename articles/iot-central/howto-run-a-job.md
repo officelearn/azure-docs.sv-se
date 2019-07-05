@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 903b4f1ea1484aec827c4b2d54c8dd8a9dd69d8f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519231"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509538"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
 
@@ -106,4 +106,4 @@ Nu när du har lärt dig hur du skapar jobb i Azure IoT Central programmet, är 
 
 - [Använda enhetsuppsättningar](howto-use-device-sets.md)
 - [Hantera dina enheter](howto-manage-devices.md)
-- [Version mallen för enhet](howto-version-devicetemplate.md)
+- [Version mallen för enhet](howto-version-device-template.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755174"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538020"
 ---
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 * **Azure-prenumeration** – för att distribuera mer än ett par beräkningsintensiva instanser, Överväg att en användningsbaserad prenumeration eller andra alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
@@ -34,6 +34,6 @@ En delmängd av beräkningsintensiva instanser (A8, A9, H16r, H16mr, HB och HC) 
 Det här gränssnittet kan RDMA-kompatibla förekomster att kommunicera över ett nätverk med InfiniBand (IB), fungerar EDR avgifterna för HB, HC, FDR för H16r, H16mr och RDMA-kompatibla N-serien virtuella datorer, och QDR för A8 och A9-datorer. Dessa funktioner för RDMA kan öka skalbarheten och prestandan i vissa program med Message Passing Interface (MPI). Mer information om hastighet, se information i tabeller på den här sidan.
 
 > [!NOTE]
-> I Azure, stöds bara IP över IB på SR-IOV-aktiverade virtuella datorer (för närvarande HB och HC). RDMA över IB stöds för alla RDMA-kompatibla förekomster.
+> I Azure, stöds bara IP över IB på SR-IOV-aktiverade virtuella datorer (SR-IOV för InfiniBand, för närvarande HB och HC). RDMA över IB stöds för alla RDMA-kompatibla förekomster.
 >
 

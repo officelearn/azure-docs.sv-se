@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724478"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433522"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
 
@@ -21,7 +21,7 @@ Lär dig hur du använder skriptåtgärder för att lägga till ytterligare Azur
 > [!IMPORTANT]  
 > Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagringskontonamn och nyckel. Se [hantera inställningarna för lagringskontot i Azure-portalen](../storage/common/storage-account-manage.md).
@@ -196,6 +196,9 @@ Om du ändrar nyckeln för ett lagringskonto, HDInsight inte längre komma åt l
 Kör skriptet igen har __inte__ uppdatera nyckeln, eftersom skriptet kontrollerar om det redan finns en post för lagringskontot. Om det finns redan en post, den inte göra några ändringar.
 
 Om du vill undvika det här problemet måste du ta bort den befintliga posten för lagringskontot. Använd följande steg för att ta bort den befintliga posten:
+
+> [!IMPORTANT]  
+> Rotera lagringsnyckel för det primära lagringskontot som är kopplat till ett kluster stöds inte.
 
 1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. URI: N är `https://CLUSTERNAME.azurehdinsight.net`. Ersätt `CLUSTERNAME` med namnet på klustret.
 

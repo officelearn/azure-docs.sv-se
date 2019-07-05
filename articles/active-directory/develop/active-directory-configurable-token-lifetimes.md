@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111808"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564432"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
 Du kan ange livslängden för en token utfärdad av Azure Active Directory (AD Azure). Du kan ange livslängd för token för alla appar i din organisation, för ett program med flera innehavare (flera organisation) eller för en specifik huvudtjänst i organisationen.
 
 > [!IMPORTANT]
-> Efter att höra från våra kunder i förhandsversionen har vi placerat konfigurerbara tokenlivslängder funktionen med [funktioner för hantering av autentisering session](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Den här funktionen kommer att bli inaktuella den 1 November 2019. Om du använder konfigurerbara livslängd för token-principen, växla till den nya funktionen för villkorlig åtkomst. 
+> Efter att höra från våra kunder i förhandsversionen, vi har implementerat [funktioner för hantering av autentisering session](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera uppdatering tokenlivslängder genom att ange logga i frekvens. Efter den 1 November 2019 kommer du inte att kunna använda konfigurerbara livslängd för Token för att konfigurera uppdateringstoken, men du kan fortfarande använda den för att konfigurera åtkomsttoken.
 
 En principobjektet representerar en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation i Azure AD. Varje Principtyp har en unik struktur, där en uppsättning egenskaper som tillämpas på objekt som de har tilldelats.
 
@@ -201,7 +201,7 @@ I exemplen, kan du lära dig hur du:
 * Skapa en princip för en inbyggd app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel har du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvudnamn och din organisation. Om du är nybörjare på Azure AD, rekommenderar vi att du lär dig mer om [skaffa en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Utför följande steg för att komma igång:

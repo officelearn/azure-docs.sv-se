@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688069"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442318"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
-Azure SQL Database erbjuder flera metoder för att skapa en transaktionsmässigt konsekvent kopia av en befintlig Azure SQL-databas på samma server eller en annan server. Du kan kopiera en SQL-databas med hjälp av Azure-portalen, PowerShell eller T-SQL. 
+Azure SQL Database erbjuder flera metoder för att skapa en transaktionsmässigt konsekvent kopia av en befintlig Azure SQL-databas ([enkel databas](sql-database-single-database.md)) på samma server eller en annan server. Du kan kopiera en SQL-databas med hjälp av Azure-portalen, PowerShell eller T-SQL. 
 
 ## <a name="overview"></a>Översikt
 
@@ -94,7 +94,7 @@ Det här kommandot kopierar Databas1 på server1 till en ny databas med namnet D
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Kopiera en SQL-databas till en annan prenumeration
 
-Du kan använda descrbed för stegen i föregående avsnitt för att kopiera databasen till en SQL Database-server i en annan prenumeration. Kontrollera att du använder en inloggning som har samma namn och lösenord som databasens ägare av källdatabasen och den är medlem i rollen dbmanager eller är den primära inloggningen på servernivå. 
+Du kan använda stegen som beskrivs i föregående avsnitt för att kopiera databasen till en SQL Database-server i en annan prenumeration. Kontrollera att du använder en inloggning som har samma namn och lösenord som databasens ägare av källdatabasen och den är medlem i rollen dbmanager eller är den primära inloggningen på servernivå. 
 
 > [!NOTE]
 > Den [Azure-portalen](https://portal.azure.com) stöder inte kopiering till en annan prenumeration eftersom Portal anropar ARM-API och prenumerationscertifikat används för åtkomst båda servrarna i geo-replikering.  

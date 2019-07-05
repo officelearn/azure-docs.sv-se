@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur Azure Cosmos DB ger hög tillgängl
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063562"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508573"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är
 
 - En region konton kan förlora tillgänglighet efter ett regionalt strömavbrott. Vi rekommenderar alltid att du ställer in **minst två regioner** (helst skriva minst två regioner) med ditt Cosmos-konto för att säkerställa hög tillgänglighet vid alla tidpunkter.
 
-- Även i en sällsynt och olycklig händelse när Azure-regionen är permanent oåterkalleligt, det finns inga data går förlorade om ditt konto för flera regioner Cosmos är konfigurerad med standard-konsekvensnivå av *starka*. I händelse av en permanent oåterkalleligt skrivregionen för flera regioner Cosmos-konton som konfigurerats med begränsad föråldring, konsekvens, potentiella dataförlustfönstret är begränsad till fönstret föråldring (*K* eller *T*); för sessionen, konsekvent prefix och slutlig konsekvensnivåer är potentiella dataförlustfönstret begränsad till högst fem sekunder. 
+- Även i en sällsynt och olycklig händelse när Azure-regionen är permanent oåterkalleligt, det finns inga data går förlorade om ditt konto för flera regioner Cosmos är konfigurerad med standard-konsekvensnivå på *starka*. I händelse av en permanent oåterkalleligt skrivregionen för flera regioner Cosmos-konton som konfigurerats med begränsad föråldring, konsekvens, potentiella dataförlustfönstret är begränsad till fönstret föråldring (*K* eller *T*); för sessionen, konsekvent prefix och slutlig konsekvensnivåer är potentiella dataförlustfönstret begränsad till högst fem sekunder. 
 
 ## <a name="availability-zone-support"></a>Tillgänglighetszonen har stöd
 
@@ -70,6 +70,9 @@ Den här funktionen är tillgänglig i följande Azure-regioner:
 
 * Storbritannien, södra
 * Sydostasien 
+* East US
+* USA, östra 2 
+* Centrala USA
 
 > [!NOTE] 
 > Aktivera Tillgänglighetszoner för en enda region för Azure Cosmos-konto resulterar i kostnader som är likvärdiga med att lägga till en ytterligare region till ditt konto. Mer information om priser finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/) och [flera regioner kostnaden i Azure Cosmos DB](optimize-cost-regions.md) artiklar. 
@@ -89,7 +92,10 @@ I följande tabell sammanfattas möjligheterna för hög tillgänglighet för ol
 |Regionalt strömavbrott – tillgänglighet  |  Förlust av tillgänglighet       |  Förlust av tillgänglighet       |  Förlora tillgänglighet  |
 |Dataflöde    |  X RU/s etablerade dataflöde      |  X RU/s etablerade dataflöde       |  2 x RU/s etablerade dataflöde <br/><br/> Det här konfigurationsläget kräver två gånger högre genomflöde jämfört med en enda region med Azure Availability Zones eftersom det finns två regioner.   |
 
-Du kan aktivera redundans när du lägger till en region till en ny eller befintlig Azure Cosmos-konton. Du kan för närvarande kan bara aktivera redundans med hjälp av PowerShell eller Azure Resource Manager-mallar. För att aktivera redundans för ditt Azure Cosmos-konto, bör du ange den `isZoneRedundant` flaggan till `true` för en viss plats. Du kan ange den här flaggan i egenskapen platser. Till exempel kan följande powershell-kodavsnitt redundans för regionen ”Sydostasien”:
+> [!NOTE] 
+> Om du vill aktivera stöd för Tillgänglighetszoner, måste Azure Cosmos DB-kontot ha flera-master/Multi-Factor-region skrivningar aktiverat. 
+
+Du kan aktivera redundans när du lägger till en region till en ny eller befintlig Azure Cosmos-konton. Du kan för närvarande kan bara aktivera redundans med hjälp av Azure portal, PowerShell och Azure Resource Manager-mallar. För att aktivera redundans för ditt Azure Cosmos-konto, bör du ange den `isZoneRedundant` flaggan till `true` för en viss plats. Du kan ange den här flaggan i egenskapen platser. Till exempel kan följande powershell-kodavsnitt redundans för regionen ”Sydostasien”:
 
 ```powershell
 $locations = @( 
@@ -97,6 +103,10 @@ $locations = @(
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
 ```
+
+Du kan aktivera Tillgänglighetszoner med hjälp av Azure-portalen när du skapar ett Azure Cosmos-konto. När du skapar ett konto kan du se till att aktivera den **georedundans**, **flera regioner skriver**, och välj en region där Availability Zones stöds: 
+
+![Aktivera Tillgänglighetszoner med hjälp av Azure portal](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>Att skapa program med hög tillgänglighet
 
@@ -106,7 +116,7 @@ $locations = @(
 
 - Även om ditt Cosmos-konto är med hög tillgänglighet kan kanske programmet inte korrekt utformas för att fortsätta att vara tillgänglig. Om du vill testa tillgängligheten slutpunkt till slutpunkt för ditt program med jämna mellanrum anropa den [manuell redundans med hjälp av Azure CLI eller Azure-portalen](how-to-manage-database-account.md#manual-failover), som en del av din Programtestning eller haveriberedskap (DR) tester.
 
-- I en globalt distribuerad databas för miljön, att det finns en direkt relation mellan konsekvens nivå och data hållbarhet när det finns ett avbrott på hela. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för ett program för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO). Om du vill se vilket RPO och RTO för Azure Cosmos DB, se [konsekvens nivåer och data hållbarhet](consistency-levels-tradeoffs.md#rto)
+- I en globalt distribuerad databas för miljön, att det finns en direkt relation mellan konsekvens nivå och data hållbarhet när det finns ett avbrott på hela. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för ett program för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tidsperioden för uppdateringar som du kan ha råd att förlora kallas mål för återställningspunkt (RPO). Om du vill se vilket RPO och RTO för Azure Cosmos DB, se [konsekvens nivåer och data hållbarhet](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Nästa steg
 

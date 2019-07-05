@@ -4,21 +4,21 @@ description: Lär dig hur du konfigurerar multimaster i dina program i Azure Cos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538089"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565895"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera multimaster i dina program som använder Azure Cosmos DB
 
 När du har skapat ett konto med flera Skriv-regioner som är aktiverad, måste du göra två ändringar i din app för ConnectionPolicy för DocumentClient att aktivera funktioner för flera huvudservrar och flera värdar i Azure Cosmos DB. Ange UseMultipleWriteLocations till true och skicka namnet på regionen där programmet har distribuerats till SetCurrentLocation inom ConnectionPolicy. Detta kan du fylla i egenskapen PreferredLocations baserat på geo-närhet från platsen som har skickats in. Om en ny region senare läggs till kontot, programmet behöver inte uppdateras eller omdistribueras och identifierar automatiskt regionen närmare kommer automatisk-startsidan in det görs en regional händelse.
 
-> [!TIP]
-> Cosmos-kontona som skapats inte ursprungligen konfigurerade för multimaster kan migreras med noll stillestånd. Läs mer i [konfigurera flera-Skriv-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
+> [!Note]
+> Cosmos-konton som ursprungligen konfigurerats med enkel skrivregionen kan konfigureras för flera Skriv-regioner (dvs. flera huvudservrar) med noll stillestånd. Läs mer i [konfigurera flera-Skriv-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

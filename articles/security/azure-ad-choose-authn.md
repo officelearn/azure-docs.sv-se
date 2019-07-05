@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274274"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449274"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -81,7 +81,7 @@ Information om beslut frågor:
    * Flera platser på lokal autentiseringslösning.
 5. Azure AD Identity Protection kräver Lösenordshashsynkronisering oavsett vilken inloggningsmetod du väljer, att tillhandahålla den *användare med läckta autentiseringsuppgifter* rapporten. Organisationer kan redundansväxla till Lösenordshashsynkronisering om deras primära inloggningsmetod misslyckas och den konfigurerades innan händelsen fel.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD Identity Protection kräver [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenser.
 
 ## <a name="detailed-considerations"></a>Detaljerad information
@@ -94,7 +94,10 @@ Information om beslut frågor:
 
 * **Avancerade scenarier**. Om organisationer väljer att, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder synkronisering av lösenordshash](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) kräver synkronisering av lösenordshash för etablera användare med sina företagsuppgifter i den hanterade domänen.
 
-    Organisationer som kräver Multi-Factor authentication med synkronisering av lösenordshash måste använda multifaktorautentisering i Azure AD. Dessa organisationer kan inte använda från tredje part eller den lokala Multi-Factor authentication-metoderna.
+    Organisationer som kräver multifaktorautentisering med synkronisering av lösenordshash måste använda multifaktorautentisering i Azure AD eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Dessa organisationer kan inte använda från tredje part eller den lokala Multi-Factor authentication-metoder som förlitar sig på federation.
+
+> [!NOTE]
+> Azure AD villkorlig åtkomst kräver [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenser.
 
 * **Affärskontinuitet**. Med molnautentisering synkronisering av lösenordshash har hög tillgänglighet som en molntjänst som kan skalas till alla Microsoft-datacenter. Distribuera en andra Azure AD Connect-server i mellanlagringsläge i en standby-konfiguration för att säkerställa synkronisering av lösenordshash inte går under långa perioder.
 
@@ -115,7 +118,7 @@ Referera till [implementera synkronisering av lösenordshash](https://docs.micro
 
 * **Avancerade scenarier**. Direktautentisering tillämpar lokala kontoprinciper vid tidpunkten för inloggningen. Exempel: åtkomst nekas när den lokala användarens tillstånd är inaktiverad låst konto, eller [lösenord har upphört att gälla](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller hamnar utanför timmar när användaren tillåts att logga in. 
 
-    Organisationer som kräver Multi-Factor authentication med direktautentisering måste använda Azure Multi-Factor Authentication (MFA). Dessa organisationer kan inte använda en från tredje part eller den lokala Multi-Factor authentication-metod. Avancerade funktioner kräver att synkronisering av lösenordshash distribueras, oavsett om du väljer direktautentisering. Ett exempel är rapporten läckta autentiseringsuppgifter för Identity Protection.
+    Organisationer som kräver multifaktorautentisering med direktautentisering måste använda Azure Multi-Factor Authentication (MFA) eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Dessa organisationer kan inte använda en från tredje part eller den lokala Multi-Factor authentication-metod som förlitar sig på federation. Avancerade funktioner kräver att synkronisering av lösenordshash distribueras, oavsett om du väljer direktautentisering. Ett exempel är rapporten läckta autentiseringsuppgifter för Identity Protection.
 
 * **Affärskontinuitet**. Vi rekommenderar att du distribuerar två extra direktautentisering agenter. Dessa tillägg måste vara uppfyllda utöver första agenten på Azure AD Connect-servern. Den här ytterligare distributionen säkerställer hög tillgänglighet för begäranden om autentisering. När du har tre agenter som har distribuerats, kan fortfarande en agent misslyckas om en annan agent är nere för underhåll. 
 
@@ -136,7 +139,7 @@ Referera till [implementera direktautentisering](https://docs.microsoft.com/azur
 * **Avancerade scenarier**. En lösning för federerad autentisering krävs vanligtvis när kunder har ett krav för autentisering som Azure AD inte stöder internt. Se detaljerad information som hjälper dig att [väljer rätt inloggningsalternativ](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Beakta följande vanliga krav:
 
   * Autentisering som kräver smartkort eller certifikat.
-  * Lokala MFA-servrar eller tredje parts multifaktor-leverantörer.
+  * Lokala MFA-servrar eller tredje parts multifaktor-leverantörer som kräver en extern identitetsprovider.
   * Autentisering med hjälp av autentiseringsmetoder från tredje part lösningar. Se den [kompatibilitetslistan för Azure AD-federation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Logga in som kräver en sAMAccountName, till exempel domän\användarnamn, i stället för en UPN User Principal Name (), till exempel user@domain.com.
 

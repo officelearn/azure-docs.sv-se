@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ea89e9f6a6bb8a4c377c70bbe1b5540d3b74d44
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341251"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509558"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Välj versionen av Azure Data Factory som du använder:"]
@@ -86,6 +86,7 @@ Minimal DIUs möjligheter för en kopieringsaktivitetskörning är två. Om inte
 | Kopiera scenario | Standard DIUs bestäms av tjänsten |
 |:--- |:--- |
 | Kopiera data mellan filbaserade lager | Mellan 4 och 32 beroende på antalet och storleken på filerna |
+| Kopiera data till Azure SQL Database eller Azure Cosmos DB |Mellan 4 och 16 beroende på mottagare Azure SQL Database eller Cosmos DB-nivån (antalet dtu: er/ru: er) |
 | Alla andra kopia-scenarier | 4 |
 
 Om du vill åsidosätta denna standardinställning, ange ett värde för den **dataIntegrationUnits** egenskapen på följande sätt. Den *tillåtna värden* för den **dataIntegrationUnits** egenskapen är upp till 256. Den *faktiska antalet DIUs* att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om nivå av prestanda som du kan få när du konfigurerar fler enheter för en specifik kopieringskälla och mottagare finns i den [Prestandareferens](#performance-reference).
@@ -131,11 +132,11 @@ För varje körningen av kopieringsaktiviteten, avgör hur många parallella kop
 | Kopiera scenario | Parallell kopia Standardantal bestäms av tjänsten |
 | --- | --- |
 | Kopiera data mellan filbaserade lager |Beror på storleken på filerna och antalet DIUs som används för att kopiera data mellan två molndatalager eller den fysiska konfigurationen av den lokala installation av integration runtime-datorn. |
-| Kopiera data från alla källans datalager till Azure Table storage |4 |
+| Kopiera data från valfri källa store till Azure Table storage |4 |
 | Alla andra kopia-scenarier |1 |
 
 > [!TIP]
-> När du kopierar data mellan filbaserade ger standardbeteendet vanligtvis dig bästa dataflödet. Standardinställningen är auto bestäms.
+> När du kopierar data mellan filbaserade ger standardbeteendet vanligtvis dig bästa dataflödet. Standardinställningen är auto bestäms baserat på din fil från en källa.
 
 Kontrollera belastningen på datorer som är värdar för dina data lagras eller för att justera kopieringen bättre prestanda, kan du åsidosätta standardvärdet och ange ett värde för den **parallelCopies** egenskapen. Värdet måste vara ett heltal större än eller lika med 1. Vid körning använder för bästa prestanda kopieringsaktiviteten ett värde som är mindre än eller lika med värdet som du anger.
 
@@ -162,9 +163,9 @@ Kontrollera belastningen på datorer som är värdar för dina data lagras eller
 **Saker att Observera:**
 
 * När du kopierar data mellan filbaserade **parallelCopies** avgör parallellitet på filnivå. Dela upp inom en enda fil sker under automatiskt och transparent. Den har utformats för att använda bäst lämpliga segment storlek för en viss källa store datatyp att läsa in data parallellt och rätvinkliga till **parallelCopies**. Det faktiska antalet parallella kopior av data movement service använder för att kopieringen under körning är inte fler än antalet filer som du har. Om kopieringsbeteendet är **mergeFile**, Kopieringsaktivitet inte kan utnyttja parallellitet på filnivå.
-* När du anger ett värde för den **parallelCopies** egenskap, Överväg att belastningen ökar på källan och datalager för mottagare. Överväg också att belastningen ökar till den lokala integreringskörningen om möjligheter kopieringsaktiviteten, till exempel för hybridkopiering. Den här belastningen ökar sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma datalager. Om du märker att datalagret eller den lokala integreringskörningen blir överbelastad till följd med belastning kan minska den **parallelCopies** värde att avlasta belastningen.
-* När du kopierar data från butiker som inte är filbaserad till datalager som är filbaserade, av data movement service ignorerar den **parallelCopies** egenskapen. Även om parallellitet anges, tillämpas den inte i det här fallet.
+* När du kopierar data från butiker som inte är filbaserade (med undantag för Oracle-databas som källa med Datapartitionering aktiverat) till, som är filbaserade, av data movement service ignorerar den **parallelCopies** egenskapen. Även om parallellitet anges, tillämpas den inte i det här fallet.
 * Den **parallelCopies** egenskapen är rätvinkliga till **dataIntegrationUnits**. Det tidigare räknas över alla enheter för Data-integrering.
+* När du anger ett värde för den **parallelCopies** egenskap, Överväg att belastningen ökar på källan och datalager för mottagare. Överväg också att belastningen ökar till den lokala integreringskörningen om möjligheter kopieringsaktiviteten, till exempel för hybridkopiering. Den här belastningen ökar sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma datalager. Om du märker att datalagret eller den lokala integreringskörningen blir överbelastad till följd med belastning kan minska den **parallelCopies** värde att avlasta belastningen.
 
 ## <a name="staged-copy"></a>Mellanlagrad kopiering
 
@@ -182,13 +183,13 @@ När du aktiverar funktionen mellanlagring först data kopieras från källdatal
 
 När du aktiverar dataförflyttning med hjälp av en mellanlagringsarkivet kan ange du om du vill lagra data som ska komprimeras innan du flyttar data från datakällan pågår eller mellanlagring datalagring och expanderas innan du flyttar data från en mellanliggande eller mellanlagring dat en butik till de mottagande datalagren.
 
-För närvarande kan kopiera du inte data mellan två lokala datalager med hjälp av en mellanlagringsarkivet.
+För närvarande kan kopiera du inte data mellan två datalager som är anslutna via olika lokal IRs, varken med eller utan mellanlagrad kopiering. Du kan konfigurera två uttryckligen länkade Kopieringsaktivitet som kopierar från källa till mellanlagring och sedan från mellanlagring för mottagare för sådana scenario.
 
 ### <a name="configuration"></a>Konfiguration
 
 Konfigurera den **enableStaging** inställningen i kopieringsaktiviteten till att ange om du vill att data ska mellanlagras i Blob storage innan du läser in dem till ett måldatalager. När du ställer in **enableStaging** till `TRUE`, anger du ytterligare egenskaper som visas i följande tabell. Du måste också skapa en Azure-lagring eller lagring delade åtkomst signatur-länkad tjänst för att mellanlagra om du inte har något.
 
-| Egenskap | Beskrivning | Standardvärde | Krävs |
+| Egenskap | Beskrivning | Standardvärde | Obligatoriskt |
 | --- | --- | --- | --- |
 | enableStaging |Ange om du vill kopiera data via en tiden mellanlagring store. |False |Nej |
 | linkedServiceName |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkad tjänst som refererar till instansen av lagring som du använder som ett tillfälligt mellanlagringsarkivet. <br/><br/> Du kan inte använda Storage med signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |

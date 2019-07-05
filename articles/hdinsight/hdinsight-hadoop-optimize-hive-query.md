@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 218085d8d3969218be1a0557fdc477c730879cbe
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059402"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543694"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
@@ -195,7 +195,7 @@ Det finns flera optimeringsmetoder som du kan tänka på, till exempel:
 I den här artikeln har du lärt dig flera vanliga optimeringsmetoder för Hive-fråga. Mer information finns i följande artiklar:
 
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analysera flygförseningsdata med interaktiv fråga i HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

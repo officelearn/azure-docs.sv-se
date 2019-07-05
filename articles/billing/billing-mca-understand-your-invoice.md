@@ -1,43 +1,40 @@
 ---
-title: Förstå fakturan Microsoft kundavtal | Microsoft Docs
-description: Lär dig att läsa och förstå fakturan MCA
-services: ''
-documentationcenter: ''
-author: jureid
+title: Förstå fakturan Microsoft kundavtal i Azure
+description: Lär dig att läsa och förstå din faktura för Microsoft kundavtal i Azure
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604032"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490643"
 ---
-# <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Förstå villkoren på din faktura för Microsoft kundavtal
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Villkoren i ditt Microsoft-kundavtal faktura
 
-Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller för en Azure faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
 Fakturan innehåller en översikt över dina kostnader och instruktioner för betalning. Den är tillgänglig för hämtning i PDF--Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller skickas via e-post. Mer information finns i [visa och ladda ned Microsoft Azure fakturerar](billing-download-azure-invoice.md).
 
-<!-- ## When am I billed?
+## <a name="billing-period"></a>Faktureringsperiod
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+Du faktureras per månad. Du kan se vilken dag i månaden som du tar emot fakturor genom att kontrollera *fakturadatum* under fakturering profilegenskaper i den [Azure-portalen](https://portal.azure.com/). Avgifter som sker mellan slutet av faktureringsperioden och fakturadatum ingår i nästa månads faktura, eftersom de finns i nästa faktureringsperiod. Fakturering start- och datumen för perioden för respektive faktura visas på fakturan PDF ovan **fakturering sammanfattning**.
 
 ## <a name="invoice-terms-and-descriptions"></a>Faktura villkor och beskrivningar
 
-Följande avsnitt listar viktiga termer som du ser på din faktura och beskrivningar av varje term.
+I de följande avsnitten lista viktiga termer som du ser på din faktura och ange beskrivningar av varje term.
 
 ### <a name="invoice-summary"></a>Sammanfattning av faktura
 
-Den **fakturasammanfattning** är överst på första sidan som visar information om profilen fakturering och hur du betala.
+Den **fakturasammanfattning** är högst upp på den första sidan som visar information om profilen fakturering och hur du betala.
 
 ![Sammanfattningen av fakturan](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
@@ -78,7 +75,6 @@ Informationen visas kostnaden för varje faktura avsnitt uppdelat efter produkt 
 
 Totalsumman för varje tjänst-familjen beräknas genom att subtrahera *Azure-krediter* från *krediter/avgifter* och lägga till *skatt*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![Information om fakturan avsnittet](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -103,7 +99,7 @@ Om du har tjänster från tredje part på fakturan, visas namn och adress för v
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 

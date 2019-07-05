@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190804"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490099"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformering av källa för mappning av dataflöde 
 
@@ -146,6 +146,12 @@ Om din textfil har inget definierat schema väljer **identifiera datatyp** så a
 Du kan ändra datatyperna för kolumnen i en senare härledd kolumn omvandling. Använda en select transformation för att ändra namn på kolumnerna.
 
 ![Inställningar för standard-dataformat](media/data-flow/source2.png "standardformat")
+
+### <a name="add-dynamic-content"></a>Lägg till dynamiskt innehåll
+
+När du klickar inuti fält i panelen inställningen, visas en hyperlänk ”Lägg till dynamiskt innehåll”. När du klickar på här startas Uttrycksverktyget. Det här är där du kan ange värden för inställningar dynamiskt med hjälp av uttryck, statiska literalvärden eller parametrar.
+
+![Parametrar](media/data-flow/params6.png "parametrar")
 
 ## <a name="next-steps"></a>Nästa steg
 

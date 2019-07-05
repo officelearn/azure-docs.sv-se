@@ -4,14 +4,14 @@ description: Azure PowerShell-exempel för Azure Cosmos DB - MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 351b0ffbd6941a6211ab12aeb45313b4d672817b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 231f2f42c1c23019d86c049aa9e5bc00f94cdd91
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245656"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566269"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure PowerShell-exempel för Azure Cosmos DB MongoDB API
 
@@ -21,6 +21,7 @@ I följande tabell innehåller länkar till Azure PowerShell-exempelskript för 
 |---|---|
 |[Skapa ett konto, databas och samling](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, databas och samling. |
 |[Visa eller hämta databaser eller samlingar](scripts/powershell/mongodb/ps-mongodb-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta databasen eller samling. |
+|[Hämta RU/s](scripts/powershell/mongodb/ps-mongodb-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta RU/s för en databas eller en samling. |
 |[Uppdatera RU/s](scripts/powershell/mongodb/ps-mongodb-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera RU/s för en databas eller en samling. |
 |[Lägger till en region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Få ett Azure Cosmos-konto och lägger till en region i listan över platser. |
 |[Ändra redundansprioritet för](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ändra redundansprioritet för ett Azure Cosmos-konto med en manuell redundans-utlösare. |

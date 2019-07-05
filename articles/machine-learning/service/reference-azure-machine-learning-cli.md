@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 541ffe70ae5198e631568584a58d02ac283e89d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 601a6139b81e45fa5005b7510189eac594c29fb0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298247"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67475984"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
@@ -30,7 +30,7 @@ Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.mi
 
 CLI är inte en ersättning för Azure Machine Learning-SDK. Det är en kompletterande verktyg som är optimerad för att hantera mycket parametriserade uppgifter som passar själva att automation.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -58,6 +58,15 @@ För att kontrollera att tillägget har installerats, använder du följande kom
 ```azurecli-interactive
 az ml -h
 ```
+
+## <a name="update-the-extension"></a>Uppdatera tillägget
+
+Om du vill uppdatera Machine Learning CLI-tillägg, använder du följande kommando:
+
+```azurecli-interactive
+az extension update -n azure-cli-ml
+```
+
 
 ## <a name="remove-the-extension"></a>Ta bort tillägget
 

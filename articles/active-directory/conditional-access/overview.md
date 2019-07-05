@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc03eeaa3c9b793c5ab20c8e4e2dd6d4473eecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112241"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509378"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
 Säkerhet är en mycket viktig fråga för organisationer som använder molnet. En viktig aspekt av molnsäkerhet är identitet och åtkomst när det gäller att hantera dina molnresurser. I en mobil- och molnorienterad värld kan användare komma åt organisationens resurser med hjälp av en mängd olika enheter och appar från var som helst. Därför räcker det inte att bara fokusera på vem som kan komma åt en resurs. För att uppnå rätt balans mellan säkerhet och produktivitet måste du även beakta hur åtkomsten till en resurs går till när du fattar ett beslut om åtkomstkontroll. Med villkorlig åtkomst för Azure Active Directory (AD Azure), kan du lösa det här kravet. Villkorlig åtkomst är en funktion i Azure Active Directory. Du kan implementera automatiserade besluten om åtkomstkontroll för att komma åt dina appar i molnet som baseras på villkor med villkorlig åtkomst.
 
-Principer för villkorlig åtkomst tillämpas efter den första-factor-autentiseringen har slutförts. Därför villkorlig åtkomst är inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som attacker för denial of service (DoS), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.  
+Principer för villkorlig åtkomst tillämpas efter den första-factor-autentiseringen har slutförts. Därför villkorlig åtkomst är inte avsedd som en första rad ansvarsfrihetsgrund för scenarier som attacker för denial of service (DoS), men kan använda signaler från dessa händelser (till exempel risknivå för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.  
 
 ![Kontroll](./media/overview/81.png)
 
@@ -40,11 +40,8 @@ Du kan använda rätt åtkomstkontroller på angivna villkor genom att använda 
 Nedan följer några vanliga problem för åtkomst som villkorlig åtkomst kan hjälpa dig med:
 
 - **[Inloggningsrisk](conditions.md#sign-in-risk)** : Azure AD Identity Protection identifierar inloggningsrisker. Hur begränsar du åtkomsten om en identifierad inloggningsrisk indikerar en obehörig användare? Hur gör du om du behöver starkare bevis på att en inloggning har utförts av legitim användare? Hur gör du om du har misstankar som är starka nog att du vill även blockera enskilda användare från att komma åt en app?  
-
 - **[Nätverksplats](location-condition.md)** : Azure AD kan användas från alla platser. Vad händer om en åtkomstförsök utförs från en nätverksplats som inte kontrolleras av IT-avdelningen? En kombination av användarnamn och lösenord kan vara tillräckligt bra som identitetsbevis för åtkomstförsök från företagsnätverket. Hur gör du om du kräver starkare identitetsbevis för åtkomstförsök som initieras från andra oväntade länder eller regioner i världen? Och kanske vill du till och med blockera åtkomstförsök från vissa regioner?  
-
 - **[Enhetshantering](conditions.md#device-platforms)** : I Azure AD kan användarna komma åt molnappar från en mängd olika enheter, inklusive mobila och privata enheter. Vill du kräva att åtkomstförsök endast utförs med enheter som hanteras av IT-avdelningen? Kanske vill du till och med blockera vissa enhetstyper från att komma åt molnappar i din miljö?
-
 - **[Klientprogram](conditions.md#client-apps)** : I dag kan du komma åt många molnappar med olika apptyper, till exempel webbaserade appar, mobilappar och skrivbordsappar. Vad händer om ett åtkomstförsök utförs med en klientapptyp som orsakar kända problem? Hur gör du om du kräver en enhet som hanteras av IT-avdelningen för vissa typer av appar?
 
 Dessa frågor och svar relaterade representerar vanliga scenarier för åtkomst för Azure AD villkorlig åtkomst.
@@ -62,7 +59,6 @@ Principer för villkorlig åtkomst är en definition av ett scenario för åtkom
 **Om det här händer** definierar anledningen till att utlösa principen. Den här orsaken kännetecknas av en grupp villkor som uppfylls. Spela upp en särskild roll i Azure AD villkorlig åtkomst, tilldelning av två villkor:
 
 - **[Användare](conditions.md#users-and-groups)** : Den användare som utför ett åtkomstförsök (**Vem**).
-
 - **[Molnappar](conditions.md#cloud-apps-and-actions)** : Målet för ett åtkomstförsök (**Vad**).
 
 Dessa två villkor är obligatoriskt i en princip för villkorlig åtkomst. Utöver de två obligatoriska villkoren kan du även inkludera ytterligare villkor som beskriver hur åtkomstförsök utförs. Vanliga exempel använder mobila enheter eller platser som ligger utanför företagets nätverk. Mer information finns i [villkor i Azure Active Directory villkorsstyrd åtkomst](conditions.md).

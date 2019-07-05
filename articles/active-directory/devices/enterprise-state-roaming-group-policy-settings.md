@@ -1,28 +1,22 @@
 ---
 title: Principen och MDM-inställningar | Microsoft Docs
-description: Innehåller information om Grupprincip och mobila enheter (MDM) hanteringsinställningar som ska användas på företagsägda enheter. Dessa principer tillämpas på användarens hela enheten.
+description: Innehåller information om Grupprincip och mobila enheter (MDM) hanteringsinställningar som ska användas på företagsägda enheter.
 services: active-directory
-keywords: Vad är grupp principen och MDM-inställningar för Enterprise State Roaming, Enterprise State Roaming, windows molnet
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3f2b1afa67ec36da4d4da57b296e696fd6c6910
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353167"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481949"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Inställningar för grupprinciper och MDM
 Använd dessa Grupprincip och hanteringsinställningar för mobila enheter (MDM) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enheten. Tillämpa en MDM-principen för att inaktivera synkronisering av inställningar för en personlig påverkar användarägda enheter negativt användningen av enheten. Dessutom kommer andra användarkonton på enheten också att påverkas av principen.

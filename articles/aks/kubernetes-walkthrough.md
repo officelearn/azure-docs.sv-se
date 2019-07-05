@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: a7558308d668fc153b5ac9561efbdf68777ae09f
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687960"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514382"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure CLI
 
@@ -23,7 +23,7 @@ Om du vill använda Windows Server-behållare (för närvarande i förhandsversi
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
+Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Kubernetes viktiga begrepp för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt måste den här snabbstarte
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där resource group metadata lagras, det är också där dina resurser kör i Azure om du inte anger en annan region under resursskapandet. Skapa en resursgrupp med hjälp av kommandot [az group create][az-group-create].
+En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där resource group metadata lagras, det är också där dina resurser kör i Azure om du inte anger en annan region under resursskapandet. Skapa en resurs med det [az gruppen skapa][az-group-create] kommando.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -58,7 +58,7 @@ Följande exempelutdata visar den resursgrupp som skapats:
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.
+Använd den [az aks skapa][az-aks-create] kommando för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.
 
 ```azurecli-interactive
 az aks create \
@@ -73,7 +73,7 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-För att hantera Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. För att installera `kubectl` lokalt använder du kommandot [az aks install-cli][az-aks-install-cli]:
+Om du vill hantera ett Kubernetes-kluster måste du använda [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt, använda den [az aks install-cli][az-aks-install-cli] kommando:
 
 ```azurecli
 az aks install-cli
@@ -93,17 +93,17 @@ kubectl get nodes
 
 Följande exempelutdata visar den enskilda nod som skapades i föregående steg. Kontrollera att status för noden är *Klar*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för exemplet på Azure Vote Python-program och den andra för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Den här manifest innehåller två [Kubernetes-distributioner][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] skapas också – en intern tjänst för Redis-instans och en extern tjänst för att komma åt Azure Vote-programmet från internet.
 
 > [!TIP]
-> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure Dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
+> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. Du kan använda i flera verkliga scenarier [Azure Dev blanksteg][azure-dev-spaces] att snabbt iterera och felsöka kod direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-definition. Om du använder Azure Cloud Shell, kan du skapa filen med `vi` eller `nano` som om du arbetar i ett virtuellt eller fysiskt system:
 
@@ -192,7 +192,7 @@ spec:
     app: azure-vote-front
 ```
 
-Distribuera programmet med kommandot [kubectl apply][kubectl-apply] och ange namnet på ditt YAML-manifest:
+Distribuera programmet med den [kubectl gäller][kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
@@ -200,7 +200,7 @@ kubectl apply -f azure-vote.yaml
 
 Följande exempelutdata visar de distributioner och tjänster som skapats:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -219,14 +219,14 @@ kubectl get service azure-vote-front --watch
 
 Till en början visas *EXTERNAL-IP* för *azure-vote-front*-tjänsten som *väntande*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -240,7 +240,7 @@ När AKS-klustret skapades aktiverades Azure Monitor för containrar för att re
 
 Utför följande steg om du vill se aktuell status, drifttid och resursanvändningen för Azure Vote-poddarna:
 
-1. Öppna en webbläsare till Azure-portalen [https://portal.azure.com][azure-portal].
+1. Öppna en webbläsare på Azure Portal [ https://portal.azure.com ][azure-portal].
 1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*.
 1. Under **Övervakning** väljer du **Insights**  på vänster sida
 1. Överst väljer du **+ Lägg till filter**
@@ -257,14 +257,14 @@ Kan se loggar för den `azure-vote-back` pod, välja alternativet att **visa i a
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs kan du använda kommandot [az group delete][az-group-delete] för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
+När klustret inte längre behövs kan du använda den [az group delete][az-group-delete] att ta bort resursgruppen, behållartjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner för hur du tar bort tjänstens huvudnamn finns [AKS-tjänsten huvudnamn överväganden och borttagning av][sp-delete].
 
 ## <a name="get-the-code"></a>Hämta koden
 
@@ -274,12 +274,12 @@ I den här snabbstarten har fördefinierade containeravbildningar användes för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. Du kan också [komma åt Kubernetes-webbinstrumentpanel] [ kubernetes-dashboard] för AKS-klustret.
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. Du kan också [komma åt Kubernetes-webbinstrumentpanel][kubernetes-dashboard] för AKS-klustret.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs om AKS][aks-tutorial]
+> [Självstudie om AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

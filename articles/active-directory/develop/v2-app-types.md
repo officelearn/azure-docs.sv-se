@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235256"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482394"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattformen
 
@@ -55,7 +55,7 @@ Många moderna appar innehåller en ensidesapp klientdel som främst är skriven
 
 I det här flödet appen tar emot token direkt från Microsoft identity-plattformen tillåta slutpunkt utan några server-till-server-utbyten. Placera helt i JavaScript-klient, utan extra sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
-![Implicit autentiseringsflödet](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Visar implicit autentiseringsflödet](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 Om du vill se det här scenariot fungerar i praktiken kan du prova någon av ensidesapp kodexemplen i den [Microsoft identity-plattformen har börjat](v2-overview.md#getting-started) avsnittet.
 
@@ -80,7 +80,7 @@ Det finns mer information om olika typer av token som används i Microsoft ident
 
 I web server-appar utförs logga in autentiseringsflödet följande övergripande steg:
 
-![Autentiseringsflödet för Web app](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Visar autentiseringsflödet för web app](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 Du kan kontrollera användarens identitet genom att verifiera ID-token med en offentlig signeringsnyckel som fås från Microsoft identity-plattformen slutpunkten. En sessionscookie har angetts som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
 
@@ -106,7 +106,7 @@ Ett webb-API kan ge användarna kraften att anmäla eller avanmäla dig från fu
 
 Ett webb-API kan ta emot åtkomsttoken från alla typer av appar, inklusive web server-appar, desktop och mobilappar, enkelsidiga appar, server-deamon och andra webb-API: er. Övergripande flödet för en webb-API som ser ut så här:
 
-![Autentiseringsflödet för webb-API](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Visar web API-autentiseringsflödet](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 Om du vill lära dig att skydda ett webb-API med hjälp av OAuth2-åtkomsttoken, Kolla in webb-API-kodexempel i den [Microsoft identity-plattformen har börjat](v2-overview.md#getting-started) avsnittet.
 
@@ -118,7 +118,7 @@ Enhet-installerade appar, till exempel appar och program behöver ofta åtkomst 
 
 I det här flödet får appen en auktoriseringskod från Microsoft identity-plattformen slutpunkten när användaren loggar in. Auktoriseringskoden representerar appens behörighet att anropa backend-tjänster som är inloggade användarens räkning. Appen kan byta auktoriseringskod i bakgrunden för en OAuth 2.0-åtkomsttoken och en uppdateringstoken. Appen kan använda åtkomsttoken för autentisering till webb-API: er i HTTP-begäranden och använda uppdateringstoken för att hämta nya åtkomsttoken när äldre åtkomsttoken upphör att gälla.
 
-![Autentiseringsflödet för inbyggd app](./media/v2-app-types/convergence-scenarios-native.svg)
+![Visar autentiseringsflödet inbyggd app](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon- och serversidan appar
 
@@ -126,6 +126,6 @@ Appar som har tidskrävande processer eller som fungerar utan interaktion med en
 
 I det här flödet appen interagerar direkt med den `/token` slutpunkt för att få åtkomst:
 
-![Autentiseringsflödet för Daemon-app](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Visar autentiseringsflödet för daemon-app](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Om du vill skapa en daemon-app, se den [klientautentiseringsuppgifter dokumentation](v2-oauth2-client-creds-grant-flow.md), eller försök en [.NET-exempelapp](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

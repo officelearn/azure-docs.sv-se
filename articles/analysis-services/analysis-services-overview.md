@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ac27f3b1ea777e7a88a44a16edf8867f97381297
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416028"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508990"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -80,7 +80,7 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |---------|---------|:---------:|
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |USA, östra 2     |     S8, S9   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |

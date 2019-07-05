@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329982"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443634"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -229,7 +229,7 @@ I följande tabell visas egenskapsnamn och deras beskrivningar för att skapa ut
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) är en globalt distribuerad databastjänst som erbjuder obegränsad elastisk skalning runt hela världen, frågekörning och den automatiska indexeringen över schemaoberoende datamodeller. Mer information om alternativ för Azure Cosmos DB-samling för Stream Analytics, finns det [Stream Analytics med Azure Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikeln.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) är en globalt distribuerad databastjänst som erbjuder obegränsad elastisk skalning runt hela världen, frågekörning och den automatiska indexeringen över schemaoberoende datamodeller. Mer information om alternativ för Azure Cosmos DB-behållare för Stream Analytics, finns det [Stream Analytics med Azure Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikeln.
 
 Azure Cosmos DB-utdata från Stream Analytics är för närvarande inte tillgänglig i regionerna för Azure Tyskland (T-Systems International) och Azure Kina 21Vianet.
 
@@ -247,7 +247,7 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure Cosmos DB-utda
 | Konto-ID | Namn eller slutpunkten URI: N för Azure Cosmos DB-kontot. |
 | Kontonyckel | Den delade åtkomstnyckeln för Azure Cosmos DB-kontot. |
 | Databas | Namnet på Azure Cosmos DB-databasen. |
-| Samlingsnamn | Namnet på samlingen i Azure Cosmos DB. Azure Cosmos DB obegränsade behållare är den rekommenderade metoden för att partitionera dina data, som Azure Cosmos DB automatiskt skalar partitioner baserat på din arbetsbelastning. |
+| Containerns namn | Behållarens namn som ska användas som måste finnas i Cosmos DB. Exempel:  <br /><ul><li> _MyContainer_: En behållare med namnet ”Minbehållare” måste finnas.</li>|
 | Dokument-id |Valfri. Namnet på fältet i utdatahändelserna som används för att ange den primära nyckeln för vilka insert eller uppdateringsåtgärder baseras.
 
 ## <a name="azure-functions"></a>Azure Functions
@@ -302,10 +302,10 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Azure Table Storage | Ja | Alla utdatakolumn.  | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
 | Azure Service Bus-ämne | Ja | Valt automatiskt. Antalet partitioner är baserad på den [Service Bus-SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.| Samma som antalet partitioner i avsnittet om utdata.  |
 | Azure Service Bus-kö | Ja | Valt automatiskt. Antalet partitioner är baserad på den [Service Bus-SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.| Samma som antalet partitioner i den utgående kön. |
-| Azure Cosmos DB | Ja | Använd {partition}-token i samlingsnamnsmönstret. Värdet för {partition} baseras på PARTITION BY-sats i frågan. | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Ja | Baserat på PARTITION BY-sats i frågan. | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
 | Azure Functions | Nej | Ingen | Ej tillämpligt. |
 
-Om nätverkskortet utdata inte är partitionerad medför brist på data i en indatapartitionen en fördröjning upp till sent ankomst lång tid. I sådana fall kan sammanfogas utdata till en enda skrivare, vilket kan orsaka flaskhalsar i din pipeline. Mer information om principen för sent ankomst finns [Azure Stream Analytics händelse ordning överväganden](stream-analytics-out-of-order-and-late-events.md).
+Antalet utdata skrivare kan även kontrolleras med hjälp av `INTO <partition count>` (se [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-sats i frågan, vilket kan vara användbart för att uppnå en önskad jobbtopologi. Om nätverkskortet utdata inte är partitionerad medför brist på data i en indatapartitionen en fördröjning upp till sent ankomst lång tid. I sådana fall kan sammanfogas utdata till en enda skrivare, vilket kan orsaka flaskhalsar i din pipeline. Mer information om principen för sent ankomst finns [Azure Stream Analytics händelse ordning överväganden](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 Azure Stream Analytics använder variabel storlek batchar att bearbeta händelser och skriva till utdata. Vanligtvis Stream Analytics-motor skriva inte ett meddelande i taget och använder batchar för effektivitet. När frekvensen för både inkommande och utgående händelser är hög använder Stream Analytics större batchar. När den utgående hastigheten är låg, använder mindre Batcher för att hålla det med låg latens.

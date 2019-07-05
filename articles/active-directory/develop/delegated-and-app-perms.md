@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87eca33e43777504d395f72eaa87aedc464ea355
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 579fd5e536e3d632f957cfc3500485f0371da8a5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540336"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476146"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Förstå skillnaderna mellan behörigheter delegerad och programbehörigheter
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
-- Läs mer om hur klientprogram använder [delegerad och programmet behörighetsbegäranden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) att komma åt resurser.
-- Stegvisa instruktioner om hur du finns [konfigurera ett klientprogram behörighetsbegäranden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Mer information lär du dig hur resursprogram visa [scope](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) och [programroller](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) klientprogram som manifest som delegerad och programbehörigheter respektive i Azure portalen. 
+- Läs mer om hur klientprogram använder [delegerad och programmet behörighetsbegäranden](developer-glossary.md#permissions) att komma åt resurser.
+- Stegvisa instruktioner om hur du finns [konfigurera ett klientprogram behörighetsbegäranden](quickstart-configure-app-access-web-apis.md)
+- Mer information lär du dig hur resursprogram visa [scope](developer-glossary.md#scopes) och [programroller](developer-glossary.md#roles) klientprogram som manifest som delegerad och programbehörigheter respektive i Azure portalen. 
 
 ## <a name="next-steps"></a>Nästa steg
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -2,48 +2,42 @@
 title: ta med fil
 description: ta med fil
 services: functions
-author: craigshoemaker
+author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187109"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448378"
 ---
-Tillägget paket gör alla bindningar som publicerats av Azure Functions-teamet tillgängligt via en inställning i den *host.json* fil. För lokal utveckling, se till att du har den senaste versionen av [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+## <a name="register-extensions"></a>Registrera tillägg
 
-För att använda tillägget paket måste du uppdatera den *host.json* filen för att inkludera följande post för `extensionBundle`:
+Med undantag för HTTP och timer utlösare fungerar bindningar i körningsversion 2.x implementeras som tilläggspaket. I version 2.x av Azure Functions-runtime som du behöver registrera tillägg för bindningstyper används i dina funktioner. Detta är HTTP-bindningar och timerutlösare, som inte kräver tillägg.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+Du kan välja att installera tillägg av bindning individuellt eller du kan lägga till en paket-referens för tillägg till host.json projektfilen. Tillägget paket tar bort risken för paketet kompatibilitetsproblem när du använder flera bindningstyper. Det är den rekommenderade metoden för att registrera tillägg av bindning. Tillägget paket tar också bort kravet för att installera .NET Core 2.x SDK. 
+
+### <a name="extension-bundles"></a>tillägget paket
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+Mer information finns i [registrera Azure Functions tillägg av bindning](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Bör du lägga till tillägget paket i host.json innan du lägger till bindningar till filen functions.json.
+
+### <a name="register-individual-extensions"></a>Registrera enskilda tillägg
+
+Om du vill installera tillägg som inte tillhör ett paket kan du registrera enskilda tilläggspaket för specifika bindningar manuellt. 
+
+> [!NOTE]
+> Att manuellt registrera tillägg med hjälp av `func extensions install`, måste du ha .NET Core 2.x SDK är installerat.
+
+När du har uppdaterat din *function.json* filen för att inkludera alla bindningar som din funktion behöver, kör följande kommando i projektmappen.
+
+```bash
+func extensions install
 ```
 
-- Den `id` egenskapen refererar till namnområdet för Microsoft Azure Functions tillägget paket.
-- Den `version` refererar till versionen av paketet.
-
-Paketera versioner ökningen som paket i paketet ändras. Huvudversion dataändringar görs bara när paket i bunten flytta en högre version. Den `version` egenskapen använder den [notation för intervall för att ange versionsintervall](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). Functions-körning hämtar alltid den högsta tillåtna version av definieras av versionsintervall eller intervall.
-
-När du refererar till tillägget-paket i ditt projekt är alla standard-bindningar tillgängliga för dina funktioner. Bindningarna som är tillgängliga i den [tillägget paket](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) är:
-
-|Paket  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+Kommandot läser den *function.json* fil för att se vilka paket som du behöver, installerar dem och återskapar tillägg-projektet. Den lägger till några nya bindningar på den aktuella versionen men uppdaterar inte befintliga bindningar. Använd den `--force` alternativet för att uppdatera befintliga bindningar till den senaste versionen när du installerar nya.

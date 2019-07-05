@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112320"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560928"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Baslinjeprincip: Blockera äldre authentication (förhandsversion)
 
@@ -28,8 +28,6 @@ Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder A
 Idag kommer merparten av alla att kompromissa inloggningsförsök från äldre autentisering. Äldre autentisering har inte stöd för multifaktorautentisering (MFA). Även om du har en MFA-princip på din katalog kan en obehörig autentisera med ett äldre protokoll och kringgå MFA.
 
 Det bästa sättet att skydda ditt konto från skadliga autentiseringsbegäranden av äldre protokoll är att blockera dessa försök allt på samma plats. Om du vill göra det enklare för dig att blockera alla inloggningsbegäranden som gjorts av äldre protokoll, skapat vi en baslinjeprincip som gör just detta.
-
-![Blockera äldre autentisering med villkorlig åtkomst](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **Blockera äldre autentisering** är [baslinjeprincip](concept-baseline-protection.md) som blockerar alla autentiseringsbegäranden från äldre protokoll. Modern autentisering måste användas för att logga in för alla användare. Alla begäranden som kommer från äldre protokoll kommer att blockeras används tillsammans med andra principer som baslinjen, och alla användare kommer att behöva MFA varje gång som krävs. Den här principen blockerar inte Exchange ActiveSync.
 
@@ -111,7 +109,6 @@ Aktivera den här principen och skydda din organisation:
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj i listan med principer, **baslinjeprincip: Blockera äldre authentication (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
-1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.
 
 ## <a name="next-steps"></a>Nästa steg

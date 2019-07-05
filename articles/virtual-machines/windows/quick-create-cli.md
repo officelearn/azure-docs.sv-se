@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aaa9441064b7bcf5a105b61c61fc5e64f5687dc7
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319418"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551642"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI
 
@@ -29,9 +29,11 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
+
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Välj **kopia** för att kopiera kodblock, klistra in den i Cloud Shell och tryck på **RETUR** att köra den.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -43,7 +45,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). Följande exempel skapar en virtuell dator med namnet *myVM*. Det här exemplet använder *azureuser* som administrativt användarnamn och *myPassword12* som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. Dessa värden krävs när du ansluter till den virtuella datorn.
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). Följande exempel skapar en virtuell dator med namnet *myVM*. Det här exemplet används *azureuser* för administrativt användarnamn. 
+
+Du måste ändra värdet för `--admin-password` eller misslyckas. Ändra det till ett lösenord som uppfyller de [lösenordskrav för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). Användarnamn och lösenord används senare, när du ansluter till den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
@@ -51,7 +56,7 @@ az vm create \
     --name myVM \
     --image win2016datacenter \
     --admin-username azureuser \
-    --admin-password myPassword12
+    --admin-password myPassword
 ```
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdataresultatet i följande exempel anger att den virtuella datorn har skapats.

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059241"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466922"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -28,7 +28,7 @@ Pipelines Använd remote beräkningsmål för beräkning och lagring av mellanli
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Konfigurera utvecklingsmiljön](how-to-configure-environment.md) att installera Azure Machine Learning-SDK.
 
@@ -58,7 +58,7 @@ Skapa de resurser som krävs för att köra en pipeline:
 ### <a name="set-up-a-datastore"></a>Konfigurera ett datalager
 Ett datalager lagrar data för att få åtkomst till pipelinen. Varje arbetsyta har ett standard-datalager. Du kan registrera ytterligare datalager. 
 
-När du skapar arbetsytan och [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) är kopplade till arbetsytan som standard. Azure Files är standard-databasen för en arbetsyta, men du kan också använda Blob storage som ett datalager. Mer information finns i [avgöra när du ska använda Azure Files, Azure-Blobbar eller Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+När du skapar arbetsytan och [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) är kopplade till arbetsytan som standard. Azure Blob Storage är standard-databasen för en arbetsyta, men du kan också använda Blob storage som ett datalager. Mer information finns i [avgöra när du ska använda Azure Files, Azure-Blobbar eller Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)

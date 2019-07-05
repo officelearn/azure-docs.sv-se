@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204024"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446615"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -88,7 +88,7 @@ Exempellösningen är avsiktligt enkelt. Det är utformat för att visa dig hur 
 
 **Tid:** Om du är bekant med grunderna för Azure Data Factory och Batch och har följande förutsättningar, tar den här lösningen en till två timmar att slutföra.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 #### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du snabbt skapa ett kostnadsfritt konto. Mer information finns i [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -124,7 +124,7 @@ Skapa en Batch-pool med minst två beräkningsnoder.
    f. Välj **OK** skapa poolen.
 
 #### <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
-Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) eller [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (från ClumsyLeaf programvara) att granska och ändra data i ditt Storage-projekt. Du kan också granska och ändra data i loggarna för ditt program i molnet.
+Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) eller [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (från ClumsyLeaf programvara) att granska och ändra data i ditt Storage-projekt. Du kan också granska och ändra data i loggarna för ditt program i molnet.
 
 1. Skapa en behållare med namnet **mycontainer** med privat åtkomst (ingen anonym åtkomst).
 

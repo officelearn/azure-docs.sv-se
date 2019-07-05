@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190070"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540362"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -73,10 +73,10 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="tier-options"></a>
   **Vilka nivåer stöds i Azure Files?**  
-    Azure Files stöder för närvarande endast standardlagring-nivå. Vi har inte tidslinjer för att dela för premium storage och lågfrekvent lagring stöder just nu. 
+    Azure Files stöder två lagringsnivåer: premium och standard. Standard filresurser skapas generellt syfte storage-konton (GPv1- eller GPv2) och premium-filresurser skapas i FileStorage storage-konton. Mer information om hur du skapar [standard filresurser](storage-how-to-create-file-share.md) och [premium filresurser](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Du kan inte skapa Azure-filresurser från endast blob storage-konton eller från premium storage-konton.
+    > Du kan inte skapa Azure-filresurser från Blob storage-konton eller *premium* lagringskonton för generell användning (GPv1- eller GPv2). Standard Azure-filresurser måste skapas i *standard* konton för generell användning endast och premium Azure-filresurser måste skapas i endast FileStorage storage-konton. *Premium* lagringskonton för generell användning (GPv1- och GPv2) avser endast premium-sidblobar. 
 
 * <a id="give-us-feedback"></a>
   **Nu vill jag verkligen finns i en specifik funktion som läggs till i Azure-filer. Kan du lägga till den?**  
@@ -356,8 +356,8 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     Information om skalbarhets- och prestandamål för Azure Files finns i [skalbarhets- och prestandamål i Azure Files](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Jag behöver en större filresurs än Azure Files erbjuder för närvarande. Kan jag öka storleken på min Azure-filresurs?**  
-    Nej. Den maximala storleken för en Azure-filresurs är 5 TiB. Det här är för närvarande en hård gräns som vi kan justera. Vi arbetar på en lösning för att öka resursstorleken på till 100 TiB, men vi har inte tidslinjer för att dela just nu.
+**Vilka storlekar är tillgängliga för Azure-filresurser?**  
+    Azure resurs filstorlekar (premium och standard) kan skala upp till 100 TiB. Premium-resurser för filstorlekar upp till 100 TiB är tillgängliga som en GA-erbjudande. Standardfil resurser storlekar upp till 5 TiB är tillgängliga som en allmänt tillgänglig erbjuder, medan upp till 100 TiB finns i en förhandsversion. Se den [publicera till större filresurser (standard-nivån)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) avsnitt av Planeringsguiden för registreringsinstruktionerna till filen större delar förhandsversion för standard-nivån.
 
 * <a id="open-handles-quota"></a>
 **Hur många klienter har åtkomst till samma fil samtidigt?**    

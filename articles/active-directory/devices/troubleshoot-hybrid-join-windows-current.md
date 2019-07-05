@@ -2,26 +2,21 @@
 title: Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016 | Microsoft Docs
 description: Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110547"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481608"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016 
 
@@ -35,14 +30,10 @@ Andra Windows-klienter finns i [felsökning Azure Active Directory-anslutna äld
 Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory-anslutna hybridenheter](hybrid-azuread-join-plan.md) till stöd för följande scenarier:
 
 - Enhetsbaserad villkorlig åtkomst
-
 - [Företagsnätverksväxling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
 
-
 Det här dokumentet innehåller felsökningsinformation för att lösa eventuella problem. 
-
 
 För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling har stöd för Windows 10 November 2015 uppdatera och senare. Vi rekommenderar att du använder Anniversary update.
 
@@ -53,8 +44,6 @@ För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling 
 1. Öppna Kommandotolken som administratör
 
 2. Typ **dsregcmd/status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,8 +90,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## <a name="step-2-evaluate-the-join-status"></a>Steg 2: Utvärdera join-status 
 
 Granska följande fält och se till att de har de förväntade värdena:
@@ -114,22 +101,14 @@ Det här fältet visar om enheten är ansluten med Azure AD. Om värdet är **nr
 **Möjliga orsaker:**
 
 - Det gick inte att autentisering på datorn för en koppling.
-
 - Det finns en HTTP-proxy i organisationen som inte kan identifieras av datorn
-
 - Datorn kan inte nå Azure AD för att autentisera eller Azure DRS för registrering
-
 - Datorn kanske inte i organisationens interna nätverket eller VPN-anslutning med direkt åtkomst till en lokal AD-domänkontrollant.
-
 - Om datorn har TPM, kan det vara i ett felaktigt tillstånd.
-
 - Det kan finnas en felaktig konfiguration av tjänsterna anges i dokumentet tidigare att du måste verifiera igen. Vanliga exempel:
-
-    - Federationsservern har inte aktiverat WS-Trust-slutpunkter
-
-    - Federationsservern tillåter inte inkommande autentisering från datorer i nätverket med hjälp av integrerad Windows-autentisering.
-
-    - Det finns ingen tjänstanslutningspunkt-objekt som pekar på ett verifierat domännamn i Azure AD i AD-skogen där datorn tillhör
+   - Federationsservern har inte aktiverat WS-Trust-slutpunkter
+   - Federationsservern tillåter inte inkommande autentisering från datorer i nätverket med hjälp av integrerad Windows-autentisering.
+   - Det finns ingen tjänstanslutningspunkt-objekt som pekar på ett verifierat domännamn i Azure AD i AD-skogen där datorn tillhör
 
 ---
 
@@ -150,9 +129,7 @@ Det här fältet anger om enheten är registrerad med Azure AD som en personlig 
 De här fälten anger om användaren har autentiserats till Azure AD när du loggar in på enheten. Om värdena är **nr**, det kan vara på grund av:
 
 - Felaktig lagringsnyckeln (STK) i TPM som hör till enheten vid registreringen (kontrollera KeySignTest när du kör upphöjd).
-
 - Alternativa inloggnings-ID
-
 - Det gick inte att hitta HTTP-Proxy
 
 ## <a name="next-steps"></a>Nästa steg

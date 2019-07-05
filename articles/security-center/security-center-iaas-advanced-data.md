@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154819"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551847"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Avancerad säkerhet för SQL-servrar på Azure Virtual Machines (offentlig förhandsversion)
 Avancerad säkerhet för SQL-servrar på Azure Virtual Machines är en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den för närvarande (i allmänt tillgänglig förhandsversion) innehåller funktioner för lyfta upp och åtgärda säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas. 
@@ -95,7 +95,7 @@ Du kan visa och hantera din aktuella säkerhetsaviseringar.
 
 Du kan ange en lista över mottagare som tar emot ett e-postmeddelande när ASC aviseringar genereras. E-postmeddelandet innehåller en direktlänk till aviseringen i Azure Security Center med all relevant information. 
 
-1. Gå till **Security Center** > **säkerhetsprincip** och på raden i den relevanta prenumeration klickar du på **redigera inställningar >** .
+1. Gå till **Security Center** > **priser och inställningar** och klicka på den relevanta prenumerationen
 
     ![Prenumerationsinställningar](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

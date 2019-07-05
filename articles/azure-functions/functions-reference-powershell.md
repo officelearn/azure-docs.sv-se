@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065485"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442183"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Utvecklarguide för Azure Functions PowerShell
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 I roten av projektet, det finns en delad [ `host.json` ](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen kodfilen (.ps1) och bindningen konfigurationsfil (`function.json`). Namnet på filen function.json överordnad katalog är alltid namnet på din funktion.
 
-Vissa bindningar kräver förekomsten av en `extensions.csproj` fil. Bindande tillägg som krävs i [version 2.x](functions-versions.md) av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
+Vissa bindningar kräver förekomsten av en `extensions.csproj` fil. Bindande tillägg som krävs i [version 2.x](functions-versions.md) av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 I PowerShell-Funktionsappar, kanske du också en `profile.ps1` som körs när en funktionsapp börjar köras (annars känner till som en  *[kallstart](#cold-start)* . Mer information finns i [PowerShell profil](#powershell-profile).
 
@@ -81,7 +81,7 @@ Den `TriggerMetadata` används för att ange ytterligare information om utlösar
 $TriggerMetadata.sys
 ```
 
-| Egenskap   | Description                                     | Typ     |
+| Egenskap   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | När, i UTC, funktionen utlöstes        | DateTime |
 | MethodName | Namnet på den funktion som utlöstes     | string   |
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Namn | Typ | Position | Beskrivning |
+| Namn | Type | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | Namnet på utdatabindningen som du vill ange. |
 | **`-Value`** | Object | 2 | Värdet för utdatabindningen du vill ange, som accepteras från pipeline ByValue. |
@@ -302,9 +302,9 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
 
-| Egenskap  | Description                                                    | Typ                      |
+| Egenskap  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Ett objekt som innehåller brödtext för begäran. `Body` serialiseras till den bästa typen baserat på data. Till exempel om data är JSON, skickas den som en hash-tabell. Om data är en sträng, skickas den i som en sträng. | objekt |
+| **`Body`**    | Ett objekt som innehåller brödtext för begäran. `Body` serialiseras till den bästa typen baserat på data. Till exempel om data är JSON, skickas den som en hash-tabell. Om data är en sträng, skickas den i som en sträng. | object |
 | **`Headers`** | En ordlista som innehåller de begärda rubrikerna.                | Dictionary < sträng, sträng ><sup>*</sup> |
 | **`Method`** | HTTP-metod för begäran.                                | string                    |
 | **`Params`**  | Ett objekt som innehåller parametrarna routning av begäran. | Dictionary < sträng, sträng ><sup>*</sup> |
@@ -317,9 +317,9 @@ Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har 
 
 Svarsobjekt som du ska skicka tillbaka är av typen `HttpResponseContext`, som har följande egenskaper:
 
-| Egenskap      | Description                                                 | Typ                      |
+| Egenskap      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Ett objekt som innehåller brödtexten i svaret.           | objekt                    |
+| **`Body`**  | Ett objekt som innehåller brödtexten i svaret.           | object                    |
 | **`ContentType`** | En kort hand för att ställa in innehållstyp för svar. | string                    |
 | **`Headers`** | Ett objekt som innehåller svarshuvuden.               | Ordlista eller hash-tabell   |
 | **`StatusCode`**  | HTTP-statuskod i svaret.                       | sträng eller int             |

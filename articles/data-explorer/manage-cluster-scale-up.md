@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 1f130f79b6b6924559e1693e1eef8ced2972b3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 9c3eb82f09c591f313175ef564b1a20075fdcbd4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758707"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537884"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Hantera klustret skala upp för att hantera ändrade behov
 
@@ -21,6 +21,7 @@ Det finns två arbetsflöden för att skala ett Azure Data Explorer-kluster: ska
 Ändra storlek på ett kluster på rätt sätt är det viktigt att prestandan för Azure Data Explorer. Men det går inte att förutse efterfrågan på ett kluster med absolut noggrannhet. En statisk klusterstorlek kan leda till underutnyttjande eller overutilization, inte är idealiskt. En bättre metod är att *skala* ett kluster, att lägga till och ta bort Kapacitets- och CPU-resurser med ändringen av begäran. 
 
 ## <a name="steps-to-scale-up"></a>Steg för att skala upp
+
 1. Gå till ditt kluster. Under **inställningar**väljer **skala upp**.
 
     Visas en lista över tillgängliga SKU: er. I följande bild är till exempel bara fyra SKU: er tillgängliga.
@@ -36,9 +37,11 @@ Det finns två arbetsflöden för att skala ett Azure Data Explorer-kluster: ska
 
 Nu har du gjort en skala upp eller skala ned åtgärd för ditt Azure Data Explorer-kluster.
 
-## <a name="next-steps"></a>Nästa steg
-Du kan också [hantera klustret skalbar](manage-cluster-scale-out.md) dynamiskt skala ut instansantalet baserat på mått som du anger.
-
 Om du behöver hjälp med skalning av klustret problem [öppna en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) i Azure-portalen.
 
-Övervaka din Resursanvändning genom att följa den här artikeln: [Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer](using-metrics.md).
+## <a name="next-steps"></a>Nästa steg
+
+* [Hantera kluster skalbar](manage-cluster-scale-out.md) dynamiskt skala ut instansantalet baserat på mått som du anger.
+
+* Övervaka din Resursanvändning genom att följa den här artikeln: [Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer](using-metrics.md).
+

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113189"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471749"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst själv till grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till 
 
 Den här artikeln beskriver hur du granskar du din egen åtkomst till en grupp eller ett program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 
@@ -40,7 +40,7 @@ Det första steget för att utföra en åtkomstgranskning är att leta upp och �
 
 1. Leta efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett e-postmeddelande med exempel för att granska din åtkomst till en grupp.
 
-    ![Granska åtkomst till e-post](./media/review-your-access/access-review-email.png)
+    ![Exempel e-post från Microsoft för att granska din åtkomst till en grupp](./media/review-your-access/access-review-email.png)
 
 1. Klicka på den **granska åtkomst** länk för att öppna åtkomstgranskningen.
 
@@ -48,7 +48,7 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
 1. Logga in på MyApps-portalen på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps-portalen](./media/review-your-access/myapps-access-panel.png)
+    ![Visa en lista över appar som du har behörighet att MyApps-portalen](./media/review-your-access/myapps-access-panel.png)
 
 1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
@@ -56,7 +56,7 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
     Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
-    ![Åtkomstgranskningar lista](./media/review-your-access/access-reviews-list.png)
+    ![Väntande granskningar åtkomstlista för dina appar och grupper](./media/review-your-access/access-reviews-list.png)
 
 1. Klicka på den **påbörja granskning** länk för åtkomstgranskning som du vill utföra.
 
@@ -68,13 +68,13 @@ När du har öppnat åtkomstgranskningen, ser du din åtkomst.
 
     Om begäran är att granska åtkomst för andra, ser sidan annorlunda. Mer information finns i [granska åtkomst till grupper eller program](perform-access-review.md).
 
-    ![Utför åtkomstgranskning](./media/review-your-access/perform-access-review.png)
+    ![Öppna åtkomstgranskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review.png)
 
 1. Klicka på **Ja** att hålla din åtkomst eller klicka på **nr** att ta bort din åtkomst.
 
 1. Om du klickar på **Ja**, du kan behöva ange en motivering i den **orsak** box.
 
-    ![Utför åtkomstgranskning](./media/review-your-access/perform-access-review-submit.png)
+    ![Slutfört åtkomstgranskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review-submit.png)
 
 1. Klicka på **Skicka**.
 

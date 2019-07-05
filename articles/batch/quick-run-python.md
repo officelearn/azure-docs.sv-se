@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a5218498b19fe99f810f2dfca8e044c6f9398a94
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5788f6e699833c606b1bdeaf63a9aac13da2a0e9
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341164"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513276"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -43,7 +43,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 [Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 Kör skriptet för att se Batch-arbetsflödet i praktiken:
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +77,7 @@ Granska koden för att lära dig vad varje del av appen gör när skriptet har k
 
 När du kör exempelappen ser konsolens utdata ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till Batch-kontot i [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna på Batch-kontot.
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +92,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 När aktiviteterna har slutförts kan du se utdata som liknar följande för varje aktivitet:
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z

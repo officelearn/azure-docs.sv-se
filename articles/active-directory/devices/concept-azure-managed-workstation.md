@@ -1,6 +1,6 @@
 ---
-title: Anledningen till att säkra arbetsstationer som är viktiga - Azure Active Directory
-description: Lär dig varför organisationer bör skapa säker Azure-hanterade arbetsstationer
+title: Förstå säker, Azure-hanterade arbetsstationer - Azure Active Directory
+description: Lär dig säker och Azure-hanterade arbetsstationer och förstå varför de är viktiga.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,96 +11,105 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a6ddef294c4872f2d7e50e8940ecbb4b4b7bc4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110704"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491597"
 ---
-# <a name="building-secure-workstations"></a>Att skapa säkra arbetsstationer
+# <a name="understand-secure-azure-managed-workstations"></a>Förstå säker, Azure-hanterade arbetsstationer
 
-Säker isolerade arbetsstationer är ytterst viktiga för att skydda känsliga roller som administratörer, utvecklare och operatörer av kritiska tjänster. Många andra säkerhetskontroller och garanterar kommer att misslyckas eller har ingen effekt om den underliggande arbetsstation klientsäkerheten har komprometterats.
+Säker, isolerat arbetsstationer är ytterst viktiga för att skydda känsliga roller som administratörer och utvecklare kritiska-operatorer. Om arbetsstation klientsäkerhet komprometteras så många säkerhetskontroller och garanterar att misslyckas eller vara ineffektiv.
 
-Det här dokumentet beskriver vad som krävs för att skapa en säker klienten arbetsstation med detaljerade steg för steg-instruktioner, inklusive hur du ställer in startar säkerhetskontroller. Den här typen av arbetsstationer ibland kallas för en arbetsstation för privilegierad åtkomst (PAW), som den här referensen används, och bygger på. Vägledningen men ser för molnbaserade teknik för att hantera tjänsten och introducerar säkerhetsfunktioner som introducerades med början i Windows 10RS5, Microsoft Defender ATP, Azure Active Directory och Intune.
+Det här dokumentet förklarar vad du behöver för att skapa en säker arbetsstation, som ofta kallas en arbetsstation för privilegierad åtkomst (PAW). Artikeln innehåller också detaljerade anvisningar för att ställa in inledande säkerhetskontroller. Den här vägledningen beskriver hur molnbaserad teknik kan hantera tjänsten. Den är beroende av säkerhetsfunktioner som infördes i Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory och Intune.
 
 > [!NOTE]
-> Den här artikeln förklarar begreppet säker arbetsstation och dess betydelse. Om du redan är bekant med konceptet och vill gå vidare till distribution, Läs [så här distribuerar du en säker arbetsstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> Den här artikeln förklarar konceptet med en säker arbetsstation och dess betydelse. Om du redan är bekant med konceptet och vill gå vidare till distribution, besök [distribuera en säker arbetsstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
-## <a name="why-securing-workstation-access-is-important"></a>Varför säkerhetsåtkomst arbetsstation är viktigt
+## <a name="why-secure-workstation-access-is-important"></a>Varför säker arbetsstation åtkomst är viktigt
 
-Snabba beslut om cloud services och möjlighet att arbeta från valfri plats har skapat en ny metod för utnyttjande. Angripare utnyttjar svaga säkerhetsåtgärder på enheter där administratörer fungerar och kan få åtkomst till Privilegierade resurser.
+Snabba beslut om cloud services och möjlighet att arbeta från valfri plats har skapat en ny utnyttjande-metod. Angripare kan få åtkomst till Privilegierade resurser genom att utnyttja svaga säkerhetsåtgärder på enheter där administratörer fungerar.
 
-Enligt beskrivningen i den [Verizon Threat rapporten](https://enterprise.verizon.com/resources/reports/dbir/), och [Security Intelligence Report](https://aka.ms/sir) privilegierad missbruka och strömförsörjning kedja attacker är bland de fem främsta mekanismer som används för att bryta mot organisationer, och oftast upptäckte andra möjligheten i incidenter som rapporteras i 2018.
+Privilegierad missbruka och strömförsörjning kedja attacker är bland de översta fem metoder som angripare använder för att bryta mot organisationer. De är också andra oftast har identifierats taktik i incidenter som rapporteras i 2018 enligt den [Verizon Threat rapporten](https://enterprise.verizon.com/resources/reports/dbir/), och [Security Intelligence Report](https://aka.ms/sir).
 
-De flesta angripare följa sökvägen nedan:
+De flesta angripare så här:
 
-* Börja med rekognosering, ofta specifika för en bransch, att hitta ett sätt i
-* Analysera Insamlad information för att identifiera det bästa sättet att få åtkomst (intrånget) hos en arbetsstation upplevd lågt värde
-* Persistence och titta på sätt att flytta [sidled](https://en.wikipedia.org/wiki/Network_Lateral_Movement)
-* Stjäla konfidentiell och känslig data
+1. Rekognosering att hitta ett sätt, ofta specifika för en bransch.
+1. Analys och samla in information som du kan identifiera det bästa sättet att infiltrera en arbetsstation som uppfattas som lågt värde.
+1. Persistence att leta efter ett sätt att flytta [sidled](https://en.wikipedia.org/wiki/Network_Lateral_Movement).
+1. Exfiltrering av konfidentiell och känslig data.
 
-Angripare infiltrera ofta enheter som verkar lågrisk eller under för rekognosering. Dessa sårbara enheter används sedan för att hitta en möjlighet för lateral förflyttning, hitta administrativa användare och enheter och identifiera hög värdefulla data som har stjäla information när de får dessa Privilegierade roller.
+Under rekognosering infiltrera angripare ofta enheter som verkar lågrisk eller under. De kan använda dessa sårbara enheter för att hitta en möjlighet för lateral förflyttning och för att hitta administrativa användare och enheter. När de får tillgång till Privilegierade roller identifiera angripare data med högt värde och har stjäla data.
 
 ![Mönster för vanliga kompromettering](./media/concept-azure-managed-workstation/typical-timeline.png)
 
-Det här dokumentet ger en lösning för att skydda dina enheter genom att isolera hantering och tjänster för att skydda mot lateral förflyttning eller attacker från mindre värdefulla produktivitet enheter. Designen hjälper till att minska möjligheten att utföra ett intrång genom att bryta ned kedjan innan intrång på den enhet som används för att hantera eller åtkomst till känsliga molnresurser. Lösningen beskrivs ska använda interna Azure-tjänster som ingår i Microsoft 365 Enterprise stack inklusive:
+Det här dokumentet beskriver en lösning som hjälper dig att skydda dina enheter från sådan lateral attacker. Lösningen isolerar hantering och tjänster från mindre värdefulla produktivitet enheter, större kedjan innan den enhet som har åtkomst till känsliga molnresurser kan vara infiltrated. Lösningen använder interna Azure-tjänster som ingår i Microsoft 365 Enterprise-stack:
 
-* Intune för hantering av enheter, inklusive program och URL: en lista över tillåtna
-* Autopilot för installation av enheter och distribution och uppdatering 
+* Intune för hantering av enheter och en säker lista över program och URL: er
+* Autopilot för enhetskonfiguration, distribution och uppdatering
 * Azure AD för hantering av användare, villkorlig åtkomst och Multi-Factor authentication
 * Windows 10 (aktuell version) för enhetens hälsotillstånd attestering och användarupplevelse
-* Microsoft Defender Advanced Threat Protection (ATP) för endpoint protection, identifiering och svar med molnhantering
-* Azure AD PIM för att hantera auktorisering, inklusive precis i tid JIT-privilegierad åtkomst till resurser
+* Defender ATP för cloud-hanterade endpoint protection, identifiering och svar
+* Azure AD PIM för att hantera auktorisering och just-in-time (JIT) privilegierad åtkomst till resurser
 
-## <a name="who-benefit-from-using-a-secure-workstation"></a>Vem som kan dra nytta av en säker arbetsstation
+## <a name="who-benefits-from-a-secure-workstation"></a>Som dra nytta av en säker arbetsstation?
 
-Alla användare och operatörer dra nytta av en säker arbetsstation. En angripare som komprometterar en dator eller enhet kan göra flera saker, inklusive personifiera alla cachelagrade konton, och Använd autentiseringsuppgifter, och token som används på enheten medan de är inloggade på. Den här risken kan skydda de enheter som används för alla Privilegierade roller, inklusive administrativa rättigheter som är så viktigt enheter där ett privilegierat konto används är mål för lateral förflyttning och attacker för eskalering av privilegier. Dessa konton kan användas för en mängd olika tillgångar som:
+Alla användare och operatörer ha nytta av när du använder en säker arbetsstation. En angripare som komprometterar en dator eller enhet kan personifiera alla cachelagrade konton. De kan också använda autentiseringsuppgifter och token när inloggad på enheten. Den här risken är det viktigt att säkra enheter som används för privilegierade roller, inklusive administrativa rättigheter. Enheter med Privilegierade konton är mål för lateral förflyttning och attacker för eskalering av privilegier. Dessa konton kan användas för en mängd olika tillgångar som:
 
-* Administratörer av lokala och molnbaserade system
-* Arbetsstationer för kritiska system
-* Sociala konton administratör med hög exponering
-* Mycket känslig arbetsstationer som SWIFT betalningsterminaler
-* Hantering av affärshemligheter arbetsstationer
+* Administratör för den lokala eller molnbaserade system
+* Utvecklararbetsstation för kritiska system
+* Kontoadministratör för sociala medier med hög
+* Mycket känslig arbetsstation, till exempel en terminal SWIFT betalning
+* Arbetsstationen affärshemligheter för hantering
 
-Microsoft rekommenderar att implementera upphöjd säkerhetskontroller för privilegierade arbetsstationer där dessa konton används för att minska risken. Mer information finns i den [Distributionsguide för Azure Active Directory-funktionen](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365-översikt](https://aka.ms/o365secroadmap), och [skydda privilegierad åtkomst översikt](https://aka.ms/sparoadmap)).
+För att minska risken, bör du implementera utökade säkerhetskontroller för privilegierade arbetsstationer som gör att använda för dessa konton. Mer information finns i den [Distributionsguide för Azure Active Directory-funktionen](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365-översikt](https://aka.ms/o365secroadmap), och [skydda privilegierad åtkomst översikt](https://aka.ms/sparoadmap)).
 
-## <a name="why-dedicated-workstations"></a>Varför dedikerade arbetsstationer
+## <a name="why-use-dedicated-workstations"></a>Varför använda dedikerade arbetsstationer?
 
-Det är möjligt att lägga till säkerhet i en befintlig enhet är det bättre att börja med en säker grund. Från och med en känd bra enhet och en uppsättning säkerhets kontroller placeras din organisation bäst lämpad att underhålla som ökat säkerhetsnivå. Med ständigt växande antal angreppsvinklar som tillåts av avslappnat e-post och webbläsare, är det allt svårt att se till att en enhet kan vara betrodda. Den här guiden fungerar under förutsättning en dedikerad arbetsstation separeras från standard produktivitet, bläddra, och e-poståtgärder har slutförts. Borttagning av produktivitet, webbsurfning och e-post från en enhet kan ha negativ inverkan på produktiviteten, men det här skyddet är vanligtvis är godkänd för scenarier där jobbuppgifter inte uttryckligen ska användas och risken för en säkerhetsincident är hög.
+Det är möjligt att lägga till säkerhet i en befintlig enhet är det bättre att börja med en säker grund. Om du vill placera din organisation bäst lämpad att upprätthålla en högre nivå, börja med en enhet som du vet är säker och implementera en uppsättning kända säkerhetskontroller.
+
+Ett växande antal angreppsmetoder via e-post och webbsurfning blir det allt svårt att se till att en enhet är betrodd. Den här handboken förutsätts att en dedikerad arbetsstation är isolerad från standard produktivitet, bläddra och e-post. Borttagning av produktivitet, webbsurfning och e-post från en enhet kan ha en negativ inverkan på produktiviteten. Det här skyddet är vanligtvis är godkänd för scenarier där jobbuppgifter inte uttryckligen ska användas och risken för en säkerhetsincident är hög.
 
 > [!NOTE]
-> Webbsurfning här avser allmän åtkomst till valfri webbplatser, vilket är en hög risk som är helt olika från att använda en webbläsare för att få åtkomst till ett litet antal välkända administrativa webbplatser för tjänster som Azure, Office 365, andra molnleverantörer och SaaS program.
+> Webbsurfning här avser allmän åtkomst till valfri webbplatser som kan vara en aktivitet med hög risk. Sådana surfning är helt olika från att använda en webbläsare för att få åtkomst till ett litet antal välkända administrativa webbplatser för tjänster som Azure, Office 365, andra molnleverantörer och SaaS-program.
 
-Strategier för inneslutning ger ökad säkerhetsgarantier genom att öka antalet och typen av kontroller som en angripare har att övervinna för att komma åt känsliga tillgångar. Modellen har utvecklats här ger inneslutning av administrativ behörighet till specifika enheter med hjälp av en modell för nivåindelade behörighet.
+Strategier för inneslutning öka säkerheten genom att öka antalet och typen av kontroller som hindra en angripare från att få åtkomst till känsliga tillgångar. Modellen som beskrivs i den här artikeln använder en nivåindelad behörighet design och begränsar administratörsbehörighet till specifika enheter.
 
 ## <a name="supply-chain-management"></a>Hantering av leverantörskedja
 
-Viktigt för en säker arbetsstation är en leverans kedja lösning där arbetsstation som du använder är betrodd, en ”förtroenderoten”. Den här lösningen tar upp roten för förtroende med den [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) teknik. För en säker arbetsstation ger Microsoft Autopilot möjlighet att utnyttja Microsoft OEM-optimerade Windows 10-enheter som tillhandahåller ett fungerande tillstånd från tillverkaren. I stället för avbildningen på en enhet som inte är betrodd, Microsoft Autopilot kan omvandla en Windows-enhet till tillståndet ”business ready” tillämpa inställningar och principer, installera appar, och även om du ändrar utgåvan av Windows 10 som används (till exempel från Windows 10 Pro till Windows 10 Enterprise, som stöd för avancerade funktioner).
+Viktigt för en säker arbetsstation är en lösning för leverans kedja där du använder en betrodda arbetsstationer som kallas ”rot för förtroendet”. För den här lösningen använder förtroenderoten [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) teknik. Om du vill skydda en arbetsstation kan Autopilot du utnyttja Microsoft OEM-optimerade Windows 10-enheter. Dessa enheter kommer i ett fungerande tillstånd från tillverkaren. I stället för avbildningen på en potentiellt osäkert enhet, kan Autopilot omvandla en Windows-enhet i ett ”business ready” tillstånd. Det gäller inställningar och principer, installerar appar och ändras även utgåvan av Windows 10. Till exempel kan Autopilot ändra Windows-installation för en enhet från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
 
 ![Säker arbetsstation nivåer](./media/concept-azure-managed-workstation/supplychain.png)
 
 ## <a name="device-roles-and-profiles"></a>Enheten roller och -profiler
 
-I vägledningen åtgärdas flera Säkerhetsprofiler och roller för att uppnå en mer säker lösning för användare, utvecklare och IT-personalstyrka. De här profilerna har varit justerade för att ge stöd för vanliga användare i organisationer som kan dra nytta av en förbättrad eller säker arbetsstation när balans mellan användbarhet och risk. Vägledningen ger konfiguration av inställningar baserat på branschstandarder accepteras. Den här vägledningen för att illustrera en metod i Härdning av Windows 10 och minskar riskerna med enhet eller användare kompromettering med hjälp av principer och teknik för att hantera funktioner för säkerhet och risker.
+Den här vägledningen refererar till flera Säkerhetsprofiler och roller som kan hjälpa dig att skapa mer säkra lösningar för användare, utvecklare och IT-personal. De här profilerna balans mellan användbarhet och risker för vanliga användare som kan dra nytta av en förbättrad eller säker arbetsstation. Inställningarna konfigurationer som anges här är baserat på branschstandarder accepteras. Den här vägledningen visar hur du förstärka Windows 10 och minska riskerna med enhet eller användare kompromettering. Detta sker med hjälp av principer och teknik för att hantera funktioner för säkerhet och risker.
 ![Säker arbetsstation nivåer](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **Låg säkerhet** – en hanterad dator som är standard ger en bra utgångspunkt för de flesta hem och små företag. Dessa enheter är Azure AD-registrerade och hanteras av Intune. Profilen tillåter användare att köra alla program och bläddra någon webbplats. En lösning för program mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska aktiveras.
-* **Förbättrad säkerhet** – är en lösning för ingångsnivå skyddade bra för hemanvändare, småföretagsanvändare samt allmänna utvecklare.
-   * Utökad arbetsstation ger en principbaserad innebär att förbättra säkerheten för låg säkerhet. Den här profilen tillåter ett säkert sätt att arbeta med kunddata och att kunna använda produktivitetsverktyg som kontrollerar e-post och webbsurfning. En utökad arbetsstation kan användas för att granska användarnas beteende och profilen användning av en arbetsstation genom att aktivera granskning och loggning till Intune. I den här profilen arbetsstationen aktiverar säkerhetskontroller och principer som beskrivs i innehållet och distribueras i förbättrad-arbetsstation - Windows 10 (1809)-skript. Distributionen också drar nytta av avancerad skadlig kod skydd med [avancerade Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp)
-* **Hög säkerhet** – det mest effektiva sättet att minska risken för angrepp på en arbetsstation som är att ta bort möjligheten att self-administer arbetsstationen. Ta bort lokala administrativa rättigheter är ett steg som ger ökad säkerhet och kan påverka produktiviteten om implementerat felaktigt. Hög säkerhet som bygger på profilen för förbättrad säkerhet med en betydande ändring, borttagning av den lokala administratören. Den här profilen har utformats för att hjälpa till med användare som kan vara en hög profilen, till exempel en chef eller de användare som kan ha kontakta med känsliga data, till exempel löneuppgifter eller godkännande av tjänster och processer.
-   * Användarprofilen hög säkerhet kräver en högre kontrollerad miljö när du fortfarande att kunna utföra sina produktivitet-aktivitet, t.ex e-post och webbsurfning samtidigt som en enkel att använda. Användarna förväntar sig funktioner, till exempel cookies, Favoriter och andra genvägar som är tillgängliga att fungera. Men dessa användare kan inte kräva möjlighet att ändra eller felsöka sina enheter och behöver inte installera drivrutiner. Hög säkerhet med hjälp av hög säkerhet - skript för Windows 10 (1809).
-* **Specialiserade** – utvecklare och IT-administratörer är ett attraktivt mål för attacker eftersom dessa roller kan ändra system intressant för angriparen. Specialiserad arbetsstationen tar det arbete som distribuerats i arbetsstation med hög säkerhet och ytterligare emphases säkerheten genom att hantera lokala program, begränsa webbplatser på internet och att begränsa produktivitet funktioner som är hög risk, till exempel ActiveX, Java, webbläsare plugin-programmets och flera andra kända hög risk kontroller på en Windows-enhet. I den här profilen arbetsstationen aktiverar säkerhetskontroller och principer som beskrivs i innehållet och distribueras i DeviceConfiguration_NCSC - Windows 10 (1803) SecurityBaseline skript.
-* **Skyddad** – en angripare som kan påverka ett administratörskonto kan vanligtvis skada viktiga genom datastöld data borttagande av eller avbrott i tjänsten. I det här tillståndet som strikt arbetsstationen ska aktivera alla säkerhetskontroller och principer som begränsar direkt kontroll av hantering av lokala program och produktivitetsverktyg tas bort. Därför kan äventyra enheten görs svårare som e-post och sociala medier är blockerade som speglar det vanligaste sättet nätfiskeattacker kan lyckas.  Säker arbetsstation kan distribueras med säkra-arbetsstation - Windows 10 (1809) SecurityBaseline skript.
+* **Låg säkerhet** – en hanterad dator som är standard ger en bra utgångspunkt för de flesta hemnätverk och små företag. Dessa enheter är registrerade i Azure AD och hanteras med Intune. Den här profilen tillåter användare att köra alla program och bläddra någon webbplats. En lösning mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska aktiveras.
+
+* **Förbättrad säkerhet** – den här lösningen på ingångsnivå, skyddade är bra för hemanvändare, små företagsanvändare och allmän utvecklare.
+
+   Förbättrad arbetsstationen är en principbaserad sätt att öka säkerheten för låg säkerhet. Det ger ett säkert sätt att arbeta med kunddata när du även använder produktivitetsverktyg som e-post och webbsurfning. Du kan använda granskningsprinciper och Intune för att övervaka en förbättrad arbetsstation för användaren beteende och profil. Du distribuerar profilen förbättrad arbetsstation med skriptet för Windows 10 (1809) och den drar nytta av avancerad skadlig kod skydd med [avancerade Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+
+* **Hög säkerhet** – det mest effektiva sättet att minska risken för angrepp på en arbetsstation som är att ta bort möjligheten att self-administer arbetsstationen. Ta bort lokala administrativa rättigheter är en åtgärd som förbättrar säkerheten, men det kan påverka produktiviteten om implementerat felaktigt. Hög säkerhet som bygger på profilen för förbättrad säkerhet med en betydande ändring: borttagning av den lokala administratören. Den här profilen är utformad för höga profilanvändare: chefer, lönelistor och känsliga dataanvändare, godkännare för tjänster och processer.
+
+   Hög säkerhet användaren kräver en mer kontrollerad miljö samtidigt som de kan göra aktiviteter, till exempel e-post och webbläsare i en enkel att använda-upplevelse. Användarna förväntar sig funktioner, till exempel cookies, Favoriter och andra genvägar ska fungera. Dessa användare kan dock inte kräva möjlighet att ändra eller felsöka enheten. De behöver också att installera drivrutiner. Hög säkerhet med hjälp av hög säkerhet - skript för Windows 10 (1809).
+
+* **Specialiserade** – angripare riktar sig mot utvecklare och IT-administratörer eftersom de kan ändra system intressant för angriparen. Specialiserad arbetsstationen kan utökas med principer för arbetsstationen hög säkerhet genom att hantera lokala program och begränsa webbplatser. Det begränsar också med hög risk produktivitet funktioner, till exempel ActiveX-, Java, plugin-program för webbläsare och andra Windows-kontroller. Distribuera profilen med DeviceConfiguration_NCSC - Windows 10 (1803) SecurityBaseline skript.
+
+* **Skyddad** – en angripare som komprometterar ett administratörskonto kan skada viktiga genom datastöld data borttagande av eller avbrott i tjänsten. I det här tillståndet som strikt kan arbetsstationen alla säkerhetskontroller och principer som begränsar direkt kontroll av hantering av lokala program. En säker arbetsstation har inga produktivitetsverktyg så enheten svårare att angripa. Den blockerar vanligaste vektor för nätfiskeattacker: e-post och sociala medier.  Säker arbetsstation kan distribueras med säkra-arbetsstation - Windows 10 (1809) SecurityBaseline skript.
 
    ![Säker arbetsstation](./media/concept-azure-managed-workstation/secure-workstation.png)
 
-   En säker arbetsstation får administratörer en förstärkt dator som har tydliga programkontroll och application guard. Arbetsstationen använder autentiseringsuppgifter och enheten exploit guard för att skydda värden från skadligt beteende. Dessutom alla lokala diskar krypteras med Bitlocker-kryptering.
+   En säker arbetsstation får administratörer en förstärkt dator som har tydliga programkontroll och application guard. Arbetsstationen använder credential guard och device guard exploit guard för att skydda värden från skadligt beteende. Alla lokala diskar är också krypterade med BitLocker.
 
-* **Isolerade** – den här anpassade offlinescenario representerar extrem slutet av spektrumet (inga installationsskript tillhandahålls för det här fallet). Organisationer kan behöva hantera en isolerade kritiska funktioner, till exempel en produktionslinje för högt värde eller liv supportsystem som kräver stöds inte/datorer utan äldre operativsystem. Eftersom säkerhet är viktigt och molntjänster är inte tillgänglig, kan organisationer manuellt hantera/uppdatera dessa datorer eller använda en arkitektur för isolerade Active Directory-skog (t.ex. den förbättrad säkerhet Admin säkerhetsmiljö (ESAE)) för att hantera dem. I dessa omständigheter som tar bort all åtkomst förutom grundläggande Intune och ATP bör hälsotillstånd kontrollerar övervägas.
-   * [Krav för Intune nätverk kommunikation](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [ATP nätverk kommunikation krav](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+* **Isolerade** – det här anpassade, offline-scenariot representerar extrem slutet av spektrumet. Inga installationsskript tillhandahålls för det här fallet. Du kan behöva hantera en affärskritisk funktion som kräver ett som inte stöds eller okorrigerade äldre operativsystem. Till exempel en produktionslinje för högt värde eller ett liv--stödsystem. Eftersom säkerhet är viktigt och molntjänster är inte tillgänglig, kan du hantera och uppdatera dessa datorer manuellt eller med en arkitektur för isolerade Active Directory-skogen, till exempel den förbättrad säkerhet Admin säkerhetsmiljö (ESAE). Överväg att ta bort all åtkomst förutom grundläggande hälsokontroller för Intune och ATP under dessa omständigheter.
+
+  * [Krav för Intune nätverk kommunikation](https://docs.microsoft.com/intune/network-bandwidth-use)
+  * [ATP nätverk kommunikation krav](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera en säker arbetsstation för Azure-hanterade](howto-azure-managed-workstation.md)
+[Distribuera en säker arbetsstation för Azure-hanterade](howto-azure-managed-workstation.md).

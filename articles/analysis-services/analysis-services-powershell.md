@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 12/19/2018
+ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a958c33e173c881a3ad09a49fe9f71ddb0c9df56
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142302"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508940"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
 Den här artikeln beskriver PowerShell-cmdletar som används för att utföra Azure Analysis Services-servern och databashanteringsuppgifter. 
 
-Server-hanteringsåtgärder som att skapa eller ta bort en server, pausa eller återuppta serveråtgärder eller ändra servicenivån (nivå) använda cmdlets för Azure Resource Manager (resurs) och Analysis Services (server)-cmdletar. Andra uppgifter för hantering av databaser som att lägga till eller ta bort rollmedlemmar, behandla eller partitionering används cmdletar som ingår i samma SqlServer-modulen som SQL Server Analysis Services.
+Hanteringsaktiviteter för serverresurser som att skapa eller ta bort en server, pausa eller återuppta serveråtgärder eller ändra servicenivån (nivå) använda cmdlets för Azure Analysis Services. Andra uppgifter för hantering av databaser som att lägga till eller ta bort rollmedlemmar, behandla eller partitionering används cmdletar som ingår i samma SqlServer-modulen som SQL Server Analysis Services.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,40 +29,22 @@ De flesta PowerShell uppgifter kräver att du har Admin-behörighet på Analysis
 
 För åtgärder med hjälp av Azure PowerShell-cmdletar, ditt konto eller det konto som kör scheduler måste tillhöra rollen ägare för resursen i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="resource-management-operations"></a>Resurs-hanteringsåtgärder 
+## <a name="resource-and-server-operations"></a>Resurs-och server 
 
-Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
-
-|Cmdlet|Beskrivning| 
-|------------|-----------------| 
-|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Hämtar information om en server-instans.|  
-|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Skapar en server-instans.|   
-|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Skapar en ny Analysis Services-konfiguration för brandväggen.|   
-|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Skapar en ny brandväggsregel för Analysis Services.|   
-|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Tar bort en server-instans.|  
-|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Återupptar en server-instans.|  
-|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Pausar en server-instans.| 
-|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Ändrar en server-instans.|   
-|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Testar om en server-instans.| 
-
-## <a name="server-management-operations"></a>Server-hanteringsåtgärder
-
-Modul - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
-
-|Cmdlet|Beskrivning| 
-|------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Lägger till en autentiserad konto som ska användas för Azure Analysis Services serverbegäranden för cmdlet.| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporterar en logg från en instans av Analysis Services-servern i den för tillfället inloggade miljö som anges i kommandot Lägg till AzAnalysisServicesAccount|  
-|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Startar om en instans av Analysis Services-servern i inloggade miljön. anges i Lägg till AzAnalysisServicesAccount kommandot.|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synkroniserar en angiven databas på den angivna instansen av Analysis Services-servern på alla fråga skalbar instanser i den för tillfället inloggade miljö som anges i kommandot Lägg till AzAnalysisServicesAccount|  
+Installera modulen - [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Dokumentation – [Az.AnalysisServices referens](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>Databasoperationer
 
-Azure Analysis Services-databasåtgärder använder samma [SqlServer-modulen](https://www.powershellgallery.com/packages/SqlServer) som SQL Server Analysis Services. Alla cmdlets har dock stöd för Azure Analysis Services. Mer information finns i [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services-databasåtgärder använda samma SqlServer-modulen som SQL Server Analysis Services. Alla cmdlets har dock stöd för Azure Analysis Services. 
 
 SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar samt den allmänna Invoke-ASCmd-cmdlet som accepterar en fråga Tabular Model Tabellmodellskriptspråket (TMSL) eller ett skript. Följande cmdletar i SqlServer-modulen har stöd för Azure Analysis Services.
 
-  
+Installera modulen - [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+Dokumentation – [SqlServer-referens](/powershell/module/sqlserver)
+
+### <a name="supported-cmdlets"></a>Cmdlet: ar som stöds
+
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
 |[Lägg till RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägga till en medlem i en databasroll.| 
@@ -78,6 +60,7 @@ SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar sam
 
 ## <a name="related-information"></a>Relaterad information
 
+* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
 * [Hämta PowerShell-modulen för SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Ladda ned SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer-modulen i PowerShell-galleriet](https://www.powershellgallery.com/packages/SqlServer)    

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e0c043e484e4eaf2639f76c9af3fef15ad85047
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69353968f6b38f0d16b68c58b9b00c3e6d45850b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446861"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight
 
@@ -23,13 +23,13 @@ Lär dig hur du ansluter Microsoft Power BI Desktop till Azure HDInsight med hj�
 >[!IMPORTANT]
 > Du kan använda Hive ODBC-drivrutinen att importera via allmän ODBC-anslutningsprogram i Power BI Desktop. Men det rekommenderas inte för BI-arbetsbelastningar som icke-interaktiv naturen för motorn för Hive-frågor. [Interaktiv HDInsight-fråga connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) och [HDInsight Spark-anslutningsappen](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) är bättre alternativ för deras prestanda.
 
-I den här självstudien får du läser in data från en `hivesampletable` Hive-tabell till Power BI. Hive-tabellen innehåller vissa mobiltelefon användningsdata. Sedan kan du rita användningsdata på en världskarta:
+I den här artikeln får du läser in data från en `hivesampletable` Hive-tabell till Power BI. Hive-tabellen innehåller vissa mobiltelefon användningsdata. Sedan kan du rita användningsdata på en världskarta:
 
 ![HDInsight Power BI rapporten karta](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
 Informationen gäller även för den nya [interaktiv fråga](../interactive-query/apache-interactive-query-get-started.md) typ av kluster. Att ansluta till HDInsight interaktiv fråga med direct query finns i [visualisera Interactive Query som Hive-data med Microsoft Power BI med direct query i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du går igenom den här artikeln, måste du ha följande objekt:
 

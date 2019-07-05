@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160799917fb2802689f23d57d6daa9ad0a92c37a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273089"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482213"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft identity-plattformen och Implicit beviljat flöde
 
@@ -48,7 +48,7 @@ Om du inte föredrar att använda ett bibliotek i dina program och skicka protok
 
 Följande diagram visar hur det hela implicita inloggning flödet ser ut och avsnitten som följer beskriver varje steg i detalj.
 
-![OpenID Connect spaltformat](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagram som visar det implicita flödet inloggning](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## <a name="send-the-sign-in-request"></a>Skicka begäran inloggning
 

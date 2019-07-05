@@ -1,21 +1,20 @@
 ---
 title: Kommunicera med en app för enheter i C# via Azure IoT Hub device strömmar (förhandsversion) | Microsoft Docs
 description: I den här snabbstarten kör du två exempel C# program som kommunicerar via en enhet-dataström som upprättats via IoT Hub.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 74a8fc40cff12070f7cea99981eb4e8321d7c1ef
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: de581362371e28523c99f961dfdb5c2009901343
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735136"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446114"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett program för enhet i C# via IoT Hub device strömmar (förhandsversion)
 
@@ -29,7 +28,7 @@ Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgransk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förhandsversionen av enheten strömmar stöds för närvarande endast för IoT-hubbar som har skapats i följande regioner:
   * Centrala USA

@@ -9,15 +9,15 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61354559"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444598"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Skapa din första funktion med Visual Studio Code
 
@@ -27,25 +27,26 @@ I den här artikeln får du lära dig hur du använder [Azure Functions-tillägg
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-För närvarande har tillägget fullständigt stöd för C#-, JavaScript- och Java-funktioner. Python stöds för närvarande som en förhandsversion. Stegen i den här artikeln kan variera beroende på ditt val av språk för Azure Functions-projektet. Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
+Tillägget stöder för närvarande C#, JavaScript och Java fungerar med Python-stöd för närvarande i förhandsversion. Stegen i den här artikeln och artikeln som följer stöder endast JavaScript och C# funktioner. Läs hur du använder Visual Studio Code för att skapa och publicera Python-funktioner i [distribuera Python till Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Läs hur du använder Visual Studio Code för att skapa och publicera PowerShell-funktioner i [skapa din första PowerShell-funktion i Azure](functions-create-first-function-powershell.md). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
+
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
-* Installera [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms). Den här artikeln har utvecklats och testats på en enhet med macOS (High Sierra).
+* Installera [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Installera version 2.x av [Azure Functions Core Tools](functions-run-local.md#v2), som fortfarande finns i förhandsversion.
+* Installera version 2.x av den [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Installera de specifika kraven för ditt valda språk:
 
-    | Språk | Anknytning |
+    | Språk | Krav |
     | -------- | --------- |
-    | **C#** | [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Felsökningsprogram för Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* Krävs också av Core Tools.
+    | **C#** | [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>Aktiva LTS och underhåll LTS versioner (8.11.1 och 10.14.1 rekommenderas).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,47 +54,7 @@ För att slutföra den här snabbstarten behöver du:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion
-
-1. I **Azure: Functions** väljer du ikonen Skapa funktion.
-
-    ![Skapa en funktion](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. Välj mappen med funktionsappsprojektet och välj funktionsmallen **HTTP-utlösare**.
-
-    ![Välj mallen HTTP-utlösare](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Skriv `HTTPTrigger` som funktionens namn och tryck på Retur. Välj sedan **Anonym** autentisering.
-
-    ![Välj anonym autentisering](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    En funktion skapas på ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion.
-
-    ![Mall för HTTP-utlöst funktion i Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-Du kan lägga till bindningar för indata och utdata i funktionen genom att ändra function.json-filen. Mer information finns i [Utlösare och bindningar i Azure Functions](functions-triggers-bindings.md).
-
-Nu när du har skapat ditt funktionsprojekt och en HTTP-utlöst funktion kan du testa den på en lokal dator.
-
-## <a name="test-the-function-locally"></a>Testa funktionen lokalt
-
-Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.  
-
-1. Ange en brytpunkt i funktionskoden och tryck på F5 för att starta funktionsappsprojektet om du vill testa funktionen. Utdata från Core Tools visas på panelen **Terminal**.
-
-1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
-
-    ![Lokala Azure-utdata](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Körningen pausas när brytpunkten nås.
-
-    ![Funktion som når brytpunkt i Visual Studio Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. När du fortsätter körningen visas svaret på GET-begäran i webbläsaren nedan:
-
-    ![Svar för funktion-localhost i webbläsaren](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. Tryck på SKIFT+F5 för att stoppa felsökningen.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 
@@ -101,7 +62,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
+## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
 1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Lägg till frågesträngen `?name=<yourname>` i slutet av URL:en som tidigare och kör begäran.
 
@@ -115,10 +76,10 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu använt Visual Studio Code för att skapa en funktionsapp med en enkel HTTP-utlöst funktion. Du kanske också vill Läs mer om [lokal testning och felsökning från Terminal eller kommandotolk](functions-run-local.md) med hjälp av Azure Functions Core Tools.
+Du har nu använt Visual Studio Code för att skapa en funktionsapp med en enkel HTTP-utlöst funktion. I nästa artikel expanderar du funktionen genom att lägga till en utdatabindning. Den här bindningen skriver strängen från HTTP-begäran till ett meddelande i en Azure Queue Storage-kö. Nästa artikel visar också hur du rensar dessa nya Azure-resurser genom att ta bort resursgruppen som du skapade.
 
 > [!div class="nextstepaction"]
-> [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Lägg till en Azure Storage-kö-bindning till din funktion](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions-tillägg för Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

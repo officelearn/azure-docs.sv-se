@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab80279fae9dacdf7462b6c9d8208e0a56ca0877
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 99933fa36cc822598ec9c173a470f90264d06d54
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164989"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461292"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 
@@ -44,35 +44,35 @@ Referensdata är inte ansluten retroaktivt. Endast nuvarande och framtida inkomm
 
 1. Expandera miljöväljaren i TSI-Utforskaren. Välj den aktiva miljön. Välj referensikonen för data i det övre högra hörnet på sidan explorer.
 
-   [![Lägg till referensdata](media/add-reference-data-set/add_reference_data.png)](media/add-reference-data-set/add_reference_data.png#lightbox)
+   [![Lägg till referensdata](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
 1. Välj den **+ Lägg till en uppsättning** knappen för att börja lägga till en ny datauppsättning.
 
-   [![Lägg till uppsättning av data](media/add-reference-data-set/add_data_set.png)](media/add-reference-data-set/add_data_set.png#lightbox)
+   [![Lägg till uppsättning av data](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
 1. På den **New-referensdatauppsättning** väljer formatet för data:
    - Välj **CSV** för kommaavgränsad data. Den första raden behandlas som en rubrikrad.
    - Välj **JSON-matris** för javascript object notation (JSON) formaterade data.
 
-   [![Välja dataformat.](media/add-reference-data-set/add_data.png)](media/add-reference-data-set/add_data.png#lightbox)
+   [![Välja dataformat.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
 1. Ange dina data, med en av två metoder:
    - Klistra in data i textredigeraren. Välj **parsa referensdata** knappen.
    - Välj **Välj fil** för att lägga till data från en lokal textfil.
 
-   Till exempel klistra in CSV-data: [![Inklistrade CSV-data](media/add-reference-data-set/csv_data_pasted.png)](media/add-reference-data-set/csv_data_pasted.png#lightbox)
+   Till exempel klistra in CSV-data: [![Inklistrade CSV-data](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
 
-   Till exempel klistra in JSON-matris-data: [![Klistra in JSON-data](media/add-reference-data-set/json_data_pasted.png)](media/add-reference-data-set/json_data_pasted.png#lightbox)
+   Till exempel klistra in JSON-matris-data: [![Klistra in JSON-data](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
 
    Om det finns ett fel vid parsning av datavärdena, felet visas i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted`.
 
 1. När data har parsas, visas ett datarutnät Visa kolumner och rader som representerar data.  Granska datarutnätet för att säkerställa är korrekt.
 
-   [![Lägg till referensdata](media/add-reference-data-set/parse_data.png)](media/add-reference-data-set/parse_data.png#lightbox)
+   [![Lägg till referensdata](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
 
 1. Granska varje kolumn om du vill se den datatyp som antas och ändra om det behövs.  Välj symbolen för typ av data i kolumnrubriken: **#** för double-värde (numeriska data), **T | F** för boolesk eller **Abc** sträng.
 
-   [![Välj datatyper på kolumnrubrikerna.](media/add-reference-data-set/choose_datatypes.png)](media/add-reference-data-set/choose_datatypes.png#lightbox)
+   [![Välj datatyper på kolumnrubrikerna.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
 
 1. Byt namn på kolumnrubrikerna om det behövs. Nyckelkolumnsnamn krävs för att ansluta till motsvarande egenskap i din händelsekälla. Se till att referens data nyckelkolumnnamnen matchar exakt med händelsenamnet till dina inkommande data, inklusive skiftlägeskänslighet. De icke-nyckelkolumn namn används för att utöka den inkommande data med motsvarande referens datavärdena.
 
@@ -82,17 +82,17 @@ Referensdata är inte ansluten retroaktivt. Endast nuvarande och framtida inkomm
 
 1. Namnge datamängd, genom att fylla i den **datauppsättningsnamnet** fältet ovanför rutnätet.
 
-    [![Namn på datauppsättning.](media/add-reference-data-set/name_reference_dataset.png)](media/add-reference-data-set/name_reference_dataset.png#lightbox)
+    [![Namn på datauppsättning.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
 1. Ange den **primärnyckel** kolumn i datauppsättningen, genom att välja listrutan ovan datarutnätet.
 
-    [![Markera kolumnerna som är viktiga.](media/add-reference-data-set/set_primary_key.png)](media/add-reference-data-set/set_primary_key.png#lightbox)
+    [![Markera kolumnerna som är viktiga.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
 
     Alternativt kan du välja den **+** för att lägga till en sekundär nyckelkolumn som en sammansatt primärnyckel. Om du vill ångra valet kan du välja tomt värde från listrutan att ta bort den sekundära nyckeln.
 
 1. Om du vill överföra data, Välj den **överför rader** knappen.
 
-    [![Ladda upp](media/add-reference-data-set/upload_rows.png)](media/add-reference-data-set/upload_rows.png#lightbox)
+    [![Ladda upp](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     Sidan bekräftar den slutförda ladda upp och visa meddelandet **har laddats upp datauppsättningen**.
 

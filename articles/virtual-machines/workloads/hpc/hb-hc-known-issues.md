@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810044"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560406"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Kända problem med virtuella datorer i HB-serien och HC-serien
 
@@ -31,13 +31,13 @@ HB-seriens virtuella datorer kan bara användas för att exponera 228 GB RAM fö
 
 Azure Accelererat nätverk är inte aktiverat just nu men kommer när vi går igenom utvärderingsperioden. Vi meddelar kunder när den här funktionen stöds.
 
+## <a name="qp0-access-restriction"></a>qp0 åtkomstbegränsning
+
+0 är inte tillgänglig för virtuella gästdatorer om du vill förhindra på låg nivå maskinvara åtkomst som kan leda till säkerhetsproblem, kö-par. Detta bör endast påverka åtgärder vanligtvis kopplade till administration av ConnectX-5-nätverkskortet och vissa InfiniBand diagnostikverktyg som ibdiagnet, men inte slutanvändare själva programmen körs.
+
 ## <a name="ud-transport"></a>UD-Transport
 
-HB-serien stöder inte dynamiskt ansluten Transport (DCT) vid start. Stöd för DCT implementeras över tid. Tillförlitlig anslutning (RC) och otillförlitliga Datagram (UD) transporter stöds.
-
-## <a name="azure-batch"></a>Azure Batch
-
-HB-seriens virtuella datorer är i förhandsversion, kan du använda ett Batch-konto i läget Användarprenumeration inte i läget.
+HB - och HC-serien stöder inte dynamiskt ansluten Transport (DCT) vid start. Stöd för DCT implementeras över tid. Tillförlitlig anslutning (RC) och otillförlitliga Datagram (UD) transporter stöds.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 

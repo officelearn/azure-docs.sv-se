@@ -38,10 +38,10 @@ I koden du initiera en ny offentlig eller konfidentiell klient (eller användar-
 ## <a name="authority"></a>Myndighet
 Behörigheten är en URL som anger en katalog som MSAL kan begära token från. Vanliga myndigheter är:
 
-- https://login.microsoftonline.com/&lt ; klient&gt; / där &lt; klient&gt; är klient-ID för Azure Active Directory (Azure AD)-klient eller en domän som är associerade med den här Azure AD-klient. Används endast för att logga in användare av en viss organisation.
-- https://login.microsoftonline.com/common/. Används för att logga in användare med arbets- och skolkonton eller personliga Microsoft-konton.
-- https://login.microsoftonline.com/organizations/. Används för att logga in användare med arbets-och skolkonton.
-- https://login.microsoftonline.com/consumers/. Används för att logga in användare med endast personliga Microsoft-konton (kallades tidigare Windows Live ID-konton).
+- [https://login.microsoftonline.com/&amp;lt](https://login.microsoftonline.com/&lt ); klient&gt; / där &lt; klient&gt; är klient-ID för Azure Active Directory (Azure AD)-klient eller en domän som är associerade med den här Azure AD-klient. Används endast för att logga in användare av en viss organisation.
+- [https://login.microsoftonline.com/common/](https://login.microsoftonline.com/common/ ). Används för att logga in användare med arbets- och skolkonton eller personliga Microsoft-konton.
+- [https://login.microsoftonline.com/organizations/](https://login.microsoftonline.com/organizations/ ). Används för att logga in användare med arbets-och skolkonton.
+- [https://login.microsoftonline.com/consumers/](https://login.microsoftonline.com/consumers/ ). Används för att logga in användare med endast personliga Microsoft-konton (kallades tidigare Windows Live ID-konton).
 
 Inställningen av måste stämma överens med vad som är deklarerad i portalen för registrering av programmet.
 

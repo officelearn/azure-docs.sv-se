@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808617"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446688"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar integrera Microsoft Azure och Oracle Cloud Infrastructure (förhandsversion)
 
@@ -74,5 +74,7 @@ Identiteten är en av core grundpelare för partnerskap mellan Microsoft och Ora
 För närvarande kan den här integrationen du hantera en central plats, vilket är Azure Active Directory. Azure AD synkroniseras alla ändringar i katalogen med motsvarande Oracle-katalog och används för enkel inloggning till molnöverskridande Oracle-lösningar.
 
 ## <a name="next-steps"></a>Nästa steg
+
+Kom igång med en [molnöverskridande nätverk](configure-azure-oci-networking.md) mellan Azure och OCI. 
 
 Mer information och White Paper-faktablad om OCI finns i den [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) dokumentation.

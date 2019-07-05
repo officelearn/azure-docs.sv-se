@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4017a3be5e03e1a9b85b4002b8069a1adc3a6b83
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924638"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551574"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -30,6 +30,8 @@ Du kan använda den [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-de
 * Så här att förbereda utvecklingsmiljön och utveckla program för IoT DevKit.
 
 Har inte en DevKit ännu? Prova den [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [köpa en DevKit](https://aka.ms/iot-devkit-purchase).
+
+Du hittar källkoden för DevKit-kurs på den [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) lagringsplats.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
@@ -132,6 +134,11 @@ DevKit ansluter till en enhetsspecifik slutpunkt på din IoT hub och skickar tel
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![Skicka data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. För att verifiera dessa data skickas till Azure, kör du följande kommando i Azure Cloud Shell:
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
@@ -301,7 +308,7 @@ Du kan använda [Azure IoT Tools](https://marketplace.visualstudio.com/items?ite
 1. I VS Code, klickar du på `F1`skriver du och väljer **Azure IoT Hub: Ange IoT Hub-anslutningssträngen**. Kopiera anslutningssträngen till den.
     ![Ange Azure IoT Hub-anslutningssträng](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. Expandera den **AZURE IOT HUB-enheter** rutan till höger, högerklickar du på namnet på enheten du har skapat och välj **börja övervaka D2C-meddelande**.
+1. Expandera den **AZURE IOT HUB-enheter** rutan till höger, högerklickar du på namnet på enheten du har skapat och välj **starta inbyggda händelse slutpunkt för övervakning av**.
     ![Övervaka D2C-meddelande](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. I **utdata** fönstret ser du inkommande D2C-meddelanden till IoT Hub.

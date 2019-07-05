@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: ee627a168e6ca9bb758d994a3f75cc6185976971
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1037d8d4652f238f03d8e80b0c59a5f396ab5605
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445721"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Konfigurera push-meddelanden i en notification hub i Azure portal
 
-Azure Meddelandehubbar ger en push-motor som är lätt att använda och som skalas ut. Du kan använda Meddelandehubbar för att skicka meddelanden till alla plattformar (iOS, Android, Windows, Kindle, Baidu) och från valfri serverdel (i molnet eller lokalt). Mer information finns i [vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
+Azure Meddelandehubbar ger en push-motor som är lätt att använda och som skalas ut. Använda Meddelandehubbar för att skicka meddelanden till alla plattformar (iOS, Android, Windows, Baidu) och från valfri serverdel (i molnet eller lokalt). Mer information finns i [vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 I den här snabbstarten ska du använda plattformsinställningarna notification system (PNS) i Meddelandehubbar för att ställa in push-meddelanden på flera plattformar. Snabbstarten visar hur du fortsätter i Azure-portalen.
 
@@ -95,17 +95,6 @@ Så här upp Microsoft Push Notification Service (MPNS) för Windows Phone:
 
 Mer information finns i [Push-meddelanden till Windows Phone-appar med hjälp av Meddelandehubbar](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-Konfigurera push-meddelanden för Amazon Device Messaging (ADM):
-
-1. I Azure-portalen på den **Meddelandehubb** väljer **Amazon (ADM)** menyn till vänster.
-2. Ange värden för **klient-ID** och **Klienthemlighet**.
-3. Välj **Spara**.
-    
-   ![Skärmbild av ADM-inställningar i Azure portal](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-Mer information finns i [Kom igång med Notification Hubs för Kindle-appar](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
 
@@ -131,5 +120,4 @@ Läs mer om hur du push-meddelanden till olika plattformar i de här självstudi
 - [Push-meddelanden till Android-enheter med hjälp av Meddelandehubbar och Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Push-meddelanden till en UWP-app som körs på en Windows-enhet](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Push-meddelanden till en Windows Phone 8-app med hjälp av MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Push-meddelanden till en Kindle-App](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Push-meddelanden med hjälp av Meddelandehubbar och Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)

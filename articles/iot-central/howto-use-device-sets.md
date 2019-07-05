@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052937"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503207"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
 Den här artikeln beskrivs hur du som en operatör att använda enheten anger i programmets Azure IoT Central.
 
-En enhet är en lista över enheter som grupperas eftersom de alla matchar vissa angivna villkor. Enheten anger hjälpa dig att hantera, visualisera och analysera enheter i stor skala genom att gruppera enheter i mindre, logiska grupper. Exempelvis kan skapa du en lista över alla enheter som luftkonditionering i Seattle att aktivera Seattle-tekniker att hitta alla enheter som teknikern ansvarar. Den här artikeln visar hur du skapar och konfigurerar Enhetsuppsättningar.
+En enhet är en lista över enheter som grupperas eftersom de uppfyller vissa angivna villkor. Enheten anger hjälpa dig att hantera, visualisera och analysera enheter i stor skala genom att gruppera enheter i mindre, logiska grupper. Du kan till exempel skapa en enhet som att lista alla luftkonditionering enheter i Seattle att aktivera en tekniker att hitta de enheter som de är ansvarig. Den här artikeln visar hur du skapar och konfigurerar Enhetsuppsättningar.
 
 ## <a name="create-a-device-set"></a>Skapa en enhetsuppsättning
 
@@ -44,7 +44,7 @@ Skapa en enhetsuppsättning:
 
 ## <a name="configure-the-dashboard-for-your-device-set"></a>Konfigurera instrumentpanel för din enhet
 
-När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanelen**. Den **instrumentpanelen** är startsidan där du kan placera bilder och länkar. Du kan också lägga till rutnät som lista över enheterna i enhetsuppsättningen.
+När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanelen**. Den **instrumentpanelen** är startsidan där du placerar dina bilder och länkar. Du kan också lägga till rutnät som lista över enheterna i enhetsuppsättningen.
 
 1. Välj **enhetsuppsättningar** på den vänstra navigeringsmenyn.
 
@@ -85,19 +85,20 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
   
     1. Välj **Done** (Klar).
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konfigurera platskarta i enheten anger instrumentpanel
+Mer information om hur du använder paneler i Azure IoT Central finns [använda instrumentpaneler](howto-use-tiles.md).
 
-Du kan lägga till en platskarta som visualiserar platsen för dina enheter anger på en karta.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Konfigurera en platskarta på din enhet uppsättningar instrumentpanel
 
-För att lägga till en platskarta till enheten som anger instrumentpanelen som du måste ha konfigurerade Platsegenskapen i mallen för enhet, se [skapa en plats-egenskap som drivs av Azure Maps](howto-set-up-template.md).
+Du kan lägga till en karta för att visualisera platsen för enheter i din enhet.
 
-1. Välj kartan på instrumentpanelen ställa in enheten från biblioteket.
-2. Ge en rubrik och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
-3. Spara och du ser kartan panelen Visa platsen för dina enheter i enheten inställd.
-4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick!
+Om du vill lägga till en karta till din enhet anger instrumentpanelen, måste du ha konfigurerat en plats mätning eller Platsegenskapen i mallen för enheten. Mer information finns i [skapa en plats](howto-set-up-template.md) eller [skapa en Platsegenskapen](howto-set-up-template.md).
 
-> [!NOTE]
-> Du kan ändra storlek på kartan till din önskade storlek. Att välja en PIN-kod på kartan visar enhetsinformationen, namn och plats. Du kan välja popup-fönstret att gå till egenskapssidan för enheten.
+1. Ställ in på din enhet **instrumentpanelen**väljer **kartan** från biblioteket.
+2. Lägg till en rubrik och välj plats mätningen eller egenskapen som du tidigare konfigurerat.
+3. Välj **spara** och panelen kartan visar senaste kända platserna för enheterna i din enhet.
+4. När en operatör visar instrumentpanelen för enheten uppsättningar, ser operatorn alla paneler som du har konfigurerat, inklusive location-kartan.
+
+Du kan ändra storlek på kartan panelen på instrumentpanelen. Att välja en PIN-kod på kartan visar enhetsinformationen, namn och plats. Välj popup-fönstret att gå till egenskapssidan för enheten.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet
 

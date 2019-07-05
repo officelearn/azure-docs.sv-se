@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752191"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441927"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - gränsen för utgående trafik för klusternoder och kontrollera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes Service (AKS)
 
@@ -30,19 +30,22 @@ Den här artikeln beskriver vilka nätverksportar och fullständigt kvalificerad
 
 Du behöver Azure CLI version 2.0.66 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-Om du vill skapa ett AKS-kluster som begränsar utgående trafik du först aktivera en funktionsflagga i prenumerationen. Den här funktionsregistrering konfigurerar alla AKS-kluster som du skapar för att använda grundläggande system behållaravbildningar från MCR eller ACR. Att registrera den *AKSLockingDownEgressPreview* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Om du vill skapa ett AKS-kluster som begränsar utgående trafik du först aktivera en funktionsflagga i prenumerationen. Den här funktionsregistrering konfigurerar alla AKS-kluster som du skapar för att använda grundläggande system behållaravbildningar från MCR eller ACR. Att registrera den *AKSLockingDownEgressPreview* funktion flaggan, använda den [az funktionen registrera][az-feature-register] kommandot som visas i följande exempel:
+
+> [!CAUTION]
+> När du registrerar en funktion i en prenumeration kan du inte för närvarande avregistrera den funktionen. När du aktiverar vissa funktioner i förhandsversion, kan standardinställningar användas för alla AKS-kluster som skapas i prenumerationen. Inte aktivera förhandsversionsfunktioner för produktion-prenumerationer. Använd en separat prenumeration för att testa funktioner och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera registreringsstatus med hjälp av den [az funktionslistan] [ az-feature-list] kommando:
+Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera registreringsstatus med hjälp av den [az funktionslistan][az-feature-list] kommando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern genom att använda den [az provider register] [ az-provider-register] kommando:
+När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern genom att använda den [az provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ Noder i ett AKS-kluster behöver åtkomst till vissa portar och fullständigt kv
 
 Om du vill öka säkerheten för AKS-kluster, kan du begränsa utgående trafik. Klustret har konfigurerats för att hämta grundläggande system behållaravbildningar från MCR eller ACR. Om du låsa den utgående trafiken i det här sättet måste du definiera specifika portar och FQDN för att tillåta AKS-nodernas korrekt kommunicera med externa tjänster som krävs. AKS-noder kan inte kommunicera med API-servern eller installera kärnkomponenter utan dessa auktoriserade portar och FQDN.
 
-Du kan använda [Azure brandvägg] [ azure-firewall] eller en 3 part brandväggsinstallation att skydda din utgående trafik och definiera de nödvändiga portarna och adresser. AKS skapar inte automatiskt dessa regler för dig. Följande portar och adresser är som referens när du skapar lämpliga regler i nätverkets brandvägg.
+Du kan använda [Azure brandvägg][azure-firewall] eller en 3 part brandväggsinstallation att skydda din utgående trafik och definiera de nödvändiga portarna och adresser. AKS skapar inte automatiskt dessa regler för dig. Följande portar och adresser är som referens när du skapar lämpliga regler i nätverkets brandvägg.
 
 Det finns två uppsättningar med portar och adresser i AKS:
 
@@ -62,7 +65,7 @@ Det finns två uppsättningar med portar och adresser i AKS:
 * Den [valfria rekommenderade adresser och portar för AKS-kluster](#optional-recommended-addresses-and-ports-for-aks-clusters) inte behövs för alla scenarier, men integrering med andra tjänster som Azure Monitor inte fungerar korrekt. Granska den här listan över valfria portar och FQDN och auktorisera någon av de tjänster och komponenter som används i AKS-klustret.
 
 > [!NOTE]
-> Begränsa utgående trafik fungerar bara på nytt AKS-kluster som skapas när du har aktiverat funktionen flaggan registreringen. För befintliga kluster [utföra en uppgradering klusteråtgärden] [ aks-upgrade] med hjälp av den `az aks upgrade` kommandot innan du begränsa den utgående trafiken.
+> Begränsa utgående trafik fungerar bara på nytt AKS-kluster som skapas när du har aktiverat funktionen flaggan registreringen. För befintliga kluster [utföra en uppgradering klusteråtgärden][aks-upgrade] med hjälp av den `az aks upgrade` kommandot innan du begränsa den utgående trafiken.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>Portar som krävs och adresser för AKS-kluster
 

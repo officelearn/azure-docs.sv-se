@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393799"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537777"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Utveckla C# Service Fabric-program med Visual Studio Code
 
@@ -27,7 +27,7 @@ Den [Service Fabric Reliable Services-tillägget för VS Code](https://marketpla
 
 Den här artikeln visar hur du bygga, distribuera och felsöka en .NET Core Service Fabric-program som använder Visual Studio Code.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services-tillägget för VS Code och eventuella beroenden som krävs för din utvecklingsmiljö. Mer information finns i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -77,6 +77,17 @@ När du har skapat programmet kan distribuera du den till det lokala klustret.
 4. När du har kontrollerat programmet körs, starta en webbläsare och öppna den här sidan: http:\//localhost:31002. Det här är en webbklient för programmet. Uppdatera sidan om du vill se det aktuella värdet för räknaren som ökas.
 
    ![Räknaren tjänstprogram i webbläsare](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicera programmet till ett Azure Service Fabric-kluster
+Du kan också publicera programmet till ett fjärrkluster med Azure Service Fabric samt distribuera programmet till det lokala klustret. 
+
+1. Se till att du har skapat ditt program med hjälp av anvisningarna ovan. Uppdatera konfigurationsfilen för genererade `Cloud.json` med information om du vill publicera till fjärrklustret.
+
+2. Från den **Kommandopaletten**väljer den **Service Fabric: Publicera programmet kommandot**. Utdata från installationen skickas till den integrerade terminalen.
+
+   ![Publicera programmet kommandot i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. När distributionen är klar, starta en webbläsare och öppna Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Du bör se att programmet körs. Det kan ta lite tid, så ha tålamod. 
 
 ## <a name="debug-the-application"></a>Felsök programmet
 När du felsöker program i VS Code, måste du köra programmet i ett lokalt kluster. Brytpunkter kan sedan läggas till i koden.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303522"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542569"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -60,6 +60,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 * För tillgångar som har skapats med v3, Media Services stöder endast den [lagringskryptering för Azure Storage serversidan](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * Du kan använda v3-API: er med tillgångar som skapas med v2 API: er som hade [lagringskryptering](../previous/media-services-rest-storage-encryption.md) (AES-256) tillhandahålls av Media Services.
     * Du kan inte skapa nya tillgångar med äldre AES-256 [lagringskryptering](../previous/media-services-rest-storage-encryption.md) med v3-API: er.
+* Tillgångens egenskaper i v3 skiljer sig åt för att från v2, se [hur egenskaperna mappar](assets-concept.md#map-v3-asset-properties-to-v2).
 * SDK: er för v3 är nu fristående från Storage SDK, som ger dig större kontroll över versionen av Storage SDK du vill använda och på så sätt undviker problem med versionshantering. 
 * I API: er med v3 är alla kodning bithastigheter i bitar per sekund. Detta skiljer sig från v2 förinställningar för Media Encoder Standard. Till exempel bithastigheten i v2 skulle anges som 128 (kbit/s), men i v3 det vore 128000 (bitar per sekund). 
 * Entiteter AssetFiles och AccessPolicies IngestManifests finns inte i v3.

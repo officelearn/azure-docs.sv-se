@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539325"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485239"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
@@ -57,7 +57,7 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 |-------------------|----------|
 | Verktyg för prototyper och inspektion | I portalen kan du använda [**guiden Importera data**](search-import-data-portal.md) för att konfigurera indexerare, indexdesignern för att sätta upp ett index och [**Sökutforskaren**](search-explorer.md) för att testa frågor och förfina bedömningsprofiler. Du kan också öppna ett index om du vill visa dess schema. |
 | Övervakning och diagnostik | [**Aktivera övervakningsfunktioner** ](search-monitor-usage.md) du gå bortom de mått-med ett ögonkast som alltid är synliga i portalen. Mått för frågor per sekund, svarstid och begränsning fångas in och rapporteras på portalsidor utan att ytterligare konfiguration krävs. <br/><br/>[**Söktrafikanalys** ](search-traffic-analytics.md) är ett annat alternativ för övervakning, där serversidan och klientsidan data samlas in och analyseras för att låsa upp insikter om vad användare skriver i sökrutan. |
-| Kryptering på serversidan | [**Microsoft-hanterade kryptering vid vila** ](search-security-overview.md#encrypted-transmission-and-storage) har skapats i det interna lagringsskiktet och är oåterkalleligt. Du kan också komplettera standard-kryptering med [ **kundhanterad krypteringsnycklar (förhandsversion)**](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymen mappar i Azure Search. |
+| Kryptering på serversidan | [**Microsoft-hanterade kryptering vid vila** ](search-security-overview.md#encrypted-transmission-and-storage) har skapats i det interna lagringsskiktet och är oåterkalleligt. Du kan också komplettera standard-kryptering med [ **kundhanterad krypteringsnycklar (förhandsversion)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymen mappar i Azure Search. |
 | Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. När det skalas korrekt [erbjuder Azure Search ett serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Search är **fullständigt hanterat och skalbart** som en komplett lösning, och kräver ingen som helst infrastrukturhantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Använda Azure Search
@@ -81,7 +81,7 @@ Med pull-modellen hämtas data från externa datakällor. Den stöds med hjälp 
 
 Push-modellen tillhandahålls via SDK eller REST API:er, som används för att skicka uppdaterade dokument till ett index. Du kan skicka data från i princip valfri datamängd med JSON-format. Mer information om hur du läser in data finns i [Lägga till, uppdatera och ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents) och [Använda .NET-SDK](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>Steg 4: Sökning
+### <a name="step-4-search"></a>Steg 4: Search
 När du har fyllt i ett index kan du [utfärda sökfrågor](/rest/api/searchservice/Search-Documents) till tjänstens slutpunkt med hjälp av enkla HTTP-begäranden med REST API eller .NET-SDK.
 
 ## <a name="how-it-compares"></a>Jämförelse
@@ -134,7 +134,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 3. Gå vidare med kod med .NET eller REST-API:et:
 
    + [Använda .NET SDK](search-howto-dotnet-sdk.md) beskriver huvudarbetsflödet i förvaltad kod.  
-   + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska REST-API:er för Azure Search](search-fiddler.md).
+   + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska REST-API:er för Azure Search](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Titta på den här videon
 

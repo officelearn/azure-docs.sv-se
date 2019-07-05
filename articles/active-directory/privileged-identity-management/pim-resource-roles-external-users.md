@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307067"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476343"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gästanvändare och tilldela Azure-resursroller i PIM
 
@@ -47,7 +47,7 @@ Här följer några scenarier när du kan bjuda in gäster till din organisation
 
 När du använder B2B-samarbete, kan du bjuda in en extern användare till din organisation som gäst. Gästen verkar vara i din organisation, men gästen har inte några autentiseringsuppgifter som är kopplade till den. Varje gång som en gäst måste autentiseras, måste de autentiseras i deras organisation, hem och inte i din organisation. Det innebär att om gästen har inte längre åtkomst till sina hemorganisation kan de också skulle förlora åtkomsten till din organisation. Till exempel om gästen lämnar organisationen, förlora de automatiskt åtkomsten till eventuella resurser som delas med dem i Azure AD utan att du behöver göra något. Läs mer om B2B [vad är gästanvändares åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![B2B- och gästkonton](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram som visar hur en gästanvändare visas i din katalog, men autentiseras i deras hemkatalog.](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## <a name="check-guest-collaboration-settings"></a>Kontrollera inställningar för gäst-samarbete
 
@@ -59,7 +59,7 @@ För att se till att du kan bjuda in gäster till din organisation, bör du kont
 
 1. Klicka på **hantera inställningar för externt samarbete**.
 
-    ![Inställningar för externt samarbete](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Inställningar för externt samarbete sidan som visar behörighet, inbjudan och samarbete begränsningsinställningar](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. Se till att den **administratörer och användare i gästinbjudarrollen kan bjuda in** anges för växeln **Ja**.
 
@@ -81,21 +81,21 @@ Använda PIM kan du Bjud in Gäst och gör dem tillgängliga för en Azure-resur
 
 1. Klicka på under hantera, **roller** vill se en lista över roller för Azure-resurser.
 
-    ![Azure-resursroller](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Azure-resursroller lista som visar antalet användare som är aktiva och berättigade](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Klicka på den lägsta roll som användaren behöver.
 
-    ![Vald roll](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Valt rollsidan Visa aktuella medlemmar i rollen](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. På rollsidan **Lägg till medlem** att öppna tilldelningsfönstret ny.
 
 1. Klicka på **Välj en medlem eller en grupp**.
 
-    ![Välj en medlem eller en grupp](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Ny tilldelning - Välj en medlem eller gruppen fönstret visa en lista över användare och grupper tillsammans med ett alternativ för inbjudan](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Om du vill bjuda in en gäst, klickar du på **bjuda in**.
 
-    ![Bjud in gäst](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Bjud in en gäst-sida med rutorna och ange en e-postadress som du kan ange ett personligt meddelande](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. När du har valt en gäst, klickar du på **bjuda in**.
 
@@ -105,13 +105,13 @@ Använda PIM kan du Bjud in Gäst och gör dem tillgängliga för en Azure-resur
 
 1. I den **Medlemskapsinställningar** fönstret väljer du Tilldelningstyp och varaktighet.
 
-    ![Medlemskapsinställningar](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Ny tilldelning - sidan för inställningar av medlemskap med alternativ för att ange Tilldelningstyp startdatum och slutdatum](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. För att slutföra tilldelningen klickar du på **klar** och sedan **Lägg till**.
 
     Gäst-rolltilldelning visas i listan med rollen.
 
-    ![Rolltilldelning för gäst](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Rollsidan lista gästen som berättigade](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## <a name="activate-role-as-a-guest"></a>Aktivera rollen som en gäst
 
@@ -119,13 +119,13 @@ Som en extern användare måste du först acceptera inbjudan till din Azure AD-o
 
 1. Öppna e-postmeddelandet med din inbjudan. E-postmeddelandet ser ut ungefär så här.
 
-    ![E-postinbjudan](./media/pim-resource-roles-external-users/email-invite.png)
+    ![E-postinbjudan med katalognamnet, personligt meddelande och en komma igång-länk](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. Klicka på den **börjar** länken i e-postmeddelandet.
 
 1. När du har granskat behörigheterna, klickar du på **acceptera**.
 
-    ![Granska behörigheter](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Granskning behörighetssidan i en webbläsare med en lista över behörigheter som organisationen vill du att granska](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. Du kan bli ombedd att acceptera användningsvillkor och ange om du vill förbli inloggad.
 
@@ -133,11 +133,11 @@ Som en extern användare måste du först acceptera inbjudan till din Azure AD-o
 
 1. Aktivera din roll genom att öppna e-postmeddelande med din aktivera rollen länk. E-postmeddelandet ser ut ungefär så här.
 
-    ![E-postinbjudan](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![E-postmeddelande från PIM som anger du kvalificerade för en roll med ett aktiveringslänken för rollen](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. Klicka på **aktivera rollen** att öppna dina berättigade roller i PIM.
 
-    ![Mina roller - berättigade](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Min rollsidan i PIM där dina berättigade roller](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Under åtgärden, klickar du på den **aktivera** länk.
 
@@ -145,7 +145,7 @@ Som en extern användare måste du först acceptera inbjudan till din Azure AD-o
 
 1. När du har angett inställningarna för rollen, klickar du på **aktivera** aktiverar rollen.
 
-    ![Aktivera roll](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Aktivera sidan lista omfång och alternativ för att ange starttid, varaktighet och orsak](./media/pim-resource-roles-external-users/activate-role.png)
 
     Om inte administratören behöver godkänna din begäran ska ha åtkomst till de angivna resurserna.
 
@@ -157,13 +157,13 @@ Du kan visa granskningsloggarna för att hålla reda på vad gäster gör precis
 
 1. Klicka på **resursgranskning** att visa aktiviteten för den resursen. Nedan visas ett exempel på aktiviteten för en resursgrupp.
 
-    ![Resursgranskning](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Azure-resurser – Resource granska lista över tid, begärande och åtgärder](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Om du vill visa aktiviteten för gästen, klickar du på **Azure Active Directory** > **användare** > gästen namn.
 
 1. Klicka på **granskningsloggar** att se granskningsloggarna för organisationen. Om det behövs kan du ange filter.
 
-    ![organisation granskning](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Directory granskningsloggar lista datum, mål, initieras av, och aktivitet](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

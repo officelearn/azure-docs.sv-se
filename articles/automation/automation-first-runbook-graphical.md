@@ -5,17 +5,17 @@ keywords: runbook, runbook-mall, runbook-automation, azure runbook
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 043a39fbcb908e4c277e5eba9972a2a17ca23813
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61078099"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478671"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -28,7 +28,7 @@ ms.locfileid: "61078099"
 
 Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Du börjar med en enkel runbook som testar och publicerar och lär dig hur du spårar statusen för runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Därefter slutför du självstudien och gör runbook-jobbet stabilare genom att lägga till runbook-parametrar och villkorliga länkar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 

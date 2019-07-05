@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071060"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550365"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -102,7 +102,7 @@ En slutpunkt är i feltillstånd när någon av följande händelser inträffar:
 - Om övervakning protokollet HTTP eller HTTPS:
     - Ett icke-200-svar eller ett svar som inte innehåller status-intervallet som angetts i den **förväntade statuskodintervall** inställningen tas emot (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
 - Om övervakning protokollet är TCP: 
-    - Än ACK eller SYN ACK svar som svar på SYNC-begäran som skickats av Traffic Manager att försöka upprätta en anslutning.
+    - Än ACK eller SYN ACK svar som svar på SYN-begäran som skickats av Traffic Manager att försöka upprätta en anslutning.
 - Timeout. 
 - Alla andra anslutningsproblem leder det inte går att nå slutpunkten.
 

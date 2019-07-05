@@ -3,17 +3,17 @@ title: Köra shell-skript i en Linux-VM på Azure
 description: Det här avsnittet beskriver hur du kör skript i en Azure Linux-dator som kör kommandot
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570592"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477047"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Köra shell-skript i Linux-VM med Kör kommando
 
@@ -71,7 +71,7 @@ När kommandot har valts klickar du på **kör** att köra skriptet. Skriptet k�
 
 Den här tabellen visas listan över kommandon som är tillgängliga för virtuella Linux-datorer. Den **RunShellScript** kommando kan användas för att köra alla anpassade skript som du vill.
 
-|**Namn**|**Beskrivning**|
+|**Name**|**Beskrivning**|
 |---|---|
 |**RunShellScript**|Kör ett Linux-kommandoskript.|
 |**ifconfig**| Läsa konfigurationen för alla nätverksgränssnitt.|

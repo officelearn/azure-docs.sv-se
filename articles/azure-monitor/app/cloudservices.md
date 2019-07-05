@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478326"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443341"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure molntjänster
-[Application Insights] [ start] kan övervaka [Azure cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK: er med [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
+[Application Insights][start] kan övervaka [Azure cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK: er med [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)data från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikt över instrumentpanelen](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) prenumeration. Logga in med ditt Microsoft-konto för Windows, Xbox Live eller andra Microsoft-molntjänster. 
@@ -80,7 +80,7 @@ Om du vill skicka telemetrin till lämpliga resurser, kan du ställa in Applicat
 
 Om du har valt att skapa en separat resurs för varje roll, och kanske en separat uppsättning för varje versionskonfiguration, är det enklast att skapa alla Application Insights-portalen. Om du ofta skapar resurser kan du [automatisera processen](../../azure-monitor/app/powershell.md).
 
-1. I den [Azure-portalen][portal]väljer **New** > **Utvecklartjänster**  >   **Application Insights**.  
+1. I den [Azure-portalen][portal]väljer **New** > **Utvecklartjänster** > **Application Insights**.  
 
     ![Application Insights-fönstret](./media/cloudservices/01-new.png)
 
@@ -136,7 +136,38 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
 1. Ange den *ApplicationInsights.config* filen alltid ska kopieras till utdatakatalogen.  
     Ett meddelande i den *.config* filen ber dig att placera instrumenteringsnyckeln där. Men för molnappar, är det bättre att ställa in den från den *.cscfg* fil. Den här metoden gör att rollen identifieras korrekt i portalen.
 
-#### <a name="run-and-publish-the-app"></a>Köra och publicera appen
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Konfigurera statusövervakaren för att samla in fullständiga SQL-frågor (valfritt)
+
+Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .NET Framework. 
+
+1. I `\*.csdef` filen Add [startåtgärd](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) för varje roll som liknar 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Ladda ned [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) och [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), placerar dem i den `AppInsightsAgent` mapp på varje rollprojekt. Se till att kopiera dem till katalogen via Visual Studio filegenskaper eller skapa skript.
+
+3. Lägg till miljövariabler på alla Worker-roller: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>Köra och publicera appen
 
 1. Kör appen och logga in på Azure. 
 
@@ -146,10 +177,10 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
 1. Lägg till mer telemetri (se nästa avsnitt) och sedan publicera din app för att få live diagnostik- och användningsdata feedback. 
 
 Om det finns inga data, gör du följande:
-1. Om du vill visa enskilda händelser, öppna den [Search] [ diagnostic] panelen.
+1. Om du vill visa enskilda händelser, öppna den [Search][diagnostic] panelen.
 1. Öppna olika sidor i appen, så att det genererar telemetri.
 1. Vänta några sekunder och klicka sedan på **uppdatera**.  
-    Mer information finns i [felsökning][qna].
+    Mer information finns i [Felsökning][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Visa Azure Diagnostics-händelser
 Du hittar den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i Application Insights på följande platser:

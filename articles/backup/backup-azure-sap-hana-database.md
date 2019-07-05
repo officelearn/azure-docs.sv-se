@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237814"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481113"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Säkerhetskopiera en SAP HANA-databas
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237814"
 > [!NOTE]
 > Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. Det är för närvarande inte klara för produktion och har en garanterad serviceavtal. 
 
-
 ## <a name="scenario-support"></a>Scenariostöd
 
 **Support** | **Detaljer**
 --- | ---
 **Geografiska områden som stöds** | Australien, sydöstra Australien, östra <br> Södra Brasilien <br> Kanada, centrala Kanada, östra <br> Sydostasien, Östasien <br> Östra USA, östra USA 2, USA, västra centrala, USA, västra, USA, västra 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala Indien, södra <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra, Storbritannien, västra
 **VM-operativsystem som stöds** | SLES 12 SP2 eller SP3.
-**HANA-versioner som stöds** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
-
+**HANA-versioner som stöds** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
 ### <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -39,14 +37,11 @@ ms.locfileid: "65237814"
 - Du kan bara säkerhetskopiera databaser på upp-läge.
 - Du kan säkerhetskopiera databasloggar var 15: e minut. Loggsäkerhetskopior endast börjar flöda när en fullständig säkerhetskopia för databasen har slutförts.
 - Du kan ta fullständiga och differentiella säkerhetskopieringar. Inkrementell säkerhetskopiering stöds inte för närvarande.
-- Du kan inte ändra principen för säkerhetskopiering när du har tillämpat den för SAP HANA-säkerhetskopiering. Om du vill säkerhetskopiera med olika inställningar, skapa en ny princip eller tilldela en annan princip. 
-    - Om du vill skapa en ny princip i valvet klickar du på **principer** > **principer för säkerhetskopiering** >  **+ Lägg till** > **SAP HANA i Azure VM**, och ange andra inställningar.
-    - Om du vill tilldela en annan princip i egenskaperna för den virtuella datorn som kör databasen, klickar du på principnamnet på aktuella. På den **Säkerhetskopieringsprincipen** sidan som du kan välja en annan princip som ska användas för säkerhetskopiering.
+- Du kan inte ändra principen för säkerhetskopiering när du har tillämpat den för SAP HANA-säkerhetskopiering. Om du vill säkerhetskopiera med olika inställningar, skapa en ny princip eller tilldela en annan princip.
+  - Om du vill skapa en ny princip i valvet klickar du på **principer** > **principer för säkerhetskopiering** >  **+ Lägg till** > **SAP HANA i Azure VM**, och ange andra inställningar.
+  - Om du vill tilldela en annan princip i egenskaperna för den virtuella datorn som kör databasen, klickar du på principnamnet på aktuella. På den **Säkerhetskopieringsprincipen** sidan som du kan välja en annan princip som ska användas för säkerhetskopiering.
 
-
-
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du gör följande innan du konfigurerar säkerhetskopieringar:
 
@@ -57,14 +52,16 @@ Kontrollera att du gör följande innan du konfigurerar säkerhetskopieringar:
 
         ![Alternativ för installation av paket](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  På den virtuella datorn, installera och aktivera ODBC-drivrutinspaket från de officiella SLES paket/media med zypper, enligt följande:
+2. På den virtuella datorn, installera och aktivera ODBC-drivrutinspaket från de officiella SLES paket/media med zypper, enligt följande:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Tillåta anslutning från den virtuella datorn till internet, så att den kan nå Azure, enligt beskrivningen i proceduren nedan.
 
+3. Kan du ansluta från den virtuella datorn till internet, så att den kan nå Azure, enligt beskrivningen i proceduren [nedan](#set-up-network-connectivity).
+
+4. Kör skriptet före registrering på den virtuella datorn där HANA installeras som en rotanvändare. De [i portalen](#discover-the-databases) i flödet och krävs för att ställa in den [Högerklicka behörigheter](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Konfigurera nätverksanslutningar
 
@@ -80,7 +77,7 @@ Kom igång med den offentliga förhandsversionen på följande sätt:
 - I portalen, registrera ditt prenumerations-ID till Recovery Services-leverantören av [följa den här artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - PowerShell kör du denna cmdlet. Det bör vara klart som ”Registered”.
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Kom igång med den offentliga förhandsversionen på följande sätt:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Identifiera databaser
-
 
 1. I valvet i **komma igång**, klickar du på **Backup**. I **var körs din arbetsbelastning?** väljer **SAP HANA i Azure VM**.
 2. Klicka på **starta identifieringen**. Detta startar en identifiering av oskyddade virtuella Linux-datorer i valvregionen.
@@ -104,7 +100,7 @@ Kom igång med den offentliga förhandsversionen på följande sätt:
 6. Azure Backup identifierar alla SAP HANA-databaser på den virtuella datorn. Vid identifiering, Azure Backup registrerar den virtuella datorn med valvet och installerar ett tillägg på den virtuella datorn. Ingen agent är installerad på databasen.
 
     ![Identifiera SAP HANA-databaser](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering  
 
 Nu kan du aktivera säkerhetskopiering.
@@ -116,6 +112,7 @@ Nu kan du aktivera säkerhetskopiering.
 5. Spåra förloppet för konfiguration av säkerhetskopiering i den **meddelanden** området i portalen.
 
 ### <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
+
 En princip för säkerhetskopiering definierar när säkerhetskopior tas och hur länge de är kvar.
 
 - En policy skapas på valvnivå.
@@ -189,6 +186,5 @@ Om du vill säkerhetskopiera lokala (med HANA Studio) av en databas som säkerhe
 
 ## <a name="next-steps"></a>Nästa steg
 
+[Lär dig mer om](backup-azure-sap-hana-database-troubleshoot.md) felsökning av vanliga fel när du använder SAP HANA-säkerhetskopia i virtuella Azure-datorer.
 [Lär dig mer om](backup-azure-arm-vms-prepare.md) säkerhetskopiering av virtuella Azure-datorer.
-
-

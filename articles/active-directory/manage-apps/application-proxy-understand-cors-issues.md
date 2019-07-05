@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399332"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440419"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Förstå och lösa problem med Azure Active Directory Application Proxy CORS
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) kan ibland vara ett problem vid appar och API: er som du publicerar via Azure Active Directory Application Proxy. Den här artikeln beskrivs Azure AD Application Proxy CORS problem och lösningar.
+[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) kan ibland vara ett problem vid appar och API: er som du publicerar via Azure Active Directory Application Proxy. Den här artikeln beskrivs Azure AD Application Proxy CORS problem och lösningar.
 
 Webbläsarskydd förhindrar normalt att en webbsida gör AJAX-begäranden till en annan domän. Den här begränsningen kallas den *princip om samma ursprung*, och förhindrar skadliga webbplatser från att läsa känsliga data från en annan plats. Men kanske ibland du vill låta andra platser anropa ditt webb-API. CORS är en W3C-standard som gör att en server som är lätta princip om samma ursprung och tillåta vissa cross-origin-begäranden medan andra avvisas.
 

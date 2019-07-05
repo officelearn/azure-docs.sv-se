@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441967"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Med [Azure behållare nätverk gränssnitt (CNI)][cni-networking], varje pod få
 
 Den här artikeln visar hur du använder *Azure CNI* nätverk för att skapa och använda ett virtuellt nätverksundernät för ett AKS-kluster. Mer information om Nätverksalternativ och överväganden finns i [nätverk begrepp för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående internet-anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -52,7 +52,7 @@ Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, mins
 | Adressintervall / Azure resurs | Gränser och storlek |
 | --------- | ------------- |
 | Virtuellt nätverk | Azure-nätverket kan vara så stora/8 som, men är begränsad till 65 536 konfigurerade IP-adresser. |
-| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. Storleken på undernätet bör också ta konto uppgraderingsåtgärderna eller framtida skalningsbehov.<p />Att beräkna den *minsta* undernätets storlek, inklusive en ny nod för åtgärder för uppgradering: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel för ett kluster med 50 noder: `(51) + (51  * 30 (default)) = 1,581` (/ 21 eller större)<p/>Exempel för ett kluster med 50 noder som innehåller också etablera att skala upp en ytterligare 10 noder: `(61) + (61 * 30 (default)) = 1,891` (/ 21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, det maximala antalet poddar per nod är inställd på *30*. Det minsta antalet IP-adresser som krävs baserat på det värdet. Om du beräkna din IP-adress minimikraven på ett annat värde för maximal [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange värdet när du distribuerar ditt kluster. |
+| Subnet | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. Storleken på undernätet bör också ta konto uppgraderingsåtgärderna eller framtida skalningsbehov.<p />Att beräkna den *minsta* undernätets storlek, inklusive en ny nod för åtgärder för uppgradering: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel för ett kluster med 50 noder: `(51) + (51  * 30 (default)) = 1,581` (/ 21 eller större)<p/>Exempel för ett kluster med 50 noder som innehåller också etablera att skala upp en ytterligare 10 noder: `(61) + (61 * 30 (default)) = 1,891` (/ 21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, det maximala antalet poddar per nod är inställd på *30*. Det minsta antalet IP-adresser som krävs baserat på det värdet. Om du beräkna din IP-adress minimikraven på ett annat värde för maximal [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange värdet när du distribuerar ditt kluster. |
 | Kubernetes service-adressintervall | Det här intervallet bör inte används av alla nätverkselement på eller ansluten till det här virtuella nätverket. CIDR-tjänstadress måste vara mindre än /12. |
 | IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube-dns). Använd inte den första IP-adressen i din adressintervallet, t.ex.1. Den första adressen i intervallet undernät används för den *kubernetes.default.svc.cluster.local* adress. |
 | Docker bridge-adress | IP-adress (i CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet 172.17.0.1/16. |
@@ -79,7 +79,7 @@ Det går att konfigurera det maximala antalet poddar per nod *endast vid tidpunk
 > [!NOTE]
 > Det minsta värdet i tabellen ovan tvingas strikt av AKS-tjänsten. Du kan inte ange ett värde för maxPods lägre än den minsta visas som detta så kan förhindra att klustret startar.
 
-* **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando. Det maximala värdet är 250.
+* **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa][az-aks-create] kommando. Det maximala värdet är 250.
 * **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall. Det maximala värdet är 250.
 * **Azure-portalen**: Du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure-portalen. Azure networking CNI-kluster är begränsade till 30 poddar per nod när du distribuerar med hjälp av Azure portal.
 
@@ -95,14 +95,14 @@ När du skapar ett AKS-kluster, konfigureras följande parametrar för Azure CNI
 
 **Undernät**: Undernät i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet. Adressintervallet får inte överlappa med andra virtuella nätverk i din miljö för hybridanslutning.
 
-**Kubernetes-tjänst-adressintervall**: Det här är en uppsättning virtuella IP-adresser som Kubernetes tilldelar till interna [services] [ services] i klustret. Du kan använda alla privata adressintervall som uppfyller följande krav:
+**Kubernetes-tjänst-adressintervall**: Det här är en uppsättning virtuella IP-adresser som Kubernetes tilldelar till interna [services][services] i klustret. Du kan använda alla privata adressintervall som uppfyller följande krav:
 
 * Får inte vara i virtuella nätverkets IP-adressintervall för ditt kluster
 * Får inte överlappa med andra virtuella nätverk som virtuellt klusternätverk peer-datorer
 * Får inte överlappa eventuella lokala IP-adresser
 * Får inte vara inom intervallen `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, eller `192.0.2.0/24`
 
-Även om det är tekniskt möjligt att ange ett service-adressintervall inom samma virtuella nätverk som klustret rekommenderas detta så inte. Oväntade funktionssätt kan bero på att överlappande IP-adressintervall som används. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions) i den här artikeln. Mer information om Kubernetes-tjänster finns i [Services] [ services] i Kubernetes-dokumentationen.
+Även om det är tekniskt möjligt att ange ett service-adressintervall inom samma virtuella nätverk som klustret rekommenderas detta så inte. Oväntade funktionssätt kan bero på att överlappande IP-adressintervall som används. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions) i den här artikeln. Mer information om Kubernetes-tjänster finns i [Services][services] i Kubernetes-dokumentationen.
 
 **IP-adress för Kubernetes DNS-tjänsten**:  IP-adressen för klustrets DNS-tjänsten. Den här adressen måste vara inom den *Kubernetes-tjänst-adressintervall*. Använd inte den första IP-adressen i din adressintervallet, t.ex.1. Den första adressen i intervallet undernät används för den *kubernetes.default.svc.cluster.local* adress.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Använd den [az aks skapa] [ az-aks-create] med den `--network-plugin azure` argument för att skapa ett kluster med avancerade nätverk. Uppdatera den `--vnet-subnet-id` värdet med undernät-ID som samlas in i föregående steg:
+Använd den [az aks skapa][az-aks-create] med den `--network-plugin azure` argument för att skapa ett kluster med avancerade nätverk. Uppdatera den `--vnet-subnet-id` värdet med undernät-ID som samlas in i föregående steg:
 
 ```azurecli-interactive
 az aks create \
@@ -184,9 +184,9 @@ Mer information om nätverk i AKS i följande artiklar:
 
 ### <a name="aks-engine"></a>AKS Engine
 
-[Azure Kubernetes Service Engine (AKS-motor)] [ aks-engine] är ett projekt med öppen källkod som genererar Azure Resource Manager-mallar som du kan använda för att distribuera Kubernetes-kluster på Azure.
+[Azure Kubernetes Service Engine (AKS-motor)][aks-engine] är ett projekt med öppen källkod som genererar Azure Resource Manager-mallar som du kan använda för att distribuera Kubernetes-kluster på Azure.
 
-Kubernetes-kluster som skapas med AKS-motorn ha stöd för både den [kubenet] [ kubenet] och [Azure CNI] [ cni-networking] plugin-program. Därför måste som båda nätverksscenarier stöds av AKS-motorn.
+Kubernetes-kluster som skapas med AKS-motorn ha stöd för både den [kubenet][kubenet] and [Azure CNI][cni-networking] plugin-program. Därför måste som båda nätverksscenarier stöds av AKS-motorn.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -211,3 +211,4 @@ Kubernetes-kluster som skapas med AKS-motorn ha stöd för både den [kubenet] [
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models

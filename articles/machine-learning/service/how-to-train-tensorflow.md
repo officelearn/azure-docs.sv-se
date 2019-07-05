@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165547"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543782"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera TensorFlow modeller i hög skala med Azure Machine Learning-tjänsten
 
@@ -23,9 +23,9 @@ Den här artikeln visar hur du tränar och registrera en TensorFlow-modellen med
 
 TensorFlow är en öppen källkod och databaserad ramverk som ofta används för att skapa djupa neurala nätverk (DNN). Med Azure Machine Learning-tjänsten kan du snabbt skala ut öppen källkod-utbildningsjobb med hjälp av elastisk molnberäkningsresurser. Du kan också spåra ditt träningskörningar, version modeller, distribuera modeller och mycket mer.
 
-Om du utvecklar en TensorFlow-modell från grunden eller du behöver en befintlig modell i molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
+Om du utvecklar en TensorFlow-modell från grunden eller om du behöver en [befintlig modell](how-to-deploy-existing-model.md) till molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden på något av dessa miljöer:
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du tränas och registrerat en TensorFlow-modell i Azure Machine Learning-tjänsten. Lär dig hur du distribuerar en modell, Fortsätt till vår artikel för distribution av modellen.
+I den här artikeln får du tränas och registrerat en TensorFlow-modell. Fortsätt till vår GPU modellen distribution artikel om du vill veta hur du distribuerar en modell till ett kluster med GPU-aktiverade.
 
-> [!div class="nextstepaction"]
-> [Hur och var du vill distribuera modeller](how-to-deploy-and-where.md)
+[Så här distribuerar du för inferensjobb med GPU: er](how-to-deploy-inferencing-gpus.md)
+[övervaka med Tensorboard](how-to-monitor-tensorboard.md)

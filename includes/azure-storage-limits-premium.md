@@ -5,31 +5,23 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e878ca23b9187fe3175ad0af1b4f27e59e1deef6
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187551"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509923"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestanda block blob-lagring
 
 Premium prestanda block blob storage-kontot är optimerad för program som använder mindre, kilobyte adressintervall objekt. Det är perfekt för program som kräver hög transaktioner eller konsekvent låg latens-lagring. Premium-prestanda block blob-lagring är utformat för att skala med dina program. Om du planerar att distribuera program som kräver hundratals tusentals förfrågningar per sekund eller petabyte lagringskapacitet du kontakta oss genom att skicka en supportförfrågan i den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="premium-performance-filestorage-preview"></a>Premium-prestanda FileStorage (förhandsversion)
+### <a name="premium-performance-filestorage"></a>Premium-prestanda FileStorage
 
-Premium-filerna använder ett unikt lagringskonto med namnet **FileStorage (förhandsversion)** . Den här kontotypen är utformad för arbetsbelastningar med hög IOPS, högt dataflöde med konsekvent låg latens. Premium-fillagring skalas med den etablerade resursstorleken.
-
-|Område  |Mål  |
-|---------|---------|
-|Max etablerad storlek     |100 TiB     |
-|Resurser   |Obegränsat  |
-|IOPS     |100,000    |
-|Ingress|4,136 MiB/s     |
-|Egress|6,204 MiB/s |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  Dela skala mål för premium-fil, se den [Premium-filer skala mål](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) avsnittet.
 

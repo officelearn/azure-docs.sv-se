@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446778"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
@@ -93,6 +93,9 @@ Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Spark-anslutningsprogrammet till den senaste versionen från Maven
 
 Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av Cosmos DB Spark-anslutningsappen och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Aktivera replikering av virtuell dator
+Virtuella datorer som inte har replikering aktiverad till en annan region är inte motståndskraftig mot regionala avbrott. Replikera virtuella datorer minskar någon negativ inverkan på under tiden av driftstörningar i Azure-region. Advisor identifierar virtuella datorer som inte har replikering aktiverad och rekommenderar att du aktiverar replikering så att vid ett eventuellt strömavbrott, du kan snabbt ta fram dina virtuella datorer i en fjärransluten Azure-region. [Mer information om replikeringen av den virtuella datorn](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

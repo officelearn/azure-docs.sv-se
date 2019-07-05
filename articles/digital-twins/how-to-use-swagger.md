@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116439"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502703"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -92,14 +92,12 @@ Exemplen omfattar också felkoder för att felsöka eller förbättra misslyckas
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0-auktorisering
 
-Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.0 finns i [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> Huvudnamn användaren som skapade Azure Digital Twins resursen har en rolltilldelning för utrymme administratör och kommer att kunna skapa ytterligare rolltilldelningar för andra användare.
+> * Huvudnamn användaren som skapade Azure Digital Twins resursen har en rolltilldelning för utrymme administratör och kommer att kunna skapa ytterligare rolltilldelningar för andra användare. Dessa användare och deras roller kan ha behörighet att anropa API: erna.
 
-1. Följ stegen i [snabbstarten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) att skapa ett Azure AD-program av typen ***webbapp / API***. Eller du kan återanvända en befintlig appregistrering.
+1. Följ stegen i [snabbstarten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) eller [registrera din Azure Digital Twins-app med Azure Active Directory äldre](./how-to-use-legacy-aad.md) du skapar och konfigurerar ett Azure AD-program. Alternativt kan du återanvända en befintlig appregistrering.
 
-2. Lägg till följande svars-url i appregistreringen:
+1. Lägg till följande svars-url i appregistreringen:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
@@ -108,29 +106,23 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | Din URL för Management REST API-dokumentationen som finns i portalen  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Bevilja behörigheter för din app åtkomst till Azure Digital Twins. Under **nödvändiga behörigheter**, ange `Azure Digital Twins` och välj **delegerade behörigheter**. Välj sedan **bevilja behörigheter**.
-
-    ![Azure AD app-registreringar Lägg till api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. Konfigurera applikationsmanifestet för att tillåta implicit OAuth 2.0-flöde. Välj **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
-
-    ![Azure AD implicit flöde](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Kopiera ID för din Azure AD-app.
+1. Kopiera ID för din Azure AD-app.
 
 När du har slutfört registreringen för Azure Active Directory:
 
-6. Välj den **auktorisera** knappen på din swagger-sidan.
+1. Välj den **auktorisera** knappen på din swagger-sidan.
 
     [![Välj Swagger auktorisera knappen](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Klistra in program-ID i den **client_id** fält.
+1. Klistra in program-ID i den **client_id** fält.
 
     [![Swagger client_id fält](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Du omdirigeras sedan till följande modal framgång.
+1. Du omdirigeras sedan till följande modal framgång.
 
-    [![Swagger omdirigering modal](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Swagger omdirigering modal](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.0 finns i [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Välj en sida-kontrakt - Azure Active Directory B2C | Microsoft Docs
+title: Välj en sida-kontrakt - Azure Active Directory B2C
 description: Läs mer om hur du väljer ett sida-kontrakt i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,21 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7aab43695f0b11590d8bd2aa011073ba04d95250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513000"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540396"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Välj en sida kontrakt i Azure Active Directory B2C med anpassade principer
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan aktivera JavaScript-kod på klientsidan i din Azure Active Directory (Azure AD) B2C-principer, oavsett om du använder användarflöden eller anpassade principer. Om du vill aktivera JavaScript för dina program, måste du lägga till ett element till din [anpassad princip](active-directory-b2c-overview-custom.md), Välj ett sida-kontrakt och använda [b2clogin.com](b2clogin.md) i dina önskemål. Ett sida-kontrakt är ett nätverk med element som tillhandahåller Azure AD B2C och det innehåll som du anger. Den här artikeln beskrivs hur du väljer ett sida-kontrakt i Azure AD B2C genom att konfigurera i en anpassad princip.
+Du kan aktivera JavaScript-kod på klientsidan i Azure Active Directory (Azure AD) B2C-principer, oavsett om du använder användarflöden eller anpassade principer. Om du vill aktivera JavaScript för dina program, måste du lägga till ett element till din [anpassad princip](active-directory-b2c-overview-custom.md), Välj ett sida-kontrakt och använda [b2clogin.com](b2clogin.md) i dina önskemål.
+
+Ett sida-kontrakt är ett nätverk med element som tillhandahåller Azure AD B2C och det innehåll som du anger.
+
+Den här artikeln beskrivs hur du väljer ett sida-kontrakt i Azure AD B2C genom att konfigurera i en anpassad princip.
 
 > [!NOTE]
 > Om du vill aktivera JavaScript för användarflöden [JavaScript och sidan kontrakt-versioner i Azure Active Directory B2C](user-flow-javascript-overview.md).
@@ -42,27 +46,54 @@ Du kan ha i dina anpassade principer [ContentDefinitions](contentdefinitions.md)
 </ContentDefinition>
 ```
 
-För att välja ett sida-kontrakt, du ändrar den **DataUri** värdena i din [ContentDefinitions](contentdefinitions.md) i dina principer. Genom att växla från gammalt **DataUri** värden till de nya värdena du väljer ett paket som inte kan ändras. Fördelen med att använda det här paketet är att du vet den inte ändra och orsaka oväntade resultat på sidan. 
+För att välja ett sida-kontrakt, du ändrar den **DataUri** värdena i din [ContentDefinitions](contentdefinitions.md) i dina principer. Genom att växla från gammalt **DataUri** värden till de nya värdena du väljer ett paket som inte kan ändras. Fördelen med att använda det här paketet är att du vet den inte ändra och orsaka oväntade resultat på sidan.
 
-Om du vill konfigurera ett sida-kontrakt, Använd följande tabell för att hitta **DataUri** värden. 
+Om du vill konfigurera ett sida-kontrakt, Använd följande tabell för att hitta **DataUri** värden.
 
 | Gammalt DataUri värde | Nytt DataUri värde |
 | ----------------- | ----------------- |
-| urn: com:microsoft:aad:b2c:elements:idpselection:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:unifiedssd:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:unifiedssd:1.0.0 | 
-| urn: com:microsoft:aad:b2c:elements:claimsconsent:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:multifactor:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:multifactor:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:multifactor:1.1.0 | urn: com:microsoft:aad:b2c:elements:contract:multifactor:1.1.0 |
-| urn: com:microsoft:aad:b2c:elements:selfasserted:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:selfasserted:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:selfasserted:1.1.0 | urn: com:microsoft:aad:b2c:elements:contract:selfasserted:1.1.0 | 
-| urn: com:microsoft:aad:b2c:elements:unifiedssp:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:unifiedssp:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:unifiedssp:1.1.0 | urn: com:microsoft:aad:b2c:elements:contract:unifiedssp:1.1.0 |
-| urn: com:microsoft:aad:b2c:elements:globalexception:1.0.0 | urn: com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0 |
-| urn: com:microsoft:aad:b2c:elements:globalexception:1.1.0 | urn: com:microsoft:aad:b2c:elements:contract:globalexception:1.1.0 |
+| `urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.1.0` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.1.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.1.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.0.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.1.0` |
+
+## <a name="version-change-log"></a>Ändringslogg för version
+
+Sidan kontrakt paket uppdateras regelbundet med korrigeringar och förbättringar i sina sidelement. Följande ändringsloggen anger ändringar som införs i varje version.
+
+### <a name="110"></a>1.1.0
+
+- Undantagssidan (globalexception)
+  - Korrigering för hjälpmedel
+  - Ta bort standardmeddelandet när det finns ingen kontakt från principen
+  - Standard CSS tas bort
+- MFA-sidan (multifaktoråtkomstkontroll)
+  - ”Kontrollera koden' knappen tas bort
+  - Inmatningsfält för tar för kod nu bara ange upp till sex (6) tecken
+  - Sidan kommer automatiskt att försöka verifiera koden som anges när en 6-siffrig kod anges utan några behöva klicka på knappen
+  - Om koden är felaktig sedan indatafältet rensas automatiskt
+  - Efter tre (3) försök med en felaktig kod skickar B2C ett fel tillbaka till tjänsten
+  - Hjälpmedel korrigeringar
+  - Standard CSS tas bort
+- Självkontrollerad sida (selfasserted)
+  - Avbryt om du har tagits bort avisering
+  - CSS-klass för fel element
+  - Visa/Dölj fel logic förbättrad
+  - Standard CSS tas bort
+- Enhetlig SSP (unifiedssp)
+  - Har lagts till Håll mig inloggad (KMSI)-kontroll
+
+### <a name="100"></a>1.0.0
+
+- Första utgåvan
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du kan anpassa användargränssnittet i dina program i [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-
-
-

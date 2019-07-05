@@ -1,34 +1,30 @@
 ---
-title: Förstå villkoren i ditt prisdokument för ett Microsoft-kundavtal – Azure | Microsoft Docs
-description: Lär dig att läsa och förstå din användningen och fakturan för din Azure-prenumeration
-services: ''
-documentationcenter: ''
-author: jureid
+title: Förstå villkoren i ditt prisdokument för ett Microsoft-kundavtal - Azure
+description: Lär dig mer om att läsa och förstå din användningen och fakturan för en Microsoft-kundavtal.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371367"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490652"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Förstå villkoren i ditt prisdokument för ett Microsoft-kundavtal
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Villkoren i ditt Microsoft-kundavtal prisdokument
 
-Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller för en Azure faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
 Om du är en fakturering profil ägare, deltagare, läsare eller faktura Manager kan du hämta din organisations prisdokument från Azure-portalen. Se [visa och ladda ned din organisation priser](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Detaljerade villkor och beskrivningar i din Microsoft kundavtal prisdokument
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Termer och beskrivningar i din prisdokument
 
 I följande avsnitt beskrivs viktiga termer som visas i din Microsoft kundavtal prisdokument.
 

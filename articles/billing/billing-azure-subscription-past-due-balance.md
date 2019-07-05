@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023404"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491460"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Lös passerat betalningsdatum balans för din Azure-prenumeration
 
@@ -34,7 +34,7 @@ Om du är den [kontoadministratör](billing-subscription-transfer.md#whoisaa), d
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Lös passerat betalningsdatum saldo i Azure portal
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som kontoadministratör
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Cost Management + fakturering**.
 1. På sidan översikt visas en lista över dina prenumerationer. Om prenumerationsstatus för din har förfallit, klickar du på den **reglera Saldo** länk.
     ![Skärmbild som visar reglera saldo länk](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. Totalt antal utestående saldo återspeglar utestående debiteringar över alla Microsoft-tjänster med misslyckade betalningssätt.

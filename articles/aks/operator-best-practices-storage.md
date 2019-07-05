@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072654"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447150"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,6 @@ I följande tabell beskrivs de tillgängliga lagringstyper och deras funktioner:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Delad konfiguration       | Azure Files   | Ja | Ja | Ja | Ja |
 | Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  | Ja |
-| AppData, skrivskyddade resurser | [Dysk (förhandsversion)][dysk] | Ja | Ja | Nej  | Nej |
 | Ostrukturerade data, filsystemsåtgärder | [BlobFuse (förhandsversion)][blobfuse] | Ja | Ja | Ja | Nej |
 
 De två primära typerna av lagring för volymerna i AKS backas upp av Azure-diskar eller Azure Files. För att förbättra säkerheten, båda typer av lagring som använder Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med Azure Disk Encryption den AKS nivån.
@@ -83,7 +82,7 @@ Ett permanent volym-anspråk (PVC) kan du dynamiskt skapa lagring efter behov. D
 
 Koncepten för att dynamiskt skapa och använda volymer, se [beständiga volymer anspråk][aks-concepts-storage-pvcs].
 
-Dessa volymer i praktiken finns i hur du skapar och använder en permanent volym med dynamiskt [Azure Disks] [ dynamic-disks] eller [Azure Files][dynamic-files].
+Dessa volymer i praktiken finns i hur du skapar och använder en permanent volym med dynamiskt [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files].
 
 Som en del av din lagring, anger du lämplig *reclaimPolicy*. Den här reclaimPolicy styr beteendet för underliggande Azure-lagringsresursen när poden tas bort och permanent volym kanske inte längre är nödvändiga. Den underliggande lagringsresursen kan tas bort eller bevaras för användning med en framtida pod. ReclaimPolicy kan ange *behålla* eller *ta bort*. Förstå dina program behöver och implementera regelbundna kontroller för lagringsutrymme som finns kvar för att minimera icke använt lagringsutrymme som används och faktureras.
 
@@ -93,7 +92,7 @@ Mer information om klassen lagringsalternativ finns i [storage frigöra principe
 
 **Bästa praxis riktlinjer** – säkerhetskopiera dina data med ett lämpligt verktyg för din typ, till exempel Velero eller Azure Site Recovery. Kontrollera integriteten och säkerheten för dessa säkerhetskopior.
 
-När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Velero] [ velero] kan säkerhetskopiera beständiga volymer och ytterligare klusterresurser och konfigurationer. Om du inte [ta bort tillstånd från dina program][remove-state], säkerhetskopiera data från beständiga volymer och regelbundet testa återställningsåtgärder för att kontrollera dataintegriteten och processer som krävs.
+När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], säkerhetskopiera data från beständiga volymer och regelbundet testa återställningsåtgärder för att kontrollera dataintegriteten och processer som krävs.
 
 Förstå begränsningar av olika metoder för säkerhetskopiering av data och du måste du inaktivera dina data för ögonblicksbild. Säkerhetskopiering av data kan inte nödvändigtvis du återställa din Programmiljö av klusterdistribution. Mer information om dessa scenarier finns i [bästa praxis för företag affärskontinuitet och haveriberedskap i AKS][best-practices-multi-region].
 
@@ -103,7 +102,6 @@ Den här artikeln fokuserar på lagring bästa praxis i AKS. Läs mer om grunder
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

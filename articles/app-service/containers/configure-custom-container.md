@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430926"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480753"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -50,10 +50,10 @@ Du kan använda den */home* katalogen i filsystemet för din app kan spara filer
 
 När beständig lagring är inaktiverad och skriver sedan till den `/home` directory är inte beständiga mellan omstarter av appen eller över flera instanser. Det enda undantaget är den `/home/LogFiles` directory som används för att lagra loggarna för Docker och behållare. När beständig lagring är aktiverat, alla skrivningar till den `/home` directory sparas och kan nås av alla instanser av en utskalad-app.
 
-Som standard är beständig lagring *inaktiverat*. Om du vill aktivera eller inaktivera den, ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
+Som standard är beständig lagring *aktiverat* och inställningen visas inte i programinställningarna. Om du vill inaktivera den, ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]

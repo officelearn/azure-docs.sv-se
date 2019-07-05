@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108368"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440460"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -31,7 +31,7 @@ Om fel uppstår i komma åt ett publicerat program eller publicera program kontr
 * Öppna Loggboken och leta efter Application Proxy connector händelser i **applikationer och tjänsteloggar** > **Microsoft** > **AadApplicationProxy**  >  **Connector** > **Admin**.
 * Om det behövs mer detaljerade loggar är tillgängliga som [aktivera Application Proxy connector-sessionsloggar](application-proxy-connectors.md#under-the-hood).
 
-Mer information om verktyget Azure AD-felsökning finns i [felsökningsverktyget för att verifiera anslutningen nätverk krav](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+När du felsöker problem med Application Proxy kan vi rekommenderar att du börjar med att felsöka flödet, [felsöka Application Proxy Connector utfärdar](application-proxy-debug-connectors.md)att avgöra om programproxyanslutningar är korrekt konfigurerade. Om du fortfarande har problem med att ansluta till programmet, följer du felsökning flödet i [felsöka programproxyn programproblem](application-proxy-debug-apps.md).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>Sidan renderas inte korrekt
 Du kan ha problem med programmet återgivning eller felaktigt fungerar utan att du får felmeddelanden. Detta kan inträffa om du har publicerat den artikel sökvägen, men programmet kräver innehåll som finns utanför den sökvägen.
@@ -50,12 +50,13 @@ När du har hittat Connector-fel från händelseloggen, kan du använda den här
 
 | Fel | Rekommenderade åtgärder |
 | ----- | ----------------- |
-| Det gick inte att registreringen av anslutningsappen: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett ditt Active Directory-användarnamn och lösenord korrekt. Fel: ”En eller flera fel inträffade”. | Om du har stängt fönstret registreringen utan att logga in till Azure AD, kör guiden koppling igen och registrera anslutningsverktyget. <br><br> Om fönstret registrering öppnar och stänger sedan omedelbart utan så att du kan logga in kan får du förmodligen det här felet. Det här felet uppstår när det finns ett nätverksfel på datorn. Se till att det är möjligt att ansluta från en webbläsare till en offentlig webbplats och att portarna är öppna som anges i [Application Proxy krav](application-proxy-add-on-premises-application.md). |
+| Det gick inte att registreringen av anslutningsappen: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett ditt Active Directory-användarnamn och lösenord korrekt. Fel: ”En eller flera fel inträffade”. | Om du har stängt fönstret registreringen utan att logga in till Azure AD, kör guiden koppling igen och registrera anslutningsverktyget. <br><br> Om fönstret registrering öppnar och stänger sedan omedelbart utan så att du kan logga in kan får du förmodligen det här felet. Det här felet uppstår när det finns ett nätverksfel på datorn. Se till att det är möjligt att ansluta från en webbläsare till en offentlig webbplats och att portarna är öppna som anges i [Application Proxy krav](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Rensa fel visas i fönstret registrering. Det går inte att fortsätta | Om du ser detta fel och sedan fönstret stängs, du har angett felaktigt användarnamn eller lösenord. Försök igen. |
 | Det gick inte att registreringen av anslutningsappen: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett ditt Active Directory-användarnamn och lösenord korrekt. Fel: 'AADSTS50059: Ingen information om identifiering av klient finns i antingen begäran eller underförstådda på valfri angivna autentiseringsuppgifter och Sök efter service principal URI har misslyckats. | Du försöker logga in med ett Account och inte en domän som är en del av organisations-ID för den katalog som du försöker komma åt. Se till att administratören är en del av samma domännamn som klient-domänen, till exempel om Azure AD-domänen är contoso.com ska administratören vara admin@contoso.com. |
 | Det gick inte att hämta aktuella körningsprincipen för att köra PowerShell-skript. | Om anslutningen misslyckas, kontrollera att PowerShell-körningsprincipen inte är inaktiverat. <br><br>1. Öppna redigeraren.<br>2. Gå till **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Windows PowerShell** och dubbelklicka på **aktivera körning av skript**.<br>3. Körningsprincipen kan vara inställd på antingen **inte konfigurerad** eller **aktiverad**. Om inställd **aktiverad**, se till att under Alternativ, körningsprincipen är inställd på antingen **Tillåt lokala skript och remote signerade skript** eller **Tillåt alla skript**. |
 | Det gick inte att hämta konfigurationen av anslutningen. | Kopplingens klientcertifikat som används för autentisering, upphört att gälla. Detta kan också inträffa om du har anslutningstjänsten installerad bakom en proxyserver. I det här fallet anslutningstjänsten inte kan komma åt Internet och kan inte tillhandahålla program till fjärranslutna användare. Förnya manuellt med hjälp av den `Register-AppProxyConnector` cmdlet i Windows PowerShell. Om din Anslutningsapp finns bakom en proxyserver, är det nödvändigt att bevilja Internetåtkomst till Connector konton ”nätverkstjänster” och ”lokalt system”. Detta kan åstadkommas genom att ge dem åtkomst till proxyservern eller genom att ange att kringgå proxyn. |
 | Det gick inte att registreringen av anslutningsappen: Kontrollera att du är administratör program för din Active Directory för att registrera anslutningsverktyget. Fel: ”Registreringsbegäran nekades”. | Det alias som du försöker logga in med är inte en administratör på den här domänen. Din Anslutningsapp är alltid installerad för den katalog som äger användarens domän. Se till att det administratörskonto som du försöker logga in med har administratörsbehörighet för minst program till Azure AD-klient. |
+| Anslutningen kunde inte ansluta till tjänsten på grund av nätverk problem. Anslutningen försökte komma åt följande URL. | Anslutningen kan inte ansluta till Molntjänsten Application Proxy. Detta kan inträffa om du har en brandväggsregel som blockerar anslutningen. Se till att du har åtkomst till rätt portar och URL: er som listas i [Application Proxy krav](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## <a name="kerberos-errors"></a>Kerberos-fel
 

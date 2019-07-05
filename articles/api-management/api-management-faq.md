@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357254"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448028"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
@@ -65,7 +65,7 @@ Du har flera alternativ för att säkra anslutningar mellan API Management-gatew
 
 * Använd grundläggande HTTP-autentisering. Mer information finns i [importera och publicera ditt första API](import-and-publish.md).
 * Använda SSL ömsesidig autentisering som beskrivs i [hur du skyddar backend-tjänster med hjälp av klienten autentisering i Azure API Management](api-management-howto-mutual-certificates.md).
-* Använd IP-vitlistning på backend-tjänst. Alla nivåer av API Management IP-adressen för gatewayen är konstant med några [varningar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Du kan ange din lista över tillåtna för att tillåta den här IP-adress. Du kan hämta IP-adressen för din API Management-instans på instrumentpanelen i Azure-portalen.
+* Använd IP-vitlistning på backend-tjänst. Alla nivåer av API Management med undantag för förbrukning nivån IP-adressen för gatewayen är konstant med några [varningar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Du kan ange din lista över tillåtna för att tillåta den här IP-adress. Du kan hämta IP-adressen för din API Management-instans på instrumentpanelen i Azure-portalen.
 * Anslut din API Management-instans till Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Hur kopierar jag mina API Management-tjänstinstans till en ny instans?

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495812"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446775"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelseloggning för din Azure Data Box och Azure Data Box tunga
 
@@ -29,7 +29,7 @@ I följande tabell visas en sammanfattning av hur Data Box eller Data Box tung o
 | Kopiera data till enheten        | [Visa *error.xml* filer](#view-error-log-during-data-copy) för kopiering av data                                                             |
 | Förbereda för att skicka            | [Granska BOM filer](#inspect-bom-during-prepare-to-ship) eller manifestfiler på enheten                                      |
 | Ladda upp data till Azure       | [Granska *copylogs* ](#review-copy-log-during-upload-to-azure) för fel under data laddar du upp på Azure-datacenter                         |
-| Raderingen av data från enhet   | [Visa kedjan av spårbarhet loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive granskningsloggar och ordning historik                                                   |
+| Raderingen av data från enhet   | [Visa kedjan av spårbarhet loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive granskningsloggar och ordning historik                |
 
 Den här artikeln beskrivs i detalj olika mekanismer eller verktyg som är tillgängliga för att spåra och granska Data Box eller Data Box tung ordning. Informationen i den här artikeln gäller både Data Box och Data Box tung. I följande avsnitt gäller även alla referenser till Data Box för Data Box tung.
 
@@ -203,7 +203,7 @@ För varje order bearbetas Data Box-tjänsten skapar *copylog* i det associerade
 
 En cyklisk redundans Kontrollera (CRC) beräkning görs under överföringen till Azure. CRC från Datakopieringen och ladda upp data jämförs. Ett CRC-matchningsfel anger att motsvarande filer inte kunde överföra.
 
-Som standard skrivs loggarna till en behållare med namnet copylog. Loggfilerna lagras med följande namngivningskonvention:
+Som standard, loggarna skrivs till en behållare med namnet `copylog`. Loggfilerna lagras med följande namngivningskonvention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -245,7 +245,41 @@ Här är ett exempel på en copylog där överföringen slutfördes med fel:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+Här är ett exempel på en `copylog` där de behållare som inte uppfyllde namngivningskonventionerna Azure ändrades när data överfördes till Azure.
 
+De nya unika namn för behållare är i formatet `DataBox-GUID` och data för behållaren övergår till den nya bytt namn till behållaren. Den `copylog` anger gammalt och nya behållarens namn för behållaren.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+Här är ett exempel på en `copylog` där blobar eller filer som inte uppfyllde namngivningskonventionerna för Azure, ändrades när data överfördes till Azure. Ny blob- eller filnamn konverteras till SHA256 sammandrag av relativ sökväg till behållare och överförs till sökväg baserat på typ av mål. Målet kan vara blockblobar, sidblobar och Azure Files.
+
+Den `copylog` anger gammalt och det nya namnet för blob eller fillagring och sökvägen i Azure.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Hämta certifikatkedja spårbarhet loggar efter dataradering
 

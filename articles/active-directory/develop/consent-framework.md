@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235452"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482943"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverket för medgivande för Azure Active Directory
 
@@ -50,7 +50,7 @@ Följande steg visar hur samtycke upplevelse fungerar för både programutveckla
 
 1. När användaren har loggat in avgör Azure AD om användaren behöver en samtyckessida visas. Det här fastställandet baseras på om användaren (eller organisationens administratör) redan har gett medgivande för programmet. Om medgivande inte redan har getts, Azure AD efterfrågar medgivande och visar de behörigheter som krävs ska fungera. Uppsättningen behörigheter som visas i dialogrutan för medgivande överensstämmer med de som valts i den **delegerade behörigheter** i Azure-portalen.
 
-    ![Användarupplevelsen för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Visar ett exempel på behörigheter som visas i dialogrutan för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i [webb-API-apptyp](web-api.md).
 

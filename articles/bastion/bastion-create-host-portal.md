@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339437"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477887"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Skapa en Azure-Skyddsmiljö-värd (förhandsversion)
 
@@ -33,15 +33,11 @@ Den offentliga förhandsversionen är begränsad till följande Azure-offentliga
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-Du måste registrera om du vill delta i den här förhandsversionen. Följ dessa steg för att registrera dig för förhandsversionen:
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>Skapa en skyddsmiljö-värd
 
 Det här avsnittet hjälper dig att skapa en ny Azure Skyddsmiljö-resurs från Azure-portalen.
 
-1. På startsidan i den [ Azure-portalen – förhandsversion](https://aka.ms/BastionHost), klickar du på **+ skapa en resurs**. Kontrollera att du använder länken för att få åtkomst till portalen för den här förhandsversionen kan inte vanliga Azure-portalen.
+1. På startsidan i den [Azure-portalen – förhandsversion av Skyddsmiljö](https://aka.ms/BastionHost), klickar du på **+ skapa en resurs**. Kontrollera att du använder länken för att få åtkomst till portalen för den här förhandsversionen kan inte vanliga Azure-portalen.
 
 1. På den **New** sidan den *Sök på Marketplace* skriver **Skyddsmiljö**, klicka sedan på **RETUR** till sökresultaten.
 
@@ -72,7 +68,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure Skyddsmiljö-resurs från 
 
 Om du skapar en skyddsmiljö-värd i portalen genom att använda en befintlig virtuell dator, kommer olika inställningar automatiskt som standard för din virtuella dator och/eller virtuellt nätverk.
 
-1. I den [förhandsversionsportalen](https://aka.ms/BastionHost), navigera till den virtuella datorn och sedan på **Connect**.
+1. I den [Azure-portalen – förhandsversion av Skyddsmiljö](https://aka.ms/BastionHost), navigera till den virtuella datorn och sedan på **Connect**.
 
     ![VM-anslutning](./media/bastion-create-host-portal/vmsettings.png)
 

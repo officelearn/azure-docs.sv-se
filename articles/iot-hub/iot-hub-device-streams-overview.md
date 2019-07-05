@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Hub device strömmar (förhandsversion) | Microsoft Docs
-description: Översikt över IoT Hub device strömmar.
-author: rezasherafat
-manager: briz
+description: Översikt över IoT Hub device strömmar
+author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: rezas
-ms.openlocfilehash: eba08521cb28a29a08c8e4e48f0ec321cb0397c7
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137370"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441364"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 

@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593797"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490059"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ Azure SQL Database Managed Instance kan du skapa en databas med den hanterade id
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Konfigurera Azure AD-autentisering för Azure SQL Database Managed Instance
 
-1.   I Azure-portalen väljer du **alla tjänster** -> **SQL-servrar** från det vänstra navigeringsfältet.
-
-2.   Välj din hanterade instans måste konfigureras med Azure AD-autentisering.
-
-3.   I den **inställningar** på bladet, väljer **Active Directory-administratör**.
-
-4.   I kommandofältet väljer **konfigurera administratör**.
-
-5.   Välj en Azure AD-användarkonto att göras administratör för servern och välj sedan **Välj**.
-
-6.   I kommandofältet väljer **spara**.
+Följ stegen i [etablera en Azure Active Directory-administratör för din hanterade instans](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Lägg till hanterad identitet för din ADF som en användare i Azure SQL Database Managed Instance
 
@@ -164,7 +154,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 
 1.  Starta SSMS.
 
-2.  Anslut till din hanterade instans med ditt administratörskonto för SQL/Active Directory.
+2.  Ansluta till din hanterade instans med en SQL Server-konto som är en **sysadmin**. Detta är en tillfällig begränsning som kommer att tas bort när Azure AD-huvudkonton server (inloggningar) för Azure SQL Database Managed Instance blir GA. Följande felmeddelande visas om du försöker använda en Azure AD-administratörskonto för att skapa inloggningen: Msg 15247, nivå 16, tillstånd 1, rad 1 användare har inte behörighet att utföra åtgärden.
 
 3.  I den **Object Explorer**, expandera den **databaser** -> **systemdatabaser** mapp.
 

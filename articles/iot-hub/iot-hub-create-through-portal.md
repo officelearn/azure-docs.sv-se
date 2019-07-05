@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571044"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432637"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT hub med Azure portal
 
@@ -50,13 +50,15 @@ Klicka på **Lägg till** att öppna den **lägga till en princip för delad åt
 
 ![Skärmbild som visar att lägga till en princip för delad åtkomst](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* Den **läsa register** och **skriva i register** principerna beviljar behörighet för Läs- och skrivåtkomst till identitetsregistret. Välja skrivalternativet automatiskt väljer läsningsalternativet.
+* Den **läsa register** och **skriva i register** principerna beviljar behörighet för Läs- och skrivåtkomst till identitetsregistret. De här behörigheterna används av backend-molntjänster för att hantera enhetsidentiteter. Välja skrivalternativet automatiskt väljer läsningsalternativet.
 
-* Den **tjänsten ansluta** princip ger behörighet att komma åt tjänstslutpunkter som **ta emot enhet-till-moln**. 
+* Den **tjänsten ansluta** princip ger behörighet att få åtkomst till Tjänsteslutpunkter. Den här behörigheten används av backend-molntjänster för att skicka och ta emot meddelanden från enheter samt att uppdatera och läsa twin och modulen twin enhetsdata.
 
-* Den **enheten ansluta** princip ger behörighet för att skicka och ta emot meddelanden med IoT Hub enhetssidan-slutpunkter.
+* Den **enheten ansluta** princip ger behörighet för att skicka och ta emot meddelanden med IoT Hub enhetssidan-slutpunkter. Den här behörigheten används av enheter för att skicka och ta emot meddelanden från en IoT-hubb, uppdatera och läsa twin och modulen twin enhetsdata och utföra filöverföringar.
 
 Klicka på **skapa** att lägga till den nya principen i den befintliga listan.
+
+Mer detaljerad information om åtkomsten som beviljats av specifika behörigheter finns i [IoT Hub behörigheter](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Meddelandet routning för en IoT-hubb
 

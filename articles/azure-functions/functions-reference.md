@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120746"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565521"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -107,5 +107,5 @@ Mer information finns i följande resurser:
 * [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
 * [Koda och testa Azure Functions lokalt](./functions-develop-local.md)
 * [Metodtips för Azure Functions](functions-best-practices.md)
-* [Azure Functions C#-utvecklarreferens](functions-reference-csharp.md)
+* [Azure Functions C#-utvecklarreferens](functions-dotnet-class-library.md)
 * [Azure Functions NodeJS-utvecklare](functions-reference-node.md)

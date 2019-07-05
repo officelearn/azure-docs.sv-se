@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475821"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568279"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -426,7 +426,7 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Lägger till ett nytt jobb. 
   
@@ -492,7 +492,7 @@ Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagr
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Uppdaterar ett befintligt jobb.
 
@@ -555,7 +555,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Tar bort ett befintligt jobb.
 
@@ -587,7 +587,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Lägger till ett steg i ett jobb.
 
@@ -713,7 +713,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Uppdaterar ett jobbsteg.
 
@@ -838,7 +838,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Tar bort ett steg från ett jobb.
 
@@ -884,7 +884,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Startar köra ett jobb.
 
@@ -915,7 +915,7 @@ Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagr
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Stoppar en jobbkörning.
 
@@ -944,7 +944,7 @@ Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagr
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Lägger till en målgrupp.
 
@@ -975,7 +975,7 @@ Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagr
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Tar bort en målgrupp.
 
@@ -1003,7 +1003,7 @@ Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagr
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Lägger till en databas eller en grupp med databaser i en målgrupp.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Tar bort en mål medlem från en målgrupp.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Tar bort historikposter för ett jobb.
 
@@ -1204,7 +1204,7 @@ Följande vyer som är tillgängliga i den [jobb databasen](sql-database-job-aut
 |[target_group_members](#target_groups_members-view)     |   Visar alla medlemmar i alla målgrupper.      |
 
 
-### <a name="jobsexecutions-view"></a>Visa jobs_executions
+### <a name="jobs_executions-view"></a>Visa jobs_executions
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ Visar alla jobb.
 |**schedule_end_time**| datetime2(7)|   Datum och tid som jobbet har senaste har slutförts.|
 
 
-### <a name="jobversions-view"></a>job_versions view
+### <a name="job_versions-view"></a>job_versions view
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ Visar alla steg i den aktuella versionen av varje jobb.
 |**max_parallelism**|   int|    Det maximala antalet databaser per elastisk pool som jobbsteget ska köras i taget. Standardvärdet är NULL, vilket innebär att ingen gräns. |
 
 
-### <a name="jobstepversions-view"></a>Visa jobstep_versions
+### <a name="jobstep_versions-view"></a>Visa jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Visar alla steg i alla versioner av varje jobb. Schemat är identiska med [jobbsteg](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>Visa target_groups
+### <a name="target_groups-view"></a>Visa target_groups
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ Visar en lista över alla målgrupper.
 |**target_group_name**| nvarchar(128)   |Namnet på målgruppen, en uppsättning databaser. 
 |**target_group_id**    |uniqueidentifier   |Unikt ID för målgruppen.
 
-### <a name="targetgroupsmembers-view"></a>Visa target_groups_members
+### <a name="target_groups_members-view"></a>Visa target_groups_members
 
 [jobs].[target_groups_members]
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061047"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466734"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar
 
@@ -105,10 +105,12 @@ Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i di
 3. Flytta skjutreglaget för att öka eller minska antalet dagar och klickar sedan på i fönstret **OK**.  Om du använder den *kostnadsfria* nivå, du kommer inte att kunna ändra kvarhållningsperioden för data och du måste uppgradera till betald nivå om du vill styra den här inställningen.
 
     ![Ändra inställningen för kvarhållning av arbetsyta data](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+Kvarhållning kan också vara [ställts in via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med hjälp av den `dataRetention` parametern. Om du ställer in datalagring till 30 dagar du dessutom utlöser en omedelbar rensning av äldre data med hjälp av den `immediatePurgeDataOn30Days` parametern, som kan vara användbart för scenarier som berör efterlevnad. Den här funktionen exponeras endast via ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Äldre prisnivåer
 
-Prenumerationer som har en Log Analytics-arbetsyta eller en Application Insights-resurs i den innan den 2 April 2018 eller är länkade till ett Enterprise-avtal som har startat före den 1 februari 2019 fortsätter att ha åtkomst till äldre prisnivåer: **Kostnadsfria**, **fristående (Per GB)** och **Per nod (OMS)** .  Arbetsytor i den kostnadsfria prisnivån har begränsad till 500 MB (utom data säkerhetstyper som samlas in av Azure Security Center) dagliga datainmatning och datalagring är begränsad till 7 dagar. Den kostnadsfria prisnivån är avsedd endast för utvärdering. Arbetsytor i fristående eller prisnivån Per nod har användarangiven kvarhållning av upp till två år. 
+Prenumerationer som har en Log Analytics-arbetsyta eller en Application Insights-resurs i den innan den 2 April 2018 eller är länkade till ett Enterprise-avtal som har startat före den 1 februari 2019 fortsätter att ha åtkomst till äldre prisnivåer: **Kostnadsfria**, **fristående (Per GB)** och **Per nod (OMS)** .  Arbetsytor i den kostnadsfria prisnivån har begränsad till 500 MB (utom data säkerhetstyper som samlas in av Azure Security Center) dagliga datainmatning och datalagring är begränsad till 7 dagar. Den kostnadsfria prisnivån är avsedd endast för utvärdering. Arbetsytor i fristående eller prisnivån Per nod har användarangiven kvarhållning av upp till två år. Arbetsytor som skapats före April 2016 också har åtkomst till ursprungligt **Standard** och **Premium** prisnivåer. Mer information om priser nivån begränsningar finns [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Välj Log Analytics för att använda rättigheter som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägget för System Center, *Per nod* prisnivå.
@@ -126,11 +128,7 @@ Om Log Analytics-arbetsytan har tillgång till äldre prisnivåer för att ändr
 3. Under **prisnivå**, Välj en prisnivå och klickar sedan på **Välj**.  
     ![Valt prisplanen](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Om du vill flytta din arbetsyta till aktuell prisnivå du behöver ändra din prenumeration övervakning [prismodellen i Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) som kommer att ändras prisnivån för alla arbetsytor i prenumerationen.
-
-> [!NOTE]
-> Du kan lära dig mer om hur du prisnivån när [med en Azure Resource Manager-mall](template-workspace-configuration.md#create-a-log-analytics-workspace) skapa en arbetsyta och se till att malldistributionen för Azure Resource Manager-lyckas oavsett om den prenumerationen i äldre eller nya prismodellen. 
-
+Du kan också [ställer in prisnivån via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med hjälp av den `ServiceTier` parametern. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsökning varför Log Analytics inte längre att samla in data
 

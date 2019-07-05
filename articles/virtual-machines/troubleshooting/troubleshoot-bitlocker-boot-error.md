@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684762"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485161"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker startfel på en Azure VM
 
@@ -48,7 +48,7 @@ Lös problemet, stoppa och frigör den virtuella datorn och starta om den. Den h
 Om den här metoden har inte Lös problemet, följer du stegen nedan för att återställa filen BEK manuellt:
 
 1. Ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md) som krypteras med BitLocker. Detta krävs för att köra den [hantera bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) kommando som är endast tillgänglig på den BitLocker-krypterade virtuella datorn.
+2. [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md). Att köra den [hantera bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) kommandot i steg 7, den **BitLocker-diskkryptering** funktionen måste vara aktiverad i den Virtuella återställningsdatorn.
 
     När du ansluter en hanterad disk, kan det hända att felmeddelandet ”innehåller krypteringsinställningar och därför inte användas som en datadisk”. Kör följande skript och försök igen att ansluta disken i den här situationen:
 
@@ -106,7 +106,7 @@ Om den här metoden har inte Lös problemet, följer du stegen nedan för att å
 
     Om den **innehållstyp** värdet är **omslutna BEK**går du till den [nyckel kryptering nyckel (KEK) scenarier](#key-encryption-key-scenario).
 
-    Nu när du har namnet på filen BEK för enheten som du behöver skapa hemlighet-filnamn. BEK fil att låsa upp enheten. 
+    Nu när du har namnet på filen BEK för enheten som du behöver skapa hemlighet-filnamn. BEK fil att låsa upp enheten.
 
 6.  Ladda ned filen BEK till återställningsdisk. I följande exempel sparar BEK-filen till mappen C:\BEK. Se till att den `C:\BEK\` sökvägen finns innan du kör skripten.
 
@@ -120,14 +120,14 @@ Om den här metoden har inte Lös problemet, följer du stegen nedan för att å
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Kör följande kommando för att låsa upp den anslutna disken med hjälp av BEK-filen:
+7.  Kör följande kommando för att låsa upp den anslutna disken med hjälp av BEK-filen.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     I det här exemplet är den anslutna OS-disken enhet F. se till att du använder rätt enhetsbeteckning. 
 
-    - Om disken har låsts upp med BEK-nyckel. Vi kan du överväga att BItLocker problemet lösas. 
+    - Om disken har låsts upp med BEK-nyckel. Vi kan du överväga att BitLocker problemet lösas. 
 
     - Om med BEK-nyckel inte låser upp disken, kan du använda inaktivera skydd för att tillfälligt inaktivera BitLocker genom att köra följande kommando
     
@@ -254,7 +254,7 @@ Följ dessa steg för ett scenario med krypteringsnyckel:
     ```
     I det här exemplet är den anslutna OS-disken enhet F. se till att du använder rätt enhetsbeteckning. 
 
-    - Om disken har låsts upp med BEK-nyckel. Vi kan du överväga att BItLocker problemet lösas. 
+    - Om disken har låsts upp med BEK-nyckel. Vi kan du överväga att BitLocker problemet lösas. 
 
     - Om med BEK-nyckel inte låser upp disken, kan du använda inaktivera skydd för att tillfälligt inaktivera BitLocker genom att köra följande kommando
     

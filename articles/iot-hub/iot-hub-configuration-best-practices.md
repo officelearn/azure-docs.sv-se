@@ -3,16 +3,16 @@ title: Enheten configuration Metodtips för Azure IoT Hub | Microsoft Docs
 description: Lär dig mer om bästa praxis för att konfigurera IoT-enheter i stor skala
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734838"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485816"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metodtips för enhetskonfiguration i en IoT-lösning
 
@@ -64,9 +64,11 @@ Här följer några Metodtips för IoT-lösningsutvecklare som skapar system bas
 
 * **Ordna enheter med hjälp av device twin taggar:** Lösningen ska tillåta operatorn att definiera kvalitet ringar eller andra uppsättningar enheter baserat på olika distributionsmetoder, till exempel Kanarieöarna. Enheten organisation kan implementeras i din lösning med hjälp av device twin taggar och [frågor](iot-hub-devguide-query-language.md). Enheten organisation är nödvändigt att tillåta att konfigurationen appversioner på ett säkert sätt och korrekt.
 
-* **Implementera [automatisk enhetskonfigurationer](iot-hub-auto-device-config.md):** Automatisk enhetskonfigurationer distribuera och övervaka konfigurationsändringar till stora mängder IoT-enheter via enhetstvillingar. Automatisk enhetskonfigurationer rikta uppsättningar enhetstvillingar via den **rikta villkoret** som är en fråga på enhet twin taggar eller rapporterade egenskaper. Den **rikta innehåll** är uppsättningen med önskade egenskaper som anges i de aktuella enhetstvillingar. Rikta innehåll ska justeras med enheten twin struktur som definieras av IoT maskinvara tillverkare/dataintegreraren.
+* **Implementera [automatisk enhetskonfigurationer](iot-hub-auto-device-config.md):** Automatisk enhetskonfigurationer distribuera och övervaka konfigurationsändringar till stora mängder IoT-enheter via enhetstvillingar.
 
-   Den **mått** är frågor på enhetstvilling rapporterade egenskaper och även ska justeras med enheten twin struktur som definieras av IoT maskinvara tillverkare/dataintegreraren. Automatisk enhetskonfigurationer också har du fördelen med IoT Hub som utför åtgärder mot enhetstvillingar med en hastighet som aldrig kommer att överskrida den [begränsningsgränserna](iot-hub-devguide-quotas-throttling.md) för enheten twin läsningar och uppdateringar.
+   Automatisk enhetskonfigurationer rikta uppsättningar enhetstvillingar via den **rikta villkoret** som är en fråga på enhet twin taggar eller rapporterade egenskaper. Den **rikta innehåll** är uppsättningen med önskade egenskaper som anges i de aktuella enhetstvillingar. Rikta innehåll ska justeras med enheten twin struktur som definieras av IoT maskinvara tillverkare/dataintegreraren. Den **mått** är frågor på enhetstvilling rapporterade egenskaper och även ska justeras med enheten twin struktur som definieras av IoT maskinvara tillverkare/dataintegreraren.
+
+   Automatisk enhetskonfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. De också dra nytta av IoT-hubben som utför åtgärder mot enhetstvillingar med en hastighet som aldrig kommer att överskrida den [begränsningsgränserna](iot-hub-devguide-quotas-throttling.md) för enheten twin läsningar och uppdateringar.
 
 * **Använd den [Enhetsetableringstjänst](../iot-dps/how-to-manage-enrollments.md):** Utvecklare bör använda Device Provisioning-tjänsten ska tilldelas nya enheter device twin taggar, så att de konfigureras automatiskt av **automatisk enhetskonfigurationer** som riktas mot enhetstvillingar som returnerar med taggen. 
 

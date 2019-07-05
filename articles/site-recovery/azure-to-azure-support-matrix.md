@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312147"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514129"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -70,7 +70,7 @@ Den här tabellen sammanfattar stödet för cachelagringskonto som används av S
 
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
-Generell användning V2-lagringskonton (frekvent och lågfrekvent nivå) | Stöds ej. | Begränsningen finns för cachelagring eftersom transaktionskostnader för V2 är betydligt högre än V1-lagringskonton.
+Generell användning V2-lagringskonton (frekvent och lågfrekvent nivå) | Stöds | Användning av GPv2 rekommenderas inte eftersom transaktionskostnader för V2 är betydligt högre än V1-lagringskonton.
 Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du använder brandvägg är aktiverad cachelagringskontot eller mållagringskontot, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -82,7 +82,7 @@ Site Recovery har stöd för replikering av virtuella Azure-datorer som kör ope
 
 **Operativsystem** | **Detaljer**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, Server med Skrivbordsmiljö
 Windows Server 2016  | Server Core, Server med Skrivbordsmiljö
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default 
 
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
-Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
+Size | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt, baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
 Tillgänglighetszoner | Stöds |
 Hybrid Use-förmånen (HUB) | Stöds | Om den Virtuella källdatorn har en HUB licens aktiverad, ett redundanstest eller redundans använder virtuell dator också HUB-licens.
@@ -208,7 +208,7 @@ RA-GRS | Stöds |
 ZRS | Stöds inte |
 Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
 Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om begränsa åtkomst till virtuellt nätverk till storage-konton måste du aktivera [Tillåt att betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
+Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Ja | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
 >[!IMPORTANT]
 > För att undvika prestandaproblem kan du kontrollera att du följer VM disk skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer. Om du använder standardinställningarna, skapar Site Recovery begärda diskar och lagringskonton, baserat på käll-konfigurationen. Om du anpassar och välja egna inställningar, följ disk mål för skalbarhet och prestanda för dina virtuella källdatorer.
@@ -246,7 +246,7 @@ Flera IP-adresser | Stöds inte | När du redundansväxlar en virtuell dator som
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slutpunkten i källregionen regelbundet och till slutpunkten i målregionen vid redundans.
 Azure DNS | Stöds |
 Anpassad DNS  | Stöds |
-Via oautentiserad proxyserver | Stöds | [Läs mer]. (site-recovery-azure-to-azure-networking-guidance.md)   
+Via oautentiserad proxyserver | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
 Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
 VPN plats-till-plats-anslutning till lokalt<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site Recovery-trafiken inte dirigeras till den lokala. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
 Anslutning mellan virtuella nätverk | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)  

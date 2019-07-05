@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304354"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448013"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Funktionsbaserad jämförelse av Azure API Management-nivåer
 
@@ -40,6 +40,7 @@ Varje API Management [prisnivån](https://aka.ms/apimpricing) erbjuder en distin
 | [Management via Git](api-management-configuration-repository-git.md)                        | Nej                            | Ja            | Ja            | Ja            | Ja            |
 | Direkthantering API                                                                        | Nej                            | Ja            | Ja            | Ja            | Ja            |
 | Azure Monitor-loggar och mått                                                               | Nej                | Ja            | Ja            | Ja            | Ja            |
+| Statisk IP-adress                                                               | Nej                | Ja            | Ja            | Ja            | Ja            |
 
 <sup>1</sup> kan du använda Azure AD (och Azure AD B2C) som en identitet provider för användaren logga in på utvecklarportalen.<br/>
 <sup>2</sup> , inklusive relaterade funktioner t.ex. användare, grupper, problem, program och e-postmallar och meddelanden.<br/>

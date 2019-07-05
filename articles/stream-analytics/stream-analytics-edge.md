@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics på IoT Edge
 description: Skapa edge-jobb i Azure Stream Analytics och distribuera dem till enheter som kör Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804080"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508339"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
@@ -111,7 +110,7 @@ De här stegen beskrivs i dokumentationen för IoT Edge [Windows](https://docs.m
 
 > [!Note]
 > Det här steget skapar ASA en mapp med namnet ”EdgeJobs” i storage-behållare (om den inte redan finns). För varje distribution skapas en ny undermapp i mappen ”EdgeJobs”.
-> För att distribuera ditt jobb till gränsenheter skapar ASA en signatur för delad åtkomst (SAS) för definitionsfilen för jobbet. SAS-nyckeln skickas på ett säkert sätt till IoT Edge-enheter med hjälp av enhetstvillingen. Förfallodatum för den här nyckeln är tre år från dag då skapades.
+> När du distribuerar jobbet till IoT Edge-enheter skapar ASA en signatur för delad åtkomst (SAS) för definitionsfilen för jobbet. SAS-nyckeln skickas på ett säkert sätt till IoT Edge-enheter med hjälp av enhetstvillingen. Förfallodatum för den här nyckeln är tre år från dag då skapades. När du uppdaterar ett IoT Edge-jobb, SAS ändras, men kommer inte att ändra versionsnumret för avbildningen. När du **uppdatera**, följ arbetsflödet och ett meddelande som är inloggad på enheten.
 
 
 Mer information om IoT Edge-distributioner finns i så här [den här sidan](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ Det finns två sätt att uppdatera referensdata:
 * [Azure Stream Analytics på IoT Edge licensiera](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Tredjepartsnotis för Azure Stream Analytics på IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics-modulen bildinformation 
+
+Den här versionsinformationen senast uppdaterades på 2019-06-27:
+
+- Bild: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - Källavbildning: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Plattform:
+      - arkitektur: amd64
+      - os: linux
+  
+- Bild: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - Källavbildning: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Plattform:
+      - arkitektur: arm
+      - os: linux
+  
+- Bild: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - Källavbildning: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Plattform:
+      - arkitektur: amd64
+      - operativsystem: windows
+      
+      
 ## <a name="get-help"></a>Få hjälp
 För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

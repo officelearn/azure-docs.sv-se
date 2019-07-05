@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445401"
 ---
 # <a name="data-import-overview---azure-search"></a>Importera data översikt – Azure Search
 
@@ -36,7 +36,7 @@ Du kan använda följande API:er för att läsa in ett eller flera dokument i et
 
 Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
-En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-index med PowerShell och REST API](search-create-index-rest-api.md) eller [snabbstarten: Skapa ett Azure Search-index i C# ](search-import-data-dotnet.md).
+En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-index med hjälp av PowerShell](search-create-index-rest-api.md) eller [ C# snabbstarten: Skapa ett Azure Search-index med .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-i
 
 Du kan styra vilken indexeringsåtgärd på basis av per dokument, att ange om dokumentet ska överföras i full, sammanfogade med dokumentinnehåll eller har tagits bort.
 
-Utfärda HTTP POST-förfrågningar i REST-API med JSON-begärandetext till slutpunkts-URL för ditt Azure Search-index. Varje JSON-objekt i matrisen ”value” innehåller dokumentets nyckel och anger en indexeringsåtgärd tilläggs-, uppdateringar, eller tar bort dokumentinnehåll. Finns ett kodexempel i [läsa in dokument](search-create-index-rest-api.md#load-documents).
+Utfärda HTTP POST-förfrågningar i REST-API med JSON-begärandetext till slutpunkts-URL för ditt Azure Search-index. Varje JSON-objekt i matrisen ”value” innehåller dokumentets nyckel och anger om en indexeringsåtgärd lägger till, uppdaterar eller tar bort dokumentinnehåll. Finns ett kodexempel i [läsa in dokument](search-get-started-dotnet.md#load-documents).
 
-I .NET SDK, packa upp data till en `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt, vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet. Finns ett kodexempel i [konstruera IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+I .NET SDK, packa upp data till en `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt, vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet. Finns ett kodexempel i den [ C# snabbstarten](search-get-started-dotnet.md).
 
 
 | @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |

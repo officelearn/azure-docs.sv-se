@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113246"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471829"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till 
 
 Den här artikeln beskrivs hur en avsedda granskare utför en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 
@@ -40,7 +40,7 @@ Det första steget för att utföra en åtkomstgranskning är att leta upp och �
 
 1. Leta efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett e-postmeddelande med exempel för att granska åtkomsten för en grupp.
 
-    ![Granska åtkomst till e-post](./media/perform-access-review/access-review-email.png)
+    ![Exempel e-post från Microsoft för att granska åtkomst till en grupp](./media/perform-access-review/access-review-email.png)
 
 1. Klicka på den **börja granska** länk för att öppna åtkomstgranskningen.
 
@@ -48,7 +48,7 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
 1. Logga in på MyApps-portalen på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps-portalen](./media/perform-access-review/myapps-access-panel.png)
+    ![Visa en lista över appar som du har behörighet att MyApps-portalen](./media/perform-access-review/myapps-access-panel.png)
 
 1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
@@ -56,7 +56,7 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
     Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
-    ![Åtkomstgranskningar lista](./media/perform-access-review/access-reviews-list.png)
+    ![Väntande granskningar åtkomstlista för appar och grupper](./media/perform-access-review/access-reviews-list.png)
 
 1. Klicka på den **påbörja granskning** länk för åtkomstgranskning som du vill utföra.
 
@@ -66,7 +66,7 @@ När du har öppnat åtkomstgranskningen kan se du namnen på användare som beh
 
 Om begäran är att granska dina egna åtkomst, ser sidan annorlunda. Mer information finns i [granska åtkomst själv till grupper eller program](review-your-access.md).
 
-![Utför åtkomstgranskning](./media/perform-access-review/perform-access-review.png)
+![Öppna åtkomstgranskning lista de användare som behöver granskas](./media/perform-access-review/perform-access-review.png)
 
 Det finns två sätt att du kan godkänna eller neka åtkomst:
 
@@ -81,7 +81,7 @@ Det finns två sätt att du kan godkänna eller neka åtkomst:
 
 1. Klicka på **godkänna** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta leder till användaren upprätthålla åtkomsten, men markeringen visas i granskningsloggarna.
 
-    ![Utför åtkomstgranskning](./media/perform-access-review/approve-deny.png)
+    ![Åtgärd-fönstret som innehåller Godkänn neka, och inte känner till alternativ](./media/perform-access-review/approve-deny.png)
 
 1. Om det behövs kan du ange en orsak i den **orsak** box.
 
@@ -102,11 +102,11 @@ Om du vill göra åtkomstgranskningar enklare och snabbare för dig, erbjuder vi
 
 1. I det blå fältet längst ned på sidan, klickar du på **acceptera rekommendationer**.
 
-    ![Acceptera rekommendationer](./media/perform-access-review/accept-recommendations.png)
+    ![Öppna åtkomstgranskning lista som visar knappen Acceptera rekommendationer](./media/perform-access-review/accept-recommendations.png)
 
     Du ser en sammanfattning av de rekommenderade åtgärderna.
 
-    ![Acceptera rekommendationer sammanfattning](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Fönstret som visar en sammanfattning av de rekommenderade åtgärderna](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. Klicka på **Ok** att acceptera rekommendationer.
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331659"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514270"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -31,7 +31,7 @@ Arbetsflödet är liknande oavsett [där du distribuerar](#target) din modell:
 
 Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En modell. Om du inte har en tränad modell, du kan använda modellen och beroendefiler som anges i [den här självstudien](https://aka.ms/azml-deploy-cloud).
 
@@ -100,6 +100,8 @@ Du kan registrera ett externt skapade modellen genom att tillhandahålla en **lo
 **Uppskattad tidsåtgång**: Cirka 10 sekunder.
 
 Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+Mer information om hur du arbetar med modeller tränas utanför Azure Machine Learning-tjänsten, finns i [så här distribuerar du en befintlig modell](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -259,16 +261,22 @@ Fler exempelskript finns i följande exempel:
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definiera din InferenceConfig
 
-Konfigurationen av inferens beskriver hur du konfigurerar modellen för att göra förutsägelser. I följande exempel visar hur du skapar en inferens konfiguration:
+Konfigurationen av inferens beskriver hur du konfigurerar modellen för att göra förutsägelser. I följande exempel visar hur du skapar en inferens konfiguration. Den här konfigurationen anger körningen, post-skript och (valfritt) filen conda-miljö:
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+Mer information finns i den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klassen referens.
+
+Information om hur du använder en anpassad Docker-avbildning med inferens konfiguration finns i [hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md).
+
 ### <a name="cli-example-of-inferenceconfig"></a>CLI-exempel på InferenceConfig
+
+Följande JSON-dokumentet är en exempelkonfiguration inferens för användning med de machine learning CLI:
+
 ```JSON
 {
    "entryScript": "x/y/score.py",
@@ -277,6 +285,23 @@ inference_config = InferenceConfig(source_directory="C:/abc",
    "sourceDirectory":"C:/abc",
 }
 ```
+
+Följande entiteter är giltiga i den här filen:
+
+* __entryScript__: Sökväg till en lokal fil som innehåller koden för att köra för avbildningen.
+* __Runtime__: Vilka runtime för avbildningen. Aktuella körningar som stöds är spark-py och ”python”.
+* __condaFile__ (valfritt): Sökväg till en lokal fil som innehåller en definition av conda miljö som ska användas för bilden.
+* __extraDockerFileSteps__ (valfritt): Sökväg till en lokal fil som innehåller ytterligare Docker-åtgärder för att köra när du konfigurerar avbildningen.
+* __sourceDirectory__ (valfritt): Sökväg till mappar som innehåller alla filer för att skapa avbildningen.
+* __enableGpu__ (valfritt): Om du ska aktivera GPU eller inte har stöd i avbildningen. GPU-avbildningen måste användas på Microsoft Azure-tjänster som Azure Container Instances, beräkning av Azure Machine Learning, Azure virtuella datorer och Azure Kubernetes Service. Standardvärdet är FALSKT.
+* __baseImage__ (valfritt): En anpassad avbildning som ska användas som basavbildning. Om inga basavbildningen anges används basavbildningen baserat ut från de angivna runtime-parametern.
+* __baseImageRegistry__ (valfritt): Avbildningsregister som innehåller basavbildningen.
+* __cudaVersion__ (valfritt): Version av CUDA du installerar för avbildningar som måste GPU-stöd. GPU-avbildningen måste användas på Microsoft Azure-tjänster som Azure Container Instances, beräkning av Azure Machine Learning, Azure virtuella datorer och Azure Kubernetes Service. Versioner som stöds är 9.0, 9.1 och 10.0. Om ”enable_gpu” anges som standard ”9.1'.
+
+Dessa entiteter mappar till parametrarna för den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klass.
+
+Dig följande kommando visar hur du distribuerar en modell med hjälp av CLI:
+
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
@@ -287,8 +312,6 @@ I det här exemplet innehåller konfigurationen följande objekt:
 * Att den här modellen kräver Python
 * Den [post skriptet](#script), som används för att hantera begäranden skickas till den distribuerade tjänsten
 * Conda-fil som beskriver Python-paket som behövs för att inferens
-
-Information om InferenceConfig funktioner finns i den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klassen referens.
 
 Information om hur du använder en anpassad Docker-avbildning med inferens konfiguration finns i [hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md).
 
@@ -309,9 +332,7 @@ I följande tabell innehåller ett exempel på hur du skapar en distributionskon
 I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan använda den för att distribuera webbtjänsten.
 
 ### <a name="optional-profile-your-model"></a>Valfritt: Profilera din modell
-Innan du distribuerar modellen som en tjänst, kanske du vill profilera den för att fastställa optimal processor och minne.
-
-Du kan göra profil din modell med hjälp av SDK eller CLI.
+Innan du distribuerar modellen som en tjänst, kanske du vill profilera den för att fastställa optimal processor och minne. Du kan göra profil din modell med hjälp av SDK eller CLI.
 
 Mer information kan du ta en titt här vår SDK-dokumentation: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -544,6 +565,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## <a name="continuous-model-deployment"></a>Kontinuerlig modelldistribution 
+
+Du kan distribuera modeller med Machine Learning-tillägget för kontinuerligt [Azure DevOps](https://azure.microsoft.com/services/devops/). Med Machine Learning-tillägget för Azure DevOps kan utlösa du en pipeline för distribution när en ny maskininlärningsmodell är registrerad i Azure Machine Learning-tjänstens arbetsyta. 
+
+1. Registrera dig för [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), vilket möjliggör kontinuerlig integrering och leverans av ditt program till valfri plattform och alla moln. Azure Pipelines [skiljer sig från ML pipelines](concept-ml-pipelines.md#compare). 
+
+1. [Skapa ett Azure DevOps-projekt.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Installera den [Machine Learning-tillägg för Azure-Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Använd __anslutningar__ att ställa in en service principal anslutning till din arbetsyta för Azure Machine Learning-tjänsten för att få åtkomst till alla artefakter. Gå till inställningar, klicka på Tjänstanslutningar och välj Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Definiera AzureMLWorkspace som den __omfång nivå__ och Fyll i efterföljande parametrar.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. För att kontinuerligt distribuera din modell för maskininlärning med hjälp av Azure-Pipelines, under pipelines Välj __viktig__. Lägg till en ny artefakt, Välj modell för AzureML-artefakt och tjänst-anslutningen som har skapats i det tidigare steget. Välj modell och version som ska utlösa en distribution. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Aktivera utlösaren modellen på modell-artefakt. Genom att aktivera utlösaren och varje gång den angivna versionen (dvs.) den senaste versionen) för den modellen bara registrera dig på din arbetsyta, en Azure DevOps-releasepipeline utlöses. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+-Exempelprojekt och exempel finns i [MLOps-databasen](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.

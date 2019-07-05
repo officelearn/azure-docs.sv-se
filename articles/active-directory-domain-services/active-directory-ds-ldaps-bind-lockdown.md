@@ -3,7 +3,7 @@ title: Binda med säkert LDAP (LDAPS) till en hanterad Azure AD Domain Services-
 description: Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234858"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483372"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 
@@ -35,6 +35,11 @@ Du kan använda verktyget LDP.exe som ingår i Remote Server Administration tool
 
 Nu ska binda till den hanterade domänen. Klicka på **anslutning** och klicka på **binda...**  på menyn. Ange autentiseringsuppgifter för ett konto som hör till gruppen ”AAD DC-administratörer”.
 
+> [!IMPORTANT]
+> Användare (och tjänstkonton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM synkronisering av lösenordshash på din Azure AD Domain Services-instans.  Mer information om hur du inaktiverar NTLM synkronisering av lösenordshash [skydda din hanterade domän i Azure AD DOmain Services](secure-your-domain.md).
+>
+>
+
 Välj **visa**, och välj sedan **trädet** på menyn. Lämna fältet Bas-DN tom och klicka på OK. Navigera till den behållare som du vill söka efter och högerklicka på behållaren väljer.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Välj **visa**, och välj sedan **trädet** på menyn. Lämna fältet Bas-DN tom
 >
 >
 
-Mer information - [grunderna för LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
+Mer information - [grunderna för LDAP-fråga](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Uppgift 6: Låsa åtkomst med säkert LDAP till din hanterade domän via internet
@@ -66,7 +71,7 @@ Exemplet NSG i följande tabell låser åtkomst med säkert LDAP via internet. R
 ## <a name="related-content"></a>Relaterat innehåll
 * [Azure AD Domain Services – komma igång-guiden](create-instance.md)
 * [Hantera en Azure AD Domain Services-domän](manage-domain.md)
-* [Grunderna i LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
+* [Grunderna i LDAP-fråga](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [Hantera en grupprincip för Azure AD Domain Services](manage-group-policy.md)
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 * [Skapa en Nätverkssäkerhetsgrupp](../virtual-network/tutorial-filter-network-traffic.md)

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331742"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442436"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -120,7 +120,7 @@ Automatiserad ML är också tillgängligt i andra Microsoft-lösningar som:
 
 Visa exempel och lär dig att skapa modeller som använder automatisk machine learning:
 
-+ Följ den [självstudien: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
++ Följ den [självstudien: Automatiskt träna en regressionsmodell med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
 
 + Konfigurera inställningar för automatisk träningsexperiment:
   + I Azure portal-gränssnittet, [Följ dessa steg](how-to-create-portal-experiments.md).

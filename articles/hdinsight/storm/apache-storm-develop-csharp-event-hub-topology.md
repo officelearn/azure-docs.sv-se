@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078274"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483917"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>Ladda ned det slutförda projektet
 
-Du kan hämta en fullständig version av projektet har skapats i den här självstudien från [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Du behöver dock fortfarande att tillhandahålla konfigurationsinställningar genom att följa stegen i den här självstudien.
+Du kan hämta en fullständig version av projektet har skapats i den här artikeln från [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Du behöver dock fortfarande att tillhandahålla konfigurationsinställningar genom att följa stegen i den här artikeln.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-* En [Apache Storm på HDInsight-kluster av version 3.5 eller 3.6](apache-storm-tutorial-get-started-linux.md).
+* Ett Apache Storm-kluster på HDInsight. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **Klustertyp**.
 
     > [!WARNING]  
     > Exemplet i det här dokumentet kräver Storm på HDInsight version 3.5 eller 3.6. Detta fungerar inte med äldre versioner av HDInsight, på grund av större ändringar för klassen namn. En version av det här exemplet fungerar med äldre kluster finns [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aeda5612b2b3e9e2073a65320b238266c8bb33a
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070133"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537870"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Hyperskala tjänstnivå för upp till 100 TB
 
@@ -38,7 +38,7 @@ Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i de
 Hyperskala tjänstnivån i Azure SQL Database tillhandahåller följande funktioner:
 
 - Stöd för upp till 100 TB databasstorlek
-- Stort sett ögonblickliga säkerhetskopior (baserat på ögonblicksbilder lagras i Azure Blob storage)-databas oavsett storlek utan i/o-inverkan på beräkning   
+- Stort sett ögonblickliga säkerhetskopior (baserat på ögonblicksbilder lagras i Azure Blob storage)-databas oavsett storlek utan i/o-inverkan på beräkningsresurser  
 - Snabba återställningar för databasen (baserat på ögonblicksbilder) i minuter i stället för timmar eller dagar (inte en storlek på data igen)
 - Högre övergripande prestanda på grund av högre log dataflöde och transaktionen commit snabbare oavsett datavolymer
 - Snabb skala ut – du kan etablera en eller flera skrivskyddade noder för avlastning Läs arbetsbelastningen och användas som frekvent metoderna
@@ -69,7 +69,7 @@ Hyperskala tjänstnivå finns bara i [vCore-modellen](sql-database-service-tiers
 
 - **Storage**:
 
-  Du behöver inte ange den maximala datastorleken när du konfigurerar en storskalig databas. På hyperskalningsnivån debiteras du för lagring för databasen baserat på faktisk användning. Storage tilldelas automatiskt mellan 10 GB och 100 TB, i steg som justeras dynamiskt mellan 10 och 40GB.  
+  Du behöver inte ange den maximala datastorleken när du konfigurerar en storskalig databas. På hyperskalningsnivån debiteras du för lagring för databasen baserat på faktisk användning. Storage tilldelas automatiskt mellan 10 GB och 100 TB, i steg som justeras dynamiskt mellan 10 och 40 GB.  
 
 Läs mer om priser för storskaliga [priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -161,7 +161,7 @@ Azure SQL Database hyperskala-nivån är nu tillgänglig i följande regioner:
 - Kina, östra 2
 - Kina, norra 2
 - Östasien
-- Östra USA
+- East US
 - Östra USA 2
 - Frankrike, centrala
 - Östra Japan
@@ -225,7 +225,7 @@ Här är de aktuella begränsningarna på hyperskala tjänstnivån från och med
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| Fönstret hantera säkerhetskopior för en logisk server visar inte filtreras hyperskala databaser från SQLServer  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
+| Fönstret hantera säkerhetskopior för en logisk server visar inte filtreras hyperskala databaser från SQLServer  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför Long-Term Retention och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
 | Återställning från tidpunkt | När en databas har migrerats till hyperskala tjänstnivån, stöds inte återställning till en punkt i tid före migreringen.|
 | Återställning av icke - hyperskala DB Hypserscale och vice versa | Du kan inte återställa en storskalig databas till en icke-hyperskala-databas och inte heller kan du återställa en databas för icke-hyperskala i en storskalig databas.|
 | Om en databasfil växer under migreringen på grund av en aktiv arbetsbelastning och korsar 1 TB per fil gräns, misslyckas migreringen | Åtgärder: <br> -Om möjligt, migrera databasen när det finns ingen uppdatering av arbetsbelastningar som körs.<br> -Försök igen migreringen, kommer att kunna så länge gränsen på 1 TB inte uppnås under migreringen.|

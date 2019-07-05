@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8183c7070b5d42e1c7a96fc0d64974658b2ec7d0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244962"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448931"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -24,16 +24,17 @@ Dessa aviseringar är för Azure-resurser kan skapas med hjälp av en Azure Reso
 > [!IMPORTANT]
 > Går inte att skapa aviseringar för Service Health-meddelande via gränssnittet för skapande av aktivitet log varning. Läs mer om att skapa och använda meddelanden om hälsostatus för tjänsten i [ta emot varningar för aktivitetsloggar för health tjänstmeddelanden](alerts-activity-log-service-notifications.md).
 
+När du skapar varningsreglerna måste du kontrollera följande:
+
+- Prenumerationen i omfånget är inte skiljer sig från prenumerationen där aviseringen har skapats.
+- Villkor måste vara nivå/status/anroparen / resursgrupp / resurs-id / resurstyp / händelsekategori som aviseringen konfigureras.
+- Det finns ingen ”anyOf” villkor eller kapslade villkor i varningskonfigurationen JSON (i princip bara en allOf tillåts med inga ytterligare allOf/anyOf).
+- När är kategorin ”administrativa”. Du måste ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
+
+
 ## <a name="azure-portal"></a>Azure Portal
 
-> [!NOTE]
-> 
->  När du skapar varningsreglerna måste du kontrollera följande:
-> 
-> - Prenumerationen i omfånget är inte skiljer sig från prenumerationen där aviseringen har skapats.
-> - Villkor måste vara nivå/status/anroparen / resursgrupp / resurs-id / resurstyp / händelsekategori som aviseringen konfigureras.
-> - Det finns ingen ”anyOf” villkor eller kapslade villkor i varningskonfigurationen JSON (i princip bara en allOf tillåts med inga ytterligare allOf/anyOf).
-> - När är kategorin ”administrativa”. Du måste ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
+Med hjälp av Azure-portalen, kan användare skapa och ändra aktivitetsloggsaviseringsregler. Och den är integrerad med Azure-aktivitetsloggen – att säkerställa sömlös skapande av varning för specifika händelser av intresse.
 
 ### <a name="create-with-azure-portal"></a>Skapa med Azure portal
 
@@ -220,11 +221,11 @@ sampleActivityLogAlert.parameters.json innehåller där de angivna värdena för
 
 Aktivitetsloggaviseringar ha dedikerade PowerShell-cmdlets som är tillgängliga:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Skapar en ny eller uppdatera en befintlig aktivitetsloggavisering.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Hämtar en eller flera aktivitet log aviseringsresurserna.
-- [Aktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Gör det möjligt för en befintlig aktivitetsloggavisering och anger dess taggar.
-- [Inaktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Inaktiverar en befintlig aktivitetsloggavisering och anger dess taggar.
-- [Ta bort AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0) : Tar bort en aktivitetsloggavisering.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) : Skapar en ny eller uppdatera en befintlig aktivitetsloggavisering.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) : Hämtar en eller flera aktivitet log aviseringsresurserna.
+- [Aktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) : Gör det möjligt för en befintlig aktivitetsloggavisering och anger dess taggar.
+- [Inaktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Inaktiverar en befintlig aktivitetsloggavisering och anger dess taggar.
+- [Ta bort AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert) : Tar bort en aktivitetsloggavisering.
 
 ## <a name="cli"></a>CLI
 

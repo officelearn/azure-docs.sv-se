@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341592"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541054"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -48,13 +48,18 @@ ms.locfileid: "67341592"
 * Stöd för strömmar. 
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK: er System.Net.Http versionen matchar nu det som definieras i NuGet-paketet.
+* Tillåt skrivbegäranden återställas till en annan region om ursprungligt en misslyckas.
+* Lägg till sessionen återförsöksprincipen för skrivbegäran.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Korrigeringar för spårning av konkurrenstillstånd för frågor som gjorde att tomma sidor
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK: er System.Net.Http versionen matchar det som definieras i NuGet-paketet
 * Ökat decimalprecision storleken för LINQ-frågor.
 * Har lagts till nya klasser CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
 * Har lagts till TimeToLivePropertyPath till dokumentsamling
@@ -379,6 +384,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 juli 2019 |--- |
 | [2.4.1](#2.4.1) |Den 20 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 maj 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |

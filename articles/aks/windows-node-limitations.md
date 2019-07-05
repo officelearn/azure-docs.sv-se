@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203678"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444110"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för nodpooler för Windows Server och arbetsbelastningar för program i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver några begränsningar och OS-koncept för Windows Se
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Begränsningar för Windows Server i Kubernetes
 
-Windows Server-behållare måste köras på en Windows-baserade behållarvärd. Om du vill köra Windows Server-behållare i AKS kan du [skapar en pool för noden som kör Windows Server] [ windows-node-cli] som gästoperativsystemet. Fönstret serverstöd noden poolen innehåller vissa begränsningar som ingår i den överordnade Windows-servern i Kubernetes-projektet. Dessa begränsningar är inte specifik för AKS. Läs mer om den här överordnade stöd för Windows Server i Kubernetes [Windows Server-behållare i Kubernetes begränsningar](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+Windows Server-behållare måste köras på en Windows-baserade behållarvärd. Om du vill köra Windows Server-behållare i AKS kan du [skapar en pool för noden som kör Windows Server][windows-node-cli] som gästoperativsystemet. Fönstret serverstöd noden poolen innehåller vissa begränsningar som ingår i den överordnade Windows-servern i Kubernetes-projektet. Dessa begränsningar är inte specifik för AKS. Läs mer om den här överordnade stöd för Windows Server i Kubernetes [Windows Server-behållare i Kubernetes begränsningar](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 Följande överordnade begränsningar för Windows Server-behållare i Kubernetes är relevanta för AKS:
 
@@ -45,7 +45,6 @@ Följande överordnade begränsningar för Windows Server-behållare i Kubernete
 Följande extra begränsningar gäller för Windows Server-noden pool stöd i AKS:
 
 - Ett AKS-kluster innehåller alltid en Linux-pool för noden som den första nod-adresspoolen. Den här första Linux-baserade nodpoolen kan inte tas bort om inte själva AKS-klustret tas bort.
-- AKS stöder för närvarande endast med basic load balancer, vilket gör att endast en serverdelspool, standardpoolen för Linux-noden. Därför kan utgående trafik från Windows poddar kommer alltid att [översätts till en Azure-hanterade offentliga IP-adress][azure-outbound-traffic]. Eftersom den här IP-adressen inte är konfigurerbara, går det inte för närvarande att vitlista trafik som kommer från Windows poddar. 
 - AKS-kluster måste använda Azure CNI (Avancerat) Nätverksmodellen.
     - Kubenet (grundläggande) nätverk stöds inte. Du kan inte skapa ett AKS-kluster som använder kubenet. Mer information om skillnaderna i nätverket modeller finns i [Network begrepp för program i AKS][azure-network-models].
     - Azure CNI nätverk modellen kräver ytterligare planering och överväganden för hantering av IP-adress. Läs mer om hur du planerar och implementerar Azure CNI [CNI konfigurera Azure-nätverk i AKS][configure-azure-cni].
@@ -60,11 +59,11 @@ Följande extra begränsningar gäller för Windows Server-noden pool stöd i AK
 - Ingående domänkontrollanter ska endast schemaläggas på Linux-noder med en NodeSelector.
 - Azure Dev blanksteg finns för närvarande endast för Linux-baserade nodpooler.
 - Gruppen hanterade tjänstkonton (gMSA) support när Windows-filservernoder som inte är anslutna till en Active Directory-domän inte är tillgänglig i AKS.
-    - Öppen källkod, uppströms [aks-engine] [ aks-engine] projekt för närvarande erbjuder stöd för gMSA om du vill använda den här funktionen.
+    - Öppen källkod, uppströms [aks-engine][aks-engine] projekt för närvarande erbjuder stöd för gMSA om du vill använda den här funktionen.
 
 ## <a name="os-concepts-that-are-different"></a>OS-begrepp som skiljer sig
 
-Kubernetes är historiskt Linux fokus. Många exemplen som används i den överordnade [Kubernetes.io] [ kubernetes] webbplats är avsedda att användas på Linux-noder. När du skapar distributioner som använder Windows Server-behållare, följande överväganden vid tillämpningen OS-nivå:
+Kubernetes är historiskt Linux fokus. Många exemplen som används i den överordnade [Kubernetes.io][kubernetes] webbplats är avsedda att användas på Linux-noder. När du skapar distributioner som använder Windows Server-behållare, följande överväganden vid tillämpningen OS-nivå:
 
 - **Identitet** -Linux använder användar-ID (UID) och grupp-ID (GID), som heltal typer. Namn för användare och grupper är inte kanoniska – de är ett alias i */etc/grupper* eller */etc/passwd* tillbaka till UID + GID.
     - Windows Server använder en större binära säkerhetsidentifierare (SID) som lagras i databasen Windows Security Access Manager (SAM). Den här databasen delas inte mellan värden och behållare, eller mellan behållare.

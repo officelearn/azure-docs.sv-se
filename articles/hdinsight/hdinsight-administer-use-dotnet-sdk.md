@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724127"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508104"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av .NET SDK
 
@@ -257,10 +257,6 @@ Se [kör MapReduce-exemplen i HDInsight](hadoop/apache-hadoop-run-samples-linux.
 
 Se [kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Skicka Apache Pig-jobb**
-
-Se [kör Apache Pig-jobb med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Skicka Apache Sqoop jobb**
 
 Se [Använd Apache Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -271,7 +267,7 @@ Se [Använd Apache Oozie med Hadoop för att definiera och köra ett arbetsflöd
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob storage
 
-Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
+Se [ladda upp data till HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Se även
 
@@ -279,7 +275,7 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 * [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md)
 * [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]
-* [Överföra data till HDInsight][hdinsight-upload-data]
+* [Ladda upp data till HDInsight][hdinsight-upload-data]
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/

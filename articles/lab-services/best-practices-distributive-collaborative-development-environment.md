@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
-ms.openlocfilehash: d8892b2d00008c9d67f8bc28d1abb7d562dfd95c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079891"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543772"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Metodtips för distribuerade och samarbetsfunktioner utvecklingen av resurser i Azure DevTest Labs
 Distribuerade samarbetsfunktioner utveckling kan olika team eller personer att utveckla och underhålla en kod som bas. För att lyckas, beror utvecklingsprocessen på möjligheten att skapa, dela och integrera information. Denna utveckling-princip kan användas i Azure DevTest Labs. Det finns flera typer av resurser i ett laboratorium som distribueras ofta mellan olika labs inom företaget. De olika typerna av resurser är fokus i två områden:
@@ -37,7 +37,7 @@ Du kan ha en gemensam källa med anpassade avbildningar som distribueras till la
 [Formler](devtest-lab-manage-formulas.md) är labb-specifika och inte har en distributionsmekanism för. Lab medlemmar göra alla utvecklingen av formler. 
 
 ## <a name="code-repository-based-resources"></a>Kod lagringsplats-baserade resurser
-Det finns två olika funktioner som är baserade på lagringsplatser, artefakter och miljöer. Den här artikeln går över funktionerna och hur du effektivt ställer in arbetsflöde och databaser så att möjligheten att anpassa tillgängliga artefakter och miljöer på organisationsnivå eller team.  Det här arbetsflödet baseras på Standardtaxor [källkoden styra branchning strategi](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+Det finns två olika funktioner som är baserade på lagringsplatser, artefakter och miljöer. Den här artikeln går över funktionerna och hur du effektivt ställer in arbetsflöde och databaser så att möjligheten att anpassa tillgängliga artefakter och miljöer på organisationsnivå eller team.  Det här arbetsflödet baseras på Standardtaxor [källkoden styra branchning strategi](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### <a name="key-concepts"></a>Viktiga begrepp
 Källinformation för artefakter innehåller metadata, skript. Källinformation för miljöer innehåller metadata och Resource Manager-mallar med eventuella stödfiler som PowerShell-skript, DSC-skript, Zip-filer och så vidare.  
@@ -49,7 +49,7 @@ Den vanligaste konfigurationen för källkodskontroll (SCC) är att ställa in e
 - Business unit/Division-hela resurser
 - Team-specifika resurser.
 
-Var och en av dessa nivåer länkar till en annan databas där huvudgrenen måste vara av produktionskvalitet. Den [grenar](/devops/repos/git/git-branching-guidance?view=azure-devops) i varje databas är för utveckling av dessa specifika resurser (artefakter och mallar). Den här strukturen matchar labb som du enkelt kan ansluta flera databaser och flera grenar på samma gång till organisationens övningar. Namnet på lagringsplatsen ingår i användargränssnittet (UI) för att undvika förvirring när det är identiska namn, beskrivning och utgivare.
+Var och en av dessa nivåer länkar till en annan databas där huvudgrenen måste vara av produktionskvalitet. Den [grenar](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) i varje databas är för utveckling av dessa specifika resurser (artefakter och mallar). Den här strukturen matchar labb som du enkelt kan ansluta flera databaser och flera grenar på samma gång till organisationens övningar. Namnet på lagringsplatsen ingår i användargränssnittet (UI) för att undvika förvirring när det är identiska namn, beskrivning och utgivare.
      
 Följande diagram visar två databaser: en lagringsplats för företag som underhålls av IT-avdelningen och en division databas som hanteras av divisionen R & D.
 

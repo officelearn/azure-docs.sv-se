@@ -1,5 +1,5 @@
 ---
-title: Totalkostnaden för Ownership(TCO) med Azure Cosmos DB
+title: Total ägandekostnad (TCO) med Azure Cosmos DB
 description: Den här artikeln jämför totalkostnad för ägarskap av Azure Cosmos DB med IaaS- och lokala databaser
 author: rimman
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447208"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totalkostnaden för Ownership(TCO) med Azure Cosmos DB
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Total ägandekostnad (TCO) med Azure Cosmos DB
 
-Azure Cosmos DB har utformats med de detaljerade styrning för flera innehavare och resursen. Den här designen kan Azure Cosmos DB i betydligt lägre kostnad och hjälp användare spara. Azure Cosmos DB stöder för närvarande mer än 280 slutkundsarbetsbelastningar på en dator med densitet ökar kontinuerligt och tusentals kundens arbetsbelastningar inom ett kluster. Den belastningsutjämnar repliker av kunder arbetsbelastningar på olika datorer i ett kluster och över flera kluster i ett datacenter du mer information finns i [Azure Cosmos DB: Skicka globalt distribuerade databaser gräns](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). På grund av resurs-styrning, flera innehavare och inbyggd integration med resten av Azure-infrastrukturen kan är Azure Cosmos DB i genomsnitt 4 till 6 gånger billigare än MongoDB, Cassandra eller andra OSS NoSQL som körs på IaaS och upp till 10 gånger billigare än databasen motorer som körs lokalt. Se dokumentet på [den totala ägandekostnaden (icke) i en molntjänst för NoSQL-databas](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+Azure Cosmos DB har utformats med de detaljerade styrning för flera innehavare och resursen. Den här designen kan Azure Cosmos DB i betydligt lägre kostnad och hjälp användare spara. Azure Cosmos DB stöder för närvarande mer än 280 slutkundsarbetsbelastningar på en dator med densitet ökar kontinuerligt och tusentals kundens arbetsbelastningar inom ett kluster. Den belastningsutjämnar repliker av kundens arbetsbelastningar på olika datorer i ett kluster och över flera kluster i ett datacenter. Mer information finns i [Azure Cosmos DB: Skicka globalt distribuerade databaser gräns](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). På grund av resurs-styrning, flera innehavare och inbyggd integration med resten av Azure-infrastrukturen kan är Azure Cosmos DB i genomsnitt 4 till 6 gånger billigare än MongoDB, Cassandra eller andra OSS NoSQL som körs på IaaS och upp till 10 gånger billigare än databasen motorer som körs lokalt. Se dokumentet på [den totala ägandekostnaden (icke) i en molntjänst för NoSQL-databas](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 OSS NoSQL database-lösningar, till exempel Apache Cassandra, MongoDB, HBase, motorer utformades för on-premises. De är likvärdiga med en Resource Manager-mall med en klientdatabas för att hantera de etablerade kluster och övervakningsstöd när erbjuds som en hanterad tjänst. Arkitekturer för OSS NoSQL kräver betydande driftsomkostnader och expertis kan vara svårt och dyrt att hitta. Å andra sidan, är Azure Cosmos DB en fullständigt hanterad molntjänst som gör att utvecklare kan fokusera på företagets innovationer i stället för hantering och underhåll av databasinfrastruktur. 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359066"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440975"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -114,7 +114,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
 * **F:  Hur kan jag för att informera användarna om vart du ska gå att återställa sina lösenord?**
 
-  > **S:** Prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#sample-communication) artikeln.
+  > **S:** Prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#communications-plan) artikeln.
   >
   >
 * **F:  Kan jag använda den här sidan från en mobil enhet?**

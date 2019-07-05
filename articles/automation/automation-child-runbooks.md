@@ -4,17 +4,17 @@ description: Beskriver de olika metoderna för att starta en runbook i Azure Aut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61081586"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477970"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade runbooks i Azure Automation
 
@@ -116,7 +116,7 @@ I följande tabell sammanfattas skillnaderna mellan de två metoderna för att a
 |:--- |:--- |:--- |
 | Jobbet |Underordnade runbooks körs i samma jobb som det överordnade objektet. |Ett separat jobb skapas för den underordnade runbooken. |
 | Körning |Överordnad runbook väntar tills den underordnade runbooken ska slutföras innan du fortsätter. |Överordnad runbook fortsätter omedelbart efter att underordnad runbook har startats *eller* överordnad runbook väntar underordnade jobbet är slutfört. |
-| Resultat |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad runbook måste hämta utdata från underordnat runbook-jobb *eller* överordnad runbook kan hämta utdata direkt från underordnad runbook. |
+| Output |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad runbook måste hämta utdata från underordnat runbook-jobb *eller* överordnad runbook kan hämta utdata direkt från underordnad runbook. |
 | Parametrar |Värden för parametrar i underordnad runbook anges separat och kan använda alla datatyper. |Värden för underordnade runbook-parametrar måste kombineras i en enda hash-tabell. Den här hash-tabell kan endast innehålla enkla, matris och objekt-datatyper som använder JSON-serialisering. |
 | Automation-konto |Överordnad runbook kan bara använda underordnad runbook på samma automation-konto. |Överordnade runbooks kan använda en underordnad runbook från alla automation-konto från samma Azure-prenumeration och även en annan prenumeration som du har en anslutning till. |
 | Publicering |Underordnad runbook måste publiceras innan överordnad runbook publiceras. |Underordnad runbook måste publiceras när som helst innan överordnad runbook startas. |

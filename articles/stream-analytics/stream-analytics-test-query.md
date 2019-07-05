@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340866"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508714"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testa en Stream Analytics-fråga med exempeldata
 
 Med hjälp av Azure Stream Analytics kan du exempeldata från indata eller ladda upp exempeldata för att testa frågor i Azure portal utan att starta eller stoppa ett jobb.
 
-## <a name="upload-sample-data-and-test-the-query"></a>Ladda upp exempeldata och testa frågan
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Ladda upp eller exempeldata från en källa som live för att testa frågan
 
 1. Logga in på Azure Portal. 
 
@@ -30,7 +30,7 @@ Med hjälp av Azure Stream Analytics kan du exempeldata från indata eller ladda
 
 4. Om du vill testa frågan kan du sedan antingen exempeldata från en live indata eller ladda upp från en fil. Data måste serialiseras i JSON, CSV eller AVRO. Exempelindata måste vara kodad i UTF-8 och inte komprimeras. Endast kommatecken (,) avgränsare stöds för att testa CSV indata på portalen.
 
-    1. Med live indata: Högerklicka på någon av dina indata. Välj sedan **exempeldata från indata**. Du kan ange varaktigheten för exemplet på nästa skärm.
+    1. Med live indata: Högerklicka på någon av dina indata. Välj sedan **exempeldata från indata**. Du kan ange varaktigheten för exemplet på nästa skärm. Sampling händelser från en livekällan kommer att hämta upp till 1 000 händelser eller 1 MB (beroende på vilket som inträffar först), så data samplas inte kanske motsvarar det heltid intervall som anges.
 
     1. Med hjälp av filen: Högerklicka på någon av dina indata. Välj sedan **överför exempeldata från filen**. 
 

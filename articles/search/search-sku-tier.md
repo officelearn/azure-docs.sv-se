@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539248"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485298"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-När du skapar en Azure Search-tjänst, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår kostnadsfri, Basic, Standard och Lagringsoptimerade. Standard och Lagringsoptimerade är tillgängliga med flera konfigurationer och kapaciteter.
+När du skapar en Azure Search-tjänst, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå (eller SKU) som har åtgärdats för livslängden för tjänsten. Nivåerna ingår kostnadsfri, Basic, Standard och Lagringsoptimerade. Standard och Lagringsoptimerade är tillgängliga med flera konfigurationer och kapaciteter.
 
-De flesta kunder börjar med den kostnadsfria nivån så att de kan utvärdera tjänsten. De sedan uppgradera till en av de högsta nivåerna för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier med hjälp av den kostnadsfria nivån, inklusive som för resurskrävande kognitiv sökning.
+De flesta kunder börjar med den kostnadsfria nivån så att de kan utvärdera tjänsten. Efter utvärderingen är det vanligt att skapa en andra tjänst på en av de högsta nivåerna för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier med hjälp av den kostnadsfria nivån, inklusive som för resurskrävande kognitiv sökning.
 
 > [!NOTE]
-> För närvarande tillhandahåller Microsoft tjänstnivåer Lagringsoptimerade i en förhandsversion till rabatterade priser för testning och experimentering, med målet att samla in feedback. Slutlig prissättning kommer att tillkännages senare när de här nivåerna är allmänt tillgängliga. Vi rekommenderar mot att använda de här nivåerna för program i produktion.
+> Alla nivåer är allmänt tillgängliga, inklusive Lagringsoptimerade-nivå från och med den 1 juli. Alla priser finns på den [prisinformation om](https://azure.microsoft.com/pricing/details/search/) sidan.
 
 Nivåerna återspeglar egenskaperna för den maskinvara som är värd för den tjänsten (i stället funktioner) och hjälp av:
 
 + Antal index som du kan skapa.
 + Storlek och hastigheten på partitioner (fysisk lagring).
 
-Även om alla nivåerna, inklusive den kostnadsfria nivån ger ofta funktionsparitet, kan större arbetsbelastningar kräver ett behov av på högre nivå. Till exempel [AI indexering med kognitiva tjänster](cognitive-search-concept-intro.md) har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen är liten.
+Även om alla nivåerna, inklusive den kostnadsfria nivån ger ofta funktionsparitet, kan större arbetsbelastningar kräver ett behov av på högre nivå. Till exempel [AI-funktioner med Cognitive Services](cognitive-search-concept-intro.md) har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen är liten.
 
 > [!NOTE] 
 > Undantaget till funktionsparitet är [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3 HD.
@@ -60,7 +60,11 @@ I följande tabell visas de tillgängliga nivåerna. Du hittar mer information o
 
 ## <a name="how-billing-works"></a>Så fungerar debiteringen
 
-Det finns tre sätt att betala i Azure Search det är fast och varierande komponenter. Det här avsnittet beskriver de tre fakturering komponenterna: core tjänstekostnaderna avgifter tillkommer och AI-utökad indexering.
+Det finns tre sätt att betala i Azure Search. Det här avsnittet beskriver de tre fakturering komponenterna: 
+
++ kostnaden för Core-tjänst
++ kostnaderna för utgående trafik (eller bandbredd)
++ AI enrichments
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Core-Tjänstekostnader (fast och varierande)
 
@@ -98,9 +102,9 @@ Med hjälp av [Azure Search-indexerare](search-indexer-overview.md) kan påverka
 
 Gäller avgifterna för utgående data om tjänster finns i olika regioner. Dessa kostnader är inte en del av din Azure Search-faktura. De är anges om du använder data eller AI-berikats indexerare att hämta data från olika regioner, ser du kostnaderna som visas i dina kostnader.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>AI-utökad indexering med kognitiva tjänster
+### <a name="ai-enrichments-with-cognitive-services"></a>AI enrichments med Cognitive Services
 
-För [AI indexering med kognitiva tjänster](cognitive-search-concept-intro.md), du bör planera att bifoga en fakturerbara Azure Cognitive Services-resurs i samma region som Azure Search på S0 prisnivån för användningsbaserad betalning bearbetning. Det finns ingen fast kostnad som hör till koppla Cognitive Services. Du betalar bara för den bearbetning som du behöver.
+För [AI-funktioner med Cognitive Services](cognitive-search-concept-intro.md), du bör planera att bifoga en fakturerbara Azure Cognitive Services-resurs i samma region som Azure Search på S0 prisnivån för användningsbaserad betalning bearbetning. Det finns ingen fast kostnad som hör till koppla Cognitive Services. Du betalar bara för den bearbetning som du behöver.
 
 Extrahering av avbildningen under dokumentknäckning är en Azure Search-avgift. Faktureras enligt antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt.
 

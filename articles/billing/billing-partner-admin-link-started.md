@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694230"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502675"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
-Som partner kan spåra du din inverkan mellan dina kundrelationer. Du kan länka ditt partner-ID för de konton som används för att hantera resurser för en kund.
+Microsoft-partner tillhandahålla tjänster som hjälper kunder få verksamhets- och verksamhetskritiska mål med hjälp av Microsoft-produkter. När vägnar kunden hantering, behöver konfiguration och support av Azure-tjänster, partneranvändare åtkomst till kundens miljö. Med länken för Partner-administratör kan associera partner sina partner network-ID med de autentiseringsuppgifter som används för serviceleverans.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ Länken är associerade på nivån för kontot. Endast kan du redigera eller ta 
 
 **Vilka MPN-ID ska jag använda om mitt företag har flera?**
 
-Du kan använda valfri giltig MPN-ID utom virtuella organization(v-org) MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
+Plats-partnerkonton och associerade MPN-ID: N ska användas för att länka partner-ID.  Läs mer om [partnerkonton](https://docs.microsoft.com/partner-center/account-structure)
 
 **Var hittar jag har påverkat intäktsrapportering för länkade partner-ID?**
 
-Du kan hitta har påverkat intäktsrapportering på [min instrumentpanel](https://partner.microsoft.com/membership/reports/myinsights). Du måste välja länken för Partner-administratör som typ av partner-kopplingen.
+Molnet produkten Prestandarapportering är tillgängliga för partners i Partnercenter på [min instrumentpanel](https://partner.microsoft.com/membership/reports/myinsights). Du måste välja länken för Partner-administratör som typ av partner-kopplingen.
 
 **Varför kan jag inte se min kund i rapporterna?**
 

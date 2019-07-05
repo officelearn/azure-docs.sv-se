@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791936"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447829"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
-I det här avsnittet får du lära dig hur du konfigurerar loggning av diagnostiktelemetri för Azure SQL Database via Azure portal, PowerShell, Azure CLI, REST-API för Azure Monitor och Azure Resource Manager-mall. Dessa diagnostik kan användas för att mäta användning av resurser och statistik för körning av frågan. 
+I det här avsnittet får du lära dig hur du konfigurerar loggning av diagnostiktelemetri för Azure SQL Database via Azure portal, PowerShell, Azure CLI, REST-API för Azure Monitor och Azure Resource Manager-mall. Dessa diagnostik kan användas för att mäta användning av resurser och statistik för körning av frågan.
 
 Enkla databaser och databaser i pooler i elastiska pooler instansdatabaser i en hanterad instans kan strömma loggar för mått och diagnostik för lättare prestandaövervakning. Du kan konfigurera en databas för överföring av Resursanvändning, personal och sessioner och anslutning till en av följande Azure-resurser:
 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 1. Dessutom konfigurera strömning av diagnostiktelemetri för varje databas i den elastiska poolen som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> Utöver att konfigurera diagnostiktelemetri för elastisk pool, måste du också konfigurera diagnostiktelemetri för varje databas i en elastisk pool, enligt beskrivningen nedan. 
+> Utöver att konfigurera diagnostiktelemetri för elastisk pool, måste du också konfigurera diagnostiktelemetri för varje databas i en elastisk pool, enligt beskrivningen nedan.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel databas eller databas i en elastisk pool
 
@@ -181,7 +181,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en h
 1. Dessutom konfigurera strömning av diagnostiktelemetri för varje instans-databas i den hanterade instansen som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> Utöver att konfigurera diagnostiktelemetri för en hanterad instans, måste du också konfigurera diagnostiktelemetri för varje instans-databas, enligt beskrivningen nedan. 
+> Utöver att konfigurera diagnostiktelemetri för en hanterad instans, måste du också konfigurera diagnostiktelemetri för varje instans-databas, enligt beskrivningen nedan.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Konfigurera strömning av diagnostiktelemetri exempelvis databaser
 
@@ -261,6 +261,7 @@ Ange resurs-ID för arbetsyta \<$WSID\> som en parameter när du kör skriptet `
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Ersätt \<subID\> med prenumerations-ID \<RG_NAME\> med resursgruppens namn och \<WS_NAME\> med namnet på arbetsytan.
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -397,10 +398,6 @@ Det ser ut som ett blobbnamn för lagring av data från en elastisk pool:
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>Hämta mått och loggar från Storage
-
-Lär dig hur du [hämta mått och diagnostik för loggar från Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
-
 ## <a name="data-retention-policy-and-pricing"></a>Policy för datalagring och prissättning
 
 Om du väljer Event Hubs eller ett lagringskonto kan ange du en bevarandeprincip. Den här principen tar bort data som är äldre än en vald tidsperiod. Om du anger Log Analytics beror bevarandeprincipen på den valda prisnivån. I det här fallet kan de tillhandahållna kostnadsfria enheterna för datainmatning kostnadsfria övervakning av flera databaser varje månad. Alla användning av diagnostiktelemetri som överstiger de kostnadsfria enheterna kan medföra kostnader. Tänk på att aktiva databaser med större arbetsbelastningar mata in mer data än inaktiva databaser. Mer information finns i [priser för Log analytics](https://azure.microsoft.com/pricing/details/monitor/).
@@ -441,7 +438,7 @@ Information om telemetri som är tillgängliga för alla loggar dokumenteras i t
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: ResourceUsageStats |
 |Resource|Namn på resursen |
@@ -466,7 +463,7 @@ Information om telemetri som är tillgängliga för alla loggar dokumenteras i t
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent |
@@ -517,7 +514,7 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent |
@@ -555,7 +552,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQ |
 |Category|Namnet på kategorin. Alltid: Fel |
 |OperationName|Åtgärdens namn. Alltid: ErrorEvent |
@@ -570,7 +567,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |Message|Felmeddelande i oformaterad text |
 |user_defined_b|Är fel användardefinierade-bitars |
 |error_number_d|Felkod |
-|Severity|Allvarlighetsgraden för felet |
+|Allvarsgrad|Allvarlighetsgraden för felet |
 |state_d|Tillståndet för felet |
 |query_hash_s|Fråge-hash för misslyckade frågan, om det är tillgängligt |
 |query_plan_hash_s|Fråga plan hash för misslyckade frågan, om det är tillgängligt |
@@ -584,7 +581,7 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: DatabaseWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: DatabaseWaitStatisticsEvent |
@@ -613,7 +610,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: Timeouter |
 |OperationName|Åtgärdens namn. Alltid: TimeoutEvent |
@@ -636,7 +633,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: block |
 |OperationName|Åtgärdens namn. Alltid: BlockEvent |
@@ -660,7 +657,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC] |Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: Låsningar |
 |OperationName|Åtgärdens namn. Alltid: DeadlockEvent |
@@ -681,7 +678,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Category|Namnet på kategorin. Alltid: AutomaticTuning |
 |Resource|Namn på resursen |
@@ -719,5 +716,3 @@ Läs mer om Event Hubs finns:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Läs mer om Azure Storage i [hur du laddar ned mått och diagnostik för loggar från Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

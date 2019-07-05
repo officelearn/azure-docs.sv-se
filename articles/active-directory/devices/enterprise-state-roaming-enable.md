@@ -1,28 +1,22 @@
 ---
 title: Aktivera Enterprise Tillståndsväxling i Azure Active Directory | Microsoft Docs
-description: Vanliga frågor om Enterprise State Roaming-inställningar i Windows-enheter. Enterprise State Roaming ger användarna en enhetlig upplevelse på sina Windows-enheter och minskar den tid som behövs för att konfigurera en ny enhet.
+description: Vanliga frågor om Enterprise State Roaming-inställningar i Windows-enheter.
 services: active-directory
-keywords: Enterprise tillståndsväxling, windows-molnet, hur du aktiverar enterprise tillståndsväxling
-documentationcenter: ''
-author: tanning
-manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954943"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482019"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -32,9 +26,7 @@ När du aktiverar Enterprise State Roaming, beviljas automatiskt en kostnadsfri,
 ## <a name="to-enable-enterprise-state-roaming"></a>Aktivera Enterprise Tillståndsväxling
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
-
 1. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State Roaming**.
-
 1. Välj **användarna kan synkronisera inställningar och AppData på enheter**. Mer information finns i [så här konfigurerar du Enhetsinställningar](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
    ![Bild av enhetsinställning med namnet användare kan synkronisera inställningar och AppData på enheter](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,12 +36,12 @@ Enheten måste autentiseras med hjälp av en Azure AD-identitet för för en Win
 ## <a name="data-storage"></a>Datalagring
 Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instans. Enterprise State Roaming data partitioneras baserat på tre större geografiska områden: Nordamerika, EMEA och APAC. Enterprise State Roaming data för klientorganisationen finns lokalt tillsammans med det geografiska området och har replikerats inte i flera regioner.  Exempel:
 
-Värdet för land/region | sina data har finns i
----------------------|-------------------------
-En EMEA land/region, till exempel Frankrike eller Zambia | En eller flera av Azure-regioner i Europa 
-Nordamerika land/region, till exempel USA eller Kanada | en eller flera av Azure-regioner i USA
-En APAC land/region, till exempel Australien eller Nya Zeeland | en eller flera av Azure-regioner i Asien
-Sydamerika och Antarktis regioner | en eller flera Azure-regioner i USA
+| Värdet för land/region | sina data har finns i |
+| -------------------- | ------------------------ |
+| En EMEA land/region, till exempel Frankrike eller Zambia | En eller flera av Azure-regioner i Europa |
+| Nordamerika land/region, till exempel USA eller Kanada | en eller flera av Azure-regioner i USA |
+| En APAC land/region, till exempel Australien eller Nya Zeeland | en eller flera av Azure-regioner i Asien |
+| Sydamerika och Antarktis regioner | en eller flera Azure-regioner i USA |
 
 Land/region-värdet har angetts som en del av processen för Azure AD-katalogen och kan inte ändras senare. Om du behöver mer information på din plats för lagring av data kan en supportbegäran [Azure-supporten](https://azure.microsoft.com/support/options/).
 
@@ -57,11 +49,8 @@ Land/region-värdet har angetts som en del av processen för Azure AD-katalogen 
 Följ dessa steg om du vill visa en statusrapport för per användare enheten synkronisering.
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
-
 1. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
-
 1. Välj användaren och välj sedan **enheter**.
-
 1. Under **visa**väljer **Enhetssynkroniseringställningar eller AppData** att visa synkroniseringsstatus.
   
    ![Bild av enhetsinställning synkronisera data](./media/enterprise-state-roaming-enable/sync-status.png)

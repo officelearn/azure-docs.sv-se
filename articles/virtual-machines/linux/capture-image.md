@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542883"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551657"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -30,7 +30,9 @@ Spara en avbildning av den virtuella datorn eller OS-VHD för att skapa flera ko
 
 Skapa en kopia av din befintliga Linux-VM för säkerhetskopiering eller felsökning eller ladda upp en specialiserad Linux-VHD från en lokal virtuell dator i avsnittet [ladda upp och skapa en Linux VM från anpassad diskavbildning](upload-vhd.md).  
 
-Du kan också använda **Packer** att skapa din egen konfiguration. Mer information finns i [hur du använder Packer för att skapa Linux-avbildningar i Azure](build-image-with-packer.md).
+Du kan använda den **Azure VM Image Builder (offentlig förhandsversion)** tjänsten för att skapa en anpassad avbildning, behöver inte lära dig några verktyg eller installationsprogrammet skapa pipelines, helt enkelt ange en bildkonfiguration och Image Builder skapar avbildningen. Mer information finns i [komma igång med Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+
+Dessutom används **Packer** att skapa din egen konfiguration. Mer information finns i [hur du använder Packer för att skapa Linux-avbildningar i Azure](build-image-with-packer.md).
 
 Du behöver följande innan du skapar en avbildning:
 

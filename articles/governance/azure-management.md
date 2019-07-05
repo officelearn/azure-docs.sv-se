@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683244"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488485"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Översikt över tjänster i Azure
 
@@ -48,7 +48,7 @@ Hantera säkerheten för dina resurser och data. Ett säkerhetsprogram innebär 
 
 ## <a name="protect"></a>Skydda
 
-Skydd refererar till att hålla dina program och data som är tillgängliga även med avbrott som ligger utanför din kontroll. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-introduction-to-azure-backup.md)tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) tillhandahåller verksamhetskontinuitet och omedelbar återställning vid ett haveri.
+Skydd refererar till att hålla dina program och data som är tillgängliga även med avbrott som ligger utanför din kontroll. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-introduction-to-azure-backup.md) tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) tillhandahåller verksamhetskontinuitet och omedelbar återställning vid ett haveri.
 
 ## <a name="migrate"></a>Migrera
 

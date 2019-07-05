@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752736"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445733"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
@@ -94,7 +94,7 @@ Azure Active Directory tillhandahåller dessutom en plats för att söka efter u
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera utvärderingar  
 
-Microsoft autentiserar alla Marketplace-användare med Azure AD, kan därför när en autentiserad användare klickar sig igenom dina utvärderingspubliceringar i Marketplace och omdirigeras till din utvärderingsmiljö, ge användaren en utvärderingsversion utan att kräva en ytterligare inloggning steg. Den token som appen tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app, så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar sig igenom dina utvärderingspubliceringar i Marketplace och omdirigeras till din utvärderingsmiljö kan du ge användaren en utvärderingsversion utan att kräva en ytterligare inloggning steg. Den token som appen tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app, så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Aktivera 1 klick autentisering i din app eller en utvärderingsversion med hjälp av Azure AD gör följande:  
 * Förenklar kundupplevelsen från Marketplace-utvärderingsversionen.  
@@ -104,7 +104,7 @@ Aktivera 1 klick autentisering i din app eller en utvärderingsversion med hjäl
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certifiera din Azure AD-integrering för Marketplace  
 
-Du kan certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt program är en enda klient eller flera innehavare och om du är nybörjare till Azure AD-federerad enkel inloggning (SSO), eller redan stöder den.  
+Certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt program är en enda klient eller flera innehavare och om du är nybörjare till Azure AD-federerad enkel inloggning (SSO), eller redan stöder den.  
 
 **För program med flera klienter:**  
 

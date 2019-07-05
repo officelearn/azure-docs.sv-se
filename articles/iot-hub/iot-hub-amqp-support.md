@@ -1,32 +1,32 @@
 ---
 title: Förstå Azure IoT Hub AMQP support | Microsoft Docs
 description: 'Utvecklarguide – stöd för enheter som ansluter till IoT Hub enheten kund- och service-riktade slutpunkter med hjälp av AMQP-protokollet. Innehåller information om inbyggda stöd för AMQP i SDK: er för Azure IoT-enheter.'
-author: rezasherafat
-manager: ''
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: rezas
-ms.openlocfilehash: c304c9b7fe02e3396d49aee0b70576071d9fac92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: e0c7b6aa9745beaf7a7d336e8308d12348bb274b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055379"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432615"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Kommunicera med IoT-hubben med hjälp av AMQP-protokollet
 
-Stöds av Azure IoT Hub [OASIS avancerade AMQP Message Queuing Protocol () version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) att leverera en mängd funktioner via enheten kund- och service-riktade slutpunkter. Det här dokumentet beskriver hur du använder AMQP-klienter att ansluta till en IoT-hubb använda IoT Hub-funktionen.
+Stöds av Azure IoT Hub [OASIS avancerade AMQP Message Queuing Protocol () version 1.0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) att leverera en mängd funktioner via enheten kund- och service-riktade slutpunkter. Det här dokumentet beskriver hur du använder AMQP-klienter att ansluta till en IoT-hubb använda IoT Hub-funktionen.
 
 ## <a name="service-client"></a>Klienten för tjänsten
 
 ### <a name="connect-and-authenticate-to-an-iot-hub-service-client"></a>Ansluta och autentisera till en IoT-hubb (service-klient)
+
 Om du vill ansluta till en IoT hub med hjälp av AMQP, en klient kan använda den [anspråksbaserad säkerhet (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) eller [enkel autentisering och säkerhet Layer (SASL) autentisering](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
 Följande krävs för tjänstklienten:
 
-| Information | Värde | 
+| Information | Värde |
 |-------------|--------------|
 | IoT hub-värdnamn | `<iot-hub-name>.azure-devices.net` |
 | Nyckelnamn | `service` |
@@ -40,14 +40,15 @@ import uamqp
 import urllib
 import time
 
-# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use generate_sas_token implementation available here: 
+# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '<operation-link-name>' # e.g., '/messages/devicebound'
+operation = '<operation-link-name>' # example: '/messages/devicebound'
 
 username = '{policy_name}@sas.root.{iot_hub_name}'.format(iot_hub_name=iot_hub_name, policy_name=policy_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
@@ -59,6 +60,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
 ### <a name="invoke-cloud-to-device-messages-service-client"></a>Anropa meddelanden från molnet till enheten (service-klient)
+
 Mer information om moln till enhet-meddelande exchange mellan tjänsten och IoT-hubben och mellan enheten och IoT hub, se [skicka meddelanden från moln till enhet från IoT hub](iot-hub-devguide-messages-c2d.md). Tjänsten klienten använder två länkar att skicka meddelanden och få feedback om tidigare skickade meddelanden från enheter, enligt beskrivningen i följande tabell:
 
 | Skapat av | Länktyp | Länk | Beskrivning |
@@ -121,8 +123,11 @@ for msg in batch:
 ```
 
 I föregående kod visas ett meddelande om moln till enhet feedback har innehållstypen för *application/vnd.microsoft.iothub.feedback.json*. Du kan använda egenskaperna i meddelandetexten JSON som härleder leveransstatus av det ursprungliga meddelandet:
+
 * Nyckeln `statusCode` i feedbacken har något av följande värden: *Lyckade*, *har upphört att gälla*, *DeliveryCountExceeded*, *avvisade*, eller *rensas*.
+
 * Nyckeln `deviceId` i feedbacken har ID för målenheten.
+
 * Nyckeln `originalMessageId` i feedbacken har ID för moln-till-enhet-meddelandet som skickades av tjänsten. Du kan använda den här leveransstatus för att korrelera feedback till meddelanden från molnet till enheten.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Ta emot telemetrimeddelanden (service-klient)
@@ -132,8 +137,11 @@ Som standard lagrar IoT-hubben inmatade enheten telemetrimeddelanden i en inbygg
 För detta ändamål måste tjänstklienten först ansluta till IoT hub-slutpunkten och ta emot en adress för omdirigering till de inbyggda händelsehubbar. Service-klienten använder sedan den angivna adressen för att ansluta till inbyggda event hub.
 
 I varje steg måste klienten finns i följande uppgifter:
+
 * Giltigt service autentiseringsuppgifter (signaturtoken för tjänsten delad åtkomst).
+
 * En välutformat sökväg till den grupp konsument-partition som den har för avsikt att hämta meddelanden från. För en viss konsument grupp och partitions-ID, sökvägen har följande format: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (förinställd konsumentgrupp är `$Default`).
+
 * Ett valfritt filtrering predikat att utse en startpunkt i partitionen. Det här predikatet kan vara i form av en sekvens nummer, offset eller köas tidsstämpel.
 
 I följande kod kodfragment används den [uAMQP biblioteket i Python](https://github.com/Azure/azure-uamqp-python) att demonstrera föregående steg:
@@ -193,20 +201,19 @@ for msg in batch:
 
 För en viss enhets-ID använder IoT-hubben en hash av enhets-ID för att avgöra vilken partition som ska lagra meddelanden i. I föregående kodfragment visar hur händelser tas emot från en enda sådana partition. Observera dock att ett typiskt program ofta behöver hämta händelser som lagras i alla händelsenavspartitioner.
 
-
 ## <a name="device-client"></a>Enhetsklient
 
 ### <a name="connect-and-authenticate-to-an-iot-hub-device-client"></a>Ansluta och autentisera till en IoT-hubb (enhetsklienten)
+
 En enhet kan använda för att ansluta till en IoT hub med hjälp av AMQP [anspråksbaserad säkerhet (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) eller [enkel autentisering och säkerhet Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) autentisering.
 
 Följande krävs för enhetsklienten:
 
-| Information | Värde | 
+| Information | Värde |
 |-------------|--------------|
 | IoT hub-värdnamn | `<iot-hub-name>.azure-devices.net` |
 | Åtkomstnyckel | En primär eller sekundär nyckel som är associerat med enheten |
 | Signatur för delad åtkomst | En tillfällig delad åtkomstsignatur i följande format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Om du vill hämta koden för att generera den här signaturen, se [styra åtkomsten till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
-
 
 I följande kod kodfragment används den [uAMQP biblioteket i Python](https://github.com/Azure/azure-uamqp-python) att ansluta till en IoT hub via en avsändare-länk.
 
@@ -215,7 +222,8 @@ import uamqp
 import urllib
 import uuid
 
-# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use generate_sas_token implementation available here: 
+# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -240,14 +248,14 @@ Följande länksökvägar stöds som åtgärder:
 | Enheter | Avsändaren länk | `/devices/<deviceID>messages/events` | Enhet-till-moln-meddelanden som skickas från en enhet skickas via den här länken. |
 | Enheter | Avsändaren länk | `/messages/serviceBound/feedback` | Feedback för moln till enhet-meddelande skickas till tjänsten via den här länken av enheter. |
 
-
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Tar emot kommandon moln till enhet (enhetsklienten)
+
 Moln-till-enhet-kommandon som skickas till enheter som tas emot på en `/devices/<deviceID>/messages/devicebound` länk. Enheter kan ta emot dessa meddelanden i batchar och använda data meddelandenyttolast, meddelandeegenskaper, kommentarer eller programegenskaper i meddelandet vid behov.
 
 I följande kod kodfragment används den [uAMQP biblioteket i Python](https://github.com/Azure/azure-uamqp-python)) att ta emot meddelanden från moln till enhet av en enhet.
 
 ```python
-# ... 
+# ...
 # Create a receive client for the cloud-to-device receive link on the device
 operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
 uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
@@ -283,13 +291,13 @@ while True:
 ```
 
 ### <a name="send-telemetry-messages-device-client"></a>Skicka telemetrimeddelanden (enhetsklienten)
+
 Du kan också skicka telemetrimeddelanden från en enhet med hjälp av AMQP. Enheten kan du ge en ordlista med egenskaper för program eller skicka meddelanden till olika egenskaper, till exempel meddelande-ID.
 
 I följande kod kodfragment används den [uAMQP biblioteket i Python](https://github.com/Azure/azure-uamqp-python) att skicka meddelanden från enhet till moln från en enhet.
 
-
 ```python
-# ... 
+# ...
 # Create a send client for the device-to-cloud send link on the device
 operation = '/devices/{device_id}/messages/events'.format(device_id=device_id)
 uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
@@ -328,12 +336,14 @@ for result in results:
 ```
 
 ## <a name="additional-notes"></a>Ytterligare information
+
 * AMQP-anslutningar kan avbrytas på grund av ett nätverk glapp för eller förnyandet av autentiseringen token (genereras i koden). Tjänstklienten måste hantera dessa fall och återupprätta anslutningen och länkar, om det behövs. Om en autentiseringstoken upphör att gälla undvika klienten en listmeny anslutningen genom att proaktivt förnya token innan det upphör att gälla.
+
 * Klienten måste ibland att kunna hantera länken omdirigeringar korrekt. Information om en sådan åtgärd finns i dokumentationen för din AMQP-klient.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om AMQP-protokollet i den [AMQP v1.0 specifikationen](http://www.amqp.org/sites/amqp.org/files/amqp.pdf).
+Läs mer om AMQP-protokollet i den [AMQP v1.0 specifikationen](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 
 Mer information om IoT Hub-meddelanden finns:
 

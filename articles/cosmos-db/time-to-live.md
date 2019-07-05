@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447249"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) i Azure Cosmos DB 
 
@@ -45,6 +45,42 @@ Tiden TTL-värde har angetts i sekunder och tolkas det som en lista från den ti
 * Om TTL-värdet från en behållare har värdet-1, ett objekt i den här behållaren som innehåller time to live inställt n, upphör att gälla efter n sekunder och återstående objekt upphör inte att gälla. 
 
 Tar bort objekt baserat på TTL är kostnadsfri. Det finns ingen extra kostnad (det vill säga används inga ytterligare ru: er) när objektet tas bort till följd av TTL upphör.
+
+## <a name="examples"></a>Exempel
+
+Det här avsnittet visas några exempel med olika live värden som tilldelats behållare och objekt:
+
+### <a name="example-1"></a>Exempel 1
+
+TTL-värdet från behållaren är inställd på null (DefaultTimeToLive = null)
+
+|TTL-värdet från objekt| Resultat|
+|---|---|
+|TTL = null|    TTL är inaktiverad. Objektet aldrig att gälla (standard).|
+|ttl = -1   |TTL är inaktiverad. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är inaktiverad. Objektet upphör aldrig att gälla.|
+
+
+### <a name="example-2"></a>Exempel 2
+
+TTL-värdet från behållaren har värdet-1 (DefaultTimeToLive = -1)
+
+|TTL-värdet från objekt| Resultat|
+|---|---|
+|TTL = null |TTL är aktiverat. Objektet aldrig att gälla (standard).|
+|ttl = -1   |TTL är aktiverat. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är aktiverat. Objektet upphör att gälla efter 2 000 sekunder.|
+
+
+### <a name="example-3"></a>Exempel 3
+
+TTL-värdet från behållaren är inställd på 1000 (DefaultTimeToLive = 1000)
+
+|TTL-värdet från objekt| Resultat|
+|---|---|
+|TTL = null|    TTL är aktiverat. Objektet går ut efter 1 000 sekunder (standard).|
+|ttl = -1   |TTL är aktiverat. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är aktiverat. Objektet upphör att gälla efter 2 000 sekunder.|
 
 ## <a name="next-steps"></a>Nästa steg
 

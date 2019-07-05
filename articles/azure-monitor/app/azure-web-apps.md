@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65408223"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502085"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 
@@ -42,7 +42,7 @@ Det finns två sätt att aktivera av program för Azure App Services som värd f
 ## <a name="enable-agent-based-monitoring-net"></a>Aktivera agentbaserad övervakning .NET
 
 > [!NOTE]
-> kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaring i den [avsnittet om felsökning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+> Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaring i den [avsnittet om felsökning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 
 1. **Välj Application Insights** i Azure-Kontrollpanelen för app service.
@@ -274,7 +274,7 @@ Nedan visas ett exempel, Ersätt alla förekomster av `AppMonitoredSite` med pla
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```

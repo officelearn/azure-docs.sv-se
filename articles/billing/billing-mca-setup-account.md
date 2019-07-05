@@ -1,8 +1,6 @@
 ---
-title: Konfigurera ditt faktureringskonto för en Microsoft-kundavtal – Azure | Microsoft Docs
+title: Konfigurera ditt faktureringskonto för en Microsoft-kundavtal - Azure
 description: Lär dig hur du ställer in ditt faktureringskonto för en Microsoft-kundavtal.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919156"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490698"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för en Microsoft-kundavtal
 
-Om ditt Enterprise Agreement-registrering har upphört att gälla eller håller på att ha upphört för att gälla, kan du registrera ett Microsoft-avtal för kunder att förnya din registrering. Förnyelsen omfattar följande steg:
+Om ditt Enterprise Agreement-registrering har upphört att gälla eller håller på att ha upphört för att gälla, kan du registrera ett Microsoft-avtal för kunder att förnya din registrering. Den här artikeln beskrivs ändringar i din befintliga faktureringen efter installationen och vägleder dig genom installationen av nya kontot. Förnyelsen omfattar följande steg:
 
 1. Godkänn avtalet för nya Microsoft-kund. Arbeta med din Microsoft-representant för fält att förstå informationen och acceptera det nya avtalet.
 2. Ställ in den nya faktureringskonto som skapas för det nya avtalet för Microsoft-kund.
-
-Den här artikeln beskrivs ändringar i din befintliga faktureringen efter installationen och vägleder dig genom installationen av nya kontot.
 
 Om du vill konfigurera faktureringskontot måste du gå över att faktureringen för Azure-prenumerationer från din Enterprise Agreement-registrering till det nya kontot. Inställningen påverkar inte Azure-tjänster som körs i dina prenumerationer. Men påverkar det hur du ska hantera faktureringen för dina prenumerationer.
 
@@ -45,7 +41,7 @@ Vi rekommenderar innan du börjar installationen måste du göra följande:
 - **Förstå ändringar i hierarkin fakturering**
   - Du nya fakturering konto ordnas annorlunda än ditt Enterprise Agreement-registrering. [Förstå ändringar i hierarkin fakturering i det nya kontot](#understand-changes-to-your-billing-hierarchy).
 - **Förstå ändringar i din faktureringsadministratörer åtkomst**
-  - Administratörer från din Enterprise Agreement-registrering får åtkomst till faktureringen Omfattningarna i det nya kontot. [Förstå ändringar av deras åtkomst](#understand-changes-to-your-billing-administrators-access).
+  - Administratörer från din Enterprise Agreement-registrering får åtkomst till faktureringen Omfattningarna i det nya kontot. [Förstå ändringar av deras åtkomst](#changes-to-billing-administrator-access).
 - **Visa Enterprise Agreement-funktioner som ersätts med det nya kontot**
   - Visa funktioner för Enterprise Agreement-registrering som har ersatts av funktioner i det nya kontot.
 - **Visa svar på vanliga frågor**
@@ -55,7 +51,7 @@ Vi rekommenderar innan du börjar installationen måste du göra följande:
 
 För att slutföra installationen måste behöver du följande åtkomstbehörighet:
 
-- Ägare av fakturering profilen som skapades när Microsoft kundavtal var signerad. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
+- Ägare av fakturering profilen som skapades när Microsoft kundavtal var signerad. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#billing-profiles).
 
 - Företagsadministratör i registreringen som förnyas.
 
@@ -87,12 +83,12 @@ Ditt nya faktureringskonto förenklar faktureringen för din organisation samtid
 
 ![Bild av ea-mca-post-övergång-hierarki](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. Du kan använda faktureringskontot för att hantera faktureringen för ditt Microsoft-kundavtal. Läs mer om faktureringskonto i [förstå faktureringskonto](billing-mca-overview.md#understand-billing-account).
-2. Du kan använda fakturering profilen för att hantera fakturering för din organisation, som ditt Enterprise Agreement-registrering. Företagsadministratörer bli ägare av fakturering profilen. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#understand-billing-profiles).
-3. Du kan använda en faktura-avsnittet för att organisera dina kostnader utifrån dina behov, liknar avdelningar i ditt Enterprise Agreement-registrering. Avdelning blir faktura avsnitt och avdelning administratörer bli ägare av avsnitten respektive faktura. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#understand-invoice-sections).
+1. Du kan använda faktureringskontot för att hantera faktureringen för ditt Microsoft-kundavtal. Läs mer om faktureringskonto i [förstå faktureringskonto](billing-mca-overview.md#your-billing-account).
+2. Du kan använda fakturering profilen för att hantera fakturering för din organisation, som ditt Enterprise Agreement-registrering. Företagsadministratörer bli ägare av fakturering profilen. Läs mer om fakturering profiler i [förstå fakturering profiler](billing-mca-overview.md#billing-profiles).
+3. Du kan använda en faktura-avsnittet för att organisera dina kostnader utifrån dina behov, liknar avdelningar i ditt Enterprise Agreement-registrering. Avdelning blir faktura avsnitt och avdelning administratörer bli ägare av avsnitten respektive faktura. Läs mer om fakturan avsnitt i [förstå fakturan avsnitt](billing-mca-overview.md#invoice-sections).
 4. De konton som har skapats i ditt Enterprise Agreement stöds inte i det nya faktureringskontot. Kontots prenumerationer som hör till avsnittet respektive faktura för sina fakultet. Kontoinnehavare kan skapa och hantera prenumerationer för sin faktura-avsnitt.
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>Förstå ändringar i din faktureringsadministratörer åtkomst
+## <a name="changes-to-billing-administrator-access"></a>Ändringar av fakturering administratörsåtkomst
 
 Beroende på deras åtkomst får faktureringsadministratörer på din Enterprise Agreement-registrering åtkomst till faktureringen omfång på det nya kontot. I följande tabell beskriver ändringen i access under installationen:
 
@@ -110,7 +106,7 @@ Ditt nya konto har endast stöd för användare från den klient som valdes unde
 
 När du bjuder in användare läggs till klienten som gästanvändare och få åtkomst till faktureringskontot. Gäståtkomst måste aktiveras för klienten för att bjuda in användare. Mer information finns i [styra gäståtkomst i Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Kontakta globala administratörer för din klient för att aktivera dem om gäståtkomst är avstängd. <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>Visa funktioner som har ersatts av det nya faktureringskontot
+## <a name="view-replaced-features"></a>Visa ersatta funktioner
 
 Följande Företagsavtal funktioner ersätts med nya funktioner i faktureringskontot för en Microsoft-kundavtal.
 
@@ -197,7 +193,7 @@ Du behöver åtkomst till både det nya faktureringskontot och Enterprise Agreem
 
    ![Skärmbild som visar status för övergång](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>Verifiera faktureringen konto är korrekt konfigurerad
+## <a name="validate-billing-account-set-up"></a>Verifiera faktureringskonto konfigurera
 
  Verifiera följande för att säkerställa att ditt nya faktureringskonto är korrekt konfigurerad:
 
@@ -205,7 +201,7 @@ Du behöver åtkomst till både det nya faktureringskontot och Enterprise Agreem
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,7 +217,7 @@ Azure-prenumerationer som överförs från din Enterprise Agreement-registrering
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -231,7 +227,7 @@ Azure-prenumerationer som överförs från din Enterprise Agreement-registrering
 
 4. Välj **alla produkter** till vänster.
 
-5. Sök på **reserverade**.
+5. Sök efter **reserverade**.
 
     ![Skärmbild som visar listan över prenumerationer efter övergången](./media/billing-mca-setup-account/billing-mca-azure-reservations-post-transition.png)
 
@@ -241,7 +237,7 @@ Azure-reservationer som flyttas från din Enterprise Agreement-registrering till
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +253,7 @@ Företagsadministratörer listas som fakturering profil ägare när företaget a
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Cost Management + fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

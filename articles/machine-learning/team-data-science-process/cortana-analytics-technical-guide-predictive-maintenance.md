@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715658"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568266"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
@@ -88,7 +88,7 @@ Azure Event Hub är allmänt; data kan publiceras till hubben i CSV eller JSON-f
 
 Det här dokumentet beskriver inte hur att mata in dina data, men du kan enkelt skicka händelser eller data till en Azure-Händelsehubb med hjälp av API: er för Event Hub.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Använd Azure Stream Analytics-tjänsten för att tillhandahålla analys i nära realtid genom att läsa från dataströmmar och skickar data till valfritt antal källor.
 
 Förutsägande Underhåll för flyg lösningsmallen består Azure Stream Analytics-fråga av fyra underfrågor varje fråga som förbrukar händelser från Azure Event Hub-tjänsten med utdata till fyra olika platser. Dessa utdata består av tre Power BI-datauppsättningar och en Azure-lagringsplats.

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331311"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441752"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -423,3 +423,19 @@ Azure Dev blanksteg kunde inte skapa en domänkontrollant på AKS-klustret efter
 
 ### <a name="try"></a>Testa
 [Uppdatera din färg konfiguration](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) på AKS-kluster för att se till att minst en Linux noden kan schemaläggas poddar utan att ange tolerations. Kontrollera också att minst en Linux-nod som tillåter schemaläggning av poddar utan att ange tolerations finns i den *redo* tillstånd. Om noden tar lång tid att nå den *redo* tillstånd, kan du starta om noden.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Fel ”Azure Dev blanksteg CLI som inte har installerats korrekt” när du kör `az aks use-dev-spaces`
+
+### <a name="reason"></a>Reason
+En uppdatering av Azure Dev blanksteg CLI ändras dess installationssökvägen. Om du använder en version av Azure CLI tidigare än 2.0.63, kan du se det här felet. Använd för att visa din version av Azure CLI, `az --version`.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+Trots ett felmeddelande när du kör `az aks use-dev-spaces` med en version av Azure CLI innan 2.0.63 installationen lyckas. Du kan fortsätta att använda `azds` utan problem.
+
+### <a name="try"></a>Testa
+Uppdatera din installation av den [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) till 2.0.63 eller senare. Detta löser det felmeddelande som visas när du kör `az aks use-dev-spaces`. Du kan också fortsätta att använda din nuvarande version av Azure CLI och Azure Dev blanksteg CLI.

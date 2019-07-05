@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187050"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568379"
 ---
 **Configuration/Process server-krav**
 
@@ -49,7 +49,7 @@ https:\//management.azure.com | Används för replikeringshantering och koordina
 time.nist.gov | Används för att kontrollera tidssynkronisering mellan system och global tid.
 time.windows.com | Används för att kontrollera tidssynkronisering mellan system och global tid.
 | <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | Konfigurera OVF behöver åtkomst till dessa URL: er. De används för access control och Identitetshantering av Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Slutför nedladdningen av MySQL
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Att slutföra MySQL nedladdning. </br> Hämtningen kan gå till CDN-URL i några regioner. Kontrollera att URL: en för CDN också är godkänd, om det behövs.
 |
 **PROGRAMVARA FÖR ATT INSTALLERA** | 
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) ska installeras om konfigurationsservern körs på en VMware-VM.

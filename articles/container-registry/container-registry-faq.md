@@ -4,16 +4,16 @@ description: Svar på vanliga frågor som rör Azure Container Registry-tjänste
 services: container-registry
 author: sajayantony
 manager: jeconnoc
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303576"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551596"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -27,6 +27,7 @@ Den här artikeln tar upp vanliga frågor och kända problem med Azure Container
 - [Hur får jag administratörsautentiseringsuppgifter för ett container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [Hur får jag administratörsautentiseringsuppgifter i en Resource Manager-mall](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Borttagning av replikering misslyckas med förbjuden status, även om replikeringen tas bort med hjälp av Azure CLI eller Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Brandväggsreglerna har uppdaterats, men de börjar inte gälla](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan jag skapa ett Azure Container Registry med hjälp av en Resource Manager-mallen?
 
@@ -34,11 +35,11 @@ Ja. Här är [en mall](https://github.com/Azure/azure-cli/blob/master/src/comman
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det säkerhetsproblem som söker efter bilder i ACR?
 
-Ja. Finns i dokumentationen från [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Ja. Finns i dokumentationen från [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur konfigurerar jag Kubernetes med Azure Container Registry?
 
-Se dokumentationen för [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och stegen för [Azure Kubernetes Service](container-registry-auth-aks.md).
+Se dokumentationen för [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och stegen för [Azure Kubernetes Service](container-registry-auth-aks.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hur får jag administratörsautentiseringsuppgifter för ett container registry?
 
@@ -90,6 +91,11 @@ Felet visas när användaren har behörighet för ett register men har inte beh�
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Brandväggsreglerna har uppdaterats, men de börjar inte gälla
+
+Det tar lite tid att sprida brandväggsändringarna för regeln. När du har ändrat brandväggsinställningar, Vänta några minuter innan du verifierar den här ändringen.
+
 
 ## <a name="registry-operations"></a>Registeråtgärder
 
@@ -245,8 +251,9 @@ Med hjälp av endast den `AcrPull` eller `AcrPush` rollen, de tilldelad personen
 
 Bild karantän är för närvarande en förhandsversion av funktionen för ACR. Du kan aktivera läget för ett register i karantän så att dessa avbildningar som har godkänts security sökning visas för normal användare. Mer information finns i [ACR GitHub-lagringsplatsen](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics"></a>Diagnostik
+## <a name="diagnostics-and-health-checks"></a>Diagnostik- och hälsokontroller
 
+- [Kontrollera hälsa med `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull misslyckas med felkoden: net/http: begäran avbröts under väntan anslutning (Client.Timeout överskred medan du väntar på rubriker)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push lyckas men docker pull misslyckas med felkoden: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Aktivera och hämta felsökningsloggar av docker-daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -255,16 +262,30 @@ Bild karantän är för närvarande en förhandsversion av funktionen för ACR. 
 - [Varför Azure-portalen inte innehåller alla mina databaser eller taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Hur jag för att samla in spårningar http på Windows?](#how-do-i-collect-http-traces-on-windows)
 
+### <a name="check-health-with-az-acr-check-health"></a>Kontrollera hälsa med `az acr check-health`
+
+Felsökning av vanliga miljö och registret problem beskrivs [kontrollerar hälsotillståndet för ett Azure container registry](container-registry-check-health.md).
+
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull misslyckas med felkoden: net/http: begäran avbröts under väntan anslutning (Client.Timeout överskred medan du väntar på rubriker)
 
  - Om det här felet är ett tillfälligt fel, att försök lyckas.
- - Om `docker pull` kontinuerligt misslyckas kan det vara ett problem med docker-daemon. Allmänt kan du minimera problemet genom att starta om docker-daemon. 
- - Om du ser det här problemet efter omstart docker-daemon, kan problemet vara vissa problem med nätverksanslutningen till datorn. Du kan kontrollera om Allmänt nätverk på datorn är felfri genom att prova ett kommando som `ping www.bing.com`.
- - Du bör alltid ha en mekanism för återförsök på alla docker-Klientåtgärder.
+ - Om `docker pull` kontinuerligt misslyckas kan det vara ett problem med Docker-daemon. Allmänt kan du minimera problemet genom att starta om Docker-daemon. 
+ - Om du ser det här problemet efter omstart Docker-daemon, kan problemet vara vissa problem med nätverksanslutningen till datorn. Om du vill kontrollera om Allmänt nätverk på datorn är felfri, kör du följande kommando för att testa anslutningen för slutpunkten. Minst `az acr` versionen som innehåller det här kommandot för kontroll av anslutning är 2.2.9. Uppgradera din Azure-CLI om du använder en äldre version.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - Du bör alltid ha en mekanism för återförsök på alla Docker-Klientåtgärder.
+
+### <a name="docker-pull-is-slow"></a>Docker pull är långsam
+Använd [detta](http://www.azurespeed.com/Azure/Download) verktyg för att testa din nedladdning nätverkshastigheten datorn. Om nätverket är långsam, Överväg att använda virtuella Azure-datorer i samma region som ditt register. Detta innebär normalt att du snabbare nätverkshastighet.
+
+### <a name="docker-push-is-slow"></a>Docker push är långsam
+Använd [detta](http://www.azurespeed.com/Azure/Upload) verktyg för att testa din uppladdning nätverkshastigheten datorn. Om nätverket är långsam, Överväg att använda virtuella Azure-datorer i samma region som ditt register. Detta innebär normalt att du snabbare nätverkshastighet.
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker push lyckas men docker pull misslyckas med felkoden: obehörig: autentisering krävs
 
-Det här felet kan inträffa med Red Hat-version av docker-daemon där `--signature-verification` är aktiverat som standard. Du kan kontrollera alternativ för docker-daemon för Red Hat Enterprise Linux (RHEL) eller Fedora genom att köra följande kommando:
+Det här felet kan inträffa med Red Hat-version av Docker-daemon där `--signature-verification` är aktiverat som standard. Du kan kontrollera alternativ för Docker-daemon för Red Hat Enterprise Linux (RHEL) eller Fedora genom att köra följande kommando:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -284,12 +305,12 @@ unauthorized: authentication required
 ```
 
 Att lösa problemet:
-1. Lägga till alternativet `--signature-verification=false` till konfigurationsfilen för docker-daemon `/etc/sysconfig/docker`. Exempel:
+1. Lägga till alternativet `--signature-verification=false` till konfigurationsfilen för Docker-daemon `/etc/sysconfig/docker`. Exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Starta om docker-daemon-tjänst genom att köra följande kommando:
+2. Starta om Docker-daemon-tjänst genom att köra följande kommando:
 
   ```bash
   sudo systemctl restart docker.service
@@ -297,9 +318,9 @@ Att lösa problemet:
 
 Information om `--signature-verification` kan hittas genom att köra `man dockerd`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta felsökningsloggar av docker-daemon  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta felsökningsloggar av Docker-daemon  
 
-Starta `dockerd` med den `debug` alternativet. Börja med att skapa konfigurationsfil för docker-daemon (`/etc/docker/daemon.json`) om det inte finns, och lägga till den `debug` alternativet:
+Starta `dockerd` med den `debug` alternativet. Börja med att skapa konfigurationsfil för Docker-daemon (`/etc/docker/daemon.json`) om det inte finns, och lägga till den `debug` alternativet:
 
 ```json
 {   
@@ -387,11 +408,11 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Varför Azure-portalen inte innehåller alla mina databaser eller taggar? 
 
-Om du använder Microsoft Edge-webbläsaren, kan du se högst 100 databaser eller taggar som anges. Om ditt register har fler än 100 databaser eller taggar, rekommenderar vi att du använder antingen webbläsaren Firefox eller Chrome för att lista alla.
+Om du använder webbläsaren Microsoft Edge/IE kan du se högst 100 lagringsplatser eller taggar. Om ditt register har fler än 100 databaser eller taggar, rekommenderar vi att du använder antingen webbläsaren Firefox eller Chrome för att lista alla.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur jag för att samla in spårningar http på Windows?
 
-#### <a name="prerequisites"></a>Nödvändiga komponenter
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Aktivera dekrypteringen https i fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Aktivera Docker för att använda en proxyserver via Docker-användargränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -439,86 +460,6 @@ Den här inställningen gäller även för de `az acr run` kommando.
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub-åtgärder](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## <a name="error-references-for-az-acr-check-health"></a>Fel-referenser för `az acr check-health`
-
-### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
-
-Detta fel innebär att docker-klienten för CLI inte kunde hittas, vilket utesluter att hitta docker-version, utvärderar status för docker-daemon och att se till att köra docker pull-kommandot.
-
-*Möjliga lösningar*: Installera docker-klienten; att lägga till docker-sökväg till systemvariablerna.
-
-### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
-
-Detta fel innebär att docker-daemon status är otillgänglig eller att det inte gick att nå med hjälp av CLI. Det innebär att docker-åtgärder (t.ex. Logga in, pull) inte tillgängligt via CLI.
-
-*Möjliga lösningar*: Starta om docker-daemon eller verifiera att den är korrekt installerat.
-
-### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
-
-Detta fel innebär att CLI går inte att köra kommandot `docker --version`.
-
-*Möjliga lösningar*: försök att köra kommandot manuellt, kontrollera att du har den senaste versionen av CLI och undersök felmeddelandet.
-
-### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
-
-Detta fel innebär att CLI inte kunde hämta en exempelbild för din miljö.
-
-*Möjliga lösningar*: Verifiera att alla komponenter som behövs för att hämta en avbildning körs korrekt.
-
-### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
-
-Detta fel innebär att helm-klienten inte kunde hittas av CLI, vilket utesluter andra helm-åtgärder.
-
-*Möjliga lösningar*: Verifiera att helm-klienten är installerad och att sökvägen har lagts till i systemets miljövariabler.
-
-### <a name="helmversionerror"></a>HELM_VERSION_ERROR
-
-Detta fel innebär att CLI inte gick att fastställa Helm-version som installeras. Detta kan inträffa om Azure CLI-version (eller om helm-version) som används är föråldrad.
-
-*Möjliga lösningar*: uppdatera till den senaste versionen av Azure CLI eller till den rekommendera helm-versionen, kör kommandot manuellt och undersök felmeddelandet.
-
-### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
-
-Det här felet innebär att DNS för angivna behållarregistrets inloggningsserver har pingas men svarade inte på den, vilket innebär att den inte är tillgänglig. Detta kan tyda på vissa problem med nätverksanslutningen. Det kan också innebära att registret inte finns, att användaren inte har behörigheterna som på registret (för att hämta dess inloggningsserver korrekt) eller att registret target i ett annat moln än som används i Azure CLI.
-
-*Möjliga lösningar*: Kontrollera anslutning; Kontrollera stavningen av registret och det registret finnas kvar, kontrollera att användaren har rätt behörigheter på den och att registrets molnet är samma som används på Azure CLI.
-
-### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
-
-Det innebär att utmaning slutpunkten för den angivna registernyckeln svarade med en 403 tillåts inte HTTP-status. Det innebär att användare inte har åtkomst till registret, sannolikt på en konfiguration av virtuellt nätverk.
-
-*Möjliga lösningar*: ta bort VNET-regler eller lägga till den aktuella klientens IP-Adressen i listan över tillåtna.
-
-### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
-
-Detta fel innebär att utmaning slutpunkten för målregistret inte har utfärdat en utmaning.
-
-*Möjliga lösningar*: försök igen om en stund. Om felet kvarstår öppnar am problemet på https://aka.ms/acr/issues.
-
-### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
-
-Detta fel innebär att utmaning slutpunkten för målregistret utfärdat en utmaning, men registret har inte stöd för AAD-inloggning.
-
-*Möjliga lösningar*: prova andra sätt att logga in, t.ex. administratörsautentiseringsuppgifter. Om användaren vill logga in med AAD-stöd, måste du öppna am problemet på https://aka.ms/acr/issues.
-
-### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-Det innebär att behållarregistrets inloggningsserver inte svarade med en uppdateringstoken, vilket innebär att nekades åtkomst till målregistret. Detta kan inträffa om användaren inte har rätt behörigheter på registret eller om användarens autentiseringsuppgifter för Azure CLI är föråldrade.
-
-*Möjliga lösningar*: Kontrollera om användaren har rätt behörigheter på registret; kör `az login` att uppdatera behörigheter, token och autentiseringsuppgifter.
-
-### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-Det innebär att behållarregistrets inloggningsserver inte svarade med ett åtkomsttoken, vilket innebär att nekades åtkomst till målregistret. Detta kan inträffa om användaren inte har rätt behörigheter på registret eller om användarens autentiseringsuppgifter för Azure CLI är föråldrade.
-
-*Möjliga lösningar*: Kontrollera om användaren har rätt behörigheter på registret; kör `az login` att uppdatera behörigheter, token och autentiseringsuppgifter.
-
-### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
-
-Det innebär att CLI inte gick att hitta inloggningsserver på det angivna registret och inga standardsuffixet hittades för det aktuella molnet. Detta kan inträffa om registret inte finns, om användaren inte har rätt behörigheter på registret om registrets molnet och det aktuella Azure CLI-molnet inte matchar, eller om Azure CLI version är föråldrad.
-
-*Möjliga lösningar*: Kontrollera att stavningen är korrekt och att registret finns: Kontrollera om användaren har rätt behörigheter på registret och att matchar moln på registret och CLI-miljö; uppdatera Azure CLI till den senaste versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

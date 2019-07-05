@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029767"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568236"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Undantag och felkoder för algoritm- och modulreferens
 
@@ -251,15 +251,16 @@ Om modellen har lärt sig med hjälp av någon av modulerna som specialiserad ut
 |----|----|----|
 |alla klassificerare|[Träna modell](train-model.md) |[Poängsätta modell](score-model.md)|
 |alla regression-modellen|[Träna modell](train-model.md) |[Poängsätta modell](score-model.md)|
-<!--| klustring modeller| [Träna klustermodellen](train-clustering-model.md) eller [klustring för Svepvinkeln](sweep-clustering.md)| [Tilldela Data till ett kluster](assign-data-to-clusters.md)|
-| avvikelseidentifiering – en klass SVM | [Träna modell för identifiering av avvikelser](train-anomaly-detection-model.md) |[Poängsätta modell](score-model.md)|
-| avvikelseidentifiering - PCA |[Träna modell](train-model.md) |[Poängsätta modell](score-model.md) </br> Några ytterligare steg krävs för att utvärdera modellen. |
-| avvikelseidentifiering - tidsserier|  [Time Series-Avvikelseidentifiering](time-series-anomaly-detection.md) |Modellen träna från data och genererar resultat. Modulen skapar inte en tränad learner och ingen ytterligare bedömning krävs. |
-| rekommendationen modell| [Träna Matchbox rekommenderare](train-matchbox-recommender.md) | [Poäng Matchbox rekommenderare](score-matchbox-recommender.md) |
-| bildklassificering | [Tränats Cascade Bildklassificering](pretrained-cascade-image-classification.md) | [Poängsätta modell](score-model.md) |
-|Vowpal Wabbit modeller| [Träna Vowpal Wabbit Version 7-4-modell](train-vowpal-wabbit-version-7-4-model.md) | [Bedömningsmodell Vowpal Wabbit Version 7 – 4](score-vowpal-wabbit-version-7-4-model.md) |   
-|Vowpal Wabbit modeller| [Träna Vowpal Wabbit Version 7 – 10 modell](train-vowpal-wabbit-version-7-10-model.md) | [Bedömningsmodell Vowpal Wabbit Version 7 – 10](score-vowpal-wabbit-version-7-10-model.md) |
-|Vowpal Wabbit modeller| [Öva modell som Vowpal Wabbit Version 8](score-vowpal-wabbit-version-8-model.md) | [Poängmodell Vowpal Wabbit Version 8](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Undantag meddelanden|  
 |------------------------|  

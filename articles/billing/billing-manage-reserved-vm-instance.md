@@ -1,23 +1,21 @@
 ---
-title: Hantera Azure reservationer | Microsoft Docs
+title: Hantera Azure-reservationer
 description: Lär dig hur du kan ändra omfång för prenumeration och hantera åtkomst för Azure-reservationer.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127112"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491185"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -54,7 +52,7 @@ Så här uppdaterar en reservationens omfång:
 
 Om du ändrar från delade till ett enda scope, kan du bara välja prenumerationer där du är ägare. Endast prenumerationer i samma faktureringskontext som reservationen kan väljas.
 
-Omfånget gäller endast Pay-As-You-Go-erbjudandet MS-AZR-0003P eller MS-AZR-0023P, företagserbjudandet MS-AZR-0017P eller MS-AZR-0148P eller CSP-prenumerationstyper.
+Området gäller bara för enskilda prenumerationer med användningsbaserad betalning (erbjuder MS-AZR - 0003P eller MS-AZR - 0023P), företagserbjudandet MS-AZR - 0017P eller MS-AZR - 0148P eller typer av CSP-prenumerationer.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Lägga till eller ändra användare som kan hantera en reservation
 

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781031"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440376"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
 
@@ -152,7 +152,7 @@ Vi använder Azure AD PowerShell-cmdletar för att gå igenom några scenarier, 
 - Visa en lista över de program som en princip har konfigurerats.
 
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel har du skapa, uppdatera, länka och ta bort principer på tjänsthuvudnamn för programmet i Azure AD.
 
 1.  Börja genom att ladda ned den senaste förhandsversionen av Azure AD PowerShell-cmdlet. 
@@ -209,7 +209,13 @@ Om du vill använda HRD-princip när du har skapat den, kan du tilldela den till
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: Hitta tjänstens huvudnamn som att tilldela principen  
 Du behöver den **ObjectID** service-säkerhetsobjekt som du vill tilldela principen. Det finns flera sätt att hitta den **ObjectID** för tjänstens huvudnamn.    
 
-Du kan använda portalen eller du kan fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan även gå till den [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto finns i din organisations tjänstens huvudnamn. Du kan använda cmdleten get-AzureADServicePrincipal för att visa tjänstens huvudnamn och deras ID eftersom du använder PowerShell.
+Du kan använda portalen eller du kan fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan även gå till den [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto finns i din organisations tjänstens huvudnamn. 
+
+Du kan använda följande cmdlet för att visa tjänstens huvudnamn och deras ID eftersom du använder PowerShell.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: Tilldela principen till tjänstens huvudnamn  
 När du har den **ObjectID** för tjänstens huvudnamn för programmet som du vill konfigurera automatisk acceleration, kör du följande kommando. Det här kommandot associerar HRD-princip som du skapade i steg 1 med tjänstens huvudnamn som du letade upp i steg 2.
@@ -226,7 +232,7 @@ I fall där ett program redan har en tilldelad policy för HomeRealmDiscovery du
 Att kontrollera vilka program har konfigurerats HRD-princip kan använda den **Get-AzureADPolicyAppliedObject** cmdlet. Skickar den de **ObjectID** på den princip som du vill kontrollera.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Steg 5: Du är klar!
 Försök att kontrollera att den nya principen fungerar.
@@ -244,7 +250,7 @@ Obs den **ObjectID** på den princip som du vill lista tilldelningar för.
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Lista över tjänsthuvudnamnen som principen är tilldelad  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exempel: Ta bort en HRD-princip för ett program
@@ -254,13 +260,13 @@ Använd exemplet ovan för att få den **ObjectID** av principen och som program
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Steg 2: Ta bort principen för program tjänstens huvudnamn  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 3: Kontrollera borttagningen genom att ange tjänsthuvudnamnen som principen är tilldelad 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns i [autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md).

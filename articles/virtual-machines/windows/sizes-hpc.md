@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
-ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc5b5a287a421f93d3184ded3e429c5cff8fa3c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755312"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566298"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Högpresterande storlekar på virtuella datorer
 
@@ -31,11 +31,10 @@ ms.locfileid: "66755312"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **Operativsystemet** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+* **Operativsystemet** -Windows Server 2016 på alla ovanstående HPC serien virtuella datorer. Windows Server 2012 R2, Windows Server 2012 stöds även på SR IOV-aktiverade VM: ar (exklusive därför HB och HC).
 
-* **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
-
-  På SR IOV aktiverade virtuella datorer Använd stöds MPI-implementeringar gränssnittet Microsoft Network Direct (IV) för att kommunicera mellan instanser. SR-IOV aktiverade VM-storlekar (HB och HC-serien) på Azure Tillåt nästan vilken version av MPI som ska användas med Mellanox OFED. 
+* **MPI** – The SR-IOV aktiverade storlekar för Virtuella datorer på Azure (HB, HC) Tillåt nästan vilken smak av MPI som ska användas med Mellanox OFED.
+På SR IOV aktiverade virtuella datorer Använd stöds MPI-implementeringar gränssnittet Microsoft Network Direct (IV) för att kommunicera mellan instanser. Därför bara Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5.x versioner som stöds. Senare versioner (2017, 2018) på Intel MPI-runtime biblioteket kanske eller kanske inte är kompatibla med Azure RDMA-drivrutiner.
 
 * **InfiniBandDriverWindows VM-tillägget** – på RDMA-kompatibla virtuella datorer, lägga till tillägget InfiniBandDriverWindows om du vill aktivera InfiniBand. Den här Windows VM-tillägget installeras Windows Network Direct drivrutiner (på SR IOV virtuella datorer) eller Mellanox OFED drivrutiner (på SR-IOV virtuella datorer) för RDMA-anslutning.
 I vissa distributioner av A8 och A9-instanser läggs tillägget HpcVmDrivers automatiskt. Observera att HpcVmDrivers VM-tillägget används längre; Det kommer inte att uppdateras. Om du vill lägga till VM-tillägget till en virtuell dator, kan du använda [Azure PowerShell](/powershell/azure/overview) cmdletar. 
@@ -53,7 +52,16 @@ I vissa distributioner av A8 och A9-instanser läggs tillägget HpcVmDrivers aut
   "typeHandlerVersion": "1.0",
   } 
   ```
-  
+
+  Följande kommando installerar tillägget InfiniBandDriverWindows senaste version 1.0 på alla RDMA-kompatibla virtuella datorer i en befintlig VM-skalningsuppsättning med namnet *myVMSS* distribuerat i resursgruppen med namnet *myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
   Mer information finns i [virtuella datorer, tillägg och funktioner](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributionsmodellen](classic/manage-extensions.md).
 
 * **RDMA nätverksadressutrymme** – The RDMA-nätverk i Azure reserverar adress utrymme 172.16.0.0/16. Kontrollera att virtuella nätverkets adressutrymme inte överlappar RDMA-nätverk för att köra MPI-program på distribuerade instanser i Azure-nätverk.
@@ -66,6 +74,8 @@ Azure tillhandahåller flera alternativ för att skapa kluster i Windows HPC-dat
 * **Virtuella datorer** – distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen). Om du använder den klassiska distributionsmodellen kan du distribuera de virtuella datorerna i samma molntjänst. 
 
 * **VM-skalningsuppsättningar** – i en virtuell datorskalning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
+
+* **MPI mellan virtuella datorer** – om MPI-kommunikation om det behövs mellan virtuella datorer (VM), se till att de virtuella datorerna i samma tillgänglighetsuppsättning ställs eller den virtuella datorn samma skalningsuppsättning.
 
 * **Azure CycleCloud** -skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) att köra MPI-jobb på Windows-noder.
 

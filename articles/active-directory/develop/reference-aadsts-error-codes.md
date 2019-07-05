@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111291"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482492"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -215,6 +215,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS90093 | GraphUserUnauthorized - diagram som returneras med en otillåten felkod för begäran. |
 | AADSTS90094 | AdminConsentRequired - administratörens godkännande krävs. |
 | AADSTS90100 | InvalidRequestParameter - parametern är tomt eller ogiltigt. |
+| AADSTS901002 | AADSTS901002: Parametern ”resurs” begäran stöds inte. |
 | AADSTS90101 | InvalidEmailAddress - angivna informationen är inte en giltig e-postadress. E-postadressen måste vara i formatet `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - värdet måste vara en giltig absolut URI. |
 | AADSTS90107 | InvalidXml - begäran är inte giltig. Kontrollera att dina data inte har ogiltiga tecken.|

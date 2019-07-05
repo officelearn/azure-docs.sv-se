@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753996"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485452"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med en Azure Search-indexerare
 
@@ -133,7 +133,7 @@ Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument i
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
 
-För varje begäran måste du ange namnet på tjänsten och admin-nyckel för Azure Search (i rubriken POST) och lagringskontonamn och nyckel för blob storage. Du kan använda [Postman](search-fiddler.md) att skicka HTTP-begäranden till Azure Search.
+För varje begäran måste du ange namnet på tjänsten och admin-nyckel för Azure Search (i rubriken POST) och lagringskontonamn och nyckel för blob storage. Du kan använda [Postman](search-get-started-postman.md) att skicka HTTP-begäranden till Azure Search.
 
 Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en begäran:
 
@@ -255,7 +255,7 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mappningen mellan JSON-datatyper och Azure Search-datatyper
 | JSON-datatypen | Kompatibla target index fälttyper |
 | --- | --- |
-| Booleskt |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
 | Nummer att ut flytande punkter |Edm.Double, Edm.String |
 | String |Edm.String |

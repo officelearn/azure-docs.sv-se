@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839324"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508604"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera routningsfilter för Microsoft-peering: Azure Portal
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Om du behöver anslutning till alla tjänster har ett stort antal prefix annonse
 
 Om Microsoft-peering är konfigurerat på ExpressRoute-kretsen, upprätta ett par med BGP-sessioner med edge-routrar (själv eller din anslutningsleverantör) i Microsoft edge-routrar. Inga vägar annonseras till ditt nätverk. Om du vill aktivera vägannonseringar till ditt nätverk måste du associera ett flödesfilter.
 
-Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i princip en lista över alla tillåtna community-värden för BGP. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
+Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i princip en lista över alla BGP community-värden för att tillåta. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
 
 Om du vill kunna kopplar du flödesfilter med Office 365-tjänster på dem. måste du ha behörighet att använda Office 365-tjänster via ExpressRoute. Om du inte har behörighet att använda Office 365-tjänster via ExpressRoute, misslyckas åtgärden kopplar du flödesfilter. Läs mer om auktoriseringsprocessen [Azure ExpressRoute för Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Anslutningen till Dynamics 365-tjänster kräver inte någon tillstånd.
 
@@ -79,7 +79,7 @@ BGP community-värden som är associerade med tjänster som är tillgängliga vi
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Skapa en lista över de värden som du vill använda
 
-Se en lista över BGP community-värden som du vill använda i flödesfiltret. Exempelvis är 12076:5040 i BGP-community värde för Dynamics 365-tjänster.
+Skapa en lista över [BGP community-värden](expressroute-routing.md#bgp) du vill använda i flödesfiltret. 
 
 ## <a name="filter"></a>Steg 2: Skapa ett flödesfilter och en regel för filter
 
@@ -101,14 +101,14 @@ Du kan lägga till och uppdatera regler genom att välja fliken hantera regel f�
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-Du kan välja de tjänster du vill ansluta till från nedrullningsbara listan och spara regeln när du är klar.
+Du kan välja de tjänster du vill ansluta till från den nedrullningsbara listan och spara regeln när du är klar.
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>Steg 3: Koppla flödesfiltret till en ExpressRoute-krets
 
-Du kan koppla flödesfiltret till en krets genom att välja knappen ”Lägg till krets” och välja ExpressRoute-kretsen från nedrullningsbara listan.
+Du kan koppla flödesfiltret till en krets genom att välja knappen ”Lägg till krets” och välja ExpressRoute-kretsen från den nedrullningsbara listan.
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -150,4 +150,6 @@ Du kan ta bort ett flödesfilter genom att välja knappen Ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+* Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+
+* Läs om hur routerkonfigurationer [routerkonfigurationer att konfigurera och hantera routning](expressroute-config-samples-routing.md). 

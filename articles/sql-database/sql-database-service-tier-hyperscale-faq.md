@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275586"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537849"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -53,7 +53,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 | **Lagringstyp** | Alla |Premium Fjärrlagring (per instans) | Ta bort kopplade lagring med lokal SSD-cache (per instans) | Supersnabb lokal SSD-lagring (per instans) |
 | **Lagringsstorlek** | Enkel databas / elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
 | | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
-| **I/o-dataflöde** | Enkel databas ** | 500 IOPS per vCore med 7000 högsta IOPS | Okänd ännu | 5000 IOPS med 200 000 högsta IOPS|
+| **I/o-dataflöde** | Enkel databas ** | 500 IOPS per vCore med 7000 högsta IOPS | Hyperskala är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiva IOPs beror på arbetsbelastningen. | 5000 IOPS med 200 000 högsta IOPS|
 | | Hanterad instans | Beror på storleken på filen | Gäller inte | Hanterad instans: Beror på storleken på filen|
 |**Tillgänglighet**|Alla|1 repliken, ingen lässkala, inte lokal cachelagring | Flera repliker, upp till 15 lässkala, delvis lokalt cacheminne | 3 repliker, 1 lässkala, zonredundant HA fullständig lokal cache |
 |**Säkerhetskopior**|Alla|RA-GRS 7-35 dagar (7 dagar som standard)| RA-GRS 7-35 dagar (7 dagar som standard), konstant tid point-in-time-återställning (PITR) | RA-GRS 7-35 dagar (7 dagar som standard) |
@@ -92,7 +92,7 @@ SQL Database hyperskala ger snabb skalbarhet på begäran för din arbetsbelastn
   Med storskaliga, kan du skala upp beräkningsstorleken primära när det gäller resurser, t.ex. CPU, minne och skala sedan ned, konstant tidpunkt. Eftersom lagringen delas, är skala upp och skala ned inte en storlek på data igen.  
 - **Skala In/ut**
 
-  Med storskaliga får du också möjlighet att etablera en eller flera extra beräkningsnoder som du kan använda för att hantera din läsbegäranden. Det innebär att du kan använda dessa extra beräkningsnoder som skrivskyddade noder för att avlasta Läs arbetsbelastningen från den primära databearbetning. Förutom är skrivskyddad, dessa noder också fungera som hot standby-i händelse av en växling vid fel över från primärt.
+  Med storskaliga får du också möjlighet att etablera en eller flera extra beräkningsnoder som du kan använda för att hantera din läsbegäranden. Det innebär att du kan använda dessa extra beräkningsnoder som skrivskyddade noder för att avlasta Läs arbetsbelastningen från den primära databearbetning. Förutom är skrivskyddad, dessa noder också fungera som hot standby-i händelse av en redundansväxling från primärt.
 
   Etablering av var och en av dessa ytterligare compute-noder kan göras i konstant tid och är en online-åtgärd. Du kan ansluta till dessa extra skrivskyddad beräkningsnoder genom att ange den `ApplicationIntent` argumentet i anslutningssträngen till `readonly`. Alla anslutningar som markerats med `readonly` dirigeras automatiskt till en ytterligare skrivskyddad compute-noder.
 
@@ -120,7 +120,7 @@ SQL Database hyperskala stöder alla SQL Server-arbetsbelastningar, men det är 
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Hur kan jag välja mellan Azure SQL Data Warehouse och SQL Database hyperskala
 
-Om du är för närvarande kör interaktiva analysfrågor med hjälp av SQL Server som ett datalager, SQL Database hyperskala är ett bra alternativ eftersom du kan vara värd för relativt små informationslager (till exempel några TB upp till 10's TB) till en lägre kostnad och du kan migrera dina data  arbetsbelastningen för informationslager till SQL Database hyperskala utan kodändringar för T-SQL.
+Om du använder frågor för interaktiva analyser använder SQL Server som ett informationslager, SQL Database hyperskala är ett bra alternativ eftersom du kan vara värd för relativt små informationslager (till exempel några TB upp till 10 TB-tal) till en lägre kostnad och du kan migrera dina data-w IST.lager arbetsbelastning till SQL Database hyperskala utan kodändringar för T-SQL.
 
 Om du kör dataanalys i stor skala med komplexa frågor och med Parallel Data Warehouse (PDW), Teradata eller andra massivt parallella Processor (MPP))-informationslager, SQL Data Warehouse kan vara det bästa valet.
   
@@ -349,7 +349,7 @@ Slutanvändaren. Inte automatiskt.
 
 Ja. Temp db skalas upp automatiskt när beräkningen växer.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Jag kan lägga till flera primära beräkningar, till exempel ett flera huvudservrar system där flera primära beräkning huvuden kan få en högre grad av samtidighet
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Jag kan lägga till flera primära beräkningsnoder, till exempel ett flera huvudservrar system där flera primära beräkning huvuden kan få en högre grad av samtidighet
 
 Nej. Endast primära Beräkningsnoden accepterar läsningar/skrivningar. Sekundär compute-noder kan bara godkänna skrivskyddade förfrågningar.
 
@@ -369,11 +369,11 @@ Nej. Du kan bara ansluta till lässkala repliken genom att ange `ApplicationInte
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Gör systemet intelligent belastningsutjämning av arbetsbelastningen för läsning
 
-Nej. Läs endast arbetsbelastningen är till en slumpmässig lässkala replik.
+Nej. Skrivskyddad arbetsbelastning omdirigeras till en slumpmässig lässkala replik.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Jag kan skala upp/ned sekundära beräkningsnoderna oberoende av den primära beräkningen
 
-Nej. Sekundär compute-noder används också för hög tillgänglighet, så måste de vara samma konfiguration som primärt vid redundans.
+Nej. Sekundär compute-noder används också för hög tillgänglighet, så måste de vara samma konfiguration som primärt, om det finns en redundansväxling.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Får jag olika temp db storlek för min primära beräknings- och min ytterligare sekundära compute-noder
 

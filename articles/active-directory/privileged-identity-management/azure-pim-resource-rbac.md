@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441452"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476502"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visa aktivitet och granskningshistorik för Azure-resursroller i PIM
 
@@ -43,11 +43,11 @@ Om du vill se vilka åtgärder som en viss användare har gjort i olika resurser
 
     Du kan se en grafisk vy över användaråtgärder i Azure-resurser efter datum. Den visar även de senaste rollaktiveringar under den samma tidsperioden.
 
-    ![Användarinformation](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Information om användare med resursen aktivitet sammanfattning och rollen aktiveringar](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Klicka på en specifik rollaktivering om du vill visa detaljer och motsvarande Azure-resurs-aktivitet som inträffade när användaren var aktiv.
 
-    ![Välj rollaktivering](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Rollaktivering som valts och aktivitetsinformation som visas efter datum](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>Exportera rolltilldelningar med underordnade
 
@@ -63,11 +63,11 @@ Du kan ha efterföljandekrav där du måste ange en fullständig lista över rol
 
 1. Klicka på **exportera** att öppna fönstret Export medlemskap.
 
-    ![Exportera medlemskap fönstret](media/azure-pim-resource-rbac/export-membership.png)
+    ![Exportera medlemskap fönstret om du vill exportera alla medlemmar](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Klicka på **exportera alla medlemmar** att exportera alla rolltilldelningar i en CSV-fil.
 
-    ![Exportera CSV-fil](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exporterade rolltilldelningar i CSV-fil som visas i Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Visa resurs granskningshistorik
 
@@ -83,15 +83,15 @@ Resursgranskning ger dig en överblick över alla roll-aktivitet för en resurs.
 
 1. Filtrera historiken med ett fördefinierat datum eller ett anpassat intervall.
 
-    ![Filtrera resursgranskning](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Granska resurslistan med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. För **granskningstyp**väljer **aktivera (tilldelad + aktiverad)** .
 
-    ![Aktivitetsinformation](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Granska resurslistan som filtreras efter aktivera granskningstyp](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Under **åtgärd**, klickar du på **(aktivitet)** för en användare att se användarens aktivitetsinformation i Azure-resurser.
 
-    ![Användaren Aktivitetsinformation](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Användaren aktivitetsinformation för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
@@ -107,7 +107,7 @@ Min granskning kan du visa din personliga roll-aktivitet.
 
 1. Filtrera historiken med ett fördefinierat datum eller ett anpassat intervall.
 
-    ![Personliga rollen aktivitet](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Granska listan för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808298"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514443"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om hur du säkerhetskopierar filer och mappar 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om hur du säkerhetskopierar filer och mappar
 
 Den här artikeln innehåller svar på vanliga frågor fler säkerhetskopiera filer och mappar med Microsoft Azure Recovery Services MARS-agenten i den [Azure Backup](backup-overview.md) service.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Varför MARS-agenten måste .NET framework 4.5.2 eller senare?
-
-Nya funktioner som är tillgängliga i [omedelbar återställning](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) måste .NET Framework 4.5.2 eller senare.
-
 ## <a name="configure-backups"></a>Konfigurera säkerhetskopieringar
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Var kan jag hämta den senaste versionen av MARS-agenten? 
-Senaste MARS-agenten används när du säkerhetskopierar Windows Server-datorer, System Center DPM och Microsoft Azure Backup server är tillgänglig för [hämta](https://aka.ms/azurebackup_agent). 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Var kan jag hämta den senaste versionen av MARS-agenten?
+Senaste MARS-agenten används när du säkerhetskopierar Windows Server-datorer, System Center DPM och Microsoft Azure Backup server är tillgänglig för [hämta](https://aka.ms/azurebackup_agent).
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Hur lång tid är giltiga autentiseringsuppgifter för valv?
 Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen med autentiseringsuppgifter upphör att gälla, kan du hämta filen igen från Azure-portalen.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar? 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar?
 
 Du kan inte säkerhetskopiera följande typer av enheter och volymer:
 
@@ -45,29 +41,20 @@ Du kan inte säkerhetskopiera följande typer av enheter och volymer:
 
 ### <a name="what-file-and-folder-types-are-supported"></a>Vilka typer av filer och mappar stöds?
 
-Följande typer stöds:
-
-* Krypterade
-* Komprimerade
-* Utspridda
-* Komprimerade + utspridda
-* Hårda länkar: Stöds inte, hoppas över
-* Referenspunkt: Stöds inte, hoppas över
-* Krypterade + utspridda: Stöds inte, hoppas över
-* Komprimerade Stream: Stöds inte, hoppas över
-* Referenspunkt, inklusive DFS-länkar och knutpunkter
-
+[Läs mer](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) om vilka typer av filer och mappar som stöds för säkerhetskopiering.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Kan jag använda MARS-agenten för att säkerhetskopiera filer och mappar på en Azure-dator?  
-Ja. Azure Backup innehåller VM-nivå säkerhetskopiering för virtuella Azure-datorer med hjälp av VM-tillägget för Azure VM-agenten. Du kan installera MARS-agenten för att göra det om du vill säkerhetskopiera filer och mappar på gästoperativsystemet för Windows på den virtuella datorn. 
+Ja. Azure Backup innehåller VM-nivå säkerhetskopiering för virtuella Azure-datorer med hjälp av VM-tillägget för Azure VM-agenten. Du kan installera MARS-agenten för att göra det om du vill säkerhetskopiera filer och mappar på gästoperativsystemet för Windows på den virtuella datorn.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Kan jag använda MARS-agenten för säkerhetskopiering av filer och mappar med tillfällig lagring för virtuella Azure-datorer? 
-Ja. Installera MARS-agenten och säkerhetskopiera filer och mappar på Windows-gästoperativsystemet till ett tillfälligt lagringsutrymme. -Säkerhetskopieringsjobb misslyckas om tillfällig lagring data om du rensar.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Kan jag använda MARS-agenten för säkerhetskopiering av filer och mappar med tillfällig lagring för virtuella Azure-datorer?
+Ja. Installera MARS-agenten och säkerhetskopiera filer och mappar på Windows-gästoperativsystemet till ett tillfälligt lagringsutrymme.
+
+- Säkerhetskopieringsjobb misslyckas när du rensar data i tillfällig lagring.
 - Om data i tillfällig lagring tas bort kan återställa du bara till beständig lagring.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>Hur registrerar jag mig en server till en annan region?
 
-Säkerhetskopierade data skickas till datacentret för det valv som servern är registrerad. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och sedan registrerar datorn till ett nytt valv i den region som du behöver
+Säkerhetskopierade data skickas till datacentret för det valv som servern är registrerad. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och registrera sedan datorn till ett nytt valv i den region som du behöver.
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>Deduplicerar MARS-agenten support Windows Server 2012?
 Ja. MARS-agenten konverterar deduplicerade data till vanliga data när den förbereder säkerhetskopieringen. Den och sedan optimerar data för säkerhetskopiering, krypterar data och skickar sedan krypterade data till valvet.
@@ -80,7 +67,7 @@ När du byter namn på en Windows-dator, stoppas alla konfigurerade säkerhetsko
 
 - Du behöver registrera namnet på nya datorn med Backup-valvet.
 - När du registrerar ett nytt namn med valvet, den första åtgärden är en *fullständig* säkerhetskopiering.
-- Om du behöver återställa data som säkerhetskopierats till valvet med det gamla servernamnet kan du använda alternativet för att återställa till en annan plats i guiden Återställ Data. [Läs mer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- Om du behöver återställa data som säkerhetskopierats till valvet med det gamla servernamnet kan du använda alternativet för att återställa till en annan plats i guiden Återställ Data. [Läs mer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Vad är den maximala längden på sökvägen för säkerhetskopiering?
 MARS-agenten använder NTFS och använder den specifikationen för filsökvägarnas längd begränsas av de [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Om du vill skydda filerna är längre än det tillåtna värdet kan du säkerhetskopiera den överordnade mappen eller diskenheten.  
@@ -143,8 +130,8 @@ Följande attribut eller deras kombinationer stöds inte för cachelagringsmappe
 Cachelagringsmappen och den virtuella hårddisken för metadata har inte de attribut som krävs för Azure Backup-agenten.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Finns det ett sätt att justera mängden bandbredd som används för säkerhetskopiering?
- 
-Ja, du kan använda den **ändra egenskaper för** alternativ i MARS-agenten för att justera bandbredden och val av tidpunkt. [Läs mer](backup-configure-vault.md#enable-network-throttling)**.
+
+Ja, du kan använda den **ändra egenskaper för** alternativ i MARS-agenten för att justera bandbredden och val av tidpunkt. [Läs mer](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>Återställ
 

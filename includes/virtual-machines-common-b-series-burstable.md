@@ -5,23 +5,23 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 06/25/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: ecf70bbbeae8fd68309f3343615f021038fb10b6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6a3e2034792fdc0a4a8fed7885c7d5ad78ea24d9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187339"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501282"
 ---
 B-serien VM-familj kan du välja vilka VM-storlek har du nödvändiga basnivå prestanda för din arbetsbelastning med möjlighet att utöka CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2,3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor virtuell processor.
 
 Virtuella datorer i B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, bevis på koncept, små databaser och skapa utvecklingsmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dig möjligheten att köpa en VM-storlek med baslinje-prestanda och den Virtuella datorinstansen byggs upp krediter när den använder mindre än dess baslinje. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn ovanför baslinjen med upp till 100% av den virtuella processorn när ditt program kräver mer processorkraft.
 
-B-serien levereras i de sex storlekarna som följande:
+B-serien levereras i storlekarna som följande:
 
-| Storlek             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för virtuell dator | Max CPU-prestanda för virtuell dator | Inledande krediter | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
+| Size             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | CPU-basprestanda för VM | CPU-maxprestanda för VM | Initial kredit | Kredit till bank/timme | Max kredit till bank | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
@@ -30,10 +30,59 @@ B-serien levereras i de sex storlekarna som följande:
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1 200 %                   | 360                   | 121                 | 2 909           | 16                                     | 6480 / 75                                 | 4320 / 50                                  | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270 %                  | 1 600 %                   | 480                   | 162                 | 3 888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337 %                  | 2 000 %                   | 600                   | 203                 | 4 860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup> B1ls stöds endast på Linux
 
-## <a name="q--a"></a>Frågor och svar 
+## <a name="workload-example"></a>Exempel på arbetsbelastning
+
+Tänk dig ett i/utcheckning office-program. Programmet måste CPU-belastning under kontorstid, men inte mycket datorkraft under belastning. I det här exemplet kräver arbetsbelastningen i en virtuell dator i 16vCPU med 64GiB ram att arbeta effektivt.
+
+Tabellen visar per timme trafikdata och diagrammet är en visuell representation av denna trafik.
+
+B16 egenskaper:
+
+Max CPU-prestanda: 16vCPU * 100% = 1 600%
+
+Baslinje: 270 %
+
+![Diagram över per timme trafikdata](./media/virtual-machines-common-b-series-burstable/office-workload.png)
+
+| Scenario | Tid | CPU-användning (%) | Krediter ackumuleras<sup>1</sup> | Krediter tillgängliga |
+| --- | --- | --- | --- | --- |
+| B16ms distribution | Distribution | Distribution  | 480 (inledande krediter) | 480 |
+| Ingen trafik | 0:00 | 0 | 162 | 642 |
+| Ingen trafik | 1:00 | 0 | 162 | 804 |
+| Ingen trafik | 2:00 | 0 | 162 | 966 |
+| Ingen trafik | 3:00 | 0 | 162 | 1128 |
+| Ingen trafik | 4:00 | 0 | 162 | 1290 |
+| Ingen trafik | 5:00 | 0 | 162 | 1452 |
+| Med låg trafik | 6:00 | 270 | 0 | 1452 |
+| Anställda gå till office (app behöver 80% vCPU) | 7:00 | 1280 | -606 | 846 |
+| Anställda fortsätta kommer till office (app behöver 80% vCPU) | 8:00 | 1280 | -606 | 240 |
+| Med låg trafik | 9:00 | 270 | 0 | 240 |
+| Med låg trafik | 10:00 | 100 | 102 | 342 |
+| Med låg trafik | 11:00 | 50 | 132 | 474 |
+| Med låg trafik | 12:00 | 100 | 102 | 576 |
+| Med låg trafik | 13:00 | 100 | 102 | 678 |
+| Med låg trafik | 14:00 | 50 | 132 | 810 |
+| Med låg trafik | 15:00 | 100 | 102 | 912 |
+| Med låg trafik | 16:00 | 100 | 102 | 1014 |
+| Anställda checka ut (app behov 100% vCPU) | 17:00 | 1600 | -798 | 216 |
+| Med låg trafik | 18:00 | 270 | 0 | 216 |
+| Med låg trafik | 19:00 | 270 | 0 | 216 |
+| Med låg trafik | 20:00 | 50 | 132 | 348 |
+| Med låg trafik | 21:00 | 50 | 132 | 480 |
+| Ingen trafik | 22:00 | 0 | 162 | 642 |
+| Ingen trafik | 23:00 | 0 | 162 | 804 |
+
+<sup>1</sup> krediter ackumuleras/krediter används i en timme motsvarar: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+
+Timpriset är $0.936 per timme (månatliga $673.92) och för B16ms med 16 vcpu: er och 64 GiB minne hastigheten är $0.794 per timme (månatliga $547.86) för en D16s_v3 som har 16 virtuella processorer och 64 GiB minne. <b> Detta resulterar i en besparing på 15%!</b>
+
+## <a name="q--a"></a>Frågor och svar
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>F: Hur får du 135% baslinjeprestanda från en virtuell dator?
 **S**: 135% delas mellan den 8 virtuella processorer som utgör virtuella datorstorlek. Till exempel om programmet använder 4 av 8 kärnor som arbetar med batch-bearbetning, och var och en av de 4 vCPU körs på 30% utnyttjande den totala mängden Virtuella CPU-prestanda skulle vara lika med 120%.  Vilket innebär att den virtuella datorn skulle skapa kredit tid baserat på 15% deltadata från din baslinjeprestanda.  Men det innebär också att om du har samma virtuella dator kan användas för 100% av alla 8 virtuella processorer krediter ger den virtuella datorn en högsta CPU-prestanda för 800%.
@@ -55,6 +104,12 @@ Under belastning mitt program anger 60% vCPU utnyttjande, jag fortfarande erhål
 
 Om jag tar 120 krediter jag tjänade med låg belastning och subtrahera 96 krediter som jag har använt för min Högbelastningstider bankens jag en ytterligare 24 krediter per dag som jag kan använda för andra ökningar av aktivitet.
 
+### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>F: Hur kan jag för att beräkna krediter som ackumuleras används?
+**S**: Du kan använda följande formel: 
+
+(Basera CPU-prestanda i VM - CPU-användning) / 100 = krediter bank eller använda per minut
+
+t.ex i ovan instans baslinjen är 20% och om du använder 10% av CPU som du kan sparas (20% - 10%) / 100 = 0,1 kredit per minut.
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>F: B-serien har stöd för datadiskar i Premium Storage?
 **S**: Ja, alla B-serien storlekar som stöder datadiskar i Premium Storage.   
@@ -64,11 +119,3 @@ Om jag tar 120 krediter jag tjänade med låg belastning och subtrahera 96 kredi
     
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>F: Vad händer om jag distribuerar en stöds inte OS-avbildning på B1ls?
 **EN** : B1ls stöder endast Linux-avbildningar och om du distribuerar en annan OS-avbildning kan du inte får bästa möjliga kundupplevelse.
-    
-### <a name="q-why-is-there-no-pricing-information-for-b1ls-windows"></a>F: Varför finns det ingen prisinformation för B1ls windows?
-**EN** : B1ls stöder endast Linux-avbildningar och om du distribuerar en annan avbildning av Operativsystemet kan ge bästa möjliga kundupplevelse men du debiteras.
-
-
-    
-
-    

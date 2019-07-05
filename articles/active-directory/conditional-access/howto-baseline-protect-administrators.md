@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204638"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560939"
 ---
-# <a name="baseline-policy-require-mfa-for-admins"></a>Baslinjeprincip: Kräva MFA för administratörer
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Baslinjeprincip: Kräva MFA för administratörer (förhandsversion)
 
 Användare med åtkomst till behöriga konton har obegränsad åtkomst till din miljö. På grund av strömmen dessa konton, ska du hantera dem med särskild försiktighet. En vanlig metod för att förbättra skyddet av Privilegierade konton är att kräva en starkare form av verifiering för kontot när de används för att logga in. I Azure Active Directory, kan du få en starkare Kontoverifiering genom att kräva multifaktorautentisering (MFA).
 
-**Kräva MFA för administratörer** är en [baslinjeprincip](concept-baseline-protection.md) som kräver MFA varje gång som något av följande administratörsroller i privileged loggar in:
+**Kräva MFA för administratörer (förhandsversion)**  är en [baslinjeprincip](concept-baseline-protection.md) som kräver MFA varje gång som något av följande administratörsroller i privileged loggar in:
 
 * Global administratör
 * SharePoint-administratör
@@ -35,11 +35,9 @@ Användare med åtkomst till behöriga konton har obegränsad åtkomst till din 
 
 När du aktiverar den kräver MFA för administratörer principen kommer ovan nio administratörsroller att behöva registrera för MFA med Autentiseringsappen. När MFA-registrering är klar, behöver administratörer och genomför MFA varje gång de loggar in.
 
-![Kräva MFA för administratörer baslinjeprincip](./media/howto-baseline-protect-administrators/baseline-policy-require-mfa-for-admins.png)
-
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Eftersom den **kräver MFA för administratörer** principen gäller för alla kritiska administratörer, flera saker som behöver göras för att säkerställa en smidig distribution. Dessa överväganden omfattar identifiera användare och tjänsten principer i Azure AD som inte kan eller inte utför MFA, samt program och klienter som används av din organisation och som inte stöder modern autentisering.
+Eftersom den **kräver MFA för administratörer (förhandsversion)** principen gäller för alla kritiska administratörer, flera saker som behöver göras för att säkerställa en smidig distribution. Dessa överväganden omfattar identifiera användare och tjänsten principer i Azure AD som inte kan eller inte utför MFA, samt program och klienter som används av din organisation och som inte stöder modern autentisering.
 
 ### <a name="legacy-protocols"></a>Äldre protokoll
 
@@ -48,28 +46,16 @@ Eftersom den **kräver MFA för administratörer** principen gäller för alla k
 > [!WARNING]
 > Innan du aktiverar den här principen måste du kontrollera att dina administratörer inte använder äldre autentiseringsprotokoll. Finns i artikeln [så här: Blockera äldre autentisering till Azure AD med villkorlig åtkomst](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) för mer information.
 
-### <a name="user-exclusions"></a>Undantag för användaren
-
-Den här baslinjeprincip ger dig möjlighet att exkludera användare. Innan du aktiverar principen för din klient, rekommenderar vi att du exkluderar följande konton:
-
-* **För åtkomst vid akutfall** eller **glas** konton för att förhindra klienttäckande kontoutelåsning. I det osannolika scenariot alla administratörer har låsts ute från din klient, kan dina administrativa åtkomstkonto i nödfall användas för att logga in på klienten gör stegen tillgång.
-   * Mer information finns i artikeln [hantera åtkomst vid akutfall i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänstkonton** och **tjänsten principer**, till exempel Azure AD Connect Sync-kontot. Tjänstkonton är icke-interaktiva konton som inte är knutna till en viss användare. De som vanligtvis används av backend-tjänster och Tillåt Programmeringsåtkomst till program. Tjänstkonton ska uteslutas eftersom inte går att slutföra MFA genom programmering.
-   * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan undanta du dessa specifika konton från baslinje-principen.
-* Användare som inte har eller inte kommer att kunna använda en Smartphone.
-   * Den här principen kräver att registrera för MFA med hjälp av Microsoft Authenticator-appen administratörer.
-
 ## <a name="enable-the-baseline-policy"></a>Aktivera baslinjeprincip för
 
-Principen **baslinjeprincip: Kräva MFA för administratörer** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
+Principen **baslinjeprincip: Kräva MFA för administratörer (förhandsversion)** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
 
 Att aktivera den här principen och skydda dina administratörer:
 
 1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för administratörer**.
+1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för administratörer (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.
-1. Lägg till användare undantag genom att klicka på **användare** > **Välj exkluderade användare** och välja de användare som behöver som ska undantas. Klicka på **Välj** sedan **klar**.
 1. Klicka på **spara**.
 
 > [!WARNING]

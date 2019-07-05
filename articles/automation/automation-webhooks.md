@@ -4,17 +4,17 @@ description: En webhook som gör att en klient för att starta en runbook i Azur
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61305040"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477933"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
 
@@ -30,7 +30,7 @@ Du kan jämföra webhooks för att andra metoder för att starta en runbook [sta
 
 I följande tabell beskrivs de egenskaper som du måste konfigurera för en webhook.
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 |:--- |:--- |
 | Namn |Du kan ange ett namn som du vill använda för en webhook eftersom detta inte är exponerade för klienten. Den används endast för dig för att identifiera runbook i Azure Automation. <br> Som bästa praxis bör du ge webhooken ett namn som är relaterade till den klient som använder den. |
 | URL |URL: en för webhooken är den unika adress som en klient anropar med en HTTP POST att starta runbooken länkad till webhooken. Det genereras automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Den ska därför behandlas som ett lösenord. Av säkerhetsskäl kan du bara se URL: en i Azure-portalen när webhooken skapas. Observera att URL: en på en säker plats för framtida användning. |

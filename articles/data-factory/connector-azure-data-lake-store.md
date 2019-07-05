@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057925"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509578"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen1 med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Azure Data Factory som du använder:"]
@@ -81,7 +81,7 @@ Registrera en entitet för program i Azure Active Directory för att använda au
 >Listan mappar börja från roten, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **på rotnivå med ”kör” behörighet**. Detta gäller när du använder den:
 >- **Kopiera data verktyget** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering.
->Om du har frågor om hur du beviljar behörighet på rotnivå hoppa över Anslutningstestet och ange sökvägen manuellt under redigering. Kopieringsaktiviteten fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
+>Om du har frågor om hur du beviljar behörighet på rotnivå, under redigering, hoppar du över anslutning och indata paraent aktivitet med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 Följande egenskaper stöds:
 
@@ -135,7 +135,7 @@ Använda hanterade identiteter för Azure-resurser autentisering:
 >Listan mappar börja från roten, måste du ange behörighet för den hanterade identitet som beviljas till **på rotnivå med ”kör” behörighet**. Detta gäller när du använder den:
 >- **Kopiera data verktyget** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering.
->Om du har frågor om hur du beviljar behörighet på rotnivå hoppa över Anslutningstestet och ange sökvägen manuellt under redigering. Kopieringsaktiviteten fungerar som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
+>Om du har frågor om hur du beviljar behörighet på rotnivå, under redigering, hoppar du över anslutning och indata som en överordnad sökväg med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna Data Lake Store-informationen i den länkade tjänsten.
 

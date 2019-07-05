@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f70ca550f1688551abb94bb30ba4f76eb3c36404
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303968"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448538"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -54,7 +54,7 @@ Scenarier där data som videor, bilder, ekonomi, sjukhus data eller data som beh
 
 Den här artikeln förklarar begrepp relaterade till Azure Blob Storage på IoT Edge-behållaren som kör en blob-tjänst på din IoT Edge-enhet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -82,23 +82,24 @@ Använd önskade egenskaper för att ange deviceToCloudUploadProperties och devi
 
 Namnet på den här inställningen är `deviceToCloudUploadProperties`
 
-| Fält | Möjliga värden | Förklaring |
-| ----- | ----- | ---- |
-| uploadOn | true, false | Som standard anges till `false`, om du vill aktivera det på ställas `true`|
-| uploadOrder | NewestFirst OldestFirst | Kan du välja den ordning i vilken data kopieras till Azure. Som standard anges till `OldestFirst`. Ordningen som bestäms av tid för senaste ändring av Blob |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` en anslutningssträng som låter dig ange Azure Storage-konto som du vill att dina data laddas upp. Ange `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Lägg till lämpliga EndpointSuffix Azure där data ska överföras, det varierar för Global Azure, Azure Government och Microsoft Azure Stack. |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Låter dig ange behållarnamn som du vill överföra till Azure. Den här modulen kan du ange behållarnamn för både källa och mål. Om du inte anger namnet på Målbehållaren, tilldelas den automatiskt behållarnamn som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Du kan skapa mallen strängar för mål-behållarnamn, Kolla in kolumnen möjliga värden. <br>* %h -> IoT Hub-namn (3 – 50 tecken). <br>* %d -> IoT Edge enhets-ID (1 till 129 tecken). <br>* %m -> Modulnamn (1 till 64 tecken). <br>* %c -> Källbehållarnamn (3 till 63 tecken). <br><br>Maxstorleken för behållarens namn är 63 tecken, samtidigt som automatiskt tilldelas namnet på Målbehållaren om storleken på behållare överskrider 63 tecken det beskära varje avsnitt (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) 15 tecken. |
-| deleteAfterUpload | true, false | Som standard anges till `false`. När den är inställd på `true`, data tas bort automatiskt när du överför till molnarkivet är klar |
+| Fält | Möjliga värden | Förklaring | Miljövariabel |
+| ----- | ----- | ---- | ---- |
+| uploadOn | true, false | Som standard anges till `false`, om du vill aktivera det på ställas `true`| `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst OldestFirst | Kan du välja den ordning i vilken data kopieras till Azure. Som standard anges till `OldestFirst`. Ordningen som bestäms av tid för senaste ändring av Blob | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` en anslutningssträng som låter dig ange Azure Storage-konto som du vill att dina data laddas upp. Ange `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Lägg till lämpliga EndpointSuffix Azure där data ska överföras, det varierar för Global Azure, Azure Government och Microsoft Azure Stack. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Låter dig ange behållarnamn som du vill överföra till Azure. Den här modulen kan du ange behållarnamn för både källa och mål. Om du inte anger namnet på Målbehållaren, tilldelas den automatiskt behållarnamn som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Du kan skapa mallen strängar för mål-behållarnamn, Kolla in kolumnen möjliga värden. <br>* %h -> IoT Hub-namn (3 – 50 tecken). <br>* %d -> IoT Edge enhets-ID (1 till 129 tecken). <br>* %m -> Modulnamn (1 till 64 tecken). <br>* %c -> Källbehållarnamn (3 till 63 tecken). <br><br>Maxstorleken för behållarens namn är 63 tecken, samtidigt som automatiskt tilldelas namnet på Målbehållaren om storleken på behållare överskrider 63 tecken det beskära varje avsnitt (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) 15 tecken. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
+| deleteAfterUpload | true, false | Som standard anges till `false`. När den är inställd på `true`, data tas bort automatiskt när du överför till molnarkivet är klar | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
 Namnet på den här inställningen är `deviceAutoDeleteProperties`
 
-| Fält | Möjliga värden | Förklaring |
-| ----- | ----- | ---- |
-| deleteOn | true, false | Som standard anges till `false`, om du vill aktivera det på ställas `true`|
-| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Modulen tas bort automatiskt dina blobar från lokal lagring när det här värdet upphör att gälla |
-| retainWhileUploading | true, false | Som standard anges till `true`, och eventuell blob när den överförs till molnlagring om deleteAfterMinutes upphör att gälla. Du kan ange den till `false` och data tas bort när deleteAfterMinutes upphör att gälla. Obs! För den här egenskapen ska fungera uploadOn ska anges till true|
+| Fält | Möjliga värden | Förklaring | Miljövariabel |
+| ----- | ----- | ---- | ---- |
+| deleteOn | true, false | Som standard anges till `false`, om du vill aktivera det på ställas `true`| `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Modulen tas bort automatiskt dina blobar från lokal lagring när det här värdet upphör att gälla | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | true, false | Som standard anges till `true`, och eventuell blob när den överförs till molnlagring om deleteAfterMinutes upphör att gälla. Du kan ange den till `false` och data tas bort när deleteAfterMinutes upphör att gälla. Obs! För den här egenskapen ska fungera uploadOn ska anges till true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## <a name="configure-log-files"></a>Konfigurera loggfiler
 

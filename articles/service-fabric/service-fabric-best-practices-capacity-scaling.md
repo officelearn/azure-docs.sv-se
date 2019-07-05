@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059158"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444722"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitetsplanering och skalning för Azure Service Fabric
 
@@ -78,6 +78,8 @@ Med den nodegenskaper och placeringsbegränsningar som deklarerats, gör du föl
 2. Kör `Get-ServiceFabricNode` att se till att noden har gått över till inaktiverad. Annars kan du vänta tills noden är inaktiverad. Det kan ta ett par timmar för varje nod. Inte fortsätta förrän noden har gått över till inaktiverad.
 3. Minska antalet virtuella datorer med en i den nodtypen. Den högsta VM-instansen tas nu bort.
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära nodtyperna mindre än tillförlitlighetsnivån kräver. Se [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
+5. När alla virtuella datorer är borta (som visas som ”ned”) i fabric: / System/InfrastructureService / [nodnamn] visar ett feltillstånd. Du kan sedan uppdatera klusterresursen för att ta bort nodtyp. Du kan antingen använda ARM-mallsdistribution eller redigera klusterresursen via den [Azure resource manager](https://resources.azure.com). Detta startar en uppgradering av klustret som tar bort fabric: / / InfrastructureService / [nodtyp] systemtjänst som är i feltillstånd.
+ 6. Efter att du kan också ta bort VMScaleSet, du kommer fortfarande att se noderna som ”inaktiv” visa dock från Service Fabric Explorer. Det sista steget är att rensa dem med `Remove-ServiceFabricNodeState` kommando.
 
 ### <a name="example-scenario"></a>Exempel på ett scenario
 Ett scenario som stöds när du vill utföra en åtgärd med vertikal skalning är: du vill migrera dina Service Fabric-kluster och program från en ohanterad disk till hanterade diskar utan driftavbrott. 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653724"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561329"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till Taltjänst
 
@@ -69,7 +69,7 @@ Speech Services WebSockets-protokoll är också kompatibla med de som används a
 
 Om du använder ett klientbibliotek för Bing-taligenkänning för ett specifikt programmeringsspråk, migrera till den [tal SDK](speech-sdk.md) kräver ändringar i ditt program, eftersom API: et är olika. Tal-SDK kan göra din kod enklare, samtidigt som också ger dig tillgång till nya funktioner.
 
-Tal-SDK stöder för närvarande, C# (Windows 10, UWP, .NET Standard), Java (Android och anpassade enheter), Objective C (iOS), C++-Windows och Linux- och JavaScript. API: er för alla plattformar som liknar varandra, underlätta utveckling för flera plattformar.
+Tal-SDK stöder för närvarande C# ([information här](https://aka.ms/csspeech)), Java (Android och anpassade enheter), Objective C (iOS), C++ (Windows och Linux), och JavaScript. API: er för alla plattformar som liknar varandra, underlätta utveckling för flera plattformar.
 
 Speech Services erbjuder inte en global slutpunkt. Kontrollera om ditt program fungerar effektivt när den använder en enda regional slutpunkt för alla dess trafik. Annars kan du använda geoplats för att fastställa den effektivaste slutpunkten. Du behöver en separat Speech Services-prenumeration i varje region som du använder.
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545100"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482242"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-plattformen och OAuth 2.0 flödet
 
@@ -42,7 +42,7 @@ I en typisk *treledade OAuth*, ett klientprogram som har beviljats behörighet a
 
 Hela flödet ser ut ungefär som i följande diagram. Vi beskriver varje steg nedan.
 
-![Flödet](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagram som visar hur klienten autentiseringsuppgiftsflödet](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Få direkt behörighet
 
@@ -92,7 +92,7 @@ Om du loggar in användaren i din app kan du identifiera organisationen som anv�
 När du är redo att begära behörighet från organisationens administratör kan du omdirigera användaren till Microsoft identity-plattformen *medgivande adminslutpunkten*.
 
 > [!TIP]
-> Försök att köra den här begäran i Postman! (Använda en egen app-ID för bästa resultat – självstudie programmet begär inte användbara behörighet.) [![Kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra den här begäran i Postman! (Använda en egen app-ID för bästa resultat – självstudie programmet begär inte användbara behörighet.) [![Försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ När du har fått ett lyckat svar från slutpunkten för app-etablering, kan din
 När du har köpt den nödvändiga auktoriseringen för ditt program kan du fortsätta med att hämta åtkomsttoken för API: er. För att få en token med hjälp av klienten klientautentiseringsuppgifter kan skicka en POST-begäran till den `/token` Microsoft identity-plattformen slutpunkt:
 
 > [!TIP]
-> Försök att köra den här begäran i Postman! (Använda en egen app-ID för bästa resultat – självstudie programmet begär inte användbara behörighet.) [![Kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra den här begäran i Postman! (Använda en egen app-ID för bästa resultat – självstudie programmet begär inte användbara behörighet.) [![Försök att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fall: Begäran om åtkomsttoken med en delad hemlighet
 

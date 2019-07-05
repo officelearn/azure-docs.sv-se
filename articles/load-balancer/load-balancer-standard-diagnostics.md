@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754693"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550928"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått och hälsotillstånd diagnostik för Standard Load Balancer
 
@@ -85,7 +85,7 @@ Hämta sökväg datatillgänglighet för Standard Load Balancer-resurser:
 Måttet genereras av en aktiv, in-band-mätning. En sökning-tjänst inom regionen kommer trafik för mätning. Tjänsten är aktiverad när du skapar en distribution med en offentlig klientdel och den fortsätter tills du tar bort klientdelen. 
 
 >[!NOTE]
->Interna klientdelar stöds inte just nu. 
+>Datatillgänglighet sökväg (VIP tillgänglighet) är inte tillgänglig för den interna belastningsutjämnaren klienter. 
 
 Ett paket som matchar din distribution klientdelen och regeln genereras med jämna mellanrum. Det inom regionen från källan till värden där det finns en virtuell dator i backend poolen. Load balancer infrastruktur utför samma belastningen belastningsutjämning och översättning åtgärder som för all annan trafik. Den här avsökningen är i band på din slutpunkt för Utjämning av nätverksbelastning. När avsökningen anländer på compute-värden där det finns en felfri virtuell dator i backend poolen, genererar compute-värd ett svar till avsöknings-tjänsten. Den virtuella datorn kan inte se den här trafiken.
 
@@ -208,6 +208,10 @@ Olika resource health statusvärden och deras beskrivningar finns i följande ta
 | Tillgängligt | Din offentliga standard belastningsutjämningsresursen är felfri och tillgängliga. |
 | Ej tillgänglig | Offentlig standard load balancer resursen är inte felfri. Diagnostisera hälsotillståndet genom att välja **Azure Monitor** > **mått**.<br>(*Ej tillgänglig* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.) |
 | Okänt | Resurshälsostatus för offentlig standard load balancer har inte uppdaterats ännu.<br>(*Okänd* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.)  |
+
+## <a name="limitations"></a>Begränsningar 
+
+- Datatillgänglighet sökväg (VIP tillgänglighet) är inte tillgänglig för den interna belastningsutjämnaren klienter.
 
 ## <a name="next-steps"></a>Nästa steg
 

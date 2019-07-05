@@ -3,7 +3,7 @@ title: Konfigurera Azure Active Directory för klientautentisering för Service 
 description: Lär dig hur du ställer in Azure Active Directory (Azure AD) för att autentisera klienter för Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -12,37 +12,37 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2019
-ms.author: aljo
-ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/28/2019
+ms.author: atsenthi
+ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125144"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486010"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
 För kluster som körs på Azure, rekommenderar Azure Active Directory (Azure AD) att säkra åtkomst till av hanteringsslutpunkter.  Den här artikeln beskrivs hur att konfigurera Azure AD för att autentisera klienter för Service Fabric-kluster som måste göras innan [skapar klustret](service-fabric-cluster-creation-via-arm.md).  Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. 
 
-Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive den webbaserade [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] och [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.  När programmen har skapats tilldelar du användare till roller som skrivskyddad och administratör.
+Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive den webbaserade [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.  När programmen har skapats tilldelar du användare till roller som skrivskyddad och administratör.
 
 > [!NOTE]
 > Du måste slutföra följande steg innan du skapar klustret. Eftersom skripten förväntar sig klusternamn och slutpunkter bör värdena vara planerade och inte värden som du redan har skapat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
+## <a name="prerequisites"></a>Förutsättningar
+I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har gjort det börjar du med att läsa avsnittet om [hur du skaffar en Azure Active Directory-klientorganisation][active-directory-howto-tenant].
 
 Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av de steg som används för att konfigurera Azure AD med Service Fabric-kluster.
 
-1. [Ladda ned skripten](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) till datorn.
-2. Högerklicka på zipfilen, Välj **egenskaper**väljer den **avblockera** och klicka sedan på **tillämpa**.
-3. Extrahera zip-filen.
+1. [Klona lagringsplatsen](https://github.com/Azure-Samples/service-fabric-aad-helpers) till datorn.
+2. [Kontrollera att du har alla nödvändiga komponenter](https://github.com/Azure-Samples/service-fabric-aad-helpers#getting-started) för skript som är installerad.
 
 ## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Skapa Azure AD-program och tilldela användare till roller
-Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du har skapat programmen för att representera klustret tilldelar du dina användare till de [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna.  Exempel:
+Vi använder skripten för att skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du skapar program som motsvarar ditt kluster kan du skapar användare för den [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddade och administratör.
+
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -61,7 +61,7 @@ Du kan hitta din *TenantId* genom att köra PowerShell-kommandot `Get-AzureSubsc
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klientorganisationen. När du har loggat in skapar skriptet webbprogrammet och det interna programmet för att representera ditt Service Fabric-kluster. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
+Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klientorganisationen. När du har loggat in skapar skriptet webbprogrammet och det interna programmet för att representera ditt Service Fabric-kluster. Om du tittar på klientorganisationens program i [Azure-portalen][azure-portal] bör du se två nya poster:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client

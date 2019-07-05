@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357550"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536921"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -175,6 +175,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [SSPR och MFA-användningen och insikter för rapportering](howto-authentication-methods-usage-insights.md)
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
 * [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md).

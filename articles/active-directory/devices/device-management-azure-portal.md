@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341414"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461448"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med Azure portal
 
@@ -57,14 +57,14 @@ Inställningssidan för enheten kan du konfigurera:
 
 ![Hantera en Intune-enhet](./media/device-management-azure-portal/21.png)
 
-- **Användare kan ansluta enheter till Azure AD** – den här inställningen kan du välja vilka användare som kan registrera sina enheter som [Azure AD join enheter](overview.md#azure-ad-joined-devices). Standardvärdet är **alla**.
+- **Användare kan ansluta enheter till Azure AD** – den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **alla**.
 
 > [!NOTE]
 > **Användare kan ansluta enheter till Azure AD** inställningen gäller endast för Azure AD join i Windows 10.
 
 - **Ytterligare lokala administratörer på Azure AD-anslutna enheter** – du kan välja de användare som har beviljats behörighet som lokal administratör på en enhet. Användare som läggs till här läggs till i *Enhetsadministratörer* roll i Azure AD. Globala administratörer i Azure AD och enhetsägare beviljas lokal administratörsbehörighet som standard. Det här alternativet är en premium edition funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS).
-- **Användare kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen för att tillåta Windows 10 personal-, iOS-, Android- och macOs-enheter ska vara [registrerad](overview.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera med Azure AD. Registrering med Microsoft Intune eller Mobile Device Management (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** har valts och **NONE** är inte tillgänglig. Om du har aktiverat den här inställningen från Intune och sedan alternativ här nedtonade.
-- **Kräver Multi-Factor Authentication att ansluta enheter** – du kan välja om användare måste ange en andra autentiseringsfaktor till [join](overview.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering när du registrerar en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att Azure Multi-Factor Authentication har konfigurerats för de användare som registrerar sina enheter. Mer information finns i artikeln [distribution av Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md). 
+- **Användare kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen för att tillåta Windows 10 personal-, iOS-, Android- och macOs-enheter som ska registreras med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera med Azure AD. Registrering med Microsoft Intune eller Mobile Device Management (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** har valts och **NONE** är inte tillgänglig.
+- **Kräver Multi-Factor Authentication att ansluta enheter** – du kan välja om användare måste ange en ytterligare autentiseringsfaktor för att ansluta enheten till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering när du registrerar en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du se till att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns i [komma igång med Azure Multi-Factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Kräver Multi-Factor Authentication att ansluta enheter** inställningen gäller inte för hybrid Azure AD-anslutna enheter.

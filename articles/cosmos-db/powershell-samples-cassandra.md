@@ -4,14 +4,14 @@ description: Azure PowerShell-exempel för Azure Cosmos DB - API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdbb786417f8c471b001f1c83b2f1833b27d4363
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 670fac2e7eadaa8273c309fee56f164512398d78
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245670"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565483"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Azure PowerShell-exempel för Azure Cosmos DB - API för Cassandra
 
@@ -21,6 +21,7 @@ I följande tabell innehåller länkar till Azure PowerShell-exempelskript för 
 |---|---|
 |[Skapa ett konto, keyspace och tabell](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, keyspace och tabell. |
 |[Visa eller hämta keyspaces eller tabeller](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta keyspaces eller tabeller. |
+|[Hämta RU/s](scripts/powershell/cassandra/ps-cassandra-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta RU/s för en keyspace eller tabell. |
 |[Uppdatera RU/s](scripts/powershell/cassandra/ps-cassandra-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera RU/s för en keyspace eller tabell. |
 |[Lägger till en region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Få ett Azure Cosmos-konto och lägger till en region i listan över platser. |
 |[Ändra redundansprioritet för](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ändra redundansprioritet för ett Azure Cosmos-konto med en manuell redundans-utlösare. |

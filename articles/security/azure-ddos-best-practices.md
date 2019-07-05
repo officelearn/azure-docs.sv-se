@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588162"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449331"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
 
@@ -224,6 +224,8 @@ Azure DDoS Protection Standard identifierar och minskar risken för DDoS-attacke
 - Du planerar en viral händelse som ökar avsevärt din nätverkstrafik.
 
 - En aktör har riskerade att starta en DDoS-attack mot dina resurser.
+
+- Om du vill godkänna en IP-adress eller IP-adressintervall från Azure DDoS Protection Standard. Ett vanligt scenario är att godkända IP-Adressen om trafiken dirigeras från en extern molnet WAF till Azure. 
 
 För attacker som har en kritisk inverkan på verksamheten, skapa en allvarlighetsgrad A [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

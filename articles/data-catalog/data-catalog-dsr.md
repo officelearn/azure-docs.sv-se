@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65775672"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509279"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Datakällor som stöds i Azure Data Catalog
 
@@ -152,7 +152,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse-vy</td>
+      <td>Azure SQL Data Warehouse-vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +173,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services-mått</td>
@@ -181,7 +181,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services-tabell</td>
@@ -189,15 +189,15 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services-rapport</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Webbläsare</td>
-      <td>Enhetligt läge-servrar. SharePoint-läge stöds inte.</td>
+      <td>Browser</td>
+      <td>Enhetligt läge-servrar. SharePoint-läge stöds inte. SQL Server 2008 och senare versioner</td>
     </tr>
     <tr>
       <td>SQL Server-tabell</td>
@@ -205,7 +205,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>SQL Server-vy</td>
@@ -213,7 +213,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
       <td>Teradata-tabell</td>

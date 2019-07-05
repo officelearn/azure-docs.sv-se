@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147969"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565806"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -61,16 +61,21 @@ Använd den här tabellen som vägledning:
 | Lagringstyp | Metod som för närvarande stöds för auktorisering |
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
-|**BLOB-lagring (hierarkiska namnrymden)** | Azure AD |
+|**BLOB-lagring (hierarkiska namnrymden)** | Azure AD & SAS |
 |**Fillagring** | Endast SAS |
 
 ### <a name="option-1-use-azure-ad"></a>Alternativ 1: Använd Azure AD
 
+Genom att använda Azure AD kan ange du autentiseringsuppgifter för en gång i stället för att lägga till en SAS-token till varje kommando.  
+
 Utbud av auktoriseringar som du behöver baseras på om du planerar att ladda upp filer eller hämta dem bara.
 
-Om du bara vill ladda ned filer, kontrollera att den [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) har tilldelats till din identitet.
+Om du bara vill ladda ned filer, kontrollera att den [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) har tilldelats till ditt användar-ID eller tjänstens huvudnamn. 
 
-Om du vill ladda upp filer, kontrollerar du att någon av dessa roller har tilldelats till din identitet:
+> [!NOTE]
+> Användarnas identiteter och tjänstens huvudnamn är var och en typ av *säkerhetsobjekt*, så vi använder termen *säkerhetsobjekt* för resten av den här artikeln.
+
+Om du vill ladda upp filer, kontrollerar du att någon av dessa roller har tilldelats till din säkerhetsobjekt:
 
 - [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -84,13 +89,16 @@ Dessa roller kan tilldelas till din identitet i någon av dessa scope:
 
 Läs hur du kontrollerar och tilldela roller i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Du behöver inte ha någon av dessa roller som tilldelats din identitet om din identitet har lagts till i åtkomstkontrollistan (ACL) för målbehållare eller katalog. I ACL måste din identitet skrivbehörighet för målkatalogen och körbehörighet på behållaren och alla överordnade kataloger.
+> [!NOTE] 
+> Tänk på att RBAC-rolltilldelningar kan ta upp till fem minuter att sprida.
+
+Du behöver inte ha någon av dessa roller som tilldelats din säkerhetsobjekt om din säkerhetsobjekt läggs till i åtkomstkontrollistan (ACL) för målbehållare eller katalog. I ACL måste din säkerhetsobjekt skrivbehörighet för målkatalogen och körbehörighet på behållaren och alla överordnade kataloger.
 
 Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-your-identity"></a>Verifiera din identitet
+#### <a name="authenticate-a-user-identity"></a>Autentisera en användaridentitet
 
-När du har kontrollerat att din identitet har fått den nödvändiga säkerhetsnivån, öppna en kommandotolk, Skriv följande kommando och tryck sedan på RETUR-tangenten.
+När du har kontrollerat att din användaridentitet har fått den nödvändiga säkerhetsnivån, öppna en kommandotolk, Skriv följande kommando och tryck sedan på RETUR-tangenten.
 
 ```azcopy
 azcopy login
@@ -109,6 +117,72 @@ Det här kommandot returnerar en Autentiseringskod och Webbadressen till en webb
 ![Skapa en container](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Ett fönster för inloggning visas. Logga in på ditt Azure-konto med hjälp av dina Azure-autentiseringsuppgifter i det aktuella fönstret. När du har loggat in, kan du stänga webbläsaren och börja använda AzCopy.
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>Autentisera ett huvudnamn för tjänsten
+
+Detta är ett bra alternativ om du planerar att använda AzCopy inuti ett skript som körs utan användaråtgärder. 
+
+Innan du kör skriptet kan behöva du logga in interaktivt minst en gång så att du kan ange AzCopy med autentiseringsuppgifter för tjänstens huvudnamn.  Dessa autentiseringsuppgifter lagras i en säker och krypterad fil så att skriptet inte behöver ange den känsliga informationen.
+
+Du kan logga in på ditt konto med hjälp av en klienthemlighet eller genom att använda lösenordet för ett certifikat som är associerad med tjänstens huvudnamn appregistreringen. 
+
+Läs mer om att skapa huvudnamn för tjänsten i [så här: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Läs mer om tjänstens huvudnamn i allmänhet i [program och tjänstobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>Med hjälp av en klienthemlighet
+
+Starta genom att ange den `AZCOPY_SPA_CLIENT_SECRET` miljövariabeln till klienthemlighet för din tjänstens huvudnamn är appregistrering. 
+
+> [!NOTE]
+> Se till att ange det här värdet från Kommandotolken och inte i miljön varierande inställningarna för ditt operativsystem. På så sätt kan värdet är bara tillgänglig för den aktuella sessionen.
+
+Det här exemplet visar hur du kan göra detta i PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> Överväg att använda en uppmaning som visas i det här exemplet. På så sätt kan klienthemligheten visas inte i kommandohistoriken för din konsol. 
+
+Därefter skriver du följande kommando och tryck på RETUR-tangenten.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Ersätt den `<application-id>` med program-ID för din tjänstens huvudnamn är appregistrering.
+
+##### <a name="using-a-certificate"></a>Med hjälp av ett certifikat
+
+Om du föredrar att använda dina autentiseringsuppgifter för auktorisering kan du överföra ett certifikat till din appregistrering och använder certifikatet för inloggning.
+
+Förutom laddar upp certifikatet i din appregistrering, måste du också ha en kopia av certifikatet sparas på en dator eller virtuell dator där AzCopy kommer att köras. Den här kopian av certifikatet måste vara i. PFX eller. PEM-format och måste innehålla den privata nyckeln. Den privata nyckeln ska vara lösenordsskyddad. Om du använder Windows, och ditt certifikat finns bara i ett certifikatarkiv, se till att exportera certifikatet till en PFX-fil (inklusive den privata nyckeln). Anvisningar finns i [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Nu ska vi konfigurera den `AZCOPY_SPA_CERT_PASSWORD` miljövariabeln till lösenordet för certifikatet.
+
+> [!NOTE]
+> Se till att ange det här värdet från Kommandotolken och inte i miljön varierande inställningarna för ditt operativsystem. På så sätt kan värdet är bara tillgänglig för den aktuella sessionen.
+
+Det här exemplet visar hur du kan göra detta i PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Därefter skriver du följande kommando och tryck på RETUR-tangenten.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Ersätt den `<path-to-certificate-file>` med den relativa eller fullständigt kvalificerade sökvägen till certifikatfilen. AzCopy sparar sökvägen till det här certifikatet men den inte spara en kopia av certifikatet, så se till att förvara certifikatet på plats.
+
+> [!NOTE]
+> Överväg att använda en uppmaning som visas i det här exemplet. På så sätt kan lösenordet visas inte i kommandohistoriken för din konsol. 
 
 ### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använda en SAS-token
 
@@ -134,7 +208,11 @@ Exempel på kommandon finns i någon av följande artiklar.
 
 - [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
 
+- [Överföra data med AzCopy och Azure Stack-lagring](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## <a name="use-azcopy-in-a-script"></a>Använda AzCopy i ett skript
+
+Innan du kör skriptet kan behöva du logga in interaktivt minst en gång så att du kan ange AzCopy med autentiseringsuppgifter för tjänstens huvudnamn.  Dessa autentiseringsuppgifter lagras i en säker och krypterad fil så att skriptet inte behöver ange den känsliga informationen. Exempel finns i den [autentisera tjänstens huvudnamn](#service-principal) i den här artikeln.
 
 Med tiden, AzCopy [nedladdningslänk](#download-and-install-azcopy) pekar till nya versioner av AzCopy. Om ditt skript har hämtats AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar funktioner som är beroende av om ditt skript. 
 

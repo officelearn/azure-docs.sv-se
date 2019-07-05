@@ -2,18 +2,18 @@
 title: Hantera säkerhetskopior med rollbaserad åtkomstkontroll i Azure.
 description: Använda rollbaserad åtkomstkontroll för att hantera åtkomst till åtgärder för hantering av säkerhetskopiering i Recovery Services-valvet.
 services: backup
-author: trinadhk
+author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.author: utraghuv
+ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253733"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565644"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -23,7 +23,7 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 
 Azure Backup innehåller tre inbyggda roller som styr säkerhetskopiering hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
-* [Säkerhetskopiera deltagare](../role-based-access-control/built-in-roles.md#backup-contributor) – den här rollen har alla behörigheter att skapa och hantera säkerhetskopia, förutom att skapa Recovery Services-valvet och ge åtkomst till andra. Anta att den här rollen som administratör för hantering av säkerhetskopiering som kan göra varje åtgärd för hantering av säkerhetskopiering.
+* [Säkerhetskopiera deltagare](../role-based-access-control/built-in-roles.md#backup-contributor) – den här rollen har alla behörigheter att skapa och hantera säkerhetskopiering utom ta bort Recovery Services-valvet och ge åtkomst till andra. Anta att den här rollen som administratör för hantering av säkerhetskopiering som kan göra varje åtgärd för hantering av säkerhetskopiering.
 * [Säkerhetskopiera operatorn](../role-based-access-control/built-in-roles.md#backup-operator) – den här rollen har behörighet att allt en deltagare utom ta bort säkerhetskopiering och hantera principer för säkerhetskopiering. Den här rollen motsvarar deltagare, förutom den inte kan utföra skadliga åtgärder som Avbryt säkerhetskopiering med ta bort data eller ta bort registreringen av lokala resurser.
 * [Säkerhetskopiera läsare](../role-based-access-control/built-in-roles.md#backup-reader) – den här rollen har behörighet att visa alla åtgärder för hantering av säkerhetskopiering. Anta att den här rollen för att vara en person som övervakning.
 
@@ -36,7 +36,7 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 
 | Hanteringsåtgärd | Minsta RBAC-roll som krävs | Omfång som krävs |
 | --- | --- | --- |
-| Skapa Recovery Services-valv | Deltagare | Resursgruppen som innehåller valvet |
+| Skapa Recovery Services-valv | Säkerhetskopieringsmedarbetare | Resursgruppen som innehåller valvet |
 | Aktivera säkerhetskopiering av virtuella Azure-datorer | Ansvarig för säkerhetskopiering | Resursgruppen som innehåller valvet |
 | | Virtuell Datordeltagare | VM-resurs |
 | Säkerhetskopiering på begäran för virtuell dator | Ansvarig för säkerhetskopiering | Recovery vault-resursen |

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447175"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -36,6 +36,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 > Resursbegränsningar enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför pooler som har samma compute storlek. Max samtidiga arbetare för en GP_Gen4_1-databas är till exempel 200 arbetare. Max samtidiga arbetare för en databas i poolen GP_Gen4_1 är därför också 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Tjänstnivå för allmänna ändamål: Lagringsstorlekar och storlekar
+
+> [!IMPORTANT]
+> Nya Gen4 databaser stöds inte längre i regionen Australien.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Tjänstnivå för allmänna ändamål: Generation 4-beräkningsplattformen (del 1)
 
@@ -149,6 +152,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 \* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritiska-affärsnivå: Lagringsstorlekar och storlekar
+
+> [!IMPORTANT]
+> Nya Gen4 databaser stöds inte längre i regionen Australien.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Kritiska-affärsnivå: Generation 4-beräkningsplattformen (del 1)
 

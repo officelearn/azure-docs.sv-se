@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329902"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441683"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -23,7 +23,7 @@ Machine learning-modeller förutsätter en enhetligt provade tidsserie. Om tidss
 
 Machine learning-åtgärder stöder inte säsongsberoende trender eller flera variate korrelationer just nu.
 
-## <a name="model-accuracy-and-performance"></a>Modeller Precision och prestanda
+## <a name="model-behavior"></a>Beteendet för enhetsmodellen
 
 I allmänhet förbättrar modellens Precision med mer data i Hoppande fönster. Data i den angivna skjutfönster behandlas som en del av dess normala värdeintervall för den aktuella tidsperioden. Modellen endast tar hänsyn till Händelsehistorik över Hoppande fönster för att kontrollera om den aktuella händelsen är avvikande. När fönstret glidande flyttas avlägsnas gamla värden från den modellen.
 
@@ -32,6 +32,8 @@ Funktionerna fungerar genom att upprätta en vissa normal baserat på vad de har
 Modellens svarstiden ökar med historikstorlek eftersom den måste jämföra med ett högre antal senaste händelser. Vi rekommenderar att bara inkludera nödvändigt antal händelser för bättre prestanda.
 
 Luckor i tidsserien kan vara ett resultat av modellen inte ta emot händelser vid vissa tidpunkter i tid. Den här situationen hanteras av Stream Analytics med hjälp av uppräkning logik. Historikstorlek, samt en varaktighet för samma skjutfönster används för att beräkna Genomsnittshastigheten då förväntas händelser tas emot.
+
+En tillgänglig avvikelseidentifiering generator [här](https://aka.ms/asaanomalygenerator) kan användas för att mata in en Iot-hubb med data med olika avvikelseidentifiering mönster. ASA-jobb kan konfigureras med dessa funktioner för identifiering av avvikelser att läsa från den här Iot-hubben och identifiera avvikelser.
 
 ## <a name="spike-and-dip"></a>Topp- och dip
 
@@ -102,6 +104,50 @@ INTO output
 FROM AnomalyDetectionStep
 
 ```
+
+## <a name="performance-characteristics"></a>Prestandaegenskaper
+
+Prestanda för dessa modeller beror på tidigare storlek, fönstervaraktigheten, händelsebelastningen, och om funktionen på partitionering används. Det här avsnittet beskriver de här konfigurationerna och innehåller exempel att kunna fortsätta arbeta enligt datainmatningsfrekvensen 1K, 5K och 10K händelser per sekund.
+
+* **Historikstorlek** -dessa modeller utföra linjärt med **historikstorlek**. Historikstorlek, desto längre tid tar ju längre modellerna kan bedöma de en ny händelse. Det beror på att modellerna jämför den nya händelsen till var och en av tidigare händelser i bufferten historik.
+* **Fönstervaraktigheten** – **fönstervaraktigheten** bör återspegla hur lång tid det tar att ta emot så många händelser som den anges av den tidigare storleken. Azure Stream Analytics skulle utan så många händelser i fönstret sedan imputera värden som saknas. CPU-förbrukning är därför en funktion av samma historikstorlek som.
+* **Händelsebelastningen** – ju större den **händelsebelastningen**, desto mer arbete som utförs av modeller, vilket påverkar CPU-förbrukning. Jobbet kan skaländras ut genom att göra det embarrassingly parallel, förutsatt att det passar för affärslogik för att använda mer inkommande partitioner.
+* **Funktionen på partitionering** - **funktion på partitionering** görs med hjälp av ```PARTITION BY``` i funktionsanropet för identifiering av avvikelser. Den här typen av partitionering lägger till en belastning som tillstånd måste underhållas för flera modeller på samma gång. Funktionen på partitionering används i scenarier som enheten på partitionering.
+
+### <a name="relationship"></a>Relation
+Historikstorlek, fönstervaraktigheten och totala händelsebelastningen relaterade på följande sätt:
+
+windowDuration (i ms) = 1000 * historySize / (totalt antal indata händelser Per sekund / antalet partitioner för indata)
+
+Lägg till ”PARTITION av deviceId” till funktionsanropet avvikelseidentifiering identifiering när partitionering funktionen av deviceId.
+
+### <a name="observations"></a>Observationer
+Följande tabell innehåller dataflöde observationer för en enskild nod (6 SU) för icke-partitionerad:
+
+| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser Per sekund |
+| --------------------- | -------------------- | -------------------------- |
+| 60 | 55 | 2,200 |
+| 600 | 728 | 1,650 |
+| 6,000 | 10,910 | 1,100 |
+
+Följande tabell innehåller dataflöde observationer för en enskild nod (6 SU) för det partitionerade ärendet:
+
+| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser Per sekund | Antal enheter |
+| --------------------- | -------------------- | -------------------------- | ------------ |
+| 60 | 1,091 | 1,100 | 10 |
+| 600 | 10,910 | 1,100 | 10 |
+| 6,000 | 218,182 | <550 | 10 |
+| 60 | 21,819 | 550 | 100 |
+| 600 | 218,182 | 550 | 100 |
+| 6,000 | 2,181,819 | <550 | 100 |
+
+Exempelkod för att köra de icke-partitionerad konfigurationerna som angetts ovan finns i den [direktuppspelning i skala lagringsplatsen](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) av Azure-exempel. Koden skapar ett stream analytics-jobb med ingen funktion på partitionering, som använder Event Hub som indata och utdata. Den inkommande belastningen genereras med hjälp av testklienter. Varje händelse är ett json-dokument på 1KB. Händelser simulera en IoT-enhet som skickar JSON-data (för upp till 1 K-enheter). Historikstorlek, fönstervaraktigheten och totala händelsebelastningen varieras under 2 inkommande partitioner.
+
+> [!Note]
+> Anpassa exemplen för att passa ditt scenario för en mer tillförlitlig uppskattning.
+
+### <a name="identifying-bottlenecks"></a>Identifiera flaskhalsar
+Använda fönstret mått i Azure Stream Analytics-jobb för att identifiera flaskhalsar i din pipeline. Granska **indata/utdata-händelser** för dataflöde och [”vattenstämpel fördröjning”](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** att se om jobbet är att hålla igång med indata. För Event Hub-mått, leta efter **begränsade begäranden** och justera tröskelvärdet enheter därefter. Cosmos DB-mått, granska **Max konsumerade RU/s per partitionsnyckelintervall** under dataflöde för att se till att partitionen nyckelintervall används ett enhetligt sätt. Azure SQL DB, övervaka **logg-IO** och **CPU**.
 
 ## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Avvikelseidentifiering med machine learning i Azure Stream Analytics
 

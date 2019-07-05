@@ -3,7 +3,7 @@ title: Arbeta med hanterade klientbiblioteket för App Service Mobile Apps | Mic
 description: Lär dig hur du använder .NET-klientbiblioteket för Azure App Service Mobile Apps med Windows- och Xamarin-appar.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,20 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119315"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446359"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) idag.
+>
+
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hanterade-klientbiblioteket för Azure App Service Mobile Apps för Windows- och Xamarin-appar. Om du är nybörjare på Mobile Apps, bör du först slutföra den [Azure Mobile Apps-Snabbstart] [ 1] självstudien. I den här guiden kommer fokusera vi på den hanterade klient-SDK. Läs mer om SDK: er för serversidan för Mobile Apps finns i dokumentationen för den [.NET Server SDK] [ 2] eller [Node.js Server SDK] [ 3].
+Den här guiden visar hur du utför vanliga scenarier med hanterade-klientbiblioteket för Azure App Service Mobile Apps för Windows- och Xamarin-appar. Om du är nybörjare på Mobile Apps, bör du först slutföra den [Azure Mobile Apps-Snabbstart][1] självstudien. I den här guiden kommer fokusera vi på den hanterade klient-SDK. Läs mer om SDK: er för serversidan för Mobile Apps finns i dokumentationen för den [.NET Server SDK][2] or the
+[Node.js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Referensdokumentation
 Referensdokumentation för klienten SDK finns här: [Referens för klienten för Azure Mobile Apps .NET][4].
@@ -60,9 +65,10 @@ public class TodoItem
 }
 ```
 
-Den [JsonPropertyAttribute] [ 6] används för att definiera den *PropertyName* mappning mellan fälten klienten och tabellen.
+Den [JsonPropertyAttribute][6] används för att definiera den *PropertyName* mappning mellan fälten klienten och tabellen.
 
-Läs hur du skapar tabeller i Mobile Apps-serverdel, i den [.NET Server SDK innehåller] [ 7] eller [Node.js Server SDK innehåller][8]. Om du har skapat din mobilappsserverdel i Azure portal med snabbstarten kan du också använda den **enkla tabeller** i den [Azure Portal].
+Läs hur du skapar tabeller i Mobile Apps-serverdel, i den [.NET Server SDK innehåller][7]
+or the [Node.js Server SDK topic][8]. Om du har skapat din mobilappsserverdel i Azure portal med snabbstarten kan du också använda den **enkla tabeller** i den [Azure Portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Anvisningar: Installera hanterad klient-SDK-paketet
 Använd någon av följande metoder för att installera hanterad klient-SDK-paketet för Mobile Apps från [NuGet][9]:
@@ -80,10 +86,11 @@ using Microsoft.WindowsAzure.MobileServices;
 > Observera att alla supportpaket som det refereras till i ditt Android-projekt måste ha samma version. SDK: N har `Xamarin.Android.Support.CustomTabs` beroende för Android-plattformen, så om projektet använder nyare support paket du behöver installera det här paketet med version som krävs direkt för att undvika konflikter.
 
 ### <a name="symbolsource"></a>Hur: Arbeta med felsökningssymboler i Visual Studio
-Symboler för Microsoft.Azure.Mobile namnområdet är tillgängliga på [SymbolSource][10].  Referera till den [SymbolSource instruktioner] [ 11] att integrera SymbolSource med Visual Studio.
+Symboler för Microsoft.Azure.Mobile namnområdet är tillgängliga på [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] att integrera SymbolSource med Visual Studio.
 
 ## <a name="create-client"></a>Skapa Mobile Apps-klienten
-Följande kod skapar den [MobileServiceClient] [ 12] objekt som används för att få åtkomst till din mobilappsserverdel.
+Följande kod skapar den [MobileServiceClient][12] objekt som används för att få åtkomst till din mobilappsserverdel.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");

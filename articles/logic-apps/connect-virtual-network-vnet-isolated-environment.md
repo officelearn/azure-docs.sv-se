@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65961450"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467082"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-resurser från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
@@ -64,7 +64,7 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 När du använder en integration service-miljö (ISE) med ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. De kopplingar som du använder för att skapa anslutningar mellan dina ISE och målsystemet kan också ha sina egna krav på nätverksportar. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
 
-Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Din ISE måste dock ha specifika portar öppna på det virtuella nätverket som använder nätverkssäkerhetsgrupper. På så sätt kan din ISE förblir tillgängligt och kan fungera korrekt så att du inte förlorar åtkomsten till dina ISE. Annars, om alla nödvändiga portar är otillgängliga din ISE slutar att fungera.
+Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar din ISE kan du också ställa in [nätverkssäkerhetsgrupper (NSG)](../virtual-network/security-overview.md) i det virtuella nätverket genom att [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen, se till att din ISE öppnar specifika portar enligt beskrivningen i tabellen nedan på det virtuella nätverket som använder NSG: erna. Om du har befintliga NSG: er eller brandväggar i ditt virtuella nätverk kan du kontrollera att de öppnar dessa portar. På så sätt kan din ISE förblir tillgängligt och kan fungera korrekt så att du inte förlorar åtkomsten till dina ISE. Annars, om alla nödvändiga portar är otillgängliga din ISE slutar att fungera.
 
 Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [Resource Manager-tjänsttaggar](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
 
@@ -117,7 +117,7 @@ I sökrutan anger du ”integreringstjänstmiljön” som filter.
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |
    | **Namn på integreringstjänstmiljö** | Ja | <*environment-name*> | Namn för att ge din miljö |
-   | **Plats** | Ja | <*Azure-datacenter-region*> | Azure-datacenterregion var du vill distribuera din miljö |
+   | **Location** | Ja | <*Azure-datacenter-region*> | Azure-datacenterregion var du vill distribuera din miljö |
    | **Ytterligare kapacitet** | Ja | 0 och 10 | Antal ytterligare enheter för den här ISE-resursen. Om du vill lägga till kapacitet när du har skapat, se [lägga till ISE kapacitet](#add-capacity). |
    | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk, [först skapa ett Azure-nätverk](../virtual-network/quick-create-portal.md). <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. |
    | **Undernät** | Ja | <*subnet-resource-list*> | En ISE kräver fyra *tom* undernät för att skapa resurser i din miljö. Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet).  |

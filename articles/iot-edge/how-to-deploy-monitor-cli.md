@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 55b18246861e452a4ac170094ee902bd6954fe89
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190406"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540924"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
-Skapa en **IoT Edge automatisk distribution** använder Azures kommandoradsgränssnitt för att hantera pågående distributioner för många enheter på samma gång. Automatisk distribution för IoT Edge är en del av den [automatisk enhetshantering](/iot-hub/iot-hub-automatic-device-management.md) funktion i IoT Hub. Distributioner är dynamisk processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa moduler och göra ändringar när det behövs. 
+Skapa en **IoT Edge automatisk distribution** använder Azures kommandoradsgränssnitt för att hantera pågående distributioner för många enheter på samma gång. Automatisk distribution för IoT Edge är en del av den [automatisk enhetshantering](/azure/iot-hub/iot-hub-automatic-device-management) funktion i IoT Hub. Distributioner är dynamisk processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa moduler och göra ändringar när det behövs. 
 
 Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md).
 

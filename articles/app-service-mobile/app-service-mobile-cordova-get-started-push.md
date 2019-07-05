@@ -5,29 +5,33 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114357"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443557"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Lägg till push-meddelanden till din Apache Cordova-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) idag.
+>
+
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden till den [Apache Cordova-snabbstarten] [ 5] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden till den [Apache Cordova Snabbstart][5] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
 Om du inte använder det nedladdade snabbstartsprojektet på en server måste tilläggspaket för push-meddelande. Mer information finns i [arbeta med SDK för .NET backend-server för Mobile Apps][1].
 
@@ -37,13 +41,13 @@ Den här självstudien förutsätter att du har en Apache Cordova-App som har ut
 
 För att slutföra den här kursen behöver du:
 
-* En dator med [Visual Studio Community 2015] [ 2] eller senare
+* En dator med [Visual Studio Community 2015][2] eller senare
 * [Visual Studio Tools för Apache Cordova][4]
-* En [aktivt Azure-konto][3]
-* En slutförd [Apache Cordova-snabbstarten] [ 5] projekt
-* (Android) En [Google-konto] [ 6] med en verifierad e-postadress
-* (iOS) En [Apple Developer Program medlemskap] [ 7] och en iOS-enhet (iOS Simulator inte stöder push-meddelanden)
-* (Windows) En [Microsoft Store-utvecklarkonto] [ 8] och en Windows 10-enhet
+* Ett [aktivt Azure-konto][3]
+* En slutförd [Apache Cordova Snabbstart][5] projekt
+* (Android) En [Google-konto][6] med en verifierad e-postadress
+* (iOS) En [Apple Developer Program medlemskap][7] och en iOS-enhet (iOS Simulator inte stöder push-meddelanden)
+* (Windows) En [Microsoft Store-utvecklarkonto][8] och en Windows 10-enhet
 
 ## <a name="configure-hub"></a>Konfigurera en notification hub
 
@@ -70,7 +74,7 @@ Om ditt projekt använder en version av Apache Cordova som är äldre än versio
 
 #### <a name="install-the-push-plugin"></a>Installera plugin-programmet push
 
-Apache Cordova program hanterar inte enheten eller nätverket funktioner internt.  Dessa funktioner tillhandahålls av plugin-program som är publicerat antingen den [npm] [ 10] eller på GitHub. Den `phonegap-plugin-push` plugin-programmet hanterar nätverk push-meddelanden.
+Apache Cordova program hanterar inte enheten eller nätverket funktioner internt.  Dessa funktioner tillhandahålls av plugin-program som är publicerat antingen den [npm][10] eller på GitHub. Den `phonegap-plugin-push` plugin-programmet hanterar nätverk push-meddelanden.
 
 Du kan installera push-plugin-programmet i något av följande sätt:
 
@@ -242,7 +246,7 @@ Du kan nu test-push-meddelanden genom att köra appen och lägga till objekt i T
 
 * *På en fysisk enhet:* Koppla en Android-enhet till din utvecklingsdator med en USB-kabel.  I stället för **Google Android-emulatorn**väljer **enhet**. Visual Studio distribuerar programmet till enheten och kör programmet. Du kan sedan interagera med program på enheten.
 
-  Delning av skärmen program som [Mobizen] [ 20] kan hjälpa dig utveckla Android-program. Mobizen projekt Android skärmen för att en webbläsare på din dator.
+  Delning av skärmen program som [Mobizen][20] kan hjälpa dig utveckla Android-program. Mobizen projekt Android skärmen för att en webbläsare på din dator.
 
 * *På en Android-emulator:* Det finns ytterligare konfigurationssteg som krävs när du använder en emulator.
 
@@ -266,7 +270,7 @@ Det här avsnittet handlar om att köra Cordova-projekt på iOS-enheter. Om du i
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Installera och köra iOS remote build-agenten på en Mac- eller cloud service
 
-Innan du kan köra en Cordova-app på iOS med hjälp av Visual Studio, gå igenom stegen i den [iOS konfigurera guiden] [ 12] att installera och köra den fjärranslutna skapandeagent.
+Innan du kan köra en Cordova-app på iOS med hjälp av Visual Studio, gå igenom stegen i den [iOS konfigurera guiden][12] att installera och köra den fjärranslutna skapandeagent.
 
 Kontrollera att du kan skapa appen för iOS. Stegen i konfigurationsguiden krävs för att skapa appen för iOS från Visual Studio. Om du inte har en Mac-dator kan du skapa för iOS genom att använda remote build-agenten på en tjänst som MacInCloud. Mer information finns i [kör din iOS-app i molnet][21].
 
@@ -329,7 +333,7 @@ För att använda Store-alternativ i Visual Studio, välja ett Windows-mål frå
 
 [!INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-[Se en video som visar liknande steg][13]
+[Titta på en video som visar liknande steg][13]
 
 #### <a name="configure-the-notification-hub-for-wns"></a>Konfigurera meddelandehubben för WNS
 
@@ -379,12 +383,12 @@ Kontrollera att ett meddelande tas emot när objektet har lagts till.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Meddelandehubbar] [ 17] vill veta mer om push-meddelanden.
-* Om du inte redan har gjort det, fortsätta självstudien av [att lägga till autentisering] [ 14] till din Apache Cordova-app.
+* Läs mer om [Meddelandehubbar][17] vill veta mer om push-meddelanden.
+* Om du inte redan har gjort det, fortsätta självstudien av [att lägga till autentisering][14] till din Apache Cordova-app.
 
 Lär dig hur du använder följande SDK: erna:
 
-* [Apache Cordova SDK][15]
+* [Apache Cordova-SDK][15]
 * [ASP.NET Server-SDK][1]
 * [Node.js Server-SDK][16]
 

@@ -2,29 +2,21 @@
 title: Felsöka Enterprise State Roaming-inställningar i Azure Active Directory | Microsoft Docs
 description: Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering.
 services: active-directory
-keywords: Enterprise state roaminginställningarna, windows-molnet, vanliga frågor och svar på enterprise tillståndsväxling
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110667"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481860"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -70,12 +62,11 @@ Det här avsnittet innehåller förslag på hur du felsöker och diagnostisera p
 
 Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om det är inte specifik för Enterprise State Roaming, följa anvisningarna nedan kan hjälpa att bekräfta att Windows 10-klient är registrerad och bekräfta tumavtryck URL för Azure AD-inställningar, NGC status och annan information.
 
-1.  Öppna Kommandotolken utan behörighet. Om du vill göra detta i Windows, öppna kör startprogrammet (Win + R) och Skriv ”cmd” öppna.
-2.  När Kommandotolken är öppet, skriver du ”*dsregcmd.exe/status*”.
-3.  För utdata som förväntas i **AzureAdJoined** fältvärdet ska vara ”Ja” **WamDefaultSet** fältvärdet ska vara ”Ja” och **WamDefaultGUID** fältvärdet ska vara ett GUID med ”(AzureAd)” i slutet.
+1. Öppna Kommandotolken utan behörighet. Om du vill göra detta i Windows, öppna kör startprogrammet (Win + R) och Skriv ”cmd” öppna.
+1. När Kommandotolken är öppet, skriver du ”*dsregcmd.exe/status*”.
+1. För utdata som förväntas i **AzureAdJoined** fältvärdet ska vara ”Ja” **WamDefaultSet** fältvärdet ska vara ”Ja” och **WamDefaultGUID** fältvärdet ska vara ett GUID med ”(AzureAd)” i slutet.
 
 **Potentiella problem**: **WamDefaultSet** och **AzureAdJoined** både har ”Nej” i fältvärdet enheten var ansluten till domänen och registrerad med Azure AD och synkroniserar inte enheten. Om den visar detta, enheten kan behöva vänta på att principen tillämpas det gick inte att autentiseringen för enheten när du ansluter till Azure AD Användaren kan behöva vänta några timmar innan principen tillämpas. Andra åtgärder för felsökning kan omfatta försöker automatisk registrering genom att logga ut och in igen eller starta om aktiviteten i Schemaläggaren. I vissa fall kan köra ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
-
 
 **Potentiella problem**: Fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Du kan också prova att gå till IT-administratören i portalen **Azure Active Directory** > **enheter** > **Enterprise State Roaming** inaktivera och återaktivera **användarna kan synkronisera inställningar och AppData på enheter**. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 

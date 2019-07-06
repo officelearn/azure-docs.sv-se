@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607655"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604088"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Snabbstart: Kontrollera texten mot en anpassad termlista i C#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Kontrollera texten mot en anpassad termlista i C#
 
 Den standardmässiga globala listan med termer i Azure Content Moderator räcker för de flesta modereringsbehov. Du kan dock behöva kontrollera termer som är specifika för din organisation. Till exempel vill du kanske tagga namn på konkurrenter för vidare granskning. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>Färdigställa allt
+## <a name="compose-the-main-method"></a>Compose Main-metoden
 
 Lägg till **Main**-metoddefinitionen till namnrymden **TermLists**, klassen **Program**. Slutligen stänger du **Program**-klassen och namnrymden **TermLists**.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Visa resultatet genom att köra programmet
 
-Dina utdata hamnar på följande rader, men data kan variera.
+Konsolens utdata ser ut så här:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

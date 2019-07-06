@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072321"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606253"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal till text?
 
 Tal till text från Azure Speech Services, även kallat tal till text, aktiverar i realtid transkription av ljudströmmar till text som dina program, verktyg eller enheter kan använda, visa och vidta åtgärder för som kommandoindata. Den här tjänsten drivs av samma taligenkänningsteknik som Microsoft använder för Cortana och Office-produkter, och fungerar sömlöst med översättning och text till tal.  En fullständig lista över tillgängliga språk för tal till text, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Som standard använder tjänsten tal till text Universal språkmodellen. Den här modellen har lärt sig med hjälp av data som ägs av Microsoft och har distribuerats i molnet. Det är optimala för konversationsanpassad och diktering scenarier. Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. 
+Som standard använder tjänsten tal till text Universal språkmodellen. Den här modellen har lärt sig med hjälp av data som ägs av Microsoft och har distribuerats i molnet. Det är optimala för konversationsanpassad och diktering scenarier. Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd.
 
 Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller få åtkomst till ljud filer från storage med tal SDK och REST API: er. Tal SDK stöder WAV PCM/16-bitars, 16 kHz/8 kHz, kanal-ljud för taligenkänning. Ytterligare ljudformat stöds med hjälp av den [tal till text REST-slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-tjänsten för taltranskription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 

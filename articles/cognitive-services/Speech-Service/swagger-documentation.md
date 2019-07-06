@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743211"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604776"
 ---
 # <a name="swagger-documentation"></a>Dokumentation om Swagger
 
-Speech Services erbjuder en Swagger-specifikation för att interagera med en handfull REST API: er används för att importera data, skapa modeller, testa modellens Precision, skapa anpassade slutpunkter, kö avskrifter för batch och hantera prenumerationer. De flesta åtgärder som är tillgängligt via portalen för anpassat tal kan utföras via programmering med hjälp av dessa API: er. 
+Speech Services erbjuder en Swagger-specifikation för att interagera med en handfull REST API: er används för att importera data, skapa modeller, testa modellens Precision, skapa anpassade slutpunkter, kö avskrifter för batch och hantera prenumerationer. De flesta åtgärder som är tillgängligt via portalen för anpassat tal kan utföras via programmering med hjälp av dessa API: er.
 
 > [!NOTE]
 > Både tal till Text och text till tal-åtgärder stöds som REST API: er, som i sin tur finns dokumenterade i Swagger-specifikation.

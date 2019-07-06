@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kontrollera avbildningar mot anpassade listor i C# – Content Moderator'
+title: Kontrollera avbildningar mot anpassade listor i C# – Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Så här modererar du bilder med anpassade bildlistor med Content Moderator SDK för C#.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699128"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603414"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Snabbstart: Moderera med anpassade bildlistor i C#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Moderera med anpassade bildlistor i C#
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig bland annat att:
 - Skapa en anpassad bildlista
@@ -32,7 +32,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 > [!NOTE]
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 
-Konsolprogrammet för den här snabbstarten simulerar några av de uppgifter du kan utföra med API:et för bildlistor.
+Konsolprogrammet för den här guiden simulerar några av de uppgifter du kan utföra med API för bildlista.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Skapa en metod för att lägga till en samling bilder i listan
 
-Lägg till följande metod i klassen **Program**. Den här snabbstarten beskriver inte hur du lägger till taggar till bilder i listan. 
+Lägg till följande metod i klassen **Program**. Den här guiden visar inte hur du kan lägga till taggar till avbildningar i listan. 
 
 ```csharp
 /// <summary>

@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072298"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606208"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks för Taltjänster
 
@@ -24,7 +23,7 @@ Webhooks är som HTTP-återanrop som tillåter programmet att acceptera data fr�
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
-Speech Services stöder webhooks för alla långvariga åtgärder. Var och en av åtgärderna i listan nedan kan utlösa en HTTP-motringning när åtgärden har slutförts. 
+Speech Services stöder webhooks för alla långvariga åtgärder. Var och en av åtgärderna i listan nedan kan utlösa en HTTP-motringning när åtgärden har slutförts.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,7 +36,7 @@ Nu ska vi skapa en webhook.
 
 ## <a name="create-a-webhook"></a>Skapa en webhook
 
-Nu ska vi skapa en webhook för en offline avskrift. Scenariot: en användare har en lång körs ljudfil som de vill transkribera asynkront med API: et för Batch avskrift. 
+Nu ska vi skapa en webhook för en offline avskrift. Scenariot: en användare har en lång körs ljudfil som de vill transkribera asynkront med API: et för Batch avskrift.
 
 Webhooks kan skapas genom att göra en POST-begäran till https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
@@ -65,7 +64,7 @@ Alla POST-förfrågningar till API: et för Batch avskrift kräver en `name`. De
 
 Den `Active` egenskapen används för att växla ringa tillbaka till din URL: en och inaktivera utan att behöva ta bort och återskapa webhook-registreringen. Om du behöver bara anropa en gång när processen har slutförts kan sedan ta bort webhook och växel den `Active` egenskapen till false.
 
-Händelsetyp `TranscriptionCompletion` tillhandahålls i matrisen händelser. Den anropar tillbaka till din slutpunkt när en avskrift hämtar i ett avslutat tillstånd (`Succeeded` eller `Failed`). När du anropar tillbaka till den registrerade URL, begäran innehåller ett `X-MicrosoftSpeechServices-Event` huvud som innehåller en av de registrerade händelsetyperna. Det finns ett anrop per registrerade händelsetyp. 
+Händelsetyp `TranscriptionCompletion` tillhandahålls i matrisen händelser. Den anropar tillbaka till din slutpunkt när en avskrift hämtar i ett avslutat tillstånd (`Succeeded` eller `Failed`). När du anropar tillbaka till den registrerade URL, begäran innehåller ett `X-MicrosoftSpeechServices-Event` huvud som innehåller en av de registrerade händelsetyperna. Det finns ett anrop per registrerade händelsetyp.
 
 Det finns en händelsetyp som du inte kan prenumerera. Det är den `Ping` händelsetyp. En begäran med den här typen skickas till URL: en när du är klar skapar en webhook när med hjälp av ping-URL (se nedan).  
 
@@ -94,7 +93,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -106,7 +105,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -121,12 +120,12 @@ Hämta en specifika webhook: GET https://westus.cris.ai/api/speechtotext/v2.1/tr
 
 Ta bort en specifika webhook: TA BORT https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > I exemplet ovan är regionen ”westus”. Detta ska ersättas av den region där du har skapat din Speech Services-resurs i Azure-portalen.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping brödtext: tom
 
-Skickar en POST-begäran till registrerade URL: en. Förfrågan innehåller en `X-MicrosoftSpeechServices-Event` huvud med ett värde ping. Om webhooken har registrerats med en hemlighet, den innehåller en `X-MicrosoftSpeechServices-Signature` huvud med en SHA256-hash för nyttolasten med hemligheten som HMAC-nyckel. Hash-värdet är Base64-kodad. 
+Skickar en POST-begäran till registrerade URL: en. Förfrågan innehåller en `X-MicrosoftSpeechServices-Event` huvud med ett värde ping. Om webhooken har registrerats med en hemlighet, den innehåller en `X-MicrosoftSpeechServices-Signature` huvud med en SHA256-hash för nyttolasten med hemligheten som HMAC-nyckel. Hash-värdet är Base64-kodad.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test brödtext: tom
 

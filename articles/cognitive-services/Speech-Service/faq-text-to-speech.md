@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751622"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606681"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
@@ -59,7 +59,7 @@ Vi tillhandahåller ytterligare tjänster för att hjälpa dig att förbereda sk
 
 **F: Är Mina begäranden begränsas?**
 
-**S**: REST API begränsar begäranden till 25 per 5 sekunder. Information finns i vår sidor för [Text till tal](text-to-speech.md). 
+**S**: REST API begränsar begäranden till 25 per 5 sekunder. Information finns i vår sidor för [Text till tal](text-to-speech.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311846"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606746"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
 Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
@@ -56,7 +55,7 @@ API: et för Batch avskrift stöder följande format:
 | MP3-FILEN | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bitars | 8 eller 16 kHz, mono, stereo |
 
-Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Den här exempelförfrågan innehåller egenskaper för svordomar filtrering, interpunktion och word på tidsstämplar. 
+Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Den här exempelförfrågan innehåller egenskaper för svordomar filtrering, interpunktion och word på tidsstämplar.
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -97,7 +96,7 @@ Använd de här valfria egenskaper för att konfigurera avskrift:
 
 Batch stöder avskrift [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa in ljud och avskrifter för skrivning till lagring.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>Webhooks
 
 Avsökning för transkription status kan inte de flesta prestanda eller ange den bästa användarupplevelsen. Om du vill söka efter status, kan du registrera återanrop som meddelar klienten när tidskrävande avskrift aktiviteterna har slutförts.
 
@@ -123,7 +122,7 @@ Om du vill begära att din ljudutskrift begäran bearbetas för diarization, beh
 }
 ```
 
-Word på tidsstämplar också måste vara ”aktiverad” eftersom tyda på parametrarna i begäran. 
+Word på tidsstämplar också måste vara ”aktiverad” eftersom tyda på parametrarna i begäran.
 
 Motsvarande ljudet innehåller talare som identifieras av ett tal (för tillfället stöder vi bara två röster så högtalarna identifieras som ”talare 1 ' och 'Talare 2') följt av utdata avskrift.
 
@@ -134,7 +133,7 @@ Observera också att Diarization inte är tillgänglig i Stereo inspelningar. De
 
 ## <a name="sentiment"></a>Sentiment
 
-Sentiment är en ny funktion i API: et för Batch-avskrift och är en viktig funktion i anropet center domänen. Kunder kan använda den `AddSentiment` parametrar till sina begäranden om att 
+Sentiment är en ny funktion i API: et för Batch-avskrift och är en viktig funktion i anropet center domänen. Kunder kan använda den `AddSentiment` parametrar till sina begäranden om att
 
 1.  Få insikter om kundnöjdhet
 2.  Skaffa dig insikter om prestanda för agenter (team tar anrop)
@@ -187,7 +186,7 @@ Funktionen använder en modell för Sentiment, som för närvarande är Beta.
 
 Komplett exempel finns i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples) inuti den `samples/batch` underkatalog.
 
-Du måste anpassa exempelkod med din prenumerationsinformation, regionen service, den SAS-URI som pekar på filen som transkribera och modellera ID: N om du vill använda en anpassad modell akustiska eller språk. 
+Du måste anpassa exempelkod med din prenumerationsinformation, regionen service, den SAS-URI som pekar på filen som transkribera och modellera ID: N om du vill använda en anpassad modell akustiska eller språk.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

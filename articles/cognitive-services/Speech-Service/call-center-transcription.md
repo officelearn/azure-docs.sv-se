@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064144"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603311"
 ---
 # <a name="speech-services-for-telephony-data"></a>Taltjänster för telefoni data
 
@@ -36,7 +36,7 @@ Nu ska vi se några av tekniken och relaterade funktioner Azure Speech Services 
 
 Utöver den funktionella aspekten av Speech Services är det primära syftet – vid tillämpning Callcenter – att förbättra kundupplevelsen. Tre tydliga domäner finns i detta avseende fungerar:
 
-* Efter anrop analytics, det vill säga batch-bearbetning av anropet inspelningar 
+* Efter anrop analytics, det vill säga batch-bearbetning av anropet inspelningar
 * Analys i realtid bearbetningen av ljudsignalen att extrahera olika insikter eftersom anropet sker (med sentiment som ett framträdande användningsfall) och
 * Virtuella assistenter (robotar) styr dialogen mellan kunden och roboten i ett försök att lösa problem med ingen agent-medverkan eller som tillämpningen av AI protokoll för att hjälpa agenten.
 
@@ -44,9 +44,9 @@ En typisk Arkitekturdiagram över implementeringen av ett batch-scenario illustr
 
 ## <a name="speech-analytics-technology-components"></a>Teknik för taligenkänning Analyskomponenter
 
-Om domänen är efter anrop eller i realtid, erbjuder Azure en uppsättning mogen och framväxande uppsättning tekniker för att förbättra kundupplevelsen. 
+Om domänen är efter anrop eller i realtid, erbjuder Azure en uppsättning mogen och framväxande uppsättning tekniker för att förbättra kundupplevelsen.
 
-### <a name="speech-to-text-stt"></a>Tal till text (STT) 
+### <a name="speech-to-text-stt"></a>Tal till text (STT)
 
 [Tal till text](speech-to-text.md) är det mest eftersträvade efter funktion i alla anrop center-lösningar. Eftersom många av de underordnade analytics processerna förlitar sig på transkriberade texten är word Felfrekvens (WER) av stor betydelse. En av de största utmaningarna i anropet center avskrift dagens är bruset som är vanlig i Callcenter (till exempel andra agenter som talar i bakgrunden), rad olika språk och dialekter samt faktiska telefon signalen låg kvalitet. WER korreleras med hög med hur väl- och språkdata modeller tränas för ett visst språk, så att du kan anpassa modellen lokalt är viktigt. Våra senaste enhetliga version 4.x modeller är lösningen med både avskrift noggrannhet och svarstid. Tränas med tiotals av tusentals timmars akustisk data och miljarder lexikal information enhetliga modeller är de mest korrekta modellerna på marknaden och effektiv samtalsdata center.
 
@@ -60,9 +60,9 @@ Det är inte ovanligt att 35 procent supportsamtal ska vara det vi kallar icke s
 Vissa företag experimenterar med tillhandahåller översatta avskrifter från främmande språk supportsamtal så att chefer leverans kan förstå upplevelsen av sina kunder över hela världen. Vår [translation](translation.md) funktioner är oöverträffade. Vi kan översätta ljud till ljud eller ljud till text från ett stort antal språk.
 
 ### <a name="text-to-speech"></a>Text till tal
-[Text till tal](text-to-speech.md) är ett annat viktigt område i implementerar robotar som interagerar med kunderna. Vanliga dina olika val är att kunden talar, rösten transkriberas till text, texten analyseras för avsikter, ett svar är syntetiskt utifrån identifierade avsikt, och sedan en tillgång antingen visas för kunden eller ett syntetiskt voice-svar är genereras. Naturligtvis har allt detta ske snabbt – därför svarstiden är en viktig komponent i framgången för de här systemen. 
+[Text till tal](text-to-speech.md) är ett annat viktigt område i implementerar robotar som interagerar med kunderna. Vanliga dina olika val är att kunden talar, rösten transkriberas till text, texten analyseras för avsikter, ett svar är syntetiskt utifrån identifierade avsikt, och sedan en tillgång antingen visas för kunden eller ett syntetiskt voice-svar är genereras. Naturligtvis har allt detta ske snabbt – därför svarstiden är en viktig komponent i framgången för de här systemen.
 
-Vår svarstiden för slutpunkt till slutpunkt är ganska låg funderar på att de olika tekniker som ingår som [tal till text](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Text till tal](text-to-speech.md). 
+Vår svarstiden för slutpunkt till slutpunkt är ganska låg funderar på att de olika tekniker som ingår som [tal till text](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Text till tal](text-to-speech.md).
 
 Vår nya röster är också särskilja från mänskligt tal. Du kan använda ut röster för att ge din robot dess personlighet.
 

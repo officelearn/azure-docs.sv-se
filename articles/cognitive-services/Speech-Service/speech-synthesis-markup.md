@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 488cbf1874e023cf3a665bc9f2087900b30b3d3d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204916"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604825"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -139,7 +138,7 @@ För närvarande stöds engelsktalande style justeringar för dessa neural röst
 
 Använd den här tabellen för att avgöra vilka tala stöds för varje neural röst.
 
-| Röst | Typ | Beskrivning |
+| Röst | Type | Beskrivning |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Representerar en känsla som är positiva och nöjd |
 | | type=`empathy` | Representerar en uppfattning om sköta och förstå |
@@ -181,7 +180,7 @@ Använd den `break` element att infoga pauser (eller radbrytningar) mellan ord e
 | styrka | Anger den relativa varaktigheten för en paus på något av följande värden:<ul><li>Ingen</li><li>x-weak</li><li>svag</li><li>medel (standard)</li><li>Stark</li><li>x-strong</li></ul> | Valfri |
 | time | Anger den absoluta varaktigheten för en paus i sekunder eller millisekunder. Exempel på giltiga värden är 2s och 500 | Valfri |
 
-| Styrka | Beskrivning |
+| styrka | Beskrivning |
 |----------|-------------|
 | Ingen, eller om inget värde anges | 0 ms |
 | x-weak | 250 ms |
@@ -290,7 +289,7 @@ Eftersom prosodic attributvärden kan variera över en mängd, tolkar taligenkä
 | profil | Profil stöds inte för neurala röster. Profil representerar ändringar i frekvens för talat innehåll som en matris med mål vid angiven tid positioner i talutdata. Varje mål definieras av uppsättningar med parametern-par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje uppsättning parametrar anger platsen för försäljningsargument ändringen som en procentandel av varaktigheten för texten. Det andra värdet anger hur mycket höja eller sänka motivation, med ett relativ värde eller ett uppräkningsvärde för försäljningsargument (se `pitch`). | Valfri |
 | Adressintervall  | Ett värde som representerar en uppsättning försäljningsargument efter text. Du kan uttrycka `range` med samma absoluta värden, relativa värden eller uppräkningsvärdena används för att beskriva `pitch`. | Valfri |
 | Pris  | Anger engelsktalande frekvensen för texten. Du kan uttrycka `rate` som:<ul><li>Ett relativ värde, uttryckt i form av ett tal som fungerar som en multiplikator på standardvärdet. Till exempel värdet *1* leder till att ingen ändring i hastigheten. Värdet *.5* resulterar i en halving frekvensen. Värdet *3* resulterar i en tripling frekvensen.</li><li>Ett konstant värde:<ul><li>x-slow</li><li>långsam</li><li>medium</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfri |
-| Varaktighet  | Tidsperioden som ska förflyta när tal syntes (text till tal)-tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfri |
+| duration  | Tidsperioden som ska förflyta när tal syntes (text till tal)-tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfri |
 | volym  | Anger volymen för rösten. Du kan uttrycka volymen som:<ul><li>Ett absolut värde, uttryckt i form av ett antal inom intervallet 0,0 till 100,0 från *quietest* till *starkaste*. Till exempel 75. Standardvärdet är 100,0.</li><li>Ett relativ värde, uttryckt i form av ett tal som föregås av ”+” eller ”-” som innehåller ett belopp att ändra volymen. Till exempel + 10 eller-5.5.</li><li>Ett konstant värde:<ul><li>tyst</li><li>x-soft</li><li>Mjuk</li><li>medium</li><li>högt</li><li>x-loud</li><li>standard</li></ul></li></ul> | Valfri |
 
 ### <a name="change-speaking-rate"></a>Engelsktalande förändringstakten

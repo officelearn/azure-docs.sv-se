@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751805"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606684"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Viktig information för Cognitive Services tal enheter SDK
 Följande avsnitt lista över ändringar i de senaste versionerna.
@@ -37,17 +37,17 @@ Följande avsnitt lista över ändringar i de senaste versionerna.
 *   På grund av den nya wake word tekniken måste alla wake ord återskapas på vår förbättrad wake word-portal. Om du vill ta bort avinstallera gamla nyckelord från enheten gamla appen.
     - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services tal enheter SDK 1.4.0: 2019 Apr versionen 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services tal enheter SDK 1.4.0: 2019 Apr versionen
 
-* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.4.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
+* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.4.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew).
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services tal enheter SDK 1.3.1: 2019 Mar versionen 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services tal enheter SDK 1.3.1: 2019 Mar versionen
 
-* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.3.1. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
+* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.3.1. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew).
 *   Uppdaterade wake word hantering, se större ändringar.
 *   Exempelprogram lägger till val av språk för både taligenkänning och översättning.
 
-**Större ändringar** 
+**Större ändringar**
 
 *   [Installera ett wake ord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklad, det är nu en del av appen och behöver inte separat installation på enheten.
 *   Wake word erkännande har ändrats och två händelser som stöds.
@@ -55,22 +55,22 @@ Följande avsnitt lista över ändringar i de senaste versionerna.
     - RecognizedKeyword, anger den nyckelordet igenkänning av slutförts eftersom det angivna nyckelordet.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services tal enheter SDK 1.1.0: 2018-Nov versionen 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services tal enheter SDK 1.1.0: 2018-Nov versionen
 
-* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.1.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
+* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.1.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew).
 * Längst till fältet taligenkänningen har förbättrats med vår förbättrad ljud bearbetning algoritm.
 * Exempelprogrammet lagt till stöd för kinesiska tal.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services tal enheter SDK 1.0.1: 2018-okt versionen 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services tal enheter SDK 1.0.1: 2018-okt versionen
 
-* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.0.1. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
+* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.0.1. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew).
 * Taligenkänningen kommer förbättras med vår förbättrad ljud bearbetning-algoritm  
 * En kontinuerlig igenkänning av ljud session programfel har åtgärdats.
 
-**Större ändringar** 
+**Större ändringar**
 
-* Med den här versionen införs ett antal icke-bakåtkompatibla ändringar. Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) information som rör API: erna. 
-* Modellfiler KWS är inte kompatibla med tal Devices SDK 1.0.1. De befintliga Wake Word-filerna tas bort när de nya Wake Word-filerna skrivs till enheten. 
+* Med den här versionen införs ett antal icke-bakåtkompatibla ändringar. Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) information som rör API: erna.
+* Modellfiler KWS är inte kompatibla med tal Devices SDK 1.0.1. De befintliga Wake Word-filerna tas bort när de nya Wake Word-filerna skrivs till enheten.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Cognitive Services tal enheter SDK 0.5.0: 2018-Aug versionen
 

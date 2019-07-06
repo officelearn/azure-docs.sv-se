@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 7e9aebd3a49182f84e05473da9ed166499f34a28
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: dfad425d6da2e3dabec138ef4f108957ebea7ee9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465712"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602918"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Windows med hjälp av tal-SDK
 
@@ -27,7 +27,7 @@ Funktionen som beskrivs i den här artikeln är tillgänglig från [tal SDK 1.5.
 
 En fullständig lista över språk/röster som är tillgängliga för talsyntes Se [språkstöd](language-support.md#text-to-speech).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 

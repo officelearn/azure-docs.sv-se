@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 623bf0b054544d2c25f3542043afe20d778fdd24
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816885"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603485"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets publicerade förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet som en mall för att skapa ditt eget Python-program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-verktyget
@@ -46,7 +46,7 @@ Skapa en ny fil med namnet *sample.py* i den projektkatalog du vill använda.
 
 ### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Observera att skillnaden mellan att skapa ett projekt för objektidentifiering och för bildklassificering är den domän som anges i anropet av **create_project**.
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Skillnaden mellan att skapa projekt för klassificering av identifierings- och ett objekt är den domän som anges i den **create_project** anropa.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 När du taggar bilder i objektidentifieringsprojekt måste du bestämma region för varje taggat objekt med hjälp av normaliserade koordinater.
 
-För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
+För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Den här självstudien är regionerna i hårdkodad infogade med kod. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
 
 ```Python
 fork_image_regions = {

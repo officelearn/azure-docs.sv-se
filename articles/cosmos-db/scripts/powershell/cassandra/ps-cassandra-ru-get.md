@@ -3,15 +3,15 @@ title: Azure PowerShell-skript – Azure Cosmos DB få dataflöde (RU/s) för Ca
 description: Azure PowerShell-skript – Azure Cosmos DB få dataflöde (RU/s) för Cassandra-API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: a4871f56aa3d479342ca1bd25e521d2760451d98
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 4aed55a0c3ae969cf9148e5bf8d6a70a3151f695
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566939"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603992"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Hämta dataflöde (RU/s) för en keyspace eller en tabell för Azure Cosmos DB - API för Cassandra
 

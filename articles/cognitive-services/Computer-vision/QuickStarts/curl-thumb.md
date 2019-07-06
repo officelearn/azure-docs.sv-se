@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af303544be7b4e7686105b7d57a71c33c0a6a314
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55fa5ffbfe8cdb266340df1a407968d542b36c1a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409000"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605994"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST API:et och cURL i Visuellt innehåll
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Skapa miniatyrbilder med hjälp av REST API för visuellt innehåll och cURL
 
 I den här snabbstarten har generera du en miniatyr från en avbildning med hjälp av REST-API för visuellt innehåll. Du kan ange önskad höjd och bredd, som kan skilja sig i aspekt ransonen från inmatad bild. Visuellt innehåll använder smart beskärning att identifierar ett intresseområde och generera beskärning koordinater runt den regionen.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [cURL](https://curl.haxx.se/windows).
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
@@ -59,7 +59,7 @@ Så här skapar du och kör exemplet:
 1. Öppna ett kommandotolksfönster.
 1. Klistra in kommandot från textredigeraren i kommandotolkens fönster och kör sedan kommandot.
 
-    ```console
+    ```bash
     curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 

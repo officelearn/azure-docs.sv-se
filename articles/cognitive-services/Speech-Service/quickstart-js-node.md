@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9d233de8a9cdd4b9a3637edcd1c6196b4ad16fd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123543"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605117"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Snabbstart: Taligenkänning med Speech SDK för Node.js
 
@@ -24,7 +24,7 @@ ms.locfileid: "62123543"
 I den här artikeln beskrivs hur du skapar ett Node.js-projekt med hjälp av JavaScript-bindningen i Speech SDK för Azure Cognitive Services för att transkribera tal till text.
 Programmet är baserat på [Speech SDK för JavaScript](https://aka.ms/csspeech/npmpackage).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](get-started.md).
 * En aktuell version av [Node.js](https://nodejs.org).

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 01052e218d2c7017ca6f29126f7232aeee16705a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62f60e0a143bee7e8392792719b30aca1d629880
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608131"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606863"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Java för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa ditt eget Java-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En valfri Java IDE
 - [JDK 7 eller 8](https://aka.ms/azure-jdks) installerat.
@@ -29,14 +29,14 @@ Den här artikeln innehåller information och exempelkod som hjälper dig att ko
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
 
-Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. De ingår i det exempelprojekt som du laddar ned, men du kan komma åt dem enskilt här.
+Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. Dessa paket som ingår i exempelprojektet laddar du ned, men du kan komma åt dem individuellt här.
 
 Du kan installera SDK för Custom Vision från maven-centrallager:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-Klona eller ladda ned [Cognitive Services Java SDK-exempelprojektet](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navigera till mappen **Vision/CustomVision/**.
+Klona eller ladda ned [Cognitive Services Java SDK-exempelprojektet](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navigera till mappen **Vision/CustomVision/** .
 
 Det här projektet i Java skapar ett nytt Custom Vision-projekt för bildklassificering som kallas för __exempelprojektet för Java__, som kan nås via [Custom Vision-webbplatsen](https://customvision.ai/). Det laddar sedan upp bilder för att träna och testa en klassificerare. I det här projektet är klassificeraren avsedd att avgöra huruvida ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
 
@@ -51,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Leta upp metoden **runSample** och kommentera ut metodanropet för **ObjectDetection_Sample**&mdash;detta kör scenariot med objektidentifiering, vilket inte avses i den här guiden. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden.
+Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta den **runSample** metod och kommentera ut den **ObjectDetection_Sample** metodanrop&mdash;den här metoden körs objektet identifiering scenario som inte beskrivs i den här guiden. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden.
 
 ### <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
 

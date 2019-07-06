@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d814a943bc8dc789abe84b33583714beb998c0ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607005"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -65,7 +65,7 @@ Granska API: erna kan du integrera din pipeline för moderering med mänsklig gr
 
 ## <a name="the-review-tool"></a>Granskningsverktyget
 
-Content Moderator tjänsten omfattar även den webbaserade [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md), som är värd för innehållet går igenom för mänskliga moderatorer att bearbeta. Mänskliga indata tränar inte tjänsten, men det kombinerade arbetet från tjänsten och mänskliga granskningsteam gör att utvecklare kan åstadkomma rätt balans mellan effektivitet och noggrannhet. Granskningsverktyget innehåller också ett användarvänligt klientdel för en mängd olika resurser för Content Moderator.
+Content Moderator tjänsten omfattar även den webbaserade [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md), som är värd för innehållet går igenom för mänskliga moderatorer att bearbeta. Mänskliga indata tränar inte tjänsten, men det kombinerade arbetet från tjänsten och mänskliga granskningsteam gör att utvecklare kan åstadkomma rätt balans mellan effektivitet och noggrannhet. Granskningsverktyget innehåller också en användarvänliga klientdel för en mängd olika resurser för Content Moderator.
 
 ![Hemsida för Content Moderator-verktyget för mänsklig granskning](images/homepage.PNG)
 

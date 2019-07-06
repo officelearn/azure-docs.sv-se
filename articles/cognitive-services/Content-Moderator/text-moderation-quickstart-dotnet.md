@@ -1,29 +1,29 @@
 ---
 title: 'Snabbstart: Analysera textinnehåll i C# – Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Så här analyserar du textinnehåll för olika stötande material med SDK för Content Moderator för .NET
+description: Hur du analyserar textinnehåll för olika stötande material med innehåll Moderator SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607096"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604051"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C#
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du kommer lära dig att köra termbaserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig att köra termen-baserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material text.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
@@ -57,11 +57,11 @@ Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderato
 
 ### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
-Lägg till följande statiska fält till klassen **Program** i _Program.cs_. Dessa anger filerna för ingående datatextinnehåll och utgående JSON-innehåll.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten ange filer för indatatext innehåll och utdata JSON-innehåll.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Du måste skapa indatafilen *TextFile.txt* och uppdatera dess sökväg (relativa sökvägar är relativa för körningskatalogen). Öppna _TextFile.txt_ och lägg till text som ska modereras. Den här snabbstarten använder följande exempeltext:
+Du måste skapa den *TextFile.txt* indatafil och uppdatera dess sökväg (sökvägar är relativa till körningskatalogen). Öppna _TextFile.txt_ och lägg till text som ska modereras. Den här snabbstarten använder följande exempeltext:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

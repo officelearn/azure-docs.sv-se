@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ed1a20bf47771d927c0d58730fa0eb4471572af
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815449"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603372"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
 
 I den här snabbstarten använder du Azure ansikts-REST API med PHP för att identifiera ansikten i en bild.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En Kodredigerare som [Visual Studio Code](https://code.visualstudio.com/download).
@@ -43,7 +43,7 @@ Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 
 ## <a name="write-the-php-script"></a>Skriva PHP-skriptet
 
-Lägg till följande kod i elementet `body` i dokumentet. Då konfigureras ett grundläggande användargränssnitt med ett URL-fält, knappen **Analyze face** (Analysera ansikte), en svarsruta och ett bildvisningsfönster.
+Lägg till följande kod i elementet `body` i dokumentet. Den här koden ställer in ett grundläggande användargränssnitt med en URL-fält, ett **analysera ansikte** knapp, ett svar-rutan och en bild visningsfönstret.
 
 ```php
 <?php

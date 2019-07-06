@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 023bb95eb55c88c7da548af003132bb391fdb7ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484985"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605062"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
@@ -102,4 +102,3 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 
 > [!div class="nextstepaction"]
 > [Utforska Objektive-C-exempel på GitHub](https://aka.ms/csspeech/samples)
-

@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467061"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604965"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
 
@@ -81,7 +80,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     </Page>
     ```
 
-1. Öppna källfilen bakomliggande kod `MainPage.xaml.cs`. Du hittar det grupperade under `MainPage.xaml`. Ersätt innehållet med koden nedan. Här är vad som beskrivs i det här exemplet: 
+1. Öppna källfilen bakomliggande kod `MainPage.xaml.cs`. Du hittar det grupperade under `MainPage.xaml`. Ersätt innehållet med koden nedan. Här är vad som beskrivs i det här exemplet:
 
     * Med hjälp av uttryck för tal- och Speech.Dialog-namnområden
     * En enkel implementeras, så att åtkomst till mikrofonen, anslutna till en knapp-hanterare

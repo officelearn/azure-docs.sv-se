@@ -1,21 +1,21 @@
 ---
 title: 'Självstudier: Ansikts-API, C#'
 titleSuffix: Azure Cognitive Services
-description: Skapa en enkel Windows-app som använder Cognitive Services Ansikts-API för att identifiera ansiktsdrag på en bild.
+description: Skapa en Windows-app som använder kognitiva tjänster Ansikts-API för att identifiera funktioner i ansikten i en bild.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827666"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606801"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services Ansikts-API med Connected Services i Visual Studio
 
@@ -23,7 +23,7 @@ Med hjälp av Cognitive Services Ansikts-API kan du identifiera, analysera, orga
 
 Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services Ansikts-API. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 version 15.7 eller senare med den **webbutveckling** arbetsbelastning som är installerad. [Ladda ned det nu](https://www.visualstudio.com/downloads/).
@@ -147,7 +147,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
             });
         }
    ```
-    Koden i det här steget skapar en HTTP-begäran med ett anrop till Ansikts-REST API:et med hjälp av den nyckel som du lade till när du lade till den anslutna tjänsten.
+    Koden i det här steget skapar en HTTP-begäran med ett anrop till Ansikts-REST API, med hjälp av den nyckel som du har lagt till när du har lagt till den anslutna tjänsten.
 
 1. Lägg till hjälpfunktionerna GetImageAsByteArray och JsonPrettyPrint.
 

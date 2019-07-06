@@ -3,15 +3,15 @@ title: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder f
 description: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder för SQL (kärna) API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: a2bcf8a123ffd19c84e2d39b38d0c9612ba43afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c82f1ffffe5149960f710252ec8dfe967ffbe2b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247356"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603819"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Lista och få databaser och behållare för Azure Cosmos DB - SQL (kärna) API
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905681"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606915"
 ---
 # <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
@@ -22,7 +22,7 @@ Azure Cognitive Services Ansikts-API ger algoritmer som används för att upptä
 
 Ansikts-API: et tillhandahåller flera olika funktioner. Varje funktion beskrivs i följande avsnitt. Läs vidare för att lära dig mer om dem.
 
-## <a name="face-detection"></a>Ansiktsavkänning
+## <a name="face-detection"></a>Ansiktsspårning
 
 Ansikts-API identifierar ansikten i en bild och returnerar rektangel koordinaterna för deras platser. Du kan också kan identifiera ansikten extrahera en serie med ansikts-relaterade attribut. Exempel är head attityd, kön, ålder, känslor, ansiktsigenkänning hår och glasögon.
 
@@ -59,11 +59,11 @@ API:et för gruppering delar in en uppsättning okända ansikten i flera grupper
 
 Identifiera API: et används för att identifiera ett identifierade ansikte mot en databas med personer. Den här funktionen kan vara användbar för bilder automatiskt taggar i hanteringsprogramvara för foto. Du skapar databasen i förväg och du kan redigera den över tid.
 
-Följande bild visar ett exempel på en databas med namnet ”myfriends”. Varje grupp kan innehålla upp till 1 miljon olika personobjekt. Varje personobjekt kan ha upp till 248 registrerade ansikten.
+Följande bild visar ett exempel på en databas med namnet `"myfriends"`. Varje grupp kan innehålla upp till 1 miljon olika personobjekt. Varje personobjekt kan ha upp till 248 registrerade ansikten.
 
 ![Ett rutnät med tre kolumner för olika personer, var och en med tre raderna med ansikts-avbildningar](./Images/person.group.clare.jpg)
 
-När en databas har skapats och tränas, kan du utföra identifiering mot gruppen med identifierade utseende. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
+När du har skapat och träna en databas kan utföra du identifiering mot gruppen med identifierade utseende. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
 
 Mer information om identifiering finns i den [står inför erkännande](concepts/face-recognition.md) begrepp guiden eller [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) referensdokumentation.
 

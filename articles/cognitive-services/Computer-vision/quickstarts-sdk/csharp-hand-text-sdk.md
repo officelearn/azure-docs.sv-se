@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: ba72fdce42a8313903a26aead4a1c1922a9bb586
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357177"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603466"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Snabbstart: Extrahera handskriven text med visuellt C# SDK
 
 I den här snabbstarten extraherar du handskriven eller tryckt text från en bild med hjälp av SDK:n för C# för visuellt innehåll. Om du vill kan du ladda ned koden i den här guiden som en komplett exempelapp från [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)-lagringsplatsen på GitHub.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En prenumerationsnyckel för visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
 * Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -77,7 +77,7 @@ För att köra exemplet följer du dessa steg:
                 // need to change the region.
 
                 // Specify the Azure region
-                computerVision.Endpoint = "https://westus.api.cognitive.microsoft.com";
+                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
                 Console.WriteLine("Images being analyzed ...");
                 var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815570"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603431"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 
 I den här snabbstarten använder du Azure ansikts-REST API med JavaScript för att identifiera ansikten i en bild.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
@@ -41,7 +41,7 @@ Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 </html>
 ```
 
-Lägg sedan till följande kod i elementet `body` i dokumentet. Då konfigureras ett grundläggande användargränssnitt med ett URL-fält, knappen **Analyze face** (Analysera ansikte), en svarsruta och ett bildvisningsfönster.
+Lägg sedan till följande kod i elementet `body` i dokumentet. Den här koden ställer in ett grundläggande användargränssnitt med en URL-fält, ett **analysera ansikte** knapp, ett svar-rutan och en bild visningsfönstret.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Skriva JavaScript-skriptet
 
-Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Detta konfigurerar den JavaScript-kod som anropar Ansikts-API:et.
+Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Den här koden ställer in JavaScript-kod som anropar Ansikts-API.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumeration
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Följande är ett exempel på ett lyckat JSON-svar.
+Följande text är ett exempel på ett lyckat JSON-svar.
 
 ```json
 [

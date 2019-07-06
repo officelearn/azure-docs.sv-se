@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: bf07e6a2daac7889e11df2cb5d689daef44266f9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465659"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602901"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Snabbstart: Översätta tal med Speech SDK för C++
 
@@ -25,7 +25,7 @@ I den här snabbstarten skapar du ett enkelt C++-program som registrerar använd
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 

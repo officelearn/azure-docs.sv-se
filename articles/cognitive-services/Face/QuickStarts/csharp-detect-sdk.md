@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815436"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606769"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med .NET SDK för ansiktsigenkänning
 
@@ -23,7 +23,7 @@ I den här snabbstarten ska du använda SDK för ansiktsigenkänningstjänsten m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -60,13 +60,13 @@ Lägg sedan till den **Main** -metoden för den **programmet** klassen med följ
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-I metoden **Main** lägger du även till följande kod för att använda den nya ansikts-API-klienten för att identifiera ansikten i en fjärransluten eller lokal bild. Identifieringsmetoden definieras härnäst. 
+Även i den **Main** metoden Lägg till följande kod för att använda den nyligen skapade Ansikts-klienten för att identifiera ansikten i en avbildning av distans och lokalt. Identifieringsmetoden definieras härnäst. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
-Lägg till följande metod i klassen **Program**. Den använder klienten för ansiktsigenkänningstjänsten för att identifiera ansikten i en fjärransluten bild, som refereras till av en URL. Observera att den använder fältet `faceAttributes` &mdash; **DetectedFace**-objekt som lagts till i `faceList` har de angivna attributen (i det här fallet ålder och kön).
+Lägg till följande metod i klassen **Program**. Den använder klienten för ansiktsigenkänningstjänsten för att identifiera ansikten i en fjärransluten bild, som refereras till av en URL. Den använder den `faceAttributes` fältet&mdash;den **DetectedFace** objekt som lagts till `faceList` angivna attribut (i det här fallet, ålder och kön).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

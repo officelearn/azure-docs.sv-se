@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233805"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603503"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudier: Måttlig Facebook-inlägg och kommandon med Azure Content Moderator
 
@@ -37,7 +37,7 @@ Det här diagrammet visar varje komponent i det här scenariot:
 > [!IMPORTANT]
 > I 2018 implementerat Facebook en striktare veta Facebook-appar. Du kommer inte att kunna slutföra stegen i den här självstudien om din app inte har granskas och godkänns av granskningsteamet Facebook.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - En [Facebook-konto](https://www.facebook.com/).
@@ -48,11 +48,11 @@ Referera till den [försök Content Moderator på webben](quick-start.md) Snabbs
 
 ## <a name="configure-image-moderation-workflow"></a>Konfigurera bildarbetsflöde för moderering
 
-Referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide om hur du skapar en anpassad avbildning-arbetsflöde. Detta gör att Content Moderator automatiskt kontrollera bilder på Facebook och skicka vissa till granskningsverktyget. Ta del av arbetsflödet **namn**.
+Referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide om hur du skapar en anpassad avbildning-arbetsflöde. Content Moderator använder det här arbetsflödet för att automatiskt kontrollera bilder på Facebook och skicka vissa till granskningsverktyget. Ta del av arbetsflödet **namn**.
 
 ## <a name="configure-text-moderation-workflow"></a>Konfigurera arbetsflöde för moderering av text
 
-Igen, referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide; nu skapa en anpassad text-arbetsflöde. Detta gör att Content Moderator att automatiskt kontrollera textinnehåll. Ta del av arbetsflödet **namn**.
+Igen, referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide; detta tid, skapa en anpassad text-arbetsflöde. Content Moderator använder det här arbetsflödet för att automatiskt kontrollera textinnehåll. Ta del av arbetsflödet **namn**.
 
 ![Konfigurera textarbetsflöden](images/text-workflow-configure.PNG)
 
@@ -77,7 +77,7 @@ Logga in på den [Azure-portalen](https://portal.azure.com/) och gör följande:
     | cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
     | cm:CallbackEndpoint | URL: en för CMListener Funktionsappen som skapas senare i den här guiden |
     | fb:VerificationToken | En hemlig token som du skapar, som används för att prenumerera på Facebook feed-händelser |
-    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. Du får detta i ett senare skede. |
+    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. Du får detta token vid ett senare steg. |
 
     Klicka på den **spara** längst upp på sidan.
 

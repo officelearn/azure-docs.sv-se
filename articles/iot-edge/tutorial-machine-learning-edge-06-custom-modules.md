@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155520"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603651"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudier: Skapa och distribuera anpassade IoT Edge-moduler
 
@@ -245,17 +245,17 @@ Som nämnts ovan är IoT Edge-körningen använder vägar som konfigurerats i de
 3. Därefter lägger till en väg för meddelanden från modulen rulClassifier till modulen turbofanRouter:
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
-#### <a name="outputs"></a>Utdata
+#### <a name="outputs"></a>outputs
 
 Lägg till fyra ytterligare vägar till parametern $edgeHub väg att hantera utdata från modulen Router.
 
 1. Program.CS definierar metoden SendMessageToClassifier() som använder klient-modulen för att skicka ett meddelande till RUL-klassificerare med vägen:
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub() använder klient-modulen för att skicka bara RUL-data för enheten till IoT Hub via vägen:

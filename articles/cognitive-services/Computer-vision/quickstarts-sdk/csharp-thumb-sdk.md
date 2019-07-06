@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78ffd9628c7a65ae60d457bbff3631ea261649d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603443"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Generera en miniatyrbild med SDK för Visuellt innehåll och C#
 
 I den här snabbstarten genererar du en miniatyrbild med smart beskärning från en bild med hjälp av SDK för visuellt innehåll för C#. Om du vill kan du ladda ned koden i den här guiden som en komplett exempelapp från lagringsplatsen [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) på GitHub.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En prenumerationsnyckel för visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
 * Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).

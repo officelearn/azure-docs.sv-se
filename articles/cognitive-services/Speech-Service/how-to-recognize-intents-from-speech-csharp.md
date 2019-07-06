@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257335"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603239"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
@@ -34,7 +34,7 @@ I den här självstudien använder du Speech SDK för att utveckla ett C#-konsol
 > * Identifiera tal från en fil
 > * Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar den här självstudiekursen.
 

@@ -1,29 +1,29 @@
 ---
 title: 'Snabbstart: Identifiera och rama in ansikten i en bild med Python SDK'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten skapar du ett enkelt Python-skript som använder ansikts-API för att identifiera och rama in ansikten i en fjärrbild.
+description: I den här snabbstarten skapar du ett Python-skript som använder Ansikts-API för att identifiera och RAM ansikten i en fjärransluten avbildning.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339377"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603281"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snabbstart: Skapa ett Python-skript för att identifiera och rama in ansikten i en bild
 
-I den här snabbstarten skapar du ett enkelt Python-skript som använder ansikts-API för Azure, via Python SDK, för att identifiera ansikten i en fjärrbild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
+I den här snabbstarten skapar du ett Python-skript som använder Azure Ansikts-API, via Python-SDK för att identifiera ansikten i en fjärransluten bild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
 
-Skapa ett nytt Python-skript som heter _FaceQuickstart.py_ och lägg till följande kod. Det här är huvudfunktionerna för ansiktsigenkänning. Du måste ersätta `<Subscription Key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `BASE_URL` så att rätt regionsidentifierare används för din nyckel (i [dokumentet om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) finns en lista över alla regionsslutpunkter). Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra). Du kan också ange `img_url` till URL:en för en bild du vill använda.
+Skapa ett nytt Python-skript som heter _FaceQuickstart.py_ och lägg till följande kod. Den här koden hanterar huvudfunktionerna i ansiktsigenkänning. Du måste ersätta `<Subscription Key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `BASE_URL` så att rätt regionsidentifierare används för din nyckel (i [dokumentet om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) finns en lista över alla regionsslutpunkter). Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra). Du kan också ange `img_url` till URL:en för en bild du vill använda.
 
 Skriptet identifierar ansikten genom att anropa metoden **cognitive_face.face.detect**, som omsluter REST API för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) och returnerar en lista över ansikten.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Kör appen med kommandot `python FaceQuickstart.py`. Du bör få ett textsvar i konsolfönstret, till exempel följande:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Det här är en lista över identifierade ansikten. Varje objekt i listan är en **dict**-instans där `faceId` är ett unikt ID för det identifierade ansiktet och `faceRectangle` beskriver positionen för det identifierade ansiktet. 
+Utdata visar en lista över identifierade ansikten. Varje objekt i listan är en **dict**-instans där `faceId` är ett unikt ID för det identifierade ansiktet och `faceRectangle` beskriver positionen för det identifierade ansiktet. 
 
 > [!NOTE]
 > Ansikts-ID:n upphör att gälla efter 24 timmar, så du måste lagra ansiktsinformation uttryckligen om du vill behålla den långsiktigt.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Längs ned i skriptet lägger du sedan till följande kod. Det skapar en enkel funktion för parsning av rektangelkoordinaterna och använder Pillow till att rita rektanglar på den ursprungliga bilden. Sedan visar den bilden i ditt standardprogram för bildvisning.
+Längs ned i skriptet lägger du sedan till följande kod. Den här koden skapar en enkel funktion för parsning av rektangel koordinaterna och använder konkav för att Rita rektanglar på den ursprungliga avbildningen. Sedan visar den bilden i ditt standardprogram för bildvisning.
 
 ```python
 # Convert width height to a point in a rectangle

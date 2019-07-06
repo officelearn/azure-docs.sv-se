@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: 9b6d01908265791a83ee311375fa50fcca995f79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd5e46f47169705b9d19397a6b91770beab229dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605640"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604064"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision .NET SDK
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med C# för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa dit eget .NET-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
 
-Om du vill skriva ett .NET-program som använder Custom Vision behöver du Custom Vision NuGet-paket. De ingår i det exempelprojekt som du laddar ned, men du kan komma åt dem enskilt här.
+Om du vill skriva ett .NET-program som använder Custom Vision behöver du Custom Vision NuGet-paket. Dessa paket som ingår i exempelprojektet laddar du ned, men du kan komma åt dem individuellt här.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -44,7 +44,7 @@ Det här Visual Studio-projektet skapar ett nytt Custom Vision-projekt med namne
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
-Slutpunktsparametern bör peka på den region där den Azure-resursgrupp som innehåller Custom Vision-resurserna skapades. I det här exemplet antar vi att regionen är USA, södra centrala och använder:
+Slutpunktsparametern bör peka på den region där den Azure-resursgrupp som innehåller Custom Vision-resurserna skapades. I det här exemplet Vi förutsätter regionen södra centrala USA och använder:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -120,7 +120,7 @@ foreach (var c in result.Predictions)
 
 När programmet körs ska det öppna ett konsolfönster och skriva följande utdata:
 
-```
+```console
 Creating new project:
         Uploading images
         Training
@@ -131,7 +131,7 @@ Making a prediction:
         Japanese Cherry: 0.0%
 ```
 
-Du kan sedan kontrollera att testbilden (som finns i **Images/Test/**) har taggats på rätt sätt. Avsluta programmet genom att trycka på valfri tangent. Du kan även gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
+Du kan sedan kontrollera att testbilden (som finns i **Images/Test/** ) har taggats på rätt sätt. Avsluta programmet genom att trycka på valfri tangent. Du kan även gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

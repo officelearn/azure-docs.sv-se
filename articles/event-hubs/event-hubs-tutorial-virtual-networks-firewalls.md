@@ -7,14 +7,14 @@ manager: darosa
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343706"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605848"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Självstudier: Aktivera integrering av virtuella nätverk och brandväggar för Event Hubs-namnområdet
 
@@ -53,7 +53,7 @@ Vi ska använda ett befintligt Event Hubs-namnområde, så se till att du har et
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Gå först till [Azure-portalen][Azure portal] och logga in med din Azure-prenumeration.
+Först går du till den [Azure-portalen][Azure portal] och logga in med din Azure-prenumeration.
 
 ## <a name="select-event-hubs-namespace"></a>Välj Event Hubs-namnområde
 

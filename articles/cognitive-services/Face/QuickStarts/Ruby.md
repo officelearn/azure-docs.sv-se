@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815308"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603358"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
 I den här snabbstarten ska du använda Azures REST API för ansiktsigenkänning med Ruby för att identifiera mänskliga ansikten i en bild.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
 
-Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Detta anropar Ansikts-API:et för en viss bild-URL.
+Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Den här koden anropar Ansikts-API för en given bild-URL.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 Du måste uppdatera värdet `request['Ocp-Apim-Subscription-Key']` med din prenumerationsnyckel, och du kan behöva ändra strängen `uri` så att den innehåller rätt regionsidentifierare (en lista med alla regionslutpunkter finns i [dokumenten om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kan dessutom ändra det `returnFaceAttributes`-fält som anger vilka ansiktsattribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Kanske du vill ändra den `returnFaceAttributes` fält som anger vilka ansikte attribut ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 
@@ -74,7 +74,7 @@ Kör Ruby-skriptet med följande kommando:
 ruby faceDetection.rb
 ```
 
-Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande är ett exempel på ett lyckat JSON-svar.
+Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande text är ett exempel på ett lyckat JSON-svar.
 
 ```json
 [

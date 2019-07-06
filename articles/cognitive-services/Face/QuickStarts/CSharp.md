@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815613"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603399"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och C#
 
@@ -23,7 +23,7 @@ I den här snabbstarten ska du använda Azure ansikts-REST API med C# för att i
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Ta emot indata
 
-Lägg till följande kod i metoden **Main** i klassen **Program**. Det här skriver en fråga till konsolen som ber användaren att ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
+Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en fråga till konsolen som ber användaren att ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ Du definierar hjälpmetoden i följande steg.
 
 ### <a name="process-the-input-image-data"></a>Bearbeta inmatade bilddata
 
-Lägg till följande metod i klassen **Program**. Det här konverterar bilden på den angivna URL:en till en bytematris.
+Lägg till följande metod i klassen **Program**. Den här metoden konverterar bilden på den angivna URL: en till en byte-matris.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ Lägg till följande metod i klassen **Program**. Det här konverterar bilden p�
 
 ### <a name="parse-the-json-response"></a>Tolka JSON-svaret
 
-Lägg till följande metod i klassen **Program**. Det här formaterar JSON-indata så att de blir mer lättlästa. Appen skriver dessa strängdata till konsolen. Därefter kan du stänga den klass och namnområde.
+Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-indata ska vara mer lättläst. Appen skriver dessa strängdata till konsolen. Därefter kan du stänga den klass och namnområde.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

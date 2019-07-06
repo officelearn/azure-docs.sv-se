@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815374"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603318"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och cURL
 
@@ -23,13 +23,13 @@ I den här snabbstarten ska du använda Azure ansikts-REST API med cURL för att
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 
 ## <a name="write-the-command"></a>Skriva kommandot
  
-Du kommer att använda ett kommando som följande för att anropa ansikts-API:et och hämta ansiktsattributdata från en bild. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra ändringar av vissa delar av kommandot innan du kan köra den.
+Du använder ett kommando som liknar följande för att anropa Ansikts-API och hämta ansikte attributdata från en avbildning. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra ändringar av vissa delar av kommandot innan du kan köra den.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -40,7 +40,7 @@ Ersätt `<Subscription Key>` med en giltig ansiktsprenumerationsnyckel.
 
 ### <a name="face-endpoint-url"></a>Ansiktsslutpunktens webbadress
 
-Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av URL:en så att den matchar den region som motsvarar din prenumerationsnyckel (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)).
+Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av URL: en så att den matchar den region som motsvarar din prenumerationsnyckel. Se den [Ansikts-API-dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) en lista över alla region slutpunkter.
 
 ### <a name="url-query-string"></a>URL-frågesträng
 
@@ -51,7 +51,7 @@ Frågesträngen för ansiktsslutpunktens webbadress anger vilka ansiktsattribut 
 ```
 
 ### <a name="image-source-url"></a>URL för bildkälla
-URL:en för källa anger bilden som ska användas som indata. Du kan ändra det så att det pekar på en bild du vill analysera.
+URL:en för källa anger bilden som ska användas som indata. Du kan ändra detta så att den pekar till en avbildning som du vill analysera.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465563"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605015"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Syntetisera tal med Speech-SDK för .NET Framework (Windows)
 
@@ -27,7 +27,7 @@ För en snabb demonstration (utan att skapa Visual Studio-projektet på egen han
 
 Få senaste [Cognitive Services tal SDK-exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från GitHub.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 

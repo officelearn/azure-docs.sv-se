@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6722fa103b3d48a8ca8ff4b96c9d179a4f743608
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18a00c2aebd05d2ed2da54e436d245c70bf25051
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409098"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604463"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST API:et och C&#35; i Visuellt innehåll
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Snabbstart: Extrahera utskrivna text (OCR) med hjälp av den REST API för visuellt innehåll ochC#
 
 I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-funktionen kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
@@ -247,10 +247,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
     ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Ta bort Visual Studio-lösningen när den inte längre behövs. Detta gör du genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

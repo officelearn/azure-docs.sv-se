@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c93271fcd74d1369112a2c5d2bba98fd14ff7c84
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: f4e627286f6a32816eafa84e860cb8eb49111f67
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357197"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604350"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST-API och JavaScript i Visuellt innehåll
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabbstart: Extrahera handskriven text med hjälp av REST API för visuellt innehåll och JavaScript
 
 I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API och [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kan du identifiera handskriven text i en bild och sedan extrahera identifieras tecken till en teckenström som kan användas av datorn.
 
@@ -27,7 +27,7 @@ I den här snabbstarten extraherar du handskriven text från en bild med hjälp 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
 
@@ -68,11 +68,11 @@ Så här skapar du och kör exemplet:
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the "westus" region.
+        // Free trial subscription keys are generated in the "westcentralus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
-            "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
@@ -289,10 +289,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

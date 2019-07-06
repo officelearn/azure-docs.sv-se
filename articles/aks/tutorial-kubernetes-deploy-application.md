@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2583c284b73f4e862172f9c2ecd92ca931c25399
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305282"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605179"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Köra program i Azure Kubernetes Service (AKS)
 
@@ -26,13 +26,13 @@ Kubernetes tillhandahåller en distribuerad plattform för containerbaserade pro
 
 I senare självstudier så kommer den här appen att skalas ut och uppdateras.
 
-Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
+Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Kubernetes viktiga begrepp för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades.
 
-I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Verifiera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen. Om du inte har utfört de här stegen och vill följa med så kan du börja med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
+I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Verifiera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen. Om du inte har gjort det här och vill följa med, börjar du med [självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
 Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
@@ -40,7 +40,7 @@ Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare
 
 I dessa självstudier lagrar en Azure Container Registry-instans (ACR) containeravbildningen för exempelprogrammet. För att distribuera programmet måste du uppdatera avbildningens namn i Kubernetes-manifestfilen så att det inkluderar namnet på ACR-inloggningsservern.
 
-Du hämtar namnet på ACR-inloggningsservern med hjälp av kommandot [az acr list][az-acr-list] enligt följande:
+Hämta ACR login servern namn med den [az acr list][az-acr-list] -kommandot enligt följande:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -72,7 +72,7 @@ Spara och stäng filen. I `vi` använder du `:wq`.
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
 
-För att distribuera ditt program använder du kommandot [kubectl apply][kubectl-apply]. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten. Ange exempelmanifestfilen enligt vad som visas i följande exempel:
+För att distribuera ditt program kan använda den [kubectl gäller][kubectl-apply] kommando. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten. Ange exempelmanifestfilen enligt vad som visas i följande exempel:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml

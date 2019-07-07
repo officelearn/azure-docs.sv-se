@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Kontrollera klusterhälsa
           href: check-cluster-health.md
-        - name: Hantera klusterutskalning
-          href: manage-cluster-scale-out.md
-        - name: Hantera klusteruppskalning
-          href: manage-cluster-scale-up.md
+        - name: Hantera horisontell klusterskalning
+          href: manage-cluster-horizontal-scaling.md
+        - name: Hantera vertikal klusterskalning
+          href: manage-cluster-vertical-scaling.md
         - name: Ta bort data
           href: delete-data.md
         - name: Hantera duplicerade data

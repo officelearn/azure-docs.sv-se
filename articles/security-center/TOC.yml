@@ -35,6 +35,12 @@
       href: security-center-data-security.md
     - name: Använda rekommendationer för att förbättra säkerheten
       href: security-center-using-recommendations.md
+    - name: Identifiera hot
+      href: security-center-detection-capabilities.md
+    - name: Hantera säkerhetsaviseringar
+      href: security-center-managing-and-responding-alerts.md
+    - name: Säkerhetsincidenter
+      href: security-center-incident.md
     - name: Incidenthantering
       href: security-center-incident-response.md
 - name: Instruktionsguider
@@ -97,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: Anpassningsbar nätverkshärdning
           href: security-center-adaptive-network-hardening.md
-    - name: Identifiera hot
-      href: security-center-detection-capabilities.md
+    - name: Hotidentifieringsaviseringar
       items:
-        - name: Säkerhetsaviseringar
-          href: security-center-managing-and-responding-alerts.md
-        - name: Säkerhetsincidenter
-          href: security-center-incident.md
-        - name: Förstå säkerhetsaviseringar
-          href: security-center-alerts-type.md
-        - name: Aviseringsverifiering
+        - name: Översikt över säkerhetsaviseringar
+          href: security-center-alerts-overview.md
+        - name: Hotidentifiering för virtuella datorer och servrar
+          href: security-center-alerts-iaas.md
+        - name: Hotidentifiering för intern molnberäkning
+          href: security-center-alerts-compute.md
+        - name: Hotidentifiering för datatjänster
+          href: security-center-alerts-data-services.md
+        - name: Hotidentifiering för Azure-tjänstlager
+          href: security-center-alerts-service-layer.md
+        - name: Integrering med Azure-säkerhetsprodukter
+          href: security-center-alerts-integration.md
+        - name: Intelligent aviseringskorrelation i molnet (incidenter)
+          href: security-center-alerts-cloud-smart.md
+        - name: Aviseringsverifiering (EICAR-testfil)
           href: security-center-alert-validation.md
-        - name: UEBA för Azure-resurser och användare
-          href: security-center-ueba-mcas.md
     - name: Arkiv
       items:
         - name: Tillämpa diskkryptering
@@ -168,6 +179,10 @@
           href: security-center-search.md
         - name: Planering och drift
           href: security-center-planning-and-operations-guide.md
+        - name: Förstå säkerhetsaviseringar
+          href: security-center-alerts-type.md
+        - name: UEBA för Azure-resurser och användare
+          href: security-center-ueba-mcas.md
 - name: Referens
   items:
     - name: 'REST API:er'

@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: Vanliga frågor och svar – Säkerhetskopiering av SQL Server-databaser på virtuella Azure-datorer
           href: faq-backup-sql-server.md
+        - name: Vanliga frågor och svar om Azure Backup Server och DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: Säkerhetskopieringsarkitektur
       href: backup-architecture.md
     - name: Rollbaserad Access Control

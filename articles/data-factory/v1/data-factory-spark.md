@@ -351,11 +351,11 @@ Skapa följande mappstrukturen i blob-lagringen som refereras av den länkade HD
 | ---- | ----------- | -------- | ---- |
 | . | Rotsökvägen för Spark-jobb i länkade storage-tjänsten. | Ja | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar på Spark-jobbet startfil. | Ja | Fil |
-| . / JAR: er | Alla filer under den här mappen överförs och placeras på Java-klassökvägen för klustret. | Nej | Mapp |
+| ./jars | Alla filer under den här mappen överförs och placeras på Java-klassökvägen för klustret. | Nej | Mapp |
 | ./pyFiles | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret. | Nej | Mapp |
-| . / filer | Alla filer under den här mappen överförs och placeras i arbetskatalogen executor. | Nej | Mapp |
-| . / arkiverar | Alla filer under den här mappen är okomprimerade. | Nej | Mapp |
-| . / loggar | Den mapp där loggar från Spark-klustret lagras.| Nej | Mapp |
+| ./files | Alla filer under den här mappen överförs och placeras i arbetskatalogen executor. | Nej | Mapp |
+| ./archives | Alla filer under den här mappen är okomprimerade. | Nej | Mapp |
+| ./logs | Den mapp där loggar från Spark-klustret lagras.| Nej | Mapp |
 
 Här är ett exempel för lagring som innehåller två Spark-jobbfiler i blob-lagringen som refereras av den länkade HDInsight-tjänsten:
 

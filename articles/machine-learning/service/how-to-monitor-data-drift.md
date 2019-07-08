@@ -1,5 +1,5 @@
 ---
-title: Så identifierar data drift (förhandsversion) på AKS-distributioner
+title: Identifiera data drift (förhandsversion) på AKS-distributioner
 titleSuffix: Azure Machine Learning service
 description: Lär dig att identifiera data drift på Azure Kubernetes Service distribuerade modeller i Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -10,21 +10,24 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 06/20/2019
-ms.openlocfilehash: e4deeab28fb643ff32624ba9dd16574e621f508c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c446c8236ca64948f0bb6a8354a83579cc6ff24c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333359"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443948"
 ---
-# <a name="how-to-detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Så identifierar data drift (förhandsversion) för modeller som distribueras till Azure Kubernetes Service
-I den här artikeln får du lära dig hur du övervakar för [data drift](concept-data-drift.md) mellan utbildningsdata för datauppsättningen och inferens av en distribuerad modell. 
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Identifiera data drift (förhandsversion) för modeller som distribueras till Azure Kubernetes Service
+I den här artikeln får du lära dig övervaka data för en distribuerad modell för drift av data mellan datauppsättning för träning och inferens. 
 
-Data drift är en av de främsta skälen där modellens Precision försämras med tiden. Det händer när data som hanteras av en modell i produktionen skiljer sig från data som används för att träna modellen. Azure Machine Learning-tjänsten kan övervaka data drift Drift-detektor Data. Om drift har identifierats, kan tjänsten skickar en avisering till dig.  
+## <a name="what-is-data-drift"></a>Vad är data drift?
+
+Data drift, även kallat konceptet drift, är en av de främsta skälen där modellens Precision försämras med tiden. Det händer när data som hanteras av en modell i produktionen skiljer sig från data som används för att träna modellen. Azure Machine Learning-tjänsten kan övervaka data drift och när drift identifieras tjänsten kan skicka en e-postavisering till dig.  
 
 > [!Note]
 > Den här tjänsten är (förhandsversion) och begränsade i konfigurationsalternativ. Se våra [API-dokumentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) och [viktig](azure-machine-learning-release-notes.md) information och uppdateringar. 
 
+## <a name="what-can-i-monitor"></a>Vad kan jag övervaka?
 Du kan använda Azure Machine Learning-tjänsten för att övervaka indata till en modell som distribuerats i AKS och jämföra dessa data till datauppsättning för träning för modellen. Med jämna mellanrum inferens data är [ögonblicksbilden och profileras](how-to-explore-prepare-data.md), sedan beräknas baslinje-datauppsättning för att producera en dataanalys drift som: 
 
 + Mäter storleken på data drift, kallas koefficienten drift.
@@ -35,7 +38,7 @@ Du kan använda Azure Machine Learning-tjänsten för att övervaka indata till 
 
 Mer information om hur de här måtten beräknas finns den [data drift konceptet](concept-data-drift.md) artikeln.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -60,7 +63,7 @@ Mer information om hur de här måtten beräknas finns den [data drift konceptet
     print(model_name, image_name, service_name, model)
     ```
 
-- Konfigurera den [modell för datainsamling](how-to-enable-data-collection.md) att samla in data från AKS-distributionen av modellen och bekräfta data som samlas in i den `modeldata` blob-behållare.
+- [Aktivera insamling av modelldata](how-to-enable-data-collection.md) att samla in data från AKS-distributionen av modellen och bekräfta data som samlas in i den `modeldata` blob-behållare.
 
 ## <a name="import-dependencies"></a>Importera beroenden 
 Importera beroenden som används i den här guiden:
@@ -85,11 +88,11 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-Mer information finns i den [DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) referens.
+Mer information finns i den `[DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)` klassen referensdokumentation.
 
 ## <a name="submit-a-datadriftdetector-run"></a>Skicka en DataDriftDetector körning
 
-Med DataDriftDetector konfigurerad, kan du skicka en [data drift kör](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett speciellt datum för modellen. 
+Med den `DataDriftDetector` objekt som har konfigurerats, kan du skicka en [data drift kör](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett speciellt datum för modellen. 
 
 ```python
 # adhoc run today
@@ -107,7 +110,7 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="get-data-drift-analysis-results"></a>Hämta data drift analysresultat
+## <a name="visualize-drift-metrics"></a>Visualisera drift mått
 
 I följande Python-exempel visar hur du rita relevanta data drift mått. Du kan använda de returnerade mått för att bygga anpassade visualiseringar:
 
@@ -120,13 +123,13 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![Data Drift Show](media/how-to-monitor-data-drift/drift_show.png)
+![Se data drift som identifieras av Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 Mer information om de mått som beräknas finns den [data drift konceptet](concept-data-drift.md) artikeln.
 
-## <a name="schedule-data-drift-detection"></a>Schema för data drift identifiering 
+## <a name="schedule-data-drift-scans"></a>Schema för data drift genomsökningar 
 
-Aktivera ett schema för drift utför en DataDriftDetector körs vid den angivna frekvensen för. Om drift är tröskelvärdet för angivna, skickas ett e-postmeddelande. 
+När du aktiverar data drift identifiering körs en DataDriftDetector för den angivna, schemalagda frekvensen. Om drift är tröskelvärdet för angivna, skickas ett e-postmeddelande. 
 
 ```python
 datadrift.enable_schedule()
@@ -143,9 +146,9 @@ Gå till sidan modell om du vill visa resultatet i Användargränssnittet för A
 
 ![Azure-portalen Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="setting-up-alerts"></a>Ställa in aviseringar 
+## <a name="receiving-drift-alerts"></a>Mottagande drift aviseringar
 
-Genom att drift koefficienten tröskelvärde för avisering och får en e-postadress, en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) e-postavisering skickas om drift är över tröskeln. Alla mått för drift av data lagras i app insights-resurs som är associerade med Azure Machine Learning-arbetsytan som du kan ställa in anpassade varningar eller åtgärder för tjänsten. Du kan följa länken i e-postavisering till app insights-fråga.
+Genom att drift koefficienten tröskelvärde och får en e-postadress, en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) e-postavisering skickas automatiskt varje gång drift är över tröskeln. För att du vill ställa in anpassade varningar och åtgärder lagras alla data drift mått i Application Insights-resurs som har skapats tillsammans med den tjänst Azure Machine Learning-arbetsytan. Du kan följa länken i e-postavisering till Application Insights-fråga.
 
 ![Data Drift e-postavisering](media/how-to-monitor-data-drift/drift_email.png)
 

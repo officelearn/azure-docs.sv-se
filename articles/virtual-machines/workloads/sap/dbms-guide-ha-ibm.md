@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689713"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503333"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,9 +77,9 @@ Innan du påbörjar en installation, se följande SAP-information och dokumentat
 | Dokumentation | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Har alla nödvändiga SAP Notes för Linux |
-| [Azure virtuella datorer, planering och implementering av SAP på Linux] [ planning-guide] guide |
-| [Azure Virtual Machines-distribution för SAP på Linux] [ deployment-guide] (den här artikeln) |
-| [Azure-datorer databasdistribution management system(DBMS) för SAP på Linux] [ dbms-guide] guide |
+| [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide] guide |
+| [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide] (den här artikeln) |
+| [Azure-datorer databasdistribution management system(DBMS) för SAP på Linux][dbms-guide] guide |
 | [SAP-arbetsbelastningar på Azure checklista för planering och distribution][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server för SAP-program 12 SP3 bästa guider med metodtips][sles-for-sap-bp] |
 | [SUSE Linux Enterprise hög tillgänglighet tillägget 12 SP3][sles-ha-guide] |
@@ -496,13 +496,12 @@ Om du har utfört installationen innan du skapade Db2 HADR-konfiguration, göra 
 
 Verktyget J2EE Config används för att kontrollera eller uppdatera JDBC-Webbadressen. Eftersom J2EE Config-verktyget är ett grafiskt verktyg, måste du ha X server som är installerad:
  
-1. Logga in på den primära servern för J2EE-instansen och kör:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. Logga in på den primära servern för J2EE-instansen och kör:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. I det vänstra fönstret, väljer **security store**.
-1. I den högra rutan, väljer du den viktiga jdbc/poolen / \ <SAPSID> /URL.
+1. I den högra rutan, väljer du den viktigajdbc/poolen/\<SAPSID > / URL: en.
 1. Ändra värdnamnet i JDBC-Webbadressen till det virtuella värdnamnet.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Välj **lägga till**.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. Välj **Lägg till**.
 1. Välj diskikonen för i det övre vänstra hörnet för att spara ändringarna.
 1. Stäng konfigurationsverktyget.
 1. Java-instansen startas om.

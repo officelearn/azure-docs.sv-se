@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 263a67f885615941624befcb52c408158e680062
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c3aaf7537d233b9652f10ee240ebbe4fc4ec995c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566100"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592757"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -107,7 +107,7 @@ Enskilda behållare kan ha sina egna krav, samt, inklusive server och minneskrav
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [behållare recept](/azure/cognitive-services/containers/container-reuse-recipe) du kan använda med Cognitive Services.
+Lär dig mer om [behållare recept](containers/container-reuse-recipe.md) du kan använda med Cognitive Services.
 
 Installera och utforska funktionerna i behållare i Azure Cognitive Services:
 

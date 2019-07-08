@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544068"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595704"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -101,7 +101,7 @@ Den här självstudien använder också data från exempelprogrammets Time Serie
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. För att konfigurera appen att använda Azure AD app registrerings-ID, ändra den `clientID` värde som ska användas i den **program-ID** du kopierade i **steg 3** när du [registrerade programmet till Använd Azure AD](#register-the-application-with-azure-ad). Om du har skapat en **URL för utloggning** i Azure AD, ange värdet som den `postLogoutRedirectUri` värde.
+   1. För att konfigurera appen att använda Azure AD app registrerings-ID, ändra den `clientID` värde som ska användas i **program-ID** du kopierade i **steg 3** när du [registrerade programmet till att använda Azure AD](#register-the-application-with-azure-ad). Om du har skapat en **URL för utloggning** i Azure AD, ange värdet som den `postLogoutRedirectUri` värde.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 

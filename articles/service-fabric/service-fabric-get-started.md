@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067223"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566047"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "67067223"
 > 
 > 
 
-För att kunna skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric-körmiljön, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
+Att skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric runtime, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 Följande operativsystemversioner stöds för utveckling:
 
@@ -69,9 +69,9 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK och verktyg 3.4.639
-* Service Fabric-körningen 6.5.639
-* Service Fabric-verktyg för Visual Studio 2015 2.4.11116.1
+* Service Fabric SDK och verktyg 3.4.641
+* Service Fabric-körningen 6.5.641
+* Service Fabric-verktyg för Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 innehåller Service Fabric-verktyg för Visual Studio 2.4.11024.1 
 
 En lista över versioner som stöds finns i [Service Fabric-versioner](service-fabric-versions.md)

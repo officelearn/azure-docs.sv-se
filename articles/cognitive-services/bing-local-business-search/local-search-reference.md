@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: e96b1959d9e03273a9ca4c549c0f8b0bda6a708b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796750"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592791"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -70,7 +70,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Typ|Obligatoriskt|  
+|Namn|Värde|Type|Obligatoriskt|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  
@@ -94,7 +94,7 @@ Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyck
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|  
@@ -107,7 +107,7 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
@@ -117,7 +117,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |name|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
@@ -126,7 +126,7 @@ Definierar den licens som text eller foto kan användas.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |text|Texten som visas.|String|  
@@ -140,7 +140,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |name|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
@@ -150,7 +150,7 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="place"></a>Plats  
 Definierar information om en lokal företag, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|String|  
 |Adress|Postadress av där enheten är belägen.|PostalAddress|  
@@ -164,7 +164,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolean|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
@@ -174,21 +174,21 @@ Definierar frågekontexten som Bing används för begäran.
 
 ### <a name="identifiable"></a>Identifierbar
 
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
 
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |items|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
 
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
@@ -209,7 +209,7 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Värde|Typ|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Platser|En lista över entiteter som är relevanta för sökfrågan.|JSON-objekt|  

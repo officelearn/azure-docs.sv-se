@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 47ae3eb41145a74c1726847943df9074a4a75dfe
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461695"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Samla in händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
 Händelsehubbar i Azure kan du automatiskt samla in strömmande data i Event Hubs i en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) konto föredrar, med den ökade flexibiliteten Ange ett tids- eller storleksintervall. Det går snabbt att ställa in Capture, det finns inga administrativa kostnader för att köra den och den skalar automatiskt med Event Hubs [genomflödesenheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och kan du fokusera på databearbetning i stället för datainsamling.
@@ -51,6 +51,8 @@ Observera att datumvärdena är fylls ut med nollor; ett filnamn som exempel kan
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
+
+I händelse av att din Azure storage blob är tillfälligt otillgänglig, kommer Event Hubs Capture behålla dina data för kvarhållningsperioden för data som konfigurerats på din event hub och fyll tillbaka data när lagringskontot är tillgänglig igen.
 
 ### <a name="scaling-to-throughput-units"></a>Skala till dataflödesenheter
 
@@ -135,6 +137,8 @@ Apache Avro har slutförts komma igång-guider för [Java][Java] and [Python][Py
 ## <a name="how-event-hubs-capture-is-charged"></a>Hur Event Hubs Capture debiteras
 
 Event Hubs Capture mäts på samma sätt dataflödesenheter: som en timme. Avgiften gäller direkt proportion till antalet dataflödesenheter som har köpt för namnområdet. Eftersom dataflödesenheter ökar och minskar, Event Hubs Capture taxor öka och minska för att tillhandahålla matchande prestanda. Mätarna inträffa tillsammans. Information om prissättning finns i [priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Observera att avbilda inte använda utgående kvot som faktureras separat. 
 
 ## <a name="integration-with-event-grid"></a>Integrering med Event Grid 
 

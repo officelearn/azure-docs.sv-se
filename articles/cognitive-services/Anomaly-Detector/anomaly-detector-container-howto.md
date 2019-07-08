@@ -5,16 +5,16 @@ description: Använd avancerade algoritmer för Avvikelseidentifiering detektor 
 services: cognitive-services
 author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 704ea3ecbc309c2328e120d5b6776e659944d254
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 254173df33bdc82b7de87328a715954c1a6993d7
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275022"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593114"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installera och köra Avvikelseidentifiering detektor behållare
 
@@ -29,7 +29,7 @@ Detaljerad information om API: erna finns:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder Avvikelseidentifiering detektor behållare:
 

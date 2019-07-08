@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476500"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592946"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>När du ska använda ENUM entiteter och ange entitetsåtgärder
 
@@ -85,7 +85,7 @@ ENUM entiteter skapas precis som andra entiteter. Liknar ”programmässiga” e
 
 ### <a name="set-entity-actions"></a>Ange entitetsåtgärder
 
-Som nämnts ovan är ange ”ange” entitetsåtgärder att en entitet till ett känt enum-värde. Du kan uppnå samma resultat genom att skapa en motringning API-åtgärd och använda minneshanteraren att ställa in entiteten på ett värde. T.ex. `memory.Set(entityName, entityValue)`. Behöva skriva koden och skapa de här åtgärderna blir vara tidsödande och svårt att hantera – Konversationsdeltagare har särskilda åtgärder för att underlätta arbetet och automatiskt generera åtgärderna när de används. Med dessa som oberoende åtgärder bevarar möjligheten att skapa dessa utan att tillsammans med andra åtgärder eller kod i din robot.
+Som nämnts ovan är ange ”ange” entitetsåtgärder att en entitet till ett känt enum-värde. Du kan uppnå samma resultat genom att skapa en motringning API-åtgärd och använda minneshanteraren att ställa in entiteten på ett värde. T.ex. [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). Behöva skriva koden och skapa de här åtgärderna blir vara tidsödande och svårt att hantera – Konversationsdeltagare har särskilda åtgärder för att underlätta arbetet och automatiskt generera åtgärderna när de används. Med dessa som oberoende åtgärder bevarar möjligheten att skapa dessa utan att tillsammans med andra åtgärder eller kod i din robot.
 
 - Ange entiteten åtgärder kan bara skapas när du refererar till ett värde för en entitet enum så att du måste först skapa en enum-entitet.
 - Ange entitetsåtgärder är även ”icke-await” eftersom de har inga synliga utdata och måste följas av en ”väntar”-åtgärd som användaren kan se.

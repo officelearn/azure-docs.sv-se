@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: Lär dig hur du utnyttjar praktiskt Azure öppna datauppsättningar tillsammans med kraften i Azure Machine Learning-tjänsten för att skapa en regressionsmodell för att förutsäga NYC taxi avgiften priser.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026825"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588974"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Självstudier: Skapa en regressionsmodell med automatiserade machine learning och öppna datauppsättningar
 
@@ -29,7 +28,7 @@ I den här självstudien lär du dig följande uppgifter:
 - Träna en automatiserad regression-modell för maskininlärning
 - Beräkna modellens Precision
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien kräver följande förutsättningar.
 
@@ -1505,7 +1504,7 @@ taxi_holidays_weather_df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>50 %</th>
+      <th>50%</th>
       <td>2.000000</td>
       <td>4.000000</td>
       <td>0.830000</td>
@@ -1693,7 +1692,7 @@ final_df.describe()
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>50 %</th>
+      <th>50%</th>
       <td>2.000000</td>
       <td>1.000000</td>
       <td>1.900000</td>

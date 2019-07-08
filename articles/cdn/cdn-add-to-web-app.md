@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61462932"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594229"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudier: Lägga till Azure CDN i en Azure App Service-webbapp
 
@@ -38,7 +38,7 @@ Detta får du får lära dig:
 > * Använda frågesträngar för att styra cachelagrade versioner.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -76,7 +76,7 @@ På sidan **Azure Content Delivery Network** anger du inställningarna för**Ny 
 | ------- | --------------- | ----------- |
 | **CDN-profil** | myCDNProfile | En CDN-profil är en samling CDN-slutpunkter på samma prisnivå. |
 | **prisnivå** | Standard Akamai | [Prisnivån](cdn-features.md) anger providern och funktioner som är tillgängliga. I den här självstudien används *Standard Akamai*. |
-| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser i domänen *&lt;endpointname&gt;*.azureedge.net.
+| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser i domänen *&lt;endpointname&gt;* .azureedge.net.
 
 Välj **Skapa ny** för att skapa en CDN-profil.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698164"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446440"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
 
@@ -29,7 +29,7 @@ I följande diagram visas dataflödet mellan Azure IoT Hub och Kafka på HDInsig
 
 Mer information om API: et ansluta finns i [ https://kafka.apache.org/documentation/#connect ](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -37,7 +37,7 @@ Mer information om API: et ansluta finns i [ https://kafka.apache.org/documentat
 
 * En kantnod i Kafka-klustret. Mer information finns i den [använda kantnoder med HDInsight](../hdinsight-apps-use-edge-node.md) dokumentet.
 
-* En Azure IoT-hubb. Den här självstudien rekommenderar jag den [Anslut Raspberry Pi onlinesimulator på Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) dokumentet.
+* En Azure IoT-hubb. Den här artikeln är jag rekommenderar den [Anslut Raspberry Pi onlinesimulator på Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) dokumentet.
 
 * En SSH-klient. Stegen i det här dokumentet använder SSH för att ansluta till klustret. Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

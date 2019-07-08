@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244486"
@@ -72,7 +72,7 @@ WITH (
 ```
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Skapa extern datakälla
-Använd det här [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data och vilken typ av data. 
+Använd det här [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data och vilken typ av data. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Konfigurera dataformat
-Data lagras i textfiler i Azure blob storage och fälten avgränsas med en avgränsare. I SSMS, kör du följande [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] kommando för att ange formatet för data i textfiler. Contoso-data är okomprimerade pipe avgränsade.
+Data lagras i textfiler i Azure blob storage och fälten avgränsas med en avgränsare. I SSMS, kör du följande [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] kommando för att ange formatet för data i textfiler. Contoso-data är okomprimerade pipe avgränsade.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Läsa in data till nya tabeller
-Om du vill läsa in data från Azure blob storage till data warehouse-tabell, använder den [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instruktionen. Läser in med CTAS utnyttjar starkt typifierad externa tabeller som du har skapat. Om du vill läsa in data till nya tabeller, kan du använda en [CTAS] [ CTAS] instruktionen per tabell. 
+Om du vill läsa in data från Azure blob storage till data warehouse-tabell, använder den [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] instruktionen. Läser in med CTAS utnyttjar starkt typifierad externa tabeller som du har skapat. Om du vill läsa in data till nya tabeller, kan du använda en [CTAS][CTAS] instruktionen per tabell. 
  
 CTAS skapar en ny tabell och fylla den med resultatet av en select-instruktion. CTAS definierar den nya tabellen om du vill ha samma kolumner och datatyper som resultatet av select-instruktionen. Om du väljer alla kolumner från en extern tabell kommer den nya tabellen att en replik av kolumner och datatyper i den externa tabellen.
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Mer information om underhåll av columnstore-index finns i den [hantera kolumnlagringsindex] [ manage columnstore indexes] artikeln.
+Mer information om underhåll av columnstore-index finns i den [hantera kolumnlagringsindex][manage columnstore indexes] artikeln.
 
 ## <a name="6-optimize-statistics"></a>6. Optimera statistik
 Det är bäst att skapa enkolumns-statistik direkt efter en belastning. Om du vet att vissa kolumner som inte kommer att vara i fråga predikat, kan du hoppa över skapa statistik på dessa kolumner. Om du skapar enkolumns-statistik för varje kolumn, kan det ta lång tid att återskapa all statistik. 
 
-Om du vill skapa enkolumns-statistik för varje kolumn för varje tabell som du kan använda lagrade proceduren kodexemplet `prc_sqldw_create_stats` i den [statistik] [ statistics] artikeln.
+Om du vill skapa enkolumns-statistik för varje kolumn för varje tabell som du kan använda lagrade proceduren kodexemplet `prc_sqldw_create_stats` i den [statistik][statistics] artikeln.
 
 I följande exempel är en bra utgångspunkt för att skapa statistik. Den skapar enkolumns-statistik för varje kolumn i dimensionstabellen och på varje sammanbinder kolumn i faktatabellerna. Du kan alltid lägga till en eller flera kolumner statistik till andra fakta tabellkolumner vid ett senare tillfälle.
 

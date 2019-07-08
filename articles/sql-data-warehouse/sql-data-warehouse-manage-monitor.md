@@ -68,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 Från resultatet av föregående frågan **Observera ID för begäran** till den fråga som du vill undersöka.
 
-Frågor i den **pausad** tillstånd kan placeras i kö på grund av ett stort antal aktiva frågor som körs. De här frågorna visas även i den [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar fråga med en typ av UserConcurrencyResourceType. Information om samtidighetsgränser finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta av andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser] [ Investigating queries waiting for resources] längre ned i den här artikeln.
+Frågor i den **pausad** tillstånd kan placeras i kö på grund av ett stort antal aktiva frågor som körs. De här frågorna visas även i den [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar fråga med en typ av UserConcurrencyResourceType. Information om samtidighetsgränser finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta av andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser][Investigating queries waiting for resources] längre ned i den här artikeln.
 
-Att förenkla sökning av en fråga i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabellen, Använd [etikett] [ LABEL] att tilldela en kommentar för frågan som kan sökas i sys.dm_pdw_exec_ begäranden-vy.
+Att förenkla sökning av en fråga i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabellen, Använd [etikett][LABEL] att tilldela en kommentar för frågan som kan sökas i sys.dm_pdw_exec_ begäranden-vy.
 
 ```sql
 -- Query with Label
@@ -92,7 +92,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-När en plan för DSQL tar längre tid än förväntat kan vara orsaken en komplex plan med många DSQL steg eller bara ett steg som tar lång tid.  Om planen är många steg med flera flyttåtgärder kan du överväga att optimera din tabell distributioner för att minska dataförflyttning. Den [tabelldistribution] [ Table distribution] artikeln förklarar varför data måste flyttas till att lösa en fråga och förklarar vissa distributionsstrategier för att minimera dataförflyttning.
+När en plan för DSQL tar längre tid än förväntat kan vara orsaken en komplex plan med många DSQL steg eller bara ett steg som tar lång tid.  Om planen är många steg med flera flyttåtgärder kan du överväga att optimera din tabell distributioner för att minska dataförflyttning. Den [tabelldistribution][Table distribution] artikeln förklarar varför data måste flyttas till att lösa en fråga och förklarar vissa distributionsstrategier för att minimera dataförflyttning.
 
 Att undersöka vidare information om ett enskilt steg i *operation_type* kolumnen tidskrävande frågesteg och den **Stegindex**:
 
@@ -110,7 +110,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-När frågesteg körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för steg som körs på en viss distribution.
+När frågesteg körs [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för steg som körs på en viss distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -133,7 +133,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Kontrollera den *total_elapsed_time* kolumnen för att se om en viss distribution tar avsevärt längre tid än andra för dataförflyttning.
 * Tidskrävande distribution, kontrollera den *rows_processed* kolumnen för att se om antalet rader som flyttas från den distributionsplatsen är betydligt större än andra. I så, fall kan detta tyda på Skeva dina underliggande data.
 
-Om frågan körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för pågående SQL-steg inom en viss distribution.
+Om frågan körs [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för pågående SQL-steg inom en viss distribution.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.

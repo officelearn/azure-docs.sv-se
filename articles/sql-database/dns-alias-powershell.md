@@ -42,7 +42,7 @@ Om du vill ansluta en viss Azure SQL Database-server, kan en klient, till exempe
 
 Om du vill köra demo PowerShell-skriptet som anges i den här artikeln gäller följande krav:
 
-- En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion, klickar du på [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
+- En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion, klickar du på [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 - Azure PowerShell-modulen med cmdleten **New AzSqlServerDNSAlias**.
   - Om du vill installera eller uppgradera, se [installera Azure PowerShell-modulen][install-Az-ps-84p].
   - Kör `Get-Module -ListAvailable Az;` i powershell\_ise.exe att hitta versionen.

@@ -304,14 +304,14 @@ Kontrollera att certifikatet är installerat i datorn\'s personliga arkivet. Utf
 
         | Egenskap | Värde |
         |---|---|
-        | source | Alla |
-        | Källportintervall | * |
-        | Mål | Alla |
-        | Målportintervall | 636 |
-        | Protocol | Alla |
-        | Åtgärd | Tillåt |
-        | Prioritet | <Desired Number> |
-        | Namn | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
+        | Name | Port_LDAP_636 |
 
     ![ingående säkerhetsregel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

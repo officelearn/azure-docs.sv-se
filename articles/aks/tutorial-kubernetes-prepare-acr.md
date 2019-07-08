@@ -2,18 +2,18 @@
 title: Självstudiekurs om Kubernetes i Azure – Skapa ett containerregister
 description: I den här självstudien om Azure Kubernetes Service (AKS) ska du skapa en Azure Container Registry-instans och ladda upp en containeravbildning för exempelprogrammet.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304415"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614250"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
@@ -29,9 +29,9 @@ I ytterligare självstudier integrerar du den här ACR-instansen med ett Kuberne
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I [föregående självstudie][aks-tutorial-prepare-app] skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – skapa containeravbildningar][aks-tutorial-prepare-app].
+I [föregående självstudie][aks-tutorial-prepare-app] skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-För den här självstudien behöver du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
@@ -43,7 +43,7 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följan
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en Azure Container Registry-instans med kommandot [az acr create][az-acr-create] och ange ett registernamn. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I resten av den här självstudien används `<acrName>` som platshållare för namnet på containerregistret. Ange ditt eget unika registernamn. Den *grundläggande* SKU:n är en kostnadsoptimerad startpunkt för utvecklingsändamål som ger en bra balans mellan lagring och dataflöde.
+Skapa en Azure Container Registry-instans med den [az acr skapa][az-acr-create] kommandot och ange ditt eget namn i registret. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I resten av den här självstudien används `<acrName>` som platshållare för namnet på containerregistret. Ange ditt eget unika registernamn. Den *grundläggande* SKU:n är en kostnadsoptimerad startpunkt för utvecklingsändamål som ger en bra balans mellan lagring och dataflöde.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -51,7 +51,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="log-in-to-the-container-registry"></a>Logga in till containerregistret
 
-För att använda ACR-instansen måste du först logga in. Använd kommandot [az acr login][az-acr-login] och ange det unika namn som du gav containerregistret i föregående steg.
+För att använda ACR-instansen måste du först logga in. Använd den [docker login][az-acr-login] kommandot och ange det unika namn du angav för behållarregistret i föregående steg.
 
 ```azurecli
 az acr login --name <acrName>
@@ -61,7 +61,7 @@ Du får ett meddelande om att *inloggningen lyckades* när inloggningen är klar
 
 ## <a name="tag-a-container-image"></a>Tagga en containeravbildning
 
-Om du vill visa en lista över dina aktuella lokala avbildningar använder du kommandot [docker images][docker-images]:
+Om du vill se en lista över dina aktuella lokala avbildningar kan använda den [docker-avbildningar][docker-images] kommando:
 
 ```
 $ docker images
@@ -74,7 +74,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 För att du ska kunna använda containeravbildningen *azure-vote-front* med ACR måste avbildningen taggas med adressen för inloggningsservern för ditt register. Den här taggen används till routning när du push-överför containeravbildningar till ett avbildningsregister.
 
-Hämta inloggningsserverns adress genom att köra kommandot [az acr list][az-acr-list] och fråga efter *loginServer* så här:
+Hämta serveradressen logga in med den [az acr list][az-acr-list] kommando och fråga efter den *loginServer* på följande sätt:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -86,7 +86,7 @@ Tagga nu din lokala *azure-vote-front*-avbildning med *acrloginServer*-adressen 
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Kontrollera att taggarna har tillämpats genom att köra [docker images][docker-images] igen. En bild taggas med ACR-instansadressen och ett versionsnummer.
+Kontrollera taggarna som tillämpas med [docker-avbildningar][docker-images] igen. En bild taggas med ACR-instansadressen och ett versionsnummer.
 
 ```
 $ docker images
@@ -100,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Push-överför avbildningar till registret
 
-När avbildningen har skapats och taggats push-överför du avbildningen *azure-vote-front* till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer*-adress för avbildningsnamnet på följande sätt:
+När avbildningen har skapats och taggats push-överför du avbildningen *azure-vote-front* till ACR-instansen. Använd [docker push][docker-push] och tillhandahålla egna *acrLoginServer* åtgärda avbildningsnamn på följande sätt:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -110,7 +110,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## <a name="list-images-in-registry"></a>Lista med avbildningar i registret
 
-Du kan returnera en lista med avbildningar som har överförts till ACR-instansen genom att köra kommandot [az acr repository list][az-acr-repository-list]. Ange din egen `<acrName>` på följande sätt:
+Du kan returnera en lista med avbildningar som har överförts till ACR-instansen med den [az acr databaslistan][az-acr-repository-list] kommando. Ange din egen `<acrName>` på följande sätt:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -124,7 +124,7 @@ Result
 azure-vote-front
 ```
 
-Om du vill visa taggarna för en viss avbildning kör du kommandot [az acr repository show-tags][az-acr-repository-show-tags] på följande sätt:
+Om du vill se taggarna för en viss avbildning använder den [az acr databasen show-tags][az-acr-repository-show-tags] -kommandot enligt följande:
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

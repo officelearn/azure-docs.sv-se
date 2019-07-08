@@ -2,18 +2,18 @@
 title: Självstudie om Kubernetes i Azure – Förbereda ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du förbereder och skapar en app med flera containrar med Docker Compose som du sedan kan distribuera till AKS.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304454"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614233"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudier: Förbered ett program för Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ I ytterligare självstudier så överförs containeravbildningen till en Azure C
 
 Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och `docker`-kommandon. Läs mer om grunderna för containrar i [Kom igång med Docker][docker-get-started].
 
-För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker tillhandahåller paket som konfigurerar Docker i ett [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-system.
+För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac], [Windows][docker-for-windows], eller [Linux][docker för linux] system.
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i dessa självstudier. Därför rekommenderar vi att du använder en fullständig Docker-utvecklingsmiljö.
 
@@ -58,7 +58,7 @@ Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och
 
 ## <a name="create-container-images"></a>Skapa containeravbildningar
 
-[Docker Compose][docker-compose] kan användas för att automatisera genereringen av containeravbildningar och distributionen av program med flera containrar.
+[Docker Compose][docker-compose] kan användas för att automatisera att skapa behållaravbildningar och distribution av program med flera behållare.
 
 Använd `docker-compose.yaml`-exempelfilen för att skapa containeravbildningen, ladda ned Redis-avbildningen och starta programmet:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör kommandot [docker ps][docker-ps] för att visa de containrar som körs:
+Kör den [docker ps][docker-ps] kommando för att se behållarna som körs:
 
 ```
 $ docker ps
@@ -97,7 +97,7 @@ Om du vill visa programmet som körs anger du `http://localhost:8080` i en lokal
 
 Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna – i nästa självstudie ska du ladda upp *azure-vote-front*-avbildningen till en Azure Container Registry-instans.
 
-Stoppa och ta bort containerinstanser och resurser med kommandot [docker-compose down][docker-compose-down]:
+Stoppa och ta bort behållarinstanser och resurser med den [docker-compose ned][docker-compose-down] kommando:
 
 ```console
 docker-compose down
@@ -117,7 +117,7 @@ I den här självstudien testades ett program och containeravbildningar skapades
 Gå vidare till nästa självstudie och lär dig hur du lagrar containeravbildningar i Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push-överföra avbildningar till Azure Container Registry][aks-tutorial-prepare-acr]
+> [Push-avbildningar med Azure Container Registry][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

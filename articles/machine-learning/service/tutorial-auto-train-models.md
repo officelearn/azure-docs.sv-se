@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417307"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622381"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.39.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 Skapa ett spridningsdiagram för att visualisera värden för beräknade kostnader jämfört med värden för faktiska kostnader. I följande kod används funktionen `distance` som x-axel och `cost` för resa som y-axel. I syfte att jämföra variansen för beräknad kostnad vid varje värde för reseavstånd skapas de först 100 beräknade och faktiska värdena för kostnad som separata serier. En undersökning av diagrammet visar att relationen mellan avstånd/kostnad nästan är linjär, och värdena för beräknad kostnad är i de flesta fall nära värdena för faktisk kostnad för samma reseavstånd.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

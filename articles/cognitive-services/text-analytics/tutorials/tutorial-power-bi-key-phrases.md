@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828488"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626037"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys
 
@@ -30,7 +30,7 @@ I den här kursen får du lära du dig att:
 > * Använd API:et textanalys för nyckelfraser för att hämta de viktigaste fraserna från kundåterkoppling
 > * Skapa ett ordmoln från kundåterkoppling
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Hämta utan kostnad](https://powerbi.microsoft.com/get-started/).
@@ -103,7 +103,7 @@ Du kan också överväga att filtrera bort tomma meddelanden med filtret Ta bort
 Nu är du redo att skapa den anpassade funktionen som integrerar Power BI och textanalysen. Funktionen tar emot texten som ska behandlas som parameter. Den konverterar data till och från JSON-formatet som krävs och gör en HTTP-begäran till nyckelfras-API-slutpunkten. När vi har tolkat svaret returnerar funktionen en sträng från API:et som innehåller en kommaavgränsad lista över extraherade nyckelfraser.
 
 > [!NOTE]
-> De anpassade funktionerna i Power BI Desktop är skrivna med [Power Query M-formelspråket](https://msdn.microsoft.com/library/mt211003.aspx), även kallat M. M är ett funktionellt programmeringsspråk som baseras på [F#](https://docs.microsoft.com/dotnet/fsharp/). Du behöver inte vara programmerare för att genomföra den här självstudien. Den kod som krävs finns nedan.
+> De anpassade funktionerna i Power BI Desktop är skrivna med [Power Query M-formelspråket](https://docs.microsoft.com/powerquery-m/power-query-m-reference), även kallat M. M är ett funktionellt programmeringsspråk som baseras på [F#](https://docs.microsoft.com/dotnet/fsharp/). Du behöver inte vara programmerare för att genomföra den här självstudien. Den kod som krävs finns nedan.
 
 Kontrollera att du fortfarande befinner dig i frågeredigerarfönstret i Power BI Desktop. Om du inte är där väljer du menyfliksområdet **Start**. I gruppen **externa data** klickar du sedan på **Redigera frågor**.
 
@@ -144,7 +144,7 @@ Växla tillbaka till frågan `FabrikamComments` i frågeredigerarfönstret i Pow
 
 Dialogrutan Anropa anpassad funktion visas. Ange `keyphrases` i **Nytt kolumnnamn**. I **Funktionsfråga** väljer du den anpassad funktionen som du skapade, `KeyPhrases`.
 
-Ett nytt fält visas i dialogrutan **text (valfritt)**. Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan har hårdkodat värden för parametrarna `language` och `id`.) Välj `Merged` (den kolumn vi skapade [tidigare](#PreparingData) genom att slå samman ämnes- och meddelandefälten) i listrutan.
+Ett nytt fält visas i dialogrutan **text (valfritt)** . Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan har hårdkodat värden för parametrarna `language` och `id`.) Välj `Merged` (den kolumn vi skapade [tidigare](#PreparingData) genom att slå samman ämnes- och meddelandefälten) i listrutan.
 
 ![[Anropa anpassad funktion]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -188,7 +188,7 @@ Nu ska du generera ett ordmoln med den här kolumnen. Börja med att klicka på 
 > [!NOTE]
 > Varför generera ett ordmoln med extraherade nyckelfraser i stället för hela texten i varje kommentar? Nyckelfraser förser oss med de *viktiga* orden från kundkommentarerna, inte bara de *vanligaste* orden. Ordstorleken i det resulterande molnet påverkas dessutom inte av ord som används ofta i ett relativt litet antal kommentarer.
 
-Installera den anpassade ordmolnsvyn om du inte redan har den. Navigera till panelen Visualiseringar till höger om arbetsytan. Klicka på de tre punkterna (**...**) och välj **Importera från lagret**. Sök sedan efter moln och klicka på knappen **Lägg till** bredvid ordmolnsvyn. Power BI installerar ordmolnsvyn och bekräftar att installationen slutfördes.
+Installera den anpassade ordmolnsvyn om du inte redan har den. Navigera till panelen Visualiseringar till höger om arbetsytan. Klicka på de tre punkterna ( **...** ) och välj **Importera från lagret**. Sök sedan efter moln och klicka på knappen **Lägg till** bredvid ordmolnsvyn. Power BI installerar ordmolnsvyn och bekräftar att installationen slutfördes.
 
 ![[lägga till anpassad visuell vy]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Läs mer om textanalystjänsten, Power Query M-formelspråket och Power BI.
 > [API för textanalys – referens](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Power Query M – referens](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Power Query M – referens](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI-dokumentation](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

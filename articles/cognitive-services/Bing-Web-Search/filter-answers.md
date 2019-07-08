@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383842"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626009"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera de svar som Sök-svaret innehåller  
 
@@ -44,14 +44,20 @@ När du frågar webben returnerar Bing alla relevant innehåll som hittas för s
     }
 }    
 ```
-Du kan filtrera vilka typer av innehåll som du får (till exempel bilder, videor och nyheter) med hjälp av den [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) frågeparameter. Om Bing hittar relevant innehåll för de angivna svar, returneras. Svar-filtret är en kommaavgränsad lista med svar. 
 
-Om du vill exkludera vissa typer av innehåll som bilder, från svaret kan du lägga till en `-` tecknet i början av den `responseFilter` värde. Du kan avgränsa exkluderade typer med ett kommatecken (`,`). Exempel:
+## <a name="query-parameters"></a>Frågeparametrar
+
+För att filtrera de svar som returneras av Bing använder den nedan frågeparametrar när du anropar API: et.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+Du kan filtrera vilka typer av svar med Bing i svaret (till exempel bilder, videor och nyheter) med hjälp av den [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) frågeparameter som är en kommaavgränsad lista med svar. Ett svar inkluderas i svaret om Bing hittar relevant innehåll för den. 
+
+Om du vill exkludera specifika svar från svaret som bilder, Lägg till åtkomstgruppen en `-` tecknet till svarstypen. Exempel:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 Följande visar hur du använder `responseFilter` att begäran bilder, videor och nyheter för avseglingen dinghies. När du kodar frågesträngen ändra kommatecken till %2 C.  
 
@@ -94,7 +100,9 @@ Nedan visas svaret på den tidigare frågan. Eftersom Bing inte gick att hitta r
 
 Du är avråder från att använda `responseFilter` att få resultat från en enda API. Om du vill innehåll från en enda Bing-API, anropa det API: et direkt. Till exempel för att få endast bilder, skicka en begäran till avbildningen Search API-slutpunkter, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` eller något av de andra [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) slutpunkter. Anrop av ett enda API är viktiga inte bara av prestandaskäl men eftersom innehållsspecifika-API: erna ger bättre resultat. Du kan till exempel använda filter som inte är tillgängliga i API för webbsökning att filtrera resultaten.  
 
-För att få resultat från från en specifik domän kan inkludera den `site:` fråga operatorn i frågesträngen.  
+### <a name="site"></a>Plats
+
+För att få resultat från från en specifik domän kan inkludera den `site:` frågeparameter i frågesträngen.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Beroende på frågan, om du använder den `site:` fråga-operator, det finns risk att svaret kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.
 
+### <a name="freshness"></a>Uppdateringsbarhet
+
+För att begränsa svar Webbresultat till webbsidor som Bing identifieras under en viss period, ange den [färskhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) frågeparameter till något av följande skiftlägeskänsliga värden:
+
+* `Day` – Returnera webbsidor som Bing identifierats under de senaste 24 timmarna
+* `Week` – Returnera webbsidor som Bing identifierats under de senaste 7 dagarna
+* `Month` – Returnera webbsidor som identifierats under de senaste 30 dagarna
+
+Du kan också ange den här parametern till ett eget datumintervall i formuläret `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+För att begränsa resultaten till ett enda datum, ange parametern färskhet till ett visst datum:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+Resultaten kan omfatta webbsidor som faller utanför den angivna perioden om antalet webbsidor som Bing matchar till dina filterkriterier är mindre än antalet webbsidor som du har begärt (eller Standardnumret Bing returnerar).
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Begränsning av antalet svar i svaret
 
-Bing innehåller svar i svaret, utifrån rangordning. Exempel: Om du frågar *färdas + dinghies*, Bing returnerar `webpages`, `images`, `videos`, och `relatedSearches`.
+Bing kan returnera flera svar typer i JSON-svar. Exempel: Om du frågar *färdas + dinghies*, Bing återge `webpages`, `images`, `videos`, och `relatedSearches`.
 
 ```json
 {

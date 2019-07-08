@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100147"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625322"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Självstudier: Azure Active Directory-integrering med Insperity ExpensAble
 
@@ -34,7 +34,7 @@ Integrera Insperity ExpensAble med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Insperity ExpensAble, behöver du följande objekt:
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Insperi
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Insperity ExpensAble klienten supportteamet](http://expensable.com/support/support-overview) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Insperity ExpensAble klienten supportteamet](https://www.insperity.com/products/expense-management/support/express/) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -126,7 +126,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Insperi
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Konfigurera Insperity ExpensAble enkel inloggning
 
-Att konfigurera enkel inloggning på **Insperity ExpensAble** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Insperity ExpensAble supportteam](http://expensable.com/support/support-overview). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på **Insperity ExpensAble** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Insperity ExpensAble supportteam](https://www.insperity.com/products/expense-management/support/express/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -181,7 +181,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-insperity-expensable-test-user"></a>Skapa Insperity ExpensAble testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Insperity ExpensAble. Arbeta med [Insperity ExpensAble supportteamet](http://expensable.com/support/support-overview) att lägga till användare i Insperity ExpensAble-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Insperity ExpensAble. Arbeta med [Insperity ExpensAble supportteamet](https://www.insperity.com/products/expense-management/support/express/) att lägga till användare i Insperity ExpensAble-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

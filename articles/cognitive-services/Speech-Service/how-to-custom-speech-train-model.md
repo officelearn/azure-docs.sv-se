@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7bc1f2adf3d8c38845218681a55e3942aa809db5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603209"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625392"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för anpassat tal
 
@@ -25,12 +25,11 @@ Det är nödvändigt att förbättra noggrannheten för både Microsofts baslinj
 
 Om du får igenkänning av problem med din modell, med hjälp av mänskliga etikett kan betyg och relaterade data för ytterligare utbildning hjälpa till att förbättra noggrannheten. Använd den här tabellen för att avgöra vilken datauppsättning du ska använda för att lösa ditt problem:
 
-| Användningsfall | Datatyp | Data kvantitet |
-|----------|-----------|---------------|
-| Egennamn är inte kan tolkas | Relaterade text (meningar/yttranden) | 10 MB till 500 MB |
-| Ord är inte kan tolkas på grund av en accent | Relaterade text (uttal) | Ange misrecognized ord |
-| Vanliga ord tas bort eller inte kan tolkas | Ljud + mänskliga etikett avskrifter | 10 och 1 000 avskrift timmar |
-
+| Användningsfall | Datatyp |
+|----------|-----------|
+| Förbättra taligenkänning på branschspecifika ordförråd och grammatik, till exempel medicinsk terminologi eller IT-jargong | Relaterade text (meningar/yttranden) |
+| Definiera fonetiska och visas form av ett ord eller en term som har avvikande uttal, som produktnamn eller förkortningar. | Relaterade text (uttal) |
+| Förbättra taligenkänning på talar formatmallar, uttal eller specifika bakgrundsljud | Ljud + mänskliga etikett avskrifter |
 > [!IMPORTANT]
 > Om du inte har överfört en datauppsättning, hittar du i [Förbered och testa dina data](how-to-custom-speech-test-data.md). Det här dokumentet innehåller anvisningar för att ladda upp data och riktlinjer för att skapa högkvalitativa datauppsättningar.
 

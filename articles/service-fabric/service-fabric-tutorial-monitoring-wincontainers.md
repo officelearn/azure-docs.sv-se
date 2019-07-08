@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61390492"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621922"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Självstudier: Övervaka Windows-behållare i Service Fabric med Azure Monitor-loggar
 
@@ -86,7 +86,7 @@ Gör följande ändringar i *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Lägg till Microsoft Monitoring Agent som ett tillägg för virtuella datorer. Hitta resursen skalningsuppsättningar för virtuella datorer: *resurser* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* lägger du till följande tilläggsbeskrivning under tillägget *ServiceFabricNode*: 
+3. Lägg till Microsoft Monitoring Agent som ett tillägg för virtuella datorer. Hitta resursen skalningsuppsättningar för virtuella datorer: *resurser* >  *"apiVersion": "[variables('vmssApiVersion')]"* . Under *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* lägger du till följande tilläggsbeskrivning under tillägget *ServiceFabricNode*: 
     
     ```json
     {

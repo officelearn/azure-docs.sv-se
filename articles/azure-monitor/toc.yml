@@ -435,8 +435,6 @@
                   href: app/proactive-exception-volume.md
                 - name: Minnesläcka
                   href: app/proactive-potential-memory-leak.md
-                - name: Resursutnyttjande
-                  href: app/proactive-low-utilization-cloud-resources.md
                 - name: Säkerhetsidentifiering
                   href: app/proactive-application-security-detection-pack.md
                 - name: Azure Cloud Services

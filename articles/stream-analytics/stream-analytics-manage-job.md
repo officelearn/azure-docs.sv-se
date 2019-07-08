@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493418"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612366"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du göra följande:
 
@@ -191,7 +191,7 @@ Det sista steget är att definiera en utdatamottagare för jobbet där det kan s
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definiera en fråga för att analysera indata
 
-Nästa steg är att skapa en transformering som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](https://msdn.microsoft.com/library/dn834998.aspx). Den fråga som används i den här självstudien identifierar bedrägliga samtal från telefondata.
+Nästa steg är att skapa en transformering som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Den fråga som används i den här självstudien identifierar bedrägliga samtal från telefondata.
 
 I det här exemplet görs bedrägliga samtal från samma användare inom fem sekunder, men på olika platser. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. Så här definierar du transformationsfrågan för ditt Stream Analytics-jobb:
 
@@ -212,7 +212,7 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (land/region för ursprung) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (land/region för ursprung) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF**-funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 

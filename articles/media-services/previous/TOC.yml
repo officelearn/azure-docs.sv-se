@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Begrepp
       href: media-services-concepts.md
-- name: Kom igång
+- name: Komma igång
   items:
     - name: Skapa och hantera konto
       href: media-services-portal-create-account.md
@@ -51,6 +51,9 @@
   items:
     - name: Hantera
       items:
+        - name: Konton
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entiteter
           items:
             - name: .NET

@@ -2,18 +2,18 @@
 title: Självstudie om Kubernetes i Azure – Uppdatera ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du uppdaterar en befintlig programdistribution till AKS med en ny version av programkoden.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475510"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614383"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudier: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
@@ -31,9 +31,9 @@ I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempela
 
 I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Appen distribuerades sedan till AKS-klustret.
 
-En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill följa med börjar du med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
+En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="update-an-application"></a>Uppdatera ett program
 
@@ -57,7 +57,7 @@ Spara och stäng filen. I `vi` använder du `:wq`.
 
 ## <a name="update-the-container-image"></a>Uppdatera containeravbildningen
 
-För att återskapa klientdelsavbildningen och testa det uppdaterade programmet använder du [docker-compose][docker-compose]. Argumentet `--build` används till att instruera Docker Compose att återskapa programavbildningen:
+För att skapa klientdelsavbildningen igen och testa det uppdaterade programmet, använda [docker-compose][docker-compose]. Argumentet `--build` används till att instruera Docker Compose att återskapa programavbildningen:
 
 ```console
 docker-compose up --build -d
@@ -79,16 +79,16 @@ För att använda den uppdaterade avbildningen på rätt sätt taggar du avbildn
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd [dockertagg][docker-tag] för att tagga avbildningen. Ersätt `<acrLoginServer>` med namnet på ACR-inloggningsservern eller värdnamnet för det offentliga registret och uppdatera avbildningsversionen till *:v2* på följande sätt:
+Använd [docker tag][docker-tag] till att tagga avbildningen. Ersätt `<acrLoginServer>` med namnet på ACR-inloggningsservern eller värdnamnet för det offentliga registret och uppdatera avbildningsversionen till *:v2* på följande sätt:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Använd nu [docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
+Nu använda [docker push][docker-push] att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
 
 > [!NOTE]
-> Om du får problem med push-överföring till ACR-registret, se till att du fortfarande är inloggad. Kör den [docker login] [ az-acr-login] kommando med hjälp av namnet på ditt Azure-Behållarregister som du skapade i den [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) steg. Till exempel `az acr login --name <azure container registry name>`.
+> Om du får problem med push-överföring till ACR-registret, se till att du fortfarande är inloggad. Kör den [docker login][az-acr-login] kommando med hjälp av namnet på ditt Azure-Behållarregister som du skapade i den [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) steg. Till exempel `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -96,7 +96,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Distribuera det uppdaterade programmet
 
-Du får minimala störningar om flera instanser av programpodden körs. Kontrollera antalet klientdelsinstanser som körs med kommandot [kubectl get pods][kubectl-get]:
+Du får minimala störningar om flera instanser av programpodden körs. Kontrollera antalet körda klientdelsinstanserna med den [kubectl hämta poddar][kubectl-get] kommando:
 
 ```
 $ kubectl get pods
@@ -120,7 +120,7 @@ När du ska uppdatera programmet använder du kommandot [kubectl set][kubectl-se
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-Du övervakar distributionen av kommandot [kubectl get pod][kubectl-get]. Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya containeravbildningen.
+Du övervakar distributionen med kommandot [kubectl get pod][kubectl-get]. Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya containeravbildningen.
 
 ```console
 kubectl get pods

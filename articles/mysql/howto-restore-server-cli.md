@@ -110,7 +110,7 @@ Den `az mysql server georestore` kommandot kräver följande parametrar:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på resursgruppen som den nya servern ska tillhöra.|
-|namn | mydemoserver georestored | Namnet på den nya servern. |
+|name | mydemoserver georestored | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundanta säkerhetskopieringar används. |
 |location | usaöstra | Platsen för den nya servern. |
 |sku-name| GP_Gen5_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen5_8 mappas till en generell användning, generation 5-server med 8 vCores.|

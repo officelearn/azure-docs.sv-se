@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cf2bd694e126acb61ea31e71ff3fd9d15a6db9ef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231299"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656572"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudier: Konfigurera roller för rollbaserad åtkomstkontroll (RBAC) i Azure Kubernetes Service (AKS) med Ansible
 
@@ -30,7 +30,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 > * Skapa en Azure AD-aktiverade AKS-kluster
 > * Konfigurera en RBAC-roll i klustret
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -39,7 +39,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Konfigurera Azure AD för AKS-autentisering
 
-När du konfigurerar Azure AD för AKS-autentisering kan konfigureras två Azure AD-program. Den här åtgärden måste utföras av en administratör för Azure-klient. Mer information finns i [integrera Azure Active Directory med AKS](/azure/aks/aad-integration#create-server-application). 
+När du konfigurerar Azure AD för AKS-autentisering kan konfigureras två Azure AD-program. Den här åtgärden måste utföras av en administratör för Azure-klient. Mer information finns i [integrera Azure Active Directory med AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 Från Azure-klient-administratör får du följande värden:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105557"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex-möten
 
@@ -34,7 +34,7 @@ Integrera Cisco Webex möten med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Cisco Webex möten, behöver du följande objekt:
 
@@ -122,7 +122,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco W
 
     I den **inloggnings-URL** textrutan klistra in värdet för **svars-URL** som hämtar fylls i automatiskt med SP metadata filuppladdningen.
 
-5. Cisco Webex möten program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera**  för att lägga till attributen.
+5. Cisco Webex möten program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att lägga till attributen.
 
     ![image](common/edit-attribute.png)
 

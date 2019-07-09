@@ -6,14 +6,14 @@ manager: vicenterivera
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5fe3ee8a98b24c26af8b08959d271226bde36cee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4646c55d2e9c4d7c0a9d21b39c759aea06272e1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244360"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672026"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Hur du skapar och leta upp ankare som använder Azure Spatial ankare i Swift
 
@@ -32,7 +32,7 @@ Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enhet
 - Ladda upp dem till molnet.
 - Leta upp och ta bort spatial molnankare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du kontrollera att du har:
 

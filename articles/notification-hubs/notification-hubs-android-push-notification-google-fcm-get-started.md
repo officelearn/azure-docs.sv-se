@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509108"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653866"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 
@@ -88,7 +88,26 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
 
 ### <a name="add-google-play-services-to-the-project"></a>Lägga till Google Play-tjänster till projektet
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. I Android Studio väljer **verktyg** i menyn och välj sedan **SDK Manager**. 
+2. Välj Målversionen av Android SDK: N som används i ditt projekt. Välj sedan **visa Paketinformation**. 
+
+    ![Android SDK Manager – välj målversion](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Välj **Google APIs**, om det inte redan är installerat.
+
+    ![Android SDK Manager – Google APIs valt](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Växla till fliken **SDK-verktyg**. Om du inte redan har installerat Google Play-tjänster, väljer **Google Play-tjänster** enligt följande bild. Välj sedan **tillämpa** att installera. Anteckna SDK-sökvägen för användning i ett senare steg.
+
+    ![Android SDK Manager – Google Play Services valt](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Om du ser dialogrutan **Bekräfta ändringen** väljer du **OK**. De begärda komponenterna installeras. Välj **Slutför** när komponenterna har installerats.
+4. Välj **OK** för att stänga dialogrutan **Inställningar för nya projekt**.  
+5. Välj **synkronisera nu** ikonen i verktygsfältet.
+1. Öppna filen AndroidManifest.xml och Lägg sedan till följande kod till den *program* tagg.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Lägga till Azure Notification Hubs-bibliotek
 
@@ -354,7 +373,6 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ Kontrollera dessutom att du har lagt till ditt Google-konto till din körs emula
 I den här självstudien använde du Firebase Cloud Messaging för att sända meddelanden till alla Android-enheter som registrerats med tjänsten. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:
 
 > [!div class="nextstepaction"]
->[Självstudie: Push-meddelanden till specifika Android-enheter](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Självstudie: Push-meddelanden till specifika Android-enheter](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

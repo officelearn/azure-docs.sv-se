@@ -6,14 +6,14 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: b25e17e7064006a1421142dfcd32997cb4426e8e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: deb136a70c24cb7bd1b6c60505cc6ab0376a7b02
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305970"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672441"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Självstudier: Skala ett Azure Red Hat OpenShift-kluster
 
@@ -30,13 +30,13 @@ I den här självstudieserien får du lära du dig att:
 > * Skala ett Azure Red Hat OpenShift-kluster
 > * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * Skapa ett kluster genom att följa den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in till Azure
+## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
 
 Om du använder Azure CLI lokalt kan köra `az login` att logga in på Azure.
 

@@ -146,7 +146,7 @@ Skript för skripta åtgärd kan användas via följande verktyg:
 
 HDInsight tillhandahåller skript för att installera följande komponenter i HDInsight-kluster:
 
-| Namn | Skript |
+| Name | Skript |
 | --- | --- |
 | Lägg till ett Azure Storage-konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagringskonton till HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [installera och använda Hue på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
@@ -258,10 +258,10 @@ Gå till den [Azure-portalen](https://portal.azure.com):
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassade__. Annars väljer du en medföljande skriptet. |
-    | Namn |Ange ett namn för skriptåtgärden. |
+    | Name |Ange ett namn för skriptåtgärden. |
     | Bash-skript-URI |Ange URI för skriptet. |
-    | HEAD/Worker/Zookeeper |Ange de noder som skriptet körs: **HEAD**, **Worker**, eller **ZooKeeper**. |
-    | Parametrar |Ange parametrar, om det krävs av skriptet. |
+    | HEAD/Worker/ZooKeeper |Ange de noder som skriptet körs: **HEAD**, **Worker**, eller **ZooKeeper**. |
+    | Parametrars |Ange parametrar, om det krävs av skriptet. |
 
     Använd den __spara den här skriptåtgärden__ posten för att kontrollera att skriptet används under skalningsåtgärder.
 

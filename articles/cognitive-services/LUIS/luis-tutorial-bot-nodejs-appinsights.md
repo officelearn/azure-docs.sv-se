@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5459fb5d8304a35b3f009354c446514a2831c513
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: cfed5477df75350f24e77786117e85b9c728c49a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155284"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657761"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Lägg till LUIS resultaten till Application Insights från en robot i Node.js
 Den här självstudien lägger till bot och Language Understanding information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller Power BI för att analysera, aggregeras, och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Avbilda bot och Language understanding data i Application Insights
 > * Fråga efter Application Insights för Language Understanding-data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure bot service-robot skapats med Application Insights som aktiveras.
 * Ned bot kod från tidigare roboten  **[självstudien](luis-nodejs-tutorial-bf-v4.md)** . 
@@ -205,7 +205,7 @@ Om du vill lägga till data till application insights, behöver du instrumenteri
     ![Granska LUIS anpassade egenskaper lagras i Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-nodejs.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Fråga efter Application Insights för avsikt, poäng och uttryck
-Application Insights ger dig möjlighet att fråga efter data med den [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) språk, samt exportera den till [Power BI](https://powerbi.microsoft.com). 
+Application Insights ger dig möjlighet att fråga efter data med den [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) språk, samt exportera den till [Power BI](https://powerbi.microsoft.com). 
 
 1. Välj **Log (analys)** . Ett nytt fönster öppnas med ett frågefönster högst upp och en data-fönster för tabellen nedan som. Om du har använt databaser tidigare är i den här ordningen välbekanta. Frågan representerar dina tidigare filtrerade data. Den **CustomDimensions** kolumnen har bot och LUIS information.
 1. Om du vill hämta de översta avsikt, poäng och uttryck, lägger du till följande ovanför den sista raden (den `|top...` rad) i frågefönstret:

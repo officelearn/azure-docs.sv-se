@@ -6,14 +6,14 @@ manager: vicenterivera
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 940768f6b6921701a91107a809d6260aa2a51213
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8cacb443a9fc13d742f84b92136be7428375fc6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964974"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669215"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Hur du skapar och leta upp ankare som använder Azure Spatial ankare i C++/WinRT
 
@@ -32,7 +32,7 @@ Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enhet
 - Ladda upp dem till molnet.
 - Leta upp och ta bort spatial molnankare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du kontrollera att du har:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099603"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Självstudier: Azure Active Directory-integrering med ITRP
 
@@ -35,7 +35,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ITRP, måste du ha:
 
@@ -153,9 +153,9 @@ Konfigurera Azure AD enkel inloggning med ITRP genom att göra följande:
 
     1. Välj **aktiverat**.
 
-    1. I den **Remote utloggnings-URL** rutan, klistra in den **URL för utloggning** värde som du kopierade från Azure-portalen.
+    1. I den **Remote utloggnings-URL** rutan, klistra in den **URL för utloggning** värde som du kopierade från Azure-portalen.
 
-    1. I den **URL för SAML SSO** rutan, klistra in den **inloggnings-URL** värde som du kopierade från Azure-portalen.
+    1. I den **URL för SAML SSO** rutan, klistra in den **inloggnings-URL** värde som du kopierade från Azure-portalen.
 
     1. I den **certifikat fingeravtryck** rutan, klistra in den **tumavtryck** värdet för certifikatet som du kopierade från Azure-portalen.
 

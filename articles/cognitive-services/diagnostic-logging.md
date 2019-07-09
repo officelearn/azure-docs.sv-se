@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155735"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657685"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Aktivera Diagnostisk loggning för Azure Cognitive Services
 
 Den här guiden innehåller stegvisa instruktioner för att aktivera Diagnostisk loggning för en Azure Cognitive Services. De här loggarna ger omfattande, frekventa data om användningen av en resurs som används för problemidentifiering och felsökning. Innan du fortsätter måste du ha ett Azure-konto med en prenumeration på minst en Cognitive Service, till exempel [webbsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [Taltjänster](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), eller [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera Diagnostisk loggning, behöver du någonstans att lagra dina loggdata. Den här självstudien används Azure Storage och Log Analytics.
 
@@ -28,14 +28,14 @@ Om du vill aktivera Diagnostisk loggning, behöver du någonstans att lagra dina
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -flexibla log sökning och analys med verktyget för analys av loggarna som genereras av en Azure-resurs.
 
 > [!NOTE]
-> Ytterligare konfigurationsalternativ är tillgängliga. Mer information finns i [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+> Ytterligare konfigurationsalternativ är tillgängliga. Mer information finns i [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="enable-diagnostic-log-collection"></a>Aktivera insamling av diagnostiklogg  
 
 Låt oss börja med att aktivera loggning med Azure portal.
 
 > [!NOTE]
-> Om du vill aktivera den här funktionen med hjälp av PowerShell eller Azure CLI, använder du instruktionerna i [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+> Om du vill aktivera den här funktionen med hjälp av PowerShell eller Azure CLI, använder du instruktionerna i [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
 
 1. Gå till Azure-portalen. Sedan leta upp och välj en resurs för Cognitive Services. Exempelvis kan din prenumeration på webbsökning i Bing.   
 2. Sedan från den vänstra navigeringsmenyn fram **övervakning** och välj **diagnostikinställningar**. Den här sidan innehåller alla tidigare skapade diagnostikinställningar för den här resursen.

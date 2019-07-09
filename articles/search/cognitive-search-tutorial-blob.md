@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485781"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669108"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST-självstudiekurs: Anropa API: er med Cognitive Services i ett Azure Search indexering av pipeline
 
@@ -488,4 +488,4 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 Anpassa eller utöka pipelinen med anpassade kunskaper. När du skapar en anpassad kunskap och lägger till den i en kunskapsuppsättning kan du publicera text eller bildanalys som du skriver själv. 
 
 > [!div class="nextstepaction"]
-> [Exempel: skapa en anpassad kunskap](cognitive-search-create-custom-skill-example.md)
+> [Exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md)

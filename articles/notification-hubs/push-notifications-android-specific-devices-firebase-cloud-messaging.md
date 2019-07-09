@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd11696ea4a90e61408a03400fa3315ee7eaff5f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205400"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653512"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Självstudier: Push-meddelanden till specifika Android-enheter med Azure Notification Hubs och Google Firebase Cloud Messaging (FCM)
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Skicka taggade meddelanden.
 > * Testa appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien bygger på den app som du skapade i [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Innan du påbörjar den här självstudien slutför du [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
@@ -329,7 +329,7 @@ Appen är nu klar och kan lagra en uppsättning kategorier i den enhetens lokala
 I den här kursen har du skickat meddelanden till specifika Android-enheter som har registrerats för kategorier. Information om hur du skickar meddelanden till specifika användare finns i följande självstudie:
 
 > [!div class="nextstepaction"]
->[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[Skicka meddelanden till specifika användare](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

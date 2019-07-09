@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: jeedes
+ms.openlocfilehash: 93efb44668a3a0b189e96c1b1212766dee075ef3
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "67048937"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672850"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler tre för automatisk användaretablering
 
@@ -31,7 +31,7 @@ I de här självstudierna lär du dig att konfigurera Azure Active Directory (Az
 >
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Mer information om allmänna Azure användningsvillkoren för förhandsfunktionerna finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra de steg som beskrivs i den här självstudien behöver du följande:
 

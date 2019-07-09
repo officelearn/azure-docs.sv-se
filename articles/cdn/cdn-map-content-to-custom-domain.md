@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6db152659a05b05fbb59edbb17de0a84b00ce6d9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593735"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666099"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudier: Lägga till en anpassad domän i din Azure CDN-slutpunkt
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -66,7 +66,7 @@ Skapa en CNAME-post med underdomänen cdnverify:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | source                    | Type  | Mål                     |
+    | Source                    | Type  | Mål                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -145,7 +145,7 @@ När du har slutfört registreringen av den anpassade domänen kan du kontroller
  
 1. Se till att du har offentligt innehåll som cachelagras på slutpunkten. Om CDN-slutpunkten till exempel är associerad med ett lagringskonto cachelagrar Azure CDN innehållet i en offentlig container. Om du vill testa den anpassade domänen kontrollerar du att containern är inställd på att tillåta offentlig åtkomst och att den innehåller minst en fil.
 
-2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Om din anpassade domän till exempel är cdn.contoso.com ska URL:en till den cachelagrade filen se ut ungefär som följande URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg. Kontrollera att resultatet är detsamma som när du öppnar CDN-slutpunkten direkt på *&lt;värdnamn för slutpunkt&gt;* .azureedge.net.
+2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Exempel: om din anpassade domän är www.contoso.com, URL: en till den cachelagrade filen bör likna följande URL: http:\//www.contoso.com/my-public-container/my-file.jpg. Kontrollera att resultatet är detsamma som när du öppnar CDN-slutpunkten direkt på *&lt;värdnamn för slutpunkt&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mappa den permanenta anpassade domänen
@@ -160,7 +160,7 @@ Skapa en CNAME-post för den anpassade domänen:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | source          | Type  | Mål           |
+    | Source          | Type  | Mål           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

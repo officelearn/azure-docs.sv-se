@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117508"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656628"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Skapa en ASP.NET Core och SQL Database-app i Azure App Service i Linux
 
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Skapa anslutningssträng
 
-Ersätt följande sträng med den  *\<servernamn >*,  *\<db-username >*, och  *\<db-password >* du använde tidigare.
+Ersätt följande sträng med den  *\<servernamn >* ,  *\<db-username >* , och  *\<db-password >* du använde tidigare.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +171,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando, ersätter  *\<appens namn->*, samt de  *\<anslutningssträng >* parametern med den anslutningssträng som du skapade tidigare.
+Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando, ersätter  *\<appens namn->* , samt de  *\<anslutningssträng >* parametern med den anslutningssträng som du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
@@ -362,7 +362,7 @@ Alla befintliga att-göra-uppgifter visas fortfarande. När du publicerar om .NE
 
 ## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
-Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) med två konfigurationsändringar:
+Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) med två konfigurationsändringar:
 
 - Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj*.
 - Anropar `loggerFactory.AddAzureWebAppDiagnostics()` i *Startup.cs*.

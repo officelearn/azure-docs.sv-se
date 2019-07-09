@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454899"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657716"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Skapa ett Cognitive Services-konto med Azure Command-Line Interface(CLI)
 
@@ -43,7 +43,7 @@ Dina prenumerationer till Cognitive Services representeras av Azure-resurser. Va
 
 ### <a name="choose-your-resource-group-location"></a>Välj din plats för resursgruppen
 
-För att skapa en resurs, behöver du en av de Azure platserna som är tillgängliga för din prenumeration. Du kan hämta en lista över tillgängliga platser med den [az konto list-locations](/cli/azure/account#az_account_list) kommando. De flesta Cognitive Services kan nås från flera platser. Välj det som är närmast dig, eller se vilka platser som är tillgängliga för tjänsten.
+För att skapa en resurs, behöver du en av de Azure platserna som är tillgängliga för din prenumeration. Du kan hämta en lista över tillgängliga platser med den [az konto list-locations](/cli/azure/account#az-account-list-locations) kommando. De flesta Cognitive Services kan nås från flera platser. Välj det som är närmast dig, eller se vilka platser som är tillgängliga för tjänsten.
 
 > [!IMPORTANT]
 > * Kom ihåg dina Azure-plats som du behöver den när du anropar Azure Cognitive Services.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-När du har din azure-plats kan du skapa en ny resursgrupp i Azure CLI med den [az gruppen skapa](/cli/azure/group#az_group_create) kommando.
+När du har din azure-plats kan du skapa en ny resursgrupp i Azure CLI med den [az gruppen skapa](/cli/azure/group#az-group-create) kommando.
 
 I exemplet nedan ersätter du den azure-platsen `westus2` med någon av de Azure platserna som är tillgänglig för din prenumeration.
 

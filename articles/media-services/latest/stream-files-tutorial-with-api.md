@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273236"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653938"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos"></a>Självstudier: Ladda upp, koda och strömma videor
 
@@ -39,7 +39,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
@@ -86,7 +86,7 @@ I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. 
 Den här funktionen utför följande åtgärder:
 
 * Skapar en **tillgång** 
-* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [container i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [container i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Laddar upp filen till containern i lagringen med hjälp av SAS-URL:en
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -172,7 +172,7 @@ Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om 
 
 I det här exemplet visas URL:er som kan användas för att spela upp videon med olika protokoll:
 
-![Resultat](./media/stream-files-tutorial-with-api/output.png)
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
 ## <a name="test-the-streaming-url"></a>Testa strömnings-URL:en
 

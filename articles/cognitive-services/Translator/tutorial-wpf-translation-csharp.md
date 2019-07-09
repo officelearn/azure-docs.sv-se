@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448235"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657929"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudier: Skapa en översättningsapp med WPF
 
@@ -62,7 +62,7 @@ Det första vi behöver göra är att konfigurera projektet i Visual Studio.
 1. Öppna Visual Studio. Välj sedan **Arkiv > Nytt > Projekt**.
 2. I den vänstra panelen letar du upp och väljer **Visual C#** . Välj sedan **WPF-App (.NET Framework)** i mittenpanelen.
    ![Skapa en WPF-app i Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Namnge projektet, ange Framework-versionen till **.NET Framework 4.5.2 eller senare** och klicka sedan på **OK**.
+3. Namnge projektet `MSTranslatorTextDemo`, inställd framework-version **.NET Framework 4.5.2 eller senare**, klicka sedan på **OK**.
 4. Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Den första är till för appens användargränssnitt, och den andra är till för anropen till Translator Text och Stavningskontroll i Bing.
    ![Granska din miljö](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ Vi lägger till sammansättningar i projektet för att serialisera och deseriali
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {

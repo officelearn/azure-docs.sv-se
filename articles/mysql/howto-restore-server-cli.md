@@ -72,7 +72,7 @@ Den `az mysql server restore` kommandot kräver följande parametrar:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Markera en punkt i tiden att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601-format för datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda UTC Zulu-formatet, till exempel `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 

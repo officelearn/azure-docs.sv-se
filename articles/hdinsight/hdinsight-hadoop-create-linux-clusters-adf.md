@@ -230,7 +230,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
     |Egenskap |Värde |
     |---|---|
-    |Namn |Ange `HDIStorageLinkedService`.|
+    |Name |Ange `HDIStorageLinkedService`.|
     |Azure-prenumeration |Välj din prenumeration från den nedrullningsbara listan.|
     |Lagringskontots namn |Välj Azure Storage-konto som du har skapat som en del av PowerShell-skriptet.|
 
@@ -252,7 +252,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
 
     | Egenskap | Värde |
     | --- | --- |
-    | Namn | Ange `HDInsightLinkedService`.|
+    | Name | Ange `HDInsightLinkedService`.|
     | Typ | Välj **på begäran HDInsight**. |
     | Länkad Azure Storage-tjänst | Välj `HDIStorageLinkedService`. |
     | Klustertyp | Välj **hadoop** |
@@ -260,7 +260,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
     | ID för tjänstens huvudnamn | Ange program-ID för Azure Active Directory-tjänstens huvudnamn som du har skapat som en del av förutsättningarna. |
     | Nyckel för tjänstens huvudnamn | Ange autentiseringsnyckeln för Azure Active Directory-tjänstens huvudnamn. |
     | Kluster-namnprefix | Ange ett värde som ska ha prefixet till samtliga klustertyper som skapas av data factory. |
-    |Prenumeration |Välj din prenumeration från den nedrullningsbara listan.|
+    |Subscription |Välj din prenumeration från den nedrullningsbara listan.|
     | Välj resursgrupp | Välj den resursgrupp som du har skapat som en del av PowerShell-skriptet som du använde tidigare.|
     |Välj region | Välj en region från den nedrullningsbara listan.|
     | OS-typ/kluster SSH-användarnamn | Ange en SSH-användarnamnet, ofta `sshuser`. |

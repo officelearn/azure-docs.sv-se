@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: Kundinformation
       href: key-vault-customer-data.md
-    - name: Viktig information
-      href: key-vault-versions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Regional tillgänglighet

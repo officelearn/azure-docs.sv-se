@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88940b40eb309a5fb6ff73c04a47813ec3a47669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103867"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656611"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Självstudier: Integrera Drift med Azure Active Directory
 
@@ -33,7 +33,7 @@ I de här självstudierna lär du dig att integrera Drift med Azure Active Direc
 
 Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -88,7 +88,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     d. I rutan **Inloggnings-URL** anger du en URL: `https://start.drift.com`
 
-6. Programmets Drift förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+6. Programmets Drift förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 

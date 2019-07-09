@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Begrepp
           items:
+            - name: Läsa riktlinjer för säkerhet
+              href: data-box-heavy-safety.md
             - name: Granska spårning och loggning
               href: data-box-logs.md
             - name: Granska krav

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: f98f16e9996d90b0380f05885e4c2d74e1413f23
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304041"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657667"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exempel: Så identifierar du attityd med Textanalys
 
@@ -103,7 +103,7 @@ Utdata returneras direkt. Du kan strömma resultaten till ett program som stöde
 
 I följande exempel visas svaret för dokumentsamlingen i den här artikeln.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ I följande exempel visas svaret för dokumentsamlingen i den här artikeln.
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>Sentiment analysis V3 offentlig förhandsversion
+
+Den [nästa version av Attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig i offentlig förhandsversion, vilket ger betydande förbättringar i Precision och information om API: er text kategorisering och bedömning. 
+
+> [!NOTE]
+> * Sentiment analysis v3-frågeformat och [databegränsningar](../overview.md#data-limits) är samma som den tidigare versionen.
+> * Just nu, attitydanalys V3: 
+>    * För närvarande endast stöd för engelska.  
+>    * Är tillgängligt i följande regioner: `Central US`, `Central Canada`, ` East Asia` 
+
+|Funktion |Beskrivning  |
+|---------|---------|
+|Förbättrar precisionen     | Betydande förbättringar för identifiering av positivt, neutral, negativ och blandade sentiment i textdokument jämfört med tidigare versioner.           |
+|Dokumentet och på meningsnivå Sentimentresultatet     | Identifiera sentimentet med både ett dokument och dess meningar. Om dokumentet innehåller flera meningar, tilldelas också ett sentimentpoäng varje mening.         |
+|Kategori för känsla och poäng     | API: et returnerar nu sentiment kategorier (`positive`, `negative`, `neutral` och `mixed`) för text, förutom ett sentimentpoäng.        |
+| Förbättrad utdata | Attitydanalys returnerar nu information för både en hel textdokument och dess meningar. |
+
+### <a name="sentiment-labeling"></a>Sentiment märkning
+
+Attitydanalys V3 kan returnera resultat och etiketter (`positive`, `negative`, och `neutral`) på en mening och dokument. På dokumentnivå den `mixed` etikettens (inte poäng) kan också returneras. Sentimentvärdet för dokumentet bestäms genom att sammanställa dess meningar poäng.
+
+| Mening sentiment                                                        | Returnerade dokumentetikett |
+|---------------------------------------------------------------------------|----------------|
+| Minst en positiv mening och resten av meningarna är neutral. | `positive`     |
+| Minst en negativ mening och resten av meningarna är neutral.  | `negative`     |
+| Minst en negativ mening och minst en positiv mening.         | `mixed`        |
+| Alla meningar är neutrala.                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>Sentiment analysis V3 exempel-begäran
+
+Följande JSON är ett exempel på en begäran till den nya versionen av attitydanalys. Observera att begäran formateringen är samma som den tidigare versionen:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>Attitydanalys V3 exempelsvar
+
+Format för förfrågan är samma som den tidigare versionen, har svarsformat ändrats. Följande JSON är ett exempel på ett svar från den nya versionen av API: et:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>Exempel C# kod
+
+Du kan se ett exempel C# program som anropar den här versionen av attitydanalys på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## <a name="summary"></a>Sammanfattning
 

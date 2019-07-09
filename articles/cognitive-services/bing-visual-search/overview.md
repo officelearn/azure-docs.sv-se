@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64916628"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657705"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
@@ -30,7 +30,7 @@ Om du använder den [bildsökning i Bing](../bing-image-search/overview.md), du 
 
 Du kan identifiera följande insikter med hjälp av Bing Visual Search:
 
-| Insikt                              | Beskrivning |
+| Insight                              | Beskrivning |
 |--------------------------------------|-------------|
 | Visuellt likartade bilder              | En lista med avbildningar som visuellt liknar den inmatade bilden. |
 | Visuellt liknande produkter            | Produkter som är visuellt likartade för produkten som visas.            |
@@ -47,7 +47,7 @@ Bing Visual Search-resultat även innehålla avgränsar rutorna för regioner in
 
 API:et för visuell sökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda REST-API: et eller SDK: N för tjänsten.
 
-1. Skapa en [Cognitive Services-kontot](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att få åtkomst till API: er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerationsnyckel från den [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
+1. Skapa en [Cognitive Services-kontot](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att få åtkomst till API: er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerationsnyckel från den [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
 2. Skicka en begäran till API: et med en giltig sökfråga.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 

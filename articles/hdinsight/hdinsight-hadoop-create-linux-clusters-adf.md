@@ -189,9 +189,9 @@ I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDIn
 
     |Egenskap  |Värde  |
     |---------|---------|
-    |Namn | Ange ett namn för data factory. Det här namnet måste vara globalt unikt.|
-    |Prenumeration | Välj din Azure-prenumeration. |
-    |Resursgrupp | Välj **Använd befintlig** och välj sedan den resursgrupp du skapade med hjälp av PowerShell-skriptet. |
+    |Name | Ange ett namn för data factory. Det här namnet måste vara globalt unikt.|
+    |Subscription | Välj din Azure-prenumeration. |
+    |Resource group | Välj **Använd befintlig** och välj sedan den resursgrupp du skapade med hjälp av PowerShell-skriptet. |
     |Version | Lämna på **V2**. |
     |Location | Platsen anges automatiskt till den plats du angav när du skapar resursgruppen tidigare. Den här självstudien platsen anges till **USA, östra**. |
 

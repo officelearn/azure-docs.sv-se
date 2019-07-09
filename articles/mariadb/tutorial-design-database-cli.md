@@ -188,7 +188,7 @@ Följande parametrar behövs för kommandot `az mariadb server restore`:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 

@@ -61,7 +61,7 @@ I följande tabell beskrivs parametrarna:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| Namn |Resursnamnet för resursen för Traffic Manager-profil. Profiler i samma resursgrupp måste ha unika namn. Det här namnet skiljer sig från DNS-namn som används för DNS-frågor. |
+| Name |Resursnamnet för resursen för Traffic Manager-profil. Profiler i samma resursgrupp måste ha unika namn. Det här namnet skiljer sig från DNS-namn som används för DNS-frågor. |
 | ResourceGroupName |Namnet på resursgruppen som innehåller profilen resursen. |
 | TrafficRoutingMethod |Anger den metod för routning av nätverkstrafik som används för att avgöra vilken slutpunkt returneras svar en DNS-fråga. Möjliga värden är ”Performance”, ”viktat” eller ”prioritet”. |
 | RelativeDnsName |Anger värdnamnet delen av DNS-namn som tillhandahålls av den här Traffic Manager-profilen. Det här värdet kombineras med DNS-domännamnet som används av Azure Traffic Manager för att skapa det fullständigt kvalificerade domännamnet (FQDN) för profilen. Till exempel blir ställa in värdet för ”contoso” contoso.trafficmanager.net. |

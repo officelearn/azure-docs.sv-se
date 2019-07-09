@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: Vanliga frågor och svar om Azure Backup Server och DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: Vanliga frågor och svar om Azure Backup-övervakningsaviseringar
+          href: backup-azure-monitor-alert-faq.md
     - name: Säkerhetskopieringsarkitektur
       href: backup-architecture.md
     - name: Rollbaserad Access Control

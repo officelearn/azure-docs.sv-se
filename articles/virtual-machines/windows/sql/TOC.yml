@@ -58,8 +58,12 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Använda Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
+    - name: Registrera med resursprovidern
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: Ändra licensieringsmodell för SQL VM
       href: virtual-machines-windows-sql-ahb.md
+    - name: Ändra SQL Server-version
+      href: virtual-machines-windows-sql-change-edition.md
     - name: Migrera
       items:
         - name: Migrera en SQL Server-databas

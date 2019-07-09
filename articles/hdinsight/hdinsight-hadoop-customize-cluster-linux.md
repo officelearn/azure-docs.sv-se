@@ -176,10 +176,10 @@ Det här avsnittet beskrivs olika sätt du kan använda skriptåtgärder när du
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassad__. Annars väljer du något av skript som tillhandahålls. |
-    | Namn |Ange ett namn för skriptåtgärden. |
+    | Name |Ange ett namn för skriptåtgärden. |
     | Bash-skript-URI |Ange URI för skriptet. |
-    | HEAD/Worker/Zookeeper |Ange de noder som skriptet körs: **HEAD**, **Worker**, eller **ZooKeeper**. |
-    | Parametrar |Ange parametrar, om det krävs av skriptet. |
+    | HEAD/Worker/ZooKeeper |Ange de noder som skriptet körs: **HEAD**, **Worker**, eller **ZooKeeper**. |
+    | Parametrars |Ange parametrar, om det krävs av skriptet. |
 
     Använd den __spara den här skriptåtgärden__ posten för att se till att skriptet tillämpas under skalningsåtgärder.
 

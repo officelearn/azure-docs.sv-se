@@ -165,11 +165,11 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 | Attribut | Type |
 | --- | --- |
-| id | Heltal 64 |
+| id | Integer 64 |
 | itemId | String |
-| properties | Binära Data |
+| properties |Binary Data |
 | table | String |
-| tableKind | Heltal 16 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -179,9 +179,9 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 | Attribut | Type |
 | --- | --- |
 | id |String |
-| operationId |Heltal 64 |
-| properties |Binära Data |
-| tableKind |Heltal 16 |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -191,7 +191,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 | --- | --- |
 | id |String |
 | key |String |
-| KeyType |Heltal 64 |
+| KeyType |Integer 64 |
 | table |String |
 | value |String |
 
@@ -201,7 +201,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 | Attribut | Type | Obs! |
 | --- | --- | --- |
-| id | Sträng, markeras krävs |primärnyckeln i fjärrlager |
+| id | String, markeras krävs |primärnyckeln i fjärrlager |
 | Slutför | Boolean | Fältet för att göra-objekt |
 | text |String |Fältet för att göra-objekt |
 | createdAt | Date | (valfritt) Mappar till **createdAt** Systemegenskapen |

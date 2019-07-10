@@ -155,7 +155,7 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | set-max-intset-entries |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | zset-max-ziplist-entries |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | zset-max-ziplist-value |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| databaser |Konfigurerar hur många databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
+| databases |Konfigurerar hur många databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
 Den nya Azure Cache för Redis-instanser skapas med den [New AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet.

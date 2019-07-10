@@ -34,7 +34,7 @@ Den här snabbstartsguiden använder följande [Flask-exempel](https://github.co
 
 - Hämta [Azure Cosmos DB-emulatorn](local-emulator.md). Emulatorn stöds för tillfället endast på Windows. Exemplet visar hur du kan använda exemplet med en produktionsnyckel från Azure, vilket går att göra på valfri plattform.
 
-- Om du inte redan har Visual Studio Code installerat kan du snabbt installera [VS-kod](https://code.visualstudio.com/Download) för din plattform (Windows, Mac, Linux).
+- Om du inte redan har Visual Studio Code installerat kan du snabbt installera [VS Code](https://code.visualstudio.com/Download) för din plattform (Windows, Mac, Linux).
 
 - Tänk på att lägga till Python-språkstöd genom att installera ett av de populära Python-tilläggen.
   1. Välj ett tillägg.

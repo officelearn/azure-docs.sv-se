@@ -49,7 +49,7 @@
           href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure Portal
           href: sql-database-connect-query-portal.md
-        - name: VS-kod
+        - name: VS Code
           href: sql-database-connect-query-vscode.md
         - name: .NET med Visual Studio
           href: sql-database-connect-query-dotnet-visual-studio.md

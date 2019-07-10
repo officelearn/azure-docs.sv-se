@@ -153,7 +153,7 @@ Informationen som vi just skickade till din IoT-hubb har dirigeras till behålla
 
 1. Klicka på någon av dessa mappar och hitta filer med etiketten **00** och **01** för partitionen.
 
-1. Filerna som är skrivna i [Avro](https://avro.apache.org/) formatet, men Dubbelklicka på någon av dessa filer öppnas en annan flik i webbläsaren och delvis återge data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS-kod och det renderas korrekt.
+1. Filerna som är skrivna i [Avro](https://avro.apache.org/) formatet, men Dubbelklicka på någon av dessa filer öppnas en annan flik i webbläsaren och delvis återge data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS Code och det renderas korrekt.
 
 1. Det finns inget behov av att försök att läsa och tolka data just nu. Vi gör det i nästa artikel.
 

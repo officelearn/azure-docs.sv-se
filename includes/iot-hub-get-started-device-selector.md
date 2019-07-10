@@ -17,7 +17,7 @@ ms.locfileid: "67187439"
 > * [Simulerad enhet med Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Simulerad enhet med Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
 > * [Simulerad enhet med Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
-> * [IoT DevKit AZ3166 med VS-kod](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
+> * [IoT DevKit AZ3166 med VS Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi med Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi med C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)
 > * [Adafruit Feather HUZZAH ESP8266 med Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)

@@ -52,6 +52,8 @@
           items:
             - name: Ansluta till generisk CEF
               href: connect-common-event-format.md
+            - name: Ansluta AWS
+              href: connect-aws.md
             - name: Ansluta till Barracuda
               href: connect-barracuda.md
             - name: Ansluta till Check Point

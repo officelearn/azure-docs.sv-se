@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: Hanterade instansfunktioner
           href: sql-database-managed-instance.md
+        - name: Vanliga frågor och svar om hanterade instanser
+          href: sql-database-managed-instance-faq.md
         - name: Referens för API för hantering
           href: sql-database-managed-instance-create-manage.md
         - name: Resursbegränsningar

@@ -25,6 +25,8 @@
   items:
     - name: Autentiseringsmetoder
       href: concept-authentication-methods.md
+    - name: Lösenordsfri autentisering
+      href: concept-authentication-passwordless.md
     - name: Kombinerad registrering
       href: concept-registration-mfa-sspr-combined.md
     - name: Lösenordsåterställning
@@ -131,8 +133,12 @@
       href: howto-password-smart-lockout.md
     - name: Windows Hello för företag
       href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Lösenordslös inloggning via telefon
-      href: howto-authentication-phone-sign-in.md
+    - name: Lösenordsfri
+      items:
+        - name: Aktivera lösenordsfri
+          href: howto-authentication-passwordless-enable.md
+        - name: Lösenordslös inloggning via telefon
+          href: howto-authentication-phone-sign-in.md
     - name: Certifikatbaserad autentisering
       items:
         - name: Komma igång med certifikatbaserad autentisering

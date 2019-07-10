@@ -49,6 +49,14 @@
       items:
         - name: Vad är enkel inloggning
           href: what-is-single-sign-on.md
+        - name: Aktivera enkel inloggning för ditt program för flera innehavare
+          href: isv-sso-content.md
+        - name: Skapa en Azure-klient för program för flera innehavare
+          href: isv-tenant-multi-tenant-app.md
+        - name: Välja federation för flera innehavare
+          href: isv-choose-multi-tenant-federation.md
+        - name: Skapa dokumentation för program för flera innehavare
+          href: isv-create-sso-documentation.md
         - name: Planera en distribution för enkel inloggning
           href: plan-sso-deployment.md
     - name: Enkel inloggning med ett klick
@@ -73,6 +81,20 @@
           href: tenant-restrictions.md
         - name: Konfigurera SAML-tokenkryptering (förhandsversion)
           href: howto-saml-token-encryption.md
+    - name: Enkel inloggning
+      items:
+        - name: Vad är enkel inloggning
+          href: what-is-single-sign-on.md
+        - name: Planera en distribution för enkel inloggning
+          href: plan-sso-deployment.md
+        - name: Aktivera enkel inloggning i ditt program för flera innehavare
+          href: isv-sso-content.md
+        - name: Välja rätt federationsprotokoll för enkel inloggning
+          href: isv-choose-multi-tenant-federation.md
+        - name: Skapa en Azure-klientorganisation för ditt program för flera innehavare
+          href: isv-tenant-multi-tenant-app.md
+        - name: Skapa och publicera dokumentation om enkel inloggning för ditt program
+          href: isv-create-sso-documentation.md
     - name: Slutanvändarportaler
       href: end-user-experiences.md
 - name: Instruktionsguider

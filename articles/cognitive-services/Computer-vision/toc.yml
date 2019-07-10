@@ -147,6 +147,8 @@
           href: computer-vision-how-to-install-containers.md
         - name: Konfigurera containrar
           href: computer-vision-resource-container-config.md
+        - name: Använda containerinstanser
+          href: deploy-computer-vision-on-container-instances.md
     - name: Använda en ansluten tjänst för visuellt innehåll
       href: vs-computer-vision-connected-service.md
     - name: Analysera videor i realtid

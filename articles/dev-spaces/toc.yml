@@ -9,14 +9,18 @@
       items:
         - name: Teamutveckling
           href: quickstart-team-development.md
-        - name: Java (VS-kod och CLI)
+        - name: Kör ett program
+          href: quickstart-cli.md
+        - name: Köra ett program med Dockerfile
+          href: quickstart-cli-dockerfile.md
+        - name: Köra och felsöka Java med VS Code
           href: quickstart-java.md
-        - name: .NET Core (VS Code och CLI)
+        - name: Köra och felsöka .NET Core med VS Code
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js (VS Code & CLI)
+        - name: Köra och felsöka Node.js med VS Code
           href: quickstart-nodejs.md
+        - name: Köra och felsöka .NET Core med Visual Studio
+          href: quickstart-netcore-visualstudio.md
     - name: Självstudier
       items:
         - name: Java (VS-kod och CLI)
@@ -55,6 +59,8 @@
       items:
         - name: Så här fungerar Dev Spaces
           href: how-dev-spaces-works.md
+        - name: Så här fungerar VS Code med Dev Spaces
+          href: how-vs-code-works-with-dev-spaces.md
     - name: Gör så här för att
       items:
         - name: Skapa ett Kubernetes-kluster med Azure Cloud Shell

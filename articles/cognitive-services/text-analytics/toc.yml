@@ -70,10 +70,10 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: Konfigurera containrar
           href: text-analytics-resource-container-config.md
-        - name: Använda Container Instances (ACI)
+        - name: Använda containerinstanser
           items:
             - name: Sentimentanalys
-              href: how-tos/use-sentiment-analysis-on-aci.md
+              href: how-tos/deploy-sentiment-analysis-on-container-instances.md
         - name: Använda Kubernetes Service (AKS)
           items:
             - name: Språkidentifiering

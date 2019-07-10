@@ -84,7 +84,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Apache Spark-program med hjälp av en Jupyter-anteckningsbok i kluster?
 
@@ -98,7 +98,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Hur konfigurerar jag ett Apache Spark-program med hjälp av Apache Livy på kluster?
@@ -115,7 +115,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Hur konfigurerar jag ett Apache Spark program med hjälp av spark-submit på kluster?
 
@@ -131,7 +131,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Vad som orsakar en OutofMemoryError programundantag Apache Spark?
@@ -216,7 +216,7 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Översikt över Apache Spark minne](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Felsöka ett Apache Spark-program på ett HDInsight-kluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Felsöka ett Apache Spark-program på ett HDInsight-kluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Se även

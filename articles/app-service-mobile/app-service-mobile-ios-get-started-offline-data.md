@@ -167,7 +167,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
-| properties |Binary Data |
+| properties | Binary Data |
 | table | String |
 | tableKind | Integer 16 |
 

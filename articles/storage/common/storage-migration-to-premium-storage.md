@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b6e442ff3333a7fd085f8e452ae056e7daaba8c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153767"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565506"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -41,7 +41,7 @@ Du har slutfört migreringen i sin helhet kan kräva ytterligare åtgärder båd
 ## <a name="plan-the-migration-to-premium-storage"></a>Planera för migrering till Premium Storage
 Det här avsnittet säkerställer att du är redo att följa stegen i migreringen i den här artikeln och hjälper dig att fatta det bästa beslutet på virtuell dator och Disk-typer.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 * Du behöver en Azure-prenumeration. Om du inte har någon kan du skapa en månads [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) prenumeration eller besök [priser för Azure](https://azure.microsoft.com/pricing/) fler alternativ.
 * För att köra PowerShell-cmdlets, måste Microsoft Azure PowerShell-modulen. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * När du planerar att använda virtuella Azure-datorer med Premium Storage som du behöver använda Premium Storage kan virtuella datorer. Du kan använda både Standard och Premium Storage-diskar med Premium Storage kan virtuella datorer. Premium storage-diskar är tillgängliga med flera typer av virtuella datorer i framtiden. Mer information om alla tillgängliga Azure VM-disktyper och storlekar finns i [storlekar för virtuella datorer](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [storlekar för Cloud Services](../../cloud-services/cloud-services-sizes-specs.md).
@@ -90,7 +90,7 @@ Följande avsnitt innehåller riktlinjer för att förbereda virtuella hårddisk
 * [Scenario 1: ”Jag migrerar befintliga virtuella Azure-datorer till Azure Premium Storage”.](#scenario1)
 * [Scenario 2: ”Jag migrerar virtuella datorer från andra plattformar till Azure Premium Storage”.](#scenario2)
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 Om du vill förbereda de virtuella hårddiskarna för migrering behöver du:
 
 * En Azure-prenumeration, ett lagringskonto och en behållare i det lagringskontot som du kan kopiera en virtuell Hårddisk. Observera att mållagringskontot kan vara ett Standard- eller Premium Storage-konto utifrån dina behov.
@@ -176,23 +176,23 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
-    ```
+        ```
 
-    Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/ Källa:  *&lt;källa&gt;:* ** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
-   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:* ** Lagringskontonyckel för källagringskontot.
-   * **/ Dest:  *&lt;mål&gt;:* ** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/DestKey: *&lt;dest-account-key&gt;:* ** Lagringskontonyckel för mållagringskontot.
-   * **/ Mönster:  *&lt;filnamn&gt;:* ** Ange namnet på den virtuella Hårddisken för att kopiera.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-Mer information om hur du använder AzCopy-verktyget, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>Alternativ 2: Kopiera en virtuell Hårddisk med PowerShell (Synchronized copy)
+##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan också kopiera VHD-filen med hjälp av PowerShell-cmdleten Start-AzStorageBlobCopy. Använd följande kommando på Azure PowerShell för att kopiera VHD. Ersätt värdena i <> med motsvarande värden från din käll- och storage-konto. Om du vill använda det här kommandot måste du ha en behållare som kallas virtuella hårddiskar i din mållagringskontot. Om behållaren inte finns, skapa en innan du kör kommandot.
+You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
@@ -256,7 +256,7 @@ Nu när du har en virtuell Hårddisk i den lokala katalogen kan du använda AzCo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Ett exempel \<Uri > kan vara ***”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”***. Ett exempel \<FileInfo > kan vara ***”C:\path\to\upload.vhd”***.
+Ett exempel \<Uri > kan vara  ** _”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”_** . Ett exempel \<FileInfo > kan vara  ** _”C:\path\to\upload.vhd”_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: Använda AzCopy för att ladda upp VHD-filen
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.
@@ -273,57 +273,57 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+        ```
 
-    Här följer beskrivningar av de parametrar som används i AzCopy-kommandot:
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/ Källa:  *&lt;källa&gt;:* ** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
-   * **/ SourceKey:  *&lt;källa kontonyckel&gt;:* ** Lagringskontonyckel för källagringskontot.
-   * **/ Dest:  *&lt;mål&gt;:* ** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/DestKey: *&lt;dest-account-key&gt;:* ** Lagringskontonyckel för mållagringskontot.
-   * **/ BlobType: sidan:** Anger att målet är en sidblob.
-   * **/ Mönster:  *&lt;filnamn&gt;:* ** Ange namnet på den virtuella Hårddisken för att kopiera.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/BlobType: page:** Specifies that the destination is a page blob.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-Mer information om hur du använder AzCopy-verktyget, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="other-options-for-uploading-a-vhd"></a>Andra alternativ för att ladda upp en virtuell Hårddisk
-Du kan också ladda upp en virtuell Hårddisk till storage-kontot med någon av följande metoder:
+##### Other options for uploading a VHD
+You can also upload a VHD to your storage account using one of the following means:
 
-* [Azure Storage kopiering av Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-* [Azure Storage Explorer ladda upp BLOB](https://azurestorageexplorer.codeplex.com/)
-* [Storage Import/Export Service REST API-referens](https://msdn.microsoft.com/library/dn529096.aspx)
-
-> [!NOTE]
-> Du rekommenderas att använda tjänsten importera/exportera om Uppskattat laddar upp tiden är längre än 7 dagar. Du kan använda [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) att uppskatta storlek och överför dataenheten tiden.
->
-> Import/Export kan användas för att kopiera till ett standardlagringskonto. Du behöver att kopiera från standardlagring till premium storage-konto med ett verktyg som AzCopy.
->
->
-
-## <a name="create-azure-virtual-machine-using-premium-storage"></a>Skapa Azure virtuella datorer med Premium Storage
-När den virtuella Hårddisken laddas upp till eller kopieras till önskat lagringskonto, följer du anvisningarna i det här avsnittet för att registrera den virtuella Hårddisken som en OS-avbildning, OS-disken beroende på ditt scenario och sedan skapa en VM-instans från den. Datadisk-VHD kan kopplas till den virtuella datorn när den har skapats.
-Ett exempelskript för migrering finns i slutet av det här avsnittet. Det här enkla skriptet matchar inte alla scenarier. Du kan behöva uppdatera skriptet så att det överensstämmer med ditt specifika scenario. Se nedan för att se om det här skriptet gäller för ditt scenario, [A migrering exempelskriptet](#a-sample-migration-script).
-
-### <a name="checklist"></a>Checklista
-1. Vänta tills alla VHD-diskar som kopierar har slutförts.
-2. Kontrollera att Premium Storage är tillgängligt i den region som du migrerar till.
-3. Bestäm den nya VM-serien som du kommer att använda. Det bör vara en Premium-lagring som är kompatibla och storlek bör vara beroende på tillgänglighet i regionen och utifrån dina behov.
-4. Bestämma den exakta VM-storlek som du ska använda. VM-storlek måste vara tillräckligt stor för att stödja antalet datadiskar som du har. T.ex. Om du har 4 datadiskar, måste den virtuella datorn ha minst 2 kärnor. Överväg även bearbetningskraft, minne och bandbredd i nätverket måste.
-5. Skapa ett Premium Storage-konto i målregionen. Detta är det konto som du ska använda för den nya virtuella datorn.
-6. Har den aktuella VM-informationen till hands, inklusive en lista över diskar och motsvarande VHD-blobbar.
-
-Förbereda programmet för driftstopp. Du måste stoppa all bearbetning i det aktuella systemet om du vill göra en ren migrering. Du kan bara flytta det till konsekvent tillstånd som du kan migrera till den nya plattformen. Varaktighet för stilleståndstid beror på mängden data i diskar för att migrera.
+* [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+* [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+* [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 
 > [!NOTE]
-> Om du skapar en Azure Resource Manager-VM från en specialiserad virtuell hårddisk kan du läsa [den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) för att distribuera Resource Manager-VM med hjälp av den befintliga disken.
+> We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit.
+>
+> Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 >
 >
 
-### <a name="register-your-vhd"></a>Registrera en virtuell Hårddisk
-Skapa en virtuell dator från OS-VHD eller för att koppla en datadisk till en ny virtuell dator, måste du först registrera dem. Följ stegen nedan beroende på din VHD-scenario.
+## <a name="create-azure-virtual-machine-using-premium-storage"></a>Create Azure VMs using Premium Storage
+After the VHD is uploaded or copied to the desired storage account, follow the instructions in this section to register the VHD as an OS image, or OS disk depending on your scenario and then create a VM instance from it. The data disk VHD can be attached to the VM once it is created.
+A sample migration script is provided at the end of this section. This simple script does not match all scenarios. You may need to update the script to match with your specific scenario. To see if this script applies to your scenario, see below [A Sample Migration Script](#a-sample-migration-script).
 
-#### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>Generaliserad operativsystemet VHD för att skapa flera Virtuella Azure-instanser
-När generaliserad virtuell Hårddisk för OS-avbildning har laddats upp till storage-konto, kan du registrera den som en **Azure VM-avbildning** så att du kan skapa en eller flera VM-instanser från den. Använd följande PowerShell-cmdletar för att registrera en virtuell Hårddisk som en Azure VM OS-avbildning. Ange fullständig URL: en där VHD kopierades till.
+### Checklist
+1. Wait until all the VHD disks copying is complete.
+2. Make sure Premium Storage is available in the region you are migrating to.
+3. Decide the new VM series you will be using. It should be a Premium Storage capable, and the size should be depending on the availability in the region and based on your needs.
+4. Decide the exact VM size you will use. VM size needs to be large enough to support the number of data disks you have. E.g. if you have 4 data disks, the VM must have 2 or more cores. Also, consider processing power, memory and network bandwidth needs.
+5. Create a Premium Storage account in the target region. This is the account you will use for the new VM.
+6. Have the current VM details handy, including the list of disks and corresponding VHD blobs.
+
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+
+> [!NOTE]
+> If you are creating an Azure Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) for deploying Resource Manager VM using existing disk.
+>
+>
+
+### Register your VHD
+To create a VM from OS VHD or to attach a data disk to a new VM, you must first register them. Follow steps below depending on your VHD's scenario.
+
+#### Generalized Operating System VHD to create multiple Azure VM instances
+After generalized OS image VHD is uploaded to the storage account, register it as an **Azure VM Image** so that you can create one or more VM instances from it. Use the following PowerShell cmdlets to register your VHD as an Azure VM OS image. Provide the complete container URL where VHD was copied to.
 
 ```powershell
 Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osimage.vhd" -OS Windows

@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 1d68c08f6dfca74c38973af1686d614f3f10cc28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455129"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712472"
 ---
 ## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Skapa en klusterresurs för Azure Kubernetes Service (AKS)
 
@@ -22,10 +22,10 @@ ms.locfileid: "67455129"
 
 1. På den **grunderna** ange följande information:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |--|--|
-    |Prenumeration|Välj lämplig prenumeration|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
+    |Subscription|Välj lämplig prenumeration|
+    |Resource group|Välj en tillgänglig resursgrupp|
     |Kubernetes-klusternamn|Önskat namn (gemener)|
     |Region|Välj en närliggande plats|
     |Kubernetes-version|1.12.8 (standard)|
@@ -37,7 +37,7 @@ ms.locfileid: "67455129"
 1. På den **autentisering** fliken, lämna *tjänstens huvudnamn* och *aktivera RBAC* standardvärdena.
 1. På den **nätverk** ange följande val:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |--|--|
     |Routning av HTTP-program|Nej|
     |Nätverkskonfigurationen|Basic|

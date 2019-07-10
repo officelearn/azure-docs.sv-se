@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: Övervaka händelser – CLI
           href: job-state-events-cli-how-to.md
+    - name: Använda Azure Monitor
+      items:
+        - name: Övervaka mått
+          href: media-services-metrics-howto.md
+        - name: Övervaka diagnostikloggar
+          href: media-services-diagnostic-logs-howto.md
     - name: Skydda innehåll
       items:
         - name: Hämta princip för innehållsnyckel – .NET

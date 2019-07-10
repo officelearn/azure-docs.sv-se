@@ -186,7 +186,7 @@ När din provider åtkomst-token (inte den [sessionstoken](#extend-session-token
 - **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](configure-authentication-provider-microsoft.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
-    2. I den vänstra webbläsaren, navigerar du till **prenumerationer** >  ** _\<prenumeration\_namn_**   >  **resourceGroups** >  _ **\<resource\_grupp\_namn >** _   >  **providers** > **Microsoft.Web** > **platser** >  _ **\<app \_namn >** _ > **config** > **authsettings**. 
+    2. I den vänstra webbläsaren, navigerar du till **prenumerationer** >  ** _\<prenumeration\_namn_**   >  **resourceGroups** >  _ **\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** >  _ **\<app \_namn >**_  > **config** > **authsettings**. 
     3. Klicka på **Redigera**.
     4. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Både Account och Azure Active Directory kan du logga in från flera domäner. Exempelvis kan Account _outlook.com_, _live.com_, och _hotmail.com_ konton. Azure Active Directory kan valfritt antal anpassade domäner för konton loggar in. Det här beteendet kan vara oönskade för en intern app som du inte vill att vem som helst med en _outlook.com_ kontot till åtkomst. Följ dessa steg om du vill begränsa domännamnet konton som loggar in.
 
-I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** >  ** _\< prenumeration\_ namn_**   >  **resourceGroups** >  _ **\< resource\_ grupp\_ namn >** _   >  **providers** > **Microsoft.Web** > **platser**  >    _ **\< app\_ namn >** _ > **config** > **authsettings**. 
+I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** >  ** _\< prenumeration\_ namn_**   >  **resourceGroups** >  _ **\< resource\_ grupp\_ namn >**_   >  **providers** > **Microsoft.Web** > **platser**  >    _ **\< app\_ namn >**_  > **config** > **authsettings**. 
 
 Klicka på **redigera**, ändra egenskapen följande och klickar sedan på **placera**. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill.
 

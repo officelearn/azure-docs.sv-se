@@ -9,14 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: a3c7de8f5e86df749ec3b6d9e73e6f6299e94faf
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f88cfb1d74897abddeaea6aaec9d7f7b1960be6e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592684"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704247"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och köra formuläret Igenkännande behållare
+
 Azure formuläret Igenkännande gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär. Det kopplar värden och tabellposter med nyckel / värde-par och matar ut strukturerade data som innehåller relationerna i den ursprungliga filen. 
 
 För att minska komplexiteten och enkelt integrera en anpassad formuläret Igenkännande-modell i arbetsflödesprocessen automation eller andra program, kan du anropa modellen med hjälp av ett enkelt REST API. Endast fem formuläret dokument (eller ett tomt formulär och två ifyllda formulär) behövs, så du kan få resultat snabbt, korrekt, och skräddarsys för din specifikt innehåll. Det krävs inga tung manuella åtgärder eller omfattande data science-expertis. Och det krävs ingen märkning av data eller data anteckning.

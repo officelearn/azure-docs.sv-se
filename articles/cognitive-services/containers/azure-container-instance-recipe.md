@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445825"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704355"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Distribuera och köra behållare på Azure Container Instance (ACI)
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuera och köra behållare på Azure-Behållarinstans
 
-Med följande steg, skala Azure Cognitive Services-program i molnet enkelt med Azure [Behållarinstans](https://docs.microsoft.com/azure/container-instances/) (ACI). Det här kan du fokusera på att bygga dina program i stället för att hantera infrastrukturen.
+Med följande steg, skala Azure Cognitive Services-program i molnet enkelt med Azure [Behållarinstans](https://docs.microsoft.com/azure/container-instances/). Det här kan du fokusera på att bygga dina program i stället för att hantera infrastrukturen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +35,7 @@ Den här lösningen fungerar med alla Cognitive Services-behållare. Cognitive S
 
 Alla variabler i vinkelparenteser, `<>`, måste de ersättas med dina egna värden. Den här ersättning innehåller hakparenteser.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Använd Container-instans
 

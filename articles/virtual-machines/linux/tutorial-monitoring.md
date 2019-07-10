@@ -4,7 +4,7 @@ description: I den här självstudiekursen lär du dig hur du övervakar startdi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 7aa0fd328e923df5882a2b6354dc61aac7ca4feb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754361"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695582"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Linux-dator i Azure
 
@@ -205,7 +205,7 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att k
 
 Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|

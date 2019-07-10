@@ -146,7 +146,7 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | --- | --- | --- |
 | rdb-backup-enabled |Om [Redis-datapersistens](cache-how-to-premium-persistence.md) är aktiverat |Endast Premium |
 | rdb-storage-connection-string |Anslutningssträngen till lagringskontot för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
-| RDB-säkerhetskopieringsfrekvens |Säkerhetskopieringsfrekvensen för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
+| rdb-backup-frequency |Säkerhetskopieringsfrekvensen för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
 | maxmemory-reserved |Konfigurerar den [minne reserverade](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
 | princip för max. minne |Konfigurerar den [avlägsningsprincipen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cache |Alla prisnivåer |
 | notify-keyspace-events |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |

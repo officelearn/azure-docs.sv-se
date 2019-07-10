@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 84960e82e25f4b6cc59324f17ce46de7f9f7ac23
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272802"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704660"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 
@@ -24,11 +24,11 @@ Azure Cognitive Services-ansikte ger en standardiserad Linux-behållare för Doc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder Ansikts-API-behållare.
 
-|Obligatoriskt|Syfte|
+|Krävs|Syfte|
 |--|--|
 |Docker-motorn| Docker-motorn måste vara installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> På Windows, måste Docker även konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du behöver en grundläggande förståelse för Docker-begrepp som register, databaser, behållare och behållaravbildningar. Du måste också kunskaper om grundläggande `docker` kommandon.| 
@@ -41,7 +41,6 @@ Du måste uppfylla följande krav innan du använder Ansikts-API-behållare.
 ### <a name="the-host-computer"></a>Värddatorn
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 

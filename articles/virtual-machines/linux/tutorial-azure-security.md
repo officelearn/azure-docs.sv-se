@@ -4,7 +4,7 @@ description: I den här självstudiekursen lär du dig mer om funktionerna i Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739774"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708550"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -51,7 +51,7 @@ Innan du kan få en överblick över säkerhetskonfigurationerna för virtuella 
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration. 
 2. För **Datainsamling** i **Automatisk etablering** väljer du **På**.
-3. För **Standardkonfiguration för arbetsyta** lämnar du värdet **Använd arbetsyta/arbetsytor som skapats av Security Center (standard)**.
+3. För **Standardkonfiguration för arbetsyta** lämnar du värdet **Använd arbetsyta/arbetsytor som skapats av Security Center (standard)** .
 4. Under **Säkerhetshändelser** behåller du standardalternativet **Vanliga**.
 4. Klicka på **Spara** längst upp på sidan. 
 

@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5b5bf33c70b9f8827f1f55378e9caf4d1c858bed
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a1be3cd71a32210db8b3d5ef835af7b2d50667f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449426"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705656"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Snabbstart: Använda Translator Text API för att hämta en lista över språk som stöds med C#
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
+
+>[!TIP]
+> Om du vill att all kod på samma gång källkoden för det här exemplet är tillgänglig i [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -115,7 +118,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 Om du vill skriva ut svaret med ”ganska skriva ut” (formatering för svaret), lägger du till den här funktionen i klassen Program:
 ```
@@ -236,12 +239,12 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska exempelkoden för den här snabbstarten och andra, inklusive transkribering och språkidentifiering, samt andra Translator Text-exempelprojekt på GitHub.
+Ta en titt på API-referens för att förstå allt du kan göra med Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Utforska C#-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Översätta text](quickstart-csharp-translate.md)
 * [Translitterera text](quickstart-csharp-transliterate.md)

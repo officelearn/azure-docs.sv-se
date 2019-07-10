@@ -9,22 +9,22 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a4da8d23e78fde9b936bcf9258eec137bcdf9231
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311798"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704144"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabbstart: Skapa en webbapp som startar uppslukande läsaren (C#)
 
 Den [uppslukande läsare](https://www.onenote.com/learningtools) är ett portintervallet utformade verktyg som implementerar beprövade metoder för att förbättra läsbarheten.
 
-I den här snabbstarten skapa en webbapp från grunden och integrera uppslukande läsaren med hjälp av uppslukande Reader-SDK. En fullständig fungerande exempel på den här snabbstarten finns [här](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+I den här snabbstarten skapa en webbapp från grunden och integrera uppslukande läsaren med hjälp av uppslukande Reader-SDK. En fullständig fungerande exempel på den här snabbstarten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
 * En prenumerationsnyckel för uppslukande läsare. Skaffa en genom att följa [instruktionerna](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
@@ -151,7 +151,7 @@ Du bör se i webbläsaren:
 
 När du klickar på knappen ”uppslukande läsare” visas uppslukande läsaren startas med innehåll på sidan.
 
-![Uppslukande läsare](./media/quickstart-immersive-reader.png)
+![Avancerad läsare](./media/quickstart-immersive-reader.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

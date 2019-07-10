@@ -4,7 +4,7 @@ description: I den här självstudien får du lära dig hur du använder cloud-i
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d56aa1c9b86542df3c2a7154669856686823e1dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114260"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708609"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
@@ -47,11 +47,11 @@ Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas
 
 | Alias | Utgivare | Erbjudande | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |senaste |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |senaste |
-| CoreOS |CoreOS |CoreOS |Stable |senaste |
-| | OpenLogic | CentOS | 7-CI | senaste |
-| | Redhat | RHEL | 7-RAW-CI | senaste |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
+| CoreOS |CoreOS |CoreOS |Stable |latest |
+| | OpenLogic | CentOS | 7-CI | latest |
+| | Redhat | RHEL | 7-RAW-CI | latest |
 
 
 ## <a name="create-cloud-init-config-file"></a>Skapa en cloud-init-konfigurationsfil

@@ -4,7 +4,7 @@ description: Självstudier – I den här självstudiekursen lär du dig hur du 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6c6510113710ea19128fcd27adbf8671a8f083bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d8ef524121f41129d842cfdf9822fe6a19c71810
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122719"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709554"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -150,7 +150,7 @@ Skapa en webhook i förgreningen du har skapat:
 
 - Välj **Inställningar** och sedan **Webhooks** på vänster sida.
 - Välj **Lägg till webhook** och skriv *Jenkins* i filterrutan.
-- För **Payload URL** (Webbadress för nyttolast) anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet 
+- För **Payload URL** (Webbadress för nyttolast) anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet
 - För **Innehållstyp** väljer du *application/x-www-form-urlencoded*.
 - För **Which events would you like to trigger this webhook?** (Vilka händelser vill du ska utlösa denna webhook?) väljer du *Just the push event* (Bara push-händelsen).
 - Markera **Aktiv**.

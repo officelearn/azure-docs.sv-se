@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 02d63897cffa2ceca46b992e7d07b917dd73bc72
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621555"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704797"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projektet Akustik Unreal och Wwise integrering
 Den här anvisningen ger detaljerad integreringen av paketets projekt Akustik plugin-programmet till ditt befintliga Unreal och Wwise spel projekt. 
@@ -26,7 +26,7 @@ Programvarukrav:
 * [Wwise plugin-program för Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Om du använder en direkt integrering av Wwise SDK istället för att använda Wwise Unreal plugin-program, se projekt Akustik Unreal plugin-programmet och justera Wwise API-anrop.
 
-Om du vill använda projekt Akustik med en ljud motor än Wwise kontaktar du oss på den [projekt Akustik forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). Du kan använda projekt Akustik Unreal plugin-programmet för att fråga efter Akustik data och gör sedan API-anrop till din motor.
+Om du vill använda projekt Akustik med en ljud motor än Wwise gör en förbättring av begäran på den [projekt Akustik diskussionsforum](https://github.com/microsoft/ProjectAcoustics/issues). Du kan använda projekt Akustik Unreal plugin-programmet för att fråga efter Akustik data och gör sedan API-anrop till din motor.
 
 ## <a name="download-project-acoustics"></a>Ladda ned projektet Akustik
 Om du inte redan gjort ladda ned den [projekt Akustik Unreal & Wwise-plugin-paketet](https://www.microsoft.com/download/details.aspx?id=58090)). 

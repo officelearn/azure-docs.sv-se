@@ -4,7 +4,7 @@ description: I den här självstudien får du lära dig hur du använder Azure C
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 069a0310d1baca4f1be3b5cda0d1e75fbcdfa4c4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169356"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703469"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudier: Skydda en webbserver på en virtuell Linux-dator i Azure med SSL-certifikat som lagras i Key Vault
 När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här självstudiekursen får du lära du dig att:
@@ -84,7 +84,7 @@ vm_secret=$(az vm secret format --secrets "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
 
-När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/*. Om du vill automatisera tillägg av certifikat till den virtuella datorn och konfigurera webbservern använder du cloud-init. I det här exemplet installerar och konfigurerar du NGINX-webbservern. Du kan använda samma process för att installera och konfigurera Apache. 
+När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/* . Om du vill automatisera tillägg av certifikat till den virtuella datorn och konfigurera webbservern använder du cloud-init. I det här exemplet installerar och konfigurerar du NGINX-webbservern. Du kan använda samma process för att installera och konfigurera Apache. 
 
 Skapa en fil med namnet *cloud-init-web-server.txt* och klistra in följande konfiguration:
 

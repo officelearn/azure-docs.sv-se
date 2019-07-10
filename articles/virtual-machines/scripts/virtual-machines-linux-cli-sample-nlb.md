@@ -4,7 +4,7 @@ description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8c599aa1060b9f5f05518416d08b197d018aa3db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e9b536ae6c7056348ac964a2c85ccd698a80ae4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863869"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709373"
 ---
 # <a name="create-a-highly-available-vm"></a>Skapa en virtuell dator med hög tillgänglighet
 

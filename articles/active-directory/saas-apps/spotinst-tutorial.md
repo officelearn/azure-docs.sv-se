@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090152"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Självstudier: Azure Active Directory-integrering med Spotinst
 
@@ -35,7 +35,7 @@ Integrera Spotinst med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Spotinst, behöver du följande objekt:
 
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Spotins
 
     ![Spotinst domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
-    I rutan **Inloggnings-URL** anger du följande URL: `https://console.spotinst.com`
+    I rutan **Inloggnings-URL** anger du följande URL: `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > Vidarebefordransstatus-värdet är inte verkliga. Vidarebefordransstatus värdet uppdateras med det faktiska värdet Vidarebefordransstatus beskrivs senare i självstudien.

@@ -4,7 +4,7 @@ description: I den här självstudiekursen lär du dig hur du övervakar startdi
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aa423fc441c50c774a9670feec64d0f844a4f5ec
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 05fd9f06bec2a68455d42bfd460f0a5a419a255e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755273"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708044"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
@@ -170,7 +170,7 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att k
 
 Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|

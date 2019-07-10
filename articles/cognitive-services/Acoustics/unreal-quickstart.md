@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432825"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704753"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Projektet Akustik Unreal/Wwise Snabbstart
 I den här snabbstarten ska du experimentera med projekt Akustik design kontroller med angivna exemplen för Unreal Engine och Wwise.
@@ -50,7 +50,7 @@ Projektet Akustik Unreal plugin-programmet kräver ytterligare beteenden exponer
 
     ![Skärmbild av Windows Explorer-fönstret som visar skript för att korrigera Wwise projekt](media/patch-wwise-script.png)
 
-* Om du inte har DirectX-SDK är installerat, måste du kommentera ut den rad som innehåller DXSDK_DIR i `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Om du inte har DirectX SDK är installerat, beroende på vilken version av Wwise som du använder kan du behöva kommentera ut rad som innehåller `DXSDK_DIR` i `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Skärmbild av Kodredigerare som visar DXSDK utkommenterad](media/directx-sdk-comment.png)
 
@@ -72,7 +72,7 @@ Om den **ocklusion** multiplikatorn är större än 1 (standardvärdet är 1), �
 Om du vill aktivera via vägg överföring, flytta den **överföring (dB)** skjutreglaget av sin lägsta nivå. 
 
 ### <a name="modify-wetness-for-a-source"></a>Ändra wetness för en källa
-Du kan ändra hur snabbt wetness ändras med avståndet med den **Perceptuell avståndet tänja**. Projektet Akustik beräknar våt nivåer i hela adressutrymmet från simulering, som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Öka avståndet otroligt blir detta genom att öka avståndet-relaterade våt nivåer. Kontrollera avståndet-baserade genljudet ändra mer diskreta skev värden är mindre än 1. Detta kan också justeras i mer detaljerad information genom att justera den **Wetness (dB)**.
+Du kan ändra hur snabbt wetness ändras med avståndet med den **Perceptuell avståndet tänja**. Projektet Akustik beräknar våt nivåer i hela adressutrymmet från simulering, som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Öka avståndet otroligt blir detta genom att öka avståndet-relaterade våt nivåer. Kontrollera avståndet-baserade genljudet ändra mer diskreta skev värden är mindre än 1. Detta kan också justeras i mer detaljerad information genom att justera den **Wetness (dB)** .
 
 Öka tid som decay i hela utrymmet genom att justera **Decay skala**. Tänk dig där simulering resultatet är en decay tid på 1,5 s. Ange den **Decay skala** till 2 resulterar i taget decay tillämpas på källan för 3 s.
 

@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Hämta containerloggar och händelser
           href: container-instances-get-logs.md
-        - name: Loggning med Azure Log Analytics
+        - name: Logga med Azure Monitor-loggar
           href: container-instances-log-analytics.md
     - name: Felsöka
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Videoklipp
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: container-instances-faq.md

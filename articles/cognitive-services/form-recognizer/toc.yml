@@ -35,6 +35,8 @@
         - name: Konfigurera containrar
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Använda containerinstanser
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Referens
   items:
     - name: API för formigenkänning

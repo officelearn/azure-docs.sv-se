@@ -41,7 +41,7 @@ I det här scenariot kan du:
 
 I det här scenariot visar vi hur du visar inledande serveranrop tid (RTT) av en Transmission Control Protocol (TCP)-konversation mellan två slutpunkter.
 
-När en TCP-anslutning har upprättats, följer de första tre paket som skickats under anslutningen ett mönster som vanligtvis kallas 3-vägs-handskakningen. Genom att undersöka de första två paket som skickats under den här handskakning en ursprunglig begäran från klienten och ett svar från servern, kan vi beräkna svarstiden när den här anslutningen har upprättats. Den här fördröjningen refereras till som serveranrop tid (RTT). Mer information om TCP-protokollet och trevägs handskakningen finns i följande resurs. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+När en TCP-anslutning har upprättats, följer de första tre paket som skickats under anslutningen ett mönster som vanligtvis kallas 3-vägs-handskakningen. Genom att undersöka de första två paket som skickats under den här handskakning en ursprunglig begäran från klienten och ett svar från servern, kan vi beräkna svarstiden när den här anslutningen har upprättats. Den här fördröjningen refereras till som serveranrop tid (RTT). Mer information om TCP-protokollet och trevägs handskakningen finns i följande resurs. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Steg 1
 

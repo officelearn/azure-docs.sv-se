@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om förhandsversionen av Azure Data Share
+metadata:
+  title: 'Dokumentation om förhandsversionen av Azure Data Share – självstudier, instruktionsguider'
+  description: Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: '<p>Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer. Välj de datauppsättningar du vill dela, lägg till mottagare och börja dela data med möjlighet att styra, övervaka och kontrollera dina datadelningsrelationer. </p><p>Lär dig hur du använder Azure Data Share med hjälp av våra självstudier.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Azure Data Share på Azure Friday's
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: Instruktionsguider
+    items:
+      - type: paragraph
+        text: 'Lär dig hur du övervakar din datadelning, konfigurerar datauppsättningsmappningar, lägger till mottagare med mera med en av följande instruktionsguider:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Övervaka Azure Data Share
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Konfigurera en datauppsättningsmappning
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Felsöka Azure Data Share
+            href: /azure/data-share/data-share-troubleshoot
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: Lär dig hur du börjar dela data med Azure Data Share
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">Dela data med Azure Data Share</a>
+          - html: <a href="subscribe-to-data-share">Acceptera och ta emot data med Azure Data Share</a>

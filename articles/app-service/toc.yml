@@ -105,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Konfigurera Java
           href: configure-language-java.md
+        - name: Ansluta till lokala resurser
+          href: web-sites-integrate-with-vnet.md
+        - name: Konfigurera Azure Storage (container)
+          href: configure-connect-to-azure-storage.md
     - name: Distribuera till Azure
       items:
         - name: Distribuera appen

@@ -53,6 +53,8 @@
       href: signalr-concept-performance.md
     - name: Autentisering
       href: signalr-concept-authenticate-oauth.md
+    - name: Händelsehantering
+      href: signalr-concept-event-grid-integration.md
 - name: Instruktionsguider
   items:
     - name: Skala
@@ -67,6 +69,8 @@
       items:
         - name: Bindningar för Azure Functions
           href: signalr-concept-azure-functions.md
+        - name: Event Grid-integrering
+          href: signalr-howto-event-grid-integration.md
 - name: Referenser
   items:
     - name: Azure CLI

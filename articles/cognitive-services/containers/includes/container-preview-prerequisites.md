@@ -12,8 +12,8 @@ ms.openlocfilehash: e5d40c9ffd32320ba685e2bdbd3095b4eeec3484
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711421"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717115"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 

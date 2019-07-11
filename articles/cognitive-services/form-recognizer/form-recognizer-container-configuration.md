@@ -1,5 +1,5 @@
 ---
-title: Konfigurera behållaren - formuläret Igenkännande
+title: Så här konfigurerar du en behållare för formuläret Igenkännande
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du konfigurerar formuläret Igenkännande behållaren för att analysera form-och tabelldata.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e4b6a852ece3060ecf866d66d32f213355d99950
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592653"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718449"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera formuläret Igenkännande behållare
 
@@ -45,7 +45,7 @@ Den `Billing` inställningen anger URI för den _formuläret Igenkännande_ resu
 
 Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande översikt**under **Endpoint**.
 
-|Obligatoriskt| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
@@ -76,8 +76,8 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Obligatoriskt| `Input` | String | Inkommande monterings-mål. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obligatoriskt| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Krävs| `Input` | Sträng | Inkommande monterings-mål. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Krävs| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
 
@@ -88,7 +88,7 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 
 Ersätt {_argument_name_} i tabellen nedan med dina egna värden:
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{BILLING_KEY} | Den nyckel som används för att starta behållaren. Det är tillgängligt på Azure portal sidan formuläret Igenkännande nycklar.  |
 |{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet är tillgänglig på Azure portal formuläret Igenkännande översiktssidan.|

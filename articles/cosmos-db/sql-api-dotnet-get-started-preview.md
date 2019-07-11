@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39e0932288b513aa1579945396dff1a7d2df77b3
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686813"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786239"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Skapa en .NET-konsolapp för att hantera data på Azure Cosmos DB SQL API-konto (SDK version 3 – förhandsversion)
 
@@ -60,7 +60,7 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 ## <a id="SetupVS"></a>Steg 2: Konfigurera ett Visual Studio-projekt
 1. Öppna **Visual Studio 2017** i datorn.
 1. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
-1. I dialogrutan **Nytt projekt** väljer du **Visual C#** / **Console App (.NET Framework)**, namnger projektet och klickar på **OK**.
+1. I dialogrutan **Nytt projekt** väljer du **Visual C#**  / **Console App (.NET Framework)** , namnger projektet och klickar på **OK**.
     ![Skärmbild av fönstret nytt projekt](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
     
@@ -174,7 +174,7 @@ Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett 
 Grattis! Du har anslutit till ett Azure Cosmos DB-konto. 
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
-En databas kan skapas med hjälp av antingen funktionen [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) eller [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) för klassen ``CosmosDatabases``. En databas är en logisk container med objekt som är partitionerade över containrar.
+En databas kan skapas med hjälp av antingen funktionen [**CreateDatabaseIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) eller [**CreateDatabaseAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) för klassen ``CosmosDatabases``. En databas är en logisk container med objekt som är partitionerade över containrar.
     
 1. Kopiera och klistra in metoden **CreateDatabase** nedanför metoden **GetStartedDemoAsync**. **CreateDatabase** skapar en ny databas med ID:t ``FamilyDatabase`` om det inte redan finns, med ID:t från fältet ``databaseId``. 
 
@@ -291,7 +291,7 @@ Grattis! Du har skapat en Azure Cosmos DB-databas.
 > 
 > 
 
-En container kan skapas med [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers)- eller [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers)-funktionen i klassen **CosmosContainers**. En container består av objekt (som i fallet med SQL-API:et är JSON-dokument) och tillhörande JavaScript-logik på serversidan, t.ex. lagrade procedurer, användardefinierade funktioner och utlösare.
+En container kan skapas med [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync)- eller [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync)-funktionen i klassen **CosmosContainers**. En container består av objekt (som i fallet med SQL-API:et är JSON-dokument) och tillhörande JavaScript-logik på serversidan, t.ex. lagrade procedurer, användardefinierade funktioner och utlösare.
 
 1. Kopiera och klistra in metoden **CreateContainer** under metoden **CreateDatabase**. **CreateContainer** skapar en ny container med ID:t ``FamilyContainer`` om den inte redan finns, med det ID som angetts från fältet ``containerId``. 
 
@@ -326,7 +326,7 @@ En container kan skapas med [**CreateContainerIfNotExistsAsync**](https://docs.m
 Grattis! Du har skapat en Azure Cosmos DB-container.  
 
 ## <a id="CreateDoc"></a>Steg 6: Lägga till objekt i containern
-Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) i klassen **CosmosItems**. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i Azure Cosmos DB-containern.
+Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) i klassen **CosmosItems**. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i Azure Cosmos DB-containern.
 
 Först måste vi skapa klassen **Familj** som ska representera objekt som lagras i Azure Cosmos DB i det här exemplet. Vi kommer även att skapa underklasserna **Förälder**, **Barn**, **Husdjur** och **Adress** som används inom **Familj**. Observera att dokument måste ha en **id**-egenskap serialiserad som **id** i JSON. 
 1. Välj **Ctrl+Skift+A** för att öppna dialogrutan **Lägg till nytt objekt**. Lägg till en ny klass, **Family.cs**, i projektet. 
@@ -723,7 +723,7 @@ Om du inte har tid att slutföra stegen i den här självstudien eller bara vill
 För att bygga GetStarted-lösningen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Ett [Azure Cosmos DB-konto][cosmos-db-create-account].
+* En [Azure Cosmos DB-konto][cosmos-db-create-account].
 * [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started)-lösningen som finns på GitHub.
 
 Om du vill återställa referenser till Azure Cosmos DB .NET SDK i Visual Studio högerklickar du på **GetStarted**-lösningen i Solution Explorer och klickar sedan på **Återställ NuGet-paket**. I filen App.config uppdaterar du sedan värdena EndPointUri och PrimaryKey enligt anvisningarna i [Ansluta till ett Azure Cosmos DB-konto](#Connect).

@@ -1,5 +1,5 @@
 ---
-title: Feedback-loop - Personalizer
+title: 'Snabbstart: Skapa en feedbackloop - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Anpassa innehållet i den här C# Snabbstart med Personalizer-tjänsten.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 06/11/2019
 ms.author: edjez
-ms.openlocfilehash: 2f2e3d01b02f7c06d69a09374528475301952179
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055505"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722433"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Snabbstart: Anpassa innehåll med hjälp avC# 
 
@@ -32,7 +32,7 @@ Komma igång med Personalizer omfattar följande steg:
 1. Skriva kod för att rangordna de åtgärder som du vill visa till dina användare
 1. Skriva kod för att skicka alla för att träna loopen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du behöver en [Personalizer service](how-to-settings.md) att få din prenumeration nyckel och slutpunkt-url. 
 * [Visual Studio 2015 eller 2017](https://visualstudio.microsoft.com/downloads/).

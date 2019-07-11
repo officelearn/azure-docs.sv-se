@@ -1,5 +1,6 @@
 ---
 title: 'Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Java'
+titleSuffix: Azure Cognitive Services
 description: Använd Ink Igenkännande API för att starta eftersom digitala ink linjer.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 04f2ac17871bbaf0506fe18122507167b23869a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060950"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721244"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Java
 
@@ -28,7 +29,7 @@ Vanligtvis skulle du anropa API från en digital digital penna app. Den här sna
 
 Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den [Java&trade; utveckling Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 

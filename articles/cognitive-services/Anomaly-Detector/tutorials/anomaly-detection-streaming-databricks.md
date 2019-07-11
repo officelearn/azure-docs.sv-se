@@ -1,5 +1,6 @@
 ---
 title: 'Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Använda Avvikelseidentifiering detektor API och Azure Databricks för att övervaka avvikelser i dina data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080795"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721473"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudier: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
 
@@ -46,7 +47,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 > [!Note]
 > Den här självstudien kan inte slutföras med en kostnadsfri utvärderingsversion nyckel för API: T för Avvikelseidentifiering detektor. Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En [Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubb.
 
@@ -74,7 +75,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsytan med den [Azure-por
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **östra USA 2** eller någon av andra tillgängliga regioner. Se [Azure tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/) för regiontillgänglighet.        |
+    |**Location**     | Välj **östra USA 2** eller någon av andra tillgängliga regioner. Se [Azure tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/) för regiontillgänglighet.        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderingsversion**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Skapa**.
@@ -165,10 +166,10 @@ I den här självstudien använder du den [Azure Cognitive Services Avvikelseide
     |Värde |Beskrivning  |
     |---------|---------|
     |Namn     | Ett namn för Avvikelseidentifiering detektor resursen.        |
-    |Prenumeration     | Azure-prenumeration resursen ska kopplas.        |
+    |Subscription     | Azure-prenumeration resursen ska kopplas.        |
     |Location     | En Azure-plats.        |
     |Prisnivå     | En prisnivå för tjänsten. Läs mer om priser för Avvikelseidentifiering detektor [prissättningssidan](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
+    |Resource group     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
 
      Välj **Skapa**.

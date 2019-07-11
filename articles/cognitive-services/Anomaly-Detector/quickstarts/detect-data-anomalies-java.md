@@ -1,5 +1,6 @@
 ---
-title: 'Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av REST-API för Avvikelseidentifiering detektor och Java | Microsoft Docs'
+title: 'Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av REST-API för Avvikelseidentifiering detektor och Java'
+titleSuffix: Azure Cognitive Services
 description: 'Använda API: T för Avvikelseidentifiering detektor för att identifiera avvikelser i dina dataserien som en batch eller på strömmande data.'
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 04ace16559a6f5b747bc735aa89265d2962a32b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2a219dfac597208a2c409f76c035a1b913864245
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073228"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721498"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av REST-API för Avvikelseidentifiering detektor och Java
 
@@ -27,7 +28,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
  Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den [Java&trade; utveckling Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 

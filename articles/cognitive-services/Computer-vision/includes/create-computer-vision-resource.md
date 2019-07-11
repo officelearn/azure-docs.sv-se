@@ -12,8 +12,8 @@ ms.openlocfilehash: cbf11c13bfb5c90739ea67fab92df08796a88e50
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711608"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717278"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Skapa en resurs för visuellt innehåll
 

@@ -1,5 +1,6 @@
 ---
-title: 'Snabbstart: Identifiera avvikelser som en batch med hjälp av REST-API för Avvikelseidentifiering detektor och Python | Microsoft Docs'
+title: 'Snabbstart: Identifiera avvikelser som en batch med hjälp av REST-API för Avvikelseidentifiering detektor och Python'
+titleSuffix: Azure Cognitive Services
 description: 'Använda API: T för Avvikelseidentifiering detektor för att identifiera avvikelser i dina dataserien som en batch eller på strömmande data.'
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 0ab39a7bb86671efb6258e3171e3bf7847aa241f
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c69bc4db35a198d73f9b29ee3ed2fa6b6f71be49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341744"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721461"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Snabbstart: Identifiera avvikelser i tidsseriedata med Avvikelseidentifiering detektor REST API och Python
 
@@ -27,7 +28,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
  Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python 2.x eller 3.x](https://www.python.org/downloads/)
 

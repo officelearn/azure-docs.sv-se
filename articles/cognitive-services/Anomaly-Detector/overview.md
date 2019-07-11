@@ -1,20 +1,21 @@
 ---
-title: Vad är API:et för avvikelseidentifiering? | Microsoft Docs
+title: Vad är API:et för avvikelseidentifiering?
 titleSuffix: Azure Cognitive Services
 description: Använd avancerade algoritmer för Avvikelseidentifiering detektor API för att identifiera avvikelser i tidsseriedata.
 services: cognitive-services
 author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 38b23ee4bfa8a1dbcc11615425ccd580c23eb3e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593093"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721602"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 

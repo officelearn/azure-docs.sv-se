@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera avvikelser för data med hjälp av Avvikelseidentifiering detektor bibliotek och Python | Microsoft Docs'
+title: 'Snabbstart: Identifiera avvikelser för data med hjälp av Avvikelseidentifiering detektor bibliotek och Python'
 titleSuffix: Azure Cognitive Services
 description: 'Använda API: T för Avvikelseidentifiering detektor för att identifiera avvikelser i dina dataserien som en batch eller på strömmande data.'
 services: cognitive-services
@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1d89ed8f40547142d41af9c587fc8fc000fa4dd9
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503679"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721525"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Snabbstart: Avvikelseidentifiering detektor klientbibliotek för Python
 

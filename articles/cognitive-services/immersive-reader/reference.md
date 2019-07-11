@@ -1,20 +1,21 @@
 ---
 title: Uppslukande läsare SDK-referens
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Referens för uppslukande läsaren SDK
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311786"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718400"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Uppslukande läsare SDK-referens
 
@@ -36,8 +37,8 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 | Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
-| `token` | string | Åtkomsttoken som anskaffats vid anrop till den `issueToken` slutpunkt. |
-| `resourceName` | string | Reserverad. Måste anges till `null`. |
+| `token` | sträng | Åtkomsttoken som anskaffats vid anrop till den `issueToken` slutpunkt. |
+| `resourceName` | sträng | Reserverad. Måste anges till `null`. |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller innehållet som ska visas i uppslukande läsaren. |
 | `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden av uppslukande läsaren. Valfri. |
 

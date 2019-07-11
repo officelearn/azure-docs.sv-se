@@ -1,6 +1,6 @@
 ---
-title: Skicka ink-data till Ink Igenkännande API
-titlesuffix: Azure Cognitive Services
+title: Skicka pennanteckning till API:et för handskriftsigenkänning
+titleSuffix: Azure Cognitive Services
 description: 'Lär dig om att anropa API: et för pennanteckningar Analyzer för olika program'
 services: cognitive-services
 author: erhopf
@@ -10,16 +10,16 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027098"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721780"
 ---
-# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka ink-data till Ink Igenkännande API 
+# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka pennanteckning till API:et för handskriftsigenkänning 
 
-Digitala pennanteckningar avser teknik som möjliggör digitala garantier för indata, till exempel handskrift och ritningar. Detta är vanligtvis uppnås med hjälp av en digitizer som samlar in förflyttningar av typ av inkommande enheter, till exempel en penna. När enheter fortsätter att aktivera rika digitala upplevelser för digital penna, kan artificiell intelligens och machine learning igenkänning av skriftliga former och text i en kontext. Ink Igenkännande API kan du skicka ink linjer och få detaljerad information om dem. 
+Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. Detta är vanligtvis uppnås med hjälp av en digitizer som samlar in förflyttningar av typ av inkommande enheter, till exempel en penna. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. Ink Igenkännande API kan du skicka ink linjer och få detaljerad information om dem. 
 
 ## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Ink Igenkännande API vs. OCR-tjänster
 

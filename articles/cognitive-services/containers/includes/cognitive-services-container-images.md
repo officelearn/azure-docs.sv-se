@@ -3,8 +3,8 @@ ms.openlocfilehash: 2c0a93e9e8a45285ee24562d8272175d62490d31
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711432"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717292"
 ---
 ### <a name="container-repositories-and-images"></a>Behållare-databaser och bilder
 
@@ -12,7 +12,7 @@ I tabellerna nedan är en omfattande lista över tillgängliga behållaravbildni
 
 #### <a name="public-container-registry-mcrmicrosoftcom"></a>Offentlig (behållarregister: `mcr.microsoft.com`)
 
-| Tjänst | Container | Databasen/avbildningsnamn |
+| Tjänsten | Container | Databasen/avbildningsnamn |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `azure-cognitive-services/luis` |
 | [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extrahering av nyckelfraser | `azure-cognitive-services/keyphrase` |
@@ -21,7 +21,7 @@ I tabellerna nedan är en omfattande lista över tillgängliga behållaravbildni
 
 #### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Offentlig förhandsversion (behållarregister: `containerpreview.azurecr.io`)
 
-| Tjänst | Container | Databasen/avbildningsnamn |
+| Tjänsten | Container | Databasen/avbildningsnamn |
 |--|--|--|
 | [Avvikelseidentifiering detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `microsoft/cognitive-services-anomaly-detector` |
 | [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Identifiera Text | `microsoft/cognitive-services-recognize-text` |

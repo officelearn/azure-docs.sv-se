@@ -1,21 +1,21 @@
 ---
 title: Vad är Ink Igenkännande? -Ink Igenkännande API
-titlesuffix: Azure Cognitive Services
-description: Integrera dina program, webbplatser, verktyg och andra lösningar för att tillhandahålla Ink Igenkännande...
+titleSuffix: Azure Cognitive Services
+description: Integrera Ink-identifierare i dina program, webbplatser, verktyg och andra lösningar för att tillåta ink linje data att identifieras och användas som indata.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65027231"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721401"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Vad är API för handskriftsigenkänning?
 

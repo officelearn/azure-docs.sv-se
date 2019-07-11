@@ -12,8 +12,8 @@ ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711839"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717164"
 ---
 ## <a name="create-a-luis-resource"></a>Skapa en LUIS-resurs
 
@@ -32,7 +32,7 @@ ms.locfileid: "67711839"
 1. Klicka på **skapa** och vänta tills resursen som ska skapas. När den har skapats, gå till resurssidan
 1. Samla in konfigurerats `endpoint` och en API-nyckel:
 
-    |Resurs-fliken i portalen|Inställning|Värde|
+    |Resurs-fliken i portalen|Inställning|Value|
     |--|--|--|
     |**Översikt**|Slutpunkt|Kopiera slutpunkten. Den liknar `https://luis.cognitiveservices.azure.com/luis/v2.0`|
     |**nycklar**|API-nyckel|Kopiera 1 av två nycklar. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

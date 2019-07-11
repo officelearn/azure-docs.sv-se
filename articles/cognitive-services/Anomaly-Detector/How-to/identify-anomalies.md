@@ -1,5 +1,6 @@
 ---
 title: 'Hur du använder API: T för Avvikelseidentifiering detektor på time series-data'
+titleSuffix: Azure Cognitive Services
 description: Lär dig att identifiera avvikelser i dina data som en batch eller på strömmande data.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 551196815004cb047680e2ae2f8dbe32186c1a0c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432356"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721789"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Anvisningar: Använda API: T för Avvikelseidentifiering detektor på time series-data  
 

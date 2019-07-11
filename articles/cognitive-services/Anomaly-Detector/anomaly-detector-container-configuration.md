@@ -1,20 +1,21 @@
 ---
-title: Konfigurera behållare - Avvikelseidentifiering detektor
+title: Så här konfigurerar du en behållare för Avvikelseidentifiering detektor API
 titleSuffix: Azure Cognitive Services
-description: Körningsmiljö för Avvikelseidentifiering detektor behållare konfigureras med hjälp av den `docker run` kommandot argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar.
+description: Körningsmiljö för Avvikelseidentifiering detektor API behållare konfigureras med hjälp av den `docker run` kommandot argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 50f62fa20ea9b52db79160d9d2f3a6fa463079b7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593109"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721731"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurera Avvikelseidentifiering detektor behållare
 
@@ -58,7 +59,7 @@ Den här inställningen kan hittas på följande plats:
 
 * Azure-portalen: **Avvikelseidentifiering detektor** översikt, märkt `Endpoint`
 
-|Obligatoriskt| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
@@ -89,8 +90,8 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | String | Avvikelseidentifiering detektor behållare Använd inte detta.|
-|Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tillåts inte| `Input` | Sträng | Avvikelseidentifiering detektor behållare Använd inte detta.|
+|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 

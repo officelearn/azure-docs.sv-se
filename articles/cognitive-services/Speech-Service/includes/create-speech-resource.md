@@ -12,8 +12,8 @@ ms.openlocfilehash: 3c42bf2b2acc2472741bd603ea9d653a314ecc40
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711828"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717256"
 ---
 ## <a name="create-a-speech-resource"></a>Skapa en tal-resurs
 

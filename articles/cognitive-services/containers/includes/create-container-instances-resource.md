@@ -13,8 +13,8 @@ ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711410"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717186"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Skapa en Behållarinstans i Azure-resurs
 
@@ -22,7 +22,7 @@ ms.locfileid: "67711410"
 
 2. På den **grunderna** ange följande information:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |--|--|
     |Subscription|Välj din prenumeration.|
     |Resource group|Välj den tillgängliga resursgruppen eller skapa en ny som `cognitive-services`.|
@@ -35,7 +35,7 @@ ms.locfileid: "67711410"
 
 3. På den **nätverk** ange följande information:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |--|--|
     |Portar|Ange TCP-porten som `5000`. Visar behållaren på port 5000.|
 

@@ -1,53 +1,46 @@
 ---
 title: Använda Kubernetes on-premises
 titleSuffix: Azure Cognitive Services
-description: Använda Kubernetes (K8s) och Helm för att definiera tal till text och text till tal behållaravbildningarna kan skapa vi ett Kubernetes-paket. Det här paketet ska distribueras till ett Kubernetes-kluster på plats.
+description: Använda Kubernetes och Helm för att definiera tal till text och text till tal behållaravbildningarna kan skapa vi ett Kubernetes-paket. Det här paketet ska distribueras till ett Kubernetes-kluster på plats.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
-ms.openlocfilehash: 1e3afc80abad5f5c1f9b4d57c52ca75449eeb755
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711487"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786245"
 ---
 # <a name="use-kubernetes-on-premises"></a>Använda Kubernetes on-premises
 
-Använda Kubernetes (K8s) och Helm för att definiera tal till text och text till tal behållaravbildningarna kan skapa vi ett Kubernetes-paket. Det här paketet ska distribueras till ett Kubernetes-kluster på plats. Slutligen kan vi testa de distribuerade tjänsterna och olika konfigurationsalternativ.
+Använda Kubernetes och Helm för att definiera tal till text och text till tal behållaravbildningarna kan skapa vi ett Kubernetes-paket. Det här paketet ska distribueras till ett Kubernetes-kluster på plats. Slutligen kan vi testa de distribuerade tjänsterna och olika konfigurationsalternativ.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här proceduren kräver flera verktyg som måste installeras och köras lokalt.
+Innan du använder tal behållare lokalt måste du uppfylla följande krav:
 
-* Använda en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar.
-* Installera den [Azure CLI][azure-cli] (az).
-* Installera den [Kubernetes CLI][kubernetes-cli] (kubectl).
-* Installera den [Helm][helm-install] klient, Kubernetes pakethanterare.
-    * Installera Helm-server [Tiller][tiller-install].
-* En Azure-resurs med rätt prisnivån. Inte alla prisnivåer arbetar du med dessa avbildningar:
-    * **Tal** resurs med F0 eller standardpriserna nivåerna endast.
-    * **Cognitive Services** resurs med S0 prisnivå.
+|Krävs|Syfte|
+|--|--|
+| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
+| Åtkomst till Behållarregister | För Kubernetes att hämta docker-avbildningar till klustret, behöver åtkomst till behållarregistret. Du behöver [begär åtkomst till behållarregistret][speech-preview-access] första. |
+| Kubernetes CLI | Den [Kubernetes CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från container registry. Kubernetes krävs också innan Helm, vilket är pakethanterare för Kubernetes. |
+| Helm CLI | Som en del av den [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Tal-resurs |För att kunna använda de här behållarna, måste du ha:<br><br>En _tal_ Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal **tal** översikt och nycklar sidor och är krävs för att starta behållaren.<br><br>**{API_KEY}** : Resursnyckeln<br><br>**{ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Datorkonfiguration rekommenderade värden
 
 Referera till den [Speech Service behållare värddatorn][speech-container-host-computer] information som referens. Detta *helm-diagrammet* beräknar automatiskt processor och minne krav utifrån hur många avkodar (samtidiga begäranden) som användaren anger. Dessutom kan anpassas beroende på om optimeringar för ljud/textinmatning är konfigurerade som `enabled`. Helm-diagram standardvärdena till två samtidiga begäranden och inaktiverar optimering.
 
-| Tjänst | CPU / behållare | Minne / behållare |
+| Tjänsten | CPU / behållare | Minne / behållare |
 |--|--|--|
 | **Speech-to-Text** | en avkodaren kräver minst 1,150 millicores. Om den `optimizedForAudioFile` är aktiverat, då 1,950 millicores krävs. (standard: två avkodare) | Krävs: 2 GB<br>Begränsad:  4 GB |
 | **Text till tal** | en samtidig begäran kräver minst 500 millicores. Om den `optimizeForTurboMode` är aktiverat, då 1 000 millicores krävs. (standard: två samtidiga begäranden) | Krävs: 1 GB<br> Begränsad: 2 GB |
-
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
-
-Skicka den [Cognitive Services tal behållare formulär][speech-preview-access] att begära åtkomst till behållaren. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Ansluta till Kubernetes-kluster
 
@@ -55,7 +48,7 @@ Värddatorn förväntas ha ett tillgängliga Kubernetes-kluster. Se den här sj�
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Dela autentiseringsuppgifter för Docker med Kubernetes-kluster
 
-Att tillåta Kubernetes-klustret till `docker pull` konfigurerade avbildningar från den `containerpreview.azurecr.io` behållarregistret måste du överföra docker-autentiseringsuppgifter i klustret. Kör den [ `kubectl create` ][kubectl-create] kommandot nedan för att skapa en *docker-registry hemlighet* baserat på autentiseringsuppgifterna från behållaren [registeråtkomst](#request-access-to-the-container-registry) avsnittet.
+Att tillåta Kubernetes-klustret till `docker pull` konfigurerade avbildningar från den `containerpreview.azurecr.io` behållarregistret måste du överföra docker-autentiseringsuppgifter i klustret. Kör den [ `kubectl create` ][kubectl-create] kommandot nedan för att skapa en *docker-registry hemlighet* baserat på angivna från container registry åtkomst nödvändiga autentiseringsuppgifter.
 
 Från ditt kommandoradsgränssnitt föredrar, kör du följande kommando. Se till att ersätta den `<username>`, `<password>`, och `<email-address>` med autentiseringsuppgifter för container-registret.
 

@@ -9,114 +9,211 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 21f5a2d93b708e93f124bd44177bb7852dfbd86a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515636"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720525"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäga bil pris med det visuella gränssnittet
 
 I den här självstudien får titta du närmare på att utveckla en förutsägande lösning i det visuella gränssnittet för Azure Machine Learning-tjänsten. I slutet av den här självstudien har du en lösning som kan förutsäga priset på en bil baserat på tekniska specifikationer som du skickar den.
 
-Den här självstudien [fortsätter från snabbstarten](ui-quickstart-run-experiment.md) och är **del ett i en självstudieserie i två delar**. Dock har du inte Slutför Snabbstart innan du börjar.
-
-I den första delen av självstudieserien lär du dig hur du:
+I den första delen av kursen lär du dig hur du:
 
 > [!div class="checklist"]
-> * Importera och rensa data (samma steg som snabbstarten)
+> * Import- och rensa data
 > * Träna en modell för maskininlärning
 > * Poängsätta och utvärdera en modell
 
-I [del två](ui-tutorial-automobile-price-deploy.md) av den här självstudieserien du lär dig hur du distribuerar din förutsägelsemodell som en Azure-webbtjänst.
-
-> [!NOTE]
-> En fullständig version av den här självstudien är tillgänglig som en exempelexperimentet.
-> Gå till sidan experiment **Lägg till ny** > **exempel 1 – Regression: Bil pris Prediction(Basic)**
-
+I [del två](ui-tutorial-automobile-price-deploy.md) av självstudiekursen ska du lär dig hur du distribuerar din förutsägelsemodell som en Azure-webbtjänst.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
+En fullständig version av den här självstudien är tillgänglig som en exempelexperimentet.
+
+Du hittar det genom från den **experiment sidan**väljer **Lägg till ny**och välj sedan den **exempel 1 – Regression: Bil pris Prediction(Basic)** experimentera.
+
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till den [nästa avsnitt](#open-the-visual-interface-webpage). Annars kan skapa en nu.
+Om du har en arbetsyta för Azure Machine Learning-tjänsten kan gå vidare till den [nästa avsnitt](#open-the-visual-interface-webpage).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="open-the-visual-interface-webpage"></a>Öppna visuella gränssnittet-webbsida
 
-1. Öppna din arbetsyta i den [Azure-portalen](https://portal.azure.com/).  
+1. Öppna din arbetsyta i den [Azure-portalen](https://portal.azure.com/).
 
-1. På arbetsytan, Välj **visuella gränssnittet**.  Välj sedan **starta visuella gränssnittet**.  
+1. På arbetsytan, Välj **visuella gränssnittet**. Välj sedan **starta visuella gränssnittet**. 
 
     ![Skärmbild av Azure-portalen som visar hur du kommer åt det visuella gränssnittet från en arbetsyta för Machine Learning-tjänsten](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-    Gränssnittet webbsida öppnas i en ny Webbläsarsida.  
+## <a name="create-your-first-experiment"></a>Skapa ditt första experiment
 
-## <a name="import-and-clean-your-data"></a>Importera och rensa data
-
-Det första du behöver är Rensa data. Om du har slutfört snabbstarten kan du återanvända data prep experimentet här. Om du inte har slutfört snabbstarten kan du hoppa över nästa avsnitt och [starta från ett nytt experiment](#start-from-a-new-experiment).
-
-### <a name="reuse-the-quickstart-experiment"></a>Återanvända Snabbstart experimentet
-
-1. Öppna experimentet Snabbstart.
-
-1. Välj **Spara som** längst ned i fönstret.
-
-1. Ge den ett nytt namn i den dialogruta som visas.
-
-    ![Skärmbild som visar hur du byter namn på ett experiment att ”självstudien--förutsäga Automobile Price”](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
-
-1. Nu bör experimentet se ut ungefär så här:
-
-    ![Skärmbild som visar det förväntade tillståndet för experimentet. Bil datauppsättningen ansluter till modulen Välj kolumner som ansluter till den Rensa Data som saknas](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
-
-Om du har återanvänds experimentet Snabbstart, hoppar du över nästa avsnitt för att börja [träna din modell](#train-the-model).
-
-### <a name="start-from-a-new-experiment"></a>Starta från ett nytt experiment
-
-Om du inte har slutfört snabbstarten, följer du stegen nedan för att snabbt skapa ett nytt experiment som importerar och rensar bil datauppsättningen.
+Verktyget visuella gränssnittet innehåller en interaktiv, visuell plats för att skapa förutsägande analysmodeller. Dra och släpp datauppsättningar och analys moduler till en interaktiv och koppla dem för att skapa en *experimentera*.
 
 1. Skapa ett nytt experiment genom att välja **+ ny** längst ned i fönstret visuella gränssnittet.
 
-1. Välj **experiment** >  **tomt Experiment**.
+    ![Lägg till nytt experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
+
+1. Välj **tomt Experiment**.
 
 1. Välj det fördefinierade experimentnamnet **”redan experimenterat lite skapas på...** ”överst på arbetsytan och Byt namn på den till något beskrivande. Till exempel **bilpriser**. Namnet behöver inte vara unikt.
 
-1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Använd sökrutan överst på modulpaletten för att hitta moduler. Typ **bil** i sökrutan för att hitta datauppsättningen **Automobile price data (Raw)** . Dra datauppsättningen till experimentarbetsytan.
+## <a name="add-data"></a>Lägg till data
 
-    ![Skärmbild hitta datauppsättningen bil pris](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+Det första du behöver för machine learning är data. Det finns flera provdatauppsättningar som ingår i det här gränssnittet som du kan använda. Du kan även importera data från befintliga källor. Den här självstudien använder du exempeldatauppsättningen **Automobile price data (Raw)** . 
 
-    Nu när du har dina data kan du lägga till en modul som tar bort den **normalized-losses** kolumn helt. Lägg sedan till en annan modul som tar bort rader där data saknas.
+1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Välj **sparade datauppsättningar** därefter **exempel** att visa tillgängliga exempeldatauppsättningarna.
 
-1. Typ **Markera kolumner** i sökrutan för att hitta den **Välj kolumner i datauppsättning** modulen. Dra den sedan till experimentarbetsytan. Den här modulen kan du välja vilka kolumner med data som du vill inkludera eller exkludera i modellen.
+1. Välj sedan datamängden **Automobile price data (raw)** , och dra den till arbetsytan.
 
-1. Anslut utdataporten för datauppsättningen **Automobile price data (Raw)** till indataporten för Välj kolumner i datauppsättningen.
+   ![Dra data på ytan](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-    ![Animerad gif som visar hur du ansluter modulen Automobile Price Data till modulen Välj kolumner](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+## <a name="select-columns"></a>Välja kolumner
 
-1. Välj Välj kolumner i datauppsättning modulen och välj **starta kolumnväljaren** i den **egenskaper** fönstret.
+Välj vilka kolumner med data du arbetar med. Konfigurera att börja med modulen för att visa alla tillgängliga kolumner.
 
-   1. Till vänster, Välj **med regler**
+> [!TIP]
+> Om du känner till namnet på data eller modulen som du vill använda sökfältet överst på modulpaletten för att hitta det snabbt. Resten av kursen kommer att använda den här genvägen.
 
-   1. Bredvid **börjar med**väljer **alla kolumner**. Dessa regler som är direkt **Välj kolumner i datauppsättning** att gå igenom alla kolumner (utom de som vi ska utesluta).
 
-   1. Listrutor, Välj **undanta** och **kolumnnamn**, och skriv sedan **normalized-losses** i textrutan.
+1. Typ **Välj** i sökrutan för att hitta den **Välj kolumner i datauppsättning** modulen.
 
-   1. Välj knappen OK för att Stäng kolumnväljaren (på längst ned till höger).
+1. Klicka och dra den **Välj kolumner i datauppsättning** till arbetsytan. Ta bort modulen nedan datauppsättningen som du lade till tidigare.
 
-     Egenskapsrutan för **Välj kolumner i datauppsättning** anger nu att alla kolumner i datauppsättningen tas med utom **normalized-losses**.
+1. Ansluta datauppsättningen till den **Välj kolumner i datauppsättning**: Klicka på utdataporten för datauppsättningen genom att dra till indataporten för **Välj kolumner i datauppsättning**, släpper musknappen. Datamängden och modulen förblir anslutna även om du flyttar runt endera av dem på arbetsytan.
 
-1. Lägga till en kommentar i **Välj kolumner i datauppsättning** modulen genom att dubbelklicka på modulen och ange ”exkludera normaliserade förluster”. Detta kan hjälpa dig en snabb översikt vad modulen gör i experimentet.
+    > [!TIP]
+    > Datauppsättningar och moduler har ingångs- och utgångsportar som representeras av små cirklar – ingångsportar högst upp och utgångsportar längst ned. Du skapar ett flöde av data via ditt experiment när du ansluter utdataporten för en modul till en port på en annan.
+    >
 
-    ![Skärmbild som visar korrekt konfiguration av modulen Välj kolumner](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+    ![Ansluta moduler](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
 
-1. Typ **Rengör** i sökrutan för att hitta den **Rensa Data som saknas** modulen. Dra den **Rensa Data som saknas** arbetsytan och koppla den till modulen till arbetsytan för experimentet den **Välj kolumner i datauppsättning** modulen.
+    Rött utropstecken anger att du inte ställer in egenskaperna för modulen ännu.
 
-1. I fönstret **Egenskaper** väljer du **Ta bort hela raden** under **Rensningsläge**. Dessa alternativ direkt **Rensa Data som saknas** att rensa data genom att ta bort rader som har värden som saknas. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
+1. Välj den **Välj kolumner i datauppsättning** modulen.
 
-![Skärmbild som visar korrekt konfiguration av modulen Rensa Data som saknas](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
+1. I den **egenskaper** rutan till höger om arbetsytan, väljer **Redigera kolumner**.
+
+    I den **Markera kolumner** dialogrutan Välj **alla kolumner** och inkludera **alla funktioner**. Dialogrutan bör se ut så här:
+
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+
+1. Längst ned till höger, Välj **OK** att Stäng kolumnväljaren.
+
+## <a name="run-the-experiment"></a>Kör experimentet
+
+Klicka på utdataporten för en datauppsättning eller en modul för att se hur data ser ut vid den tidpunkten i dataflödet när som helst. Om den **visualisera** alternativet är inaktiverat, måste du först kör experimentet.
+
+Ett experiment körs på ett beräkningsmål, vilket är en beräkningsresurs som är kopplad till din arbetsyta. När du skapar ett beräkningsmål kan återanvända du den för framtida körningar.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+När beräkningsmål är tillgängligt, kör experimentet. När körningen är klar visas en grön bock på varje modul.
+
+
+## <a name="preview-the-data"></a>Förhandsgranska data
+
+Nu när du har kört ditt första experiment kan visualisera du data om du vill veta mer om datauppsättningen som du måste arbeta med.
+
+1. Välj på utdataporten längst ned på den **Välj kolumner i datauppsättning** därefter **visualisera**.
+
+1. Klicka på olika kolumner i datafönstret att visa information om den kolumnen.
+
+    I den här datamängden representerar varje rad en bil, och de variabler som är associerade med varje bil visas som kolumner. Det finns 205 rader och 26 kolumner i den här datauppsättningen.
+
+     Varje gång du klickar på en kolumn med data, den **statistik** information och **visualisering** bild av kolumnen visas till vänster. Till exempel när du klickar på **num av dörrar** du se att den har 2 unika värden och 2 värden som saknas. Rulla ned för att se värdena: två till fyra dörrar.
+
+     ![Förhandsgranska data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+
+1. Klicka på varje kolumn för att förstå mer om din datauppsättning och tänka på om de här kolumnerna ska vara användbar för att förutsäga priset på en bil.
+
+## <a name="prepare-data"></a>Förbereda data
+
+En datauppsättning kräver vanligtvis viss bearbetning i förväg innan den kan analyseras. Du kanske har märkt några värden som saknas när visualisera datauppsättningen. Dessa värden som saknas måste rensas bort så att modellen kan analysera informationen korrekt. Du tar bort alla rader som innehåller värden som saknas. Dessutom den **normalized-losses** kolumn har en stor del av saknade värden, så att du ska utesluta kolumnen från modellen helt och hållet.
+
+> [!TIP]
+> Du måste rensa värden som saknas i indata för att kunna använda de flesta moduler.
+
+### <a name="remove-column"></a>Ta bort kolumn
+
+Ta först bort de **normalized-losses** kolumn helt.
+
+1. Välj den **Välj kolumner i datauppsättning** modulen.
+
+1. I den **egenskaper** rutan till höger om arbetsytan, väljer **Redigera kolumner**.
+
+    * Lämna **med regler** och **alla kolumner** valda.
+
+    * I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. Typ **normalized-losses**.
+
+    * Längst ned till höger, Välj **OK** att Stäng kolumnväljaren.
+
+    ![Undanta en kolumn](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+        
+    Nu egenskapsfönstret för Välj kolumner i datauppsättning anger att den släpps igenom alla kolumner i datauppsättningen tas med utom **normalized-losses**.
+        
+    Egenskapsrutan visar att den **normalized-losses** utesluta kolumnen.
+        
+    ![Egenskapsfönster](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
+        
+    Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. 
+
+1. Dubbelklicka på den **Välj kolumner i datauppsättning** modulen och skriver kommentaren ”exkludera normaliserade förluster”. 
+    
+    När du skriver kommentaren, klickar du på utanför modulen. En nedpil visas att modulen innehåller en kommentar.
+
+1. Klicka på nedåt-pilen för att visa kommentaren.
+
+    Modulen visas nu en upp-pilen för att dölja kommentaren.
+        
+    ![Kommentar](./media/ui-tutorial-automobile-price-train-score/comments.png)
+
+### <a name="clean-missing-data"></a>Rensa data som saknas
+
+När du tränar en modell som du behöver göra något om de data som saknas. I det här fallet lägger du till en modul för att ta bort återstående rader där data saknas.
+
+1. Typ **Rengör** i sökrutan för att hitta den **Rensa Data som saknas** modulen.
+
+1. Dra den **Rensa Data som saknas** arbetsytan och koppla den till modulen till arbetsytan för experimentet den **Välj kolumner i datauppsättning** modulen. 
+
+1. I fönstret Egenskaper väljer **ta bort hela raden** under **Rensningsläge**.
+
+    Dessa alternativ direkt **Rensa Data som saknas** att rensa data genom att ta bort rader som har värden som saknas.
+
+1. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
+ 
+    ![Ta bort rader](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
+
+    Experimentet bör nu se ut ungefär så här:
+    
+    ![Välj kolumner](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+
+## <a name="visualize-the-results"></a>Visualisera resultat
+
+Eftersom du har gjort ändringar i moduler i ditt experiment, har status ändrats till ”draft”.  Om du vill visualisera informationen som nya ren först du köra experimentet igen.
+
+1. Välj **kör** längst ned för att köra experimentet.
+
+    Nu kan du återanvända beräkningsmål som du skapade tidigare.
+
+1. Välj **kör** i dialogrutan.
+
+   ![Kör experimentet](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
+
+1. När körningen är klar högerklickar du på den **Rensa Data som saknas** modul för att visualisera nya rensa data.
+
+    ![Visualisera rensa data](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
+
+1. Klicka på olika kolumner i fönstret rensade data för att se hur data har ändrats.
+
+    ![Visualisera Rensa Data](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
+
+    Det finns nu 193 rader och kolumner som är 25.
+
+    När du klickar på **num av dörrar** du ser den fortfarande har 2 unika värden men nu har 0 värden som saknas. Klicka dig igenom resten av kolumnerna för att se att det inte finns några värden som saknas kvar i datauppsättningen. 
 
 ## <a name="train-the-model"></a>Träna modellen
 
@@ -154,7 +251,8 @@ Använd dina data för både träna modellen och testa det genom att dela data i
 
     ![Skärmbild som visar korrekt konfiguration för modulen kolumnen väljare. Med regler > Inkludera kolumnnamn > ”price”](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
-    Nu bör experimentet se ut:
+    Experimentet bör se ut så här:
+
     ![Skärmbild som visar experimentet när du lägger till träningsmodellmodulen är korrekt konfigurerat.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ### <a name="run-the-training-experiment"></a>Kör träningsexperimentet
@@ -219,7 +317,7 @@ Experiment som du skapar i det visuella gränssnittet kan hanteras från arbetsy
 
 I del ett av den här självstudien får slutfört du de här stegen:
 
-* Återanvända experimentet skapade i snabbstarten
+* Skapat ett experiment
 * Förbereda data
 * Träna modellen
 * Poängsätta och utvärdera modellen

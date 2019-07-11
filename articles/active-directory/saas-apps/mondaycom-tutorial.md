@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cdc605c059857c826056fece782bbb9a9c86a15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275801"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718495"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>Självstudier: Integrera monday.com med Azure Active Directory
 
@@ -33,7 +33,7 @@ I de här självstudierna lär du dig att integrera monday.com med Azure Active 
 
 Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -78,7 +78,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I den **SAML grundkonfiguration** fönstret om du har en metadatafil för service provider och du vill konfigurera i **IDP-initierad** läge, utför följande steg:
+1. I den **SAML grundkonfiguration** fönstret om du har en metadatafil för service provider och du vill konfigurera i **IDP-initierad** läge, utför följande steg:
 
     1. Välj **ladda upp metadatafilen**.
 
@@ -89,7 +89,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
        > [!Note]
        > Om den **identifierare** och **svars-URL** värden inte hämta fylls i automatiskt och sedan fylla i värden manuellt. Den **identifierare** och **svars-URL** desamma och värdet är i följande mönster: `https://<your-domain>.monday.com/saml/saml_callback`
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<your-domain>.monday.com`
 
@@ -100,19 +100,15 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     ![Fönstret attribut för användare](common/edit-attribute.png)
 
-6. Förutom ovanstående monday.com program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+1. Förutom ovanstående monday.com program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Namn | Källattribut|
     | ---------------| --------------- |
-    | E-post | user.mail |
+    | Email | user.mail |
     | FirstName | user.givenname |
     | LastName | user.surname |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](./media/mondaycom-tutorial/attribute01.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -136,17 +132,25 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
 ### <a name="configure-mondaycom"></a>Konfigurera monday.com
 
-1. I ett annat webbläsarfönster, loggar du in monday.com som administratör.
+1. Om du vill automatisera konfigurationen inom monday.com, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
 
-2. Gå till den **profil** i det övre högra hörnet av sidan och klicka på **Admin**.
+    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
 
-     ![MONDAY.com konfiguration](./media/mondaycom-tutorial/configuration01.png)
+1. När du lägger till tillägg till webbläsaren, klickar på **konfigurera monday.com** som omdirigerar dig till programmet monday.com. Ange administratörsautentiseringsuppgifter för att logga in på monday.com därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 6.
 
-3. Välj **Security** och se till att klicka på **öppna** bredvid SAML.
+    ![Installationskonfiguration](common/setup-sso.png)
+
+1. Om du vill konfigurera monday.com manuellt, öppna ett nytt webbläsarfönster och logga in på monday.com som administratör och utför följande steg:
+
+1. Gå till den **profil** i det övre högra hörnet av sidan och klicka på **Admin**.
+
+    ![MONDAY.com konfiguration](./media/mondaycom-tutorial/configuration01.png)
+
+1. Välj **Security** och se till att klicka på **öppna** bredvid SAML.
 
     ![MONDAY.com konfiguration](./media/mondaycom-tutorial/configuration02.png)
 
-4. Fyll i informationen nedan från IDP: N.
+1. Fyll i informationen nedan från IDP: N.
 
     ![MONDAY.com konfiguration](./media/mondaycom-tutorial/configuration03.png)
 

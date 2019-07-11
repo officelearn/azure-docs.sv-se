@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3841ba3782286fc1478f4c9c5f3bdd0726004b31
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 634c1d05847f3d4d7b7168d484cd16bf8e351b27
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702146"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723935"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Självstudie: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory
 
@@ -74,7 +74,7 @@ Konfigurera domänen och URL:erna:
 
 1. Om du vill redigera grundalternativ för SAML-konfiguration, Välj den **redigera** ikon (en penna) i det övre högra hörnet av den **SAML grundkonfiguration** avsnittet.
 
-     ![Redigera grundalternativ för SAML-config](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+     ![Redigera grundläggande SAML-konfigurationsalternativ](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
 1. Ange informationen som tillhandahålls av tillverkaren av programmet i steg 1 i lämpliga fält på sidan.
 1. Längst ned på sidan Välj **spara**.

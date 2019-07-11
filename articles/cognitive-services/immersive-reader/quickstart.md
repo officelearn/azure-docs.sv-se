@@ -1,20 +1,21 @@
 ---
-title: 'Snabbstart: Skapa en webbapp som startar uppslukande läsaren (C#)'
+title: 'Snabbstart: Skapa en webbapp som startar uppslukande läsaren medC#'
 titlesuffix: Azure Cognitive Services
-description: I den här snabbstarten får du skapa en webbapp från grunden och lägga till uppslukande läsare-funktioner.
+description: I den här snabbstarten skapa en webbapp från grunden och lägga till uppslukande läsare API-funktioner.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: a4da8d23e78fde9b936bcf9258eec137bcdf9231
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704144"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718411"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabbstart: Skapa en webbapp som startar uppslukande läsaren (C#)
 

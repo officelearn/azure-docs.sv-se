@@ -7,17 +7,17 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 29caea481b1999086440db2021b86d949ce6cbc6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027238"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722486"
 ---
-# <a name="offline-evaluation"></a>Offline-utvärdering
+# <a name="offline-evaluation"></a>Offlineutvärdering
 
 Offline-utvärderingen är en metod som gör att du kan testa och utvärdera effektiviteten i tjänsten Personalizer utan att ändra koden eller påverkar användarupplevelsen. Offline utvärdering använder data som skickas från ditt program för rangordning-API för att jämföra hur olika rangordningar har utfört tidigare.
 

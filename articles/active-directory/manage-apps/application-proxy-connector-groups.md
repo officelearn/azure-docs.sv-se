@@ -14,47 +14,50 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481332"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702483"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper
 
-Kunder använda Azure AD-programproxy för fler scenarier och program. Så vi har gjort App Proxy ännu mer flexibel genom att aktivera flera topologier. Du kan skapa Application Proxy connector grupper så att du kan tilldela specifika anslutningsappar för att hantera specifika program. Den här funktionen ger dig bättre kontroll och sätt att optimera din Application Proxy-distribution. 
+Kunder använda Azure AD-programproxy för fler scenarier och program. Så vi har gjort App Proxy ännu mer flexibel genom att aktivera flera topologier. Du kan skapa Application Proxy connector grupper så att du kan tilldela specifika anslutningsappar för att hantera specifika program. Den här funktionen ger dig bättre kontroll och sätt att optimera din Application Proxy-distribution.
 
-Varje programproxy-kopplingen har tilldelats en anslutningsgrupp. Alla kopplingar som tillhör samma anslutningsgruppen fungerar som en separat enhet för hög tillgänglighet och belastningsutjämning. Alla kopplingar som hör till en anslutningsgrupp. Om du inte skapa grupper, är alla kopplingar i en standardgrupp. Administratören kan skapa nya grupper och tilldela kopplingar till dem i Azure-portalen. 
+Varje programproxy-kopplingen har tilldelats en anslutningsgrupp. Alla kopplingar som tillhör samma anslutningsgruppen fungerar som en separat enhet för hög tillgänglighet och belastningsutjämning. Alla kopplingar som hör till en anslutningsgrupp. Om du inte skapa grupper, är alla kopplingar i en standardgrupp. Administratören kan skapa nya grupper och tilldela kopplingar till dem i Azure-portalen.
 
 Alla program som har tilldelats en anslutningsgrupp. Om du inte skapa grupper, tilldelas alla dina program till en standardgrupp. Men du kan ange programmen för att arbeta med en viss koppling grupp om du organisera dina anslutningsprogram i grupper. I det här fallet fungerar endast kopplingar i gruppen programmet på begäran. Den här funktionen är användbar om dina program finns på olika platser. Du kan skapa anslutningsapp-grupper baserat på plats, så att program alltid betjänas av kopplingar som är fysiskt nära de.
 
->[!TIP] 
->Om du har en stor Application Proxy-distribution kan inte tilldela alla program i standardgruppen för anslutningen. På så sätt kan nya anslutningar inte tar emot live trafik tills du tilldelar dem till en aktiv anslutningsapp-grupp. Den här konfigurationen kan du placera kopplingar i ett inaktivt tillstånd genom att flytta dem till standardgruppen, så att du kan utföra underhåll utan att påverka dina användare.
+> [!TIP]
+> Om du har en stor Application Proxy-distribution kan inte tilldela alla program i standardgruppen för anslutningen. På så sätt kan nya anslutningar inte tar emot live trafik tills du tilldelar dem till en aktiv anslutningsapp-grupp. Den här konfigurationen kan du placera kopplingar i ett inaktivt tillstånd genom att flytta dem till standardgruppen, så att du kan utföra underhåll utan att påverka dina användare.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Om du vill gruppera dina anslutningar, du måste se till att du [installerade flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny anslutning kan den automatiskt ansluter till den **standard** anslutningsgrupp.
 
 ## <a name="create-connector-groups"></a>Skapa anslutningsapp-grupper
-Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha. 
+
+Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Azure Active Directory** > **företagsprogram** > **programproxy**.
-2. Välj **ny anslutningsgrupp**. Ny Anslutningsgrupp bladet visas.
+1. Välj **ny anslutningsgrupp**. Ny Anslutningsgrupp bladet visas.
 
    ![Visar skärmen för att välja en ny anslutningsgrupp](./media/application-proxy-connector-groups/new-group.png)
 
-3. Namnge din ny anslutningsgrupp och sedan använda den nedrullningsbara menyn för att välja vilka kopplingar som tillhör den här gruppen.
-4. Välj **Spara**.
+1. Namnge din ny anslutningsgrupp och sedan använda den nedrullningsbara menyn för att välja vilka kopplingar som tillhör den här gruppen.
+1. Välj **Spara**.
 
 ## <a name="assign-applications-to-your-connector-groups"></a>Tilldela program till dina anslutningsapp-grupper
-Följ dessa steg för varje program som du har publicerat med programproxyn. Du kan tilldela ett program till en anslutningsprogramgrupp när du publicerar den, eller du kan använda de här stegen för att ändra tilldelningen när som helst.   
+
+Följ dessa steg för varje program som du har publicerat med programproxyn. Du kan tilldela ett program till en anslutningsprogramgrupp när du publicerar den, eller du kan använda de här stegen för att ändra tilldelningen när som helst.
 
 1. Hanteringspanel för din katalog väljer du **företagsprogram** > **alla program** > program som du vill tilldela till en anslutningsprogramgrupp > **Programproxy**.
-2. Använd den **Anslutningsgrupp** går du till menyn och välj den grupp du vill att programmet använder.
-3. Välj **spara** tillämpa ändringen.
+1. Använd den **Anslutningsgrupp** går du till menyn och välj den grupp du vill att programmet använder.
+1. Välj **spara** tillämpa ändringen.
 
-## <a name="use-cases-for-connector-groups"></a>Användningsområden för anslutningsapp-grupper 
+## <a name="use-cases-for-connector-groups"></a>Användningsområden för anslutningsapp-grupper
 
 Anslutningsapp-grupper är användbara för olika scenarier, inklusive:
 
@@ -64,11 +67,11 @@ Många organisationer har ett antal sammankopplade datacenter. I detta fall anv�
 
 ### <a name="applications-installed-on-isolated-networks"></a>Program som har installerats på isolerade nätverk
 
-Program kan finnas i nätverk som inte är en del av de viktigaste företagets nätverket. Du kan använda anslutningsapp-grupper för att installera dedikerade anslutningar på isolerade nätverk att också isolera program till nätverket. Detta inträffar vanligtvis när en utomstående leverantör underhåller ett visst program för din organisation. 
+Program kan finnas i nätverk som inte är en del av de viktigaste företagets nätverket. Du kan använda anslutningsapp-grupper för att installera dedikerade anslutningar på isolerade nätverk att också isolera program till nätverket. Detta inträffar vanligtvis när en utomstående leverantör underhåller ett visst program för din organisation.
 
 Anslutningsapp-grupper kan du installera dedikerade anslutningar för dessa nätverk som publicerar endast specifika program, vilket gör det enklare och säkrare flytta över programhantering till andra leverantörer.
 
-### <a name="applications-installed-on-iaas"></a>Program som har installerats på IaaS 
+### <a name="applications-installed-on-iaas"></a>Program som har installerats på IaaS
 
 För program som är installerade på IaaS för molnåtkomst anger anslutningsapp-grupper du en common service för att säkra åtkomst till alla appar. Anslutningsappgrupper inte skapa ytterligare beroende på företagets nätverk eller Fragmentera app-upplevelse. Kopplingar kan installeras på varje datacenter i molnet och fungerar bara program som finns i nätverket. Du kan installera flera kopplingar för att uppnå hög tillgänglighet.
 
@@ -95,7 +98,7 @@ Det finns två olika metoder som du kan använda med en plats för disaster reco
 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Hantera flera företag från en enda klient
 
-Det finns många olika sätt att implementera en modell där en enda tjänstleverantör distribuerar och underhåller Azure AD-relaterade tjänster för flera företag. Anslutningsappgrupper hjälpa administratören att särskilja kopplingar och program i olika grupper. Ett sätt som är lämplig för små företag, är att ha en enda Azure AD-klient och olika företag har sina egna domännamn och nätverk. Detta gäller även för M & A scenarier och situationer där en enskild IT-avdelning har flera företag regler eller företag skäl. 
+Det finns många olika sätt att implementera en modell där en enda tjänstleverantör distribuerar och underhåller Azure AD-relaterade tjänster för flera företag. Anslutningsappgrupper hjälpa administratören att särskilja kopplingar och program i olika grupper. Ett sätt som är lämplig för små företag, är att ha en enda Azure AD-klient och olika företag har sina egna domännamn och nätverk. Detta gäller även för M & A scenarier och situationer där en enskild IT-avdelning har flera företag regler eller företag skäl.
 
 ## <a name="sample-configurations"></a>Exempel-konfigurationer
 
@@ -113,7 +116,7 @@ Den här konfigurationen är tillräckligt för mindre distributioner och tester
 
 Den här konfigurationen är en utveckling av standardvärdet, där det finns en viss app som körs i ett isolerat nätverk, till exempel IaaS virtuellt nätverk:
 
-![Exemplet Azure AD utan Anslutningsapp-grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Exemplet Azure AD utan Anslutningsappgrupper och ett isolerat nätverk](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Rekommenderade konfiguration – flera specifika grupper och en standardgrupp för inaktiv
 

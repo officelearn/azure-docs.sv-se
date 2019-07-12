@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063273"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612890"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Självstudie: integrera funktioner med ett Azure-nätverk
 
@@ -37,7 +38,7 @@ Följande diagram visar arkitekturen för lösningen som du skapar:
 
 Funktioner som körs i Premium-prenumerationen har samma värd funktioner som web apps i Azure App Service som innehåller funktionen VNet-integrering. Läs mer om VNet-integrering, inklusive felsökning och avancerad konfiguration i [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien är det viktigt att du förstår IP-adresser och undernät. Du kan börja med [i den här artikeln som täcker grunderna för adresser och undernät](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Många fler artiklar och videor finns på Internet.
 
@@ -68,9 +69,9 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
     | **Prenumeration** | Din prenumeration | Den prenumeration som har skapats för dina resurser. | 
     | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Välj `myResourceGroup`, eller resursgruppen som du skapade med din funktionsapp. Använder samma resursgrupp för funktionsappen, WordPress VM och värdplan gör det enklare att rensa resurser när du är klar med den här självstudien. |
     | **Namn på virtuell dator** | VNET-Wordpress | VM-namnet måste vara unikt i resursgruppen |
-    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Västeuropa | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
+    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Europa, västra | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
     | **Storlek** | B1s | Välj **ändra storleken på** och välj sedan B1s standard avbildningen, som har 1 virtuella processorer och 1 GB minne. |
-    | **Autentiseringstyp** | Lösenord | Om du vill använda autentisering med lösenord, måste du även ange en **användarnamn**, en säker **lösenord**, och sedan **Bekräfta lösenord**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
+    | **Autentiseringstyp** | lösenordsinställning | Om du vill använda autentisering med lösenord, måste du även ange en **användarnamn**, en säker **lösenord**, och sedan **Bekräfta lösenord**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
 
 1. Välj den **nätverk** fliken och markera under Konfigurera virtuella nätverk **Skapa ny**.
 
@@ -149,7 +150,7 @@ Du kan använda VNet-integrering aktiverat, för att skapa en proxy i din funkti
 
 1. Välj **skapa** att lägga till proxyn i din funktionsapp.
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova
 
 1. I webbläsaren försöker få åtkomst till URL: en som du använde som den **Backend-URL**. Som förväntat, tidsgränsen uppnås för begäran. En timeout uppstår eftersom din WordPress-webbplats som är anslutet endast till det virtuella nätverket och inte via internet.
 

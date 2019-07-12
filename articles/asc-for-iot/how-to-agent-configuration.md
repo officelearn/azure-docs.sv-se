@@ -2,24 +2,25 @@
 title: Konfigurera Azure Security Center för IoT-agenten förhandsversionen | Microsoft Docs
 description: Lär dig hur man konfigurerar agenter för användning med Azure Security Center för IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198447"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618266"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudier: Konfigurera säkerhetsagenter
 
@@ -118,22 +119,22 @@ Standardvärden är tillgängliga i rätt schemat i [Github](https://aka.ms/iot-
 
 ### <a name="supported-security-events"></a>Stöds säkerhetshändelser
 
-|Händelsenamn| propertyName | Standardvärde| Ögonblicksbild händelse| Information om Status  |
+|Händelsenamn| propertyName | Default Value| Ögonblicksbild händelse| Information om Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Diagnostisk händelse|eventPriorityDiagnostic| Av| False| Agenten relaterade diagnostikhändelser. Använd den här händelsen för utförlig loggning.| 
 |Konfigurationsfel |eventPriorityConfigurationError |Låg |False |Det gick inte att parsa konfigurationen av agenten. Kontrollera konfigurationen mot schemat.| 
-|Statistik för avbrutna händelser |eventPriorityDroppedEventsStatistics |Låg |True|Agenten relaterade händelsestatistik. |
-|Meddelandestatistik|eventPriorityMessageStatistics |Låg |True |Agenten relaterade meddelandestatistik. |
-|Anslutna maskinvara|eventPriorityConnectedHardware |Låg |True |Ögonblicksbild av all maskinvara som är anslutna till enheten.|
-|Lyssnande portar|eventPriorityListeningPorts |Hög |True |Ögonblicksbild av alla öppna lyssnande portar på enheten.|
+|Statistik för avbrutna händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agenten relaterade händelsestatistik. |
+|Meddelandestatistik|eventPriorityMessageStatistics |Låg |Sant |Agenten relaterade meddelandestatistik. |
+|Anslutna maskinvara|eventPriorityConnectedHardware |Låg |Sant |Ögonblicksbild av all maskinvara som är anslutna till enheten.|
+|Lyssnande portar|eventPriorityListeningPorts |Hög |Sant |Ögonblicksbild av alla öppna lyssnande portar på enheten.|
 |Skapa process |eventPriorityProcessCreate |Låg |False |Granskningar bearbetas skapas på enheten.|
 |Avsluta process|eventPriorityProcessTerminate |Låg |False |Granskningar bearbetas avslutning på enheten.| 
-|Systeminformation |eventPrioritySystemInformation |Låg |True |En ögonblicksbild av Systeminformation (till exempel: OS- eller CPU).| 
-|Lokala användare| eventPriorityLocalUsers |Hög |True|En ögonblicksbild av registrerade lokala användare i systemet. |
+|Systeminformation |eventPrioritySystemInformation |Låg |Sant |En ögonblicksbild av Systeminformation (till exempel: OS- eller CPU).| 
+|Lokala användare| eventPriorityLocalUsers |Hög |Sant|En ögonblicksbild av registrerade lokala användare i systemet. |
 |Inloggning|  eventPriorityLogin |Hög|False|Granska inloggningshändelser till enheten (lokala och fjärranslutna inloggningar).|
 |Skapa anslutning |eventPriorityConnectionCreate|Låg|False|Granskar TCP-anslutningar som skapats till och från enheten. |
-|Brandväggskonfiguration| eventPriorityFirewallConfiguration|Låg|True|Ögonblicksbild av brandväggskonfiguration för enheten (brandväggsregler). |
-|Grundregler för operativsystem| eventPriorityOSBaseline| Låg|True|Kontrollera ögonblicksbild av enheten grundregler för operativsystem.|
+|Brandväggskonfiguration| eventPriorityFirewallConfiguration|Låg|Sant|Ögonblicksbild av brandväggskonfiguration för enheten (brandväggsregler). |
+|Grundregler för operativsystem| eventPriorityOSBaseline| Låg|Sant|Kontrollera ögonblicksbild av enheten grundregler för operativsystem.|
  
 
 ## <a name="next-steps"></a>Nästa steg

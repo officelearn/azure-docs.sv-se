@@ -5,7 +5,7 @@ services: active-directory
 manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory  
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fcdf75586de9621bd0e42cba6fa9c80e5d30817
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244629"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595219"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS)
 
@@ -36,7 +36,7 @@ Du kan utföra hela åtgärden för att uppdatera SSL-certifikat för AD FS-serv
 >[!NOTE]
 >Läs mer om certifikat som används av AD FS i [Förstå certifikat som används av AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **AD FS-servergrupp**: Se till att AD FS-gruppen är Windows Server 2012 R2-baserad eller senare.
 * **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatera AD FS SSL-certifikatet**.

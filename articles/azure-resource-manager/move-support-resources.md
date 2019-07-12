@@ -4,91 +4,228 @@ description: Visar en lista över vilka typer av Azure-resurs som kan flyttas ti
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 6/6/2019
+ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331990"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721115"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
-Den här artikeln visar om en Azure-resurstypen stöder flyttåtgärden. Även om en resurstyp stöder flyttåtgärden, kan det finnas villkor som hindrar resursen flyttas. Mer information om villkor som påverkar flyttåtgärder finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
+Den här artikeln visar om en Azure-resurstypen stöder flyttåtgärden. Det innehåller även information om särskilda villkor att tänka på när du flyttar en resurs.
 
-För att få samma data som en fil med kommaavgränsade värden kan hämta [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Gå till en resursproviderns namnområde:
+> [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
+> - [microsoft.aadiam](#microsoftaadiam)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppService](#microsoftappservice)
+> - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Backup](#microsoftbackup)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.BatchAI](#microsoftbatchai)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft.Cdn](#microsoftcdn)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Container](#microsoftcontainer)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft.ContainerService](#microsoftcontainerservice)
+> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataConnect](#microsoftdataconnect)
+> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataLake](#microsoftdatalake)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [microsoft.dns](#microsoftdns)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HDInsight](#microsofthdinsight)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [microsoft.insights](#microsoftinsights)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
+> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Microsoft.Logic](#microsoftlogic)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PortalSdk](#microsoftportalsdk)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [Microsoft.ServiceBus](#microsoftservicebus)
+> - [Microsoft.ServiceFabric](#microsoftservicefabric)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.Sql](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Microsoft.TerraformOSS](#microsoftterraformoss)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domainservices | Nej | Nej |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Klienter | Nej | Nej |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | actionrules | Ja | Ja |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Servrar | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | tjänst | Ja | Ja |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | configurationstores | Ja | Ja |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | apiapps | Nej | Nej |
 | appidentities | Nej | Nej |
 | Gateways | Nej | Nej |
 
+> [!IMPORTANT]
+> Se [Apptjänst flytta vägledning](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | policyassignments | Nej | Nej |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | automationaccounts | Ja | Ja |
 | automationaccounts/konfigurationer | Ja | Ja |
 | automationaccounts/runbooks | Ja | Ja |
 
+> [!IMPORTANT]
+> Runbooks måste finnas i samma resursgrupp som Automation-kontot.
+
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | b2cdirectories | Ja | Ja |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | registreringar | Ja | Ja |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | backupvault | Nej | Nej |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | batchaccounts | Ja | Ja |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Kluster | Nej | Nej |
 | fileservers | Nej | Nej |
@@ -96,71 +233,86 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | mapapis | Nej | Nej |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | biztalk | Ja | Ja |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | blockchainmembers | Ja | Ja |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | blueprintassignments | Nej | Nej |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | botservices | Ja | Ja |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Redis | Ja | Ja |
 
+> [!IMPORTANT]
+> Om Azure Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, kan inte instansen flyttas till en annan prenumeration. Se [virtuella nätverk flytta begränsningar](./move-limitations/virtual-network-move-limitations.md).
+
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Profiler | Ja | Ja |
+| profiles | Ja | Ja |
 | profiler-slutpunkter | Ja | Ja |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | certificateorders | Ja | Ja |
 
+> [!IMPORTANT]
+> Se [Apptjänst flytta vägledning](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domainnames | Ja | Nej |
 | virtuella datorer | Ja | Nej |
 
+> [!IMPORTANT]
+> Se [klassisk distribution flytta vägledning](./move-limitations/classic-model-move-limitations.md). Klassiska distributionsresurserna kan flyttas mellan prenumerationer med en åtgärd som är specifika för scenariot.
+
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | networksecuritygroups | Nej | Nej |
 | reservedips | Nej | Nej |
 | virtualnetworks | Nej | Nej |
 
+> [!IMPORTANT]
+> Se [klassisk distribution flytta vägledning](./move-limitations/classic-model-move-limitations.md). Klassiska distributionsresurserna kan flyttas mellan prenumerationer med en åtgärd som är specifika för scenariot.
+
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Ja | Nej |
 
+> [!IMPORTANT]
+> Se [klassisk distribution flytta vägledning](./move-limitations/classic-model-move-limitations.md). Klassiska distributionsresurserna kan flyttas mellan prenumerationer med en åtgärd som är specifika för scenariot.
+
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Ja | Ja |
 | Diskar | Ja | Ja |
@@ -179,18 +331,21 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | virtuella datorer /-tillägg | Ja | Ja |
 | virtualmachinescalesets | Ja | Ja |
 
+> [!IMPORTANT]
+> Se [virtuella datorer flytta vägledning](./move-limitations/virtual-machines-move-limitations.md).
+
 ## <a name="microsoftcontainer"></a>Microsoft.Container
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | containergroups | Nej | Nej |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | containergroups | Nej | Nej |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | register | Ja | Ja |
 | register/buildtasks | Ja | Ja |
@@ -199,111 +354,111 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | register/webhooks | Ja | Ja |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | containerservices | Nej | Nej |
 | managedclusters | Nej | Nej |
 | openshiftmanagedclusters | Nej | Nej |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | program | Ja | Ja |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | anslutningar | Ja | Ja |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hubbar | Ja | Ja |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Jobb | Nej | Nej |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | databoxedgedevices | Nej | Nej |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | kataloger | Ja | Ja |
 | datacatalogs | Nej | Nej |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | connectionmanagers | Nej | Nej |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Paket | Nej | Nej |
 | Planer | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | datafactories | Ja | Ja |
 | fabriker | Ja | Ja |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | datalakeaccounts | Nej | Nej |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | services | Nej | Nej |
 | Services-projekt | Nej | Nej |
 | fack | Nej | Nej |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Servrar | Ja | Ja |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Servrar | Ja | Ja |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | servergroups | Nej | Nej |
 | Servrar | Ja | Ja |
 | serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | artifactsources | Ja | Ja |
 | Distributioner | Ja | Ja |
@@ -313,7 +468,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | steg | Ja | Ja |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | elasticpools | Nej | Nej |
 | elasticpools/iothubtenants | Nej | Nej |
@@ -321,12 +476,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | provisioningservices | Ja | Ja |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Domänkontrollanter | Nej | Nej |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | labcenters | Nej | Nej |
 | Labs | Ja | Nej |
@@ -336,7 +491,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | Scheman | Ja | Ja |
 
 ## <a name="microsoftdns"></a>microsoft.dns
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | dnszones | Nej | Nej |
 | dnszones/en | Nej | Nej |
@@ -349,69 +504,74 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | trafficmanagerprofiles | Nej | Nej |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | databaseaccounts | Ja | Ja |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domäner | Ja | Ja |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | services | Ja | Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domäner | Ja | Ja |
 | ämnen | Ja | Ja |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Kluster | Ja | Ja |
-| namnrymder | Ja | Ja |
+| Namnområden | Ja | Ja |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hanainstances | Ja | Ja |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Kluster | Ja | Ja |
 
+> [!IMPORTANT]
+> Du kan flytta HDInsight-kluster till en ny prenumeration eller resursgrupp. Men kan inte du flytta mellan prenumerationer som nätverksresurser som är länkad till HDInsight-klustret (till exempel virtuella nätverk, nätverkskort eller belastningsutjämnare). Dessutom kan flytta du inte till en ny resursgrupp ett nätverkskort som är kopplad till en virtuell dator för klustret.
+>
+> När du flyttar ett HDInsight-kluster till en ny prenumeration först flytta andra resurser (t.ex. storage-konto). Flytta sedan HDInsight-klustret ensamt.
+
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | services | Ja | Ja |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | datorer | Nej | Nej |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | datamanagers | Ja | Ja |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Jobb | Ja | Ja |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 | actiongroups | Ja | Ja |
@@ -427,45 +587,51 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | webbtester | Ja | Ja |
 | arbetsböcker | Ja | Ja |
 
+> [!IMPORTANT]
+> Kontrollera att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#azure-monitor-limits).
+
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | iotapps | Ja | Ja |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Ja | Ja |
 | graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hsmpools | Nej | Nej |
 | Valv | Ja | Ja |
 
+> [!IMPORTANT]
+> Nyckelvalv som används för diskkryptering kan inte flyttas till en resursgrupp i samma prenumeration eller mellan prenumerationer.
+
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Kluster | Ja | Ja |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| labaccounts | Ja | Ja |
+| labaccounts | Nej | Nej |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hostingenvironments | Nej | Nej |
 | integrationaccounts | Ja | Ja |
@@ -474,19 +640,19 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | Arbetsflöden | Ja | Ja |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | commitmentplans | Ja | Ja |
 | WebServices | Ja | Nej |
 | Arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | operationalizationclusters | Ja | Ja |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 | konton/arbetsytor | Nej | Nej |
@@ -496,51 +662,51 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | teamaccounts-arbetsytor-projekt | Nej | Nej |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hostingaccounts | Nej | Nej |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Arbetsytor | Nej | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | userassignedidentities | Nej | Nej |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Ja | Ja |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | classicdevservices | Nej | Nej |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | mediaservices | Ja | Ja |
 | mediaservices/liveevents | Ja | Ja |
 | mediaservices/strömningsslutpunkter | Ja | Ja |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | assessmentprojects | Nej | Nej |
 | migrateprojects | Nej | Nej |
 | projekt | Nej | Nej |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | netappaccounts | Nej | Nej |
 | netappaccounts/capacitypools | Nej | Nej |
@@ -549,7 +715,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | netappaccounts/capacitypools/volumes/snapshots | Nej | Nej |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | applicationgateways | Nej | Nej |
 | applicationgatewaywebapplicationfirewallpolicies | Nej | Nej |
@@ -566,7 +732,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | expressrouteports | Nej | Nej |
 | frontdoors | Nej | Nej |
 | frontdoorwebapplicationfirewallpolicies | Nej | Nej |
-| loadbalancers | Ja | Ja |
+| loadbalancers | Ja – grundläggande SKU<br>Nej – Standard-SKU | Ja – grundläggande SKU<br>Nej – Standard-SKU |
 | localnetworkgateways | Ja | Ja |
 | natgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
@@ -582,7 +748,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | privatednszones/virtualnetworklinks | Ja | Ja |
 | privateendpoints | Nej | Nej |
 | privatelinkservices | Nej | Nej |
-| publicipaddresses | Ja | Ja |
+| publicipaddresses | Ja – grundläggande SKU<br>Nej – Standard-SKU | Ja – grundläggande SKU<br>Nej – Standard-SKU |
 | publicipprefixes | Ja | Ja |
 | routefilters | Nej | Nej |
 | routetables | Ja | Ja |
@@ -598,98 +764,110 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | vpnsites | Nej | Nej |
 | webapplicationfirewallpolicies | Ja | Ja |
 
+> [!IMPORTANT]
+> Se [virtuella nätverk flytta vägledning](./move-limitations/virtual-network-move-limitations.md).
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namnrymder | Ja | Ja |
+| Namnområden | Ja | Ja |
 | namnområden/notificationhubs | Ja | Ja |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Arbetsytor | Ja | Ja |
 
+> [!IMPORTANT]
+> Kontrollera att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#azure-monitor-limits).
+
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Ja | Ja |
 | lösningar | Ja | Ja |
 | Vyer | Ja | Ja |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | peer-kopplingar | Nej | Nej |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Instrumentpaneler | Ja | Ja |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | rootresources | Nej | Nej |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | workspacecollections | Ja | Ja |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Kapaciteter | Ja | Ja |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konton | Nej | Nej |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Valv | Ja | Ja |
 
+> [!IMPORTANT]
+> Se [återställningstjänster flytta vägledning](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namnrymder | Ja | Ja |
+| Namnområden | Ja | Ja |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | program | Ja | Nej |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | flöden | Ja | Ja |
 | förfrågningsåtgärder | Ja | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | searchservices | Ja | Ja |
 
+> [!IMPORTANT]
+> Du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
+
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | iotsecuritysolutions | Ja | Ja |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Gateways | Nej | Nej |
 | noder | Nej | Nej |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| namnrymder | Ja | Ja |
+| Namnområden | Ja | Ja |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | program | Nej | Nej |
 | Kluster | Ja | Ja |
@@ -701,7 +879,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | volumes | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | program | Ja | Ja |
 | containergroups | Nej | Nej |
@@ -711,17 +889,20 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | volumes | Ja | Ja |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | signalr | Ja | Ja |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | siterecoveryvault | Nej | Nej |
 
+> [!IMPORTANT]
+> Se [återställningstjänster flytta vägledning](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | appliancedefinitions | Nej | Nej |
 | installationer | Nej | Nej |
@@ -730,7 +911,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | jitrequests | Nej | Nej |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | instancepools | Ja | Ja |
 | managedinstances | Ja | Ja |
@@ -740,54 +921,60 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | servrar/elasticpools | Ja | Ja |
 | virtualclusters | Ja | Ja |
 
+> [!IMPORTANT]
+> En databas och server måste vara i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
+
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | sqlvirtualmachinegroups | Ja | Ja |
 | sqlvirtualmachines | Ja | Ja |
 
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | dwvm | Nej | Nej |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Ja | Ja |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Cacheminnen | Nej | Nej |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storagesyncservices | Ja | Ja |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storagesyncservices | Nej | Nej |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storagesyncservices | Nej | Nej |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | chefer | Nej | Nej |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | streamingjobs | Ja | Ja |
 
+> [!IMPORTANT]
+> Stream Analytics-jobb inte kan flyttas när du kör i tillstånd.
+
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Miljöer | Nej | Nej |
 | miljöer/eventsources | Nej | Nej |
@@ -796,44 +983,47 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | instanser/miljöer/eventsources | Nej | Nej |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Nej | Nej |
 | Resurser | Nej | Nej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Miljöer | Ja | Ja |
 | miljöer/eventsources | Ja | Ja |
 | miljöer/referencedatasets | Ja | Ja |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | lagrar | Nej | Nej |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | imagetemplates | Nej | Nej |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | konto | Ja | Ja |
 | tillägget och Account | Ja | Ja |
 | kontot/projektet | Ja | Ja |
 
+> [!IMPORTANT]
+> Om du vill ändra prenumerationen för Azure DevOps [ändra Azure-prenumerationen används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | dedicatedcloudnodes | Ja | Ja |
 | dedicatedcloudservices | Ja | Ja |
 | virtuella datorer | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Certifikat | Nej | Ja |
 | connectiongateways | Ja | Ja |
@@ -841,17 +1031,20 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | customapis | Ja | Ja |
 | hostingenvironments | Nej | Nej |
 | servergrupper | Ja | Ja |
-| webbplatser | Ja | Ja |
+| Platser | Ja | Ja |
 | sites/premieraddons | Ja | Ja |
 | platser/platser | Ja | Ja |
 
+> [!IMPORTANT]
+> Se [Apptjänst flytta vägledning](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | deviceservices | Nej | Nej |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
-| Resurstyp | Resursgrupp | Prenumeration |
+| Resurstyp | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | applicationgroups | Nej | Nej |
 | hostpools | Nej | Nej |
@@ -863,3 +1056,5 @@ Tjänster från tredje part stöder för närvarande inte flyttåtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 Kommandon att flytta resurser finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
+
+För att få samma data som en fil med kommaavgränsade värden kan hämta [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

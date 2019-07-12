@@ -4,7 +4,7 @@ description: Virtuell dator i Azure PowerShell-exempel
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 53784c3d74f9e6af5f1e84cc098194113e81333b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d954bc068693a34ef1d69e4296e972979d4f61b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771268"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671017"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure VM-PowerShell-exempel
 
@@ -45,4 +45,5 @@ I följande tabell innehåller länkar till PowerShell-exempelskript som skapar 
 |**Övervaka virtuella datorer**||
 | [Övervaka en virtuell dator med Azure Monitor-loggar](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
 | [Kopiera en hanterad disk till samma eller en annan prenumeration](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Kopierar en hanterad disk till samma eller en annan prenumeration som är i samma region som den överordnade disken.
+| [Samla in information om alla datorer i en prenumeration med PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en CSV-fil som innehåller namn, resursgrupp för virtuell dator namn, Region, virtuellt nätverk, undernät, privat IP-adress, OS-typ och offentliga IP-adressen för de virtuella datorerna i den angivna prenumerationen.
 | | |

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082721"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607214"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>Hantera SQL Server-datorer i Azure med Azure portal
 
@@ -33,7 +33,7 @@ Den **virtuella datorer med SQL** resursen är nu en oberoende management-tjäns
 ## <a name="remarks"></a>Kommentarer
 
 - Den **virtuella datorer med SQL** resursen är den rekommenderade metoden för att visa och hantera dina SQL Server-datorer. Men, för närvarande den **virtuella datorer med SQL** resursen stöder inte hantering av [supporten (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-datorer. Hantera inställningar för EOS SQL Server-datorer med det inaktuella [fliken för SQL Server-konfiguration](#access-sql-server-configuration-tab) i stället. 
-- Den **virtuella datorer med SQL** resurs är endast tillgänglig för SQL Server-datorer som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- Den **virtuella datorer med SQL** resurs är endast tillgänglig för SQL Server-datorer som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>Åtkomst till SQL VM-resurs
@@ -60,7 +60,7 @@ Om du markerar din SQL Server-VM öppnas den **virtuella datorer med SQL** resur
   > Den **virtuella datorer med SQL** resursen är för dedikerad SQL Server-inställningar. Välj namnet på den virtuella datorn i den **VM** fält för att gå till inställningar som är specifika för den virtuella datorn, men inte exklusivt för SQL Server. 
 
 ## <a name="access-sql-server-configuration-tab"></a>Fliken för åtkomst till SQL Server-konfiguration
-Konfigurationsfliken för SQL Server är inaktuell. Just nu, det är det enda sättet att hantera [supporten (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-datorer och SQL Server-datorer som inte har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+Konfigurationsfliken för SQL Server är inaktuell. Just nu, det är det enda sättet att hantera [supporten (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-datorer och SQL Server-datorer som inte har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 För att komma åt konfigurationsfliken för inaktuella SQL server, måste du gå till den **virtuella datorer** resurs. Du gör detta genom att göra följande:
 

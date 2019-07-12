@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485624"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706788"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
-Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Azure Search integreras enkelt med många andra Azure-tjänster, men du kan även använda det separat, med appar på nätverksservrar eller med programvara som körs på andra molnplattformar.
+Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Även om Azure Search kan enkelt integreras med andra Azure-tjänster, kan du också använda den som en fristående komponent eller integrera det med appar i nätverket eller med programvara som körs på andra molnplattformar.
 
 I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/).
 
@@ -73,10 +73,10 @@ Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världe
 
 Om du indexerar data från en annan Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), som vi rekommenderar att du skapar Azure Search-tjänsten i samma region för att undvika kostnader för bandbredd. Det finns inga avgifter för utgående data när tjänster som är i samma region.
 
-Om du använder kognitiv sökning AI enrichments kan du skapa din tjänst i samma region som din resurs för Cognitive Services. Samplacering av tjänster är ett krav för AI-funktioner.
+Om du använder kognitiv sökning AI enrichments kan du skapa din tjänst i samma region som din resurs för Cognitive Services. *Samplacering av Azure Search och Cognitive Services i samma region är ett krav för AI-berikande*.
 
 > [!Note]
-> Centrala Indien är för närvarande inte tillgänglig för nya tjänster. Du kan skala upp utan begränsningar för tjänster som redan finns i centrala Indien, och din tjänst stöds fullt ut i den regionen. Begränsningen på den här regionen är tillfällig och vi tar bort det här meddelandet när den längre gäller.
+> Centrala Indien är för närvarande inte tillgänglig för nya tjänster. Du kan skala upp utan begränsningar för tjänster som redan finns i centrala Indien, och din tjänst stöds fullt ut i den regionen. Begränsningen på den här regionen är tillfälliga och begränsade till nya tjänster. Vi tar bort det här meddelandet när begränsningen gäller inte längre.
 
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 
@@ -88,27 +88,29 @@ När tjänsten väl har skapats går det inte att ändra prisnivå. Om du senare
 
 ## <a name="create-your-service"></a>Skapa din tjänst
 
-Kom ihåg att fästa din tjänst på instrumentpanelen för enkel åtkomst när du loggar in.
+Ange de nödvändiga indata för att skapa tjänsten. 
 
-![Fäst på instrumentpanelen](./media/search-create-service-portal/new-service3.png "Fäst resursen på instrumentpanelen för snabb åtkomst")
+![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "granska och skapa tjänsten")
+
+Din tjänst har distribuerats inom några minuter, som du kan övervaka via Azure-aviseringar. Överväg att fästa tjänsten på instrumentpanelen för enkel åtkomst i framtiden.
+
+![Övervaka och fästa tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervakare och PIN-kod tjänsten")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Hämta en nyckel och URL-slutpunkt
 
-Med några undantag kräver användning av din nya tjänst att du anger URL-slutpunkten och en API-nyckel för auktorisering. Snabbstarter, självstudier som [Utforska Azure Search REST-API:er (Postman)](search-get-started-postman.md) och [Så använder du Azure Search från .NET](search-howto-dotnet-sdk.md), exempel och anpassad kod behöver en slutpunkt och nyckel för att köras på just din resurs.
+Om du inte använder portalen kräver åtkomst till din nya tjänst att du anger URL-slutpunkten och en autentisering api-nyckel.
 
 1. På översiktssidan för tjänsten letar du upp och kopierar URL-slutpunkten till höger på sidan.
 
-   ![Översiktssidan för tjänst med URL-slutpunkt](./media/search-create-service-portal/url-endpoint.png "URL-slutpunkt och annan tjänstinformation")
-
 2. I det vänstra navigeringsfönstret väljer du **Nycklar** och kopierar sedan någon av administratörsnycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten.
 
-   ![Nyckelsida som visar primär- och sekundärnycklar](./media/search-create-service-portal/admin-api-keys.png "API-administratörsnycklar för auktorisering")
+   ![Översiktssidan för tjänst med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänstinformation")
 
-Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Search-resurs med administratörsrättigheter. För en portalsjälvstudie börjar du med [Självstudie: Importera, indexera och köra frågor i Azure Search](search-get-started-portal.md).
+Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Search-resurs med administratörsrättigheter. För en genomgång av portalen, börja med [snabbstarten: Skapa ett Azure Search-index i portalen](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Skala din tjänst
 
-Det kan ta några minuter att skapa en tjänst (15 minuter eller mer beroende på nivå). När tjänsten har etablerats kan du skala den så att den passar dina behov. Eftersom du har valt standardnivån för din Azure Search-tjänst kan du skala tjänsten i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
+När tjänsten har etablerats kan du skala den så att den passar dina behov. Om du har valt standardnivån för Azure Search-tjänsten kan du skala din tjänst i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
 
 Med ***Partitioner*** kan tjänsten lagra och söka igenom fler dokument.
 
@@ -126,7 +128,7 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 ![Lägga till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägga till kapacitet via repliker och partitioner")
 
 > [!Note]
-> Varje nivå har olika [begränsningar](search-limits-quotas-capacity.md) för det totala antalet Search-enheter som tillåts i en enskild tjänst (repliker * partitioner = totalt antal Search-enheter).
+> Varje partition lagring och hastighet ökar på högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>När ska du lägga till en andra tjänst?
 
@@ -148,4 +150,4 @@ Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet 
 Du kan fortsätta i portalen för att skapa ditt första index när du har etablerat en Azure Search-tjänst.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Importera data, indexera och köra frågor i portalen](search-get-started-portal.md)
+> [Snabbstart: Skapa ett Azure Search-index i portalen](search-get-started-portal.md)

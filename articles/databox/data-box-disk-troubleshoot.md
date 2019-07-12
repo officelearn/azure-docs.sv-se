@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147085"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805712"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggarna för att felsöka problem med schemavalidering i Azure Data Box-Disk
 
@@ -90,8 +90,8 @@ Fel i den *error.xml* med motsvarande rekommenderade åtgärder sammanfattas i t
 | `InvalidBlobNameFormat` | Filsökväg mappas inte till en giltig sökväg i molnet enligt den Azure-Blob namngivningskonventioner.|Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen. |
 | `InvalidFileNameFormat` | Filsökväg mappas inte till en giltig sökväg i molnet enligt filen Azure namngivningskonventioner. |Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen. |
 | `InvalidDiskNameFormat` | Filsökväg mappas inte till ett giltigt disk-namn i molnet enligt namnkonventioner för Azure Managed Disk. |Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen.       |
-| `NotPartOfFileShare` | Gick inte att överföra filer som överför sökvägen inte är giltig. Ladda upp filer till en mapp i Azure Files.   | Ta bort filer i fel och överföra filerna till en införande mapp. Gör om verifieringen. |
-| `NonVhdFileNotSupportedForManagedDisk` | Att det går inte att överföra en icke-VHD-filen som en hanterad disk. |Ta bort icke-VHD-filer eftersom dessa inte stöds. Gör om verifieringen. |
+| `NotPartOfFileShare` | Ladda upp sökvägen för filer är inte giltig. Ladda upp filer till en mapp i Azure Files.   | Ta bort filer i fel och överföra filerna till en införande mapp. Gör om verifieringen. |
+| `NonVhdFileNotSupportedForManagedDisk` | Att det går inte att överföra en icke-VHD-filen som en hanterad disk. |Ta bort icke-VHD-filer från `ManagedDisk` mapp som dessa inte stöds eller flytta filerna till en `PageBlob` mapp. Gör om verifieringen. |
 
 
 ## <a name="next-steps"></a>Nästa steg

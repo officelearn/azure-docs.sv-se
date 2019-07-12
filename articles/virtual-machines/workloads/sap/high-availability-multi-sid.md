@@ -4,7 +4,7 @@ description: Guide till – flera SÄKERHETSIDENTIFIERARE konfiguration med hög
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153855"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709626"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Skapa en konfiguration för SAP NetWeaver multi-SID
 
@@ -447,7 +447,7 @@ ms.locfileid: "66153855"
 
 I September 2016 släppte Microsoft en funktion där du kan hantera flera virtuella IP-adresser med hjälp av en [Azure intern belastningsutjämnare][load-balancer-multivip-overview]. Den här funktionen finns redan i den externa belastningsutjämnaren som Azure.
 
-Om du har en SAP-distribution kan du kan använda en intern belastningsutjämnare för att skapa en Windows-klusterkonfiguration för SAP ASCS/SCS, enligt beskrivningen i den [guide för hög tillgänglighet SAP NetWeaver på virtuella Windows-datorer] [ sap-ha-guide].
+Om du har en SAP-distribution kan du kan använda en intern belastningsutjämnare för att skapa en Windows-klusterkonfiguration för SAP ASCS/SCS, enligt beskrivningen i den [guide för hög tillgänglighet SAP NetWeaver på virtuella Windows-datorer][sap-ha-guide].
 
 Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation till en SAP – flera SÄKERHETSIDENTIFIERARE konfiguration genom att installera ytterligare SAP ASCS/SCS klustrade instanser i ett befintligt Windows Server Failover Clustering WSFC-kluster. När processen är slutförd, har du konfigurerat ett SAP – flera SÄKERHETSIDENTIFIERARE kluster.
 
@@ -456,8 +456,8 @@ Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Du redan har konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans som beskrivs i den [guide för hög tillgänglighet SAP NetWeaver på virtuella Windows-datorer] [ sap-ha-guide] och som visas i det här diagrammet.
+## <a name="prerequisites"></a>Förutsättningar
+Du redan har konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans som beskrivs i den [guide för hög tillgänglighet SAP NetWeaver på virtuella Windows-datorer][sap-ha-guide] och som visas i det här diagrammet.
 
 ![Hög tillgänglighet SAP ASCS/SCS-instans][sap-ha-guide-figure-6001]
 
@@ -489,7 +489,7 @@ Fullständig liggande med två SAP-system med hög tillgänglighet skulle se ut 
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen
 För att förbereda din infrastruktur, kan du installera en ytterligare SAP ASCS/SCS-instans med följande parametrar:
 
-| Parameternamn | Värde |
+| Parameternamn | Value |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | SAP DBMS intern belastningsutjämnare | PR5 |
@@ -662,9 +662,9 @@ Fullständig processen för att installera en andra SID2 för SAP-system beskriv
 
 7. [Ändra starttypen för tjänstinstansen SAP ÄNDARE Windows][sap-ha-guide-9.4].
 
-8. [Installera den primära SAP-programservern] [ sap-ha-guide-9.5] på den nya dedikerade VM.
+8. [Installera den primära SAP-programservern][sap-ha-guide-9.5] på den nya dedikerade VM.
 
-9. [Installera SAP ytterligare programservern] [ sap-ha-guide-9.6] på den nya dedikerade VM.
+9. [Installera SAP ytterligare programservern][sap-ha-guide-9.6] på den nya dedikerade VM.
 
 10. [Testa redundans för SAP ASCS/SCS-instans och SIOS replikering][sap-ha-guide-10].
 

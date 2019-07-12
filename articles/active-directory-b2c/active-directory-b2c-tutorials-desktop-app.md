@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508203"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835703"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet. 
+- [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.NET-skrivbordsutveckling** och **ASP.NET och webbutveckling** arbetsbelastningar.
 
 ## <a name="add-the-native-client-application"></a>Lägga till det interna klientprogrammet
@@ -83,12 +83,12 @@ Tryck på **F5** för att skapa och köra exemplet.
 ### <a name="sign-up-using-an-email-address"></a>Registrera sig med en e-postadress
 
 1. Klicka på **Logga In** för att registrera dig som användare. Då används användarflödet **B2C_1_signupsignin1**.
-2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**. 
+2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**.
 3. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 
-    Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen. 
+    Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Arbetsflöde för registrering](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Registreringssidan visas som en del av sign-in/registrering arbetsflöde](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-klientorganisationen.
 
@@ -107,4 +107,4 @@ I den här självstudiekursen lärde du dig att:
 > * Registrera dig via användarflödet
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Självstudier: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

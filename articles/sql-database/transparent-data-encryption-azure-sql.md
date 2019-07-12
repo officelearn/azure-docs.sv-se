@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061382"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723267"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -33,7 +33,7 @@ SQL Server som körs på virtuella Azure-datorer även kan använda en asymmetri
 
 ## <a name="service-managed-transparent-data-encryption"></a>Tjänsthanterad transparent datakryptering
 
-I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de också samma inbyggda certifikat. Microsoft roterar automatiskt dessa certifikat i enlighet med den interna säkerhetsprincipen och rotnyckeln skyddas av en Microsoft interna hemliga store.  Kunder kan kontrollera kompatibiliteten för SQL-databas med interna säkerhetsprinciper i oberoende tredje parts granskningsrapporter tillgängligt på den [Microsoft Trust Center](https://servicetrust.microsoft.com/).
+I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unik för varje server och krypteringsalgoritmen som används är AES-256. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de också samma inbyggda certifikat.  Microsoft roterar automatiskt dessa certifikat i enlighet med den interna säkerhetsprincipen och rotnyckeln skyddas av en Microsoft interna hemliga store.  Kunder kan kontrollera kompatibiliteten för SQL-databas med interna säkerhetsprinciper i oberoende tredje parts granskningsrapporter tillgängligt på den [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-replikering och återställer.
 
@@ -93,7 +93,7 @@ Om du vill konfigurera transparent datakryptering via PowerShell, måste du vara
 
 Använd följande cmdlets för Azure SQL Database och Data Warehouse:
 
-| Cmdlet | Beskrivning |
+| Cmdlet: | Beskrivning |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent datakryptering för en databas|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Hämtar transparent data encryption tillståndet för en databas |

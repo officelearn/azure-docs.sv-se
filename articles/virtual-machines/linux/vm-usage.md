@@ -4,7 +4,7 @@ description: Förstå användningsinformation för virtuella datorer
 services: virtual-machines
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-virtual-machine
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc341492779e6ed5aef2505a98ad8a116866fe4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743215"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695268"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av Azure-dator
 Kraftfulla förbrukning insikter som kan uppnås genom att analysera dina data i Azure-användning – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet innehåller en djupdykning i din information på Azure Compute-förbrukning. För ytterligare information om allmänna Azure-användning, går du till [förstå din faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -82,7 +82,7 @@ Regionsnamn fylls i fältet resursplats i användningsinformation varierar från
 |    chinaeast             |    Östra Kina                            |
 |    chinanorth            |    Norra Kina                           |
 |    eastasia              |    Östasien                             |
-|    usaöstra                |    Östra USA                               |
+|    usaöstra                |    East US                               |
 |    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    Tyskland, centrala                            |
 |    GermanyNortheast      |    Tyskland, nordöstra                          |

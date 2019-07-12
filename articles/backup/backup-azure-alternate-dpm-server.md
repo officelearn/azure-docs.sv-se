@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650937"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705215"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 Du kan använda Azure Backup Server för att återställa data som du har säkerhetskopierat till ett Recovery Services-valv. Processen för att göra så är integrerad i Azure Backup Server-hanteringskonsolen och liknar återställningsarbetsflöde för andra Azure Backup-komponenter.
@@ -83,21 +83,13 @@ Du kan använda Azure Backup Server för att återställa data som du har säker
 | Nej. | Felmeddelande | Felsökningsanvisningar |
 |:---:|:--- |:--- |
 | 1. |Den här servern är inte registrerad för valvet som är angivet av valvautentiseringen. |**Orsak:** Det här felet visas när valvautentiseringsfilen valt inte hör till Recovery Services-valvet som är associerade med Azure Backup Server där återställningen utförs. <br> **Lösning:** Hämta valvautentiseringsfilen från Recovery Services-valvet som Azure Backup Server har registrerats. |
-| 2. |Antingen är återställningsbara data är inte tillgänglig eller den valda servern är inte en DPM-server. |**Orsak:** Det finns inga andra Azure Backup-servrar har registrerats till Recovery Services-valv eller servrar har ännu inte har överfört metadata eller den valda servern är inte en Azure Backup Server (även kallat Windows Server eller Windows-klient). <br> **Lösning:** Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet kan du kontrollera att den senaste Azure Backup-agenten är installerad. <br>Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet, vänta på en dag efter installationen för att starta återställningsprocessen. Nattetid kommer att överföra metadata för alla skyddade säkerhetskopior till molnet. Data blir tillgängliga för återställning. |
+| 2. |Antingen är återställningsbara data är inte tillgänglig eller den valda servern är inte en DPM-server. |**Orsak:** Det finns inga andra Azure Backup-servrar har registrerats till Recovery Services-valv eller servrar har ännu inte har överfört metadata eller den valda servern är inte en Azure Backup Server (med Windows Server eller Windows Client). <br> **Lösning:** Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet kan du kontrollera att den senaste Azure Backup-agenten är installerad. <br>Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet, vänta på en dag efter installationen för att starta återställningsprocessen. Nattetid kommer att överföra metadata för alla skyddade säkerhetskopior till molnet. Data blir tillgängliga för återställning. |
 | 3. |Ingen annan DPM-server är registrerad i valvet. |**Orsak:** Det finns inga andra Azure Backup-servrar som är registrerade för valvet som återställningen görs.<br>**Lösning:** Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet kan du kontrollera att den senaste Azure Backup-agenten är installerad.<br>Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet, vänta på en dag efter installationen för att starta återställningsprocessen. Nattetid Överför metadata för alla skyddade säkerhetskopior till molnet. Data blir tillgängliga för återställning. |
 | 4. |Den angivna krypteringslösenfrasen matchar inte lösenfrasen som associeras med följande server:  **\<servernamn >** |**Orsak:** Den angivna krypteringslösenfrasen matchar inte i den krypterade lösenfrasen som används vid kryptering av data från Azure Backup Server-data som återställs. Agenten kan inte dekryptera data. Därför misslyckas återställningen.<br>**Lösning:** Ange exakt samma krypteringslösenfrasen som är associerade med Azure Backup Server vars data återställs. |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="next-steps"></a>Nästa steg
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Varför kan jag lägga till en extern DPM-server när du har installerat UR7 och senaste Azure Backup-agenten?
+Läs de andra vanliga frågor och svar:
 
-För DPM-servrar med datakällor som skyddas till molnet (med hjälp av en samlad uppdatering tidigare än Update Rollup-7) måste du vänta minst en dag efter att ha installerat UR7 och senaste Azure Backup-agenten för att starta **Lägg till extern DPM server**. Endagsevenemang tidsperiod behövs för att ladda upp metadata för DPM-skyddsgrupper till Azure. Skydd grupp metadata har laddats upp första gången via ett jobb varje natt.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Vad är den lägsta versionen av Microsoft Azure Recovery Services-agenten som behövs?
-
-Den lägsta versionen av Microsoft Azure Recovery Services-agenten eller Azure Backup-agenten som krävs för att aktivera den här funktionen är 2.0.8719.0.  Visa agentens version: Öppna Kontrollpanelen **>** alla Kontrollpanelen objekt **>** program och funktioner **>** Microsoft Azure Recovery Services-agenten. Om versionsnumret är mindre än 2.0.8719.0, hämta och installera den [senaste Azure Backup-agenten](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Rensa extern DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Nästa steg:
-• [Azure Backup vanliga frågor och svar](backup-azure-backup-faq.md)
+- [Vanliga frågor](backup-azure-vm-backup-faq.md) om Virtuella Azure-säkerhetskopieringar
+- [Vanliga frågor](backup-azure-file-folder-backup-faq.md) om Azure Backup-agenten

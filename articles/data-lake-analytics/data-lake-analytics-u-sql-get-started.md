@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a138801ba13c6008880e3d24c89d1c23323b853
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813856"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626218"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
 U-SQL är ett språk som kombinerar deklarativt Frågespråk med tvingande C# för så att du kan bearbeta data i valfri skala. Via funktionen skalbar och distribuerad fråga för U-SQL, kan du effektivt analysera data över relationella datalager som Azure SQL Database. Med U-SQL, kan du bearbeta Ostrukturerade data med hjälp av schema vid läsning och lägga till anpassad logik och UDF: er. Dessutom innehåller U-SQL utökningsbarhet som ger dig detaljerad kontroll över hur du kör i skala. 
@@ -22,10 +22,10 @@ U-SQL är ett språk som kombinerar deklarativt Frågespråk med tvingande C# f�
 ## <a name="learning-resources"></a>Utbildningsresurser
 
 * Den [U-SQL-självstudien](https://aka.ms/usqltutorial) innehåller stegvisa anvisningar för de flesta av U-SQL-språket. Det här dokumentet är rekommenderad läsning för alla utvecklare som vill lära dig U-SQL.
-* Detaljerad information om den **syntaxen för U-SQL**, finns i den [U-SQL-Språkreferens](https://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Detaljerad information om den **syntaxen för U-SQL**, finns i den [U-SQL-Språkreferens](https://docs.microsoft.com/u-sql/).
 * Att förstå den **U-SQL-designfilosofin**, finns i Visual Studio blogginlägget [introducerar U-SQL – ett språk som gör Big databehandling enkelt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du går igenom U-SQL-exemplen i det här dokumentet kan läsa och slutföra [självstudien: Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Självstudien förklaras säkerhetsnivån med U-SQL med Azure Data Lake Tools för Visual Studio.
 

@@ -10,19 +10,20 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 98ca455fd92b0c9ed276082413734c6bc063f310
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671948"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798935"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
+> * [C#](search-get-started-dotnet.md)
 
 Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigeringsverktyg erbjuder inte fullständig paritet med .NET och REST API:er, men du kan snabbt komma igång med en kodfri introduktion och skriva intressanta frågor mot exempeldata på bara några minuter.
 
@@ -33,9 +34,9 @@ Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyg
 > * Visa ett befintligt index och alternativ för att ändra det
 > * Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**
 
-Om verktygen är för begränsade kan du prova en [kodbaserad introduktion till Azure Search-programmering i .NET](search-howto-dotnet-sdk.md) eller använda [Postman eller Fiddler för att uföra REST API-anrop](search-get-started-postman.md).
+Om verktyg för att begränsa, kan du överväga att en [kodbaserad introduktion till programmera Azure Search i .NET](search-howto-dotnet-sdk.md) eller Använd [Postman för att göra REST API-anrop](search-get-started-postman.md). Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -210,7 +211,7 @@ Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för at
 
 * Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
 
-* Den *omdöme* fältet är flyttal med dubbel precision och grupperingen blir exakt värde. Mer information om hur du grupperar intervall (till exempel ”3 stjärnklassificering”, ”4 stjärnklassificering”, osv), se [implementera aspektbaserad navigering i Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Den *omdöme* fältet är flyttal med dubbel precision och grupperingen blir exakt värde. Mer information om hur du grupperar intervall (till exempel ”3 stjärnklassificering”, ”4 stjärnklassificering”, osv), se [implementera aspektbaserad navigering i Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Markera sökresultat
@@ -267,7 +268,11 @@ Du har också läst hur du hittar index, indexerare och datakällor i portalen. 
 
 ## <a name="clean-up"></a>Rensa
 
-Om den här självstudien var den första gången du använde Azure Search-tjänsten så kan du ta bort resursgruppen med Azure Search-tjänsten. Om inte så letar du fram den rätta resursgruppens namn i listan över tjänster och tar bort den lämpligaste.
+När du arbetar i din egen prenumeration är det en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver resurserna som du skapade. Resurser vänstra som körs kan kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av den **alla resurser** eller **resursgrupper** länken i det vänstra navigeringsfönstret.
+
+Om du använder en kostnadsfri tjänst kan du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla oss under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

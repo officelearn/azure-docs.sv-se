@@ -7,14 +7,14 @@ manager: saurabhsensharma
 keywords: Azure backup; VM-agenten; Nätverksanslutning;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: saurabhsensharma
-ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 07/05/2019
+ms.author: saurse
+ms.openlocfilehash: 1bfc862a7063a023fd148e5504b3baa7fb275229
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565675"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704974"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -81,7 +81,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>Det gick inte att ExtentionOperationFailedForManagedDisks - vmsnapshot-tillägget
 
 **Felkod**: ExtentionOperationFailedForManagedDisks <br>
-**Felmeddelande**: Vmsnapshot-tillägget misslyckades<br>
+**Felmeddelande**: VMSnapshot-tilläggets åtgärd misslyckades<br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
 **Orsak 1: [Det går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  

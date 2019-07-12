@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873610"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595506"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vyer i Azure SQL Data Warehouse
 Tips för att använda T-SQL-vyer i Azure SQL Data Warehouse för utveckling av lösningar. 
@@ -23,12 +23,18 @@ Tips för att använda T-SQL-vyer i Azure SQL Data Warehouse för utveckling av 
 ## <a name="why-use-views"></a>Varför använda vyer?
 Vyer kan användas i ett antal olika sätt att förbättra kvaliteten på din lösning.  Den här artikeln visar några exempel på hur du kan utöka din lösning med vyer, samt begränsningar som ska övervägas.
 
+
+> [!IMPORTANT]
+> Se den nya syntaxen för materialiserad vy på [skapa MATERIALISERADE VYN AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Mer information finns i den [viktig](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > Syntaxen för CREATE VIEW beskrivs inte i den här artikeln. Mer information finns i den [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) dokumentation.
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Arkitektoniska abstraktion
+
 Ett vanligt programmönster är att skapa tabeller med CREATE TABLE AS SELECT (CTAS) följt av ett objekt som byta namn på mönstret när inläsning av data på nytt.
 
 I följande exempel lägger till nya datumposter till en datumdimension. Observera hur en ny tabell DimDate_New, skapas först och sedan har fått nytt namn om du vill ersätta den ursprungliga versionen av tabellen.

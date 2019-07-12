@@ -3,16 +3,16 @@ title: Publicera en rot- eller apex domän till en befintlig åtkomsten med hjä
 description: Lär dig hur att publicera en rot- eller apex domän till en befintlig åtkomsten med hjälp av Azure portal.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333353"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605783"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Publicera en rot- eller apex domän på ytterdörren
 Azure ytterdörren använder CNAME-poster för att verifiera domänägarskap för onboarding av anpassade domäner. Dessutom ytterdörren exponera inte klientdelens IP-adress som är associerade med din ytterdörren profil och så du kan inte mappa din apex-domän till en IP-adress om avsikten är att publicera den till Azure ytterdörren.

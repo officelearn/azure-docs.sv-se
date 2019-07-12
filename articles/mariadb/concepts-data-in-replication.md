@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364447"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839255"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikera data till Azure Database for MariaDB
 
@@ -37,7 +37,6 @@ Den [ *mysql-databas* ](https://mariadb.com/kb/en/library/the-mysql-database-tab
 
 ### <a name="other"></a>Annat
 - Data i replikering finns endast stöd för generellt syfte och Minnesoptimerad prisnivåer.
-- Globala transaktions-ID: n (GTID) stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [ställa in data i replikering](howto-data-in-replication.md).

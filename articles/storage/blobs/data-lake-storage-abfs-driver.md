@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939507"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696148"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob-filsystem drivrutinen (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop
 
@@ -43,7 +43,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internt ABFS drivrutinen översätter resurserna som anges i URI: N till filer och kataloger och gör anrop till Azure Data Lake Storage REST API med dessa referenser.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-program kan få säker åtkomst till resurser som ingår i ett kompatibelt Gen2 för Data Lake Storage-konto. Fullständig information om tillgängliga autentiseringsmetoder finns i den [säkerhetsguiden för Azure Storage](../common/storage-security-guide.md). De är:
 
@@ -59,7 +59,7 @@ Detaljerad information om transaktioner för alla konfigurationer som stöds ang
 
 ### <a name="hadoop-documentation"></a>Hadoop-dokumentation
 
-Drivrutinen ABFS fullständigt dokumenterade i den [officiella Hadoop-dokumentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+Drivrutinen ABFS fullständigt dokumenterade i den [officiella Hadoop-dokumentation](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

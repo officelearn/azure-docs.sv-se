@@ -4,7 +4,7 @@ description: Lär dig att installera och konfigurera fjärrskrivbord (xrdp) för
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 56aa06ade50f6c0eb1467b1295cbebb907023398
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63f66d345b88984a49b8eb18b02fd79fb0603022
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209375"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695505"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure
 Linux-datorer (VM) i Azure hanteras vanligtvis från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya till Linux, eller för snabb felsökning scenarier kan det vara enklare användning av fjärrskrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](https://www.xrdp.org)) för din Linux-VM med hjälp av Resource Manager-distributionsmodellen.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln kräver en befintlig virtuell Ubuntu 16.04 LTS-dator i Azure. Om du vill skapa en virtuell dator kan använda en av följande metoder:
 
 - Den [Azure CLI](quick-create-cli.md)

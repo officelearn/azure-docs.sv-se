@@ -1,41 +1,46 @@
 ---
-title: Distribuera en fristående Prometheus i ett kluster i Azure Red Hat OpenShift | Microsoft Docs
-description: Nedan visas hur du skapar en Prometheus-instans på ett Azure Red Hat OpenShift-kluster för att övervaka programmets mått.
-author: Makdaam
+title: Distribuera en fristående Prometheus instans i ett kluster i Azure Red Hat OpenShift | Microsoft Docs
+description: Skapa en Prometheus-instans i ett Azure Red Hat OpenShift-kluster för att övervaka programmets mått.
+author: makdaam
 ms.author: b-lejaku
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus aro, openshift, mått, red hat
-ms.openlocfilehash: e66658151361edd43f61d398274c88c047928028
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a9748932a72106413677b21fe0efd1f69fb02e47
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342619"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827025"
 ---
-# <a name="deploy-a-standalone-prometheus-in-an-azure-red-hat-openshift-cluster"></a>Distribuera en fristående Prometheus i ett kluster i Azure Red Hat OpenShift
+# <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuera en fristående Prometheus instans i ett kluster i Azure Red Hat OpenShift
 
-Den här guiden beskriver hur du konfigurerar en fristående Prometheus med tjänstidentifiering i ett kluster i Azure Red Hat OpenShift.  ”Kunden” administratörsåtkomst till klustret behövs inte.
+Den här artikeln beskriver hur du konfigurerar en fristående Prometheus-instans som använder tjänstidentifiering i ett kluster i Azure Red Hat OpenShift.
 
-Mål-installationen är följande:
+> [!NOTE]
+> Kunden administratörsåtkomst till Azure Red Hat OpenShift kluster krävs inte.
 
-- ett projekt (prometheus-projekt), som innehåller Prometheus och Alertmanager
-- två projekt (app-projekt 1 och app-projekt 2), som innehåller de program som ska övervaka
+Mål-inställning:
 
-Förbereder du vissa Prometheus configuration-filer lokalt. Skapa en ny mapp för att lagra dem.
-Dessa konfigurationsfiler lagras i klustret som hemligheter om hemlig token har lagts till dem senare.
+- Ett projekt (prometheus-projekt), som innehåller Prometheus och Alertmanager.
+- Två projekt (app-projekt 1 och app-projekt 2), som innehåller de program som ska övervaka.
 
-## <a name="step-1-sign-in-to-the-cluster-using-the-oc-tool"></a>Steg 1: Logga in till klustret med den `oc` verktyget
-Använd en webbläsare, navigera till webbkonsolen på klustret (https://openshift. *slumpmässigt id*. *region*. azmosa.io).
-Logga in med dina Azure autentiseringsuppgifter.
-Klicka på ditt användarnamn i längst upp till höger och välj ”Kopiera inloggningskommandot”. Klistra in den i terminalen du ska använda.
+Förbereder du vissa Prometheus konfigurationsfiler lokalt. Skapa en ny mapp för att lagra dem. Konfigurationsfiler lagras i klustret som hemligheter, om hemlig token läggs till senare i klustret.
 
-Du kan kontrollera om du är inloggad på rätt klustret med den `oc whoami -c` kommando.
+## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Logga in till klustret med hjälp av verktyget OC
 
-## <a name="step-2-prepare-the-projects"></a>Steg 2: Förbereda projekt
+1. Öppna en webbläsare och gå sedan till webbkonsolen för ditt kluster (https://openshift. *slumpmässigt id*. *region*. azmosa.io).
+2. Logga in med dina Azure autentiseringsuppgifter.
+3. Välj ditt användarnamn i det övre högra hörnet och välj sedan **kopia inloggningskommandot**.
+4. Klistra in ditt användarnamn i terminalen som du använder.
 
-Skapa projekt.
+> [!NOTE]
+> För att se om du är inloggad i rätt klustret, kör den `oc whoami -c` kommando.
+
+## <a name="prepare-the-projects"></a>Förbereda projekt
+
+För att skapa projekt, kör du följande kommandon:
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -44,10 +49,10 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> Du kan använda den `-n` eller `--namespace` parametern eller välj en aktiv projektet med den `oc project` kommando
+> Du kan använda den `-n` eller `--namespace` parametern eller välj en aktiva projektet genom att köra den `oc project` kommando.
 
-## <a name="step-3-prepare-prometheus-config"></a>Steg 3: Förbereda Prometheus config
-Skapa en fil med namnet prometheus.yml med följande innehåll.
+## <a name="prepare-the-prometheus-configuration-file"></a>Förbereda Prometheus konfigurationsfilen
+Skapa en prometheus.yml-fil genom att ange följande innehåll:
 ```
 global:
   scrape_interval: 30s
@@ -68,19 +73,18 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Skapa en hemlighet med namnet ”Höj” med konfigurationen.
+Skapa en hemlighet som kallas Höj genom att ange följande konfiguration:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-Filen som anges ovan är en grundläggande Prometheus-konfigurationsfil.
-Anger intervallen och konfigurerar den automatiska identifieringen i tre projekt (prometheus-projekt, app-projekt 1, app-projekt 2).
-I det här exemplet identifierade automatiskt slutpunkter kommer skrapats via HTTP utan autentisering.
-Mer information om skrapning slutpunkter finns i https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
+Prometheus.yml-filen är en grundläggande Prometheus-konfigurationsfil. Anger intervallen och konfigurerar den automatiska identifieringen i tre projekt (prometheus-projekt, app-projekt 1, app-projekt 2). I föregående konfigurationsfilen skrapats identifierades automatiskt-slutpunkter via HTTP utan autentisering.
+
+Läs mer om skrapning slutpunkter [Prometheus ESC config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 
-## <a name="step-4-prepare-alertmanager-config"></a>Steg 4: Förbereda Alertmanager config
-Skapa en fil med namnet alertmanager.yml med följande innehåll.
+## <a name="prepare-the-alertmanager-config-file"></a>Förbereda Alertmanager config-fil
+Skapa en alertmanager.yml-fil genom att ange följande innehåll:
 ```
 global:
   resolve_timeout: 5m
@@ -98,39 +102,39 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Skapa en hemlighet med namnet ”Höj aviseringar” med konfigurationen.
+Skapa en hemlighet som kallas Höj aviseringar genom att ange följande konfiguration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
 
-Den fil som anges ovan är Alert Manager-konfigurationsfil.
+Alertmanager.yml är Alert Manager-konfigurationsfil.
 
 > [!NOTE]
-> Du kan kontrollera de två föregående stegen med `oc get secret -n prometheus-project`
+> Kontrollera de två föregående stegen med den `oc get secret -n prometheus-project` kommando.
 
-## <a name="step-5-start-prometheus-and-alertmanager"></a>Steg 5: Starta Prometheus och Alertmanager
-Ladda ned den [prometheus standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) mall från den [openshift/ursprungslagringsplats](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) och tillämpa den i prometheus-projektet
+## <a name="start-prometheus-and-alertmanager"></a>Starta Prometheus och Alertmanager
+Gå till [openshift/ursprungslagringsplats](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) och ladda ned den [prometheus standalone.yaml](
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) mall. Använda mallen till prometheus-projekt genom att ange följande konfiguration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-Prometheus standalone.yaml-filen är en mall för OpenShift, vilket skapar en Prometheus-instans med en oauth-proxy framför den och en Alertmanager-instans som också skyddas med oauth-proxy.  I den här mallen oauth-proxy har konfigurerats för att tillåta alla användare som kan ”hämta” ”prometheus-projekt” namnområdet (se den `-openshift-sar` flaggan).
+Prometheus standalone.yaml-filen är en mall för OpenShift. Den skapar en Prometheus-instans med oauth-proxy framför den och en Alertmanager-instans som också skyddas med oauth-proxy. I den här mallen oauth-proxy har konfigurerats för att tillåta alla användare som kan ”hämta” prometheus-projekt namnområdet (se den `-openshift-sar` flaggan).
 
 > [!NOTE]
-> Du kan kontrollera om ”Höj” StatefulSet har lika *ÖNSKAD* och *aktuella* number repliker med den `oc get statefulset -n prometheus-project` kommando.
-> Du kan också kontrollera alla resurser i projektet med `oc get all -n prometheus-project`.
+> Kontrollera om Höj StatefulSet innehåller lika med ÖNSKAD och aktuellt antal repliker med den `oc get statefulset -n prometheus-project` kommando. Kontrollera alla resurser i projektet genom att köra den `oc get all -n prometheus-project` kommando.
 
-## <a name="step-6-add-permissions-to-allow-service-discovery"></a>Steg 6: Lägg till behörigheter för att tillåta identifiering av tjänst
-Skapa prometheus sdrole.yml med följande innehåll.
+## <a name="add-permissions-to-allow-service-discovery"></a>Lägg till behörigheter för att tillåta identifiering av tjänst
+
+Skapa en prometheus sdrole.yml-fil genom att ange följande innehåll:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: prometheus-sdrole
   annotations:
-    "openshift.io/display-name": Prometheus Service Discovery Role
+    "openshift.io/display-name": Prometheus service discovery role
     description: |
-      A role and rolebinding adding permissions required to perform Service Discovery in a given project.
+      Role and rolebinding added permissions required for service discovery in a given project.
     iconClass: fa fa-cogs
     tags: "monitoring,prometheus,alertmanager,time-series"
 parameters:
@@ -166,42 +170,48 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Tillämpa den för alla projekt där du vill tillåta tjänstidentifiering.
+Om du vill använda mallen för alla projekt som du vill tillåta tjänstidentifiering, kör du följande kommandon:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-Om du vill också Prometheus för att kunna samla in mått från själva, Kom ihåg att tillämpa behörigheterna i prometheus-projekt för.
+Om du vill att Prometheus att samla in mått från själva tillämpa behörigheterna i prometheus-projekt.
 
 > [!NOTE]
-> Du kan kontrollera om rollen och RoleBinding skapades korrekt med den `oc get role` och `oc get rolebinding` respektive-kommandon
+> Kontrollera att rollen och RoleBinding skapades korrekt med den `oc get role` och `oc get rolebinding` kommandon.
 
 ## <a name="optional-deploy-example-application"></a>Valfritt: Distribuera exempelprogram
-Allt fungerar, men det finns inga mått-källor. Gå till URL: en för Prometheus (https://prom-prometheus-project.apps. *slumpmässigt id*. *region*.azmosa.io/), som finns med följande kommando.
+
+Allt fungerar, men det finns inga mått-källor. Gå till URL: en för Prometheus (https://prom-prometheus-project.apps. *slumpmässigt id*. *region*.azmosa.io/). Du hittar det genom att använda följande kommando:
+
 ```
 oc get route prom -n prometheus-project
 ```
-Kom ihåg att prefixet värdnamn med https://.
+> [!IMPORTANT]
+> Kom ihåg att lägga till prefixet https:// i början av värdnamnet.
 
 Den **Status > tjänstidentifiering** sidan visar 0/0 aktiva mål.
 
-Du distribuerar ett exempelprogram som visar grundläggande python-måtten under /metrics-slutpunkten kör du följande kommandon.
+Om du vill distribuera ett exempelprogram som visar grundläggande Python-måtten under /metrics-slutpunkten kör du följande kommandon:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
+
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-De nya program visas som giltig mål på sidan tjänstidentifiering inom 30 sekunder efter distributionen. Du kan få mer information om den **Status > mål** sidan.
+De nya program som ska visas som giltig mål på sidan tjänstidentifiering inom 30 sekunder efter distributionen.
+
+Mer information, Välj **Status** > **mål**.
 
 > [!NOTE]
-> Lägger till en datapoint i mått ”upp” för varje har scraped mål Prometheus. Klicka på **Prometheus** hörnet längst upp till vänster och ange ”dig” som uttryck och klicka på **kör**.
+> Lägger till en datapunkt i dig mått för varje har scraped mål, Prometheus. Välj **Prometheus** i det övre vänstra hörnet, ange **upp** som uttryck och välj sedan **kör**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan lägga till anpassad Prometheus instrumentation i dina program.
+Du kan lägga till anpassad Prometheus instrumentation i dina program. Prometheus klientbiblioteket, vilket förenklar Prometheus mått förberedelse är redo för olika programmeringsspråk.
 
-Prometheus klientbiblioteket, vilket förenklar förberedande Prometheus mått är redo för olika programmeringsspråk.
+Mer information finns i följande GitHub-bibliotek:
 
- - Java https://github.com/prometheus/client_java
- - Python https://github.com/prometheus/client_python
- - Go https://github.com/prometheus/client_golang
- - Ruby https://github.com/prometheus/client_ruby
+ - [Java](https://github.com/prometheus/client_java)
+ - [Python](https://github.com/prometheus/client_python)
+ - [Go](https://github.com/prometheus/client_golang)
+ - [Ruby](https://github.com/prometheus/client_ruby)

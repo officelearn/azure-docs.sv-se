@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427735"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839781"
 ---
-# <a name="azure-data-box-heavy-system-requirements-preview"></a>Systemkrav för Azure Data Box tung (förhandsversion)
+# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box tung systemkrav
 
 Den här artikeln beskriver viktiga systemkraven för din Azure Data Box tung enhet och för klienter som ansluter till enheten. Vi rekommenderar att du har läst informationen noggrant innan du distribuerar din Data Box tung och referera tillbaka till det som behövs under distributionen och efterföljande driften.
 
@@ -51,6 +51,12 @@ Programvarukrav innehålla information om de operativsystem som stöds och webbl
 ## <a name="networking-requirements"></a>Nätverkskrav
 
 Datacentret måste ha höghastighetsnätverk. För den snabbaste kopia hastigheter kan två 40 GbE-anslutningar användas parallellt (ett per nod). Om du inte har tillgängliga för 40 GbE, rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod).
+
+### <a name="port-requirements"></a>Krav på nätverksportar
+
+I följande tabell visas de portar som måste öppnas i brandväggen för att tillåta för SMB- eller NFS-trafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till Data Box tung enheten skickar data externt, utöver distributionen riktning: till exempel utgående till Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

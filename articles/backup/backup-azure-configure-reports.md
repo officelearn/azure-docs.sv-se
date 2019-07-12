@@ -6,14 +6,14 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60642782"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705162"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
@@ -31,7 +31,7 @@ Hämta den senaste appen (version 1.8) för att undvika det här problemet.
 - Du kan visa rapporter över valv och prenumerationer, om samma lagringskonto har konfigurerats för varje valv. Det valda lagringskontot måste vara i samma region som Recovery Services-valvet.
 - Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporter i Power BI. I det här fallet används den senaste informationen i kundens lagringskonto för att återge rapporter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - Skapa en [Azure storage-konto](../storage/common/storage-quickstart-create-account.md) konfigureras för rapporter. Det här lagringskontot används för att lagra rapporter-relaterade data.
 - [Skapa en Power BI-konto](https://powerbi.microsoft.com/landing/signin/) för att visa, anpassa och skapa egna rapporter med hjälp av Power BI-portalen.
 - Registrera resursprovidern **Microsoft.insights**, om den inte redan har registrerats. Använd prenumerationerna för lagringskontot och Recovery Services-valv så att rapportering av data kan flöda till lagringskontot. Om du vill göra det här steget, gå till Azure portal, Välj **prenumeration** > **resursprovidrar**, och markera den här leverantören att registrera den.
@@ -71,7 +71,7 @@ Följ dessa steg om du vill konfigurera lagringskontot för Recovery Services-va
       ![Visa diagnostikinställning steg 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> När du har konfigurerat rapporter genom att spara storage-konto, *vänta i 24 timmar* för ursprungliga data-push-installation att slutföra. Importera Azure Backup-App i Power BI endast efter den tidpunkten. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions).
+> När du har konfigurerat rapporter genom att spara storage-konto, *vänta i 24 timmar* för ursprungliga data-push-installation att slutföra. Importera Azure Backup-App i Power BI endast efter den tidpunkten. Mer information finns i den [vanliga frågor och svar](backup-azure-monitor-alert-faq.md).
 >
 >
 
@@ -112,34 +112,6 @@ Om du vill anpassa och dela rapporten, skapa en arbetsyta och utför följande s
 
       ![Azure Backup-rapporter flikar](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Hur kontrollerar jag om rapportering av data har börjat flödar till ett lagringskonto?
-Gå till det lagringskonto som du har konfigurerat och Välj behållare. Om behållaren har en post för insights-logs-azurebackupreport, indikerar det att rapportdata har startat flödar i.
-
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Vad är frekvensen för data-push till ett lagringskonto och Azure Backup-Innehållspaketet i Power BI?
-  Det tar cirka 24 timmar för att skicka data till ett lagringskonto för dag 0 användare. När den här inledande push är klar, uppdateras data med vilken frekvens som visas i följande bild.
-
-  * Data som är relaterade till **jobb**, **aviseringar**, **Säkerhetskopieringsobjekt**, **valv**, **skyddade servrar**, och  **Principer** skickas till en kundens lagringskonto och när den är inloggad.
-
-  * Data som är relaterade till **Storage** skickas till ett lagringskonto för kunden var 24: e timme.
-
-       ![Azure Backup-rapporter push datafrekvensen](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
-
-  * Powerbi har en [schemalagd uppdatering en gång om dagen](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Du kan utföra en manuell uppdatering av data i Power BI för Innehållspaketet.
-
-### <a name="how-long-can-i-retain-reports"></a>Hur länge kan jag behålla rapporter?
-När du konfigurerar ett lagringskonto kan välja du en kvarhållningsperiod för rapportdata i lagringskontot. Följ steg 6 i den [konfigurera lagringskonto för rapporter](backup-azure-configure-reports.md#configure-storage-account-for-reports) avsnittet. Du kan också [analysera rapporter i Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) och spara dem under en längre period, utifrån dina behov.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Ser jag mina data i rapporter när du har konfigurerat storage-konto?
- Alla data som genereras när du har konfigurerat en storage-konto skickas till lagringskontot och är tillgänglig i rapporter. Pågående jobb skickas inte för rapportering. När jobbet har slutförts eller misslyckas, skickas den till rapporter.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Om jag redan har konfigurerat storage-konto om du vill visa rapporter kan jag ändra konfigurationen för att använda ett annat lagringskonto?
-Ja, du kan ändra konfiguration och referera till ett annat lagringskonto. Använd det nyligen konfigurerade lagringskontot när du ansluter till Azure Backup-Innehållspaketet. När ett annat lagringskonto har konfigurerats flödar också nya data i det här lagringskontot. Äldre data (innan du ändrar konfigurationen) finns fortfarande kvar i äldre storage-konto.
-
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Kan jag visa rapporter över valv och prenumerationer?
-Ja, du kan konfigurera samma lagringskonto över olika valv cross-valv visas. Du kan också konfigurera samma lagringskonto för valv mellan prenumerationer. Du kan sedan använda det här lagringskontot när du ansluter till Azure Backup-Innehållspaketet i Power BI för att visa rapporterna. Det valda lagringskontot måste vara i samma region som Recovery Services-valvet.
 
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 | Information om fel | Lösning |

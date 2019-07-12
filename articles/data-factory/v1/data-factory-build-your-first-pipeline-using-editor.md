@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573822"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839117"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,6 +32,9 @@ ms.locfileid: "64573822"
 
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> JSON-redigeraren i Azure Portal för skapande och distribution av ADF v1 pipelines kommer att vara inaktiverad och med 31 juli 2019. Efter den 31 juli 2019 som du kan fortsätta att använda [ADF v1 Powershell-cmdletar](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST API: er](https://docs.microsoft.com/rest/api/datafactory/) att skapa och distribuera din ADF v1 pipelines.
 
 I den här artikeln får du lära dig hur du använder [Azure Portal](https://portal.azure.com/) till att skapa din första datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan. 
 
@@ -43,7 +45,7 @@ Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-akt
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och körning i Data Factory).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Läs [översikten av självstudien](data-factory-build-your-first-pipeline.md) och följ anvisningarna i avsnittet ”Nödvändiga komponenter”.
 
 Den här artikeln ger inte någon konceptuell översikt över Data Factory-tjänsten. Mer information om tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  
@@ -148,7 +150,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap  | Beskrivning |
+   | Egenskap | Beskrivning |
    |:--- |:--- |
    | clusterSize |Anger HDInsight-klustrets storlek. |
    | timeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
@@ -209,7 +211,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
     ```
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap  | Kapslat under | Beskrivning |
+   | Egenskap | Kapslat under | Beskrivning |
    |:--- |:--- |:--- |
    | type | properties |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
    | linkedServiceName | format |Refererar till den AzureStorageLinkedService du skapade tidigare. |

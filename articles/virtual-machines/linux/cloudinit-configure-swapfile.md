@@ -4,7 +4,7 @@ description: Hur du använder cloud-init för att konfigurera en växlingsfil i 
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729825"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671705"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Använda cloud-init för att konfigurera en växlingsfil på en Linux VM
 Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) att konfigurera växlingsfil på olika Linux-distributioner. Växlingsfil konfigurerades traditionellt genom den Linux Agent (WALA) baserat på vilka distributioner krävs en.  Det här dokumentet beskriver processen för att skapa växlingsfil på begäran under etableringstid med cloud-init.  Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)

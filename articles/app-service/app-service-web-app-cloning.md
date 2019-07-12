@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d31a6ee13965aa326ab8a71b5b5435025bc26057
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329638"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705732"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service-App kloning med hjälp av PowerShell
 
@@ -130,6 +130,7 @@ Här följer kända begränsningarna med appkloning:
 * Tips regler klonas inte
 * Databasinnehåll klona inte
 * Utgående IP-adresser ändras om Kloningen till en annan skalningsenhet
+* Inte tillgängligt för Linux-appar
 
 ### <a name="references"></a>Referenser
 * [App Service kloning](app-service-web-app-cloning.md)

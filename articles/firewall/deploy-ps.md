@@ -6,12 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 4c6ccce493ffb25d7a2237e0d98a2b71b35c92c1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410234"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620978"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuera och konfigurera Azure-brandväggen med hjälp av Azure PowerShell
 
@@ -46,7 +47,7 @@ Om du vill kan du slutföra den här proceduren med den [Azure-portalen](tutoria
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
@@ -241,7 +242,7 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com-begäranden ska lyckas och www.microsoft.com-begäranden ska misslyckas. Detta demonstrerar att brandväggsreglerna fungerar som förväntat.
+   www.google.com begäranden ska lyckas och www.microsoft.com-begäranden ska misslyckas. Detta demonstrerar att brandväggsreglerna fungerar som förväntat.
 
 Nu har du kontrollera att brandväggsreglerna fungerar:
 
@@ -258,4 +259,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+* [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

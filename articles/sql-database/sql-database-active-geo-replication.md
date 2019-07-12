@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341434"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807301"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -43,7 +43,6 @@ Du kan hantera replikering och redundans för en individuell databas eller en up
 - [Transact-SQL: Enkel databas eller elastisk pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST-API: Enkel databas](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Kontrollera autentiseringskrav för din server och databas har konfigurerats på den nya primärt efter redundansväxlingen. Mer information finns i [SQL Database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md).
 
 Aktiv geo-replikering utnyttjar den [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknik för SQL Server för att replikera asynkront genomförda transaktioner på den primära databasen till en sekundär databas med ögonblicksbildisolering. Automatisk redundans grupper ger gruppen semantik ovanpå aktiv geo-replikering, men samma asynkron replikeringsmekanism används. Den sekundära databasen inte är efter den primära databasen på en given tidpunkt, sekundära data är säkert att aldrig ha partiella transaktioner. Redundans över regioner gör det möjligt för program att snabbt återställa en förlust av ett helt datacenter eller delar av ett datacenter på grund av naturkatastrofer, oåterkalleligt mänskliga faktorn eller skadliga åtgärder. Specifika RPO data finns på [översikt över affärskontinuitet](sql-database-business-continuity.md).
 
@@ -83,12 +82,12 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Planerad redundans**
 
-  Planerad redundans utför fullständig synkronisering mellan primära och sekundära databaser innan de sekundära växlarna till den primära rollen. Detta garanterar att inga data går förlorade. Planerad redundans används följande scenarier: (a) du utför DR-tester i produktion när data går förlorade inte kan godkännas; (b) för att flytta databasen till en annan region; och (c) för att returnera databasen till den primära regionen när avbrottet har minimerats (återställning).
+  Planerad redundans växlar rollerna för primära och sekundära databaser när den fullständiga synkroniseringen har slutförts. Det är en online-åtgärd som inte leder till förlust av data. Tiden för åtgärden beror på storleken på transaktionsloggen på den primära som måste synkroniseras. Planerad redundans är avsedd för följande scenarier: (a) du utför DR-tester i produktion när data går förlorade inte kan godkännas; (b) för att flytta databasen till en annan region; och (c) för att returnera databasen till den primära regionen när avbrottet har minimerats (återställning).
 
 - **Oplanerad redundans**
 
-  Oplanerad eller framtvingad redundansväxling växlar omedelbart sekundärt till den primära rollen utan någon synkronisering med primärt. Den här åtgärden leder till förlust av data. Oplanerad redundans används som en återställningsmetod för under avbrott när primärt inte är tillgänglig. När den ursprungliga primära databasen är online igen, kommer den automatiskt ansluta igen utan att synkronisera och bli en ny sekundär.
-
+  Oplanerad eller framtvingad redundansväxling växlar omedelbart sekundärt till den primära rollen utan någon synkronisering med primärt. Alla transaktioner som allokerats till primärt men inte har replikerats till sekundärt går förlorade. Den här åtgärden är utformad som en återställningsmetod för under avbrott när primärt inte är tillgänglig, men databastillgängligheten måste återställas snabbt. När den ursprungliga primära databasen är online igen kommer den automatiskt återansluta och bli en ny sekundär. Alla osynkroniserade transaktioner innan redundansväxlingen sker bevaras i säkerhetskopian men kommer inte att synkroniseras med den nya primärt att undvika konflikter. De här transaktionerna måste du manuellt slås samman med den senaste versionen av den primära databasen.
+ 
 - **Flera läsbara sekundära databaser**
 
   Upp till 4 sekundära databaser kan skapas för varje primär. Om det finns bara en sekundär databas och misslyckas, visas programmet högre risk tills en ny sekundär databas skapas. Om det finns flera sekundära databaser, förblir programmet skyddat även om en av de sekundära databaserna misslyckas. Ytterligare sekundärservrar kan också användas för att skala ut skrivskyddade arbetsbelastningar
@@ -105,21 +104,26 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   En sekundär databas kan uttryckligen växlas till den primära rollen när som helst av programmet eller användaren. Under ett avbrott på verkliga ska alternativet ”oplanerad” användas som främjar omedelbart en sekundär ska vara primärt. När den misslyckade primärt återställs och är tillgänglig igen, markerar den återställda primärt som en sekundär automatiskt i systemet och ta med det uppdaterade med den nya primärt. På grund av den asynkrona natur replikering, kan en liten mängd data förloras under oplanerad redundans om en primär misslyckas innan de senaste ändringarna replikeras till sekundärt. När en primär med flera sekundära databaser växlar, konfigurerar om replikeringens relationer automatiskt i systemet och länkar de återstående sekundära databaser till den nyligen uppgraderade primärt utan användarens ingripande. När avbrott som orsakade redundansen har mildras, kan det vara önskvärt att återställa programmet till den primära regionen. Om du vill göra det, bör redundanskommandot anropas med alternativet ”planerad”.
 
-- **Synkronisera autentiseringsuppgifterna och brandväggsregler**
+## <a name="preparing-secondary-database-for-failover"></a>Förbereder sekundär databas för redundans
 
-Vi rekommenderar att du använder [databasnivå IP-brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma IP-brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
+För att säkerställa att ditt program har direkt åtkomst till den nya primärt efter en redundansväxling, se till att autentiseringskraven för din sekundära servern och databasen är korrekt konfigurerade. Mer information finns i [SQL Database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md). Kontrollera att principen för kvarhållning av säkerhetskopior på den sekundära databasen matchar primärt för att garantera efterlevnad efter en redundansväxling. De här inställningarna är inte en del av databasen och replikeras inte. Som standard konfigureras sekundärt med en standard PITR period på sju dagar. Mer information finns i [SQL Database automatiska säkerhetskopior](sql-database-automated-backups.md).
 
 ## <a name="configuring-secondary-database"></a>Konfigurera sekundär databas
 
-Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Om den primära databasen upplever en tunga arbetsbelastning, kanske en sekundär med lägre beräkningsstorleken inte kan hålla jämna steg med den. Den kommer att orsaka gör om fördröjning på den sekundära, potentiella otillgängligheten och därför riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Det kan också resultera i fel eller fördröjs för andra arbetsbelastningar på primärt. 
-
-En andra följd av en imbalanced sekundära konfiguration är att programmets prestanda blir lidande efter växling vid fel på grund av otillräcklig beräkningskapaciteten för den nya primärt. Det kommer att behöva uppgradera till en högre beräkningarna till den nödvändiga nivån är inte möjlig förrän avbrottet har minimerats. 
-
-> [!NOTE]
-> För närvarande är uppgradering av den primära databasen inte möjligt om sekundärt är offline. 
+Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Om den primära databasen upplever en tunga arbetsbelastning, kanske en sekundär med lägre beräkningsstorleken inte kan hålla jämna steg med den. Det kommer att medföra gör om fördröjning i sekundära och potentiella otillgängliga. En sekundär databas som inte håller takten med den primära riskerar även att leda till en stor dataförlust om framtvingad redundans skulle krävas. Om du vill undvika detta ställer kommer effektiva aktiv geo-replikering begränsa den primära log frekvens så att dess sekundära databaser komma ikapp. En andra följd av en imbalanced sekundära konfiguration är att programmets prestanda blir lidande efter växling vid fel på grund av otillräcklig beräkningskapaciteten för den nya primärt. Det kommer att behöva uppgradera till en högre beräkningarna till den nödvändiga nivån är inte möjlig förrän avbrottet har minimerats. 
 
 
-Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-purchase-models.md).
+> [!IMPORTANT]
+> Publicerade Återställningspunktmålet = 5 SEK kan inte garanteras om inte den sekundära databasen är konfigurerad med samma beräkning storlek som primärt. 
+
+
+Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Begränsningen rapporteras som HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO vänteläge i den [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) databasen vyer. 
+
+Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Synkronisera autentiseringsuppgifterna och brandväggsregler
+
+Vi rekommenderar att du använder [databasnivå IP-brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma IP-brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Uppgradera eller nedgradera primära databasen
 
@@ -177,7 +181,7 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 > [!IMPORTANT]
 > Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
-| Cmdlet | Beskrivning |
+| Cmdlet: | Beskrivning |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Hämtar en eller flera databaser. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
@@ -206,7 +210,7 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 
 - Exempel på skript, finns här:
   - [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Konfigurera och redundansväxla en databas i pool med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Konfigurera och redundansväxla en pooldatabas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database stöder även automatisk redundans grupper. Mer information finns i använda [automatisk redundans grupper](sql-database-auto-failover-group.md).
 - En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md)
 - Vill veta mer om Azure SQL Database automatiska säkerhetskopior, se [SQL Database automatiska säkerhetskopior](sql-database-automated-backups.md).

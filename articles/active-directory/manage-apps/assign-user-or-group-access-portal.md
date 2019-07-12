@@ -12,24 +12,22 @@ ms.date: 04/11/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 702eb5008c60764cd84e2787a8e2c2818d3f9268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 249dfeeb231c61b05af2e89f0dc02822cc18e627
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780938"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702176"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
-Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.
+
+Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen. For Microsoft Applications (till exempel Office 365-appar), använder du PowerShell för att tilldela användare till en företagsapp.
 
 > [!NOTE]
 > Licensieringskrav för de funktioner som beskrivs i den här artikeln, finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
-> [!NOTE]
-> For Microsoft Applications (till exempel Office 365-appar), använder du PowerShell för att tilldela användare till en företagsapp.
-
-
 ## <a name="assign-a-user-to-an-app---portal"></a>Tilldela en användare till en app – portal
+
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
 1. Välj **företagsprogram**.
@@ -38,13 +36,13 @@ Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha
 1. På den ***appname*** **-användare och grupper** väljer **Lägg till användare**.
 1. På den **Lägg till tilldelning** väljer **användare och grupper**.
 
-    ![Tilldela en användare eller grupp till appen](./media/assign-user-or-group-access-portal/assign-users.png)
+   ![Tilldela en användare eller grupp till appen](./media/assign-user-or-group-access-portal/assign-users.png)
+
 1. På den **användare och grupper** fönstret, Välj en eller flera användare eller grupper i listan och välj sedan den **Välj** knappen längst ned i fönstret.
 1. På den **Lägg till tilldelning** väljer **rollen**. Klicka på den **Välj roll** fönstret, Välj en roll ska tillämpas på de valda användare eller grupper, välj sedan **OK** längst ned i fönstret.
 1. På den **Lägg till tilldelning** väljer den **tilldela** knappen längst ned i fönstret. Tilldelade användare eller grupper som har de behörigheter som definieras av den valda rollen för den här enterprise-appen.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Tillåt alla användare åtkomst till en app – portal
-Att tillåta alla användare åtkomst till ett program:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
@@ -52,7 +50,7 @@ Att tillåta alla användare åtkomst till ett program:
 1. På den **företagsprogram** väljer **alla program**. Här visas de appar som du kan hantera.
 1. På den **företagsprogram – alla program** fönstret väljer du en app.
 1. På den ***appname*** väljer **egenskaper**.
-1. På den  ***appname* -egenskaper** fönstret, ange den **Användartilldelning krävs?** att ställa in **nr**. 
+1. På den  ***appname* -egenskaper** fönstret, ange den **Användartilldelning krävs?** att ställa in **nr**.
 
 Den **Användartilldelning krävs?** alternativet:
 
@@ -60,13 +58,12 @@ Den **Användartilldelning krävs?** alternativet:
 - Endast fungerar med molnprogram som är konfigurerade för SAML enkel inloggning och lokala program som har konfigurerats med programproxy. Se [enkel inloggning för program](what-is-single-sign-on.md).
 - Kräver att användarna samtycker till ett program. En administratör kan ge samtycke för alla användare.  Se [konfigurera sätt slutanvändarna samtycka till ett program](configure-user-consent.md).
 
-
 ## <a name="assign-a-user-to-an-app---powershell"></a>Tilldela en användare till en app – PowerShell
 
 1. Öppna en upphöjd Windows PowerShell-kommandotolk.
 
-    >[!NOTE] 
-    > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
+   > [!NOTE]
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
 
 1. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
 1. Använd följande skript för att tilldela en användare och roll till ett program:
@@ -76,15 +73,15 @@ Den **Användartilldelning krävs?** alternativet:
     $username = "<You user's UPN>"
     $app_name = "<Your App's display name>"
     $app_role_name = "<App role display name>"
-    
+
     # Get the user to assign, and the service principal for the app to assign to
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
-    
+
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-    ```     
+    ```
 
 Mer information om hur du tilldelar en användare till en programroll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
@@ -94,7 +91,7 @@ Om du vill tilldela en grupp till en företagsapp, du måste ersätta `Get-Azure
 
 Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) program med hjälp av PowerShell.
 
-1. Tilldela motsvarande värden för variabler $username, $app_name och $app_role_name i PowerShell. 
+1. Tilldela motsvarande värden för variabler $username, $app_name och $app_role_name i PowerShell.
 
     ```powershell
     # Assign the values to the variables
@@ -109,13 +106,13 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
-        
+
 1. Kör kommandot `$sp.AppRoles` att visa rollerna som är tillgängliga för Workplace Analytics-programmet. I det här exemplet vill vi tilldela Britta Simon rollen analytiker (begränsad åtkomst).
-    
-    ![Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+
+   ![Visar rollerna som är tillgängliga för en användare med rollen som Workplace Analytics](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 1. Tilldela rollnamnet den `$app_role_name` variabeln.
-        
+
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
@@ -130,7 +127,8 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Ta bort en användare eller grupp från en företagsapp](remove-user-or-group-access-portal.md)
-* [Inaktivera användarinloggningar för en företagsapp](disable-user-sign-in-portal.md)
-* [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)
+
+- [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Ta bort en användare eller grupp från en företagsapp](remove-user-or-group-access-portal.md)
+- [Inaktivera användarinloggningar för en företagsapp](disable-user-sign-in-portal.md)
+- [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)

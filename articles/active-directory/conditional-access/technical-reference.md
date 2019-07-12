@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535842989ef49ee13a5ddee7c4349a3b819f741c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112111"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797844"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referens för Azure Active Directory villkorsstyrd åtkomst
 
@@ -101,7 +101,7 @@ Du kan konfigurera enheten plattform villkoret att koppla principen till operati
 
 Du kan konfigurera i principen för villkorlig åtkomst i [klientappar](conditions.md#client-apps) villkor för att koppla principen klientappar som har initierat en åtkomstförsök. Ange klienten appar villkor för att bevilja eller blockera åtkomst när en åtkomstförsök görs från följande typer av klientprogram:
 
-- Webbläsare
+- Browser
 - Mobilappar och skrivbordsappar
 
 ![Kontrollera åtkomsten för klientprogram](./media/technical-reference/03.png)
@@ -114,7 +114,7 @@ I princip för villkorlig åtkomst kan du välja **webbläsare** som klientapp.
 
 Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en princip, t.ex. krav kompatibel enhet, som följande operativsystem och webbläsare stöds:
 
-| Operativsystem                     | Webbläsare                                      |
+| OS                     | Webbläsare                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -134,7 +134,7 @@ Azure AD identifierar enheten med ett klientcertifikat som har etablerats när e
 
 #### <a name="chrome-support"></a>Chrome-stöd
 
-Chrome stöd i **Windows 10 Creators Update (version 1703)** eller senare, installera [det här tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Chrome stöd i **Windows 10 Creators Update (version 1703)** eller senare, installera den [Windows 10-konton tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst som kräver specifika enhetsinformation.
 
 För att automatiskt distribuera det här tillägget till Chrome webbläsare, skapar du följande registernyckel:
 

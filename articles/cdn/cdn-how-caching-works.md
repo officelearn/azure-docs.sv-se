@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636817"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593851"
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
@@ -127,7 +127,7 @@ I följande tabell beskrivs Standardinställningarna för cachelagring beteende 
 |    | Microsoft: Allmän webbleverans | Verizon: Allmän webbleverans | Verizon: DSA | Akamai: Allmän webbleverans | Akamai: DSA | Akamai: Nedladdning av stora filer | Akamai: allmänna eller VOD-direktuppspelning |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Respektera ursprung**       | Ja    | Ja   | Nej   | Ja    | Nej   | Ja   | Ja    |
-| **CDN cachelagringens varaktighet** | 2 dagar |7 dagar | Ingen | 7 dagar | Ingen | 1 dag | 1 år |
+| **CDN cachelagringens varaktighet** | 2 dagar |7 dagar | Ingen | 7 dagar | Inga | 1 dag | 1 år |
 
 **Respektera ursprung**: Anger om du måste respektera stöds cachelagringsdirektiv om de finns i HTTP-svaret från den ursprungliga servern.
 

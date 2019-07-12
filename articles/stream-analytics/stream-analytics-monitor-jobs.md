@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302906"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612255"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Övervakare för Stream Analytics-jobb programmässigt
 
 Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jobb. Stream Analytics-jobb som skapas via REST API: er, Azure SDK eller PowerShell har inte övervakning aktiverad som standard. Du kan manuellt aktivera det i Azure portal genom att gå till övervakaren jobbsidan och klicka på Aktivera-knappen eller du kan automatisera processen genom att följa stegen i den här artikeln. Övervakningsdata visas i området mått i Azure-portalen för ditt Stream Analytics-jobb.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här processen, måste du ha följande krav:
 
@@ -178,5 +178,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

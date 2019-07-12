@@ -4,15 +4,15 @@ description: Hur du ansluter till Windows-Preview för virtuella skrivbord från
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834019"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620166"
 ---
 # <a name="connect-from-a-web-browser"></a>Ansluta från en webbläsare
 
@@ -25,7 +25,7 @@ Webbklienten kan du komma åt dina förhandsversion för virtuella skrivbord i W
 
 Även om alla HTML5-kompatibel webbläsare bör fungera stöder vi officiellt följande operativsystem och webbläsare.
 
-| Webbläsare           | OS som stöds                     | Anteckningar               |
+| Browser           | OS som stöds                     | Anteckningar               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

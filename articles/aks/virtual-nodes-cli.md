@@ -2,17 +2,17 @@
 title: Skapa virtuella noder med hjälp av Azure CLI i Azure Kubernetes Services (AKS)
 description: Lär dig hur du använder Azure CLI för att skapa ett kluster i Azure Kubernetes Services (AKS) som använder virtuella noder för att köra poddar.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742793"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613787"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurs
 
 Virtuella noder aktivera nätverkskommunikationen mellan poddar som körs i ACI och AKS-klustret. För att ge den här kommunikationen, ett virtuellt nätverksundernät skapas och tilldelas delegerade behörigheter. Virtuella noder fungerar bara med AKS-kluster som skapas med hjälp av *avancerade* nätverk. Som standard AKS-kluster skapas med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuera ett AKS-kluster som använder avancerade nätverk.
 
-Om du inte tidigare har använt ACI registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list] [ az-provider-list] kommandot, som visas i följande exempel:
+Om du inte tidigare har använt ACI registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list][az-provider-list] kommandot, som visas i följande exempel:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Om providern visas som *NotRegistered*, registrera providern med hjälp av den [az provider register] [ az-provider-register] som visas i följande exempel:
+Om providern visas som *NotRegistered*, registrera providern med hjälp av den [az provider register][az-provider-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med hjälp av den [az network vnet skapa] [ az-network-vnet-create] kommando. I följande exempel skapas ett virtuellt nätverksnamn *myVnet* med adressprefixet *10.0.0.0/8*, och ett undernät med namnet *myAKSSubnet*. Det här undernätet adressprefix som standard *10.240.0.0/16*:
+Skapa ett virtuellt nätverk med hjälp av den [az network vnet skapa][az-network-vnet-create] kommando. I följande exempel skapas ett virtuellt nätverksnamn *myVnet* med adressprefixet *10.0.0.0/8*, och ett undernät med namnet *myAKSSubnet*. Det här undernätet adressprefix som standard *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Nu skapar du en ytterligare undernät för virtuella noder med hjälp av den [az network vnet-undernät skapa] [ az-network-vnet-subnet-create] kommando. I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefix *10.241.0.0/16*.
+Nu skapar du en ytterligare undernät för virtuella noder med hjälp av den [az network vnet-undernät skapa][az-network-vnet-subnet-create] kommando. I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefix *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +114,7 @@ az network vnet subnet create \
 
 Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Du kan skapa ett huvudnamn för tjänsten automatiskt via Azure CLI eller portalen, eller så kan du skapa ett i förväg och tilldela ytterligare behörigheter.
 
-Skapa ett tjänstobjekt med den [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] kommando. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas.
+Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -144,7 +144,7 @@ Hämta först det virtuella nätverket resource ID med [az network vnet show][az
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-Om du vill ge rätt åtkomsten för AKS-klustret ska använda det virtuella nätverket, skapa en roll tilldelning med den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando. Byt ut `<appId`> och `<vnetId>` mot värdena du antecknade i föregående två steg.
+Om du vill ge rätt åtkomsten för AKS-klustret ska använda det virtuella nätverket, skapa en roll tilldelning med den [az-rolltilldelning skapa][az-role-assignment-create] kommando. Byt ut `<appId`> och `<vnetId>` mot värdena du antecknade i föregående två steg.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -158,7 +158,7 @@ Du distribuerar ett AKS-kluster i AKS-undernät som skapats i föregående steg.
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med ID: T som hämtades i föregående steg, och sedan `<appId>` och `<password>` med den 
+Använd den [az aks skapa][az-aks-create] kommando för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med ID: T som hämtades i föregående steg, och sedan `<appId>` och `<password>` med den 
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ Efter flera minuter slutförs kommandot och returnerar JSON-formaterad informati
 
 ## <a name="enable-virtual-nodes-addon"></a>Aktivera tillägg för virtuella noder
 
-Om du vill aktivera virtuella noder nu använda den [az aks enable-tillägg] [ az-aks-enable-addons] kommando. I följande exempel används undernätet med namnet *myVirtualNodeSubnet* skapade i föregående steg:
+Om du vill aktivera virtuella noder nu använda den [az aks enable-tillägg][az-aks-enable-addons] kommando. I följande exempel används undernätet med namnet *myVirtualNodeSubnet* skapade i föregående steg:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Distribuera en exempelapp
 
-Skapa en fil med namnet `virtual-node.yaml` och kopiera följande YAML. Så här schemalägger du behållaren på noden och en [nodeSelector] [ node-selector] och [toleration] [ toleration] har definierats.
+Skapa en fil med namnet `virtual-node.yaml` och kopiera följande YAML. Så här schemalägger du behållaren på noden och en [nodeSelector][node-selector] and [toleration][toleration] har definierats.
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Kör programmet med den [kubectl gäller] [ kubectl-apply] kommando.
+Kör programmet med den [kubectl gäller][kubectl-apply] kommando.
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Använd den [kubectl hämta poddar] [ kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar och noden schemalagda. Observera att den `aci-helloworld` pod har schemalagts på den `virtual-node-aci-linux` noden.
+Använd den [kubectl hämta poddar][kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar och noden schemalagda. Observera att den `aci-helloworld` pod har schemalagts på den `virtual-node-aci-linux` noden.
 
 ```
 $ kubectl get pods -o wide
@@ -303,7 +303,7 @@ Stäng terminalsession till din test pod med `exit`. När sessionen avslutas är
 
 ## <a name="remove-virtual-nodes"></a>Ta bort virtuella noder
 
-Om du inte längre vill använda virtuella noder kan du inaktivera dem med hjälp av den [az aks disable-tillägg] [ az aks disable-addons] kommando. 
+Om du inte längre vill använda virtuella noder kan du inaktivera dem med hjälp av den [az aks disable-tillägg][az aks disable-addons] kommando. 
 
 Först tar bort helloworld-pod körs på virtuella noden:
 

@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163997"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836708"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudier: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
@@ -59,7 +58,7 @@ Här är de steg du utför i självstudiekursen:
 4. Skapa en datafabrik med namnet **DataFactoryUsingVS**. Distribuera en datafabrik och alla Data Factory-enheter (länkade tjänster, tabeller och pipelinen).
 5. När du har publicerat kan du använda bladen på Azure Portal och övervaknings- och hanteringsappen för att övervaka pipelinen. 
   
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -124,8 +123,8 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
 
     Egenskap | Beskrivning
     -------- | ----------- 
-    ClusterSize | Anger HDInsight Hadoop-klustrets storlek.
-    TimeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort.
+    clusterSize | Anger HDInsight Hadoop-klustrets storlek.
+    timeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort.
     linkedServiceName | Anger lagringskontot som används för att spara loggarna som genereras av HDInsight Hadoop-klustret. 
 
     > [!IMPORTANT]
@@ -173,13 +172,13 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 
     Egenskap | Beskrivning |
     -------- | ----------- |
-    typ |Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob Storage.
+    type |Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob Storage.
     linkedServiceName | Refererar till AzureStorageLinkedService1 som du skapade tidigare.
     fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log.
-    typ | Loggfilerna är i textformat, så vi använder TextFormat. |
+    type | Loggfilerna är i textformat, så vi använder TextFormat. |
     columnDelimiter | kolumner i loggfilerna avgränsas med kommatecken (`,`)
     frekvens/intervall | frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden.
-    extern | Den här egenskapen anges som true om indata för aktiviteten inte skapades av pipelinen. Den här egenskapen anges endast för indatauppsättningar. Ange alltid true för indatauppsättningen för den första aktiviteten.
+    external | Den här egenskapen anges som true om indata för aktiviteten inte skapades av pipelinen. Den här egenskapen anges endast för indatauppsättningar. Ange alltid true för indatauppsättningen för den första aktiviteten.
 4. Spara filen **InputDataset.json**.
 
 #### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
@@ -566,7 +565,7 @@ Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att st�
 
 ## <a name="see-also"></a>Se även
 
-| Ämne | Beskrivning |
+| Avsnitt | Beskrivning |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |

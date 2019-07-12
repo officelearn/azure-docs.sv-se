@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202980"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797651"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatisk ML-experiment i Python
 
@@ -40,7 +40,7 @@ Om du föredrar en ingen kod-upplevelsen kan du också [skapa dina automatiserad
 
 Innan du börjar experimentet måste bestämma du vilken typ av machine learning-problem som du vill lösa. Automatiserad maskininlärning stöder uppgift typer av klassificering, regression och prognostisering.
 
-Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen. DNN-algoritmer är tillgängliga vid träning, automatiserade ML inte att skapa DNN-modeller.
+Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen. 
 
 Klassificering | Regression | Time Series prognoser
 |-- |-- |--
@@ -346,7 +346,7 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
   >[!Note]
   >Använda 'timeseriestransformer' för uppgiften = 'prognoser ”annan användning 'datatransformer' för 'regression' eller 'klassificering” uppgiften.
 
-  Utdata:
+  Resultat:
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',
@@ -372,7 +372,7 @@ Använd dessa 2 API: er på det första steget i anpassade modell som vill veta 
 
    Där:
 
-   |Resultat|Definition|
+   |Output|Definition|
    |----|--------|
    |RawFeatureName|Funktionen/indatakolumnen namn från den datauppsättning som angetts.|
    |TypeDetected|Identifierade datatype av indata-funktionen.|

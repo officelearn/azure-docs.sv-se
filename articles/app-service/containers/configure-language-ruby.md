@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8a2eaf50a35b25463be3e323d4362b52e2339bf6
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550301"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617394"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux-Ruby-app för Azure App Service
 
@@ -160,7 +161,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Rails-app med PostgreSQL](tutorial-ruby-postgres-app.md)
+> [Självstudier: Rails-app med PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux vanliga frågor och svar](app-service-linux-faq.md)

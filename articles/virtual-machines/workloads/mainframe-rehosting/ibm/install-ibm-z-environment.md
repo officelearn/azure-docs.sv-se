@@ -4,16 +4,19 @@ description: Distribuera IBM Z Development och Test-miljö (zD & T) på Azure Vi
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad02ec75dab4cb6971d0467899d80f5f745fd94b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859349"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621302"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD & T dev/test-miljö på Azure
 
@@ -35,7 +38,7 @@ Mer information finns i den [zD & T översikt](https://www.ibm.com/support/knowl
 
 Den här artikeln visar hur du ställer in Z utveckling och Test-miljö (zD & T) Enterprise Edition på Azure. Du kan sedan använda zD & T Enterprise Edition-webbserver för att skapa och hantera Z-baserade miljöer i Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > IBM tillåter zD & T Enterprise Edition installeras i miljöer för utveckling/testning endast –*inte* produktionsmiljöer.

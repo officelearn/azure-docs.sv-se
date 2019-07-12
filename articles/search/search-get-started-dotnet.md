@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
-ms.openlocfilehash: a5cbd2036f92c27709d92d0cf415cc9837645fb8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 07/11/2019
+ms.openlocfilehash: ddbe517510a3f7d1295c8970c13020baa3efacf0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485608"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840300"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Snabbstart: Skapa ett Azure Search-index i C# med .NET SDK
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Följande tjänster, verktyg och data som används i den här snabbstarten.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
-+ Ett exempelindex och dokument tillhandahålls i den här artikeln samt i den [Visual Studio-lösning](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart) för den här snabbstarten.
++ Ett exempelindex och dokument tillhandahålls i den här artikeln samt i den [Visual Studio-lösning](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) för den här snabbstarten.
 
 + [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten.
 
@@ -195,11 +195,14 @@ Hotellindexet som består av enkla och komplexa fält, där en enkel fältrefere
     }
     ```
 
-    Attribut i fältet avgör hur den används i ett program. Till exempel den `IsSearchable` attributet tilldelas till varje fält som ska ingå i en fulltextsökning. Standardvärdet är att inaktivera fält beteenden som inte uttryckligen har aktiverats i .NET-SDK.
+    Attribut i fältet avgör hur den används i ett program. Till exempel den `IsSearchable` attributet måste tilldelas varje fält som ska ingå i en fulltextsökning. 
+    
+    > [!NOTE]
+    > I .NET-SDK fält måste vara explicit attributen [ `IsSearchable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [ `IsFilterable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [ `IsSortable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet), och [ `IsFacetable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Det här beteendet är till skillnad från REST API som möjliggör implicit attribution baserat på datatyp (till exempel enkelt strängfält är sökbara automatiskt).
 
     Exakt ett fält i indexet av typen `string` måste vara den *nyckel* fält som unikt identifierar varje dokument. I det här schemat nyckeln är `HotelId`.
 
-    I det här indexet använder fälten Beskrivning egenskapen valfritt analyzer, som du angav när du vill åsidosätta den standard analysverktyget från Lucene. Den `description_fr` fältet använder franska Lucene analysatorn ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) eftersom den innehåller en fransk text. Den `description` använder valfritt Microsoft-språkanalysverktyg ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    I det här indexet fälten Beskrivning använder den valfria [ `analyzer` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) -egenskapen anges när du vill åsidosätta den standard analysverktyget från Lucene. Den `description_fr` fältet använder franska Lucene analysatorn ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) eftersom den innehåller en fransk text. Den `description` använder valfritt Microsoft-språkanalysverktyg ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. I Program.cs, skapa en instans av den [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klassen för att ansluta till tjänsten med hjälp av värden som lagras i programmets konfigurationsfil (appsettings.json). 
 
@@ -550,13 +553,11 @@ Den [ `DocumentsSearchResult` ](https://docs.microsoft.com/dotnet/api/microsoft.
 
 ## <a name="clean-up"></a>Rensa
 
-När du är klar med ett index och vill ta bort det anropar den `Indexes.Delete` metoden på din `SearchServiceClient`.
+När du arbetar i din egen prenumeration är det en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver resurserna som du skapade. Resurser vänstra som körs kan kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen för att ta bort hela uppsättningen resurser.
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+Du kan hitta och hantera resurser i portalen med hjälp av den **alla resurser** eller **resursgrupper** länken i det vänstra navigeringsfönstret.
 
-Om du är klar med söktjänsten kan du ta bort resurser från Azure-portalen.
+Om du använder en kostnadsfri tjänst kan du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla oss under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

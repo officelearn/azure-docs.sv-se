@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 168e5eea2004a31b108a8a00d883298f8e2198ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8fe26cc58117bc6249f8a7e87612dabc5f438
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60566521"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839514"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure-portalen för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -36,6 +36,9 @@ ms.locfileid: "60566521"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du gå igenom [självstudien för kopieringsaktiviteter](../quickstart-create-data-factory-dot-net.md). 
 
+> [!WARNING]
+> JSON-redigeraren i Azure Portal för skapande och distribution av ADF v1 pipelines kommer att vara inaktiverad och med 31 juli 2019. Efter den 31 juli 2019 som du kan fortsätta att använda [ADF v1 Powershell-cmdletar](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST API: er](https://docs.microsoft.com/rest/api/datafactory/) att skapa och distribuera din ADF v1 pipelines.
+
 I den här artikeln får du lära dig hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
 
 I den här självstudien får du skapa en pipeline som innehåller en aktivitet: kopieringsaktiviteten. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
@@ -45,7 +48,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > [!NOTE] 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. En självstudie om hur du omvandlar data med Azure Data Factory finns i [Självstudie: Bygga en pipeline för att omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Slutför stegen i artikeln [Självstudier – förhandskrav](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) innan du fortsätter med självstudierna.
 
 ## <a name="steps"></a>Steg
@@ -67,7 +70,7 @@ Här är de steg du utför som en del av de här självstudierna:
     Kopieringsaktiviteten kopierar data från en Azure-blob till en tabell i Azure SQL-databasen. Du kan använda en kopieringsaktivitet i en pipeline för att kopiera data från alla datakällor som stöds till ett mål som stöds. I avsnittet [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md#supported-data-stores-and-formats) finns en lista över datalager som stöds. 
 5. Övervaka pipeline. I det här steget ska du **övervaka** sektorer från indata- och utdatauppsättningar med hjälp av Azure-portalen. 
 
-## <a name="create-data-factory"></a>Skapa en datafabrik
+## <a name="create-a-data-factory"></a>Skapa en datafabrik
 > [!IMPORTANT]
 > Slutför [förutsättningarna för självstudiekursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) om du inte redan har utfört dessa.   
 
@@ -120,7 +123,7 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. An
 
 AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
-### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
+### <a name="create-an-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet.  
 
 1. Klicka på **Författare och distribution** på bladet **Data Factory**.
@@ -141,7 +144,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du ange
 
     Läs mer om JSON-egenskaper i den länkade tjänstdefinitionen i artikeln [Anslutningsapp för Azure Blob Storage](data-factory-azure-blob-connector.md#linked-service-properties).
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Skapa en länkad tjänst för Azure SQL Database
+### <a name="create-a-linked-service-for-azure-sql-database"></a>Skapa en länkad tjänst för Azure SQL Database
 I det här steget länkar du Azure SQL-databasen till din datafabrik. Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. 
 
 1. I **Data Factory-redigeraren** klickar du på knappen **Nytt datalager** i verktygsfältet och väljer **Azure SQL Database** i listrutan. Du bör se JSON-mallen för att skapa en länkad Azure SQL-tjänst i den högra rutan.
@@ -158,10 +161,10 @@ Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory
 
 Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till din Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
-### <a name="create-input-dataset"></a>Skapa indatauppsättning
+### <a name="create-an-input-dataset"></a>Skapa en indatauppsättning
 I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobcontainer (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
 
-1. I **redigeringsprogrammet** för Data Factory klickar du på **... More (Mer)**, **Ny datauppsättning** och sedan på **Azure Blob Storage** i listrutan. 
+1. I **redigeringsprogrammet** för Data Factory klickar du på **... More (Mer)** , **Ny datauppsättning** och sedan på **Azure Blob Storage** i listrutan. 
    
     ![Menyn Ny datauppsättning](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Ersätt JSON i den högra rutan med följande JSON-kodfragment: 
@@ -207,18 +210,18 @@ I det här steget skapar du en datauppsättning med namnet InputDataset som peka
     | linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
     | folderPath | Anger vilken **blobcontainer** och **mapp** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
     | fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
-    | format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
-    | columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
+    | format -> type |Indatafilen är i textformat, så vi använder **TextFormat**. |
+    | columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)** . |
     | frequency/interval | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
     | external | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).      
 3. Klicka på **Distribuera** i verktygsfältet för att distribuera **InputDataset**. Kontrollera att du ser **InputDataset** i trädvyn.
 
-### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
+### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
 Den länkade tjänsten Azure SQL Database anger anslutningssträngen som används av tjänsten Data Factory vid körningstiden för att ansluta till din Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen som du skapade i det här steget anger tabellen i databasen som data kopieras till från blob-lagringen.
 
-1. I **redigeringsprogrammet** för Data Factory klickar du på **... More (Mer)**, **Ny datauppsättning** och sedan på **Azure SQL** i listrutan. 
+1. I **redigeringsprogrammet** för Data Factory klickar du på **... More (Mer)** , **Ny datauppsättning** och sedan på **Azure SQL** i listrutan. 
 2. Ersätt JSON i den högra rutan med följande JSON-kodfragment:
 
     ```json   
@@ -262,7 +265,7 @@ Den länkade tjänsten Azure SQL Database anger anslutningssträngen som använd
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure SQL-anslutningsapp](data-factory-azure-sql-connector.md#dataset-properties).
 3. Klicka på **Distribuera** i verktygsfältet för att distribuera **OutputDataset**. Kontrollera att du ser **OutputDataset** i trädvyn under **Datasets**. 
 
-## <a name="create-pipeline"></a>Skapa pipeline
+## <a name="create-a-pipeline"></a>Skapa en pipeline
 I det här steget ska du skapa en pipeline med en **kopieringsaktivitet** som använder **InputDataset** som indata och **OutputDataset** som utdata.
 
 Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen är datamängden för utdata konfigurerad för att skapa ett segment en gång i timmen. Pipelinen har en starttid och sluttid som är en dag från varandra, vilket är 24 timmar. Därför produceras 24 segment för utdatauppsättningen av pipeline. 
@@ -329,7 +332,7 @@ Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen ä
 **Grattis!** Du har skapat en Azure-datafabrik med en pipeline för att kopiera data från en Azure blob-lagring till en Azure SQL-databas. 
 
 
-## <a name="monitor-pipeline"></a>Övervaka pipeline
+## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 I det här steget ska du använda Azure-portalen för att övervaka vad som händer i en Azure-datafabrik.    
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>Övervaka pipeline med övervaknings- och hanteringsappen
@@ -360,7 +363,7 @@ Följande steg visar hur du övervakar pipelines i din datafabrik med hjälp av 
 
 Se [Övervaka och hantera Azure Data Factory-pipelines med övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet.
 
-### <a name="monitor-pipeline-using-diagram-view"></a>Övervaka pipeline med diagramvyn
+### <a name="monitor-the-pipeline-using-diagram-view"></a>Övervaka pipeline med diagramvyn
 Du kan också övervaka datapipelines genom att använda diagramvyn.  
 
 1. På **Data Factory**-bladet klickar du på **Diagram**.

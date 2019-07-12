@@ -13,16 +13,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47578d5b6bb4a0094ba1a2e9e7dc7f92d0b0e231
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076890"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607092"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
 Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inbyggda i. Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Artikeln innehåller också viktiga uppdateringar av innehållet som är inte direkt relaterade till versionen men som har publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
+
+
+## <a name="june-2019"></a>Juni 2019
+
+### <a name="service-improvements"></a>Förbättringar av tjänsten
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+| **Ny SQL IaaS-installationslägena** | Nu är det möjligt att installera SQL IaaS-tillägget i [enkelt läge](virtual-machines-windows-sql-server-agent-extension.md) att undvika att starta om SQL Server-tjänsten.  |
+| **Ändring av SQL Server-utgåva** | Du kan nu ändra den [edition egenskapen](virtual-machines-windows-sql-change-edition.md) för din SQL Server-VM. |
+| **SQL VM RP ändringar** | Du kan [registrera SQL Server-dator med SQL VM-resursprovidern](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) – även [Windows 2008 avbildningar](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms) -med hjälp av de nya SQL IaaS-lägen. |
+| **BYOL-avbildningar med hjälp av AHUB** | BYOL-avbildningar som distribueras från marketplace kan växla sina [licenstyp till ”betala per användning”](virtual-machines-windows-sql-ahb.md#remarks).| 
+| &nbsp; | &nbsp; |
+
+
 
 ## <a name="may-2019"></a>Maj 2019
 
@@ -41,6 +56,8 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 | &nbsp; | &nbsp; |
 
 
+
+
 ## <a name="april-2019"></a>April 2019
 
 ### <a name="service-improvements"></a>Förbättringar av tjänsten
@@ -55,7 +72,7 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-| **Anpassad avbildning support** | Nu kan du installera den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) för anpassade OS- och SQL-avbildningar, som erbjuder begränsad funktionalitet för [flexibla licensiering](virtual-machines-windows-sql-ahb.md). När registrera en anpassad avbildning med SQL-resursprovider anger licenstypen som ”AHUB” som annars misslyckas registreringen.  | 
+| **Anpassad avbildning support** | Nu kan du installera den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) för anpassade OS- och SQL-avbildningar, som erbjuder begränsad funktionalitet för [flexibla licensiering](virtual-machines-windows-sql-ahb.md). När registrera en anpassad avbildning med SQL-resursprovider anger licenstypen som ”AHUB” som annars misslyckas registreringen. | 
 | **Namngiven instans support** | Du kan nu använda den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) med en namngiven instans om standardinstansen har avinstallerats korrekt. | 
 | **Förbättring av portalen** | Azure-portalen tidigare för att distribuera en SQL Server VM har har gjort om för att förbättra användbarhet. Mer information finns i rapport [snabbstarten](quickstart-sql-vm-create-portal.md) och mer omfattande [How-to](virtual-machines-windows-portal-sql-server-provision.md) vägledning för distribution av en SQL Server VM.|
 | &nbsp; | &nbsp; |
@@ -65,7 +82,7 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-| **Portalen förbättring** | Nu är det möjligt att ändra så att licensieringsmodellen för en SQL Server-VM från betala per användning till bring-your-own-license med hjälp av den [Azure-portalen](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
+| **Portalen förbättring** | Nu är det möjligt att ändra så att licensieringsmodellen för en SQL Server-VM från betala per användning till bring-your-own-license med hjälp av den [Azure-portalen](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider)|
 |**AG distribution förenkling av distribution med Azure SQL-dator med CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighetsgrupp till en SQL Server-VM i Azure. [Azure SQL-dator med CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) kan du skapa WSFC, ILB och AG-lyssnare allt från kommandoraden och registrera tid! Mer information finns i [Använd Azure SQL VM CLI för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
@@ -76,7 +93,7 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 | --- | --- |
 | **Ny SQL-kluster grupp-resursprovider** | En ny resursprovider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) som definierar metadata för Windows-redundanskluster. Ansluta till en SQL Server-VM till den *SqlVirtualMachineGroups* startar tjänsten Windows-redundanskluster och kopplar den virtuella datorn till klustret.  |
 |**Automatisera konfigurationen av distribueringen av en tillgänglighet med Azure-Snabbstartsmallar** |Nu är det möjligt att skapa Windows-redundanskluster, ansluta till SQL Server-datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med två Azure-Snabbstartsmallar. Mer information finns i [användning Azure-Snabbstartsmall för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden fortfarande behöver registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med SQL VM-resursprovidern](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).|
+| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden fortfarande behöver registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med SQL VM-resursprovidern](virtual-machines-windows-sql-register-with-resource-provider.md).|
 | &nbsp; | &nbsp; |
 
 
@@ -84,8 +101,8 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-| **Ny SQL-VM-resursprovider** |  En ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som ger bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). |
-|**Växla licensieringsmodell** |Du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller Powershell. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). | 
+| **Ny SQL-VM-resursprovider** |  En ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som ger bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-register-with-resource-provider.md). |
+|**Växla licensieringsmodell** | Du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller Powershell. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153976"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621962"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
@@ -111,7 +111,7 @@ Aviseringarna genereras av onormala och potentiellt skadliga försök att komma 
 
 ### <a name="anomalous-access-pattern-alerts"></a>Avvikande åtkomst mönstret aviseringar
 
-* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till ett lagringskonto. Till exempel när någon har åtkomst till ett lagringskonto från en ovanlig geografisk plats.
+* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när någon har använt ett lagringskonto från en ovanlig geografisk plats.
 Möjliga orsaker:
    * En angripare har åtkomst till ditt storage-konto
    * En legitim användare har åtkomst till ditt lagringskonto från en ny plats
@@ -120,10 +120,16 @@ Möjliga orsaker:
    * En angripare har åtkomst till ditt storage-konto med hjälp av ett nytt program.
    * En legitim användare har använt en ny application/webbläsare för att få åtkomst till ditt storage-konto.
 
-* **Anonym åtkomst**: Den här varningen anger att det finns en ändring i åtkomstmönstret för till ett lagringskonto. Till exempel det här kontot har varit nås anonymt (d.v.s. utan någon autentisering), som är oväntad jämfört med de senaste åtkomstmönstret på det här kontot.
+* **Anonym åtkomst**: Den här varningen anger att det här kontot har de senaste åtkomstmönstret på det här kontot används anonymt (d.v.s. utan någon autentisering), som är oväntad jämfört med.
 Möjliga orsaker:
    * En angripare har utnyttjat offentlig läsbehörighet till en behållare.
    * En legitim användare eller ett program har använt offentlig läsbehörighet till en behållare.
+
+* **Tor Avvikelseidentifiering**: Den här varningen anger att det här kontot har använts har från en IP-adress som kallas för en aktiv slutnod av Tor (en anonymizing proxy). Allvarlighetsgraden för aviseringen betraktar autentiseringstypen används (om sådan finns) och om det här är det första fallet av sådan åtkomst.
+Möjliga orsaker:
+   * En angripare har åtkomst till ditt storage-konto med hjälp av Tor.
+   * En legitim användare har åtkomst till ditt storage-konto med hjälp av Tor.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Avvikande extrahera/laddar upp aviseringar
 

@@ -11,16 +11,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d556c82f47868f4ee06694e23092f10029d619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073455"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839854"
 ---
 # <a name="accelerated-database-recovery"></a>Accelererad databasåterställning
 
-**Accelerated Database Recovery (ADR)** en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser och databaser i en pool i Azure SQL Database och databaser i Azure SQL Data Warehouse. De främsta fördelarna med ADR är:
+**Accelerated Database Recovery (ADR)** en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser och databaser i en pool i Azure SQL Database och databaser i Azure SQL Data Warehouse (för närvarande i allmänt tillgänglig förhandsversion). De främsta fördelarna med ADR är:
 
 - **Snabbt och konsekvent databasåterställning**
 

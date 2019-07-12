@@ -4,7 +4,7 @@ description: Snabbstartsguide för manuell installation av en instans SAP HANA p
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 914da98359d11ff25709164d6301737404b3b011
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60205051"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707672"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -30,7 +30,7 @@ Den här guiden kan du ställa in en enda instans SAP HANA på Azure virtuella d
 > [!NOTE]
 > Den här guiden beskriver distributioner av SAP HANA i Azure virtuella datorer. Information om hur du distribuerar SAP HANA på stora HANA-instanser finns i [Använd SAP på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Den här guiden förutsätter att du är bekant med denna infrastruktur som en tjänst (IaaS)-grunder som:
  * Hur du distribuerar virtuella datorer (VM) eller virtuella nätverk via Azure portal eller PowerShell.
  * Azures plattformsoberoende kommandoradsgränssnitt (CLI), som innehåller alternativet att använda mallar i JavaScript Object Notation (JSON).

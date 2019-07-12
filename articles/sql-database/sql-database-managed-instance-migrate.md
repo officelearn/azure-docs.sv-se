@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070413"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827068"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database-hanterad instans
 
 I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare version instans till [Azure SQL Database-hanterad instans](sql-database-managed-instance.md). Information om hur du migrerar till en enkel databas eller elastisk pool finns i [migrera till en enda eller grupperade databas](sql-database-cloud-migrate.md). Migreringsinformation om hur du migrerar från andra plattformar finns i [Databasmigreringsguide för Azure](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> Om du vill att snabbt starta och prova Managed Instance, kanske du vill gå till [snabbstartsguiden](/sql-database-managed-instance-quickstart-guide.md) i stället för den här sidan. 
+
 Migreringen av databasen ut som på en hög nivå:
 
 ![Migreringsprocessen](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Utvärdera kompatibilitet för hanterad instans](#assess-managed-instance-compatibility)
-- [Välj alternativet för app-anslutning](sql-database-managed-instance-connect-app.md)
-- [Distribuera till en optimal storlek hanterad instans](#deploy-to-an-optimally-sized-managed-instance)
-- [Välj migreringsmetod och migrera](#select-migration-method-and-migrate)
-- [Övervaka program](#monitor-applications)
+- [Utvärdera hanterad instans kompatibilitet](#assess-managed-instance-compatibility) där bör du kontrollera att det inte finns några blockeringsproblem som kan förhindra att din migreringar.
+  - Det här steget omfattar också skapandet av [baslinje för prestanda](#create-performance-baseline) att fastställa resursanvändningen på din SQL Server-instans. Det här steget krävs om du vill att o distribuera korrekt storlekar Managed Instance och kontrollera att inte påverkas prestanda efter migreringen.
+- [Välj app-anslutningsalternativ](sql-database-managed-instance-connect-app.md)
+- [Distribuera till ett optimalt storlekar managed instance](#deploy-to-an-optimally-sized-managed-instance) där du ska välja tekniska egenskaper (antal virtuella kärnor, minnesmängd) och prestandanivå (affärskritisk, generell användning) för din hanterade instans.
+- [Välj migreringsmetod och migrera](#select-migration-method-and-migrate) där du migrera dina databaser med hjälp av offline-migrering (interna säkerhetskopiering/återställning, databasen importe/export) eller onlinemigrering (Data Migration Service, Transaktionsreplikering).
+- [Övervaka program](#monitor-applications) så att du har förväntade prestanda.
 
 > [!NOTE]
 > Om du vill migrera en enskild databas i en enkel databas eller elastisk pool, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-single-database-migrate.md).
@@ -58,7 +62,11 @@ Hanterade instans vi garanterar 99,99% tillgänglighet även i de viktiga scenar
 
 ### <a name="create-performance-baseline"></a>Skapa baslinje för prestanda
 
-Om du vill jämföra prestanda för din arbetsbelastning på hanterad instans med din ursprungliga arbetsbelastningar som körs på SQL Server skulle du behöva skapa en baslinje för prestanda som ska användas för jämförelse. Några av de parametrar som du kommer att mäta på SQL Server-instansen är: 
+Om du vill jämföra prestanda för din arbetsbelastning på hanterad instans med din ursprungliga arbetsbelastningar som körs på SQL Server skulle du behöva skapa en baslinje för prestanda som ska användas för jämförelse. 
+
+Baslinje för prestanda är en uppsättning parametrar som medelvärde/max CPU-användning, genomsnitt/max disk-i/o-svarstid, dataflöde, IOPS, varaktighet för sida genomsnittet/max, genomsnittlig maxstorleken på tempdb. Du skulle vilja ha liknande eller ännu bättre parametrar efter migreringen, så det är viktigt att mäta och registrera baslinje-värden för dessa parametrar. Förutom systemparametrar, skulle du behöva välja ett representativt frågorna eller de viktigaste frågorna i din arbetsbelastning och mått min/genomsnittlig/max varaktighet, CPU-användningen för de valda förfrågningarna. Dessa värden gör att du kan jämföra prestanda för arbetsbelastningar som körs på Managed Instance till de ursprungliga värdena på din SQL Server-källans.
+
+Några av de parametrar som du kommer att mäta på SQL Server-instansen är: 
 - [Övervaka CPU-användningen på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och registrera genomsnittliga och högsta CPU-användning.
 - [Övervaka minnesanvändning på SQL Server-instansen](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) och avgör hur mycket minne som används av olika komponenter, till exempel buffertpoolen, planera cache, columnstore poolen, [minnesintern OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)osv. Dessutom bör du hitta genomsnittliga och högsta värden för varaktighet för sida prestandaräknaren för minne.
 - Övervaka disk-i/o-användning på källan SQL Server instans med [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) vy eller [prestandaräknare](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +80,10 @@ Som ett resultat av den här aktiviteten bör du ha dokumenterade medelvärde oc
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Distribuera till en optimal storlek hanterad instans
 
 Hanterad instans skräddarsys för lokala arbetsbelastningar som planerar att flytta till molnet. Det inför en [nya inköpsmodell](sql-database-service-tiers-vcore.md) som ger större flexibilitet att välja rätt nivå av resurser för dina arbetsbelastningar. I den lokala miljön är du antagligen van vid att ändra storlek på dessa arbetsbelastningar med hjälp av fysiska kärnor och i/o-bandbredd. Inköpsmodellen för den hanterade instansen baseras på virtuella kärnor, eller ”vCores”, med ytterligare lagringsutrymme och I/O som är tillgängliga separat. VCore-modellen är ett enklare sätt att förstå dina beräkningskrav i molnet eller det du använder en lokal idag. Den nya modellen kan du justera storleken din mål-miljö i molnet. Här beskrivs några allmänna riktlinjer som kan hjälpa dig att välja rätt tjänstnivå och egenskaper:
-- [Övervaka CPU-användningen på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och kontrollera hur mycket datorkraft du för närvarande använder (med Dynamic Management Views, SQL Server Management Studio eller andra övervakningsverktyg). Du kan etablera en hanterad instans som matchar antalet kärnor som du använder på SQL-servern att ha i åtanke processoregenskaper kan behöva skalas för att matcha [Virtuella datoregenskaper där Managed Instance är installerad](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Mängden tillgängligt minne på SQL Server-instansen och välj [tjänstnivån med matchande minne](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Det kan vara användbart att mäta sidan vida på SQL Server-instansen att fastställa [behöver du ytterligare minne](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Mäta svarstiden för i/o för undersystemet fil för att välja mellan tjänstnivåerna generell användning och affärskritisk.
+- Baserat på baslinjen CPU-användning kan du etablera en hanterad instans som matchar antalet kärnor som du använder på SQL Server, att ha i åtanke att processoregenskaper behöva skalas för att matcha [Virtuella datoregenskaper där Managed Instance är installerade](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Baserat på minnesanvändningen baslinje väljer [tjänstnivån med matchande minne](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). Mängden minne kan inte väljas direkt så att du måste välja den hanterade instansen med antal virtuella kärnor med matchande minne (till exempel 5.1 GB/vCore i Gen5). 
+- Baserat på baslinjen i/o svarstiden för undersystemet filen välja mellan generell användning (svarstiden är större än 5 MS) och affärskritisk tjänstnivåer (svarstid mindre än 3 ms).
+- Baserat på baslinjen dataflöde förväg allokera storleken på data eller loggfiler för att hämta förväntat i/o-prestanda.
 
 Du kan välja beräknings- och lagringsresurser vid distributionen tid och ändra den senare utan att driftstopp för dina program med hjälp av den [Azure-portalen](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ Resultatet av jämförelsen prestanda kan vara:
 Gör ändringar av parametrar eller uppgradera tjänstnivåer att Konvergera till den bästa konfigurationen tills du kommer arbetsbelastningsprestandan som passar dina behov.
 
 ### <a name="monitor-performance"></a>Övervaka prestanda
+
+Hanterad instans erbjuder en mängd olika avancerade verktyg för övervakning och felsökning och du bör använda dem för att övervaka prestanda på-instansen. Vissa parametrar som din behöver övervaka är:
+- CPU-användning på instansen som ska bestämma gör att antalet virtuella kärnor som du etablerade är rätt matchning för din arbetsbelastning.
+- Sidan vida på din hanterade instans att fastställa [behöver du ytterligare minne](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Vänta statistik som `INSTANCE_LOG_GOVERNOR` eller `PAGEIOLATCH` som talar om har du problem med lagring i/o, särskilt på allmän-nivån där du kan behöva förväg allokera filer för att få bättre i/o-prestanda.
+
+## <a name="leverage-advanced-paas-features"></a>Använd avancerade PaaS-funktioner
 
 När du är på en helt hanterad plattform och du har kontrollerat att arbetsbelastningen prestanda kommer att matcha du prestanda för SQL Server-arbetsbelastning kan du ta fördelar som tillhandahålls automatiskt som en del av tjänsten SQL Database. 
 

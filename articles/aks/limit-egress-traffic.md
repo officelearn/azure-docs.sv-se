@@ -2,17 +2,17 @@
 title: Begränsa utgående trafik i Azure Kubernetes Service (AKS)
 description: Lär dig vilka portar och adresser krävs för att styra utgående trafik i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441927"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614966"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - gränsen för utgående trafik för klusternoder och kontrollera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes Service (AKS)
 

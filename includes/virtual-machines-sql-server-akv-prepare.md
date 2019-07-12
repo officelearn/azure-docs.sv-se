@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a6a53e6db883c63164a6367012faf32ed75519
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076027"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673539"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered AKV-integreringen
 Om du vill använda Azure Key Vault-integrering för att konfigurera SQL Server-dator, finns det flera förutsättningar: 
@@ -38,7 +38,7 @@ Kontrollera att du har installerat den senaste Azure PowerShell-modulen. Mer inf
 
 Först behöver du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) i din prenumeration. Bland många fördelar kan du ge behörighet till ditt nyckelvalv för vissa användare och program.
 
-Därefter registrera ett program med AAD. Detta ger dig ett huvudkonto för tjänsten som har åtkomst till ditt nyckelvalv, som måste den virtuella datorn. I Azure Key Vault-artikeln hittar du de här stegen i den [registrera ett program med Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) avsnittet eller om du kan se steg med skärmbilder i den **hämta en identitet för programavsnittet**  av [det här blogginlägget](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Innan du slutför stegen som du behöver samla in följande information under denna registrering som behövs senare när du aktiverar Azure Key Vault-integrering på din SQL-VM.
+Därefter registrera ett program med AAD. Detta ger dig ett huvudkonto för tjänsten som har åtkomst till ditt nyckelvalv, som måste den virtuella datorn. I Azure Key Vault-artikeln hittar du de här stegen i den [registrera ett program med Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) avsnittet eller om du kan se steg med skärmbilder i den **hämta en identitet för programavsnittet**  av [det här blogginlägget](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Innan du slutför stegen som du behöver samla in följande information under denna registrering som behövs senare när du aktiverar Azure Key Vault-integrering på din SQL-VM.
 
 * När programmet har lagts till, hitta den **program-ID** på den **registrerad app** bladet.
     Program-ID tilldelas senare till den **$spName** (Service Principal name) parameter i PowerShell-skript för att aktivera Azure Key Vault-integrering.

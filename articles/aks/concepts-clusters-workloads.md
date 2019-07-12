@@ -2,17 +2,17 @@
 title: Begrepp - grundläggande om Kubernetes för Azure Kubernetes Services (AKS)
 description: Lär dig de grundläggande klustret och arbetsbelastningen komponenterna i Kubernetes och hur de relaterar till funktioner i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514530"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616006"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Kubernetes använder *poddar* att köra en instans av programmet. En pod represe
 
 När du skapar en pod, kan du definiera *resursgränser* att begära en viss mängd resurser som CPU eller minne. Kubernetes-Scheduler försöker schemalägga poddarna ska köras på en nod med tillgängliga resurser för att uppfylla begäran. Du kan också ange maximala resursbegränsningar som förhindrar att en viss pod förbrukar för mycket beräkningsresurs från den underliggande noden. Ett bra tips är att inkludera resursgränser för alla poddarna för att förstå vilka resurser som behövs och tillåts Kubernetes Scheduler.
 
-Mer information finns i [Kubernetes-poddar] [ kubernetes-pods] och [Kubernetes pod livscykel][kubernetes-pod-lifecycle].
+Mer information finns i [Kubernetes-poddar][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 En pod är en logisk resurs, men behållarna finns där programmet arbetsbelastningar körs. Poddar är normalt tillfälliga, disponibla resurser och individuellt schemalagda poddar missar några av de hög tillgänglighet och redundans funktionerna som Kubernetes tillhandahåller. I stället poddar vanligtvis distribueras och hanteras av Kubernetes *domänkontrollanter*, till exempel kontrollanten distribution.
 

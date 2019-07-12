@@ -4,7 +4,7 @@ description: Distribuerar Azure Disk Encryption för Linux till en virtuell dato
 services: virtual-machines-linux
 documentationcenter: ''
 author: ejarvi
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: d544aae33faf60be00a2b4ea0a45f405efcedb39
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295338"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706146"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -27,7 +27,7 @@ ms.locfileid: "67295338"
 
 Azure Disk Encryption utnyttjar undersystemet dm-crypt i Linux för att ge fullständig diskkryptering på [väljer Azure Linux-distributioner](https://aka.ms/adelinux).  Den här lösningen är integrerad med Azure Key Vault för att hantera diskkrypteringsnycklarna och hemligheterna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En fullständig lista över krav, se [krävs för Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
@@ -141,20 +141,20 @@ Med hjälp av `AADClientCertificate`:
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | sträng |
+| type | AzureDiskEncryptionForLinux | sträng |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (0,1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0,1 schema) AADClientSecret | password | string |
-| (0,1 schema) AADClientCertificate | thumbprint | string |
+| (0,1 schema) AADClientSecret | password | sträng |
+| (0,1 schema) AADClientCertificate | thumbprint | sträng |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| (valfritt) KeyVaultURL | url | string |
-| Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | sträng | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | sträng |
+| KeyEncryptionKeyURL | url | sträng |
+| (valfritt) KeyVaultURL | url | sträng |
+| Passphrase | password | sträng | 
+| SequenceVersion | uniqueidentifier | sträng |
+| VolumeType | OS, Data, All | sträng |
 
 ## <a name="template-deployment"></a>Malldistribution
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5697e0b51e8349de62e71be1471beb76aa48765
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401178"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838725"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Använd Azure IoT-verktyg för Visual Studio Code för Azure IoT Hub-enhetshantering
 
@@ -63,7 +63,7 @@ Kör Azure IoT-verktyg för Visual Studio Code med olika alternativ.
 5. Listan över enheter visas i **Azure IoT Hub-enheter** fliken på några sekunder.
 
    > [!Note]
-   > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange anslutningssträngen för IoT-hubb som din IoT-enhet som ansluter till i popup-fönstret.
+   > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange den **iothubowner** princip anslutningssträngen för IoT-hubb som din IoT-enhet som ansluter till i popup-fönstret.
 
 ## <a name="direct-methods"></a>Direkta metoder
 

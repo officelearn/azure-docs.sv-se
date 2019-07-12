@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708685"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703923"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -198,7 +198,7 @@ Du kan ange ytterligare programspecifik metadata i form av taggar. Nyckelvalv st
 
 Åtkomstkontroll för nycklar som hanteras av Key Vault har angetts på nivån för ett Nyckelvalv som fungerar som behållare av nycklar. Principen för åtkomstkontroll för nycklar, skiljer sig från principen för åtkomstkontroll för hemligheter i samma Key Vault. Användare kan skapa en eller flera valv för att lagra nycklar och krävs för att underhålla scenariot rätt segmentering och hantering av nycklar. Åtkomstkontroll för nycklar är oberoende av åtkomstkontroll för hemligheter.  
 
-Följande behörigheter kan beviljas, på en per användare / service principal-basis i nycklar-åtkomstkontrollpost på ett valv. De här behörigheterna speglar nära de åtgärder som tillåts på ett nyckelobjekt:  
+Följande behörigheter kan beviljas, på en per användare / service principal-basis i nycklar-åtkomstkontrollpost på ett valv. De här behörigheterna spegla nära de åtgärder som tillåts på ett nyckelobjekt.  Bevilja åtkomst till en tjänsts huvudnamn i key vault är en onetime åtgärd och förblir den samma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill ha. 
 
 - Behörigheter för nyckelhanteringsåtgärder
   - *Hämta*: Läs den offentliga delen av en nyckel, plus dess attribut
@@ -476,5 +476,4 @@ Mer information finns i den [konto lagringsåtgärder i Key Vault REST API-refer
 ## <a name="see-also"></a>Se även
 
 - [Autentisering, begäranden och svar](authentication-requests-and-responses.md)
-- [Key Vault-versioner](key-vault-versions.md)
 - [Utvecklarguide för Key Vault](/azure/key-vault/key-vault-developers-guide)

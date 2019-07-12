@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8dc3b485d83f7bc55ca913e2c706164d4953ee61
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 006f7270570eba17fb44421b1c181d9ad68ad2ee
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809605"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854184"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrera fysiska eller virtualiserade servrar till Azure 
 

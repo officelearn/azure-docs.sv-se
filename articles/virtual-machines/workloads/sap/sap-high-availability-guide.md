@@ -4,7 +4,7 @@ description: Guide för hög tillgänglighet för SAP NetWeaver på Azure Virtua
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb468a735a9e1f5cca899090df0125013b9b8d4c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204942"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709325"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
@@ -159,7 +159,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi de steg som du kan vidta för att distribuera SAP-system för hög tillgänglighet i Azure med hjälp av Azure Resource Manager-distributionsmodellen. Vi går du igenom dessa viktiga uppgifter:
 
-* Hitta rätt SAP Notes och installationsguiderna, enligt den [resurser] [ sap-ha-guide-2] avsnittet. Den här artikeln kompletterar dokumentationen för installation av SAP och SAP Notes, vilka är de viktigaste resurserna som kan hjälpa dig att installera och distribuera SAP-program på vissa plattformar.
+* Hitta rätt SAP Notes och installationsguiderna, enligt den [resurser][sap-ha-guide-2] avsnittet. Den här artikeln kompletterar dokumentationen för installation av SAP och SAP Notes, vilka är de viktigaste resurserna som kan hjälpa dig att installera och distribuera SAP-program på vissa plattformar.
 * Läs om skillnaderna mellan Azure Resource Manager-distributionsmodellen och den klassiska distributionsmodellen.
 * Läs mer om Windows Server Failover Clustering kvorumlägen så du kan välja den modell som passar din Azure-distribution.
 * Läs mer om Windows Server Failover Clustering delad lagring i Azure-tjänster.
@@ -170,7 +170,7 @@ I den här artikeln beskriver vi de steg som du kan vidta för att distribuera S
 För att förenkla distribution och konfiguration i den här artikeln använder vi SAP trelagers-hög tillgänglighet Resource Manager-mallar. Mallarna automatisera distributionen av hela infrastrukturen som du behöver för en SAP-system med hög tillgänglighet. Infrastrukturen har även stöd för SAP programmet prestanda Standard (SAP) storlek på SAP-system.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Nödvändiga komponenter
-Innan du börjar bör du kontrollera att du uppfyller kraven som beskrivs i följande avsnitt. Dessutom måste du kontrollera alla resurser som finns i den [resurser] [ sap-ha-guide-2] avsnittet.
+Innan du börjar bör du kontrollera att du uppfyller kraven som beskrivs i följande avsnitt. Dessutom måste du kontrollera alla resurser som finns i den [resurser][sap-ha-guide-2] avsnittet.
 
 I den här artikeln använder vi Azure Resource Manager-mallar för [trelagers-SAP NetWeaver med Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). En bra översikt över mallar finns i [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
@@ -223,7 +223,7 @@ Du kan installera flera SAP system ID (SID) ASCS/SCS instanser i ett kluster i A
 Om du vill använda den klassiska distributionsmodellen, följer du anvisningarna i [SAP NetWeaver i Azure: Clustering SAP ASCS/SCS-instanser med hjälp av Windows Server Failover Clustering i Azure med SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder Azure Resource Manager-distributionsmodellen för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributionsmodellen. Läs mer om Azure [distributionsmodeller][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+> Vi rekommenderar starkt att du använder Azure Resource Manager-distributionsmodellen för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributionsmodellen. Läs mer om Azures [distributionsmodeller][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
 >
 >
 
@@ -444,7 +444,7 @@ _**Bild 11:** Ställa in parametrar för SAP hög tillgänglighet Azure Resource
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuera virtuella datorer med anslutning till företagets nätverk (mellan lokala) ska användas i produktion
-För produktion SAP-system, distribuera Azure-datorer med [anslutning till företagets nätverk (mellan lokala)] [ planning-guide-2.2] med hjälp av Azure plats-till-plats-VPN eller Azure ExpressRoute.
+För produktion SAP-system, distribuera Azure-datorer med [anslutning till företagets nätverk (mellan lokala)][planning-guide-2.2] med hjälp av Azure plats-till-plats-VPN eller Azure ExpressRoute.
 
 > [!NOTE]
 > Du kan använda Azure Virtual Network-instans. Virtuellt nätverk och undernät har redan skapats och förberetts.
@@ -514,7 +514,7 @@ I följande avsnitt innehåller mer information om mallar och de parametrar som 
 
 ASCS/SCS-mallen distribuerar två virtuella datorer som du kan använda för att skapa ett redundanskluster i Windows Server som är värd för flera ASCS/SCS-instanser.
 
-Du ställer in mallen ASCS/SCS multi-SID i den [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen] [ sap-templates-3-tier-multisid-xscs-marketplace-image] eller [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen med hjälp av Managed Disks] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], ange värden för följande parametrar:
+Du ställer in mallen ASCS/SCS multi-SID i den [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], ange värden för följande parametrar:
 
   - **Resurs-Prefix**.  Ange resurs-prefixet som används som prefix i alla resurser som skapas under distributionen. Eftersom resurserna som inte tillhör bara en SAP-system, är prefixet för resursen inte SID för en SAP-system.  Prefixet måste vara mellan **tre och sex tecken**.
   - **Stack typ**. Välj stack-typ av SAP-system. Beroende på vilken stack har Azure Load Balancer en (ABAP eller endast Java) eller två (ABAP + Java) privata IP-adresser per SAP-system.
@@ -549,7 +549,7 @@ Belastningsutjämnaren är konfigurerad för att använda följande portar för 
 
 Databas-mallen distribuerar en eller två virtuella datorer som du kan använda för att installera det relationella databashanteringssystemet (RDBMS) för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
-Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databasen – flera SÄKERHETSIDENTIFIERARE mallen] [ sap-templates-3-tier-multisid-db-marketplace-image] eller [databasen – flera SÄKERHETSIDENTIFIERARE mallen med hjälp av Managed Disks] [ sap-templates-3-tier-multisid-db-marketplace-image-md], ange värden för följande parametrar:
+Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databasen – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], ange värden för följande parametrar:
 
 - **SAP-System-Id**. Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
 - **OS-typ**. Välj operativsystem för de virtuella datorerna.
@@ -566,7 +566,7 @@ Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databa
 
 Programmet servrar mallen distribuerar två eller flera virtuella datorer som kan användas som SAP-programservern instanser för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
-Konfigurera servrar – flera SÄKERHETSIDENTIFIERARE programmallen, i den [programmall servrar – flera SÄKERHETSIDENTIFIERARE] [ sap-templates-3-tier-multisid-apps-marketplace-image] eller [program servrar – flera SÄKERHETSIDENTIFIERARE mallen med hjälp av Managed Disks] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], ange värden för följande parametrar:
+Konfigurera servrar – flera SÄKERHETSIDENTIFIERARE programmallen, i den [programmall servrar – flera SÄKERHETSIDENTIFIERARE][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], ange värden för följande parametrar:
 
   -  **SAP-System-Id**. Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
   -  **OS-typ**. Välj operativsystem för de virtuella datorerna.

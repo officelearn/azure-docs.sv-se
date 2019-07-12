@@ -245,7 +245,7 @@
         - name: Köra batch-förutsägelser
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
-    - name: Övervaka webbtjänster
+    - name: Övervaka modeller
       items:
         - name: Samla in och utvärdera modelldata
           displayName: track production
@@ -273,9 +273,6 @@
     - name: Maskininlärning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: Övervaka SDK
-      displayName: api package python monitor
-      href: 'https://aka.ms/aml-monitoring-sdk'
     - name: Maskininlärning CLI
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md

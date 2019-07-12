@@ -4,7 +4,7 @@ description: Guide för hög tillgänglighet för SAP NetWeaver på SUSE Linux E
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142957"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797496"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142957"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50 system.
-I exempelkonfigurationer installationskommandon osv. ASCS instansnummer 00, antal 02 instanser ÄNDARE och SAP System-ID: T NW1 används. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i det här exemplet förutsätter att du har använt den [konvergerat mallen] [ template-converged] med SAP-system-ID: T NW1 att skapa resurser.
+I exempelkonfigurationer installationskommandon osv. ASCS instansnummer 00, antal 02 instanser ÄNDARE och SAP System-ID: T NW1 används. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i det här exemplet förutsätter att du har använt den [konvergerat mallen][template-converged] med SAP-system-ID: T NW1 att skapa resurser.
 
 Läs följande SAP Notes och papers först
 
@@ -76,7 +76,7 @@ Läs följande SAP Notes och papers först
 * [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
-* [SUSE SAP HA Regelverksguider] [ suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA-Systemreplikering på plats. Använd dessa guider som utgångspunkt Allmänt. De ger mycket mer detaljerad information.
+* [SUSE SAP HA Regelverksguider][suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA-Systemreplikering på plats. Använd dessa guider som utgångspunkt Allmänt. De ger mycket mer detaljerad information.
 * [SUSE hög tillgänglighet tillägget 12 SP3 viktig information][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Översikt
@@ -125,7 +125,7 @@ NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver oc
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Hur du konfigurerar en NFS-server med hög tillgänglighet
 
-SAP NetWeaver kräver delad lagring för katalogen transport och profil. Läs [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server] [ nfs-ha] om hur du konfigurerar en NFS-server för SAP NetWeaver.
+SAP NetWeaver kräver delad lagring för katalogen transport och profil. Läs [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server][nfs-ha] på hur du konfigurerar en NFS-server för SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Konfigurationen av (A) SCS
 
@@ -137,8 +137,8 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 
 Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [ASCS/SCS Multi-SID mallen] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure portal. 
-   ASCS/SCS-mallen skapar endast regler för belastningsutjämning för SAP NetWeaver ASCS/SCS och ÄNDARE (endast Linux) instanser medan konvergerade mallen skapar även belastningsutjämningsregler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserade system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [ASCS/SCS Multi-SID mallen][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Ange följande parametrar
    1. Resurs-Prefix (endast ASCS/SCS Multi-SID-mall)  
       Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som distribueras.
@@ -512,7 +512,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[A]**  Konfigurera Keep Alive
 
-   Kommunikationen mellan SAP NetWeaver-programserver och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar när du har en tidsgräns som kan konfigureras. Om du vill förhindra detta måste du anger en parameter i SAP NetWeaver ASCS/SCS-profil och ändra inställningarna för Linux-system. Läs [SAP anteckning 1410736] [ 1410736] för mer information.
+   Kommunikationen mellan SAP NetWeaver-programserver och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar när du har en tidsgräns som kan konfigureras. Om du vill förhindra detta måste du anger en parameter i SAP NetWeaver ASCS/SCS-profil och ändra inställningarna för Linux-system. Läs [SAP anteckning 1410736][1410736] för mer information.
 
    Den ASCS/SCS profil parametern placera/encni/set_so_keepalive har redan lagts till i det sista steget.
 
@@ -710,7 +710,7 @@ Stegen nedan förutsätter att du installerar application server på en annan se
 
 ## <a name="install-database"></a>Installera databas
 
-I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]. En lista över databaser som stöds finns i [SAP anteckning 1928533][1928533].
+I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Kör SAP-databasinstallation för instans
 
@@ -887,6 +887,9 @@ Följande tester är en kopia av TestCase i de bästa praxis riktlinjerna för S
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Resurstillstånd efter testet:

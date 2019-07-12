@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357734"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797977"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program
 
@@ -83,7 +83,7 @@ Läs följande SAP Notes och papers först:
 * [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
-* [SUSE SAP HA Regelverksguider] [ suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA-Systemreplikering på plats. Använd dessa guider som utgångspunkt Allmänt. De ger mycket mer detaljerad information.
+* [SUSE SAP HA Regelverksguider][suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA-Systemreplikering på plats. Använd dessa guider som utgångspunkt Allmänt. De ger mycket mer detaljerad information.
 * [SUSE hög tillgänglighet tillägget 12 SP3 viktig information][suse-ha-12sp3-relnotes]
 * [NetApp SAP-program på Microsoft Azure med Azure NetApp filer][anf-sap-applications-azure]
 
@@ -426,7 +426,6 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -549,7 +548,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 6. **[A]**  Konfigurera Keep Alive
 
-   Kommunikationen mellan SAP NetWeaver-programserver och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar när du har en tidsgräns som kan konfigureras. Om du vill förhindra detta måste du anger en parameter i SAP NetWeaver ASCS/SCS-profil och ändra inställningarna för Linux-system. Läs [SAP anteckning 1410736] [ 1410736] för mer information.
+   Kommunikationen mellan SAP NetWeaver-programserver och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar när du har en tidsgräns som kan konfigureras. Om du vill förhindra detta måste du anger en parameter i SAP NetWeaver ASCS/SCS-profil och ändra inställningarna för Linux-system. Läs [SAP anteckning 1410736][1410736] för mer information.
 
    Den ASCS/SCS profil parametern placera/encni/set_so_keepalive har redan lagts till i det sista steget.
 
@@ -788,7 +787,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för både PROVIDERAD
 
 ## <a name="install-database"></a>Installera databas
 
-I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]. En lista över databaser som stöds finns i [SAP anteckning 1928533][1928533].
+I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 * Kör SAP-databasinstallation för instans
 
@@ -967,6 +966,9 @@ Följande tester är en kopia av testfall i den [bästa praxis riktlinjer för S
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    Resurstillstånd efter testet:

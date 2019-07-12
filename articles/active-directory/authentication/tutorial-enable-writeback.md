@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413975"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853028"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Självstudier: Aktivera tillbakaskrivning av lösenord
 
@@ -26,7 +26,7 @@ I den här självstudien aktiverar du tillbakaskrivning av lösenord för din hy
 > * Aktivera alternativet för tillbakaskrivning av lösenord i Azure AD Connect
 > * Aktivera alternativet för tillbakaskrivning av lösenord i självåterställning av lösenord (SSPR)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Åtkomst till en aktiv Azure AD-klientorganisation med minst en utvärderingslicens som tilldelats.
 * Ett konto med behörigheter som global administratör i Azure AD-klientorganisationen.
@@ -61,4 +61,4 @@ Att aktivera funktionen för tillbakaskrivning av lösenord i Azure AD Connect �
 I den här självstudien har du aktiverat tillbakaskrivning av lösenord för självåterställning av lösenord. Lämna fönstret för Azure-portalen öppet och fortsätt till nästa självstudie för att konfigurera ytterligare inställningar för självåterställning av lösenord innan du distribuerar lösningen i ett pilotprojekt.
 
 > [!div class="nextstepaction"]
-> [Aktivera SSPR på Windows-inloggningsskärmen](tutorial-sspr-windows.md)
+> [Utvärdera risk vid inloggning](tutorial-risk-based-sspr-mfa.md)

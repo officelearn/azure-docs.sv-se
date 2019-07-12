@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2d71330dcdac7054b20e0a6222b542fd8815705
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236505"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849571"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -60,6 +60,9 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**. |
 
 4. Välj **Skapa**.
+
+> [!NOTE]
+> API-import-begränsningar finns dokumenterade i [en annan artikel](api-management-api-import-restrictions.md).
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testa det nya APIM API:et i Azure Portal
 

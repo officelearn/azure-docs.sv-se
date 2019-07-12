@@ -4,7 +4,7 @@ description: Azure virtuella datorer, planering och implementering av SAP NetWea
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6a119fe777c443c777781aca4ae46e0ca171e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442121"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710186"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -1629,7 +1629,7 @@ I tabellen nedan vanliga SAP visas kommunikationsportar. Är tillräckliga för 
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervall (min – max) | Kommentar |
+| Tjänsten | Portnamn | Exempel `<nn`> = 01 | Standardintervall (min – max) | Kommentar |
 | --- | --- | --- | --- | --- |
 | Dispatchern |sapdp`<nn>` se * |3201 |3200 - 3299 |SAP-Dispatcher, används av SAP-Gränssnittet för Windows och Java |
 | Meddelande-server |sapms`<sid`> se ** |3600 |kostnadsfria sapms`<anySID`> |sid = SAP-System-ID |

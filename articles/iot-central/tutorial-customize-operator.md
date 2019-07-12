@@ -3,17 +3,17 @@ title: Anpassa operatörsvyerna i Azure IoT Central | Microsoft Docs
 description: Som byggare anpassar du operatörsvyerna i Azure IoT Central-programmet.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ced771002ca9f542f89dbf74ba4a4745ad2a0339
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747272"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850180"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera standardinstrumentpanelen för program
 > * Förhandsgranska standardinstrumentpanelen för program som en operatör
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra de två föregående självstudierna:
 
@@ -61,7 +61,7 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
     | Typ av mått | Telemetri |
     | Mått | temperatur |
     | Sammansättning | Maximal |
-    | Synlighet  | Enabled |
+    | Synlighet  | Aktiverad |
 
     ![Lägga till KPI](media/tutorial-customize-operator/addkpi.png)
 

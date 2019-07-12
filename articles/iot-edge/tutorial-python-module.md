@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303819"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850103"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla och distribuera en Python IoT Edge-modul för Linux-enheter
 
@@ -40,12 +40,12 @@ Den här kursen visar hur du utvecklar en modul i **Python** med **Visual Studio
 
 Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Python-moduler till Linux: 
 
-| Python | Visual Studio-kod | Visual Studio 2017/2019 | 
+| Python | Visual Studio-koden | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS-kod för Python-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS-kod för Python-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidigare självstudiekursen för att ställa in din utvecklingsmiljö för utveckling av Linux-behållare: [Utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att slutföra någon av dessa självstudier ska du har följande krav på plats: 
 
@@ -69,25 +69,15 @@ Följande steg skapar en IoT Edge Python-modul med Visual Studio Code och Azure 
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Använd Python-paketet **cookiecutter** för att skapa en Python-lösningsmall som du kan utgå ifrån. 
+Använda VS Code för att skapa en Python-lösningsmall som du kan skapa ovanpå. 
 
 1. I Visual Studio Code väljer du **Visa** > **Terminal** för att öppna den integrerade Visual Studio Code-terminalen.
 
-2. I terminalen anger du följande kommando för att installera (eller uppdatera) **cookiecutteru**, som du använder för att skapa IoT Edge-lösningsmallen:
+1. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Se till att katalogen där cookiecutter installeras är i PATH (sökvägen) för din miljö så att det blir möjligt att anropa det från en kommandotolk. Katalogen är en del av utdata för installationsskriptet, till exempel `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Starta om Visual Studio Code för att hämta ändringarna till PATH (sökvägen). 
+1. I kommandopaletten skriver och kör du kommandot **Azure: Logga in** och följer anvisningarna för att logga in på ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
 
-3. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
-
-4. I kommandopaletten skriver och kör du kommandot **Azure: Logga in** och följer anvisningarna för att logga in på ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
-
-5. Skriv och kör kommandot **Azure IoT Edge på kommandopaletten: New IoT Edge solution** (Ny IoT Edge-lösning). Följ anvisningarna och ange följande information för att skapa din lösning:
+1. Skriv och kör kommandot **Azure IoT Edge på kommandopaletten: Ny IoT Edge-lösning**. Följ anvisningarna och ange följande information för att skapa din lösning:
 
    | Fält | Värde |
    | ----- | ----- |

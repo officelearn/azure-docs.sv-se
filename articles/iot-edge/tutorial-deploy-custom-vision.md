@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433943"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850124"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -69,7 +69,7 @@ När din bildklassificerare har skapats och tränats kan du exportera den som en
 
 4. Skapa ditt projekt med följande värden:
 
-   | Fält | Värde |
+   | Fält | Value |
    | ----- | ----- |
    | Namn | Ange ett namn för projektet, till exempel **EdgeTreeClassifier**. |
    | Beskrivning | Valfri projektbeskrivning. |
@@ -141,17 +141,9 @@ En lösning är ett logiskt sätt att utveckla och organisera flera moduler för
 
 1. I Visual Studio Code väljer du **Visa** > **Terminal** för att öppna den integrerade Visual Studio Code-terminalen.
 
-2. I den integrerade terminalen anger du följande kommando för att installera (eller uppdatera) **cookiecutter**, som du använde för att skapa IoT Edge Python-modulmallen i Visual Studio Code:
+1. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Se till att katalogen där cookiecutter kommer att installeras är i `Path`för din miljö så att det blir möjligt att anropa det från en kommandotolk.
-
-3. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
-
-4. I kommandopaletten anger och kör du kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning). Ange följande information i kommandopaletten för att skapa din lösning: 
+1. I kommandopaletten anger och kör du kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning). Ange följande information i kommandopaletten för att skapa din lösning: 
 
    | Fält | Värde |
    | ----- | ----- |
@@ -219,7 +211,7 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
 
 1. I samma Visual Studio Code-fönster använder du kommandopaletten för att köra **Azure IoT Edge: Add IoT Edge Module** (Lägg till IoT Edge-modul). I kommandopaletten anger du följande information för den nya modulen: 
 
-   | Uppmaning | Värde | 
+   | Uppmaning | Value | 
    | ------ | ----- |
    | Välj distributionsmallfil | Välj filen deployment.template.json i mappen CustomVisionSolution. |
    | Välj modulmall | Välj **Python-modul** |

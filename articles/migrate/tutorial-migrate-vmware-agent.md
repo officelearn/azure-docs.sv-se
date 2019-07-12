@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 78edd22502bbf08fda8d1828413bbc0b0f8aa9c7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: fe83cd5f38e8c091ee72875da370b6929a99b727
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809339"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854145"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agentbaserad)
 

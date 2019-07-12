@@ -4,7 +4,7 @@ description: Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925744"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707234"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925744"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig NFS-server som kan användas för lagring av delade data för en högtillgänglig SAP-system.
-Den här guiden beskriver hur du konfigurerar en högtillgänglig NFS-server som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i det här exemplet förutsätter att du har använt den [SAP server Filmall] [ template-file-server] med resursen prefix **prod**.
+Den här guiden beskriver hur du konfigurerar en högtillgänglig NFS-server som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i det här exemplet förutsätter att du har använt den [SAP server Filmall][template-file-server] med resursen prefix **prod**.
 
 Läs följande SAP Notes och papers först
 
@@ -110,7 +110,7 @@ Du kan antingen använda en Azure-mall från GitHub för att distribuera alla n�
 Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP-program 12 som du kan använda för att distribuera nya virtuella datorer.
 Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [SAP server Filmall] [ template-file-server] i Azure portal   
+1. Öppna den [SAP server Filmall][template-file-server] i Azure portal   
 1. Ange följande parametrar
    1. Resurs-Prefix  
       Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som distribueras.

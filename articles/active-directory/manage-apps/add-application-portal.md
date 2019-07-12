@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108769"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702540"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -43,27 +43,21 @@ För testning av stegen i den här självstudien rekommenderar vi att du använd
 Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
 1. I den [Azure-portalen](https://portal.azure.com), på den vänstra navigeringspanelen väljer **Azure Active Directory**.
-
 1. I den **Azure Active Directory** väljer **företagsprogram**.
+1. Den **alla program** öppnas fönstret för att visa ett slumpmässigt urval av program i Azure AD-klienten. Välj **nytt program** överst i den **alla program** fönstret för att lägga till en galleri-app i din klient.
 
-    ![Öppna företagsprogram](media/add-application-portal/open-enterprise-apps.png)
+    ![Välj ny program för att lägga till en galleri-app i din klient](media/add-application-portal/new-application.png)
 
-1. Den **alla program** öppnas fönstret för att visa ett slumpmässigt urval av program i Azure AD-klienten. Välj **nytt program** överst i den **alla program** fönstret.
+1. I den **kategorier** fönstret visas ikonerna under de **aktuellt program** område som är ett slumpmässigt urval av galleriprogram. Om du vill se fler program kan du välja **visa fler** men det rekommenderas inte att söka på så sätt eftersom det finns tusentals program i galleriet.
 
-    ![Nytt program](media/add-application-portal/new-application.png)
-
-1. I den **kategorier** fönstret visas ikonerna under de **aktuellt program** område som är ett slumpmässigt urval av galleriprogram.  Om du vill se fler program kan du välja **visa fler**. Men vi rekommenderar inte att söka på så sätt eftersom det finns tusentals program i galleriet.
-
-    ![Sök efter namn eller kategori](media/add-application-portal/categories.png)
+    ![Sök efter en app efter namn eller kategori](media/add-application-portal/categories.png)
 
 1. Att söka efter ett program under **Lägg till från galleriet**, anger du namnet på programmet som du vill lägga till. Markera programmet i resultaten och välj **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
 
-    ![Lägga till ett program](media/add-application-portal/add-an-application.png)
+    ![Visar hur du lägger till ett program från galleriet](media/add-application-portal/add-an-application.png)
 
 1. I det programspecifika formuläret kan du ändra egenskapsinformation. Till exempel kan du redigera namnet på programmet så att det matchar behoven i din organisation. I det här exemplet används namnet **GitHub-test**.
-
 1. När du är klar gör ändringar i egenskaperna, väljer **Lägg till**.
-
 1. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
 
 Du har lagt till ditt program. Passa på att ta en paus. Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
@@ -73,17 +67,12 @@ Du har lagt till ditt program. Passa på att ta en paus. Nästa avsnitt visar hu
 Vi förutsätter att du behövde gå iväg en stund och nu har kommit tillbaka för att konfigurera programmet. Det första du ska göra är att hitta dina program.
 
 1. I den  **[Azure-portalen](https://portal.azure.com)** , på den vänstra navigeringspanelen väljer **Azure Active Directory**.
-
 1. I den **Azure Active Directory** väljer **företagsprogram**.
-
 1. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj sedan **tillämpa**. Mer information om visningsalternativ finns på sidan om att [visa klientorganisationsprogram](view-applications-portal.md).
-
 1. Du kan nu se en lista över alla program i Azure AD-klientorganisationen. Listan är ett slumpmässigt urval. Om du vill se fler program **visa fler** en eller flera gånger.
-
 1. För att snabbt hitta ett program i din klient, ange namnet på programmet i sökrutan och välj **tillämpa**. Det här exemplet hittar GitHub-test-programmet har lagts till tidigare.
 
-    ![Söka efter ett program](media/add-application-portal/find-application.png)
-
+    ![Visar hur du hittar ett program med hjälp av sökrutan](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurera egenskaper för användarinloggning
 
@@ -94,7 +83,7 @@ Redigera egenskaper för program:
 1. Välj program att öppna den.
 1. Välj **egenskaper** att öppna egenskapsfönstret för redigering.
 
-    ![Redigera egenskapsrutan](media/add-application-portal/edit-properties.png)
+    ![Visar skärmen egenskaper och redigerbara appegenskaper](media/add-application-portal/edit-properties.png)
 
 1. Läs igenom alternativen för inloggning. De fastställer hur användare som tilldelats eller otilldelade till programmet kan logga in i programmet. Och alternativen också bestämma om en användare kan se programmet i åtkomstpanelen.
 
@@ -144,8 +133,7 @@ Så här använder du en anpassad logotyp:
 1. Ladda upp logotypen.
 1. När du är klar väljer du **spara**.
 
-    ![Ändra logotypen](media/add-application-portal/change-logo.png)
-
+    ![Visar hur du ändrar logotypen från appens egenskapssidan](media/add-application-portal/change-logo.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -155,5 +143,3 @@ Nu är du redo att konfigurera programmet för enkel inloggning.
 
 > [!div class="nextstepaction"]
 > [Konfigurera enkel inloggning](configure-single-sign-on-portal.md)
-
-

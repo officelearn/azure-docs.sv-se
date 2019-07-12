@@ -4,15 +4,15 @@ description: I den här artikeln får du lära dig hur du distribuerar och konfi
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083358"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707152"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med hjälp av Azure CLI
 
@@ -20,7 +20,7 @@ En viktig del av en övergripande säkerhetsplan för nätverket är att kontrol
 
 Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från ett Azure-undernät. Med Azure Firewall kan du konfigurera:
 
-* Programreglerna som definierar fullständigt kvalificerade domännamn (FQDN) kan nås från ett undernät.
+* Programreglerna som definierar fullständigt kvalificerade domännamn (FQDN) kan nås från ett undernät. Det fullständiga Domännamnet kan också [omfattar SQL-instanser](sql-fqdn-filtering.md).
 * Nätverksregler som definierar källadress, protokoll, målport och måladress.
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
@@ -49,11 +49,18 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-cli"></a>Azure CLI
 
 Om du väljer att installera och använda CLI lokalt kör du Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra **az --version**. Information om att installera eller uppgradera finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+
+Installera tillägget Azure brandvägg:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -295,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+* [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

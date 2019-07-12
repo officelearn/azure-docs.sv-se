@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205352"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835402"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -33,45 +33,45 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
-|Auktorisering |Aktiviteter om tillståndet för en användare att komma åt B2C resurser (exempelvis kan en administratör åtkomst till en lista med B2C-principer)         |
-|Katalog |Aktiviteter relaterade till katalogattribut hämtas när en administratör loggar in med hjälp av Azure-portalen |
+|Authorization |Aktiviteter om tillståndet för en användare att komma åt B2C resurser (exempelvis kan en administratör åtkomst till en lista med B2C-principer)         |
+|Katalog |Aktiviteter relaterade till katalogattribut hämtas när en administratör loggar in med Azure portal |
 |Program | CRUD-åtgärder på B2C-program |
 |Nyckel |CRUD-åtgärder på nycklar som lagras i B2C-nyckelbehållare |
 |Resource |CRUD-åtgärder på B2C-resurser (till exempel principer och Identitetsproviders)
-|Autentisering |Verifiering av autentiseringsuppgifter för användare och utfärdande|
+|Authentication |Verifiering av autentiseringsuppgifter för användare och utfärdande|
 
 > [!NOTE]
 > Objektet CRUD användaraktiviteter, finns det **Kärnkatalog** kategori.
 
 ## <a name="example-activity"></a>Exemplet på aktivitet
-Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsprovider: ![Granskningsloggar – exempel](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsprovider: ![Exempel på sidan Granska loggen aktivitetsinformation på Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Informationspanel aktivitet innehåller följande relevant information:
 
 |Section|Fält|Beskrivning|
 |-------|-----|-----------|
 | Aktivitet | Namn | Vilka aktiviteten ägde rum. Till exempel ”utfärda ett id_token för programmet” (vilket avslutar den faktiska användare logga in). |
-| Initierad av (aktör) | ObjectId | Den **objekt-ID** till B2C-programmet som användaren loggar in till (den här identifieraren visas inte i Azure Portal men den är tillgänglig via Graph API till exempel). |
+| Initierad av (aktör) | ObjectId | Den **objekt-ID** till B2C-programmet som användaren loggar in till (den här identifieraren visas inte i Azure-portalen men den är tillgänglig via Graph API till exempel). |
 | Initierad av (aktör) | SPN | Den **program-ID** till B2C-programmet som användaren loggar in till. |
 | Mål | ObjectId | Den **objekt-ID** för den användare som loggar in. |
 | Ytterligare information | TenantId | Den **klient-ID** för Azure AD B2C-klient. |
 | Ytterligare information | `PolicyId` | Den **princip-ID** av användarflöde (principen) som används för att logga in användaren. |
 | Ytterligare information | ApplicationId | Den **program-ID** till B2C-programmet som användaren loggar in till. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure portal
 1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du är i din B2C-katalog.
 2. Klicka på **Azure Active Directory** i fältet Favoriter till vänster
-    
-    ![Granskningsloggar – AAD-knappen](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure Active Directory-knappen som är markerad i vänster meny på portalen](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Under **aktivitet**, klicka på **granskningsloggar**
 
-    ![Granskningsloggar – loggar avsnittet](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Granska loggar knappen är markerad i avsnittet aktivitet i menyn](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. I den **kategori** dropbox, väljer **B2C**
 3. Klicka på **gäller**
 
-    ![Granskningsloggar – kategori](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Kategori och Verkställ markerat i granskningsloggen filter](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 - Använd den **Aktivitetsresurstyp** listrutan för att filtrera efter aktivitetstyper som beskrivs ovan
@@ -85,7 +85,7 @@ Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
 Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 För att autentisera till Azure AD reporting API: et måste du först registrera ett program. Se till att följa stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ### <a name="accessing-the-api"></a>Åtkomst till API: et

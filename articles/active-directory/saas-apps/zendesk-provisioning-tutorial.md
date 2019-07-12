@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f559d2c2398998ba590419758de559f21d9b65f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 166b7727362549aaf054e3f0282c564eca687eb9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696946"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672881"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zendesk för automatisk användaretablering
 
@@ -30,7 +30,7 @@ Den här kursen visar hur du utför i Zendesk och Azure Active Directory (Azure 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-tjänst för användaretablering. Information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för software-as-a-service (SaaS)-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du har:
 

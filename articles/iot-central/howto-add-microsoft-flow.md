@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235814"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797714"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -28,10 +28,11 @@ Använd Microsoft Flow för att automatisera arbetsflöden i många program och 
 
 Kolla in [mallarna Microsoft Flow](https://aka.ms/iotcentralflowtemplates) som ansluta IoT Central till andra tjänster, till exempel mobila meddelanden och Microsoft Teams.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett program för betala per användning
-- Ett Microsoft personlig eller arbets eller skolkonto för att logga in på Flow ([Läs mer om Microsoft Flow prenumerationsavtal](https://aka.ms/microsoftflowplans))
+- En Microsoft personlig eller arbets- eller skolkonto som du använder Microsoft Flow ([Läs mer om Microsoft Flow prenumerationsavtal](https://aka.ms/microsoftflowplans))
+- Ett arbets- eller skolkonto konto att använda Azure IoT Central-anslutningstjänsten
 
 ## <a name="trigger-a-workflow"></a>Utlös ett arbetsflöde
 
@@ -45,7 +46,12 @@ Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen n
 
     ![Mall för Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Du uppmanas att logga in på anslutningar i den valda mallen. När anslutningarna har loggat in, hamnar i designer för att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
+1. Du uppmanas att logga in på anslutningar i den valda mallen. 
+
+    > [!NOTE]
+    > Om du vill använda Azure IoT Central-anslutningstjänsten måste du logga in med ett Azure Active Directory-konto (arbets- eller skolkonto konto). Ett personligt konto som abc@outlook.com eller abc@live.com stöds inte av Azure IoT Central-anslutningen.
+
+    När du har loggat in på anslutningsapparna hamnar du i designer för att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
 
 1. Du kan anpassa arbetsflödet genom att anpassa den information som skickas till åtgärden och lägga till nya åtgärder. Det här exemplet åtgärden är **meddelanden – skicka ett SMS**. Du kan inkludera *dynamiskt innehåll* från regeln IoT Central, skicka längs viktig information, till exempel enhetens namn och tidsstämpel till ditt meddelande.
 

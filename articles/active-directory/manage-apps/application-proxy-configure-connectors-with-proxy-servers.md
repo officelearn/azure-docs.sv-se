@@ -12,18 +12,19 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015480"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807878"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
 Den här artikeln förklarar hur du ställer in Azure Active Directory (Azure AD) Application Proxy-kopplingar att arbeta med utgående proxy-servrar. Den är avsedd för kunder med nätverksmiljöer som har befintliga proxyservrar.
 
 Vi börjar genom att titta på dessa huvudsakliga scenarier:
+
 * Konfigurera anslutningar för att kringgå din lokala utgående proxyservrar.
 * Konfigurera att kopplingar ska använda en utgående proxy för att komma åt Azure AD-programproxy.
 
@@ -53,6 +54,7 @@ För att inaktivera utgående proxy-användning för anslutningen, redigerar du 
   </appSettings>
 </configuration>
 ```
+
 För att säkerställa att tjänsten Connector Updater kringgår proxyn, ändra liknande ApplicationProxyConnectorUpdaterService.exe.config-filen. Den här filen finns i C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Tänk på att göra kopior av de ursprungliga filerna om du behöver att återgå till standard .config-filer.
@@ -67,8 +69,8 @@ Du kan konfigurera anslutningen trafik gå igenom utgående proxy som visas i f�
 
 Till följd av med endast utgående trafik, finns inget behov att konfigurera inkommande åtkomst genom dina brandväggar.
 
->[!NOTE]
->Programproxyn har inte stöd för autentisering till andra proxyservrar. Anslutning/updater network service-konton ska kunna ansluta till proxyservern utan att företagsobjekt för autentisering.
+> [!NOTE]
+> Programproxyn har inte stöd för autentisering till andra proxyservrar. Anslutning/updater network service-konton ska kunna ansluta till proxyservern utan att företagsobjekt för autentisering.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Steg 1: Konfigurera anslutningen och relaterade tjänster gå igenom utgående proxy
 
@@ -98,12 +100,14 @@ Konfigurera Connector Updater-tjänsten om du vill använda proxyservern genom a
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Steg 2: Konfigurera proxyn för att tillåta trafik från anslutningen och relaterade tjänster kan passera
 
 Det finns fyra aspekter att tänka på vid utgående proxy:
+
 * Proxy utgående regler
 * Proxyautentisering
 * Proxy-portar
 * SSL-kontroll
 
 #### <a name="proxy-outbound-rules"></a>Proxy utgående regler
+
 Tillåt åtkomst till följande webbadresser:
 
 | URL | Hur den används |
@@ -113,7 +117,6 @@ Tillåt åtkomst till följande webbadresser:
 | login.windows.net<br>login.microsoftonline.com | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
 Om din brandvägg eller proxyserver kan du konfigurera DNS Tillåt listor, kan du tillåta anslutningar till \*. msappproxy.net och \*. servicebus.windows.net. Om inte måste du tillåta åtkomst till [Azure DataCenter IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
-
 
 Om du inte kan du ansluta efter FQDN och måste du ange IP-intervall i stället, kan du använda följande alternativ:
 
@@ -128,13 +131,15 @@ Proxy-autentisering stöds inte för närvarande. Våra aktuella rekommendation 
 
 Anslutningen gör utgående SSL-baserade anslutningar med hjälp av metoden CONNECT. Den här metoden är i stort sett ställer in en tunnel via utgående proxy. Konfigurera proxyserver för att tillåta tunnlar för att portarna 443 och 80.
 
->[!NOTE]
->När Service Bus körs via HTTPS, använder port 443. Dock försöker direkt TCP-anslutningar Service Bus som standard och faller tillbaka till HTTPS om direktanslutning inte.
+> [!NOTE]
+> När Service Bus körs via HTTPS, använder port 443. Dock försöker direkt TCP-anslutningar Service Bus som standard och faller tillbaka till HTTPS om direktanslutning inte.
 
 #### <a name="ssl-inspection"></a>SSL-kontroll
-Använd inte SSL-kontroll för connector-trafik, eftersom det orsakar problem för connector-trafik. Anslutningen använder ett certifikat för att autentisera till tjänsten Application Proxy och certifikatet kan gå förlorade under SSL-kontroll. 
+
+Använd inte SSL-kontroll för connector-trafik, eftersom det orsakar problem för connector-trafik. Anslutningen använder ett certifikat för att autentisera till tjänsten Application Proxy och certifikatet kan gå förlorade under SSL-kontroll.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Felsöka problem med anslutningen proxy och anslutningsproblem för tjänsten
+
 Du bör nu se all trafik som passerar genom proxyn. Om du har problem med ska följande felsökningsinformation hjälpa.
 
 Det bästa sättet att identifiera och Felsök problem med nätverksanslutningen connector är att ta en nätverksbild vid start kopplingstjänsten. Här följer några snabba tips på samla in och filtrera nätverksspår.
@@ -151,21 +156,18 @@ Utför följande steg för inledande Felsökning:
 
    ![Azure AD Application Proxy Connector-tjänsten i services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. Kör Message Analyzer som administratör.
-3. Välj **starta lokala spårning**.
+1. Kör Message Analyzer som administratör.
+1. Välj **starta lokala spårning**.
+1. Starta Azure AD Application Proxy Connector-tjänsten.
+1. Stoppa insamlingen nätverk.
 
-   ![Starta nätverksbild](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Starta Azure AD Application Proxy Connector-tjänsten.
-4. Stoppa insamlingen nätverk.
-
-   ![Stoppa nätverksbild](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Skärmbilden visar knappen Stopp nätverk avbildning](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Kontrollera om koppling trafiken kringgår utgående proxyservrar
 
-Om du har konfigurerat programproxy-kopplingen för att kringgå proxy-servrar och ansluta direkt till Application Proxy-tjänsten som du vill söka i nätverksbild för misslyckade TCP-anslutningsförsök. 
+Om du har konfigurerat programproxy-kopplingen för att kringgå proxy-servrar och ansluta direkt till Application Proxy-tjänsten som du vill söka i nätverksbild för misslyckade TCP-anslutningsförsök.
 
-Med filtret Message Analyzer för att identifiera dessa försök. Ange `property.TCPSynRetransmit` i filterrutan och välj **tillämpa**. 
+Med filtret Message Analyzer för att identifiera dessa försök. Ange `property.TCPSynRetransmit` i filterrutan och välj **tillämpa**.
 
 SYN-paket är det första paketet skickas för att upprätta en TCP-anslutning. Om det här paketet inte returnerar något svar, är SYN återförsöks. Du kan använda föregående filtret för att se alla att Sym. Du kan sedan kontrollera om de här Sym motsvarar all trafik som connector-relaterade.
 
@@ -173,9 +175,9 @@ Om du förväntar dig connector att ansluta direkt till Azure-tjänster är en i
 
 ### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Kontrollera om connector-trafik använder utgående proxyservrar
 
-Om du har konfigurerat Application Proxy connector trafiken gå igenom proxyservrar som du vill leta efter misslyckade https-anslutningar till proxyservern. 
+Om du har konfigurerat Application Proxy connector trafiken gå igenom proxyservrar som du vill leta efter misslyckade https-anslutningar till proxyservern.
 
-Om du vill filtrera nätverksbild för dessa anslutningsförsök, ange `(https.Request or https.Response) and tcp.port==8080` i filtret Message Analyzer ersätta 8080 med din tjänst Proxyport. Välj **tillämpa** att visa filterresultaten. 
+Om du vill filtrera nätverksbild för dessa anslutningsförsök, ange `(https.Request or https.Response) and tcp.port==8080` i filtret Message Analyzer ersätta 8080 med din tjänst Proxyport. Välj **tillämpa** att visa filterresultaten.
 
 Föregående filtret visar bara HTTPs-begäranden och svar till och från proxyporten. Du letar efter CONNECT-begäranden som visar kommunikation med proxyservern. Vid en lyckad distribution, kan du få ett svar för HTTP-OK (200).
 
@@ -183,6 +185,5 @@ Om du ser andra svarskoder, till exempel 407 eller 502, som innebär att proxyse
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
-
-- Om du har problem med anslutningen anslutningsproblem kan du ställa din fråga i den [Azure Active Directory-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) eller skapa ett ärende med vårt supportteam.
+* [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
+* Om du har problem med anslutningen anslutningsproblem kan du ställa din fråga i den [Azure Active Directory-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) eller skapa ett ärende med vårt supportteam.

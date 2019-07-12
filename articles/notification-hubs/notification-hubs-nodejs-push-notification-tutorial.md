@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061609"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706218"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hub och Node.js
 
@@ -46,7 +46,7 @@ Azure Meddelandehubbar ger en enkel att använda, flera plattformar, skalbara in
 
 ## <a name="create-a-nodejs-application"></a>Skapa en Node.js-program
 
-Det första steget i den här självstudien är att skapa en ny tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till Azure Web Site][nodejswebsite], [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell eller [webbplats med WebMatrix][webmatrix].
+Det första steget i den här självstudien är att skapa en ny tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till Azure Web Site][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] med hjälp av Windows PowerShell eller [webbplats med WebMatrix] [webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Konfigurera ditt program du använder Notification Hubs
 
@@ -106,7 +106,7 @@ Den `GcmService` objektet innehåller en `send` metod som kan användas för att
 - **Nyttolasten** -meddelandets JSON eller rådatasträng nyttolast.
 - **Motringning** -Återanropsfunktionen.
 
-Mer information om nyttolastformatet finns i den **nyttolast** delen av den [implementera GCM-Server](https://developers.google.com/cloud-messaging/) dokumentet.
+Mer information om nyttolastformatet finns i den [nyttolast dokumentation](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 I följande kod används den `GcmService` instans som exponeras av den `NotificationHubService` att skicka ett push-meddelande till alla registrerade klienter.
 

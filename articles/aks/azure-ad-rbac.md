@@ -2,17 +2,17 @@
 title: Klusterresurser för åtkomstkontroll med RBAC och Azure AD i Azure Kubernetes Service
 description: Lär dig hur du använder Azure Active Directory-gruppmedlemskap för att begränsa åtkomsten till klusterresurser med rollbaserad åtkomstkontroll (RBAC) i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: iainfou
-ms.openlocfilehash: e974c47d1dfb04f66b622c64a7143d00de87c4cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: fba54fd23fefbe0029b9a809b23568490f05b23e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467552"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616169"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrollera åtkomsten till klusterresurser med rollbaserad åtkomstkontroll och Azure Active Directory-identiteter i Azure Kubernetes Service
 
@@ -37,7 +37,7 @@ I den här artikeln ska vi skapa två användarroller som kan användas för att
 
 Du kan använda befintliga användare och grupper i en Azure AD-klient i produktionsmiljöer.
 
-Hämta först resurs-ID för AKS-kluster med den [az aks show] [ az-aks-show] kommando. Tilldela resurs-ID till en variabel med namnet *AKS_ID* så att den kan refereras i ytterligare kommandon.
+Hämta först resurs-ID för AKS-kluster med den [az aks show][az-aks-show] kommando. Tilldela resurs-ID till en variabel med namnet *AKS_ID* så att den kan refereras i ytterligare kommandon.
 
 ```azurecli-interactive
 AKS_ID=$(az aks show \
@@ -46,13 +46,13 @@ AKS_ID=$(az aks show \
     --query id -o tsv)
 ```
 
-Skapa den första exemplet-gruppen i Azure AD för programutvecklare som använder den [az ad group skapa] [ az-ad-group-create] kommando. I följande exempel skapas en grupp med namnet *appdev*:
+Skapa den första exemplet-gruppen i Azure AD för programutvecklare som använder den [az ad group skapa][az-ad-group-create] kommando. I följande exempel skapas en grupp med namnet *appdev*:
 
 ```azurecli-interactive
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Nu skapar en Azure rolltilldelningen för den *appdev* gruppen med hjälp av den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando. Denna tilldelning kan en medlem i gruppen använder `kubectl` att interagera med ett AKS-kluster genom att tilldela dem den *användarrollen för Azure Kubernetes Service-kluster*.
+Nu skapar en Azure rolltilldelningen för den *appdev* gruppen med hjälp av den [az-rolltilldelning skapa][az-role-assignment-create] kommando. Denna tilldelning kan en medlem i gruppen använder `kubectl` att interagera med ett AKS-kluster genom att tilldela dem den *användarrollen för Azure Kubernetes Service-kluster*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -83,7 +83,7 @@ az role assignment create \
 
 Med två exempel grupper som skapats i Azure AD för våra utvecklare av företagsprogram och SREs, nu ska vi skapa två exempelanvändare. Om du vill testa RBAC-integrering i slutet av artikeln kan logga du in på AKS-kluster med dessa konton.
 
-Skapa det första användarkontot i Azure AD via den [az ad-användare skapa] [ az-ad-user-create] kommando.
+Skapa det första användarkontot i Azure AD via den [az ad-användare skapa][az-ad-user-create] kommando.
 
 I följande exempel skapas en användare med namnet *AKS Dev* och användarens huvudnamn (UPN) för `aksdev@contoso.com`. Uppdatera UPN för att inkludera en verifierad domän för din Azure AD-klient (Ersätt *contoso.com* med din egen domän), och ange ditt eget säkra `--password` autentiseringsuppgifter:
 
@@ -95,7 +95,7 @@ AKSDEV_ID=$(az ad user create \
   --query objectId -o tsv)
 ```
 
-Nu lägga till användaren i *appdev* grupp som skapades i föregående avsnitt med den [az ad group member Lägg till] [ az-ad-group-member-add] kommando:
+Nu lägga till användaren i *appdev* grupp som skapades i föregående avsnitt med den [az ad group member Lägg till][az-ad-group-member-add] kommando:
 
 ```azurecli-interactive
 az ad group member add --group appdev --member-id $AKSDEV_ID
@@ -119,13 +119,13 @@ az ad group member add --group opssre --member-id $AKSSRE_ID
 
 Azure AD-grupper och användare skapas nu. Azure rolltilldelningar skapades för gruppmedlemmar att ansluta till ett AKS-kluster som en vanlig användare. Nu ska vi konfigurera AKS-klustret för att tillåta dessa olika grupper åtkomst till specifika resurser.
 
-Först hämtar klustret autentiseringsuppgifter som administratör med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. I följande avsnitt, du får vanliga *användaren* kluster autentiseringsuppgifter för att se Azure AD-autentisering flöde körs.
+Först hämtar klustret autentiseringsuppgifter som administratör med hjälp av den [aaz aks get-credentials][az-aks-get-credentials] kommando. I följande avsnitt, du får vanliga *användaren* kluster autentiseringsuppgifter för att se Azure AD-autentisering flöde körs.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Skapa ett namnområde i AKS-kluster med den [kubectl skapa namnområde] [ kubectl-create] kommando. I följande exempel skapas ett namn för namnområdet *dev*:
+Skapa ett namnområde i AKS-kluster med den [kubectl skapa namnområde][kubectl-create] kommando. I följande exempel skapas ett namn för namnområdet *dev*:
 
 ```console
 kubectl create namespace dev
@@ -154,13 +154,13 @@ rules:
   verbs: ["*"]
 ```
 
-Skapa en roll med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
+Skapa en roll med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
 
 ```console
 kubectl apply -f role-dev-namespace.yaml
 ```
 
-Nu ska hämta resurs-ID för den *appdev* gruppen med hjälp av den [az ad group show] [ az-ad-group-show] kommando. Den här gruppen har angetts som omfattas av en RoleBinding i nästa steg.
+Nu ska hämta resurs-ID för den *appdev* gruppen med hjälp av den [az ad group show][az-ad-group-show] kommando. Den här gruppen har angetts som omfattas av en RoleBinding i nästa steg.
 
 ```azurecli-interactive
 az ad group show --group appdev --query objectId -o tsv
@@ -184,7 +184,7 @@ subjects:
   name: groupObjectId
 ```
 
-Skapa RoleBinding med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
+Skapa RoleBinding med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
 
 ```console
 kubectl apply -f rolebinding-dev-namespace.yaml
@@ -194,7 +194,7 @@ kubectl apply -f rolebinding-dev-namespace.yaml
 
 Upprepa föregående steg för att skapa ett namnområde, rollen och RoleBinding för SREs.
 
-Börja med att skapa ett namnområde för *sre* med hjälp av den [kubectl skapa namnområde] [ kubectl-create] kommando:
+Börja med att skapa ett namnområde för *sre* med hjälp av den [kubectl skapa namnområde][kubectl-create] kommando:
 
 ```console
 kubectl create namespace sre
@@ -219,13 +219,13 @@ rules:
   verbs: ["*"]
 ```
 
-Skapa en roll med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
+Skapa en roll med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
 
 ```console
 kubectl apply -f role-sre-namespace.yaml
 ```
 
-Hämta resurs-ID för den *opssre* gruppen med hjälp av den [az ad group show] [ az-ad-group-show] kommando:
+Hämta resurs-ID för den *opssre* gruppen med hjälp av den [az ad group show][az-ad-group-show] kommando:
 
 ```azurecli-interactive
 az ad group show --group opssre --query objectId -o tsv
@@ -249,7 +249,7 @@ subjects:
   name: groupObjectId
 ```
 
-Skapa RoleBinding med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
+Skapa RoleBinding med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange filnamnet på ditt YAML-manifest:
 
 ```console
 kubectl apply -f rolebinding-sre-namespace.yaml
@@ -259,13 +259,13 @@ kubectl apply -f rolebinding-sre-namespace.yaml
 
 Nu ska vi testa arbetet förväntade behörigheter när du skapar och hanterar resurser i ett AKS-kluster. I det här du schemalägger och visa poddar i användarens tilldelade namnområde. Sedan försöker att schemalägga och visa poddar utanför tilldelade namnområdet.
 
-Först måste återställa den *kubeconfig* kontext med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. I föregående avsnitt, kan du ange kontexten med administratörsautentiseringsuppgifter för klustret. Administratörsanvändare kringgår Azure AD-inloggningen anvisningarna. Utan den `--admin` parametern användarkontexten används som kräver att alla förfrågningar ska kunna autentiseras med hjälp av Azure AD.
+Först måste återställa den *kubeconfig* kontext med hjälp av den [aaz aks get-credentials][az-aks-get-credentials] kommando. I föregående avsnitt, kan du ange kontexten med administratörsautentiseringsuppgifter för klustret. Administratörsanvändare kringgår Azure AD-inloggningen anvisningarna. Utan den `--admin` parametern användarkontexten används som kräver att alla förfrågningar ska kunna autentiseras med hjälp av Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Schema som en grundläggande NGINX pod med hjälp av den [kubectl kör] [ kubectl-run] i den *dev* namnområde:
+Schema som en grundläggande NGINX pod med hjälp av den [kubectl kör][kubectl-run] i den *dev* namnområde:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -281,7 +281,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 pod/nginx-dev created
 ```
 
-Nu använda den [kubectl hämta poddar] [ kubectl-get] kommando för att visa poddar i den *dev* namnområde.
+Nu använda den [kubectl hämta poddar][kubectl-get] kommando för att visa poddar i den *dev* namnområde.
 
 ```console
 kubectl get pods --namespace dev
@@ -298,7 +298,7 @@ nginx-dev   1/1     Running   0          4m
 
 ### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Skapa och visa klusterresurser utanför tilldelade namnområdet
 
-Prova att visa poddar utanför den *dev* namnområde. Använd den [kubectl hämta poddar] [ kubectl-get] kommandot på nytt, nu att se `--all-namespaces` på följande sätt:
+Prova att visa poddar utanför den *dev* namnområde. Använd den [kubectl hämta poddar][kubectl-get] kommandot på nytt, nu att se `--all-namespaces` på följande sätt:
 
 ```console
 kubectl get pods --all-namespaces
@@ -324,7 +324,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 
 För att bekräfta att vår Azure AD-gruppmedlemskap och Kubernetes RBAC fungerar korrekt mellan olika användare och grupper, försök tidigare kommandon när du loggat in som den *opssre* användare.
 
-Återställ den *kubeconfig* kontext med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando som rensar tidigare cachelagrade Autentiseringstoken för den *aksdev*  användare:
+Återställ den *kubeconfig* kontext med hjälp av den [aaz aks get-credentials][az-aks-get-credentials] kommando som rensar tidigare cachelagrade Autentiseringstoken för den *aksdev* användare:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing

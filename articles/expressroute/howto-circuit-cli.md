@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837818"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657071"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
@@ -23,9 +24,10 @@ Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -127,8 +129,8 @@ Du är nu redo att skapa en ExpressRoute-krets.
 
 > [!IMPORTANT]
 > ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. Utför den här åtgärden när anslutningsleverantören är redo att lägga till kretsen.
-> 
-> 
+>
+>
 
 Om du inte redan har en resursgrupp, måste du skapa en innan du skapar din ExpressRoute-krets. Du kan skapa en resursgrupp genom att köra följande kommando:
 
@@ -136,7 +138,7 @@ Om du inte redan har en resursgrupp, måste du skapa en innan du skapar din Expr
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-I följande exempel visar hur du skapar en 200 Mbit/s ExpressRoute-krets via Equinix i Silicon Valley. Om du använder en annan leverantör och olika inställningar, ersätter du den informationen när du gör din begäran. 
+I följande exempel visar hur du skapar en 200 Mbit/s ExpressRoute-krets via Equinix i Silicon Valley. Om du använder en annan leverantör och olika inställningar, ersätter du den informationen när du gör din begäran.
 
 Kontrollera att du anger rätt SKU-nivån och SKU-serien:
 
@@ -267,8 +269,8 @@ Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](h
 
 > [!IMPORTANT]
 > Dessa anvisningar gäller endast för kretsar som skapas med tjänstleverantörer som erbjuder tjänster för layer-2-anslutning. Om du använder en leverantör av tjänster som erbjuder Hanterade layer 3-tjänster (vanligtvis en IP VPN, t.ex. MPLS), anslutningsleverantören konfigurerar och hanterar routning åt dig.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Länka ett virtuellt nätverk till en ExpressRoute-krets
 
@@ -279,7 +281,7 @@ Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd den [
 Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan göra följande ändringar utan avbrott:
 
 * Du kan aktivera eller inaktivera en ExpressRoute-premiumtillägget för ExpressRoute-kretsen.
-* Du kan öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten. Dock stöds nedgradera bandbredden för en krets inte. 
+* Du kan öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten. Dock stöds nedgradera bandbredden för en krets inte.
 * Du kan ändra Avläsning av planen från förbrukade Data till obegränsade Data. Men stöds ändrar Avläsning av planen från obegränsade Data till förbrukade Data inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 
@@ -299,8 +301,8 @@ Kretsen har aktiverat ExpressRoute premium-tilläggsfunktioner. Vi börjar faktu
 
 > [!IMPORTANT]
 > Den här åtgärden kan misslyckas om du använder resurser som är större än vad som tillåts för standard-krets.
-> 
-> 
+>
+>
 
 Innan du inaktiverar Expressroutes premiumtillägg känna till följande kriterier:
 

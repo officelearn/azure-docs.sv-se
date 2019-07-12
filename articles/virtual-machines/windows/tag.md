@@ -4,7 +4,7 @@ description: Lär dig mer om att tagga en Windows-dator som skapats i Azure med 
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: eef4681626c5e0aa0c5d8a67dbd0d19bcfd7121e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26ee777f7db05ca1850e2a01c1716810624906c0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694689"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709845"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Tagga en virtuell Windows-dator i Azure
 Den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är en användardefinierad nyckel/värde-par som kan placeras direkt på en resurs eller resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs när den skapas eller lagts till i en befintlig resurs. Observera att taggar stöds för resurser som har skapats via Resource Manager-distributionsmodellen endast. Om du vill tagga en virtuell Linux-dator, se [tagga en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -91,8 +91,8 @@ Om du vill veta mer om taggning via PowerShell kan ta en titt på [Cmdlets för 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om tagga dina Azure-resurser i [översikt över Azure Resource Manager] [ Azure Resource Manager Overview] och [med taggar för att organisera dina Azure-resurser] [ Using Tags to organize your Azure Resources].
-* Om du vill se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura] [ Understanding your Azure Bill] och [insyn i din Microsoft Azure-resursförbrukning] [Gain insights into your Microsoft Azure resource consumption].
+* Läs mer om tagga dina Azure-resurser i [översikt över Azure Resource Manager][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
+* Om du vill se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/

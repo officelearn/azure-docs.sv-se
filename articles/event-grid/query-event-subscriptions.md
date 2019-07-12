@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08fa9ada97c652ca609a499da1c8e87f7e4487db
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162026"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786632"
 ---
 # <a name="query-event-grid-subscriptions"></a>Fråga Event Grid-prenumerationer 
 
@@ -46,7 +46,7 @@ För att få event grid-prenumerationer för en Azure-prenumeration kan du ange 
 Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions" --location global
 ```
 
 Om du använder PowerShell använder du:
@@ -60,7 +60,7 @@ För att få event grid-prenumerationer för alla resursgrupper i en Azure-prenu
 Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups" --location global
 ```
 
 Om du använder PowerShell använder du:
@@ -74,7 +74,7 @@ Ange namnet på resursgruppen som en parameter för att få event grid-prenumera
 Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --resource-group myResourceGroup
+az eventgrid event-subscription list --resource-group myResourceGroup --location global
 ```
 
 Om du använder PowerShell använder du:

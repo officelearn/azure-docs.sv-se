@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808392"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656749"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -24,7 +24,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgäng
 
 Snabbstarten guidar dig genom processen att lägga till Application Insights SDK för ett befintligt dynamiskt Java-webbprojekt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -54,12 +54,11 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        | Värde           | Beskrivning  |
+    | Inställningar        | Value           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Programtyp** | Java-webapp | Typen av app du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Plats** | Östra USA | Välj en plats nära dig eller nära där appen finns |
+   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 

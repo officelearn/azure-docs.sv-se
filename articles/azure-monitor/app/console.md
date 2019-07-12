@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901860"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795452"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsolprogram
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
@@ -27,14 +27,16 @@ Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in 
 
 ## <a name="getting-started"></a>Komma igång
 
-* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ) på [Azure Portal](https://portal.azure.com). Programtyp, Välj **Allmänt**.
+* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). Programtyp, Välj **Allmänt**.
 * Kopiera instrumenteringsnyckeln. Leta reda på nyckeln i den **Essentials** listrutan för den nya resursen som du skapade. 
 * Installera senaste [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) paketet.
 * Ange instrumenteringsnyckeln i din kod innan du spåra någon telemetri (eller uppsättning APPINSIGHTS_INSTRUMENTATIONKEY miljövariabeln). Efter det ska du kunna spåra telemetri och se hur det på Azure portal manuellt
 
 ```csharp
-TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
-var telemetryClient = new TelemetryClient();
+// you may use different options to create configuration as shown later in this article
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+configuration.InstrumentationKey = " *your key* ";
+var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
@@ -46,7 +48,6 @@ Du kan starta och konfigurera Application Insights från koden eller med hjälp 
 > Instruktioner som refererar till **ApplicationInsights.config** gäller endast för appar som riktar in sig på .NET Framework och gäller inte för .NET Core-program.
 
 ### <a name="using-config-file"></a>Med hjälp av konfigurationsfilen
-
 Som standard söker Application Insights SDK `ApplicationInsights.config` filen i arbetskatalogen när `TelemetryConfiguration` håller på att skapas
 
 ```csharp
@@ -94,6 +95,8 @@ Du kan få ett fullständigt exempel av konfigurationsfilen genom att installera
 ```
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Konfigurera telemetriinsamling av från kod
+> [!NOTE]
+> Läsa konfigurationsfilen stöds inte på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
 * Under start av program skapar och konfigurerar `DependencyTrackingTelemetryModule` instans - det måste vara singleton och måste bevaras under programmet livstid.
 
@@ -118,14 +121,18 @@ module.Initialize(configuration);
 * Lägg till vanliga telemetri-initierare
 
 ```csharp
-// stamps telemetry with correlation identifiers
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-
 // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* För .NET Framework Windows-app måste du även installera och initiera prestandaräknaren insamlaren modulen enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+Om du har skapat konfigurationen med oformaterad `TelemetryConfiguration()` konstruktor, måste du aktivera stöd för korrelation dessutom. **Den krävs inte** om du läser konfigurationen från filen används `TelemetryConfiguration.CreateDefault()` eller `TelemetryConfiguration.Active`.
+
+```csharp
+configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+```
+
+* Du kanske också vill installera och initiera prestandaräknaren insamlaren modulen enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+
 
 #### <a name="full-example"></a>Fullständigt exempel
 
@@ -142,10 +149,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+            TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
             configuration.InstrumentationKey = "removed";
-            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient();

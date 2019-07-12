@@ -4,7 +4,7 @@ description: Konfigurera WinRM-åtkomst för användning med en Azure virtuell d
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: c4df3d6a55021cafa04bb6bcba643be41dc0e612
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2a106c639eb72d3793b0df8f4ddf36a4724f7418
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273771"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707866"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Hur du konfigurerar WinRM-åtkomst för virtuella datorer i Azure Resource Manager
 
@@ -76,7 +76,7 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
-Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
+Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
 ## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Steg 4: Hämta URL för ditt självsignerade certifikat i Key Vault

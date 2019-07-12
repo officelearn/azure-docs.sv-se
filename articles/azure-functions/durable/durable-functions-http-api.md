@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787287"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812822"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -45,12 +45,13 @@ Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 Dessa exempel funktionerna ge följande JSON-data som svar. Datatypen för alla fält är `string`.
 
 | Fält                   |Beskrivning                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |ID för orchestration-instans. |
-| **`statusQueryGetUri`** |Status för Webbadressen till orchestration-instans. |
-| **`sendEventPostUri`**  |”Rera händelse” Webbadressen till orchestration-instans. |
-| **`terminatePostUri`**  |”Avsluta” Webbadressen till orchestration-instans. |
-| **`rewindPostUri`**     |”Tillbakaspolning” Webbadressen till orchestration-instans. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |ID för orchestration-instans. |
+| **`statusQueryGetUri`**     |Status för Webbadressen till orchestration-instans. |
+| **`sendEventPostUri`**      |”Rera händelse” Webbadressen till orchestration-instans. |
+| **`terminatePostUri`**      |”Avsluta” Webbadressen till orchestration-instans. |
+| **`purgeHistoryDeleteUri`** |”Rensa historiken” Webbadressen till orchestration-instans. |
+| **`rewindPostUri`**         |(förhandsversion) ”Tillbakaspolning” Webbadressen till orchestration-instans. |
 
 Här är ett exempel på ett svar:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -156,12 +158,12 @@ Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt
 
 | Fält                 | Datatyp | Beskrivning |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
+| **`runtimeStatus`**   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
 | **`input`**           | JSON      | JSON-data som används för att initiera instansen. Det här fältet är `null` om den `showInput` frågesträngparametern anges till `false`.|
 | **`customStatus`**    | JSON      | JSON-data som används för anpassad orkestreringsstatus. Det här fältet är `null` om det inte angetts. |
 | **`output`**          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
-| **`createdTime`**     | string    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
-| **`lastUpdatedTime`** | string    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
+| **`createdTime`**     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
+| **`lastUpdatedTime`** | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
 | **`historyEvents`**   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`. |
 
 Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktivitetens utdata från körningen (formaterad för läsbarhet):
@@ -373,7 +375,7 @@ Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
 
 | Fält                  | Datatyp | Beskrivning |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | heltal   | Antalet instanser som har tagits bort. För enskild instans, det här värdet alltid vara `1`. |
+| **`instancesDeleted`** | integer   | Antalet instanser som har tagits bort. För enskild instans, det här värdet alltid vara `1`. |
 
 Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
@@ -435,7 +437,7 @@ Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
 
 | Fält                   | Datatyp | Beskrivning |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | heltal   | Antalet instanser som har tagits bort. |
+| **`instancesDeleted`**  | integer   | Antalet instanser som har tagits bort. |
 
 Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
 
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 Svar för detta API innehåller inte något innehåll.
 
-## <a name="rewind-instance-preview"></a>Tillbakaspolning instans (förhandsversion)
+### <a name="rewind-instance-preview"></a>Tillbakaspolning instans (förhandsversion)
 
 Återställer en misslyckad orchestration-instans till ett körningsläge genom att spela upp de senaste misslyckade åtgärderna.
 
-### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Förfrågan
 
 För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
@@ -580,7 +582,7 @@ Begära parametrar för detta API innehåller en standarduppsättning som tidiga
 | **`instanceId`**  | URL             | ID för orchestration-instans. |
 | **`reason`**      | Frågesträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
 
-### <a name="response"></a>Svar
+#### <a name="response"></a>Svar
 
 Flera möjliga status code-värden kan returneras.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 Svar för detta API innehåller inte något innehåll.
+
+### <a name="signal-entity-preview"></a>Signal entitet (förhandsversion)
+
+Skickar ett meddelande med enkel åtgärd till en [varaktiga entitet](durable-functions-types-features-overview.md#entity-functions). Om enheten inte finns skapas den automatiskt.
+
+#### <a name="request"></a>Förfrågan
+
+HTTP-begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
+
+| Fält             | Parametertyp  | Beskrivning |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | Typ av entiteten. |
+| **`entityKey`**   | URL             | Det unika namnet för entiteten. |
+| **`op`**          | Frågesträng    | Valfri. Namnet på den användardefinierade åtgärden att anropa. |
+| **`{content}`**   | Begära innehåll | JSON-formaterad händelsenyttolast. |
+
+Här är en exempelbegäran som skickar ett användardefinierade ”Lägg till”-meddelande till en `Counter` entitet med namnet `steps`. Innehållet i meddelandet är värdet `5`. Om enheten inte redan finns, kommer att skapas av denna begäran:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Svar
+
+Den här åtgärden har flera möjliga svar:
+
+* **HTTP 202 (godkänt)** : Åtgärden signal togs emot för asynkron bearbetning.
+* **HTTP 400 (felaktig begäran)** : Innehållet i begäran var inte av typen `application/json`, var inte giltig JSON eller hade ett ogiltigt `entityKey` värde.
+* **HTTP 404 (hittades inte)** : Den angivna `entityType` hittades inte.
+
+En lyckad HTTP-begäran innehåller inte något innehåll i svaret. En misslyckad HTTP-begäran kan innehålla information om JSON-formaterade fel i svarsinnehållet.
+
+### <a name="query-entity-preview"></a>Frågeidentitet (förhandsversion)
+
+Hämtar tillståndet för den angivna entiteten.
+
+#### <a name="request"></a>Förfrågan
+
+HTTP-begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Svar
+
+Den här åtgärden har två möjliga svar:
+
+* **HTTP 200 (OK)** : Den angivna entiteten finns.
+* **HTTP 404 (hittades inte)** : Den angivna enheten hittades inte.
+
+Ett lyckat svar innehåller JSON-serialiserat tillståndet för entiteten som dess innehåll.
+
+#### <a name="example"></a>Exempel
+Följande är ett exempel på en HTTP-begäran som hämtas tillståndet för en befintlig `Counter` entitet med namnet `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Om den `Counter` entitet som bara finns ett antal åtgärder som sparas i en `currentValue` fältet svarsinnehållet kan se ut så här (formaterad för läsbarhet):
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

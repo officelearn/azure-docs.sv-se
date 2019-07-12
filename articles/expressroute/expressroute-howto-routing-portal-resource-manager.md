@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484337"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622334"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
@@ -132,6 +132,7 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
    * Ett /30 undernät för den sekundära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen förutom tal från 65515 till 65520, portintervallet.
+   * Du måste annonsera vägar från din lokala Edge-routern till Azure via BGP när du ställer in för privat peering.
    * **Valfritt –** en MD5-hash om du väljer att använda en.
 3. Välj den Azure privata peering-raden som visas i följande exempel:
 

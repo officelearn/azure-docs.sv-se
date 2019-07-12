@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466807"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703881"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Överföra filer till ett Media Services-konto med hjälp av REST
 
 I Media Services överför du dina digitala filer till en blobbehållare som är associerade med en tillgång. Den [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) entiteten kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och dold textning filer (och metadata om dessa filer). När filerna överförs till den tillgången behållare, lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
-Den här artikeln visar hur du laddar upp en lokal fil suing REST.
+Den här artikeln visar hur du laddar upp en lokal fil med hjälp av REST.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
@@ -63,4 +63,4 @@ Använda Azure Storage API: er eller SDK: er (till exempel den [Storage REST API
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)
+[Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)

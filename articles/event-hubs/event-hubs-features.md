@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275435"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827729"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
@@ -66,30 +66,8 @@ Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token 
 [Event Hubs Capture](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Event Hubs och spara den till ett Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange en minsta storlek och tidsfönster att utföra insamlingen. Med Event Hubs Capture kan ange du din egen Azure Blob Storage-konto och en behållare eller ett konto för Azure Data Lake-tjänsten, av vilka används för att lagra insamlade data. Inlästa data skrivs i Apache Avro-format.
 
 ## <a name="partitions"></a>Partitioner
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Event Hubs tillhandahåller meddelandeströmning via ett partitionerat konsumentmönster där varje konsument endast läser en specifik delmängd, eller partition, av meddelandeströmmen. Det här mönstret gör det möjligt att skala horisontellt för händelsebearbetning och tillhandahåller andra strömfokuserade funktioner som inte är tillgängliga i köer och ämnen.
-
-En partition är en ordnad sekvens av händelser som hålls kvar i en händelsehubb. När nya händelser anländer läggs de till i slutet av denna sekvens. En partition kan betraktas som en ”genomförandelogg”.
-
-![Event Hubs](./media/event-hubs-features/partition.png)
-
-Event Hubs behåller data under en konfigurerad kvarhållningstid som gäller för alla partitioner i händelsehubben. Händelser löper ut enligt ett tidsschema. Det går inte att ta bort dem. Eftersom partitioner är oberoende av varandra och innehåller sina egna sekvenser med data, växer de ofta i olika takt.
-
-![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
-
-Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Du kan öka antalet partitioner till mer än 32 genom att kontakta Event Hubs-teamet.
-
-Du rekommenderas att inte skicka direkt till en partition partitioner kan identifieras och kan skickas till direkt. Du kan i stället använda konstruktioner på högre nivå introducerades i den [händelseutfärdare](#event-publishers) och kapacitet avsnitt. 
-
-Partitioner är fyllda med en sekvens av händelsedata som innehåller själva händelsen, en användardefinierad egenskapsuppsättning och metadata, till exempel dess offset i partitionen och dess nummer i dataströmsekvensen.
-
-Mer information om partitioner och avvägningen mellan tillgänglighet och tillförlitlighet finns i [Programmeringsguide för Event Hubs](event-hubs-programming-guide.md#partition-key) och i artikeln om [tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md).
-
-### <a name="partition-key"></a>Partitionsnyckeln
-
-Du kan organisera data med hjälp av en [partitionsnyckel](event-hubs-programming-guide.md#partition-key) som mappar inkommande händelsedata till specifika partitioner. Partitionsnyckeln är ett värde som avsändaren anger och som skickas till en händelsehubb. Den bearbetas via en statisk hash-funktion som skapar partitionstilldelningen. Om du inte anger en partitionsnyckel när du publicerar en händelse, används en tilldelning enligt resursallokeringsmodellen.
-
-Händelseutfärdaren känner bara till sin partitionsnyckel, inte den partition som händelserna publiceras till. Frikopplingen av nyckeln och partitionen gör att avsändaren inte behöver känna till så mycket om bearbetningen nedströms. En identitet per enhet eller en användarunik identitet utgör en bra partitionsnyckel, men andra attribut, till exempel geografi, kan också användas för att gruppera relaterade händelser i en enda partition.
 
 ## <a name="sas-tokens"></a>SAS-token
 

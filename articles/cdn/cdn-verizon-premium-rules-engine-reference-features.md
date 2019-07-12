@@ -3,16 +3,16 @@ title: Azure CDN från Verizon Premium regelmotor – funktioner | Microsoft Doc
 description: Referensdokumentation för Azure CDN från Verizon Premium regelmotor – funktioner.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443483"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593231"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium regler – funktioner
 
@@ -173,9 +173,9 @@ Namn | Syfte
 
 **Syfte**: Anger om en ålder svarshuvud ska tas med i svaret skickas till den som begär.
 
-Värde|Resultat
+Value|Resultat
 --|--
-Enabled | Rubriken ålder ingår i svar som skickas till den som begär.
+Aktiverad | Rubriken ålder ingår i svar som skickas till den som begär.
 Inaktiverad | Rubriken ålder är undantagen från de svar som skickas till den som begär.
 
 **Standardbeteende**: Inaktiverad.
@@ -192,9 +192,9 @@ Inaktiverad | Rubriken ålder är undantagen från de svar som skickas till den 
 
 Strypning parametrar för bandbredd avgöra om dataöverföringshastighet för en klientbegäran är begränsad till en anpassad taxa.
 
-Värde|Resultat
+Value|Resultat
 --|--
-Enabled|Tillåter POP: erna måste respektera bandbreddsbegränsning begäranden.
+Aktiverad|Tillåter POP: erna måste respektera bandbreddsbegränsning begäranden.
 Inaktiverad|Leder till POP: erna att ignorera bandbreddsbegränsning parametrar. Det begärda innehållet visas normalt (det vill säga utan begränsning av bandbredd).
 
 **Standardbeteende:** Aktiverad.
@@ -228,9 +228,9 @@ Prebuf sekunder|Ange detta alternativ för hur många sekunder för POP: erna sk
 
 **Syfte:** Anger om begäran bör kringgå cachelagring.
 
-Värde|Resultat
+Value|Resultat
 --|--
-Enabled|Kommer alla begäranden till faller mellan till den ursprungliga servern, även om innehållet har tidigare cachelagrats på POP.
+Aktiverad|Kommer alla begäranden till faller mellan till den ursprungliga servern, även om innehållet har tidigare cachelagrats på POP.
 Inaktiverad|Gör POP till cache tillgångar enligt cache-principer som definierats i dess svarshuvuden.
 
 **Standardbeteende:**
@@ -296,7 +296,7 @@ Viktig information:
 
 Det enklaste sättet att uppnå den här typen av konfiguration är att placera den externa Max-Age och behandling av Cache-Control-huvud-funktioner i samma instruktion.
 
-Värde|Resultat
+Value|Resultat
 --|--
 Skriv över|Garanterar att det utförs följande åtgärder:<br/> -Skriver över den `Cache-Control` rubrik som genererats av den ursprungliga servern. <br/>-Lägger till den `Cache-Control` rubrik som genereras av funktionen externa Max-Age till svaret.
 Passera|Säkerställer att den `Cache-Control` rubrik som produceras av externa Max-Age-funktionen aldrig har lagts till i svaret. <br/> Om ursprungsservern producerar en `Cache-Control` rubrik som är den genomgår för slutanvändaren. <br/> Om ursprungsservern inte ger en `Cache-Control` rubrik och sedan det här alternativet kan orsaka svarshuvudet ska inte innehålla en `Cache-Control` rubrik.
@@ -320,7 +320,7 @@ Viktig information:
 - Ange en eller flera parameternamn för frågan sträng och avgränsa varje parameternamn med ett enda blanksteg.
 - Den här funktionen anger om parametrar för frågesträngen är inkluderas eller uteslutas från cache-nyckeln. Ytterligare information har angetts för varje alternativ i följande tabell.
 
-Type|Beskrivning
+type|Beskrivning
 --|--
  Inkludera|  Anger att varje angiven parameter ska ingå i cache-nyckeln. En unik cache-nyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen.
  Omfatta alla  |Anger att en unik cache-nyckel har skapats för varje begäran till en tillgång som innehåller en unik frågesträng. Den här typen av konfiguration rekommenderas vanligtvis inte eftersom det kan leda till en liten andel av cacheträffar. Ett lågt antal cacheträffar ökar belastningen på den ursprungliga servern, eftersom den måste hantera fler begäranden. Den här konfigurationen duplicerar ett cachelagringsfunktionssätt som kallas ”unika-cache” på sidan cachelagring av frågesträng.
@@ -443,7 +443,7 @@ Behåll standardkonfigurationen för stor HTTP-plattformen, eftersom den minskar
 
 Värde|Resultat
 --|--
-Enabled|Återställer standardbeteendet. Standardinställningen är att tvinga POP för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Därefter, tillgången kommer att finnas i lokalt cacheminne för den POP-plats.
+Aktiverad|Återställer standardbeteendet. Standardinställningen är att tvinga POP för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Därefter, tillgången kommer att finnas i lokalt cacheminne för den POP-plats.
 Inaktiverad|Förhindrar att en POP utför en bakgrundshämtning för tillgången. Resultatet är att en POP begär från ursprungsservern kund gör att nästa begäran om tillgången från den regionen.
 
 **Standardbeteende:** Aktiverad.
@@ -551,9 +551,9 @@ Felsöka cachesvar huvuden kan begäras genom att inkludera följande huvud och 
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Värde|Resultat
+Value|Resultat
 -|-
-Enabled|Begäranden för debug cache-svarshuvuden returnerar ett svar som innehåller rubriken X-EG-Debug.
+Aktiverad|Begäranden för debug cache-svarshuvuden returnerar ett svar som innehåller rubriken X-EG-Debug.
 Inaktiverad|Rubriken X-EG-Debug kommer att uteslutas från svaret.
 
 **Standardbeteende:** Inaktiverad.
@@ -612,9 +612,9 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 
 **Syfte**: Anger om alla begäranden avvisas med ett 403 Forbidden-svar.
 
-Värde | Resultat
+Value | Resultat
 ------|-------
-Enabled| Kommer alla begäranden som uppfyller de matchande kriterierna avvisas med ett 403 Forbidden-svar.
+Aktiverad| Kommer alla begäranden som uppfyller de matchande kriterierna avvisas med ett 403 Forbidden-svar.
 Inaktiverad| Återställer standardbeteendet. Standardinställningen är att den ursprungliga servern att avgöra vilken typ av svar som ska returneras.
 
 **Standardbeteende**: Inaktiverad
@@ -678,9 +678,9 @@ Viktig information:
 
 - Begäranden kan endast omdirigeras till edge CNAME-poster för samma plattform.
 
-Värde|Resultat
+Value|Resultat
 -|-
-Enabled|Begäranden kan omdirigeras.
+Aktiverad|Begäranden kan omdirigeras.
 Inaktiverad|Begäranden dirigeras inte.
 
 **Standardbeteende:** Inaktiverad.
@@ -758,9 +758,9 @@ Viktig information:
 
 En begäran om no-cache inträffar när HTTP-klienten skickar en `Cache-Control: no-cache` och/eller `Pragma: no-cache` rubriken i HTTP-begäran.
 
-Värde|Resultat
+Value|Resultat
 --|--
-Enabled|Ger en HTTP-klient no-cache-begäranden ska vidarebefordras till den ursprungliga servern, och ursprungsservern returnerar svarsrubriker och brödtext via POP tillbaka till HTTP-klienten.
+Aktiverad|Ger en HTTP-klient no-cache-begäranden ska vidarebefordras till den ursprungliga servern, och ursprungsservern returnerar svarsrubriker och brödtext via POP tillbaka till HTTP-klienten.
 Inaktiverad|Återställer standardbeteendet. Standardinställningen är att förhindra att Nej cachebegäranden kan vidarebefordras till den ursprungliga servern.
 
 För all produktionstrafik rekommenderas att lämna den här funktionen i inaktiverat standardtillståndet. Ursprungsservrar kommer annars inte att skärma från slutanvändare som kan oavsiktligt utlösa många no-cache-begäranden när du uppdaterar webbsidor eller från många populära mediespelare som är kodade för att skicka ett no-cache-huvud med varje video begäran. Den här funktionen kan dock vara praktiskt att tillämpa vissa icke-produktion mellanlagring eller testa kataloger, för att tillåta att nytt innehåll hämtas på begäran från den ursprungliga servern.
@@ -827,7 +827,7 @@ Som standard är den här Statuskoden returneras när angivna byte-intervall beg
 
 Värde|Resultat
 -|-
-Enabled|Förhindrar att svara på en begäran om ogiltig byte-intervall med en 416 begärda intervallet inte Satisfiable statuskod POP: erna. Servrarna ska i stället leverera den begärda tillgången och returnera ett 200 OK till klienten.
+Aktiverad|Förhindrar att svara på en begäran om ogiltig byte-intervall med en 416 begärda intervallet inte Satisfiable statuskod POP: erna. Servrarna ska i stället leverera den begärda tillgången och returnera ett 200 OK till klienten.
 Inaktiverad|Återställer standardbeteendet. Standardinställningen är att respektera 416 begärda intervallet inte Satisfiable statuskoden.
 
 **Standardbeteende:** Inaktiverad.
@@ -893,7 +893,7 @@ Den här funktionen kan inte associeras med följande matchningsvillkor på grun
 
 Värde|Resultat
 -|-
-Enabled|Tillåter lagring av frågesträngar när du registrerar URL: er i en åtkomstlogg. Om en URL inte innehåller en frågesträng, har en effekt inte i det här alternativet.
+Aktiverad|Tillåter lagring av frågesträngar när du registrerar URL: er i en åtkomstlogg. Om en URL inte innehåller en frågesträng, har en effekt inte i det här alternativet.
 Inaktiverad|Återställer standardbeteendet. Standardinställningen är att ignorera frågesträngar när du registrerar URL: er i en åtkomstlogg.
 
 **Standardbeteende:** Inaktiverad.
@@ -1019,7 +1019,7 @@ Den här partiella cache kan sedan användas för att uppfylla nya begäranden f
 
 Värde|Resultat
 -|-
-Enabled|Begäranden kan generera delvis cachelagrat innehåll.
+Aktiverad|Begäranden kan generera delvis cachelagrat innehåll.
 Inaktiverad|Begäranden kan bara skapa ett fullständigt cachelagrade versionen av det begärda innehållet.
 
 **Standardbeteende:** Inaktiverad.
@@ -1081,9 +1081,9 @@ Följande HTTP-huvuden som ingår i listan:
 
 Giltiga värden är:
 
-Värde|Resultat
+Value|Resultat
 --|--
-Enabled|Gör POP återigen hämta tillgången från den ursprungliga servern.
+Aktiverad|Gör POP återigen hämta tillgången från den ursprungliga servern.
 Inaktiverad|Återställer standardbeteendet. Standardinställningen är att leverera innehåll giltig cache tillgångar på begäran.
 
 Den här funktionen krävs inte för rätt cachelagring och leverans av innehåll, men kan användas som en tillfällig lösning. Dynamiskt innehåll generatorer på ursprungsservrar kan exempelvis oavsiktligt resultera i 0 byte-svar som skickas till POP: erna. Dessa typer av svar cachelagras vanligtvis av POP-servrar. Om du vet att ett svar på 0 byte aldrig är ett giltigt svar för innehåll, kan den här funktionen förhindrar dessa typer av resurser kan hanteras för klienter.
@@ -1148,9 +1148,9 @@ Se till att den angivna huvudnamn inte matchar någon av följande namn:
 
 **Syfte:** Avgör om upphört att gälla cachelagrat innehåll kommer att levereras när ett fel uppstår under cache omverifieringen eller vid hämtning av det begärda innehållet från den ursprungliga servern för kunden.
 
-Värde|Resultat
+Value|Resultat
 -|-
-Enabled|Inaktuella innehållet visas att beställaren när ett fel inträffar under en anslutning till en ursprungsservern.
+Aktiverad|Inaktuella innehållet visas att beställaren när ett fel inträffar under en anslutning till en ursprungsservern.
 Inaktiverad|Den ursprungliga servern fel vidarebefordras till den som begär.
 
 **Standardbeteende:** Inaktiverad
@@ -1192,9 +1192,9 @@ Den krypteringsnyckel som används för att kryptera och dekryptera token värde
 
 Den här funktionen har företräde framför de flesta funktioner med undantag av URL-Omskrivningsregler-funktionen.
 
-Värde | Resultat
+Value | Resultat
 ------|---------
-Enabled | Skyddar det begärda innehållet med tokenbaserad autentisering. Att kommer användas endast begäranden från klienter som tillhandahåller en giltig token och uppfyller dess krav. FTP-transaktioner undantas från tokenbaserad autentisering.
+Aktiverad | Skyddar det begärda innehållet med tokenbaserad autentisering. Att kommer användas endast begäranden från klienter som tillhandahåller en giltig token och uppfyller dess krav. FTP-transaktioner undantas från tokenbaserad autentisering.
 Inaktiverad| Återställer standardbeteendet. Standardinställningen är att konfigurationen tokenbaserad autentisering att avgöra om en begäran ska skyddas.
 
 #### <a name="compatibility"></a>Kompatibilitet
@@ -1240,7 +1240,7 @@ URL-omdirigering kan bara användas för 3xx svarskoder.
 
 Alternativet valfritt huvudvärde stöder alfanumeriska tecken, citattecken och blanksteg.
 
-#### <a name="authentication"></a>Autentisering
+#### <a name="authentication"></a>Authentication
 
 Den här funktionen stöder möjligheten att ta med WWW-autentisera huvudet när svarar på en obehörig begäran om innehåll som skyddas av tokenbaserad autentisering. Om rubriken WWW-autentisera har ställts in till ”grundläggande” i din konfiguration, uppmanas obehörig användare för autentiseringsuppgifter.
 
@@ -1270,9 +1270,9 @@ De parametrar som påverkas av den här funktionen är:
 
 Giltiga värden är:
 
-Värde|Resultat
+Value|Resultat
 ---|----
-Enabled|Gör POP för att Ignorera skiftläge när URL: er för tokenbaserad autentiseringsparametrar.
+Aktiverad|Gör POP för att Ignorera skiftläge när URL: er för tokenbaserad autentiseringsparametrar.
 Inaktiverad|Återställer standardbeteendet. Standardbeteendet är för URL: en jämförelser för autentisering med Enhetstoken ska vara skiftlägeskänslig.
 
 **Standardbeteende:** Inaktiverad.
@@ -1295,7 +1295,7 @@ Viktig information:
 
 Värde|Resultat
 ----|----
-Enabled|Alternativet värde definierar den parameternamn för frågesträng som token ska definieras.
+Aktiverad|Alternativet värde definierar den parameternamn för frågesträng som token ska definieras.
 Inaktiverad|En token kan anges som en odefinierad frågesträngsparameter i fråge-URL.
 
 **Standardbeteende:** Inaktiverad. En token kan anges som en odefinierad frågesträngsparameter i fråge-URL.

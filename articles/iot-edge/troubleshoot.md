@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797611"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707091"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 IoT Edge-daemon framtvingar process-ID för alla moduler som ansluter till edgeHub av säkerhetsskäl. Verifierar att alla meddelanden som skickas av en modul hämtas från huvudsakliga process-ID för modulen. Om ett meddelande som skickas av en modul från en annan process-ID än först upprättas, annars avvisar meddelandet med ett 404-fel-meddelande.
 
 ### <a name="resolution"></a>Lösning
+Från och med version 1.0.7 har alla modulen processer behörighet att ansluta. Om det inte går att uppgradera till 1.0.7, Slutför följande steg. Mer information finns i den [1.0.7 viktig ändringsloggen](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Se till att samma process-ID alltid ska användas av anpassade IoT Edge-modulen skicka meddelanden till edgeHub. Till exempel se till att `ENTRYPOINT` i stället för `CMD` kommandot i Docker-filen, eftersom `CMD` leder till en process-ID för modulen och en annan process-ID för bash-kommando som körs huvudprogrammet medan `ENTRYPOINT` leder till en enkel process-ID.
 
 

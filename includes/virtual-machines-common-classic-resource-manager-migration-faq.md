@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c4f9334a91e99c92e74af060d84308a8aaccc6e7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187318"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671263"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
 
@@ -82,7 +82,7 @@ Gör ett inlägg med dina problem och frågor om migreringen på vårt [forum f�
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Vad gör jag om jag inte gillar namnen på resurserna som plattformen väljer under migreringen? 
 
-Alla resursnamn som du uttryckligen angett i den klassiska distributionsmodellen behålls under migreringen. I vissa fall skapas nya resurser. Exempelvis skapas ett nätverksgränssnitt för varje virtuell dator. För närvarande har vi inte möjlighet att styra över namnen på de nya resurser som skapas under migreringen. Logga dina röster för den här funktionen i [Azures feedbackforum](http://feedback.azure.com).
+Alla resursnamn som du uttryckligen angett i den klassiska distributionsmodellen behålls under migreringen. I vissa fall skapas nya resurser. Exempelvis skapas ett nätverksgränssnitt för varje virtuell dator. För närvarande har vi inte möjlighet att styra över namnen på de nya resurser som skapas under migreringen. Logga dina röster för den här funktionen i [Azures feedbackforum](https://feedback.azure.com).
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>Kan jag migrera ExpressRoute-kretsar som används över prenumerationer med auktoriseringslänkar? 
 

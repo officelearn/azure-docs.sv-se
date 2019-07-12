@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60324172"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593413"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
@@ -32,7 +32,7 @@ Du kan använda en SAS för att definiera olika parametrar för åtkomst till en
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Ställa in Azure CDN för att arbeta med SAS-lagring
 Följande tre alternativ rekommenderas för att använda SAS med Azure CDN. Alla alternativ förutsätter att du redan har skapat ett fungerande SAS (se krav). 
  
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 Skapa ett lagringskonto för att starta, och sedan skapa en SAS för tillgången. Du kan skapa två typer av signaturer lagrade åtkomst: tjänst-SAS eller ett SAS-konto. Mer information finns i [typer av signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 När du har genererat en SAS-token kan du komma åt din blob storage-fil genom att lägga till `?sv=<SAS token>` till din URL. Denna URL har följande format: 

@@ -4,7 +4,7 @@ description: Lär dig vad du gör i händelse av att ett avbrott i Azure-tjänst
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f071e1ae97228a16799d391e226ba44b99f6096e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478852"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721180"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Vad du gör i händelse av att ett avbrott i Azure-tjänst påverkar virtuella Azure-datorer
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Framtvingar ligger utanför vårt kontroll påverka ibland oss på ett sätt som kan leda till oplanerade avbrott.
@@ -44,7 +44,7 @@ Detta är det bästa alternativet om du inte har konfigurerat Azure Site Recover
 
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och den avser endast regionomfattande avbrott. Därför måste du också beroende andra programspecifika säkerhetskopieringsstrategier att uppnå den högsta möjliga tillgänglighet. Mer information finns i avsnittet på [Data strategier för haveriberedskap](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+> Tänk på att du inte har någon kontroll över den här processen och den avser endast regionomfattande avbrott. Därför måste du också beroende andra programspecifika säkerhetskopieringsstrategier att uppnå den högsta möjliga tillgänglighet. Mer information finns i avsnittet på [Data strategier för haveriberedskap](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 

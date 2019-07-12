@@ -4,7 +4,7 @@ description: Läs mer om förhandsversionsstöd för HC-serien VM-storlek i Azur
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809879"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797558"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Översikt över virtuella datorer för HC-serien
 
@@ -31,7 +31,7 @@ Ovanstående topologin överförs till HC-serien hypervisor-konfigurationen samt
 
 Den virtuella datorn har ingen information att pCores 0-1 och 24-25 inte anges till den. Därför exponerar varje vNUMA som om den hade internt 22 kärnor.
 
-Intel Xeon Platina, guld och Silver processorer medför också ett på chips 2D nät nätverk för kommunikation inom och utanför till CPU-socket. Vi rekommenderar starkt processen fästa för optimala prestanda och konsekvens. Processen fästa fungerar på virtuella datorer HC-serien eftersom den underliggande silicon exponeras som – är att den Virtuella gästdatorn. Mer information om Intel Xeon SP-arkitektur på: https://bit.ly/2RCYkiE
+Intel Xeon Platina, guld och Silver processorer medför också ett på chips 2D nät nätverk för kommunikation inom och utanför till CPU-socket. Vi rekommenderar starkt processen fästa för optimala prestanda och konsekvens. Processen fästa fungerar på virtuella datorer HC-serien eftersom den underliggande silicon exponeras som – är att den Virtuella gästdatorn. Mer information finns i [Intel Xeon SP arkitektur](https://bit.ly/2RCYkiE).
 
 Följande diagram visar uppdelning av kärnor reserverade för Azure-Hypervisor och virtuell HC-serien.
 

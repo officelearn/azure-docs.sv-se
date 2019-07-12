@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393858"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607068"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure-datorer
 
@@ -110,7 +110,7 @@ Ta din egen SQL rekommenderas licensiering via License Mobility för:
 
 - **Arbetsbelastningar med kända livstid och skala**. Exempelvis kan en app som krävs för hela året och har varit prognostiserat vilka begäran.
 
-Om du vill använda BYOL med en SQL Server-dator, måste du ha en licens för SQL Server Standard eller Enterprise och [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), vilket är ett alternativ som krävs för vissa volymlicensieringsprogram och ett valfritt köp med andra. Den prisnivå som tillhandahålls via volymlicensieringsprogram varierar beroende på vilken typ av avtal och kvantitet och eller åtagande till SQL Server. Men som en tumregel tar med din egen licens för kontinuerlig produktionsarbetsbelastningar har följande fördelar:
+Om du vill använda BYOL med en SQL Server-dator, måste du ha en licens för SQL Server Standard eller Enterprise och [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), vilket är ett alternativ som krävs för vissa volymlicensieringsprogram och ett valfritt köp med andra. Den prisnivå som tillhandahålls via volymlicensieringsprogram varierar beroende på vilken typ av avtal och kvantitet och eller åtagande till SQL Server. Men som en tumregel tar med din egen licens för kontinuerlig produktionsarbetsbelastningar har följande fördelar:
 
 | BYOL-förmånen | Beskrivning |
 |-----|-----|

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275560"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806976"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -51,37 +51,6 @@ Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuell
 - För den agent som används för att säkerhetskopiera Azure filmappar, finns i det här [vanliga frågor och svar](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>VMware och Hyper-V-säkerhetskopiering
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Kan jag säkerhetskopiera VMware vCenter-servrar till Azure?
-Ja. Du kan använda Azure Backup Server för att säkerhetskopiera VMware vCenter-Server och ESXi-värdar till Azure.
-
-- [Läs mer](backup-mabs-protection-matrix.md) om versioner som stöds.
-- [Följ dessa steg](backup-azure-backup-server-vmware.md) att säkerhetskopiera en VMware-server.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Behöver jag en separat licens för att återställa en fullständig lokala VMware/Hyper-V-kluster?
-Du behöver inte separata licensiering för VMware/Hyper-V-skydd.
-
-- Om du är en System Center-kund kan du använda System Center Data Protection Manager (DPM) för att skydda virtuella VMware-datorer.
-- Om du inte är en System Center-kund kan använda du Azure Backup Server (betala per användning) för att skydda virtuella VMware-datorer.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>DPM och Azure Backup Server-säkerhetskopiering
-
-### <a name="which-dpm-versions-are-supported"></a>Vilka DPM-versioner som stöds?
-DPM-versioner som stöds sammanfattas i den [stödmatris](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Vi rekommenderar att du installerar de senaste DPM-uppdateringarna och kör den [senaste versionen](https://aka.ms/azurebackup_agent) av Azure Backup-agenten på DPM-servern.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Kan jag registrera servern till flera valv?
-Nej. En DPM eller Azure Backup server kan registreras till ett enda valv.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Kan jag använda Azure Backup Server för att skapa en BMR-säkerhetskopia (Bare Metal Recovery) för en fysisk server? <br/>
-Ja.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan jag använda DPM för säkerhetskopiering av appar i Azure Stack?
-Nej. Du kan använda Azure Backup för att skydda Azure Stack, Azure Backup stöder inte använder DPM för att säkerhetskopiera appar i Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Om jag har installerat Azure Backup-agenten för att skydda Mina filer och mappar kan jag installera System Center DPM att säkerhetskopiera lokala arbetsbelastningar till Azure?
-Ja. Men du bör konfigurera DPM först och sedan installera Azure Backup-agenten.  Installera komponenterna i den här ordningen säkerställer att Azure Backup-agenten fungerar med DPM. Installera agenten innan du installerar DPM inte detta varken rekommenderas eller stöds.
-
 ## <a name="general-backup"></a>Allmän säkerhetskopiering
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Finns det några begränsningar på schemaläggning av säkerhetskopiering?
@@ -118,7 +87,7 @@ Azure Backup stöder för Azure VM Linux säkerhetskopior [lista över distribut
 Storlekar gränser är följande:
 
 OS/dator | Storleksgräns för datakälla
---- | --- 
+--- | ---
 Windows 8 eller senare | 54 400 GB
 Windows 7 |1 700 GB
 Windows Server 2012 eller senare | 54 400 GB
@@ -185,7 +154,7 @@ Du kan skapa upp till 9999 återställningspunkter per skyddad instans. En skyd
 - Läs mer om [säkerhetskopiering och kvarhållning](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Hur många gånger kan jag återställningsdata som säkerhetskopieras till Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Hur många gånger kan jag återställa data som säkerhetskopieras till Azure?
 Det finns ingen gräns för antalet återställningar från Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Betalar jag för den utgående trafiken från Azure när jag återställer data?

@@ -2,17 +2,17 @@
 title: Operatorn bästa praxis - identitet i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn Metodtips för att hantera autentisering och auktorisering för kluster i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: iainfou
-ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074151"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614787"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metodtips för autentisering och auktorisering i Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Om du vill skapa ett AKS-kluster som använder Azure AD, [integrera Azure Active
 
 **Bästa praxis riktlinjer** – Använd Kubernetes RBAC för att definiera de behörigheter som användare eller grupper har till resurser i klustret. Skapa roller och -bindningar som tilldelar den minsta uppsättningen behörigheter som krävs. Integrera med Azure AD så uppdateras automatiskt ändringar i användarens status eller gruppmedlemskap och åtkomst till klusterresurserna är aktuell.
 
-I Kubernetes, kan du ge detaljerad kontroll av åtkomst till resurser i klustret. Behörigheter kan definieras på klusternivå eller till specifika namnområden. Du kan definiera vilka resurser kan hanteras, och med vilken behörighet. Dessa roller är den kopplade till användare eller grupper med en bindning. Mer information om *roller*, *ClusterRoles*, och *bindningar*, se [alternativ för åtkomst och identitet för Azure Kubernetes Service (AKS)] [aks-concepts-identity].
+I Kubernetes, kan du ge detaljerad kontroll av åtkomst till resurser i klustret. Behörigheter kan definieras på klusternivå eller till specifika namnområden. Du kan definiera vilka resurser kan hanteras, och med vilken behörighet. Dessa roller är den kopplade till användare eller grupper med en bindning. Mer information om *roller*, *ClusterRoles*, och *bindningar*, se [alternativ för åtkomst och identitet för Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Exempelvis kan du skapa en roll som ger fullständig åtkomst till resurser i namnområdet med namnet *ekonomi-app*, enligt följande exempel YAML manifestet:
 
@@ -84,7 +84,7 @@ roleRef:
 
 När *developer1\@contoso.com* autentiseras mot AKS-kluster som de har fullständiga behörigheter till resurser i den *ekonomi-app* namnområde. I det här sättet, du logiskt separat och styra åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integrering, enligt beskrivningen i föregående avsnitt.
 
-Om du vill se hur du använder Azure AD-grupper för att styra åtkomsten till Kubernetes-resurser med RBAC kan se [styra åtkomsten till klusterresurser med rollbaserade åtkomstkontroller och Azure Active Directory-identiteter i AKS] [ azure-ad-rbac].
+Om du vill se hur du använder Azure AD-grupper för att styra åtkomsten till Kubernetes-resurser med RBAC kan se [styra åtkomsten till klusterresurser med rollbaserade åtkomstkontroller och Azure Active Directory-identiteter i AKS][azure-ad-rbac].
 
 ## <a name="use-pod-identities"></a>Använda pod-identiteter
 

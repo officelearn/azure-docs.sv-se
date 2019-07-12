@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242187"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839748"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
@@ -52,6 +52,13 @@ Programvarukrav innehålla information om de operativsystem som stöds och webbl
 ## <a name="networking-requirements"></a>Nätverkskrav
 
 Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig användas en 1 GbE-datalänk för att kopiera data men kopian hastighet som påverkas.
+
+### <a name="port-requirements"></a>Krav på nätverksportar
+
+I följande tabell visas de portar som måste öppnas i brandväggen för att tillåta för SMB- eller NFS-trafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din Data Box-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
 
 ## <a name="next-steps"></a>Nästa steg
 

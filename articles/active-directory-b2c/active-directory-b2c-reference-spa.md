@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a9eadabcedc9d5fd1baedb6cd893e6f7829c5ca8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154031"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835738"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Enkelsidigt loggar in med det implicita flödet för OAuth 2.0 i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel
 
 Det implicita flödet inloggning ser ut ungefär som följande bild. Varje steg beskrivs i detalj i artikeln.
 
-![OpenID Connect spaltformat](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Swimlane-style diagram som visar det implicita flödet med OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Skicka begäranden om autentisering
 
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Obligatoriskt | Beskrivning |
+| Parameter | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Programmet med ID som den [Azure-portalen](https://portal.azure.com/) tilldelats till ditt program. |
 | response_type | Ja | Måste innehålla `id_token` för OpenID Connect-inloggning. Den kan även innehålla svarstypen `token`. Om du använder `token`, din app kan omedelbart ta emot en åtkomst-token från slutpunkten för auktorisering, utan att göra en andra begäran till slutpunkten för auktorisering.  Om du använder den `token` svarstypen den `scope` parametern måste innehålla en omfattning som anger vilken resurs för att utfärda token för. |
@@ -200,9 +200,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |Rekommenderas |Anger den metod som används för att skicka den resulterande token tillbaka till din app.  Kan vara `query`, `form_post`, eller `fragment`. |
 | state |Rekommenderas |Ett värde i begäran som returneras i token-svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran.  Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Till exempel sidan eller vyn kunde användaren på. |
 | nonce |Krävs |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
-| fråga |Obligatoriskt |Om du vill uppdatera och hämta token i en dold iframe måste använda `prompt=none` så att iframe inte fastnar på sidan logga in och returnerar omedelbart. |
-| login_hint |Obligatoriskt |Om du vill uppdatera och hämta token i en dold iframe måste innehålla användarnamnet för användaren i den här tipset att skilja mellan olika sessioner som användaren kan ha vid en given tidpunkt. Du kan extrahera användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Obligatoriskt |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta token i en dold iframe, innehåller den `domain_hint` värde i begäran.  Extrahera den `tid` anspråk från ID-token för en tidigare logga in för att avgöra vilket värde som ska användas.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, använda `domain_hint=consumers`.  Annars kan du använda `domain_hint=organizations`. |
+| fråga |Krävs |Om du vill uppdatera och hämta token i en dold iframe måste använda `prompt=none` så att iframe inte fastnar på sidan logga in och returnerar omedelbart. |
+| login_hint |Krävs |Om du vill uppdatera och hämta token i en dold iframe måste innehålla användarnamnet för användaren i den här tipset att skilja mellan olika sessioner som användaren kan ha vid en given tidpunkt. Du kan extrahera användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
+| domain_hint |Krävs |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta token i en dold iframe, innehåller den `domain_hint` värde i begäran.  Extrahera den `tid` anspråk från ID-token för en tidigare logga in för att avgöra vilket värde som ska användas.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, använda `domain_hint=consumers`.  Annars kan du använda `domain_hint=organizations`. |
 
 Genom att ange den `prompt=none` parametern denna begäran antingen lyckas eller misslyckas omedelbart och återgår till ditt program.  Ett lyckat svar skickas till din app på den angivna omdirigeringen-URI, med hjälp av den metod som beskrivs i den `response_mode` parametern.
 
@@ -263,5 +263,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Dirigera användare till den `end_session_endpoint` tar bort några av användarens inloggning tillstånd med Azure AD B2C. Men Logga det inte ut användaren från sociala providern användarsessionen. Om användaren väljer samma identifiera providern under en efterföljande inloggning, användaren måste autentiseras, utan att behöva ange sina autentiseringsuppgifter. Om en användare vill logga ut från ditt Azure AD B2C-program, betyder det inte att helt logga ut från deras Facebook-konto, till exempel. Men för lokala konton avslutas användarens session korrekt.
-> 
+>
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787801"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605680"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exempel 2 – Regression: Förutsäga pris och jämföra algoritmer
 
@@ -27,7 +27,7 @@ Här är färdiga diagrammet det här experimentet:
 
 [![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -96,3 +96,4 @@ Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 - [Exempel 3 – klassificering: Förutsäga kreditrisk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exempel 4 - klassificering: Förutsäga kreditrisken (kostnad känsliga)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exempel 5 - klassificering: Förutsäga kundomsättning](ui-sample-classification-predict-churn.md)
+- [Exempel 6 - klassificering: Förutsäga flygförseningar](ui-sample-classification-predict-flight-delay.md)

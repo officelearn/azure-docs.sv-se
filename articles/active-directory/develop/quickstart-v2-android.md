@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946727"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702749"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -33,7 +33,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 ![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Förutsättningar**
+> **Krav**
 > * Android Studio 
 > * Android 16 + krävs 
 

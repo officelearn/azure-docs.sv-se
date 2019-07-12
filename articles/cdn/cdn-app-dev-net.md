@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579968"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594168"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ Nu ska vi hämta grundstrukturen för vårt program som skrivits.
 
 Nu när grundstrukturen för vårt program skrivs vi ska skapa de metoder som anropas av den `Main` metoden.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 Innan vi kan använda Azure CDN Management-biblioteket, måste vi att autentisera vår tjänstens huvudnamn och få en autentiseringstoken.  Den här metoden använder ADAL för att hämta token.
 
 ```csharp

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232645"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706980"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -77,7 +77,7 @@ Du kan vanligtvis återställer en databas till en tidigare tidpunkt för åters
 
 - **Databasersättning av**
 
-  Om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du ange orinal databasens beräkning storlek och tjänstnivå. Du kan byta namn på den ursprungliga databasen och ge den återställda databasen med den ursprungliga namn den [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL.
+  Om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du ange den ursprungliga databasen beräkning storlek och tjänstnivå. Du kan byta namn på den ursprungliga databasen och ge den återställda databasen med den ursprungliga namn den [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL.
 
 - **Återställning av data**
 
@@ -124,7 +124,7 @@ GEO-återställning är standardalternativet för återställning när databasen
 Point-in-time-återställning på en geo-secondary stöds inte för närvarande. Point-in-time-återställning kan göras endast på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns i [återställa från ett avbrott](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> GEO-återställning är den mest grundläggande haveriberedskapslösning som är tillgängliga i SQL Database. Den förlitar sig på skapas automatiskt geo-replikerade säkerhetskopior rpo = 1 timme och uppskattade återställningstiden på upp till 12 timmar. Det garanterar inte att målregionen har kapacitet för att återställa dina databaser efter en regional ourage eftersom en sharp ökning av begäran kommer att vara sannolikt. För icke företag kritiska program som använder relativt små databaser, finns geo-återställning en lämplig haveriberedskapslösning. För busniess viktiga program som använder stora databaser och måste garantera kontinuitet för företag, bör du använda [automatisk redundans grupper](sql-database-auto-failover-group.md). Den erbjuder en mycket lägre RPO och RTO och kapaciteten alltid är korrekt. Mer information om alternativ för affärskontinuitet finns [översikt över affärskontinuitet](sql-database-business-continuity.md).
+> GEO-återställning är den mest grundläggande haveriberedskapslösning som är tillgängliga i SQL Database. Den förlitar sig på skapas automatiskt geo-replikerade säkerhetskopior rpo = 1 timme och uppskattade återställningstiden på upp till 12 timmar. Det garanterar inte att målregionen har kapacitet för att återställa dina databaser efter en regional ourage eftersom en sharp ökning av begäran kommer att vara sannolikt. För icke företag kritiska program som använder relativt små databaser, finns geo-återställning en lämplig haveriberedskapslösning. För verksamhetskritiska program som använder stora databaser och måste garantera kontinuitet för företag, bör du använda [automatisk redundans grupper](sql-database-auto-failover-group.md). Den erbjuder en mycket lägre RPO och RTO och kapaciteten alltid är korrekt. Mer information om alternativ för affärskontinuitet finns [översikt över affärskontinuitet](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>GEO-återställning med hjälp av Azure portal
 
@@ -145,7 +145,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 
 - Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
-  | Cmdlet | Beskrivning |
+  | Cmdlet: | Beskrivning |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Hämtar en eller flera databaser. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Hämtar en borttagen databas som du kan återställa. |
@@ -157,7 +157,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 
 - Om du vill återställa en databas för hanterad instans, se [återställning AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-  | Cmdlet | Beskrivning |
+  | Cmdlet: | Beskrivning |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hämtar en eller flera hanterade instanser. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hämtar en instans databaser. |

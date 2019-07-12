@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254014"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785487"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Webbapp som loggar in användare - kod-konfiguration
 
@@ -36,6 +36,8 @@ De bibliotek som används för att skydda en Webbapp (och ett webb-API) är:
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identitet modelltillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity-tillägg för .NET föreslår används direkt av ASP.NET och ASP.NET Core, en uppsättning DLL: er som kör både .NET Framework och .NET Core. Från en ASP.NET/ASP.NET Core webb-app kan du styra tokenvalidering med hjälp av den **TokenValidationParameters** klass (särskilt i vissa situationer ISV) |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core-konfiguration
+
+Kodfragment i den här artikeln och följande extraheras från den [stegvisa självstudier, kapitel för ASP.NET Core Web app 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Du kanske vill referera till självstudien för information om fullständig implementering.
 
 ### <a name="application-configuration-files"></a>Konfigurationsfiler för programmet
 

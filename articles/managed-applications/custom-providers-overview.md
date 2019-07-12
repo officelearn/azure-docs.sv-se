@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475949"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796089"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Översikt över Azure anpassad resurs-Providers
 
@@ -125,6 +125,7 @@ Om du har frågor för Azure Resource Provider för anpassad utveckling fråga [
 
 I den här artikeln har du lärt dig om anpassade providers. Gå till nästa artikel för att skapa en anpassad provider.
 
-- [Självstudie: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Snabbstart: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudier: Skapa anpassade åtgärder och resurser i Azure](./tutorial-custom-providers-101.md)
 - [Anvisningar: Att lägga till anpassade åtgärder i Azure REST-API](./custom-providers-action-endpoint-how-to.md)
 - [Anvisningar: Att lägga till anpassade resurser i Azure REST-API](./custom-providers-resources-endpoint-how-to.md)

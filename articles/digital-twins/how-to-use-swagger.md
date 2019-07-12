@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502703"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670791"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -42,15 +42,15 @@ Det automatiskt genererade Swagger-referensmaterialet tillhandahåller en snabb 
 
 En kortfattad sammanfattning beskriver API: et.
 
-[![Swagger upp](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
+[![Swagger upp](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Hantering av API-objektmodeller visas också.
 
-[![Swagger-modeller](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
+[![Swagger-modeller](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 Du kan välja varje listad objektmodell för en mer detaljerad översikt över nyckelattribut.
 
-[![Swagger-modell](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
+[![Swagger-modell](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på Azure Digital Twins.
 
@@ -64,7 +64,7 @@ Varje listad slutpunkt innehåller också nödvändiga informationen, till exemp
 * Den begärda parameterdatatyper.
 * HTTP-metoden för åtkomst till resursen.
 
-[![Swagger-slutpunkter](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
+[![Swagger-slutpunkter](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 Välj varje resurs om du vill se en mer detaljerad översikt.
 
@@ -74,11 +74,11 @@ En av kraftfulla funktioner som innehåller Swagger är möjligheten att testa e
 
 När du har valt en viss slutpunkt kan du se **prova**.
 
-[![Swagger-försök](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
+[![Swagger-försök](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Expandera avsnittet att ta fram inmatningsfält för alla obligatoriska och valfria parametrar. Ange rätt värden och välj **kör**.
 
-[![Ett försök gjordes att swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
+[![Ett försök gjordes att swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 När du kör testet kan verifiera du svarsdata.
 
@@ -86,7 +86,7 @@ När du kör testet kan verifiera du svarsdata.
 
 Varje listad slutpunkt innehåller också svarsdata för brödtexten för att verifiera din utveckling och tester. De här exemplen omfattar statuskoder och JSON som du vill se för lyckade HTTP-begäranden.
 
-[![Swagger-svar](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
+[![Swagger-svar](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 Exemplen omfattar också felkoder för att felsöka eller förbättra misslyckas tester.
 
@@ -120,7 +120,7 @@ När du har slutfört registreringen för Azure Active Directory:
 
 1. Du omdirigeras sedan till följande modal framgång.
 
-    [![Swagger omdirigering modal](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+    [![Swagger omdirigering modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.0 finns i [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
 

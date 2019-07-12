@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788166"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838429"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Självstudier: Acceptera och ta emot data med hjälp av Azure Data resurs Preview
 
@@ -31,6 +31,8 @@ Se till att alla förutsättningar är uppfyllda innan du godkänner en inbjudan
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett Azure Storage-konto: Om du inte redan har ett kan du skapa en [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * En inbjudan Dataresurs: En inbjudan från Microsoft Azure med ett ämne som heter ”Azure Dataresurs inbjudan från **<yourdataprovider@domain.com>** ”.
+* Behörighet att lägga till rolltilldelning till lagringskontot, som finns i den *Microsoft.Authorization/role tilldelningar/skrivning* behörighet. Den här behörigheten finns i rollen ägare. 
+* Registreringen av Resursprovidern för Microsoft.DataShare. Se den [Azure Resursprovidrar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) finns information om hur du gör detta. 
 
 > [!IMPORTANT]
 > För att acceptera och ta emot en Azure-filresurs för Data, måste du först registrera resursprovidern Microsoft.DataShare och du måste vara ägare till det lagringskonto som du godkänner data till. Följ anvisningarna som beskrivs i [felsöka Azure dela Dataförhandsgranskning](data-share-troubleshoot.md) att registrera resursprovidern för resursen data samt lägga till dig själv som ägare av storage-konto. 

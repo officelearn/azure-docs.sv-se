@@ -4,7 +4,7 @@ description: Granska detaljerade felsökningsanvisningar för skrivbord fjärrfe
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 'Det går inte att ansluta till fjärrskrivbord, Felsöka fjärrskrivbord genom att Fjärrskrivbord kan inte ansluta fjärrfel för fjärrskrivbord, felsökning: fjärrskrivbord, remote desktop problem'
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 56fa1363e9737a2ce06ba5f0215235a84ee70ce6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64693093"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709920"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade felsökningsanvisningar för problem med anslutning till fjärrskrivbord till Windows virtuella datorer i Azure
 Den här artikeln innehåller detaljerade felsökningsanvisningar för att diagnostisera och åtgärda komplexa Remote Desktop-fel för Windows-baserade Azure-datorer.

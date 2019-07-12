@@ -4,7 +4,7 @@ description: Lär dig mer om att säkerhetskopiera och återställa en Oracle Da
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567079"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707721"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator
 
@@ -30,7 +30,7 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
-### <a name="step-1-prerequisites"></a>Steg 1: Nödvändiga komponenter
+### <a name="step-1-prerequisites"></a>Steg 1: Förutsättningar
 
 *   Om du vill utföra säkerhetskopiering och återställning, måste du först skapa en Linux VM som har en installerad instans av Oracle Database 12c. Marketplace-avbildning som du använder för att skapa den virtuella datorn har namnet *Oracle: Oracle-databas-Ee:12.1.0.2:latest*.
 
@@ -564,7 +564,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+[Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 
 [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)
 

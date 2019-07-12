@@ -4,19 +4,19 @@ description: Beskriver hur du använder begränsningar med Azure Resource Manage
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399715"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705124"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsningsbegäranden Resource Manager
 
-För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till huvudkontots ID gör begäranden och prenumerations-ID eller klient-ID. Om din begäran kommer från mer än en ägar-ID, är din gräns i en prenumeration eller -klient större än 12 000 och 1 200 per timme.
+För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till säkerhetsobjekt (användare eller program) gör begäranden och prenumerations-ID eller klient-ID. Om din begäran kommer från mer än säkerhetsobjekt, är din gräns i en prenumeration eller -klient större än 12 000 och 1 200 per timme.
 
 Begäranden som tillämpas på din prenumeration eller din klient. Prenumerationsbegäranden är sådana som rör skicka ditt prenumerations-ID, till exempel hämtar resursgrupper i prenumerationen. Klient-begäranden inkluderar inte ditt prenumerations-ID, till exempel hämta giltiga Azure-platser.
 

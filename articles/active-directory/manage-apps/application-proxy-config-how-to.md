@@ -16,18 +16,18 @@ ms.date: 05/18/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825939"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807859"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Så här konfigurerar du ett programproxy-program
 
 Den här artikeln hjälper dig att förstå hur du konfigurerar en Application Proxy-program i Azure AD att exponera dina lokala program till molnet.
 
-## <a name="recommended-documents"></a>Rekommenderade dokument 
+## <a name="recommended-documents"></a>Rekommenderade dokument
 
 Mer information om att första konfigurationer och skapa ett programproxy-program via administrationsportalen, följer du de [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -39,19 +39,15 @@ Information om att ladda upp certifikat och använda anpassade domäner finns i 
 
 Om du följer stegen i den [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md) dokumentation och att du får ett fel som skapar program, se felinformationen för information och förslag på hur du åtgärdar den programmet. De vanligaste felmeddelanden som innehåller en föreslagen åtgärd. Kontrollera om du vill undvika vanliga fel:
 
--   Du är administratör med behörighet att skapa en Application Proxy-program
-
--   Den interna URL: en är unikt
-
--   Den externa URL: en är unikt
-
--   URL: er börjar med http eller https och sluta med en ”/”
-
--   URL: en ska vara ett domännamn, inte en IP-adress
+- Du är administratör med behörighet att skapa en Application Proxy-program
+- Den interna URL: en är unikt
+- Den externa URL: en är unikt
+- URL: er börjar med http eller https och sluta med en ”/”
+- URL: en ska vara ett domännamn, inte en IP-adress
 
 Ett felmeddelande visas i det övre högra hörnet när du skapar programmet. Du kan också välja meddelandeikonen till felmeddelanden visas.
 
-   ![Fråga om meddelande](./media/application-proxy-config-how-to/error-message.png)
+![Visar var du hittar Notification-fråga i Azure portal](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Konfigurera anslutningar/anslutningsapp-grupper
 
@@ -61,19 +57,16 @@ Om dina anslutningar är inaktiva, innebär det att de är det går inte att nå
 
 ## <a name="upload-certificates-for-custom-domains"></a>Ladda upp certifikat för egna domäner
 
-Anpassade domäner kan du ange domänen för ditt externa URL: er. Om du vill använda anpassade domäner, måste du ladda upp certifikatet för domänen. Information om hur du använder anpassade domäner och certifikat finns i [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md). 
+Anpassade domäner kan du ange domänen för ditt externa URL: er. Om du vill använda anpassade domäner, måste du ladda upp certifikatet för domänen. Information om hur du använder anpassade domäner och certifikat finns i [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 Om du stöter på problem som har överfört certifikatet, leta efter felmeddelanden i portal för mer information om problem med certifikatet. Vanliga problem med säkerhetscertifikat är:
 
--   Utgånget certifikat
-
--   Certifikatet är självsignerat
-
--   Certifikatet saknar privat nyckel
+- Utgånget certifikat
+- Certifikatet är självsignerat
+- Certifikatet saknar privat nyckel
 
 Ett felmeddelande visas i det övre högra hörnet när du försöker ladda upp certifikatet. Du kan också välja meddelandeikonen till felmeddelanden visas.
 
-   ![Fråga om meddelande](./media/application-proxy-config-how-to/error-message2.png)
-
 ## <a name="next-steps"></a>Nästa steg
+
 [Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

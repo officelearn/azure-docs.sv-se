@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077713"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620979"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
 
@@ -102,14 +102,14 @@ Nu gör vi vår fråga mer detaljerad. För varje sensortyp vill vi övervaka ge
 
 ![30 sekunders-filterfråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Du bör nu endast se resultat som innehåller 245 rader och namnen på de sensorer där genomsnittstemperaturen överstiger 100 grader. Den här frågan grupperar händelseströmmen efter **dspl**, vilket är sensornamnet, under ett **Rullande fönster** på 30 sekunder. Tidsfrågor ska ange hur vi vill att tid ska behandlas. Med hjälp av **TIMESTAMP BY**-satsen har vi angett att kolumnen **OUTPUTTIME** ska associera tider med alla temporala beräkningar. Mer detaljerad information finns i MSDN-artiklarna om [tidshantering](https://msdn.microsoft.com/library/azure/mt582045.aspx) och [fönsterfunktioner](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Du bör nu endast se resultat som innehåller 245 rader och namnen på de sensorer där genomsnittstemperaturen överstiger 100 grader. Den här frågan grupperar händelseströmmen efter **dspl**, vilket är sensornamnet, under ett **Rullande fönster** på 30 sekunder. Tidsfrågor ska ange hur vi vill att tid ska behandlas. Med hjälp av **TIMESTAMP BY**-satsen har vi angett att kolumnen **OUTPUTTIME** ska associera tider med alla temporala beräkningar. Mer detaljerad information finns i MSDN-artiklarna om [tidshantering](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) och [fönsterfunktioner](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Fråga: Identifiera avsaknad av händelser
 Hur kan vi skriva en fråga för att hitta brist på inmatningshändelser? Vi kan till exempel ta reda på den senaste gången en sensor skickade data, men sedan inte skickade några händelser under följande fem sekunder. Frågan finns i filen AbsenceOfEvent.txt.
 
 ![Identifiera avsaknad av händelser](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självkoppling). För en **INRE** koppling returneras resultatet bara om en matchning hittas.  Om en händelse från vänster sida i kopplingen är omatchad i en **VÄNSTER YTTRE** koppling returneras en rad med NULL för alla kolumner i den högra sidan. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information om [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) finns i MSDN-dokumentationen.
+Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självkoppling). För en **INRE** koppling returneras resultatet bara om en matchning hittas.  Om en händelse från vänster sida i kopplingen är omatchad i en **VÄNSTER YTTRE** koppling returneras en rad med NULL för alla kolumner i den högra sidan. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information om [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) finns i MSDN-dokumentationen.
 
 ## <a name="conclusion"></a>Sammanfattning
 Syftet med de här självstudierna är att demonstrera hur du skriver olika Stream Analytics Query Language-frågor och visar resultatet i webbläsaren. Men det här är bara början. Du kan göra så mycket mer med Stream Analytics. Stream Analytics stöder olika typer av indata och utdata och kan även använda funktioner i Azure Machine Learning, vilket gör det till ett stabilt verktyg för att analysera dataströmmar. Du kan lära dig mer om Stream Analytics med vår [utbildningskarta](https://docs.microsoft.com/azure/stream-analytics/). Mer information om hur du skriver frågor finns i artikeln om [vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md).

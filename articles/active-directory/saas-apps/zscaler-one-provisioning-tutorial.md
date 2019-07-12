@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706601"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670879"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudier: Konfigurera en Zscaler för automatisk användaretablering
 
@@ -31,7 +31,7 @@ Den här kursen visar hur du utför i en Zscaler och Azure Active Directory (Azu
 >
 > Den här anslutningsappen är för närvarande finns som förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du har:
 

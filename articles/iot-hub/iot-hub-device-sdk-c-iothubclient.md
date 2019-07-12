@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400702"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797873"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhetens SDK för C – mer om IoTHubClient
 
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Det finns ett par alternativ som är vanliga:
 
-* **SetBatching** (bool) – om **SANT**, och sedan data som skickas till IoT Hub skickas i batchar. Om **FALSKT**, och sedan skickas ett individuellt. Standardvärdet är **FALSKT**. Observera att den **SetBatching** alternativet gäller endast HTTPS-protokollet och inte MQTT eller AMQP-protokoll.
+* **SetBatching** (bool) – om **SANT**, och sedan data som skickas till IoT Hub skickas i batchar. Om **FALSKT**, och sedan skickas ett individuellt. Standardvärdet är **FALSKT**. Batchbearbetning över AMQP / AMQP WS, samt att lägga till Systemegenskaper på D2C meddelanden stöds.
 
 * **Tidsgräns för** (osignerade int) – det här värdet anges i millisekunder. Om du skickar en HTTPS-begäran eller ta emot ett svar tar längre tid än den angivna tiden och sedan tidsgränsen uppnås för anslutningen.
 

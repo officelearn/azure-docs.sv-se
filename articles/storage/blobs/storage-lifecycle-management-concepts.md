@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435746"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696082"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
 
@@ -31,7 +31,7 @@ Tänk dig ett scenario där data kommer frekvent åtkomst i början av livscykel
 
 ## <a name="storage-account-support"></a>Stöd för Storage-konton
 
-Principen för livscykelhantering är tillgängligt med både generell användning v2 (GPv2)-konton och Blob storage-konton. Du kan uppgradera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto i Azure-portalen. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
+Principen för livscykelhantering är tillgänglig med generell användning v2 (GPv2) konton, Blob storage-konton och Premium Block Blob storage-konton. Du kan uppgradera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto i Azure-portalen. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Prissättning
 
@@ -39,7 +39,7 @@ Funktionen för hantering av livscykeln är kostnadsfri. Kunderna debiteras den 
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Livscykel för hantering av funktionen är tillgänglig i alla globala Azure-regioner.
+Livscykeln för hantering av funktionen är tillgänglig i alla globala Azure och Azure Government-regioner.
 
 ## <a name="add-or-remove-a-policy"></a>Lägg till eller ta bort en princip
 
@@ -197,12 +197,12 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Obligatoriskt |
+| Parameternamn | Parametertyp | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
-| `name`         | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
-| `enabled`      | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
-| `type`         | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | True |
-| `definition`   | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | True |
+| `name`         | Sträng |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | Sant |
+| `enabled`      | Boolesk | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
+| `type`         | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
+| `definition`   | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | Sant |
 
 ## <a name="rules"></a>Regler
 
@@ -262,7 +262,7 @@ Filtren är:
 
 Livscykelhantering stöder blobnivåindelning och borttagning av blobar och borttagning av blob-ögonblicksbilder. Ange minst en åtgärd för varje regel för blobar eller blobögonblicksbilder.
 
-| Åtgärd        | Grundläggande Blob                                   | Ögonblicksbild      |
+| Action        | Grundläggande Blob                                   | Ögonblicksbild      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds inte |
 | tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds inte |

@@ -4,7 +4,7 @@ description: Lär dig hur du förbereder en Windows-VHD eller VHDX för att öve
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: cc942aeb34d17e8dff064c6a21a3c7b2099c742a
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: f40b3e0d2a49f6522149a977572d4f3c12e34255
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151018"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720060"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 
@@ -200,7 +200,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för fjärrå
 
 9. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du följande principer för att kontrollera att de tidigare inställningarna inte har återställts. 
     
-    | Mål                                     | Princip                                                                                                                                                       | Värde                                                                                    |
+    | Mål                                     | Princip                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP har aktiverats                           | Datorkonfiguration\Principer\Windows Settings\Administrative Templates\Components\Remote för fjärrskrivbordssession\Anslutningar         | Tillåt användare att ansluta via en fjärranslutning med hjälp av fjärrskrivbord                                  |
     | NLA Grupprincip                         | Settings\Administrative Templates\Components\Remote för skrivbordssession fjärrskrivbordssession\Säkerhet                                                    | Kräv användarautentisering för fjärråtkomst med hjälp av NLA |
@@ -234,7 +234,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för fjärrå
    ``` 
 5. Om den virtuella datorn kommer att ingå i en domän, kontrollerar du följande Azure AD-principer för att kontrollera att de tidigare inställningarna inte har återställts. 
 
-    | Mål                                 | Princip                                                                                                                                                  | Värde                                   |
+    | Mål                                 | Princip                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Aktivera Windows-brandväggen-profiler | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Skydda alla nätverksanslutningar         |
     | Aktiverar du RDP                           | Datorkonfiguration\Principer\Windows Settings\Administrative mallar\Nätverk\Nätverksanslutningar\Förhindra Connection\Windows Firewall\Domain Profile\Windows brandvägg   | Tillåt inkommande undantag för fjärrskrivbord |
@@ -346,7 +346,7 @@ Kontrollera att den virtuella datorn är felfri, säker, och RDP som är tillgä
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Helst bör du behålla den datorn uppdaterat den *korrigera nivå*. Om detta inte är möjligt, kontrollera att följande uppdateringar är installerade:
 
-| Komponent               | Binär         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| Komponent               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

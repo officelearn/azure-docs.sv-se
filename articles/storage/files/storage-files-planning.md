@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564406"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827060"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -210,10 +210,20 @@ Standard-filresurser är tillgängliga i alla regioner upp till 5 TiB. I vissa r
 |Västra Europa     |LRS|Nej         |
 |Västra USA 2     |LRS, ZRS|Nej         |
 
+För att hjälpa oss att prioritera nya regioner och funktioner, Fyll i det här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Steg för att publicera
 
-Kör följande PowerShell-kommandon för att registrera din prenumeration på den större resurser filförhandsgranskning:
+Om du vill registrera din prenumeration på större filförhandsgranskning för resurser som du behöver använda Azure PowerShell. Du kan använda [Azure Cloud Shell](https://shell.azure.com/) eller installera den [lokalt Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) att köra följande PowerShell-kommandon:
+
+Kontrollera först den prenumeration som du vill registrera i förhandsversionen har valts:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Registrera sedan i förhandsversionen med hjälp av följande kommandon:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

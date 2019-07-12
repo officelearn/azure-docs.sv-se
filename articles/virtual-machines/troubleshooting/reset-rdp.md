@@ -4,7 +4,7 @@ description: Lär dig hur du återställer ett lösenord eller Remote Desktop Se
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caa0066f8020c19cecccaa0421f90188260c644b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921226"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710631"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Remote Desktop Services eller dess administratörslösenordet, i en virtuell Windows-dator
 Om du inte kan ansluta till en Windows-dator (VM), kan du återställa ditt lösenord för lokal administratör eller återställa Remote Desktop Services-konfigurationen (stöds inte på Windows-domänkontrollanter). Om du vill återställa lösenordet använder du Azure-portalen eller tillägget för VM-åtkomst i Azure PowerShell. När du har loggat in till den virtuella datorn kan du återställa lösenordet för den lokala administratören.  

@@ -4,7 +4,7 @@ description: Hur du använder cloud-init för att lägga till en användare till
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 51de92eb64e9879b769baf7e574ee1dca9355040
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcea130652789a84d332247445d8e25b2f7ac42e
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650360"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671780"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Använda cloud-init för att lägga till en användare i en Linux-VM i Azure
 Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) lägga till en användare på en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Det här cloud-init-skriptet körs vid den första starten när resurserna har etablerats med Azure. Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [översikt över cloud-init](using-cloud-init.md).

@@ -16,29 +16,28 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 734aeac1f4f2850d73dcdc9f9cc6ceac45708884
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016062"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807735"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett programproxy-program
 
 Den här artikeln hjälper dig att felsöka vanliga problem med ”företagets appen kan inte nås”-fel på ett Azure AD Application Proxy-program.
 
 ## <a name="overview"></a>Översikt
+
 När du ser det här felet kan du hitta statuskoden på felsidan. Koden är förmodligen en av följande statuskoder:
 
--   **Gateway-Timeout**: Tjänsten Application Proxy kan inte nå anslutningen. Det här felet tyder vanligen på problem med anslutningen tilldelningen kopplingen själv, eller nätverket regler runt anslutningen.
-
--   **Bad Gateway**: Anslutningen kan inte nå backend-applikationer. Det här felet kan indikera en felaktig konfiguration av programmet.
-
--   **Forbidden**: Användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
+- **Gateway-Timeout**: Tjänsten Application Proxy kan inte nå anslutningen. Det här felet tyder vanligen på problem med anslutningen tilldelningen kopplingen själv, eller nätverket regler runt anslutningen.
+- **Bad Gateway**: Anslutningen kan inte nå backend-applikationer. Det här felet kan indikera en felaktig konfiguration av programmet.
+- **Forbidden**: Användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
 
 Du hittar koden genom att titta på texten längst ned till vänster i felmeddelandet för fältet ”statuskod”. Också söka efter eventuella ytterligare tips längst ned på sidan.
 
-   ![Gateway-timeout-fel](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Exempel: Gateway-timeout-fel](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Information om hur du felsöker de grundläggande orsakerna till de här felen och mer information om förslag på åtgärder finns i motsvarande avsnitt nedan.
 
@@ -46,18 +45,14 @@ Information om hur du felsöker de grundläggande orsakerna till de här felen o
 
 En gateway-timeout inträffar när tjänsten försöker nå anslutningen och kan inte inom tidsgränsen. Det här felet orsakas typiskt av ett program som har tilldelats en Anslutningsgrupp med ingen fungerande anslutningar eller vissa portar som krävs av anslutningen är inte öppna.
 
-
 ## <a name="bad-gateway-errors"></a>Felaktig Gateway-fel
 
 En felaktig gateway-fel anger att anslutningen är inte nå backend-applikationer. Kontrollera att du har publicerat av rätt applikation. Vanliga fel som orsakar felet är:
 
--   Skriv- eller fel i den interna URL: en
-
--   Publicera inte roten för programmet. Till exempel publicera <http://expenses/reimbursement> men försökte komma åt <http://expenses>
-
--   Problem med konfigurationen av Kerberos-begränsad delegering (KCD)
-
--   Problem med backend-programmet
+- Skriv- eller fel i den interna URL: en
+- Publicera inte roten för programmet. Till exempel publicera <http://expenses/reimbursement> men försökte komma åt <http://expenses>
+- Problem med konfigurationen av Kerberos-begränsad delegering (KCD)
+- Problem med backend-programmet
 
 ## <a name="forbidden-errors"></a>Förbjudet fel
 
@@ -76,18 +71,13 @@ Som ett första snabba steg kontrollerar och åtgärda den interna URL: en genom
 Att kontrollera att tilldelas till ett aktivt Anslutningsgrupp:
 
 1. Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företagsprogram**, sedan **alla program.** Öppna programmet och välj sedan **Application Proxy** menyn till vänster.
+1. Titta på fältet Anslutningsgrupp. Om det finns inga aktiva anslutningar i gruppen, visas en varning. Om du inte ser alla varningar, kan du gå vidare till att kontrollera att alla nödvändiga portar är tillåtna.
+1. Om fel Anslutningsgrupp visas, kan du använda listrutan för att välja rätt grupp och bekräfta att du inte längre visas för alla varningar. Om den avsedda Anslutningsgrupp visas, klickar du på varningsmeddelandet att öppna sidan med kopplingens.
+1. Här kan finns det ett antal sätt att öka detaljnivån ytterligare:
 
-2. Titta på fältet Anslutningsgrupp. Om det finns inga aktiva anslutningar i gruppen, visas en varning. Om du inte ser alla varningar, kan du gå vidare till att kontrollera att alla nödvändiga portar är tillåtna.
-
-3. Om fel Anslutningsgrupp visas, kan du använda listrutan för att välja rätt grupp och bekräfta att du inte längre visas för alla varningar. Om den avsedda Anslutningsgrupp visas, klickar du på varningsmeddelandet att öppna sidan med kopplingens.
-
-4. Här kan finns det ett antal sätt att öka detaljnivån ytterligare:
-
-   * Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till målprogrammet för serverdel kan flytta du anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
-
-   * Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Anslutningen är vanligtvis installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
-
-   * Undersöka en inaktiv anslutning: Om en koppling visas som inaktiva, är det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. Lös problemet genom att gå vidare att verifiera alla nödvändiga portar är tillåtna.
+   - Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till målprogrammet för serverdel kan flytta du anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
+   - Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Anslutningen är vanligtvis installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
+   - Undersöka en inaktiv anslutning: Om en koppling visas som inaktiva, är det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. Lös problemet genom att gå vidare att verifiera alla nödvändiga portar är tillåtna.
 
 När du använder testa dessa steg för att se till att programmet har tilldelats en grupp med fungerar anslutningar, programmet igen. Om det fortfarande inte fungerar, kan du fortsätta till nästa avsnitt.
 
@@ -97,7 +87,7 @@ Om du vill verifiera att alla nödvändiga portar är öppna, finns i dokumentat
 
 ## <a name="check-for-other-connector-errors"></a>Sök efter andra Connector-fel
 
-Om inget av ovanstående löser problemet, är nästa steg att leta efter problem eller fel med kopplingen själv. Du kan se vissa vanliga fel i den [Felsök dokumentet](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
+Om inget av ovanstående löser problemet, är nästa steg att leta efter problem eller fel med kopplingen själv. Du kan se vissa vanliga fel i den [Felsök dokumentet](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors).
 
 Du kan också leta direkt på Connector-loggarna för att identifiera eventuella fel. Många av felmeddelandena dela specifika rekommendationer för korrigeringar. Om du vill visa loggfilerna kan se den [kopplingar dokumentation](application-proxy-connectors.md#under-the-hood).
 
@@ -105,7 +95,7 @@ Du kan också leta direkt på Connector-loggarna för att identifiera eventuella
 
 Om ovanstående inte löser problemet, finns det några olika möjliga orsaker. Att identifiera problemet:
 
-Om ditt program är konfigurerad för att använda integrerad Windows autentisering (IWA), kan du testa programmet utan att enkel inloggning. Annars kan du flytta till nästa stycke. Om du vill kontrollera programmet utan enkel inloggning, öppna ditt program via **företagsprogram,** och gå till den **enkel inloggning** menyn. Ändra listrutan från ”integrerad Windows-autentisering” till ”Azure AD enkel inloggning inaktiverad”. 
+Om ditt program är konfigurerad för att använda integrerad Windows autentisering (IWA), kan du testa programmet utan att enkel inloggning. Annars kan du flytta till nästa stycke. Om du vill kontrollera programmet utan enkel inloggning, öppna ditt program via **företagsprogram,** och gå till den **enkel inloggning** menyn. Ändra listrutan från ”integrerad Windows-autentisering” till ”Azure AD enkel inloggning inaktiverad”.
 
 Öppna en webbläsare och försöker komma åt programmet igen. Du ska ange för autentisering och komma in i programmet. Om du ska kunna autentisera är problemet med Kerberos-begränsad delegering (KCD) konfiguration som gör den enkel inloggning. Mer information finns på sidan KCD felsöka.
 
@@ -114,4 +104,5 @@ Om du ser felet, gå till den datorn där anslutningstjänsten har installerats,
 Om du kan komma åt programmet från den datorn du söker efter problem eller fel med kopplingen själv. Du kan se vissa vanliga fel i den [Felsök dokumentet](application-proxy-troubleshoot.md#connector-errors). Du kan också leta direkt på Connector-loggarna för att identifiera eventuella fel. Många av våra felmeddelanden ska kunna dela mer specifika rekommendationer för korrigeringar. Läs hur du visar loggarna i [dokumentationen för anslutningsappar](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)

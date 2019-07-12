@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191184"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608377"
 ---
 ### <a name="preview"></a>Hur jag för att delta i den offentliga förhandsversionen?
 
@@ -56,3 +56,7 @@ För att upprätta en anslutning, krävs följande roller:
 ### <a name="previewbill"></a>Priser – faktureras jag för att du deltar i förhandsgranskningen?
 
 Du kommer bara att debiteras delvis allmänt tillgängliga förhandsversionen. Det finns dock inget serviceavtal som är kopplat till din distribution. Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Varför får jag ”din session har upphört att gälla” fel meddelandet innan du startar Skyddsmiljö-sessionen?
+
+En session ska initieras från Azure-portalen. Logga in på Azure Portal och börja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller flik kan är det här felet förväntat. Det säkerställer att din session är säkrare och att sessionen är tillgänglig endast via Azure portal.

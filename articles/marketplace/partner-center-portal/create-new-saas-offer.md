@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514065"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701400"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -20,7 +20,7 @@ För att börja skapa programvara som en tjänst (SaaS) erbjuder, se till att so
 
 ![Kommersiella Marketplace-instrumentpanel på Partner Center](./media/new-offer-overview.png)
 
-Välj den + **skapar du en ny...** knappen och välj den **programvara som en tjänst** menyalternativ. 
+Välj den + **nya erbjudandet...** knappen och välj den **programvara som en tjänst** menyalternativ. 
 
 Om du väljer en av de andra typerna av erbjudanden, omdirigeras du till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/).  Endast SaaS-erbjudanden är tillgängliga i den kommersiella Marketplace-portalen på Partner Center just nu. 
 
@@ -31,13 +31,14 @@ Den **nytt erbjudande** dialogrutan visas.
 ![Dialogrutan Nytt erbjudande](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>Erbjudande-ID och namn
+## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
-- **Erbjudande-ID**: Skapa en unik identifierare för varje erbjudande i ditt konto. Detta ID ska vara synliga för kunder i URL-adressen för marketplace-erbjudande och Azure Resource Manager-mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriskt (inklusive bindestreck och understreck, men inga blanksteg). Detta är begränsad till 50 tecken och kan inte uppdateras när du har valt skapa.  
+- **Erbjudande-ID**: Unik identifierare för varje erbjudande i ditt konto. Detta ID ska vara synliga för kunder i URL-adressen för marketplace-erbjudande och Azure Resource Manager-mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriskt (inklusive bindestreck och understreck, men inga blanksteg). Detta är begränsad till 50 tecken och kan inte ändras när du har valt *skapa*.  
 Exempel: test-erbjudande-1
 <br>Vilket resulterar i URL: en: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Namn på erbjudande**: Officiella namnet på ditt SaaS-program erbjudande, konsekventa i publikationer, annonser och webbplatser.  Det här namnet kan vara produktnamn.  Erbjuder namnet får inte innehålla blanksteg, emojis (om de inte är symbolen varumärke eller copyright) och måste vara högst 50 tecken.
+- **Erbjuder alias**: Namnet används för att referera till erbjudandet på Partner Center-portalen. Det här namnet kommer inte användas i marketplace och skiljer sig från den *erbjuder namnet* och andra värden som ska visas för kunder. Det här värdet kan inte ändras när du har valt *skapa*.
+
 <br>Exempel: Testa erbjudande 1&#8482;
 
 Välj **Skapa**.  En **erbjuder översikt** sida skapas för det här erbjudandet.  
@@ -115,8 +116,8 @@ Marknadsföra ditt företag med Microsoft genom att skapa en marketplace-lista. 
 ##### <a name="get-it-now-free"></a>Hämta den nu (kostnadsfritt)
 Lista ditt erbjudande till kunder utan kostnad genom att ange en giltig URL (som börjar med http eller https) där de kan komma åt din app.  Exempel: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
-Lista ditt erbjudande till kunder på en kostnadsfri utvärderingsversion genom att ange en giltig URL (som börjar med http eller https) där de kan komma åt din app.  Exempel: `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>Kostnadsfri utvärderingsversion (lista)
+Lista ditt erbjudande till kunder med en länk till en kostnadsfri utvärderingsversion genom att ange en giltig URL (som börjar med http eller https) där de kan komma åt din app.  Till exempel: `https://contoso.com/trial/saas-app`. Erbjudanden kostnadsfria utvärderingsversioner skapas, hanterad och konfigurerad av din tjänst och gör inte har prenumerationer hanteras av Microsoft.
 
 ##### <a name="contact-me"></a>Kontakta mig
 Samla in kontaktuppgifter till kunder genom att ansluta datorn kunden relation Management (CRM). Kunden ombeds för behörighet att dela sin information. Dessa kunduppgifter, tillsammans med erbjudandenamn, ID och marketplace där de går att hitta källan ditt erbjudande skickas till CRM-systemet som du har konfigurerat. Läs mer om hur du konfigurerar din CRM [Connect lead-hantering](#connect-lead-management). 
@@ -169,7 +170,7 @@ Partner Center stöder följande CRM-system för lead-hantering. Klicka på län
 
 Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 
-## <a name="properties"></a>Egenskaper
+## <a name="properties"></a>properties
 Den **egenskaper** fliken ber dig att definiera kategorier och branscher som används för att gruppera ditt erbjudande i marknadsplatser, juridiska avtal som stöd för ditt erbjudande och din appversion. 
 
 Välj **spara** när du har slutfört de här fälten. 
@@ -204,6 +205,9 @@ Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 ## <a name="offer-listing"></a>Erbjudandet lista
 
 Erbjudandet visar fliken visar språk (och marknader) där erbjudandet är tillgängligt, är för närvarande engelska (USA) bara tillgängliga. Dessutom kan visar den här sidan status för språkspecifika lista och datum/tid som det har lagts till. Du måste definiera marketplace-informationen (erbjuder namn, beskrivning, söktermer, etc.) för varje språk / marknaden.
+
+> [!NOTE]
+> Erbjudanden innehållet (till exempel beskrivning av erbjudande, dokument, skärmbilder, användningsvillkoren och sekretesspolicyn princip) behöver inte vara på engelska så länge som erbjudandet beskrivning som börjar med frasen ”det här programmet är endast tillgängliga i [icke-engelska språk]”. Det går också att tillhandahålla en *användbara URL för länk* att erbjuda innehåll i ett annat språk än den som används i den erbjudanden innehåll.
 
 ### <a name="offer-listings"></a>Erbjudanderegistreringar
 
@@ -268,9 +272,9 @@ Den **teknisk konfiguration** fliken definierar teknisk information (URL-sökvä
 
 - **Anslutningen webhook** (krävs): För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: SaaS-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, den enklaste konfigurationen är att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt (t.ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD-klient-ID** (krävs): I Azure-portalen kräver vi att du [skapa en app i Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. Att hitta den [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gå till Azure Active Directory och välj **egenskaper**, leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-klient-ID** (krävs): I Azure-portalen kräver vi att du [skapa en app i Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. Att hitta den [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), gå till Azure Active Directory och välj **egenskaper**, leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app-ID** (krävs): Du måste också din [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) och en autentiseringsnyckel. För att få dessa värden, gå till Azure Active Directory och välj **appregistreringar**, leta efter den **program-ID** nummer anges (t.ex. 50c464d3-4930-494c-963c-1e951d15360e). För att hitta autentiseringsnyckeln, gå till **inställningar** och välj **nycklar**. Du måste ange en beskrivning och varaktighet och tas sedan erbjuds ett numeriskt värde.
+- **Azure AD app-ID** (krävs): Du måste också din [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. För att få dessa värden, gå till Azure Active Directory och välj **appregistreringar**, leta efter den **program-ID** nummer anges (t.ex. 50c464d3-4930-494c-963c-1e951d15360e). För att hitta autentiseringsnyckeln, gå till **inställningar** och välj **nycklar**. Du måste ange en beskrivning och varaktighet och tas sedan erbjuds ett numeriskt värde.
 
  Observera att Azure-program-ID är kopplad till Publicerings-ID, så se till att samma program-ID används i alla dina erbjudanden.
 
@@ -306,6 +310,22 @@ Välj **spara** när du har slutfört de här fälten.
 #### <a name="plan-pricing-and-availability"></a>Planera priser och tillgänglighet
 
 Den **priser och tillgänglighet** fliken kan du konfigurera marknader som den här planen kommer att vara tillgänglig i önskad intäkter modellen, priser och fakturering termen. Dessutom kan ange du om du vill att planen ska visas för alla eller bara till specifika kunder (en privat publik).
+
+##### <a name="enabling-free-trials"></a>Att aktivera kostnadsfria utvärderingsversioner
+
+SaaS-erbjudanden via marketplace kommersiella kan du ange en månads kostnadsfri utvärderingsversion när sälja via Microsoft. Kostnadsfria utvärderingsversioner stöds för alla fakturering modeller och termerna förbrukade planer. Det här alternativet kan kunder ska få ett låga hinder för transaktionen via en månads kostnadsfri åtkomst.  Om du väljer att aktivera en kostnadsfri utvärderingsversion för planer i erbjudandet kommer kunden inte att konvertera till en betald prenumeration innan den första månad perioden är slut.  Under denna tid kan kunder som köper ditt erbjudande kan prova att använda någon av stöds-planer med den kostnadsfria utvärderingsversionen aktiveras och konverterar mellan dem.  Konverteringen till en betald prenumeration görs automatiskt i slutet av perioden.
+
+>[!Note]
+>Om kunden väljer att konvertera till en plan utan kostnadsfria utvärderingsversioner, konverteringen sker, men den kostnadsfria utvärderingsversionen kommer att gå förlorade omedelbart.  Dessutom när en kund börjar betala för en plan, kan de inte längre få kostnadsfri utvärderingsversion på samma prenumeration, även om de har omvandlat till en SKU som stöder kostnadsfria utvärderingsversioner.
+
+Möjligheten att konfigurera en kostnadsfri utvärderingsversion är tillgänglig för varje planen i erbjudandet. Helt enkelt navigera till priser och tillgänglighet för varje erbjudande och markera kryssrutan för att tillåta en månads utvärdering.
+
+![Kostnadsfri utvärderingsversion kryssrutan för en månad](./media/free-trial-enable.png)
+
+Hämta informationen för kund prenumerationer som för närvarande deltar i en kostnadsfri utvärderingsversion med den nya API-egenskapen `isFreeTrial`, som kommer att markeras som true eller false. Se den [SaaS hämta prenumeration API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) för mer information.
+
+>[!Note]
+>Kostnadsfria utvärderingsversioner stöds inte för planer som utnyttjar tjänsten marketplace Avläsning av programvara.
 
 #### <a name="markets"></a>Marknader
 
@@ -434,13 +454,13 @@ Skapa och tillhandahålla en separat, unika Azure-prenumeration för att distrib
 
 - **Azure-prenumerations-ID** (krävs för Azure Resource Manager och Logic apps): Ange prenumerations-ID om du vill bevilja åtkomst till din Azure-Kontotjänster för Resursanvändning reporting och fakturering. Vi rekommenderar att du överväger [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) ska användas för test Drive om du inte redan har en. Du kan hitta din Azure-prenumerations-ID genom att logga in på [Azure-portalen](https://portal.azure.com/) och navigera till den **prenumerationer** fliken i menyn till vänster. När du väljer fliken visas ditt prenumerations-ID (t.ex. ”a83645ac-1234-5ab6-6789-1h234g764ghty”).
 
-- **Azure AD-klient-ID** (krävs): Ange din Azure Active Directory (AD) [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **egenskaper** , leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp din organisations klient-ID med hjälp av din domän namn URL på: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Azure AD-klient-ID** (krävs): Ange din Azure Active Directory (AD) [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **egenskaper** , leta efter den **katalog-ID** nummer anges (t.ex.) 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp din organisations klient-ID med hjälp av din domän namn URL på: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
 
 - **Azure AD-klientnamn** (krävs för Dynamics 365): Ange namnet på din Azure Active Directory (AD). För att hitta det här namnet, logga in på den [Azure-portalen](https://portal.azure.com/), i det övre högra hörnet ditt klientnamn visas under namnet på ditt konto.
 
-- **Azure AD app-ID** (krävs): Ange din Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **appregistreringar**, leta efter den **program-ID** tal i listan (t.ex. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD app-ID** (krävs): Ange din Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). För att hitta detta ID, logga in på den [Azure-portalen](https://portal.azure.com/), Välj fliken Active Directory i den vänstra menyn, Välj **appregistreringar**, leta efter den **program-ID** tal i listan (t.ex. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Klienthemlighet för Azure AD** (krävs): Ange din Azure AD-program [klienthemlighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Om du vill ta reda på värdet, logga in på den [Azure-portalen](https://portal.azure.com/). Välj den **Azure Active Directory** flik i den vänstra menyn och välj **appregistreringar**, välj sedan din test drive-appen. Välj sedan **certifikat och hemligheter**väljer **nya klienthemligheten**, ange en beskrivning, Välj **aldrig** under **förfaller**, sedan Välj **Lägg till**. Se till att kopiera värdet. (Inte navigera bort från sidan innan du gör detta, eller så att du inte har tillgång till värdet.)
+- **Klienthemlighet för Azure AD** (krävs): Ange din Azure AD-program [klienthemlighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Om du vill ta reda på värdet, logga in på den [Azure-portalen](https://portal.azure.com/). Välj den **Azure Active Directory** flik i den vänstra menyn och välj **appregistreringar**, välj sedan din test drive-appen. Välj sedan **certifikat och hemligheter**väljer **nya klienthemligheten**, ange en beskrivning, Välj **aldrig** under **förfaller**, sedan Välj **Lägg till**. Se till att kopiera värdet. (Inte navigera bort från sidan innan du gör detta, eller så att du inte har tillgång till värdet.)
 
 Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-wingf-msft
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dbebfa5fa7d9b255cc685696bfe8b3f61d5cf6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e203e88de8d806f489e5a7ab9bfd227c8232f84
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708925"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670905"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Tableau Online för automatisk användaretablering
 
@@ -30,7 +30,7 @@ Den här kursen visar hur du utför i Tableau Online och Azure Active Directory 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-tjänst för användaretablering. Information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för software-as-a-service (SaaS)-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du har:
 

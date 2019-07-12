@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/06/2017
+ms.date: 09/06/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9fbceee8fb0e565df668406f09df27272318dd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d38d8d791c6b932d8a28a898f2e2b80caff7ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509485"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654059"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Tilläggsapp
 
@@ -40,7 +40,7 @@ Om du av misstag har tagit bort b2c-extensions-app har 30 dagar att återställa
 1. Logga in på webbplatsen som global administratör för Azure AD B2C-katalog som du vill återställa den borttagna appen för. Den här global administratör måste ha en e-postadress som liknar följande: `username@{yourTenant}.onmicrosoft.com`.
 1. Utfärda en HTTP GET mot URL: en `https://graph.windows.net/myorganization/deletedApplications` med api-version = 1.6. Den här åtgärden visar en lista över alla program som har tagits bort under de senaste 30 dagarna.
 1. Hitta programmet i listan där namnet börjar med ”b2c-tillägg-app” och kopiera dess `objectid` egenskapsvärdet.
-1. Utfärda en HTTP POST mot URL: en `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Ersätt den `{OBJECTID}` i URL-Adressen med den `objectid` från föregående steg. 
+1. Utfärda en HTTP POST mot URL: en `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Ersätt den `{OBJECTID}` i URL-Adressen med den `objectid` från föregående steg.
 
 Du bör nu kunna [finns i appen återställda](#verifying-that-the-extensions-app-is-present) i Azure-portalen.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850771"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724096"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Ändra profilinformationen för ditt Azure-konto
 
@@ -87,10 +87,16 @@ Att välja bort marknadsföring e-postmeddelanden som tar emot:
 1. Gå till den [rapportformuläret](https://account.microsoft.com/profile/permissions-link-request) att skicka en begäran med hjälp av din profil e-postadress. Du får en länk via e-post att uppdatera dina inställningar.
 2. Klicka på länken för att öppna den **hantera kommunikation behörigheter** sidan. Den här sidan visas typerna av marknadsföringsmaterial som e-postadressen har valts i. Rensa alla ämnen som du vill välja ut och välj sedan **spara**.
 
-
 ![Exempel på sidan för att hantera behörigheter för kommunikation](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 När du välja bort marknadskommunikation du fortfarande ta emot tjänstmeddelanden, baserat på ditt konto.
+
+## <a name="change-the-subscription-name"></a>Ändra prenumerationens namn
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com)väljer **prenumeration** från den vänstra rutan och välj sedan den prenumeration som du vill byta namn på.
+1. Välj **översikt**, och välj sedan **Byt namn på** i kommandofältet.
+    ![Exempel på att byta namn på Azure-prenumeration](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. När du har ändrat namnet, Välj **spara**.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

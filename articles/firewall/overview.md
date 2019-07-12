@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da82f6c93045b38aed887860c6d5c45c93b2260b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442917"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703956"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -30,7 +30,7 @@ Azure Firewall erbjuder följande funktioner:
 
 Hög tillgänglighet är inbyggd i, så att det krävs några ytterligare belastningsutjämnare och du behöver konfigurera något.
 
-## <a name="availability-zones-public-preview"></a>Tillgänglighetszoner (förhandsversion)
+## <a name="availability-zones"></a>Tillgänglighetszoner
 
 Azure-brandväggen kan konfigureras vid distribution till sträcker sig över flera Tillgänglighetszoner för ökad tillgänglighet. Med Availability Zones ökar tillgängligheten till din till 99,99% garanterad drifttid. Mer information finns i Azure-brandväggen [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). 99,99% garanterad drifttid serviceavtal (SLA) erbjuds när två eller fler Tillgänglighetszoner har markerats.
 
@@ -51,7 +51,7 @@ Azure Firewall kan skala upp så mycket du behöver för att hantera föränderl
 
 ## <a name="application-fqdn-filtering-rules"></a>Programmets FQDN-filtreringsregler
 
-Du kan begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning.
+Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik (förhandsversion) till en angiven lista med fullständigt kvalificerade domännamn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning.
 
 ## <a name="network-traffic-filtering-rules"></a>Regler för filtrering av nätverkstrafik
 
@@ -77,7 +77,11 @@ Alla IP-adresser för utgående trafik över virtuellt nätverk översätts till
 
 Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts (Destination Network Address Translation) och filtreras till de privata IP-adresserna på dina virtuella nätverk.
 
-## <a name="multiple-public-ips-public-preview"></a>Flera offentliga IP-adresser (offentlig förhandsversion)
+## <a name="multiple-public-ip-addresses"></a>Flera offentliga IP-adresser
+
+> [!IMPORTANT]
+> Azure-brandväggen med flera offentliga IP-adresser är tillgängligt via Azure PowerShell, Azure CLI, REST och mallar. Användargränssnittet för portalen läggs till regioner stegvis och är tillgänglig i alla regioner när distributionen är klar.
+
 
 Du kan associera flera offentliga IP-adresser (upp till 100) med brandväggen.
 
@@ -85,9 +89,6 @@ På så sätt kan följande scenarier:
 
 - **DNAT** – du kan översätta flera instanser av standard-port till backend-servrar. Du kan till exempel översätta TCP-port 3389 (RDP) för båda IP-adresser om du har två offentliga IP-adresser.
 - **SNAT** -ytterligare portar som är tillgängliga för utgående SNAT-anslutningar, minskar risken för SNAT portöverbelastning. För tillfället väljer Azure brandvägg slumpmässigt offentliga IP-källadressen för en anslutning. Om du har någon underordnad filtrering i nätverket, måste du tillåta alla offentliga IP-adresser som är associerade med din brandvägg.
-
-> [!NOTE]
-> Den offentliga förhandsversionen, om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg kanske befintliga inkommande anslutningar med hjälp av DNAT regler inte fungerar i 40-120 sekunder. Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
@@ -108,10 +109,10 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Threat intelligence aviseringar kan hämta maskeras|Nätverksregler med mål 80/443 för utgående filtrering masker hot intelligence aviseringar när konfigurerad för att aviseringen läge.|Skapa utgående filtrering för 80/443 med hjälp av regler för program. Eller ändra threat intelligence läge till **Avisera och neka**.|
 |Azure-brandväggen använder Azure DNS för att matcha|Azure-brandväggen löser FQDN: er endast med Azure DNS. En anpassad DNS-server stöds inte. Det finns ingen inverkan på DNS-matchning i andra undernät.|Vi arbetar för att minska den här begränsningen.|
 |Azure brandväggen SNAT DNAT fungerar inte för privata IP-mål|Support för Azure brandväggen SNAT/DNAT är begränsad till Internet utgående/inkommande. SNAT/DNAT fungerar inte för närvarande för privata IP-mål. Till exempel eker att ekrar.|Det här är en aktuell begränsning.|
-|Det går inte att ta bort första offentlig IP-adress|Du kan inte ta bort den första offentliga IP-adress som har tilldelats brandväggen, såvida inte brandväggen har frigjorts eller tagits bort.|Det här är avsiktligt.|
-|Om du lägger till eller ta bort en offentlig IP-adress, fungerar inte DNAT reglerna tillfälligt.| Om du lägger till eller ta bort en offentlig IP-adress till en aktiv brandvägg fungerar inte befintliga inkommande anslutningar med hjälp av DNAT regler i 40-120 sekunder.|Det här är en begränsning i den offentliga förhandsversionen för den här funktionen.|
+|Det går inte att ta bort primär offentlig IP-konfiguration|Varje Azure-Brandvägg för offentliga IP-adress tilldelas till en *IP-konfiguration*.  Den första IP-konfigurationen tilldelas under distributionen av brandvägg och vanligtvis även innehåller en referens till undernätet för brandvägg (om inte explicit konfigurering på olika sätt via en för malldistribution). Du kan inte ta bort den här IP-konfigurationen eftersom den skulle Frigör brandväggen. Du kan fortfarande ändra eller ta bort offentlig IP-adress som är associerade med den här IP-konfigurationen om brandväggen inte har minst en annan offentlig IP-adress kan användas.|Det här är avsiktligt.|
 |Med Availability zones kan endast konfigureras under distributionen.|Med Availability zones kan endast konfigureras under distributionen. Du kan inte konfigurera Tillgänglighetszoner när en brandvägg som har distribuerats.|Det här är avsiktligt.|
 |Använda SNAT för inkommande anslutningar|Förutom DNAT, anslutningar via brandväggen offentliga IP-adress (inkommande) är SNATed till någon av brandväggen privata IP-adresser. Det här kravet idag (även för aktiva Nva) så symmetrisk routning.|Överväg att använda för att bevara den ursprungliga källan för HTTP/S, [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) rubriker. Till exempel använda en tjänst som [Azure ytterdörren](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) framför brandväggen. Du kan också lägga till WAF som en del av Azure ytterdörren och kedja brandväggen.
+|SQL-FQDN filtrering support endast i proxyläge (port 1433)|För Azure SQL Database, Azure SQL Data Warehouse och Azure SQL-hanterad instans:<br><br>I förhandsversionen stöds filtrering av SQL-FQDN i proxyläge endast (port 1433).<br><br>För Azure SQL IaaS:<br><br>Om du använder andra portar än standardportarna måste ange du dessa portar i regler för program.|Du kan i stället filtrera åtkomst med hjälp av SQL-tjänsttagg som en del av Azure network brandväggsregler för SQL i omdirigeringsläge, vilket är standardvärdet om du ansluter från inom Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

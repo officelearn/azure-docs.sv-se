@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979166"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807439"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Översikt över tjänsten Azure Policy
 
@@ -25,6 +25,8 @@ Azure Policy är en tjänst i Azure som används till att skapa, tilldela och ha
 
 > [!IMPORTANT]
 > Azure Policy:s kompatibilitetsutvärdering tillhandahålls nu för alla tilldelningar oavsett prisnivå. Om dina tilldelningar inte visar kompatibilitetsdata, ser du till att prenumerationen är registrerad med resursprovidern Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Vad är skillnaden jämfört med RBAC?
 
@@ -102,7 +104,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Princip | Parameternamn |Parametertyp  |OBS |
+| Princip | Parameternamn |Parametertyp  |Obs! |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

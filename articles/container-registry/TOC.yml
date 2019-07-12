@@ -41,10 +41,14 @@
   items:
     - name: 'SKU:er för Container Registry'
       href: container-registry-skus.md
+    - name: 'Register, lagringsplatser och avbildningar'
+      href: container-registry-concepts.md
     - name: Bildlagring
       href: container-registry-storage.md
     - name: Innehållsformat
       href: container-registry-image-formats.md
+    - name: Tagga avbildningar och hantera avbildningsversioner
+      href: container-registry-image-tag-version.md
     - name: Geo-replikering
       href: container-registry-geo-replication.md
     - name: Registrera metodtips

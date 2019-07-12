@@ -3,16 +3,16 @@ title: Skapa en ytterdörren med HTTP till HTTPS-omdirigering i Azure Portal
 description: Lär dig hur du skapar en ytterdörren med omdirigerade trafik från HTTP till HTTPS med Azure-portalen.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: a07b19c49630cc925e719aaa1d46476a1edc58f5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332955"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601963"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en ytterdörren med HTTP till HTTPS-omdirigering i Azure Portal
 

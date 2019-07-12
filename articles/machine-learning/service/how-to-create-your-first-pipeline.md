@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 564f71c9d90a0fa2721389c09388445149d49787
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466922"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795509"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -188,6 +188,9 @@ except ComputeTargetException:
     
     databricks_compute.wait_for_completion(True)
 ```
+
+Ett mer detaljerat exempel finns en [exempel notebook](https://aka.ms/pl-databricks) på GitHub.
+
 ### <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. Den kan användas som ett beräkningsmål med en Azure Machine Learning-pipeline.
@@ -232,6 +235,8 @@ except ComputeTargetException:
     
     adla_compute.wait_for_completion(True)
 ```
+
+Ett mer detaljerat exempel finns en [exempel notebook](https://aka.ms/pl-adla) på GitHub.
 
 > [!TIP]
 > Azure Machine Learning pipelines fungerar bara med data som lagras i datalagret standard för Data Lake Analytics-kontot. Om data som du vill arbeta med är i en icke-standard-store kan du använda en [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) att kopiera data innan utbildning.

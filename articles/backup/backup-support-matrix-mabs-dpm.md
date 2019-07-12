@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204174"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594265"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -55,7 +55,7 @@ Mer information:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Säkerhetskopiera lokala datorer/arbetsbelastningar** | DPM/MABS-skyddsagenten körs på de datorer som du vill säkerhetskopiera.<br/><br/> MARS-agenten på DPM/MABS-server. | DPM/MABS måste köras lokalt.
+**Säkerhetskopiera lokala datorer/arbetsbelastningar** | DPM/MABS-skyddsagenten körs på de datorer som du vill säkerhetskopiera.<br/><br/> MARS-agenten på DPM/MABS-server.<br/> Den lägsta versionen av Microsoft Azure Recovery Services-agenten eller Azure Backup-agenten som krävs för att aktivera den här funktionen är 2.0.8719.0.  | DPM/MABS måste köras lokalt.
 **Säkerhetskopiering av Azure virtuella datorer-arbetsbelastningar** | DPM/MABS-skyddsagenten på den skyddade datorn.<br/><br/> MARS-agenten på DPM/MABS-server. | DPM/MABS måste köras på en virtuell Azure-dator.
 
 ## <a name="supported-deployments"></a>Stödda distributioner
@@ -152,7 +152,7 @@ Från DPM 2016/MABS v2 (som körs på Windows Server 2016) och senare, kan du dr
 - MB säkerhetskopior lagras på ett flexibelt filsystem (ReFS)-disk.
 - MB använder ReFS blockkloning för snabbare säkerhetskopiering och effektivare användning av lagringsutrymme.
 - När du lägger till volymer i lagringspoolen för lokal DPM/MABS kan konfigurera du dem med enhetsbeteckningar. Du kan sedan konfigurera arbetsbelastningen lagring i olika volymer.
-- När du skapar skyddsgrupper för att säkerhetskopiera data till DPM/MABS kan välja du den enhet som du vill använda. Du kan till exempel lagra säkerhetskopior för SQL eller andra hög IOPS arbetsbelastningar en högpresterande enheten och lagrar arbetsbelastningar som säkerhetskopieras mer sällan på en enhet med lägre prestanda.
+- När du skapar skyddsgrupper för att säkerhetskopiera data till DPM/MABS kan välja du den enhet som du vill använda. Du kan till exempel lagra säkerhetskopior för SQL eller andra arbetsbelastningar med hög IOPS på en enhet med höga prestanda och lagra arbetsbelastningar som säkerhetskopieras mer sällan på en enhet med lägre prestanda.
 
 
 ## <a name="supported-backups-to-mabs"></a>Stöds säkerhetskopieringar till MABS
@@ -206,7 +206,7 @@ I följande tabell sammanfattas vad kan säkerhetskopieras till DPM från lokala
 **VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 måste Samlad uppdatering 1 för System Center) <br/><br/>Lokala. | Säkerhetskopiera virtuella VMware-datorer på klusterdelade volymer, NFS och SAN-lagring.<br/><br/> Återställa en hel virtuell dator.<br/><br/> Windows-/ Linux-säkerhetskopiering.<br/><br/> Objektnivååterställning av mappen/endast-filer för virtuella Windows-datorer.<br/><br/> VMware vApps stöds inte.<br/><br/> Återställning av virtuella Linux-datorer är för hela datorn.
 
 
-- Observera att klustrade arbetsbelastningar som säkerhetskopieras av DPM/MABS ska vara i samma domän som DPM/MABS eller i en underordnad/betrodd domän.
+- Klustrade arbetsbelastningar som säkerhetskopieras av DPM/MABS ska vara i samma domän som DPM/MABS eller i en underordnad/betrodd domän.
 - Du kan använda NTLM/certifikat autentisering för att säkerhetskopiera data i obetrodda domäner eller arbetsgrupper.
 
 

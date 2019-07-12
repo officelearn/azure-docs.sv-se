@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer. Välj de datauppsättningar du vill dela, lägg till mottagare och börja dela data med möjlighet att styra, övervaka och kontrollera dina datadelningsrelationer. </p><p>Lär dig hur du använder Azure Data Share med hjälp av våra självstudier.</p>'
+  description: '<p>Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer. Välj de datauppsättningar du vill dela, lägg till mottagare och börja dela data med möjlighet att styra, övervaka och kontrollera dina datadelningsrelationer. </p><p>Lär dig att använda Azure Data Share med hjälp av våra självstudier och instruktionsguider.</p>'
   aside:
     image:
       alt: null
       height: 110
       src: media/azure-friday.png
       width: 250
-    title: Azure Data Share på Azure Friday's
+    title: Azure Data Share på Azure Friday
     href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
     width: 250
 sections:

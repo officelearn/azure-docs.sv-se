@@ -7,24 +7,24 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: 0ad3d1693e2dbf1c4f5329ec23265ea1b3469e2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44274c2a46ce51e51d3d8f16d96a0b50c43a3aa1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125459"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593697"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Hantera Azure CDN med PowerShell
 PowerShell får du en av de mest flexibla metoderna för att hantera dina Azure CDN-profiler och slutpunkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanteringsuppgifter.  Den här kursen visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN-profiler och slutpunkter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

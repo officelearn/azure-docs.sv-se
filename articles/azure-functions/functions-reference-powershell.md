@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442183"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706400"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Utvecklarguide för Azure Functions PowerShell
 
@@ -81,11 +82,11 @@ Den `TriggerMetadata` används för att ange ytterligare information om utlösar
 $TriggerMetadata.sys
 ```
 
-| Egenskap   | Description                                     | Type     |
+| Egenskap   | Description                                     | type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | När, i UTC, funktionen utlöstes        | DateTime |
-| MethodName | Namnet på den funktion som utlöstes     | string   |
-| RandGuid   | ett unikt guid för den här körningen av funktion | string   |
+| MethodName | Namnet på den funktion som utlöstes     | sträng   |
+| RandGuid   | ett unikt guid för den här körningen av funktion | sträng   |
 
 Varje Utlösartyp har en annan uppsättning metadata. Till exempel den `$TriggerMetadata` för `QueueTrigger` innehåller den `InsertionTime`, `Id`, `DequeueCount`, bland annat. Mer information om den köutlösare metadata går du till den [officiella dokumentationen för utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). I dokumentationen på den [utlösare](functions-triggers-bindings.md) du arbetar med för att se vad kommer inuti utlösare metadata.
 
@@ -133,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Namn | Type | Position | Beskrivning |
+| Namn | type | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | Namnet på utdatabindningen som du vill ange. |
+| **`-Name`** | Sträng | 1 | Namnet på utdatabindningen som du vill ange. |
 | **`-Value`** | Object | 2 | Värdet för utdatabindningen du vill ange, som accepteras från pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | med namnet | (Valfritt) När du anger tvingar du värdet som ska anges för en angiven utdatabindning. | 
 
@@ -283,8 +284,8 @@ Det finns ett antal utlösare och bindningar som är tillgängliga för dig att 
 Alla utlösare och bindningar representeras i koden som några verkliga datatyper:
 
 * Hash-tabell
-* string
-* byte
+* sträng
+* byte[]
 * int
 * double
 * HttpRequestContext
@@ -302,14 +303,14 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
 
-| Egenskap  | Description                                                    | Type                      |
+| Egenskap  | Description                                                    | type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Ett objekt som innehåller brödtext för begäran. `Body` serialiseras till den bästa typen baserat på data. Till exempel om data är JSON, skickas den som en hash-tabell. Om data är en sträng, skickas den i som en sträng. | object |
 | **`Headers`** | En ordlista som innehåller de begärda rubrikerna.                | Dictionary < sträng, sträng ><sup>*</sup> |
-| **`Method`** | HTTP-metod för begäran.                                | string                    |
+| **`Method`** | HTTP-metod för begäran.                                | sträng                    |
 | **`Params`**  | Ett objekt som innehåller parametrarna routning av begäran. | Dictionary < sträng, sträng ><sup>*</sup> |
 | **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Dictionary < sträng, sträng ><sup>*</sup> |
-| **`Url`** | URL för begäran.                                        | string                    |
+| **`Url`** | URL för begäran.                                        | sträng                    |
 
 <sup>*</sup> Alla `Dictionary<string,string>` nycklar är skiftlägeskänsliga.
 
@@ -317,10 +318,10 @@ Det objekt som skickas till skriptet är av typen `HttpRequestContext`, som har 
 
 Svarsobjekt som du ska skicka tillbaka är av typen `HttpResponseContext`, som har följande egenskaper:
 
-| Egenskap      | Description                                                 | Type                      |
+| Egenskap      | Description                                                 | type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Ett objekt som innehåller brödtexten i svaret.           | object                    |
-| **`ContentType`** | En kort hand för att ställa in innehållstyp för svar. | string                    |
+| **`ContentType`** | En kort hand för att ställa in innehållstyp för svar. | sträng                    |
 | **`Headers`** | Ett objekt som innehåller svarshuvuden.               | Ordlista eller hash-tabell   |
 | **`StatusCode`**  | HTTP-statuskod i svaret.                       | sträng eller int             |
 

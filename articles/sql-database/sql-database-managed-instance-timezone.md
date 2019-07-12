@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016378"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657996"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tidszoner i Azure SQL Database Managed Instance
 
@@ -30,7 +30,9 @@ Använd [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone
 
 ## <a name="supported-time-zones"></a>Tidszoner som stöds
 
-En uppsättning stöds tidszoner ärvs från det underliggande operativsystemet för den hanterade instansen. Den uppdateras regelbundet för att hämta den nya tidszonsdefinitioner och förändringar i befintliga. 
+En uppsättning stöds tidszoner ärvs från det underliggande operativsystemet för den hanterade instansen. Den uppdateras regelbundet för att hämta den nya tidszonsdefinitioner och förändringar i befintliga.
+
+[Sommartid/tidszon ändras princip](https://aka.ms/time) garanterar historiska Precision från 2010 framåt.
 
 En lista med namnen på tidszonerna som stöds är tillgängliga via den [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) systemvy.
 
@@ -43,7 +45,7 @@ En tidszonen för en hanterad instans kan anges när instans skapas endast. Stan
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Ange tidszonen via Azure portal
 
-Välj en tidszon i listan över tidszoner som stöds när du anger parametrar för en ny instans. 
+Välj en tidszon i listan över tidszoner som stöds när du anger parametrar för en ny instans.
   
 ![Konfigurera en tidszon under instans skapas](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Du kan återställa en säkerhetskopia eller importera data till en hanterad ins
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-När du utför en point-in-time-återställning, tolkas det hög tid att återställa till som UTC-tid. Den här inställningen förhindrar all tvetydighet på grund av sommartid och dess eventuella ändringar.
+<del>När du utför en point-in-time-återställning, tolkas det hög tid att återställa till som UTC-tid. Den här inställningen förhindrar all tvetydighet på grund av sommartid och dess eventuella ändringar.<del>
+
+ >[!WARNING]
+  > Fungerar inte i enlighet med instruktionen ovan och tid att återställa till tolkas enligt tidszonen för den hanterade instansen för källa där automatiska databassäkerhetskopieringar tas från. Vi arbetar på att korrigera problemet att tolka angivna punkt i tiden som UTC-tid. Se [kända problem](sql-database-managed-instance-timezone.md#known-issues) för mer information.
 
 ### <a name="auto-failover-groups"></a>Automatiska redundansgrupper
 
@@ -95,6 +100,21 @@ Med hjälp av samma tidszon mellan en primär och sekundär instans i en redunda
 
 - Tidszonen för den befintliga hanterade instansen kan inte ändras.
 - Externa processer som startas från SQL Server Agent-jobb Se inte tidszonen för instansen.
+
+## <a name="known-issues"></a>Kända problem
+
+När point-in-time återställer (PITR) åtgärden utförs, tiden för att återställa till tolkas enligt tidszonen på den hanterade instansen där automatiska databassäkerhetskopieringar tas från, även om Portalsida för PITR tyder på att tiden tolkas som UTC.
+
+Exempel:
+
+Anta att den instans där automatiska säkerhetskopieringar tas från har Eastern, normaltid (UTC-5) tidszon.
+Portalsida för point-in-time-återställning tyder på att den tid som du väljer att återställa till är UTC-tid:
+
+![PITR med lokal tid med hjälp av portalen](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+Men det hög tid att återställa till tolkas faktiskt som Eastern, normaltid och i det här exemplet databasen kommer att återställas till tillståndet i 9 AM Eastern Standard Time och inte UTC-tid.
+
+Om du vill göra point-in-time-återställning till en viss tidpunkt i UTC-tid först beräkna motsvarande tid i tidszonen för instansen av datakällan och använder den tidpunkten i portalen eller PowerShell/CLI-skript.
 
 ## <a name="list-of-supported-time-zones"></a>Lista med tidszoner som stöds
 

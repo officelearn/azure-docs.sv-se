@@ -4,7 +4,7 @@ description: Lär dig vilka tillägg som finns tillgängliga för Azure-datorer,
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721133"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706750"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 
@@ -38,7 +38,7 @@ Flera olika Azure VM-tillägg som finns tillgängliga, var och en med en specifi
 
 Förutom process-specifika tillägg finns ett anpassat skripttillägg för både Windows och Linux-datorer. Tillägget för anpassat skript för Linux kan valfritt Bash-skript som ska köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfigurering, förutom vilka interna Azure-verktyg kan ge. Mer information finns i [tillägget för anpassat skript för Linux VM](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att hantera tillägg på den virtuella datorn, måste du Azure Linux Agent installerad. Vissa enskilda tillägg har förutsättningar, till exempel åtkomst till resurser eller beroenden.
 

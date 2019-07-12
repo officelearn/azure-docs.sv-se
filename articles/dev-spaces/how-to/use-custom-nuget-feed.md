@@ -9,13 +9,13 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Använd en anpassad NuGet flödet för att komma åt och använda NuGet-paket i ett adressutrymme för utveckling av Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-manager: ghogen
-ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: gwallace
+ms.openlocfilehash: ca1fee76dfe280322a39fad56b9f85ebe1a92d3b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686465"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704043"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använd en anpassad NuGet flöde i ett adressutrymme för Azure-utveckling
 

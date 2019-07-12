@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926513"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840159"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services kan innehåll tillhandahålls med HLS, DASH, Smoo
 
 ### <a name="start-using"></a>Börja använda
 
-Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att spela upp Azure Media Services-exempel eller dina egna stream.  
+Du kan använda den [Demonstrationssida för Azure Media Player](http://aka.ms/azuremediaplayer) att spela upp Azure Media Services-exempel eller dina egna stream.  
 
 För att spela upp en ny video, klistra in en annan URL och trycker på **uppdatering**.
 
@@ -40,7 +40,7 @@ För att konfigurera olika alternativ för uppspelning (till exempel teknisk, sp
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Övervaka diagnostik av en videoström
 
-Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att övervaka diagnostik av en videoström. 
+Du kan använda den [Demonstrationssida för Azure Media Player](http://aka.ms/azuremediaplayer) att övervaka diagnostik av en videoström. 
 
 ![Azure Media Player-diagnostik](./media/azure-media-player/diagnostics.png)
 

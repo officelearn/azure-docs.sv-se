@@ -2,17 +2,17 @@
 title: Skapa en statisk volym för poddar i Azure Kubernetes Service (AKS)
 description: Lär dig hur du manuellt skapa en volym med Azure-diskar för användning med en pod i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072147"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616137"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
@@ -25,15 +25,15 @@ Mer information om Kubernetes volymer finns i [lagringsalternativ för program i
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Skapa en Azure-disk
 
 När du skapar en Azure-disk för användning med AKS kan du skapa diskresursen i den **noden** resursgrupp. På så sätt kan komma åt och hantera diskresursen AKS-klustret. Om du i stället skapar disken i en separat resursgrupp, måste du ge Azure Kubernetes Service (AKS) tjänstens huvudnamn för klustret i `Contributor` rollen till diskens resursgrupp.
 
-Den här artikeln är att skapa disken i resursgruppen noden. Hämta först resursgruppens namn med den [az aks show] [ az-aks-show] kommandot och lägga till den `--query nodeResourceGroup` frågeparameter. I följande exempel hämtar noden resursgruppen för AKS-klusternamnet *myAKSCluster* i resursgruppens namn *myResourceGroup*:
+Den här artikeln är att skapa disken i resursgruppen noden. Hämta först resursgruppens namn med den [az aks show][az-aks-show] kommandot och lägga till den `--query nodeResourceGroup` frågeparameter. I följande exempel hämtar noden resursgruppen för AKS-klusternamnet *myAKSCluster* i resursgruppens namn *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +41,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Nu skapa en disk med hjälp av den [az disk skapa] [ az-disk-create] kommando. Ange noden resursgruppens namn som hämtades i föregående kommando och sedan ett namn för diskresursen *myAKSDisk*. I följande exempel skapas en *20*GiB disk- och utdata ID: T för den disk som är skapade. Om du vill skapa en disk för användning med Windows Server-behållare (för närvarande i förhandsversion i AKS) kan du lägga till den `--os-type windows` att korrekt formatera disken.
+Nu skapa en disk med hjälp av den [az disk skapa][az-disk-create] kommando. Ange noden resursgruppens namn som hämtades i föregående kommando och sedan ett namn för diskresursen *myAKSDisk*. I följande exempel skapas en *20*GiB disk- och utdata ID: T för den disk som är skapade. Om du vill skapa en disk för användning med Windows Server-behållare (för närvarande i förhandsversion i AKS) kan du lägga till den `--os-type windows` att korrekt formatera disken.
 
 ```azurecli-interactive
 az disk create \

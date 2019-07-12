@@ -4,7 +4,7 @@ description: Lär dig att maximera din Windows Software Assurance-förmåner fö
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 739c867171d7b59a68f7e4d11bbf50a189568ce7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681291"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722761"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Server du använda dina lokala Windows Server-licenser och köra Windows-datorer i Azure mot en lägre kostnad. Du kan använda Azure Hybrid-förmånen för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går över anvisningar om hur du distribuerar nya virtuella datorer med Azure Hybrid-förmånen för Windows Server och hur du kan uppdatera befintliga köra virtuella datorer. Läs mer om Azure Hybrid-förmånen för Windows Server licensierings- och besparingar i den [Azure Hybrid-förmånen för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -130,7 +130,7 @@ I följande exempel visas licenstypen för en enskild virtuell dator
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-Utdata:
+Resultat:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus

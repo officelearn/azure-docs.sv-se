@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514270"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706284"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -332,12 +332,9 @@ I följande tabell innehåller ett exempel på hur du skapar en distributionskon
 I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan använda den för att distribuera webbtjänsten.
 
 ### <a name="optional-profile-your-model"></a>Valfritt: Profilera din modell
-Innan du distribuerar modellen som en tjänst, kanske du vill profilera den för att fastställa optimal processor och minne. Du kan göra profil din modell med hjälp av SDK eller CLI.
+Innan du distribuerar modellen som en tjänst, kan du profilera den för att fastställa optimal processor och minneskrav med SDK eller CLI.  Modeller profilering resultat genereras som en `Run` objekt. Fullständig information om [modellen profil-schemat finns i API-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-Mer information kan du ta en titt här vår SDK-dokumentation: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-Modeller profilering resultat genereras som ett kör-objekt.
-Närmare information på modellen profil-schemat finns här: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Läs mer på [hur du profilera din modell med hjälp av SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
@@ -356,9 +353,27 @@ Om du vill distribuera lokalt, måste du ha **Docker installerat** på den lokal
 
 + **Med hjälp av CLI**
 
+    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+
+    | JSON-entitet | Metodparameter | Beskrivning |
+    | ----- | ----- | ----- |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. För lokal, värdet måste vara `local`. |
+    | `port` | `port` | Den lokala porten som du vill exponera tjänstens HTTP-slutpunkt. |
+
+    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +394,44 @@ Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillg
 
 + **Med hjälp av CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen. Ersätt `myservice` med namnet att ge den här tjänsten:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+
+    | JSON-entitet | Metodparameter | Beskrivning |
+    | ----- | ----- | ----- |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. Värdet måste vara för ACI, `ACI`. |
+    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurationselement för CPU och minne som allokerats för behållaren. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Antal processorkärnor att allokera för den här webbtjänsten. Som standard, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) att allokera för den här webbtjänsten. Standard `0.5` |
+    | `location` | `location` | Azure-regionen att distribuera den här webbtjänsten till. Om inget anges arbetsytan plats kommer att användas. Mer information om tillgängliga regioner hittar du här: [ACI-regioner](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Om eller inte att aktivera autentisering för den här webbtjänsten. Standardvärdet är FALSKT |
+    | `sslEnabled` | `ssl_enabled` | Om eller inte att aktivera SSL för den här webbtjänsten. Standardvärdet är FALSKT. |
+    | `appInsightsEnabled` | `enable_app_insights` | Om eller inte att aktivera AppInsights för den här webbtjänsten. Standardvärdet är FALSKT |
+    | `sslCertificate` | `ssl_cert_pem_file` | Certifikatfilen behövs om SSL är aktiverat |
+    | `sslKey` | `ssl_key_pem_file` | Nyckelfilen behövs om SSL är aktiverat |
+    | `cname` | `ssl_cname` | Cname för om SSL är aktiverat |
+    | `dnsNameLabel` | `dns_name_label` | Dns-Namnetiketten för bedömnings-slutpunkten. Om inte anges kommer att genereras ett unikt dns-Namnetiketten för bedömnings-slutpunkten. |
+
+    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **Använder VS Code**
 
@@ -414,9 +463,71 @@ Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om
 
 + **Med hjälp av CLI**
 
+    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `myaks` med namnet på AKS beräkningsmålet. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen. Ersätt `myservice` med namnet att ge den här tjänsten:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+
+    | JSON-entitet | Metodparameter | Beskrivning |
+    | ----- | ----- | ----- |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. Värdet måste vara för AKS, `aks`. |
+    | `autoScaler` | Ej tillämpligt | Innehåller konfigurationselement för autoskalning. Se tabellen autoskalningen. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om du ska aktiveras eller inte automatisk skalning för webbtjänsten. Om `numReplicas`  =  `0`, `True`, annars `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antalet behållare ska användas när automatisk skalning den här webbtjänsten. Som standard, `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antalet behållare ska användas när automatisk skalning den här webbtjänsten. Som standard, `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta autoskalningen försöker skala den här webbtjänsten. Som standard, `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Den målanvändning (i procent av 100) som autoskalningen ska försöka att underhålla för den här webbtjänsten. Som standard, `70`. |
+    | `dataCollection` | Ej tillämpligt | Innehåller konfigurationselement för insamling av data. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Om du ska aktiveras eller inte insamling av modelldata för webbtjänsten. Som standard, `False`. |
+    | `authEnabled` | `auth_enabled` | Om eller inte vill aktivera autentisering för webbtjänsten. Som standard, `True`. |
+    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurationselement för CPU och minne som allokerats för behållaren. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Antal processorkärnor att allokera för den här webbtjänsten. Som standard, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) att allokera för den här webbtjänsten. Standard `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Om du ska aktiveras eller inte Application Insights-loggning för webbtjänsten. Som standard, `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | En tidsgräns för att upprätthålla för bedömning anrop till webbtjänsten. Som standard, `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Högsta antal samtidiga begäranden per nod för den här webbtjänsten. Som standard, `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran att stanna kvar i dig kön (i millisekunder) innan en 503 fel returneras. Som standard, `500`. |
+    | `numReplicas` | `num_replicas` | Antal behållare för att allokera för den här webbtjänsten. Inget standardvärde. Om den här parametern inte har angetts är autoskalningen aktiverad som standard. |
+    | `keys` | Ej tillämpligt | Innehåller konfigurationselement för nycklar. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | En primär auth-nyckel som ska användas för den här webbtjänsten |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | En sekundär auth-nyckel som ska användas för den här webbtjänsten |
+    | `gpuCores` | `gpu_cores` | Antal GPU-kärnor för att allokera för den här webbtjänsten. Standardvärdet är 1. |
+    | `livenessProbeRequirements` | Ej tillämpligt | Innehåller konfigurationselement för liveness avsökningen krav. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Hur ofta (i sekunder) att utföra hälsoavsökningen. Som standard 10 sekunder. Lägsta värdet är 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Antal sekunder efter att behållaren har startat innan liveness avsökningar initieras. Standardvärdet är 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Antal sekunder efter hälsoavsökningen når sin tidsgräns. Standardvärdet är 2 sekunder. Lägsta värde är 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Minsta på varandra följande lyckade för hälsoavsökningen ska anses lyckat efter att ha misslyckades. Standardvärdet är 1. Lägsta värdet är 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | När en Pod startas och hälsoavsökningen misslyckas, försöker failureThreshold gånger innan den ger upp med Kubernetes. Standardvärdet är 3. Lägsta värdet är 1. |
+    | `namespace` | `namespace` | Kubernetes-namnområde som webbtjänsten distribueras till. Upp till 63 gemena alfanumeriska (”a”-”z”, ”0”-”9”) och bindestreck (”-”) tecken. De första och sista tecknet får inte vara bindestreck. |
+
+    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **Använder VS Code**
 

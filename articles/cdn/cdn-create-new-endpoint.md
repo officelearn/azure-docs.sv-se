@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684684"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593999"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snabbstart: Skapa en Azure CDN-profil och slutpunkt
 I den här snabbstarten aktiverar du Azure Content Delivery Network (CDN) genom att skapa en ny CDN-profil och CDN-slutpunkt. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För den här snabbstarten måste du ha skapat ett lagringskonto med namnet *mystorageacct123*, som du använder för ursprungets värdnamn. Mer information finns i [Integrera ett Azure-lagringskonto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
@@ -51,9 +51,9 @@ När du har skapat en CDN-profil kan använda du den för att skapa en slutpunkt
 
 3. Använd värdena som anges i följande tabell som slutpunktsinställningar:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
-    | **Namn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net.|
+    | **Namn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net.|
     | **Typ av ursprung** | Välj **Lagring**. | 
     | **Ursprungets värdnamn** | Ange *mystorageacct123.blob.core.windows.net* som värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
     | **Sökväg till ursprung** | Lämna tomt. |
@@ -88,6 +88,6 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän i din CDN-slutpunkt finns i följande självstudiekurs:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+> [Självstudier: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
 

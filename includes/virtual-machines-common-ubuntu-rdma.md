@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187354"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671210"
 ---
 1. Installera dapl, rdmacm, ibverbs och mlx4
 
@@ -44,7 +44,7 @@ ms.locfileid: "67187354"
  
    Endast Intel MPI 5.x körningar stöds.
  
-   Anvisningar för installation finns i den [installationsguide för Intel MPI biblioteket](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+   Anvisningar för installation finns i den [installationsguide för Intel MPI biblioteket](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Aktivera ptrace för icke-felsökare processer (som behövs för de senaste versionerna av Intel MPI).
  

@@ -1,0 +1,63 @@
+- name: Dokumentation om Azure Lighthouse
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Lighthouse?
+      displayName: 'management at scale, service providers'
+      href: overview.md
+- name: Exempel
+  items:
+    - name: Index
+      displayName: 'template, sample'
+      href: ./samples/index.md
+- name: Begrepp
+  items:
+    - name: Azure-delegerad resurshantering
+      displayName: delegation
+      href: ./concepts/azure-delegated-resource-management.md
+    - name: Miljöer för hantering av flera klienter
+      displayName: scenarios
+      href: ./concepts/cross-tenant-management-experience.md
+    - name: Erbjudanden om hanterade tjänster på Azure Marketplace
+      displayName: 'managed services offer, azure marketplace'
+      href: ./concepts/managed-services-offers.md
+    - name: Rekommenderade säkerhetsmetoder
+      displayName: 'mfa, authentication, secure, group'
+      href: ./concepts/recommended-security-practices.md
+    - name: Att tänka på med Cloud Solution Provider-programmet
+      displayName: 'csp, aobo, partner'
+      href: ./concepts/cloud-solution-provider.md
+- name: Instruktionsguider
+  items:
+    - name: Registrera en kund för Azure-delegerad resurshantering
+      displayName: resource management
+      href: ./how-to/onboard-customer.md
+    - name: Publicera erbjudanden om hanterade tjänster på Azure Marketplace
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Visa och hantera kunder
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-customers.md
+    - name: Visa och hantera tjänstleverantörer
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-service-providers.md
+- name: Referens
+  items:
+    - name: Azure SDK för .NET
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+    - name: Azure SDK för .NET (NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
+    - name: Azure SDK för Python
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+    - name: OpenAPI
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/922753'

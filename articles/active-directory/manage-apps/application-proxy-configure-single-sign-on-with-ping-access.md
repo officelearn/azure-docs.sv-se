@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481474"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723995"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -53,10 +53,11 @@ Om du har aktiverat Application Proxy aktiverad och redan har installerat en con
 Programproxy-kopplingen är en Windows Server-tjänst som dirigerar trafiken från fjärranslutna anställda till dina publicerade program. Mer detaljerade instruktioner för installation finns i [självstudien: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/) som programadministratör. Den **Azure Active Directory Administrationscenter** visas.
-2. Välj **Azure Active Directory** > **programproxy** > **hämta anslutningsapptjänsten**. Den **hämta för Application Proxy Connector** visas.
+1. Välj **Azure Active Directory** > **programproxy** > **hämta anslutningsapptjänsten**. Den **hämta för Application Proxy Connector** visas.
 
    ![Application proxy connector download](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Följ installationsanvisningarna.
+
+1. Följ installationsanvisningarna.
 
 Hämta anslutningsappen bör automatiskt att aktivera Application Proxy för din katalog, men om inte, kan du välja **aktivera Application Proxy**.
 
@@ -205,7 +206,7 @@ Exempel för att inkludera e-postadress i access_token som använder PingAccess:
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Användning av Anspråksmappning principen (tillval)
 
-[Anspråk mappning princip (förhandsversion)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) för attribut som inte finns i AzureAD. Anspråksmappning kan du migrera den gamla lokala appar till molnet genom att lägga till ytterligare anpassade anspråk som backas upp av din AD FS eller användarobjekt
+[Anspråk mappning princip (förhandsversion)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) för attribut som inte finns i AzureAD. Anspråksmappning kan du migrera den gamla lokala appar till molnet genom att lägga till ytterligare anpassade anspråk som backas upp av din AD FS eller användarobjekt
 
 För att göra ditt program använder ett anpassat anspråk och ta med ytterligare fält, vara säker på att du har också [skapas en anpassad princip för Anspråksmappning och den tilldelas programmet](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

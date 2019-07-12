@@ -13,18 +13,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 49d6a06c2cd13c240a0843ef29fd6cc832c30384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f4f214523d9d42761323ec02ca6dae4c20bba6
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122558"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839416"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -125,7 +124,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 1. Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2012/2013/2015.
    1. Starta **Visual Studio** 2012/2013/2015.
    2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
-   3. Expandera **Mallar** och välj **Visual C#**. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
+   3. Expandera **Mallar** och välj **Visual C#** . I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
    4. Välj **Konsolprogram** i listan över projekttyper till höger.
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
@@ -136,7 +135,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Lägg till följande **appSetttings**-avsnitt i filen **App.config**. De här inställningarna används av helper-metoden: **GetAuthorizationHeader**.
 
-    Ersätt värdena för **&lt;Program-ID&gt;**, **&lt;Lösenord&gt;**, **&lt;Prenumerations-ID&gt;** och **&lt;Klient-ID&gt;** med dina egna värden.
+    Ersätt värdena för **&lt;Program-ID&gt;** , **&lt;Lösenord&gt;** , **&lt;Prenumerations-ID&gt;** och **&lt;Klient-ID&gt;** med dina egna värden.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>

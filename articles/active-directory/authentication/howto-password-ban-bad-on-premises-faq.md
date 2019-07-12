@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917661"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702896"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917661"
 
 Microsofts aktuella vägledning för det här avsnittet finns på följande länk:
 
-[Lösenordet för Microsoft-vägledning](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Lösenordet för Microsoft-vägledning](https://www.microsoft.com/research/publication/password-guidance)
 
 **F: Är den lokala Azure AD-lösenord Protection stöds i icke-offentlig moln?**
 
@@ -43,6 +43,10 @@ Stöds ej. När distribuerats och aktiverats, Azure AD-lösenordsskydd skilja in
 Ett lösenord (kallas ibland en lösenordsåterställning) är när en administratör ersätter lösenordet till ett konto med ett nytt lösenord, till exempel med hjälp av verktyget för Active Directory-användare och datorer. Den här åtgärden kräver en hög behörighetsnivå (vanligtvis domänadministratören) och den person som utför åtgärden vanligtvis har inte kunskap om det gamla lösenordet. Helpdesk-scenarier ofta göra detta, exempelvis när hjälpa en användare som har glömt sitt lösenord. Du kan även se lösenord in händelser när ett helt nytt konto skapas för första gången med ett lösenord.
 
 Princip för verifiering av lösenord fungerar på samma sätt oavsett om en ändring av lösenord eller en uppsättning görs. Azure AD-lösenord Protection DC-agenttjänsten loggar olika händelser för att informera dig om en lösenordsändring eller set-åtgärd utfördes.  Se [Azure AD lösenordsskydd övervakning och loggning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**F: Varför är duplicerade lösenord avvisande händelser som loggats vid försök att ange ett svagt lösenord med hjälp av Active Directory-användare och datorer management snapin-modulen?**
+
+Active Directory-användare och datorer snapin-modulen Hantering först försöker ställa in det nya lösenordet med hjälp av Kerberos-protokollet. Vid fel gör snapin-modulen en andra försök att ange lösenordet med ett äldre (SAM RPC)-protokoll (specifika protokoll som används inte är viktigt). Om det nya lösenordet är anses vara svaga med Azure AD-lösenordsskydd, resulterar detta i två uppsättningar med lösenordsåterställning avvisande händelser loggas.
 
 **F: Finns det stöd för att installera Azure AD-lösenord Protection sida vid sida med andra filter-lösenordsbaserade produkter?**
 

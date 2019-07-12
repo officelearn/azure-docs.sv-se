@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ebc41fc74d24708a177bf554029df8384c49df05
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166162"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657239"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -21,7 +21,7 @@ Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code för att
 Azure HDInsight-verktyg som kan installeras på plattformar som stöds av Visual Studio Code, inklusive Windows, Linux och macOS. Nedan hittar du de nödvändiga förutsättningarna för olika plattformar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra stegen i den här artikeln:
 
@@ -304,20 +304,20 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
     | name | description | type | 
     | :- | :- | :- | 
     | file | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
-    | proxyUser | Användaren att personifiera när jobbet körs | string | 
-    | className | Programmet Java/Spark-huvudklass | string |
+    | proxyUser | Användaren att personifiera när jobbet körs | sträng | 
+    | className | Programmet Java/Spark-huvudklass | sträng |
     | args | Kommandoradsargument för programmet | lista med strängar | 
     | jars | JAR-filer som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
     | files | filer som ska användas i den här sessionen | Lista över strängar |
-    | driverMemory | Mängden minne som ska användas för processen för drivrutinen | string |
+    | driverMemory | Mängden minne som ska användas för processen för drivrutinen | sträng |
     | driverCores | Antalet kärnor som ska användas för processen för drivrutinen | int |
-    | executorMemory | Mängden minne för att använda per körningsprocess | string |
+    | executorMemory | Mängden minne för att använda per körningsprocess | sträng |
     | executorCores | Antalet kärnor som ska användas för varje executor | int |
     | numExecutors | Antal executors att starta för den här sessionen | int |
     | archives | Arkiv som ska användas i den här sessionen | Lista över strängar |
-    | queue | Namnet på YARN-kö som har skickats | string |
-    | name | Namnet på den här sessionen | string |
+    | queue | Namnet på YARN-kö som har skickats | sträng |
+    | name | Namnet på den här sessionen | sträng |
     | conf | Egenskaper för Spark-konfiguration | Karta över nyckel = värde |
 
     Svarstext   
@@ -326,10 +326,10 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
     | name | description | type | 
     | :- | :- | :- | 
     | id | Sessions-id | int | 
-    | appId | Program-id för den här sessionen |  String |
+    | appId | Program-id för den här sessionen |  Sträng |
     | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
     | log | Log-rader | lista med strängar |
-    | state |   Batch-tillstånd | string |
+    | state |   Batch-tillstånd | sträng |
 
 >[!NOTE]
 >Tilldelade livy konfig visas i utdatafönstret när skicka skript.
@@ -436,7 +436,7 @@ När du skickar jobbet till ett HDInsight-kluster med ADLS Gen2 uppmanas du att 
 
 > [!NOTE]
 > 
->Du kan hämta åtkomstnyckeln för lagringskontot från Azure-portalen. Mer information finns i [visa och kopiera åtkomstnycklar](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>Du kan hämta åtkomstnyckeln för lagringskontot från Azure-portalen. Mer information finns i [visa och kopiera åtkomstnycklar](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## <a name="unlink-cluster"></a>Ta bort länken till kluster
 

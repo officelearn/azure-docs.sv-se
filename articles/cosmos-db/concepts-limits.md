@@ -1,21 +1,21 @@
 ---
-title: Gränser i Azure Cosmos DB
-description: Den här artikeln beskriver begränsningarna i Azure Cosmos DB.
+title: Azure Cosmos DB-servicekvoter
+description: Azure Cosmos DB-tjänsten kvoter och standardgränser på olika resurstyper.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
-ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/10/2019
+ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561237"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797287"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Gränser i Azure Cosmos DB
+# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB-servicekvoter
 
-Den här artikeln innehåller en översikt över begränsningar i Azure Cosmos DB-tjänsten.
+Den här artikeln innehåller en översikt över standardkvoter som erbjuds för andra resurser i Azure Cosmos DB.
 
 ## <a name="storage-and-throughput"></a>Lagring och dataflöde
 

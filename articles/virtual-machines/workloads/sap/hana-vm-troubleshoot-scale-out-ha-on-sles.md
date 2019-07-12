@@ -4,7 +4,7 @@ description: Guiden för att kontrollera och felsöka en komplexa SAP HANA skalb
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477095"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707241"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och felsöka installationen av SAP HANA skalbar hög tillgänglighet på SLES 12 SP3 
 
@@ -94,7 +94,7 @@ Följande rekommendationer för SAP HANA-nätverk skapades tre undernät inom en
 
 Information om SAP HANA-konfiguration som är relaterade till flera nätverk finns i [SAP HANA global.ini](#sap-hana-globalini).
 
-Varje virtuell dator i klustret har tre virtuella nätverkskort som motsvarar antalet undernät. [Så här skapar du en Linux-dator i Azure med flera nätverkskort] [ azure-linux-multiple-nics] beskriver ett potentiellt routningsproblem på Azure när du distribuerar en Linux-VM. Den här specifika routning artikeln gäller endast för användning av flera virtuella nätverkskort. Problemet kan lösas genom SUSE standard i SLES 12 SP3. Mer information finns i [Multi-NIC med cloud-netconfig i EC2 och Azure][suse-cloud-netconfig].
+Varje virtuell dator i klustret har tre virtuella nätverkskort som motsvarar antalet undernät. [Så här skapar du en Linux-dator i Azure med flera nätverkskort][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
 
 Kör följande kommandon för att kontrollera att SAP HANA är korrekt konfigurerad för att använda flera nätverk. Kontrollera först på operativsystemsnivån att alla tre interna IP-adresser för alla tre undernät är aktiva. Om du har definierat undernät med olika IP-adressintervall som du behöver anpassa kommandon:
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Planerat underhåll 
 
 Det finns olika användningsfall när det gäller planerat underhåll. En fråga är om det är bara infrastrukturunderhåll som ändringar på operativsystemsnivån och diskkonfiguration eller en HANA-uppgradering.
-Du hittar mer information i dokument från SUSE som [mot Stilleståndstid] [ sles-zero-downtime-paper] eller [SAP HANA SR prestanda optimerade scenariot] [ sles-12-for-sap]. De här dokumenten inkluderar även exempel som visar hur du migrerar en primär manuellt.
+Du hittar mer information i dokument från SUSE som [mot Stilleståndstid][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. De här dokumenten inkluderar även exempel som visar hur du migrerar en primär manuellt.
 
 Intensiv interna tester har utförts för att verifiera användningsfall för infrastruktur-underhåll. Om du vill undvika eventuella problem som rör migrerar primärt beslutat att migrera en primär alltid innan du gör klustret i underhållsläge. Det här sättet, behöver inte göra klustret glömma tidigare situationen: vilken sida som var primära och som sekundär.
 

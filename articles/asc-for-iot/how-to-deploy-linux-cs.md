@@ -2,24 +2,25 @@
 title: Guide om hur du installerar och distribuerar Linux C# agent för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
 description: Lär dig hur du installerar Azure Security Center för IoT-agenten på både 32-bitars och 64-bitars Linux.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5623b9870788edfb3b96ef248154e8b9f60b4593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 808ff912a997a4c09a22048ada7546daab895701
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198433"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618252"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C#-baserade security-agenten för Linux
 
@@ -36,7 +37,7 @@ I den här guiden får du lära du dig att:
 > * Avinstallera agenten
 > * Felsöka 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Andra plattformar och agenten varianter finns i [väljer rätt säkerhetsagenten](how-to-deploy-agent.md).
 

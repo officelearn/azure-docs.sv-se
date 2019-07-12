@@ -8,18 +8,19 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366325"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657304"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Skapa och ändra en ExpressRoute-krets med PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
@@ -78,8 +79,8 @@ Kontrollera att du anger rätt SKU-nivån och SKU-serien:
 
 > [!IMPORTANT]
 > ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. Se till att du utför den här åtgärden när anslutningsleverantören är redo att lägga till kretsen.
-> 
-> 
+>
+>
 
 Svaret innehåller tjänstnyckeln. Du kan få detaljerade beskrivningar av alla parametrar genom att köra följande kommando:
 
@@ -208,8 +209,8 @@ Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](e
 
 > [!IMPORTANT]
 > Dessa anvisningar gäller endast för kretsar som skapas med tjänstleverantörer som erbjuder tjänster för layer-2-anslutning. Om du använder en leverantör av tjänster som erbjuder Hanterade layer 3-tjänster (vanligtvis en IP VPN, t.ex. MPLS), anslutningsleverantören konfigurerar och hanterar routning åt dig.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Länka ett virtuellt nätverk till en ExpressRoute-krets
 Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd den [länka virtuella nätverk till ExpressRoute-kretsar](expressroute-howto-linkvnet-arm.md) artikel när du arbetar med Resource Manager-distributionsmodellen.
@@ -291,7 +292,7 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 Du kan utföra följande uppgifter utan avbrott:
 
 * Aktivera eller inaktivera en ExpressRoute-premiumtillägget för ExpressRoute-krets.
-* Öka bandbredden för ExpressRoute-kretsen under förutsättning att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte. 
+* Öka bandbredden för ExpressRoute-kretsen under förutsättning att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte.
 * Ändra Avläsning av planen från förbrukade Data till obegränsade Data. Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 
@@ -314,8 +315,8 @@ Kretsen har aktiverat ExpressRoute premium-tilläggsfunktioner. Vi börjar faktu
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Inaktivera Expressroutes premiumtillägg
 > [!IMPORTANT]
 > Om du använder resurser som är större än vad som tillåts för standard-krets, kan den här åtgärden misslyckas.
-> 
-> 
+>
+>
 
 Notera följande information:
 
@@ -341,7 +342,7 @@ Bandbreddsalternativ som stöds för din leverantör, kontrollera den [ExpressRo
 > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
 >
 > Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradera bandbredd måste du ta bort etableringen av ExpressRoute-kretsen och etablera om en ny ExpressRoute-krets.
-> 
+>
 
 När du har bestämt vilken storlek som du behöver, använder du följande kommando för att ändra storlek på din krets:
 
@@ -369,7 +370,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Styra åtkomsten till klassiskt och Resource Manager-miljöer
-Granska anvisningarna i [flytta ExpressRoute-kretsar från klassiskt till Resource Manager-distributionsmodellen](expressroute-howto-move-arm.md).  
+Granska anvisningarna i [flytta ExpressRoute-kretsar från klassiskt till Resource Manager-distributionsmodellen](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 Notera följande information:

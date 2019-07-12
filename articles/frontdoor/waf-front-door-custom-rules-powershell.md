@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff8330ab8aec7f0e9aa92409ce1eafd5be5ceeaf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241341"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605757"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en web application-brandväggsprincip med Azure PowerShell
 Princip för Azure web application firewall (WAF) definierar inspektioner krävs när en begäran kommer till ytterdörren.
@@ -24,7 +24,7 @@ Den här artikeln visar hur du konfigurerar en WAF-princip som består av vissa 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar ställa in en princip för hastighetsbegränsning ställer in din PowerShell-miljö och skapa en profil för åtkomsten.
 ### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
 Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
@@ -79,7 +79,7 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 I följande exempel skapas en hanterad standard regeluppsättning med Azure PowerShell:
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>Konfigurera en säkerhetsprincip
 

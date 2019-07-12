@@ -4,15 +4,15 @@ description: Så här att lösa problem när du konfigurerar en klient och sessi
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928129"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786711"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -284,6 +284,18 @@ Om operativsystemet Microsoft Windows 10 Fortsätt med instruktionerna nedan:
     ```
 
 16. När cmdletarna som är klar körs, starta om den virtuella datorn med den felaktiga sida-vid-sida-stacken.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Remote Licensing-modellen har inte konfigurerats
+
+Om du loggar in till Windows 10 Enterprise flera session med ett administratörskonto kan du få ett meddelande med texten ”Remote Desktop licensieringsläge är inte konfigurerad, Remote Desktop Services slutar att fungera i X dagar. På servern för Anslutningsutjämning för, Använd Server Manager för att ange licensieringsalternativ för fjärrskrivbord ”. Om du ser det här meddelandet innebär måste du manuellt konfigurera licensieringsläge till **Per användare**.
+
+Manuellt konfigurera licensieringsalternativ:  
+
+1. Gå till din **Start-menyn** sökrutan och sedan hitta och öppna **gpedit.msc** att komma åt lokala Redigeraren för grupprincipobjekt. 
+2. Gå till **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Fjärrskrivbordstjänster** > **värd för fjärrskrivbordssession** > **licensiering**. 
+3. Välj **Ange licensieringsalternativ för fjärrskrivbord** och ändra den till **Per användare**.
+
+Vi letar för närvarande i timeout-problem meddelande och respitperiod och planerar för att möta dem i en kommande uppdatering. 
 
 ## <a name="next-steps"></a>Nästa steg
 

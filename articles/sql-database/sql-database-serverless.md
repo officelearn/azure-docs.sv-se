@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275476"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603613"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL-databas utan server (förhandsversion)
 
@@ -166,7 +166,7 @@ Skapa en ny databas eller flytta en befintlig databas i en beräkning utan Serve
    |Parameter|Alternativ för värde|Standardvärde|
    |---|---|---|---|
    |Min vCores|Något av {0,5, 1, 2, 4} som inte överstiger max virtuella kärnor|0,5 virtuella kärnor|
-   |Autopause fördröjning|Minimum: 360 minuter (6 timmar)<br>Maximalt: 10 080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopause: -1|360 minuter|
+   |Autopause fördröjning|Minimum: 60 minuter (1 timme)<br>Maximalt: 10 080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopause: -1|60 minuter|
 
 > [!NOTE]
 > Med T-SQL för att flytta en befintlig databas till utan server eller ändra dess beräkningsstorleken stöds inte för närvarande men kan göras via Azure portal eller PowerShell.

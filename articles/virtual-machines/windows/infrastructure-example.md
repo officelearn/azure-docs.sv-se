@@ -4,7 +4,7 @@ description: Läs mer om viktiga riktlinjer för utformning och implementering f
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ff98079c6156783442078546a4783a367863057
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60540410"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722586"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exempel-guide för Windows-datorer på Azure-infrastrukturen
 Den här artikeln beskriver att bygga ut en exempel-infrastruktur för programmet. Vi förklarar vi utformar en infrastruktur för en enkel onlinebutik som sammanför alla riktlinjer och beslut om namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer (VM).

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491679"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805965"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -133,7 +133,63 @@ Lös problemet genom att använda följande steg för att kontrollera status fö
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 78144 – ingen appkonsekvent återställningspunkt är tillgänglig för den virtuella datorn under de senaste ”XXX” minuterna
 
+Vissa av de vanligaste problemen visas nedan
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: Kända problem i SQLServer 2008/2008 R2 
+**Hur du löser** : Det finns ett känt problem med SQLServer 2008/2008 R2. Se den här KB-artikeln [Azure Site Recovery Agent eller andra icke-komponenten VSS säkerhetskopiering misslyckas för en server som är värd för SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>Orsak 2: Azure Site Recovery-jobb misslyckas på servrar som är värd för någon version av SQL Server-instanser med AUTO_CLOSE databaser 
+**Hur du löser** : Se Kb [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: Kända problem i SQL Server 2016 och 2017
+**Hur du löser** : Se Kb [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker hittar på grund av VSS-relaterade problem:
+
+Felsök ytterligare genom att kontrollera filerna på källdatorn för att hämta den exakta felkoden för fel:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Så här söker du upp felen i filen?
+Sök efter strängen ”vacpError” genom att öppna filen vacp.log i en textredigerare
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+I exemplet ovan **2147754994** är den felkod som meddelar dig om felet som visas nedan
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren har inte installerats - fel 2147221164 
+
+*Hur du löser*: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). En VSS-providern för dess drift för att ta ögonblicksbilder av app konsekvens installeras. Den här VSS-providern har installerats som en tjänst. Om VSS-Provider-tjänsten inte är installerad, misslyckas programmet konsekvens ögonblicksbild med felet id 0x80040154 ”klassen har inte registrerats”. </br>
+Se [artikeln för felsökning av VSS writer installation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-skrivaren är inaktiverad - fel 2147943458
+
+**Hur du löser**: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). En VSS-providern för dess drift för att ta ögonblicksbilder av app konsekvens installeras. Den här VSS-providern har installerats som en tjänst. Om tjänsten VSS-Provider har inaktiverats kan misslyckas programmet konsekvent ögonblicksbild med fel-id ”den angivna tjänsten är inaktiverad och kan inte vara started(0x80070422)”. </br>
+
+- Om VSS är inaktiverad
+    - Kontrollera att starttypen för tjänsten VSS-Provider har angetts till **automatisk**.
+    - Starta om följande tjänster:
+        - VSS-tjänsten
+        - Azure Site Recovery VSS Provider
+        - VDS-tjänsten
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS-PROVIDERN NOT_REGISTERED - fel 2147754756
+
+**Hur du löser**: Azure Site Recovery använder för att generera konsekvenstagg för programmet Microsoft Volume Shadow copy Service (VSS). Kontrollera om tjänsten Azure Site Recovery VSS Provider är installerat eller inte. </br>
+
+- Gör om Provider-installationen med hjälp av följande kommandon:
+- Avinstallera befintliga providern: C:\Program filer (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Installera om: C:\Program filer (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Kontrollera att starttypen för tjänsten VSS-Provider har angetts till **automatisk**.
+    - Starta om följande tjänster:
+        - VSS-tjänsten
+        - Azure Site Recovery VSS Provider
+        - VDS-tjänsten
 
 ## <a name="next-steps"></a>Nästa steg
 

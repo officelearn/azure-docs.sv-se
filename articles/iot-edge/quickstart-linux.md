@@ -4,17 +4,17 @@ description: I den här snabbstarten får du lära dig att skapa en IoT Edge-enh
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537555"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798646"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet
 
@@ -55,11 +55,11 @@ Molnresurser:
 
 IoT Edge-enhet:
 
-* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Du bör använda den Microsoft tillhandahåller [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtuell dator som förinstallerar allt du behöver för att köra IoT Edge på en enhet. Skapa den här virtuella datorn med hjälp av följande kommandon:
+* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Du bör använda den Microsoft tillhandahåller [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtuell dator som förinstallerar allt du behöver för att köra IoT Edge på en enhet. Godkänn användningsvillkoren och skapa den virtuella datorn med hjälp av följande kommandon:
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
    Det kan ta några minuter att skapa och starta den nya virtuella datorn.

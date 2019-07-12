@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
-    - name: Migrera klassiska principer
-      href: policy-migration.md
-    - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
-      href: howto-conditional-access-session-lifetime.md
+    - name: Villkorlig åtkomst för MFA-registrering
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Kräva godkända klientappar
       href: app-based-conditional-access.md
     - name: Kräva appskyddsprincip
       href: app-protection-based-conditional-access.md
     - name: Kräv hanterade enheter
       href: require-managed-devices.md
-    - name: Kräva betrodda nätverk för MFA-registrering
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Kräva MFA för åtkomstförsök från ej betrodda nätverk
       href: untrusted-networks.md
     - name: Kräva användningsvillkor
       href: terms-of-use.md
+    - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
+      href: howto-conditional-access-session-lifetime.md
+    - name: Migrera klassiska principer
+      href: policy-migration.md
 - name: Referens
   items:
     - name: Teknisk referens

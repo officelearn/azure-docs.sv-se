@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939299"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723230"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen2 för stordatakrav
 
@@ -39,8 +39,8 @@ En *filsystem* är en behållare för mappar och filer. Du behöver minst en av 
 
 |Verktyget | Riktlinjer |
 |---|--|
-|Azure Lagringsutforskaren | [Skapa ett filsystem med Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [Skapa en Blob-behållare eller filresurs med hjälp av AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Azure Lagringsutforskaren | [Skapa ett filsystem med Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [Skapa en Blob-behållare eller filresurs med hjälp av AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |Hadoop-filer System (HDFS) kommandoradsgränssnitt (CLI) med HDInsight |[Skapa ett filsystem med hjälp av HDFS med HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Koden i en Azure Databricks-anteckningsbok|[Skapa ett filsystem för storage-konto (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Skapa ett filsystem och montera den (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
@@ -54,11 +54,11 @@ Det finns tre sätt att bevilja åtkomst:
 
 * Tilldela någon av dessa roller till en användare, grupp, användarhanterade identitet eller tjänstens huvudnamn:
 
-  [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [Storage Blob Data-läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
-  [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * Använda en signatur för delad åtkomst (SAS)-token.
 
@@ -170,7 +170,7 @@ Här är en lista över verktyg som du kan använda för att köra data analysis
 |Verktyget | Riktlinjer |
 |---|--|
 |Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med hjälp av Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med hjälp av Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualisera datan
 
@@ -196,4 +196,4 @@ Här är en lista över verktyg som du kan använda för att hämta data från D
 |Verktyget | Riktlinjer |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCop | [Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

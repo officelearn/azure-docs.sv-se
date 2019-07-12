@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436615"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709544"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -38,7 +38,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 |Protocol     | TCP, UDP eller någon, inklusive (men inte begränsat till) TCP, UDP och ICMP. Du kan inte ange ICMP separat. Använd därför Any (Alla) om du behöver använda ICMP. |
 |Direction| Om regeln gäller för inkommande eller utgående trafik.|
 |Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
-|Åtgärd     | Tillåt eller neka        |
+|Action     | Tillåt eller neka        |
 
 Säkerhetsregler för nätverkssäkerhetsgrupper utvärderas baserat på prioritet med hjälp av 5-tuppelinformationen (källa, källport, mål, målport och protokoll) för att tillåta eller neka trafik. En flödespost skapas för befintliga anslutningar. Kommunikation tillåts eller nekas baserat på flödespostens anslutningsstatus. Flödesposten gör att en nätverkssäkerhetsgrupp kan vara tillståndskänslig. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten.
 Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel som aktiverade flödet. Trafikflöden avbryts när anslutningar har stoppats och ingen trafik passerar i endera riktning under minst ett par minuter.
@@ -82,6 +82,11 @@ Följande tjänsttaggar är tillgängliga för användning i [nätverk regler f�
 * **AzureBackup*** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureBackup. Om du anger *AzureBackup* för, trafik tillåts eller nekas till AzureBackup. Den här taggen har beroende på den **Storage** och **AzureActiveDirectory** tagg. Den här taggen rekommenderas för utgående säkerhetsregel. 
 * **AzureActiveDirectoryDomainServices*** (endast Resource Manager): Den här taggen anger adressprefix för hanteringstrafiken för Azure Active Directory Domain Services dedikerade distributioner. Om du anger *AzureActiveDirectoryDomainServices* för, trafik tillåts eller nekas till AzureActiveDirectoryDomainServices. Den här taggen rekommenderas för inkommande/utgående säkerhetsregel.  
 * **SqlManagement*** (endast Resource Manager): Den här taggen anger adressprefix för hanteringstrafik för SQL dedikerade distributioner. Om du anger *SqlManagement* för, trafik tillåts eller nekas till SqlManagement. Den här taggen rekommenderas för inkommande/utgående säkerhetsregel. 
+* **CognitiveServicesManagement** (endast Resource Manager): Den här taggen anger adressprefix för trafik för Cognitive Services. Om du anger *CognitiveServicesManagement* för, trafik tillåts eller nekas till CognitiveServicesManagement. Den här taggen rekommenderas för utgående säkerhetsregel.  
+* **Dynamics365ForMarketingEmail** (endast Resource Manager): Den här taggen anger adressprefix för marknadsföring e-posttjänsten för Dynamics 365. Om du anger *Dynamics365ForMarketingEmail* för, trafik tillåts eller nekas till Dynamics365ForMarketingEmail. Om du bara vill tillåta åtkomst till Dynamics365ForMarketingEmail i en viss [region](https://azure.microsoft.com/regions), anger du regionen i formatet Dynamics365ForMarketingEmail. [ Regionsnamn].
+* **AzurePlatformDNS** (endast Resource Manager): Den här taggen anger DNS som är en grundläggande infrastruktur-tjänst. Om du anger *AzurePlatformDNS* för, kan du inaktivera standard [Azure-plattformen övervägande](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för DNS. Ta Tänk dig för innan du använder den här taggen. Testning rekommenderas innan du använder den här taggen. 
+* **AzurePlatformIMDS** (endast Resource Manager): Den här taggen anger IMDS som är en grundläggande infrastruktur-tjänst. Om du anger *AzurePlatformIMDS* för, kan du inaktivera standard [Azure-plattformen övervägande](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för IMDS. Ta Tänk dig för innan du använder den här taggen. Testning rekommenderas innan du använder den här taggen. 
+* **AzurePlatformLKM** (endast Resource Manager): Den här taggen anger Windows licensiera och hantering av nycklar. Om du anger *AzurePlatformLKM* för, kan du inaktivera standard [Azure-plattformen övervägande](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) för licensiering. Ta Tänk dig för innan du använder den här taggen. Testning rekommenderas innan du använder den här taggen. 
 
 > [!NOTE]
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
@@ -105,19 +110,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioritet|source|Källportar|Mål|Målportar|Protocol|Access|
+|Prioritet|Source|Källportar|Mål|Målportar|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
 
@@ -125,19 +130,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
@@ -157,15 +162,15 @@ I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *
 
 Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln [DenyAllInbound](#denyallinbound), krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Tillåt |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
 Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alla | Neka |
 
@@ -173,9 +178,9 @@ Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåte
 
 Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
 
-|Prioritet|source|Källportar| Mål | Målportar | Protocol | Access |
+|Prioritet|Source|Källportar| Mål | Målportar | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Tillåt |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 Reglerna som definierar en programsäkerhetsgrupp som källan eller målet tillämpas bara på nätverksgränssnitt som är medlemmar i programsäkerhetsgruppen. Om nätverksgränssnittet inte är medlem i en programsäkerhetsgrupp tillämpas inte regeln på nätverksgränssnittet, även om nätverkssäkerhetsgruppen är associerad med undernätet.
 

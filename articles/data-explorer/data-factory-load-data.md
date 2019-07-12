@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447976"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657522"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till Datautforskaren i Azure med Azure Data Factory 
 
@@ -28,7 +28,7 @@ Azure Data Factory erbjuder följande fördelar vid inläsning av data i Datautf
 
 Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory för att läsa in data från Amazon S3 i Datautforskaren i Azure. Du kan följa liknande steg för att kopiera data från andra datalager som [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage), [Azure SQL Database](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), och [filsystem](/azure/data-factory/connector-file-system).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och databas](create-cluster-database-portal.md)
@@ -50,7 +50,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
     | **Prenumeration** | Välj din Azure-prenumeration där du vill skapa data factory. |
     | **Resursgrupp** | Välj **Skapa nytt** och ange namnet på en ny resursgrupp. Välj **Använd befintlig**, om du har en befintlig resursgrupp. |
     | **Version** | Välj **V2** |
-    | **Plats** | Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas i andra platser eller regioner. |
+    | **Location** | Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas i andra platser eller regioner. |
     | | |
 
 1. Välj meddelanden i verktygsfältet för att övervaka skapandeprocessen. När datafabriken har skapats går du till datafabriken som du skapade. Den **Data Factory** startsidan öppnas.
@@ -141,7 +141,7 @@ Azure Data Explorer ny länkad tjänst har skapats för att kopiera data i målt
     * Välj **Slutför** för att skapa den länkade tjänsten.
 
     > [!NOTE]
-    > Tjänstens huvudnamn används av Azure Data Factory för att få åtkomst till Datautforskaren i Azure-tjänsten. För tjänstens huvudnamn [och skapa en Azure Active Directory (Azure AD) tjänstens huvudnamn](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Använd inte den **Azure Key Vault** metod.
+    > Tjänstens huvudnamn används av Azure Data Factory för att få åtkomst till Datautforskaren i Azure-tjänsten. För tjänstens huvudnamn [och skapa en Azure Active Directory (Azure AD) tjänstens huvudnamn](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Använd inte den **Azure Key Vault** metod.
 
 1. Den **måldatalager** öppnas. Datautforskaren i Azure-dataanslutning som du skapade är tillgängliga för användning. Välj **nästa** att konfigurera anslutningen.
 

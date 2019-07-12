@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824192"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839069"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för lokal MongoDB till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en MongoDB-datalager till datalager, men inte för att flytta data från andra datalager till en MongoDB-databasen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För Azure Data Factory-tjänsten ska kunna ansluta till din lokala MongoDB-databas, måste du installera följande komponenter:
 
 - MongoDB-versioner som stöds är: 2.4, 2.6, 3.0, 3.2, 3.4 och 3.6.
@@ -49,7 +49,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett d
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -93,14 +93,14 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 När källan är av typen **MongoDbSource** följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
 
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON-exempel: Kopiera data från MongoDB till Azure Blob
-Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal MongoDB till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal MongoDB till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 Exemplet har följande data factory-entiteter:
 
@@ -295,14 +295,14 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 
 | MongoDB-typ | .NET framework-typ |
 | --- | --- |
-| Binär |Byte[] |
-| Boolean |Boolean |
+| Binary |Byte[] |
+| Boolesk |Boolesk |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectId |String |
-| Sträng |String |
+| ObjectID |Sträng |
+| String |Sträng |
 | UUID |Guid |
 | Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 
@@ -344,7 +344,7 @@ Följande tabeller visar virtuella tabeller som representerar de ursprungliga ma
 
 Tabell ”ExampleTable_Invoices”:
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | Objekt | price | Rabatt |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Rabatt |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |vara |1235 |0.2 |

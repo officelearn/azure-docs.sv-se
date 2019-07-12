@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: 6e1acf5f605d7f6fb42d24e6e7ec624a317b0e31
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872815"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612866"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -43,8 +44,8 @@ Det huvudsakliga användningsfallet för Durable Functions är att förenkla kom
 
 Durable Functions stöder för närvarande följande språk:
 
-* **C#**: både [förkompilerade klassbibliotek](../functions-dotnet-class-library.md) och [C#-skript](../functions-reference-csharp.md).
-* **F#**: både förkompilerade klassbibliotek och F#-skript. F#-skriptet stöds endast för version 1.x av Azure Functions-körningen.
+* **C#** : både [förkompilerade klassbibliotek](../functions-dotnet-class-library.md) och [C#-skript](../functions-reference-csharp.md).
+* **F#** : både förkompilerade klassbibliotek och F#-skript. F#-skriptet stöds endast för version 1.x av Azure Functions-körningen.
 * **JavaScript**: stöds endast för version 2.x av Azure Functions-körningen. Kräver version 1.7.0 av Durable Functions-tillägget eller en senare version. 
 
 Durable Functions har som mål att stödja alla [Azure Functions-språk](../supported-languages.md). I [Durable Functions-problemlistan](https://github.com/Azure/azure-functions-durable-extension/issues) finns senaste status för arbetet med att stödja ytterligare språk.
@@ -64,7 +65,7 @@ Du kan komma igång med Durable Functions på mindre än 10 minuter genom att sl
 
 I båda snabbstarterna skapar du och testar en beständig ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 Följande video visar fördelarna med Durable Functions:
 

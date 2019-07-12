@@ -4,7 +4,7 @@ description: Så här att distribuera om Windows-datorer i Azure för att minime
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b71ca93ac3e3e6c77c5f87b4859a2e3e0e1040d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48b10b6fd854cc6da1f2ea2d48852d162e995946
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104091"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710260"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera om Windows virtuell dator till nya Azure-nod
 Om du har med svårigheter kan felsökning av RDP (Remote Desktop)-anslutning eller program åtkomst till Windows-baserade Azure-dator (VM), distribuerar om den virtuella datorn hjälpa. När du distribuerar om en virtuell dator Azure stängs den virtuella datorn, flytta den virtuella datorn till en ny nod i Azure-infrastrukturen och starta den sedan tillbaka på, behålla alla konfigurationsalternativ och associerade resurser. Den här artikeln visar hur du distribuera om en virtuell dator med Azure PowerShell eller Azure-portalen.

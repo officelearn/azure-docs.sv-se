@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 672706c97a423819dd26941e0b6e22affa9c2bb8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: e38f8a923daa210d8aa5b56631e5f8157d4b3f70
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329843"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620871"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garanterar tillförlitlighet för Stream Analytics-jobb under uppdateringar av tjänsten
 
@@ -35,5 +35,5 @@ Det rekommenderas att distribuera identiska jobb till båda länkade regioner. D
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)
 * [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Frågespråksreferens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mahender, yevbronsh
+ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137005"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827864"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -276,6 +276,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som den exponerar i den [Microsoft.Azure.Services.AppAuthentication referens] och [App Service och KeyVault med MSI-.NET exemplet](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
+
+### <a name="using-the-azure-sdk-for-java"></a>Med Azure SDK för Java
+
+För Java-program och funktioner, är det enklaste sättet att arbeta med en hanterad identitet via den [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java). Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+
+1. Lägg till en referens till den [Azure SDK-biblioteket](https://mvnrepository.com/artifact/com.microsoft.azure/azure). För Maven-projekt kan du lägga till det här kodfragmentet i den `dependencies` i projektets POM-filen:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. Använd den `AppServiceMSICredentials` objekt för autentisering. Det här exemplet visar hur den här mekanismen kan användas för att arbeta med Azure Key Vault:
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### <a name="using-the-rest-protocol"></a>Med hjälp av REST-protokoll
 
 En app med en hanterad identitet har två miljövariabler som definieras:
@@ -287,10 +315,10 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att f�
 
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
-> |resource|Fråga|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
-> |API-versionen|Fråga|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
+> |resource|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
+> |API-versionen|Söka i data|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
 > |secret|Huvud|Värdet för miljövariabeln MSI_SECRET. Den här rubriken används för att minska serversidan begäran attacker med förfalskning (SSRF).|
-> |clientid|Fråga|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|
+> |clientid|Söka i data|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|
 
 En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
 

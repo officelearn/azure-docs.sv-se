@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop;kumud
-ms.openlocfilehash: e5481b0e262021e28a398b72b5ad022673947609
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357122abba483a96dd9f2d602a793ee06e80b245
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409511"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785540"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtual network-integration för Azure-tjänster
 
@@ -43,11 +43,11 @@ Distribuera tjänster inom ett virtuellt nätverk innehåller följande funktion
 - Instanser av tjänsten har distribuerats till ett undernät i ett virtuellt nätverk. Inkommande och utgående nätverksåtkomst för undernätet måste öppnas via [nätverkssäkerhetsgrupper](security-overview.md#network-security-groups), enligt vägledning som tillhandahålls av tjänsten.
 - Vissa tjänster också begränsa det undernät som de har distribuerats, begränsa tillämpningen av principer, vägar eller kombinera virtuella datorer och service-resurser inom samma undernät. Kontrollera med varje tjänst på de specifika begränsningarna som de kan ändras över tid. Exempel på sådana tjänster är Azure NetApp filer, dedikerad HSM, Azure Container Instances, App Service. 
 - Du kan också tjänster kan kräva en [delegerad undernät](virtual-network-manage-subnet.md#add-a-subnet) explicit identifierare att ett undernät kan vara värd för en viss tjänst. Genom att delegera kan få tjänster explicit behörighet att skapa tjänstspecifika resurser i delegerade undernät.
-- Se ett exempel på ett REST API-svar på en [virtuellt nätverk med en delegerad undernät](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get_virtual_network_with_a_delegated_subnet). En omfattande lista över tjänster som använder den delegerade undernät-modellen kan hämtas den [tillgängliga delegeringar](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
+- Se ett exempel på ett REST API-svar på en [virtuellt nätverk med en delegerad undernät](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). En omfattande lista över tjänster som använder den delegerade undernät-modellen kan hämtas den [tillgängliga delegeringar](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Tjänster som kan distribueras till ett virtuellt nätverk
 
-|Category|Tjänst| Dedicated¹ undernät
+|Category|Tjänsten| Dedicated¹ undernät
 |-|-|-|
 | Compute | Virtuella datorer: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](https://msdn.microsoft.com/library/azure/jj156091): Endast virtuella nätverk (klassisk)<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Nej <br/> Nej <br/> Nej <br/> No²
 | Nätverk | [Programgateway - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure-brandväggen](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Virtuella nätverksinstallationer](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Ja <br/> Ja <br/> Ja <br/> Nej

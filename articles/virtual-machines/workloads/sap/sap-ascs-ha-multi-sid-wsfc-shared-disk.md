@@ -4,7 +4,7 @@ description: Multi-SID hög tillgänglighet för en SAP ASCS/SCS-instans med Win
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e75ac256cf71441e00a004bb2331277aa07b43
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143274"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710024"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -227,7 +227,7 @@ Mer information om belastningsutjämnare begränsningar finns i avsnittet ”pri
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresurs**, vilket visas i det här diagrammet.
 
@@ -255,7 +255,7 @@ Fullständig liggande med två SAP-system med hög tillgänglighet skulle se ut 
 
 För att förbereda din infrastruktur, kan du installera en ytterligare SAP ASCS/SCS-instans med följande parametrar:
 
-| Parameternamn | Värde |
+| Parameternamn | Value |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | SAP DBMS intern belastningsutjämnare | PR5 |

@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075343"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807899"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använda underhållsscheman för att hantera uppdateringar av tjänsten och underhåll
 
@@ -34,6 +34,9 @@ Om du vill använda den här funktionen behöver du identifiera ett primära och
 Integrering med Tjänstehälsa för meddelanden och en resurs Kontrollera hälsoövervakning kan kunderna håller dig informerad om kommande Underhåll aktivitet. Nya automation drar nytta av Azure Monitor. Du kan bestämma hur du vill meddelas om nära förestående underhållshändelser. Också bestämma vilka automatiserade flöden kan hjälpa dig att hantera avbrott och minimera påverkan på din verksamhet.
 
 En 24-timmarsformat förhandsinformation föregår alla underhållshändelser, med det aktuella undantaget DW400c och lägre nivåer. Se till att ditt informationslager har inga långvariga transaktioner innan din valda underhållsperiod för att minimera driftstopp för instansen. När Underhåll startar, avbryts alla aktiva sessioner. Icke-incheckade transaktioner återställs och ditt informationslager får en kort förlust av anslutning. Du kommer att meddelas omedelbart när underhållet har slutförts på ditt informationslager.
+
+> [!NOTE]
+> I den händelse att vi krävs för att distribuera en viktig uppdatering tid, minskas avancerade meddelandetider avsevärt.
 
 Om du har fått en avisering i förväg att Underhåll sker, men SQL Data Warehouse kan inte utföra underhåll under den tiden får du ett meddelande om annullering. Underhåll fortsätter sedan under nästa schemalagda underhållsperiod.
 

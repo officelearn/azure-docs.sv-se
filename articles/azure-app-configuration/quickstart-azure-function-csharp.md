@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864778"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798432"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
 
@@ -29,7 +29,7 @@ Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbsta
 
 ![Snabbstart för fullständig lokal](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad. Även installera den [senaste Azure Functions-verktygen](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
@@ -39,7 +39,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+6. Välj **Configuration Explorer** >  **+ skapa** att lägga till följande nyckel / värde-par:
 
     | Nyckel | Värde |
     |---|---|
@@ -56,7 +56,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 1. Högerklicka på projektet och välj **hantera NuGet-paket**. På den **Bläddra** fliken, söka och Lägg till följande NuGet-paketen i projektet. Om du inte kan hitta dem, väljer du den **inkludera förhandsversion** markerar du kryssrutan.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
 2. Öppna *Function1.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern.
@@ -103,7 +103,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)**-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-begäranden.
+2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)** -verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-begäranden.
 
 3. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
 

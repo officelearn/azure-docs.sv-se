@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: zchia
-ms.openlocfilehash: 0cfd760eb9d631bf6ab098afef0ef9b66c92cfa6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e2e7c27d8cfa79bc7a8f8462def4d46e598cb508
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67168160"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595099"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudier: Konfigurera 4me för automatisk användaretablering
 
@@ -31,7 +31,7 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 >
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

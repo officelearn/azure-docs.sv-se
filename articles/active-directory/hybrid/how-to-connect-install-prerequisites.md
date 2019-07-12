@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310083"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655823"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -49,7 +49,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
 >[!IMPORTANT]
->Azure AD Connect-servern innehåller viktiga identitetsdata och bör behandlas som en nivå 0-komponent som beskrivs i [Active Directory administrativa nivåmodellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+>Azure AD Connect-servern innehåller viktiga identitetsdata och bör behandlas som en nivå 0-komponent som beskrivs i [Active Directory administrativa nivåmodellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials innan 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard- eller bättre.
 * Installera Azure AD Connect på en domänkontrollant rekommenderas inte på grund av säkerhetsrutiner och mer restriktiva inställningar som kan förhindra att Azure AD Connect installeras på rätt sätt.

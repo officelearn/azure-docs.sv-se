@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 798f087c260b6b0a1efc366b864fe2bb7bce732e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203934"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603692"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC-Twin-modulen och beroenden från grunden
 
@@ -72,7 +72,7 @@ Alla moduler som distribueras med hjälp av ett manifest för distribution.  Ett
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
-                "createOptions": "{\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"CapAdd\":[\"NET_ADMIN\"]}}"
+                "createOptions": "{\"NetworkingConfig\": {\"EndpointsConfig\": {\"host\": {}}}, \"HostConfig\": {\"NetworkMode\": \"host\" }}"
               }
             },
             "opcpublisher": {
@@ -109,7 +109,7 @@ Alla moduler som distribueras med hjälp av ett manifest för distribution.  Ett
 
 Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenhet är via Azure portal.  
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Distribuera OPC-Twin [beroenden](howto-opc-twin-deploy-dependencies.md) och fick det resulterande `.env` fil. Observera den distribuerade `hub name` av den `PCS_IOTHUBREACT_HUB_NAME` variabel i den resulterande `.env` fil.
 
@@ -136,7 +136,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenh
    Som *alternativ för att skapa* använda följande JSON:
 
    ```json
-   {"HostConfig":{"NetworkMode":"host","CapAdd":["NET_ADMIN"]}}
+   {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
    Fyll i valfritt fält om det behövs. För mer information om behållare alternativ, omstartsprincip, för att skapa och önskad status finns i [EdgeAgent önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Läs mer om modultvillingen [definiera eller uppdatera önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
@@ -176,7 +176,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenh
 
 ## <a name="deploying-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Installera den senaste versionen av den [Azure kommandoradsgränssnitt (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) från [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

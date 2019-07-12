@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002825"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798326"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
@@ -46,12 +46,14 @@ I följande tabell ger en snabb överblick över omfånget för hållbarhet och 
 | Tillgänglighet för läsbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,99% (99,9% för kalla åtkomstnivåer) |
 | Tillgänglighet för skrivbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) |
 
+Alla data i ditt storage-konto replikeras, inklusive blockblobbar och tilläggsblobbar, sidblobar, köer, tabeller och filer. Alla typer av storage-konton replikeras, även om ZRS kräver ett gpv2-lagringskonto.
+
 Information om priser för varje alternativ för dataredundans, finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
 
 Information om Azure Storage-garantier för hållbarhet och tillgänglighet, finns i den [serviceavtal för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium Storage stöder endast lokalt redundant lagring (LRS).
+> Azure Premium Storage stöder endast lokalt redundant lagring (LRS).
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsstrategi
 Du kan ändra replikeringsstrategi i ditt storage-konto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), eller någon av de [Azure-klient bibliotek](https://docs.microsoft.com/azure/index#pivot=sdkstools). Ändra typen för replikering av ditt lagringskonto resulterar inte i driftstopp.

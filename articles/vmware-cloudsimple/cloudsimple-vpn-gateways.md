@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332040"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695222"
 ---
 # <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
@@ -44,8 +44,6 @@ Användningsområden för plats-till-plats-VPN är:
 
 ### <a name="cryptographic-parameters"></a>Kryptografiska parametrarna
 
-En plats-till-plats VPN-anslutning använder följande kryptografiska standardparametrar för att upprätta en säker anslutning.  När du skapar en anslutning från den lokala VPN-enheten måste matcha parametrarna.
-
 En plats-till-plats VPN-anslutning använder följande kryptografiska standardparametrar för att upprätta en säker anslutning.  När du skapar en anslutning från den lokala VPN-enhet kan du använda någon av följande parametrar som stöds av din lokala VPN-gateway.
 
 #### <a name="phase-1-proposals"></a>Fas 1 förslag
@@ -66,7 +64,7 @@ En plats-till-plats VPN-anslutning använder följande kryptografiska standardpa
 |-----------|------------|------------|------------|
 | Kryptering | AES 128 | AES 256 | AES 256 |
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
-| Perfekt vanlig PFS-grupp (PFS-grupp) | Ingen | Ingen | Ingen |
+| Perfekt vanlig PFS-grupp (PFS-grupp) | Inga | Ingen | Ingen |
 | Livslängd | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |
 | Datastorlek | 4 GB | 4 GB | 4 GB |
 

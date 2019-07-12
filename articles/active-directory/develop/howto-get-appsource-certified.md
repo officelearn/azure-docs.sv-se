@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540270"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807240"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
 
@@ -56,19 +56,19 @@ Enda klient program kan du aktivera den *kontakta mig* upplevelse, men om du vil
 
 ## <a name="appsource-trial-experiences"></a>AppSource utvärderingsversion upplevelser
 
-### <a name="free-trial-customer-led-trial-experience"></a>Kostnadsfri utvärderingsversion (kund-ledda utvärderingsversionen) 
+### <a name="free-trial-customer-led-trial-experience"></a>Kostnadsfri utvärderingsversion (kund-ledda utvärderingsversionen)
 
-Utvärderingsversionen av ledda av kunden är den upplevelse som AppSource rekommenderar som den erbjuder ett enda musklick åtkomst till programmet. Under en illustration av hur den här upplevelsen ser ut:<br/><br/>
+Utvärderingsversionen av ledda av kunden är den upplevelse som AppSource rekommenderar som den erbjuder ett enda musklick åtkomst till programmet. I följande exempel visas hur den här upplevelsen ser ut:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Användare hittar ditt program i AppSource Web Site</li><li>Väljer alternativet ”kostnadsfri utvärdering”</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource omdirigerar användaren till en URL i din webbplats</li><li>Din webbplats startar den <i>single-sign-on</i> automatiskt (på sidhämtning)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Användaren omdirigeras till Microsoft på inloggningssidan</li><li>Användaren anger autentiseringsuppgifter och logga in</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Användare hittar ditt program i AppSource Web Site</li><li>Väljer alternativet ”kostnadsfri utvärdering”</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource omdirigerar användaren till en URL i din webbplats</li><li>Din webbplats startar den <i>single-sign-on</i> automatiskt (på sidhämtning)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Användaren omdirigeras till Microsoft på inloggningssidan</li><li>Användaren anger autentiseringsuppgifter och logga in</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Användaren lämnar samtycke för programmet</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Inloggningen är klar och användaren omdirigeras tillbaka till din webbplats</li><li>Användaren börjar den kostnadsfria utvärderingsversionen</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Användaren lämnar samtycke för programmet</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Inloggningen är klar och användaren omdirigeras tillbaka till din webbplats</li><li>Användaren börjar den kostnadsfria utvärderingsversionen</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ Du kan använda utvärderingsversionen för partner när en manuell eller en lå
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Användare kan hitta ditt program AppSource-webbplats</li><li>Kontakta mig alternativet automatiskt</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Fyller i ett formulär med kontaktinformation</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Användare kan hitta ditt program AppSource-webbplats</li><li>Kontakta mig alternativet automatiskt</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Fyller i ett formulär med kontaktinformation</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>Du får information om användare</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>Konfigurationsmiljö</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>Kontakta användaren med utvärderingsversion information</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ Du kan använda utvärderingsversionen för partner när en manuell eller en lå
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Användaren har åtkomst till ditt program och slutföra processen single-sign-on</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Användaren lämnar samtycke för programmet</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Inloggningen är klar och användaren omdirigeras tillbaka till din webbplats</li><li>Användaren börjar den kostnadsfria utvärderingsversionen</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Användaren har åtkomst till ditt program och slutföra processen single-sign-on</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Användaren lämnar samtycke för programmet</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Inloggningen är klar och användaren omdirigeras tillbaka till din webbplats</li><li>Användaren börjar den kostnadsfria utvärderingsversionen</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ Du kan använda utvärderingsversionen för partner när en manuell eller en lå
 ### <a name="more-information"></a>Mer information
 
 Läs mer om AppSource utvärderingen [videon](https://aka.ms/trialexperienceforwebapps). 
- 
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om hur du skapar program som stöder Azure AD-inloggningar finns i [autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Information om hur du lista dina SaaS-program i AppSource, gå finns i [AppSource partnerinformation](https://appsource.microsoft.com/partners)
 
-
 ## <a name="get-support"></a>Få support
 
-Azure AD-integrering, använder vi [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för. 
+Azure AD-integrering, använder vi [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för.
 
 Vi rekommenderar starkt att du först ställa dina frågor i Stack Overflow och bläddra bland befintliga problem om du vill se om någon har bett din fråga innan. Se till att dina frågor eller kommentarer är märkta med [ `[azure-active-directory]` och `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
@@ -131,6 +130,5 @@ Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss a
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

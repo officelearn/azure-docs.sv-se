@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330005"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620964"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
@@ -150,5 +150,5 @@ Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)
 * [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Frågespråksreferens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Datafel för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)

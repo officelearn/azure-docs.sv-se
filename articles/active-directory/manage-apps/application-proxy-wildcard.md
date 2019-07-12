@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481272"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827994"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken-program i Azure Active Directory-programproxyn
 
@@ -45,7 +45,9 @@ Du kan publicera program med jokertecken om både interna och externa URL: er fi
 
 > http (s) :/ / *. \<domän\>
 
-Till exempel: `http(s)://*.adventure-works.com`. De interna och externa URL: er kan använda olika domäner som bästa praxis, måste de vara densamma. När du publicerar programmet, ser du ett fel om en av URL: erna inte har ett jokertecken.
+Till exempel: `http(s)://*.adventure-works.com`.
+
+De interna och externa URL: er kan använda olika domäner som bästa praxis, måste de vara densamma. När du publicerar programmet, ser du ett fel om en av URL: erna inte har ett jokertecken.
 
 Om du har ytterligare program med olika konfigurationsinställningar, måste du publicera de här undantagen som separata program att skriva över standardinställningar för jokertecknet. Program utan jokertecken alltid företräde framför jokertecken-program. Det här är ”” vanliga program ur konfiguration.
 
@@ -60,7 +62,7 @@ Kom igång genom att kontrollera att du har uppfyllt dessa krav.
 Medan [anpassade domäner](application-proxy-configure-custom-domain.md) är valfritt för alla andra program, de är en förutsättning för jokertecken-program. Skapa anpassade domäner måste du:
 
 1. Skapa en verifierad domän i Azure.
-2. Överför ett SSL-certifikat i PFX-format till din programproxy.
+1. Överför ett SSL-certifikat i PFX-format till din programproxy.
 
 Du bör överväga att använda ett jokerteckencertifikat så att de matchar de program som du planerar att skapa. Alternativt kan du också använda ett certifikat som endast visar en lista över specifika program. I det här fallet kommer endast de program som anges i certifikatet att nås via det här jokertecken-program.
 
@@ -82,11 +84,11 @@ Följande är några saker du bör tänka på för jokertecken-program.
 
 För jokertecken-program, den **interna URL: en** måste formateras som `http(s)://*.<domain>`.
 
-![För interna URL: en använder formatet http (s) :/ / *. < domän >](./media/application-proxy-wildcard/22.png)
+![För interna URL: en använder formatet http (s) :/ / *. \<domän >](./media/application-proxy-wildcard/22.png)
 
 När du konfigurerar en **externa URL: en**, måste du använda följande format: `https://*.<custom domain>`
 
-![För externa URL: en, Använd formatet https://*.<custom >](./media/application-proxy-wildcard/21.png)
+![Använd formatet https://* för extern URL. \<anpassad domän >](./media/application-proxy-wildcard/21.png)
 
 Andra ställen jokertecknet, flera jokertecken eller andra regex-strängar stöds inte och orsakar fel.
 
@@ -95,11 +97,11 @@ Andra ställen jokertecknet, flera jokertecken eller andra regex-strängar stöd
 Du kan utesluta ett program från jokertecken-program genom att
 
 - Publicera programmet undantag som vanliga program
-- Aktivera jokertecken endast för specifika program via din DNS-inställningar  
+- Aktivera jokertecken endast för specifika program via din DNS-inställningar
 
 Publicera ett program som vanliga program är den bästa metoden för att utesluta ett program från ett jokertecken. Du bör publicera undantagna program innan du jokertecken-program för att säkerställa att din undantag gäller från början. Det mest specifika programmet har alltid högre prioritet – ett program som publiceras som `budgets.finance.adventure-works.com` har företräde framför programmet `*.finance.adventure-works.com`, vilket i sin tur har företräde framför programmet `*.adventure-works.com`.
 
-Du kan också begränsa jokertecken till fungerar endast för specifika program via din DNS-hantering. Som bästa praxis bör du skapa en CNAME-post som innehåller ett jokertecken och matchar formatet för den externa URL: en som du har konfigurerat. Men kan du i stället peka specifika URL: er för jokertecken. Till exempel i stället för `*.adventure-works.com`, peka `hr.adventure-works.com`, `expenses.adventure-works.com` och `travel.adventure-works.com individually` till `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+Du kan också begränsa jokertecken till fungerar endast för specifika program via din DNS-hantering. Som bästa praxis bör du skapa en CNAME-post som innehåller ett jokertecken och matchar formatet för den externa URL: en som du har konfigurerat. Men kan du i stället peka specifika URL: er för jokertecken. Till exempel i stället för `*.adventure-works.com`, peka `hr.adventure-works.com`, `expenses.adventure-works.com` och `travel.adventure-works.com individually` till `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Om du använder det här alternativet kan du även behöver en annan CNAME-posten för värdet `AppId.domain`, till exempel `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, också peka på samma plats. Du hittar den **AppId** på egenskapssidan för programmet för jokertecken-program:
 
@@ -110,7 +112,7 @@ Om du använder det här alternativet kan du även behöver en annan CNAME-poste
 Jokertecken-program representeras med bara en panel i den [MyApps panelen](https://myapps.microsoft.com). Den här panelen är dold som standard. Visa panelen och har användarna mark på en viss sida:
 
 1. Följ riktlinjerna för [ställa in en URL för startsidan](application-proxy-configure-custom-home-page.md).
-2. Ange **visa programmet** till **SANT** på egenskapssidan för programmet.
+1. Ange **visa programmet** till **SANT** på egenskapssidan för programmet.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-begränsad delegering
 

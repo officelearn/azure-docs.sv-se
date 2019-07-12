@@ -2,17 +2,17 @@
 title: Operatorn metodtips – isolering av kluster i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen för isolering i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465314"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614918"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metodtips för isolering av kluster i Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Den här bästa praxis-artikeln handlar om isolering för klusteroperatörer. I 
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Design-kluster för flera innehavare
 
-Kubernetes tillhandahåller funktioner som gör att du logiskt isolera team och arbetsbelastningar i samma kluster. Målet ska vara att ange minst antal privilegier, begränsad till de resurser som varje team behöver. En [Namespace] [ k8s-namespaces] i Kubernetes skapar du en logisk isoleringsgräns. Ytterligare kubernetes funktioner och överväganden för isolering och flera innehavare innehåller följande områden:
+Kubernetes tillhandahåller funktioner som gör att du logiskt isolera team och arbetsbelastningar i samma kluster. Målet ska vara att ange minst antal privilegier, begränsad till de resurser som varje team behöver. En [Namespace][k8s-namespaces] i Kubernetes skapar du en logisk isoleringsgräns. Ytterligare kubernetes funktioner och överväganden för isolering och flera innehavare innehåller följande områden:
 
 * **Schemaläggning** användning av grundläggande funktioner som resurskvoter och pod avbrott budgetar. Mer information om dessa funktioner finns i [bästa praxis för grundläggande scheduler funktioner i AKS][aks-best-practices-scheduler].
   * Mer avancerade funktioner för scheduler är taints och tolerations, noden väljare, och noden och pod tillhörighet eller anti-tillhörighet. Mer information om dessa funktioner finns i [bästa praxis för avancerade scheduler funktioner i AKS][aks-best-practices-advanced-scheduler].
@@ -38,7 +38,7 @@ Kubernetes tillhandahåller funktioner som gör att du logiskt isolera team och 
 
 **Bästa praxis riktlinjer** -använder logisk isolering för att avgränsa team och projekt. Försök att minska antalet fysiska AKS-kluster som du distribuerar till isolera team eller program.
 
-Ett AKS-kluster kan användas för flera arbetsbelastningar, team eller miljöer med logisk isolering. Kubernetes [namnområden] [ k8s-namespaces] utgör en gräns för logisk isolering för arbetsbelastningar och resurser.
+Ett AKS-kluster kan användas för flera arbetsbelastningar, team eller miljöer med logisk isolering. Kubernetes [namnområden][k8s-namespaces] utgör en gräns för logisk isolering för arbetsbelastningar och resurser.
 
 ![Logisk isolering för ett Kubernetes-kluster i AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 

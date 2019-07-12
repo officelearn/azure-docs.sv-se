@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163727"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722548"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -73,6 +73,8 @@ Alla indexeringsprincip måste inkludera rotsökvägen `/*` som en inkluderad el
 - Undanta rotsökvägen för att selektivt ta med sökvägar som måste indexeras.
 
 - För sökvägar med vanliga tecken som består av: alfanumeriska tecken och _ (understreck) kan du inte undvika sökvägssträngen runt dubbla citattecken (till exempel ”/ sökväg /”?). För sökvägar med andra specialtecken, måste de föregås sökvägssträngen runt dubbla citattecken (till exempel ”/\"sökväg abc\"/”?). Om du förväntar dig specialtecken i din sökväg escape du varje sökväg för säkerhet. Funktionellt gör det inte skillnader om du escape-varje sökväg jämfört med bara de som innehåller ogiltiga tecken.
+
+- Systemegenskapen ”etag” är exkluderad från att indexera som standard såvida inte etag har lagts till i den inkluderade sökvägen för indexering.
 
 Se [i det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexering av exempel på.
 

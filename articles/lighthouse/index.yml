@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Lighthouse
+metadata:
+  title: Dokumentation om Azure Lighthouse
+  description: Lär dig hur du hanterar kundresurser i stor skala
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: 'Med en enda kontrollplan i Azure Lighthouse kan tjänstleverantörer visa och hantera Azure för alla sina kunder med högre automatisering, i större skala och med bättre styrning.'
+sections:
+  - title: Begrepp
+    items:
+      - type: paragraph
+        text: Läs mer om viktiga aspekter av Azure Lighthouse.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Azure-delegerad resurshantering</a>
+          - html: <a href="concepts/cross-tenant-management-experience">Miljöer för hantering av flera klienter</a>
+          - html: <a href="concepts/managed-services-offers">Erbjudanden om hanterade tjänster på Azure Marketplace</a>
+          - html: <a href="concepts/recommended-security-practices.md">Rekommenderade säkerhetsmetoder</a>
+          - html: <a href="concepts/cloud-solution-provider.md">Att tänka på med Cloud Solution Provider-programmet</a>
+  - title: Instruktionsguider
+    items:
+      - type: paragraph
+        text: Lär dig hur du registrerar kunder för Azure-delegerad resurshantering och hur du hanterar deras resurser.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">Registrera en kund för Azure-delegerad resurshantering</a>
+          - html: <a href="how-to/publish-managed-services-offers">Publicera erbjudanden om hanterade tjänster på Azure Marketplace</a>
+          - html: <a href="how-to/view-manage-customers">Visa och hantera kunder och delegerade resurser</a>
+          - html: <a href="how-to/view-manage-service-providers">Visa och hantera tjänstleverantörer</a>
+  - title: Exempel
+    items:
+      - type: paragraph
+        text: Utforska exempel och mallar som hjälper dig att använda Azure Lighthouse.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">Exempel på index</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Språk
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK för .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK för .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK för Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK för Python (PyPi)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">API-referens</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'

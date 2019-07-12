@@ -45,3 +45,9 @@
     - name: 5 – Distribuera till Azure Service Fabric
       href: azure-devops-project-service-fabric.md
       maintainContext: true
+    - name: 6 – Distribuera till Azure Cosmos DB
+      href: azure-devops-project-cosmos-db.md
+      maintainContext: true
+    - name: 7 – Distribuera till Azure Functions
+      href: azure-devops-project-functions.md
+      maintainContext: true

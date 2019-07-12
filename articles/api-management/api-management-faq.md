@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448028"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666020"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
@@ -87,7 +87,7 @@ Här är hur du kan lägga till en användare i gruppen Administratörer:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till den resursgrupp som har API Management-instans som du vill uppdatera.
-3. I API Management, tilldela den **Api Management deltagare** du användaren rollen.
+3. I API Management, tilldela den **Api Management-Tjänstdeltagare** du användaren rollen.
 
 Nu den nyligen tillagda deltagaren kan använda Azure PowerShell [cmdletar](https://docs.microsoft.com/powershell/azure/overview). Här är hur du loggar in som administratör:
 

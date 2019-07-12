@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679576"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593937"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
 Den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network (CDN)](cdn-overview.md) slutpunkt i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan börja du leverera innehåll till dina kunder. En Snabbstart om hur du skapar en profil och slutpunkt finns [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en CDN-slutpunkt, måste du ha skapat minst en CDN-profil som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-priserna tillämpas på CDN-profilnivå, måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN-prisnivåer. Om du vill skapa en CDN-profil, [skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen

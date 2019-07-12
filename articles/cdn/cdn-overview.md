@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627459"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593614"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
 Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN-nät cachelagrar innehåll på edge-servrar på POP-platser (Point-of-Presence) som är nära slutanvändarna för att minimera fördröjningen. 
@@ -38,7 +38,7 @@ En lista över aktuella CDN-nodplatser finns i [POP-platser för Azure CDN](cdn-
 ## <a name="how-it-works"></a>Hur det fungerar
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
 
-1. En användare (Alice) begär en fil (även kallad tillgång eller resurs) med hjälp av en URL med ett särskilt domännamn, t.ex. _&lt;slutpunktsnamn&gt;_.azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
+1. En användare (Alice) begär en fil (även kallad tillgång eller resurs) med hjälp av en URL med ett särskilt domännamn, t.ex. _&lt;slutpunktsnamn&gt;_ .azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
     
 2. Om filen inte finns i cachelagringen i någon edge-server på POP-platsen begär POP filen från ursprungsservern. Ursprungsservern kan vara en Azure-webbapp, en Azure-molntjänst, ett Azure Storage-konto eller en offentligt tillgänglig webbserver.
    
@@ -67,7 +67,7 @@ Azure CDN erbjuder följande huvudfunktioner:
 - [Acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md)
 - [CDN-cachelagringsregler](cdn-caching-rules.md)
 - [HTTPS-stöd för egna domäner](cdn-custom-ssl.md)
-- [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md)
+- [Azure Diagnostics-loggar](cdn-azure-diagnostic-logs.md)
 - [Filkomprimering](cdn-improve-performance.md)
 - [Geo-filtrering](cdn-restrict-access-by-country.md)
 

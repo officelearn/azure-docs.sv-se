@@ -3,45 +3,97 @@
 - name: Översikt
   items:
     - name: Om Azure Migrate
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Självstudier
   items:
-    - name: Utforska och utvärdera virtuella VMware-datorer
-      href: tutorial-assessment-vmware.md
+    - name: Utvärdering och migrering av virtuella VMware-datorer
+      items:
+        - name: Förbereda VMware för utvärdering och migrering
+          href: tutorial-prepare-vmware.md
+        - name: Utvärdera virtuella VMware-datorer för migrering
+          href: tutorial-assess-vmware.md
+        - name: Migrera virtuella VMware-datorer
+          items:
+            - name: Om migreringsalternativ för virtuella VMware-datorer
+              href: server-migrate-overview.md
+            - name: Migrera virtuella VMware-datorer med migrering utan agenter
+              href: tutorial-migrate-vmware.md
+            - name: Migrera virtuella VMware-datorer med agentbaserad migrering
+              href: tutorial-migrate-vmware-agent.md
+    - name: Utvärdering och migrering av Hyper-V
+      items:
+        - name: Förbereda Hyper-V för utvärdering och migrering
+          href: tutorial-prepare-hyper-v.md
+        - name: Utvärdera virtuella Hyper-V-datorer för migrering
+          href: tutorial-assess-hyper-v.md
+        - name: Migrera virtuella Hyper-V-datorer
+          href: tutorial-migrate-hyper-v.md
+    - name: Migrera fysiska servrar och virtuella datorer
+      href: tutorial-migrate-physical-virtual-machines.md
 - name: Begrepp
   items:
-    - name: Om insamlaren
-      href: concepts-collector.md
-    - name: Versionsuppgraderingar för insamlaren
-      href: concepts-collector-upgrade.md
+    - name: Vanliga frågor
+      href: resources-faq.md
+    - name: Stödmatriser
+      items:
+        - name: Stödmatris för Azure Migrate
+          href: migrate-support-matrix.md
+        - name: Stödmatris för utvärdering och migrering av VMware
+          href: migrate-support-matrix-vmware.md
+        - name: Stödmatris för utvärdering och migrering av Hyper-V
+          href: migrate-support-matrix-hyper-v.md
+    - name: Hyper-V-migreringsarkitektur
+      href: hyper-v-migration-architecture.md
+    - name: Agentbaserad migreringsarkitektur
+      href: agent-based-migration-architecture.md
+    - name: Azure Migrate-installation
+      href: migrate-appliance.md
+    - name: Azure Migrate-replikeringsinstallation
+      href: migrate-replication-appliance.md
+    - name: Metodtips för utvärderingar
+      href: best-practices-assessment.md
     - name: Utvärderingsberäkningar
       href: concepts-assessment-calculation.md
-    - name: Om visualisering av beroenden
+    - name: Visualisering av beroenden
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
     - name: Migreringsexempel – Contoso-serien
       href: contoso-migration-overview.md
-    - name: Utforska och utvärdera en stor miljö
-      href: how-to-scale-assessment.md
-    - name: Gruppera datorer
-      href: how-to-create-a-group.md
-    - name: Gruppera datorer med datorberoenden
-      href: how-to-create-group-machine-dependencies.md
-    - name: Förfina grupper med gruppberoenden
-      href: how-to-create-group-dependencies.md
+    - name: Distribuera en installation för utvärdering/migrering av VMware (utan agent)
+      href: how-to-set-up-appliance-vmware.md
+    - name: Distribuera en installation för utvärdering/migrering av Hyper-V
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: Lägga till ett utvärderings-/migreringsverktyg för första gången
+      href: how-to-add-tool-first-time.md
+    - name: Lägga till utvärderingsverktyg
+      href: how-to-assess.md
+    - name: Lägga till migreringsverktyg
+      href: how-to-migrate.md
+    - name: Gruppera datorer för utvärdering
+      items:
+        - name: Skapa en grupp
+          href: how-to-create-a-group.md
+        - name: Gruppera datorer med datorberoenden
+          href: how-to-create-group-machine-dependencies.md
+        - name: Förfina grupper med gruppberoenden
+          href: how-to-create-group-dependencies.md
     - name: Anpassa en utvärdering
       href: how-to-modify-assessment.md
-    - name: Migrera datorer efter utvärdering
-      href: how-to-get-migration-tool.md
-    - name: Automatisera migrering av ett stort antal virtuella datorer
-      href: how-to-migrate-at-scale.md
+    - name: Utvärdera och migrera i stor skala
+      items:
+        - name: Utvärdera ett stort antal virtuella VMware-datorer
+          href: scale-vmware-assessment.md
+        - name: Utvärdera ett stort antal Hyper-V-datorer
+          href: scale-hyper-v-assessment.md
+        - name: Automatisera migrering av ett stort antal virtuella datorer
+          href: how-to-migrate-at-scale.md
     - name: Felsöka Azure Migrate
       href: troubleshooting-general.md
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: resources-faq.md
     - name: Molnmigrering i Cloud Adoption Framework
       href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST-API

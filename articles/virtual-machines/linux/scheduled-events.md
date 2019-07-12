@@ -4,7 +4,7 @@ description: Schemalägga händelser med hjälp av Azure Metadata Service för L
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7691bcd6f9f3137f48bdd52722c887c4777a32c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507932"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706538"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -55,7 +55,7 @@ Schemalagda händelser innehåller händelser i följande användningsfall:
 
   Metadata Service visar information om att köra virtuella datorer med hjälp av en REST-slutpunkt som kan nås från den virtuella datorn. Informationen är tillgänglig via en nonroutable IP-adress så att den inte är exponerad utanför den virtuella datorn.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Omfång
 Schemalagda händelser levereras till:
 
 - Fristående virtuella datorer.

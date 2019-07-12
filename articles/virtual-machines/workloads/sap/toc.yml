@@ -128,6 +128,8 @@
           href: dbms_guide_ibm.md
         - name: Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server
           href: dbms-guide-ha-ibm.md
+        - name: Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux Server
+          href: high-availability-guide-rhel-ibm-db2-luw.md
         - name: DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
           href: dbms_guide_sapase.md
         - name: 'Distribution av SAP MaxDB, liveCache och innehållsserver på Azure'

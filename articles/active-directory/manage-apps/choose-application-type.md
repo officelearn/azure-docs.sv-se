@@ -15,53 +15,54 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e5e7ae02cfdc921d593d204151ac501c8c8ee80
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388174"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807661"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Välja vilken typ av program när du lägger till ett program i Azure Active Directory
-Läs mer om de fyra typerna av program som du kan lägga till Azure Active Directory (AD Azure). När du lägger till ett program i Azure Active Directory, uppmanas du att välja en av fyra programtypen. 
+
+Läs mer om de fyra typerna av program som du kan lägga till Azure Active Directory (AD Azure). När du lägger till ett program i Azure Active Directory, uppmanas du att välja en av fyra programtypen.
 
 ## <a name="what-are-the-types-of-applications"></a>Vilka är typerna av program?
 
 Azure AD stöder fyra huvudsakliga programtyper som du kan lägga till med hjälp av den **Lägg till** funktionen finns under **företagsprogram**. Exempel på dessa är:
 
--   **Azure AD-Galleriprogram** – ett program som har varit förintegrerade för enkel inloggning med Azure AD.
+- **Azure AD-Galleriprogram** – ett program som har varit förintegrerade för enkel inloggning med Azure AD.
 
--   **Application Proxy-program** – ett program som körs i din lokala miljö som du vill ge säker enkel inloggning till externt.
+- **Application Proxy-program** – ett program som körs i din lokala miljö som du vill ge säker enkel inloggning till externt.
 
--   **Egenutvecklat program** – ett program som din organisation vill utveckla på det Azure AD plattform, men som kanske inte finns ännu.
+- **Egenutvecklat program** – ett program som din organisation vill utveckla på det Azure AD plattform, men som kanske inte finns ännu.
 
--   **Icke-Galleriprogram** – Använd dina egna program! Alla webblänk som du vill eller alla program som återger ett fält för användarnamn och lösenord, har stöd för SAML- eller OpenID Connect-protokoll eller stöder SCIM som du vill integrera för enkel inloggning med Azure AD.
+- **Icke-Galleriprogram** – Använd dina egna program! Alla webblänk som du vill eller alla program som återger ett fält för användarnamn och lösenord, har stöd för SAML- eller OpenID Connect-protokoll eller stöder SCIM som du vill integrera för enkel inloggning med Azure AD.
 
 ## <a name="features-and-capabilities-supported-by-the-application-types"></a>Funktioner som stöds av programtyperna
 
 Följande funktioner stöds av någon av de föregående fyra programtyperna i Azure AD:
 
--   **Snabbstart** – komma igång med ett program snabbare genom att följa [steg för enkel distribution](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
+- **Snabbstart** – komma igång med ett program snabbare genom att följa [steg för enkel distribution](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
--   **Allmänna egenskaper för management** – hämta en [direkt djuplänk](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) till ett program [anpassa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) för ett program, eller [inaktivera programmet](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) för alla användare.
+- **Allmänna egenskaper för management** – hämta en [direkt djuplänk](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) till ett program [anpassa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) för ett program, eller [inaktivera programmet](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) för alla användare.
 
--   **Användar- och grupphantering** – [tilldela](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) eller [ta bort](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) användare och grupper till ett program, och du kan också tilldela specifika programroller dessa användare och grupper har åtkomst till
+- **Användar- och grupphantering** – [tilldela](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) eller [ta bort](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) användare och grupper till ett program, och du kan också tilldela specifika programroller dessa användare och grupper har åtkomst till
 
--   **Självbetjäningsåtkomsten** – ge användarna begära [självbetjäningsåtkomsten](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) till ett program från sina Åtkomstpaneler för program som antingen genom att lägga till ett program direkt eller [ ansluter till en självbetjäning aktiverade grupp](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)kan du också att kräva godkännande av företag längs vägen
+- **Självbetjäningsåtkomsten** – ge användarna begära [självbetjäningsåtkomsten](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) till ett program från sina Åtkomstpaneler för program som antingen genom att lägga till ett program direkt eller [ ansluter till en självbetjäning aktiverade grupp](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)kan du också att kräva godkännande av företag längs vägen
 
--   **Logga in loggar** – Se [alla inloggningar till ett program](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), eller alla dina program
+- **Logga in loggar** – Se [alla inloggningar till ett program](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), eller alla dina program
 
--   **Granskningsloggar** – Se [detaljerade granskningsloggar om ändringar av ett program](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), eller till alla dina program
+- **Granskningsloggar** – Se [detaljerade granskningsloggar om ändringar av ett program](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), eller till alla dina program
 
--   **Villkorlig och riskbaserad åtkomst** – ange kraftfulla [villkor-baserade åtkomstregler](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) som tillämpas när användarna försöker logga in på ett visst program
+- **Villkorlig och riskbaserad åtkomst** – ange kraftfulla [villkor-baserade åtkomstregler](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) som tillämpas när användarna försöker logga in på ett visst program
 
--   **Visa behörigheter** – visa något av de [OAuth2-behörigheter](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) ett program har åtkomst till i din katalog från en enda placera
+- **Visa behörigheter** – visa något av de [OAuth2-behörigheter](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) ett program har åtkomst till i din katalog från en enda placera
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Enkel inloggning och etablera lägen som stöds av specifika programtyper
 
 I följande tabell beskrivs de olika enkla inloggning och etablering lägena stöds av var och en av de föregående programtyperna. Du kan använda den här tabellen för att hjälpa dig att förstå vilket program som du behöver lägga till stöd för ett specifikt mål.
 
-  ![Tabell för App-typer](./media/choose-application-type/table1.png)
+  ![Tabell: Olika SSO och etablering lägen som stöds av varje typ av app](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Så här väljer du ett läge för enkel inloggning
 
@@ -77,56 +78,45 @@ Följande är de stöds **enkel inloggning** lägen för Azure AD-program.
 
   >[!NOTE]
   >Det här alternativet är inte tillgängligt när application proxy har konfigurerats för ett program.
-  >
-  >
 
-- **Rubrikbaserad inloggning** – Välj det här [rubrikbaserad inloggning](application-proxy-configure-single-sign-on-with-ping-access.md) enkel inloggningsläge om du har ett program med PingAccess som har stöd för HTTP-huvud-baserad autentisering som du vill utföra enkel inloggning till 
+- **Rubrikbaserad inloggning** – Välj det här [rubrikbaserad inloggning](application-proxy-configure-single-sign-on-with-ping-access.md) enkel inloggningsläge om du har ett program med PingAccess som har stöd för HTTP-huvud-baserad autentisering som du vill utföra enkel inloggning till
 
   >[!NOTE]
   >Det här alternativet är bara tillgängligt om application proxy och PingAccess är konfigurerad för ett program.
-  >
-  >
 
-- **Integrerad Windows-autentisering** – Välj den [integrerad Windows-autentisering](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) enkel inloggning när exponerar ett lokalt WIA program som du vill utföra enkel inloggning till 
+- **Integrerad Windows-autentisering** – Välj den [integrerad Windows-autentisering](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) enkel inloggning när exponerar ett lokalt WIA program som du vill utföra enkel inloggning till
 
   >[!NOTE]
   >Det här alternativet är bara tillgängligt när application proxy har konfigurerats för ett program.
-  >
-  >
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Enkel inloggning-lägen för egenutvecklade program
 
 Program som du har anpassade utvecklat genom egenutvecklat program får också stöd för ytterligare enkel inloggning för lägena inte tidigare, bland annat:
 
--   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) baserad inloggning
+- [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) baserad inloggning
 
--   [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) baserad inloggning
+- [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) baserad inloggning
 
--   [WS-Federation 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) baserad inloggning
+- [WS-Federation 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) baserad inloggning
 
--   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) baserad inloggning
+- [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) baserad inloggning
 
 Läs den [Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) mer information om hur du skapar ett egenutvecklat program som stöder dessa lägen för enkel inloggning.
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Hur du ställer in ett programs enkel inloggningsläge
 
-Ange ett programs **enkel inloggning** läge, följer du dessa instruktioner:
+Om du vill ange ett programs inloggnings-läge för enkel, följer du dessa instruktioner:
 
 1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
-
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
-
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
-
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
-
-5. Klicka på **alla program** att visa en lista över alla dina program.
+1. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+1. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6. Välj det program som du vill konfigurera enkel inloggning.
-
-7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigeringsmenyn.
+1. Välj det program som du vill konfigurera enkel inloggning.
+1. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Så här väljer du en Etableringsläge
 
@@ -136,37 +126,27 @@ Ange ett programs **enkel inloggning** läge, följer du dessa instruktioner:
 
   >[!NOTE]
   >Det här alternativet är endast tillgänglig för program i den **aktuellt** kategorin för den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
-  >
-  >
 
 - **SCIM-baserad Automatisk etablering** – använda [SCIM-baserad Automatisk etablering](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) om programmet stöder SCIM-protokollet för att upptäcka ändringar till användare och grupper som genereras automatiskt för ändringar alla program som integreras med Azure AD 
 
   >[!NOTE]
   >Det här alternativet visas inte som en specifik Etableringsläge, men är aktiverad som standard för alla program som är integrerade med Azure AD.
-  >
-  >
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Etableringsläge för hur du ställer in ett program
 
 Ange ett programs **etablering** läge, följer du dessa instruktioner:
 
-Ange ett programs **enkel inloggning** läge, följer du dessa instruktioner:
-
 1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
-
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
-
-3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
-
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
-
-5. Klicka på **alla program** att visa en lista över alla dina program.
+1. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+1. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6. Välj det program som du vill konfigurera etablering.
-
-7. När programmet har lästs in klickar du på **etablering** från programmets vänstra navigeringsmenyn.
+1. Välj det program som du vill konfigurera etablering.
+1. När programmet har lästs in klickar du på **etablering** från programmets vänstra navigeringsmenyn.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Hantera program med Azure Active Directory](what-is-application-management.md)

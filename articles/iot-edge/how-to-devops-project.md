@@ -4,19 +4,19 @@ description: Azure DevOps Projects gör det enkelt att komma igång med Azure. D
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595311"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722976"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt (förhandsgranskning)
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt
 
 Konfigurera kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din IoT Edge-program med DevOps-projekt. DevOps Projects förenklar den initiala konfigurationen av en bygg- och versionspipeline i Azure Pipelines.
 
@@ -38,7 +38,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-project/select-language.png)
 
-2. Välj **enkla IoT (förhandsversion)** som programramverk och välj sedan **nästa**.
+2. Välj **enkla IoT** som programramverk och välj sedan **nästa**.
 
    ![Välj enkla IoT-ramverk](media/how-to-devops-project/select-iot.png)
 

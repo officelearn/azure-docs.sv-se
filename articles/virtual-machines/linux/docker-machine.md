@@ -4,7 +4,7 @@ description: Beskriver hur du använder Docker Machine för att skapa Docker-vä
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: da0e393dc2ae0d93ecc49745a42ffac4669ed74b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e946f82cf7dfcec0a6ff451012e6f5f0ac6e955
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61386941"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671558"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Hur du använder Docker Machine för att skapa värdar i Azure
 Den här artikeln beskriver hur du använder [Docker Machine](https://docs.docker.com/machine/) att skapa värdar i Azure. Den `docker-machine` kommandot skapar en Linux-dator (VM) i Azure och sedan installerar Docker. Du kan sedan hantera Docker-värdar i Azure med hjälp av samma lokala verktyg och arbetsflöden. Om du vill använda docker-dator i Windows 10, måste du använda bash i Linux.

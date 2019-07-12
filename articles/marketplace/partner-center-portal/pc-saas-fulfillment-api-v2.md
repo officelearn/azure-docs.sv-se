@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331639"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701140"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS techtrends API: er, version 2 
 
@@ -87,7 +87,7 @@ I följande tabell visas definitionerna för gemensamma parametrar och entiteter
 | `offerId`                | En unik sträng som identifierare för varje erbjudande (till exempel: ”offer1”).  |
 | `planId`                 | En unik sträng som identifierare för varje plan/SKU (till exempel: ”silver”). |
 | `operationId`            | GUID-identifierare för en viss åtgärd.  |
-|  `action`                | Den åtgärd som utförs på en resurs, antingen `subscribe`, `unsubscribe`, `suspend`, `reinstate`, eller `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | Den åtgärd som utförs på en resurs, antingen `unsubscribe`, `suspend`, `reinstate`, eller `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Globalt unika identifierare ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) är 128-bitars (32-hexadecimalt) värden som genereras vanligtvis automatiskt. 
@@ -199,10 +199,16 @@ Svarsnyttolasten:<br>
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -271,7 +277,13 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
+        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
+          "term": { //This gives the free trial term start and end date
+            "startDate": "2019-05-31",
+            "endDate": "2019-06-29",
+            "termUnit": "P1M"
+        },
 }
 ```
 
@@ -794,7 +806,6 @@ Utgivare måste implementera en webhook i den här SaaS tjänsten för att proak
 }
 ```
 Där åtgärden kan vara något av följande: 
-- `subscribe` (när resursen har aktiverats)
 - `unsubscribe` (när resursen har tagits bort)
 - `changePlan` (när ändringen plan åtgärden har slutförts)
 - `changeQuantity` (när ändringen kvantitet åtgärden har slutförts)

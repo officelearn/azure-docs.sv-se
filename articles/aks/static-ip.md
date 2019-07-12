@@ -2,17 +2,17 @@
 title: Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 description: Lär dig hur du skapar och använder en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61031657"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614472"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Den här artikeln visar hur du skapar en statisk offentlig IP-adress och tilldel
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 För närvarande bara *grundläggande IP-SKU*stöds. Arbete pågår för den *Standard IP* resource SKU. Mer information finns i [IP-adresstyper och allokeringsmetoder i Azure][ip-sku].
 
@@ -32,7 +32,7 @@ För närvarande bara *grundläggande IP-SKU*stöds. Arbete pågår för den *St
 
 När du skapar en statisk offentlig IP-adress för användning med AKS, IP-adressresurs ska skapas i den **noden** resursgrupp. Om du vill att avgränsa resurser, se följande avsnitt för att [en statisk IP-adress utanför resursgruppen noden](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Hämta först noden resursgruppens namn med den [az aks show] [ az-aks-show] kommandot och lägga till den `--query nodeResourceGroup` frågeparameter. I följande exempel hämtar noden resursgruppen för AKS-klusternamnet *myAKSCluster* i resursgruppens namn *myResourceGroup*:
+Hämta först noden resursgruppens namn med den [az aks show][az-aks-show] kommandot och lägga till den `--query nodeResourceGroup` frågeparameter. I följande exempel hämtar noden resursgruppen för AKS-klusternamnet *myAKSCluster* i resursgruppens namn *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -40,7 +40,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Nu skapa en statisk offentlig IP-adress med det [az nätverket offentliga ip-skapa] [ az-network-public-ip-create] kommando. Ange noden resursgruppens namn som hämtades i föregående kommando och sedan ett namn för IP-Adressen kan du hantera resurs, som *myAKSPublicIP*:
+Nu skapa en statisk offentlig IP-adress med det [az nätverket offentliga ip-skapa][az-network-public-ip-create] kommando. Ange noden resursgruppens namn som hämtades i föregående kommando och sedan ett namn för IP-Adressen kan du hantera resurs, som *myAKSPublicIP*:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -64,7 +64,7 @@ IP-adressen visas enligt följande komprimerade exempel på utdata:
 }
 ```
 
-Du kan senare får den offentliga IP-adress med hjälp av den [az network public-ip-listan] [ az-network-public-ip-list] kommando. Ange namnet på resursgruppen för noden och offentlig IP-adress som du skapade och fråga efter den *ipAddress* som visas i följande exempel:
+Du kan senare får den offentliga IP-adress med hjälp av den [az network public-ip-listan][az-network-public-ip-list] kommando. Ange namnet på resursgruppen för noden och offentlig IP-adress som du skapade och fråga efter den *ipAddress* som visas i följande exempel:
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
@@ -127,7 +127,7 @@ spec:
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om den statiska IP-adressen som definierats i den *loadBalancerIP* egenskapen för Kubernetes tjänstmanifestet finns inte eller har inte skapats i resursgruppen noden och inga ytterligare delegeringar konfigurerats, tjänsten för belastningsutjämning Det går inte att skapa. Felsök genom att granska service skapande händelser med den [kubectl beskriver] [ kubectl-describe] kommando. Ange namnet på tjänsten som anges i YAML-manifest som visas i följande exempel:
+Om den statiska IP-adressen som definierats i den *loadBalancerIP* egenskapen för Kubernetes tjänstmanifestet finns inte eller har inte skapats i resursgruppen noden och inga ytterligare delegeringar konfigurerats, tjänsten för belastningsutjämning Det går inte att skapa. Felsök genom att granska service skapande händelser med den [kubectl beskriver][kubectl-describe] kommando. Ange namnet på tjänsten som anges i YAML-manifest som visas i följande exempel:
 
 ```console
 kubectl describe service azure-load-balancer
@@ -159,7 +159,7 @@ Events:
 
 ## <a name="next-steps"></a>Nästa steg
 
-För ytterligare kontroll över nätverkstrafik till dina program kan du i stället [skapa en ingress-kontrollant][aks-ingress-basic]. Du kan också [skapa en ingress-kontrollant med en statisk offentlig IP-adress][aks-static-ingress].
+För ytterligare kontroll över nätverkstrafik till dina program kan du i stället [skapa en ingress-kontrollant][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

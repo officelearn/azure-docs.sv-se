@@ -1,26 +1,26 @@
 ---
-title: 'Snabbstart: Fråga efter data i Azure Data Explorer'
-description: I den här snabbstarten får du lära dig hur du frågar efter och delar data i Azure Data Explorer.
+title: 'Snabbstart: Fråga efter data i Azure Data Explorer-Webbgränssnittet'
+description: I den här snabbstarten får lära du att köra frågor och dela data i Azure Data Explorer-Webbgränssnittet.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775700"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797181"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Fråga efter data i Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Snabbstart: Fråga efter data i Azure Data Explorer-Webbgränssnittet
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller en webbapp som gör att du kan köra och dela frågor. Programmet är tillgängligt i Azure-portalen och som en fristående webbapp. I den här artikeln får arbeta du i den fristående versionen, vilket gör det möjligt att ansluta till flera kluster och dela djuplänkar till dina frågor.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutom en Azure-prenumeration behöver du ett [testkluster och en databas](create-cluster-database-portal.md) för att slutföra den här snabbstarten.
 
@@ -191,5 +191,4 @@ Du inte har skapat några resurser i den här snabbstarten, men om du vill ta bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skriva frågor för Azure Data Explorer](write-queries.md)
+[Skriva frågor för Azure Data Explorer](write-queries.md)

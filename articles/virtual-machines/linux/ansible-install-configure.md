@@ -5,21 +5,21 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 60cefe24feab9de4262e81eb1bc313aeadc7eb05
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409243"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671844"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Snabbstart: Installera Ansible på Linux-datorer i Azure
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du konfigurerar Ansible för några av de vanligaste Linux-distributioner. Om du vill installera Ansible för andra distributioner, justerar du installerade paket för din specifika plattform. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]

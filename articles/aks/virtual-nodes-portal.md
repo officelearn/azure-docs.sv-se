@@ -2,17 +2,17 @@
 title: Skapa virtuella noder med hjälp av portalen i Azure Kubernetes Services (AKS)
 description: Lär dig hur du använder Azure-portalen för att skapa ett kluster i Azure Kubernetes Services (AKS) som använder virtuella noder för att köra poddar.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742796"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613830"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du skapar och konfigurerar resurser för virtuella n
 
 Virtuella noder aktivera nätverkskommunikationen mellan poddar som körs i ACI och AKS-klustret. För att ge den här kommunikationen, ett virtuellt nätverksundernät skapas och tilldelas delegerade behörigheter. Virtuella noder fungerar bara med AKS-kluster som skapas med hjälp av *avancerade* nätverk. Som standard AKS-kluster skapas med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuera ett AKS-kluster som använder avancerade nätverk.
 
-Om du inte tidigare har använt ACI registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list] [ az-provider-list] kommandot, som visas i följande exempel:
+Om du inte tidigare har använt ACI registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list][az-provider-list] kommandot, som visas i följande exempel:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -106,7 +106,7 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 Om du vill öppna Cloud Shell, Välj **prova** från det övre högra hörnet av ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Använd kommandot [az aks get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
+Använd den [aaz aks get-credentials][az-aks-get-credentials] kommando för att konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Distribuera en exempelapp
 
-I Azure Cloud Shell, skapar du en fil med namnet `virtual-node.yaml` och kopiera följande YAML. Så här schemalägger du behållaren på noden och en [nodeSelector] [ node-selector] och [toleration] [ toleration] har definierats. De här inställningarna gör det möjligt för poden att schemaläggas på den virtuella noden och bekräfta att funktionen har aktiverats.
+I Azure Cloud Shell, skapar du en fil med namnet `virtual-node.yaml` och kopiera följande YAML. Så här schemalägger du behållaren på noden och en [nodeSelector][node-selector] and [toleration][toleration] har definierats. De här inställningarna gör det möjligt för poden att schemaläggas på den virtuella noden och bekräfta att funktionen har aktiverats.
 
 ```yaml
 apiVersion: apps/v1
@@ -163,13 +163,13 @@ spec:
         effect: NoSchedule
 ```
 
-Kör programmet med den [kubectl gäller] [ kubectl-apply] kommando.
+Kör programmet med den [kubectl gäller][kubectl-apply] kommando.
 
 ```azurecli-interactive
 kubectl apply -f virtual-node.yaml
 ```
 
-Använd den [kubectl hämta poddar] [ kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar och noden schemalagda. Observera att den `virtual-node-helloworld` pod har schemalagts på den `virtual-node-linux` noden.
+Använd den [kubectl hämta poddar][kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar och noden schemalagda. Observera att den `virtual-node-helloworld` pod har schemalagts på den `virtual-node-linux` noden.
 
 ```
 $ kubectl get pods -o wide

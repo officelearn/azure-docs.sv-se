@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460667"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813053"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -109,7 +109,11 @@ Om databasen är krypterad med transparent Datakryptering krypteras automatiskt 
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Hur säkerställa integriteten för säkerhetskopiering av Microsoft
 
-Med jämna mellanrum testar det tekniska teamet för Azure SQL Database automatiskt återställning av automatiska säkerhetskopior av databaser för tjänsten. Vid en återställning får databaser även integritetskontroller med hjälp av DBCC CHECKDB. Eventuella problem som hittades under integritetskontrollen resulterar i en avisering till teknikteamet. Mer information om dataintegriteten i Azure SQL Database finns i [dataintegriteten i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+Med jämna mellanrum, Azure SQL-databasen automatiskt Utvecklingsteamet tester återställning av automatiska säkerhetskopior av databaser placeras i logiska servrar och elastiska pooler (detta inte är tillgänglig i Managed Instance). Vid en point-in-time-återställning får databaser även integritetskontroller med hjälp av DBCC CHECKDB.
+
+Hanterad instans tar automatiskt första säkerhetskopieringen med `CHECKSUM` av databaserna som återställs med hjälp av inbyggda `RESTORE` kommando eller Data Migration Service när migreringen är klar.
+
+Eventuella problem som hittades under integritetskontrollen resulterar i en avisering till teknikteamet. Mer information om dataintegriteten i Azure SQL Database finns i [dataintegriteten i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Hur påverkar efterlevnad av automatiska säkerhetskopieringar
 

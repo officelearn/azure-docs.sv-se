@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417712"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798709"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -25,20 +25,31 @@ Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de se
 
 När nya funktioner som distribueras till alla regioner, kontrollera vilken version som distribueras till din instans och de senaste Azure SQL DW viktig information om tillgängliga funktioner. Om du vill kontrollera din Azure SQL DW-version, ansluta till data warehouse via SQL Server Management Studio (SSMS) och kör `SELECT @@VERSION AS 'SQL Data Warehouse';` att returnera den aktuella versionen av Azure SQL DW.
 
-Exempel på utdata: ![SQL Data Warehouse-version](./media/release-notes/sql_data_warehouse_version.png)
+Exempel på utdata:
+
+![SQL Data Warehouse-version](./media/release-notes/sql_data_warehouse_version.png)
 
 Använd det datum som identifierats för att kontrollera vilken versionen har kopplats till din Azure SQL DW.
+
+## <a name="july-2019"></a>Juli 2019
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|**Materialiserad vy (förhandsgranskning)**|En materialiserad vy bevarar de data som returneras från frågan för systemvyer definition och uppdateras automatiskt när data ändras i de underliggande tabellerna. Det förbättrar prestanda för komplexa frågor (vanligtvis frågor med kopplingar och aggregeringar) och erbjuder enkel underhållsåtgärder. Mer information finns i: </br> - [Skapa MATERIALIZED visa AS väljer &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [T-SQL-uttryck som stöds i Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**Ytterligare stöd för T-SQL**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för: </br> - [I TIDSZON](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Resultatmängden caching (förhandsversion)**|DBCC-kommandon har lagts till för att hantera tidigare har meddelats resultatet anger cache. Mer information finns i: </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Också se den nya kolumnen result_set_cache i [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) att visas när en fråga som körs används resultatet inställda cache.|
+|**Sorterade grupperat columnstore-index (förhandsversion)**|Ny kolumn, column_store_order_ordinal, läggs till [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) att identifiera ordningen på kolumnerna i en sorterad grupperade columnstore-index.|
 
 ## <a name="may-2019"></a>Maj 2019
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-|**Dynamisk datamaskning (förhandsversion)**|Dynamic Data Masking (DDM) förhindrar obehörig åtkomst till känsliga data i ditt data warehouse genom att dölja den på direkt i resultatet av frågan baserat på maskningsregler som du definierar. Mer information finns i [SQL Database dynamisk datamaskning](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
-|**Arbetsbelastningen vikten nu allmänt tillgänglig**|Klassificering för hantering av arbetsbelastning och vikten ger möjlighet att påverka kör ordningen för frågor. Mer information om arbetsbelastningen vikten finns i den [klassificering](sql-data-warehouse-workload-classification.md) och [vikten](sql-data-warehouse-workload-importance.md) översiktsartiklar i dokumentationen. Kolla in den [skapa ARBETSBELASTNING KLASSIFICERARE](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) dokument samt.<br/><br/>Se arbetsbelastning betydelse i åtgärden i den nedan videor:<br/> -[Arbetsbelastningen Management-relaterade begrepp](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenarier för hantering av arbetsbelastning](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Dynamisk datamaskning (förhandsversion)**|Dynamisk datamaskering (DDM) förhindrar obehörig åtkomst till känsliga data i ditt informationslager genom att dölja dem direkt i frågeresultat baserat på de maskeringsregler som du definierar. Mer information finns i [SQL Database dynamisk datamaskning](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Arbetsbelastningen vikten nu allmänt tillgänglig**|Hanteringsklassificering och prioritet för arbetsbelastning gör det möjligt att påverka körningsordningen för frågor. Mer information om arbetsbelastningen vikten finns i den [klassificering](sql-data-warehouse-workload-classification.md) och [vikten](sql-data-warehouse-workload-importance.md) översiktsartiklar i dokumentationen. Kolla in den [skapa ARBETSBELASTNING KLASSIFICERARE](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) dokument samt.<br/><br/>Se arbetsbelastning betydelse i åtgärden i den nedan videor:<br/> -[Arbetsbelastningen Management-relaterade begrepp](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenarier för hantering av arbetsbelastning](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Ytterligare stöd för T-SQL**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON-funktioner**|Affärsanalytiker kan nu använda välbekanta T-SQL-språket att fråga efter och hantera dokument som är formaterade som JSON-data med hjälp av följande nya JSON-funktioner i Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Resultatmängden caching (förhandsversion)**|Cachelagring av resultatuppsättningen kan omedelbar frågesvarstiderna samtidigt minska tid och förståelse för affärsanalytiker och rapportering av användare. Mer information finns i:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET-alternativ (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [Ange RESULTATUPPSÄTTNINGEN CACHELAGRING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [Ange instruktionen (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.Databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
-|**Sorterade grupperat columnstore-index (förhandsversion)**|Columnstore är en viktig faktor för att lagra och effektivt fråga stora mängder data. För varje tabell den delas upp inkommande i radgrupper och varje kolumn i en radgrupp formulär ett Segment på en disk.  Sorterade grupperade optimera index ytterligare frågekörning genom att aktivera effektiv segment eliminering.   Mer information finns i:</br> -  [Skapa tabell (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [Skapa COLUMNSTORE-INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
+|**Sorterade grupperat columnstore-index (förhandsversion)**|Kolumnlagring är ett viktigt verktyg vad gäller lagring av och effektiv frågekörning mot stora mängder data. För varje tabell delar den in inkommande data i radgrupper, och varje kolumn i en radgrupp bildar ett segment på en disk.  Sorterade, grupperade kolumnlagringsindex optimerar frågekörningen ytterligare genom effektiv segmentborttagning.   Mer information finns i:</br> -  [Skapa tabell (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [Skapa COLUMNSTORE-INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>Mars 2019
 

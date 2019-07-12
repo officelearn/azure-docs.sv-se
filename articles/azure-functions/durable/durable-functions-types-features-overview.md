@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731131"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812835"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Varaktiga funktioner typer och funktioner (Azure Functions)
 
@@ -27,7 +27,7 @@ Den här artikeln ger en översikt över typerna av funktioner som kan användas
 
 ## <a name="types-of-durable-functions"></a>Typer av varaktiga funktioner
 
-Du kan använda tre funktionstyper av varaktiga i Azure Functions: inloggningsaktivitet, orchestrator och klienten.
+Du kan använda fyra funktionstyper av varaktiga i Azure Functions: aktivitet, orchestrator, entitet och klienten.
 
 ### <a name="activity-functions"></a>Aktivitetsfunktioner
 
@@ -43,7 +43,7 @@ Mer information och exempel finns i [Aktivitetsfunktioner](durable-functions-bin
 
 ### <a name="orchestrator-functions"></a>Orchestrator-funktioner
 
-Orchestrator-funktioner beskrivs hur åtgärder utförs och ordningen i vilken åtgärder utförs. Orchestrator-funktioner beskrivs orchestration i kod (C# eller JavaScript) enligt [varaktiga funktioner, mönster och tekniska begrepp](durable-functions-concepts.md). En orkestrering kan ha många olika typer av åtgärder, inklusive [Aktivitetsfunktioner](#activity-functions), [underordnade orkestreringar](#sub-orchestrations), [väntar på externa händelser](#external-events), och [timers](#durable-timers). 
+Orchestrator-funktioner beskrivs hur åtgärder utförs och ordningen i vilken åtgärder utförs. Orchestrator-funktioner beskrivs orchestration i kod (C# eller JavaScript) enligt [varaktiga funktioner, mönster och tekniska begrepp](durable-functions-concepts.md). En orkestrering kan ha många olika typer av åtgärder, inklusive [Aktivitetsfunktioner](#activity-functions), [underordnade orkestreringar](#sub-orchestrations), [väntar på externa händelser](#external-events), och [timers](#durable-timers). Orchestrator-funktioner också kan interagera med [entitet funktioner](#entity-functions).
 
 En orchestrator-funktion måste aktiveras via en [orchestration utlösaren](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ En initierare har startats med en [orchestrator klienten](#client-functions). Du
 
 Mer information och exempel finns i [Orchestration utlösare](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Entiteten functions (förhandsversion)
+
+Funktioner för entitet definierar åtgärder för att läsa och uppdatera små delar av tillstånd, kallas *varaktiga entiteter*. Som orchestrator-funktioner, funktioner för entiteten är funktioner med en särskild Utlösartyp *entitet utlösaren*. Till skillnad från orchestrator-funktioner har entiteten funktioner inte några begränsningar för specifik kod. Entiteten funktioner också hantera tillstånd uttryckligen i stället för implicit som representerar tillstånd via Kontrollflöde.
+
+> [!NOTE]
+> Entiteten funktioner och relaterade funktioner är endast tillgänglig i varaktiga Functions 2.0 och senare.
+
+Mer information om entiteten funktioner finns i den [entitet funktioner](durable-functions-preview.md#entity-functions) förhandsversion i dokumentationen till funktion.
+
 ### <a name="client-functions"></a>Klientfunktioner
 
-Klientfunktioner är de utlösta funktioner som skapar nya instanser av en orkestrering. Klientfunktioner är startpunkten för att skapa en instans av en varaktiga funktioner dirigering. Du kan utlösa en klient-funktion från valfri källa (http-, kö, händelseströmmen). Du kan skriva en klient-funktion på valfritt språk som stöds av appen. 
-
-Klientfunktioner har också en [orkestreringsklient](durable-functions-bindings.md#orchestration-client) bindning. En funktion som klienten kan använda orkestreringsklient bindning för att skapa och hantera varaktiga orkestreringar. 
+Klientfunktioner är utlösta funktioner som att skapa och hantera instanser av orkestreringar och entiteter. De är i själva verket startpunkten för att interagera med varaktiga funktioner. Du kan utlösa en klient-funktion från valfri källa (HTTP, kön, händelseströmmen osv.). En funktion som klienten använder den [orkestreringsklient bindning](durable-functions-bindings.md#orchestration-client) att skapa och hantera varaktiga orkestreringar och entiteter.
 
 Det mest grundläggande exemplet på en klient-funktion är en HTTP-utlöst funktion som startar en orchestrator-funktion och returnerar svaret Kontrollera status. Ett exempel finns i [HTTP-URL för API-identifiering](durable-functions-http-api.md#http-api-url-discovery).
 

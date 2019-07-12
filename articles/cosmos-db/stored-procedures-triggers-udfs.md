@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165579"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672594"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -37,7 +37,7 @@ Skriva lagrade procedurer, utlösare och användardefinierade funktioner (UDF) i
 * **Inkapsling:** Lagrade procedurer kan användas för att gruppera logiken i ett och samma ställe. Inkapsling lägger till ett Abstraktionslager ovanpå data, vilket gör det möjligt att utveckla dina program oberoende av data. Det här lagret Abstraktionslager är användbart när data är utan schema och du inte behöver hantera att lägga till ytterligare logik direkt i ditt program. Abstraktionen kan din skydda data genom att effektivisera åtkomst från skripten.
 
 > [!TIP]
-> Lagrade procedurer passar bäst för åtgärder som är skriver aktiverat. När du bestämmer var du vill använda lagrade procedurer, optimera runt kapslar in det maximala antalet skrivningar möjligt. Generellt sett är lagrade procedurer inte det effektivaste sättet för att göra stora mängder läsåtgärder så med lagrade procedurer i batch stora mängder läsningar ska returneras till klienten inte ger några önskade förmånen.
+> Lagrade procedurer är bäst lämpade för åtgärder som är skrivintensiv och kräver en transaktion i ett partitionsnyckelvärde. När du bestämmer om du vill använda lagrade procedurer, optimera runt kapslar in det maximala antalet skrivningar möjligt. Generellt sett lagrade procedurer är inte det effektivaste sättet för att göra stora mängder Läs- eller fråga åtgärder, så med lagrade procedurer för att batch stora mängder läsningar ska returneras till klienten inte kommer att ge den önskade förmånen. Dessa Läs omfattande-åtgärderna bör utföras på klientsidan, med hjälp av Cosmos-SDK för bästa prestanda. 
 
 ## <a name="transactions"></a>Transaktioner
 

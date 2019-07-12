@@ -4,17 +4,17 @@ description: 'Den här guiden hjälper koncernchefer, CIO: er, Ciso, Chief ident
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449274"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786703"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -94,7 +94,7 @@ Information om beslut frågor:
 
 * **Avancerade scenarier**. Om organisationer väljer att, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder synkronisering av lösenordshash](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) kräver synkronisering av lösenordshash för etablera användare med sina företagsuppgifter i den hanterade domänen.
 
-    Organisationer som kräver multifaktorautentisering med synkronisering av lösenordshash måste använda multifaktorautentisering i Azure AD eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Dessa organisationer kan inte använda från tredje part eller den lokala Multi-Factor authentication-metoder som förlitar sig på federation.
+    Organisationer som kräver multifaktorautentisering med synkronisering av lösenordshash måste använda multifaktorautentisering i Azure AD eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Dessa organisationer kan inte använda från tredje part eller den lokala Multi-Factor authentication-metoder som förlitar sig på federation.
 
 > [!NOTE]
 > Azure AD villkorlig åtkomst kräver [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenser.
@@ -118,7 +118,7 @@ Referera till [implementera synkronisering av lösenordshash](https://docs.micro
 
 * **Avancerade scenarier**. Direktautentisering tillämpar lokala kontoprinciper vid tidpunkten för inloggningen. Exempel: åtkomst nekas när den lokala användarens tillstånd är inaktiverad låst konto, eller [lösenord har upphört att gälla](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller hamnar utanför timmar när användaren tillåts att logga in. 
 
-    Organisationer som kräver multifaktorautentisering med direktautentisering måste använda Azure Multi-Factor Authentication (MFA) eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Dessa organisationer kan inte använda en från tredje part eller den lokala Multi-Factor authentication-metod som förlitar sig på federation. Avancerade funktioner kräver att synkronisering av lösenordshash distribueras, oavsett om du väljer direktautentisering. Ett exempel är rapporten läckta autentiseringsuppgifter för Identity Protection.
+    Organisationer som kräver multifaktorautentisering med direktautentisering måste använda Azure Multi-Factor Authentication (MFA) eller [anpassade kontroller för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Dessa organisationer kan inte använda en från tredje part eller den lokala Multi-Factor authentication-metod som förlitar sig på federation. Avancerade funktioner kräver att synkronisering av lösenordshash distribueras, oavsett om du väljer direktautentisering. Ett exempel är rapporten läckta autentiseringsuppgifter för Identity Protection.
 
 * **Affärskontinuitet**. Vi rekommenderar att du distribuerar två extra direktautentisering agenter. Dessa tillägg måste vara uppfyllda utöver första agenten på Azure AD Connect-servern. Den här ytterligare distributionen säkerställer hög tillgänglighet för begäranden om autentisering. När du har tre agenter som har distribuerats, kan fortfarande en agent misslyckas om en annan agent är nere för underhåll. 
 
@@ -178,7 +178,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 |:-----|:-----|:-----|:-----|
 |Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokal|
 |Vad är en lokal server-krav utöver etablering systemet: Azure AD Connect?|Ingen|En server för varje ytterligare autentisering-agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverk|
-|Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Ingen|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
+|Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Inga|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|
 |Finns det en lösning för hälsoövervakning?|Krävs inte|Agentstatus som tillhandahålls av [Azure Active Directory Administrationscenter](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |Användarna får enkel inloggning till molnresurser från domänanslutna enheter i företagets nätverk?|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja|

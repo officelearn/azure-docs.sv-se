@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550341"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807655"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Konfigurera enkel inloggning till icke-galleriprogram i Microsoft identity-plattformen
 
@@ -50,13 +50,14 @@ Registrera program med alla andra typer av [stöds autentiseringsmekanismer](wha
 Om du vill ansluta ett program som inte finns i listan med hjälp av en mall för integrering, gör du följande:
 
 1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/) med ditt administratörskonto för Microsoft identity-plattformen.
-2. Välj **företagsprogram** > **nytt program**.
-3. (Valfritt men rekommenderas) I den **Lägg till från galleriet** sökrutan, ange visningsnamnet för programmet. Om programmet visas i sökresultaten, markera den och hoppa över resten av den här proceduren.
-4. Välj **icke-galleriprogram**. Den **lägga till ditt eget program** visas.
+1. Välj **företagsprogram** > **nytt program**.
+1. (Valfritt men rekommenderas) I den **Lägg till från galleriet** sökrutan, ange visningsnamnet för programmet. Om programmet visas i sökresultaten, markera den och hoppa över resten av den här proceduren.
+1. Välj **icke-galleriprogram**. Den **lägga till ditt eget program** visas.
 
-   ![Lägga till ett program](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Ange visningsnamnet för det nya programmet.
-6. Välj **Lägg till**.
+   ![Visar Lägg till dina egna programsidan](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Ange visningsnamnet för det nya programmet.
+1. Välj **Lägg till**.
 
 Du lägger till ett program på så sätt kan ange du samma möjligheter till den tillgängliga för redan integrerade program. Välj först **enkel inloggning** från programmets sidopanelen. Nästa sida (**väljer du en metod för enkel inloggning**) anger alternativ för att konfigurera enkel inloggning:
 
@@ -64,7 +65,7 @@ Du lägger till ett program på så sätt kan ange du samma möjligheter till de
 - **Lösenordsbaserad**
 - **Länkade**
 
-![Välj en metod för enkel inloggning](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Visar Välj en metod för enkel inloggning för sida](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Mer information om dessa alternativ finns i följande avsnitt i den här artikeln.
 
@@ -72,7 +73,7 @@ Mer information om dessa alternativ finns i följande avsnitt i den här artikel
 
 Välj den **SAML** möjlighet att konfigurera SAML-baserad autentisering för programmet. (Det här alternativet kräver att programmet har stöd för SAML 2.0). Den **ange in enkel inloggning med SAML** visas.
 
-![Konfigurera enkel inloggning med SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Visar Ställ in enkel inloggning med SAML-sidan](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Den här sidan har fem olika rubriker:
 
@@ -90,7 +91,7 @@ Samla in information om hur du använder SAML-funktioner i programmet innan du f
 
 Om du vill konfigurera Azure AD går du till den **SAML grundkonfiguration** rubrik- och välj dess **redigera** ikon (en penna). Du kan manuellt ange värdena eller överföra en metadatafil för att extrahera värdet för respektive fält.
 
-![Grundläggande SAML-konfiguration](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Visar sidan grundläggande SAML-konfiguration](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 Följande två fält är obligatoriska:
 
@@ -141,14 +142,14 @@ Om du vill visa eller redigera anspråk skickas i SAML-token för programmet:
 
 - Gå till den **användarattribut och anspråk** rubrik- och väljer den **redigera** ikon. Den **användarattribut och anspråk** visas.
 
-![Användarattribut och anspråk](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Visar sidan för attribut och anspråk](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Du kan behöva redigera de anspråk som utfärdats i SAML-token av två skäl:
 
 - Programmet kräver en annan uppsättning anspråk URI: er eller anspråksvärden.
 - Programmet kräver den **namnge identifierarvärde** påstår sig vara något annat än användarnamnet (även kallat user principal name) lagras i Microsoft identity-plattformen.
 
-Mer information finns i [Gör så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram](../develop/active-directory-saml-claims-customization.md).
+Mer information finns i [så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram](../develop/active-directory-saml-claims-customization.md).
 
 ### <a name="review-certificate-expiration-data-status-and-email-notification"></a>Data om certifikatet upphör att gälla, status och e-postmeddelande
 
@@ -158,7 +159,7 @@ Azure AD kan du hämta det aktiva certifikatet i Base64 eller Raw-format direkt 
 
 Om du vill visa, skapa eller hämta dina certifikat (aktiv eller inaktiv), går du till den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon. Den **SAML-signeringscertifikat** visas.
 
-![SAML-signeringscertifikat](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Visar sidan signering SAML-certifikat](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Kontrollera att certifikatet har:
 
@@ -182,13 +183,13 @@ När du har konfigurerat ditt program att använda Azure AD som en SAML-baserad 
 Tilldela en ny användare eller grupp i ditt program:
 
 1. I program-sidopanelen väljer **användare och grupper**. Den  **\<programnamn >-användare och grupper** visas, som visar den aktuella listan över tilldelade användare och grupper.
-2. Välj **lägga till användare**. Den **lägga till tilldelningar** visas.
-3. Välj **användare och grupper (\<Number > valda)** . Den **användare och grupper** visas, som visar en lista över tillgängliga användare och grupper.
-4. Skriv eller Bläddra för att hitta användaren eller gruppen som du vill tilldela i listan.
-5. Välj alla användare eller grupp som du vill lägga till och välj sedan den **Välj** knappen. Den **användare och grupper** sidan försvinner.
-6. I den **lägga till tilldelningar** väljer **tilldela**. Den  **\<programnamn >-användare och grupper** visas med ytterligare användare visas i listan.
+1. Välj **lägga till användare**. Den **lägga till tilldelningar** visas.
+1. Välj **användare och grupper (\<Number > valda)** . Den **användare och grupper** visas, som visar en lista över tillgängliga användare och grupper.
+1. Skriv eller Bläddra för att hitta användaren eller gruppen som du vill tilldela i listan.
+1. Välj alla användare eller grupp som du vill lägga till och välj sedan den **Välj** knappen. Den **användare och grupper** sidan försvinner.
+1. I den **lägga till tilldelningar** väljer **tilldela**. Den  **\<programnamn >-användare och grupper** visas med ytterligare användare visas i listan.
 
-   ![Programanvändare och grupper](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Visar sidan program användare och grupper](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 I den här listan kan du:
 
@@ -213,26 +214,29 @@ Välj det här alternativet för att konfigurera [lösenordsbaserad enkel inlogg
 
 När du har valt **lösenordsbaserad**, uppmanas du att ange Webbadressen till programmets webbaserade inloggningssidan.
 
-![Lösenordsbaserad enkel inloggning](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Visar sidan inloggnings-URL att ange inloggnings URL](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Sedan gör du följande:
 
 1. Ange URL: en. Den här strängen måste vara den sida som innehåller indatafältet för användarnamn.
-2. Välj **Spara**. Azure AD försöker parsa inloggningssidan för ett användarnamn som indata och ett lösenord som indata.
-3. Om Azure AD parsning försöket misslyckas, väljer **konfigurera \<programnamn > Inställningar för lösenord för enkel inloggning** att visa den **konfigurera inloggning** sidan. (Om försöket lyckas, du kan bortse från resten av den här proceduren.)
-4. Välj **identifieras manuellt inloggningsfält**. Ytterligare instruktioner för manuell identifiering av inloggningsfält visas.
+1. Välj **Spara**. Azure AD försöker parsa inloggningssidan för ett användarnamn som indata och ett lösenord som indata.
+1. Om Azure AD parsning försöket misslyckas, väljer **konfigurera \<programnamn > Inställningar för lösenord för enkel inloggning** att visa den **konfigurera inloggning** sidan. (Om försöket lyckas, du kan bortse från resten av den här proceduren.)
+1. Välj **identifieras manuellt inloggningsfält**. Ytterligare instruktioner för manuell identifiering av inloggningsfält visas.
 
    ![Manuell konfiguration av lösenordsbaserad enkel inloggning](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Välj **fånga in inlogggningsfält**. En avbildning statussida öppnas i en ny flik, som visar meddelandet **metadatafångst pågår just nu**.
-6. Om den **krävs för åtkomst till panelen tillägget** visas i en ny flik i rutan Välj **installera nu** att installera den **Mina appar skyddat Inloggningstillägg** webbläsartillägg. (Webbläsartillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta, aktivera tillägget och uppdatera sidan capture status.
+
+1. Välj **fånga in inlogggningsfält**. En avbildning statussida öppnas i en ny flik, som visar meddelandet **metadatafångst pågår just nu**.
+1. Om den **krävs för åtkomst till panelen tillägget** visas i en ny flik i rutan Välj **installera nu** att installera den **Mina appar skyddat Inloggningstillägg** webbläsartillägg. (Webbläsartillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta, aktivera tillägget och uppdatera sidan capture status.
 
    Webbläsartillägget öppnas en annan flik som visar den angivna Webbadressen.
-7. Gå igenom hur du loggar in på fliken med den angivna Webbadressen. Fyll i fälten användarnamn och lösenord och försök att logga in. (Du behöver ange rätt lösenord.)
+
+1. Gå igenom hur du loggar in på fliken med den angivna Webbadressen. Fyll i fälten användarnamn och lösenord och försök att logga in. (Du behöver ange rätt lösenord.)
 
    En uppmaning som frågar dig att spara de hämtade inloggningsfält.
-8. Välj **OK**. Fliken stängs, webbläsartillägget uppdaterar på statussidan för avbildning med meddelandet **Metadata har uppdaterats för programmet**, och den webbläsaren som också fliken stängs.
-9. I Azure AD **konfigurera inloggning** väljer **Ok, jag kunde logga in på appen har**.
-10. Välj **OK**.
+
+1. Välj **OK**. Fliken stängs, webbläsartillägget uppdaterar på statussidan för avbildning med meddelandet **Metadata har uppdaterats för programmet**, och den webbläsaren som också fliken stängs.
+1. I Azure AD **konfigurera inloggning** väljer **Ok, jag kunde logga in på appen har**.
+1. Välj **OK**.
 
 När avbildningen av på inloggningssidan, kan du tilldela användare och grupper och du kan ställa in autentiseringsuppgifter principer precis som vanliga [lösenord SSO-program](what-is-single-sign-on.md).
 

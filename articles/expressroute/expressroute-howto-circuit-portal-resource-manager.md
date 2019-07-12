@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366551"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657214"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 
@@ -21,6 +21,7 @@ ms.locfileid: "60366551"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
@@ -84,19 +85,19 @@ På den här sidan **Providerstatus** innehåller information om det aktuella ti
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
 Providerstatus: Inte etablerats<BR>
-Kretsstatus: Enabled
+Kretsstatus: Aktiverad
 
 ![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Kretsen ändras till följande tillstånd när anslutningsleverantören håller på att aktivera den för du:
 
 Providerstatus: Etablering<BR>
-Kretsstatus: Enabled
+Kretsstatus: Aktiverad
 
 Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
 Providerstatus: Etablerat<BR>
-Kretsstatus: Enabled
+Kretsstatus: Aktiverad
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Regelbundet kontrollera status och tillståndet för nyckeln krets
 
@@ -121,7 +122,7 @@ Du kan visa statusen för en krets genom att markera det och visa sidan Översik
 
 ## <a name="modify"></a>Ändra en ExpressRoute-krets
 
-Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan ändra faktureringsmodellen för bandbredd, SKU, och Tillåt klassiska åtgärder på den **Configuration** sidan. Information om gränser och begränsningar finns i den [ExpressRoute vanliga frågor och svar](expressroute-faqs.md). 
+Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan ändra faktureringsmodellen för bandbredd, SKU, och Tillåt klassiska åtgärder på den **Configuration** sidan. Information om gränser och begränsningar finns i den [ExpressRoute vanliga frågor och svar](expressroute-faqs.md).
 
 Du kan utföra följande uppgifter utan avbrott:
 
@@ -139,9 +140,9 @@ Du kan utföra följande uppgifter utan avbrott:
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
   > [!IMPORTANT]
   > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
-  > 
+  >
   > Även om du sömlöst uppgradera bandbredd, kan du minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradera bandbredd måste du ta bort etableringen av ExpressRoute-kretsen och etablera om en ny ExpressRoute-krets.
-  > 
+  >
   > Inaktivera Premium-tillägg-åtgärden kan misslyckas om du använder resurser som är större än vad som tillåts för standard-krets.
 
 Om du vill ändra en ExpressRoute-krets, klickar du på **Configuration**.

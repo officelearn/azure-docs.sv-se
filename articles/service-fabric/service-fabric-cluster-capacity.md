@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 07/09/2019
 ms.author: chackdan
-ms.openlocfilehash: bd76658c939496f27bf3751060c18d17968acd15
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b11a3ba4fbffe1d35b590f2e5c47f19b6fb028c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386810"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718131"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -77,8 +77,8 @@ Hållbarhetsnivån används för att ange de behörigheter som dina virtuella da
 | Hållbarhetsnivå  | Minsta antal virtuella datorer | Stöds VM SKU: er                                                                  | Uppdateringar som du gör i virtual machine scale Sets                               | Uppdateringar och underhåll som initierades av Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Guld             | 5                              | Fullständig noder SKU: er som är dedikerad till en enda kund (till exempel L32s, GS5, G5, DS15_v2, D15_v2) | Kan fördröjas tills godkänts av Service Fabric-kluster | Kan pausas i 2 timmar per UD att tillåta mer tid för repliker efter tidigare fel |
-| Silver           | 5                              | Virtuella datorer med enkel kärna eller senare                                                        | Kan fördröjas tills godkänts av Service Fabric-kluster | Det går inte att fördröjas för varje betydande tidsperiod                                                    |
-| Brons           | 1                              | Alla                                                                                | Inte kommer att fördröjas av Service Fabric-kluster           | Det går inte att fördröjas för varje betydande tidsperiod                                                    |
+| Silver           | 5                              | Virtuella datorer med enkel kärna eller senare med minst 50 GB lokal SSD                      | Kan fördröjas tills godkänts av Service Fabric-kluster | Det går inte att fördröjas för varje betydande tidsperiod                                                    |
+| Brons           | 1                              | Virtuella datorer med minst 50 GB lokal SSD                                              | Inte kommer att fördröjas av Service Fabric-kluster           | Det går inte att fördröjas för varje betydande tidsperiod                                                    |
 
 > [!WARNING]
 > Nodtyper som körs med Brons hållbarhet hämta _saknad behörighet_. Det innebär att infrastruktur för jobb som påverkar din tillståndslösa arbetsbelastningar inte kommer stoppas eller fördröjd, vilket kan påverka dina arbetsbelastningar. Använd endast Brons för nodtyper som kör endast tillståndslösa arbetsbelastningar. Kör Silver eller ovan rekommenderas för produktionsarbetsbelastningar. 
@@ -108,10 +108,10 @@ Använda Silver eller Gold hållbarhet för alla typer av noden som är värdar 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Operativa rekommendationer för noden ange att du har angett till silver eller gold hållbarhet nivå.
 
 - Ha-kluster och program felfria hela tiden och se till att program ska svara på alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i tid.
-- Anta säkrare sätt att göra en VM-SKU ändra (skala upp/ned): Ändra VM-SKU på en skalningsuppsättning för virtuell dator sin natur är en osäkra åtgärd och så bör inte användas om det är möjligt. Här är den process som du kan följa för att undvika vanliga problem.
+- Anta säkrare sätt att göra en VM-SKU ändra (skala upp/ned): Ändra VM-SKU på en skalningsuppsättning för virtuell dator kräver ett antal åtgärder och överväganden. Här är den process som du kan följa för att undvika vanliga problem.
     - **För icke-primär nodtyper:** Vi rekommenderar att du skapar nya virtuella datorns skalningsuppsättning, ändra villkoret för tjänsten placering för att inkludera den nya VM scale set/node-typen och minska gamla VM scale set instansantalet till noll, en nod i taget (detta är att göra Se till att ta bort noder inte påverkar tillförlitligheten för klustret).
-    - **För den primära nodtypen:** Vår rekommendation är att du inte ändrar VM-SKU på den primära nodtypen. Ändringar av den primära nodtypen SKU inte stöds. Om orsaken till den nya SKU: N är kapacitet, rekommenderar vi att lägga till fler instanser. Om detta inte möjligt, skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla systemtillstånd för tjänsten, de återskapas när du distribuerar ditt program till det nya klustret. Om du kör tillståndslösa program i klustret måste du distribuera dina program till det nya klustret.  Du har inget att återställa. Om du vill gå stöds inte vägen och vill ändra VM-SKU, ange sedan gör ändringar i VM-skalningsuppsättningen modell-definitionen för att återspegla den nya SKU: N. Om klustret har endast en nodtyp, kontrollerar du att alla dina tillståndskänsliga program att besvara alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i god tid och att din tjänsterepliken återskapa varaktighet är mindre än fem minuter (för Silver hållbarhetsnivå). 
-    
+    - **För den primära nodtypen:** Om du har valt VM SKU har nått sin kapacitet och du vill ändra till en större VM-SKU, följa våra riktlinjer på [vertikal skalning för en primära nodtypen](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+
 - Underhålla ett minsta antal fem noder för alla VM-skalningsuppsättning som har hållbarhetsnivå Gold och Silver aktiverat.
 - Varje VM-skalningsuppsättning med hållbarhetsnivå Silver eller Gold måste mappas till en egen nodtyp i Service Fabric-klustret. Mappa flera skalningsuppsättningar för virtuella datorer till en enda nodtyp förhindrar samordning mellan Service Fabric-kluster och Azure-infrastrukturen fungerar korrekt.
 - Inte ta bort slumpmässiga VM-instanser, alltid använda VM scale set skala ned funktionen. Borttagning av slumpmässiga VM-instanser har en potentiell för att skapa obalans i VM-instansen som är fördelade på UD och FD. Detta kan inverka menligt system-möjligheten att korrekt belastningsutjämna mellan tjänsten instanser/tjänstens repliker.
@@ -160,11 +160,11 @@ Eftersom kapacitetsbehoven i ett kluster bestäms av arbetsbelastning som du pla
 För produktionsarbetsbelastningar: 
 
 - Vi rekommenderar att du anger dina kluster primära NodeType systemtjänster och Använd placeringsbegränsningar för att distribuera programmet till sekundära NodeTypes.
-- Den rekommenderade VM-SKU är Standard D3 Standard D3_V2 eller motsvarande med minst 14 GB lokal SSD-lagring.
-- Minsta stöds användning VM SKU är Standard D1 Standard D1_V2 eller motsvarande med minst 14 GB lokal SSD-lagring. 
-- 14 GB lokal SSD-lagring är ett minimikrav. Vår rekommendation är minst 50 GB. Större diskar krävs för dina arbetsbelastningar, särskilt när du kör Windows-behållare. 
+- Den rekommenderade VM-SKU är Standard D2_V2 eller motsvarande med minst 50 GB lokal SSD-lagring.
+- Minsta används stöds VM SKU Standard_D2_V3 Standard D1_V2 eller motsvarande med minst 50 GB lokal SSD-lagring. 
+- Vår rekommendation är minst 50 GB. Större diskar krävs för dina arbetsbelastningar, särskilt när du kör Windows-behållare. 
 - Partiell grundläggande VM SKU: er som Standard A0 stöds inte för produktionsarbetsbelastningar.
-- Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
+- En serie VM SKU: er stöds inte för produktionsarbetsbelastningar av prestandaskäl.
 - Lågprioriterade virtuella datorer stöds inte.
 
 > [!WARNING]
@@ -182,10 +182,10 @@ Så för produktionsarbetsbelastningar minsta rekommenderade icke - primära nod
 
 För produktionsarbetsbelastningar 
 
-- Den rekommenderade VM-SKU är Standard D3 Standard D3_V2 eller motsvarande med minst 14 GB lokal SSD-lagring.
-- Minsta stöds användning VM SKU är Standard D1 Standard D1_V2 eller motsvarande med minst 14 GB lokal SSD-lagring. 
+- Den rekommenderade VM-SKU är Standard D2_V2 eller motsvarande med minst 50 GB lokal SSD-lagring.
+- Minsta används stöds VM SKU Standard_D2_V3 Standard D1_V2 eller motsvarande med minst 50 GB lokal SSD-lagring. 
 - Partiell grundläggande VM SKU: er som Standard A0 stöds inte för produktionsarbetsbelastningar.
-- Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
+- En serie VM SKU: er stöds inte för produktionsarbetsbelastningar av prestandaskäl.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Icke-primära nodtypen - kapacitet vägledning för tillståndslösa arbetsbelastningar
 
@@ -197,10 +197,10 @@ Den här vägledningen för tillståndslösa arbetsbelastningar som körs på de
 
 För produktionsarbetsbelastningar 
 
-- Den rekommenderade VM-SKU är Standard D3 Standard D3_V2 eller motsvarande. 
+- Den rekommenderade VM-SKU är Standard D2_V2 eller motsvarande. 
 - Minsta stöds användning VM SKU är Standard D1 Standard D1_V2 eller motsvarande. 
 - Partiell grundläggande VM SKU: er som Standard A0 stöds inte för produktionsarbetsbelastningar.
-- Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
+- En serie VM SKU: er stöds inte för produktionsarbetsbelastningar av prestandaskäl.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

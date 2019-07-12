@@ -1,17 +1,17 @@
 ---
 title: Övervakning i Azure-databas för MariaDB
 description: Den här artikeln beskriver mått för övervakning och avisering för Azure Database for MariaDB, inklusive statistik för CPU-, lagrings- och anslutning.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065731"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612534"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -26,19 +26,19 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 
 |Mått|Metrisk visningsnamn|Enhet|Beskrivning|
 |---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Procentandelen av Processorn som används.|
-|memory_percent|Minne|Procent|Procentandelen minne som används.|
-|io_consumption_percent|IO-procent|Procent|Procentandelen av i/o som används.|
-|storage_percent|Lagringsprocent|Procent|Procentandelen av lagring som används av servern är maximalt.|
+|cpu_percent|CPU-procent|Percent|Procentandelen av Processorn som används.|
+|memory_percent|Minne|Percent|Procentandelen minne som används.|
+|io_consumption_percent|IO-procent|Percent|Procentandelen av i/o som används.|
+|storage_percent|Lagringsprocent|Percent|Procentandelen av lagring som används av servern är maximalt.|
 |storage_used|Använt lagringsutrymme|Byte|Mängden lagringsutrymme som används. Lagring som används av tjänsten kan omfatta databasfiler och transaktionsloggar serverloggarna.|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Procentandelen av server logglagring som används av serverns maximala server log lagring.|
+|serverlog_storage_percent|Procent för lagring av Server-loggen|Percent|Procentandelen av server logglagring som används av serverns maximala server log lagring.|
 |serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
 |storage_limit|Gränsen för lagring|Byte|Det maximala lagringsutrymmet för den här servern.|
 |active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 
 ## <a name="server-logs"></a>Serverloggar
 

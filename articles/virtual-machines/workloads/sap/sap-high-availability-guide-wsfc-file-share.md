@@ -4,7 +4,7 @@ description: Lär dig mer om att klustra SAP ASCS/SCS-instans i ett redundansklu
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936337"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709065"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -213,7 +213,7 @@ Windows Server failover-kluster är grunden för en hög tillgänglighet SAP ASC
 
 Ett redundanskluster är en grupp 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om det inträffar ett nodfel, beräknar antalet fel som kan uppstå och hålla ett felfritt kluster för att tillhandahålla program och tjänster i Windows Server failover-kluster. Du kan välja från olika kvorumlägen att uppnå failover-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar de uppgifter som beskrivs i den här artikeln bör du läsa den här artikeln:
 
 * [Arkitektur för hög tillgänglighet för Azure virtuella datorer och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -310,11 +310,11 @@ Om du vill använda en skalbar filresurs måste datorn uppfylla följande krav:
 * Du måste använda Azure Premium-diskar.
 * Vi rekommenderar att du använder Azure Managed Disks.
 * Vi rekommenderar att du formaterar volymer med hjälp av flexibelt filsystem (ReFS).
-    * Mer information finns i [SAP anteckning 1869038 - SAP-stöd för ReFs-filsystemet] [ 1869038] och [välja filsystemet] [ planning-volumes-s2d-choosing-filesystem] kapitel i den artikeln planera volymer i Lagringsdirigering.
-    * Se till att du installerar [kumulativ uppdatering för Microsoft KB4025334][kb4025334].
+    * Mer information finns i [SAP anteckning 1869038 - SAP-stöd för ReFs-filsystemet][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] kapitel i artikeln planera volymer i Lagringsdirigering.
+    * Se till att du installerar [Microsoft KB4025334 kumulativ uppdatering][kb4025334].
 * Du kan använda DS-serien eller DSv2-serien Azure VM-storlekar.
 * Använd en typ av virtuell dator som har minst en ”hög” bandbredd för bra nätverksprestanda mellan virtuella datorer som krävs för Lagringsdirigering disk synkronisering.
-    Mer information finns i den [DSv2-serien] [ dv2-series] och [DS-serien] [ ds-series] specifikationer.
+    Mer information finns i den [DSv2-serien][dv2-series] and [DS-Series][ds-series] specifikationer.
 * Vi rekommenderar att du reservera vissa lediga kapacitet i lagringspoolen. Lämna vissa lediga kapacitet i lagringspoolen får volymer utrymme för att reparera ”på plats” om det blir fel på en enhet. Detta förbättrar datasäkerheten och prestanda.  Mer information finns i [välja volymstorleken][choosing-the-size-of-volumes-s2d].
 * Skalbar filresurs virtuella Azure-datorer måste distribueras i sina egna Azure-tillgänglighetsuppsättning.
 * Du behöver inte konfigurera Azure intern belastningsutjämnare för uppskalningsfilservrar resursen Nätverksnamn, till exempel för \<SAP globala värden\>. Detta görs för de \<ASCS/SCS virtuellt värdnamn\> av SAP ASCS/SCS-instans eller för DBMS. En skalbar filresurs skalas ut belastningen över alla noder i klustret. \<SAP globala värden\> använder den lokala IP-adressen för alla klusternoder.

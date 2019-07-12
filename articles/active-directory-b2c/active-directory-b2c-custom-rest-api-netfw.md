@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510726"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835518"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -53,7 +53,7 @@ I den här genomgången kan du utveckla en .NET Framework webb-API som verifiera
 * Skicka tillbaka ett lojalitet tal.
 * Lägg till lojalitet numret till en JSON Web Token (JWT).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Steg 1: Skapa ett ASP.NET webb-API
@@ -64,11 +64,11 @@ Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-
 
 3. I den **namn** skriver ett namn för programmet (till exempel *Contoso.AADB2C.API*), och välj sedan **OK**.
 
-    ![Skapa nya visual studio-projekt](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Skapa ett nytt Visual Studio-projekt i Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. I den **nytt ASP.NET-webbprogram** väljer en **webb-API** eller **Azure API-app** mall.
 
-    ![Välj mall för webb-API](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Att välja en mall för webb-API i Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. Se till att autentiseringen är inställd på **ingen autentisering**.
 
@@ -138,15 +138,15 @@ I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontro
 
 1. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
-    ![Lägg till ny kontrollant](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Att lägga till en ny kontrollant i Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. I den **Lägg till Kodskelett** väljer **Web API-styrenhet – tom**, och välj sedan **Lägg till**.
 
-    ![Välj webb-API 2 styrenhet – tom](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Att välja webb-API 2 styrenhet – tom i Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. I den **Lägg till styrenhet** fönstret namn kontrollanten **IdentityController**, och välj sedan **Lägg till**.
 
-    ![Skriv domänkontrollantens namn](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Att ange de kontrollnamn i Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     Ställningarna skapar en fil med namnet *IdentityController.cs* i den *domänkontrollanter* mapp.
 
@@ -206,11 +206,11 @@ I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontro
 ## <a name="step-3-publish-the-project-to-azure"></a>Steg 3: Publicera projektet på Azure
 1. I Solution Explorer högerklickar du på den **Contoso.AADB2C.API** projektet och välj sedan **publicera**.
 
-    ![Publicera till Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Publicera till Microsoft Azure App Service med Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. I den **publicera** väljer **Microsoft Azure App Service**, och välj sedan **publicera**.
 
-    ![Skapa nya Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Skapa nya Microsoft Azure App Service med Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     Den **skapa App Service** öppnas. I den, kan du skapa alla Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
@@ -219,9 +219,9 @@ I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontro
 
 3. I den **Webbappnamnet** skriver du ett unikt appnamn (giltiga tecken är a – z, 0-9 och bindestreck (-). URL: en för webbappen är http://<app_name>.azurewebsites.NET, där *app_name* är namnet på din webbapp. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 
-    ![Ange egenskaper för App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Konfigurera egenskaper för App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Om du vill börja skapa Azure-resurser, Välj **skapa**.  
+4. Om du vill börja skapa Azure-resurser, Välj **skapa**.
     När ASP.NET-webbappen har skapats, guiden publicerar den till Azure och sedan startar appen i standardwebbläsaren.
 
 6. Kopiera webbappens URL.
@@ -262,7 +262,7 @@ Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstyc
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -347,14 +347,14 @@ När du lägger till nytt anspråk förlitande part-koden ser ut så här:
 
 2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.
 
-    ![Fönstret B2C_1A_signup_signin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![Sidan B2C_1A_signup_signin anpassad princip i Azure portal](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. Testa processen genom att skriva **Test** i den **Förnamn** box.  
+3. Testa processen genom att skriva **Test** i den **Förnamn** box.
     Azure AD B2C visar ett felmeddelande visas överst i fönstret.
 
-    ![Testa din princip](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![Testa den angivna namnet verifieringen av indata på Registrera dig på inloggningssidan](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. I den **Förnamn** skriver ett namn (andra än ”Test”).  
+4. I den **Förnamn** skriver ett namn (andra än ”Test”).
     Azure AD B2C registrerar sig användaren och skickar sedan en loyaltyNumber till ditt program. Observera antalet i det här JWT.
 
 ```

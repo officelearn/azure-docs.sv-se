@@ -4,7 +4,7 @@ description: Snabbt Oracle Data Guard dig och kom igång med Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4329ce7fb74c61a601a37646a398c46940e22ffa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771727"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707515"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle Data Guard på en virtuell Azure Linux-dator 
 
@@ -688,6 +688,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+[Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 
 [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

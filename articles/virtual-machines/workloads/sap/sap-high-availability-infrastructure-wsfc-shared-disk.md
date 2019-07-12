@@ -4,7 +4,7 @@ description: Lär dig hur du förbereder Azure-infrastrukturen för SAP hög til
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408782"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709245"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "65408782"
 
 Den här artikeln beskriver de steg du utför för att förbereda Azure-infrastrukturen för att installera och konfigurera en SAP-system med hög tillgänglighet i ett Windows-redundanskluster med hjälp av en *delad klusterdisk* som ett alternativ för kluster ett SAP ASCS-instans.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs den här artikeln innan du påbörjar installationen:
 
@@ -224,7 +224,7 @@ _**Bild 1:** Ställa in parametrar för SAP hög tillgänglighet Azure Resource 
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuera virtuella datorer med anslutning till företagets nätverk (mellan lokala) ska användas i produktion
-För produktion SAP-system, distribuera Azure-datorer med [anslutning till företagets nätverk (mellan lokala)] [ planning-guide-2.2] med hjälp av Azure VPN Gateway eller Azure ExpressRoute.
+För produktion SAP-system, distribuera Azure-datorer med [anslutning till företagets nätverk (mellan lokala)][planning-guide-2.2] med hjälp av Azure VPN Gateway eller Azure ExpressRoute.
 
 > [!NOTE]
 > Du kan använda Azure Virtual Network-instans. Virtuellt nätverk och undernät har redan skapats och förberetts.
@@ -295,7 +295,7 @@ I följande avsnitt innehåller mer information om mallar och parametrar som du 
 
 ASCS/SCS-mallen distribuerar två virtuella datorer som du kan använda för att skapa ett redundanskluster i Windows Server som är värd för flera ASCS/SCS-instanser.
 
-Du ställer in mallen ASCS/SCS multi-SID i den [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen] [ sap-templates-3-tier-multisid-xscs-marketplace-image] eller [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen genom att använda Managed Disks] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], ange värden för följande parametrar:
+Du ställer in mallen ASCS/SCS multi-SID i den [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], ange värden för följande parametrar:
 
 - **Resurs-Prefix**:  Ange resurs-prefixet som används som prefix i alla resurser som skapas under distributionen. Eftersom resurserna som inte tillhör bara en SAP-system, är prefixet för resursen inte SID för en SAP-system.  Prefixet måste vara mellan tre och sex tecken.
 - **Stack typ**: Välj stack-typ av SAP-system. Beroende på vilken stack har Azure Load Balancer en (ABAP eller endast Java) eller två (ABAP + Java) privata IP-adresser per SAP-system.
@@ -333,7 +333,7 @@ Belastningsutjämnaren är konfigurerad för att använda följande portar för 
 
 Databas-mallen distribuerar en eller två virtuella datorer som du kan använda för att installera det relationella databashanteringssystemet (RDBMS) för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
-Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databasen – flera SÄKERHETSIDENTIFIERARE mallen] [ sap-templates-3-tier-multisid-db-marketplace-image] eller [databasen – flera SÄKERHETSIDENTIFIERARE mallen genom att använda Managed Disks] [ sap-templates-3-tier-multisid-db-marketplace-image-md], ange värden för följande parametrar:
+Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databasen – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], ange värden för följande parametrar:
 
 - **SAP-System-Id**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
 - **OS-typ**: Välj operativsystem för de virtuella datorerna.
@@ -350,7 +350,7 @@ Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databa
 
 Programmet servrar mallen distribuerar två eller flera virtuella datorer som kan användas som SAP-programservern instanser för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
 
-Konfigurera servrar – flera SÄKERHETSIDENTIFIERARE programmallen, i den [programmall servrar – flera SÄKERHETSIDENTIFIERARE] [ sap-templates-3-tier-multisid-apps-marketplace-image] eller [programmall servrar – flera SÄKERHETSIDENTIFIERARE genom att använda Managed Disks] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], ange värden för följande parametrar:
+Konfigurera servrar – flera SÄKERHETSIDENTIFIERARE programmallen, i den [programmall servrar – flera SÄKERHETSIDENTIFIERARE][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template  by using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], ange värden för följande parametrar:
 
   -  **SAP-System-Id**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
   -  **OS-typ**: Välj operativsystem för de virtuella datorerna.
@@ -555,7 +555,7 @@ Om du vill lägga till registervärden på båda klusternoderna för SAP ASCS/SC
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
 | Variabeltyp |REG_DWORD (Decimal) |
-| Värde |120000 |
+| Value |120000 |
 | Länkar till dokumentationen |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tabell 3:** Ändra den första parametern för TCP/IP

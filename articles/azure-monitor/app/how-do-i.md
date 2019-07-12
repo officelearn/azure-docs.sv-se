@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902114"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795514"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -137,16 +137,25 @@ Läs mer om [priser och kvoter](../../azure-monitor/app/pricing.md).
 ## <a name="disable-telemetry"></a>Inaktivera telemetri
 Att **dynamiskt stoppa och starta** insamling och överföring av telemetri från servern:
 
-```
+### <a name="aspnet-classic-applications"></a>Klassisk för ASP.NET-program
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>Andra program
+Det rekommenderas inte att använda `TelemetryConfiguration.Active` singleton på konsolen eller ASP.NET Core-program.
+Om du har skapat `TelemetryConfiguration` instansen själv - ange `DisableTelemetry` till `true`.
 
+För ASP.NET Core-program kan du komma åt `TelemetryConfiguration` instans med [ASP.NET Core beroendeinmatning](/aspnet/core/fundamentals/dependency-injection/). Hittar du mer information finns i [ApplicationInsights för ASP.NET Core-program](../../azure-monitor/app/asp-net-core.md) artikeln.
 
-Att **inaktivera valda standard insamlare** – till exempel prestandaräknare, HTTP-begäranden eller beroenden - ta bort eller kommentera ut de relevanta raderna i [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest data.
+## <a name="disable-selected-standard-collectors"></a>Inaktivera valda standard insamlare
+Du kan inaktivera standard-insamlare (till exempel prestandaräknare, HTTP-begäranden eller beroenden)
+
+* **ASP.NET-program** – ta bort eller kommentera ut de relevanta raderna i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core-program** -Följ telemetri moduler konfigurationsalternativ i [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Visa systemprestandaräknare
 Bland de mått som du kan visa i metrics explorer är en uppsättning system prestandaräknare. Det finns en fördefinierad bladet med rubriken **servrar** som visar flera stycken.

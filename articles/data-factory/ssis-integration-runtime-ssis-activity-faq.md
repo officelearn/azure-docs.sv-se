@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537646"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621842"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka körning av paket i SSIS-integreringskörning
 
@@ -57,11 +57,33 @@ Möjlig orsak är att den ADO.NET-provider som används i paketet inte är insta
 
 Felet kan orsakas av ett känt problem i äldre versioner av SQL Server Management Studio (SSMS). Om paketet innehåller en anpassad komponent (till exempel SSIS Azure Feature Pack eller partner komponenter) som inte är installerad på datorn där SSMS används för att göra distributionen kan ta bort komponenten SSMS och orsakar felet. Uppgradera [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) till den senaste versionen som har problemet har åtgärdats.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Felmeddelande ”: SSIS Executor slutkod:-1073741819”.
+
+* Möjlig orsak & rekommenderad åtgärd:
+  * Detta fel kan bero på grund av begränsning för Excel-källan och målet när flera Excel källor och mål som körs parallellt i flera trådar. Du kan lösning som den här begränsningen genom att ändra dina Excel-komponenter för att köra sekventiellt eller dela dem i olika paket och utlöser genom ”kör paketet aktiviteten” med värdet som SANT ExecuteOutOfProcess-egenskapen.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Felmeddelande: ”Det finns inte tillräckligt med utrymme på disken”
 
 Detta fel innebär att den lokala disken används i SSIS integration runtime-noden. Kontrollera om ditt paket eller en anpassad installation förbrukar för mycket diskutrymme:
 * Om disken används av ditt paket, ska det frigöras när paketet körningen har slutförts.
 * Om disken används av din anpassade konfiguration, behöver för du att stoppa SSIS-integreringskörning ändra skriptet och starta integration runtime igen. Hela Azure blob-behållaren som du angav för anpassad installation ska kopieras till SSIS integration runtime-noden så kontrollera om det finns några onödigt innehåll under behållaren.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Felmeddelande: ”Det gick inte att hämta resursen från huvudgrenen. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Kod: 300004. Beskrivning: Läs in fil ”***” misslyckades ”.
+
+* Möjlig orsak & rekommenderad åtgärd:
+  * Om SSIS-aktivitet körs paketet från filsystemet (paketfilen eller projektfilen), inträffar det här felet om projekt, paketfilen eller konfigurationsfilen-filen inte är tillgänglig med paket-autentiseringsuppgifter som du angav i SSIS-aktivitet
+    * Om du använder Azure File:
+      * Sökvägen måste börja med \\ \\ \<lagringskontonamn\>. file.core.windows.net\\\<filresurssökväg\>
+      * Domänen ska vara ”Azure”
+      * Användarnamnet ska vara \<lagringskontonamn\>
+      * Lösenordet ska vara \<lagringsåtkomstnyckel\>
+    * Om du använder en lokal fil. Kontrollera om VNet, paketet autentiseringsuppgifter för åtkomst och behörighet har konfigurerats korrekt så att din Azure-SSIS integration runtime kan komma åt en lokal filresursen
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Felmeddelande: ”Filnamnet”... ” anges i anslutningen var inte giltig ”
+
+* Möjlig orsak & rekommenderad åtgärd:
+  * Ett ogiltigt filnamn har angetts
+  * Kontrollera att du använder FQDN (fullständigt kvalificerade domännamn) i stället för kort tid i din Anslutningshanteraren
 
 ### <a name="error-message-cannot-open-file-"></a>Felmeddelande: ”Det går inte att öppna filen”... ””
 

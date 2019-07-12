@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf665362e2d20f26c17e8a4ae9da29fc30cb47ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481280"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807690"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Anvisningar: Distribuera Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip
 
@@ -43,9 +43,11 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
 1. I den **Serverhanteraren** gå till fönstret **filer och lagringstjänster**.
 
     ![Öppna filer och lagringstjänster](./media/deploy-access-panel-browser-extension/files-services.png)
+
 1. Gå till den **resurser** fliken. Klicka sedan på **uppgifter** > **ny resurs...**
 
-    ![Öppna filer och lagringstjänster](./media/deploy-access-panel-browser-extension/shares.png)
+    ![Skärmbild som visar var du hittar nya resursen från skärmen uppgifter](./media/deploy-access-panel-browser-extension/shares.png)
+
 1. Slutför den **guiden Ny resurs** och definiera behörigheter för att säkerställa att den kan nås från användarnas datorer. [Läs mer om resurser.](https://technet.microsoft.com/library/cc753175.aspx)
 1. Hämta följande Microsoft Windows Installer-paket (MSI-fil): [Få åtkomst till panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. Kopiera installer-paketet till en önskad plats på resursen.
@@ -80,13 +82,14 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
 
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
+
 1. Högerklicka på **Programvaruinstallation**och välj sedan **New** > **paket...**
 1. Gå till den delade mappen som innehåller installationspaketet från [steg 1: Skapa distributionsplatsen](#step-1-create-the-distribution-point), Välj MSI-filen och klicka på **öppna**.
 
    > [!IMPORTANT]
    > Om resursen finns på denna server måste du kontrollera att du använder MSI-filen via sökvägen till nätverk i stället för den lokala filsökvägen.
 
-    ![Välj installationspaketet från den delade mappen.](./media/deploy-access-panel-browser-extension/select-package.png)
+    ![Välj installationspaketet från den delade mappen](./media/deploy-access-panel-browser-extension/select-package.png)
 
 1. I den **distribuera programvara** fråga, Välj **tilldelad** för din distributionsmetod. Klicka sedan på **OK**.
 
@@ -100,6 +103,7 @@ Förutom att köra installationsprogrammet, måste alla tillägg för Internet E
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+
 1. Högerklicka på **lista över tillägg**, och välj **redigera**.
 
     ![Högerklicka på ”lista över tillägg” och välj ”Redigera”](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
@@ -111,8 +115,8 @@ Förutom att köra installationsprogrammet, måste alla tillägg för Internet E
 1. I den **Visa innehåll** och utför följande steg:
 
    1. För den första kolumnen (den **värdenamn** fältet), kopiera och klistra in följande klass-ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. För den andra kolumnen (den **värdet** fältet), ange följande värde: `1`
-   3. Klicka på **OK** att Stäng den **Visa innehåll** fönster.
+   1. För den andra kolumnen (den **värdet** fältet), ange följande värde: `1`
+   1. Klicka på **OK** att Stäng den **Visa innehåll** fönster.
 
       ![Fyll i värden som anges i föregående steg](./media/deploy-access-panel-browser-extension/show-contents.png)
 
@@ -160,7 +164,7 @@ Följ stegen nedan för att kontrollera om tillägget distributionen har lyckats
 1. Efter omstart, öppna **Internet Explorer**. I det övre högra hörnet i fönstret klickar du på **verktyg** (kugghjulsikonen) och välj sedan **Hantera tillägg**.
 1. I den **Hantera tillägg** fönstret kontrollerar du att den **Access Panel-tillägg** har installerats och att dess **Status** har ställts in på **aktiverad**.
 
-   ![Kontrollera att tillägget för åtkomst-panelen är installerat och aktiverat.](./media/deploy-access-panel-browser-extension/verify-install.png)
+   ![Kontrollera att tillägget för åtkomst-panelen är installerat och aktiverat](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="learn-more"></a>Läs mer
 

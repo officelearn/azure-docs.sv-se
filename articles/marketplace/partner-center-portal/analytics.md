@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247731"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619690"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics för kommersiella Marketplace i Partnercenter
 
@@ -138,7 +138,7 @@ Den **order per marketplace licenstyp** diagrammet visar antalet per månad ordn
 
 - **Fakturerade via Azure**: Microsoft debiterar kunder för din räkning när du väljer att [sälja ditt erbjudande via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) med en sådan licens. Betalningstyper är betala per användning via kreditkort eller Enterprise fakturering.
 - **Använd din egen licens**: Microsoft debiterar inte kunder för deras användning av den här typen av marketplace-erbjudandet. Visas som **[blir nu (kostnadsfritt)](./create-new-saas-offer.md#get-it-now-free)** i marketplace.
-- **Kostnadsfria**: Microsoft debiterar inte kunder för deras användning av den här typen av marketplace-erbjudandet. Visas som **[kostnadsfri utvärderingsversion](./create-new-saas-offer.md#free-trial)** i marketplace.
+- **Kostnadsfria**: Microsoft debiterar inte kunder för deras användning av den här typen av marketplace-erbjudandet. Visas som **[kostnadsfri utvärderingsversion](./create-new-saas-offer.md##free-trial-listing)** i marketplace.
 - **Microsoft som återförsäljare**: Representerar erbjudanden som säljs av Microsoft-återförsäljare som en del av den  **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Partner Center analysera order per licenstyp](./media/analyze-license-type.png)
@@ -276,7 +276,7 @@ Du får ett popup-meddelande och e-postmeddelande med en länk till den **hämta
 | Typ av erbjudande: Virtuell dator | Beställa| Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell installation till den prenumeration som är associerad med kunden.||
 | Typ av erbjudande: Visual Studio Marketplace-tillägg  | Beställa| Erbjudandetyp tidigare var tillgängliga för utvecklare för Azure DevOps-tillägget. Gå framåt Azure DevOps sälja tillägget utvecklare sina tillägget direkt till kunder. Tillägget erbjudanden kan konfigureras som Betal eller inklusive en utvärderingsversion. |
 | Avbryt beställningsdatum| Beställa| Det datum som Marketplace-order avbröts.||
-| Beställnings-ID| Beställa| Den unika identifieraren för kund för din Marketplace-tjänst. Användningsbaserade erbjudanden för virtuell dator är inte kopplade till en order.| |
+| Order-ID| Beställa| Den unika identifieraren för kund för din Marketplace-tjänst. Användningsbaserade erbjudanden för virtuell dator är inte kopplade till en order.| |
 | Köp beställningsdatum| Beställa| Det datum då Marketplace-Order skapades.|||
 | Beställningsstatus| Beställa| Status för en Marketplace-order när data uppdaterades senast.|     |
 | Beställningsstatus: Aktiv  | Beställa| Kunden har köpt en order och inte har avbrutit deras inbördes ordning.|         |

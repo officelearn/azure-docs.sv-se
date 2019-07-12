@@ -5,21 +5,21 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a7862e95966d7b0e0ab31f242dff0244735fe7a1
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c4878902425a26086ad77647ea06568f2110ccfe
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409237"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668624"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Snabbstart: Hantera Linux-datorer i Azure med Ansible
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. I den här artikeln använder du en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -132,4 +132,4 @@ Du använder Ansible för att starta en deallocated (stoppad) Azure-dator i det 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Självstudie: Hantera Azure dynamiska lager med Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Självstudier: Hantera Azure dynamiska lager med Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

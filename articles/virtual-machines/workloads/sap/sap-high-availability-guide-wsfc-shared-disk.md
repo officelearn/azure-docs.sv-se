@@ -4,7 +4,7 @@ description: Lär dig mer om att klustra SAP ASCS/SCS-instans i ett redundansklu
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205110"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709052"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -192,7 +192,7 @@ Windows Server failover-kluster är grunden för en hög tillgänglighet SAP ASC
 
 Ett redundanskluster är en grupp 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om det inträffar ett nodfel, beräknar antalet fel som kan uppstå och hålla ett felfritt kluster för att tillhandahålla program och tjänster i Windows Server failover-kluster. Du kan välja från olika kvorumlägen att uppnå failover-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar uppgifterna i den här artikeln finns i följande artikel:
 
 * [Arkitektur för hög tillgänglighet för Azure virtuella datorer och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]

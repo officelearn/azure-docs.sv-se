@@ -10,102 +10,103 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 07/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6567d7f2ebaab5bd7b5bc8fb7b5a62970f169161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ec202ba6126b150fb78c76591682f163018661
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476166"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604550"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på måttdiagram i Application Insights
 
-Anteckningar på [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Azure DevOps-tjänsterna buildsystemet](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Du kan också skapa anteckningar för att flagga en händelse om du vill genom att skapa dem från PowerShell.
+Anteckningar på [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller andra viktiga händelser. Kommentarer gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) buildsystemet. Du kan också skapa anteckningar för att flagga en händelse om du vill genom att skapa dem från PowerShell.
 
 > [!NOTE]
-> Den här artikeln visar det inaktuella **klassiska mått uppleva**. Anteckningar är bara tillgängliga i den klassiska upplevelsen och i  **[arbetsböcker](../../azure-monitor/app/usage-workbooks.md)** . Mer information om aktuellt mått upplevelse, finns [i den här artikeln](../../azure-monitor/platform/metrics-charts.md).
+> Den här artikeln visar det inaktuella **klassiska mått uppleva**. Anteckningar är bara tillgängliga i den klassiska upplevelsen och i  **[arbetsböcker](../../azure-monitor/app/usage-workbooks.md)** . Läs mer om den aktuella mått-upplevelsen i [avancerade funktioner för Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 ![Exempel på anteckningar](./media/annotations/0-example.png)
 
-## <a name="release-annotations-with-azure-devops-services-build"></a>Versionsanteckningar med Azure DevOps-Services-version
+## <a name="release-annotations-with-azure-pipelines-build"></a>Versionsanteckningar med Azure Pipelines build
 
-Versionsanteckningar är en funktion i Azure Pipelines molnbaserad tjänst för Azure DevOps-tjänsterna.
+Versionsanteckningar är en funktion i Azure Pipelines molnbaserad tjänst för Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Installera tillägget anteckningar (en gång)
-Om du vill kunna skapa Versionsanteckningar måste du installera en av de många tillgängliga tillägg i Azure DevOps-tjänsterna i Visual Studio Marketplace.
+Om du vill kunna skapa Versionsanteckningar måste du installera en av de många tillgängliga tillägg i Azure DevOps i Visual Studio Marketplace.
 
-1. Logga in på din [Azure DevOps-tjänsterna](https://azure.microsoft.com/services/devops/) projekt.
-2. I Visual Studio Marketplace [hämta tillägg för Versionsanteckningar](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), och lägga till den i din organisation med Azure DevOps-tjänsterna.
-
-![Välj en Azure DevOps-organisation och sedan installera.](./media/annotations/1-install.png)
-
-Du behöver bara göra detta en gång för din organisation med Azure DevOps-tjänsterna. Versionsanteckningar kan nu konfigureras för alla projekt i din organisation.
+1. Logga in på din [Azure DevOps](https://azure.microsoft.com/services/devops/) projekt.
+   
+1. I Visual Studio Marketplace [Versionsanteckningar tillägget](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) , Välj din Azure DevOps-organisation och välj sedan **installera** att lägga till tillägget till din Azure DevOps-organisation.
+   
+   ![Välj en Azure DevOps-organisation och därefter på installera.](./media/annotations/1-install.png)
+   
+Du behöver bara installera tillägget en gång för din Azure DevOps-organisation. Du kan nu konfigurera Versionsanteckningar för alla projekt i din organisation.
 
 ### <a name="configure-release-annotations"></a>Konfigurera Versionsanteckningar
 
-Du behöver en separat API-nyckel för varje mall för versionen av Azure DevOps-tjänsterna.
+Skapa en separat API-nyckel för var och en av dina Azure-Pipelines versionen mallar.
 
-1. Logga in på den [Microsoft Azure-portalen](https://portal.azure.com) och öppna den Application Insights-resurs som övervakar dina program. (Eller [skapa en nu](../../azure-monitor/app/app-insights-overview.md), om du inte gjort det ännu.)
-2. Öppna den **API-åtkomst** fliken och kopiera den **Application Insights-ID**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och öppna den Application Insights-resurs som övervakar dina program. Eller om du inte har någon, [skapa en ny Application Insights-resurs](../../azure-monitor/app/app-insights-overview.md).
    
-    ![Öppna din Application Insights-resurs på portal.azure.com och välj inställningar. Öppna API-åtkomst. Kopiera program-ID](./media/annotations/2-app-id.png)
-
-4. Öppna (eller skapa) på versionsmall som hanterar dina distributioner från Azure DevOps-tjänsterna i ett separat webbläsarfönster.
+1. Öppna den **API-åtkomst** fliken och kopiera den **Application Insights-ID**.
    
-    Lägg till en aktivitet och välj Application Insights på Versionsanteckning uppgiften på menyn.
+   ![Under API-åtkomst, kopierar du programmets ID.](./media/annotations/2-app-id.png)
 
-   ![Klicka på plustecknet för att lägga till uppgiften och välj Application Insights på Versionsanteckning. Klistra in Application Insights-ID.](./media/annotations/3-add-task.png)
-
-    Klistra in den **program-ID** som du kopierade från fliken API-åtkomst.
+1. I ett separat webbläsarfönster, öppna eller skapa versionsmall som hanterar dina Pipelines för Azure-distributioner.
    
-    ![Klistra in Application Insights-ID](./media/annotations/4-paste-app-id.png)
-
-5. I fönstret Azure att skapa en ny API-nyckel och ta en kopia av den.
+1. Välj **Lägg till aktivitet**, och välj sedan den **Application Insights på Versionsanteckning** uppgift på menyn.
    
-    ![På fliken API-åtkomst i Azure-fönstret klickar du på Skapa API-nyckel.](./media/annotations/5-create-api-key.png)
-
-    ![Ange en kommentar på fliken Skapa API: et, kontrollera skriva kommentarer och på Generera nyckel. Kopiera den nya nyckeln.](./media/annotations/6-create-api-key.png)
-
-6. Öppna fliken Konfiguration för versionsmall för.
+   ![Välj Lägg till aktivitet och Versionsanteckning för Application Insights.](./media/annotations/3-add-task.png)
    
-    Skapa en variabel definition för `ApiKey`.
+1. Under **program-ID**, klistra in Application Insights-ID som du kopierade från den **API-åtkomst** fliken.
    
-    Klistra in din API-nyckel till ApiKey variabeldefinitionen.
+   ![Klistra in Application Insights-ID](./media/annotations/4-paste-app-id.png)
    
-    ![Välj fliken variabeln och klicka på Lägg till i fönstret Azure DevOps-tjänsterna. Ange namnet till ApiKey och i värdet och klistra in den nyckel som du genererade och på låsikonen.](./media/annotations/7-paste-api-key.png)
-1. Slutligen **spara** versionspipelinen.
+1. Tillbaka i Application Insights **API-åtkomst** väljer **skapa API-nyckel**. 
+   
+   ![Välj Skapa API-nyckel på fliken API-åtkomst.](./media/annotations/5-create-api-key.png)
+   
+1. I den **skapa API-nyckel** fönstret anger du en beskrivning, Välj **Skriv anteckningar**, och välj sedan **skapa nycklar**. Kopiera den nya nyckeln.
+   
+   ![I fönstret Skapa API anger du en beskrivning och välj Skriv anteckningar väljer generera nyckeln.](./media/annotations/6-create-api-key.png)
+   
+1. I fönstret versionen mallen på den **variabler** fliken **Lägg till** att skapa en variabel definition för den nya API-nyckeln.
 
+1. Under **namn**, ange `ApiKey`, och under **värdet**, klistra in API-nyckel som du kopierade från den **API-åtkomst** fliken.
+   
+   ![Välj Lägg till, namn på variabeln ApiKey, på fliken Azure DevOps variabler och klistra in API-nyckel under värde.](./media/annotations/7-paste-api-key.png)
+   
+1. Välj **spara** i fönstret huvudsakliga versionen mall för att spara mallen.
 
 ## <a name="view-annotations"></a>Visa anteckningar
-När du använder mallen versionen för att distribuera en ny version, nu skickas en anteckning till Application Insights. Anteckningarna visas i diagrammen i Metrics Explorer.
+Nu när du använder mallen versionen för att distribuera en ny version, skickas en anteckning till Application Insights. Anteckningarna visas i diagram i **Metrics Explorer**.
 
-Klicka på någon anteckningsmarkör (ljust grå pilen) för att öppna information om versionen, inklusive begärande, kontroll källgren, viktig pipeline och miljö.
+Välj alla anteckningsmarkör (ljust grå pilen) för att öppna information om versionen, inklusive begärande, kontroll källgren, releasepipeline och miljö.
 
-![Klicka på någon version anteckningsmarkör.](./media/annotations/8-release.png)
+![Välj en anteckningsmarkör för versionen.](./media/annotations/8-release.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>Skapa anpassade kommentarer från PowerShell
-Du kan också skapa anteckningar från en process som du vill (utan att använda Azure DevOps-tjänster). 
+Du kan använda den [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell-skriptet från GitHub för att skapa anteckningar från en process som helst, utan att använda Azure DevOps. 
 
+1. Skapa en lokal kopia av [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+   
+1. Använd stegen i föregående procedur för att hämta din Application Insights-ID och skapa en API-nyckel från Application Insights **API-åtkomst** fliken.
+   
+1. Anropa PowerShell-skriptet med följande kod, ersätta platshållarna vinkel-och avslutas med dina värden. Den `-releaseProperties` är valfria. 
+   
+   ```powershell
+   
+        .\CreateReleaseAnnotation.ps1 `
+         -applicationId "<applicationId>" `
+         -apiKey "<apiKey>" `
+         -releaseName "<releaseName>" `
+         -releaseProperties @{
+             "ReleaseDescription"="<a description>";
+             "TriggerBy"="<Your name>" }
+   ```
 
-1. Skapa en lokal kopia av den [Powershell-skriptet från GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
-
-2. Hämta program-ID och skapa en API-nyckel från fliken API-åtkomst.
-
-3. Anropa skriptet så här:
-
-```PS
-
-     .\CreateReleaseAnnotation.ps1 `
-      -applicationId "<applicationId>" `
-      -apiKey "<apiKey>" `
-      -releaseName "<myReleaseName>" `
-      -releaseProperties @{
-          "ReleaseDescription"="a description";
-          "TriggerBy"="My Name" }
-```
-
-Det är enkelt att ändra skriptet, till exempel för att skapa anteckningar för tidigare.
+Du kan ändra skriptet, till exempel för att skapa anteckningar för tidigare.
 
 ## <a name="next-steps"></a>Nästa steg
 

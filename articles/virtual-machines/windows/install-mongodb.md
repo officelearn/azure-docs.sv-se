@@ -4,7 +4,7 @@ description: Lär dig hur du installerar MongoDB på en Azure-dator som kör Win
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1436eadace2ff57bde9d67201d6b38d4aee8f523
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711446"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722661"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installera och konfigurera MongoDB på en Windows-dator i Azure
 [MongoDB](https://www.mongodb.org) är en populära öppen källkod, högpresterande NoSQL-databas. Den här artikeln visar hur du installerar och konfigurerar MongoDB på en Windows Server 2016-dator (VM) i Azure. Du kan också [installerar MongoDB på en Linux-VM i Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du installerar och konfigurerar MongoDB, måste du skapa en virtuell dator, och vi rekommenderar lägga till en datadisk till den. Se följande artiklar för att skapa en virtuell dator och lägga till en datadisk:
 
 * Skapa en Windows Server-dator med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure PowerShell](quick-create-powershell.md).

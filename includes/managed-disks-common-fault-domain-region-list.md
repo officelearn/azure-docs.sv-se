@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 073b50011e640bc65cf4887635dd620d9b009df4
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148464"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812573"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Antalet feldomäner per region
 
 | Region              | Max antal feldomäner  |
 |---------------------|-------------------------|
-| Östra USA             | 3                       |
+| East US             | 3                       |
 | USA, östra 2           | 3                       |
 | Västra USA             | 3                       |
 | Västra USA 2           | 2                       |
@@ -40,6 +40,7 @@ ms.locfileid: "67148464"
 | Indien, västra          | 2                       |
 | Sydkorea, centrala       | 2                       |
 | Sydkorea, södra         | 2                       |
+| Förenade Arabemiraten, norra           | 2                       |
 |                     |                         |
 | Östra Australien      | 2                       |
 | Sydöstra Australien | 2                       |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7570cfc8a9804f753a9de140a71436bcc0cebb43
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335400"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836656"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -53,7 +53,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till/från 
 
 Det enklaste sättet att skapa en pipeline som kopierar data till och från Azure SQL Data Warehouse är att använda guiden Kopiera data. Se [självstudien: Läs in data till SQL Data Warehouse med Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -146,7 +146,7 @@ GO
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. Mer information finns i [repeterbarhet avsnittet](#repeatability-during-copy). |Ett frågeuttryck. |Nej |
-| allowPolyBase |Anger om du vill använda PolyBase (om tillämpligt) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information. |True <br/>FALSKT (standard) |Nej |
+| allowPolyBase |Anger om du vill använda PolyBase (om tillämpligt) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information. |Sant <br/>FALSKT (standard) |Nej |
 | polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** är inställd på **SANT**. |&nbsp; |Nej |
 | rejectValue |Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras. <br/><br/>Mer information om den PolyBase avvisningsalternativen i den **argument** delen av [Skapa extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) avsnittet. |0 (standardvärde), 1, 2... |Nej |
 | rejectType |Anger om alternativet rejectValue anges som ett exakt värde eller en procentandel. |Värde (standard), procent |Nej |
@@ -313,12 +313,12 @@ Data Factory skapar tabellen i målarkiv med samma tabellnamnet på källdatalag
 | money | money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binär | Binär |
+| Binary | Binary |
 | Varbinary | Varbinary (upp till 8000) |
 | Date | Date |
 | Datetime | Datetime |
 | DateTime2 | DateTime2 |
-| Tid | Tid |
+| Time | Time |
 | Datetimeoffset | Datetimeoffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (upp till 8000) |
@@ -381,7 +381,7 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 Du kan också mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare i aktivitetsdefinitionen kopia. Mer information finns i [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>JSON-exempel för att kopiera data till och från SQL Data Warehouse
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure SQL Data Warehouse och Azure Blob Storage. Men du kan kopiera data **direkt** från källor till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure SQL Data Warehouse och Azure Blob Storage. Men du kan kopiera data **direkt** från källor till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 ### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Exempel: Kopiera data från Azure SQL Data Warehouse till Azure Blob
 Exemplet definierar följande Data Factory-entiteter:

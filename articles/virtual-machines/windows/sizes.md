@@ -4,7 +4,7 @@ description: Visar en lista över de olika storlekarna som är tillgängliga fö
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: aabf0d30-04eb-4d34-b44a-69f8bfb84f22
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: jonbeck
-ms.openlocfilehash: bd083a00887c5de41a488866fc5244126f6b17be
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 78b0de43652aba20563e2712e249e18ccd18c407
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544062"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710085"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för Windows-datorer i Azure
 
 Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-datorer som du kan använda för att köra dina Windows-appar och arbetsbelastningar. Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna.  Den här artikeln är också tillgängligt för [Linux-datorer](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-| Type                     | Storlekar           |    Beskrivning       |
+| type                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC  | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2           | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |

@@ -11,20 +11,20 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658330"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836957"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapaciteten för en Azure API Management-instans
 
-**Kapacitet** är enskilt viktigaste [Azure Monitor-mått](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) för att göra välgrundade beslut om du vill skala en API Management-instans för att hantera högre belastning. Dess konstruktion är komplex och inför vissa beteende.
+**Kapacitet** är det viktigaste [Azure Monitor-mått](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) för att göra välgrundade beslut om du vill skala en API Management-instans för att hantera högre belastning. Dess konstruktion är komplex och inför vissa beteende.
 
 Den här artikeln förklarar vad det **kapacitet** är och hur den fungerar. Den visar hur du kommer åt **kapacitet** mått i Azure-portalen och ger förslag på när du ska du överväga att skala eller uppgraderar din API Management-instans.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen från den här artikeln, måste du ha:
 
@@ -40,12 +40,14 @@ Om du vill följa stegen från den här artikeln, måste du ha:
 
 ![Kapacitetsmått](./media/api-management-capacity/capacity-ingredients.png)
 
-**Kapacitet** är en indikator för belastningen på ett APIM-instansen. Visas Resursanvändning (processor, minne) och kölängder för nätverket. CPU och minnesanvändning visar resurser förbrukning av:
+**Kapacitet** är en indikator för belastningen på en API Management-instans. Visas Resursanvändning (processor, minne) och kölängder för nätverket. CPU och minnesanvändning visar resurser förbrukning av:
 
-+ APIM-tjänster, till exempel hantering åtgärder eller begäran om bearbetning, vilket kan innefatta vidarebefordrar begäranden eller köra en Grupprincip
++ API Management-tjänster, till exempel hantering åtgärder eller begäran om bearbetning, vilket kan innefatta vidarebefordrar begäranden eller köra en Grupprincip
 + valda operativsystemprocesser, inklusive processer som inbegriper kostnaden för SSL-handskakningar på nya anslutningar.
 
 Totalt antal **kapacitet** värdet ett medelvärde av värdena från varje enhet av en API Management-instans.
+
+Även om den **kapacitet mått** är utformat för att visa problem med din API Management-instans, det finns fall när problem inte visas i ändringar i den **kapacitet mått**.
 
 ## <a name="capacity-metric-behavior"></a>Kapacitet måttbeteende
 
@@ -63,6 +65,8 @@ Mer avancerade åtgärder i begäranden är, desto högre den **kapacitet** komm
 ![Kapacitet mått toppar](./media/api-management-capacity/capacity-spikes.png)
 
 **Kapacitet** kan också utnyttja periodvis eller vara större än noll, även om det finns inga förfrågningar som bearbetas. Det inträffar på grund av system - eller plattformsspecifika åtgärder och bör inte beaktas när du bestämmer om du vill skala en instans.
+
+Låg **kapacitet mått** innebär inte nödvändigtvis att API Management-instansen inte har stött på problem.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Använda Azure Portal för att granska kapacitet
   

@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781586"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670752"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Kör ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -38,8 +38,8 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
 
  |**Inställning**          |  **Föreslaget värde**  | **Fältbeskrivning** |
  |:-------------       |:-------------         |:----------            |
- |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
- |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Subscription         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
+ |Resource group       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn |
  |Location                   | Västra USA 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
@@ -117,8 +117,8 @@ Konfigurera ditt lagringskonto med följande information (se föregående bild).
 
  |**Inställning**          |  **Föreslaget värde**  | **Fältbeskrivning** |
  |:-------------------------       |:-------------         |:----------            |
- |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
- |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resursgrupp som ditt Genomics-konto. Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Subscription         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
+ |Resource group       | MinResursgrupp       |  Du kan välja samma resursgrupp som ditt Genomics-konto. Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Lagringskontots namn         | MittLagringskonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn |
  |Location                  | Västra USA 2                  | Använd samma plats som platsen för Genomics-kontot för att minska kostnaderna för utgående trafik och minska svarstiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard- och premiumlagringskonton finns i [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
@@ -152,7 +152,7 @@ Om du vill köra ett arbetsflöde genom Microsoft Genomics-tjänsten ska du redi
 ![Genomics-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics-konfiguration")
 
 
-Om du vill köra GATK4 ställer du in parametern `process_name` på gatk4 eller gatk4-promo. Mer information om GATK4-befordran finns på [den här sidan](https://aka.ms/msgatk4).
+Om du vill köra GATK4 anger den `process_name` parameter `gatk4`.
 
 Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha gVCF-utdata i stället för VCF-utdata (motsvarar `-emitRefConfidence` i GATK 3.x och `emit-ref-confidence` i GATK 4.x) lägger du till parametern `emit_ref_confidence` till `config.txt` och ger den värdet `gvcf`, vilket visas i bilden ovan.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från filen `config.txt` eller ställer in parametern `emit_ref_confidence` på `none`. 
 

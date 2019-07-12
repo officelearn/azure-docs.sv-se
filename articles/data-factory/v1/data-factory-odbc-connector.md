@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885fb18e6f582caba2e90bbe3f535b9c763aff85
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389046"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839343"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Flytta data från ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -50,7 +50,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett O
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -148,13 +148,13 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som inkluderar ODBC), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON-exempel: Kopiera data från ODBC-datalager till Azure Blob
-Det här exemplet innehåller JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en ODBC-källa till ett Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+Det här exemplet innehåller JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en ODBC-källa till ett Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 Exemplet har följande data factory-entiteter:
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479632"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807105"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>Status Monitor v2 API: Aktivera ApplicationInsightsMonitoring (v0.3.1-alfa)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>Status Monitor v2 API: Aktivera ApplicationInsightsMonitoring (v0.4.0-alfa)
 
 Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -93,9 +93,9 @@ Du kan skapa en enda installationsskriptet för flera datorer genom att ange `Ma
 - **MachineFilter** krävs en C# regex på datorn eller namn på virtuell dator.
     - ”. *” matchar alla
     - ”Datornamn” matchar bara datorer med det exakta namnet som angetts.
-- **AppFilter** krävs en C# regex på datorn eller namn på virtuell dator.
+- **AppFilter** krävs en C# regex av namnet på IIS-webbplatsen. Du kan hämta en lista med webbplatser på servern genom att köra kommandot [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - ”. *” matchar alla
-    - {ApplicationName} matchar IIS-appar med det exakta namnet som angetts.
+    - 'SiteName' matchar endast IIS-webbplats med det exakta namnet som angetts.
 - **InstrumentationKey** krävs för att aktivera övervakning av appar som matchar de föregående två filter.
     - Lämna det här värdet tomt om du vill definiera regler för att undanta övervakning.
 

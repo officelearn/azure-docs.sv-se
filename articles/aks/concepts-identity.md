@@ -2,17 +2,17 @@
 title: Begrepp - åtkomst och identitet i Azure Kubernetes Services (AKS)
 description: Läs mer om åtkomst och identitet i Azure Kubernetes Service (AKS), inklusive Azure Active Directory-integrering, Kubernetes rollbaserad åtkomstkontroll (RBAC), och roller och -bindningar.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467057"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615868"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Alternativ för åtkomst och identitet för Azure Kubernetes Service (AKS)
 
@@ -40,9 +40,9 @@ Säkerheten för AKS-kluster kan förbättras med integreringen av Azure Active 
 
 ![Azure Active Directory-integrering med AKS-kluster](media/concepts-identity/aad-integration.png)
 
-Med Azure AD-integrerade AKS-kluster kan ge du användare eller grupper åtkomst till Kubernetes-resurser i ett namnområde eller i klustret. Att hämta en `kubectl` Konfigurationskontexten, som en användare kan köra den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. När en användare sedan interagerar med AKS-kluster med `kubectl`, uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden tillhandahåller en enda källa för hantering av användarkonton och lösenord. Användaren kan bara komma åt resurserna som definieras av Klusteradministratören.
+Med Azure AD-integrerade AKS-kluster kan ge du användare eller grupper åtkomst till Kubernetes-resurser i ett namnområde eller i klustret. Att hämta en `kubectl` Konfigurationskontexten, som en användare kan köra den [aaz aks get-credentials][az-aks-get-credentials] kommando. När en användare sedan interagerar med AKS-kluster med `kubectl`, uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden tillhandahåller en enda källa för hantering av användarkonton och lösenord. Användaren kan bara komma åt resurserna som definieras av Klusteradministratören.
 
-Azure AD-autentisering i AKS-kluster använder OpenID Connect, en Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att skaffa och använda åtkomsttoken kommer åt skyddade resurser, och OpenID Connect implementerar autentisering som en utökning av OAuth 2.0-auktoriseringsprocessen. Mer information om OpenID Connect finns i den [öppna ID Connect dokumentation][openid-connect]. Använd autentisering med Kubernetes Webhook-Token för att kontrollera autentiseringstoken som hämtats från Azure AD via OpenID Connect AKS-kluster. Mer information finns i den [Webhook Tokenautentisering dokumentation][webhook-token-docs].
+Azure AD-autentisering i AKS-kluster använder OpenID Connect, en Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att skaffa och använda åtkomsttoken kommer åt skyddade resurser, och OpenID Connect implementerar autentisering som en utökning av OAuth 2.0-auktoriseringsprocessen. Mer information om OpenID Connect finns i den [öppna ID Connect dokumentation][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
 
 ## <a name="role-based-access-controls-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 

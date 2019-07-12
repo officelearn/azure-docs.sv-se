@@ -16,20 +16,22 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4ad995db26b67f365cd8ed9b2aeba5e47fe9c01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b6524a757d885e95637cb05480838db8ac37259
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826074"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701932"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp från en företagsapp i Azure Active Directory
+
 Det är enkelt att ta bort en användare eller grupp från tilldelad åtkomst till en av dina företagsprogram i Azure Active Directory (AD Azure). Du behöver behörighet att hantera appen enterprise. Och du måste vara global administratör för katalogen.
 
 > [!NOTE]
 > For Microsoft Applications (till exempel Office 365-appar), ta bort användare i en företagsapp med hjälp av PowerShell.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hur tar jag bort en användare eller grupptilldelning till en företagsapp i Azure-portalen?
+
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
 1. På den **Azure Active Directory - *directoryname***  (det vill säga Azure AD-sidan för den katalog som du hanterar), väljer **företagsprogram**.
@@ -38,10 +40,11 @@ Det är enkelt att ta bort en användare eller grupp från tilldelad åtkomst ti
 1. På den ***appname*** **-användare och grupptilldelning** väljer du en av flera användare eller grupper och välj sedan den **ta bort** kommando. Bekräfta ditt beslut i Kommandotolken.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Hur tar jag bort en användare eller grupptilldelning till en företagsapp med PowerShell?
+
 1. Öppna en upphöjd Windows PowerShell-kommandotolk.
 
-    >[!NOTE] 
-    > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
+   > [!NOTE]
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
 
 1. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
 1. Använd följande skript för att ta bort en användare och roll från ett program:
@@ -59,8 +62,9 @@ Det är enkelt att ta bort en användare eller grupp från tilldelad åtkomst ti
 
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
-    ``` 
-   ## <a name="next-steps"></a>Nästa steg
+    ```
+
+## <a name="next-steps"></a>Nästa steg
 
 - [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Tilldela en användare eller grupp till en företagsapp](assign-user-or-group-access-portal.md)

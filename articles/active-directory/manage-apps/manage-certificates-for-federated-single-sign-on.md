@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 416e72f7e9e8622f044f7bb6430fbb36010b164e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824747"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701978"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 
@@ -43,10 +43,10 @@ Du kan också hämta ett aktiva eller inaktiva certifikat genom att välja den *
 Som standard konfigurerar Azure ett certifikat upphör att gälla efter tre år när den skapas automatiskt under SAML enkel inloggning för konfigurationen. Eftersom du inte kan ändra datumet då ett certifikat när du har sparat den, behöver du:
 
 1. Skapa ett nytt certifikat med önskat.
-2. Spara det nya certifikatet.
-3. Ladda ned det nya certifikatet i rätt format.
-4. Ladda upp det nya certifikatet till programmet.
-5. Aktivera det nya certifikatet i Azure Active Directory-portalen.
+1. Spara det nya certifikatet.
+1. Ladda ned det nya certifikatet i rätt format.
+1. Ladda upp det nya certifikatet till programmet.
+1. Aktivera det nya certifikatet i Azure Active Directory-portalen.
 
 Följande två avsnitt hjälpa dig att utföra dessa steg.
 
@@ -55,56 +55,40 @@ Följande två avsnitt hjälpa dig att utföra dessa steg.
 Först måste du skapa och spara nytt certifikat med ett annat utgångsdatum:
 
 1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/). Den **Azure Active Directory Administrationscenter** visas.
-
-2. I den vänstra rutan väljer du **Företagsprogram**. En lista över enterprise-program i ditt konto visas.
-
-3. Välj ett program. En översiktssida för programmet visas.
-
-4. I den vänstra rutan på översiktssidan för program, Välj **enkel inloggning**.
-
-5. Om den **väljer du en metod för enkel inloggning** visas, väljer du **SAML**.
-
-6. I den **ange in enkel inloggning med SAML - förhandsversion** sidan, hitta den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon (en penna). Den **SAML-signeringscertifikat** visas, som visar status (**Active** eller **inaktiv**), utgångsdatum och varje certifikatets tumavtryck (en hash-sträng).
-
-7. Välj **nytt certifikat**. En ny rad visas under listan över certifikat där förfallodatumet som standard exakt tre år efter det aktuella datumet. (Ändringarna inte har sparats ännu, så du kan fortfarande ändra utgångsdatumet.)
-
-8. Hovra över datumkolumnen upphör att gälla i den nya certifikatraden och välj den **Välj datum** ikon (en kalender). En kalenderkontroll visas dagar i en månad med den nya raden aktuella förfallodatum.
-
-9. Använd kalenderkontrollen för att ange ett nytt datum. Du kan ange valfritt datum från aktuellt datum och tre år efter det aktuella datumet.
-
-10. Välj **Spara**. Det nya certifikatet visas nu med statusen **inaktiv**, utgångsdatumet som du valt och ett tumavtryck.
-
-11. Välj den **X** att återgå till den **ange in enkel inloggning med SAML - förhandsversion** sidan.
+1. I den vänstra rutan väljer du **Företagsprogram**. En lista över enterprise-program i ditt konto visas.
+1. Välj ett program. En översiktssida för programmet visas.
+1. I den vänstra rutan på översiktssidan för program, Välj **enkel inloggning**.
+1. Om den **väljer du en metod för enkel inloggning** visas, väljer du **SAML**.
+1. I den **ange in enkel inloggning med SAML - förhandsversion** sidan, hitta den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon (en penna). Den **SAML-signeringscertifikat** visas, som visar status (**Active** eller **inaktiv**), utgångsdatum och varje certifikatets tumavtryck (en hash-sträng).
+1. Välj **nytt certifikat**. En ny rad visas under listan över certifikat där förfallodatumet som standard exakt tre år efter det aktuella datumet. (Ändringarna inte har sparats ännu, så du kan fortfarande ändra utgångsdatumet.)
+1. Hovra över datumkolumnen upphör att gälla i den nya certifikatraden och välj den **Välj datum** ikon (en kalender). En kalenderkontroll visas dagar i en månad med den nya raden aktuella förfallodatum.
+1. Använd kalenderkontrollen för att ange ett nytt datum. Du kan ange valfritt datum från aktuellt datum och tre år efter det aktuella datumet.
+1. Välj **Spara**. Det nya certifikatet visas nu med statusen **inaktiv**, utgångsdatumet som du valt och ett tumavtryck.
+1. Välj den **X** att återgå till den **ange in enkel inloggning med SAML - förhandsversion** sidan.
 
 ### <a name="upload-and-activate-a-certificate"></a>Ladda upp och aktivera ett certifikat
 
 Ladda ned det nya certifikatet i rätt format, överför den till programmet och göra den aktiv i Azure Active Directory:
 
 1. Visa instruktioner för programmets ytterligare SAML inloggnings-konfiguration genom att antingen:
+
    - att välja den **konfigurationsguide** länken för att visa i en separat webbläsarfönster eller flikar, eller
    - Gå till den **konfigurera** rubrik och välja **visa stegvisa instruktioner** att visa i en sidopanelen.
 
-2. Observera Kodningsformatet som krävs för att ladda upp certifikatet i anvisningarna.
-
-3. Följ instruktionerna i den [automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram](#auto-generated-certificate-for-gallery-and-non-gallery-applications) ovan. Det här steget hämtar certifikatet i Kodningsformatet som krävs för överföring av programmet.
-
-4. När du vill förnya till det nya certifikatet går du tillbaka till den **SAML-signeringscertifikat** och välj de tre punkterna i certifikatraden sparade ( **...** ) och välj **aktivera certifikatet**. Status för det nya certifikatet ändras till **Active**, och det tidigare aktiva certifikatet ändras till statusen **inaktiv**.
-
-5. Vill du fortsätta följande programmets SAML inloggnings-instruktioner för konfiguration som du visade tidigare, så att du kan ladda upp SAML-signering av certifikat i rätt kodningsformat.
+1. Observera Kodningsformatet som krävs för att ladda upp certifikatet i anvisningarna.
+1. Följ instruktionerna i den [automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram](#auto-generated-certificate-for-gallery-and-non-gallery-applications) ovan. Det här steget hämtar certifikatet i Kodningsformatet som krävs för överföring av programmet.
+1. När du vill förnya till det nya certifikatet går du tillbaka till den **SAML-signeringscertifikat** och välj de tre punkterna i certifikatraden sparade ( **...** ) och välj **aktivera certifikatet**. Status för det nya certifikatet ändras till **Active**, och det tidigare aktiva certifikatet ändras till statusen **inaktiv**.
+1. Vill du fortsätta följande programmets SAML inloggnings-instruktioner för konfiguration som du visade tidigare, så att du kan ladda upp SAML-signering av certifikat i rätt kodningsformat.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Lägg till meddelande e-postadresser för förfallodatum för certifikat
 
 Azure AD skickar ett e-post-meddelande 60, 30 och 7 dagar innan SAML-certifikatet upphör att gälla. Du kan lägga till fler än en e-postadress för att ta emot meddelanden. Om du vill ange de e-postadresser vill du att meddelanden skickas till:
 
 1. I den **SAML-signeringscertifikat** går du till den **meddelande e-postadresser** rubrik. Som standard använder den här rubriken endast e-postadressen till den administratör som har lagts till programmet.
-
-2. Under den sista e-postadressen, skriver du den e-postadress som ska ta emot certifikatets utgångsdatum och tryck sedan på RETUR.
-
-3. Upprepa föregående steg för varje e-postadress som du vill lägga till.
-
-4. För varje e-postadress som du vill ta bort, väljer du den **ta bort** (en Papperskorgen) intill den e-postadressen.
-
-5. Välj **Spara**.
+1. Under den sista e-postadressen, skriver du den e-postadress som ska ta emot certifikatets utgångsdatum och tryck sedan på RETUR.
+1. Upprepa föregående steg för varje e-postadress som du vill lägga till.
+1. För varje e-postadress som du vill ta bort, väljer du den **ta bort** (en Papperskorgen) intill den e-postadressen.
+1. Välj **Spara**.
 
 Du får e-postmeddelandet från aadnotification@microsoft.com. Undvik e-postmeddelandet kommer att din skräppost plats genom att lägga till e-postmeddelandet till dina kontakter.
 
@@ -113,21 +97,18 @@ Du får e-postmeddelandet från aadnotification@microsoft.com. Undvik e-postmedd
 Om det är ett certifikat upphör snart att gälla, kan du förnya den med hjälp av en procedur som resulterar i utan betydande driftavbrott för dina användare. Förnya ett certifikat som går ut:
 
 1. Följ instruktionerna i den [skapa ett nytt certifikat](#create-a-new-certificate) avsnittet ovan, med ett datum som överlappar med det befintliga certifikatet. Detta datum begränsar stilleståndstiden som orsakats av förfallodatum för certifikat.
-
-2. Om programmet kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv genom att följa dessa steg:
+1. Om programmet kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv genom att följa dessa steg:
    1. Gå tillbaka till den **SAML-signeringscertifikat** sidan.
-   2. Välj ellipsen i certifikatraden sparade ( **...** ) och välj sedan **aktivera certifikatet**.
-   3. Hoppa över de kommande två stegen.
+   1. Välj ellipsen i certifikatraden sparade ( **...** ) och välj sedan **aktivera certifikatet**.
+   1. Hoppa över de kommande två stegen.
 
-3. Om appen kan endast hantera ett certifikat i taget, Välj ett driftstopp intervall att utföra nästa steg. (Annars om programmet automatiskt hämtar inte det nya certifikatet men kan hantera flera signeringscertifikat, du kan utföra nästa steg när som helst.)
-
-4. Innan det gamla certifikatet upphör att gälla, följer du anvisningarna i den [ladda upp och aktivera ett certifikat](#upload-and-activate-a-certificate) ovan.
-
-5. Logga in på programmet för att se till att certifikatet fungerar korrekt.
+1. Om appen kan endast hantera ett certifikat i taget, Välj ett driftstopp intervall att utföra nästa steg. (Annars om programmet automatiskt hämtar inte det nya certifikatet men kan hantera flera signeringscertifikat, du kan utföra nästa steg när som helst.)
+1. Innan det gamla certifikatet upphör att gälla, följer du anvisningarna i den [ladda upp och aktivera ett certifikat](#upload-and-activate-a-certificate) ovan.
+1. Logga in på programmet för att se till att certifikatet fungerar korrekt.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-* [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Hantering av program med Azure Active Directory](what-is-application-management.md)
-* [Enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md)
-* [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
+- [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Hantering av program med Azure Active Directory](what-is-application-management.md)
+- [Enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md)
+- [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

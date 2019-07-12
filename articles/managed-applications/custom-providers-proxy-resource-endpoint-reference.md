@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: bbb907a7d73036352d4f5b8f36ccefacd89681ae
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: fe470165d11b24ffb1df704ecaa9804663fc9e5c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478867"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796036"
 ---
 # <a name="custom-resource-proxy-reference"></a>Anpassad Proxy resursreferens
 
@@ -323,6 +323,7 @@ Content-Type: application/json; charset=utf-8
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure anpassade Resursprovidrar](./custom-providers-overview.md)
-- [Självstudie: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Snabbstart: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudier: Skapa anpassade åtgärder och resurser i Azure](./tutorial-custom-providers-101.md)
 - [Anvisningar: Att lägga till anpassade åtgärder i Azure REST-API](./custom-providers-action-endpoint-how-to.md)
 - [Referens: Anpassad resurs Cache-referens](./custom-providers-proxy-cache-resource-endpoint-reference.md)

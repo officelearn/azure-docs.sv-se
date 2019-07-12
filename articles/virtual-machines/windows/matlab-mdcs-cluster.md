@@ -4,7 +4,7 @@ description: Använd Microsoft Azure-datorer för att skapa MATLAB distribuerade
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 49824741facc8822a9417306794f1028fc180e16
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 857382c09192e71d9727a91274993091f2f903b2
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60555138"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718686"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Skapa MATLAB distribuerad databehandling Server-kluster på Azure Virtual Machines
 Använd Microsoft Azure-datorer för att skapa en eller flera MATLAB distribuerade Computing serverkluster för att köra dina beräkningsintensiva parallella MATLAB arbetsbelastningar. Installera din MATLAB databehandling Server för distribuerad programvara på en virtuell dator att använda som en grundläggande avbildning och använda en Azure-snabbstartsmall eller Azure PowerShell-skript (tillgängligt på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) att distribuera och hantera klustret. Efter distributionen kan du ansluta till klustret för att köra arbetsbelastningar.
@@ -29,7 +29,7 @@ Den [MATLAB](https://www.mathworks.com/products/matlab/) plattform är optimerad
 
 Du kan skapa MATLAB distribuerad databehandling Server-kluster som har samma metoder som är tillgängliga för att skicka parallellt arbete som lokala kluster, till exempel interaktiva jobb, batch-jobb, oberoende aktiviteter och kommunicerar med hjälp av Azure-datorer uppgifter. Använda Azure tillsammans med MATLAB-plattformen har många fördelar jämfört med etablering och med traditionell lokal maskinvara: ett intervall för virtuell dator storlekar: Skapa kluster på begäran så du betalar bara för de beräkningsresurser du använder, och möjlighet att testa modeller i hög skala.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Klientdatorn** -du behöver en Windows-klientdator att kommunicera med Azure och MATLAB distribuerad databehandling serverklustret efter distributionen.
 * **Azure PowerShell** – Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) att installera den på klientdatorn.
 * **Azure-prenumeration** -om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en användningsbaserad prenumeration eller andra alternativ för större kluster.

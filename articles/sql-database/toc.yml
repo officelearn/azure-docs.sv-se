@@ -30,6 +30,8 @@
       items:
         - name: IP-brandväggsregler på servernivå
           href: sql-database-server-level-firewall-rule.md
+        - name: Konfigurera en offentlig slutpunkt i en hanterad instans
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: VM-klientanslutning till en hanterad instans
           href: sql-database-managed-instance-configure-vm.md
         - name: Punkt-till-plats-anslutning till en hanterad instans
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Anslut program
           href: sql-database-managed-instance-connect-app.md
-        - name: Konfigurera offentlig slutpunkt
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Läs in och flytta data
       items:
         - name: Kopiera en databas i Azure

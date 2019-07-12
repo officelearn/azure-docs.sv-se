@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309208"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839617"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -35,7 +35,7 @@ Azure Data Factory stöder för närvarande endast flyttar data från Salesforce
 ## <a name="supported-versions"></a>Versioner som stöds
 Den här anslutningsappen stöder följande versioner av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller obegränsad Edition. . Den stöder också kopiera från Salesforce produktion, sandbox-miljön och anpassad domän.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * API-behörighet måste aktiveras. Se [hur gör jag för att aktivera API-åtkomst i Salesforce av behörighetsuppsättning?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * För att kopiera data från Salesforce till lokala datalager, du har Data Management Gateway 2.0 är installerat i din lokala miljö.
 
@@ -52,7 +52,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från Sales
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -96,7 +96,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som omfattar Salesforce), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **datauppsättning** har angetts) |
 
@@ -124,7 +124,7 @@ Om du vill fråga ej permanent borttagna poster från Salesforce-Papperskorgen, 
 * Om du vill fråga efter alla poster, inklusive den befintliga och den har tagits bort, ange ”Välj * från MyTable__c **där IsDeleted = 0 eller IsDeleted = 1**”
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON-exempel: Kopiera data från Salesforce till Azure Blob
-I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Salesforce till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Salesforce till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 Här följer Data Factory-artefakter som du måste skapa för att implementera scenariot. Avsnitten som följer listan innehåller information om de här stegen.
 
@@ -286,25 +286,25 @@ Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över ege
 
 | Salesforce-typ | . NET-baserade typ |
 | --- | --- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Valuta |Decimal |
-| Date |Datetime |
-| Datum/tid |Datetime |
-| E-post |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
-| Tal |Decimal |
-| Procent |Decimal |
-| Telefon |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| URL |String |
+| Auto Number |Sträng |
+| Checkbox |Boolesk |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |Sträng |
+| ID |Sträng |
+| Lookup Relationship |Sträng |
+| Multi-Select Picklist |Sträng |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |Sträng |
+| Picklist |Sträng |
+| Text |Sträng |
+| Text Area |Sträng |
+| Text Area (Long) |Sträng |
+| Text Area (Rich) |Sträng |
+| Text (Encrypted) |Sträng |
+| URL |Sträng |
 
 > [!NOTE]
 > Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

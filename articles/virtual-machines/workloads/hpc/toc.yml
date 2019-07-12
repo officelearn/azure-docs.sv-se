@@ -1,12 +1,14 @@
 - name: Dokumentation om beräkning med höga prestanda
   items:
     - name: Översikt
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      items:
+        - name: HPC för virtuella datorer i H-serien
+          href: overview.md
     - name: Konfiguration
       items:
         - name: Optimering för Linux
           href: configure.md
-        - name: Aktivera Infiniband
+        - name: Aktivera InfiniBand
           href: enable-infiniband.md
     - name: Konfigurera MPI
       href: setup-mpi.md

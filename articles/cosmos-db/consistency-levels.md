@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954372"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839826"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Här beskrivs semantiken för de fem konsekvensnivåerna:
 
   Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. Stark konsekvens har samma semantik som erbjuds av begränsad föråldring. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de garantierna av stark konsekvens.
 
-- **Sessionen**: Läsningar garanterat respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning garantier. Sessionskonsekvens är begränsad till en klientsession.
+- **Sessionen**:  Läsningar är garanterade att respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning garantier inom en enskild klient-session. Klienter utanför sessionen utför skrivåtgärder visas som eventuell konsekvens.
 
 - **Konsekvent prefix**: Uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix konsekvensnivå garanterar att läsningar aldrig ser skrivningar out ordning.
 

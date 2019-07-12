@@ -2,17 +2,17 @@
 title: Återställa autentiseringsuppgifterna för ett kluster i Azure Kubernetes Service (AKS)
 description: Lär dig hur uppdateringen eller återställa tjänstens huvudnamn-autentiseringsuppgifter för ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475497"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614133"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifter för tjänstens huvudnamn i Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Som standard skapas AKS-kluster med ett huvudnamn för tjänsten som har en för
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.65 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI version 2.0.65 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Välja att uppdatera eller skapa ett huvudnamn för tjänsten
 
@@ -33,7 +33,7 @@ Om du vill skapa ett huvudnamn för tjänsten och sedan uppdatera AKS-klustret, 
 
 ### <a name="get-the-service-principal-id"></a>Hämta ID för tjänstens huvudnamn
 
-Om du vill uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn, Hämta ID för tjänstens huvudnamn för ditt kluster med hjälp av den [az aks show] [ az-aks-show] kommando. I följande exempel hämtar ID för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. ID för tjänstens huvudnamn har angetts som en variabel med namnet *SP_ID* för användning i ytterligare kommando.
+Om du vill uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn, Hämta ID för tjänstens huvudnamn för ditt kluster med hjälp av den [az aks show][az-aks-show] kommando. I följande exempel hämtar ID för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. ID för tjänstens huvudnamn har angetts som en variabel med namnet *SP_ID* för användning i ytterligare kommando.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -54,7 +54,7 @@ Nu fortsätta till [uppdatering AKS-kluster med nya autentiseringsuppgifter](#up
 
 Hoppa över det här steget om du har valt att uppdatera de befintliga autentiseringsuppgifterna för tjänstens huvudnamn i föregående avsnitt. Fortsätta att [uppdatering AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials).
 
-Om du vill skapa ett huvudnamn för tjänsten och sedan uppdaterar AKS-kluster för att använda dessa nya autentiseringsuppgifter, Använd den [az ad sp create-for-rbac] [ az-ad-sp-create] kommando. I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
+Om du vill skapa ett huvudnamn för tjänsten och sedan uppdaterar AKS-kluster för att använda dessa nya autentiseringsuppgifter, Använd den [az ad sp create-for-rbac][az-ad-sp-create] kommando. I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -71,7 +71,7 @@ De utdata som genereras påminner om de i följande exempel. Anteckna dina egna 
 }
 ```
 
-Definiera variabler för de service principal-ID och klienthemlighet med utdata från din egen nu [az ad sp create-for-rbac] [ az-ad-sp-create] kommandot, som visas i följande exempel. Den *SP_ID* är din *appId*, och *SP_SECRET* är din *lösenord*:
+Definiera variabler för de service principal-ID och klienthemlighet med utdata från din egen nu [az ad sp create-for-rbac][az-ad-sp-create] kommandot, som visas i följande exempel. Den *SP_ID* är din *appId*, och *SP_SECRET* är din *lösenord*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -80,7 +80,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>Uppdatera AKS-kluster med nya autentiseringsuppgifter
 
-Oavsett om du väljer att uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn eller skapa ett huvudnamn för tjänsten, nu du uppdatera AKS-kluster med dina nya autentiseringsuppgifter med hjälp av den [aaz aks update-credentials] [ az-aks-update-credentials] kommando. Variablerna för den *--huvudnamn för tjänsten* och *--klienthemlighet* används:
+Oavsett om du väljer att uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn eller skapa ett huvudnamn för tjänsten, nu du uppdatera AKS-kluster med dina nya autentiseringsuppgifter med hjälp av den [aaz aks update-credentials][az-aks-update-credentials] kommando. Variablerna för den *--huvudnamn för tjänsten* och *--klienthemlighet* används:
 
 ```azurecli-interactive
 az aks update-credentials \

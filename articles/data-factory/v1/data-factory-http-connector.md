@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318486"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839283"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
 
@@ -45,7 +45,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en HT
 
 - Det enklaste sättet att skapa en pipeline är att använda guiden kopieringsdata. En snabb genomgång av hur du skapar en pipeline med hjälp av guiden kopieringsdata finns i [självstudien: Skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 
-- Du kan också använda följande verktyg för att skapa en pipeline: den **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mallen**, **.NET API**, eller **REST API**. Stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet finns i den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). JSON-exempel att kopieringsdata från en HTTP-källa till Azure Blob storage, finns i [JSON-exempel](#json-examples).
+- Du kan också använda följande verktyg för att skapa en pipeline: den **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager-mall**, **.NET API** , eller **REST-API**. Stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet finns i den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). JSON-exempel att kopieringsdata från en HTTP-källa till Azure Blob storage, finns i [JSON-exempel](#json-examples).
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
@@ -94,7 +94,7 @@ Ange **authenticationType** till **grundläggande**, **sammanfattad**, eller **W
 
 Om du vill använda grundläggande autentisering, ange **authenticationType** till **ClientCertificate**. Förutom de allmänna HTTP Kopplingsegenskaperna som beskrivs i föregående avsnitt, ange följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | embeddedCertData | Base64-kodade innehåll binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
 | certThumbprint | Tumavtryck för certifikatet som installerades på gateway-datorns certifikatarkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
@@ -231,7 +231,7 @@ Se [format och komprimering i Azure Data Factory](data-factory-supported-file-an
 
 ## <a name="json-examples"></a>JSON-exempel
 
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från en HTTP-källa till Azure Blob storage. Men du kan kopiera data *direkt* från källor till någon av mottagare [som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från en HTTP-källa till Azure Blob storage. Men du kan kopiera data *direkt* från källor till någon av mottagare [som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
 
 **Exempel: Kopieringsdata från en HTTP-källa till Azure Blob storage**
 

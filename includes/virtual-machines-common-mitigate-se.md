@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 169e25aeb8503a11f768a2a3062022eef51a76b8
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735228"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659914"
 ---
 **Senast dokumentera uppdatering**: 4 juni 2019 3:00 PM PST.
 
@@ -21,7 +21,7 @@ Utlämnande av en [ny klass av processorsäkerhetsproblem](https://portal.msrc.m
 
 Microsoft har distribuerat åtgärder i alla våra molntjänster. Den infrastruktur som kör Azure och isolerar slutkundsarbetsbelastningar från varandra är skyddad. Det innebär att potentiella angripare med hjälp av samma infrastruktur inte kan attacker ditt program med dessa problem.
 
-Med hjälp av Azure [minne bevarande Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) när det är möjligt att minimera påverkan för kunden och eliminera behovet av omstarter. Azure kommer fortsätta utnyttja dessa metoder när du gör systemomfattande uppdateringar till värden och skydda våra kunder.
+Med hjälp av Azure [minne bevarande Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) när det är möjligt att minimera påverkan för kunden och eliminera behovet av omstarter. Azure kommer fortsätta utnyttja dessa metoder när du gör systemomfattande uppdateringar till värden och skydda våra kunder.
 
 Mer information om hur säkerheten är integrerad i alla aspekter av Azure är tillgängligt på den [dokumentation om Azure Security](https://docs.microsoft.com/azure/security/) plats. 
 

@@ -6,18 +6,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514211"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673049"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -541,7 +541,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 | Egenskap | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| type | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Åtgärd | Namnet på användarens eller administratörens aktivitet.  |

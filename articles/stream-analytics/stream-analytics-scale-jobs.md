@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816800"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621735"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobb för att öka dataflödet
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka dataflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala dina jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -85,7 +85,7 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

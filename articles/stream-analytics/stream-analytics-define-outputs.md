@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ef2a55b377c2ca48b9417310926a014a82f679d7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443634"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621884"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
 Den här artikeln beskrivs vilka typer av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med hjälp av utdata, kan du göra ytterligare affärsanalys och datalager för dina data.
 
-När du utformar din Stream Analytics-fråga, referera till namnet på utdata genom att använda den [INTO-sats](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Du kan använda ett enda utflöde per jobb eller flera utdata per direktuppspelningsjobbet (om du behöver dem) genom att tillhandahålla flera INTO-satser i fråga.
+När du utformar din Stream Analytics-fråga, referera till namnet på utdata genom att använda den [INTO-sats](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Du kan använda ett enda utflöde per jobb eller flera utdata per direktuppspelningsjobbet (om du behöver dem) genom att tillhandahålla flera INTO-satser i fråga.
 
 Skapa, redigera och testa Stream Analytics-jobbet matar ut, du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), och [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -37,7 +37,7 @@ I följande tabell visas egenskapsnamn och deras beskrivningar för att konfigur
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera utdata till Data Lake Store. |
-| Prenumeration | Den prenumeration som innehåller Azure Data Lake Storage-kontot. |
+| Subscription | Den prenumeration som innehåller Azure Data Lake Storage-kontot. |
 | Kontonamn | Namnet på Data Lake Store-konto där du skickar dina utdata. Visas med en nedrullningsbar lista över Data Lake Store-konton som är tillgängliga i din prenumeration. |
 | Prefixmönster för sögväg | Filsökvägen som används för att skriva dina filer inom det angivna Data Lake Store-kontot. Du kan ange en eller flera instanser av den {date} och {time} variabler:<br /><ul><li>Exempel 1: mapp1/logs / {date} / {time}</li><li>Exempel 2: mapp1/logs / {date}</li></ul><br />Tidsstämpeln för den skapade mappstrukturen följer UTC-tid och inte lokal tid.<br /><br />Om filen sökvägsmönster inte innehåller ett avslutande snedstreck (/), behandlas senaste mönstret i sökvägen som ett fil-namnprefix. <br /><br />Nya filer skapas i dessa fall:<ul><li>Ändra i utdata-schemat</li><li>Extern eller intern omstart av ett jobb</li></ul> |
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i prefixsökvägen. Exempel: ÅÅÅÅ/MM/DD |
@@ -60,7 +60,7 @@ I följande tabell visas egenskapsnamn och deras beskrivning för att skapa en S
 | Databas | Namnet på databasen där du skickar dina utdata. |
 | servernamn | SQL Database-servernamn. |
 | Användarnamn | Det användarnamn som har skrivbehörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
-| Lösenord | Lösenordet för att ansluta till databasen. |
+| lösenordsinställning | Lösenordet för att ansluta till databasen. |
 | Tabell | Tabellnamnet där skrivs utdata. Tabellnamnet är skiftlägeskänsligt. Schemat för den här tabellen måste exakt matcha antalet fält och deras typer som din jobbutdata genererar. |
 |Ärv partitionsschema| Ett alternativ för arv partitioneringsschemat av din föregående fråga steg att aktivera fullständigt parallella topologi med flera skrivare i tabellen. Mer information finns i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batchantal| Den rekommendera övre gränsen för antalet poster som skickas med varje bulk insert transaktion.|
@@ -149,7 +149,7 @@ Powerbi använder först in, skickas bevarandeprincipen. Data samlar in i en tab
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Konvertera en datatyp från Stream Analytics till Power BI
 Azure Stream Analytics uppdaterar datamodellen dynamiskt vid körning om utdata-schemat ändras. Alla spåras kolumnen namnändringar, kolumnen ändras, och tillägg och borttagning av kolumner.
 
-Den här tabellen beskriver datatypkonverteringar från [Stream Analytics-datatyper](https://msdn.microsoft.com/library/azure/dn835065.aspx) till Power BI [Entity Data Model (EDM) typer](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), om en Power BI-datauppsättning och en tabell som inte finns.
+Den här tabellen beskriver datatypkonverteringar från [Stream Analytics-datatyper](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) till Power BI [Entity Data Model (EDM) typer](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), om en Power BI-datauppsättning och en tabell som inte finns.
 
 Från Stream Analytics | Power BI
 -----|-----
@@ -169,8 +169,8 @@ Föregående/aktuell | Int64 | Sträng | DateTime | Double-värde
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Sträng | Sträng | Double-värde
 Double-värde | Double-värde | Sträng | Sträng | Double-värde
-Sträng | Sträng | Sträng | Sträng | Sträng 
-DateTime | Sträng | Sträng |  DateTime | String
+Sträng | String | String | String | Sträng 
+DateTime | Sträng | Sträng |  DateTime | Sträng
 
 ## <a name="table-storage"></a>Table Storage
 

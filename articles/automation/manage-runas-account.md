@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478551"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798483"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -45,7 +45,7 @@ Det finns två typer av kör som-konton:
 
 Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör i Azure Active Directory och ägare i en prenumeration kan utföra alla aktiviteter. I en situation där du har uppdelning av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
 
-|Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
+|Aktivitet|Cmdlet:  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
 |---|---------|---------|---|
 |Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer Programroll<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar |
 |Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar|
@@ -104,7 +104,7 @@ Det här PowerShell-skriptet har stöd för följande konfigurationer:
 
 1. Spara följande skript på datorn. I det här exemplet sparar du det med filnamnet *New-RunAsAccount.ps1*.
 
-   Skriptet använder flera Azure Resource Manager-cmdletar för att skapa resurser. I följande tabell visar cmdletarna och deras behörigheter som krävs.
+   Skriptet använder flera Azure Resource Manager-cmdletar för att skapa resurser. Föregående [behörigheter](#permissions) tabell visas cmdletarna och deras behörigheter som krävs.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Du förnyar certifikatet genom att göra följande:
 
 ## <a name="limiting-run-as-account-permissions"></a>Begränsar behörigheterna kör som-konto
 
-Om du vill styra inriktning för automation mot resurser i Azure Automation beviljas kör som-kontot som standard rättigheter som deltagare i prenumeration. Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra kan du ta bort kontot från deltagarrollen för prenumerationen och lägga till den som deltagare till resursgrupper som du vill ange.
+Om du vill styra inriktning för automation mot resurser i Azure, kan du köra den [uppdatering AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) skript i PowerShell-galleriet för att ändra dina befintliga kör som-konto-tjänstens huvudnamn Skapa och använda en anpassad rolldefinition. Den här rollen har behörighet till alla resurser förutom [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för ditt Automation-konto. Välj **åtkomstkontroll (IAM)** och välj sedan den **rolltilldelningar** fliken. Sök efter tjänstens huvudnamn för ditt Automation-konto (det ser ut som \<AutomationAccountName\>_unique identifierare). Välj kontot och klicka på **ta bort** du tar bort den från prenumerationen.
+> [!IMPORTANT]
+> Efter att ha kört den `Update-AutomationRunAsAccountRoleAssignments.ps1` skript och runbooks som har åtkomst till KeyVault genom att använda RunAs-konton fungerar inte längre. Du bör granska runbooks i ditt konto för anrop till Azure KeyVault.
+>
+> Att aktivera åtkomst till KeyVault från Azure Automation-runbooks skulle du behöva [Lägg till Kör som-konto i Keyvaults behörigheter](#add-permissions-to-key-vault).
 
-![Deltagare i prenumeration](media/manage-runas-account/automation-account-remove-subscription.png)
+Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra ytterligare kan du lägga till andra typer av resurser till den `NotActions` på den anpassa rolldefinitionen. I följande exempel begränsar åtkomsten till `Microsoft.Compute`. Om du lägger till den till den **NotActions** av rolldefinitionen, den här rollen kan inte komma åt alla resurser för beräkning. Läs mer om rolldefinitioner i [förstå rolldefinitioner för Azure-resurser](../role-based-access-control/role-definitions.md).
 
-Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)** . Välj **Lägg till rolltilldelning**, öppnas den **Lägg till rolltilldelning** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Att fastställa om tjänstens huvudnamn som används av ditt kör som-konto finns i den **deltagare** eller en anpassad rolldefinition går du till ditt Automation-konto och under **kontoinställningar**väljer **kör som konton** > **Azure kör som-konto**. Under **rollen** hittar du den rolldefinition som används. 
+
+[![](media/manage-runas-account/verify-role.png "Verifiera rollen kör som-konto")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Du kan använda för att avgöra den rolldefinition som används av Automation kör som-konton för flera prenumerationer och Automation-konton, den [Kontrollera AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) skript i PowerShell-galleriet.
+
+### <a name="add-permissions-to-key-vault"></a>Lägg till behörigheter till Key Vault
+
+Om du vill tillåta Azure Automation att hantera Key Vault och kör som-konto tjänsten huvudnamn använder en anpassad rolldefinition måste du vidta ytterligare åtgärder för att tillåta det här beteendet:
+
+* Bevilja behörighet till Key Vault
+* Konfigurera principer för åtkomst
+
+Du kan använda den [utöka AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) skript i PowerShell-galleriet för att ge dina behörigheter för Kör som-konto till KeyVault eller besök [bevilja program åtkomst till ett nyckelvalv ](../key-vault/key-vault-group-permissions-for-apps.md) för mer information om inställningar för behörigheter för KeyVault.
 
 ## <a name="misconfiguration"></a>Felaktig konfiguration
 

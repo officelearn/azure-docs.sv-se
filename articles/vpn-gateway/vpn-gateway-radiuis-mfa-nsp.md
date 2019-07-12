@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458142"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666205"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrera Azure VPN gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering 
 
@@ -52,18 +52,18 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Steg 2 konfigurera NPS för Azure MFA
 
 1. På NPS-servern [Installera NPS-tillägget för Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. Öppna konsolen NSP:, högerklicka på **RADUIS klienter**, och välj sedan **New**. Skapa RADUIS-klienten genom att ange följande inställningar:
+2. Öppna NPS-konsolen, högerklicka på **RADIUS-klienter**, och välj sedan **New**. Skapa RADIUS-klienten genom att ange följande inställningar:
 
     - **Eget namn**: Skriv ett namn.
     - **Adress (IP eller DNS)** : Ange gateway-undernätet som du skapade i steg 1.
     - **Delad hemlighet**: Skriv alla hemlig nyckel och spara den för senare användning.
 
-      ![Bild som visar RADUIS-klientinställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![Bild som visar RADIUS-klientinställningarna](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  På den **Avancerat** fliken genom att ange leverantörsnamnet **RADIUS-Standard** och se till att den **ytterligare alternativ** inte är markerad.
 
-    ![Bild som visar RADUIS avancerade inställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![Bild som visar den avancerade inställningar för RADIUS-klienten](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Gå till **principer** > **nätverksprinciper**, dubbelklicka på **anslutningar till Microsoft Routing and Remote Access server** principer, Välj  **Bevilja åtkomst**, och klicka sedan på **OK**.
 

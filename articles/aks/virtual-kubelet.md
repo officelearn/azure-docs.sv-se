@@ -2,18 +2,18 @@
 title: Kör Virtual Kubelet i ett kluster i Azure Kubernetes Service (AKS)
 description: Lär dig hur du använder Virtual Kubelet med Azure Kubernetes Service (AKS) för att köra Linux- och Windows-behållare på Azure Container Instances.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475423"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613864"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Azure Container Instances (ACI) ger en värdmiljö för behållare som körs i A
 När du använder Virtual Kubelet-providern för Azure Container Instances, kan både Linux och Windows-behållare schemaläggas på en behållarinstans som om det är en standard Kubernetes-nod. Den här konfigurationen kan du dra nytta av funktionerna i Kubernetes såväl management värde och kostnaden fördelen med behållarinstanser.
 
 > [!NOTE]
-> AKS har nu inbyggt stöd för schemaläggning av behållare i ACI som kallas *virtuella noder*. Dessa virtuella noder har för närvarande stöd för Linux-behållare-instanser. Om du vill schemalägga behållarinstanser för Windows kan fortsätta du använda Virtual Kubelet. I annat fall bör du använda virtuella noder i stället för manuell Virtual Kubelet instruktionerna som anges i den här artikeln. Du kan komma igång med virtuella noder med hjälp av den [Azure CLI] [ virtual-nodes-cli] eller [Azure-portalen][virtual-nodes-portal].
+> AKS har nu inbyggt stöd för schemaläggning av behållare i ACI som kallas *virtuella noder*. Dessa virtuella noder har för närvarande stöd för Linux-behållare-instanser. Om du vill schemalägga behållarinstanser för Windows kan fortsätta du använda Virtual Kubelet. I annat fall bör du använda virtuella noder i stället för manuell Virtual Kubelet instruktionerna som anges i den här artikeln. Du kan komma igång med virtuella noder med hjälp av den [Azure CLI][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
 >
 > Virtual Kubelet är en experimentell öppenkällkodsprojekt och bör användas som sådana. För att bidra, problem med Files, och Läs mer om virtual kubelet finns i den [Virtual Kubelet GitHub-projektet][vk-github].
 
@@ -32,11 +32,11 @@ Det här dokumentet förutsätter att du har ett AKS-kluster. Om du behöver ett
 
 Du måste också Azure CLI version **2.0.65** eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Om du vill installera Virtual Kubelet, installera och konfigurera [Helm] [ aks-helm] AKS-klustret. Se till att din Tiller [konfigurerats för användning med Kubernetes RBAC](#for-rbac-enabled-clusters), om det behövs.
+Om du vill installera Virtual Kubelet, installera och konfigurera [Helm][aks-helm] AKS-klustret. Se till att din Tiller [konfigurerats för användning med Kubernetes RBAC](#for-rbac-enabled-clusters), om det behövs.
 
 ### <a name="register-container-instances-feature-provider"></a>Registrera providern för Container Instances-funktionen
 
-Om du inte tidigare har använt tjänsten Azure Container Instance (ACI) kan du registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list] [ az-provider-list] kommandot, som visas i följande exempel:
+Om du inte tidigare har använt tjänsten Azure Container Instance (ACI) kan du registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list][az-provider-list] kommandot, som visas i följande exempel:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -50,7 +50,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Om providern visas som *NotRegistered*, registrera providern med hjälp av den [az provider register] [ az-provider-register] som visas i följande exempel:
+Om providern visas som *NotRegistered*, registrera providern med hjälp av den [az provider register][az-provider-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -81,7 +81,7 @@ subjects:
     namespace: kube-system
 ```
 
-Tillämpa tjänstkontot och bindning med [kubectl gäller] [ kubectl-apply] och ange din *rbac virtuella kubelet.yaml* filen enligt i följande exempel:
+Tillämpa tjänstkontot och bindning med [kubectl gäller][kubectl-apply] och ange din *rbac virtuella kubelet.yaml* filen enligt i följande exempel:
 
 ```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -99,7 +99,7 @@ Du kan nu fortsätta att installera Virtual Kubelet i AKS-klustret.
 
 ## <a name="installation"></a>Installation
 
-Använd den [az aks install-connector] [ aks-install-connector] kommando för att installera Virtual Kubelet. I följande exempel har distribuerat både Linux och Windows-anslutningsapp.
+Använd den [az aks install-connector][aks-install-connector] kommando för att installera Virtual Kubelet. I följande exempel har distribuerat både Linux och Windows-anslutningsapp.
 
 ```azurecli-interactive
 az aks install-connector \
@@ -109,9 +109,9 @@ az aks install-connector \
     --os-type Both
 ```
 
-De här argumenten är tillgängliga för den [az aks install-connector] [ aks-install-connector] kommando.
+De här argumenten är tillgängliga för den [az aks install-connector][aks-install-connector] kommando.
 
-| Argument: | Beskrivning | Obligatoriskt |
+| Argument: | Beskrivning | Krävs |
 |---|---|:---:|
 | `--connector-name` | Namnet på ACI-Anslutningsappens.| Ja |
 | `--name` `-n` | Namnet på det hanterade klustret. | Ja |
@@ -126,7 +126,7 @@ De här argumenten är tillgängliga för den [az aks install-connector] [ aks-i
 
 ## <a name="validate-virtual-kubelet"></a>Verifiera Virtual Kubelet
 
-För att verifiera att Virtual Kubelet har installerats kan returnera en lista med Kubernetes-noder med den [kubectl få noder] [ kubectl-get] kommando:
+För att verifiera att Virtual Kubelet har installerats kan returnera en lista med Kubernetes-noder med den [kubectl få noder][kubectl-get] kommando:
 
 ```console
 $ kubectl get nodes
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>Kör Linux-behållare
 
-Skapa en fil med namnet `virtual-kubelet-linux.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
+Skapa en fil med namnet `virtual-kubelet-linux.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector][node-selector] and [toleration][toleration] som används för att schemalägga behållaren på noden.
 
 ```yaml
 apiVersion: apps/v1
@@ -172,13 +172,13 @@ spec:
         effect: NoSchedule
 ```
 
-Kör programmet med den [kubectl skapa] [ kubectl-create] kommando.
+Kör programmet med den [kubectl skapa][kubectl-create] kommando.
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-Använd den [kubectl hämta poddar] [ kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar med schemalagda noden. Observera att den `aci-helloworld` pod har schemalagts på den `virtual-kubelet-virtual-kubelet-linux` noden.
+Använd den [kubectl hämta poddar][kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar med schemalagda noden. Observera att den `aci-helloworld` pod har schemalagts på den `virtual-kubelet-virtual-kubelet-linux` noden.
 
 ```console
 $ kubectl get pods -o wide
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>Kör Windows-behållare
 
-Skapa en fil med namnet `virtual-kubelet-windows.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
+Skapa en fil med namnet `virtual-kubelet-windows.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector][node-selector] and [toleration][toleration] som används för att schemalägga behållaren på noden.
 
 ```yaml
 apiVersion: apps/v1
@@ -222,13 +222,13 @@ spec:
         effect: NoSchedule
 ```
 
-Kör programmet med den [kubectl skapa] [ kubectl-create] kommando.
+Kör programmet med den [kubectl skapa][kubectl-create] kommando.
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Använd den [kubectl hämta poddar] [ kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar med schemalagda noden. Observera att den `nanoserver-iis` pod har schemalagts på den `virtual-kubelet-virtual-kubelet-windows` noden.
+Använd den [kubectl hämta poddar][kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar med schemalagda noden. Observera att den `nanoserver-iis` pod har schemalagts på den `virtual-kubelet-virtual-kubelet-windows` noden.
 
 ```console
 $ kubectl get pods -o wide
@@ -239,7 +239,7 @@ nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.14
 
 ## <a name="remove-virtual-kubelet"></a>Ta bort Virtual Kubelet
 
-Använd den [az aks remove-connector] [ aks-remove-connector] till att ta bort Virtual Kubelet. Ersätt argumentvärden med namnet på anslutningen, AKS-kluster och resursgruppen för AKS-kluster.
+Använd den [az aks remove-connector][aks-remove-connector] till att ta bort Virtual Kubelet. Ersätt argumentvärden med namnet på anslutningen, AKS-kluster och resursgruppen för AKS-kluster.
 
 ```azurecli-interactive
 az aks remove-connector \
@@ -254,7 +254,7 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Möjligt problem med Virtual Kubelet finns det [kända paketberoenden och lösningar][vk-troubleshooting]. För att anmäla problem med Virtual Kubelet [öppna ett GitHub-ärende][vk-issues].
+Möjligt problem med Virtual Kubelet finns det [kända paketberoenden och lösningar][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
 Läs mer om Virtual Kubelet på den [Virtual Kubelet GitHub-projektet][vk-github].
 

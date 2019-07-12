@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133300"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712605"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Aktivera och distribuera Azure ultra SSD: er (förhandsversion)
 
@@ -33,7 +33,7 @@ Svaret ska vara detsamma som i formuläret här nedan, där X är den zon som sk
 
 Bevara den **zoner** värde representerar din tillgänglighetszon och du behöver för att distribuera ett ultra SSD.
 
-|ResourceType  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
+|ResourceType  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |Diskar     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Om du vill använda ultra SSD: er, måste du skapa en virtuell dator som kan anv
 Ersätta eller ange den **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variabler med dina egna värden. Ange **$zone** till värdet för din tillgänglighetszon som du fick från den [början av den här artikeln](#determine-your-availability-zone). Kör sedan följande CLI-kommando för att skapa ett ultra aktiverad virtuell dator:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>Skapa ett ultra SSD med CLI

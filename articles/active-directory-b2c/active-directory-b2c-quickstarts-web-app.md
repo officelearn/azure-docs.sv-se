@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0e38a431970613f34ee3af0fdb0eb55c5ad344bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509732"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835482"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för ett ASP.NET-program med hjälp av Azure Active Directory B2C
 
@@ -23,9 +23,9 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning. 
+- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
 - Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exempelwebbprogrammet från GitHub.
 
@@ -41,8 +41,8 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 ## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
 
 1. I exempelprogrammets projektmapp öppnar du lösningen **B2C-WebAPI-DotNet.sln** i Visual Studio.
-2. För den här snabbstarten kör du både **TaskWebApp**- och **TaskService**-projektet samtidigt. Högerklicka på lösningen **B2C-WebAPI-DotNet** i Solution Explorer och välj sedan **Ange startprojekt**. 
-3. Välj **Flera startprojekt** och ändra **Åtgärd** för båda projekten till **Start**. 
+2. För den här snabbstarten kör du både **TaskWebApp**- och **TaskService**-projektet samtidigt. Högerklicka på lösningen **B2C-WebAPI-DotNet** i Solution Explorer och välj sedan **Ange startprojekt**.
+3. Välj **Flera startprojekt** och ändra **Åtgärd** för båda projekten till **Start**.
 4. Klicka på **OK**.
 5. Tryck på **F5** för att felsöka båda programmen. Varje program öppnas i ett eget webbläsarfönster:
 
@@ -53,37 +53,37 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 1. Klicka på **Registrera dig/Logga in** i ASP.NET-webbprogrammet för att starta arbetsflödet.
 
-    ![Testa en ASP.NET-webbapp](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
+    ![ASP.NET exempelwebbapp i webbläsaren med att logga in/logga med länken markerad](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
     Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
 
 2. Azure AD B2C anger en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
 
-    ![Inloggnings- eller registreringsprovider](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+    ![Logga In eller registrera dig sidan som visar identitet providern knappar](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
+    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
 
 3. Avsluta inloggningsprocessen för identitetsprovidern.
 
 ## <a name="edit-your-profile"></a>Redigera din profil
 
-Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler. Exempelwebbappen använder ett Azure AD B2C-användarflöde för att redigera profiler för arbetsflödet. 
+Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler. Exempelwebbappen använder ett Azure AD B2C-användarflöde för att redigera profiler för arbetsflödet.
 
 1. Klicka på ditt profilnamn på programmets menyrad och välj **Redigera profil** för att redigera profilen som du har skapat.
 
-    ![Redigera profil](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+    ![Exempelwebbappen i webbläsare med Redigera profil med länken markerad](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. Ändra **Visningsnamn** eller **Ort** och klicka sedan på **Fortsätt** för att uppdatera din profil. 
+2. Ändra **Visningsnamn** eller **Ort** och klicka sedan på **Fortsätt** för att uppdatera din profil.
 
     Den ändrade visas uppe till höger på webbprogrammets startsida.
 
 ## <a name="access-a-protected-api-resource"></a>Få åtkomst till en skyddad API-resurs
 
-1. Klicka på **att göra-listan** för att redigera objekten på att göra-listan. 
+1. Klicka på **att göra-listan** för att redigera objekten på att göra-listan.
 
 2. Ange text i textrutan **Nytt objekt**. Klicka på **Lägg till** för att anropa det Azure AD B2C-skyddade webb-API:et som lägger till ett objekt i att göra-listan.
 
-    ![Lägg till ett objekt i en att göra-lista](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ![Exempelwebbappen i webbläsare med Lägg till en post i listan](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
     ASP.NET-webbtillämpningsprogrammet innehåller en åtkomsttoken för Azure AD i begäran till den skyddade web API-resursen som utför åtgärder på användarnas objekt för att göra-listor.
 

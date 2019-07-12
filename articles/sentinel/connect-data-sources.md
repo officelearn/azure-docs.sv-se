@@ -7,20 +7,21 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921933"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673816"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -32,7 +33,18 @@ ms.locfileid: "65921933"
 
 Att integrera Azure Sentinel måste du först ansluta till dina datakällor. Azure Sentinel levereras med ett antal anslutningsappar för Microsoft-lösningar, tillgängliga utanför rutan och ge i realtid integration, inklusive Microsoft Threat Protection lösningar och Microsoft 365 källor, till exempel Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security, och mycket mer. Det finns dessutom inbyggda anslutningar till bredare säkerhetsekosystemet för icke-Microsoft-lösningar. Du kan också använda common event format, Syslog eller REST-API för att ansluta dina datakällor med Azure Sentinel samt.  
 
-![Datainsamlare](./media/collect-data/collect-data-page.png)
+1. På menyn, Välj **datakopplingar**. Den här sidan kan du se en fullständig lista över kopplingar som Sentinel-Azure tillhandahåller och deras status. Välj den koppling som du vill ansluta och välj **öppna anslutningsapp-sidan**. 
+
+   ![Datainsamlare](./media/collect-data/collect-data-page.png)
+
+1. Kontrollera att du har uppfyllt alla krav och följ instruktionerna för att ansluta data till Azure Sentinel på sidan viss koppling. Det kan ta lite tid att börja synkronisera med Azure Sentinel-loggar. När du ansluter kan du se en sammanfattning av data i den **mottagna Data** graph och anslutningsstatusen för datatyperna.
+
+   ![Ansluta insamlare](./media/collect-data/opened-connector-page.png)
+  
+1. Klicka på den **nästa steg** fliken för att få en lista över out-of the box innehåll Sentinel-Azure tillhandahåller för den specifika datatypen.
+
+   ![Datainsamlare](./media/collect-data/data-insights.png)
+ 
 
 ## <a name="data-connection-methods"></a>Data anslutningsmetoder
 

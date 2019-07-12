@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e4e32aef97d406fa47a2ccfe8cddb12b97ff088
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414995"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612633"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
 
@@ -51,7 +51,7 @@ Ytterligare information om licenser går inklusive kostnader, kan hittas på fö
 * [Azure Active Directory-funktioner och egenskaper](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Tjänstbeskrivning för Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
+* [Tjänstbeskrivning för Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp eller användarbaserade licensiering
 

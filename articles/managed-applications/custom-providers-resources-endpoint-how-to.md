@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b94d59b55a62797e142768dc84ec499d714bd067
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a3cd1fe69a0d99f9faf3a451f76a3a420d713711
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795206"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Att lägga till anpassade resurser i Azure REST-API
 
@@ -104,7 +104,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 is-full-object | *Ja* | Anger att egenskapsobjektet innehåller andra alternativ, till exempel plats, taggar, sku och/eller plan.
 id | *Ja* | Resurs-ID för den anpassade resursen. Detta ska finnas ut från den **ResourceProvider**
@@ -116,7 +116,7 @@ Ta bort en anpassad Azure-resurs:
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 id | *Ja* | Resurs-ID för den anpassade resursen. Detta ska finnas ut från den **ResourceProvider**.
 
@@ -126,7 +126,7 @@ Hämta en Azure-anpassad resurs:
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 id | *Ja* | Resurs-ID för den anpassade resursen. Detta ska finnas ut från den **ResourceProvider**
 
@@ -176,7 +176,7 @@ Exemplet Azure Resource Manager-mall:
 }
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 resourceTypeName | *Ja* | Den **namn** av den **resourceType** definieras i den anpassade providern.
 resourceProviderName | *Ja* | Anpassad provider instans resursnamnet.
@@ -185,7 +185,8 @@ customResourceName | *Ja* | Anpassade resursnamnet.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure anpassade Resursprovidrar](./custom-providers-overview.md)
-- [Självstudie: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Snabbstart: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudier: Skapa anpassade åtgärder och resurser i Azure](./tutorial-custom-providers-101.md)
 - [Anvisningar: Att lägga till anpassade åtgärder i Azure REST-API](./custom-providers-action-endpoint-how-to.md)
 - [Referens: Anpassad Proxy resursreferens](./custom-providers-proxy-resource-endpoint-reference.md)
 - [Referens: Anpassad resurs Cache-referens](./custom-providers-proxy-cache-resource-endpoint-reference.md)

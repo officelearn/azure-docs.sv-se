@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204149"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797956"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
 
@@ -32,6 +32,8 @@ Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). 
 
 Du skapar den [förutsägelse slutpunktsresurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) i Azure-portalen. Den här resursen bör endast användas för slutpunkt-förutsägelsefrågor. Använd inte den här resursen för redigering ändringar till appen.
 
+Du kan skapa en Luis-resurs eller en resurs för Cognitive Services. Om du skapar en resurs för Språkförståelse, är en bra idé att postpend resurstyp att resursnamnet. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ Du skapar den [förutsägelse slutpunktsresurs](get-started-portal-deploy-app.md
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Med hjälp av resurs från LUIS-portalen
+
+Om du använder resursen från LUIS-portalen behöver du inte vet att din nyckel och plats. I stället behöver du veta din resurs-klient, prenumeration och resursnamn.
+
+När du [tilldela](#assign-resource-key-to-luis-app-in-luis-portal) resursen till LUIS-appen i LUIS-portalen, nyckel och plats har angetts som en del av frågan förutsägelse slutpunkts-URL i avsnittet Hantera **nycklar och slutpunkten inställningar** sidan.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Med hjälp av resurs från REST API eller SDK
+
+Om du använder resursen från REST API(s) eller SDK, som du behöver veta din nyckel och plats. Den här informationen tillhandahålls som en del av frågan förutsägelse slutpunkts-URL i avsnittet Hantera **nycklar och slutpunkten inställningar** sidan och Azure-portalen på resursens översikt och nycklar sidor.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Tilldela Resursnyckeln LUIS-app i LUIS-portalen
 

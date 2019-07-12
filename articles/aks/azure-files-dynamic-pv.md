@@ -2,17 +2,17 @@
 title: Skapa en volym för filer för flera poddar dynamiskt i Azure Kubernetes Service (AKS)
 description: Lär dig att dynamiskt skapa en permanent volym med Azure Files för användning med flera samtidiga poddar i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061093"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665975"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
@@ -22,13 +22,13 @@ Mer information om Kubernetes volymer finns i [lagringsalternativ för program i
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Skapa en storage-klass
 
-En lagringsklass används för att definiera hur en Azure-filresurs har skapats. Ett lagringskonto skapas automatiskt i den *_MC* resursgrupp för användning med klassen lagring för de Azure-filresurserna. Välj av följande [Azure lagringsredundans] [ storage-skus] för *skuName*:
+En lagringsklass används för att definiera hur en Azure-filresurs har skapats. Ett lagringskonto skapas automatiskt i den [noden resursgrupp][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] för *skuName*:
 
 * *Standard_LRS* -standard lokalt redundant lagring (LRS)
 * *Standard_GRS* -standard geo-redundant lagring (GRS)
@@ -39,7 +39,7 @@ En lagringsklass används för att definiera hur en Azure-filresurs har skapats.
 
 Mer information om Kubernetes lagringsklasser för Azure Files finns i [Kubernetes lagringsklasser][kubernetes-storage-classes].
 
-Skapa en fil med namnet `azure-file-sc.yaml` och kopiera i följande exempel manifestet. Mer information om *mountOptions*, finns i den [monteringsalternativ] [ mount-options] avsnittet.
+Skapa en fil med namnet `azure-file-sc.yaml` och kopiera i följande exempel manifestet. Mer information om *mountOptions*, finns i den [monteringsalternativ][mount-options] avsnittet.
 
 ```yaml
 kind: StorageClass
@@ -56,7 +56,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Skapa klassen lagring med den [kubectl gäller] [ kubectl-apply] kommando:
+Skapa klassen lagring med den [kubectl gäller][kubectl-apply] kommando:
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -93,7 +93,7 @@ subjects:
   namespace: kube-system
 ```
 
-Tilldela behörigheter med den [kubectl gäller] [ kubectl-apply] kommando:
+Tilldela behörigheter med den [kubectl gäller][kubectl-apply] kommando:
 
 ```console
 kubectl apply -f azure-pvc-roles.yaml
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Skapa ett anspråk för permanent volym
 
-Ett permanent volym-anspråk (PVC) använder klassen lagringsobjektet för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa ett permanent volym-anspråk *5GB* i storlek med *ReadWriteMany* åtkomst. Mer information om åtkomstlägen som finns i den [Kubernetes permanent volym] [ access-modes] dokumentation.
+Ett permanent volym-anspråk (PVC) använder klassen lagringsobjektet för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa ett permanent volym-anspråk *5GB* i storlek med *ReadWriteMany* åtkomst. Mer information om åtkomstlägen som finns i den [Kubernetes permanent volym][access-modes] dokumentation.
 
 Nu skapa en fil med namnet `azure-file-pvc.yaml` och kopiera följande YAML. Se till att den *storageClassName* matchar lagringsklass som skapats i det sista steget:
 
@@ -119,13 +119,13 @@ spec:
       storage: 5Gi
 ```
 
-Skapa permanent volym-anspråk med den [kubectl gäller] [ kubectl-apply] kommando:
+Skapa permanent volym-anspråk med den [kubectl gäller][kubectl-apply] kommando:
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-När klar skapas filresursen. En Kubernetes-hemlighet skapas också som innehåller anslutningsinformationen och autentiseringsuppgifterna. Du kan använda den [kubectl hämta] [ kubectl-get] kommando för att visa status för PVC: N:
+När klar skapas filresursen. En Kubernetes-hemlighet skapas också som innehåller anslutningsinformationen och autentiseringsuppgifterna. Du kan använda den [kubectl hämta][kubectl-get] kommando för att visa status för PVC: N:
 
 ```console
 $ kubectl get pvc azurefile
@@ -165,7 +165,7 @@ spec:
         claimName: azurefile
 ```
 
-Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommando.
+Skapa en pod med den [kubectl gäller][kubectl-apply] kommando.
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -264,3 +264,4 @@ Läs mer om Kubernetes beständiga volymer med Azure Files.
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

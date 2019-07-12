@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964034"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795666"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -119,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Läsa in initieraren till den aktiva TelemetryConfiguration**
+**ASP.NET-appar: Läsa in initieraren till den aktiva TelemetryConfiguration**
 
 I ApplicationInsights.config:
 
@@ -132,9 +132,6 @@ I ApplicationInsights.config:
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> Att lägga till initieraren med `ApplicationInsights.config` är inte giltig för ASP.NET Core-program.
 
 En alternativ metod för ASP.NET-webbprogram är att skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
 
@@ -149,15 +146,20 @@ En alternativ metod för ASP.NET-webbprogram är att skapa en instans av initier
     }
 ```
 
+> [!NOTE]
+> Att lägga till initieraren med hjälp av `ApplicationInsights.config` eller med hjälp av `TelemetryConfiguration.Active` är inte giltig för ASP.NET Core-program. 
+
+**ASP.NET Core-appar: Läsa in initieraren till TelemetryConfiguration**
+
 För [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) program, att lägga till en ny `TelemetryInitializer` görs genom att lägga till behållaren Beroendeinmatning enligt nedan. Detta görs `ConfigureServices` -metoden för din `Startup.cs` klass.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js

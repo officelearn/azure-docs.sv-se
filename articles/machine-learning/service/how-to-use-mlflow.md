@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461658"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657970"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Använda MLflow med Azure Machine Learning-tjänsten (förhandsversion)
 
-Den här artikeln visar hur du använder Mlflows spåra URI och loggning API, gemensamt kallas även MLflow spårning, med Azure Machine Learning-tjänsten för att spåra och logga dina experiment mätvärden och artefakter i din [Azure Machine Learning arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbetsytan en centraliserad, säker och skalbar plats att lagra dina modeller och utbildning mått.
+Den här artikeln visar hur du använder Mlflows spåra URI och loggning API, gemensamt kallas även MLflow spårning, med Azure Machine Learning-tjänsten för att spåra och logga dina experiment mätvärden och artefakter i din [Azure Machine Learning arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbetsytan en centraliserad, säker och skalbar plats att lagra dina modeller och utbildning mått.
 
 [MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för att hantera livscykeln för din machine learning-experiment. [Spårning av MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) är en komponent i MLflow som loggar och spårar utbildning kör mått och modellen artefakter, oavsett om dina experiment körs lokalt, på en virtuell dator eller på en fjärransluten beräkningskluster.
 ![mlflow med azure machine learning-diagram](media/how-to-use-mlflow/mlflow-diagram.png)

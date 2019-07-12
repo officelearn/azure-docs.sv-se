@@ -3,17 +3,17 @@ title: Felsöka säkerhetskopiering med Azure virtual machines
 description: Felsöka säkerhetskopiering och återställning av virtuella Azure-datorer
 services: backup
 author: srinathvasireddy
-manager: vijayts
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: srinathv
+ms.openlocfilehash: d7b99e7076e52db004bba7155922f4b144f2ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303983"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704905"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel påträffades när med Azure Backup med den information som visas nedan:
@@ -31,7 +31,7 @@ Detta kan inträffa på grund av tillfälliga lagringsfel eller inte tillräckli
 ## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM är inte i ett tillstånd som tillåter säkerhetskopieringar.
 
 Felkod: UserErrorVmNotInDesirableState <br/>
-Felmeddelande: Virtuell dator är inte i ett tillstånd som tillåter säkerhetskopieringar.<br/>
+Felmeddelande: Den virtuella datorn är inte i ett tillstånd som tillåter säkerhetskopieringar.<br/>
 
 Säkerhetskopieringen misslyckades eftersom den virtuella datorn är i felläge. Säkerhetskopia som den virtuella datorn ska tillståndet körs, Stoppad eller Stoppad (frigjord).
 
@@ -179,7 +179,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 | Felinformation | Lösning: |
 | --- | --- |
-| Annulleringen stöds inte för den här jobbtypen: <br>Vänta tills jobbet har slutförts. |Ingen |
+| Annulleringen stöds inte för den här jobbtypen: <br>Vänta tills jobbet har slutförts. |Inga |
 | Det finns inte i tillståndet avbrytbar jobbet: <br>Vänta tills jobbet har slutförts. <br>**eller**<br> Det valda jobbet finns inte i ett avbrytbar tillstånd: <br>Vänta tills jobbet är slutfört. |Det är troligt att jobbet är nästan klar. Vänta tills jobbet har slutförts.|
 | Backup kan inte avbryta jobbet eftersom den inte håller på att: <br>Annulleringen stöds endast för pågående jobb. Försök att avbryta ett pågående jobb. |Det här felet inträffar på grund av ett övergående tillstånd. Vänta en minut och försök sedan åtgärden Avbryt. |
 | Det gick inte att avbryta jobbet säkerhetskopiering: <br>Vänta tills jobbet har slutförts. |Ingen |
@@ -190,11 +190,11 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | --- | --- |
 | Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera: <br>**$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Om **adress** konfigureras, och sedan DNS-inställningarna har konfigurerats.<br> <li>Molntjänsten som du försöker återställa har konfigurerats med **ReservedIP**, och befintliga virtuella datorer i Molntjänsten som är i ett stoppat tillstånd. Du kan kontrollera att en tjänst i molnet har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst: <ul><li>Virtuella datorer under konfigurationen för belastningsutjämnaren, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet används redan: <br>Ange ett annat DNS-namn och försök igen. |Den här DNS-namn som refererar till molntjänstens namn, vanligtvis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet kan behöva du välja ett annat namn under återställningen. <br><br> Det här felet visas endast för användare av Azure-portalen. Återställningsåtgärden via PowerShell lyckas eftersom den återställer endast diskar och skapar inte den virtuella datorn. Felet kommer riktas när den virtuella datorn uttryckligen har skapats av dig när disken återställningsåtgärden. |
-| Den angivna virtuella nätverkskonfigurationen är inte korrekt: <br>Ange ett annat virtuellt nätverk-konfiguration och försök igen. |Ingen |
-| Den angivna Molntjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella datorn håller på att återställas: <br>Ange en annan molntjänst som inte använder en reserverad IP. Eller välj en annan återställningspunkt att återställa från. |Ingen |
-| Molntjänsten har nått sin gräns för antalet indataslutpunkter: <br>Försök igen genom att ange en annan molntjänst eller genom att använda en befintlig slutpunkt. |Ingen |
-| Det Recovery Services-valvet och målresurserna lagringskontot finns i två olika regioner: <br>Kontrollera att lagringskontot som angetts i återställningsåtgärden finns i samma Azure-region som Recovery Services-valvet. |Ingen |
-| Storage-konto som angetts för återställningsåtgärden stöds inte: <br>Endast Basic eller Standard storage-konton med inställningar för lokalt redundant eller geo-redundant replikering stöds. Välj ett lagringskonto. |Ingen |
+| Den angivna virtuella nätverkskonfigurationen är inte korrekt: <br>Ange ett annat virtuellt nätverk-konfiguration och försök igen. |Inga |
+| Den angivna Molntjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella datorn håller på att återställas: <br>Ange en annan molntjänst som inte använder en reserverad IP. Eller välj en annan återställningspunkt att återställa från. |Inga |
+| Molntjänsten har nått sin gräns för antalet indataslutpunkter: <br>Försök igen genom att ange en annan molntjänst eller genom att använda en befintlig slutpunkt. |Inga |
+| Det Recovery Services-valvet och målresurserna lagringskontot finns i två olika regioner: <br>Kontrollera att lagringskontot som angetts i återställningsåtgärden finns i samma Azure-region som Recovery Services-valvet. |Inga |
+| Storage-konto som angetts för återställningsåtgärden stöds inte: <br>Endast Basic eller Standard storage-konton med inställningar för lokalt redundant eller geo-redundant replikering stöds. Välj ett lagringskonto. |Inga |
 | Typ av lagringskonto som angetts för återställningsåtgärden är inte online: <br>Kontrollera att lagringskontot som angetts i återställningsåtgärden är online. |Det här felet kan inträffa på grund av ett tillfälligt fel i Azure Storage eller på grund av ett avbrott. Välj ett annat lagringskonto. |
 | Resursgruppens kvot har uppnåtts: <br>Ta bort några resursgrupper i Azure Portal eller kontakta Azure-supporten om du vill höja gränsen. |Ingen |
 | Det valda undernätet finns inte: <br>Välj ett undernät som finns. |Ingen |

@@ -2,18 +2,18 @@
 title: Introduktion till Azure Kubernetes Service
 description: Läs mer om funktionerna och fördelarna med att använda Azure Kubernetes Service för att distribuera och hantera containerbaserade program i Azure.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073821"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615168"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Du kan skapa ett AKS-kluster i Azure-portalen med Azure CLI eller ett malldrivet
 
 Mer information om grundläggande om Kubernetes finns i [Kubernetes viktiga begrepp för AKS][concepts-clusters-workloads].
 
-Kom igång genom att slutföra snabbstarten om AKS [i Azure-portalen][aks-portal] eller [med Azure CLI][aks-cli].
+Kom igång genom att slutföra snabbstarten om AKS [i Azure-portalen][aks-portal] or [with the Azure CLI][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Åtkomst, säkerhet och övervakning
 
@@ -31,17 +31,17 @@ För ökad säkerhet och hantering kan AKS integreras med Azure Active Directory
 
 ### <a name="identity-and-security-management"></a>Identitets- och säkerhetshantering
 
-Om du vill begränsa åtkomsten till klusterresurser har AKS stöd för [Kubernetes rollbaserad åtkomstkontroll (RBAC)][kubernetes-rbac]. Du kan använda RBAC för att kontrollera åtkomst till Kubernetes-resurser och -namnområden samt behörigheter till dessa resurser. Ett AKS-kluster kan också konfigureras för att integrera med Azure Active Directory (AD). Med Azure AD-integrering kan du konfigurera Kubernetes-åtkomst baserat på din befintliga identitet och gruppmedlemskap. Dina befintliga Azure AD-användare och -grupper kan ges åtkomst till AKS resurser och integrerad inloggning.
+Om du vill begränsa åtkomsten till klusterresurser AKS stöder [Kubernetes rollbaserad åtkomstkontroll (RBAC)][kubernetes-rbac]. Du kan använda RBAC för att kontrollera åtkomst till Kubernetes-resurser och -namnområden samt behörigheter till dessa resurser. Ett AKS-kluster kan också konfigureras för att integrera med Azure Active Directory (AD). Med Azure AD-integrering kan du konfigurera Kubernetes-åtkomst baserat på din befintliga identitet och gruppmedlemskap. Dina befintliga Azure AD-användare och -grupper kan ges åtkomst till AKS resurser och integrerad inloggning.
 
 Läs mer om identitet, [alternativen för åtkomst och identitet för AKS][concepts-identity].
 
-Mer information om att säkra AKS-kluster finns i [integrera Azure Active Directory med AKS][aks-aad].
+Om du vill skydda dina AKS-kluster, se [integrera Azure Active Directory med AKS][aks-aad].
 
 ### <a name="integrated-logging-and-monitoring"></a>Integrerad loggning och övervakning
 
-Azure Monitor för hälsotillstånd för behållare samlar in minne och mått från behållare, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Containerloggar är tillgängliga och du kan också [granska huvudloggarna för Kubernetes][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
+Azure Monitor för hälsotillstånd för behållare samlar in minne och mått från behållare, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Behållarloggar är tillgängliga, och du kan också [i loggarna Kubernetes master][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
 
-Mer information finns i [Övervaka Azure Kubernetes Service hälsotillstånd för containrar][container-health].
+Mer information finns i [hälsotillstånd för Övervakare för Azure Kubernetes Service-behållare][container-health].
 
 ## <a name="clusters-and-nodes"></a>Kluster och noder
 
@@ -51,19 +51,19 @@ AKS-noder körs på virtuella Azure-datorer. Du kan ansluta lagringen till noder
 
 När behovet av resurser ändras kan du ändra skalan för klusternoder och poddar på din tjänst uppåt eller nedåt. Du kan använda den vågräta autoskalningen för poddar eller autoskalningen för kluster. Med den här metoden för att skala kan AKS-klustret automatiskt justera till krav och endast köra de resurser som behövs.
 
-Mer information finns i [Skala ett kluster i Azure Kubernetes Service (AKS)][aks-scale].
+Mer information finns i [skala ett kluster i Azure Kubernetes Service (AKS)][aks-scale].
 
 ### <a name="cluster-node-upgrades"></a>Uppgraderingar av klusternod
 
 Azure Kubernetes Service erbjuder flera Kubernetes-versioner. När nya versioner blir tillgängliga i AKS uppgraderas klustret med hjälp av Azure Portal eller Azure CLI. Under uppgraderingen blir noderna noggrant avspärrade och tömda för att minimera störningar i program som körs.
 
-Mer information om livscykelversioner finns i [Kubernetes-versioner som stöds i AKS][aks-supported versions]. Uppgraderingssteg finns i [Uppgradera ett kluster i Azure Kubernetes Service (AKS)][aks-upgrade].
+Mer information om livscykeln versioner finns [stöds Kubernetes-versioner i AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>GPU-aktiverade noder
 
 AKS stöder skapandet av GPU-aktiverade nodpooler. Azure tillhandahåller för närvarande enskilda eller flera GPU-aktiverade virtuella datorer. GPU-aktiverade virtuella datorer är utformade för beräkningsintensiva, grafikintensiva och visualiseringar av arbetsbelastningar.
 
-Mer information finns i [Använda GPU-kort på AKS][aks-gpu].
+Mer information finns i [använda grafikprocessorer på AKS][aks-gpu].
 
 ### <a name="storage-volume-support"></a>Stöd för lagringsvolym
 
@@ -71,7 +71,7 @@ Du kan montera lagringsvolymer för beständiga data för att stödja arbetsbela
 
 Mer information finns i [lagringsalternativ för program i AKS][concepts-storage].
 
-Kom igång med dynamisk beständiga volymer med [Azure Disks] [ azure-disk] eller [Azure Files][azure-files].
+Kom igång med dynamisk beständiga volymer med [Azure Disks][azure-disk] or [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Virtuella nätverk och ingress
 
@@ -79,19 +79,19 @@ Ett AKS-kluster kan distribueras till ett befintligt virtuellt nätverk. I den h
 
 Mer information finns i den [Network begrepp för program i AKS][aks-networking].
 
-Kom igång med ingående trafik, se [HTTP-programroutning][aks-http-routing].
+Kom igång med ingående trafik, se [routning av HTTP-programmet][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Ingress with HTTP-programroutning
 
 HTTP-programroutningen gör det enkelt att komma åt program som distribueras till AKS-klustret. När aktiverad, konfigurerar HTTP-programroutningen en ingångskontroll i AKS-klustret. När program distribueras konfigureras offentligt tillgängliga DNS-namn automatiskt. HTTP-program för routning konfigurerar en DNS-zon och integrerar den med AKS-klustret. Du kan sedan distribuera Kubernetes-ingressresurser som vanligt.
 
-Kom igång med ingående trafik, se [HTTP-programroutning][aks-http-routing].
+Kom igång med ingående trafik, se [routning av HTTP-programmet][aks-http-routing].
 
 ## <a name="development-tooling-integration"></a>Integrering av utvecklingsverktyg
 
 Kubernetes har ett omfattande utbud av utvecklings- och hanteringsverktyg, till exempel Helm, Draft och Kubernetes-tillägget för Visual Studio-koden. Dessa verktyg fungerar sömlöst med AKS.
 
-Vidare ger Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Du kan köra och felsöka containrar direkt i AKS med minimal konfiguration. Komma igång med [Azure Dev Spaces][azure-dev-spaces].
+Vidare ger Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Du kan köra och felsöka containrar direkt i AKS med minimal konfiguration. Kom igång genom att se [Azure Dev blanksteg][azure-dev-spaces].
 
 Azure DevOps-projektet tillhandahåller en enkel lösning för att ta befintlig kod och Git-lagringsplats till Azure. DevOps-projektet skapar automatiskt Azure-resurser som AKS, en versionspipeline i Azure DevOps Services som omfattar en kompileringspipeline för CI och skapar en versionspipeline för CD och skapar sedan en Azure Application Insights-resurs för övervakning.
 
@@ -101,7 +101,7 @@ Mer information finns i [Azure DevOps-projekt][azure-devops].
 
 AKS har stöd för Docker-avbildningsformatet. Integrera AKS med Azure Container Registry (ACR) för privat lagring av Docker-avbildningar.
 
-Om du vill skapa en privat avbildningslagring, se [Azure Container Registry][acr-docs].
+Om du vill skapa privata avbildningsarkivet [Azure Container Registry][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Kubernetes-certifiering
 
@@ -116,7 +116,7 @@ Azure Kubernetes Service (AKS) är kompatibel med SOC, ISO, PCI DSS och HIPAA. M
 Läs mer om att distribuera och hantera AKS med snabbstarten om Azure CLI.
 
 > [!div class="nextstepaction"]
-> [AKS-snabbstart][aks-cli]
+> [AKS-Snabbstart][aks-cli]
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine

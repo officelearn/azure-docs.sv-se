@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: fda79a7ea361a6b44798d18b79ffd763055087a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122622"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594453"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Aktivera Azure Monitor för virtuella datorer (förhandsversion) med hjälp av Azure Policy
 
@@ -82,35 +82,35 @@ Mer information om hur du tilldelar Azure Policy finns [översikten över Azure 
 
 Principdefinitioner för en Azure virtuell dator visas i följande tabell.
 
-|Namn |Beskrivning |Typ |
+|Namn |Beskrivning |type |
 |-----|------------|-----|
-|[Förhandsversion]: Aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för de virtuella datorerna i det specificerade omfånget (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |
-|[Förhandsversion]: Granska beroende agentdistribution – VM-avbildning (OS) inte finns i listan |Rapporterar virtuella datorer som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Granska agentdistribution Log Analytics – VM-avbildning (OS) inte finns i listan |Rapporterar virtuella datorer som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera beroendeagenten för virtuella Linux-datorer |Distribuera beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera beroendeagenten för virtuella Windows-datorer |Distribuera beroendeagenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för de virtuella datorerna i det specificerade omfånget (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |
+|\[Förhandsversion av\]: Granska beroende agentdistribution – VM-avbildning (OS) inte finns i listan |Rapporterar virtuella datorer som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Granska agentdistribution Log Analytics – VM-avbildning (OS) inte finns i listan |Rapporterar virtuella datorer som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera beroendeagenten för virtuella Linux-datorer |Distribuera beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera beroendeagenten för virtuella Windows-datorer |Distribuera beroendeagenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Principer för Azure VM-skalningsuppsättningar
 
 Principdefinitioner för en skalningsuppsättning för virtuell Azure-dator visas i följande tabell.
 
-|Namn |Beskrivning |Typ |
+|Namn |Beskrivning |type |
 |-----|------------|-----|
-|[Förhandsversion]: Aktivera Azure Monitor för VM-skalningsuppsättningar |Aktivera Azure Monitor för VM-skalningsuppsättningar i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. Obs! Om din skala set uppgraderingsprincipen är inställd på manuell, tillämpa tillägget för alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. I CLI är detta az vmss update-instances. |Initiativ |
-|[Förhandsversion]: Granska beroende agentdistribution i VM scale sets – VM-avbildning (OS) inte finns i listan |Rapporterar VM-skalningsuppsättning som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Granska Log Analytics agentdistribution i VM scale sets – VM-avbildning (OS) inte finns i listan |Rapporterar VM-skalningsuppsättning som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera beroendeagenten för Linux VM scale sets |Distribuera beroendeagenten för Linux VM-skalningsuppsättningar om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera beroendeagenten för Windows VM scale sets |Distribuera beroendeagenten för Windows VM scale sets för om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Linux VM-skalningsuppsättningar |Distribuera Log Analytics-agenten för Linux VM-skalningsuppsättningar om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Windows VM scale sets |Distribuera Log Analytics-agenten för Windows VM scale sets för om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Aktivera Azure Monitor för VM-skalningsuppsättningar |Aktivera Azure Monitor för VM-skalningsuppsättningar i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. Obs! Om din skala set uppgraderingsprincipen är inställd på manuell, tillämpa tillägget för alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. I CLI är detta az vmss update-instances. |Initiativ |
+|\[Förhandsversion av\]: Granska beroende agentdistribution i VM scale sets – VM-avbildning (OS) inte finns i listan |Rapporterar VM-skalningsuppsättning som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Granska Log Analytics agentdistribution i VM scale sets – VM-avbildning (OS) inte finns i listan |Rapporterar VM-skalningsuppsättning som inkompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera beroendeagenten för Linux VM scale sets |Distribuera beroendeagenten för Linux VM-skalningsuppsättningar om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera beroendeagenten för Windows VM scale sets |Distribuera beroendeagenten för Windows VM scale sets för om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux VM-skalningsuppsättningar |Distribuera Log Analytics-agenten för Linux VM-skalningsuppsättningar om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows VM scale sets |Distribuera Log Analytics-agenten för Windows VM scale sets för om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |
 
 Fristående princip (ingår inte i initiativet) som beskrivs här:
 
-|Namn |Beskrivning |Typ |
+|Namn |Beskrivning |type |
 |-----|------------|-----|
-|[Förhandsversion]: Granska Log Analytics-arbetsyta för en virtuell dator – matchningsfel för rapport |Rapporter för virtuella datorer som inkompatibla om de inte loggar till Log Analytics-arbetsytan som anges i princip eller ett initiativ tilldelningen. |Princip |
+|\[Förhandsversion av\]: Granska Log Analytics-arbetsyta för en virtuell dator – matchningsfel för rapport |Rapporter för virtuella datorer som inkompatibla om de inte loggar till Log Analytics-arbetsytan som anges i princip eller ett initiativ tilldelningen. |Princip |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Tilldela Azure Monitor-initiativ
 Att skapa principtilldelning från den **Azure Monitor för virtuella datorer Principtäckning** utför de här stegen. Information om hur du utför de här stegen finns i [skapa en principtilldelning från Azure portal](../../governance/policy/assign-policy-portal.md).
@@ -180,19 +180,19 @@ Baserat på resultatet av de principer som ingår i initiativet, rapporteras vir
 
 * Log Analytics-agenten eller beroendeagenten distribueras inte.  
     Det här scenariot är vanligt för ett omfång med befintliga virtuella datorer. Om du vill lösa det skickar distribuera nödvändiga agenter efter [skapa reparation aktiviteter](../../governance/policy/how-to/remediate-resources.md) en inkompatibel princip.  
-    - [Förhandsversion]: Deploy Dependency agent for Linux VMs
-    - [Förhandsversion]: Deploy Dependency agent for Windows VMs
-    - [Förhandsversion]: Deploy Log Analytics agent for Linux VMs
-    - [Förhandsversion]: Deploy Log Analytics agent for Windows VMs
+    - \[Förhandsversion av\]: Distribuera beroendeagenten för virtuella Linux-datorer
+    - \[Förhandsversion av\]: Distribuera beroendeagenten för virtuella Windows-datorer
+    - \[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux-datorer
+    - \[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows-datorer
 
 * VM-avbildning (OS) är inte identifieras i principdefinitionen.  
     Villkor för distributionen omfattar endast virtuella datorer som distribueras från välkända Azure VM-avbildningar. I dokumentationen om du vill se om VM-operativsystem stöds. Om det inte stöds, duplicera i princip för programdistribution och uppdatera eller ändra det så att avbildningen som är kompatibla.  
-    - [Förhandsversion]: Granska beroende agentdistribution – VM-avbildning (OS) inte finns i listan
-    - [Förhandsversion]: Granska agentdistribution Log Analytics – VM-avbildning (OS) inte finns i listan
+    - \[Förhandsversion av\]: Granska beroende agentdistribution – VM-avbildning (OS) inte finns i listan
+    - \[Förhandsversion av\]: Granska agentdistribution Log Analytics – VM-avbildning (OS) inte finns i listan
 
 * Virtuella datorer logga inte in på den angivna Log Analytics-arbetsytan.  
     Det är möjligt att vissa virtuella datorer i området initiativ loggar in på en Log Analytics-arbetsyta än den som anges i principtilldelningen. Den här principen är ett verktyg för att identifiera vilka virtuella datorer rapporterar till en icke-kompatibla arbetsyta.  
-    - [Förhandsversion]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[Förhandsversion av\]: Granska Log Analytics-arbetsyta för en virtuell dator – matchningsfel för rapport
 
 ## <a name="edit-an-initiative-assignment"></a>Redigera principtilldelning
 

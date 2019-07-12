@@ -7,127 +7,26 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c603afa61499a615a0882cef06f14fd3d080a9ef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295136"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797772"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Ta bort avbildningar i Azure Container Registry
 
 För att underhålla storleken på Azure container registry, bör du regelbundet ta bort inaktuella bilddata. Medan vissa behållaravbildningar som distribuerats i produktionen kan kräva mer långsiktiga lagring, kan andra vanligtvis tas bort snabbare. Till exempel i en automatisk build och Testscenario, kan registret snabbt fylla med avbildningar som aldrig kan distribueras och kan rensas strax efter att du har slutfört passet bygge och test.
 
-Eftersom du kan ta bort avbildningsdata på flera olika sätt, är det viktigt att förstå hur varje borttagningsåtgärd påverkar lagringsanvändning. Den här artikeln kan du först introducerar komponenterna i en Docker-avbildningar i registret och behållare och sedan omfattar flera metoder för att ta bort avbildningsdata. Exempelskript tillhandahålls för att automatisera delete-åtgärder.
-
-## <a name="registry"></a>Registret
-
-En behållare *registret* är en tjänst som lagrar och distribuerar behållaravbildningar. Docker Hub är en offentlig Docker-behållarregister, medan Azure Container Registry ger privata Docker-behållarregister i Azure.
-
-## <a name="repository"></a>Lagringsplats
-
-Hantera behållarregister *databaser*, samlingar av behållaravbildningar med samma namn men olika taggar. Till exempel finns följande tre avbildningar i databasen ”acr-helloworld”:
-
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
-
-Databasnamn kan även inkludera [namnområden](container-registry-best-practices.md#repository-namespaces). Namnområden kan du till gruppen avbildningar med vanlig avgränsade med snedstreck databasnamn, till exempel:
-
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
-
-## <a name="components-of-an-image"></a>Komponenterna i en bild
-
-En behållaravbildning i ett register är associerad med en eller flera taggar, har ett eller flera lager och identifieras med ett manifest. Förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att avgöra den bästa metoden för att frigöra utrymme i registret.
-
-### <a name="tag"></a>Tagg
-
-En bild *taggen* anger dess version. En enda avbildning i en databas kan tilldelas en eller flera taggar och kan också vara ”ej taggade”. Det vill säga kan du ta bort alla taggar från en avbildning, medan avbildningsdata (lager) är i registret.
-
-Databasen (eller databasen och namnområde) plus en tagg definierar en avbildningens namn. Du kan skicka och hämta en avbildning genom att ange dess namn i sändning eller hämtning igen.
-
-Avbildningens namn innehåller också det fullständigt kvalificerade namnet för registret värden i ett privat register som Azure Container Registry. Registret värden för bilder i ACR är i formatet *acrname.azurecr.io* (endast gemener). Till exempel blir det fullständiga namnet på den första bilden i namnområdet ”marknadsföring” i föregående avsnitt:
-
-```
-myregistry.azurecr.io/marketing/campaign10-18/web:v2
-```
-
-En beskrivning på avbildningen taggning metodtips finns i den [Docker-märkning: Bästa metoder för taggning och versionshantering docker-avbildningar][tagging-best-practices] blogginlägget på MSDN.
-
-### <a name="layer"></a>Lager
-
-Bilder består av en eller flera *lager*, varje motsvarar en rad i den Dockerfile som definierar avbildningen. Bilder i ett register dela vanliga lager, öka lagringseffektiviteten. Till exempel flera bilder i olika databaser kan dela samma grundläggande Alpine Linux lager, men bara en kopia av skiktet lagras i registret.
-
-Layer delning optimerar dessutom layer-distribution till noder med flera avbildningar som delar vanliga lager. Om en avbildning som redan finns på en nod innehåller Alpine Linux-lagret som bas, överföra inte den efterföljande pull av en annan avbildning som refererar till samma lager till exempel lagret till noden. I stället den refererar till det lagret som redan finns på noden.
-
-### <a name="manifest"></a>Manifest
-
-Varje behållaravbildning som skickas till ett behållarregister är associerad med en *manifest*. Manifestet, som genereras av registret när avbildningen skickas, identifierar bilden och anger dess lager. Du kan visa manifest för en databas med Azure CLI-kommando [az acr databasen show-manifest][az-acr-repository-show-manifests]:
-
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>
-```
-
-Till exempel visa en lista över manifestet Överför sammanfattningar för ”acr-helloworld”-lagringsplatsen:
-
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
-[
-  {
-    "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
-    "tags": [
-      "latest",
-      "v3"
-    ],
-    "timestamp": "2018-07-12T15:52:00.2075864Z"
-  },
-  {
-    "digest": "sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57",
-    "tags": [
-      "v2"
-    ],
-    "timestamp": "2018-07-12T15:50:53.5372468Z"
-  },
-  {
-    "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
-    "tags": [
-      "v1"
-    ],
-    "timestamp": "2018-07-11T21:38:35.9170967Z"
-  }
-]
-```
-
-### <a name="manifest-digest"></a>Manifest sammanfattad
-
-Manifest identifieras med en unik SHA-256-hash eller *manifest sammanfattad*. Varje avbildning--identifieras om taggade eller inte – av dess sammanfattad. Sammanfattad värdet är unikt, även om bildens lagerdata är identisk med en annan bild. Den här mekanismen är vad låter dig upprepade gånger identiskt taggade bilder till ett register. Exempel: du kan skicka flera gånger `myimage:latest` till registret felfritt eftersom varje avbildning har identifierats av dess unika sammanfattad.
-
-Du kan hämta en avbildning från ett register genom att ange dess sammanfattad i pull-åtgärd. Vissa system kan konfigureras för att hämta av sammanfattad eftersom det garanterar versionsnumret för avbildningen som hämtas, även om ett identiskt taggade avbildningen skickas sedan till registret.
-
-Till exempel hämta en avbildning från lagringsplatsen ”acr-helloworld” av manifest sammanfattad:
-
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
-
-> [!IMPORTANT]
-> Om du överför flera gånger ändrade avbildningar med identiska taggar, kan du skapa överblivna bilder--bilder som är ej taggade, men fortfarande förbruka utrymme i registret. Ej taggade bilder visas inte i Azure CLI eller i Azure-portalen när du listar eller visa bilder efter tagg. Men lagren fortfarande finns och förbruka utrymme i registret. Den [ta bort ej taggade bilder](#delete-untagged-images) i den här artikeln beskriver frigöra utrymme som används av ej taggade bilder.
-
-## <a name="delete-image-data"></a>Ta bort avbildningsdata
-
-Du kan ta bort avbildningsdata från behållarregistret på flera olika sätt:
+Eftersom du kan ta bort avbildningsdata på flera olika sätt, är det viktigt att förstå hur varje borttagningsåtgärd påverkar lagringsanvändning. Den här artikeln beskriver flera metoder för att ta bort avbildningsdata:
 
 * Ta bort en [databasen](#delete-repository): Tar bort alla avbildningar och alla unika lager i databasen.
 * Ta bort genom att [taggen](#delete-by-tag): Tar bort en avbildning, taggen, alla unika lager som refereras av avbildningen och alla andra taggar som är kopplade till avbildningen.
 * Ta bort genom att [manifest sammanfattad](#delete-by-manifest-digest): Tar bort en avbildning, alla unika lager som refereras av avbildningen och alla taggar som är kopplade till avbildningen.
+
+Exempelskript tillhandahålls för att automatisera delete-åtgärder.
+
+En introduktion till de här koncepten finns i [om register, databaser och avbildningar](container-registry-concepts.md).
 
 ## <a name="delete-repository"></a>Ta bort lagringsplats
 
@@ -154,11 +53,11 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Tar bort *efter tagg* bör inte förväxlas med att ta bort en tagg (tar bort taggen). Du kan ta bort en tagg med Azure CLI-kommando [az acr databasen taggen][az-acr-repository-untag]. Inget utrymme har frigjorts när du ta bort taggen en bild eftersom dess [manifest](#manifest) och lagerdata är kvar i registret. Bara själva referensen tagg har tagits bort.
+> Tar bort *efter tagg* bör inte förväxlas med att ta bort en tagg (tar bort taggen). Du kan ta bort en tagg med Azure CLI-kommando [az acr databasen taggen][az-acr-repository-untag]. Inget utrymme har frigjorts när du ta bort taggen en bild eftersom dess [manifest](container-registry-concepts.md#manifest) och lagerdata är kvar i registret. Bara själva referensen tagg har tagits bort.
 
 ## <a name="delete-by-manifest-digest"></a>Ta bort av manifest sammanfattad
 
-En [manifest sammanfattad](#manifest-digest) kan associeras med en, ingen eller flera taggar. När du tar bort av sammanfattad raderas alla taggar som refereras av manifestet, eftersom lagerdata för alla lager som är unika för avbildningen. Delade layer data inte tas bort.
+En [manifest sammanfattad](container-registry-concepts.md#manifest-digest) kan associeras med en, ingen eller flera taggar. När du tar bort av sammanfattad raderas alla taggar som refereras av manifestet, eftersom lagerdata för alla lager som är unika för avbildningen. Delade layer data inte tas bort.
 
 Om du vill ta bort genom att sammanfattad, överför första listan manifestet sammanfattningar för den lagringsplats som innehåller bilder som du vill ta bort. Exempel:
 
@@ -248,7 +147,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>Ta bort ej taggade bilder
 
-Som vi nämnde i den [Manifest sammanfattad](#manifest-digest) avsnittet push-överför en ändrad avbildning med en befintlig tagg **untags** tidigare publicerade avbildningen, vilket resulterar i en bild av överblivna (eller ”överflödiga”). Tidigare publicerade avbildningens manifest-- och dess lagerdata--finns kvar i registret. Överväg följande sekvens med händelser:
+Som vi nämnde i den [Manifest sammanfattad](container-registry-concepts.md#manifest-digest) avsnittet push-överför en ändrad avbildning med en befintlig tagg **untags** tidigare publicerade avbildningen, vilket resulterar i en bild av överblivna (eller ”överflödiga”). Tidigare publicerade avbildningens manifest-- och dess lagerdata--finns kvar i registret. Överväg följande sekvens med händelser:
 
 1. Push-överför avbildningen *acr-helloworld* med tagg **senaste**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Kontrollera manifest för lagringsplats *acr-helloworld*:

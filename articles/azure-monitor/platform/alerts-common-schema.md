@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: 91ec5aa42367f6caaa93aaf808fde504e92fbc04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447674"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594326"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -35,10 +35,10 @@ Det innebär att du kan ha färre integreringar, vilket gör processen med att h
 
 Det gemensamma schemat för avisering visas själva främst i dina aviseringar. De förbättringar som visas nedan:
 
-| Åtgärd | Förbättringar|
+| Action | Förbättringar|
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviseringstyper. |
-| E-post | En konsekvent och detaljerade e-postmall, så att du kan enkelt diagnostisera problem på ett ögonblick. Inbäddade djup-länkar till aviseringsinstansen på portalen och resurser som påverkas se till att du snabbt kan gå in i processen för reparation. |
+| Email | En konsekvent och detaljerade e-postmall, så att du kan enkelt diagnostisera problem på ett ögonblick. Inbäddade djup-länkar till aviseringsinstansen på portalen och resurser som påverkas se till att du snabbt kan gå in i processen för reparation. |
 | Webhook/Logic App-/ Azure-funktion/Automation-Runbook | En konsekvent JSON struktur för alla aviseringstyper, där du kan enkelt skapa integreringar över olika aviseringstyper. |
 
 Det nya schemat kan också en rikare upplevelse för avisering förbrukning i både Azure-portalen och Azure-mobilappen i den närmaste framtiden. 

@@ -2,17 +2,17 @@
 title: Begränsa åtkomsten till kubeconfig i Azure Kubernetes Service (AKS)
 description: Lär dig att styra åtkomsten till Kubernetes-konfigurationsfil (kubeconfig) för klusteradministratörer och användare för kluster
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475609"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615678"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använda Azure rollbaserade åtkomstkontroller för att definiera åtkomst till konfigurationsfilen för Kubernetes i Azure Kubernetes Service (AKS)
 
@@ -22,15 +22,15 @@ Den här artikeln visar hur du tilldelar RBAC-roller som begränsa vem som kan h
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Den här artikeln kräver också att du kör Azure CLI version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Tillgängliga rollbehörigheter
 
-När du interagerar med ett AKS-kluster med den `kubectl` används verktyg, en konfigurationsfil som definierar klustrets anslutningsinformation. Den här konfigurationsfilen lagras vanligtvis i *~/.kube/config*. Flera kluster kan definieras i den här *kubeconfig* fil. Du växlar mellan kluster med hjälp av den [kubectl config Använd sammanhangsberoende] [ kubectl-config-use-context] kommando.
+När du interagerar med ett AKS-kluster med den `kubectl` används verktyg, en konfigurationsfil som definierar klustrets anslutningsinformation. Den här konfigurationsfilen lagras vanligtvis i *~/.kube/config*. Flera kluster kan definieras i den här *kubeconfig* fil. Du växlar mellan kluster med hjälp av den [kubectl config Använd sammanhangsberoende][kubectl-config-use-context] kommando.
 
-Den [aaz aks get-credentials] [ az-aks-get-credentials] kommandot kan du hämta autentiseringsuppgifterna för ett AKS-kluster och sammanfogar dem till den *kubeconfig* fil. Du kan använda Azure rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till dessa autentiseringsuppgifter. Dessa Azure RBAC-roller kan du definiera vem som kan hämta den *kubeconfig* filen och vilka behörigheter de har sedan i klustret.
+Den [aaz aks get-credentials][az-aks-get-credentials] kommandot kan du hämta autentiseringsuppgifterna för ett AKS-kluster och sammanfogar dem till den *kubeconfig* fil. Du kan använda Azure rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till dessa autentiseringsuppgifter. Dessa Azure RBAC-roller kan du definiera vem som kan hämta den *kubeconfig* filen och vilka behörigheter de har sedan i klustret.
 
 De två inbyggda rollerna är:
 
@@ -47,9 +47,9 @@ Dessa RBAC-roller kan tillämpas på en Azure Active Directory (AD)-användare e
 
 Om du vill tilldela en av de tillgängliga rollerna, måste du hämta resurs-ID för AKS-klustret och ID för Azure AD-användarkonto eller grupp. Kommandona i följande exempel:
 
-* Hämta klustret resource ID med den [az aks show] [ az-aks-show] kommandot för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. Ange ditt eget kluster och resurs gruppnamn efter behov.
-* Använder den [az konto show] [ az-account-show] och [az ad user show] [ az-ad-user-show] kommandon för att få ditt användar-ID.
-* Slutligen tilldelar en roll med hjälp av den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando.
+* Hämta klustret resource ID med den [az aks show][az-aks-show] kommandot för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. Ange ditt eget kluster och resurs gruppnamn efter behov.
+* Använder den [az konto show][az-account-show] and [az ad user show][az-ad-user-show] kommandon för att få ditt användar-ID.
+* Slutligen tilldelar en roll med hjälp av den [az-rolltilldelning skapa][az-role-assignment-create] kommando.
 
 I följande exempel tilldelas den *administratörsroll för Azure Kubernetes Service-kluster* till ett enskilt användarkonto:
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Om du vill tilldela behörigheter till en Azure AD-grupp, uppdatera den `--assignee` parametern visas i exemplet ovan med objekt-ID för den *grupp* snarare än en *användaren*. Hämta objekt-ID för en grupp med den [az ad group show] [ az-ad-group-show] kommando. I följande exempel hämtar objekt-ID för Azure AD-grupp med namnet *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Om du vill tilldela behörigheter till en Azure AD-grupp, uppdatera den `--assignee` parametern visas i exemplet ovan med objekt-ID för den *grupp* snarare än en *användaren*. Hämta objekt-ID för en grupp med den [az ad group show][az-ad-group-show] kommando. I följande exempel hämtar objekt-ID för Azure AD-grupp med namnet *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Du kan ändra den tidigare tilldelningen till den *kluster användarrollen* efter behov.
 
@@ -90,13 +90,13 @@ Följande Exempelutdata visar rolltilldelningen har skapats:
 
 ## <a name="get-and-verify-the-configuration-information"></a>Hämta och verifiera konfigurationsinformationen
 
-Använda med RBAC-roller som har tilldelats den [aaz aks get-credentials] [ az-aks-get-credentials] kommando för att hämta den *kubeconfig* definition för AKS-klustret. I följande exempel hämtas den *--admin* autentiseringsuppgifter, vilket fungerar korrekt om användaren har beviljats den *kluster administratörsroll*:
+Använda med RBAC-roller som har tilldelats den [aaz aks get-credentials][az-aks-get-credentials] kommando för att hämta den *kubeconfig* definition för AKS-klustret. I följande exempel hämtas den *--admin* autentiseringsuppgifter, vilket fungerar korrekt om användaren har beviljats den *kluster administratörsroll*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Du kan sedan använda den [kubectl config visa] [ kubectl-config-view] kommando för att kontrollera att den *kontext* för klustret visar att administratören konfigurationsinformationen har tillämpats:
+Du kan sedan använda den [kubectl config visa][kubectl-config-view] kommando för att kontrollera att den *kontext* för klustret visar att administratören konfigurationsinformationen har tillämpats:
 
 ```
 $ kubectl config view
@@ -125,7 +125,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>Ta bort behörigheter
 
-Ta bort rolltilldelningar med den [az-rolltilldelning ta bort] [ az-role-assignment-delete] kommando. Ange konto-ID och resurs-ID för kluster som hämtades i föregående kommandon. Om du har tilldelat rollen till en grupp i stället för en användare kan ange lämplig grupp-objekt-ID i stället för konto-ID för den `--assignee` parameter:
+Ta bort rolltilldelningar med den [az-rolltilldelning ta bort][az-role-assignment-delete] kommando. Ange konto-ID och resurs-ID för kluster som hämtades i föregående kommandon. Om du har tilldelat rollen till en grupp i stället för en användare kan ange lämplig grupp-objekt-ID i stället för konto-ID för den `--assignee` parameter:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER

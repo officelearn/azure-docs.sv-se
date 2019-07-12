@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718909"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786565"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Så här övervakar du klustret med Ambari och Azure Monitor-loggar
 
@@ -123,7 +123,7 @@ Till exempel kör den **ordinarie taxan** exempelfråga genom att klicka på **k
 > [!NOTE] 
 > Ordinarie taxan är mätt under en 24-timmarsperiod så att klustret måste köra minst 24 timmar innan du se priser för korrekt tillgänglighet.
 
-Du kan fästa den här tabellen till en delad instrumentpanel genom att klicka på **PIN-kod** i det övre högra hörnet. Om du inte har någon skrivbar delade instrumentpaneler, kan du se hur du skapar ett här: [Skapa och dela instrumentpaneler i Azure-portalen](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+Du kan fästa den här tabellen till en delad instrumentpanel genom att klicka på **PIN-kod** i det övre högra hörnet. Om du inte har någon skrivbar delade instrumentpaneler, kan du se hur du skapar ett här: [Skapa och dela instrumentpaneler i Azure-portalen](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Azure Monitor-aviseringar
 

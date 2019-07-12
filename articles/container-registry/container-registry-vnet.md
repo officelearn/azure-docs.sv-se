@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514394"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806595"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure container registry med Azure-nätverk eller brandväggsregler
 
@@ -39,6 +39,14 @@ Den här artikeln visar två scenarier för att skapa regler för nätverksåtko
 * Du använder Azure CLI stegen i den här artikeln, Azure CLI version 2.0.58 eller senare krävs. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 * Om du inte redan har ett behållarregister, skapa en (Premium-SKU krävs) och skicka en exempelbild som `hello-world` från Docker Hub. Till exempel använda den [Azure-portalen][quickstart-portal] or the [Azure CLI][quickstart-cli] att skapa ett register. 
+
+* Om du vill begränsa åtkomst till behållarregister med hjälp av ett virtuellt nätverk i Azure-prenumeration kan behöva du registrera resursprovidern för Azure Container Registry i den prenumerationen. Exempel:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Om Nätverksregler för ett behållarregister
 
@@ -99,7 +107,7 @@ Kör följande kommando för att verifiera att Docker körs korrekt på den virt
 sudo docker run -it hello-world
 ```
 
-Utdata:
+Resultat:
 
 ```
 Hello from Docker!
@@ -127,7 +135,7 @@ När du skapar en virtuell dator i Azure som standard skapar ett virtuellt nätv
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-Utdata:
+Resultat:
 
 ```console
 [
@@ -159,7 +167,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-Utdata:
+Resultat:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763365"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620844"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>I realtid Twitter-attitydanalys i Azure Stream Analytics
 
@@ -33,7 +33,7 @@ Ett företag som har en nyhetsmedier webbplats är intresserad av att få en fö
 
 Företaget måste analys i realtid om tweet volym och sentiment för viktiga ämnen för att identifiera populära ämnen i realtid på Twitter. Med andra ord är behovet av en sentiment analysis-Analysmotorn som baseras på den här sociala medier feed.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien använder du ett klientprogram som ansluter till Twitter och söker efter tweets som innehåller vissa hashtaggar (som du kan ställa in). För att köra programmet och analysera tweets med hjälp av Azure Streaming Analytics, måste du ha följande:
 
 * En Azure-prenumeration
@@ -232,9 +232,9 @@ Nu när tweet händelser strömning i realtid från Twitter, kan du ställa in e
 
 ## <a name="specify-the-job-query"></a>Ange frågan som jobb
 
-Stream Analytics stöder en enkel, deklarativ frågemodell som beskriver transformationer. Mer information om språk finns i [Frågespråksreferens för Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Den här kursen hjälper dig att skapa och testa flera frågor över Twitter-data.
+Stream Analytics stöder en enkel, deklarativ frågemodell som beskriver transformationer. Mer information om språk finns i [Frågespråksreferens för Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Den här kursen hjälper dig att skapa och testa flera frågor över Twitter-data.
 
-Om du vill jämföra antalet omnämnanden bland ämnen, som du kan använda en [rullande fönster](https://msdn.microsoft.com/library/azure/dn835055.aspx) att hämta antal omnämnanden i avsnittet var femte sekund.
+Om du vill jämföra antalet omnämnanden bland ämnen, som du kan använda en [rullande fönster](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) att hämta antal omnämnanden i avsnittet var femte sekund.
 
 1. Stäng den **indata** bladet om du inte redan har gjort.
 
@@ -266,7 +266,7 @@ Om du vill jämföra antalet omnämnanden bland ämnen, som du kan använda en [
 
     Om inte använde `TwitterStream` som alias för indata, ersätter du ditt alias för `TwitterStream` i frågan.  
 
-    Den här frågan använder den **TIMESTAMP BY** nyckelord att ange ett tidsstämpelsfält i nyttolasten som ska användas i den temporala beräkningen. Om det här fältet har inte angetts utförs fönsterhantering åtgärden med hjälp av den tid som varje händelse som anlänt på händelsehubben. Mer information finns i avsnittet ”ankomsttid vs programmet tid” i [referens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Den här frågan använder den **TIMESTAMP BY** nyckelord att ange ett tidsstämpelsfält i nyttolasten som ska användas i den temporala beräkningen. Om det här fältet har inte angetts utförs fönsterhantering åtgärden med hjälp av den tid som varje händelse som anlänt på händelsehubben. Mer information finns i avsnittet ”ankomsttid vs programmet tid” i [referens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Den här frågan också har åtkomst till en tidsstämpel för slutet av varje fönster med hjälp av den **System.Timestamp** egenskapen.
 
@@ -282,7 +282,7 @@ I följande tabell visas de fält som ingår i JSON strömmande data. Passa på 
 |JSON-egenskap | Definition|
 |--- | ---|
 |CreatedAt | Den tidpunkt då tweeten skapades|
-|Ämne | Ämnet som matchar det angivna nyckelordet|
+|Avsnitt | Ämnet som matchar det angivna nyckelordet|
 |SentimentScore | Sentimentresultatet från Sentiment140|
 |Författare | Twitter-referens som skickats tweeten|
 |Text | Fullständig brödtexten i tweeten|
@@ -348,7 +348,7 @@ Du kan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Skapa en annan fråga för att identifiera populära ämnen
 
-En annan fråga som du kan använda för att förstå Twitter-åsikter baseras på en [glidande fönstret](https://msdn.microsoft.com/library/azure/dn835051.aspx). För att identifiera populära ämnen leta du efter ämnen överskrider ett tröskelvärde för omnämnanden i en angiven tidsperiod.
+En annan fråga som du kan använda för att förstå Twitter-åsikter baseras på en [glidande fönstret](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). För att identifiera populära ämnen leta du efter ämnen överskrider ett tröskelvärde för omnämnanden i en angiven tidsperiod.
 
 För den här självstudiekursen, kan du söka efter avsnitt som nämns fler än 20 gånger i de senaste 5 sekunderna.
 
@@ -379,5 +379,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

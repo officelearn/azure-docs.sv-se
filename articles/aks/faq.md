@@ -2,18 +2,18 @@
 title: Vanliga frågor för Azure Kubernetes Service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560455"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672768"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -62,30 +62,28 @@ Windows Server-noder (för närvarande i förhandsversion i AKS), Windows Update
 Varje AKS-distributionen omfattar två resursgrupper:
 
 1. Du skapar den första resursgruppen. Den här gruppen innehåller endast Kubernetes-tjänstresursen. AKS-resursprovidern skapar automatiskt den andra resursgruppen under distributionen. Ett exempel på andra resursgruppen är *MC_myResourceGroup_myAKSCluster_eastus*. Information om hur du anger namnet på den här andra resursgruppen finns i nästa avsnitt.
-1. Den andra resursgrupp, till exempel *MC_myResourceGroup_myAKSCluster_eastus*, innehåller alla de infrastrukturresurser som är kopplat till klustret. Dessa resurser inkluderar den Kubernetes noden virtuella datorer, virtuella nätverk och lagring. Syftet med den här resursgruppen är att förenkla rensning av resurser.
+1. Andra resursgruppen, kallas de *noden resursgrupp*, innehåller alla de infrastrukturresurser som är kopplat till klustret. Dessa resurser inkluderar den Kubernetes noden virtuella datorer, virtuella nätverk och lagring. Som standard resursgruppen noden har ett namn som liknar *MC_myResourceGroup_myAKSCluster_eastus*. AKS tar automatiskt bort noden resursen när klustret tas bort, så den bör endast användas för resurser som delar klustrets livscykel.
 
-Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adresser kan du placera dem i resursgruppen skapas automatiskt.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Kan jag ge mitt eget namn för resursgruppen för AKS-nod?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan jag ge mitt eget namn för resursgruppen för AKS infrastruktur?
-
-Ja. AKS-resursprovidern skapar automatiskt en sekundär resursgrupp (till exempel *MC_myResourceGroup_myAKSCluster_eastus*) under distributionen. För att uppfylla företagets policy kan du ange ditt eget namn för den här hanterade kluster (*MC_* ) resursgrupp.
+Ja. Som standard AKS kommer noden ge resursgruppen namnet *MC_clustername_resourcegroupname_location*, men du kan också tillhandahålla ditt eget namn.
 
 Om du vill ange egna resursgruppens namn, installera den [förhandsversionen av aks][aks-preview-cli] versionen av Azure CLI-tillägget *0.3.2* eller senare. När du skapar ett AKS-kluster med hjälp av den [az aks skapa][az-aks-create] kommandot, använda den *--noden resursgrupp* parametern och ange ett namn för resursgruppen. Om du [använder en Azure Resource Manager-mall][aks-rm-template] för att distribuera ett AKS-kluster, kan du definiera resursgruppens namn med hjälp av den *nodeResourceGroup* egenskapen.
 
 * Sekundär resursgruppen skapas automatiskt av Azure-resursprovidern i din egen prenumeration.
 * Du kan ange en anpassad resursgruppens namn endast när du skapar klustret.
 
-När du arbetar med den *MC_* resursgruppen, Tänk på att det går inte att:
+Tänk på att du kan inte när du arbetar med resursgruppen nod:
 
-* Ange en befintlig resursgrupp för den *MC_* grupp.
-* Ange en annan prenumeration för den *MC_* resursgrupp.
-* Ändra den *MC_* resursgruppens namn när klustret har skapats.
-* Ange namn för de hanterade resurserna inom den *MC_* resursgrupp.
-* Ändra eller ta bort taggar hanterade resurser inom den *MC_* resursgrupp. (Se ytterligare information i nästa avsnitt.)
+* Ange en befintlig resursgrupp för resursgruppen för noden.
+* Ange en annan prenumeration på noden för resursgruppen.
+* Ändra noden resursgruppens namn när klustret har skapats.
+* Ange namn för de hantera resurserna i resursgruppen noden.
+* Ändra eller ta bort taggar hanterade resurser i resursgruppen noden. (Se ytterligare information i nästa avsnitt.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan jag ändra taggar och andra egenskaper för AKS-resurser i resursgruppen MC_?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Kan jag ändra taggar och andra egenskaper för AKS-resurser i resursgruppen nod?
 
-Om du ändrar eller tar bort Azure-skapade taggar och andra resursegenskaper i den *MC_* resursgruppen, som du kan få oväntade resultat, till exempel skalning och uppgradera fel. AKS kan du skapa och ändra anpassade taggar. Du kanske vill skapa eller ändra anpassade taggar, till exempel, för att tilldela en business unit eller kostnaden center. Genom att ändra resurser under den *MC_* i AKS-kluster du bryta mål för servicenivå (SLO). Mer information finns i [gör AKS erbjuder ett serviceavtal?](#does-aks-offer-a-service-level-agreement)
+Om du ändrar eller tar bort Azure-skapade taggar och andra egenskaper för resursen i noden resursgruppen, kan du få oväntade resultat, till exempel skalning och uppgradera fel. AKS kan du skapa och ändra anpassade taggar. Du kanske vill skapa eller ändra anpassade taggar, till exempel, för att tilldela en business unit eller kostnaden center. Genom att ändra resurser under den nod resursgruppen i AKS-kluster kan dela du mål för servicenivå (SLO). Mer information finns i [gör AKS erbjuder ett serviceavtal?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Kan åtkomst domänkontrollanter läggs till eller tas bort?
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476113"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797005"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -83,7 +83,7 @@ Följ dessa steg för att hitta rätt IP-adresser till vitlista för dina anslut
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna den IP-adressen som returneras i `Non-authoritative answer`. Den här IP-adressen är statisk. Den enda tidpunkt den skulle ändras är om du återställer namnområde till ett annat kluster.
+2. Anteckna den IP-adressen som returneras i `Non-authoritative answer`. Den enda tidpunkt den skulle ändras är om du återställer namnområde till ett annat kluster.
 
 Om du använder redundansen för ditt namnområde kan behöva du göra några ytterligare steg: 
 

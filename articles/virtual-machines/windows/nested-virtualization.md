@@ -4,19 +4,19 @@ description: Hur du aktiverar kapslad virtualisering i Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510031"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720205"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Hur du aktiverar kapslad virtualisering i en Azure VM
 
@@ -119,6 +119,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## <a name="create-the-guest-virtual-machine"></a>Skapa den virtuella gästdatorn
+
+>[!IMPORTANT] 
+>
+>Azure-gästagenten stöds inte i kapslade virtuella datorer och kan orsaka problem på både värd- och kapslade virtuella datorer. Installera inte Azure-agenten på kapslade virtuella datorer och inte använda en avbildning för att skapa kapslade virtuella datorer som redan har installerat Azure-gästagenten.
 
 1. Öppna Hyper-V Manager och skapa en ny virtuell dator. Konfigurera den virtuella datorn om du vill använda det nya interna nätverket som du skapade.
     

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191608"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594199"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Arbeta med NSG åtkomst och Azure Skyddsmiljö (förhandsversion)
 
@@ -44,9 +44,9 @@ I det här diagrammet:
 
 Om du använder NSG: er till de **AzureBastionSubnet**, Tillåt att följande två tjänsttaggar för Azure kontrollplanet och infrastruktur:
 
-* **GatewayManager (endast Resource Manager)** : Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger GatewayManager för värdet trafik tillåts eller nekas till GatewayManager.
+* **GatewayManager (endast Resource Manager)** : Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger GatewayManager för värdet trafik tillåts eller nekas till GatewayManager.  Om du skapar NSG: er på AzureBastionSubnet, aktivera GatewayManager taggen för inkommande trafik.
 
-* **AzureCloud (endast Resource Manager)** : Den här taggen anger IP-adressutrymmet för Azure, inklusive alla datacenter offentliga IP-adresser. Om du anger AzureCloud för värdet trafik tillåts eller nekas åtkomst till Azure offentliga IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en viss region kan du ange regionen. Om du vill tillåta endast åtkomst till Azure AzureCloud i regionen östra USA kan du exempelvis ange AzureCloud.EastUS som tjänsttagg.
+* **AzureCloud (endast Resource Manager)** : Den här taggen anger IP-adressutrymmet för Azure, inklusive alla datacenter offentliga IP-adresser. Om du anger AzureCloud för värdet trafik tillåts eller nekas åtkomst till Azure offentliga IP-adresser. Om du vill tillåta åtkomst endast till AzureCloud i en viss region kan du ange regionen. Om du vill tillåta endast åtkomst till Azure AzureCloud i regionen östra USA kan du exempelvis ange AzureCloud.EastUS som tjänsttagg. Om du skapar NSG: er på AzureBastionSubnet, aktivera AzureCloud taggen för utgående trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 

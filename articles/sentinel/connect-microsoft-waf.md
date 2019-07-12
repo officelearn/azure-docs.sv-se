@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 99c553145f0a600826e48bec437449f278b74fbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205651"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611354"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Anslut data från Microsoft-Brandvägg för webbaserade program
 
@@ -30,7 +31,7 @@ ms.locfileid: "65205651"
 Du kan strömma loggar från Azure-Programgateway Microsoft waf (WAF). Den här WAF skyddar dina program mot vanliga säkerhetsrisker som SQL-inmatning och cross site scripting och du kan anpassa regler för att minska antalet falska positiva identifieringar. Följ dessa instruktioner för att strömma brandväggen för Microsoft Web programloggar till Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Resurs för en befintlig Programgateway
 

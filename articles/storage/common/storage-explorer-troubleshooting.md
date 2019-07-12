@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118705"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840386"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -59,7 +59,7 @@ Om du inte har en roll som tillståndsbeviljande ett lager, kan inte Storage Exp
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag kan inte hämta hanteringen layer behörigheter måste från min administratör?
 
-Vi har ännu inte en RBAC-relaterade lösning just nu. Som en lösning kan du begära en SAS-URI att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+Vi har ännu inte en RBAC-relaterade lösning just nu. Som en lösning kan du begära en SAS-URI att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: Självsignerat certifikat i certifikatkedjan (och liknande fel)
 
@@ -233,46 +233,76 @@ Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och 
 
 ## <a name="linux-dependencies"></a>Linux-beroenden
 
-I allmänhet krävs följande paket för att köra Storage Explorer på Linux:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Obs: Lagringsutforskaren version 1.7.0 och tidigare kräver .NET Core 2.0. Om du har en nyare version av .NET Core installeras måste att korrigera Storage Explorer (se nedan). Om du kör Lagringsutforskaren 1.8.0 eller större sedan bör du kunna använda upp till 2.2 för .NET Core. Versioner bortom 2.2 har inte verifierats ska fungera just nu.
-* `libgnome-keyring-common` och `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Lagringsutforskaren som angavs i det. tar.gz download stöds endast för distributioner som Ubuntu. Andra distributioner inte har verifierats och kan kräva alternativ eller ytterligare paket.
+
+Dessa paket är de vanligaste krav för Storage Explorer på Linux:
+
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` eller `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-Beroende på din distribution kan det finnas olika eller paket måste du installera.
+> [!NOTE]
+> Lagringsutforskaren version 1.7.0 och tidigare kräver .NET Core 2.0. Om du har en nyare version av .NET Core installerad så behöver du [korrigera Lagringsutforskaren](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Lagringsutforskaren 1.8.0 eller större sedan bör du kunna använda upp till 2.2 för .NET Core. Versioner bortom 2.2 har inte verifierats ska fungera just nu.
 
-Lagringsutforskaren stöds officiellt på Ubuntu 18.04, 16.04 och 14.04. Installationssteg för en ren dator är följande:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Ladda ned Storage Explorer.
+2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Kör följande kommando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Ladda ned Storage Explorer
-2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
-3. Kör `sudo apt-get install libgconf-2-4`
-4. Kör `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. Ladda ned Storage Explorer.
+2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Kör följande kommando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Ladda ned Storage Explorer
-2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
-3. Kör `sudo apt install libgnome-keyring-dev`
+2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Kör följande kommando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Ladda ned Storage Explorer
-2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
-3. Kör `sudo apt install libgnome-keyring-dev`
+2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Kör följande kommando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigeringar Storage Explorer för nyare versioner av .NET Core
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigeringar Storage Explorer för nyare versioner av .NET Core 
-Om du har en version av .NET Core är större än 2.0 installerat och som kör Lagringsutforskaren version 1.7.0 eller äldre, behöver du troligen att korrigera Storage Explorer genom att utföra följande steg:
-1. Hämta versionen 1.5.43 av StreamJsonRpc [från nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Leta efter länken ”Hämta paketet” höger på sidan.
-2. När du laddar ned paketet, byter du dess filnamnstillägg från `.nupkg` till `.zip`
-3. Packa upp paketet
-4. Gå till `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+Så att Lagringsutforskaren 1.7.0 eller äldre, du kan behöva uppdatera versionen av .NET Core som används av Storage Explorer.
+
+1. Hämta versionen 1.5.43 av StreamJsonRpc [från nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Sök efter ”hämtningspaketet” länken till höger på sidan.
+2. När du laddar ned paketet, byter du dess filnamnstillägg från `.nupkg` till `.zip`.
+3. Packa upp paketet.
+4. Öppna mappen `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Kopiera `StreamJsonRpc.dll` på följande platser i mappen Storage Explorer:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Öppna i Explorer från Azure portal fungerar inte
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: bd812ad1194f88b14d88f067583ca6eee4bb0c74
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274204"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798393"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktionen flaggor i en ASP.NET Core-app
 
@@ -29,7 +29,7 @@ Hanteringsbibliotek för .NET Core funktionen utöka framework med omfattande fu
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -41,7 +41,7 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 6. Välj **funktionen Manager** >  **+ skapa** att lägga till följande funktion flaggor:
 
-    | Nyckel | Status |
+    | Nyckel | Tillstånd |
     |---|---|
     | Beta | Av |
 
@@ -84,12 +84,10 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till en konfiguration av store
 
-1. Lägg till referenser till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` och `Microsoft.FeatureManagement` NuGet-paket genom att köra följande kommandon:
+1. Lägg till referens till den `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
 1. Kör följande kommando för att återställa paketen för ditt projekt:
@@ -146,6 +144,16 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. Uppdatera den `Configure` metod för att lägga till ett mellanprogram för att tillåta funktionen flaggvärden som ska uppdateras med ett återkommande intervall när ASP.NET Core-webbapp fortsätter att ta emot begäranden.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 
@@ -257,7 +265,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 1. Välj **funktionen Manager**, och ändrar status för den **Beta** avgörande för att **på**:
 
-    | Nyckel | Status |
+    | Nyckel | Tillstånd |
     |---|---|
     | Beta | På |
 

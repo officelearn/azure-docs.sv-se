@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar LVM på Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
 ms.subservice: disks
-ms.openlocfilehash: 08f98775360b8c0a82f68f322053cb71f0e79af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0feac4844f5d65119e74713c21f58fb29e3a7956
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60739088"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671680"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en Linux-dator i Azure
 Det här dokumentet innehåller information om hur du konfigurerar logiska Volume Manager (LVM) i din Azure-dator. LVM kan användas för OS-disk eller datadiskar i virtuella Azure-datorer, men som standard de flesta molnbilder har inte LVM som konfigurerats på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data-diskar.

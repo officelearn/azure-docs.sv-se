@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7fe5a4f5a5d1d254918f1b4f997acfb9cf67a75b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5ea7ec41ccc721e8eafda56aa7463505ba089845
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272451"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827816"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core-program
 
@@ -35,7 +35,7 @@ Den [Application Insights SDK för ASP.NET Core](https://nuget.org/packages/Micr
 * **Värdplattform**: Funktionen Web Apps i Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS) och så vidare.
 * **IDE**: Visual Studio, VS Code eller kommandoraden.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En fungerande ASP.NET Core-program. Om du vill skapa ett ASP.NET Core-program kan du följa den här [ASP.NET Core-självstudien](https://docs.microsoft.com/aspnet/core/getting-started/).
 - En giltig Application Insights-instrumenteringsnyckeln. Den här nyckeln krävs för att skicka någon telemetri till Application Insights. Om du vill skapa en ny Application Insights-resurs för att få en instrumentation nyckel finns i [skapar en Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -177,7 +177,7 @@ Om ditt projekt inte innehåller `_Layout.cshtml`, du kan fortfarande lägga til
 Du kan anpassa Application Insights SDK för ASP.NET Core att ändra standardkonfigurationen. Användare av Application Insights ASP.NET SDK kanske är bekant med att ändra konfigurationen med hjälp av `ApplicationInsights.config` eller genom att ändra `TelemetryConfiguration.Active`. Du kan ändra konfigurationen på olika sätt för ASP.NET Core. Lägg till ASP.NET Core SDK i programmet och konfigurera den med hjälp av ASP.NET Core inbyggda [beroendeinmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Göra nästan alla ändringar i den `ConfigureServices()` -metoden för din `Startup.cs` class, såvida inte du annars är skickas. I följande avsnitt ger mer information.
 
 > [!NOTE]
-> I ASP.NET Core-program, ändra konfiguration genom att ändra `TelemetryConfiguration.Active` rekommenderas inte.
+> I ASP.NET Core-program, ändra konfiguration genom att ändra `TelemetryConfiguration.Active` stöds inte.
 
 ### <a name="using-applicationinsightsserviceoptions"></a>Using ApplicationInsightsServiceOptions
 
@@ -314,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### <a name="disable-telemetry-dynamically"></a>Inaktivera telemetri dynamiskt
+
+Om du vill inaktivera telemetri villkorligt och dynamiskt, kan du lösa `TelemetryConfiguration` instans med ASP.NET Core beroende inmatning behållaren var som helst i din kod och ange `DisableTelemetry` flaggan på den.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Hur kan jag för att spåra telemetri som samlas inte automatiskt?
@@ -408,3 +425,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Konfigurera en ögonblicksbild samling](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) att se status för källkoden och variabler för tillfället ett undantagsfel.
 * [Använda API: et](../../azure-monitor/app/api-custom-events-metrics.md) att skicka dina egna händelser och mått för en detaljerad vy av appens prestanda och användning.
 * Använd [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) att kontrollera appens hela tiden från hela världen.
+* [Beroendeinmatning i ASP.NET Core](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)

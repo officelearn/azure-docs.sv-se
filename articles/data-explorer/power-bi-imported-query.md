@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399323"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806411"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualisera data med hjälp av en fråga som importerats till Power BI
 
@@ -22,7 +22,7 @@ Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här artikeln:
 
@@ -82,4 +82,4 @@ Om du inte längre behöver den rapport som du skapade i den här artikeln kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Visualisera data med hjälp av en fråga för importerade i Power BI](power-bi-sql-query.md)
+[Visualisera data med Azure Data Explorer-kopplingen för Power BI](power-bi-connector.md)

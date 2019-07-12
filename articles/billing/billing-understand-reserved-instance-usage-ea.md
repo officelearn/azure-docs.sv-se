@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490388"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798163"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta Enterprise-avtal reservation kostnader och användning
 
@@ -119,9 +119,9 @@ Hämta data för Amorterad kostnad och filter för en reservation ordning med hj
 Du kan återbetalning reservation användning till andra organisationer efter prenumeration, resursgrupp eller taggar. Amorterad kostnadsdata innehåller värdet av en reservation användning på följande datatyper:
 
 - Resurser (t.ex en virtuell dator)
-- Resursgrupp
+- Resource group
 - Tags
-- Prenumeration
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Hämta blandat frekvensen för återbetalning
 
@@ -139,13 +139,13 @@ Hämta data för Amortized kostnader och filtrera data för en reserverad instan
 2. Få reservation-kostnader. Summan i _kostnaden_ värden för att hämta värdet av vad du har betalat för den reserverade instansen. Den innehåller de använda och oanvända kostnaderna för reservationen.
 3. Subtrahera reservation kostnader från beräknade användningsbaserad kostnader att få uppskattade besparingar.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Köp av reservation och amorteringar i Azure kostnadsanalys
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Köp av reservation och amorteringar i kostnadsanalys
 
-Kostnad för reserverad instans är tillgänglig i [förhandsgranskningsläge för Azure cost analysis](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Som standard är datavyn kostnaden för faktisk kostnad. Du kan växla till amorterad kostnad. Här är ett exempel.
+Reservation kostnader är tillgängliga i [analys av kostnader](https://aka.ms/costanalysis). Som standard cost analysis visar **verklig kostnad**, vilket är hur kostnader kommer att visas på fakturan. Om du vill visa reservation inköp uppdelade och som är associerade med de resurser som används av förmånen, växla till **Amorterad kostnad**:
 
 ![Exempel som visar var du väljer amorterad kostnad i kostnadsanalys](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Använda filter för att se dina kostnader för reserverade eller laddning specificeras. Gruppera efter namn på reservation att se kostnaderna uppdelade efter reservationer.
+Gruppera efter tilläggstyp att se en radbrytning ned användning, köp och bidraget. eller genom att reservation för en detaljerad analys av kostnader för reserverade och på begäran. Kom ihåg att endast reservation kostnaderna som visas när du tittar på verklig kostnad är inköp, men kostnader ska allokeras till de enskilda resurser som används för en beviljad i amorterad kostnad. Du kan även se en ny **UnusedReservation** debitera typ när du tittar på amorterad kostnad.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 1bfc0be81d42e922c47755543fb65aa413ec73a9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6fbd20c201e1b141b7276e3283599b00cdefd118
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478763"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795306"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Att lägga till anpassade åtgärder i Azure REST-API
 
@@ -132,7 +132,7 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 action | *Ja* | Namnet på åtgärden som definieras i den **ResourceProvider**.
 ID: n | *Ja* | Resurs-ID för den **ResourceProvider**.
@@ -186,7 +186,7 @@ Exemplet Azure Resource Manager-mall:
 }
 ```
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 resourceIdentifier | *Ja* | Resurs-ID för den **ResourceProvider**.
 apiVersion | *Ja* | API-versionen av resursen runtime. Du bör alltid ”2018-09-01-preview”.
@@ -195,5 +195,6 @@ functionValues | *no* | Begärandetexten som ska skickas till den **endpoint**.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure anpassade Resursprovidrar](./custom-providers-overview.md)
-- [Självstudie: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Snabbstart: Skapa anpassade Azure-Resursprovidern och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudier: Skapa anpassade åtgärder och resurser i Azure](./tutorial-custom-providers-101.md)
 - [Anvisningar: Att lägga till anpassade resurser i Azure REST-API](./custom-providers-resources-endpoint-how-to.md)

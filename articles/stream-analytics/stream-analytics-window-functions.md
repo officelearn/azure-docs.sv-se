@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 530ff8d09d6c580a31ae26929fafcec5bb5b471b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066752"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621592"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics-fönsterfunktioner
 
 Tid för direktuppspelning scenarier är utföra åtgärder på data i den temporala windows ett vanligt mönster. Stream Analytics har inbyggt stöd för fönsterfunktioner, så att utvecklare kan skapa komplexa strömbearbetning jobb med minimal ansträngning.
 
-Det finns fyra typer av temporala windows att välja mellan: [**Rullande**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **hoppar**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **glidande**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), och [ **Session**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Du använder fönstret funktionerna i den [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) satsen på frågesyntax i Stream Analytics-jobb. Du kan även aggregera händelser över flera windows med hjälp av den [ **Windows()** funktionen](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Det finns fyra typer av temporala windows att välja mellan: [**Rullande**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [ **hoppar**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [ **glidande**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), och [ **Session**  ](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) windows.  Du använder fönstret funktionerna i den [ **GROUP BY** ](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) satsen på frågesyntax i Stream Analytics-jobb. Du kan även aggregera händelser över flera windows med hjälp av den [ **Windows()** funktionen](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Alla de [fönsterhantering](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) operations utdataresultat på den **slutet** i fönstret. Utdata från fönstret blir enskild händelse baserat på mängdfunktionen används. Utdata-händelsen kommer att ha tidsstämpeln för slutet av fönstret och alla fönsterfunktioner definieras med en fast längd. 
+Alla de [fönsterhantering](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) operations utdataresultat på den **slutet** i fönstret. Utdata från fönstret blir enskild händelse baserat på mängdfunktionen används. Utdata-händelsen kommer att ha tidsstämpeln för slutet av fönstret och alla fönsterfunktioner definieras med en fast längd. 
 
 ![Koncept för Stream Analytics-fönstret-funktioner](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -56,6 +56,6 @@ När en partitionsnyckel anges händelserna grupperas tillsammans med nyckeln oc
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

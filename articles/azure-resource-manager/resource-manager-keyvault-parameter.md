@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de52dbb10d515a2255b5886df5bf0a0faa454f6b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508000"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672761"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -94,7 +94,7 @@ Följande procedur visar hur du skapar en roll med den minsta behörigheten och 
       ]
     }
     ```
-    Ersätt ”00000000-0000-0000-0000-000000000000” med prenumerations-ID för den användare som behöver kunna distribuera mallarna.
+    Ersätt ”00000000-0000-0000-0000-000000000000” med prenumerations-ID.
 
 2. Skapa den nya rollen med hjälp av JSON-filen:
 
@@ -124,7 +124,7 @@ Med den här metoden kan referera du till key vault i parameterfilen, inte i mal
 
 ![Resource Manager key vault-integrering Static ID diagram](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Självstudie: Integrera Azure Key Vault i Resource Manager-mall distribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
+[Självstudier: Integrera Azure Key Vault i Resource Manager-mall distribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
 
 Följande mallen distribuerar en SQLServer som innehåller ett administratörslösenord. Lösenordsparametern har angetts till en säker sträng. Men mallen ange inte där värdet kommer från.
 

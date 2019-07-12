@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540862"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672117"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en kompetens i en pipeline för berikande
 
-Kognitiv sökning extraherar och förbättra data så att den blir sökbar i Azure Search. Vi kallar extrahering och berikande *kognitiva kunskaper*, kombinerade till ett *kompetens* refererade till under indexering. En kompetens kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade funktioner (se [exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md) för mer information).
+Kognitiv sökning extraherar och förbättra data så att den blir sökbar i Azure Search. Vi kallar extrahering och berikande *kognitiva kunskaper*, kombinerade till ett *kompetens* refererade till under indexering. En kompetens kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade funktioner (se [exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md) för mer information).
 
 I den här artikeln får du lära dig hur du skapar en pipeline med funktioner för de färdigheter som du vill använda. En kompetens är ansluten till ett Azure Search [indexeraren](search-indexer-overview.md). En del av pipeline-design, som beskrivs i den här artikeln är att konstruera kompetens själva. 
 

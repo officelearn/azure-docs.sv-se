@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543137"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827446"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka Azure FXT Edge Filer maskinvarustatus
 
@@ -58,7 +58,7 @@ Vänstra front Kontrollpanelen har olika LED indikatorer (1) och en indikator f�
 
 Statusindikatorer till vänster visar en solid gult ljus om det finns ett fel i systemet. Tabellen nedan beskrivs möjliga orsaker och lösningar för felen. 
 
-Om du har fortfarande felet när du har försökt dessa lösningar kan du kontakta supporten om du behöver hjälp. 
+Om du fortfarande har felet när du har försökt dessa lösningar [supporten](fxt-support-ticket.md) om du behöver hjälp. 
 
 | Ikon | Beskrivning | Feltillstånd | Möjliga lösningar |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Tryck på systemhälsa och ID-knappen för att växla mellan system-ID och syste
 |-------------------------------------------|-----------------------------------------------|
 | Heltäckande blått | Normal drift: systemet är aktiverad, fungerar normalt, och läget för system-ID är inte aktiv. <br/>Tryck på systemhälsa och ID-knappen om du vill växla till läget för system-ID: T. |
 | Blinkande blå | System-ID-läget är aktivt. Tryck på systemhälsa och system-ID knappen om du vill växla till läget för system hälsotillstånd. |
-| Solid gul | Systemet är i felsäkert läge. Kontakta Microsofts kundservice och Support om problemet kvarstår. |
+| Solid gul | Systemet är i felsäkert läge. Om problemet kvarstår [kontakta Microsofts kundservice och Support](fxt-support-ticket.md). |
 | Blinkande gul | Fel. Kontrollera systemhändelseloggen efter specifika felmeddelanden. Se sidan kod felsökning på qrl.dell.com information om händelse- och felmeddelanden som genereras av systemets inbyggda programvara och agenter som övervakar systemkomponenter. |
 
 

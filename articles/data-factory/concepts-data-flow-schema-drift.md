@@ -3,16 +3,15 @@ title: Azure Data Factory mappning Data Flow schemat Drift
 description: Skapa elastiska Data flödar i Azure Data Factory med schemat Drift
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262167"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722880"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mappningen Data Flow schemat Drift
 
@@ -34,7 +33,7 @@ För att skydda mot schemat Drift, är det viktigt att ha anläggningarna i ett 
 
 * När du har valt det här alternativet kan alla inkommande fält ska läsas från källan på varje dataflöde körning och kommer att skickas via hela flödet till mottagaren.
 
-* Se till att använda ”automatisk mappning” för att mappa alla nya fält i transformeringen mottagare så att alla nya fält hämta plockas upp och landat på ditt mål:
+* Se till att använda ”automatisk mappning” för att mappa alla nya fält i transformeringen mottagare så att alla nya fält hämta plockas upp och landat på ditt mål.
 
 <img src="media/data-flow/automap.png" width="400">
 

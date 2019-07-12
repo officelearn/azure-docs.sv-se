@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144443"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653288"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln visar vi säkerhetsaktiviteter och kontroller att tänka på när du utformar program för molnet. Utbildningsresurser tillsammans med säkerhetsfrågor och begrepp att överväga under kraven och utforma faser i Microsofts [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma en säkrare program.
@@ -39,7 +39,7 @@ Använd följande resurser under valet utbildning för att bekanta dig med Azure
 
   - [SDK: er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools) beskrivs de verktyg som är tillgängliga på Azure.
 
-  - [Azure DevOps-tjänster](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) ger utveckling samarbetsverktyg. Verktygen innehåller högpresterande pipelines, kostnadsfri Git-lagringsplatser, konfigurerbara Kanban-kort och omfattande automatiserad och molnbaserad belastningstestning.
+  - [Azure DevOps-tjänster](https://docs.microsoft.com/azure/devops/) ger utveckling samarbetsverktyg. Verktygen innehåller högpresterande pipelines, kostnadsfri Git-lagringsplatser, konfigurerbara Kanban-kort och omfattande automatiserad och molnbaserad belastningstestning.
     Den [DevOps Resurscenter](https://docs.microsoft.com/azure/devops/learn/) kombinerar våra inlärningsresurser för DevOps metoder, Git versionskontroll, agila metoder, hur vi arbetar med DevOps vid Microsoft och hur du kan utvärdera dina egna DevOps-förlopp.
 
   - [Viktigaste 5 security saker att tänka på innan du skickar till produktion](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) visar hur du kan skydda dina webbprogram på Azure och dina appar mot de vanligaste och farliga web application attacker.
@@ -152,12 +152,12 @@ Modellering programmets design och räkna upp [STRIDE](https://docs.google.com/v
 
 | Hot | Egenskapen för säkerhet | Minskning av potentiella Azure-plattformen |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Förfalskning               | Autentisering        | [Kräver HTTPS klientanslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Förfalskning               | Authentication        | [Kräver HTTPS klientanslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt Kontrollera X.509-certifikat för de entiteter som de ansluter till. Använda Azure Key Vault-certifikat till [hantera din x509 certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Repudiation            | Non-repudiation       | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Avslöjande av information | Sekretess       | Kryptera känsliga data [vilande](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) och [under överföring](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service-attack      | Tillgänglighet          | Övervaka prestandamått potentiella DOS av tjänsten villkor. Implementera anslutningsfilter. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), i kombination med metodtips för design av program, ger skydd mot DDoS-attacker.|
-| Upphöjning av rättigheter | Auktorisering         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
 ### <a name="reduce-your-attack-surface"></a>Minska din attackyta
 

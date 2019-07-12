@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08aebf698a7a00729a0e37b57cb15938853e4185
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 8c1251056ad816af664f95abcd18d50ceca4619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501633"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835266"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 
@@ -76,12 +76,12 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
 
 2. I den **namn** skriver **ClientAuthMiddleware.cs**.
 
-   ![Skapa ny C#-klass](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![Skapa en ny C# klass i dialogrutan Lägg till nytt objekt i Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
 3. Öppna den *App_Start\ClientAuthMiddleware.cs* filen och ersätta filen innehåll med följande kod:
 
     ```csharp
-    
+
     using Microsoft.Owin;
     using System;
     using System.Collections.Generic;
@@ -91,7 +91,7 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
     using System.Text;
     using System.Threading.Tasks;
     using System.Web;
-    
+
     namespace Contoso.AADB2C.API
     {
         /// <summary>
@@ -101,12 +101,12 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
         {
             private static readonly string ClientID = ConfigurationManager.AppSettings["WebApp:ClientId"];
             private static readonly string ClientSecret = ConfigurationManager.AppSettings["WebApp:ClientSecret"];
-    
+
             /// <summary>
             /// Gets or sets the next owin middleware
             /// </summary>
             private Func<IDictionary<string, object>, Task> Next { get; set; }
-    
+
             /// <summary>
             /// Initializes a new instance of the <see cref="ClientAuthMiddleware"/> class.
             /// </summary>
@@ -115,7 +115,7 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
             {
                 this.Next = next;
             }
-    
+
             /// <summary>
             /// Invoke client authentication middleware during each request.
             /// </summary>
@@ -125,7 +125,7 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
             {
                 // Get wrapper class for the environment
                 var context = new OwinContext(environment);
-    
+
                 // Check whether the authorization header is available. This contains the credentials.
                 var authzValue = context.Request.Headers.Get("Authorization");
                 if (string.IsNullOrEmpty(authzValue) || !authzValue.StartsWith("Basic ", StringComparison.OrdinalIgnoreCase))
@@ -133,21 +133,21 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
                     // Process next middleware
                     return Next(environment);
                 }
-    
+
                 // Get credentials
                 var creds = authzValue.Substring("Basic ".Length).Trim();
                 string clientId;
                 string clientSecret;
-    
+
                 if (RetrieveCreds(creds, out clientId, out clientSecret))
                 {
                     // Set transaction authenticated as client
                     context.Request.User = new GenericPrincipal(new GenericIdentity(clientId, "client"), new string[] { "client" });
                 }
-    
+
                 return Next(environment);
             }
-    
+
             /// <summary>
             /// Retrieve credentials from header
             /// </summary>
@@ -159,7 +159,7 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
             {
                 string pair;
                 clientId = clientSecret = string.Empty;
-    
+
                 try
                 {
                     pair = Encoding.UTF8.GetString(Convert.FromBase64String(credentials));
@@ -172,16 +172,16 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
                 {
                     return false;
                 }
-    
+
                 var ix = pair.IndexOf(':');
                 if (ix == -1)
                 {
                     return false;
                 }
-    
+
                 clientId = pair.Substring(0, ix);
                 clientSecret = pair.Substring(ix + 1);
-    
+
                 // Return whether credentials are valid
                 return (string.Compare(clientId, ClientAuthMiddleware.ClientID) == 0 &&
                     string.Compare(clientSecret, ClientAuthMiddleware.ClientSecret) == 0);
@@ -195,14 +195,14 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
 Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
 1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt**, och söker sedan efter **OWIN**.
 
-   ![Lägga till en OWIN-startklass](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
+   ![Skapa OWIN-startklass i dialogrutan Lägg till nytt objekt i Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
 2. Öppna den *Startup.cs* filen och ersätta filen innehåll med följande kod:
 
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    
+
     [assembly: OwinStartup(typeof(Contoso.AADB2C.API.Startup))]
     namespace Contoso.AADB2C.API
     {
@@ -241,7 +241,7 @@ När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemligh
 
 4. För **alternativ**väljer **manuell**.
 
-5. För **namn**, typ **B2cRestClientId**.  
+5. För **namn**, typ **B2cRestClientId**.
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 
 6. I den **hemlighet** anger app-ID som du angav tidigare.
@@ -262,7 +262,7 @@ När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemligh
 
 4. För **alternativ**väljer **manuell**.
 
-5. För **namn**, typ **B2cRestClientSecret**.  
+5. För **namn**, typ **B2cRestClientSecret**.
     Prefixet *B2C_1A_* kan läggas till automatiskt.
 
 6. I den **hemlighet** anger du den apphemlighet som du angav tidigare.
@@ -297,8 +297,8 @@ När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemligh
     ```
 
     När du har lagt till kodfragmentet dina tekniska profilen bör se ut som följande XML-kod:
-    
-    ![Lägga till XML-element som grundläggande autentisering](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+
+    ![Lägg till grundläggande autentisering XML-element i TechnicalProfile](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Steg 5: Ladda upp principen till din klient
 
@@ -323,12 +323,12 @@ När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemligh
 
 2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.
 
-3. Testa processen genom att skriva **Test** i den **Förnamn** box.  
+3. Testa processen genom att skriva **Test** i den **Förnamn** box.
     Azure AD B2C visar ett felmeddelande visas överst i fönstret.
 
-    ![Testa din identitet API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Testa angivna valideringen i din identitet API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. I den **Förnamn** skriver ett namn (andra än ”Test”).  
+4. I den **Förnamn** skriver ett namn (andra än ”Test”).
     Azure AD B2C registrerar sig användaren och skickar sedan ett lojalitet tal till ditt program. Observera antalet i det här exemplet:
 
     ```

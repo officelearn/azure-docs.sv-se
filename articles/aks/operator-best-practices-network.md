@@ -2,17 +2,17 @@
 title: Operatorn bästa praxis - nätverksanslutning i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen för resurser för virtuella nätverk och anslutning i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65192240"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614755"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -32,8 +32,8 @@ Den här bästa praxis-artikeln fokuserar på nätverksanslutning och säkerhet 
 
 Virtuella nätverk tillhandahåller grundläggande anslutning för AKS-noder och kunder att få åtkomst till dina program. Det finns två olika sätt att distribuera AKS-kluster i virtuella nätverk:
 
-* **Kubenet nätverk** -resurser för virtuella nätverk hanteras av Azure när klustret har distribuerats och använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet.
-* **Azure CNI nätverk** – distribuerar till ett befintligt virtuellt nätverk och använder den [Azure behållare nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes-plugin-programmet. Poddar får enskilda IP-adresser som kan dirigera till andra nätverkstjänster eller lokala resurser.
+* **Kubenet nätverk** -resurser för virtuella nätverk hanteras av Azure när klustret har distribuerats och använder den [kubenet][kubenet] Kubernetes-plugin-programmet.
+* **Azure CNI nätverk** – distribuerar till ett befintligt virtuellt nätverk och använder den [Azure behållare nätverk gränssnitt (CNI)][cni-networking] Kubernetes-plugin-programmet. Poddar får enskilda IP-adresser som kan dirigera till andra nätverkstjänster eller lokala resurser.
 
 Behållare nätverk gränssnitt (CNI) är en oberoende protokoll som gör att container runtimes göra begäranden till en nätverksleverantör av. Azure-CNI tilldelar IP-adresser till poddar och noder och tillhandahåller IP-adress adresshantering (IPAM) funktioner när du ansluter till befintliga Azure-nätverk. Varje nod och pod resurs tar emot en IP-adress i Azure-nätverk och ingen ytterligare routning krävs för att kommunicera med andra resurser och tjänster.
 
@@ -99,7 +99,7 @@ spec:
          servicePort: 80
 ```
 
-Ingress-kontrollant är en daemon som körs på ett AKS-noder och söker efter inkommande begäranden. Trafiken distribueras sedan baserat på de regler som definierats i ingress-resursen. Den vanligaste ingress-kontrollanten baseras på [NGINX]. AKS inte begränsa du till en specifik domänkontrollant, så du kan använda andra domänkontrollanter som [profil][contour], [HAProxy][haproxy], eller [ Traefik][traefik].
+Ingress-kontrollant är en daemon som körs på ett AKS-noder och söker efter inkommande begäranden. Trafiken distribueras sedan baserat på de regler som definierats i ingress-resursen. Den vanligaste ingress-kontrollanten baseras på [NGINX]. AKS inte begränsa du till en specifik domänkontrollant, så du kan använda andra domänkontrollanter som [profil][contour], [HAProxy][haproxy], eller [Traefik][traefik].
 
 Ingress-styrenheter måste schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i förhandsversion i AKS) bör inte köra ingress-kontrollant. Använd en nod väljare i YAML-manifest eller Helm-diagram-distribution för att ange att resursen ska köras på en Linux-baserade nod. Mer information finns i [använda väljare för noden att kontroll där poddar schemaläggs i AKS][concepts-node-selectors].
 
@@ -108,17 +108,17 @@ Det finns många scenarier för ingress, inklusive följande guider:
 * [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
 * [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
 * [Skapa en ingress-kontrollant som använder en egen TLS-certifikat][aks-ingress-own-tls]
-* Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat [med en dynamisk offentlig IP-adress] [ aks-ingress-tls] eller [med en statisk offentlig IP-adress][aks-ingress-static-tls]
+* Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat [med en dynamisk offentlig IP-adress][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Skydda trafik med en brandvägg för webbaserade program (WAF)
 
-**Bästa praxis riktlinjer** – om du vill skanna inkommande trafik för eventuella attacker, använda en brandvägg för webbaserade program (WAF) som [Barracuda WAF for Azure] [ barracuda-waf] eller Azure Application Gateway. De här mer avancerade nätverksresurser kan också dirigera trafik utöver bara HTTP och HTTPS-anslutningar eller grundläggande SSL-avslutning.
+**Bästa praxis riktlinjer** – om du vill skanna inkommande trafik för eventuella attacker, använda en brandvägg för webbaserade program (WAF) som [Barracuda WAF for Azure][barracuda-waf] eller Azure Application Gateway. De här mer avancerade nätverksresurser kan också dirigera trafik utöver bara HTTP och HTTPS-anslutningar eller grundläggande SSL-avslutning.
 
 En ingress-kontrollant som distribuerar trafiken till tjänster och program är vanligtvis en Kubernetes-resurs i AKS-klustret. Styrenheten körs som en daemon på ett AKS-noder och förbrukar några av nodens resurser, till exempel processor, minne och bandbredd i nätverket. I miljöer med större du ofta omfördela några av den här routning av nätverkstrafik eller TLS-avslutning till en nätverksresurs utanför AKS-klustret. Du bör också söker igenom inkommande trafik för eventuella attacker.
 
 ![En brandvägg för webbaserade program (WAF), till exempel Azure App Gateway kan skydda och distribuera trafik för AKS-kluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-En brandvägg för webbaserade program (WAF) ger ett extra säkerhetslager genom att filtrera inkommande trafik. Den öppna OWASP Web Application Security Project () innehåller en uppsättning regler för att se upp för attacker som skriptkörning över flera webbplatser eller cookie förgiftning. [Azure Application Gateway] [ app-gateway] (för närvarande i förhandsversion i AKS) är en WAF som kan integreras med AKS-kluster tillhandahåller dessa säkerhetsfunktioner innan trafiken når dina AKS-kluster och program. Andra lösningar från tredje part kan du också utföra dessa funktioner, så att du kan fortsätta att använda befintliga investeringar eller expertis i en viss produkt.
+En brandvägg för webbaserade program (WAF) ger ett extra säkerhetslager genom att filtrera inkommande trafik. Den öppna OWASP Web Application Security Project () innehåller en uppsättning regler för att se upp för attacker som skriptkörning över flera webbplatser eller cookie förgiftning. [Azure Application Gateway][app-gateway] (för närvarande i förhandsversion i AKS) är en WAF som kan integreras med AKS-kluster tillhandahåller dessa säkerhetsfunktioner innan trafiken når dina AKS-kluster och program. Andra lösningar från tredje part kan du också utföra dessa funktioner, så att du kan fortsätta att använda befintliga investeringar eller expertis i en viss produkt.
 
 Load balancer eller ingående resurser fortsätter att köras i AKS-klustret att ytterligare förfina fördelning av trafik. App Gateway kan hanteras centralt som en ingress-kontrollant med en resursdefinition. Du kommer igång [skapa en Application Gateway Ingress-kontrollant][app-gateway-ingress].
 
@@ -158,7 +158,7 @@ De flesta åtgärder i AKS kan utföras med hjälp av Azure-hanteringsverktyg el
 
 ![Ansluta till AKS-noder med en skyddsmiljö-värd eller hoppa box](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-Hanteringsnätverket för skyddsmiljö-värd bör skyddas, för. Använd en [Azure ExpressRoute] [ expressroute] eller [VPN-gateway] [ vpn-gateway] kan ansluta till ett lokalt nätverk och styra åtkomst med hjälp av nätverkssäkerhet grupper.
+Hanteringsnätverket för skyddsmiljö-värd bör skyddas, för. Använd en [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] kan ansluta till ett lokalt nätverk och styra åtkomst med hjälp av nätverkssäkerhetsgrupper.
 
 ## <a name="next-steps"></a>Nästa steg
 

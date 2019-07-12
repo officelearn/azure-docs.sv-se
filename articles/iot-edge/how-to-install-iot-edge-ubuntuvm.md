@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595136"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796160"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu-datorer
 
@@ -45,11 +45,7 @@ Vid den första starten förinstalleras Azure IoT Edge på Ubuntu VM den senaste
 Sök efter ”Azure IoT Edge” från Azure-portalen och välj **Ubuntu Server 16.04 LTS + Azure IoT Edge-körningen** att börja skapa arbetsflöde för virtuell dator. Därifrån kan du slutföra steg 3 och 4 i ”Distribuera från the Azure Marketplace” anvisningarna ovan.
 
 ## <a name="deploy-from-azure-cli"></a>Distribuera från Azure CLI
-1. Om det här är första gången du distribuerar en virtuell dator från CLI behöver du aktivera programdistribution för din Azure-prenumeration:
-   1. Öppna den [Azure IoT Edge på Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace-erbjudande
-   1. Välj **hämta IT nu** och **Fortsätt** i efterföljande dialogrutan
-   1. Välj **vill distribuera via programmering? Kom igång** längst ned i dialogrutan i portalen
-   1. Klicka på den **aktivera** knappen i den **konfigurera programdistribution** sidan och klicka sedan på **spara**
+
 1. Om du använder Azure CLI på skrivbordet, starta genom att logga in:
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ Sök efter ”Azure IoT Edge” från Azure-portalen och välj **Ubuntu Server 1
       az account list --output table
       ```
     
-   1. Kopiera prenumerations-ID-fält för den prenumeration som du vill använda
-   1. Kör det här kommandot med det ID som du nyss kopierade:
+   1. Kopiera prenumerations-ID-fält för den prenumeration som du vill använda.
+
+   1. Ställ in prenumerationen arbeta med det ID som du nyss kopierade:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ Sök efter ”Azure IoT Edge” från Azure-portalen och välj **Ubuntu Server 1
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. Godkänn användningsvillkoren för den virtuella datorn. Om du vill granska villkoren först, följer du stegen i [distribuera från Azure Marketplace](#deploy-from-the-azure-marketplace).
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. Skapa en ny virtuell dator:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. Ange anslutningssträngen för enheten (du kan följa den [registrera en ny Azure IoT Edge-enhet med Azure CLI](how-to-register-device-cli.md) här guiden om du inte är bekant med den här processen):

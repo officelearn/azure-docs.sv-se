@@ -4,7 +4,7 @@ description: Arkitektur för hög tillgänglighet och scenarier för SAP NetWeav
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936286"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709078"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur för hög tillgänglighet och scenarier för SAP NetWeaver
 
@@ -254,7 +254,7 @@ Hög tillgänglighet för SAP i Azure kan delas in i tre typer:
     * Redundanta SAP-programservrar.
     * Unika komponenter. Ett exempel kan vara en enda åtkomstpunkt för fel (SPOF)-komponenten, till exempel en SAP ASCS/SCS-instans eller en databashanteringssystem (DBMS).
 
-Hög tillgänglighet för SAP i Azure skiljer sig från SAP hög tillgänglighet i en lokal fysisk eller virtuell miljö. Följande dokumentet [SAP NetWeaver hög tillgänglighet och affärskontinuitet i virtuella miljöer med VMware och Hyper-V på Microsoft Windows] [ sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beskriver standard SAP hög tillgänglighet konfigurationer i virtualiserade miljöer på Windows.
+Hög tillgänglighet för SAP i Azure skiljer sig från SAP hög tillgänglighet i en lokal fysisk eller virtuell miljö. Följande dokumentet [SAP NetWeaver hög tillgänglighet och affärskontinuitet i virtuella miljöer med VMware och Hyper-V på Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beskriver vanliga konfigurationer för SAP-hög tillgänglighet i virtualiserade miljöer i Windows.
 
 Det finns inga sapinst-integrerade SAP konfiguration med hög tillgänglighet för Linux eftersom det inte finns för Windows. Information om SAP hög tillgänglighet lokalt för Linux finns i [partnerinformationen för hög tillgänglighet][sap-ha-partner-information].
 
@@ -359,7 +359,7 @@ Du måste placera alla virtuella datorer som värd SAP-programserverinstanser i 
 * Alla virtuella datorer ingår i samma uppdateringsdomän.  
     En uppdateringsdomän säkerställer att de virtuella datorerna inte är uppdaterade på samma gång under planerat underhåll avbrott.
 
-    Grundläggande funktioner, som bygger på annan uppdatering och feldomäner i en Azure skalningsenhet introducerades redan i den [uppdateringsdomäner] [ planning-guide-3.2.2] avsnittet.
+    Grundläggande funktioner, som bygger på annan uppdatering och feldomäner i en Azure skalningsenhet introducerades redan i den [uppdateringsdomäner][planning-guide-3.2.2] avsnittet.
 
 * Alla virtuella datorer ingår i samma feldomän.  
     En feldomän säkerställer att virtuella datorer distribueras så att ingen enskild felpunkt som påverkar tillgängligheten för alla virtuella datorer.
@@ -373,7 +373,7 @@ Om du distribuerar några SAP programserverinstanser i sina dedikerade virtuella
 
 Mer information finns i [hantera tillgängligheten för Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
-Mer information finns i den [Azures tillgänglighetsuppsättningar] [ planning-guide-3.2.3] delen av virtuella Azure-datorer planering och implementering av SAP NetWeaver-dokumentet.
+Mer information finns i den [Azures tillgänglighetsuppsättningar][planning-guide-3.2.3] delen av virtuella Azure-datorer planering och implementering av SAP NetWeaver-dokumentet.
 
 **Ohanterade diskar:** Eftersom Azure storage-kontot är en potentiell felpunkt, är det viktigt att du har minst två Azure storage-konton, där minst två virtuella datorer distribueras. I en perfekt installationsprogrammet, skulle diskar på varje virtuell dator som kör en instans för SAP-dialogrutan distribueras i ett annat lagringskonto.
 
@@ -396,7 +396,7 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instans. Lösninge
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Läs mer om clustering SAP ASCS/SCS-instans med hjälp av SLES kluster framework [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program] [ sap-suse-ascs-ha]. För alternativ HA-arkitektur på SLES, som inte kräver mycket tillgängliga NFS finns i [guide för hög tillgänglighet för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program] [ sap-suse-ascs-ha-anf].
+> Läs mer om clustering SAP ASCS/SCS-instans med hjälp av SLES kluster framework [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
 Läs mer om clustering SAP ASCS/SCS-instans med hjälp av Red Hat-kluster framework [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 

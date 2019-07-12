@@ -4,7 +4,7 @@ description: Distribuera ett program till Cloud Foundry på Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388513"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668352"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuera din första app till Cloud Foundry på Microsoft Azure
 
@@ -31,16 +31,16 @@ ms.locfileid: "60388513"
 
 Det finns flera alternativ för att skapa en miljö med Cloud Foundry på Azure:
 
-- Använd den [Pivotal Cloud Foundry erbjudandet] [ pcf-azuremarketplace] på Azure Marketplace för att skapa en standardmiljö med PCF Ops Manager och Azure Service Broker. Du kan hitta [fullständiga] [ pcf-azuremarketplace-pivotaldocs] för att distribuera marketplace erbjuder i Pivotal-dokumentationen.
-- Skapa en anpassad miljö av [manuellt distribuera Pivotal Cloud Foundry][pcf-custom].
-- [Distribuera Cloud Foundry-paket för öppen källkod direkt] [ oss-cf-bosh] genom att ställa in en [BOSH](https://bosh.io) director, en virtuell dator som samordnar distributionen av Cloud Foundry-miljö.
+- Använd den [Pivotal Cloud Foundry erbjudandet][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] för att distribuera marketplace erbjuder i Pivotal-dokumentationen.
+- Skapa en anpassad miljö av [distribuera Pivotal Cloud Foundry manuellt][pcf-custom].
+- [Distribuera Cloud Foundry-paket för öppen källkod direkt][oss-cf-bosh] genom att ställa in en [BOSH](https://bosh.io) director, en virtuell dator som samordnar distributionen av Cloud Foundry-miljö.
 
 > [!IMPORTANT] 
 > Om du distribuerar PCF från Azure Marketplace, notera SYSTEMDOMAINURL och autentiseringsuppgifter som administratör krävs för att få åtkomst till den Pivotal appar Manager, som beskrivs i Distributionshandboken för marketplace. De behövs för att slutföra den här kursen. För distributioner för marketplace, SYSTEMDOMAINURL är i formatet https://system. *IP-adress*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Ansluta till molnet-styrenhet
 
-Cloud-styrenheten är den primära startpunkten till en Cloud Foundry-miljö för att distribuera och hantera program. Core API för Cloud-Controller (CCAPI) är ett REST-API, men den kan nås via olika verktyg. I det här fallet vi interagerar med det via den [Cloud Foundry CLI][cf-cli]. Du kan installera CLI på Linux, MacOS och Windows, men om du inte vill installera den på alla, det finns förinstallerade i den [Azure Cloud Shell][cloudshell-docs].
+Cloud-styrenheten är den primära startpunkten till en Cloud Foundry-miljö för att distribuera och hantera program. Core API för Cloud-Controller (CCAPI) är ett REST-API, men den kan nås via olika verktyg. I det här fallet vi interagerar med det via den [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 Logga in genom åtkomstgruppen `api` till SYSTEMDOMAINURL som du fick från marketplace-distributionen. Eftersom standard-distributionen använder ett självsignerat certifikat, bör du även inkludera den `skip-ssl-validation` växla.
 
@@ -113,7 +113,7 @@ Om du vill se programmet hello-spring-moln, öppna den tillhandahållna URL: en 
 ![Standardgränssnitt för Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Mer information om vad som händer under `cf push`, se [hur program mellanlagras] [ cf-push-docs] i Cloud Foundry-dokumentationen.
+> Mer information om vad som händer under `cf push`, se [hur program mellanlagras][cf-push-docs] i Cloud Foundry-dokumentationen.
 
 ## <a name="view-application-logs"></a>Visa programloggar
 

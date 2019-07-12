@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443246"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653270"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program i Azure
 I den här artikeln visar vi säkerhetsaktiviteter och kontroller att tänka på när du utvecklar program för molnet. Säkerhetsfrågor och begrepp att överväga under faser för implementering och verifiering av Microsofts [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla en säkrare program.
@@ -88,7 +88,7 @@ Det innebär att färre personer har tillgång till dina verkliga data, vilket m
 
 För att skydda mot brute force- och ordlista-baserade gissa, måste du implementera en princip för starkt lösenord för att säkerställa att användarna skapar ett komplext lösenord (till exempel 12 tecken minimilängd och kräver alfanumeriska tecken och specialtecken).
 
-Du kan använda ett ramverk för identitet för att skapa och genomdriva lösenordsprinciper. Azure AD B2C hjälper dig med lösenordshantering genom att tillhandahålla [inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy), [lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), med mera.
+Du kan använda ett ramverk för identitet för att skapa och genomdriva lösenordsprinciper. Azure AD B2C hjälper dig med lösenordshantering genom att tillhandahålla [inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), med mera.
 
 Kontrollera att alla nycklar och lösenord är utbytbara och att de skapats eller ersättas när du har installerat resurser för att skydda mot attacker på standardkonton.
 

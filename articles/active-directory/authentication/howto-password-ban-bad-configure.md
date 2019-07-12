@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742297"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798192"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Konfigurera listan över anpassade förbjudna lösenord
 
@@ -29,7 +29,7 @@ Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd**.
 1. Ställ in alternativet **tvinga anpassad lista**till **Ja**.
 1. Lägg till strängar som ska den **anpassad förbjuden lösenordslista**, en sträng per rad
-   * Lista med anpassade förbjudna lösenord kan innehålla upp till 1000 orden.
+   * Lista med anpassade förbjudna lösenord kan innehålla upp till 1 000 villkor.
    * Lista med anpassade förbjudna lösenord inte är skiftlägeskänslig.
    * Lista med anpassade förbjudna lösenord tar hänsyn till vanliga tecken ersättningen.
       * Exempel: ”o” och ”0” eller ”a” och ”\@”
@@ -39,6 +39,9 @@ Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active 
 > [!NOTE]
 > Det kan ta flera timmar efter uppdateringar i listan anpassade förbjudna lösenord som ska användas.
 
+> [!NOTE]
+> Lista med anpassade förbjudna lösenord är begränsad till att ha högst 1000 villkor. Det är inte avsedd för blockering av mycket stora listor av lösenord. För att fullständigt utnyttja fördelarna med listan över anpassade förbjudna lösenord, Microsoft rekommenderar att du först granska och förstå avsedda design och användningen av listan över anpassade förbjudna lösenord (se [anpassad förbjuden lösenordslista](concept-password-ban-bad.md#custom-banned-password-list)), och även lösenord utvärdering-algoritm (se [hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Ändra den anpassade lista med förbjudna lösenord under autentiseringsmetoder i Azure portal](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Hur det fungerar
@@ -47,9 +50,10 @@ Varje gång en användare eller administratör återställer eller ändrar en Az
 
 ## <a name="what-do-users-see"></a>Vad ser användarna
 
-När en användare försöker att återställa ett lösenord till något som skulle vara förbjuden, visas följande felmeddelande visas:
+När en användare försöker att återställa ett lösenord till något som skulle vara förbjuden, se något av följande felmeddelanden:
 
-Tyvärr innehåller ditt lösenord ett ord, en fras eller ett mönster som gör det enkelt att gissa ditt lösenord. Försök igen med ett annat lösenord.
+* Tyvärr innehåller ditt lösenord ett ord, en fras eller ett mönster som gör det enkelt att gissa ditt lösenord. Försök igen med ett annat lösenord.
+* Tyvärr kan använda du inte lösenordet eftersom det innehåller ord eller tecken som har blockerats av din administratör. Försök igen med ett annat lösenord.
 
 ## <a name="next-steps"></a>Nästa steg
 

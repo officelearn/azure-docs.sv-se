@@ -1,7 +1,7 @@
 ---
 title: Distribuera felsökningsguide
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du kan undvika, lösa och felsöka vanliga Docker-distributionsfel med AKS och ACI med hjälp av Azure Machine Learning-tjänsten.
+description: Lär dig hur du kan undvika, lösa och felsöka vanliga Docker-distributionsfel med Azure Kubernetes Service och Azure Container Instances via Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075001"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707041"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsökning av Azure Machine Learning-tjänsten Azure Kubernetes Service och Azure Container Instances-distribution
 
 Lär dig hur du kan undvika eller lösa vanliga Docker-distributionsfel med Azure Container Instances (ACI) och Azure Kubernetes Service (AKS) med hjälp av Azure Machine Learning-tjänsten.
 
@@ -315,9 +315,217 @@ Det finns två saker som kan förhindra statuskoder som 503:
 Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas` , finns i den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modulreferens.
 
 
+## <a name="advanced-debugging"></a>Avancerad felsökning
+
+I vissa fall kan behöva du interaktivt felsöka Python-kod som ingår i din distribution av modeller. Exempel: om posten skriptet inte fungerar och går inte att identifiera orsaken med ytterligare loggning. Med hjälp av Visual Studio Code och Python-verktygen för Visual Studio (PTVSD), kan du koppla till den kod som körs i Docker-behållaren.
+
+> [!IMPORTANT]
+> Den här metoden felsökning av fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` att distribuera en modell lokalt. I stället måste du skapa en avbildning med hjälp av den [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klass. 
+>
+> Lokala webbtjänstdistributioner kräver en fungerande installation av Docker på den lokala datorn. Docker måste köras innan du distribuerar en lokal webbtjänst. Information om att installera och använda Docker finns i [ https://www.docker.com/ ](https://www.docker.com/).
+
+### <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
+
+1. Om du vill installera Python-verktygen för Visual Studio (PTVSD) på din lokala VS Code-utvecklingsmiljö, använder du följande kommando:
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    Mer information om hur du använder PTVSD med VS Code finns i [fjärrfelsökning](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Skapa en ny konfiguration för felsökning om du vill konfigurera VS Code att kommunicera med Docker-avbildningen:
+
+    1. VS Code, väljer du den __felsöka__ menyn och välj sedan __öppna konfigurationer__. En fil med namnet __launch.json__ öppnas.
+
+    1. I den __launch.json__ filen, hitta den rad som innehåller `"configurations": [`, och Lägg till följande text efter den:
+
+        ```json
+        {
+            "name": "Azure Machine Learning service: Docker Debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/var/azureml-app"
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Om det finns redan andra transaktioner i avsnittet konfigurationer, lägger du till ett kommatecken (,) efter den kod som du lade.
+
+        Det här avsnittet kopplar till Docker-behållaren använder port 5678.
+
+    1. Spara den __launch.json__ fil.
+
+### <a name="create-an-image-that-includes-ptvsd"></a>Skapa en avbildning som innehåller PTVSD
+
+1. Ändra conda-miljön för din distribution så att den inkluderar PTVSD. Följande exempel visar att lägga till den med hjälp av den `pip_packages` parameter:
+
+    ```python
+    from azureml.core.conda_dependencies import CondaDependencies 
+    
+    # Usually a good idea to choose specific version numbers
+    # so training is made on same packages as scoring
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
+                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
+    
+    with open("myenv.yml","w") as f:
+        f.write(myenv.serialize_to_string())
+    ```
+
+1. Om du vill starta PTVSD och vänta tills en anslutning när tjänsten startas, lägger du till följande överst i din `score.py` fil:
+
+    ```python
+    import ptvsd
+    # Allows other computers to attach to ptvsd on this IP address and port.
+    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
+    ptvsd.wait_for_attach(timeout = 30)
+    print("Debugger attached...")
+    ```
+
+1. Vid felsökning, kanske du vill göra ändringar i filerna i avbildningen utan att behöva återskapa den. Installera en textredigerare (vim) i Docker-avbildningen genom att skapa en ny textfil med namnet `Dockerfile.steps` och Använd följande som innehåll i filen:
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    En textredigerare kan du ändra filer i docker-avbildningen för att testa ändringar utan att skapa en ny avbildning.
+
+1. Att skapa en avbildning som använder den `Dockerfile.steps` fil ska du använda den `docker_file` parameter när du skapar en avbildning. I följande exempel visar hur du gör detta:
+
+    > [!NOTE]
+    > Det här exemplet förutsätter att `ws` pekar till din Azure Machine Learning-arbetsyta och `model` är modellen som ska distribueras. Den `myenv.yml` filen innehåller conda-beroenden som skapades i steg 1.
+
+    ```python
+    from azureml.core.image import Image, ContainerImage
+    image_config = ContainerImage.image_configuration(runtime= "python",
+                                 execution_script="score.py",
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
+
+    image = Image.create(name = "myimage",
+                     models = [model],
+                     image_config = image_config, 
+                     workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
+    ```
+
+När avbildningen har skapats visas Bildplats i registret. Platsen liknar följande text:
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+I det här text-exemplet är registernamnet `myregistry` och avbildningen får namnet `myimage`. Versionsnumret för avbildningen är `1`.
+
+### <a name="download-the-image"></a>Ladda ned avbildningen
+
+1. Öppna Kommandotolken, terminalen eller andra shell och använder du följande [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) kommando för att autentisera till Azure-prenumerationen som innehåller din Azure Machine Learning-arbetsyta:
+
+    ```azurecli
+    az login
+    ```
+
+1. Använd följande kommando för att autentisera till den Azure Container Registry (ACR) som innehåller din avbildning. Ersätt `myregistry` med en som returneras när du registrerade avbildningen:
+
+    ```azurecli
+    az acr login --name myregistry
+    ```
+
+1. Använd följande kommando för att ladda ned avbildningen till din lokala Docker. Ersätt `myimagepath` med den plats som returneras när du registrerade avbildningen:
+
+    ```bash
+    docker pull myimagepath
+    ```
+
+    Avbildningssökvägen bör likna `myregistry.azurecr.io/myimage:1`. Där `myregistry` är ditt register `myimage` är din avbildning och `1` är versionsnumret för avbildningen.
+
+    > [!TIP]
+    > Autentisering från föregående steg varar inte för evigt. Om du vill vänta tillräckligt länge mellan autentiseringskommandot och pull-kommandot, visas ett autentiseringsfel. Om detta inträffar kan autentiseras på nytt.
+
+    Den tid det tar för att slutföra nedladdningen beror på hastigheten på din internet-anslutning. Hämta status visas under processen. När hämtningen är slutförd, kan du använda den `docker images` kommandot för att kontrollera att den har laddat ned.
+
+1. Om du vill göra det enklare att arbeta med avbildningen, använder du följande kommando för att lägga till en tagg. Ersätt `myimagepath` med platsvärdet från steg 2.
+
+    ```bash
+    docker tag myimagepath debug:1
+    ```
+
+    I resten av stegen som du kan referera till den lokala avbildningen som `debug:1` i stället för hela avbildningen sökväg-värdet.
+
+### <a name="debug-the-service"></a>Felsöka tjänsten
+
+> [!TIP]
+> Om du anger en tidsgräns för anslutning till PTVSD i den `score.py` filen, måste du ansluta VS Code till felsökningssessionen innan tidsgränsen upphör att gälla. Starta VS Code, öppna den lokala kopian av `score.py`, konfigurera en brytpunkt och låta den redo att sätta igång innan du utför stegen i det här avsnittet.
+>
+> Mer information om felsökning och ange brytpunkter finns [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+
+1. Starta en Docker-behållare med hjälp av avbildningen, med följande kommando:
+
+    ```bash
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    ```
+
+1. Om du vill koppla VS Code att PTVSD i behållaren, öppna VS Code och använda F5 nyckel eller välj __felsöka__. När du uppmanas, väljer den __Azure Machine Learning-tjänsten: Docker-Debug__ konfiguration. Du kan också välja ikonen för felsökning från i Sidopanel den __Azure Machine Learning-tjänsten: Docker-Debug__ post från listrutan för felsökning, och sedan använda den gröna pilen för att koppla felsökaren.
+
+    ![Den felsökningsikon och felsökning startknappen configuration väljare](media/how-to-troubleshoot-deployment/start-debugging.png)
+
+Nu VS Code ansluter till PTVSD i Docker-behållaren och stannar vid den brytpunkt som du angav tidigare. Du kan nu gå igenom koden som den körs, visa variabler, osv.
+
+Mer information om hur du använder VS Code för att felsöka Python finns i [felsöka Python-kod](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
+<a id="editfiles"></a>
+### <a name="modify-the-container-files"></a>Ändra container-filer
+
+Om du vill göra ändringar i filer i avbildningen, kan du bifoga behållare som körs och kör ett bash-gränssnitt. Därifrån kan använda du vim redigera filer:
+
+1. Om du vill ansluta till behållaren som körs och starta ett bash-gränssnitt i behållaren, använder du följande kommando:
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. Använd följande kommando från bash-gränssnittet i behållaren för att hitta de filer som används av tjänsten:
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    Härifrån kan du använda vim för att redigera den `score.py` filen. Läs mer om hur du använder vim [med hjälp av redigeraren Vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Ändringar i en behållare är inte beständiga normalt. Spara alla ändringar du gör, använder du följande kommando innan du avslutar gränssnittet igång i ovanstående steg (det vill säga i en annan shell):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    Det här kommandot skapar en ny avbildning med namnet `debug:2` som innehåller dina ändringar.
+
+    > [!TIP]
+    > Du måste stoppa den aktuella behållaren och börja använda den nya versionen innan ändringarna träder i kraft.
+
+1. Se till att välja de ändringar du gör att filerna i behållaren synkroniserade med de lokala filer som använder VS Code. Felsökare upplevelsen kommer annars inte fungerar som förväntat.
+
+### <a name="stop-the-container"></a>Stoppa behållaren
+
+Om du vill stoppa behållaren, använder du följande kommando:
+
+```bash
+docker stop debug
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om distribution:
 
 * [Hur du distribuerar och var](how-to-deploy-and-where.md)
-* [Självstudie: Träna och distribuera modeller](tutorial-train-models-with-aml.md)
+* [Självstudier: Träna och distribuera modeller](tutorial-train-models-with-aml.md)

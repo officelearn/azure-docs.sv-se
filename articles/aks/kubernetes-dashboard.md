@@ -2,17 +2,17 @@
 title: Hantera ett Azure Kubernetes Service-kluster med web-instrumentpanelen
 description: Lär dig hur du använder den inbyggda Kubernetes-instrumentpanelen för Webbgränssnitt för att hantera ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: twhitney
-ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304532"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615242"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Komma åt Kubernetes web-instrumentpanelen i Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpa
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning med klustret. Om du vill skapa ett AKS-kluster finns i den [AKS-Snabbstart][aks-quickstart].
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
-Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] kommando. I följande exempel öppnas instrumentpanelen för klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*:
+Starta Kubernetes-instrumentpanelen med den [az aks Bläddra][az-aks-browse] kommando. I följande exempel öppnas instrumentpanelen för klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -42,7 +42,7 @@ Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API
 
 Om AKS-klustret använder RBAC, en *ClusterRoleBinding* måste skapas innan du har korrekt åtkomst till instrumentpanelen. Som standard Kubernetes-instrumentpanelen har distribuerats med minimal läsbehörighet och visar RBAC åtkomstfel. Kubernetes-instrumentpanelen stöder för närvarande inte användaren tillhandahåller autentiseringsuppgifter för att avgöra vilken åtkomstnivå, i stället används de roller som beviljats till kontot. En Klusteradministratör kan välja att ge ytterligare åtkomst till den *kubernetes-instrumentpanelen* tjänstkonto, men det kan vara en vektor för eskalering. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad nivå av åtkomst.
 
-Du kan skapa en bindning med den [kubectl skapa clusterrolebinding] [ kubectl-create-clusterrolebinding] kommandot som visas i följande exempel. 
+Du kan skapa en bindning med den [kubectl skapa clusterrolebinding][kubectl-create-clusterrolebinding] kommandot som visas i följande exempel. 
 
 > [!WARNING]
 > Det här exemplet bindningen gäller inte några ytterligare autentisering-komponenter och kan leda till osäkert användning. Kubernetes-instrumentpanelen är öppen för alla med åtkomst till URL: en. Exponera inte Kubernetes-instrumentpanelen offentligt.
@@ -53,7 +53,7 @@ Du kan skapa en bindning med den [kubectl skapa clusterrolebinding] [ kubectl-cr
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
-Du kan nu komma åt Kubernetes-instrumentpanelen i klustret RBAC-aktiverade. Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] kommandot som beskrivs i föregående steg.
+Du kan nu komma åt Kubernetes-instrumentpanelen i klustret RBAC-aktiverade. Starta Kubernetes-instrumentpanelen med den [az aks Bläddra][az-aks-browse] kommandot som beskrivs i föregående steg.
 
 ## <a name="create-an-application"></a>Skapa ett program
 

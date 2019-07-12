@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 83f5b08e5fee17c0ea5577d4d56d4d3208a818e3
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001114"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625295"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-baserat webb-API som integreras med Azure AD för autentisering och auktorisering
 
@@ -42,7 +42,7 @@ I den här snabbstarten skapar du en ett API för Att göra-lista och lär dig h
 2. Konfigurerar appen att använda OWIN-autentiserings-pipelinen.
 3. Konfigurera ett klientprogram att anropa ett webb-API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kom igång genom att slutföra följande krav:
 
@@ -79,7 +79,7 @@ För att verifiera inkommande begäranden och token måste du konfigurera appen 
 
 2. Lägg till en OWIN Startup-klass i TodoListService-projektet med namnet `Startup.cs`.  Högerklicka på projektet, välj **Lägg till > Nytt objekt** och sök sedan efter **OWIN**. OWIN-mellanprogrammet anropar `Configuration(…)`-metoden när appen startas.
 
-3. Ändra klassdeklarationen till `public partial class Startup`. Vi har redan implementerat en del av denna klass åt dig i en annan fil. I metoden `Configuration(…)` gör du ett anrop till `ConfgureAuth(…)` för att konfigurera autentisering för webbappen.
+3. Ändra klassdeklarationen till `public partial class Startup`. Vi har redan implementerat en del av denna klass åt dig i en annan fil. I metoden `Configuration(…)` gör du ett anrop till `ConfigureAuth(…)` för att konfigurera autentisering för webbappen.
 
     ```csharp
     public partial class Startup

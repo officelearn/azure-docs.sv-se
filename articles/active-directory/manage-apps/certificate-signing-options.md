@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1baf4af41fd5dcb6723b6ee2827ae91b43b072d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780970"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807723"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för gallery-appar i Azure Active Directory för Certifikatsignering
 
@@ -57,27 +57,21 @@ Välj programmet som är i fråga om du vill ändra ett programs alternativ för
 1. I den vänstra rutan väljer du **Företagsprogram**. En lista över enterprise-program i ditt konto visas.
 1. Välj ett program. En översiktssida för programmet visas.
 
-   ![Översiktssidan för program](./media/certificate-signing-options/application-overview-page.png)
+   ![Exempel: Översiktssidan för program](./media/certificate-signing-options/application-overview-page.png)
 
 Sedan ändra certifikatsignering alternativ i SAML-token för programmet:
 
 1. I den vänstra rutan på översiktssidan för program, Välj **enkel inloggning**.
+1. Om den **ange in enkel inloggning med SAML - förhandsversion** visas, går du till steg 5.
+1. Om den **väljer du en metod för enkel inloggning** sidan inte visas, Välj **ändra lägen för enkel inloggning** att visa den sidan.
+1. I den **väljer du en metod för enkel inloggning** väljer **SAML** om det är tillgängligt. (Om **SAML** är inte tillgänglig, programmet stöder inte SAML och du kan ignorera resten av den här proceduren och artikel.)
+1. I den **ange in enkel inloggning med SAML - förhandsversion** sidan, hitta den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon (en penna). Den **SAML-signeringscertifikat** visas.
 
-2. Om den **ange in enkel inloggning med SAML - förhandsversion** visas, går du till steg 5.
+   ![Exempel: SAML-signeringscertifikat certifikatsidan](./media/certificate-signing-options/saml-signing-page.png)
 
-3. Om den **väljer du en metod för enkel inloggning** sidan inte visas, Välj **ändra lägen för enkel inloggning** att visa den sidan.
-
-4. I den **väljer du en metod för enkel inloggning** väljer **SAML** om det är tillgängligt. (Om **SAML** är inte tillgänglig, programmet stöder inte SAML och du kan ignorera resten av den här proceduren och artikel.)
-
-5. I den **ange in enkel inloggning med SAML - förhandsversion** sidan, hitta den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon (en penna). Den **SAML-signeringscertifikat** visas.
-
-   ![SAML-signeringscertifikat sidan](./media/certificate-signing-options/saml-signing-page.png)
-
-6. I den **signering alternativet** listrutan väljer du **inloggning SAML-svar**, **inloggning SAML-försäkran**, eller **inloggning SAML-svar och försäkran**. Beskrivningar av dessa alternativ visas tidigare i den här artikeln i den [alternativ för certifikatsignering](#certificate-signing-options).
-
-7. I den **signering algoritmen** listrutan väljer du **SHA-1** eller **SHA-256**. Beskrivningar av dessa alternativ visas tidigare i den här artikeln i den [algoritmer för certifikatsignering](#certificate-signing-algorithms) avsnittet.
-
-8. Om du är nöjd med dina val väljer **spara** att tillämpa den nya SAML-signeringscertifikat certifikatinställningar. Annars väljer du den **X** ignorera ändringarna.
+1. I den **signering alternativet** listrutan väljer du **inloggning SAML-svar**, **inloggning SAML-försäkran**, eller **inloggning SAML-svar och försäkran**. Beskrivningar av dessa alternativ visas tidigare i den här artikeln i den [alternativ för certifikatsignering](#certificate-signing-options).
+1. I den **signering algoritmen** listrutan väljer du **SHA-1** eller **SHA-256**. Beskrivningar av dessa alternativ visas tidigare i den här artikeln i den [algoritmer för certifikatsignering](#certificate-signing-algorithms) avsnittet.
+1. Om du är nöjd med dina val väljer **spara** att tillämpa den nya SAML-signeringscertifikat certifikatinställningar. Annars väljer du den **X** ignorera ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

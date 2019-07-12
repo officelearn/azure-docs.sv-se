@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88c157c5f37bb0bd1e82225bdacfbd60806bbf8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204377"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620645"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Anslut data från Azure AD Identity Protection
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204377"
 Du kan strömma loggar från [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) i Azure Sentinel-stream-aviseringar i Azure Sentinel att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Azure Active Directory Identity Protection ger en samlad vy användare i farozonen, riskhändelser och sårbarheter, med möjlighet att åtgärda risker omedelbart och ange principer för att automatiskt åtgärda framtida händelser. Tjänsten bygger på Microsofts erfarenhet av att skydda konsumentidentiteter och får enorm Precision från signalen via 13 miljarder log-moduler per dag. 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en [Azure Active Directory Premium P1 eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/)
 - Användare med global administratör eller administratörsbehörighet för säkerhet

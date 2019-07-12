@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707149"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706214"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -86,7 +86,7 @@ Om du använder redundansen för ditt namnområde kan behöva du göra några yt
 
 ## <a name="best-practices"></a>Bästa praxis
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vilka är några Metodtips för Azure Service Bus?
-Se [Metodtips för prestandaförbättringar med hjälp av Service Bus] [ Best practices for performance improvements using Service Bus] – den här artikeln beskrivs hur du optimerar prestanda när du skickar meddelanden.
+Se [Metodtips för prestandaförbättringar med hjälp av Service Bus][Best practices for performance improvements using Service Bus] – den här artikeln beskrivs hur du optimerar prestanda när du skickar meddelanden.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Vad bör jag veta innan du skapar entiteter?
 Följande egenskaper för en kö och avsnittet är inte kan ändras. Överväg att den här begränsningen när du etablerar dina entiteter som de här egenskaperna inte kan ändras utan att skapa en ny entitet ersättning.
@@ -134,7 +134,7 @@ När du tar bort ett namnområde från en prenumeration kan du vänta i 4 timmar
 En lista över möjliga Service Bus-undantag finns i [undantag översikt][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk stöder du generera en signatur?
-Signaturer för delad åtkomst är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node.js, PHP, Java och C\#, finns i den [signaturer för delad åtkomst] [ Shared Access Signatures] artikeln.
+Signaturer för delad åtkomst är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node.js, PHP, Java och C\#, finns i den [signaturer för delad åtkomst][Shared Access Signatures] artikeln.
 
 ## <a name="subscription-and-namespace-management"></a>Prenumeration och namnområde
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur migrerar jag ett namnområde till en annan Azure-prenumeration?
@@ -143,7 +143,7 @@ Du kan flytta ett namnområde från en Azure-prenumeration till en annan, med hj
 
 #### <a name="portal"></a>Portalen
 
-Följ anvisningarna för att använda Azure-portalen för att migrera Service Bus-namnrymder till en annan prenumeration, [här](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Följ anvisningarna för att använda Azure-portalen för att migrera Service Bus-namnrymder till en annan prenumeration, [här](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

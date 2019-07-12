@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 5f351dd7fddb4c15b28954eccf8ada3bfc14dbca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447655"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594384"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
@@ -80,7 +80,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 |:---|:---|
 | alertId | GUID som unikt identifierar aviseringsinstansen. |
 | alertRule | Namnet på den varningsregel som genererade aviseringen instansen. |
-| Allvarsgrad | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
+| Severity | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
 | signalType | Identifierar signalen där varningsregeln har definierats. Möjliga värden: Mått, Log, aktivitetsloggen |
 | monitorCondition | När en avisering utlöses anges aviseringens övervakningsvillkor till 'Fired'. När det underliggande villkoret som orsakade aviseringen utlöses rensar har övervakarens villkor angetts till ”löst'.   |
 | monitoringService | Övervakningstjänsten eller lösning som skapade aviseringen. Fälten för kontexten fastställs av övervakningstjänsten. |

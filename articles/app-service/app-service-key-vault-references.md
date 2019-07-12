@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397813"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705704"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
 
@@ -38,6 +38,8 @@ För att kunna läsa hemligheter från Nyckelvalvet, måste du ha ett valv som s
    > Key Vault refererar till för närvarande endast stöd för system tilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.
 
 1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen. Konfigurera inte ”åtkomsträttigheter program” eller `applicationId` inställningar, eftersom det är inte kompatibel med en hanterad identitet.
+
+    Bevilja åtkomst till ett program identitet i key vault är en onetime åtgärd och förblir den samma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill ha. 
 
 ## <a name="reference-syntax"></a>Referens-syntax
 

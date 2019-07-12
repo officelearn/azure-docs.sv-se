@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435758"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625689"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Snabbstart: Azure Blob storage-klientbiblioteket för .NET
 
@@ -179,7 +179,7 @@ Använd följande .NET-klasser för att interagera med dessa resurser:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): Den **CloudStorageAccount** klassen som representerar ditt Azure storage-konto. Använd den här klassen för att bevilja åtkomst till Blob storage med åtkomstnycklarna för kontot.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): Den **CloudBlobClient** klassen innehåller en åtkomstpunkt till Blob service i din kod.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): Den **CloudBlobContainer** klassen representerar en blob-behållare i din kod.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): Den **CloudBlockBlob** -objektet representerar en blockblob i din kod. Blockblobbar består av datablock som kan hanteras individuellt.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): Den **CloudBlockBlob** -objektet representerar en blockblob i din kod. Blockblobbar består av datablock som kan hanteras individuellt.
 
 ## <a name="code-examples"></a>Kodexempel
 

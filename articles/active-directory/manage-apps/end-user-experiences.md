@@ -12,14 +12,15 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74c6787068cf8ba1e86cbf43955d0ac995aa8de1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388203"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702116"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Upplevelse för slutanvändare för program i Azure Active Directory
+
 Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation:
 
 * Azure AD-åtkomstpanelen
@@ -30,27 +31,31 @@ Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera
 Vilka metoder som du väljer att distribuera i din organisation är passar dig bäst.
 
 ## <a name="azure-ad-access-panel"></a>Azure AD-åtkomstpanelen
+
 Åtkomstpanelen på https://myapps.microsoft.com är en webbaserad portal där en användare med ett organisationskonto i Azure Active Directory för att visa och starta molnbaserade program som de har beviljats åtkomst med Azure AD-administratör. Om du är en användare med [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), du kan också använda funktioner för hantering av självbetjäning via åtkomstpanelen.
 
-![Azure AD-åtkomstpanelen](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Skärmbild som visar portal för Azure AD-åtkomstpanelen](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
 Åtkomstpanelen är separat från Azure-portalen och kräver inte användarna måste ha en Azure-prenumeration eller Office 365-prenumeration.
 
 Mer information om Azure AD-åtkomstpanelen finns i den [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Startprogrammet för Office 365
+
 För organisationer som har distribuerat Office 365, visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Detta gör det enkelt och praktiskt för användare i en organisation att starta sina appar utan att behöva använda en andra portal och är den rekommenderade app starta lösningen för organisationer som använder Office 365.
 
-![Office 365-portalen](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Skärmbild som visar Office 365-portalen](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Läs mer om startprogrammet för Office 365, [appen visas i Office 365-appstartaren](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Direkt inloggning till federerade appar
+
 Mest federerade program som stöder SAML 2.0, WS-Federation och OpenID connect också support möjligheten för användare att börja på programmet och sedan hämta loggat in via Azure AD genom automatisk omdirigering eller genom att klicka på en länk för inloggning. Detta kallas tjänstleverantör-initieras inloggnings- och mest federerade program i Azure AD-programgalleriet har stöd för den här (se dokumentationen länkad från appens konfigurationen för enkel inloggning för guiden i Azure-portalen för information).
 
 ![Exempel på en mobilapp inloggningssidan](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Inloggnings-länkar
+
 Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, länkade enkel inloggning och någon form av federerad enkel inloggning.
 
 Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa **användaren åtkomst till URL: er** finns i egenskaperna för tillgängliga program. I Azure-portalen väljer du **Azure Active Directory** > **företagsprogram**. Välj programmet och välj sedan **egenskaper**.
@@ -70,4 +75,5 @@ När en behörig användare klickar på någon av länkarna programspecifika vis
 Dessa länkar använder samma metoder för kontroll av åtkomst som åtkomstpanelen och Office 365 och endast de användare eller grupper som har tilldelats till programmet i Azure-portalen kommer att kunna autentisera. Alla användare som är obehörig visas ett meddelande som förklarar att de inte har beviljats åtkomst och får en länk för att läsa in panelen om du vill visa tillgängliga program som de har åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Distribution planer finns [planer för Azure Active Directory-distribution](../fundamentals/active-directory-deployment-plans.md)

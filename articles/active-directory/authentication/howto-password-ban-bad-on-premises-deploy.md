@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293023"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785533"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -44,7 +44,7 @@ När funktionen har körts i granskningsläge i rimlig tid, kan du byta konfigur
    > Proxy-tjänstdistributionen är ett obligatoriskt krav för att distribuera Azure AD-lösenordsskydd även om domänkontrollanten har utgående direkt Internetanslutning. 
    >
 * Alla datorer där Azure AD-lösenord Protection proxytjänsten installeras måste ha .NET 4.7 installerad.
-  .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Alla datorer, inklusive domänkontrollanter, som får Azure AD lösenord protection komponenter som är installerade måste ha den universella C som är installerad. Du kan hämta körningen genom att kontrollera att du har alla uppdateringar från Windows Update. Eller du kan hämta den i ett uppdateringspaket för OS-specifika. Mer information finns i [uppdatering för Universal C-körning i Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Nätverksanslutning måste det finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för proxytjänsten för lösenordsskydd. Den här anslutningen måste tillåta domänkontrollanten för att få åtkomst till RPC-slutpunkt mapper port 135 och RPC-server-porten i proxy-tjänsten. RPC-serverport är som standard en dynamisk RPC-port, men den kan konfigureras att [använda en statisk port](#static).
 * Alla datorer som är värdar för proxy-tjänsten måste ha nätverksåtkomst till följande slutpunkter:

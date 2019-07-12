@@ -2,24 +2,25 @@
 title: Vad är Azure Security Center för förhandsversionen av IoT | Microsoft Docs
 description: Läs mer om Azure Security Center för IoT-funktioner och -tjänsten.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192497"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618052"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduktion till Azure Security Center för IoT
 
@@ -41,15 +42,15 @@ Azure Security Center (ASC) för IoT förenklar hybrid skydd av arbetsbelastning
 
 ### <a name="unified-visibility-and-control"></a>Enhetlig synlighet och kontroll
 
-Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbetsbelastningar, inklusive Azure IoT-lösningen. Automatiskt identifiera och registrera nya enheter och tillämpa säkerhetsprinciper i arbetsbelastningarna (lövenheter, Edge-enheter, IOT-hubb) för att säkerställa att säkerhetsstandarder.
+Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbetsbelastningar, inklusive din Azure IoT-lösning. Identifiera och publicera automatiskt nya enheter och använd säkerhetsprinciper i dina arbetsbelastningar (Leaf-enheter, Edge-enheter, IoT Hub) för att säkerställa att säkerhetsstandarder efterlevs.
 
 ### <a name="adaptive-threat-prevention"></a>Adaptivt skydd
 
-Använd ASC för IoT för att övervaka kontinuerligt säkerheten för datorer, nätverk och Azure-tjänster, inklusive Azure IoT-lösningen från edge-enheter till program. Du kan välja att använda från hundratals inbyggda säkerhetsutvärderingar eller skapa egna i den centrala ASC för IoT Hub-instrumentpanelen. Optimera dina säkerhetsinställningar och förbättra din säkerhet rangordna användbara rekommendationer mellan virtuella datorer, nätverk, appar och data. Med nya IoT-funktioner kan du nu minska risken för angrepp för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas.
+Använd ASC för IoT för att övervaka kontinuerligt säkerheten för datorer, nätverk och Azure-tjänster, inklusive Azure IoT-lösningen från edge-enheter till program. Du kan välja att använda från hundratals inbyggda säkerhetsutvärderingar eller skapa egna i den centrala ASC för IoT Hub-instrumentpanelen. Optimera säkerhetsinställningarna och förbättra din Säkerhetspoäng med interaktiva rekommendationer för virtuella datorer, nätverk, program och data. Med nya IoT-funktioner kan du minska angreppsytan för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Intelligent hotidentifiering och svar
 
-Använd avancerade analyser och Microsoft Intelligent Security Graph för att få en kant med utvecklas cyberattacker. Inbyggda beteendeanalys och maskininlärning identifiera attacker och nolldagsattacker utnyttjar. Övervaka din IoT-lösning för inkommande attacker och aktiviteter efter intrång. Effektivisera enheten undersökas och åtgärdas med interaktiva verktyg och kontextbaserad hotinformation.
+Använd avancerade analyser och Microsoft Intelligent Security Graph för att få en kant med utvecklas cyberattacker. Inbyggda beteendeanalys och maskininlärning identifiera attacker och nolldagsattacker utnyttjar. Övervaka din IoT-lösning som skydd mot inkommande attacker och aktivitet efter ett genomfört intrång. Effektivisera enheten undersökas och åtgärdas med interaktiva verktyg och kontextbaserad hotinformation.
 
 ## <a name="next-steps"></a>Nästa steg
 

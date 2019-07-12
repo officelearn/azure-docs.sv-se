@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825446"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839094"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -41,11 +41,11 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 > [!NOTE]
 >  Allmän information om funktionerna i Data Factory i flytta data till och från Azure SQL Data Warehouse finns i [flytta data till och från Azure SQL Data Warehouse med Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) artikeln.
 >
-> Du kan också skapa pipelines med Azure portal, Visual Studio, PowerShell, osv. Se [självstudien: Kopiera data från Azure-Blob till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en snabb genomgång med stegvisa instruktioner för att använda Kopieringsaktivitet i Azure Data Factory.  
+> Du kan också skapa pipelines med Visual Studio, PowerShell, osv. Se [självstudien: Kopiera data från Azure-Blob till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en snabb genomgång med stegvisa instruktioner för att använda Kopieringsaktivitet i Azure Data Factory.  
 >
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Azure Blob Storage: det här experimentet använder Azure Blob Storage (GRS) för att lagra TPC-H testning datauppsättning.  Om du inte har ett Azure storage-konto, lär du dig [hur du skapar ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 * [TPC-H](http://www.tpc.org/tpch/) data: Vi kommer att använda TPC-H som testar datamängd.  Om du vill göra det, måste du använda `dbgen` från TPC-H toolkit, som hjälper dig att skapa datauppsättningen.  Du kan antingen ladda ned källkoden för `dbgen` från [TPC verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller hämta kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Kör dbgen.exe med följande kommandon för att generera 1 TB flat fil för `lineitem` tabellen sprids över 10 filer:
 
@@ -117,7 +117,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 3. I den **ny datafabrik** fönstret:
 
    1. Ange **LoadIntoSQLDWDataFactory** för den **namn**.
-       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
+       Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
    2. Välj din Azure-**prenumeration**.
    3. För resursgruppen utför du något av följande steg:
       1. Välj **Använd befintlig** och välj en befintlig resursgrupp.

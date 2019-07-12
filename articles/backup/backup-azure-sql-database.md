@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443016"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806983"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -48,7 +48,7 @@ Innan du börjar kontrollerar du den nedan:
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
 **Geografiska områden som stöds** | Australien, sydöstra (ASE), Australien, östra (AE) <br> Brasilien, södra (BRS)<br> Canada Central (CNC), Canada East (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> USA, östra (EUS), östra USA 2 (EUS2), västra centrala (WCUS), USA, västra (WUS); Västra USA 2 (WUS 2) norra centrala (NCUS) USA, centrala (CUS) södra centrala (SCUS) <br> Indien, centrala (INC), Indien, södra (INS) <br> Japan, östra (JPE), Japan, västra (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> Europa, norra (NE), Europa, västra <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW)
 **Operativsystem som stöds** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux stöds inte för närvarande.
-**SQL Server-versioner som stöds** | SQL Server 2017, SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**SQL Server-versioner som stöds** | SQL Server 2017 enligt anvisningarna [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och Service Pack som detaljerad [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **.NET-versioner som stöds** | .NET framework 4.5.2 och senare har installerats på den virtuella datorn
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Stöd för SQLServer 2008 och SQL Server 2008 R2
@@ -95,7 +95,7 @@ Beroende på inställning för säkerhetskopiering och säkerhetskopieringar typ
     --- | ---
     Fullständig | Primär
     Differentiell | Primär
-    Logga |  Primär
+    log |  Primär
     Kopiera bara fullständig |  Primär
 
 - **Inställning för säkerhetskopiering: Endast sekundär**
@@ -104,7 +104,7 @@ Beroende på inställning för säkerhetskopiering och säkerhetskopieringar typ
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Logga |  Sekundär
+log |  Sekundär
 Kopiera bara fullständig |  Sekundär
 
 - **Inställning för säkerhetskopiering: Secondary**
@@ -113,7 +113,7 @@ Kopiera bara fullständig |  Sekundär
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Logga |  Sekundär
+log |  Sekundär
 Kopiera bara fullständig |  Sekundär
 
 - **Ingen inställning för säkerhetskopiering**
@@ -122,7 +122,7 @@ Kopiera bara fullständig |  Sekundär
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Logga |  Sekundär
+log |  Sekundär
 Kopiera bara fullständig |  Sekundär
 
 ## <a name="set-vm-permissions"></a>Ange VM-behörigheter

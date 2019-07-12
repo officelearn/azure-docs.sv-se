@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: bfdebacb4de205fa42fe96ceb9970d2d109536e8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 1f03f9e68640edd73d2f6bb55cf205a609450658
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296156"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620504"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -79,7 +79,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> När du använder Event Hub som en slutpunkt för IoT Hub vägar, du kan komma åt i IoT Hub metadata med hjälp av den [funktionen GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> När du använder Event Hub som en slutpunkt för IoT Hub vägar, du kan komma åt i IoT Hub metadata med hjälp av den [funktionen GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Stream-data från IoT Hub
@@ -129,7 +129,7 @@ För scenarier med stora mängder Ostrukturerade data som lagras i molnet, erbju
 
 Bearbetning av loggar är ett vanligt scenario för att använda Blob storage indata med Stream Analytics. I det här scenariot telemetri datafiler fångat från ett system och behöver parsas och bearbetas för att extrahera användbara data.
 
-Standard-tidsstämpel för Blob storage-händelser i Stream Analytics är tidsstämpeln att blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob storage indata per sekund om blob-fil är tillgänglig. Om blob-fil är inte tillgänglig, är det en exponentiell backoff med Maximal fördröjning på 90 sekunder.
+Standard-tidsstämpel för Blob storage-händelser i Stream Analytics är tidsstämpeln att blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob storage indata per sekund om blob-fil är tillgänglig. Om blob-fil är inte tillgänglig, är det en exponentiell backoff med Maximal fördröjning på 90 sekunder.
 
 CSV-formaterad indata kräver en rubrikrad att definiera fält för datauppsättningen och alla rubrikfält rad måste vara unikt.
 

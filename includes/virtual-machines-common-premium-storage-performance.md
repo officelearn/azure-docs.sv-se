@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187314"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673533"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
-
-Den här artikeln innehåller riktlinjer för att skapa program med hög prestanda med hjälp av Azure Premium Storage. Du kan använda instruktionerna i det här dokumentet som kombineras med bästa praxis för prestanda gäller för tekniker som används av ditt program. För att visa riktlinjerna kan använda vi SQL Server på Premium Storage som ett exempel i hela dokumentet.
-
-Medan vi bemöter prestanda scenarier för Storage-skiktet i den här artikeln behöver du optimera programnivån. Om du är värd för en SharePoint-servergrupp i Azure Premium Storage, kan du till exempel använda SQL Server-exempel från den här artikeln för att optimera databasservern. Dessutom kan optimera SharePoint-servergruppen webbserver och programserver att få de flesta prestanda.
-
-Den här artikeln kommer att besvara följande vanliga frågor om hur du optimerar programprestanda på Azure Premium Storage
-
-* Så här att mäta programprestanda?  
-* Varför inte ser du hög prestanda?  
-* Vilka faktorer påverkar programprestanda på Premium Storage?  
-* Hur dessa faktorer påverkar prestanda för ditt program i Premium Storage?  
-* Hur kan du optimera för IOPS, bandbredd och latens?  
-
-Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbelastningar som körs på Premium-lagring med hög prestanda som är känsliga. Vi har lagt till exempel där det är lämpligt. Du kan också använda några av dessa riktlinjer för program som körs på virtuella IaaS-datorer med Standard Storage-diskar.
-
-> [!NOTE]
-> Ibland är något som verkar vara problem med prestandan disk faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Om den virtuella datorn har stöd för accelererat nätverk, bör du kontrollera att den är aktiverad. Om den inte har aktiverats måste du aktivera det på redan distribuerade virtuella datorerna på både [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Innan du börjar, om du är nybörjare till Premium Storage, läsa den [väljer du en Azure-diskar för virtuella IaaS-datorer](../articles/virtual-machines/windows/disks-types.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md) artiklar.
-
 ## <a name="application-performance-indicators"></a>Nyckeltal för program
 
 Vi utvärdera om ett program fungerar bra eller inte använder indikatorer som prestanda, hur snabbt en bearbetning av en användarbegäran, hur mycket data som ett program bearbetar per begäran, hur många begäranden bearbetas ett program i en specifik tidsperiod, hur lång tid en användare har väntetiden för att få ett svar när du skickar sin begäran. Termerna för de här nyckeltal är IOPS, dataflöde eller bandbredd och latens.
@@ -278,7 +256,7 @@ Följande är rekommenderade disk cacheinställningarna för datadiskar
 
 | **Diskcachelagringstypen inställningen** | **Rekommendation om när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cache som None för lässkyddad och skrivintensiv diskar. |
+| Inga |Konfigurera värd-cache som None för lässkyddad och skrivintensiv diskar. |
 | ReadOnly |Konfigurera värd-cache som skrivskyddad för skrivskyddade och läs-och diskar. |
 | ReadWrite |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
 
@@ -413,4 +391,4 @@ Läs mer om tillgängliga disktyper:
 SQL Server-användare finns i artiklarna på Prestandametodtips för SQL Server:
 
 * [Prestandametodtips för SQLServer på Azure virtuella datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage ger högsta prestanda för SQL Server i Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium Storage ger högsta prestanda för SQL Server i Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

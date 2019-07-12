@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952896"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812911"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
 
@@ -43,6 +43,12 @@ För deterministisk beteende, ställer du in event time to live och max leverans
 
 Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
 
+## <a name="delayed-delivery"></a>Fördröjd leverans
+
+Som en slutpunkt får levereras kan börjar Event Grid att fördröja leverans och nytt försök till händelser till denna slutpunkt. Till exempel om de första tio händelser som publicerats till en slutpunkt misslyckas kan Event Grid kommer förutsätter att slutpunkten har problem med att och fördröjs alla efterföljande försök *och nya* leveranser under en tid – i vissa fall upp till flera timmar .
+
+Funktionella syftet med fördröjd leverans är att skydda feltillstånd slutpunkter samt Event Grid-system. Utan backoff och fördröjning på leverans till feltillstånd slutpunkter återförsöksprincipen för Event Grid och funktioner för volymen kan lätt bli överväldigande ett system.
+
 ## <a name="dead-letter-events"></a>Förlorade händelser
 
 När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte Event Grid dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
@@ -63,25 +69,29 @@ Event Grid använder HTTP-svarskoder för att bekräfta mottagandet av händelse
 
 ### <a name="success-codes"></a>Lyckade koder
 
-Följande HTTP-svarskoder indikerar att en händelse har har levererats till din webhook. Event Grid anser att leveransen är klar.
+Event Grid tar hänsyn till **endast** följande HTTP-svarskoder som lyckade leveranser. Alla andra koder anses misslyckade leveranser och kommer att göras eller deadlettered efter behov. När tas emot statuskoden lyckas, anser Event Grid leverans som är klar.
 
 - 200 OK
+- 201 Skapad
 - 202-accepterad
+- 203 icke-auktoritär Information
+- 204 inget innehåll
 
 ### <a name="failure-codes"></a>Felkoder
 
-Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckades.
+Alla andra koder inte i uppsättningen ovan (200 204) betraktas fel och kommer att göras. Vissa har specifika återförsöksprinciper som är knutna till dem som beskrivs nedan, alla andra följer standard exponentiell backoff-modellen. Det är viktigt att tänka på att funktionssätt för återförsök på grund av den parallelliserad natur Event Grid-arkitekturen, är icke-deterministisk. 
 
-- 400 Felaktig förfrågan
-- 401 Ej behörig
-- 404 Hittades inte
-- 408 timeout för begäran
-- 413 begäran entiteten är för stor
-- 414 URI för lång
-- 429 för många begäranden
-- 500 Internt serverfel
-- 503 Tjänsten är inte tillgänglig
-- 504 Gateway-timeout
+| Statuskod | Funktionssätt för återförsök |
+| ------------|----------------|
+| 400 Felaktig förfrågan | Försök igen efter 5 minuter eller mer (obeställbara omedelbart om obeställbara installationen) |
+| 401 Ej behörig | Försök igen efter 5 minuter eller mer |
+| 403 Åtkomst nekas | Försök igen efter 5 minuter eller mer |
+| 404 Hittades inte | Försök igen efter 5 minuter eller mer |
+| 408 Timeout för begäran | Försök igen efter 2 minuter eller mer |
+| 413 begäran entiteten är för stor | Försök igen efter 10 sekunder eller mer (obeställbara omedelbart om obeställbara installationen) |
+| 503 Tjänsten är inte tillgänglig | Försök igen efter 30 sekunder eller mer |
+| Alla andra | Försök igen efter 10 sekunder eller mer |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

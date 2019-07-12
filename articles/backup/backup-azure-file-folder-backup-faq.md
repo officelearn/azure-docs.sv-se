@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514443"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705081"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om hur du säkerhetskopierar filer och mappar
 
@@ -88,9 +88,19 @@ Den här varningen kan visas även om du har konfigurerat en säkerhetskopiering
 Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 - Volymer för cache-mappen bör ha ledigt utrymme som är lika med minst 5 – 10% av den totala mängden säkerhetskopierade data.
 - Om volymen har mindre än 5% ledigt utrymme, öka volymstorleken eller flytta cachelagringsmappen till en volym med tillräckligt med utrymme.
-- Om du säkerhetskopiera systemtillståndet i Windows, behöver du ytterligare 30-35 GB ledigt utrymme i volymen som innehåller cachemappen
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hur ändrar jag cachelagringsplatsen för MARS-agenten?
+- Om du säkerhetskopierar systemtillståndet för Windows, måste ytterligare 30-35 GB ledigt utrymme i volymen som innehåller cachemappen.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Hur du kontrollerar om tillfälliga mappen är giltig och tillgänglig?
+
+1. Som standard finns tillfälliga mappen i `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Kontrollera att sökvägen till den temporära mappen platsen matchar med värdena för de poster för registernyckel som visas nedan:
+
+  | Sökväg i registret | Registernyckel | Value |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hur ändrar jag cachelagringsplatsen för MARS-agenten?
 
 1. Kör följande kommando i en upphöjd kommandotolk för att stoppa Backup-motorn:
 
@@ -99,7 +109,7 @@ Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 2. Flytta inte filerna. Kopiera i stället cachelagringsmappen till en annan enhet som har tillräckligt med utrymme.
 3. Uppdatera följande registerposter med sökvägen till den nya cachelagringsmappen.<br/>
 
-    | Sökväg i registret | Registernyckel | Värde |
+    | Sökväg i registret | Registernyckel | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |

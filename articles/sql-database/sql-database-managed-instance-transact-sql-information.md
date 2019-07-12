@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070361"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723254"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -293,13 +293,13 @@ Mer information finns i [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/st
   - SQL Server Analysis Services stöds inte.
 - Meddelanden stöds delvis.
 - E-postmeddelande stöds, även om det krävs att du konfigurerar en Database Mail-profil. SQL Server Agent kan använda endast en Database Mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`. 
-  - Personsökare stöds inte. 
+  - Personsökare stöds inte.
   - NetSend stöds inte.
   - Aviseringar stöds inte ännu.
-  - Proxyservrar stöds inte. 
+  - Proxyservrar stöds inte.
 - EventLog stöds inte.
 
-Följande funktioner stöds inte för närvarande, men kommer att aktiveras i framtiden:
+Följande SQL Agent-funktioner stöds inte för närvarande:
 
 - Proxyservrar
 - Schemalägga jobb på en inaktiv CPU
@@ -398,7 +398,13 @@ Externa tabeller som refererar filer i HDFS- eller Azure Blob-lagring inte stöd
 
 ### <a name="replication"></a>Replikering
 
-Replikering är tillgänglig för en förhandsversion för hanterad instans. Information om replikering finns i [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) är tillgänglig i offentlig förhandsversion på hanterad instans med vissa begränsningar:
+- AL typer av replikering deltagare (utgivare, distributör, Pull-prenumerant och Push-prenumerant) kan placeras på hanterad instans, men utgivaren och distributören kan inte placeras i olika instanser.
+- Transaktion, ögonblicksbilder och dubbelriktad replikering typer stöds. Sammanslagningsreplikering, Peer-to-peer-replikering och uppdateringsbara prenumerationer stöds inte.
+- Hanterad instans kan kommunicera med de senaste versionerna av SQL Server. Se vilka versioner [här](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transaktionsreplikering har några [ytterligare krav på nätverk](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Information om hur du konfigurerar replikering finns i [replikering självstudien](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>ÅTERSTÄLLA instruktionen 
 
@@ -459,7 +465,7 @@ Cross-instans service broker stöds inte:
 
 ## <a name="Environment"></a>Begränsningar
 
-### <a name="subnet"></a>Undernät
+### <a name="subnet"></a>Subnet
 - Du kan inte placera andra resurser (till exempel virtuella datorer) i undernätet som reserverats för din hanterade instans. Placera dessa resurser i andra undernät.
 - Undernätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum är 16, medan rekommendation är att ha minst 32 IP-adresser i undernätet.
 - [Tjänstslutpunkter kan inte kopplas till undernätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
@@ -486,7 +492,7 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 
 ### <a name="tempdb-size"></a>TEMPDB-storlek
 
-Den maximala filstorleken för `tempdb` får inte överskrida 24 GB per kärna på en allmän-nivån. Maximalt `tempdb` storleken på en affärskritisk nivå är begränsad med lagringsstorlek instans. Den `tempdb` databasen alltid upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer kan inte läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb`. `tempdb` nytt skapas alltid som en tom databas när instansen början eller redundans och eventuella ändra göras i `tempdb` bevaras inte. 
+Den maximala filstorleken för `tempdb` får inte överskrida 24 GB per kärna på en allmän-nivån. Maximalt `tempdb` storleken på en affärskritisk nivå är begränsad med lagringsstorlek instans. `tempdb` loggfilens storlek är begränsad till 120 GB både generell användning och affärskritisk nivåer. Den `tempdb` databasen alltid upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer kan inte läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de ger mer än 120 GB log. `tempdb` skapas alltid när en tom databas när instansen startas eller redundans och eventuella ändrar göras i `tempdb` bevaras inte. 
 
 ### <a name="cant-restore-contained-database"></a>Det går inte att återställa innesluten databas
 
@@ -585,6 +591,11 @@ CLR-moduler som placeras i en hanterad instans och länkade servrar eller distri
 Du kan inte utföra `BACKUP DATABASE ... WITH COPY_ONLY` för en databas som är krypterad med tjänsthanterad Transparent datakryptering (TDE). Tjänsthanterad TDE tvingar säkerhetskopieringar krypteras med en intern TDE-nyckel. Nyckeln kan inte exporteras så att du inte kan återställa säkerhetskopian.
 
 **Lösning:** Använd automatisk säkerhetskopiering och point-in-time-återställning, eller Använd [kundhanterad (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Point-in-time-återställning följer tid av tidszonen på källinstansen
+
+För närvarande Point-in-time-återställning tolkar tid att återställa till med följande tidszonen för instansen av datakällan i stället genom följande UTC.
+Kontrollera [Managed Instance tidszon kända problem](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

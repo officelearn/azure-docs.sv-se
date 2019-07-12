@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441683"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612344"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -124,7 +124,7 @@ Lägg till ”PARTITION av deviceId” till funktionsanropet avvikelseidentifier
 ### <a name="observations"></a>Observationer
 Följande tabell innehåller dataflöde observationer för en enskild nod (6 SU) för icke-partitionerad:
 
-| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser Per sekund |
+| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser per sekund |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -132,7 +132,7 @@ Följande tabell innehåller dataflöde observationer för en enskild nod (6 SU)
 
 Följande tabell innehåller dataflöde observationer för en enskild nod (6 SU) för det partitionerade ärendet:
 
-| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser Per sekund | Antal enheter |
+| Historikstorlek (händelser) | Fönstret varaktighet (ms) | Totalt antal inkommande händelser per sekund | Enhetsantal |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1,091 | 1,100 | 10 |
 | 600 | 10,910 | 1,100 | 10 |
@@ -160,6 +160,6 @@ Följande videoklipp visar hur du kan identifiera avvikelser i realtid med machi
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

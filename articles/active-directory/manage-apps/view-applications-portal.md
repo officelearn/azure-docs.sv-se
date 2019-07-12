@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481162"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807557"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visa programmen i din Azure Active Directory-klientorganisation
 
@@ -39,20 +39,16 @@ Du kan se programmen i din Azure AD-klientorganisation i avsnittet **Företagspr
 
 Så här hittar du programmen i din klientorganisation:
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , på den vänstra navigeringspanelen väljer **Azure Active Directory**. 
-
-1. I den **Azure Active Directory** väljer **företagsprogram**. 
-
+1. I den  **[Azure-portalen](https://portal.azure.com)** , på den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. I den **Azure Active Directory** väljer **företagsprogram**.
 1. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj **tillämpa**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
-   
 1. Om du vill visa fler program, Välj **Läs in fler** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
 Välj alternativ enligt vad du letar efter.
 
-1. Du kan se program som **programtyp**, **programstatus**, och **synlighet för program**. 
-
+1. Du kan se program som **programtyp**, **programstatus**, och **synlighet för program**.
 1. Välj något av följande alternativ under **Programtyp**:
 
     - **Företagsprogram** visar andra program än Microsoft-program.
@@ -60,9 +56,7 @@ Välj alternativ enligt vad du letar efter.
     - **Alla program** visar både Microsoft-program och andra program.
 
 1. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
-
 1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Den **Hidden** alternativet visar program som finns i klienten, men inte är synliga för användare.
-
 1. När du har valt önskade alternativ, Välj **tillämpa**.
 
 ## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
@@ -70,7 +64,6 @@ Välj alternativ enligt vad du letar efter.
 Att söka efter ett visst program:
 
 1. I den **programtyp** menyn och välj **alla program**, och välj **tillämpa**.
-
 1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till Azure AD-klienten, visas den i sökresultatet. Det här exemplet visar att GitHub inte har lagts till klient-program.
 
     ![Exemplet visar en app som inte har lagts till klienten](media/view-applications-portal/search-for-tenant-application.png)

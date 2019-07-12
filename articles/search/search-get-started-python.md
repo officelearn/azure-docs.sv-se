@@ -1,7 +1,7 @@
 ---
 title: 'Python-Snabbstart: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
 description: Beskriver hur du skapar ett index, läsa in data och kör frågor med hjälp av Python, Jupyter-anteckningsböcker och Azure Search REST API.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485476"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840290"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Search-index i Python med Jupyter-anteckningsböcker
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67485476"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search-index med hjälp av Python och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du bygger en anteckningsbok steg för steg, med början från grunden. Du kan också köra en färdig anteckningsbok. Du kan hämta en kopia går du till den[lagringsplatsen för azure search-python-exempel](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar en Azure Search-index med hjälp av Python och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du bygger en anteckningsbok steg för steg. Du kan också [ladda ned och kör en färdig Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -295,26 +295,13 @@ Det här steget visar hur man frågar ett index med hjälp av den [REST-API för
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Rensa 
+## <a name="clean-up"></a>Rensa
 
-Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du bör ta bort alla index som du inte aktivt använder för att göra plats för andra självstudier.
+När du arbetar i din egen prenumeration är det en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver resurserna som du skapade. Resurser vänstra som körs kan kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen för att ta bort hela uppsättningen resurser.
 
-Det enklaste sättet att ta bort objekt är via portalen, men eftersom detta är en Python-Snabbstart följande syntax ger samma resultat:
+Du kan hitta och hantera resurser i portalen med hjälp av den **alla resurser** eller **resursgrupper** länken i det vänstra navigeringsfönstret.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-Du kan kontrollera indexet tas bort genom att begära en lista över befintliga index. Om hotels-quickstart är borta, vet du din begäran har slutförts.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Om du använder en kostnadsfri tjänst kan du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla oss under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

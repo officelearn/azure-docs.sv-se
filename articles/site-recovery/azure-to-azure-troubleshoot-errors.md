@@ -2,18 +2,18 @@
 title: Azure Site Recovery felsökning för Azure till Azure-replikeringsproblem och fel | Microsoft Docs
 description: Felsöka fel och problem vid replikering av virtuella datorer i Azure för haveriberedskap
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796429"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798568"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -156,7 +156,7 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problem 1: Det gick inte att registrera Azure-dator med Site Recovery (151195) </br>
 - **Möjlig orsak** </br>
-  - Det går inte att upprätta anslutning till site recovery-slutpunkter på grund av DNS-matchningsfel.
+  - Att går inte ansluta till Site Recovery-slutpunkter på grund av DNS-matchningsfel.
   - Detta visas oftare vid nytt skydd när du har misslyckats under den virtuella datorn men DNS-servern kan inte nås från regionen för Haveriberedskap.
 
 - **Lösning**
@@ -175,7 +175,7 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
       - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
 
 > [!NOTE]
-> Om de virtuella datorerna bakom **Standard** intern belastningsutjämnare och det skulle inte ha åtkomst till O365 IP-adresser, dvs login.micorsoftonline.com som standard. Antingen ändra det till **grundläggande** interna typ av belastningsutjämnare eller skapa ut bundna åtkomst enligt den [artikeln](https://aka.ms/lboutboundrulescli).
+> Om de virtuella datorerna bakom **Standard** intern belastningsutjämnare och det skulle inte ha åtkomst till O365 IP-adresser, dvs login.microsoftonline.com som standard. Antingen ändra det till **grundläggande** interna typ av belastningsutjämnare eller skapa ut bundna åtkomst enligt den [artikeln](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguration av site Recovery misslyckades (151197)
 - **Möjlig orsak** </br>
@@ -187,23 +187,23 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problem 4: A2A-replikeringen misslyckades när nätverkstrafiken som går via en lokal proxyserver (151072)
 - **Möjlig orsak** </br>
-  - De anpassade proxyinställningarna är ogiltiga och mobilitetstjänstagenten för ASR identifieras inte automatiskt proxyinställningar från Internet Explorer
+  - De anpassade proxyinställningarna är ogiltiga och Azure Site Recovery-Mobilitetstjänsten agenten identifieras inte automatiskt proxyinställningar från Internet Explorer
 
 
 - **Lösning**
   1. Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
-  2. Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
+  2. Om du vill ställa in proxy endast för Azure Site Recovery-Mobilitetstjänsten kan du ange proxyinformationen i ProxyInfo.conf som finns på:</br>
      - ``/usr/local/InMage/config/`` på ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
   3. ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format.</br>
                 *[proxy]*</br>
                 *Adress =http://1.2.3.4*</br>
                 *Port = 567*</br>
-  4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
+  4. Azure Site Recovery-Mobilitetstjänsten agent stöder endast ***oautentiserade proxyservrar***.
 
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
-Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
+Att tillåta [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Hittades inte på datorn (felkod 150039)
 
@@ -232,17 +232,42 @@ Du kan antingen välja att skydda diskarna eller Ignorera varningen göra felfri
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Att ignorera varningen. Gå till replikerat objekt > virtuell dator > Klicka på Stäng aviseringen under översiktsavsnittet.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Det går inte att se gruppen virtuell Azure-dator eller resurs för val av i ”Aktivera replikering”
 
- **Orsak 1:  Resursgruppens namn och det virtuella källdatorn finns på olika platser** <br>
-Azure Site Recovery för närvarande måste ett demonterat som käll-resursgrupp i regionen och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn vid tidpunkten för skyddet. Som en lösning kan aktivera du replikering från den virtuella datorn i stället för Recovery services-valvet. Gå till Sourece VM > Egenskaper > Haveriberedskap och aktivera replikering.
 
-**Orsak 2: Resursgrupp ingår inte i den valda prenumerationen** <br>
-Du kanske inte att hitta resursgruppen vid tidpunkten för skydd om det inte är en del av den givna prenumerationen. Kontrollera att resursgruppen tillhör prenumerationen som används.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Ta bort den virtuella datorn från valvet slutfördes med information (felkod 150225)
+Vid tidpunkten för att skydda den virtuella datorn, skapar Azure Site Recovery vissa länkar på den virtuella källdatorn. När du ta bort skyddet eller inaktivera replikering, Azure Site Recovery att ta bort dessa länkar som en del av rensningsjobb. Om den virtuella datorn har en resurslås hämtar jobbet slutfördes med informationen. Meddelar att den virtuella datorn har tagits bort från Recovery services-valv men vissa av inaktuella länkarna gick inte att rensa från källdatorn.
 
- **Orsak 3: Inaktuell konfiguration** <br>
-Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan det på grund av en inaktuell konfiguration av Site Recovery bli virtuella Azure-datorn. Den inaktuella konfigurationen kan finnas kvar i en Azure-dator i följande fall:
+Du kan ignorera varningen om du inte vill skydda den här virtuella datorn igen i framtiden. Men om du ska skydda den här virtuella datorn senare bör sedan du rensa länkarna enligt stegen nedan. 
 
+**Om du inte gör rensningen sedan:**
+
+1.  Under tiden för att aktivera replikering via Recovery services-valv, visas virtuell dator inte. 
+2.  Om du försöker skydda den virtuella datorn via **virtuell dator > Inställningar > Disaster Recovery** att misslyckades med felet ”*replikering inte aktiveras på grund av befintliga inaktuella resurslänkar på den virtuella datorn*".
+
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+>[!NOTE]
+>
+>Azure Site Recovery inte ta bort den virtuella källdatorn eller påverka den på något sätt när du utför stegen nedan.
+>
+
+1. Ta bort låset från den virtuella datorn eller VM resursgrupp. Exempel: Nedan VM har namnet ”MoveDemo” resurslås som måste tas bort.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Ladda ned skriptet [ta bort inaktuella Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Kör skriptet *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Ange prenumerationens namn-ID, resursgrupp för virtuell dator och virtuell dator som en parameter.
+5. Om du blir tillfrågad Azure-autentiseringsuppgifter, ange som och kontrollera att skriptet hämtar körs utan fel. 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>Det går inte att aktivera replikering på grund av befintliga inaktuella resurslänkar på den virtuella datorn (felkod 150226)
+
+**Orsak: Virtuell dator har inaktuella konfigurationen kvar från tidigare Site Recovery-skydd**
+
+Den inaktuella konfigurationen kan finnas kvar i en Azure-dator i följande fall:
+
+- Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och inaktivera replikering men **Virtuella källdatorn hade en resurslås**.
 - Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och tas sedan bort valvet för Site Recovery utan att uttryckligen inaktivera replikering på den virtuella datorn.
 - Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och tas sedan bort resursgruppen som innehåller Site Recovery-valvet utan att uttryckligen inaktivera replikering på den virtuella datorn.
 
@@ -250,9 +275,52 @@ Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan d
 
 >[!NOTE]
 >
->Se till att uppdatera modulen ”” AzureRM.Resources ”” innan du använder den skriptet nedan.
+>Azure Site Recovery inte ta bort den virtuella källdatorn eller påverka den på något sätt när du utför stegen nedan.
 
-Du kan använda [ta bort inaktuella ASR-konfigurationsskript](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) och ta bort den inaktuella konfigurationen för Site Recovery på Azure-VM. Du bör kunna se den virtuella datorn när du tar bort den inaktuella konfigurationen.
+
+1. Ta bort låset från den virtuella datorn eller VM-resursgrupp, om det finns några. *Till exempel:* Nedan VM har namnet ”MoveDemo” resurslås som måste tas bort.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Ladda ned skriptet [ta bort inaktuella Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Kör skriptet *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Ange prenumerationens namn-ID, resursgrupp för virtuell dator och virtuell dator som en parameter.
+5. Om du blir tillfrågad Azure-autentiseringsuppgifter, ange som och kontrollera att skriptet hämtar körs utan fel.  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Det går inte att se gruppen virtuell Azure-dator eller resurs för val av i ”Aktivera replikering”
+
+ **Orsak 1:  Resursgruppens namn och det virtuella källdatorn finns på olika platser**
+ 
+Azure Site Recovery för närvarande måste ett demonterat som käll-resursgrupp i regionen och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn eller resursgrupp vid tidpunkten för skyddet. 
+
+**Som en tillfällig lösning**, kan du aktivera replikering från den virtuella datorn i stället för Recovery services-valvet. Gå till Virtuella > Egenskaper > Haveriberedskap och aktivera replikering.
+
+**Orsak 2: Resursgrupp ingår inte i den valda prenumerationen**
+
+Du kanske inte att hitta resursgruppen vid tidpunkten för skydd om det inte är en del av den givna prenumerationen. Kontrollera att resursgruppen tillhör prenumerationen som används.
+
+ **Orsak 3: Inaktuell konfiguration**
+ 
+Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan det på grund av en inaktuell konfiguration av Site Recovery bli virtuella Azure-datorn. Den inaktuella konfigurationen kan finnas kvar i en Azure-dator i följande fall:
+
+- Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och tas sedan bort valvet för Site Recovery utan att uttryckligen inaktivera replikering på den virtuella datorn.
+- Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och tas sedan bort resursgruppen som innehåller Site Recovery-valvet utan att uttryckligen inaktivera replikering på den virtuella datorn.
+
+- Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och inaktivera replikering, men den Virtuella källdatorn hade en resurslås.
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+> [!NOTE]
+>
+> Se till att uppdatera modulen ”” AzureRM.Resources ”” innan du använder den skriptet nedan. Azure Site Recovery inte ta bort den virtuella källdatorn eller påverka den på något sätt när du utför stegen nedan.
+>
+
+1. Ta bort låset från den virtuella datorn eller VM-resursgrupp, om det finns några. *Till exempel:* Nedan VM har namnet ”MoveDemo” resurslås som måste tas bort.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Ladda ned skriptet [ta bort inaktuell konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Kör skriptet *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Ange prenumerationens namn-ID, resursgrupp för virtuell dator och virtuell dator som en parameter.
+5. Om du blir tillfrågad Azure-autentiseringsuppgifter, ange som och kontrollera att skriptet hämtar körs utan fel.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Det går inte att välja virtuell dator för skydd
  **Orsak 1:  Virtuell dator har vissa tillägg som installeras i tillståndet misslyckad eller svarar inte** <br>
@@ -294,7 +362,7 @@ Om du vill aktivera replikering på den virtuella datorn, Etableringsstatus mås
 
 **Felkod** | **Möjliga orsaker** | **Rekommendationer**
 --- | --- | ---
-151025<br></br>**Meddelandet**: Det gick inte att installera Site recovery-tillägget | -, COM + System Application-tjänsten är inaktiverad.</br></br>-'Volume Shadow Copy-tjänsten är inaktiverad.| Ange ”COM + System Application” och ”Volume Shadow Copy-tjänster till automatiskt eller manuellt startläge.
+151025<br></br>**Meddelandet**: Det gick inte att installera Site Recovery-tillägget | -, COM + System Application-tjänsten är inaktiverad.</br></br>-'Volume Shadow Copy-tjänsten är inaktiverad.| Ange ”COM + System Application” och ”Volume Shadow Copy-tjänster till automatiskt eller manuellt startläge.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 

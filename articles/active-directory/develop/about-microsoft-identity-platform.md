@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751910"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625348"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
@@ -50,7 +50,7 @@ I diagrammet nedan visas Microsoft Identity-gränssnittet på hög nivå, bland 
 
 ### <a name="app-registration-experience"></a>Appupplevelsen för registrering
 
-Azure-portalen **[appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908)** upplevelse är en en Portal för att hantera alla program som du har integrerat med Microsoft identity-plattformen. Om du har använt portalen för registrering av program, från och med hjälp av Azure portal registrering appupplevelsen i stället.
+Azure-portalen **[appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908)** upplevelse är en en Portal för att hantera alla program som du har integrerat med Microsoft identity-plattformen. Om du har använt portalen för registrering av program, kan du börja använda Azure portal registrering appupplevelsen i stället.
 
 För integrering med Azure AD B2C (när du autentiserar sociala eller lokala identiteter), måste du registrera ditt program i en B2C-klient. Den här upplevelsen är också en del av Azure-portalen.
 

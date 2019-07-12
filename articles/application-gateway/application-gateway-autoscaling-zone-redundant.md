@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205000"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655313"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -35,7 +35,7 @@ Den nya v2-SKU: N innehåller följande förbättringar:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Standard_v2 och WAF_v2 SKU finns i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, Nordeuropa, Västeuropa, Sydostasien, Frankrike, centrala, Storbritannien, västra, östra Japan, västra Japan. Fler regioner kommer att läggas till i framtiden.
+Standard_v2 och WAF_v2 SKU finns i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, Nordeuropa, Västeuropa, Sydostasien, Frankrike, centrala, Storbritannien, västra, östra Japan, Japan västra, Östra Australien, sydöstra Australien, Kanada-centrala, Kanada, östra, Asien, Korea Centrala Korea Brasilien, södra Indien, Storbritannien, södra centrala Indien, västra Indien, södra Indien.
 
 ## <a name="pricing"></a>Prissättning
 

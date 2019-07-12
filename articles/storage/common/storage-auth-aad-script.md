@@ -9,12 +9,12 @@ ms.date: 04/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fe142439dc80af660d286e5913fee13d4de8e86
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147300"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625664"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Kör Azure CLI eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter på dataåtkomst för blob eller en kö
 
@@ -26,7 +26,7 @@ Du kan tilldela behörigheter till blob och kö data till en Azure AD-säkerhets
 
 Tillägg som stöds för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-säkerhetsobjekt som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Exempel: Om du har tilldelats den **Blob Data-läsare** rollen och du kan köra skriptkommandon som läser data från en behållare eller en kö. Om du har tilldelats den **Blob Data-deltagare** rollen och du kan köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
 
-Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kön finns [behörigheter för att anropa REST-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
+Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kön finns [anropa lagringsåtgärder med OAuth-token](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Anropa CLI-kommandon med hjälp av Azure AD-autentiseringsuppgifter
 

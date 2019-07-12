@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055109"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654219"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Microsoft-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Skapa ett program för Microsoft-konto
 
-Att använda ett microsoftkonto som ett [identitetsprovider](active-directory-b2c-reference-oidc.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Microsoft-konto, kan du hämta den på [ https://www.live.com/ ](https://www.live.com/).
+Att använda ett microsoftkonto som ett [identitetsprovider](active-directory-b2c-reference-oidc.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i Azure AD-klient. Azure AD-klienten är inte samma som din Azure AD B2C-klient. Om du inte redan har ett Microsoft-konto kan du skaffa en vid [ https://www.live.com/ ](https://www.live.com/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Kontrollera att du använder den katalog som innehåller Azure AD-klienten genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
-1. Välj **ny registrering**
+1. Välj **ny registrering**.
 1. Ange en **namn** för ditt program. Till exempel *MSAapp1*.
 1. Under **stöds kontotyper**väljer **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)** . Det här alternativet riktar sig mot den bredaste uppsättningen Microsoft-identiteter.
 

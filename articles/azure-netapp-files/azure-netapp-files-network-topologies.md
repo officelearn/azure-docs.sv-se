@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331982"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705208"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
 Planering av arkitekturen är en viktig komponent i alla programinfrastruktur kan utformas. Den här artikeln hjälper dig utforma en effektiv nätverksarkitektur för dina arbetsbelastningar kan dra nytta av de avancerade funktionerna i Azure NetApp-filer.
 
-Azure NetApp filer volymer är utformade för att ingå i ett särskilt ändamål undernät med namnet [delegerad undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) inom ditt virtuella Azure-nätverk. Du kan därför åtkomst till volymerna direkt från ditt virtuella nätverk, från peer-kopplade virtuella nätverk i samma region eller från en lokal plats via en virtuell nätverksgateway (ExpressRoute eller VPN-Gateway) efter behov. Undernätet är dedikerad till Azure NetApp Files och det finns ingen nätverksanslutning till andra Azure-tjänster eller internet.
+Azure NetApp filer volymer är utformade för att ingå i ett undernät för särskilda ändamål som kallas en [delegerad undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) inom ditt virtuella Azure-nätverk. Du kan därför åtkomst till volymerna direkt från ditt virtuella nätverk, från peer-kopplade virtuella nätverk i samma region eller från en lokal plats via en virtuell nätverksgateway (ExpressRoute eller VPN-Gateway) efter behov. Undernätet är dedikerad till Azure NetApp Files och det finns ingen nätverksanslutning till andra Azure-tjänster eller Internet.
 
 ## <a name="considerations"></a>Överväganden  
 
@@ -35,7 +35,7 @@ När du planerar för Azure NetApp filer, nätverk, bör du förstå några sake
 
 Nedanstående funktioner finns för närvarande inte stöd för Azure NetApp-filer: 
 
-* Nätverkssäkerhetsgrupper (NSG) på undernät
+* Nätverkssäkerhetsgrupper (NSG) som tillämpas på det delegerade undernätet
 * Användardefinierade vägar (Udr) med nästa hopp som Azure NetApp filer undernät
 * Azure-principer (till exempel anpassade namngivningsprinciper) i Azure NetApp Files-gränssnitt
 * Belastningsutjämnare för Azure NetApp Files trafik
@@ -54,7 +54,7 @@ I följande tabell beskrivs nätverkstopologier som stöds av Azure NetApp filer
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Anslutningen till volym i ett lokalt virtuellt nätverk    |    Ja    |         |
 |    Anslutningen till volymen i en peer-kopplade virtuella nätverket (samma region)    |    Ja    |         |
-|    Anslutningen till volymen i en peer-kopplade virtuella nätverk (mellan region eller global peering)    |    Nej    |    Ingen    |
+|    Anslutningen till volymen i en peer-kopplade virtuella nätverk (mellan region eller global peering)    |    Nej    |    Inga    |
 |    Anslutning till en volym via ExpressRoute-gateway    |    Ja    |         |
 |    Anslutningen från en lokal plats till en volym i ett virtuellt ekernätverk över ExpressRoute-gateway och VNet-peering med gateway-överföring    |    Nej    |    Skapa en delegerad undernät i det virtuella hubbnätverket (Azure VNet med Gateway)    |
 |    Anslutningen från en lokal plats till en volym i ett virtuellt ekernätverk över VPN gateway    |    Ja    |         |
@@ -71,7 +71,7 @@ Innan du etablerar en Azure NetApp Files volym som du behöver skapa ett Azure-n
 
 ### <a name="subnets"></a>Undernät
 
-Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurser i dessa.  Azure NetApp filer volymer som finns i ett undernät för särskilda ändamål som kallas [delegerad undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurser i dessa.  Azure NetApp filer volymer som finns i ett undernät för särskilda ändamål som kallas en [delegerad undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 Undernät delegering ger explicit behörighet till Azure NetApp Files-tjänsten för att skapa tjänstspecifika resurser i undernätet.  Den använder en unik identifierare i distribuera tjänsten. I det här fallet skapas ett nätverksgränssnitt för att aktivera anslutning till Azure NetApp-filer.
 
@@ -99,7 +99,7 @@ Ett enkelt scenario är att skapa eller Anslut till en Azure NetApp Files-volym 
 
 Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst till varandras resurser kan de virtuella nätverken kan anslutas med hjälp av [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) för säkra anslutningar via Azure-infrastrukturen. 
 
-Överväg att VNet 2 och 3 för virtuellt nätverk i diagrammet ovan. Om VM 1 behöver ansluta till VM 2 och volym 2, eller om VM 2 behöver ansluta till VM-1 eller volym 1, måste du aktivera VNet-peering mellan virtuella nätverk 2 och 3 för virtuellt nätverk. 
+Överväg att VNet 2 och 3 för virtuellt nätverk i diagrammet ovan. Om VM 2 behöver ansluta till virtuell dator 3 eller volym 2, eller om virtuell dator 3 behöver ansluta till VM 2 eller volym 1, måste du aktivera VNet-peering mellan virtuella nätverk 2 och 3 för virtuellt nätverk. 
 
 Överväg även ett scenario där VNet 1 peer-kopplas med VNet-2 och VNet 2 peer-kopplas med VNet-3 i samma region. Resurser från 1 virtuellt nätverk kan ansluta till resurser i VNet-2, men den inte kan ansluta till resurser i VNet 3, såvida inte VNet 1 och 3 för virtuellt nätverk är peer-kopplade. 
 
@@ -111,15 +111,15 @@ Följande diagram illustrerar en hybridmiljö:
 
 ![Hybrid nätverksmiljö](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-I ett hybridscenario behöver program från lokala Datacenter åtkomst till resurser i Azure.  Detta gäller oavsett om du vill utöka ditt datacenter till Azure, eller om du vill använda interna Azure-tjänster eller för katastrofåterställning. Se [VPN Gateway planning alternativ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
+I ett hybridscenario behöver program från lokala Datacenter åtkomst till resurser i Azure.  Detta gäller oavsett om du vill utöka ditt datacenter till Azure, eller om du vill använda interna Azure-tjänster eller för katastrofåterställning. Se [VPN Gateway planning alternativ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) information om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
 
 I en hybrid hub-spoke fungerar det virtuella hubbnätverket i Azure som en central plats för anslutning till det lokala nätverket. Ekrarna är virtuella nätverk som peer-kopplas med hubben och de kan användas till att isolera arbetsbelastningar.
 
-Beroende på konfiguration. Du kan ansluta resurser från en lokal plats till resurser i hubben och ekrarna.
+Beroende på konfigurationen, kan du ansluta lokala resurser till resurser i hubben och ekrarna.
 
 Det lokala nätverket är anslutet till ett virtuellt nätverk i Azure-hubb i topologin som visas ovan, och det finns 2 eker virtuella nätverk i samma region som är peerkopplat med det virtuella hubbnätverket.  I det här scenariot är de anslutningsalternativ som stöds för Azure NetApp Files volymer på följande sätt:
 
-* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volym 1 i hubben via en plats-till-plats VPN eller Express Route. 
+* Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volym 1 i hubben via en plats-till-plats VPN eller ExpressRoute-krets. 
 * Lokala resurser VM 1 och 2 för virtuell dator kan ansluta till volymen 2 eller 3 för volym via en plats-till-plats-VPN och en regional Vnet-peering.
 * VM-3 i hubben virtuellt nätverk kan ansluta till volymen 2 i eker 1 virtuellt nätverk och volym 3 i eker 2 för virtuella nätverk.
 * VM 4 från eker 1 virtuellt nätverk och VM-5 från eker 2 för virtuella nätverk kan ansluta till volym 1 i det virtuella hubbnätverket.

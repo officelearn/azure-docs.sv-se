@@ -4,7 +4,7 @@ description: Lär dig hur du ställer in MPI för HPC på Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441654"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797516"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Konfigurera Message Passing Interface för HPC
 
@@ -126,7 +126,7 @@ Processen fästa fungerar som 15, 30 och 60 PPN som standard.
 
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI prestandamått
 
-[Hämta OSU MPI prestandamått] [ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/) och untar.
+[Ladda ned OSU MPI prestandamått](http://mvapich.cse.ohio-state.edu/benchmarks/) och untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ MPI prestandamått är `mpi/` mapp.
 
 ## <a name="discover-partition-keys"></a>Identifiera partitionsnycklar
 
-Upptäck partitionsnycklar (p-nycklar) för att kommunicera med andra virtuella datorer.
+Upptäck partitionsnycklar (p-nycklar) för att kommunicera med andra virtuella datorer i samma klient (Tillgänglighetsuppsättning eller VM-Skalningsuppsättning).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Använd partition än standard (0x7fff) partitionsnyckel. UCX kräver MSB av p-nyckel som ska tas bort. Till exempel UCX_IB_PKEY som 0x000b för 0x800b.
 
+Observera också att så länge klienten (AVSet eller VMSS) finns PKEYs förblir desamma. Detta gäller även när noderna är har lagts till/tas bort. Nya klienter få olika PKEYs.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Konfigurera användarbegränsningar för MPI
 
 Ställ in användarbegränsningar för MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

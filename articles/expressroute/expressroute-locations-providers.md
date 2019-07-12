@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: jaredr80
-ms.openlocfilehash: bda5fb8a267fae3309c73678465693e1fef9b838
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 21d06dfaecb0448194355f13978483779a2ff6be
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565946"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805686"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -79,7 +79,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Amsterdam** | Equinix | Västra Europa | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | Västra Europa | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | Saknas | Equinix, Megaport |
-| **Auckland** | Vocus | Saknas | Devoli, Megaport |
+| **Auckland** | Vocus | Saknas | Devoli, Kordia, Megaport |
 | **Busan** |LG CNS | Sydkorea, södra | LG CNS |
 | **Canberra** | CDC | Australien, centrala | CDC |
 | **Canberra2** | CDC | Australien, centrala 2| CDC |
@@ -93,7 +93,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Dubai2** | du datamena | Förenade Arabemiraten, norra | du datamena, Orixcom |
 | **Dublin** | Equinix | Norra Europa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | Saknas | DE-CIX, Interxion |
-| **Hongkong SAR** | Equinix | Östasien | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hongkong SAR** | Equinix | Östasien | Aryaka nätverk, British Telecom CenturyLink Cloud Connect, Chief telekom, Kina Kostnadsuppföljning av globala, Equinix, Megaport, NTT Communications, Orange, PCCW globala begränsad, Tata Communications, Telia operatör, Verizon |
 | **Johannesburg** | Teraco | Sydafrika, norra | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | Saknas | TIME dotCom |
 | **Las Vegas** | Växel | Saknas | CenturyLink Cloud Connect, Megaport |
@@ -108,7 +108,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Mumbai2** | Airtel | Indien, västra | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | Saknas | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport(Wales)** | Nästa generations data | Storbritannien, västra | British Telecom, Colt, Level 3 Communications, nästa generations brandvägg |
-| **Osaka** | Equinix | Västra Japan | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **Osaka** | Equinix | Västra Japan | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | Frankrike, centrala | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | Saknas | Megaport, NextDC |
 | **Quebec City** | 4Degrees | Östra Kanada | Bell Canada, Megaport |
@@ -126,7 +126,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Toronto** | Cologix | Centrala Kanada | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Washington DC** | Equinix | Östra USA, östra USA 2 | Aryaka Networks, AT & T NetBond, British Telecom, CenturyLink moln ansluta, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona nätverk, NTT Communications, Orange, PacketFabric, Sprint, Tata Kommunikation, Telia operatör, Verizon, Zayo |
 | **Washington DC2** | Coresite | Östra USA, östra USA 2 |Coresite | 
-| **Zürich** | Interxion | Saknas | Interxion |
+| **Zürich** | Interxion | Saknas | Intercloud, Interxion |
 
  **+** kommer snart
 
@@ -142,7 +142,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **San Antonio** | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications, Verizon |
 | **Seattle** | Equinix, Megaport |
-| **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Megaport, Verizon |
+| **Washington DC** |AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Kina
 | **Location** | **Tjänstleverantörer** |

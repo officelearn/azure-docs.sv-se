@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187022"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673536"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Konfigurera programmet för att få åtkomst till Azure Storage
 Det finns två sätt att autentisera ditt program för att få åtkomst till lagringstjänster:
@@ -38,11 +38,11 @@ Här är ett exempel på anslutningssträngen med hjälp av autentisering med de
 
 ### <a name="shared-access-signatures-sas"></a>Signaturer för delad åtkomst (SAS)
 För mobila program är den rekommenderade metoden för att autentisera en begäran från en klient mot Azure Storage-tjänsten med hjälp av en signatur för delad åtkomst (SAS). SAS kan du bevilja en klientåtkomst till en resurs för en angiven tidsperiod, med en angiven uppsättning behörigheter.
-Som Kontoägare lagring måste du generera en SAS för mobila klienter att använda. Om du vill generera SAS vill du förmodligen att skriva en separat tjänst som genererar SAS ska distribueras till dina klienter. I testsyfte kan du använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) eller [Azure-portalen](https://portal.azure.com) att generera en SAS. När du har skapat SAS kan ange du tidsintervallet som Signaturen är giltig och de behörigheter som SAS ger till klienten.
+Som Kontoägare lagring måste du generera en SAS för mobila klienter att använda. Om du vill generera SAS vill du förmodligen att skriva en separat tjänst som genererar SAS ska distribueras till dina klienter. I testsyfte kan du använda den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) eller [Azure-portalen](https://portal.azure.com) att generera en SAS. När du har skapat SAS kan ange du tidsintervallet som Signaturen är giltig och de behörigheter som SAS ger till klienten.
 
 I följande exempel visas hur du använder Microsoft Azure Storage Explorer för att generera en SAS.
 
-1. Om du inte redan gjort [installera Microsoft Azure Storage Explorer](http://storageexplorer.com)
+1. Om du inte redan gjort [installera Microsoft Azure Storage Explorer](https://storageexplorer.com)
 2. Ansluta till din prenumeration.
 3. Klicka på ditt lagringskonto och klicka på fliken ”åtgärder” längst ned till vänster. Klicka på ”Hämta signatur för delad åtkomst” för att generera en ”anslutningssträng” för din SAS.
 4. Här är ett exempel på en SAS-anslutningssträng som ger Läs- och skrivbehörighet på tjänsten, behållare och objektnivå för blob-tjänsten för Storage-konto.

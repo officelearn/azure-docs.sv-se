@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462419"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839937"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -42,7 +42,7 @@ Du kan kopiera data från följande datalager *till en Oracle-databas*:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Data Factory stöder anslutning till en lokal Oracle källor med hjälp av Data Management Gateway. Se [Data Management Gateway](data-factory-data-management-gateway.md) mer information om Data Management Gateway. Stegvisa instruktioner om hur du ställer in gateway i en datapipeline för att flytta data finns i [flytta data från lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -83,7 +83,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet. Pipelinen flyttar data till
 
 Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [självstudien: Skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden kopieringsdata.
 
-Du kan också använda en av följande verktyg för att skapa en pipeline: den **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mallen**, **.NET API**, eller **REST API**. Se den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
+Du kan också använda en av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager-mall**, **.NET API**, eller **REST API**. Se den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er, utför du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -170,7 +170,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd anpassad fråga för att läsa data. |En SQL-sträng. Till exempel ”Välj \* från **MyTable**”. <br/><br/>Om inte anges den här SQL-instruktionen körs ”: Välj \* från **MyTable**” |Nej<br />(om **tableName** av **datauppsättning** har angetts) |
 
@@ -187,7 +187,7 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob storage. Dock datan kan kopieras till någon av de mottagare som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob storage. Dock datan kan kopieras till någon av de mottagare som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
 
 **Exempel: Kopiera data från Oracle till Azure Blob storage**
 
@@ -599,27 +599,27 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(stöds bara på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |Sträng |
+| CLOB |Sträng |
 | DATE |DateTime |
 | FLOAT |Decimal, String (om precision > 28) |
 | INTEGER |Decimal, String (om precision > 28) |
 | INTERVALL ÅRETS MÅNAD |Int32 |
 | INTERVALL DAG TILL ANDRA |TimeSpan |
-| LONG |String |
+| LONG |Sträng |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Sträng |
+| NCLOB |Sträng |
 | NUMBER |Decimal, String (om precision > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Sträng |
 | RAW |Byte[] |
-| ROWID |String |
-| TIDSSTÄMPEL |DateTime |
+| ROWID |Sträng |
+| TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Sträng |
+| XML |Sträng |
 
 > [!NOTE]
 > Datatyper **intervall år till månad** och **intervall dag till andra** stöds inte när du använder en Microsoft-drivrutin.

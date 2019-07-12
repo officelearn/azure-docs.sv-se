@@ -4,7 +4,7 @@ description: Du kan använda de här detaljerade felsökningsanvisningar för at
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: Det går inte att starta programmet, programmet kan inte öppnas, lyssningsport block, det går inte att starta programmet, lyssningsport blockerad
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922317"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710530"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Felsöka problem med programanslutningar på virtuella datorer i Azure
 
@@ -42,7 +42,7 @@ Om du har problem med att ansluta till ett program kan du prova följande allmä
   * [Resource Manager-modellen – hantera Nätverkssäkerhetsgrupper](../../virtual-network/manage-network-security-group.md)
   * [Klassiska modellen – hantera molntjänster slutpunkter](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Ansluta från en annan plats, till exempel ett annat Azure virtuellt nätverk
-* Distribuera om den virtuella datorn
+* Omdistribuera den virtuella datorn
   * [Distribuera om Windows VM](redeploy-to-new-node-windows.md)
   * [Distribuera om virtuell Linux-dator](redeploy-to-new-node-linux.md)
 * Återskapa den virtuella datorn

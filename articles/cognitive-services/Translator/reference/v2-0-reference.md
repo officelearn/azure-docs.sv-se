@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: a29e123c44ca198ce19db451ee4c624b6f993538
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c18c062d5537603284acb37081ac0a4eb8d2fd20
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705434"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797822"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -27,7 +27,7 @@ Version 2 av Translator Text API kan integreras smidigt i dina appar, webbplatse
 ## <a name="getting-started"></a>Komma igång
 Om du vill komma åt Translator Text API kan du behöva [registrera dig för Microsoft Azure](../translator-text-how-to-signup.md).
 
-## <a name="authentication"></a>Autentisering 
+## <a name="authentication"></a>Authentication 
 Alla anrop till Translator Text API krävs en prenumerationsnyckel för autentisering. API: et stöder tre autentiseringsmetoder:
 
 - En åtkomsttoken. Använd prenumerationsnyckel som refereras till i steg 9 för att skapa en åtkomsttoken genom att göra en POST-begäran till Autentiseringstjänsten. Se token service-dokumentationen för mer information. Skicka åtkomsttoken till Translator-tjänst med hjälp av den `Authorization` rubrik eller `access_token` frågeparameter. Åtkomsttoken är giltig i 10 minuter. Skaffa en ny åtkomsttoken var tionde minut och fortsätt att använda samma åtkomst-token för upprepade begäranden under 10 minuter.
@@ -49,7 +49,7 @@ Normalt sett behåller tjänsten Translator svordomar som finns i källan. Grade
 Du kan använda svordomar filtrering för de metoder som stöder det. Om du vill förhindra svordomar i översättningen även när den är i källtext. Alternativet kan du välja om du vill se svordomar tagits bort eller markerats med lämpliga taggar, eller om du vill tillåta svordomar i målet. Godkända värden för `ProfanityAction` är `NoAction` (standard), `Marked`, och `Deleted`.
 
 
-|ProfanityAction    |Åtgärd |Exempel källan (japanska)  |Exempel translation (på engelska)  |
+|ProfanityAction    |Action |Exempel källan (japanska)  |Exempel translation (på engelska)  |
 |:--|:--|:--|:--|
 |NoAction   |Standard. Samma som inte ange alternativet. Svordomar skickas från källan till målet.        |彼はジャッカスです。     |Han är en jackass.   |
 |Markerad     |Olämpliga ord. ska omges av XML-taggar \<svordomar > och \</profanity >.       |彼はジャッカスです。 |Han är en \<svordomar > jackass\</profanity >.  |
@@ -77,22 +77,22 @@ Om du tidigare använt `AddTranslation` eller `AddTranslationArray` att ange en 
 
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 
-string
+sträng
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning    |Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning    |Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid  |(tom)    |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|text|(tom)   |Krävs. En sträng som representerar text för översättning. Texten får inte innehålla fler än 10 000 tecken.|query|string|
-|from|(tom)   |Valfri. En sträng som representerar språkkoden för den text som översätts. Till exempel en för engelska.|query|string|
-|till|(tom) |Krävs. En sträng som representerar koden för språk att översätta text i.|query|string|
-|contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är `text/plain` (standard) och `text/html`. HTML-element måste vara korrekt strukturerad, fullständig element.|query|string|
-|category|(tom)   |Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.|query|string|
-|Auktorisering|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid  |(tom)    |Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|text|(tom)   |Obligatoriskt. En sträng som representerar text för översättning. Texten får inte innehålla fler än 10 000 tecken.|query|sträng|
+|from|(tom)   |Valfri. En sträng som representerar språkkoden för den text som översätts. Till exempel en för engelska.|query|sträng|
+|till|(tom) |Obligatoriskt. En sträng som representerar koden för språk att översätta text i.|query|sträng|
+|contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är `text/plain` (standard) och `text/html`. HTML-element måste vara korrekt strukturerad, fullständig element.|query|sträng|
+|category|(tom)   |Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.|query|sträng|
+|Authorization|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -136,7 +136,7 @@ Här är formatet för förfrågans text:
 Dessa element är i `TranslateArrayRequest`:
 
 
-* `AppId`: Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
+* `AppId`: Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
 * `From`: Valfri. En sträng som representerar språkkoden för den text som översätts. Om fältet lämnas tomt används innehåller svaret resultatet av automatisk språkidentifiering.
 * `Options`: Valfri. En `Options` objekt som innehåller följande värden. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
     - `Category`: En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.
@@ -145,8 +145,8 @@ Dessa element är i `TranslateArrayRequest`:
     - `State`: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
     - `Uri`: Filtrera resultaten av den här URI: N. Standard: `all`.
     - `User`: Filtrera resultaten av den här användaren. Standard: `all`.
-* `Texts`: Krävs. En matris som innehåller text för översättning. Alla strängar måste vara på samma språk. Summan av alla text för översättning får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 2 000.
-* `To`: Krävs. En sträng som representerar koden för språk att översätta text i.
+* `Texts`: Obligatoriskt. En matris som innehåller text för översättning. Alla strängar måste vara på samma språk. Summan av alla text för översättning får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 2 000.
+* `To`: Obligatoriskt. En sträng som representerar koden för språk att översätta text i.
 
 Du kan utelämna valfria element. Element som är direkt underordnade till `TranslateArrayRequest` måste anges i alfabetisk ordning.
 
@@ -182,16 +182,16 @@ Här är formatet för svarstexten:
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 Ett lyckat svar innehåller en matris med `TranslateArrayResponse` matriser i formatet som beskrivs tidigare.
 
-string
+sträng
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|Authorization|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -223,18 +223,18 @@ Begärandetexten innehåller en strängmatris som representerar ISO 639-1-språk
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 En strängmatris som innehåller namn på språk som stöds av tjänsten Translator lokaliserad till det begärda språket.
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|Nationella inställningar|(tom) |Krävs. En sträng som representerar en av följande, som används för att lokalisera Språknamnen: <ul><li>Kombinationen av en ISO 639 två bokstäver gemener kultur-kod som är associerad med ett språk och en ISO 3166 två bokstäver versaler subkultur kod. <li>En gemen kultur-kod för ISO 639 ensamt.|query|string|
-|Auktorisering|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|Nationella inställningar|(tom) |Obligatoriskt. En sträng som representerar en av följande, som används för att lokalisera Språknamnen: <ul><li>Kombinationen av en ISO 639 två bokstäver gemener kultur-kod som är associerad med ett språk och en ISO 3166 två bokstäver versaler subkultur kod. <li>En gemen kultur-kod för ISO 639 ensamt.|query|sträng|
+|Authorization|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -257,17 +257,17 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/GetLanguag
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 En strängmatris som innehåller språkkoder som stöds av tjänsten Translator.
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|Auktorisering|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|Authorization|(tom)  |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -290,17 +290,17 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/GetLanguag
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 En strängmatris som innehåller språkkoder som stöds för talsyntes av Translator-tjänsten.
 
-string
+sträng
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
  
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -326,17 +326,17 @@ binary
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|text|(tom)   |Krävs. En sträng som innehåller en eller flera meningar som ska talas för strömmen i det angivna språket. Texten får inte överskrida 2 000 tecken.|query|string|
-|language|(tom)   |Krävs. En sträng som representerar språkkod som stöds för det språk som du vill tala texten. Koden måste vara ett nummer som returneras av-metoden `GetLanguagesForSpeak`.|query|string|
-|format|(tom)|Valfri. En sträng som anger innehållstypen-ID. För närvarande `audio/wav` och `audio/mp3` är tillgängliga. Standardvärdet är `audio/wav`.|query|string|
-|options|(tom)    |Valfri. En sträng som anger egenskaperna för syntetiskt tal:<ul><li>`MaxQuality` och `MinSize` ange ljudsignalen kvalitet. `MaxQuality` ger högsta kvalitet. `MinSize` innehåller den minsta filstorleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` ange önskad kön för röst. Standardvärdet är `female`. Använder vertikalstreck (<code>\|</code>) med flera alternativ. Till exempel `MaxQuality|Male`.</li></li></ul>  |query|string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|text|(tom)   |Obligatoriskt. En sträng som innehåller en eller flera meningar som ska talas för strömmen i det angivna språket. Texten får inte överskrida 2 000 tecken.|query|sträng|
+|language|(tom)   |Obligatoriskt. En sträng som representerar språkkod som stöds för det språk som du vill tala texten. Koden måste vara ett nummer som returneras av-metoden `GetLanguagesForSpeak`.|query|sträng|
+|format|(tom)|Valfri. En sträng som anger innehållstypen-ID. För närvarande `audio/wav` och `audio/mp3` är tillgängliga. Standardvärdet är `audio/wav`.|query|sträng|
+|options|(tom)    |Valfri. En sträng som anger egenskaperna för syntetiskt tal:<ul><li>`MaxQuality` och `MinSize` ange ljudsignalen kvalitet. `MaxQuality` ger högsta kvalitet. `MinSize` innehåller den minsta filstorleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` ange önskad kön för röst. Standardvärdet är `female`. Använder vertikalstreck (<code>\|</code>) med flera alternativ. Till exempel `MaxQuality|Male`.</li></li></ul>  |query|sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -358,18 +358,18 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 
-string
+sträng
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)  |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|text|(tom)|Krävs. En sträng som innehåller text vars språk ska identifieras. Texten får inte överstiga 10 000 tecken.|query|  string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key  |(tom)    |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)  |Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|text|(tom)|Obligatoriskt. En sträng som innehåller text vars språk ska identifieras. Texten får inte överstiga 10 000 tecken.|query|  sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key  |(tom)    |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -414,17 +414,17 @@ Här är formatet för svarstexten:
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 `DetectArray` lyckades. Returnerar en strängmatris som innehåller en två-teckens språkkod för varje rad i Indatamatrisen.
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -448,26 +448,26 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/AddTransla
 
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 
-string
+sträng
 
 Svar: program: xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp   |
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp   |
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|originalText|(tom)|Krävs. En sträng som innehåller text för översättning. Den maximala längden på strängen är 1 000 tecken.|query|string|
-|translatedText|(tom) |Krävs. En sträng som innehåller text översättas till mål-språk. Den maximala längden på strängen är 2 000 tecken.|query|string|
-|from|(tom)   |Krävs. En sträng som representerar språkkoden för det ursprungliga språket i texten. Till exempel, en för engelska och de för tyska.|query|string|
-|till|(tom)|Krävs. En sträng som representerar språkkod för språket som ska Översätt text i.|query|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|originalText|(tom)|Obligatoriskt. En sträng som innehåller text för översättning. Den maximala längden på strängen är 1 000 tecken.|query|sträng|
+|translatedText|(tom) |Obligatoriskt. En sträng som innehåller text översättas till mål-språk. Den maximala längden på strängen är 2 000 tecken.|query|sträng|
+|from|(tom)   |Obligatoriskt. En sträng som representerar språkkoden för det ursprungliga språket i texten. Till exempel, en för engelska och de för tyska.|query|sträng|
+|till|(tom)|Obligatoriskt. En sträng som representerar språkkod för språket som ska Översätt text i.|query|sträng|
 |rating|(tom) |Valfri. Ett heltal som motsvarar kvalitet klassificering för strängen. Värdet är mellan -10 och 10. Standardvärdet är 1.|query|integer|
-|contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är `text/plain` och `text/html`. HTML-element måste vara korrekt strukturerad, fullständig element.    |query|string|
-|category|(tom)|Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.|query|string|
-|Användare|(tom)|Krävs. En sträng som används för att spåra avsändaren av överföringen.|query|string|
-|URI: N|(tom)|Valfri. En sträng som innehåller innehållsplats översättningens.|query|string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.  |sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är `text/plain` och `text/html`. HTML-element måste vara korrekt strukturerad, fullständig element.    |query|sträng|
+|category|(tom)|Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.|query|sträng|
+|Användare|(tom)|Obligatoriskt. En sträng som används för att spåra avsändaren av överföringen.|query|sträng|
+|URI: N|(tom)|Valfri. En sträng som innehåller innehållsplats översättningens.|query|sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.  |sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -516,27 +516,27 @@ Här är formatet för förfrågans text:
 
 Dessa element är i `AddtranslationsRequest`:
 
-* `AppId`: Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
-* `From`: Krävs. En sträng som innehåller språkkod för språket som källa. Måste vara något av de språk som returneras av den `GetLanguagesForTranslate` metoden.
-* `To`: Krävs. En sträng som innehåller språkkod för språket som mål. Måste vara något av de språk som returneras av den `GetLanguagesForTranslate` metoden.
-* `Translations`: Krävs. En matris med översättningar för att lägga till i översättningsminnen. Varje översättning måste innehålla `OriginalText`, `TranslatedText`, och `Rating`. Den maximala storleken för varje `OriginalText` och `TranslatedText` är 1 000 tecken. Summan av alla `OriginalText` och `TranslatedText` element får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 100.
-* `Options`: Krävs. En uppsättning alternativ, inklusive `Category`, `ContentType`, `Uri`, och `User`. `User` krävs. `Category`, `ContentType`, och `Uri` är valfria. Angivna elementen måste anges i alfabetisk ordning.
+* `AppId`: Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
+* `From`: Obligatoriskt. En sträng som innehåller språkkod för språket som källa. Måste vara något av de språk som returneras av den `GetLanguagesForTranslate` metoden.
+* `To`: Obligatoriskt. En sträng som innehåller språkkod för språket som mål. Måste vara något av de språk som returneras av den `GetLanguagesForTranslate` metoden.
+* `Translations`: Obligatoriskt. En matris med översättningar för att lägga till i översättningsminnen. Varje översättning måste innehålla `OriginalText`, `TranslatedText`, och `Rating`. Den maximala storleken för varje `OriginalText` och `TranslatedText` är 1 000 tecken. Summan av alla `OriginalText` och `TranslatedText` element får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 100.
+* `Options`: Obligatoriskt. En uppsättning alternativ, inklusive `Category`, `ContentType`, `Uri`, och `User`. `User` krävs. `Category`, `ContentType`, och `Uri` är valfria. Angivna elementen måste anges i alfabetisk ordning.
 
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 `AddTranslationArray` metoden har slutförts. 
 
 Efter den 31 januari 2018 godkännas mening bidrag inte. Tjänsten svarar med felkoden 410.
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -564,15 +564,15 @@ integer
 
 Svar: application/xml
 
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)  |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query| string|
-|text|(tom)   |Krävs. En sträng som representerar texten som ska delas upp i meningar. Den maximala storleken på texten är 10 000 tecken.|query|string|
-|language   |(tom)    |Krävs. En sträng som representerar språkkoden för den inmatade texten.|query|string|
-|Auktorisering|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.   |sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)  |Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query| sträng|
+|text|(tom)   |Obligatoriskt. En sträng som representerar texten som ska delas upp i meningar. Den maximala storleken på texten är 10 000 tecken.|query|sträng|
+|language   |(tom)    |Obligatoriskt. En sträng som representerar språkkoden för den inmatade texten.|query|sträng|
+|Authorization|(tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.   |sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)|Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -657,21 +657,21 @@ Den `TranslationMatch` består av följande värden:
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 En `GetTranslationsResponse` objekt i formatet som beskrivs tidigare.
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|string|
-|text|(tom)|Krävs. En sträng som representerar text för översättning. Den maximala storleken på texten är 10 000 tecken.|query|string|
-|from|(tom)|Krävs. En sträng som representerar språkkoden för den text som översätts.|query|string|
-|till |(tom)    |Krävs. En sträng som representerar språkkod för språket som ska Översätt text i.|query|string|
-|maxTranslations|(tom)|Krävs. Ett heltal som representerar det maximala antalet översättningar ska returneras.|query|integer|
-|Auktorisering| (tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|string|  sidhuvud|
-|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|appid|(tom)|Obligatoriskt. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna den `appid` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.|query|sträng|
+|text|(tom)|Obligatoriskt. En sträng som representerar text för översättning. Den maximala storleken på texten är 10 000 tecken.|query|sträng|
+|from|(tom)|Obligatoriskt. En sträng som representerar språkkoden för den text som översätts.|query|sträng|
+|till |(tom)    |Obligatoriskt. En sträng som representerar språkkod för språket som ska Översätt text i.|query|sträng|
+|maxTranslations|(tom)|Obligatoriskt. Ett heltal som representerar det maximala antalet översättningar ska returneras.|query|integer|
+|Authorization| (tom)|Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sträng|  sidhuvud|
+|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -713,9 +713,9 @@ Här är formatet för förfrågans text:
 
 `GetTranslationsArrayRequest` innehåller följande element:
 
-* `AppId`: Krävs. Om den `Authorization` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
-* `From`: Krävs. En sträng som representerar språkkoden för den text som översätts.
-* `MaxTranslations`: Krävs. Ett heltal som representerar det maximala antalet översättningar ska returneras.
+* `AppId`: Obligatoriskt. Om den `Authorization` huvud används, lämna den `AppId` fält tomma. I annat fall är en sträng som innehåller `"Bearer" + " " + "access_token"`.
+* `From`: Obligatoriskt. En sträng som representerar språkkoden för den text som översätts.
+* `MaxTranslations`: Obligatoriskt. Ett heltal som representerar det maximala antalet översättningar ska returneras.
 * `Options`: Valfri. En `Options` objekt som innehåller följande värden. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
     - `Category`: En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är `general`.
     - `ContentType`: Det är det enda alternativet som stöds och standard, `text/plain`.
@@ -729,8 +729,8 @@ Här är formatet för förfrågans text:
 * `State`: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
 * `Uri`: Filtrera resultaten av den här URI: N. Om inget värde anges är standardvärdet `all`.
 * `User`: Filtrera resultaten av den här användaren. Om inget värde anges är standardvärdet `all`.
-* `Texts`: Krävs. En matris som innehåller text för översättning. Alla strängar måste vara på samma språk. Summan av alla text för översättning får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 10.
-* `To`: Krävs. En sträng som representerar språkkod för språket som ska Översätt text i.
+* `Texts`: Obligatoriskt. En matris som innehåller text för översättning. Alla strängar måste vara på samma språk. Summan av alla text för översättning får inte överstiga 10 000 tecken. Det maximala antalet matriselement är 10.
+* `To`: Obligatoriskt. En sträng som representerar språkkod för språket som ska Översätt text i.
 
 Du kan utelämna valfria element. Element som är direkt underordnade till `GetTranslationsArrayRequest` måste anges i alfabetisk ordning.
 
@@ -780,16 +780,16 @@ Den `TranslationMatch` objektet innehåller följande värden:
 
 ### <a name="response-class-status-200"></a>Svaret klass (status 200)
 
-string
+sträng
 
 Svar: application/xml
  
-### <a name="parameters"></a>Parametrars
+### <a name="parameters"></a>Parametrar
 
-|Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
+|Parameter|Value|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering  |(tom)    |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|string|
-|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|string|
+|Authorization  |(tom)    |Krävs om både den `appid` fält och `Ocp-Apim-Subscription-Key` rubrik är tom.  Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
+|OCP-Apim-Subscription-Key|(tom)  |Krävs om både den `appid` fält och `Authorization` rubrik är tom.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
@@ -803,6 +803,6 @@ Svar: application/xml
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Migrera till Translator Text API v3 ](../migrate-to-v3.md)
+> [Migrera till Translator Text API v3](../migrate-to-v3.md)
 
 

@@ -4,7 +4,7 @@ description: Lär dig hur du skapar en Linux-dator i Azure som använder Managed
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391369"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667950"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
 
@@ -54,8 +54,8 @@ Följande huvuden krävs:
 
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
-| *Content-Type:*  | Krävs. Ange `application/json`. |
-| *Authorization:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Content-Type:*  | Obligatoriskt. Ange `application/json`. |
+| *Authorization:* | Obligatoriskt. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Allmän information om hur du arbetar med REST API-begäranden finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -63,10 +63,10 @@ Allmän information om hur du arbetar med REST API-begäranden finns i [komponen
 
 Följande vanliga definitioner används för att skapa en brödtext i begäran:
 
-| Namn                       | Obligatoriskt | Typ                                                                                | Beskrivning  |
+| Namn                       | Krävs | Typ                                                                                | Beskrivning  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | string                                                                              | Resursplats. |
-| name                       |          | string                                                                              | Namnet för den virtuella datorn. |
+| location                   | Sant     | sträng                                                                              | Resursplats. |
+| name                       |          | sträng                                                                              | Namnet för den virtuella datorn. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Anger maskinvaruinställningarna för den virtuella datorn. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Anger lagringsinställningar för för virtuella diskar. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger inställningar för operativsystemet för den virtuella datorn. |

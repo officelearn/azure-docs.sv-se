@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273112"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807213"
 ---
 # <a name="authentication-flows"></a>Autentiseringsflöden
 
@@ -166,7 +166,7 @@ IWA är för appar som är skrivna för .NET Framework och .NET Core Universal W
 
 IWA inte koppla förbi Multi-Factor authentication. Om multifaktorautentisering har konfigurerats, kan IWA misslyckas om en multifaktorautentisering utmaning krävs. Multifaktorautentisering kräver interaktion från användaren.
 
-Du inte har kontroll över när identitetsprovidern begär tvåfaktorsautentisering som ska utföras. Administratör tillåter. Vanligtvis krävs tvåfaktorsautentisering när du loggar in från ett annat land, när du inte är ansluten via VPN till ett företagsnätverk och ibland även när du är ansluten via VPN. Azure AD använder AI att kontinuerligt lära dig om tvåfaktorsautentisering krävs. Om det inte går att IWA, du bör växla över till en användaruppmaning (https://aka.ms/msal-net-interactive).
+Du inte har kontroll över när identitetsprovidern begär tvåfaktorsautentisering som ska utföras. Administratör tillåter. Vanligtvis krävs tvåfaktorsautentisering när du loggar in från ett annat land, när du inte är ansluten via VPN till ett företagsnätverk och ibland även när du är ansluten via VPN. Azure AD använder AI att kontinuerligt lära dig om tvåfaktorsautentisering krävs. Om det inte går att IWA, du bör växla över till en [interaktiv användare fråga] (#interactive).
 
 Behörighet när konstruera offentliga klientprogrammet måste vara något av följande:
 - Backups (i formatet `https://login.microsoftonline.com/{tenant}/` där `tenant` är antingen guid som representerar klient-ID eller en domän som är associerade med klient).

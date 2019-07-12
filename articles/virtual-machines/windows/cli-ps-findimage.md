@@ -4,7 +4,7 @@ description: Använda Azure PowerShell för att fastställa utgivare, erbjudande
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 893b71d3a1cc6ece8272cb1a372302ff384003dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb8feb13caebc938d9b56a985c07ceb06e211b24
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693772"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719184"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
 
@@ -129,7 +129,7 @@ $pubName="MicrosoftWindowsServer"
 Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
-Utdata:
+Resultat:
 
 ```
 Offer
@@ -194,7 +194,7 @@ $version = "2016.127.20170406"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-Utdata:
+Resultat:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
@@ -219,7 +219,7 @@ Exemplet nedan visar ett liknande kommando för den *virtuella dator för datave
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-Utdata:
+Resultat:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
@@ -250,7 +250,7 @@ Du kan visa licensvillkoren på [Get-AzMarketplaceterms](https://docs.microsoft.
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
-Utdata:
+Resultat:
 
 ```
 Publisher         : microsoft-ads
@@ -271,7 +271,7 @@ $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "wind
 Set-AzMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
 ```
 
-Utdata:
+Resultat:
 
 ```
 Publisher         : microsoft-ads

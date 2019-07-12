@@ -2,17 +2,17 @@
 title: Uppdatera och starta om Linux-noder med kured i Azure Kubernetes Service (AKS)
 description: Lär dig att uppdatera Linux-noder och automatiskt starta om dem med kured i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 580d1316c2bfc6514a148ed6fba78a8e77bd880e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055635"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614906"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Använda säkerhet och kernel-uppdateringar för Linux-noder i Azure Kubernetes Service (AKS)
 
@@ -20,16 +20,16 @@ För att skydda dina kluster kan tillämpas automatiskt säkerhetsuppdateringar 
 
 Processen för att hålla Windows-filservernoder (för närvarande i förhandsversion i AKS) är lite annorlunda. Windows Server-noder tar inte emot dagliga uppdateringar. I stället du har uppgraderat AKS som distribuerar nya noder med senaste basavbildningen med Windows Server och korrigeringar. AKS-kluster som använder Windows Server-noder kan se [uppgradera en nodpool i AKS][nodepool-upgrade].
 
-Den här artikeln visar hur du använder öppen källkod [kured (KUbernetes starta om Daemon)] [ kured] kan du titta på för Linux-noder som kräver en omstart, sedan automatiskt hanterar den ändra på tidsplanering för att köra poddar och nod Starta om processen.
+Den här artikeln visar hur du använder öppen källkod [kured (KUbernetes starta om Daemon)][kured] att titta på för Linux-noder som kräver en omstart och sedan automatiskt hanterar den ändra på tidsplanering för att köra poddar och node starta om processen.
 
 > [!NOTE]
 > `Kured` är ett projekt med öppen källkod av Weaveworks. Stöd för det här projektet i AKS tillhandahålls i mån av möjlighet. Ytterligare stöd finns i #weave-community slack-kanal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Förstå av uppdateringar för AKS-nod
 
@@ -39,7 +39,7 @@ I ett AKS-kluster kör Kubernetes-noderna som virtuella Azure-datorer (VM). Dess
 
 Vissa säkerhetsuppdateringar, till exempel kernel-uppdateringar kräver en nod startas om för att slutföra processen. En Linux-nod som kräver en omstart skapar en fil med namnet */var/run/reboot-required*. Den här processen för omstart sker inte automatiskt.
 
-Du kan använda din egen arbetsflöden och processer för att hantera omstarter av noden, eller använda `kured` att dirigera processen. Med `kured`, ett [DaemonSet] [ DaemonSet] distribueras som körs en pod på varje Linux-nod i klustret. Dessa poddar i DaemonSet Håll utkik efter förekomsten av den */var/run/reboot-required* fil och sedan startar en process för att starta om noderna.
+Du kan använda din egen arbetsflöden och processer för att hantera omstarter av noden, eller använda `kured` att dirigera processen. Med `kured`, ett [DaemonSet][DaemonSet] distribueras som körs en pod på varje Linux-nod i klustret. Dessa poddar i DaemonSet Håll utkik efter förekomsten av den */var/run/reboot-required* fil och sedan startar en process för att starta om noderna.
 
 ### <a name="node-upgrades"></a>Uppgraderingen
 
@@ -76,14 +76,14 @@ Om uppdateringar har tillämpats som kräver en omstart av nod, en fil skrivs ti
 
 När en av replikerna i DaemonSet har upptäckt att det krävs en omstart av nod, Lås ett för noden via API: et för Kubernetes. Den här låset förhindrar ytterligare poddar som schemaläggs på noden. Låset anger också att endast en nod ska startas om samtidigt. Med noden avspärrade körs poddar är tömda från noden och noden startas om.
 
-Du kan övervaka statusen för de noder som använder den [kubectl få noder] [ kubectl-get-nodes] kommando. Följande Exempelutdata visar en nod med statusen *SchedulingDisabled* eftersom noden förbereder för att starta om:
+Du kan övervaka statusen för de noder som använder den [kubectl få noder][kubectl-get-nodes] kommando. Följande Exempelutdata visar en nod med statusen *SchedulingDisabled* eftersom noden förbereder för att starta om:
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-När uppdateringen är klar kan du visa status för de noder som använder den [kubectl få noder] [ kubectl-get-nodes] med den `--output wide` parametern. Dessa ytterligare utdata kan du se en skillnad i *KERNEL-VERSION* av de underliggande noderna, som visas i följande Exempelutdata. Den *aks-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-azure*. Noden *aks-nodepool1-28993262-1* som inte har uppdaterat visar kernel-version *4.15.0-1037-azure*.
+När uppdateringen är klar kan du visa status för de noder som använder den [kubectl få noder][kubectl-get-nodes] med den `--output wide` parametern. Dessa ytterligare utdata kan du se en skillnad i *KERNEL-VERSION* av de underliggande noderna, som visas i följande Exempelutdata. Den *aks-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-azure*. Noden *aks-nodepool1-28993262-1* som inte har uppdaterat visar kernel-version *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME

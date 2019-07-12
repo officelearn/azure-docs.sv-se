@@ -2,17 +2,17 @@
 title: 'Kvoter, SKU: er och regiontillgänglighet i Azure Kubernetes Service (AKS)'
 description: Lär dig mer om standardkvoter, begränsad noden VM SKU-storlekar och regiontillgänglighet för Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901453"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614554"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Kvoter, begränsningar för VM-storlek och regiontillgänglighet i Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ För den senaste listan över var du kan distribuera och kör kluster, se [AKS r
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vissa standardgränser och kvoter kan ökas. Om din resurs har stöd för en ökning, begär ökning via en [Azure-supportbegäran] [ azure-support] (för **typ av problem**väljer **kvot** ).
+Vissa standardgränser och kvoter kan ökas. Om din resurs har stöd för en ökning, begär ökning via en [Azure-supportbegäran][azure-support] (för **typ av problem**väljer **kvot**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

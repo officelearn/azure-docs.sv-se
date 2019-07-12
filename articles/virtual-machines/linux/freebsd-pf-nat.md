@@ -4,7 +4,7 @@ description: Lär dig hur du distribuerar en NAT-brandvägg med hjälp av från 
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8cfa1696a18925e9e9e8b96299f1255875e85aa8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03ef1ad3f81cfe7b11f74ace9ff2992535d5aad6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542987"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667644"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Hur du använder paketfilter från FreeBSD för att skapa en säker brandvägg i Azure
 Den här artikeln beskrivs hur du distribuerar en NAT-brandvägg med från FreeBSD Packer Filter via Azure Resource Manager-mall för web server ovanligt.

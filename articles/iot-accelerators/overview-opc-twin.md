@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730265"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603632"
 ---
 # <a name="what-is-opc-twin"></a>Vad är OPC-Twin?
 
@@ -28,7 +28,7 @@ OPC-Twin kan factory operatörer att skanna factory nätverket, så att OPC UA-s
 ### <a name="simple-control"></a>Enkel åtkomstkontroll
 OPC-Twin kan factory operatörer att reagera på händelser och konfigurera om sina factory våning datorer från molnet automatiskt eller manuellt i farten. OPC-Twin ger REST API: er att anropa tjänster på OPC UA-servern, bläddra sitt adressutrymme avseende skrivbara variabler och execute-metoder. En behållare använder till exempel temperatur KPI för att styra produktionsraden. Temperatursensor publicerar ändringen i data med hjälp av OPC Publisher. Operatorn factory tar emot aviseringen att temperaturen har nått tröskelvärdet. Produktionsraden kylningspaket automatiskt via OPC-Twin. Operatorn factory meddelas om coolbar ned.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 Du kan använda OPC-Twin för enkelt för autentisering och för en enkel utvecklarupplevelse.
 
 ### <a name="simple-authentication"></a>Enkel autentisering 

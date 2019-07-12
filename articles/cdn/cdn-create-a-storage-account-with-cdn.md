@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680140"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594020"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
@@ -55,7 +55,7 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
    
     Det här värdet blir värdnamnet i den URI som används för att adressera prenumerationens blobb-, kö- eller tabellresurser. När du vill adressera en containerresurs i Blob Storage så använd en URI i följande format:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
 
     där *&lt;StorageAccountLabel&gt;* refererar till värdet i rutan **Namn**.
    
@@ -66,11 +66,11 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
     
 4. När det gäller resten av inställningarna så använd de värden som anges i följande tabell:
 
-    | Inställning  | Värde |
+    | Inställning  | Value |
     | -------- | ----- |
     | **Distributionsmodell** | Använd standardvärdet. |
     | **Typ av konto** | Använd standardvärdet. |
-    | **Plats**    | Välj **USA, centrala** i listrutan. |
+    | **Location**    | Välj **USA, centrala** i listrutan. |
     | **Replikering** | Använd standardvärdet. |
     | **Prestanda** | Använd standardvärdet. |
     | **Säker överföring krävs** | Använd standardvärdet. |
@@ -94,11 +94,11 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
     
 2. Skapa en ny slutpunkt genom att ange den nödvändiga information som visas i följande tabell:
 
-    | Inställning  | Värde |
+    | Inställning  | Value |
     | -------- | ----- |
     | **CDN-profil** | Välj **Skapa nytt** och ange ditt profilnamn, till exempel *my-cdn-profile-123*. Det här namnet måste vara globalt unikt.  |
     | **prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange slutpunktens värdnamn, d.v.s. *my-endpoint-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net. |
+    | **CDN-slutpunktsnamn** | Ange slutpunktens värdnamn, d.v.s. *my-endpoint-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net. |
     | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
@@ -146,5 +146,5 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän och aktiverar HTTPS för din CDN-slutpunkt finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
+> [Självstudier: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
 

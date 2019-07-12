@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329311"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621604"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär användas för att utföra en sökning eller utöka din dataströmmar. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär användas för att utföra en sökning eller utöka din dataströmmar. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i frågan. 
 
 Stream Analytics stöder Azure Blob storage och Azure SQL Database som storage-skiktet för referensdata. Du kan också transformera och/eller kopiera referensdata till Blob storage från Azure Data Factory för att använda [alla många molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md).
 
@@ -89,10 +89,10 @@ Om du vill konfigurera din referensdata för SQL-databas, måste du först skapa
 |**Egenskapsnamn**|**Beskrivning**  |
 |---------|---------|
 |Inmatat alias|Ett eget namn som ska användas i jobbet frågan för att referera till denna indata.|
-|Prenumeration|Välj din prenumeration|
+|Subscription|Välj din prenumeration|
 |Databas|Azure SQL-databasen som innehåller din referensdata.|
 |Användarnamn|Användarnamnet som är associerade med din Azure SQL Database.|
-|Lösenord|Lösenordet som associeras med din Azure SQL Database.|
+|lösenordsinställning|Lösenordet som associeras med din Azure SQL Database.|
 |Uppdatera regelbundet|Det här alternativet kan du välja ett intervall. Välja ”On” kan du ange uppdateringsfrekvensen i DD:HH:MM.|
 |Ögonblicksbild fråga|Det här är standardalternativet för frågan som hämtar referensdata från din SQL-databas.|
 |Deltafråga|Uppdateringsintervall, Välj att lägga till en deltafråga för avancerade scenarier med stora datauppsättningar och en kort.|

@@ -4,7 +4,7 @@ description: Ladda upp en generaliserad virtuell Hårddisk till Azure och använ
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685402"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707942"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -109,7 +109,7 @@ Du kan också ladda upp en virtuell Hårddisk till ditt lagringskonto med hjälp
     Import/Export kan användas för att kopiera till ett standardlagringskonto. Du behöver kopiera från standardlagring till premium storage-konto med hjälp av ett verktyg som AzCopy.
 
 > [!IMPORTANT]
-> Om du använder AzCopy för att överföra en virtuell Hårddisk till Azure, se till att du har angett [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) innan du kör skriptet ladda upp. Om målet är en blob och det här alternativet inte anges, skapar AzCopy en blockblob som standard.
+> Om du använder AzCopy för att överföra en virtuell Hårddisk till Azure, se till att du har angett [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) innan du kör skriptet ladda upp. Om målet är en blob och det här alternativet inte anges, skapar AzCopy en blockblob som standard.
 > 
 > 
 

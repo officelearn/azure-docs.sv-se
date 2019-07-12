@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479991"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620935"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduktion till Stream Analytics geospatiala funktioner
 
@@ -54,7 +54,7 @@ FROM input
 
  {”type”: "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-Mer information finns i [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) referens.
+Mer information finns i [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) referens.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {”type”: "Point", "coordinates" : [20.2321, -87.33]}  
 
-Mer information finns i [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) referens.
+Mer information finns i [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) referens.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {”type”: ”Polygon”, ”coordinates”: [[[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5], [20.2321,-87.33]]]}
 
-Mer information finns i [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) referens.
+Mer information finns i [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) referens.
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Mer information finns i [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) referens.
+Mer information finns i [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) referens.
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 Den `ST_OVERLAPS` funktionen Jämför två polygoner. Om polygonerna överlappar returnerar funktionen en 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Mer information finns i [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) referens.
+Mer information finns i [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) referens.
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 Den `ST_INTERSECTS` funktionen Jämför två LineString. Om LineString intersect, returnerar funktionen 1. Funktionen returnerar 0 om LineString inte överlappar varandra.
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-Mer information finns i [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) referens.
+Mer information finns i [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) referens.
 
 ## <a name="stwithin"></a>ST_WITHIN
 Den `ST_WITHIN` funktionen avgör om en polygon eller är i en polygon. Om polygonen innehåller där eller polygon, returnerar funktionen 1. Funktionen returnerar 0 om inte är belägen inom deklarerade polygon där eller polygon.
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-Mer information finns i [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) referens.
+Mer information finns i [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) referens.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

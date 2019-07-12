@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477887"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594275"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Skapa en Azure-Skyddsmiljö-värd (förhandsversion)
 
@@ -57,7 +57,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure Skyddsmiljö-resurs från 
     * **Undernät**: Undernät i ditt virtuella nätverk som den nya Skyddsmiljö-värdresursen ska distribueras. Du måste skapa ett undernät med namnvärdet **AzureBastionSubnet**. Det här värdet kan Azure vet vilka undernätet för att distribuera Skyddsmiljö resurserna till. Detta skiljer sig från ett Gateway-undernät. Vi rekommenderar starkt att du använder minst en/27 eller större undernät (/ 27, / 26, och så vidare). Skapa den **AzureBastionSubnet** utan någon Nätverkssäkerhetsgrupper dirigera tabeller eller delegering.
     * **Offentlig IP-adress**: Den offentliga IP-Adressen för den skyddade resursen som RDP/SSH används (via port 443). Skapa en ny offentlig IP-adress eller Använd en befintlig. Den offentliga IP-adressen måste vara i samma region som den skyddade resursen som du skapar.
     * **Namn på offentlig IP-adress**: Namnet på den offentliga IP-adressresursen.
-    * **Offentlig IP-adress SKU**: Innehåller som standard att **Standard**.
+    * **Offentlig IP-adress SKU**: Innehåller som standard att **Standard**. Azure Skyddsmiljö använder/stöder endast Standard offentliga IP-SKU.
     * **Tilldelning av**: Innehåller som standard att **Statiska**.
 
 1. När du är klar med att ange inställningarna klickar du på **granska + skapa**. Detta verifierar värdena. När valideringen är godkänd, du kan påbörja skapandeprocessen.

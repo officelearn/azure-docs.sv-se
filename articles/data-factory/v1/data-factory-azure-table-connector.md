@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c4f961dda273c7f3885159818dabf228abced42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146903"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839468"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabell med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -39,7 +39,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till/från 
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
 
@@ -131,7 +131,7 @@ DivisionID har angetts som partitionsnyckel.
 }
 ```
 ## <a name="json-examples"></a>JSON-exempel
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure Table Storage och Azure Blob-databas. Men du kan kopiera data **direkt** från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md).
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure Table Storage och Azure Blob-databas. Men du kan kopiera data **direkt** från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md).
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Exempel: Kopiera data från Azure Table till Azure Blob
 I följande exempel visas:
@@ -484,7 +484,7 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 | Edm.Guid |Guid |En globalt unik identifierare för 128-bitars. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |
-| Edm.String |String |Ett UTF-16-kodade värde. Strängvärden kan vara upp till 64 KB. |
+| Edm.String |Sträng |Ett UTF-16-kodade värde. Strängvärden kan vara upp till 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Konvertering-datatyp, exempel
 I följande exempel är för att kopiera data från en Azure-Blob till Azure Table med typkonverteringar.
@@ -535,7 +535,7 @@ Få typmappningen från Azure Table OData-typ till .NET-typ, definierar du tabel
 
 **Azure Table-schema:**
 
-| Kolumnnamn | Type |
+| Kolumnnamn | type |
 | --- | --- |
 | userid |Edm.Int64 |
 | name |Edm.String |

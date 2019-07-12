@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341102"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797663"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Mac
 
 En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machine Learning-arbetsytan har skapats som andra Azure-resurser kommer med tre standardroller. Du kan lägga till användare till arbetsytan och tilldela dem till någon av dessa inbyggda roller.
 
-| Roll | Åtkomstnivå |
+| Role | Åtkomstnivå |
 | --- | --- |
 | **Läsare** | Skrivskyddade åtgärder på arbetsytan. Läsare kan listan och visa tillgångar i en arbetsyta, men det går inte att skapa eller uppdatera dessa tillgångar. |
 | **Deltagare** | Visa, skapa, redigera eller ta bort (om tillämpligt) tillgångar i en arbetsyta. Till exempel kan deltagare skapa ett experiment, skapa eller koppla ett beräkningskluster, skicka en körning och distribuera en webbtjänst. |
@@ -114,4 +114,4 @@ Mer information finns i [anpassade roller för Azure-resurser](/azure/role-based
 
 - [Översikt över Enterprise-säkerhet](concept-enterprise-security.md)
 - [Kör säkert experiment och inferens/poäng i ett virtuellt nätverk](how-to-enable-virtual-network.md)
-- [Självstudie: Skapa modeller](tutorial-train-models-with-aml.md)
+- [Självstudier: Skapa modeller](tutorial-train-models-with-aml.md)

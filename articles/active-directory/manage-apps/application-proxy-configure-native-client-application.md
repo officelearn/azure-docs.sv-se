@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825494"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702415"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Så här aktiverar du interna klientprogram att interagera med proxy-program
 
@@ -29,7 +29,7 @@ Du kan använda Azure Active Directory (Azure AD) Application Proxy för att pub
 
 För att stödja interna klientprogram, accepterar Application Proxy Azure AD-utfärdade token som skickas i rubriken. Application Proxy-tjänsten stöder autentisering för användare. Den här lösningen använder inte programmet token för autentisering.
 
-![Förhållandet mellan användare och Azure Active Directory publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![Förhållandet mellan slutanvändarna, Azure AD och publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
 Om du vill publicera interna program, använder du den Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer. Programproxy passar in i den [internt program för webb-API-scenario](../develop/native-app.md).
 
@@ -44,18 +44,21 @@ Publicera dina proxy-program, precis som alla andra program och tilldela använd
 Nu måste du registrera ditt program i Azure AD finns på följande sätt:
 
 1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/). Den **instrumentpanelen** för den **Azure Active Directory Administrationscenter** visas.
-2. Välj i sidopanelen, **Azure Active Directory**. Den **Azure Active Directory** översiktssidan visas.
-3. I Azure AD översikt sidopanelen, Välj **appregistreringar**. Lista över alla appregistreringar visas.
-4. Välj **ny registrering**. Den **registrera ett program** visas.
+1. Välj i sidopanelen, **Azure Active Directory**. Den **Azure Active Directory** översiktssidan visas.
+1. I Azure AD översikt sidopanelen, Välj **appregistreringar**. Lista över alla appregistreringar visas.
+1. Välj **ny registrering**. Den **registrera ett program** visas.
 
-   ![Skapa en ny appregistrering](./media/application-proxy-configure-native-client-application/create.png)
-5. I den **namn** rubrik, ange ett visningsnamn för användarinriktade för ditt program.
-6. Under den **stöds kontotyper** väljer du en åtkomstnivå med dessa riktlinjer:
+   ![Skapa en ny appregistrering i Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+
+1. I den **namn** rubrik, ange ett visningsnamn för användarinriktade för ditt program.
+1. Under den **stöds kontotyper** väljer du en åtkomstnivå med dessa riktlinjer:
+
    - Om du vill rikta bara de konton som är interna för din organisation, Välj **konton i den här organisationens katalogen**.
    - Om du vill rikta endast företag eller högskolor kunder, Välj **konton i alla organisationskatalog**.
    - Om du vill anpassa den största uppsättningen Microsoft identiteter, Välj **konton alla organisationskatalog och personliga Microsoft-konton**.
-7. I den **omdirigerings-URI** väljer **offentlig klient (mobila och stationära)** , och skriv sedan omdirigeringen-URI för ditt program.
-8. Välj och läsa den **principer för Microsoft-plattformen**, och välj sedan **registrera**. En översiktssida för ny programregistrering skapas och visas.
+
+1. I den **omdirigerings-URI** väljer **offentlig klient (mobila och stationära)** , och skriv sedan omdirigeringen-URI för ditt program.
+1. Välj och läsa den **principer för Microsoft-plattformen**, och välj sedan **registrera**. En översiktssida för ny programregistrering skapas och visas.
 
 Mer information om hur du skapar en ny programregistrering finns [integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
@@ -64,11 +67,11 @@ Mer information om hur du skapar en ny programregistrering finns [integrera prog
 Nu när du har registrerat ditt interna program, kan du ge det åtkomst till andra program i din katalog i det här fallet kan komma åt proxy-program. Så här aktiverar programspecifika exponeras proxy-program:
 
 1. I sidopanelen på registreringssidan för nya program, Välj **API-behörigheter**. Den **API-behörigheter** sidan för ny programregistrering visas.
-2. Välj **lägga till en behörighet**. Den **begär API-behörigheter** visas.
-3. Under den **Välj en API** inställningen, Välj **API: er som min organisation använder**. En lista visas med program i din katalog som exponerar API: er.
-4. Skriv i sökrutan eller Bläddra för att hitta det proxy-program som du publicerade i [steg 1: Publicera proxyprogrammet](#step-1-publish-your-proxy-application), och välj sedan proxy-program.
-5. I den **vilken typ av behörigheter för ditt program kräver?** väljer du behörighetstyp av. Om ditt interna program behöver åtkomst till API: et för proxy-program som den inloggade användaren, Välj **delegerade behörigheter**. Om ditt interna program körs som en bakgrundstjänst eller daemon utan en inloggad användare, välja **programbehörigheter**.
-6. I den **Välj behörigheter** rubrik, Välj önskade behörighet och välj **Lägg till behörigheter**. Den **API-behörigheter** sidan för ditt interna program nu visar proxyn program och behörigheten API som du har lagt till.
+1. Välj **lägga till en behörighet**. Den **begär API-behörigheter** visas.
+1. Under den **Välj en API** inställningen, Välj **API: er som min organisation använder**. En lista visas med program i din katalog som exponerar API: er.
+1. Skriv i sökrutan eller Bläddra för att hitta det proxy-program som du publicerade i [steg 1: Publicera proxyprogrammet](#step-1-publish-your-proxy-application), och välj sedan proxy-program.
+1. I den **vilken typ av behörigheter för ditt program kräver?** väljer du behörighetstyp av. Om ditt interna program behöver åtkomst till API: et för proxy-program som den inloggade användaren, Välj **delegerade behörigheter**. Om ditt interna program körs som en bakgrundstjänst eller daemon utan en inloggad användare, välja **programbehörigheter**.
+1. I den **Välj behörigheter** rubrik, Välj önskade behörighet och välj **Lägg till behörigheter**. Den **API-behörigheter** sidan för ditt interna program nu visar proxyn program och behörigheten API som du har lagt till.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Steg 4: Redigera Active Directory Authentication Library
 

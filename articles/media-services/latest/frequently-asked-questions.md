@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556273"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703903"
 ---
-# <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
+# <a name="media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Media Services v3
 
 Den här artikeln ger svar på Azure Media Services (AMS) v3 vanliga frågor och svar.
 
-## <a name="v3-apis"></a>v3-API: er
+## <a name="general"></a>Allmänt
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Vilka Azure-roller kan utföra åtgärder på Azure Media Services-resurser? 
 
@@ -45,6 +45,10 @@ När du använder sidbrytning, bör du alltid använda nästa länk att räkna u
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Vilka funktioner är inte tillgängliga i Azure Media Services v3 ännu?
 
 Mer information finns i [funktionen avstånd till v2 API: er](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Vad är processen att flytta ett Media Services-konto mellan prenumerationer?  
+
+Mer information finns i [flytta ett Media Services-konto mellan prenumerationer](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Liveuppspelning 
 

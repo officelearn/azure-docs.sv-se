@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704753"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798145"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Projektet Akustik Unreal/Wwise Snabbstart
 I den här snabbstarten ska du experimentera med projekt Akustik design kontroller med angivna exemplen för Unreal Engine och Wwise.
@@ -57,7 +57,9 @@ Projektet Akustik Unreal plugin-programmet kräver ytterligare beteenden exponer
 ### <a name="open-the-unreal-project"></a>Öppna Unreal projektet. 
 Det blir du ombedd att återskapa moduler. Klicka på Ja.
 
-Om det går inte att öppna projektet på versionsfel, kontrollerar du att du har installerat plugin-programmet projekt Akustik Wwise till samma version av Wwise som används i projektet Akustik exempelprojektet.
+>Om det går inte att öppna projektet på versionsfel, kontrollerar du att du har installerat plugin-programmet projekt Akustik Wwise till samma version av Wwise som används i projektet Akustik exempelprojektet.
+
+>Om du inte använder [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, måste du återskapa ljud banker innan ljud kommer att ha i exempelprojektet.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentera med projekt Akustik design kontroller
 Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unreal redigeraren. På skrivbordet, använda W, A, S, D och musen för att flytta. Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Här följer några design aktiviteter att testa:

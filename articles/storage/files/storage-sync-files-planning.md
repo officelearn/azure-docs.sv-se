@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449861"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798669"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -69,23 +69,10 @@ Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnad
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync-systemkrav och samverkan 
 Det här avsnittet beskrivs systemkraven för Azure File Sync-agenten och samverkan med Windows Server-funktioner och roller och lösningar från tredje part.
 
-### <a name="evaluation-tool"></a>Utvärderingsverktyg för
-Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel med ditt system med hjälp av verktyget Azure File Sync-utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som söker efter potentiella problem med ditt filsystem och datauppsättningen, till exempel tecken som inte stöds eller en OS-version som inte stöds. Observera att dess kontroller omfatta de flesta, men inte alla funktioner nedan; Vi rekommenderar att du läser igenom resten av det här avsnittet noga för att se till att distributionen går smidigt. 
+### <a name="evaluation-cmdlet"></a>Cmdlet: en utvärdering
+Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel med ditt system med hjälp av cmdleten för utvärdering av Azure File Sync. Den här cmdleten söker efter potentiella problem med ditt filsystem och datauppsättningen, till exempel tecken som inte stöds eller en OS-version som inte stöds. Observera att dess kontroller omfatta de flesta, men inte alla funktioner nedan; Vi rekommenderar att du läser igenom resten av det här avsnittet noga för att se till att distributionen går smidigt. 
 
-#### <a name="download-instructions"></a>Hämta anvisningar
-1. Se till att du har den senaste versionen av PackageManagement och PowerShellGet installerat (Detta kan du installera förhandsversionsmoduler)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. Starta om PowerShell
-3. Installera modulerna
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+Cmdleten utvärdering kan installeras genom att installera Az PowerShell-modulen, som kan installeras genom att följa instruktionerna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Användning  
 Du kan anropa verktyget utvärdering på ett par olika sätt: du kan utföra Systemkontroller, datauppsättning kontroller eller båda. Om du vill utföra både system- och datauppsättningen kontrollerar du: 
@@ -115,11 +102,11 @@ Så här visar resultatet i CSV:
 
     | Version | Godkända SKU: er | Distributionsalternativen som stöds |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
-    | Windows Server 2016 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
-    | Windows Server 2012 R2 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
+    | Windows Server 2019 | Datacenter och Standard | Fullständiga och kärna |
+    | Windows Server 2016 | Datacenter och Standard | Fullständiga och kärna |
+    | Windows Server 2012 R2 | Datacenter och Standard | Fullständiga och kärna |
 
-    Framtida versioner av Windows Server läggs till när de blir tillgängliga. Tidigare versioner av Windows kan läggas till baserat på feedback från användare.
+    Framtida versioner av Windows Server läggs till när de blir tillgängliga.
 
     > [!Important]  
     > Vi rekommenderar att alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 
@@ -169,8 +156,12 @@ Windows Server Failover Clustering stöds av Azure File Sync för ”filserver f
 > Azure File Sync-agenten måste installeras på varje nod i ett redundanskluster för synkronisering ska fungera korrekt.
 
 ### <a name="data-deduplication"></a>Datadeduplicering
-**Agentversion 5.0.2.0**   
-Datadeduplicering stöds på volymer med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera deduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme. Observera att dessa volym besparingar endast gäller lokala; ska inte vara deduplicerade data i Azure Files. 
+**Agentversion 5.0.2.0 eller senare**   
+Datadeduplicering stöds på volymer med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera Datadeduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme. 
+
+När Datadeduplicering har aktiverats på en volym med molnlagringsnivåer aktiverad kan nivåindelas Dedupliceringen optimerade filer i slutpunkten serverplatsen liknar en vanlig fil baserat på molnlagringsnivåer principinställningar. En gång Dedupliceringen optimerade filer har tagits nivåer, skräpinsamlingsjobb för Datadeduplicering körs automatiskt för att frigöra diskutrymme genom att ta bort onödiga segment som inte längre refereras av andra filer på volymen.
+
+Observera att volymen besparingarna gäller endast för servern. ska inte vara deduplicerade data i Azure-filresursen.
 
 **Windows Server 2012 R2 eller äldre agentversionerna**  
 För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync Windows Server-Datadeduplicering håller på att aktiveras på volymen.
@@ -220,7 +211,7 @@ Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan e
 Microsofts interna antiviruslösningar, Windows Defender och System Center Endpoint Protection (SCEP), båda automatiskt hoppa över läsa filer som har den här replikuppsättningen. Vi har testat dem och identifierat en mindre problem: när du lägger till en server i en befintlig synkroniseringsgrupp filer mindre än 800 byte hämtas (hämtas) på den nya servern. Dessa filer finns kvar på den nya servern och kommer inte att vara nivåindelad eftersom de inte uppfyller kravet på lagringsnivåer storlek (> 64kb).
 
 > [!Note]  
-> Antivirusprogram kan kontrollera kompatibiliteten mellan deras produkter och Azure File Sync använder [Azure File Sync Antivirus kompatibilitet Test programsviten] (https://www.microsoft.com/download/details.aspx?id=58322), som är tillgänglig för hämtning på Microsoft Download Center.
+> Antivirusprogram kan kontrollera kompatibiliteten mellan deras produkter och Azure File Sync med hjälp av den [Azure File Sync Antivirus kompatibilitet testsvit](https://www.microsoft.com/download/details.aspx?id=58322), som är tillgänglig för hämtning på Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Lösningar för säkerhetskopiering
 Som antivirus orsaka säkerhetskopieringslösningar återkallande av nivåindelade filer. Vi rekommenderar att du använder en lösning för säkerhetskopiering av molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhetskopiering produkt.
@@ -263,6 +254,7 @@ Azure File Sync är tillgänglig i följande regioner:
 | Östasien | Hongkong SAR |
 | East US | Virginia |
 | USA, östra 2 | Virginia |
+| Frankrike, centrala | Paris |
 | Sydkorea, centrala| Seoul |
 | Sydkorea, södra| Busan |
 | Östra Japan | Tokyo, Saitama |
@@ -304,6 +296,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Östasien           | Sydostasien     |
 | East US             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
+| Frankrike, centrala      | Frankrike, södra       |
 | Östra Japan          | Västra Japan         |
 | Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |

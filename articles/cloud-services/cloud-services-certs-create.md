@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337416"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593053"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
 Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med API för hantering ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och distribuera dem till Azure.
@@ -39,7 +39,7 @@ Du kan överföra service-certifikat till Azure, antingen med hjälp av Azure-po
 Service-certifikat kan hanteras separat från dina tjänster och kan hanteras av olika personer. Utvecklare kan till exempel överföra en tjänstpaket som refererar till ett certifikat som en IT-chef har tidigare har överförts till Azure. En IT-chef kan hantera och förnya certifikatet (ändra konfigurationen av tjänsten) utan att behöva ladda upp ett nytt tjänstpaket. Det är möjligt att uppdaterar utan att ett nytt tjänstpaket eftersom logiska namn, store-namnet och platsen för certifikatet är i tjänstdefinitionsfilen och medan certifikatets tumavtryck har angetts i tjänstkonfigurationsfilen. Om du vill uppdatera certifikatet krävs endast att ladda upp ett nytt certifikat och ändra värdet för tumavtrycket i tjänstekonfigurationsfilen.
 
 >[!Note]
->Den [Cloud Services vanliga frågor och svar](cloud-services-faq.md) artikeln har lite användbar information om certifikat.
+>Den [Cloud Services vanliga frågor och svar - konfiguration och hantering av](cloud-services-configuration-and-management-faq.md) artikeln har lite användbar information om certifikat.
 
 ## <a name="what-are-management-certificates"></a>Vad är certifikat?
 Hanteringscertifikat kan du autentisera med den klassiska distributionsmodellen. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. Dessa är inte riktigt relaterade till molntjänster. 

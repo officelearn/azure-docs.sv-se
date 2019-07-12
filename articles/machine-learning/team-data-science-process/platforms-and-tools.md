@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428740"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626367"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -48,7 +48,7 @@ Den innehåller också **ML- och AI-verktyg** som xgboost, mxnet och Vowpal Wabb
 
 DSVM är för närvarande tillgängligt i **Windows** och **Linux CentOS** operativsystem. Välj storleken på din DSVM (antal processorkärnor) och mängden minne baserat på dina behov för data science-projekt som du planerar att köra på den. 
 
-Mer information om Windows-versionen av DSVM finns i [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) på Azure marketplace. Linux-versionen av DSVM finns [Linux virtuell dator för datavetenskap](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Mer information om Windows-versionen av DSVM finns i [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) på Azure marketplace. Linux-versionen av DSVM finns [Linux virtuell dator för datavetenskap](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 Läs hur du effektivt köra några av de vanliga datavetenskapsuppgifter på DSVM i [tio saker som du kan göra med datavetenskap, virtuell dator](../data-science-virtual-machine/vm-do-ten-things.md)
 

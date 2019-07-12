@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480046"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798999"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -51,7 +51,7 @@ Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet 
 
 ## <a name="gwsku"></a>Gateway-SKU:er
 
-När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om gateway-SKU:er, inklusive funktioner som stöds, produktion och dev/test och konfigurationsanvisningar finns i [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om gateway-SKU: er, inklusive stöd för funktionerna, produktion och utvecklings- och konfigurationssteg, finns i den [VPN Gateway-inställningar - Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) artikeln. Äldre SKU-information, se [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
 

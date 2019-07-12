@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190633"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569033"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa data flöden prestanda- och justeringsguide
 
@@ -127,7 +127,18 @@ Klicka på ikonen visas Körningsplan och efterföljande prestanda profilen för
 * Tänk på det när du väljer det här alternativet för populära. Du kan köra utanför klusterresurser för noden om du kombinerar många stora källfiler i en enda fil partition.
 * För att undvika att få slut beräkningsresurser för noden kan du hålla standard eller explicit partitioneringsschema i ADF som optimeras för prestanda, och sedan lägga till en efterföljande Kopieringsaktivitet i pipelinen som slår samman alla för en del filer från den utgående mappen till en ny enda filen. I princip skiljer åtgärden av omvandling från filen sammanslagning denna teknik och ger samma resultat som om du anger ”utdata till fil”.
 
+### <a name="looping-through-file-lists"></a>Slingor via fillistor
+
+I de flesta fall körs Data flödar i ADF bättre från en pipeline som gör att Flow datakälla omvandlingen till att iterera över flera filer. Med andra ord, det är lämpligt att använda jokertecken eller fillistor i källan i Data flöda som kan iterera över en lång lista med filer med hjälp av ForEach i pipelinen, anropa en köra dataflöde för varje iteration. Dataflöde processen körs snabbare genom att låta slingor ska ske i Data flöda.
+
+Till exempel om jag har en lista över filer från juli 2019 som jag vill bearbeta i en mapp i Blob Storage, skulle det vara bättre att anropa en aktivitet som kör flödet av Data en gång från din pipeline och använder jokertecken i källan så här :
+
+```DateFiles/*_201907*.txt```
+
+Detta fungerar bättre än en sökning mot Blob Store i en pipeline som itererar över alla matchade filer med en aktivitet som kör dataflöde inuti en ForEach.
+
 ## <a name="next-steps"></a>Nästa steg
+
 Se andra dataflöde artiklar rör prestanda:
 
 - [Dataflödet optimera fliken](concepts-data-flow-optimize-tab.md)

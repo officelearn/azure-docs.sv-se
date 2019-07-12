@@ -4,16 +4,19 @@ description: Ange ny värd för dina IBM z/OS stordatorprogram arbetsbelastninga
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4bdcb14aa1b5aa1f757da7be4db7d93dd13ff0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304625"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620304"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure
 
@@ -25,7 +28,7 @@ Den här konfigurationen använder virtuella Azure-datorer som kör Windows Serv
 
 Motsvarande utvecklingsmiljö för Enterprise Server är företagsutvecklare som kör antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (gratis att ladda ned), eller Eclipse. Den här artikeln visar hur du distribuerar den med hjälp av en virtuell dator för Windows Server 2016 som levereras med Visual Studio 2017 eller senare installerad.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kolla in dessa krav innan du börjar:
 

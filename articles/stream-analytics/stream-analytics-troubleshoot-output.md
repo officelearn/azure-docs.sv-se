@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340793"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620796"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics-utdata
 
@@ -79,7 +79,7 @@ Välj det direktuppspelade jobbet om du vill se detaljer, Azure-portalen och vä
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Felet varning med Azure SQL Database-utdata
 
-När du konfigurerar Azure SQL-databas som utdata för ett Stream Analytics-jobb infogas har masskapat poster i måltabellen. I allmänhet Azure stream analytics garanterar [minst en leverans]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) till utdatamottagaren, kan en fortfarande [uppnå exakt – en leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till SQL-utdata när SQL-tabellen har en unik begränsning som definierats. 
+När du konfigurerar Azure SQL-databas som utdata för ett Stream Analytics-jobb infogas har masskapat poster i måltabellen. I allmänhet Azure stream analytics garanterar [minst en leverans](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) till utdatamottagaren, kan en fortfarande [uppnå exakt – en leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till SQL-utdata när SQL-tabellen har en unik begränsning som definierats. 
 
 När unika nyckelvillkor ställs in på den SQL-tabellen och det finns dubbla poster som infogas i SQL-tabell, Azure Stream Analytics tar du bort dubblettposten. Den delas data i batchar och rekursivt infoga i batchar tills en enda kopia av posten hittas. Om det direktuppspelade jobbet har ett stort antal dubblettrader, den här dela och infoga processen har att ignorera dubbletter en i taget, vilket är mindre effektivt och tidskrävande. Om du ser flera felet varningsmeddelanden i din aktivitetslogg inom den senaste timmen, är det troligt att dina SQL-utdata är långsammare hela projektet. 
 
@@ -104,5 +104,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

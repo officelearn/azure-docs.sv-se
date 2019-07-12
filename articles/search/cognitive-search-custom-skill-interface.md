@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021942"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668866"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad kunskap till en pipeline för kognitiv sökning
 
 En [kognitiv sökning indexering av pipeline](cognitive-search-concept-intro.md) i Azure Search kan monteras från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) samt [anpassade funktioner](cognitive-search-custom-skill-web-api.md) som du skapar personligt och lägga till den pipeline. I den här artikeln lär du dig hur du skapar en anpassad kunskap som exponerar ett gränssnitt som gör det möjligt att ingå i en pipeline för kognitiv sökning. 
 
-Att skapa en anpassad färdighet ger dig ett sätt att infoga transformationer som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra, oavsett berikande steg som du behöver. Du kan till exempel definiera fält-specifik anpassade entiteter, skapa modeller för anpassad klassificering för att skilja företag och finansiella kontrakt och dokument eller Lägg till ett tal för kompetens att nå djupare i ljudfiler för relevant innehåll. Steg för steg-exempel finns i [exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md).
+Att skapa en anpassad färdighet ger dig ett sätt att infoga transformationer som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra, oavsett berikande steg som du behöver. Du kan till exempel definiera fält-specifik anpassade entiteter, skapa modeller för anpassad klassificering för att skilja företag och finansiella kontrakt och dokument eller Lägg till ett tal för kompetens att nå djupare i ljudfiler för relevant innehåll. Steg för steg-exempel finns i [exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
 
  Den anpassade funktionen som du behöver, finns det en enkel och tydlig användargränssnitt för att ansluta en anpassad kunskap till resten av berikande pipelinen. Det enda kravet ska ingå i en [kompetens](cognitive-search-defining-skillset.md) är möjligheten att acceptera indata och genererar utdata på ett sätt som är färdiga att konsumeras inom kompetens som helhet. Fokus i den här artikeln finns på de format som in- och utdata som kräver att berikande pipelinen.
 
@@ -156,7 +156,7 @@ När du skapar en webb-API-enricher kan beskriva du HTTP-huvuden och parametrar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Exempel: Skapa en anpassad färdighet för översätta Text-API](cognitive-search-create-custom-skill-example.md)
++ [Exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Skapa kompetens (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Avancerad och mappning](cognitive-search-output-field-mapping.md)

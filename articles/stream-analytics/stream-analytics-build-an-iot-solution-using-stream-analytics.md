@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443682"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620527"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -164,7 +164,7 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
 
    För att parafrasera syftet med frågan anta att du behöver räkna antalet fordon som anger en avgift monter. Eftersom en Målwebbplatsens avgift monter har en ständig ström med att ange fordon, är ingång händelser är detsamma som en dataström som inte upphör. Om du vill kvantifiera dataströmmen, måste du definiera en ”tidsperiod” att mäta över. Nu ska vi förfina frågan ytterligare, som ”hur många fordon ange en avgift monter var tredje minut”? Detta kallas ofta för antalet rullande.
 
-   Som du ser använder Azure Stream Analytics ett frågespråk som liknar SQL och lägger till några tillägg om du vill ange tidsrelaterade aspekter av frågan.  Mer information finns i avsnittet om [tidshantering](https://msdn.microsoft.com/library/azure/mt582045.aspx) och [fönsterhantering](https://msdn.microsoft.com/library/azure/dn835019.aspx) konstruktioner som används i frågan.
+   Som du ser använder Azure Stream Analytics ett frågespråk som liknar SQL och lägger till några tillägg om du vill ange tidsrelaterade aspekter av frågan.  Mer information finns i avsnittet om [tidshantering](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) och [fönsterhantering](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) konstruktioner som används i frågan.
 
 3. Granska indata för exempeljobb TollApp. Endast EntryStream indata används i den aktuella frågan.
    - **EntryStream** indata är en Event Hub-anslutning som köar data som representerar varje gång som en bil anger en vaktkur på väg. En webbapp som är en del av exemplet skapar händelser och dessa data är i kö i det här. Observera att denna indata efterfrågas i FROM-satsen för strömmande frågan.

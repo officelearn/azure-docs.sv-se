@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482574"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655484"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabbstart: Registrera ett program med Microsoft identity-plattformen
 
@@ -50,7 +50,7 @@ Den här snabbstarten visar hur du lägger till och registrera ett program med h
        - För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
        - För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `myapp://auth`.
 
-     Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. När det är klart väljer du **Registrera**.
 
@@ -67,6 +67,6 @@ Azure AD tilldelar ett unikt program-ID (klient) till din app, och du kommer til
     - [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
     - [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
     - [Ändra konton som stöds av ett program](quickstart-modify-supported-accounts.md)
-- Välj en [snabbstart](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) för att snabbt bygga en app och lägga till funktioner som att hämta token, uppdatera token, logga in en användare, visa användarinformation med mera.
+- Välj en [snabbstart](https://docs.microsoft.com/azure/active-directory/develop) för att snabbt bygga en app och lägga till funktioner som att hämta token, uppdatera token, logga in en användare, visa användarinformation med mera.
 - Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).
 - Mer information om de varumärkesriktlinjer som du bör använda när du utvecklar appar finns i [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).

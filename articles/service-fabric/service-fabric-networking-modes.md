@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926135"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621942"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -204,10 +204,10 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
    | --- | --- | --- |
    |Prioritet |2000 | |
    |Namn |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |Source |VirtualNetwork | |
    |Mål | VirtualNetwork | |
-   |Tjänst | DNS (UDP/53) | |
-   |Åtgärd | Tillåt  | |
+   |Tjänsten | DNS (UDP/53) | |
+   |Action | Allow  | |
    | | |
 
 4. Ange nätverk i applikationsmanifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverk läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts, tjänsten som standard **nat** läge. I följande manifest exempel den `NodeContainerServicePackage1` och `NodeContainerServicePackage2` tjänster kan varje lyssnar på samma port (båda tjänsterna lyssnar på `Endpoint1`). När du anger öppet nätverk läge `PortBinding` konfigurationer kan inte anges.

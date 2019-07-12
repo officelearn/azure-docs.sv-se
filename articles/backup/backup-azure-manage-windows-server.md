@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688914"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705144"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -260,21 +260,6 @@ Backup Storage-panelen på instrumentpanelen visar förbrukad lagring i Azure. L
 * LRS-lagring molnanvändning som är associerade med valvet
 * GRS-lagring molnanvändning som är associerade med valvet
 
-
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hur lång tid tar det för Azure backup-agenten jobbstatusen återspeglas i portalen?
-Azure-portalen kan ta upp till 15 minuter att återspegla jobbstatusen Azure backup-agenten.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>När ett säkerhetskopieringsjobb misslyckas, hur lång tid tar det för att utlösa en avisering?
-En avisering genereras i 20 minuter för Azure Säkerhetskopieringsfel.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Finns det fall där inte ett e-postmeddelande skickas om aviseringarna är inställda?
-Ja. I följande situationer skickas inte meddelanden.
-
-* Om meddelanden har konfigurerats för varje timme och en avisering skickas ut och löses inom en timme
-* När ett jobb har avbrutits
-* Om en andra säkerhetskopieringsjobb misslyckas eftersom det ursprungliga säkerhetskopieringsjobbet pågår
 
 ## <a name="troubleshooting-monitoring-issues"></a>Felsökning av problem med övervakning
 

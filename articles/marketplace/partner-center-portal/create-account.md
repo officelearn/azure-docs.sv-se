@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0c78cbcc06de3a18f2127693a7c1b24c075e297
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f861a05bd369fb279ab82e230cad307a3569967e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806243"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619373"
 ---
 # <a name="how-to-create-a-commercial-marketplace-account-in-partner-center"></a>Så här skapar du en kommersiell Marketplace-konto i Partnercenter
 
@@ -27,7 +27,7 @@ I den här artikeln har vi går igenom hur du skapar ett Partnercenter-konto, in
 
 Om du har ett konto den [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) som har flyttats över till Partner Center, du behöver inte skapa ett nytt konto. Se [utgivare som har migrerats från CPP](#publishers-migrated-from-cpp). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa ett konto på Partner Center måste du kontrollera att du har:
 

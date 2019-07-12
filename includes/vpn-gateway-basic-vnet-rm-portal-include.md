@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187185"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673543"
 ---
 Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen genom att följa stegen nedan. Mer information om virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen
 >
 >
 
-1. Logga in på [Azure-portalen](http://portal.azure.com) och välj **Skapa en resurs**. Sidan **Nytt** öppnas.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Skapa en resurs**. Sidan **Nytt** öppnas.
 
 2. I fältet **Sök på Marketplace** anger du *virtuellt nätverk* och väljer **Virtuellt nätverk** i listan som returneras. Sidan **Virtuellt nätverk** öppnas.
 

@@ -58,6 +58,8 @@
       href: host-pool-load-balancing.md
     - name: FSLogix-profilcontainrar och Azure-filer
       href: fslogix-containers-azure-files.md
+    - name: Partnerintegrering
+      href: partners.md
 - name: Felsöka
   items:
     - name: 'Översikt, feedback och support för felsökning'

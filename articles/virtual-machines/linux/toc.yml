@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: vCPU-kvoter
           href: quotas.md
+    - name: Säkerhetsattribut
+      href: virtual-machines-linux-security-attributes.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'

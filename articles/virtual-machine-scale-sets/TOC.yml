@@ -156,6 +156,8 @@
           maintainContext: true
     - name: Vanliga frågor och svar om skalningsuppsättningar
       href: virtual-machine-scale-sets-faq.md
+    - name: Säkerhetsattribut
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: Gör så här för att
   items:
     - name: Planera och designa

@@ -43,7 +43,7 @@
       href: hybrid-azuread-join-plan.md
     - name: Kontrollerad verifiering av Azure AD-anslutningshybrid
       href: hybrid-azuread-join-control.md
-    - name: Hantera enhetsidentitet
+    - name: Hantera enhetsidentiteter
       href: device-management-azure-portal.md
     - name: Hantera inaktuella enheter
       href: manage-stale-devices.md

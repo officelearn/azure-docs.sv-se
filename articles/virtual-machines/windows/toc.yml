@@ -132,6 +132,8 @@
       href: backup-recovery.md
     - name: Infrastrukturexempel
       href: infrastructure-example.md
+    - name: Säkerhetsattribut
+      href: virtual-machines-windows-security-attributes.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'

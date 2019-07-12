@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441144"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827918"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -41,7 +41,7 @@ Den här artikeln ger en översikt över granskningsrapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i den **Security administratör i fältet**, **Säkerhetsläsare**, **rapportläsare** eller **Global administratör** roller
+* Användare i den **säkerhetsadministratör**, **Säkerhetsläsare**, **rapportläsare** eller **Global administratör** roller
 * Dessutom kan kan alla användare (icke-administratörer) Se sina egna granskningsaktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar
@@ -78,7 +78,7 @@ Markera ett objekt i listvyn för att få mer detaljerad information.
 
 Du kan filtrera granskningsdata på följande fält:
 
-- Tjänst
+- Tjänsten
 - Category
 - Aktivitet
 - Status
@@ -111,8 +111,8 @@ Den **kategori** filter kan du välja något av följande filter:
 - Alla
 - AdministrativeUnit
 - ApplicationManagement
-- Autentisering
-- Auktorisering
+- Authentication
+- Authorization
 - Kontakta
 - Enhet
 - DeviceConfiguration
@@ -140,7 +140,7 @@ Den **Target** filter kan du söka efter ett visst mål efter namn eller använd
 Den **initieras av** filter kan du definiera en aktörs namn eller ett universal principal name (UPN). Namn- och UPN är skiftlägeskänsliga.
 
 Den **datumintervall** filter kan du definiera en tidsram för data som returneras.  
-Möjliga värden:
+Möjliga värden är:
 
 - 1 månad
 - 7 dagar

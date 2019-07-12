@@ -4,7 +4,7 @@ description: Läs mer om hur den virtuella datorresursen definieras i en Azure R
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707283"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710291"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -152,7 +152,7 @@ Det här exemplet visas en typisk resursavsnitt i en mall för att skapa ett ang
 >
 >
 
-## <a name="api-version"></a>API-version
+## <a name="api-version"></a>API-Version
 
 Du måste ange en version av API för att använda när du distribuerar resurser med hjälp av en mall. Exemplet visar resursen för virtuella datorer med hjälp av det här apiVersion-elementet:
 

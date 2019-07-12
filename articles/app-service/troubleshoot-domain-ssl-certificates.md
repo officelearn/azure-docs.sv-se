@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136182"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718283"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka domän och SSL-certifikat problem i Azure App Service
 
@@ -325,7 +325,6 @@ Du kan hantera din domän, även om du inte har en App Service Web App. Domänen
 
 **Kan jag flytta en webbapp med en anpassad domän till en annan prenumeration eller från App Service Environment v1 till V2?**
 
-Ja, kan du flytta din webbapp mellan prenumerationer. Följ riktlinjerna i [hur du flyttar resurser i Azure](../azure-resource-manager/resource-group-move-resources.md). Det finns några begränsningar när du flyttar webbappen. Mer information finns i [begränsningar för att flytta App Service-resurser](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Ja, kan du flytta din webbapp mellan prenumerationer. Följ riktlinjerna i [hur du flyttar resurser i Azure](../azure-resource-manager/resource-group-move-resources.md). Det finns några begränsningar när du flyttar webbappen. Mer information finns i [begränsningar för att flytta App Service-resurser](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 När du har flyttat webbappen förblir värden namnet bindningar för domäner i de anpassade domäner inställningen desamma. Inga ytterligare åtgärder krävs för att konfigurera värden namnet bindningar.

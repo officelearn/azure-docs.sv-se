@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 562ce8a4267370be9b049e3b56f213f82deb89c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e63d935b3c11766c4981ffb035dd45ad4019797c
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734988"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807071"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>Status Monitor v2 API: Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v040-alpha"></a>Status Monitor v2 API: Set-ApplicationInsightsMonitoringConfig (v0.4.0-alpha)
 
 Det här dokumentet beskriver en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -94,7 +94,7 @@ Du kan skapa en enda installationsskriptet för flera datorer genom att ange `Ma
 **Vanliga parameter.** Använd den här växeln om du vill visa detaljerade loggar.
 
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Output
 
 Som standard inga utdata.
 

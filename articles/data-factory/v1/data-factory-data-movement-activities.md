@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486963"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839322"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av Kopieringsaktivitet
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -95,7 +95,7 @@ När både käll-och mottagare finns i molnet, använder Data Factory en tjänst
 
 | Geografisk plats för datalager som mål | Regionen för måldatalagret | Regionen som används för dataförflyttning |
 |:--- |:--- |:--- |
-| USA | Östra USA | Östra USA |
+| USA | East US | East US |
 | &nbsp; | USA, östra 2 | USA, östra 2 |
 | &nbsp; | Centrala USA | Centrala USA |
 | &nbsp; | Norra centrala USA | Norra centrala USA |
@@ -138,7 +138,7 @@ Du kan skapa en pipeline med Kopieringsaktivitet i ett par olika sätt:
 Data Factory-Kopieringsguiden hjälper dig att skapa en pipeline med en Kopieringsaktivitet. Den här pipelinen låter dig kopiera data från källor som stöds till mål *utan att skriva JSON* definitioner för länkade tjänster, datauppsättningar och pipeliner. Se [Data Factory-Kopieringsguide](data-factory-copy-wizard.md) mer information om guiden.  
 
 ### <a name="by-using-json-scripts"></a>Med hjälp av JSON-skript
-Du kan använda Data Factory-redigeraren i Azure portal, Visual Studio eller Azure PowerShell för att skapa en JSON-definition för en pipeline (med hjälp av Kopieringsaktivitet). Du kan distribuera den sedan för att skapa pipelinen i Datafabriken. Se [självstudien: Använda Kopieringsaktivitet i en Azure Data Factory-pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en självstudie med stegvisa instruktioner.    
+Du kan använda Data Factory-redigeraren i Visual Studio eller Azure PowerShell för att skapa en JSON-definition för en pipeline (med hjälp av Kopieringsaktivitet). Du kan distribuera den sedan för att skapa pipelinen i Datafabriken. Se [självstudien: Använda Kopieringsaktivitet i en Azure Data Factory-pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en självstudie med stegvisa instruktioner.    
 
 JSON-egenskaper (till exempel namn, beskrivning, indata och utdata tabeller och principer) är tillgängliga för alla typer av aktiviteter. Egenskaper som är tillgängliga i den `typeProperties` avsnittet aktivitetens varierar med varje aktivitetstyp av.
 

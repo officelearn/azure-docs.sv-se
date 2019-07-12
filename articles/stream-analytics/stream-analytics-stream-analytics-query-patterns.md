@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329618"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620809"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -35,7 +35,7 @@ JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (post
 
 **Indata**:
 
-| Skapa | Tid | Vikt |
+| Skapa | Time | Vikt |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +68,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | LicensePlate | Tid |
+| Skapa | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Utdata**:
 
-| Skapa | LicensePlate | Tid |
+| Skapa | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +100,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Utdata**:
 
-| CarsPassed | Tid |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Indata**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Output1**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
 **Output2**:
 
-| Skapa | Tid | Count |
+| Skapa | Time | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Exempel:
 
 **Indata**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Exempel:
 
 **Utdata:**
 
-| CountMake | Tid |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -247,14 +247,14 @@ GROUP BY
 
 **Indata**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Utdata**:
 
-| Skapa | Tid |
+| Skapa | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Indata**:
 
-| LicensePlate | Skapa | Tid |
+| LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Utdata**:
 
-| LicensePlate | Skapa | Tid |
+| LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +310,7 @@ GROUP BY
 
 Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i varje 10 minuters intervall.
 
-| LicensePlate | Skapa | Tid |
+| LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
 
 **Indata**:
 
-| LicensePlate | Skapa | Tid |
+| LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
 
 **Utdata**:
 
-| LicensePlate | Skapa | Tid |
+| LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Indata**:
 
-| Skapa | LicensePlate | Tid |
+| Skapa | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Utdata**:
 
-| Skapa | Tid | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Skapa | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,7 +422,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 
 **Indata**:  
 
-| Användare | Funktion | Händelse | Tid |
+| Användare | Funktion | Händelse | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |slutpunkt |2015-01-01T00:00:08.0000000Z |
@@ -456,7 +456,7 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
 
 **Indata**:
 
-| Skapa | Tid | Vikt |
+| Skapa | Time | Vikt |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -619,7 +619,7 @@ WHERE
 
 **Indata**:
 
-| LicensePlate | Skapa | Tid | TollID |
+| LicensePlate | Skapa | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -660,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Indata**:  
 
-| DeviceId | Tid | Attribut | Value |
+| DeviceId | Time | Attribut | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatur |50 |
@@ -718,6 +718,6 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

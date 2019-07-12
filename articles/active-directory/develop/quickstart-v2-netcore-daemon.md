@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: a42cfe1374f3defdf6ed8acc828e6c7e446588bc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540716"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595148"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -96,7 +96,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Generera en ny klienthemlighet]()
     
-    > [!div renderon="portal"]
+    > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
     > > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
     

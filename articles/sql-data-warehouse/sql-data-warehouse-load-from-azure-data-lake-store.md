@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c69382ee0bec5586fc247cd0e568f5f48f0eda08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244489"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588587"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage till SQL Data Warehouse
 Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i Data Lake-lagring, rekommenderar vi importerar data till SQL Data Warehouse för bästa prestanda.

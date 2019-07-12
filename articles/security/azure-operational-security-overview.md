@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586857"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653429"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 
@@ -47,7 +47,7 @@ Du kan konsolidera data från olika källor och kombinera data från dina Azure-
 
 Azure Backup erbjuder komponenter som du hämtar och distribuerar på den aktuella datorn eller servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter kan (oavsett om du skyddar data lokalt eller i molnet) användas för att säkerhetskopiera data till ett Azure Recovery Services-valv i Azure. 
 
-Mer information finns i den [Azure Backup-komponenter tabell](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
+Mer information finns i den [Azure Backup-komponenter tabell](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
 

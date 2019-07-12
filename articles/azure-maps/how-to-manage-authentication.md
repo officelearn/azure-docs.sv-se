@@ -3,17 +3,17 @@ title: Hantera autentisering i Azure Maps | Microsoft Docs
 description: Du kan använda Azure-portalen för att hantera autentisering i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952568"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837823"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -59,7 +59,7 @@ När du skapar ett Azure Maps-konto måste du upprätta en anslutning mellan din
 
 ## <a name="grant-rbac-to-azure-maps"></a>Bevilja RBAC till Azure Maps
 
-När du har kopplat ett Azure Maps-konto med Azure AD-klienten, kan du ge åtkomstkontroll genom att tilldela en användare eller program till en eller flera Azure Maps roller för åtkomstkontroll.
+När du har kopplat ett Azure Maps-konto med Azure AD-klienten, kan du ge åtkomstkontroll genom att tilldela en användare, grupp eller program till en eller flera Azure Maps roller för åtkomstkontroll.
 
 1. Gå till **åtkomstkontroll (IAM)** väljer **rolltilldelningar**, och välj sedan **Lägg till rolltilldelning**.
 

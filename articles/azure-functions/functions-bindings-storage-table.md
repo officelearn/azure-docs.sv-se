@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480084"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654243"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -537,7 +537,7 @@ Indatabindningen för Table storage har stöd för följande scenarier:
 Använda en Azure Table storage-utdatabindning för att skriva entiteter till en tabell i ett Azure Storage-konto.
 
 > [!NOTE]
-> Den här utdatabindning har inte stöd för att uppdatera befintliga entiteter. Använd den `TableOperation.Replace` åtgärden [från Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) att uppdatera en befintlig entitet.   
+> Den här utdatabindning har inte stöd för att uppdatera befintliga entiteter. Använd den `TableOperation.Replace` åtgärden [från Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) att uppdatera en befintlig entitet.   
 
 ## <a name="output---example"></a>Utdata - exempel
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514037"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786260"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -25,7 +25,70 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
+## <a name="2019-07-09"></a>2019-07-09
 
+### <a name="visual-interface"></a>Visuella gränssnittet
++ **Förhandsversionsfunktioner**
+  + Har lagts till ”kör R-skript”-modul i visuella gränssnittet.
+
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning-SDK för Python v1.0.48
+
++ **Nya funktioner**
+  + **azureml-opendatasets**
+    + **azureml-contrib-opendatasets** är nu tillgänglig som **azureml-opendatasets**. Det gamla paketet fungerar fortfarande, men vi rekommenderar att du använder **azureml-opendatasets** framöver för Förbättrade funktioner och förbättringar.
+    + Den här nya paketet kan du registrera öppna datauppsättningar som datauppsättningen i AML-arbetsytan och använda de funktioner som erbjuder datauppsättning.
+    + Den innehåller också befintliga funktioner, till exempel använder öppna datauppsättningar som Pandas/SPARK dataramar och plats kopplar för vissa datauppsättningen som väder.
+
++ **Förhandsversionsfunktioner**
+    + HyperDriveConfig kan nu accepterar pipeline-objektet som en parameter för finjustering av hyperparametrar med hjälp av en pipeline.
+
++ **Felkorrigeringar och förbättringar**
+  + **azureml-train-automl**
+    + Åtgärdat felet om att förlora typer av kolumner efter omvandlingen.
+    + Åtgärdat felet för att tillåta y_query ska vara en objekttyp som innehåller ingen (s) i början. 
+    + Fast problemet i Ensemble förfarandet som onödigt växande resulterande ensemble även om poängen befann sig konstant.
+    + Åtgärdat problemet med inställningarna för whitelist_models och blacklist_models i AutoMLStep.
+    + Åtgärdat problem som gjorde att användningen av Förbearbeta när AutoML skulle ha använts i samband med Azure ML-Pipelines.
+  + **azureml-opendatasets**
+    + Flyttade azureml-contrib-opendatasets till azureml-opendatasets.
+    + Tillåtna öppna datauppsättningen klasser som ska registreras till AML-arbetsytan och utnyttja funktioner för AML-datauppsättning sömlöst.
+    + Förbättrad NoaaIsdWeather berika prestanda i icke-SPARK-version avsevärt.
+  + **azureml-explain-model**
+    + Uppdaterade onlinedokumentationen för interpretability objekt.
+    + Lagt till batch_size att efterlikna förklaring när include_local = False för direktuppspelning globala förklaringar i batchar att förbättra körningstid för DecisionTreeExplainableModel.
+    + Åtgärdats där `explanation.expected_values` kommer ibland att returnera ett flyttal i stället för en lista med ett flyttal i den.
+    + Har lagts till förväntade värden till automl utdata för mimic förklaring i förklarar modell-biblioteket.
+    + Fast permutation funktionen vikten när transformationer argumentet som angetts för få raw funktionen prioritet.
+    + Lagt till batch_size att efterlikna förklaring när include_local = False för direktuppspelning globala förklaringar i batchar att förbättra körningstid för DecisionTreeExplainableModel för modellen explainability bibliotek.
+  + **azureml-core**
+    + Lagt till möjligheten att ansluta DBFS datalager i AzureML-CLI.
+    + Löst problemet med datalagret överföringen där en tom mapp skapas om `target_path` igång med `/`.
+    + Aktiverade jämförelse av två datauppsättningar.
+    + Ta bort modell- och bildfiler innehåller nu mer information om hur du hämtar överordnade objekt som är beroende av dem om att ta bort misslyckas på grund av en överordnad beroende.
+    + Föråldrad oanvända RunConfiguration inställningen i auto_prepare_environment.
+  + **azureml-mlflow**
+    + Bättre resursutnyttjande remote körningar som använder azureml.mlflow.
+    + Förbättrat i dokumentationen för azureml-mlflow-paketet.
+    + På ett problem har åtgärdats där mlflow.log_artifacts("my_dir") skulle spara artefakter under ”my_dir/artefakt-sökvägar” i stället för ”sökvägar för artefakt”.
+  + **azureml-dataprep**
+    + Dataflöde objekt kan nu upprepas producera en sekvens med poster.
+    + Åtgärdats där `Dataflow.read_pandas_dataframe` skulle misslyckas när den `in_memory` argument har angetts till True.
+    + Förbättrad hantering av pandas dataramar med icke-sträng kolumnindex.
+    + Exponeras `set_diagnostics_collection()` för programmässig aktivering/inaktivering av samlingen telemetri.
+    + Har lagts till antal värden och bottomValues sammanfatta.
+  + **azureml-pipeline-core**
+    + Parametern hash_paths för alla steg i pipeline är inaktuell och kommer att tas bort i framtiden. Som standardinnehållet i källkatalog hashas (förutom filer som anges i .amlignore eller .gitignore)
+    + Fortsatta förbättras modulen och ModuleStep för att stödja compute-typen enhetsspecifika moduler inför RunConfiguration integrering och ytterligare ändringar för att låsa upp deras användning i pipelines.
+  + **azureml-pipeline-steps**
+    + AzureBatchStep: Förbättrad dokumentation för indata/utdata.
+    + AzureBatchStep: Ändra standardvärdet för delete_batch_job_after_finish till true.
+  + **azureml-train-core**
+    + Strängar är nu möjligt som beräkningsmål för automatiserad finjustering av Hyperparametrar.
+    + Föråldrad oanvända RunConfiguration inställningen i auto_prepare_environment.
+    + Föråldrade parametrar `conda_dependencies_file_path` och `pip_requirements_file_path` för `conda_dependencies_file` och `pip_requirements_file` respektive.
+  + **azureml-opendatasets**
+    + Förbättra NoaaIsdWeather avsevärt förbättra prestanda i icke-SPARK-version.
+    
 ## <a name="2019-07-01"></a>2019-07-01
 
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning Data Förbered SDK v1.1.7

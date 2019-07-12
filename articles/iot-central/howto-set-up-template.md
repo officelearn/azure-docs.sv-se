@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509546"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622400"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Inställningar
 
-Inställningar styr en enhet. De operatörer kan ange indata till enheten. Du kan lägga till flera inställningar till mallen för enheten som visas som paneler på den **inställningar** fliken för operatörer att använda. Du kan lägga till många typer av inställningar: tal, text, datum, växla, plocklista och områdesetikett.
+Inställningar styr en enhet. De operatörer kan ange indata till enheten. Du kan lägga till flera inställningar till mallen för enheten som visas som paneler på den **inställningar** fliken för operatörer att använda. Du kan lägga till många typer av inställningar: tal, text, datum, växla och områdesetikett.
 
 Inställningarna kan vara i något av tre tillstånd. Enheten rapporterar tillståndet.
 
@@ -170,7 +170,7 @@ Du kan till exempel lägga till en ny fläkt hastighet inställning genom att v�
 
 När du har valt **spara**, **fläkthastighet** inställningen visas som en panel. En operatör kan använda inställningen på den **Device Explorer** sidan för att ändra fläkt hastigheten på enheten.
 
-## <a name="properties"></a>Egenskaper
+## <a name="properties"></a>properties
 
 Egenskaperna är metadata som associeras med enheten, till exempel en fast enhetsplats och serienummer. Lägga till flera egenskaper i mallen för enheten som visas som paneler på den **egenskaper** fliken. En egenskap har en typ som tal, text, datum, växla, enhetsegenskap, etikett eller en fast plats. En operator anger värden för egenskaper när de skapar en enhet och de kan redigera dessa värden när som helst. Enhetsegenskaper är skrivskyddade och skickas från enheten till programmet. En operatör kan inte ändra egenskaper för enhet. När en riktig enhet ansluter uppdaterar egenskapen enhetspanelen i programmet.
 

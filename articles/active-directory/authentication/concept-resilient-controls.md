@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113473"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594963"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -143,7 +143,7 @@ I följande exempel: **Exempel A – Contingency CA: N för att återställa åt
   * Namn: EM001 - AKTIVERA I NÖDFALL: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
   * Användare och grupper: Inkludera ContingencyAccess. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
-  * Villkor: Alla
+  * Villkor: Any
   * Ge kontroll: Kräv domänansluten
   * Status: Inaktiverad
 * Princip för 2: Blockera andra plattformar än Windows
@@ -185,7 +185,7 @@ I den här nästa exempel **exempel B - Contingency CA-principer för att tillå
   * Namn: EM001 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [1/2] - Salesforce - Block alla användare utom SalesforceContingency
   * Användare och grupper: Inkludera alla användare. Undanta SalesAdmins och SalesforceContingency
   * Appar i molnet: Salesforce.
-  * Villkor: Ingen
+  * Villkor: Inga
   * Ge kontroll: Blockera
   * Status: Inaktiverad
 * Princip för 2: Blockera säljteamet från valfri plattform än mobile (för att minska ytan på attack)

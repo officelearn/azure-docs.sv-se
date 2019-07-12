@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449848"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807283"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -94,19 +94,30 @@ Det finns en kvot på 2 000 öppna referenser i en enda fil. När du har 2 000 �
 
 Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen.
 
+Du kan visa öppna referenser för en filresurs, katalogen eller filen i [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet.  
+
+Stäng öppna referenser för en filresurs, katalogen eller filen genom att använda den [Stäng AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet.
+
+> [!Note]  
+> Cmdlet: Get-AzStorageFileHandle och Stäng AzStorageFileHandle ingår i Az PowerShell-Modulversion 2.4 eller senare. Om du vill installera den senaste Az PowerShell-modulen, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam filkopieringen till och från Azure Files i Linux
 
 - Om du inte har ett visst minsta i/o-storlek krav, rekommenderar vi att du använder 1 MiB som i/o-storleken för optimala prestanda.
-- Om du känner till dess slutliga storlek för en fil som du utvidgar med hjälp av skrivningar och din programvara inte uppleva kompatibilitetsproblem när en oskrivna slutet på filen innehåller nollor, anger du filstorlek i förväg i stället för att varje skrivning en utöka skrivning.
 - Använd rätt copy-metoden:
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för alla överföring mellan två filresurser.
-    - Med hjälp av cp med parallella kunde förbättra kopia hastighet, antalet trådar som beror på användningsfall och arbetsbelastning. Det här exemplet används sex: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Med hjälp av cp eller dd med parallella kunde förbättra kopia hastighet, antalet trådar som beror på användningsfall och arbetsbelastning. I följande exempel används sex: 
+    - CP exempel (cp använder Standardblockstorlek för filsystemet som segmentstorleken): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd exempel (det här kommandot uttryckligen anger segmentstorleken som 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Verktyg med öppen källkod från tredje part som:
         - [GNU parallella](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) – sorterar filerna och hanteringspaket dem i partitioner.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -använder Fpart och en kopieringsverktyget skapa flera instanser att migrera data från src_dir till dst_url.
         - [Flera](https://github.com/pkolano/mutil) -flertrådiga cp och md5sum baserat på GNU coreutils.
+- Ange filstorleken i förväg, i stället för att varje skrivning till en utöka skriva, förbättra hjälper till att kopia hastighet i scenarier där filstorleken är känd. Du kan ange en filstorlek som mål med om utöka skrivningar behöva undvikas `truncate - size <size><file>` kommando. Efter det `dd if=<source> of=<target> bs=1M conv=notrunc`kommandot kommer att kopiera en källfil utan att behöva uppdatera flera gånger storleken på målfilen. Du kan till exempel ange mål filstorleken för varje fil som du vill kopiera (antar en resurs är monterad under/mnt/resurs):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - Kopiera sedan - filer utan att utöka skrivningar parallellt: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>”Montera error(115): Åtgärden pågår ”när du montera Azure Files med hjälp av SMB 3.0
@@ -140,6 +151,23 @@ Bläddra till det lagringskonto där Azure-filresursen är placerad, klicka på 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
 Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
+
+### <a name="cause"></a>Orsak
+Det här problemet inträffar vanligtvis om filen eller katalogen som har en öppen referens. 
+
+### <a name="solution"></a>Lösning
+
+Om SMB-klienter har stängt alla öppna referenser och problemet kvarstår kan du utföra följande:
+
+- Använd den [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet för att visa öppna referenser.
+
+- Använd den [Stäng AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet för att Stäng öppna referenser. 
+
+> [!Note]  
+> Cmdlet: Get-AzStorageFileHandle och Stäng AzStorageFileHandle ingår i Az PowerShell-Modulversion 2.4 eller senare. Om du vill installera den senaste Az PowerShell-modulen, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsam prestanda på en Azure-filresursen monteras på en Linux VM
@@ -191,40 +219,6 @@ Använd det storage-kontot för att kopiera filerna:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
-
-### <a name="cause"></a>Orsak
-
-Vanliga orsaker till det här problemet är:
-
-- Du använder en inkompatibel klient för Linux-distribution. Vi rekommenderar att du använder följande Linux-distributioner för att ansluta till en Azure-filresurs:
-
-    |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från både lokalt och över olika regioner) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- CIFS-verktyg (cifs-utils) har inte installerats på klienten.
-- Den lägsta SMB/CIFS-versionen 2.1, installeras inte på klienten.
-- SMB 3.0-kryptering stöds inte på klienten. SMB 3.0-kryptering är tillgänglig i Ubuntu 16,4 tum och senare versioner, tillsammans med SUSE 12,3 och senare versioner. Andra distributioner kräver kernel 4.11 och senare versioner.
-- Du försöker ansluta till ett lagringskonto via TCP-port 445, vilket inte stöds.
-- Du försöker ansluta till en Azure-filresurs från en Azure-dator och den virtuella datorn är inte i samma region som lagringskontot.
-- Om den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files tillåter endast anslutningar som använder SMB 3.0 med kryptering.
-
-### <a name="solution"></a>Lösning
-
-Lös problemet genom att använda den [felsökningsverktyget för Azure Files-monteringsfel på Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Det här verktyget:
-
-* Hjälper dig att validera klienten köra-miljö.
-* Identifierar inkompatibla klientkonfigurationen som skulle orsaka fel åtkomst för Azure Files.
-* Ger vägledning på att åtgärda själv.
-* Samlar in diagnostik-spårningar.
-
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;”: I/o-fel
 

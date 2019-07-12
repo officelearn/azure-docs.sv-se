@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457207"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612455"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -24,7 +24,7 @@ En VPN-gateway består av två VM-instanser som körs i en aktiv-standby-konfigu
 
 När du utfärda kommandot för att återställa gatewayen, startas den aktuella aktiva instansen av Azure VPN-gateway om omedelbart. Det blir en kort paus under redundansen från den aktiva instansen (som startas om), till vänteläges-instansen. Pausen bör vara kortare än en minut.
 
-Om anslutningen inte har återställts efter den första omstarten, utfärdar du samma kommando igen för att starta om den andra VM-instansen (den nya aktiva gatewayen). Om de två omstarterna görs direkt efter varandra, uppstår en något längre paus där båda VM-instanserna (aktiv och vänteläge) startas om. Detta kommer att medföra ett längre uppehåll i VPN-anslutningen, cirka 2–4 minuter, för att de virtuella datorerna ska slutföra omstarterna.
+Om anslutningen inte har återställts efter den första omstarten, utfärdar du samma kommando igen för att starta om den andra VM-instansen (den nya aktiva gatewayen). Om de två omstarterna görs direkt efter varandra, uppstår en något längre paus där båda VM-instanserna (aktiv och vänteläge) startas om. Detta kommer att medföra ett längre uppehåll i VPN-anslutningen, cirka 30 – 45 minuter, för virtuella datorer ska slutföra omstarterna.
 
 Efter två omstarter, om du fortfarande har problem med nätverksanslutningen mellan olika platser, öppna en supportbegäran från Azure-portalen.
 

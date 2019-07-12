@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536826"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595162"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
@@ -193,7 +193,7 @@ Du kan också konfigurera token för att inkludera directory-schemautökningar u
 
 > [!Note]
 > - Directory-schemautökningar är en Azure AD endast funktion, så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte.
-> - Azure AD valfria anspråk fungerar bara med Azure AD-tillägget och fungerar inte fungerar med Microsoft Graph-directory-tillägget. Både API: er kräver den `Directory.ReadWriteAll` behörigheter, som användaren kan bara godkänna av administratörer.
+> - Azure AD valfria anspråk fungerar bara med Azure AD-tillägget och fungerar inte med Microsoft Graph-directory-tillägget. Både API: er kräver den `Directory.ReadWriteAll` behörigheter, som användaren kan bara godkänna av administratörer.
 
 ### <a name="directory-extension-formatting"></a>Directory-tillägget formatering
 
@@ -254,7 +254,7 @@ Det här avsnittet beskriver konfigurationsalternativ under valfria anspråk fö
    }
    ```
 
-   | Valfria anspråk schema | Värde |
+   | Valfria anspråk schema | Value |
    |----------|-------------|
    | **Namn:** | Måste vara ”grupper” |
    | **Källa:** | Används inte. Utelämna eller ange null |

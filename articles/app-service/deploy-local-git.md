@@ -11,208 +11,156 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/18/2019
 ms.author: dariagrigoriu;cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: e66c625c3f30580715762d2dd3f48eeaa6e548dc
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: fa961e43408fed014be2266c14c7972d39435b97
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143960"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836922"
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
+# <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
 
-Den här guiden visar hur du distribuerar din kod till [Azure App Service](overview.md) från en Git-lagringsplats på din lokala dator.
+Den här guiden visar hur du distribuerar din app till [Azure App Service](overview.md) från en Git-lagringsplats på din lokala dator.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Att följa stegen i den här guiden:
 
-* [Installera Git](https://www.git-scm.com/downloads).
-* Underhålla en lokal Git-lagringsplats med kod som du vill distribuera.
-
-Om du vill använda en exempellagringsplats om du vill följa med, kör du följande kommando i ditt lokala terminalfönster:
-
-```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
-```
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+  
+- [Installera Git](https://www.git-scm.com/downloads).
+  
+- Har en lokal Git-lagringsplats med kod som du vill distribuera. Kör följande kommando för att hämta en exempellagringsplats i ditt lokala terminalfönster:
+  
+  ```bash
+  git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
+  ```
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-with-kudu-builds"></a>Distribuera med Kudu-versioner
+## <a name="deploy-with-kudu-build-server"></a>Distribuera med Kudu build-servern
 
-Det enklaste sättet att aktivera lokal Git-distribution för din app med Kudu build-servern är att använda Cloud Shell.
+Det enklaste sättet att aktivera lokal Git-distribution för din app med App Service Kudu build-servern är att använda Azure Cloud Shell. 
 
 ### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-> [!NOTE]
-> I stället för på kontonivå autentiseringsuppgifter, kan du också distribuera med appnivå autentiseringsuppgifter, som har genererats automatiskt för varje app.
->
+### <a name="get-the-deployment-url"></a>Hämta URL: en för distribution
 
-### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
-
-För att aktivera lokal Git-distribution för din app med Kudu build-servern kör du [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
+För att få URL: en för att aktivera lokal Git-distribution för en befintlig app, köra [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell. Ersätt \<appens namn-> och \<-namn > med namnen på din app och dess Azure-resursgrupp.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
-Om du vill skapa en Git-aktiverad app i stället kör du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med parametern `--deployment-local-git`.
+Eller, om du vill skapa en ny Git-aktiverad app kör [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med den `--deployment-local-git` parametern. Ersätt \<appens namn->, \<-namn >, och \<planens namn > med namn för din nya Git-app, dess Azure-resursgrupp och dess Azure App Service-plan.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-### <a name="deploy-your-project"></a>Distribuera projektet
+Kommandot returnerar en URL liknande: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Använd den här URL: en för att distribuera din app i nästa steg.
 
-I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<användarnamn >_ med distributionsanvändaren från [konfigurera en distributionsanvändare](#configure-a-deployment-user) och  _\<appens namn->_ med appnamn från [Aktivera Git för din app](#enable-local-git-with-kudu).
+Du kan också aktivera lokal Git med hjälp av appnivå autentiseringsuppgifter istället för att använda denna kontonivå-URL. Azure App Service genererar automatiskt dessa autentiseringsuppgifter för varje app. 
 
-```bash
-git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
+Hämta autentiseringsuppgifter för appen genom att köra följande kommando i Cloud Shell. Ersätt \<appens namn-> och \<-namn > med appens namn och Azure resursgruppens namn.
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
-> [!NOTE]
-> Om du vill distribuera med appnivå autentiseringsuppgifter i stället, hämta autentiseringsuppgifter för specifika för din app genom att köra följande kommando i Cloud Shell:
->
-> ```azurecli-interactive
-> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
-> ```
->
-> Använda utdata från kommandot för att köra `git remote add azure <url>` som ovan.
+Använd den URL som returnerar för att distribuera din app i nästa steg.
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du tillfrågas om ett lösenord, se till att du anger det lösenord som du skapade i [konfigurera en distributionsanvändare](#configure-a-deployment-user), inte lösenordet du använde för att logga in på Azure-portalen.
+### <a name="deploy-the-web-app"></a>Distribuera webbappen
 
-```bash
-git push azure master
-```
+1. Öppna ett lokalt terminalfönster till din lokala Git-lagringsplats och Lägg till en Azure-fjärrdatabas. I följande kommando, ersätter \<url > med distributionens användarspecifika URL eller appspecifika URL som du fick från föregående steg.
+   
+   ```bash
+   git remote add azure <url>
+   ```
+   
+1. Skicka till Azure-fjärrdatabasen med `git push azure master`. 
+   
+1. I den **Git Credential Manager** fönstret, ange din [distribution användarlösenord](#configure-a-deployment-user), istället för ditt Azure-inloggning lösenord.
+   
+1. Granska utdata. Du kan se runtime-specifika automation, till exempel MSBuild för ASP.NET, `npm install` för Node.js, och `pip install` för Python. 
+   
+1. Bläddra till din app i Azure portal för att kontrollera att innehållet distribueras.
 
-Du kan se körningsspecifik automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js och `pip install` för Python. 
+## <a name="deploy-with-azure-pipelines-builds"></a>Distribuera med Azure Pipelines versioner
 
-Bläddra till din app för att kontrollera att innehållet distribueras.
+Om ditt konto har behörigheterna som krävs, kan du ställa in Azure Pipelines (förhandsversion) att aktivera lokal Git-distribution för din app. 
 
-## <a name="deploy-with-azure-devops-builds"></a>Distribuera med Azure DevOps-versioner
+- Azure-kontot måste ha behörighet att skriva till Azure Active Directory och skapa en tjänst. 
+  
+- Azure-kontot måste ha den **ägare** roll i din Azure-prenumeration.
 
-> [!NOTE]
-> För App Service för att skapa nödvändiga Azure Pipelines i din organisation med Azure DevOps-tjänsterna, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
->
+- Du måste vara en administratör i Azure DevOps-projektet som du vill använda.
 
-Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern, navigerar du till din app i den [Azure-portalen](https://portal.azure.com).
+Aktivera lokal Git-distribution för din app med Azure Pipelines (förhandsversion):
 
-I den vänstra navigeringen i din appsida klickar du på **Deployment Center** > **lokal Git** > **Fortsätt**.
+1. Gå till din app-sida för Azure App Service i den [Azure-portalen](https://portal.azure.com), och välj **Deployment Center** på den vänstra menyn.
+   
+1. På den **Deployment Center** väljer **lokal Git**, och välj sedan **Fortsätt**. 
+   
+   ![Välj lokal Git och välj sedan Fortsätt](media/app-service-deploy-local-git/portal-enable.png)
+   
+1. På den **Build-provider** väljer **Azure Pipelines (förhandsversion)** , och välj sedan **Fortsätt**. 
+   
+   ![Välj Azure Pipelines (förhandsversion) och därefter på Fortsätt.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-![](media/app-service-deploy-local-git/portal-enable.png)
+1. På den **konfigurera** konfigurera en ny Azure DevOps-organisation eller anger en befintlig organisation, och välj sedan **Fortsätt**.
+   
+   > [!NOTE]
+   > Om din befintliga Azure DevOps-organisation inte visas kan du behöva länka den till din Azure-prenumeration. Mer information finns i [definiera din version CD-pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+   
+1. Beroende på App Service-planen [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/), du kan se en **distribuera till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](deploy-staging-slots.md), och välj sedan **Fortsätt**.
+   
+1. På den **sammanfattning** , granskar du inställningarna och välj sedan **Slutför**.
+   
+1. När Azure pipelinen är klart, Kopiera URL: en för Git-lagringsplats från den **Deployment Center** sida som ska användas i nästa steg. 
+   
+   ![Kopiera URL: en för Git-lagringsplats](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-Klicka på **Azure Pipelines (förhandsversion)**  > **fortsätta**.
-
-![](media/app-service-deploy-local-git/pipeline-builds.png)
-
-I den **konfigurera** sidan, konfigurera en ny Azure DevOps-organisation eller ange en befintlig organisation. När du är klar klickar du på **Fortsätt**.
-
-> [!NOTE]
-> Om du vill använda en befintlig Azure DevOps-organisation som inte visas kan du behöva [länka Azure DevOps-tjänsterna organisationen till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill aktivera distributionsplatser och klicka sedan på **Fortsätt**.
-
-I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
-
-Det tar några minuter för Azure DevOps-tjänsterna organisationen ska bli klar. När det är klart, Kopiera URL: en för Git-lagringsplats i deployment center.
-
-![](media/app-service-deploy-local-git/vsts-repo-ready.png)
-
-I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<url >_ med URL-Adressen som du fick från det sista steget.
-
-```bash
-git remote add vsts <url>
-```
-
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Credential Manager, logga in med din visualstudio.com-användare. Ytterligare autentiseringsmetoder finns [översikt över Azure DevOps-tjänsterna autentisering](/vsts/git/auth-overview?view=vsts).
-
-```bash
-git push vsts master
-```
-
-När distributionen är klar, hittar du förloppet för bygget på `https://<vsts_account>.visualstudio.com/<project_name>/_build` och förloppet för distributionen på `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
-
-Bläddra till din app för att kontrollera att innehållet distribueras.
+1. Lägg till en Azure-fjärrdatabas till din lokala Git-lagringsplats i ditt lokala terminalfönster. I det här kommandot ersätter \<url > med URL: en för Git-lagringsplats som du fick från föregående steg.
+   
+   ```bash
+   git remote add azure <url>
+   ```
+   
+1. Skicka till Azure-fjärrdatabasen med `git push azure master`. 
+   
+1. På den **Git Credential Manager** sidan, logga in med ditt användarnamn på visualstudio.com. Andra autentiseringsmetoder, se [översikt över Azure DevOps-tjänsterna autentisering](/vsts/git/auth-overview?view=vsts).
+   
+1. När distributionen är klar kan du visa förloppet för bygget på `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`, och förloppet för distributionen på `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
+   
+1. Bläddra till din app i Azure portal för att kontrollera att innehållet distribueras.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="troubleshooting-kudu-deployment"></a>Felsökning av Kudu-distribution
+## <a name="troubleshoot-deployment"></a>Felsöka distribution
 
-Följande är vanliga fel eller problem när du använder Git för att publicera till en App Service-app i Azure:
+Du kan se följande vanliga felmeddelanden när du använder Git för att publicera till en App Service-app i Azure:
 
----
-**Symtom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
-
-**Orsak**: Det här felet kan inträffa om appen inte är igång.
-
-**Lösning**: Starta appen i Azure-portalen. Git-distribution är inte tillgänglig när Webbappen har stoppats.
-
----
-**Symtom**: `Couldn't resolve host 'hostname'`
-
-**Orsak**: Det här felet kan inträffa om den adressinformation som anges när du skapar i azure remote var felaktig.
-
-**Lösning**: Använd den `git remote -v` kommando för att lista alla fjärrkontroller, tillsammans med tillhörande URL: en. Kontrollera att URL: en för ”azure” remote är korrekt. Om det behövs kan du ta bort och återskapa den här remote använder rätt Webbadress.
-
----
-**Symtom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
-
-**Orsak**: Det här felet kan inträffa om du inte anger en gren under `git push`, eller om du inte har angetts i `push.default` värde i `.gitconfig`.
-
-**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
-
-```bash
-git push azure master
-```
-
----
-**Symtom**: `src refspec [branchname] does not match any.`
-
-**Orsak**: Det här felet kan inträffa om du försöker skicka till en gren Master på azure fjärrdatabasen.
-
-**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
-
-```bash
-git push azure master
-```
-
----
-**Symtom**: `RPC failed; result=22, HTTP code = 5xx.`
-
-**Orsak**: Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.
-
-**Lösning**: Ändra git-konfigurationen på den lokala datorn för att göra postBuffer större
-
-```bash
-git config --global http.postBuffer 524288000
-```
-
----
-**Symtom**: `Error - Changes committed to remote repository but your web app not updated.`
-
-**Orsak**: Det här felet kan inträffa om du distribuerar en Node.js-app med en _package.json_ -fil som anger ytterligare moduler som krävs.
-
-**Lösning**: Ytterligare meddelanden med 'npm fel ”! ska loggas innan det här felet och kan ge ytterligare sammanhang om felet. Följande är kända orsaker till felet och motsvarande 'npm fel ”! meddelande:
-
-* **Felaktig package.json-fil**: npm fel! Det gick inte att läsa beroenden.
-* **Ursprunglig modul som inte har en binär distribution för Windows**:
-
-  * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
-
-      ELLER
-  * `npm ERR! [modulename@version] preinstall: \make || gmake\`
+|Message|Orsak|Lösning
+---|---|---|
+|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Appen är inte igång.|Starta appen i Azure-portalen. Git-distribution är inte tillgängligt när webbappen har stoppats.|
+|`Couldn't resolve host 'hostname'`|Adressinformationen för ”azure” remote är felaktig.|Använd den `git remote -v` kommando för att lista alla fjärrkontroller, tillsammans med tillhörande URL: en. Kontrollera att URL: en för ”azure” remote är korrekt. Om det behövs kan du ta bort och återskapa den här remote använder rätt Webbadress.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du inte angav en gren under `git push`, eller om du inte har angett den `push.default` värde i `.gitconfig`.|Kör `git push` igen och ange huvudgrenen: `git push azure master`.|
+|`src refspec [branchname] does not match any.`|Du försökte skicka till en gren Master på azure fjärrdatabasen.|Kör `git push` igen och ange huvudgrenen: `git push azure master`.|
+|`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn för att göra den `postBuffer` större. Till exempel: `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.json_ -fil som anger ytterligare moduler som krävs.|Granska den `npm ERR!` felmeddelanden innan det här felet för mer kontext om felet. Följande är kända orsaker till felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.json-fil**: `npm ERR! Couldn't read dependencies.`<br /><br />**Ursprunglig modul inte har en binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />' npm fel! [modulename@version] förinstallera: \make || gmake\`|
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Projektet Kudu-dokumentation](https://github.com/projectkudu/kudu/wiki)
-* [Kontinuerlig distribution till Azure App Service](deploy-continuous-deployment.md)
-* [Exempel: Skapa Webbapp och distribuera kod från en lokal Git-lagringsplats (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-* [Exempel: Skapa Webbapp och distribuera kod från en lokal Git-lagringsplats (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Projektet Kudu-dokumentation](https://github.com/projectkudu/kudu/wiki)
+- [Kontinuerlig distribution till Azure App Service](deploy-continuous-deployment.md)
+- [Exempel: Skapa en webbapp och distribuera kod från en lokal Git-lagringsplats (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+- [Exempel: Skapa en webbapp och distribuera kod från en lokal Git-lagringsplats (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596624"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612597"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -22,16 +22,16 @@ ms.locfileid: "65596624"
 
 Den här självstudien bygger på koden i den [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-node-node-c2d.md) självstudien för att visa dig hur du använder den [filen ladda upp funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) att överföra en fil till [Azure-blob Storage](../storage/index.yml). Självstudien visar hur du:
 
-- Ange en enhet på ett säkert sätt med en Azure blob-URI: N för att ladda upp en fil.
-- 
-- Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
+* Ange en enhet på ett säkert sätt med en Azure blob-URI: N för att ladda upp en fil.
 
-Den [Kom igång med IoT Hub](quickstart-send-telemetry-node.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+* Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
 
-*  Stora filer som innehåller bilder
-*  Videoklipp
-*  Vibrationer data samplas med hög frekvens
-*  Någon form av förbearbetade data.
+Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-node.md) snabbstarten visar grundläggande enhet-till-moln-meddelandefunktioner för IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+
+* Stora filer som innehåller bilder
+* Videoklipp
+* Vibrationer data samplas med hög frekvens
+* Någon form av förbearbetade data.
 
 Dessa filer är vanligtvis bearbetas i molnet med hjälp av verktyg som [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) stack. När du behöver upland filer från en enhet, kan du fortfarande använda säkerheten och pålitligheten för IoT Hub.
 
@@ -216,6 +216,8 @@ Du kan använda portalen för att visa den överförda filen i storage-behållar
 
 I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
 
-*  [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
-*  [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
-*  [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
+* [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
+
+* [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)

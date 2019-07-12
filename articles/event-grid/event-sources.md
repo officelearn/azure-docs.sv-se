@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735008"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785827"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -26,7 +26,7 @@ Prenumerera på händelser för Azure-prenumerationer att reagera på förändri
 
 |Titel |Beskrivning  |
 |---------|---------|
-| [Självstudie: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som den virtuella datorn med taggar och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
+| [Självstudier: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som den virtuella datorn med taggar och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
 | [Så här: prenumerera på händelser via portalen](subscribe-through-portal.md) | Använda portalen för att prenumerera på händelser för en Azure-prenumeration. |
 | [Azure CLI: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-cli-azure-subscription.md) |Exempelskript som skapar en Event Grid-prenumeration till en Azure-prenumeration och skickar händelser till en WebHook. |
 | [PowerShell: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-powershell-azure-subscription.md)| Exempelskript som skapar en Event Grid-prenumeration till en Azure-prenumeration och skickar händelser till en WebHook. |
@@ -113,7 +113,7 @@ Prenumerera på Service Bus-händelser ska svara på meddelanden utan någon akt
 
 |Titel  |Beskrivning  |
 |---------|---------|
-| [Självstudie: Azure Service Bus till Azure Event Grid integrationsexempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-ämne app och logikapp. |
+| [Självstudier: Azure Service Bus till Azure Event Grid integrationsexempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-ämne app och logikapp. |
 | [Översikt: Azure Service Bus till Event Grid-integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över integrering av Service Bus med Event Grid. |
 | [Händelseschema](event-schema-service-bus.md) | Visar fälten i Service Bus-händelser. |
 
@@ -138,7 +138,7 @@ Prenumerera på händelser för Azure Maps att svara på händelser för geofenc
 |Titel  |Beskrivning  |
 |---------|---------|
 | [Reagera på händelser för Azure Maps med hjälp av Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integrering av Azure Maps med Event Grid. |
-| [Självstudie: Konfigurera en geofence-området](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du kan använda Azure Event Grid för att strömma geofence-området resultaten och konfigurera ett meddelande baserat på resultatet geofence-området. |
+| [Självstudier: Konfigurera en geofence-området](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du kan använda Azure Event Grid för att strömma geofence-området resultaten och konfigurera ett meddelande baserat på resultatet geofence-området. |
 | [Händelseschema](event-schema-azure-maps.md) | Visar fälten i Azure Maps-händelser. |
 
 ## <a name="app-configuration"></a>App Configuration
@@ -149,6 +149,16 @@ Prenumerera på Azure-Appkonfiguration händelser att svara på händelser för 
 | [Reagera på händelser för konfiguration av Azure med hjälp av Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integrering av Azure-Appkonfiguration med Event Grid. |
 | [Snabbstart: Dirigera konfiguration av Azure-händelser till en anpassad webbslutpunkt med Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka konfiguration av Azure-händelser till en WebHook. |
 | [Händelseschema](event-schema-app-configuration.md) | Visar fälten i konfiguration av Azure-händelser. |
+
+## <a name="azure-signalr"></a>Azure SignalR
+Prenumerera på händelser för Azure SignalR Service att svara på klienthändelser för anslutningen.
+
+|Titel | Beskrivning |
+|---------|---------|
+| [Reagera på händelser för Azure SignalR Service med hjälp av Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR Service med Event Grid. |
+| [Hur du skickar Azure SignalR Service-händelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar händelser för Azure SignalR Service till ett program via Event Grid. |
+| [Händelseschema](event-schema-azure-signalr.md) | Visar fälten i Azure SignalR Service-händelser. |
+
 
 
 ## <a name="next-steps"></a>Nästa steg

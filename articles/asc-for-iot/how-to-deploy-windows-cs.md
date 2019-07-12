@@ -2,24 +2,25 @@
 title: Windows-installationen av Azure Security Center för IoT-agenten förhandsversionen | Microsoft Docs
 description: Läs mer om hur du installerar Azure Security Center för IoT-agenten på 32-bitars eller 64-bitars Windows-enheter.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 64fc576885bb9d9c3c46aafd808db65d2f8ff77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22faa6ea02a1a3d093aee1dec84ca1680da54d2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200626"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616769"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuera en Azure Security Center för IoT C#-baserade security-agenten för Windows
 
@@ -36,7 +37,7 @@ I den här guiden får du lära du dig att:
 > * Avinstallera agenten
 > * Felsöka 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Andra plattformar och agenten smaksättningar finns i [väljer rätt säkerhetsagenten](how-to-deploy-agent.md).
 

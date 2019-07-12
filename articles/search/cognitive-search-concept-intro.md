@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 60a7a141cfcec3beced9e57baddebbc26e753141
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299035"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672164"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
@@ -101,7 +101,7 @@ Index som ska genereras från ett indexschema som definierar fälten, attribut, 
 
 + [Snabbstart (portal)](cognitive-search-quickstart-blob.md)
 + [Självstudie (HTTP-begäranden)](cognitive-search-tutorial-blob.md)
-+ [Exempel anpassade funktioner (C#)](cognitive-search-create-custom-skill-example.md)
++ [Exempel: Skapa en anpassad kunskap för kognitiv sökning (C#)](cognitive-search-create-custom-skill-example.md)
 
 Vi rekommenderar den kostnadsfria tjänsten i utbildningssyfte, men tänk på att antalet kostnadsfria transaktioner är begränsad till 20 dokument per dag. Använd en mindre uppsättning (10 dokument) för att köra både Snabbstart och självstudier i en dag, så att du kan rymmas i båda övningarna.
 
@@ -144,6 +144,6 @@ Mer information om specifika frågor eller problem finns i [felsökningstips](co
 
 + [Dokumentation om cognitive search](cognitive-search-resources-documentation.md)
 + [Snabbstart: Prova cognitive search i en genomgång av portalen](cognitive-search-quickstart-blob.md)
-+ [Självstudie: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
++ [Självstudier: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
 + [Översikt över Knowledge](knowledge-store-concept-intro.md)
 + [Knowledge store genomgång](knowledge-store-howto.md)

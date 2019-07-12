@@ -4,7 +4,7 @@ description: Haveriberedskap för en Oracle Database 12c-databas i Azure-miljön
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db0b9887b80f13938045a5d11fb09ed0a43efc19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835897"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706969"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö
 
@@ -106,5 +106,5 @@ Nedan följer en sammanfattning av installationsprogrammet för Azure:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+- [Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 - [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428763"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718197"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -105,7 +105,7 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 En parameter har följande egenskaper som används i principdefinitionen:
 
 - **name**: Namnet på parametern. Används av den `parameters` distribution funktion i principregeln. Mer information finns i [med hjälp av ett parametervärde](#using-a-parameter-value).
-- `type`: Anger om parametern är en **sträng** eller en **matris**.
+- `type`: Anger om parametern är en **sträng**, **matris**, **objekt**, **booleskt**, **heltal**, **flyttal**, eller **datetime**.
 - `metadata`: Definierar subegenskaper som främst används av Azure-portalen för att visa användarvänliga information:
   - `description`: Förklaring av vad parametern används för. Kan användas för att ge exempel på de godkända värdena.
   - `displayName`: Det egna namnet som visas i portalen för parametern.
@@ -304,7 +304,7 @@ I följande exempel `concat` används för att skapa en fält-sökning för tagg
 }
 ```
 
-### <a name="value"></a>Värde
+### <a name="value"></a>Value
 
 Villkor kan även skapas med hjälp av **värdet**. **värdet** kontrollerar villkor mot [parametrar](#parameters), [stöds Mallfunktioner](#policy-functions), eller litteraler.
 **värdet** paras ihop med alla stöds [villkor](#conditions).

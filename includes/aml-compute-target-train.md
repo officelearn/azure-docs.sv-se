@@ -9,13 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
-ms.openlocfilehash: 50905eb987defac612f1055b450b682726f0a56f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b62d4b2ac1bb69e2270c3202d29eb595df7aac4
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752950"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806039"
 ---
+**Compute mål kan återanvändas från en utbildningsjobb till nästa**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.
+
 |Utbildning &nbsp;mål| GPU-stöd |[Automatiserad ML](../articles/machine-learning/service/concept-automated-ml.md) | [ML-pipelines](../articles/machine-learning/service/concept-ml-pipelines.md) | [Visuella gränssnittet](../articles/machine-learning/service/ui-concept-visual-interface.md)
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| maybe | ja | &nbsp; | &nbsp; |
@@ -25,5 +27,3 @@ ms.locfileid: "66752950"
 |[Azure Data Lake Analytics](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | ja | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | ja | &nbsp; |
 |[Azure Batch](../articles/machine-learning/service/how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | ja | &nbsp; |
-
-**Alla beräkningsresurser mål kan återanvändas för flera upplärningsjobb**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.

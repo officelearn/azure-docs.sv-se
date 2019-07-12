@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109162"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654049"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -31,7 +31,7 @@ Den här artikeln är utformad för att hålla reda på de versioner som har lan
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Ämne |  Information
+Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](how-to-upgrade-previous-version.md) Azure AD Connect-versionen.
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -408,18 +408,18 @@ Låsa åtkomsten till AD DS-kontot genom att implementera följande behörighets
 *   Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Access               | Gäller för
+type     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
-Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
-Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |
-Tillåt    | Domänadministratörer                 | Fullständig kontroll         | Det här objektet  |
-Tillåt    | Administratörer                | Fullständig kontroll         | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
-Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
-Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
-Tillåt    | Autentiserade användare           | Läsbehörighet     | Det här objektet  |
+Allow    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
+Allow    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |
+Allow    | Domänadministratörer                 | Fullständig kontroll         | Det här objektet  |
+Allow    | Administratörer                | Fullständig kontroll         | Det här objektet  |
+Allow    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
+Allow    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
+Allow    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
+Allow    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
+Allow    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
+Allow    | Autentiserade användare           | Läsbehörighet     | Det här objektet  |
 
 Att öka inställningarna för AD DS-konto som du kan köra [den här PowerShell.skript](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell-skriptet tilldelar behörigheter som nämns ovan till AD DS-kontot.
 
@@ -889,7 +889,7 @@ Azure AD Connect-synkronisering
 * På din Azure AD-klient finns en tjänstkonfiguration som anger om synkronisering av lösenords-funktionen har aktiverats för din klient eller inte. Tidigare är det enkelt för konfigurationen av konfigureras felaktigt av Azure AD Connect när du har en aktiv och en fristående server. Nu kan Azure AD Connect försöker placera tjänstkonfigurationen konsekvent med din aktiva Azure AD Connect-servern.
 * Azure AD Connect guiden nu identifierar och returnerar en varning om en lokal AD inte har AD-Papperskorgen aktiverat.
 * Exportera tidigare till Azure AD-tidsgränsen ut och misslyckas om den kombinerade storleken av objekten i batchen överstiger tröskelvärde. Nu kan synkroniseringstjänsten gör ett nytt försök att skicka om objekten i separata, mindre batchar om problemet har påträffats.
-* Synkronisering Service Key Management-programmet har tagits bort från Windows-startmenyn. Hantering av krypteringsnyckeln fortsätter att vara tillgänglig via kommandoradsgränssnittet med miiskmu.exe. Information om hantering av krypteringsnycklar finns i artikeln [avbryts krypteringsnyckeln Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* Synkronisering Service Key Management-programmet har tagits bort från Windows-startmenyn. Hantering av krypteringsnyckeln fortsätter att vara tillgänglig via kommandoradsgränssnittet med miiskmu.exe. Information om hantering av krypteringsnycklar finns i artikeln [avbryts krypteringsnyckeln Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Tidigare, ändrar du Azure AD Connect sync tjänstkontolösenord, synkroniseringstjänsten kan inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats om Azure AD Connect sync tjänstkontolösenord. Den här processen är nu inte längre krävs.
 
 Enkel inloggning för skrivbord

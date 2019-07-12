@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ebea8bfd69a4df605142ab82f3efbc7d97d34529
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 4e699707db02de07f3d1ebb7d1fa8d0575a10aa3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143953"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836942"
 ---
-I Azure Cloud Shell, konfigurerar du autentiseringsuppgifter för distribution med den [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) kommando. Du kan använda den här distributionsanvändare för FTP och lokal Git-distribution till en webbapp. Det användarnamn och lösenord är på kontonivå. _De är skiljer sig från autentiseringsuppgifterna för din Azure-prenumeration._
+FTP och lokal Git kan distribuera till en Azure-webbapp med hjälp av en *distributionsanvändare*. När du har konfigurerat din distributionsanvändaren kan du använda det för alla Azure-distributioner. Ditt distributionen på kontonivån användarnamn och lösenord skiljer sig från autentiseringsuppgifterna för din Azure-prenumeration. 
 
-I följande exempel ersätter  *\<användarnamn >* och  *\<lösenord >* , inklusive parenteser, med ett nytt användarnamn och lösenord. Användarnamnet måste vara unikt i Azure. Lösenordet måste vara minst åtta tecken långt, med två av följande tre element: bokstäver, siffror och symboler.
+Om du vill konfigurera distributionsanvändaren, kör den [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) i Azure Cloud Shell. Ersätt \<användarnamn > och \<lösenord > med en distribution användarens användarnamn och lösenord. 
+
+- Användarnamnet måste vara unikt i Azure och lokal Git push-meddelanden, får inte innehålla den ' @' symbolen. 
+- Lösenordet måste vara minst åtta tecken långt, med två av följande tre element: bokstäver, siffror och symboler. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Du får JSON-utdata med lösenordet ska visas som `null`. Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. Distributionsanvändarnamnet får inte innehålla ' @' symbolen för lokal Git push-meddelanden.
+JSON-utdata visar lösenordet som `null`. Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
 
-Du konfigurerar den här distributionsanvändare bara en gång. Du kan använda den för alla Azure-distributioner.
-
-> [!NOTE]
-> Anteckna användarnamnet och lösenordet. Du kommer att behöva dem för att distribuera webbappen.
->
->
+Registrera ditt användarnamn och lösenord för att distribuera dina webbprogram.

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234196"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626123"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor log-data till Power BI
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234196"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Översikt
-Importera data från en [Log Analytics-arbetsyta](manage-access.md) i Azure Monitor till Power BI kan du skapa en datauppsättning i Power BI baserat på en [loggfråga](../log-query/log-query-overview.md) i Azure Monitor.  Frågan körs varje gång datauppsättningen uppdateras.  Du kan sedan skapa Power BI-rapporter som använder data från datauppsättningen.  För att skapa datauppsättningen i Power BI, du kan exportera din fråga från Log Analytics för att [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx).  Du kan sedan använda detta för att skapa en fråga i Power BI Desktop och publicera den till Power BI som en datauppsättning.  Information om den här processen beskrivs nedan.
+Importera data från en [Log Analytics-arbetsyta](manage-access.md) i Azure Monitor till Power BI kan du skapa en datauppsättning i Power BI baserat på en [loggfråga](../log-query/log-query-overview.md) i Azure Monitor.  Frågan körs varje gång datauppsättningen uppdateras.  Du kan sedan skapa Power BI-rapporter som använder data från datauppsättningen.  För att skapa datauppsättningen i Power BI, du kan exportera din fråga från Log Analytics för att [Power Query (M) språk](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Du kan sedan använda detta för att skapa en fråga i Power BI Desktop och publicera den till Power BI som en datauppsättning.  Information om den här processen beskrivs nedan.
 
 ![Log Analytics till Powerbi](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportera fråga
-Börja med att skapa en [loggfråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
+Börja med att skapa en [loggfråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) som kan användas av Power BI Desktop.
 
 1. [Skapa loggfråga i Log Analytics](../log-query/get-started-portal.md) att extrahera data för din datauppsättning.
 2. Välj **exportera** > **Power BI-fråga (M)** .  Det här exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 

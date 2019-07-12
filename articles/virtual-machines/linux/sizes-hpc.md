@@ -4,7 +4,7 @@ description: Visar en lista över de olika storlekarna för Linux-datorer i Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 847f25d9be1a8654bbc0435d7874acb0ff793304
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070002"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695591"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -56,7 +56,15 @@ Azure Marketplace har många Linux-distributioner som stöder RDMA-anslutning:
   "typeHandlerVersion": "1.0",
   } 
   ```
- 
+  
+  Följande kommando installerar tillägget InfiniBandDriverLinux senaste version 1.0 på alla RDMA-kompatibla virtuella datorer i en befintlig VM-skalningsuppsättning med namnet *myVMSS* distribuerat i resursgruppen med namnet *myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
   > [!NOTE]
   > På CentOS-baserade HPC-avbildningar, inaktiveras kernel-uppdateringar i den **yum** konfigurationsfilen. Detta beror på Linux RDMA-drivrutiner har distribuerats som en RPM-paket och drivrutinsuppdateringar kanske inte fungerar om kerneln är uppdaterad.
   >
@@ -82,6 +90,8 @@ Azure tillhandahåller flera alternativ för att skapa kluster av virtuella Linu
 * **Virtuella datorer** – distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen). Om du använder den klassiska distributionsmodellen kan du distribuera de virtuella datorerna i samma molntjänst. 
 
 * **VM-skalningsuppsättningar** – i en virtuell datorskalning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
+
+* **MPI mellan virtuella datorer** – om MPI-kommunikation om det behövs mellan virtuella datorer (VM), se till att de virtuella datorerna i samma tillgänglighetsuppsättning ställs eller den virtuella datorn samma skalningsuppsättning.
 
 * **Azure CycleCloud** -skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) att köra MPI-jobb på Linux-noder.
 

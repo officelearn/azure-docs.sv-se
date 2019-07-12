@@ -2,24 +2,25 @@
 title: Förstå Azure Security Center för IoT-säkerhetsrekommendationer förhandsversion | Microsoft Docs
 description: Läs mer om begreppet säkerhetsrekommendationer och hur de används i Azure Security Center för IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 02ced504-d3aa-4770-9d10-b79f80af366c
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ee71bbacdba7a14e94de41563a04be9c0f00d13
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200674"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618416"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
@@ -37,11 +38,11 @@ Rekommendationer för enhet ger insikter och förslag för att förbättra säke
 
 | Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medel   | Öppna portar på enheten                                      | Agent       | En lyssnarslutpunkten hittades på enheten                                                                                                                                                          |
-| Medel   | Tillåtande brandväggsprincipen finns på någon av kedjorna. | Agent       | Tillåtna brandväggsprincipen hittades (indata/utdata). Brandväggsprincip ska neka all trafik som standard, och definiera regler för att tillåta nödvändiga kommunikation till och från enheten.                               |
-| Medel   | Tillåtande brandväggsregel i indata kedjan hittades     | Agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                    |
-| Medel   | Tillåtande brandväggsregel i utdata-kedjan hittades    | Agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                   |
-| Medel   | Det gick inte att baslinjen validering av systemet           | Agent       | Enheten är inte kompatibel med [riktmärken för CIS-Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Medel   | Öppna portar på enheten                                      | agent       | En lyssnarslutpunkten hittades på enheten                                                                                                                                                          |
+| Medel   | Tillåtande brandväggsprincipen finns på någon av kedjorna. | agent       | Tillåtna brandväggsprincipen hittades (indata/utdata). Brandväggsprincip ska neka all trafik som standard, och definiera regler för att tillåta nödvändiga kommunikation till och från enheten.                               |
+| Medel   | Tillåtande brandväggsregel i indata kedjan hittades     | agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                    |
+| Medel   | Tillåtande brandväggsregel i utdata-kedjan hittades    | agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                   |
+| Medel   | Det gick inte att baslinjen validering av systemet           | agent       | Enheten är inte kompatibel med [riktmärken för CIS-Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Operativa rekommendationer för IoT-enheter
 
@@ -49,9 +50,9 @@ Operativa rekommendationer ger insikter och förslag för att förbättra säker
 
 | Severity | Namn                                    | Datakälla | Beskrivning                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Låg      | Agenten skickar unutilized meddelanden          | Agent       | minst 10 procent av säkerhetsvarningar var mindre än 4kb under de senaste 24 timmarna.  |
-| Låg      | Twin säkerhetskonfiguration inte optimala | Agent       | Twin säkerhetskonfiguration är inte optimalt.                                        |
-| Låg      | Security twin konfigurationskonflikt    | Agent       | Konflikter identifierades i twin säkerhetskonfiguration.                           |
+| Låg      | Agenten skickar unutilized meddelanden          | agent       | minst 10 procent av säkerhetsvarningar var mindre än 4kb under de senaste 24 timmarna.  |
+| Låg      | Twin säkerhetskonfiguration inte optimala | agent       | Twin säkerhetskonfiguration är inte optimalt.                                        |
+| Låg      | Security twin konfigurationskonflikt    | agent       | Konflikter identifierades i twin säkerhetskonfiguration.                           |
 
 
 ## <a name="recommendations-for-iot-hub"></a>Rekommendationer för IoT Hub

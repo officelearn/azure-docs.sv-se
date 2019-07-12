@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147532"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653402"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsökning av vanliga problem med indexerare i Azure Search
 
@@ -45,7 +45,7 @@ Du hittar IP-adressen för din söktjänst genom att skicka pingsignaler dess FQ
 
 #### <a name="indexing-isnt-enabled"></a>Indexering har inte aktiverats
 
-Azure Search är en implicit beroende på Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, Azure Search returnerar tillståndet lyckades, men går inte att index behållarens innehåll. Instruktioner om hur du kontrollerar inställningar och aktivera indexering finns [hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Azure Search är en implicit beroende på Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, Azure Search returnerar tillståndet lyckades, men går inte att index behållarens innehåll. Instruktioner om hur du kontrollerar inställningar och aktivera indexering finns [hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Dokumentet bearbetningsfel
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235091"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626388"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science-dator på Azure
 
@@ -61,13 +61,13 @@ Dataexperter kan du använda flera verktyg för dessa uppgifter. Det kan ta lån
 
 DSVM jump-starts ditt analysprojekt. Du kan arbeta med aktiviteter på olika språk, inklusive R, Python, SQL och C#. Visual Studio tillhandahåller en enkel att använda integrerad utvecklingsmiljö (IDE) för att utveckla och testa din kod. Azure SDK ingår i den virtuella datorn så att du kan skapa dina program med hjälp av olika tjänster på Microsofts molnplattform.
 
-Det finns inga programvaruavgifter för den här data science VM-avbildning. Du betalar bara användningen av Azure-avgifter. De beror på storleken på den virtuella datorn som du etablerar. Mer information om beräkning avgifter finns i den **prisinformation** avsnittet på den [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) sidan.
+Det finns inga programvaruavgifter för den här data science VM-avbildning. Du betalar bara användningen av Azure-avgifter. De beror på storleken på den virtuella datorn som du etablerar. Mer information om beräkning avgifter finns i den **prisinformation** avsnittet på den [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) sidan.
 
 ### <a name="other-dsvm-versions"></a>Andra DSVM-versioner
 
 * En [Ubuntu](dsvm-ubuntu-intro.md) bild. Har många verktyg som liknar DSVM plus några ytterligare deep learning-ramverk.
 * En [Linux CentOS](linux-dsvm-intro.md) bild.
-* Den [Windows Server 2012-versionen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) av den virtuella datorn för datavetenskap. Det finns några verktyg endast på Windows Server 2016-versionen. Annars kan gäller den här artikeln även för Windows Server 2012-versionen.
+* Den [Windows Server 2012-versionen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) av den virtuella datorn för datavetenskap. Det finns några verktyg endast på Windows Server 2016-versionen. Annars kan gäller den här artikeln även för Windows Server 2012-versionen.
 
 ## <a name="prerequisite"></a>Krav
 

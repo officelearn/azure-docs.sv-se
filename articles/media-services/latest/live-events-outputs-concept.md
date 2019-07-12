@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296215"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605653"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -142,7 +142,7 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
 ## <a name="live-event-preview-url"></a>Live-händelse förhandsgransknings-URL
 
-När den **direktsänd händelse** börjar ta emot bidrag feed, dess förhandsgranskningsslutpunkten kan använda för att förhandsgranska och validera att du får den direktsända dataströmmen innan du publicerar ytterligare. När du har kontrollerat att förhandsgranska dataströmmen är bra, du kan använda Live-händelse så att den direktsända dataströmmen analysleverans via en eller flera (färdiga) **Strömningsslutpunkter**. För att åstadkomma detta måste du skapa ett nytt [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs) på den **direktsänd händelse**. 
+När Live-händelsen börjar ta emot bidrag feed, kan du använda dess förhandsgranskningsslutpunkten att förhandsgranska och validera att du får den direktsända dataströmmen innan du publicerar ytterligare. När du har kontrollerat att förhandsgranska dataströmmen är bra, kan du använda Live-händelse så att den direktsända dataströmmen analysleverans via en eller flera (förinställda)-slutpunkter för direktuppspelning. För att åstadkomma detta måste du skapa ett nytt [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs) på Live-händelse. 
 
 > [!IMPORTANT]
 > Kontrollera att videon flödar till förhandsgransknings-URL innan du fortsätter!
@@ -158,11 +158,11 @@ När du har dataströmmen väl flödar till Live-händelse, kan du påbörja str
 > [!NOTE]
 > Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort liveutdata tar du inte bort den underliggande tillgången och innehållet i tillgången. 
 
-Förhållandet mellan en **direktsänd händelse** och dess **Live utdata** är liknar traditionella TV-sändning, där en kanal (**direktsänd händelse**) representerar en konstant strömma video och en inspelning (**Live utdata**) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en DVR-spelare – den motsvarande funktionen i livehändelser hanteras via egenskapen **ArchiveWindowLength**. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
+Förhållandet mellan en **direktsänd händelse** och dess **Live utdata** liknar traditionella TV broadcast, där en kanal (Live-händelse) representerar en konstant ström av video och en inspelning (Live Utdata) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i Live-händelser hanteras via den **archiveWindowLength** egenskapen. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
 
-Den **Live utdata** objekt som liknar en inspelningar som ska fånga upp och registrera den direktsända dataströmmen till en tillgång i Media Services-kontot. Inspelat innehåll ska behållas i Azure Storage-kontot som hör till ditt konto till den behållare som definieras av tillgången resursen. Den **Live utdata** också låter dig styra vissa egenskaper för den utgående direktsända dataströmmen, till exempel hur mycket av dataströmmen som sparas i arkivet inspelningen (till exempel kapaciteten för moln DVR) och om huruvida användarna kan starta Titta på den direktsända dataströmmen. Arkivet på disken är en cirkulär Arkiv ”fönster” som innehåller endast mängden innehåll som har angetts i den **archiveWindowLength** egenskapen för den **Live utdata**. Innehållet som ligger utanför det här fönstret tas automatiskt bort från storage-behållare och kan inte återställas. Du kan skapa flera **Live utdata** (upp till tre maximalt) på en **direktsänd händelse** med olika Arkiv längd och inställningar.  
+Det Live objektet är som en inspelningar som ska fånga upp och registrera den direktsända dataströmmen till en tillgång i Media Services-kontot. Inspelat innehåll ska behållas i Azure Storage-kontot som hör till ditt konto till den behållare som definieras av tillgången resursen. Live-utdata kan du styra vissa egenskaper för den utgående direktsända dataströmmen, till exempel hur mycket av dataströmmen som sparas i arkivet inspelningen (till exempel kapaciteten för moln DVR) och om huruvida användarna kan börjar titta på live stream. Arkivet på disken är en cirkulär Arkiv ”fönster” som innehåller endast mängden innehåll som har angetts i egenskapen archiveWindowLength för Live-utdata. Innehållet som ligger utanför det här fönstret tas automatiskt bort från storage-behållare och kan inte återställas. Du kan skapa flera Live utdata (upp till tre maximalt) på en Live-händelse med olika Arkiv längd och inställningar.  
 
-Om du har publicerat den **Live utdata**'s **tillgången** med hjälp av en **Strömningspositionerare**, **direktsänd händelse** (upp till DVR fönstret längd) kommer fortsätta att vara synliga tills positionerare för direktuppspelning slutar att gälla eller tas bort, beroende på vilket som inträffar först.
+Om du har publicerat utdata för Live **tillgången** med hjälp av en **Strömningspositionerare**, Live-händelse (upp till DVR fönstret längd) fortsätter att vara synliga tills positionerare för direktuppspelning slutar att gälla eller tas bort, beroende på vilket som inträffar först.
 
 Mer information finns i [med molnbaserade DVR](live-event-cloud-dvr.md).
 

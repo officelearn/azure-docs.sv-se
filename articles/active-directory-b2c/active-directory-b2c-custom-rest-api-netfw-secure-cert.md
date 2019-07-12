@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510530"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835613"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda RESTful-tjänst med hjälp av klientcertifikat
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller information om hur du:
 * Överför certifikatet till nycklar för Azure AD B2C-princip.
 * Konfigurera en egen princip om du vill använda klientcertifikatet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Utför stegen i den [integrera REST API-anspråk utbyten](active-directory-b2c-custom-rest-api-netfw.md) artikeln.
 * Skaffa ett giltigt certifikat (en .pfx-fil med en privat nyckel).
 
@@ -47,24 +47,24 @@ Du ställer in **Azure App Service** för att kräva klientcertifikat, ange webb
 >Mer information om hur den **clientCertEnabled** egenskap, finns i [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Steg 2: Överför certifikatet till nycklar för Azure AD B2C-princip
-När du ställer in `clientCertEnabled` till *SANT*, kommunikationen med ditt RESTful-API kräver ett klientcertifikat. Om du vill hämta, överföra och lagra klientcertifikatet i din Azure AD B2C-klient, gör du följande: 
+När du ställer in `clientCertEnabled` till *SANT*, kommunikationen med ditt RESTful-API kräver ett klientcertifikat. Om du vill hämta, överföra och lagra klientcertifikatet i din Azure AD B2C-klient, gör du följande:
 1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
 
 2. Om du vill visa de nycklar som är tillgängliga i din klient, Välj **Principnycklar**.
 
-3. Välj **Lägg till**.  
+3. Välj **Lägg till**.
     Den **skapar du en nyckel** öppnas.
 
 4. I den **alternativ** väljer **överför**.
 
-5. I den **namn** skriver **B2cRestClientCertificate**.  
+5. I den **namn** skriver **B2cRestClientCertificate**.
     Prefixet *B2C_1A_* läggs till automatiskt.
 
 6. I den **filuppladdning** väljer du ditt certifikat PFX-fil med en privat nyckel.
 
 7. I den **lösenord** skriver lösenord för certifikatet.
 
-    ![Ladda upp principnyckel](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Ladda upp principnyckel i avsnittet Skapa en sida i Azure-portalen](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
 7. Välj **Skapa**.
 
@@ -85,7 +85,7 @@ För att stödja autentisering av klientcertifikat i en egen princip, ändrar du
     <Item Key="AuthenticationType">ClientCertificate</Item>
     ```
 
-5. Direkt efter avslutande `<Metadata>` element, Lägg till följande XML-fragment: 
+5. Direkt efter avslutande `<Metadata>` element, Lägg till följande XML-fragment:
 
     ```xml
     <CryptographicKeys>
@@ -119,12 +119,12 @@ För att stödja autentisering av klientcertifikat i en egen princip, ändrar du
 
 2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.
 
-3. Testa processen genom att skriva **Test** i den **Förnamn** box.  
-    Azure AD B2C visar ett felmeddelande visas överst i fönstret.    
+3. Testa processen genom att skriva **Test** i den **Förnamn** box.
+    Azure AD B2C visar ett felmeddelande visas överst i fönstret.
 
-    ![Testa din identitet API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Förnamn textrutan markerat och ange verifieringsfel visas](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. I den **Förnamn** skriver ett namn (andra än ”Test”).  
+4. I den **Förnamn** skriver ett namn (andra än ”Test”).
     Azure AD B2C registrerar sig användaren och skickar sedan ett lojalitet tal till ditt program. Observera antalet i det här JWT-exemplet:
 
    ```
@@ -152,7 +152,7 @@ För att stödja autentisering av klientcertifikat i en egen princip, ändrar du
    >Om du får felmeddelandet *namnet är inte giltigt, ange ett giltigt namn*, betyder det att Azure AD B2C har heter RESTful-tjänst när den visas klientcertifikatet. Nästa steg är att verifiera certifikatet.
 
 ## <a name="step-6-add-certificate-validation"></a>Steg 6: Lägg till certifikatverifiering
-Klientcertifikatet som Azure AD B2C skickar till RESTful-tjänst genomgår inte verifiering av Azure App Service-plattformen, förutom att kontrollera om det finns certifikatet. Verifiering av certifikatet ansvarar för webbappen. 
+Klientcertifikatet som Azure AD B2C skickar till RESTful-tjänst genomgår inte verifiering av Azure App Service-plattformen, förutom att kontrollera om det finns certifikatet. Verifiering av certifikatet ansvarar för webbappen.
 
 I det här avsnittet ska du lägga till ASP.NET-exempelkoden som validerar egenskaper för certifikat för autentisering.
 
@@ -171,7 +171,7 @@ I Visual Studio-projektet som du skapade tidigare, lägger du till följande pro
 Ersätter du certifikatet **ämnesnamn**, **Utfärdarens namn**, och **certifikattumavtrycket** värdena med dina certifikatvärden.
 
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 lägga till funktionen IsValidClientCertificate
-Öppna den *Controllers\IdentityController.cs* filen och Lägg sedan till den `Identity` controller klassen följande funktion: 
+Öppna den *Controllers\IdentityController.cs* filen och Lägg sedan till den `Identity` controller klassen följande funktion:
 
 ```csharp
 private bool IsValidClientCertificate()
@@ -219,7 +219,7 @@ private bool IsValidClientCertificate()
         Trace.TraceError($"Subject name '{clientCertInRequest.Subject}' is not valid");
         return false;
     }
-    
+
     // 3. Check the issuer name of the certificate
     bool foundIssuerCN = false;
     string[] certIssuerData = clientCertInRequest.Issuer.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -273,7 +273,7 @@ I föregående exempelkoden accepterar vi certifikat som gäller bara om samtlig
 >Beroende på hur känsliga din tjänst, kan du behöva lägga till flera verifieringar. Du kan behöva testa om certifikaten som länkar till en betrodd rotcertifikatutfärdare, valideringen av utfärdare organisation och så vidare.
 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 anropa funktionen IsValidClientCertificate
-Öppna den *Controllers\IdentityController.cs* fil och sedan i början av den `SignUp()` fungera, Lägg till följande kodavsnitt: 
+Öppna den *Controllers\IdentityController.cs* fil och sedan i början av den `SignUp()` fungera, Lägg till följande kodavsnitt:
 
 ```csharp
 if (IsValidClientCertificate() == false)
@@ -299,4 +299,4 @@ Om du vill felsöka det här steget kan du läsa [samla in loggar med Applicatio
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Ladda ned fullständig principfiler och kod
 * När du har slutfört den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgången ska vi rekommenderar att du skapar ditt scenario genom att använda din egen anpassade principfiler. För referens har vi samlat [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert).
-* Du kan hämta den fullständiga koden från [exempel Visual Studio-lösning för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API). 
+* Du kan hämta den fullständiga koden från [exempel Visual Studio-lösning för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).

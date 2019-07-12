@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567358"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839548"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiera data till och från Data Lake Storage Gen1 med Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -54,7 +54,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till/från 
 
 Det enklaste sättet att skapa en pipeline för att kopiera data är att använda den **Kopieringsguiden**. En självstudiekurs om hur du skapar en pipeline med hjälp av guiden Kopiera finns i [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -70,7 +70,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **AzureDataLakeStore** att länka dina Data Lake Store-data till din datafabrik. I följande tabell beskrivs JSON-element som är specifika för Data Lake Store-länkade tjänster. Du kan välja mellan tjänstens huvudnamn och användarautentisering för autentiseringsuppgifter.
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **type** | Type-egenskapen måste anges till **AzureDataLakeStore**. | Ja |
 | **dataLakeStoreUri** | Information om Azure Data Lake Store-konto. Den här informationen antar ett av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
@@ -91,7 +91,7 @@ Registrera en entitet för program i Azure Active Directory (Azure AD) för att 
 
 Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
@@ -118,7 +118,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 ### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 Du kan också använda användarautentisering för autentiseringsuppgifter för att kopiera från eller till Data Lake Store genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
 | **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
@@ -208,12 +208,12 @@ Mer information om Data Factory-klasser som används i koden, finns det [AzureDa
 
 2. Kontrollera att du ger minst **läsare** roll till användaren eller tjänstens huvudnamn på data lake-konto. Nedan visas hur du gör det:
 
-    1. Gå till Azure Portal -> ditt Data Lake Store-konto
+    1. Gå till Azure portal -> ditt Data Lake Store-konto
     2. Klicka på **åtkomstkontroll (IAM)** på bladet i Data Lake Store
     3. Klicka på **Lägg till rolltilldelning**
     4. Ange **rollen** som **läsare**, och Välj användaren eller tjänstens huvudnamn som du använder för Kopiera för att bevilja åtkomst
 
-3. Om du inte vill att bevilja **läsare** roll till användaren eller tjänstens huvudnamn, alternativ är att [uttryckligen ange en plats för körning](data-factory-data-movement-activities.md#global) i kopia activitywith platsen för ditt Data Lake Store. Exempel:
+3. Om du inte vill att bevilja **läsare** roll till användaren eller tjänstens huvudnamn, alternativ är att [uttryckligen ange en plats för körning](data-factory-data-movement-activities.md#global) i kopieringsaktiviteten med platsen för ditt Data Lake Store. Exempel:
 
     ```json
     {
@@ -237,7 +237,7 @@ Om du vill ange en datauppsättning som representerar indata i ett Data Lake Sto
 
 Den **typeProperties** avsnittet för en datauppsättning av typen **AzureDataLakeStore** innehåller följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **folderPath** |Sökvägen till behållaren och mappen i Data Lake Store. |Ja |
 | **fileName** |Namnet på filen i Azure Data Lake Store. Den **fileName** egenskapen är valfri och skiftlägeskänsliga. <br/><br/>Om du anger **fileName**, aktiviteten (inklusive kopia) fungerar på den specifika filen.<br/><br/>När **fileName** inte har angetts, kopiera innehåller alla filer i **folderPath** i datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i formatet `Data._Guid_.txt`. Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nej |
@@ -281,13 +281,13 @@ Egenskaperna som är tillgängliga i den **typeProperties** avsnittet för en ak
 
 **AzureDataLakeStoreSource** stöder följande egenskap i den **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **recursive** |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT (standard), FALSKT |Nej |
 
 **AzureDataLakeStoreSink** har stöd för följande egenskaper i den **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **copyBehavior** |Anger kopieringsbeteendet. |<b>PreserveHierarchy</b>: Bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: Alla filer från källmappen skapas i den första nivån i målmappen. Målfiler som skapas med automatiskt skapade namn.<br/><br/><b>MergeFiles</b>: Slår samman alla filer från källmappen till en fil. Om namnet på filen / bloben har angetts, är sammanfogade filnamnet det angivna namnet. Annars är filnamnet automatiskt genererade. |Nej |
 
@@ -307,7 +307,7 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av vä
 Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln.
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>JSON-exempel för att kopiera data till och från Data Lake Store
-I följande exempel får exempel JSON-definitioner. Du kan använda dessa exempel definitioner för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data till och från Data Lake Store och Azure Blob storage. Men du kan kopiera data _direkt_ från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i den [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md) artikeln.
+I följande exempel får exempel JSON-definitioner. Du kan använda dessa exempel definitioner för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data till och från Data Lake Store och Azure Blob storage. Men du kan kopiera data _direkt_ från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i den [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md) artikeln.
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exempel: Kopiera data från Azure Blob Storage till Azure Data Lake Store
 Exempelkoden i det här avsnittet visar:

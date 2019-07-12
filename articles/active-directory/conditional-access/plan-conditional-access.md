@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509443"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655507"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instruktioner: Planera distributionen av villkorlig åtkomst i Azure Active Directory
 
@@ -162,7 +162,7 @@ Det är viktigt att ha en jämförelse mellan de förväntade resultaten och de 
 |---|---|---|---|
 |[Kräva MFA när du inte arbetar](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserade användare loggar in *App* befinner dig på en betrodd plats / arbete|Användaren inte ska uppmanas att MFA| |
 |[Kräva MFA när du inte arbetar](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserade användare loggar in *App* medan inte på en betrodd plats / arbete|Användaren uppmanas att MFA och kan logga in| |
-|[Kräva MFA (för administratör)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Global administratör loggar in på *App*|Administratören uppmanas att MFA| |
+|[Kräva MFA (för administratör)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global administratör loggar in på *App*|Administratören uppmanas att MFA| |
 |[Riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Användaren loggar in på *App* med hjälp av en [Tor webbläsare](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Administratören uppmanas att MFA| |
 |[Enhetshantering](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Auktoriserade användare försöker logga in från en auktoriserad enhet|Åtkomst beviljad| |
 |[Enhetshantering](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Auktoriserade användare försöker logga in från en obehörig enhet|Åtkomst som är blockerad| |

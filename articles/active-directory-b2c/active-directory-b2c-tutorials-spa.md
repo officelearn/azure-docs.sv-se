@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6824cc84c24b41fd82afd39ead3029a212173948
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67624785"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835673"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en ensidesapplikation med hjälp av Azure Active Directory B2C
 
@@ -121,7 +121,7 @@ Exempelappen har stöd för registrering, inloggning, redigering av profil och �
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Arbetsflöde för registrering](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Registreringssidan som presenteras av logga-i/registrering användarflödet](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 1. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-katalogen.
 
@@ -151,4 +151,4 @@ I den här artikeln lärde du dig att:
 Nu gå vidare till nästa självstudie i serien att bevilja åtkomst till ett skyddat webb-API från att SPA: N:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

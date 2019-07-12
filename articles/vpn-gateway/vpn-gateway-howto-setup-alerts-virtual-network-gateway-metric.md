@@ -4,15 +4,15 @@ description: Steg för att konfigurera aviseringar för VPN Gateway-mått
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509894"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605219"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Ställa in aviseringar på VPN-Gateway-mått
 
@@ -26,11 +26,11 @@ Den här artikeln kan du ställa in aviseringar i Azure VPN Gateway-mått. Azure
 |**P2SConnectionCount**| Count  | 1 minut  | Antal punkt-till-plats-anslutningar på gatewayen.   |
 |**TunnelAverageBandwidth** | Byte/s    | 5 minuter  | Genomsnittlig bandbreddsanvändningen av tunnlar som skapats på gatewayen. |
 |**TunnelEgressBytes** | Byte | 5 minuter | Utgående trafik på tunnlar som skapats på gatewayen.   |
-|**TunnelEgressPackets** | Antal | 5 minuter | Antal utgående paket i tunnlar som skapats på gatewayen.   |
+|**TunnelEgressPackets** | Count | 5 minuter | Antal utgående paket i tunnlar som skapats på gatewayen.   |
 |**TunnelEgressPacketDropTSMismatch** | Count | 5 minuter | Antal utgående paket släpps på tunnlar på grund av trafikväljaren matchningsfel. |
 |**TunnelIngressBytes** | Byte | 5 minuter | Inkommande trafik på tunnlar som skapats på gatewayen.   |
 |**TunnelIngressPackets** | Count | 5 minuter | Antal inkommande paket i tunnlar som skapats på gatewayen.   |
-|**TunnelIngressPacketDropTSMismatch** | Antal | 5 minuter | Antal inkommande paket som tas bort i tunnlar på grund av trafikväljaren matchningsfel. |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 minuter | Antal inkommande paket som tas bort i tunnlar på grund av trafikväljaren matchningsfel. |
 
 
 ## <a name="setup"></a>Konfigurera Azure Monitor-aviseringar baserat på mått med hjälp av Azure portal
@@ -40,7 +40,7 @@ Följande exempel skapar en avisering på en gateway för:
 - **Mått:** TunnelAverageBandwidth
 - **Villkor:** Bandbredd > 10 byte per sekund
 - **Window:** 5 minuter
-- **Aviseringsåtgärd:** E-post
+- **Aviseringsåtgärd:** Email
 
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115416"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718166"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute-associerade virtuella nätverk från klassisk till Resource Manager
 
@@ -41,7 +41,7 @@ Den här artikeln förklarar hur du migrerar ExpressRoute-associerade virtuella 
 * Virtuella nätverk, gatewayer och associerade distributioner i det virtuella nätverket som är kopplade till en ExpressRoute-krets i samma prenumeration kan migreras till Resource Manager-miljön utan någon avbrottstid. Du kan följa stegen som beskrivs senare om du vill migrera resurser, till exempel virtuella nätverk, gatewayer och virtuella datorer som distribueras i det virtuella nätverket. Du måste se till att de virtuella nätverken är korrekt konfigurerade innan de migreras. 
 * Virtuella nätverk, gatewayer och associerade distributioner i det virtuella nätverket som inte ingår i samma prenumeration som ExpressRoute-kretsen kräver vissa avbrott att slutföra migreringen. Det sista avsnittet av dokumentet beskriver de steg som ska följas för att migrera resurser.
 * Ett virtuellt nätverk med både ExpressRoute-gatewayen och VPN-Gateway kan inte migreras.
-* ExpressRoute-krets mellan prenumerationer migrering stöds inte. Mer information finns i [tjänster som inte kan flyttas](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
+* ExpressRoute-krets mellan prenumerationer migrering stöds inte. Mer information finns i [Microsoft.Network flytta support](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Flytta en ExpressRoute-krets från klassisk till Resource Manager
 Du måste flytta en ExpressRoute-krets från klassiskt till Resource Manager-miljön innan du försöker migrera resurser som är kopplade till ExpressRoute-kretsen. Om du vill utföra den här uppgiften finns i följande artiklar:

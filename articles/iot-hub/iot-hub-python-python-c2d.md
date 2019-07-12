@@ -9,35 +9,36 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441415"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612565"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (Python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introduktion
-Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [Kom igång med IoT Hub](quickstart-send-telemetry-python.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en simulerad enhetsapp som skickar meddelanden från enheten till molnet.
+
+Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en simulerad enhetsapp som skickar meddelanden från enheten till molnet.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här självstudien bygger på [Kom igång med IoT Hub](quickstart-send-telemetry-python.md). Den visar hur du:
+Den här självstudien bygger på [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md). Den visar hur du:
 
 * Skicka meddelanden från moln till enhet på en enhet via IoT Hub från lösningens backend-servrar.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från lösningens backend-servrar, begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från lösningens backend-servrar, begär bekräftelse av leverans (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
 
 Du hittar mer information om meddelanden från molnet till enheten i den [utvecklarhandboken för IoT Hub](iot-hub-devguide-messaging.md).
 
 I slutet av den här kursen kan du köra två Python-konsolappar:
 
-* **SimulatedDevice.py**, en modifierad version av appen som skapats i [Kom igång med IoT Hub](quickstart-send-telemetry-python.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
+* **SimulatedDevice.py**, en modifierad version av appen som skapats i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
 
 * **SendCloudToDeviceMessage.py**, som skickar ett moln-till-enhet-meddelande till den simulerade enhetsappen via IoT Hub och sedan ta emot dess leverans bekräftelse.
 
@@ -78,7 +79,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
     RECEIVE_CALLBACKS = 0
     ```
 
-3. Lägg till följande kod i **SimulatedDevice.py** fil. Ersätt ”{deviceConnectionString}” platshållarvärdet med anslutningssträngen för den enhet som du skapade i den [Kom igång med IoT Hub](quickstart-send-telemetry-python.md) Snabbstart:
+3. Lägg till följande kod i **SimulatedDevice.py** fil. Ersätt ”{deviceConnectionString}” platshållarvärdet med anslutningssträngen för den enhet som du skapade i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart:
 
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -170,7 +171,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett moln-till-enhet-meddelande
 
-I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [Kom igång med IoT Hub](quickstart-send-telemetry-python.md) Snabbstart. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure-portalen](https://portal.azure.com).
+I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure-portalen](https://portal.azure.com).
 
 1. Använd en textredigerare och skapa en **SendCloudToDeviceMessage.py** fil.
 
@@ -189,7 +190,7 @@ I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Lägg till följande kod i **SendCloudToDeviceMessage.py** fil. Ersätt ”{IoTHubConnectionString}” platshållarvärdet med IoT Hub-anslutningssträngen för hubben som du skapade i den [Kom igång med IoT Hub](quickstart-send-telemetry-python.md) Snabbstart. Ersätt platshållaren ”{deviceId}” med enhets-ID för enheten som du lade till i den [Kom igång med IoT Hub](quickstart-send-telemetry-python.md) Snabbstart:
+3. Lägg till följande kod i **SendCloudToDeviceMessage.py** fil. Ersätt ”{IoTHubConnectionString}” platshållarvärdet med IoT Hub-anslutningssträngen för hubben som du skapade i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart. Ersätt platshållaren ”{deviceId}” med enhets-ID för enheten som du lade till i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -268,7 +269,7 @@ Nu är det dags att köra programmen.
 
 1. Öppna en kommandotolk och installera den **Azure IoT Hub Device SDK för Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-device-client
     ```
 
@@ -282,7 +283,7 @@ Nu är det dags att köra programmen.
 
 3. Öppna en kommandotolk och installera den **Azure IoT Hub Service SDK för Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-service-client
     ```
 

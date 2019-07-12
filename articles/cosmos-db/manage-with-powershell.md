@@ -4,15 +4,15 @@ description: Använd Azure Powershell hantera ditt Azure Cosmos DB-konton, datab
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 07/09/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 28fa20a151bd4f3ee7ba9bedf9903827316c3eff
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b61c7bbc06d8d265e5dd5dddd31aceadce1f623b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602600"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797046"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -35,6 +35,7 @@ I följande avsnitt visar hur du kan hantera Azure Cosmos-konto, inklusive:
 
 * [Skapa ett Azure Cosmos-konto](#create-account)
 * [Uppdatera ett Azure Cosmos-konto](#update-account)
+* [Lista över alla Azure Cosmos-konton i en prenumeration](#list-accounts)
 * [Skaffa en Azure Cosmos-konto](#get-account)
 * [Ta bort ett Azure Cosmos-konto](#delete-account)
 * [Uppdatera taggar för ett Azure Cosmos-konto](#update-tags)
@@ -82,7 +83,17 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 * `$consistencyPolicy` Standard-konsekvensnivå på Azure Cosmos-kontot. Mer information finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 * `$CosmosDBProperties` Värden har överförts till Cosmos DB Azure Resource Manager-providern att tillhandahålla kontot.
 
-Azure Cosmos konton kan konfigureras med IP-brandvägg och virtuellt nätverk tjänstens slutpunkter. Information om hur du konfigurerar IP-Brandvägg för Azure Cosmos DB finns i [konfigurera brandväggen för IP-](how-to-configure-firewall.md).  Mer information om hur du aktiverar Tjänsteslutpunkter för Azure Cosmos DB finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md) .
+Azure Cosmos konton kan konfigureras med IP-brandvägg och virtuellt nätverk tjänstens slutpunkter. Information om hur du konfigurerar IP-Brandvägg för Azure Cosmos DB finns i [konfigurera brandväggen för IP-](how-to-configure-firewall.md).  Mer information om hur du aktiverar Tjänsteslutpunkter för Azure Cosmos DB finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md).
+
+### <a id="list-accounts"></a> Lista över alla Azure Cosmos-konton i en prenumeration
+
+Det här kommandot kan du visa en lista över alla Azure Cosmos-konto i en prenumeration.
+
+```azurepowershell-interactive
+# List Azure Cosmos Accounts
+
+Get-AzResource -ResourceType Microsoft.DocumentDb/databaseAccounts | ft
+```
 
 ### <a id="get-account"></a> Hämta egenskaperna för ett Azure Cosmos-konto
 
@@ -229,7 +240,7 @@ Du kan ändra den ordning som en Cosmos-konto flyttar upp sekundära Läs-replik
 För exemplet nedan, förutsätter att kontot har en aktuell redundansprioritet av westus = 0 och eastus = 1 och vänd regionerna.
 
 > [!CAUTION]
-> Den här åtgärden utlöser en manuell redundans för ett Azure Cosmos-konto.
+> Ändra `locationName` för `failoverPriority=0` ska utlösa en manuell redundans för ett Azure Cosmos-konto. Andra prioritet ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -254,7 +265,7 @@ I följande avsnitt visar hur du kan hantera Azure Cosmos-databasen, inklusive:
 * [Skapa en Azure Cosmos-databas](#create-db)
 * [Skapa en Azure Cosmos-databas med delade dataflöde](#create-db-ru)
 * [Hämta dataflödet för en Azure Cosmos-databas](#get-db-ru)
-* [Lista över alla Azure Cosmos-databaser i ett konto](#get-all-db)
+* [Lista över alla Azure Cosmos-databaser i ett konto](#list-db)
 * [Hämta en enda Azure Cosmos-databas](#get-db)
 * [Ta bort en Azure Cosmos-databas](#delete-db)
 
@@ -309,7 +320,7 @@ Get-AzResource -ResourceType $databaseThroughputResourceType `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="get-all-db"></a>Hämta alla Azure Cosmos-databaser i ett konto
+### <a id="list-db"></a>Hämta alla Azure Cosmos-databaser i ett konto
 
 ```azurepowershell-interactive
 # Get all databases in an Azure Cosmos account
@@ -353,13 +364,14 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 I följande avsnitt visar hur du kan hantera Azure Cosmos-behållaren, inklusive:
 
 * [Skapa en Azure Cosmos-behållare](#create-container)
+* [Skapa en Azure Cosmos-behållare med en stor partitionsnyckel](#create-container-big-pk)
 * [Hämta dataflödet för en Azure Cosmos-behållare](#get-container-ru)
 * [Skapa en Azure Cosmos-behållare med delade dataflöde](#create-container-ru)
 * [Skapa ett Azure Cosmos-behållare med anpassad indexprincip](#create-container-custom-index)
 * [Skapa ett Azure Cosmos-behållare med indexering stängs av](#create-container-no-index)
 * [Skapa ett Azure Cosmos-behållare med unik nyckel och TTL](#create-container-unique-key-ttl)
 * [Skapa ett Azure Cosmos-behållare med konfliktlösning](#create-container-lww)
-* [Lista över alla Azure Cosmos-behållare i en databas](#list-all-container)
+* [Lista över alla Azure Cosmos-behållare i en databas](#list-containers)
 * [Hämta en enda Azure Cosmos-behållare i en databas](#get-container)
 * [Ta bort en Azure Cosmos-behållare](#delete-container)
 
@@ -379,6 +391,33 @@ $ContainerProperties = @{
         "partitionKey"=@{
             "paths"=@("/myPartitionKey");
             "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"="400" }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
+```
+
+### <a id="create-container-big-pk"></a>Skapa en Azure Cosmos-behållare med en stor partition nyckelstorlek
+
+```azurepowershell-interactive
+# Create an Azure Cosmos container with a large partition key value (version = 2)
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash";
+            "version" = 2
         }
     };
     "options"=@{ "Throughput"="400" }
@@ -569,7 +608,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="list-all-container"></a>Lista över alla Azure Cosmos-behållare i en databas
+### <a id="list-containers"></a>Lista över alla Azure Cosmos-behållare i en databas
 
 ```azurepowershell-interactive
 # List all Azure Cosmos containers in a database

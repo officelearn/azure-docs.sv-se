@@ -3,8 +3,8 @@ title: Delegera uppgifter i Azure AD-rättigheten hantering (förhandsversion) �
 description: Läs mer om de roller som du kan tilldela för att delegera aktiviteter i Azure Active Directory rättigheten management.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191504"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798639"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegera uppgifter i Azure AD rättigheten hantering (förhandsversion)
 
@@ -64,7 +64,7 @@ Forskning och marknadsföring avdelningar kan nu använda rätt management. Bob,
 
 Berättigande management har följande roller som är specifika för hantering av rättigheten.
 
-| Roll | Beskrivning |
+| Role | Beskrivning |
 | --- | --- |
 | Katalogens skapare | Skapa och hantera kataloger. Vanligtvis en IT-administratör som inte är en Global administratör eller en resursägare för en samling resurser. Den person som skapar en katalog automatiskt blir katalogens första catalog ägare och kan lägga till ytterligare catalog ägare. |
 | Katalogen ägare | Redigera och hantera befintliga kataloger. Vanligtvis en IT-administratör eller resursägare, eller en användare som katalogen ägaren har definierat. |
@@ -84,7 +84,7 @@ I följande tabell visas de uppgifter som rollerna kan utföra.
 | [Redigera en katalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Ta bort en katalog](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Lägga till en katalog ägare eller en pakethanterare för åtkomst till en katalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Skapa ett nytt åtkomst-paket i en katalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Hantera resursroller i ett paket för åtkomst](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Ange vem som kan begära ett åtkomst-paket](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Tilldela en användare direkt till ett åtkomst-paket](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |

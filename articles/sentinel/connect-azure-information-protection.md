@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b73edd10521b23fb4befbe4fe7d9f0c7b496de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3edfdca16141726ea591c8473528fc23ee076c53
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204302"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620611"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Anslut data från Azure Information Protection
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204302"
 Du kan strömma loggar från [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) i Azure Sentinel-med ett enda klick. Azure Information Protection hjälper dig att skydda dina data oavsett om de lagras i molnet eller i en lokal infrastruktur och kontroll och hjälper dig att skydda e-post, dokument och känsliga data som du delar utanför företaget. Förbättra dataskydd vid alla tidpunkter med Azure Information Protection enkel klassificering och inbäddade etiketter och behörigheter. När du ansluter Azure Information Protection till Azure Sentinel du stream alla aviseringar från Azure Information Protection i Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Användare med global administratör, säkerhetsadministratör eller information protection-behörigheter
 

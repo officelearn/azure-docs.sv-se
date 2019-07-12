@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769110"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705770"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment
 
@@ -33,15 +33,15 @@ Det går att distribuera en App Service-miljö (ASE) på två sätt:
 - Med en VIP på en extern IP-adress som ofta kallas för en extern ASE.
 - Med VIP på en intern IP-adress, ofta kallad en ILB ASE eftersom den interna slutpunkten är en intern belastningsutjämnaren (ILB).
 
-Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns i [en introduktion till App Service Environment][Intro]. Information om hur du skapar en ILB ASE finns i [skapa och använda en ILB ASE][MakeILBASE].
+Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns i [en introduktion till App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 
 När du har skapat din ASE kan ändra du inte följande:
 
 - Location
-- Prenumeration
-- Resursgrupp
+- Subscription
+- Resource group
 - Virtuella nätverket som används
 - Undernät som används
 - Undernätets storlek
@@ -72,7 +72,7 @@ Skapa en ASE när du skapar en App Service plan:
 
 2. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
 
-3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
+3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
 4. Välj ditt operativsystem (Windows, Linux eller Docker). 
 
@@ -96,7 +96,7 @@ Skapa en ASE när du skapar en App Service plan:
 
     b. Ange ett nytt undernätsnamn.
 
-    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/25`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
+    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/24`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
 
     d. Välj IP-adressintervall för undernätet.
 
@@ -110,7 +110,7 @@ Skapa en ASE när du skapar en App Service plan:
 
 1. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
 
-1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
+1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
 1. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
 
@@ -132,7 +132,7 @@ Skapa en ASE när du skapar en App Service plan:
 
     b. Ange ett nytt undernätsnamn.
 
-    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/25`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
+    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/24`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
 
     d. Välj IP-adressintervall för undernätet.
 
@@ -176,7 +176,7 @@ Om du skapar en ASE-fristående har ingenting i den. En tom ASE fortfarande medf
 
 Du kan fortfarande skapa instanser av den första versionen av App Service Environment (ASEv1). Den här processen Sök på Marketplace efter **App Service Environment v1**. Du kan skapa ASE på samma sätt som du skapar fristående ASE. När det är klart, har din ASEv1 två klientdelar och två arbetsroller. Med ASEv1, måste du hantera klientdelar och arbetare. De läggs inte automatiskt när du skapar din App Service-planer. Frontend-datorer fungerar som HTTP/HTTPS-slutpunkter och skicka trafik till anställda. Arbetare är roller som värd för dina appar. Du kan justera antalet klientdelar och arbetare när du har skapat din ASE. 
 
-Mer information om ASEv1 finns [introduktion till App Service Environment v1][ASEv1Intro]. Mer information om skalning, hantera och övervaka ASEv1 finns i [så här konfigurerar du en App Service Environment][ConfigureASEv1].
+Mer information om ASEv1 finns [introduktion till App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

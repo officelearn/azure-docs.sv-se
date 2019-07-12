@@ -4,15 +4,15 @@ description: Beskriver hur du ställer in skriptet för automatisk skalning för
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755127"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620423"
 ---
 # <a name="automatically-scale-session-hosts"></a>Skala sessionsvärdar automatiskt
 
@@ -20,7 +20,7 @@ För många förhandsversion för virtuella skrivbord i Windows-distributioner i
 
 Den här artikeln används ett enkelt skala skript för automatisk skalning session virtuella datorer i din miljö för virtuella Windows-skrivbordet. Mer information om hur skalning skriptet fungerar finns i [hur skalning skriptet fungerar](#how-the-scaling-script-works) avsnittet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Miljön där du kör skriptet måste ha följande saker:
 
@@ -75,7 +75,7 @@ Därefter måste du skapa säkert lagrade autentiseringsuppgifter:
     Till exempel **Set-Variable - namnet KeyPath-omfång globala-värdet ”c:\\skalning HostPool1”**
 5. Kör den **New-StoredCredential - KeyPath \$KeyPath** cmdlet. När du uppmanas, anger du dina autentiseringsuppgifter för virtuella Windows-skrivbordet med behörighet att fråga poolen värden (värd-adresspool har angetts i den **config.xml**).
     - Om du använder olika tjänstens huvudnamn eller konto av standardtyp kan köra den **New-StoredCredential - nyckelsökvägen \$KeyPath** cmdlet när lagras för varje konto för att skapa lokala autentiseringsuppgifter.
-6. Kör **Get-StoredCredentials-listan** att bekräfta autentiseringsuppgifterna som har skapats.
+6. Kör **Get-StoredCredential-listan** att bekräfta autentiseringsuppgifterna som har skapats.
 
 ### <a name="configure-the-configxml-file"></a>Konfigurera filen config.xml
 

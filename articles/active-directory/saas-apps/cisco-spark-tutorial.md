@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc537a631cd083da0f902fb4fcd44d47756eeba
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471779"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836389"
 ---
 # <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>Självstudier: Integrera Cisco Webex med Azure Active Directory
 
@@ -133,13 +133,13 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
 2. Välj **Settings** (Inställningar) och klicka på **Modify** (Ändra) under **Authentication** (Autentisering).
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Välj **Integrate a 3rd-party identity provider. (Avancerat)** (Integrera en tredjeparts identitetsprovider. (Avancerat)) och gå till nästa skärm.
 
 4. På sidan **Import Idp Metadata** (Importera ldp-metadata) kan du antingen dra och släppa Azure AD-metadatafilen på sidan eller använda filbläddraren för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare) och klicka på **Next** (Nästa).
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
 
@@ -182,13 +182,13 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Web
 
 2. Klicka på **Users** (Användare) och sedan på **Manage Users** (Hantera användare).
    
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. I rutan **Manage Users** (Hantera användare) väljer du **Manually add or modify users** (Ändra eller lägga till användare manuellt) och klickar på **Next** (Nästa).
 
 4. Välj alternativet **Name and Email address** (Namn och e-postadress). Fyll sedan i textrutan så här:
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. I den **Förnamn** textrutan Ange först namnet på användaren som **B**.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482135"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666148"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -70,7 +70,7 @@ En federerad miljö bör ha en identitetsprovider som har stöd för såväl WS-
 - **WS-Fed:** Det här protokollet krävs för att ansluta till en enhet till Azure AD.
 - **WS-Trust:** Det här protokollet krävs för att logga in på en domänansluten Azure AD-enhet. 
 
-Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD join internt. Från och med Windows 10 1809 kan dina användare kan logga in på en domänansluten Azure AD-enhet med en SAML-baserad identitetsprovider via [web logga in på Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webbinloggning en funktion som skrivskyddade.
+Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD join internt. Från och med Windows 10 1809 kan dina användare kan logga in på en domänansluten Azure AD-enhet med en SAML-baserad identitetsprovider via [web logga in på Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande webbinloggning är en förhandsgranskningsfunktion och rekommenderas inte för Produktionsdistribution.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
 

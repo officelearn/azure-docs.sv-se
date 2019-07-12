@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 36d38aa82b4f0ec8d7d9ef6ebb1145b1fcc334df
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190572"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673772"
 ---
 # <a name="connect-windows-security-events"></a>Ansluta till Windows säkerhetshändelser 
 
@@ -30,10 +31,10 @@ ms.locfileid: "67190572"
 Du kan strömma alla säkerhetshändelser från Windows-servrar som ansluter till din Azure Sentinel-arbetsyta. Den här anslutningen kan du visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden.  Du kan välja vilka händelser att strömma:
 
 - **Alla händelser** -alla Windows säkerhets- och AppLocker-händelser.
-- **Vanliga** – en standarduppsättning av händelser i granskningssyfte. En fullständig användarspårning ingår i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och utloggningar (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
+- **Vanliga** – en standarduppsättning av händelser i granskningssyfte. En fullständig användarspårning ingår i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggning och användaren loggar ut händelser (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
 
 Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga skälet att välja det över alla händelser är att minska mängden och inte för att filtrera bort specifika händelser.
-- **Minimal** – en liten uppsättning händelser som kan tyda på potentiella hot. Genom att aktivera det här alternativet kan du inte har fullständiga spårningen.  Den här uppsättningen innehåller endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Exempelvis kan den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den innehåller inte utloggning som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
+- **Minimal** – en liten uppsättning händelser som kan tyda på potentiella hot. Genom att aktivera det här alternativet kan du inte har fullständiga spårningen.  Den här uppsättningen innehåller endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Exempelvis kan den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den innehåller inte logga ut information som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen bara logga in händelser och skapa processhändelse (händelse-ID 4688).
 - **Ingen** -inga säkerhets- eller AppLocker-händelser.
 
 > [!NOTE]

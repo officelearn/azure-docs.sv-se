@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451040"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665916"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>Använd kompass för att ansluta till ditt Cosmos DB-konto
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB API för MongoDB 
 
 Den här självstudien visar hur du använder [MongoDB kompass](https://www.mongodb.com/products/compass) när lagring och/eller hantera data i Cosmos DB. Vi använder Azure Cosmos DB: s API för MongoDB för den här genomgången. För dem som inte vet är kompass ett grafiskt användargränssnitt för MongoDB. Det används ofta för att visualisera dina data genom att köra ad hoc-frågor, tillsammans med hantering av dina data. 
 

@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 476703b52813e6b3081dcfb3ab5a2fb4f3a7bfc5
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204654"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785639"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Datorprogram som anropar webb-API:er
 
 Lär dig allt du behöver skapa en skrivbordsapp som anropar webb-API: er
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -45,7 +45,11 @@ Om du inte redan gjort kan du skapa ditt första program genom att följa Snabbs
 
 Du skriver ett skrivbordsprogram och du vill logga in användare i ditt program och anropa webb-API: er som Microsoft Graph, andra Microsoft-APIs eller dina egna webb-API. Du har flera möjligheter:
 
-- Om din skrivbordsprogram stöder grafiska kontroller, till exempel om det är en Windows.Form eller en WPF-program, kan du använda interaktiva tokenförvärv.
+- Du kan använda den interaktiva tokenförvärv:
+
+  - Om din skrivbordsprogram stöder grafiska kontroller, till exempel om det är en Windows.Form eller en WPF-program.
+  - Av om det är ett .NET Core-program och du samtycker till att ha autentisering interaktion med Azure AD sker i webbläsaren system
+
 - Det är också möjligt för program som körs på datorer som är anslutna till en Windows-domän för värd för Windows-program, eller AAD ansluten för att hämta en token tyst genom att använda integrerad Windows-autentisering.
 - Slutligen, och även om det inte rekommenderas kan du använda användarnamn/lösenord i offentliga klientprogram. Det krävs fortfarande i vissa fall (till exempel DevOps), men tänk på att använda det medför begränsningar i ditt program. Exempelvis kan logga den inte in användare som behöver utföra multifaktorautentisering (villkorlig åtkomst). Ditt program dra inte också nytta av enkel inloggning (SSO).
 
@@ -53,7 +57,7 @@ Du skriver ett skrivbordsprogram och du vill logga in användare i ditt program 
 
   ![Skrivbordsprogram](media/scenarios/desktop-app.svg)
 
-- Om du skriver en bärbar kommandoradsverktyget - förmodligen ett .NET Core-program som körs på Linux eller Mac – du kommer inte att kunna använda interaktiv autentisering (även .NET Core inte tillhandahåller en [webbläsare](https://aka.ms/msal-net-uses-web-browser)), eller integrerad Windows-autentisering. Det är i så fall det bästa alternativet att använda kodflöde för enheten. Det här flödet används också för program utan en webbläsare, till exempel IoT-program
+- Om du skriver en bärbar kommandoradsverktyget - förmodligen ett .NET Core-program som körs på Linux eller Mac - och om du godkänner att autentiseringen delegeras till system-webbläsaren, kommer du att kunna använda interaktiv autentisering. (.NET core ger inte ännu [webbläsare](https://aka.ms/msal-net-uses-web-browser) och därför autentiseringen sker i webbläsaren system), i annat fall det bästa alternativet i så fall är att använda kodflöde för enheten. Det här flödet används också för program utan en webbläsare, till exempel IoT-program
 
   ![Browserless program](media/scenarios/device-code-flow-app.svg)
 

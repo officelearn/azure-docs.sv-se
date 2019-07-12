@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108486"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625535"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD Application Proxy
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller de resurser du behöver för att planera, driva oc
 
 Följande avsnitt innehåller en bred vy för nyckeln planera element som kommer in du för en effektiv distributionsupplevelse. 
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du påbörjar din implementering. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav i det här [självstudien](application-proxy-add-on-premises-application.md).
 
@@ -70,7 +70,8 @@ Följande grundläggande krav måste uppfyllas för att konfigurera och implemen
 
 * **Offentliga certifikat**: Om du använder anpassade domännamn, måste du skaffa ett offentligt certifikat som utfärdats av en icke-Microsoft betrodd certifikatutfärdare. Hämta ett certifikat kan ta lite tid beroende på din organisations krav, och vi rekommenderar börjar så snart som möjligt. Standard, har stöd för Azure Application Proxy [jokertecken](application-proxy-wildcard.md), eller SAN-baserade certifikat.
 
-* **Domänkrav**: Kräver att en värd för anslutningen är domänansluten till samma AD-domän som de program som publicerar enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering (KCD). Detaljerad information om ämnet finns i [KCD för enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) med programproxy. Connector-tjänsten körs i kontexten för det lokala systemet och ska inte konfigureras för att använda en anpassad identitet.
+* **Domänkrav**: Kräver att servern som kör anslutningstjänsten och den server som kör appen är ansluten till en domän och en del av samma domän eller domäner som har enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering (KCD).
+Detaljerad information om ämnet finns i [KCD för enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) med programproxy. Connector-tjänsten körs i kontexten för det lokala systemet och ska inte konfigureras för att använda en anpassad identitet.
 
 * **DNS-poster för URL: er**
 

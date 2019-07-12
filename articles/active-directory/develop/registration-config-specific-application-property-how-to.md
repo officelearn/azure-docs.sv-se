@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476130"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656000"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Hur du fyller i specifika fält för ett egenutvecklat program
 
@@ -43,7 +43,7 @@ Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registre
 |------------------|------------------------------------------------------------------------------------------|
 | Namn             | Namnet på programmet. Den bör ha minst fyra tecken.                |
 | Kontotyper som stöds| Välja vilka konton som du vill ha ditt program för att stödja: konton i den här organisationens katalog, konton i en organisations katalog eller konton i en organisations katalog och personliga Microsoft-konton.  |
-| Omdirigerings-URI (valfritt) | Välj typ av app du skapar, **Web** eller **offentlig klient (mobila och stationära)** , och sedan ange omdirigerings-URI: N (eller svars-URL) för ditt program. För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifika för ditt program, till exempel myapp://auth. Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).|
+| Omdirigerings-URI (valfritt) | Välj typ av app du skapar, **Web** eller **offentlig klient (mobila och stationära)** , och sedan ange omdirigerings-URI: N (eller svars-URL) för ditt program. För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifika för ditt program, till exempel myapp://auth. Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop).|
 
 När du har fyllt fälten ovan kan programmet registreras i Azure-portalen och omdirigeras du till appen på översiktssidan. För inställningssidor i det vänstra fönstret under **hantera** har fler fält som du kan anpassa ditt program. I tabellerna nedan beskriver alla fält. Du ser bara en delmängd av fälten, beroende på om du har skapat ett webbprogram eller en offentlig klientprogram.
 
@@ -60,7 +60,7 @@ När du har fyllt fälten ovan kan programmet registreras i Azure-portalen och o
 | Ladda upp ny logo | Du kan använda detta för att ladda upp en logotyp för ditt program. Logotypen måste vara i formatet .bmp, .jpg eller .png och filstorleken ska vara mindre än 100 KB. Dimensioner för avbildningen ska vara 215 x 215 bildpunkter, med centrala bildförhållanden på 94 x 94 pixlar.|
 | URL-Adressen   | Det här är inloggnings-URL som anges under programregistrering.|
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 | Fält           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

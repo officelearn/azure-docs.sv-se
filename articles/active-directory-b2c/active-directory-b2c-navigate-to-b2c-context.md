@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
+ms.date: 04/13/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509880"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654110"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Byta till en Azure AD B2C-klient
 
@@ -36,7 +36,7 @@ Azure-portalen uppdateras.  Du är nu inloggad på Azure Portal, i samma kontext
 1. Klicka på **Bläddra** i det vänstra navigeringsfönstret.
 1. Klicka på **Alla tjänster** och sök efter `Azure AD B2C` i det vänstra navigeringsfönstret.  (Klicka på stjärnan till vänster om Azure AD B2C för att fästa vid vänster startsida)
 1. Klicka på **Azure AD B2C** för att komma åt B2C-funktionsfönstret.
-   
+
     ![Skärmbild av Bläddra till B2C-funktionsfönstret](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

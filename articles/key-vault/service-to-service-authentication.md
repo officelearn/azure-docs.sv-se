@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566229"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796101"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET
 
@@ -209,11 +209,16 @@ Att använda ett klientcertifikat för autentisering av tjänstens huvudnamn
 
 1. Ersätt `{KeyVaultCertificateSecretIdentifier}` i den här anslutningssträngen med certifikat-ID:
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-Om exempelvis ditt nyckelvalv anropades ”Mittkeyvault” och du har skapat ett certifikat som kallas ”myCert”, certifikat-ID blir `https://myKeyVault.vault.azure.net/secrets/myCert`, och anslutningssträngen skulle vara `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+    Om exempelvis ditt nyckelvalv anropades ”Mittkeyvault” och du har skapat ett certifikat som kallas ”myCert”, är certifikat-ID:
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## <a name="connection-string-support"></a>Stödet för sträng
 

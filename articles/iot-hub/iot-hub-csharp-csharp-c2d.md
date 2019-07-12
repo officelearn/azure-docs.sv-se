@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864451"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621907"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till enheten med IoT Hub (.NET)
 
@@ -22,29 +22,29 @@ ms.locfileid: "65864451"
 
 ## <a name="introduction"></a>Introduktion
 
-Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. [Skicka telemetri från en enhet till en IoT-hubb... ](quickstart-send-telemetry-dotnet.md) visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en enhetsapp som skickar meddelanden från enheten till molnet.
+Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en enhetsapp som skickar meddelanden från enheten till molnet.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här självstudien bygger på snabbstarten [skickar telemetri från en enhet till IoT hub... ](quickstart-send-telemetry-dotnet.md). Den visar hur du utför följande steg:
+Den här självstudien bygger på [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md). Den visar hur du utför följande steg:
 
 * Skicka meddelanden från moln till enhet på en enhet via IoT Hub från lösningens backend-servrar.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från lösningens backend-servrar, begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från lösningens backend-servrar, begär bekräftelse av leverans (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
 
 Du hittar mer information om meddelanden från molnet till enheten i [D2C och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
 I slutet av den här kursen kan du köra två .NET-konsolappar.
 
-* **SimulatedDevice**, en modifierad version av appen som skapats i [skickar telemetri från en enhet till IoT hub... ](quickstart-send-telemetry-dotnet.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
+* **SimulatedDevice**, en modifierad version av appen som skapats i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
 
 * **SendCloudToDevice**, som skickar ett moln-till-enhet-meddelande till app för enheter via IoT Hub och sedan ta emot dess leverans bekräftelse.
 
 > [!NOTE]
 > IoT Hub har SDK-stöd för många enhetsplattformar och språk (inklusive C, Java och Javascript) via [SDK: er för Azure IoT-enheter](iot-hub-devguide-sdks.md). Stegvisa instruktioner om hur du ansluter enheten till den här självstudien kod och vanligen på Azure IoT Hub finns i den [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
-> 
+>
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -54,7 +54,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="receive-messages-in-the-device-app"></a>Ta emot meddelanden i enhetsappen
 
-I det här avsnittet ska du ändra app för enheter som du skapade i [skickar telemetri från en enhet till IoT hub... ](quickstart-send-telemetry-dotnet.md) att ta emot meddelanden från moln till enhet från IoT hub.
+I det här avsnittet ska du ändra app för enheter som du skapade i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md) att ta emot meddelanden från moln till enhet från IoT hub.
 
 1. I Visual Studio i den **SimulatedDevice** projektet, Lägg till följande metod för att den **programmet** klass.
 
@@ -138,7 +138,7 @@ Nu kan du skriva en .NET-konsolapp som skickar meddelanden från molnet till enh
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Lägg till följande metod i klassen **Program**. Ange namnet på enheten för det du använde när du definierar enheten i [skickar telemetri från en enhet till IoT hub... ](quickstart-send-telemetry-dotnet.md).
+6. Lägg till följande metod i klassen **Program**. Ange namnet på enheten för det du använde när du definierar enheten i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Nu kan du skriva en .NET-konsolapp som skickar meddelanden från molnet till enh
    }
    ```
 
-   Den här metoden skickar ett nytt moln-till-enhet-meddelande till enheten med ID, `myFirstDevice`. Ändra den här parametern endast om du har ändrat den från den som används i [skickar telemetri från en enhet till IoT hub... ](quickstart-send-telemetry-dotnet.md).
+   Den här metoden skickar ett nytt moln-till-enhet-meddelande till enheten med ID, `myFirstDevice`. Ändra den här parametern endast om du har ändrat den från den som används i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md).
 
 7. Slutligen lägger du till följande rader till den **Main** metod.
 
@@ -217,7 +217,7 @@ I det här avsnittet ska du ändra den **SendCloudToDevice** app att begära fee
    ![App mottagande meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Den här självstudien implementerar inte någon återförsöksprincip sätt. I produktionskoden bör du implementera principer för omförsök (till exempel exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+> Den här självstudien implementerar inte någon återförsöksprincip för enkelhetens skull. I produktionskoden bör du implementera principer för omförsök (till exempel exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Nästa steg

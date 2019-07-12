@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235945"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798437"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration-översikt
 
@@ -41,7 +41,7 @@ Från Azure portal eller PowerShell, kan du hantera alla dina DSC-konfiguratione
 
 Noder som hanteras med Azure Automation-Tillståndskonfiguration Skicka detaljerad status för rapporteringsdata till inbyggda hämtningsservern. Du kan konfigurera Azure Automation State Configuration för att skicka dessa data till Log Analytics-arbetsytan. Läs hur du skickar Tillståndskonfiguration statusdata till Log Analytics-arbetsytan i [vidarebefordra Azure Automation Tillståndskonfiguration rapporterar data till Azure Monitor-loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav när du använder Azure Automation tillstånd Configuration (DSC).
 
@@ -81,6 +81,10 @@ Om noderna finns i ett privat nätverk kan krävs följande port och URL: er fö
 * Global URL: *.azure-automation.net
 * Global URL: en för Virginia (USA-förvaltad region): *.azure automation.us
 * Agent-tjänsten: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Detta ger nätverksanslutning för hanterad nod att kommunicera med Azure Automation.
+Om du använder DSC-resurser som kommunicerar mellan noderna, till exempel den [WaitFor * resurser](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), du måste också att tillåta trafik mellan noder.
+Finns i dokumentationen för varje DSC-resurs att förstå dessa krav.
 
 #### <a name="proxy-support"></a>Stöd för proxy
 

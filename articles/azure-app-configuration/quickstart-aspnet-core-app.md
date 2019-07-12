@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 19e0814f6e4da364a70c41e1d99fb6f1897bf0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052074"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795731"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -31,7 +31,7 @@ Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbsta
 
 ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -43,7 +43,7 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 6. Välj **Configuration Explorer** >  **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:BackgroundColor | Vit |
     | TestApp:Settings:FontSize | 24 |
@@ -86,9 +86,9 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
 
-1. Lägg till en referens till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
+1. Lägg till en referens till den `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Kör följande kommando för att återställa paketen för ditt projekt:
 

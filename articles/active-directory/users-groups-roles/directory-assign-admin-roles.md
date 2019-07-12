@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 623950131769f95b9b8442b2316b1c4fd1c3b831
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083926"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656445"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
 Med Azure Active Directory (Azure AD) kan ange du begränsade administratörer att hantera identitet uppgifter i mindre privilegierade roller. Administratörer kan tilldelas för sådant som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn. Standard användarbehörigheter kan ändras endast i användarinställningarna i Azure AD.
 
 Globala administratörer har åtkomst till alla administrativa funktioner. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som Global administratör för katalogen. Endast globala administratörer och Privilegierade Rolladministratörer kan delegera administratörsroller. För att minska risken för företaget rekommenderar vi att du tilldela den här rollen till endast ett fåtal personer i företaget.
-
 
 ## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
 
@@ -853,7 +852,7 @@ Kan hantera alla aspekter av Intune-produkten.
 Kan hantera inställningar för Microsoft Kaizala.  
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >  
   
@@ -895,7 +894,7 @@ Kan hantera alla aspekter av Skype för Business-produkten.
 Kan läsa meddelandecenter inlägg, datameddelanden för sekretess, grupper, domäner och prenumerationer.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1044,14 +1043,13 @@ Kan läsa inloggnings- och granskningsrapporter.
 | microsoft.aad.directory/auditLogs/allProperties/read | Läsa alla egenskaper (inklusive Privilegierade egenskaper) för auditLogs i Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Läsa alla egenskaper (inklusive Privilegierade egenskaper) för signInReports i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Läs Office 365 användningsrapporter. |
 
 ### <a name="search-administrator"></a>Sök-administratör
 Kan skapa och hantera alla aspekter av Microsoft Search inställningar.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1068,7 +1066,7 @@ Kan skapa och hantera alla aspekter av Microsoft Search inställningar.
 Kan skapa och hantera tryckt innehåll, till exempel bokmärken, frågor och och som, platser, floorplan.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 
@@ -1111,7 +1109,7 @@ Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azur
 Skapar och hanterar säkerhetshändelser.
 
   > [!NOTE]
-  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
 

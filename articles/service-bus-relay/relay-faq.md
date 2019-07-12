@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111469"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706195"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
 
@@ -42,7 +42,7 @@ Tidigare kallad Service Bus Relay-tjänsten kallas nu [WCF Relay](relay-wcf-dotn
 Det här avsnittet får du svar på några vanliga frågor och svar om Relay prissättningsstruktur. Du kan också se den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/) för allmänna Azure information om priser. Fullständig information om priser för Relay finns [Service Bus prisinformation][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hur tar du betalt för Hybridanslutningar och WCF Relay?
-Fullständig information om priser för Relay finns i [Hybridanslutningar och WCF-reläer] [ Pricing overview] tabell på Service Bus sidan med prisinformation. Förutom priserna på sidan, debiteras du för överföring av associerade data för utanför datacentret där programmet har etablerats.
+Fullständig information om priser för Relay finns i [Hybridanslutningar och WCF-reläer][Pricing overview] tabell på Service Bus sidan med prisinformation. Förutom priserna på sidan, debiteras du för överföring av associerade data för utanför datacentret där programmet har etablerats.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Hur debiteras jag för Hybridanslutningar?
 Här följer tre exempel fakturering scenarier för Hybridanslutningar:
@@ -80,7 +80,7 @@ Skicka ett meddelande till ett Service Bus-relä behandlas som en ”fullständi
 Reläer som öppnas med hjälp av den **netTCPRelay** WCF-bindning behandlar meddelanden inte som enskilda meddelanden, men som en dataström med data som flödar genom systemet. När du använder den här bindningen har endast avsändaren och lyssnare insyn i synkroniseringstecken enskilda meddelanden som skickas och tas emot. För vidarebefordrar som använder den **netTCPRelay** bindning, behandlas alla data som en dataström för att beräkna faktureringsbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskild relay på basis av 5 minuter. Sedan dividerar den den totala mängden data med 64 KB att fastställa antalet faktureringsbara meddelanden för relay under den tidsperioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvotnamn | Scope |  Anteckningar | Värde |
+| Kvotnamn | Omfång |  Anteckningar | Value |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare på en relay |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
 | Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnrymd |- |5,000 |
@@ -106,7 +106,7 @@ Om du vill flytta ett namnområde från en Azure-prenumeration till en annan pre
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Om du vill använda Azure-portalen för att migrera Azure Relay-namnområden från en prenumeration till en annan prenumeration, se [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Om du vill använda Azure-portalen för att migrera Azure Relay-namnområden från en prenumeration till en annan prenumeration, se [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -128,7 +128,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 En beskrivning av vanliga undantag och föreslagna åtgärder som du kan vidta finns i [vidarebefordrar undantag][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att generera en signatur?
-Signaturer för delad åtkomst (SAS) är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node, PHP, Java, C och C# finns i [Service Bus-autentisering med signaturer för delad åtkomst][Shared Access Signatures].
+Signaturer för delad åtkomst (SAS) är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node, PHP, Java, C, och C#, se [Service Bus-autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relay slutpunkter?
 Ja. Relay-klienten skickar anslutningar till Azure Relay-tjänsten med hjälp av fullständigt kvalificerade domännamn. Kunder kan lägga till en post för `*.servicebus.windows.net` för brandväggar som har stöd för DNS-listan över tillåtna program.

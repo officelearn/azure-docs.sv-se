@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo, mikhegn
-ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mikhegn
+ms.openlocfilehash: 07df215d9c3435d5ca3668b3c8d1587dbb99dca1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428147"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621956"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
 Du kan felsöka .NET-program i behållare som Service Fabric-tjänster med Visual Studio-2019. Den här artikeln visar hur du konfigurerar din miljö och felsöka en .NET-program i en behållare i ett lokalt Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * På Windows 10, följer du snabbstarten till [konfigurera Windows 10 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * På Windows Server 2016 kan du följa den här snabbstarten till [konfigurera Windows 2016 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)

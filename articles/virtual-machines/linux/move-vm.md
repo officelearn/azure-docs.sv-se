@@ -4,7 +4,7 @@ description: Flytta en Linux-VM till en annan Azure-prenumeration eller resurs i
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c22fe8beea894bccb311a63a1be70c972188e59
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473947"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667292"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en Linux-VM till en annan prenumeration eller resursgrupp grupp
 Den här artikeln vägleder dig genom hur du flyttar en Linux-dator (VM) mellan resursgrupper eller prenumerationer. Flytta en virtuell dator mellan prenumerationer kan vara praktiskt om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration.

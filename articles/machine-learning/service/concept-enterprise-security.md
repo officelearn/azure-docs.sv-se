@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059352"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795479"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företagssäkerhet för Azure Machine Learning-tjänsten
 
@@ -23,7 +23,7 @@ I den här artikeln lär du dig att säkerhetsfunktioner som är tillgängliga m
 
 När du använder en molnbaserad tjänst, är det en bra idé att begränsa åtkomst till de användare som behöver den. Detta startar genom att förstå autentisering och auktorisering modellen som används av tjänsten. Du kanske också vill begränsa nätverksåtkomst eller på ett säkert sätt ansluta till resurser i det lokala nätverket med de som finns i molnet. Kryptering är också viktigt, både i vila och vid informationen flyttas mellan tjänster. Slutligen måste kunna övervaka tjänsten och skapar en granskningslogg för all aktivitet.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 Multi-Factor-autentisering stöds om Azure Active Directory (Azure AD) är konfigurerad för samma.
 * Klienten loggar in på Azure AD och hämtar Azure Resource Manager-token.  Användare och tjänsthuvudnamn stöds fullt ut.
 * Klienten presenterar token till Azure Resource Manager och alla Azure Machine Learning-tjänster
@@ -51,7 +51,7 @@ print(primary)
 > Om du vill återskapa en nyckel kan du använda [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>Auktorisering
+## <a name="authorization"></a>Authorization
 
 Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användarna följande roller:
 * Ägare

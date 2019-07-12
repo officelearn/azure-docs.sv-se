@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508573"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839802"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Cosmos DB tillhandahåller omfattande serviceavtal som omfattar genomflöde, sva
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Hög tillgänglighet med Cosmos DB i händelse av regionala avbrott
 
-Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är alltid med hög tillgänglighet. Följande information används för att samla in Cosmos DB-beteende under ett avbrott, beroende på konfigurationen för Cosmos-kontot:
+Regionala avbrott är inte ovanliga, men med Azure Cosmos DB har din databas alltid hög tillgänglighet. Följande information används för att samla in Cosmos DB-beteende under ett avbrott, beroende på konfigurationen för Cosmos-kontot:
 
 - Med Cosmos DB innan skrivning bekräftas till klienten, data är hållbarheten har säkerställts genom att ett kvorum av repliker i den region som accepterar skrivåtgärder.
 
@@ -93,7 +93,8 @@ I följande tabell sammanfattas möjligheterna för hög tillgänglighet för ol
 |Dataflöde    |  X RU/s etablerade dataflöde      |  X RU/s etablerade dataflöde       |  2 x RU/s etablerade dataflöde <br/><br/> Det här konfigurationsläget kräver två gånger högre genomflöde jämfört med en enda region med Azure Availability Zones eftersom det finns två regioner.   |
 
 > [!NOTE] 
-> Om du vill aktivera stöd för Tillgänglighetszoner, måste Azure Cosmos DB-kontot ha flera-master/Multi-Factor-region skrivningar aktiverat. 
+> Kontot måste ha flera huvudservrar skrivningar aktiverad om du vill aktivera Tillgänglighetszonen har stöd för flera region Azure Cosmos-konto.
+
 
 Du kan aktivera redundans när du lägger till en region till en ny eller befintlig Azure Cosmos-konton. Du kan för närvarande kan bara aktivera redundans med hjälp av Azure portal, PowerShell och Azure Resource Manager-mallar. För att aktivera redundans för ditt Azure Cosmos-konto, bör du ange den `isZoneRedundant` flaggan till `true` för en viss plats. Du kan ange den här flaggan i egenskapen platser. Till exempel kan följande powershell-kodavsnitt redundans för regionen ”Sydostasien”:
 

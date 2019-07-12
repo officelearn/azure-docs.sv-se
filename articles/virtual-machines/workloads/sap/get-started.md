@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058712"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805834"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att hantera och köra SAP-arbetsbelastningsscenarier
 
@@ -36,10 +36,12 @@ Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav 
 
 ## <a name="latest-changes"></a>Senaste ändringarna
 
+- Versionen av nya vägledning för [IBM Db2 HADR i Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
+- Versionen av [hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp-filer för SAP-program](high-availability-guide-rhel-netapp-files.md)
 - Introduktion av ExpressRoute snabb sökväg och Global räckvidd för stora HANA-instanser i [SAP HANA (stora instanser) nätverksarkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) och relaterade dokument
 - Versionen av [Azure HANA stora instanser styra via Azure portal](hana-li-portal.md)
 - Versionen av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program](high-availability-guide-suse-netapp-files.md)
-- Information på **Linux OS parametern net.ipv4.tcp_timestamps** inställningar tillsammans med en Azure-belastningsutjämnare
+
 
 
 
@@ -112,12 +114,12 @@ Det här dokumentet pekar på olika andra arkitektur och scenario dokument. I se
 
 Mer information om integrering mellan Azure Active Directory (Azure AD) och SAP-tjänster och enkel inloggning, se:
 
-- [Självstudie: Azure Active Directory-integrering med SAP-moln för kund](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory-integrering med identitetsautentisering för SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory-integrering med SAP-Molnplattform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory-integrering med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory-integrering med SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory-integrering med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP-moln för kund](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med identitetsautentisering för SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP-Molnplattform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Din miljö för S/4HANA: Fiori Launchpad SAML enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
 Information om integrering av Azure-tjänster i SAP-komponenter finns i:

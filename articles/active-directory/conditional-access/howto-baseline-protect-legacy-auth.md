@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560928"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655715"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Baslinjeprincip: Blockera äldre authentication (förhandsversion)
 
@@ -27,9 +27,9 @@ Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder A
 
 Idag kommer merparten av alla att kompromissa inloggningsförsök från äldre autentisering. Äldre autentisering har inte stöd för multifaktorautentisering (MFA). Även om du har en MFA-princip på din katalog kan en obehörig autentisera med ett äldre protokoll och kringgå MFA.
 
-Det bästa sättet att skydda ditt konto från skadliga autentiseringsbegäranden av äldre protokoll är att blockera dessa försök allt på samma plats. Om du vill göra det enklare för dig att blockera alla inloggningsbegäranden som gjorts av äldre protokoll, skapat vi en baslinjeprincip som gör just detta.
+Det bästa sättet att skydda ditt konto från skadliga autentiseringsbegäranden av äldre protokoll är att blockera dessa försök helt och hållet. I syfte att göra det enklare för dig att skydda din miljö, skapat vi den här baslinjen principen ska blockera äldre autentisering.
 
-**Blockera äldre autentisering** är [baslinjeprincip](concept-baseline-protection.md) som blockerar alla autentiseringsbegäranden från äldre protokoll. Modern autentisering måste användas för att logga in för alla användare. Alla begäranden som kommer från äldre protokoll kommer att blockeras används tillsammans med andra principer som baslinjen, och alla användare kommer att behöva MFA varje gång som krävs. Den här principen blockerar inte Exchange ActiveSync.
+**Blockera äldre autentisering** är en [baslinjeprincip](concept-baseline-protection.md) som blockerar alla autentiseringsbegäranden från äldre protokoll. Modern autentisering måste användas för att logga in för alla användare. Alla begäranden som kommer från äldre protokoll kommer att blockeras används tillsammans med andra principer som baslinjen, och alla användare kommer att behöva MFA varje gång som krävs. Den här principen blockerar inte Exchange ActiveSync.
 
 ## <a name="identify-legacy-authentication-use"></a>Identifiera äldre användning
 
@@ -78,13 +78,13 @@ SharePoint Online är aktiverat för modern autentisering standard. Modern auten
 
 För att förhindra att äldre autentiseringsbegäranden av Skype för företag, är det nödvändigt att aktivera modern autentisering för Skype för Business Online. Modern autentisering för Skype för företag är aktiverat som standard för kataloger som skapats efter den 1 augusti 2017.
 
-Om du vill aktivera modern autentisering i Skype för företag, föreslår vi att du övergången till Microsoft Teams, som har stöd för modern autentisering som standard. Om du inte kan tr just nu, kommer du måste aktivera modern autentisering för Skype för Business Online så att Skype för företag-klienter som startar med modern autentisering. Följ anvisningarna i artikeln [Skype för företag-topologier som stöds med Modern autentisering](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), steg att aktivera Modern autentisering för Skype för företag.
+Vi rekommenderar att du övergången till Microsoft Teams, som har stöd för modern autentisering som standard. Om det inte går att migrera just nu, kommer du måste aktivera modern autentisering för Skype för Business Online så att Skype för företagsklienter börja använda modern autentisering. Följ stegen i den här artikeln [Skype för företag-topologier som stöds med Modern autentisering](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), för att aktivera Modern autentisering för Skype för företag.
 
-Förutom att aktivera modern autentisering för Skype för Business Online, rekommenderar vi modern authentication aktiveras för Exchange Online när du aktiverar modern autentisering för Skype för företag. Den här processen hjälper synkronisera tillståndet för modern autentisering i Exchange Online och Skype för företag – online och förhindrar flera inloggning anvisningarna för Skype för företag-klienter.
+Förutom att aktivera modern autentisering för Skype för Business Online, rekommenderar vi att aktivera modern autentisering för Exchange Online när du aktiverar modern autentisering för Skype för företag. Den här processen hjälper synkronisera tillståndet för modern autentisering i Exchange Online och Skype för företag – online och förhindrar flera inloggning anvisningarna för Skype för företag-klienter.
 
 ### <a name="step-5-using-mobile-devices"></a>Steg 5: Med hjälp av mobila enheter
 
-Program på din mobila enhet måste blockera äldre autentisering samt. Vi rekommenderar att du använder Outlook för mobila enheter. Outlook Mobile stöder modern autentisering som standard och att uppfylla andra skyddsprinciper för MFA-baslinje.
+Program på din mobila enhet måste blockera äldre autentisering samt. Vi rekommenderar att du använder Outlook för mobila enheter. Outlook för mobila enheter stöder modern autentisering som standard och att uppfylla andra skyddsprinciper för MFA-baslinje.
 
 För att kunna använda den interna iOS e-postklienten kommer du behöva köra iOS version 11.0 eller senare för att se till att e-postklient har uppdaterats för att blockera äldre autentisering.
 
@@ -92,9 +92,10 @@ För att kunna använda den interna iOS e-postklienten kommer du behöva köra i
 
 Om du är en hybrid-kund som använder Exchange Server lokalt och Skype för företag lokalt kan måste båda tjänsterna uppdateras för att aktivera modern autentisering. När du använder modern autentisering i en hybridmiljö, du fortfarande autentisera användare på plats. Artikeln för att auktorisera deras åtkomst till resurser (filer eller e-postmeddelanden) ändringar.
 
-Innan du kan börja med att aktivera modern autentisering på lokala måste du uppfylla theIf du uppfyller kraven, nu är du redo att aktivera modern autentisering på lokala.
+Innan du kan börja aktivera modern autentisering på lokala, måste du kontrollera att du har uppfyllt kraven.
+Du är nu redo att aktivera modern autentisering på lokala.
 
-Steg för att aktivera modern autentisering finns i följande artiklar:
+Anvisningar för att aktivera modern autentisering finns i följande artiklar:
 
 * [Så här konfigurerar du Exchange Server lokalt för att använda Modern Hybridautentisering](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Hur du använder Modern autentisering (ADAL) med Skype för företag](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
@@ -105,7 +106,7 @@ Principen **baslinjeprincip: Blockera äldre authentication (förhandsversion)**
 
 Aktivera den här principen och skydda din organisation:
 
-1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på den **Azure-portalen** som Global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj i listan med principer, **baslinjeprincip: Blockera äldre authentication (förhandsversion)** .
 1. Ange **aktiverar principen** till **Använd principen omedelbart**.

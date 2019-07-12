@@ -4,7 +4,7 @@ description: Med hjälp av Seriekonsol för grub på Azure virtuella datorer.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735269"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710587"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet, vilket förmodligen är det första som visas när du startar en virtuell dator. Eftersom den visar innan operativsystemet har startat är den inte tillgänglig via SSH. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.

@@ -13,39 +13,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ed05748a450d8d2082476aaba0831383e5fb60a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 20fdd63939c91f8421048e4904b8a694849570ab
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441554"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808062"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten
 
-SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database levererar dynamiskt skalbar prestanda i två olika inköpschef modeller: en vCore-baserade inköpsmodellen och en DTU-baserade inköpsmodellen. SQL Database tillhandahåller också alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extrem analytisk analys och rapportering, och [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
+Azure SQL Database är en allmän hanterad relationsdatabastjänst som gör det möjligt för dig att skapa hög tillgänglighet och högpresterande data lagringsskikt för program och lösningar i Microsoft Azure-molnet. SQL-databas kan vara rätt val för en mängd olika moderna molntillämpningar eftersom du kan använda kraftfulla funktioner för bearbetning av både i relationsdata och [icke-relationella datastrukturer](sql-database-multi-model-features.md) , till exempel diagram, JSON, rumsliga och XML. Den är baserad på den senaste stabila versionen av den [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) och du kan använda omfattande uppsättning bearbetning av funktioner som avancerade frågor [högpresterande minnesinterna tekniker](sql-database-in-memory.md)och [Intelligent frågebearbetning](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. SQL Database kan du enkelt definiera och skala prestanda i två olika inköpschef modeller: en [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md). SQL Database är fullständigt hanterad tjänst som har inbyggd hög tillgänglighet, säkerhetskopior och andra vanliga underhållsåtgärder. Microsoft hanterar alla korrigeringar och uppdateringar av SQL- och OS-koden sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
 
 > [!NOTE]
 > En ordlista i Azure SQL Database finns [SQL Database allmänna ordlista](sql-database-glossary-terms.md)
 
 Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
 
-- Som en [enkel databas](sql-database-single-database.md) med en egen uppsättning resurser som hanteras via SQL-databasserver. En enkel databas liknar en [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server.
-- En [elastisk pool](sql-database-elastic-pool.md), vilket är en uppsättning databaser med en delad uppsättning resurser som hanteras via en SQL Database-server. Enkla databaser kan flyttas in och ut från en elastisk pool.
-- [Hanterad instans](sql-database-managed-instance.md), som är en samling av system- och -databaser med en delad uppsättning resurser. En hanterad instans liknar en instans av den [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-Följande bild visar dessa distributionsalternativ:
-
 ![distributionsalternativ](./media/sql-database-technical-overview/deployment-options.png)
 
-SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
-
-- **[Azure-Produktöversikt för SQL-databas](https://azure.microsoft.com/roadmap/?category=databases)** :
-
-  En plats för att ta reda på vad som är nytt och vad som kommer härnäst.
-
-- **[Azure SQL Database-blogg](https://azure.microsoft.com/blog/topics/database)** :
-
-  En plats där SQL Server-produktteamet bloggar om nyheter för SQL-databas och funktioner.
+- [Enkel databas](sql-database-single-database.md) representerar fullständigt hanterade isolerad databas som är perfekta valet för moderna molnprogram och mikrotjänster som behöver en enda tillförlitlig datakälla. En enkel databas liknar en [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) i [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Hanterad instans](sql-database-managed-instance.md) är en fullständigt hanterad instans av den [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) som innehåller en uppsättning databaser som kan användas tillsammans. Det är det perfekta valet för enkelt att migrera lokala SQL Server-databaser till Azure-molnet och för program som behöver för att utnyttja kraftfulla databasfunktioner som ger SQL Server Database Engine.
+- [Elastisk pool](sql-database-elastic-pool.md) är en samling [enkla databaser](sql-database-single-database.md) med en delad uppsättning resurser, t.ex CPU eller minne. Enkla databaser kan flyttas in och ut från en elastisk pool.
 
 > [!IMPORTANT]
 > Information om funktionsskillnaderna mellan SQL Database och SQL Server, samt skillnaderna mellan olika distributionsalternativ för Azure SQL Database finns i [SQL-funktioner](sql-database-features.md).
@@ -54,6 +42,7 @@ SQL Database levererar förutsägbar prestanda med flera resurstyper, tjänstniv
 
 ## <a name="scalable-performance-and-pools"></a>Skalbar prestanda och pooler
 
+Alla stilar av SQL Database kan du definiera mängden resurser som ska tilldelas. 
 - Varje databas är isolerade från varandra och portabla, var och en med sin egen garanterad mängd resurser för beräkning, minne och lagring med en enskild databas. SQL-databasen innehåller olika resurser som beräkning, minne och lagring för olika behov – och möjligheten att dynamiskt [skala resurser för enkel databas](sql-database-single-database-scale.md) uppåt och nedåt. Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) för enkel databas kan du skala till 100 TB med snabb säkerhetskopiering och återställningsfunktioner.
 - Med elastiska pooler kan du skapa nya databaser eller flytta enskilda databaser i en resurspool för att maximera användningen av resurser och spara pengar – och möjligheten att dynamiskt [skala elastisk poolresurser](sql-database-elastic-pool-scale.md) uppåt och nedåt.
 - Med hanterade instanser är varje hanterad instans isolerad från andra instanser med garanterade resurser. I en hanterad instans, instansdatabaser delar en uppsättning resurser- och möjligheten att dynamiskt [skala resurser för hanterad instans](sql-database-managed-instance-resource-limits.md) uppåt och nedåt.
@@ -65,11 +54,8 @@ Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en 
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Köpa modeller, tjänstnivåer, storlekar och lagring belopp
 
 SQL Database erbjuder två inköpschef modeller:
-
-- Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne, IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
 - Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme. Den vCore-baserade inköpsmodellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar. Läs mer om Azure Hybrid-förmånen [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
-
-  
+- Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne, IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -88,7 +74,7 @@ Skript kan hjälpa dig med att övervaka och skala elastiska pooler. Mer informa
 
 Du kan blanda enskilda databaser med elastiska pooler och snabbt och enkelt ändra tjänstnivåerna för enskilda databaser och elastiska pooler efter behov för din situation. Med den kraft och räckvidd som Azure har, kan du dessutom blanda andra Azure-tjänster med SQL Database, allt för att möta designbehoven för just din unika app, samt styra kostnader och upptäcka nya affärsmöjligheter.
 
-### <a name="extensive-monitoring-and-alerting-capabilities"></a>Omfattande övervakning och aviseringsfunktioner
+## <a name="extensive-monitoring-and-alerting-capabilities"></a>Omfattande övervakning och aviseringsfunktioner
 
 Du använder de inbyggda verktygen för [prestandaövervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md) i kombination med prestandaklassificering. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
@@ -260,3 +246,8 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 - En uppsättning Azure CLI- och PowerShell-exempel finns här:
   - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell-exempel för SQL Database](sql-database-powershell-samples.md)
+
+ - Information om nya funktioner som de tillkännages finns i 
+   - **[Azure-Produktöversikt för SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**  – en plats för att ta reda på vad som är nytt och vad som kommer härnäst.
+  - **[Azure SQL Database-blogg](https://azure.microsoft.com/blog/topics/database)**  – en plats där SQL Server-produktteamet bloggar om nyheter för SQL-databas och funktioner.
+

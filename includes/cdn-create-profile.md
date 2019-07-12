@@ -3,17 +3,17 @@ title: ta med fil
 description: ta med fil
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187688"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593992"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
 
@@ -31,11 +31,11 @@ En CDN-profil är en container för CDN-slutpunkter och den anger en prisnivå.
 
 3. Som CDN-profilinställningar använder du de värden som anges i följande tabell:
    
-    | Inställning  | Värde |
+    | Inställning  | Value |
     | -------- | ----- |
     | **Namn** | Ange *my-cdn-profile-123* som profilnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
     | **Prenumeration** | Välj en Azure-prenumeration i listrutan. |
-    | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn eller välja **Använd befintligt** och välja **min-resurs-grupp-123** från den nedrullningsbara listan. | 
+    | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Om det redan används kan du ange ett annat namn eller välja **Använd befintligt** och välja **min-resurs-grupp-123** från den nedrullningsbara listan. | 
     | **Resursgruppsplats** | Välj **USA, centrala** i listrutan. |
     | **prisnivå** | Välj **Standard Verizon** i listrutan. |
     | **Skapa en ny CDN-slutpunkt nu** | Lämna det avmarkerat. |  

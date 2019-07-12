@@ -12,16 +12,16 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674d055c40ff594f0e4e05ec512b9124b1d7ab77
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c4666a9d084f6fc12cd68b69d5c71cafc3de0439
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341337"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807784"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
-Kopplingar är vad gör att Azure AD Application Proxy är möjligt. De är enkla att distribuera och underhålla och enkel mycket kraftfulla. Den här artikeln beskrivs vilka anslutningar som är, hur de fungerar och några förslag att optimera din distribution. 
+Kopplingar är vad gör att Azure AD Application Proxy är möjligt. De är enkla att distribuera och underhålla och enkel mycket kraftfulla. Den här artikeln beskrivs vilka anslutningar som är, hur de fungerar och några förslag att optimera din distribution.
 
 ## <a name="what-is-an-application-proxy-connector"></a>Vad är ett programproxy-kopplingen?
 
@@ -29,7 +29,7 @@ Kopplingar är förenklad agenter som finns lokalt och underlätta den utgående
 
 ## <a name="requirements-and-deployment"></a>Krav och distribution
 
-Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera connector på en dator som kör Windows Server 2012 R2 eller senare. Anslutningen måste kommunicera med Application Proxy-tjänsten och lokala program som du publicerar. 
+Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera connector på en dator som kör Windows Server 2012 R2 eller senare. Anslutningen måste kommunicera med Application Proxy-tjänsten och lokala program som du publicerar.
 
 ### <a name="windows-server"></a>Windows server
 Du behöver en server som kör Windows Server 2012 R2 eller senare som du kan installera anslutningsappen för programproxyn. Servern måste ansluta till Application Proxy-tjänsterna i Azure och lokala program som du publicerar.
@@ -45,12 +45,12 @@ Windows server måste ha aktiverats innan du installerar Application Proxy conne
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-2. Starta om servern
-
+1. Starta om servern
 
 Mer information om nätverkskrav connector-server finns i [Kom igång med Application Proxy och installera ett anslutningsprogram](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Underhåll
+
 Kopplingar och tjänsten tar hand om alla aktiviteter för hög tillgänglighet. De kan läggas till eller tas bort dynamiskt. Varje gång en ny begäran kommer dirigeras till en av de kopplingar som finns för närvarande. Om en anslutning inte är tillgänglig, kan de inte svara på den här trafiken.
 
 Anslutningarna är tillståndslösa och har inga configuration-data på datorn. De enda data som lagras är inställningarna för att ansluta tjänsten och dess certifikat för serverautentisering. När de ansluter till tjänsten kan de hämta alla nödvändiga konfigurationsdata och uppdatera den varje par minuter.
@@ -59,19 +59,20 @@ Kopplingar avsöka också servern för att ta reda på om det finns en nyare ver
 
 Du kan övervaka dina anslutningar från den datorn som de körs på, använder du händelseloggen och prestandaräknare. Eller så kan du visa deras status från sidan Application Proxy på Azure-portalen:
 
- ![AzureAD Programproxyanslutningar](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Exempel: Azure AD Application Proxy-anslutningsappar](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 Du har inte manuellt ta bort kopplingar som inte används. När en koppling är igång, förblir den aktiv när den ansluter till tjänsten. Oanvända anslutningar är märkta som _inaktiva_ och tas bort efter 10 dagar av inaktivitet. Om du vill avinstallera en anslutning, men avinstallera både anslutnings- och uppdateringstjänsten från servern. Ta bort tjänsten helt och hållet genom att starta om datorn.
 
 ## <a name="automatic-updates"></a>Automatiska uppdateringar
 
-Azure AD tillhandahåller automatiska uppdateringar för alla kopplingar som du distribuerar. Så länge Application Proxy Connector Updater-tjänsten körs, uppdatera dina anslutningsappar automatiskt. Om du inte ser Connector Updater-tjänsten på servern, måste du [installera om din anslutningsapp](application-proxy-add-on-premises-application.md) att hämta uppdateringar. 
+Azure AD tillhandahåller automatiska uppdateringar för alla kopplingar som du distribuerar. Så länge Application Proxy Connector Updater-tjänsten körs, uppdatera dina anslutningsappar automatiskt. Om du inte ser Connector Updater-tjänsten på servern, måste du [installera om din anslutningsapp](application-proxy-add-on-premises-application.md) att hämta uppdateringar.
 
-Om du inte vill vänta tills en automatisk uppdatering att komma till din anslutning, kan du göra en manuell uppgradering. Gå till den [connector hämtningssidan](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) på servern där din anslutningsapp är placerad och välj **hämta**. Den här processen startar en uppgradering för den lokala anslutningen. 
+Om du inte vill vänta tills en automatisk uppdatering att komma till din anslutning, kan du göra en manuell uppgradering. Gå till den [connector hämtningssidan](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) på servern där din anslutningsapp är placerad och välj **hämta**. Den här processen startar en uppgradering för den lokala anslutningen.
 
-För klienter med flera anslutningar kan rikta automatiska uppdateringar en anslutning i taget i varje grupp för att förhindra avbrott i din miljö. 
+För klienter med flera anslutningar kan rikta automatiska uppdateringar en anslutning i taget i varje grupp för att förhindra avbrott i din miljö.
 
-Avbrott kan uppstå när anslutningsappens uppdaterar om:  
+Avbrott kan uppstå när anslutningsappens uppdaterar om:
+  
 - Du har bara ett anslutningsprogram vi rekommenderar att du installerar ytterligare en koppling och [skapa en anslutningsgrupp](application-proxy-connector-groups.md). På så sätt undvika avbrott och ge högre tillgänglighet.  
 - En anslutning har mitt i en transaktion när uppdateringen började. Även om den första transaktionen tappas bort, webbläsaren bör automatiskt att försöka igen eller du kan uppdatera din sida. När begäran igen, dirigeras trafiken till en säkerhetskopiering koppling.
 
@@ -79,15 +80,15 @@ Att visa information om tidigare versioner och vilka ändringar de innehåller, 
 
 ## <a name="creating-connector-groups"></a>Skapa anslutningsapp-grupper
 
-Anslutningsapp-grupper kan du tilldela specifika anslutningsappar för att hantera specifika program. Du kan gruppera flera kopplingar och sedan tilldela varje program till en grupp. 
+Anslutningsapp-grupper kan du tilldela specifika anslutningsappar för att hantera specifika program. Du kan gruppera flera kopplingar och sedan tilldela varje program till en grupp.
 
-Anslutningsappgrupper gör det enklare att hantera stora distributioner. De kan även förbättra svarstiden för klienter som har program som körs i olika regioner, eftersom du kan skapa platsbaserad anslutningsapp-grupper så att den stöder endast lokala program. 
+Anslutningsappgrupper gör det enklare att hantera stora distributioner. De kan även förbättra svarstiden för klienter som har program som körs i olika regioner, eftersom du kan skapa platsbaserad anslutningsapp-grupper så att den stöder endast lokala program.
 
 Läs mer om anslutningsapp-grupper i [publicera program på separata nätverk och platser med hjälp av anslutningsappgrupper](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Kapacitetsplanering 
+## <a name="capacity-planning"></a>Kapacitetsplanering
 
-Det är viktigt att se till att du har planerat tillräckligt med kapacitet mellan kopplingar för att hantera förväntad trafik. Vi rekommenderar att varje anlsutningsgruppen har minst två anslutningsappar för att ge hög tillgänglighet och skala. Att ha tre kopplingar är optimalt om du kanske behöver att hantera en dator när som helst. 
+Det är viktigt att se till att du har planerat tillräckligt med kapacitet mellan kopplingar för att hantera förväntad trafik. Vi rekommenderar att varje anlsutningsgruppen har minst två anslutningsappar för att ge hög tillgänglighet och skala. Att ha tre kopplingar är optimalt om du kanske behöver att hantera en dator när som helst.
 
 I allmänna, desto fler användare som du har, desto större en dator måste. Nedan visas en tabell som ger en översikt över volym och förväntade svarstiden kan hantera olika datorer. Observera att den är baserad på förväntade transaktioner Per sekund (TPS) i stället av användaren sedan användning mönster varierar och kan inte användas för att förutse belastningen. Det kommer också att vissa skillnader baserat på storleken på svar och svarstiden för backend-programmet – större svarsstorlekar och längre svarstider leder till en lägre Max TPS. Vi rekommenderar också att ha fler datorer så att distribuerade belastningen över datorerna som ger alltid gott om buffert. Extra kapacitet säkerställer att du har hög tillgänglighet och återhämtning.
 
@@ -99,34 +100,33 @@ I allmänna, desto fler användare som du har, desto större en dator måste. Ne
 |16|64|245|1200*|
 
 \* Den här datorn används en anpassad inställning för att öka vissa standardgränser för anslutning utöver .NET rekommenderade inställningar. Vi rekommenderar att köra ett test med standardinställningarna innan du kontaktar supporten för att få den här gränsen som har ändrats för din klient.
- 
->[!NOTE]
->Det finns inte mycket skillnaden i maximala TPS mellan 4 och 8 datorer med 16 kärnor. Den största skillnaden mellan de som finns i den förväntade svarstiden.  
+
+> [!NOTE]
+> Det finns inte mycket skillnaden i maximala TPS mellan 4 och 8 datorer med 16 kärnor. Den största skillnaden mellan de som finns i den förväntade svarstiden.  
 
 ## <a name="security-and-networking"></a>Säkerhet och nätverk
 
 Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köra i ett perimeternätverk, även kallat en demilitariserad zon (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
 
-Kopplingar kan bara skicka utgående begäranden. Den utgående trafiken skickas till Application Proxy-tjänsten och till publicerade program. Du behöver att öppna ingående portar eftersom trafiken flödar båda riktningarna när en session har upprättats. Du behöver också att konfigurera inkommande åtkomst genom dina brandväggar. 
+Kopplingar kan bara skicka utgående begäranden. Den utgående trafiken skickas till Application Proxy-tjänsten och till publicerade program. Du behöver att öppna ingående portar eftersom trafiken flödar båda riktningarna när en session har upprättats. Du behöver också att konfigurera inkommande åtkomst genom dina brandväggar.
 
 Läs mer om hur du konfigurerar utgående brandväggsregler [fungerar med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
 
-
 ## <a name="performance-and-scalability"></a>Prestanda och skalbarhet
 
-Skala för Application Proxy-tjänsten är transparent, men skalning är en faktor för kopplingar. Du måste ha tillräckligt med anslutningsappar för att hantera högtrafik. Eftersom kopplingar är tillståndslösa, påverkas de inte av antalet användare eller sessioner. I stället svarar de på antalet begäranden och deras nyttolast. Med standard webbtrafik kan en genomsnittlig virtuell dator hantera några tusen begäranden per sekund. Den aktuella kapaciteten är beroende av de exakta dator-egenskaperna. 
+Skala för Application Proxy-tjänsten är transparent, men skalning är en faktor för kopplingar. Du måste ha tillräckligt med anslutningsappar för att hantera högtrafik. Eftersom kopplingar är tillståndslösa, påverkas de inte av antalet användare eller sessioner. I stället svarar de på antalet begäranden och deras nyttolast. Med standard webbtrafik kan en genomsnittlig virtuell dator hantera några tusen begäranden per sekund. Den aktuella kapaciteten är beroende av de exakta dator-egenskaperna.
 
 Prestanda för kopplingen är bunden av processor- och nätverk. CPU-prestanda krävs för SSL-kryptering och dekryptering, även om nätverk är viktigt att få snabb anslutning till program och online-tjänsten i Azure.
 
-Minnet är däremot mindre av ett problem för kopplingar. Online-tjänsten hand tar om mycket av bearbetning och alla icke-autentiserade trafik. Allt som kan göras i molnet görs i molnet. 
+Minnet är däremot mindre av ett problem för kopplingar. Online-tjänsten hand tar om mycket av bearbetning och alla icke-autentiserade trafik. Allt som kan göras i molnet görs i molnet.
 
 Om du av någon anledning att anslutningen eller dator blir otillgänglig, trafiken börjar gå till en annan koppling i gruppen. Den här återhämtning är också varför vi rekommenderar att du har flera anslutningar.
 
-En annan faktor som påverkar prestanda är kvaliteten på nätverk mellan kopplingar, inklusive: 
+En annan faktor som påverkar prestanda är kvaliteten på nätverk mellan kopplingar, inklusive:
 
-* **Onlinetjänsten**: Långsam eller lång svarstid anslutningar till Application Proxy-tjänst i Azure påverka prestanda för kopplingen. Ansluta din organisation till Azure med Express Route för bästa prestanda. I annat fall har ditt nätverksteam att säkerställa att anslutningar till Azure hanteras så effektivt som möjligt. 
-* **Serverdelsprogrammen**: I vissa fall finns ytterligare Proxys mellan anslutningsappen och backend-program som kan långsam eller förhindra anslutningar. Om du vill felsöka det här scenariot, öppna en webbläsare från connector-server och försök att komma åt programmet. Om du kör anslutningarna i Azure, men program som finns på plats, kanske inte upplevelsen användarna förväntar sig.
-* **Domänkontrollanterna**: Om kopplingarna utför enkel inloggning (SSO) med hjälp av Kerberos-begränsad delegering kan kontakta de domänkontrollanter innan förfrågan skickas till serverdelen. Anslutningarna har ett cacheminne med Kerberos-biljetter, men i en miljö med upptagen svarstiden för domänkontrollanterna kan påverka prestanda. Det här problemet är vanligare för kopplingar som körs i Azure men kommunicerar med domänkontrollanter som finns på plats. 
+- **Onlinetjänsten**: Långsam eller lång svarstid anslutningar till Application Proxy-tjänst i Azure påverka prestanda för kopplingen. Ansluta din organisation till Azure med Express Route för bästa prestanda. I annat fall har ditt nätverksteam att säkerställa att anslutningar till Azure hanteras så effektivt som möjligt.
+- **Serverdelsprogrammen**: I vissa fall finns ytterligare Proxys mellan anslutningsappen och backend-program som kan långsam eller förhindra anslutningar. Om du vill felsöka det här scenariot, öppna en webbläsare från connector-server och försök att komma åt programmet. Om du kör anslutningarna i Azure, men program som finns på plats, kanske inte upplevelsen användarna förväntar sig.
+- **Domänkontrollanterna**: Om kopplingarna utför enkel inloggning (SSO) med hjälp av Kerberos-begränsad delegering kan kontakta de domänkontrollanter innan förfrågan skickas till serverdelen. Anslutningarna har ett cacheminne med Kerberos-biljetter, men i en miljö med upptagen svarstiden för domänkontrollanterna kan påverka prestanda. Det här problemet är vanligare för kopplingar som körs i Azure men kommunicerar med domänkontrollanter som finns på plats.
 
 Läs mer om hur du optimerar ditt nätverk, [Network topologiöverväganden när du använder Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
@@ -140,16 +140,16 @@ Kopplingar kan också anslutas till domäner eller skogar som har ett partiellt 
 
 Vanligtvis connector distribution är enkelt och kräver ingen särskild konfiguration. Det finns dock vissa unika villkor som du bör överväga:
 
-* Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
-* FIPS-kompatibla datorer kan krävas för att ändra konfigurationen för att tillåta connector-processer för att generera och lagra ett certifikat.
-* Organisationer som låsa sin miljö, baserat på de processer som utfärdar de nätverk som har att se till att båda kopplingstjänsterna är aktiverade för åtkomst till alla nödvändiga portar och IP-adresser.
-* I vissa fall kan utgående vidarebefordra proxyservrar bryta dubbelriktat certifikatautentisering och orsaka kommunikationen misslyckas.
+- Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+- FIPS-kompatibla datorer kan krävas för att ändra konfigurationen för att tillåta connector-processer för att generera och lagra ett certifikat.
+- Organisationer som låsa sin miljö, baserat på de processer som utfärdar de nätverk som har att se till att båda kopplingstjänsterna är aktiverade för åtkomst till alla nödvändiga portar och IP-adresser.
+- I vissa fall kan utgående vidarebefordra proxyservrar bryta dubbelriktat certifikatautentisering och orsaka kommunikationen misslyckas.
 
 ## <a name="connector-authentication"></a>Connector-autentisering
 
 Om du vill tillhandahålla en säker tjänst kopplingar att autentisera mot tjänsten och tjänsten att autentisera mot anslutningen. Den här autentiseringen görs med hjälp av klient- och servercertifikat när anslutningarna att upprätta anslutningen. Det här sättet administratörens användarnamn och lösenord inte lagras på connector-datorn.
 
-De certifikat som används är specifika för Application Proxy-tjänsten. De skapas vid den första registreringen och automatiskt av anslutningarna förnyas varje för några månader. 
+De certifikat som används är specifika för Application Proxy-tjänsten. De skapas vid den första registreringen och automatiskt av anslutningarna förnyas varje för några månader.
 
 Om en anslutning inte är ansluten till tjänsten för flera månader kan vara dess certifikat inaktuell. I det här fallet, avinstallera och installera om anslutningen så att registrering av utlösare. Du kan köra följande PowerShell-kommandon:
 
@@ -162,25 +162,23 @@ Register-AppProxyConnector
 
 Kopplingar är baserade på Windows Server Web Application Proxy, så att de har de flesta av samma hanteringsverktyg, inklusive Windows-händelseloggar
 
- ![Hantera händelseloggar med Loggboken](./media/application-proxy-connectors/event-view-window.png)
+![Hantera händelseloggar med Loggboken](./media/application-proxy-connectors/event-view-window.png)
 
-och Windows-prestandaräknare. 
+och Windows-prestandaräknare.
 
- ![Lägga till räknare i anslutningen med Resursövervakaren](./media/application-proxy-connectors/performance-monitor.png)
+![Lägga till räknare i anslutningen med Resursövervakaren](./media/application-proxy-connectors/performance-monitor.png)
 
-Anslutningarna har både admin och sessionen loggar. Administratörsloggar innehåller viktiga händelser och deras fel. Sessionsloggar innehåller alla transaktioner och bearbetningsinformation om. 
+Anslutningarna har både admin och sessionen loggar. Administratörsloggar innehåller viktiga händelser och deras fel. Sessionsloggar innehåller alla transaktioner och bearbetningsinformation om.
 
 Om du vill visa loggarna går du till Loggboken, öppna den **visa** menyn och aktivera **visa analytiska loggar och felsökningsloggar**. Aktivera sedan de kan börja samla in händelser. De här loggarna visas inte i Webbprogramproxy i Windows Server 2012 R2, som anslutningarna baseras på en senare version.
 
 Du kan undersöka statusen för tjänsten i fönstret tjänster. Kopplingen består av två Windows-tjänster: faktiska anslutningstjänsten och uppdateringsfilen. Båda måste köras hela tiden.
 
- ![AzureAD-tjänster lokalt](./media/application-proxy-connectors/aad-connector-services.png)
+ ![Exempel: Services-fönster som visar Azure AD-tjänster lokalt](./media/application-proxy-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-
-* [Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper](application-proxy-connector-groups.md)
-* [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Felsöka Application Proxy och anslutning](application-proxy-troubleshoot.md)
-* [Tyst installation av Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)
-
+- [Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper](application-proxy-connector-groups.md)
+- [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Felsöka Application Proxy och anslutning](application-proxy-troubleshoot.md)
+- [Tyst installation av Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)

@@ -2,17 +2,17 @@
 title: Använd autoskalningen kluster i Azure Kubernetes Service (AKS)
 description: Lär dig hur du använder kluster autoskalningen för att skala automatiskt ditt kluster för att uppfylla krav på program i ett kluster i Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 3ce080871ff2a38efcc75f6ff6b584af14014879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491559"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666009"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Förhandsgranskning – automatiskt skala ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
@@ -100,7 +100,7 @@ Två autoscalers kan fungera tillsammans och ofta båda distribueras i ett klust
 Om du vill skapa ett AKS-kluster kan du använda den [az aks skapa][az-aks-create] kommando. Ange en *--kubernetes-version* som uppfyller eller överskrider det lägsta versionsnumret som krävs enligt beskrivningen i det föregående [innan du börjar](#before-you-begin) avsnittet. Om du vill aktivera och konfigurera autoskalningen kluster måste använda den *--enable-kluster-autoskalningen* parametern och ange en nod *– minsta antal* och *--maximalt antal*.
 
 > [!IMPORTANT]
-> Autoskalningen kluster är en Kubernetes-komponent. Även om AKS-klustret använder en VM-skalningsuppsättning för noderna kan inte manuellt aktivera eller redigera inställningarna för scale set automatisk skalning i Azure portal eller med hjälp av Azure CLI. Låt Kubernetes-kluster autoskalningen hantera de obligatoriska inställningarna. Mer information finns i [kan jag ändra AKS-resurser i resursgruppen MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
+> Autoskalningen kluster är en Kubernetes-komponent. Även om AKS-klustret använder en VM-skalningsuppsättning för noderna kan inte manuellt aktivera eller redigera inställningarna för scale set automatisk skalning i Azure portal eller med hjälp av Azure CLI. Låt Kubernetes-kluster autoskalningen hantera de obligatoriska inställningarna. Mer information finns i [kan jag ändra AKS-resurser i resursgruppen nod?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
 I följande exempel skapar ett AKS-kluster med virtual machine scale Sets och klustret autoskalningen aktiverad och kräver minst *1* och högst *3* noder:
 

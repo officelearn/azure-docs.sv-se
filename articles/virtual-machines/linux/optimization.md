@@ -5,7 +5,7 @@ keywords: Linux-dator, VM linux ubuntu-dator
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -17,17 +17,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd59257c1136f52beaf217c1f983c8aeb7bd81d5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473917"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671131"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här självstudien Lär dig att se till att du har konfigurerat den för att optimera prestanda på Microsoft Azure-plattformen. Det här avsnittet använder en dator med Ubuntu Server, men du kan också skapa Linux virtuell dator med hjälp av [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([kostnadsfria registreringsstegen](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator på Azure-prenumerationen. Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in på Azure-prenumerationen med [az-inloggning](/cli/azure/reference-index) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-Disk

@@ -4,7 +4,7 @@ description: Översikt över cloud-init-funktioner i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 377ad49ae3a5ae0f61cd0fd93b68dd817d617397
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 057f7c42c037dac4cb2be686df09287de7113f0d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050814"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695394"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-stöd för virtuella datorer i Azure
 Den här artikeln förklarar stödet finns för [cloud-init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure.  
@@ -34,8 +34,8 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 | Utgivare | Erbjudande | SKU | Version | cloud-init är klara |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
-|Canonical |UbuntuServer |17.10 |senaste |ja | 
+|Canonical |UbuntuServer |18.04-LTS |latest |ja | 
+|Canonical |UbuntuServer |17.10 |latest |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |

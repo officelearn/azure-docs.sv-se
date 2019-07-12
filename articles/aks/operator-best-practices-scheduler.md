@@ -2,17 +2,17 @@
 title: Operatorn metodtips – grundläggande scheduler funktioner i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen för att använda grundläggande scheduler-funktioner, till exempel resurskvoter och pod avbrott budgetar i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074130"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614628"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för grundläggande scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -124,9 +124,9 @@ Läs mer om hur du använder pod avbrott budgetar [anger en avbrott budget för 
 
 **Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` verktyg med öppen källkod att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
 
-Den [kube-advisor] [ kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
+Den [kube-advisor][kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
 
-Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
+Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare][k8s-node-selector] i en pod-konfiguration.
 
 I ett AKS-kluster som är värd för flera utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på dina AKS-kluster, särskilt om du inte tilldelar resurskvoter till namnområden.
 

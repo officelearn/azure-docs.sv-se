@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762488"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621480"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics-frågor
 
@@ -25,11 +25,11 @@ Den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics-fr�
     - På den **fråga** fliken **Test**. Använda nedladdade exempeldata för att [testa frågan](stream-analytics-test-query.md). Granska eventuella fel och försöka åtgärda dem.   
     - Du kan också [testa frågan direkt på live indata](stream-analytics-live-data-local-testing.md) med Stream Analytics-verktyg för Visual Studio.
 
-2.  Om du använder [ **Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx), kontrollera att händelserna har tidsstämplar som är större än den [jobbet starttid](stream-analytics-out-of-order-and-late-events.md).
+2.  Om du använder [ **Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), kontrollera att händelserna har tidsstämplar som är större än den [jobbet starttid](stream-analytics-out-of-order-and-late-events.md).
 
 3.  Eliminera vanliga fallgropar, till exempel:
-    - En [ **där** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) sats i frågan filtrerade bort alla händelser som förhindrar att några utdata som genereras.
-    - En [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) misslyckas, vilket gör jobbet misslyckas. För att undvika fel av typen cast kan använda [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) i stället.
+    - En [ **där** ](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) sats i frågan filtrerade bort alla händelser som förhindrar att några utdata som genereras.
+    - En [ **CAST** ](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) misslyckas, vilket gör jobbet misslyckas. För att undvika fel av typen cast kan använda [ **TRY_CAST** ](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
     - När du använder fönsterfunktioner, vänta tills hela fönstret-tid för att se utdata från frågan.
     - Tidsstämpel för händelser som kommer före jobbets starttid och därför att händelser utelämnas.
 
@@ -99,5 +99,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

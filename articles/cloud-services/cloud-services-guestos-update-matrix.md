@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/8/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743018"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721138"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -39,9 +39,12 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 >
 >
 
-Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updates] ut.
+Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta][cloud updates] ut.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="july-8-2019"></a>**8 juli 2019**
+Gäst-OS juni har publicerat.
 
 ###### <a name="june-6-2019"></a>**6 juni 2019**
 Gästoperativsystemet kan har publicerat.
@@ -78,7 +81,7 @@ Gästoperativsystemet i September har publicerat.
 ## <a name="family-6-releases"></a>Familj 6 versioner
 **Windows Server 2019**
 
-.NET framework installerat: 3.5, 4.7.2
+.NET framework installerat: 3.5, 4.7.2, 4.8
 
 > [!NOTE]
 > Windows Azure SDK för .NET - 3.0 kan laddas ned [här][Windows Azure SDK].
@@ -95,8 +98,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-6.8_201906-01 |8 juli 2019 |Post 6.10 |
 | WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
-| WA-GUEST-OS-6.6_201904-01 |Den 7 maj 2019 |Post 6.8 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |Den 7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
@@ -106,7 +110,7 @@ Gästoperativsystemet i September har publicerat.
 ## <a name="family-5-releases"></a>Familj 5 versioner
 **Windows Server 2016**
 
-.NET framework installerat: 3.5, 4.6.2
+.NET framework installerat: 3.5, 4.6.2, 4.7.2, 4.8
 
 > [!NOTE]
 > RDP-lösenord för OS-familj 5 måste vara minst 10 tecken.
@@ -115,8 +119,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-5.32_201906-01 |8 juli 2019 |Post 5.34 |
 | WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |Den 7 maj 2019 |Post 5.32 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |Den 7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
@@ -128,12 +133,13 @@ Gästoperativsystemet i September har publicerat.
 ## <a name="family-4-releases"></a>Gästoperativsystemfamilj 4 versioner
 **Windows Server 2012 R2**
 
-.NET framework installerat: 3.5, 4.5.1
+.NET framework installerat: 3.5, 4.5.1, 4.5.2
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-4.67_201906-01 |8 juli 2019 |Post 4.69 |
 | WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4.68 |
-| WA-GUEST-OS-4.65_201904-01 |Den 7 maj 2019 |Post 4,67 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |Den 7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
@@ -149,8 +155,9 @@ Gästoperativsystemet i September har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |Juni 67, 2019 |Post 3,75 |
-| WA-GUEST-OS-3.72_201904-01 |Den 7 maj 2019 |Post 3.74 |
+| WA-GUEST-OS-3.74_201906-01 |8 juli 2019 |Post 3.76 |
+| WA-GUEST-OS-3.73_201905-01 |6 juni 2019 |Post 3,75 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |Den 7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
@@ -162,12 +169,13 @@ Gästoperativsystemet i September har publicerat.
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
 
-.NET framework installerat: 3.5 (inklusive.NET 2.0 och 3.0)
+.NET framework installerat: 3.5 (inklusive.NET 2.0 och 3.0), 4.5
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-2.87_201906-01 |8 juli 2019 |Post 2.89 |
 | WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
-| WA-GUEST-OS-2.85_201904-01 |Den 7 maj 2019 |Post 2.87 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |Den 7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |Den 12 mars 2019 |Den 7 maj 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
@@ -180,7 +188,7 @@ Gästoperativsystemet i September har publicerat.
 Lista över korrigeringsprogram som ingår med varje månatlig gäst-OS-version är tillgänglig [här][patches].
 
 ## <a name="sdk-support"></a>SDK-support
-Även om den [indragningsprincip för Azure SDK] [ retire policy sdk] indikerar att det bara versioner ovan 2.2 stöds, specifika gästoperativsystemfamiljer kan du använda tidigare versioner. Du bör alltid använda den senaste SDK som stöds.
+Även om den [indragningsprincip för Azure SDK][retire policy sdk] indikerar att det bara versioner ovan 2.2 stöds, specifika gästoperativsystemfamiljer kan du använda tidigare versioner. Du bör alltid använda den senaste SDK som stöds.
 
 | Gästoperativsystemfamilj | Kompatibla SDK-versioner |
 | --- | --- |
@@ -204,7 +212,7 @@ Gäst-OS-familjer baseras på Microsoft Windows Server-versioner. Gäst-OS är d
 * **Gästoperativsystemfamilj**  
   En Windows Server version av operativsystemet som en gäst-OS baseras på. Till exempel *familj 3* baseras på Windows Server 2012.
 * **Gäst-OS-version**  
-  Specifika för gäst-OS-familjen avbildningar plus relevanta [Microsoft Security Response Center (MSRC)] [ msrc] korrigeringsprogram som är tillgängliga på det datum då den nya gäst-OS-versionen skapas. Inte alla korrigeringsfiler kan ingå.
+  Specifika för gäst-OS-familjen avbildningar plus relevanta [Microsoft Security Response Center (MSRC)][msrc] korrigeringsprogram som är tillgängliga på det datum då den nya gäst-OS-versionen skapas. Inte alla korrigeringsfiler kan ingå.
 
     Siffror som börjar på 0 och öka med 1 varje gång en ny uppsättning uppdateringar har lagts till. Efterföljande nollor visas endast om det är viktigt. Version 2.10 är en annan, mycket senare version än version 2.1.
 * **Gäst-OS-version**  
@@ -225,9 +233,9 @@ Microsoft Azure lanserar ständigt uppdateringar. Gäst-OS är bara en sådan up
 
 När en ny version av gäst-OS publiceras, kan det ta tid att sprida helt i Azure. När tjänster uppdateras till den nya gäst-OS, de startas om respektera uppdateringsdomäner. Tjänster som är konfigurerad att använda ”automatisk” uppdateringar kommer att få en version första. Efter uppdateringen visas den nya gäst-OS-versionen för din tjänst i Azure-portalen. Här återutgivningarna kan uppstå under denna period. Vissa versioner kan distribueras under längre tidsperioder och automatisk uppgradering omstarter kan inte ha många veckor efter officiella lanseringsdatumet. När en gäst-OS är tillgänglig, kan du sedan väljer den här versionen från portalen eller i konfigurationsfilen.
 
-Mycket värdefull information på startas om och länkar till mer information teknisk information om uppdateringar av Gäst och värd-OS, finns i MSDN-blogg som heter efter [rollen instansen startas om på grund av OS-uppgraderingar] [ restarts].
+Mycket värdefull information på startas om och länkar till mer information teknisk information om uppdateringar av Gäst och värd-OS, finns i MSDN-blogg som heter efter [rollen instansen startas om på grund av OS-uppgraderingar][restarts].
 
-Om du manuellt uppdaterar gäst-OS, finns i den [gäst-OS indragningsprincip] [ retirepolicy] för ytterligare information.
+Om du manuellt uppdaterar gäst-OS, finns i den [gäst-OS indragningsprincip][retirepolicy] för ytterligare information.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Princip för support och tillbakadragande av gäst-OS
 Principen för gäst-OS support och tillbakadragande förklaras [här][retirepolicy].

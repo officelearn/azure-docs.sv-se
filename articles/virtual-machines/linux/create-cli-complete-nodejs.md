@@ -4,7 +4,7 @@ description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, e
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328722"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668016"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med den klassiska Azure-CLI
 I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel databehandling. Vi går igenom processen kommandot av kommandot förrän du har två arbetar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Du kan sedan gå vidare till mer komplexa nätverk och miljöer.
@@ -285,7 +285,7 @@ Azure-resursgrupper är logiska distribution entiteter som innehåller konfigura
 azure group create --name myResourceGroup --location westeurope
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli                        
 info:    Executing command group create
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ Att undersöka resursgrupp med hjälp av den `azure group show` kommandot, anvä
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -372,7 +372,7 @@ Sedan kan du visa information om din enkelt:
 azure storage container list
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ Vi använder du alternativet--json av `azure group show` och `jq` att se hur vi 
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ Eftersom undernätet är logiskt i virtuella nätverk kan titta vi för informat
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ Offentliga IP-adress är också en resurs på toppnivå, så att du kan se den m
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -598,7 +598,7 @@ Du kan undersöka mer information om resursen, inklusive underdomänen, fullstä
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -689,7 +689,7 @@ Vi kan se hur vår belastningsutjämnaren fungerar genom att söka med `azure ne
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -774,7 +774,7 @@ azure network lb rule create --resource-group myResourceGroup \
   --backend-address-pool-name myBackEndPool
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb rule create
@@ -805,7 +805,7 @@ azure network lb probe create --resource-group myResourceGroup \
   --interval 15 --count 4
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network lb probe create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -969,7 +969,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command network nic create
@@ -1002,7 +1002,7 @@ Du kan se information genom att undersöka resursen direkt. Du undersöker resur
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ Du kan ansluta till den virtuella datorn direkt med hjälp av dina standard SSH-
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1212,7 +1212,7 @@ Och nu kan du använda den `azure vm show myResourceGroup myVM1` kommando för a
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 info:    Executing command vm show

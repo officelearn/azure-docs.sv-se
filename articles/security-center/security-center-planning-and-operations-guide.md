@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966841"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706241"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -87,21 +87,21 @@ Med utgångspunkt i de fiktiva personer som beskrivs i diagrammet ovan krävs f�
 
 **Jens (arbetsbelastningsägare)**
 
-* ägare/deltagare i resursgrupp
+* Resursgrupp ägare/deltagare
 
 **Daniel (IT-säkerhetsansvarig)**
 
-* Agare/deltagare i prenumeration eller Security Admin
+* Prenumeration ägare/deltagare eller säkerhetsadministratör
 
 **Selma (säkerhetsmedarbetare)**
 
 * Läsare i prenumeration eller Security-läsare för att kunna se aviseringar
-* Agare/deltagare i prenumeration eller Security-admin för att kunna avvisa aviseringar
+* Prenumeration ägare/deltagare eller säkerhetsadministratör för att kunna avvisa aviseringar
 
 **Sami (säkerhetsanalytiker)**
 
 * Läsare i prenumeration för att kunna se aviseringar
-* Ägare/deltagare i prenumeration för att kunna avvisa aviseringar
+* Prenumeration ägare/deltagare för att kunna avvisa aviseringar
 * Åtkomst till arbetsytan kan krävas
 
 Tänk även på följande:
@@ -136,7 +136,7 @@ Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säker
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
 Azure Security Center använder Microsoft Monitoring Agent – det här är samma agent används av tjänsten Azure Monitor – för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
 
-### <a name="agent"></a>Agent
+### <a name="agent"></a>agent
 
 När automatisk etablering är aktiverat i säkerhetsprincipen installeras Microsoft Monitoring Agent (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) på alla virtuella Azure-datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Microsoft Monitoring Agent installerad, kommer Azure Security Center att utnyttja den befintliga installerade agenten. Agentens process är avsedd att vara icke-inkräktande och har mycket minimal påverkan på den virtuella datorns prestanda.
 

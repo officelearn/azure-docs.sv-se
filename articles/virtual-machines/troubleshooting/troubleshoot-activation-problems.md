@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155141"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724116"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -84,7 +84,6 @@ För den virtuella datorn som har skapats från en anpassad avbildning, måste d
 
 3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-server. Gör detta genom att köra följande kommando:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -93,29 +92,26 @@ För den virtuella datorn som har skapats från en anpassad avbildning, måste d
 
 4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip-nedladdningen och kör sedan följande:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    Kontrollera att du ser följande i den andra och sista raden i dina utdata: Skickade = 4, mottagna = 4, förlorad = 0 (0% förlust).
 
    Om förlorad är större än 0 (noll), har den virtuella datorn inte anslutning till KMS-servern. I det här fallet är om den virtuella datorn är i ett virtuellt nätverk och har en anpassad DNS-server har angetts, måste du kontrollera att DNS-servern kan matcha kms.core.windows.net. Eller så ändrar du DNS-servern till ett som matchar kms.core.windows.net.
 
    Observera att om du tar bort alla DNS-servrar från ett virtuellt nätverk, virtuella datorer använder Azures interna DNS-tjänsten. Den här tjänsten kan lösa kms.core.windows.net.
   
-Kontrollera också att gästdatorns brandvägg inte har konfigurerats på ett sätt som skulle blockera aktiveringsförsök.
+    Kontrollera också att utgående nätverkstrafik till KMS-slutpunkten med port 1688 inte blockeras av brandväggen på den virtuella datorn.
 
-1. När du har kontrollerat lyckad anslutning till kms.core.windows.net, kör du följande kommando i den utökade Windows PowerShell-Kommandotolken. Det här kommandot försöker aktivera flera gånger.
+5. När du har kontrollerat lyckad anslutning till kms.core.windows.net, kör du följande kommando i den utökade Windows PowerShell-Kommandotolken. Det här kommandot försöker aktivera flera gånger.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-Aktiveringen returnerar information som liknar följande:
-
-**Aktiverar Windows (r), ServerDatacenter edition (12345678-1234-1234-1234-12345678)... Produkten har aktiverats.**
+    Aktiveringen returnerar information som liknar följande:
+    
+    **Aktiverar Windows (r), ServerDatacenter edition (12345678-1234-1234-1234-12345678)...  Produkten har aktiverats.**
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
 

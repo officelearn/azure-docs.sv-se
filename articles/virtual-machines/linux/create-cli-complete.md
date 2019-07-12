@@ -4,7 +4,7 @@ description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, e
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcaa3ae105490fe4f38a9de47ba0450c33da5ee1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328651"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671642"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda en enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och reglerna för nätverkssäkerhetsgruppen skapas automatiskt. Använd för mer kontroll över din miljö i produktion, du kan skapa de här resurserna förbereds i förväg och sedan lägga till de virtuella datorerna i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödjande resurserna i taget.
@@ -112,7 +112,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -182,7 +182,7 @@ Granska nätverkssäkerhetsgruppen och regler med [az network nsg show](/cli/azu
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -345,7 +345,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -515,7 +515,7 @@ SSH till den virtuella datorn med DNS-posten som du angav när du skapade den of
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

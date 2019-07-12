@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart för PowerShell: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
 description: Beskriver hur du skapar ett index, läsa in data och kör frågor med hjälp av PowerShell-Invoke-RestMethod och Azure Search REST API.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485491"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840176"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i PowerShell med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "67485491"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga en Azure Search-index med hjälp av PowerShell och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln beskriver hur du kör PowerShell-kommandon interaktivt. Du kan också köra ett skript som är klar. Du kan hämta en kopia går du till den [azure search-powershell-exempel](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) lagringsplatsen.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga en Azure Search-index med hjälp av PowerShell och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln beskriver hur du kör PowerShell-kommandon interaktivt. Du kan också [ladda ned och köra ett PowerShell.skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som kan utföra samma åtgärder.
 
-Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -64,7 +64,7 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 2. Skapa en **$url** objekt som anger tjänstens indexerar samling. Ersätt namnet på tjänsten (din-SEARCH-SERVICE-NAME) med en giltig söktjänst.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Kör **Invoke-RestMethod** att skicka en GET-begäran till tjänsten och kontrollera anslutningen. Lägg till **ConvertTo-Json** så att du kan se de svar som skickas tillbaka från tjänsten.
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Rensa 
 
-Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte aktivt använder så att du kan gå igenom andra självstudier.
+När du arbetar i din egen prenumeration är det en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver resurserna som du skapade. Resurser vänstra som körs kan kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen för att ta bort hela uppsättningen resurser.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+Du kan hitta och hantera resurser i portalen med hjälp av den **alla resurser** eller **resursgrupper** länken i det vänstra navigeringsfönstret.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+Om du använder en kostnadsfri tjänst kan du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla oss under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

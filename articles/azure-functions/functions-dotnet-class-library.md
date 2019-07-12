@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30c97eed5f28631bd2583cbda75df5755ffe2e34
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872789"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626102"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -50,7 +50,7 @@ När du skapar projektet, en mappstruktur som ser ut som i följande exempel ska
  | - host.json
 ```
 
-Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
+Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
 > Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Läs hur du inaktiverar en funktion i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).

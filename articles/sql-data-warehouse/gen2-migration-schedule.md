@@ -3,19 +3,19 @@ title: Migrera din befintliga Azure SQL Data Warehouse till Gen2 | Microsoft Doc
 description: Anvisningar för att migrera ett befintligt informationslager Gen2 och migreringen schemalägga per region.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444694"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839664"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -39,13 +39,13 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Östra Kanada |\* |\* |
 | Centrala USA |Tillgängligt |Den 1 juni 2019 |
 | Östra Kina |\* |\* |
-| Kina, östra 2 |\* |Endast Gen2 |
+| Kina, östra 2 |Tillgängligt |Endast Gen2 |
 | Norra Kina |\* |\* |
 | Kina, norra 2 |Tillgängligt |Endast Gen2 |
 | Östasien |Tillgängligt |Den 1 juni 2019 |
 | East US |Tillgängligt |Den 1 juni 2019 |
 | USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
-| Frankrike, centrala |\* |Den 1 juni 2019 |
+| Frankrike, centrala |Tillgängligt |Den 1 juni 2019 |
 | Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
 | Centrala Indien |Tillgängligt |Den 1 juni 2019 |
@@ -56,10 +56,12 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Sydkorea, södra |Tillgängligt |Den 1 maj 2019 |
 | Norra centrala USA |Tillgängligt |Den 1 maj 2019 |
 | Norra Europa |Tillgängligt |Den 1 juni 2019 |
+| Sydafrika, norra |12 juli 2019 |Endast Gen2 |
 | Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
 | Sydostasien |Tillgängligt |Den 1 juni 2019 |
-| Storbritannien, södra |Tillgänglig, 2019 |Den 1 juni 2019 |
-| Storbritannien, västra |\*|\* |
+| Förenade Arabemiraten, norra |20 juli 2019 |Endast Gen2 |
+| Storbritannien, södra |Tillgängligt |Den 1 juni 2019 |
+| Storbritannien, västra |Tillgängligt |Endast Gen2 |
 | Västra centrala USA |2 september 2019 |Den 2 januari 2020|
 | Västra Europa |Tillgängligt |Den 1 juni 2019 |
 | Västra USA |Tillgängligt |Den 1 juni 2019 |

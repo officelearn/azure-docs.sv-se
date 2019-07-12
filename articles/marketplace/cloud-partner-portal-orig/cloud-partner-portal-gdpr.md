@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935427"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786476"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner Portal GDPR-kompatibilitet
 ====================================
 
-[Allmänna Dataskyddsförordningen GDPR (Data Protection)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm)är en Europeiska unionen (EU) data sekretess och skyddet lag. Dataskyddsförordningen inför regler på företag, myndigheter, ideella och andra organisationer som erbjuder varor och tjänster till personer inom EU eller som samla och analysera data som är kopplad till EU: S invånare.
+[Allmänna Dataskyddsförordningen GDPR (Data Protection)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) är en Europeiska unionen (EU) data sekretess och skyddet lag. Dataskyddsförordningen inför regler på företag, myndigheter, ideella och andra organisationer som erbjuder varor och tjänster till personer inom EU eller som samla och analysera data som är kopplad till EU: S invånare.
 
 Partnerportalen i molnet ger detaljerad information om bearbetningen av data och de säkerhetsåtgärder som används för att skydda dessa data. Den här informationen är tillgänglig via dess erfarenheter i produkten.
 

@@ -4,7 +4,7 @@ description: Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46044c061cca24714d1a951e28cf01ca29f14a7e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992107"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707212"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -448,7 +448,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux] [ virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
+   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000

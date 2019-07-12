@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332660"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840113"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
 När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en på lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en på lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med på lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
@@ -54,7 +54,7 @@ Passera kanal verifiering
 4. Skapa en publicerade live-händelse
 5. Kör din live-kodare i cirka 10 minuter
 6. Stoppa direktsändningen
-7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
+7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
 8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
 9. Återställs kanalen när du har skapat varje prov
 10. Upprepa steg 3 till 9 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning)
@@ -66,7 +66,7 @@ Live encoding kanal-verifiering
 4. Skapa en publicerade live-händelse
 5. Kör din live-kodare i cirka 10 minuter
 6. Stoppa direktsändningen
-7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
+7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
 8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
 9. Återställs kanalen när du har skapat varje prov
 10. Upprepa steg 3 till 9 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning)
@@ -77,7 +77,7 @@ Verifiering av livslängd
 3. Konfigurera kodaren för att skicka en direktsänd dataström i multibithastighet.
 4. Skapa en publicerade live-händelse
 5. Kör din live-kodare för en vecka eller längre
-6. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) att titta på live direktuppspelning från tid till tid (eller arkiverade tillgången) för att säkerställa att uppspelningen har inga synliga problem
+6. Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) att titta på live direktuppspelning från tid till tid (eller arkiverade tillgången) för att säkerställa att uppspelningen har inga synliga problem
 7. Stoppa direktsändningen
 8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: sngun
 ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/10/2019
 ms.locfileid: "67187886"
 ---
 När du är klar med din webbapp och Azure Cosmos DB-konto, kan du ta bort Azure-resurserna du skapade så att du inte debiteras mer. Ta bort resurser:

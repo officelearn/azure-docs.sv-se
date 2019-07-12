@@ -2,24 +2,25 @@
 title: Skapa anpassade varningar för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
 description: Skapa och tilldela anpassade aviseringar för Azure Security Center för IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786188"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618034"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabbstart: Skapa anpassade varningar
 
@@ -78,11 +79,11 @@ Följande tabell innehåller en sammanfattning av aviseringar som är tillgängl
 | Låg      | Anpassad avisering – antal kommandot kö återställningspunkter är inte i det tillåtna intervallet                               | IoT Hub     | Mängden kommandot kö rensar i taget fönstret inte är i den konfigurerade det tillåtna intervallet                                                      |
 | Låg      | Anpassad avisering – antal uppdateringar för enhetstvilling är inte i det tillåtna intervallet                                       | IoT Hub     | Uppdateringar för enhetstvilling under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                              |
 | Låg      | Anpassad avisering – antal obehöriga åtgärder är inte i det tillåtna intervallet                            | IoT Hub     | Mängden obehöriga åtgärder under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                   |
-| Låg      | Anpassad avisering – antal aktiva anslutningar som inte finns i det tillåtna intervallet                                        | Agent       | Mängden aktiva anslutningar under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                        |
-| Låg      | Anpassad avisering – utgående anslutning till en IP-adress som inte är tillåtet har skapats                              | Agent       | En utgående anslutning till en IP-adress som inte är tillåtet har skapats                                                                                  |
-| Låg      | Anpassad avisering – antal misslyckade inloggningar som lokala inte är i det tillåtna intervallet                                | Agent       | Misslyckade inloggningar som lokala under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                       |
-| Låg      | Anpassad avisering - inloggningen för en användare som inte är tillåtet                                                      | Agent       | En lokal användare som inte tillåts inloggad på enheten                                                                                        |
-| Låg      | Anpassad avisering - körning av en process som inte är tillåtet                                               | Agent       | En process som inte är tillåtet utfördes på enheten |          |
+| Låg      | Anpassad avisering – antal aktiva anslutningar som inte finns i det tillåtna intervallet                                        | agent       | Mängden aktiva anslutningar under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                        |
+| Låg      | Anpassad avisering – utgående anslutning till en IP-adress som inte är tillåtet har skapats                              | agent       | En utgående anslutning till en IP-adress som inte är tillåtet har skapats                                                                                  |
+| Låg      | Anpassad avisering – antal misslyckade inloggningar som lokala inte är i det tillåtna intervallet                                | agent       | Misslyckade inloggningar som lokala under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                                       |
+| Låg      | Anpassad avisering - inloggningen för en användare som inte är tillåtet                                                      | agent       | En lokal användare som inte tillåts inloggad på enheten                                                                                        |
+| Låg      | Anpassad avisering - körning av en process som inte är tillåtet                                               | agent       | En process som inte är tillåtet utfördes på enheten |          |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,18 +2,18 @@
 title: Interagera med rapporter med JavaScript API | Microsoft Docs
 description: Med Power BI JavaScript API kan du enkelt bädda in Power BI-rapporter i dina program.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 252296af8b2065ae22bed8b421d4d00718b78287
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8203070fa8a48420dd192208701c539dc3ca7f25
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705526"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669069"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagera med Power BI-rapporter med JavaScript API
 
@@ -76,7 +76,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 #### <a name="advanced-filters"></a>Avancerade filter
 Avancerade filter använder logisk operator OCH eller ELLER, och godkänner ett eller två villkor, vart och ett med sin egen operator och värde. Villkor som stöds är:
 
-* Ingen
+* Inga
 * LessThan
 * LessThanOrEqual
 * GreaterThan

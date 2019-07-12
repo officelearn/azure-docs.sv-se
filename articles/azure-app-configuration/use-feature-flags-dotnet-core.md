@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 1ce4e9c47bf6f885417b6c06c6036d3cadcaef7b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706457"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798380"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudier: Använd funktionen flaggor i en ASP.NET Core-app
 
@@ -86,30 +86,42 @@ public class Startup
 
 Vi rekommenderar att du hålla funktionen flaggor utanför programmet och hantera dem separat. Då kan du ändra flaggan tillstånd när som helst så ändringarna träder i kraft i programmet direkt. Konfiguration av ger en central plats för att ordna och styra alla funktionen flaggor via en dedikerad portalens användargränssnitt. Konfiguration av ger också flaggor för ditt program direkt via .NET Core klienten bibliotek.
 
-Det enklaste sättet att ansluta din ASP.NET Core-program till App-konfigurationen är via konfigurationsprovidern `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Om du vill använda den här NuGet-paketet, lägger du till följande kod till den *Program.cs* fil:
+Det enklaste sättet att ansluta din ASP.NET Core-program till App-konfigurationen är via konfigurationsprovidern `Microsoft.Azure.AppConfiguration.AspNetCore`. Följ dessa steg om du vill använda den här NuGet-paketet.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Öppna *Program.cs* filen och Lägg till följande kod.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-Funktionen flaggvärden förväntas ändras med tiden. Som standard uppdaterar funktionen manager funktionen flaggvärden med 30 sekunders mellanrum. Följande kod visar hur du kan ändra avsökningsintervallet 5 minuter i det `options.UseFeatureFlags()` anropa:
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Öppna *Startup.cs* och uppdatera den `Configure` metod för att lägga till ett mellanprogram för att tillåta funktionen flaggvärden som ska uppdateras med ett återkommande intervall när ASP.NET Core-webbapp fortsätter att ta emot begäranden.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+Funktionen flaggvärden förväntas ändras med tiden. Som standard cachelagras flaggvärden funktionen under en period på 30 sekunder så att en uppdatering som utlöses när mellanprogrammet tar emot en begäran inte skulle att uppdatera värdet tills det cachelagrade värdet upphör att gälla. Följande kod visar hur du ändrar förfallotid för cache eller avsökningsintervallet till 5 minuter i det `options.UseFeatureFlags()` anropa.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

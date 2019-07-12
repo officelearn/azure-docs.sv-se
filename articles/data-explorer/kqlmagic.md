@@ -6,20 +6,20 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758423"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806348"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Använda ett tillägg för Jupyter Notebook och Kqlmagic för att analysera data i Datautforskaren i Azure
 
 Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt att skapa och dela dokument med live-koden, formler, visualiseringar och löpande text. Användning innehåller Datarensning och transformering, numeriska simulering, statistisk modellering, datavisualisering och maskininlärning.
 [Jupyter Notebook](https://jupyter.org/) stöder magic funktioner som utökar funktionerna i kernel genom att stödja fler kommandon. KQL magic är ett kommando som utökar funktionerna i Python-kerneln i Jupyter-anteckningsbok så att du kan köra frågor med Kusto språk internt. Du enkelt kombinera Python och Kusto frågespråk för att fråga och visualisera data med hjälp av omfattande Plot.ly bibliotek som är integrerad med `render` kommandon. Datakällor för att köra frågor som stöds. Dessa datakällor är bland annat Azure Data Explorer, en tjänst för Kunskapsutveckling av snabba och skalbara data för log och telemetridata, samt Azure Monitor-loggar och Application Insights. KQL magic fungerar även med Azure anteckningsböcker, Jupyter labb och Visual Studio Code Jupyter-tillägget.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Organisationens e-postkonto som är medlem av Azure Active Directory (AAD).
 - Jupyter Notebook installerad på den lokala datorn eller använda Azure-anteckningsböcker och klona exemplet [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
@@ -164,6 +164,9 @@ I många scenarier för dataanalys, kanske du vill skapa återanvändbara anteck
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> Få information om alla tillgängliga konfigurationer Använd `%config KQLmagic`. För att felsöka och avbilda Kusto-fel, till exempel problem med anslutningen och felaktiga frågor, Använd `%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,7 +4,7 @@ description: Visar en lista över de olika minnesoptimerade storlekarna för Lin
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 keywords: VM-isolering, isolerade VM, isolering, isolerat
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/16/2019
 ms.author: jonbeck
-ms.openlocfilehash: 3201183bbd012340575ee2c117b4b2083ceea711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcfe2f78177dba7810c668d280f4f3f5127deb7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832151"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708830"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 

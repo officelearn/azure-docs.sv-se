@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001448"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702986"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -32,9 +32,9 @@ I den här snabbstarten lär du dig att implementera logga in med Microsoft som 
 När du är klar med den här snabbstarten kommer ditt program att acceptera inloggningar med arbets- och skolkonton från organisationer som är integrerade med Azure Active Directory (AD Azure).
 
 > [!NOTE]
-> Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton kan du använda den  *[Microsoft identity-plattformen endpoint](azure-ad-endpoint-comparison.md)*. Mer information finns i [självstudien ASP.NET](tutorial-v2-asp-webapp.md) samt [i den här artikeln](active-directory-v2-limitations.md) förklarar den *Microsoft identity-plattformen endpoint*.
+> Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton kan du använda den  *[Microsoft identity-plattformen endpoint](azure-ad-endpoint-comparison.md)* . Mer information finns i [självstudien ASP.NET](tutorial-v2-asp-webapp.md) samt [i den här artikeln](active-directory-v2-limitations.md) förklarar den *Microsoft identity-plattformen endpoint*.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -70,7 +70,7 @@ Om du i stället vill ladda ned Visual Studio-projektet för det här exemplet f
 ## <a name="step-2-create-your-aspnet-project"></a>Steg 2: Skapa ASP.NET-projektet
 
 1. I Visual Studio går du till **Fil > Nytt > Projekt**.
-2. För **projektet typ**väljer **Web**och välj sedan **ASP.NET-Webbtillämpningsprogram (.NET Framework)**.
+2. För **projektet typ**väljer **Web**och välj sedan **ASP.NET-Webbtillämpningsprogram (.NET Framework)** .
 3. Namnge ditt program och välj **skapa**.
 4. Välj **tom** och välj sedan **MVC** under **Lägg till mappar och viktiga referenser** att lägga till MVC-referenser.
 5. Välj **Skapa**.
@@ -290,7 +290,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap  | Värde | Beskrivning |
+| Egenskap | Value | Beskrivning |
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |
@@ -299,7 +299,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
 Dessutom ser du en tabell med alla användaranspråk i autentiseringsbegäran. En lista över alla anspråk i en ID-Token och deras beskrivning finns i [listan över anspråk i ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>(Valfritt) Få åtkomst till en metod som har ett *[Authorize]*-attribut
+### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>(Valfritt) Få åtkomst till en metod som har ett *[Authorize]* -attribut
 
 I det här steget ska du testa att komma åt anspråkskontrollanten som en anonym användare:<br/>
 Välj länken för att logga ut användaren och slutför utloggningsprocessen.<br/>

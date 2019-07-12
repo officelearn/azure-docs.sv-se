@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
-ms.author: deborahc
-ms.openlocfilehash: b5f79fccf040c893d02ed82a397f361ae9bf3fd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: dech
+ms.openlocfilehash: d6d3de435537e5e55783f69dfd1dde0fbf8cb26e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627617"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806443"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js-exempel
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 * Länkar till uppgifterna i var och en av Node.js-exempelprojektfilerna.
 * Länkar till det relaterade API-referensinnehållet.
 
-**Förutsättningar**
+**Krav**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

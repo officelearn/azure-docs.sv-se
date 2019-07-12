@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808952"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606980"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor-dataplattform
 
@@ -42,7 +42,7 @@ Mått är tillgängliga för interaktiv analys i Azure-portalen med [Metrics Exp
 
 Läs mer om Azure Monitor-mått, till exempel sina datakällor i [mått i Azure Monitor](data-platform-metrics.md).
 
-### <a name="logs"></a>Loggar
+### <a name="logs"></a>Logs
 [Loggar](data-platform-logs.md) är händelser som inträffade i systemet. De kan innehålla olika typer av data och kan vara strukturerade eller fritext formuläret med en tidsstämpel. De kan skapas sporadiskt som händelser i miljön genererar loggposter och genererar en systemet hårt belastad vanligtvis mer loggvolym.
 
 Loggar i Azure Monitor lagras i Log Analytics-arbetsytan som baseras på [Azure Data Explorer](/azure/data-explorer/) som ger en kraftfull analys-motor och [funktionsrikt frågespråk](/azure/kusto/query/). Loggar normalt ger tillräcklig information för att tillhandahålla slutförd kontexten för problemet har identifieras och är värdefull för att identifiera roten fall av problem.
@@ -67,12 +67,12 @@ Läs mer om distribuerad spårning på [vad som är distribuerad spårning?](../
 
 I följande tabell jämförs mått och loggar i Azure Monitor.
 
-| Attribut  | Mått | Loggar |
+| Attribut  | Mått | Logs |
 |:---|:---|:---|
 | Fördelar | Enkel och kunna nästan i realtid scenarier, till exempel aviseringar. Perfekt för snabb identifiering av problem. | Analyseras med omfattande frågespråket. Perfekt för detaljerad analys och identifiera grundorsaken. |
 | Data | Endast numeriska värden | Eller det numeriska data |
 | struktur | Standard uppsättning egenskaper, inklusive exempeltid, resurs som övervakas, ett numeriskt värde. Vissa mått omfattar flera dimensioner för ytterligare definition. | Unik uppsättning egenskaper beroende på loggtypen av. |
-| Samling | Samlas in med jämna mellanrum. | Kanske sporadiskt insamlade händelser utlöser en post som ska skapas. |
+| Collection | Samlas in med jämna mellanrum. | Kanske sporadiskt insamlade händelser utlöser en post som ska skapas. |
 | Visa i Azure portal | Metrics Explorer | Log Analytics |
 | Datakällor är bland annat | Plattformen mätvärden som samlats in från Azure-resurser.<br>Program som övervakas av Application Insights.<br>Anpassad som definieras av programmet eller API: et. | Programmet och diagnostikloggar.<br>Övervakning av lösningar.<br>Agenter och VM-tillägg.<br>Programförfrågningar och undantag.<br>Azure Security Center.<br>API för datainsamling. |
 

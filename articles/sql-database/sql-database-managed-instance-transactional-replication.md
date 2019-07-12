@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147709"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696195"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med enda, pooler och databaser i Azure SQL Database-instans
 
@@ -50,7 +50,7 @@ Den **distributören** är en instans eller en server som samlar in ändringar i
 
 Den **prenumerant** är en instans eller en server som tar emot ändringar som görs på utgivaren. Prenumeranter kan vara antingen enkel poolats markerar och instans databaser i Azure SQL Database eller SQL Server-databaser. En prenumerant för en enskild eller grupperade databas måste konfigureras som push-prenumerant. 
 
-| Roll | Enkel och delade databaser | Instansdatabaser |
+| Role | Enkel och delade databaser | Instansdatabaser |
 | :----| :------------- | :--------------- |
 | **Utgivare** | Nej | Ja | 
 | **Distributören** | Nej | Ja|
@@ -92,7 +92,7 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 ## <a name="requirements"></a>Krav
 
-- Anslutningen använder SQL-autentisering mellan replikering deltagare. 
+- Anslutningen använder SQL-autentisering mellan replikeringsdeltagare. 
 - Ett Azure Storage-konto-resurs för arbetskatalogen som används för replikeringen. 
 - Port 445 (TCP utgående) måste vara öppna i säkerhetsregler för hanterad instans-undernätet för att komma åt Azure-filresursen. 
 - Port 1433 (TCP utgående) måste öppnas om utgivare/distributören finns på en hanterad instans och prenumeranten är på plats.
@@ -139,7 +139,7 @@ I den här konfigurationen är en Azure SQL Database (enkel, pooler och database
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. [Konfigurera Transaktionsreplikering för en hanterad instans](replication-with-sql-database-managed-instance.md). 
+1. [Konfigurera replikering mellan två hanterade instanser](replication-with-sql-database-managed-instance.md). 
 1. [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Skapa en utgivarinitierad prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) genom att använda Azure SQL Database-servernamnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och Azure SQL Database-namn som måldatabasen (till exempel **Adventureworks**. )
 

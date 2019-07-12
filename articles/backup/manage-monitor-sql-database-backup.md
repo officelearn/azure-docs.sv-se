@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492730"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704886"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -145,7 +145,7 @@ Avregistrera en SQL Server-instansen när du inaktiverar skyddet men innan du ta
 
 Ibland kan tillägget arbetsbelastningen på den virtuella datorn påverkas av en orsak eller den andra. I sådana fall kan börjar alla åtgärder som utlöses på den virtuella datorn misslyckas. Sedan kan du behöva registrera tillägget på den virtuella datorn. **Omregistrera** åtgärden installerar om arbetsbelastningen säkerhetskopieringstillägget på den virtuella datorn att fortsätta.  <br>
 
-Det är bäst att använda det här alternativet med försiktighet; När det utlöses på en virtuell dator med filnamnstillägget redan felfri, kan den här åtgärden kommer tillägget att hämta startas om. Detta kan resultera i alla pågående jobb misslyckas. Se efter för en eller flera av de [symptom](backup-sql-server-azure-troubleshoot.md#symptoms) innan du utlöser åtgärden registrera igen.
+Det är bäst att använda det här alternativet med försiktighet; När det utlöses på en virtuell dator med filnamnstillägget redan felfri, kan den här åtgärden kommer tillägget att hämta startas om. Detta kan resultera i alla pågående jobb misslyckas. Se efter för en eller flera av de [symptom](backup-sql-server-azure-troubleshoot.md#re-registration-failures) innan du utlöser åtgärden registrera igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

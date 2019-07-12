@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486875"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839359"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory – vanliga frågor och svar
 > [!NOTE]
@@ -35,7 +35,7 @@ Data Factory kan du skapa datadrivna arbetsflöden som flyttar data mellan både
 Mer information finns i [översikt och nyckelkoncept](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Var hittar jag prisinformation för Azure Data Factory?
-Se [Data Factory prisinformation om sidan] [ adf-pricing-details] för prisinformation för Azure Data Factory.  
+Se [Data Factory prisinformation om sidan][adf-pricing-details] för prisinformation för Azure Data Factory.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Hur kommer jag igång med Azure Data Factory?
 * En översikt över Azure Data Factory finns i [introduktion till Azure Data Factory](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Se **Azure Data Factory-gränser** delen av den [Azure-prenumeration och tjänst
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Vad är redigering/utvecklarupplevelsen med Azure Data Factory-tjänsten?
 Du kan redigera/skapa datafabriker med någon av följande verktyg/SDK: erna:
 
-* **Azure-portalen** The Data Factory-blad i Azure-portalen tillhandahåller omfattande användargränssnitt att skapa datafabriker ad länkade tjänster. Den **Data Factory-redigeraren**, som ingår även i portalen, kan du enkelt skapa länkade tjänster, tabeller, datauppsättningar och pipeliner genom att ange JSON-definitioner för dessa artefakter. Se [skapa din första datapipeline med hjälp av Azure portal](data-factory-build-your-first-pipeline-using-editor.md) ett exempel på hur du använder portalen/Redigeraren för att skapa och distribuera en data factory.
 * **Visual Studio** du kan använda Visual Studio för att skapa en Azure-datafabrik. Se [skapa din första datapipeline med hjälp av Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) mer information.
-* **Azure PowerShell** Se [skapa och övervaka Azure-Datafabrik med hjälp av Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en självstudie/genomgång för att skapa en datafabrik med hjälp av PowerShell. Se [Cmdlet-referens för Data Factory] [ adf-powershell-reference] innehållet i MSDN Library för en omfattande dokumentation om Data Factory-cmdletar.
-* **.NET-klassbiblioteket** du kan skapa datafabriker programmässigt med hjälp av Data Factory .NET SDK. Se [skapa, övervaka och hantera datafabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) en genomgång för att skapa en datafabrik med hjälp av .NET SDK. Se [biblioteksreferens för Data Factory klass] [ msdn-class-library-reference] för en omfattande dokumentation för Data Factory .NET SDK.
-* **REST API** du kan också använda REST-API som visas av Azure Data Factory-tjänsten för att skapa och distribuera datafabriker. Se [Data Factory REST API-referens] [ msdn-rest-api-reference] för en omfattande dokumentation för Data Factory REST API.
+* **Azure PowerShell** Se [skapa och övervaka Azure-Datafabrik med hjälp av Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en självstudie/genomgång för att skapa en datafabrik med hjälp av PowerShell. Se [Cmdlet-referens för Data Factory][adf-powershell-reference] innehållet i MSDN Library för en omfattande dokumentation om Data Factory-cmdletar.
+* **.NET-klassbiblioteket** du kan skapa datafabriker programmässigt med hjälp av Data Factory .NET SDK. Se [skapa, övervaka och hantera datafabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) en genomgång för att skapa en datafabrik med hjälp av .NET SDK. Se [biblioteksreferens för Data Factory klass][msdn-class-library-reference] för en omfattande dokumentation för Data Factory .NET SDK.
+* **REST API** du kan också använda REST-API som visas av Azure Data Factory-tjänsten för att skapa och distribuera datafabriker. Se [Data Factory REST API-referens][msdn-rest-api-reference] för en omfattande dokumentation för Data Factory REST API.
 * **Azure Resource Manager-mall** Se [självstudien: Skapa din första Azure-datafabrik med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md) fo information.
 
 ### <a name="can-i-rename-a-data-factory"></a>Kan jag byta namn på en data factory?
@@ -178,7 +177,7 @@ Du kan köra en sektor i ett av följande sätt:
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Se [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] mer information om cmdlet: en.
+  Se [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] mer information om cmdlet: en.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Hur lång tid tog den för att bearbeta en sektor?
 Använd aktiviteten fönstret Explorer i övervaknings- och Hanteringsappen veta hur lång tid det tog för att bearbeta en datasektor. Se [aktivitet fönstret Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) mer information.

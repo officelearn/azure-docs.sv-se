@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b84e49bac35ef8fc9a6c8c7ca90bfd6048dc1c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61250623"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839597"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -35,7 +35,7 @@ Data factory stöder för närvarande endast flyttar data från en webbtabell ti
 > [!IMPORTANT]
 > Den här Webbanslutning stöder för närvarande endast extrahering tabellinnehåll från en HTML-sida. Använd för att hämta data från en HTTP/s-slutpunkt, [HTTP-anslutningsappen](data-factory-http-connector.md) i stället.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här tabellen Webbanslutning måste du konfigurera en lokal Integration Runtime (även kallat Data Management Gateway) och konfigurera den `gatewayName` -egenskapen i sink länkad tjänst. Till exempel för att kopiera från Webbtabell till Azure Blob storage, konfigurera Azure Storage-länkade tjänst som följande:
 
@@ -56,7 +56,7 @@ Om du vill använda den här tabellen Webbanslutning måste du konfigurera en lo
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -74,7 +74,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **Webb** |Ja |
-| Url |URL: en till webbadressen |Ja |
+| url |URL: en till webbadressen |Ja |
 | authenticationType |Anonym. |Ja |
 
 ### <a name="using-anonymous-authentication"></a>Använder anonym autentisering

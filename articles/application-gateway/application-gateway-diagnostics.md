@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048714"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655392"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -157,7 +157,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
 
 Åtkomst-loggen skapas endast om du har aktiverat det på varje Application Gateway-instans, enligt beskrivningen i föregående steg. Data lagras i lagringskontot som du angav när du har aktiverat loggning. Varje åtkomst till Application Gateway loggas i JSON-format, som visas i följande exempel för v1:
 
-|Värde  |Beskrivning  |
+|Value  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway-instans som hanteras av begäran.        |
 |clientIP     | Ursprungliga IP-Adressen för begäran.        |
@@ -197,7 +197,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
 ```
 För Programgatewayen och WAF v2 visar loggarna lite mer information:
 
-|Värde  |Beskrivning  |
+|Value  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway-instans som hanteras av begäran.        |
 |clientIP     | Ursprungliga IP-Adressen för begäran.        |
@@ -237,7 +237,7 @@ För Programgatewayen och WAF v2 visar loggarna lite mer information:
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -253,15 +253,15 @@ För Programgatewayen och WAF v2 visar loggarna lite mer information:
 Prestandaloggen skapas endast om du har aktiverat det på varje Application Gateway-instans, enligt beskrivningen i föregående steg. Data lagras i lagringskontot som du angav när du har aktiverat loggning. Loggdata för prestanda har genererats i 1-minutersintervall. Följande data loggas:
 
 
-|Värde  |Beskrivning  |
+|Value  |Beskrivning  |
 |---------|---------|
 |instanceId     |  Application Gateway-instans för vilka data som genereras. Det finns en rad per instans för en Programgateway med flera instanser.        |
 |HealthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antal defekta värdar i backend poolen.        |
 |requestCount     | Antal begäranden som hanteras.        |
-|svarstid | Genomsnittlig svarstid (i millisekunder) för förfrågningar från instansen till backend-server som hanterar begäranden. |
+|Svarstid | Genomsnittlig svarstid (i millisekunder) för förfrågningar från instansen till backend-server som hanterar begäranden. |
 |failedRequestCount| Antal misslyckade begäranden.|
-|Dataflöde| Genomsnittligt dataflöde sedan senaste loggen, mätt i byte per sekund.|
+|throughput| Genomsnittligt dataflöde sedan senaste loggen, mätt i byte per sekund.|
 
 ```json
 {
@@ -290,7 +290,7 @@ Prestandaloggen skapas endast om du har aktiverat det på varje Application Gate
 Brandväggsloggen skapas endast om du har aktiverat det för varje application gateway, enligt beskrivningen i föregående steg. Den här loggfilen kräver också att brandväggen för webbaserade program har konfigurerats på en Programgateway. Data lagras i lagringskontot som du angav när du har aktiverat loggning. Följande data loggas:
 
 
-|Värde  |Beskrivning  |
+|Value  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway-instans för vilken brandvägg genereras data. Det finns en rad per instans för en Programgateway med flera instanser.         |
 |clientIp     |   Ursprungliga IP-Adressen för begäran.      |
@@ -299,10 +299,10 @@ Brandväggsloggen skapas endast om du har aktiverat det för varje application g
 |ruleSetType     | Ange för regeln. Tillgängliga värdet är OWASP.        |
 |ruleSetVersion     | Regeluppsättning version som används. Tillgängliga värden är 2.2.9 och 3.0.     |
 |ruleId     | Regel-ID för den utlösande händelsen.        |
-|meddelande     | Användarvänligt meddelande för utlösande händelsen. Mer information finns i informationsavsnittet.        |
-|åtgärd     |  Åtgärder som vidtas för begäran. Tillgängliga värden är blockerade och tillåts.      |
-|webbplats     | Plats för vilken loggen har genererats. För närvarande kan visas endast globala eftersom regler är globala.|
-|detaljer     | Information om den utlösande händelsen.        |
+|message     | Användarvänligt meddelande för utlösande händelsen. Mer information finns i informationsavsnittet.        |
+|action     |  Åtgärder som vidtas för begäran. Tillgängliga värden är blockerade och tillåts.      |
+|Plats     | Plats för vilken loggen har genererats. För närvarande kan visas endast globala eftersom regler är globala.|
+|details     | Information om den utlösande händelsen.        |
 |details.message     | Beskrivning av regeln.        |
 |details.data     | Specifika data hittades i begäran som matchar regeln.         |
 |details.file     | Konfigurationsfil som innehåller regeln.        |

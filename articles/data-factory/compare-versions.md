@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613846"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838122"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Jämför Azure Data Factory med Data Factory version 1
 Den här artikeln jämför Data Factory med Data Factory version 1. En introduktion till Data Factory finns i [Introduktion till Data Factory](introduction.md). En introduktion till Data Factory version 1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). 
 
-## <a name="feature-comparison"></a>Jämför funktioner
+## <a name="feature-comparison"></a>Jämförelse av funktioner
 I följande tabell jämförs funktionerna i Data Factory med funktionerna i Data Factory version 1. 
 
 | Funktion | Version 1 | Aktuell version | 
@@ -130,7 +130,7 @@ SDK:erna som har uppdaterats i den aktuella versionen är inte bakåtkompatibla 
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | [Ja](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | Nej |
 | Azure PowerShell | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST-API | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |

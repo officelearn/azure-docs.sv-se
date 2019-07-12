@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276787"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827691"
 ---
 # <a name="scaling-with-event-hubs"></a>Skala med Händelsehubbar
 
@@ -48,14 +48,14 @@ Händelsehubbtjänsten ökar dataflödet när belastningen ökar den minsta öve
 Mer information om den automatisk ökning av funktionen, se [skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partitioner
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Partitioner kan du skala för din nedströms bearbetning. På grund av modellen konsumentmönster indelat i partitioner som Händelsehubbar erbjuder med partitioner, du kan skala ut vid bearbetning av händelser samtidigt. En Händelsehubb kan ha upp till 32 partitioner.
+### <a name="partition-key"></a>Partitionsnyckeln
 
-Vi rekommenderar att du balanserar 1:1-genomflödesenheter och partitioner för att uppnå optimal skala. En enskild partition har en garanterad ingående och utgående på upp till en genomflödesenhet. Du kanske kan uppnå högre dataflöde på en partition, garanteras inte prestanda. Det är därför vi rekommenderar starkt att antalet partitioner i en händelsehubb är större än eller lika med antalet dataflödesenheter.
+Du kan organisera data med hjälp av en [partitionsnyckel](event-hubs-programming-guide.md#partition-key) som mappar inkommande händelsedata till specifika partitioner. Partitionsnyckeln är ett värde som avsändaren anger och som skickas till en händelsehubb. Den bearbetas via en statisk hash-funktion som skapar partitionstilldelningen. Om du inte anger en partitionsnyckel när du publicerar en händelse, används en tilldelning enligt resursallokeringsmodellen.
 
-Det totala dataflödet som du planerar att behöva får du vet antal throughput units som du behöver och det minsta antalet partitioner, men hur många partitioner bör du ha? Välj antal partitioner baserat på den underordnade parallellitet som du vill uppnå samt framtida dataflödet behöver. Det finns ingen kostnad för antalet partitioner som du har i en Händelsehubb.
+Händelseutfärdaren känner bara till sin partitionsnyckel, inte den partition som händelserna publiceras till. Frikopplingen av nyckeln och partitionen gör att avsändaren inte behöver känna till så mycket om bearbetningen nedströms. En identitet per enhet eller en användarunik identitet utgör en bra partitionsnyckel, men andra attribut, till exempel geografi, kan också användas för att gruppera relaterade händelser i en enda partition.
 
-Utförlig prisinformation för Event Hubs finns i [Priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:

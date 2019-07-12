@@ -6,34 +6,58 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a328549307772cbdf470160cc1ad713fe1ee5e05
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679127"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805991"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
-[Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur utvärderingar beräknas.
+Azure Migrate Server-utvärdering utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur utvärderingar beräknas.
 
+
+[Azure Migrate](migrate-services-overview.md) ger en central knutpunkt för att spåra identifiering, bedömning och migrering av dina lokala appar och arbetsbelastningar och privata/offentliga moln-instanser till Azure. Hubben innehåller Azure Migrate verktyg för bedömning och migrering, samt tredjepartsprogram oberoende programvaruleverantörer (ISV)-erbjudanden.
 
 ## <a name="overview"></a>Översikt
 
-Ett Azure Migrate-utvärdering har tre steg. Utvärderingen börjar med en lämplighet analys, följt av storlek, och slutligen en månatlig kostnadsuppskattning. En dator flyttar endast till senare om den godkänns föregående. Till exempel om en dator misslyckas kontrollen Azure-lämplighet, har den markerats som olämpliga för Azure, och ange storlek och kostnad inte göras.
+En utvärdering av Azure Migrate Server-utvärdering har tre steg. Utvärderingen börjar med en lämplighet analys, följt av storlek, och slutligen en månatlig kostnadsuppskattning. En dator flyttar endast till senare om den godkänns föregående. Till exempel om en dator misslyckas kontrollen Azure-lämplighet, har den markerats som olämpliga för Azure, och ange storlek och kostnad inte göras.
+
+
+## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?
+
+**Egenskap** | **Detaljer**
+--- | ---
+**Målplats** | Azure-platsen du vill migrera till.<br/><br/> Azure Migrate stöder för närvarande dessa målregioner: Östra Australien, sydöstra Australien, södra Brasilien, Kanada-centrala, Kanada, östra, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra USA, östra usa2, centrala Tyskland, nordöstra Tyskland, Japan östra, Japan, västra centrala Korea, södra Nord Centrala USA, Nordeuropa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra, Virginia (USA-förvaltad region Arizona USA Gov Texas, USA-förvaltad region), USA, västra centrala, Västeuropa, västra Indien, västra USA och USA, västra 2.<br/> Målregionen är som standard angiven som USA, västra 2.
+**Lagringstyp** | Premium/standard HHD diskar/Standard SSD-diskar.<br/><br/> När du anger lagringstypen som automatisk i en utvärdering, baseras disk-rekommendationen på prestandadata för diskar (IOPS och dataflöde).<br/><br/> Om du anger lagringstypen som Premium/Standard valt utvärderingen rekommenderar en disk SKU i lagringstyp.<br/><br/> Om du vill få en enda instans VM SLA på 99,9%, kan du ange lagringstypen som Premium-hanterade diskar. Alla diskar i utvärderingen kommer sedan att rekommenderas som Premium-hanterade diskar. <br/> Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.<br/> 
+**Reserverade instanser (RI)** | Ange den här egenskapen om du har reserverade instanser i Azure. Kostnad få uppskattningar i utvärderingen ska beakta RI rabatter. Reserverade instanser är för närvarande stöds endast för användningsbaserade erbjudanden i Azure Migrate.
+**Ändra storlek på kriterium** | Används för att storleksanpassa virtuella datorer. Storlek kan vara prestandabaserad, eller som – lokalt, utan att överväga prestandahistorik.
+**Prestandahistorik** | Tidsperioden att beakta för att utvärdera prestanda för virtuella datorer. Den här egenskapen gäller endast när storlek är prestandabaserad.
+**Percentilutnyttjande** | Percentilvärdet för prestanda-exemplet som används för rätt storlek för virtuella datorer. Den här egenskapen gäller endast när storlek är prestandabaserad.
+**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.
+**Komfortfaktor** | Azure Migrate Server-utvärdering överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor.
+**Erbjudande** | Det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) du har registrerat dig för. Azure Migrate beräknar kostnaden enligt detta.
+**Valuta** | Faktureringsvalutan. 
+**Rabatt (%)** | Prenumerationsspecifika rabatter som du får utöver Azure-erbjudandet.<br/> Standardinställningen är 0%.
+**VM-drifttid** | Om dina virtuella datorer inte ska som körs 24 x 7 i Azure måste du ange varaktighet (antal dagar per månad) och antalet timmar per dag för som de skulle köra och kostnadsuppskattningar utförs i enlighet med detta.<br/> Standardvärdet är 31 dagar per månad och 24 timmar per dag.
+**Azure Hybrid-förmån** | Anger om du har software assurance och att du är berättigad till [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Om inställningen är Ja beaktas andra priser än Windows Azure-priser för virtuella Windows-datorer. 
+
+
 
 ## <a name="azure-suitability-analysis"></a>Analys av azures lämplighet
 
-Inte alla datorer är lämpliga för att köra på molnet som molnet har sin egen begränsningar och krav. Azure Migrate utvärderar varje lokal dator deras lämplighet för migrering till Azure och kategoriserar datorerna till något av följande kategorier:
+Inte alla datorer är lämpliga för att köra i Azure. Azure Migrate Server-utvärdering utvärderar varje lokal dator för migrering och kategoriserar datorer i en av följande lämplighet kategorier:
 - **Redo för Azure** -datorn kan migreras som – är till Azure utan ändringar. Det kommer att starta i Azure med fullständig Azure-support.
 - **Villkorligt redo för Azure** -datorn kan starta i Azure, men inte har fullständig Azure-supporten. Till exempel stöds en dator med en äldre version av Windows Server-Operativsystemet inte i Azure. Du måste du vara försiktig innan du migrerar de här datorerna till Azure och följ anvisningarna för reparation som föreslås i utvärdering för att åtgärda beredskapsproblem innan du migrerar.
 - **Ej redo för Azure** -datorn kommer inte att starta i Azure. Till exempel om en lokal dator har en disk som mer än 4 TB kopplade till den, kan inte den nås på Azure. Du måste följa åtgärdsvägledning som föreslås i utvärdering för att åtgärda problemet readiness innan du migrerar till Azure. Rätt storlek och kostnadsuppskattning görs inte för datorer som är markerade som ej redo för Azure.
 - **Beredskap okänd** – Azure Migrate kunde inte hitta beredskap för datorn på grund av otillräckliga data som är tillgängliga i vCenter Server.
 
-Azure Migrate granskar datoregenskaperna och gästoperativsystemet att identifiera Azure-beredskap för den lokala datorn.
+
 
 ### <a name="machine-properties"></a>Egenskaper för dator
-Azure Migrate granskar följande egenskaper för lokala virtuella datorn att identifiera om en virtuell dator kan köra på Azure.
+
+Azure Migrate granskar följande egenskaper för lokala virtuella datorn att identifiera om den kan köras i Azure.
 
 **Egenskap** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
@@ -44,12 +68,12 @@ Azure Migrate granskar följande egenskaper för lokala virtuella datorn att ide
 **Nätverk** | En dator måste ha 32 eller färre anslutna nätverkskort till den. | Redo om inom gränserna.
 
 ### <a name="guest-operating-system"></a>Gästoperativsystem
-Tillsammans med egenskaperna för virtuella datorer tittar Azure Migrate även på gästoperativsystemet på den lokala virtuella datorn att identifiera om den virtuella datorn kan köra på Azure.
+Tillsammans med egenskaperna för virtuella datorer tittar Azure Migrate Server-utvärdering på gästoperativsystemet av datorer och identifiera om den kan köras i Azure.
 
 > [!NOTE]
-> Azure Migrate överväger operativsystem som har angetts i vCenter Server kan utföra följande analyser. Eftersom identifieringen görs av Azure Migrate är baserat på enhet, har inte ett sätt att kontrollera om det operativsystem som körs på den virtuella datorn är samma som en anges i vCenter Server.
+> Azure Migrate Server-utvärdering använder operativsystemet som angetts för den virtuella datorn i vCenter Server för analys. Azure Migrate Server-utvärdering är installationen-baserad för identifieringen av virtuella datorer och det inte att verifiera om det operativsystem som körs på den virtuella datorn är samma som den som angetts i vCenter Server.
 
-Följande logik används av Azure Migrate för att identifiera Azure-beredskap för den virtuella datorn baserat på operativsystemet.
+Följande logik används av Azure Migrate Server-utvärdering, för att identifiera Azure-beredskap baserat på operativsystemet.
 
 **Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
@@ -70,24 +94,21 @@ OS tillhörigheten **andra** i vCenter Server | Azure Migrate identifiera inte O
 
 ## <a name="sizing"></a>Storleksändring
 
-När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure. Om storlekskriteriet som angetts i egenskaperna för utvärdering är att utföra prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbar i scenarier där du har tilldelat en lokal virtuell dator över men användningen är låg och du vill att storleksanpassa de virtuella datorerna i Azure för att minska kostnaderna.
+När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure.
 
-Om du inte vill överväga prestandahistorik för VM-storlek och vill ta den virtuella datorn som – är till Azure, kan du ange storlekskriteriet som *som lokalt* och Azure Migrate kommer sedan ändra storlek på de virtuella datorerna baserat på lokala platser konfiguration utan att överväga användningsdata. Ändra storlek på disken i det här fallet kommer att göras baserat på vilken lagringstyp som du anger i egenskaperna för utvärdering (Standard disk eller Premium-diskar)
+- Om utvärderingen använder prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är särskilt användbart om du har tilldelat en lokal virtuell dator över men användningen är låg och du vill justera storleken den virtuella datorn i Azure för att sänka kostnaderna.
+- Om du använder en som en lokal utvärdering, Azure Migrate Server-utvärdering ska ändra storlek på de virtuella datorerna baserat på de lokala inställningarna, utan att överväga användningsdata. Ändra storlek på disken i det här fallet baseras på lagringstypen som du anger i egenskaperna för utvärdering (Standard disk eller Premium-diskar).
 
 ### <a name="performance-based-sizing"></a>Prestandabaserad storleksändring
 
-För prestandabaserade storleksändringar behöver Azure Migrate börjar med diskar som är kopplade till den virtuella datorn, följt av nätverkskort och maps en Azure VM beroende på compute-krav för den lokala virtuella datorn.
+För prestandabaserade storleksändringar behöver Azure Migrate börjar med diskar som är kopplade till den virtuella datorn, följt av nätverkskort, och maps en Azure VM beroende på compute-krav för den lokala virtuella datorn.
 
 - **Storage**: Azure Migrate försöker mappa alla diskar som är anslutna till datorn till en disk i Azure.
-
-    > [!NOTE]
-    > Azure Migrate stöder endast hanterade diskar för utvärdering.
-
     - För att få gällande disk-i/o per sekund (IOPS) och dataflöde (Mbit/s), multiplicerar Azure Migrate disken IOPS och dataflöde med komfortfaktorn. Baserat på effektiv IOPS och dataflöde värden kan identifierar Azure Migrate om disken bör mappas till en standard- eller premium disk i Azure.
     - Om Azure Migrate inte kan hitta en disk med nödvändiga IOPS och dataflöde, markerar den dator som olämpliga för Azure. [Läs mer](../azure-subscription-service-limits.md#storage-limits) om Azure gränser per disk och virtuell dator.
     - Om den hittar en uppsättning lämpliga diskar väljs Azure Migrate de som stöd för vilken lagringsmetod för redundans och den plats som anges i utvärderingsinställningarna för.
     - Om det finns flera berättigade diskar, väljs som har lägst pris.
-    - Om prestandadata för diskar i tillgänglig, alla diskar är mappade till standarddiskar i Azure.
+    - Om prestandadata för diskar är tillgänglig, mappas alla diskar till standarddiskar i Azure.
 
 - **Nätverk**: Azure Migrate försöker hitta en Azure-dator som har stöd för antalet nätverkskort som är anslutna till den lokala datorn och prestanda som krävs av dessa nätverkskort.
     - För att få gällande nätverkets prestanda för lokala virtuella datorn kan Azure Migrate sammanställer data som överförs per sekund (MBps) från datorn (nätverk ut), över alla nätverkskort och gäller komfortfaktorn. Det här värdet används för att hitta en Azure-dator som har stöd för nödvändig nätverksprestanda.
@@ -101,12 +122,21 @@ För prestandabaserade storleksändringar behöver Azure Migrate börjar med dis
     - Om det finns flera tillgängliga Azure VM-storlekar rekommenderas den billigaste.
 
 ### <a name="as-on-premises-sizing"></a>Som lokalt storlek
-Om storlekskriteriet är *som lokalt storlek*, Azure Migrate beräknar inte prestandahistoriken för virtuella datorer och diskar och allokerar en VM-SKU i Azure baserat på den allokerade lokala storleken. På liknande sätt för disk storlek tittar på lagringstypen som angetts i egenskaperna för utvärdering (Standard/Premium) och rekommenderar disktypen därefter. Standardtypen för lagring är Premium-diskar.
 
-### <a name="confidence-rating"></a>Säkerhetsomdöme
-Varje prestandabaserade utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate. Säkerhetsomdömet är inte tillämpligt på lokala utvärderingar.
+Om du använder som lokala storlek, allokerar en VM-SKU i Azure baserat på de storleken på lokalerna Server-utvärdering. På liknande sätt för disk storlek tittar på lagringstypen som angetts i egenskaperna för utvärdering (Standard/Premium) och rekommenderar disktypen därefter. Lagringstyp standard är Premium-diskar.
 
-För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
+## <a name="confidence-ratings"></a>Förtroende-klassificeringar
+Varje prestandabaserad utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme från en (lägsta) till fem startar (högst).
+- Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen.
+- Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
+- Säkerhetsomdömet kan inte användas för som lokala utvärderingar.
+- För prestandabaserade storleksändringar behöver Azure Migrate Server-utvärdering
+    - Användningsdata för CPU, och VM-minne.
+    - För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden.
+    - För varje nätverkskort som är anslutet till en virtuell dator, måste på samma sätt säkerhetsomdömet nätverks-i/o att utföra prestandabaserade storleksändringar.
+    - Om någon av ovanstående användningsnummer inte är tillgängliga i vCenter Server kanske rekommenderar vi storleken inte tillförlitlig. 
+
+Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
@@ -116,27 +146,31 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
    61 %–80 % | 4 stjärnor
    81 %–100 % | 5 stjärnor
 
-   Nedan angående är de orsaker till varför en utvärdering kan hämta ett låga säkerhetsomdöme:
+### <a name="low-confidence-ratings"></a>Låg förtroende betyg
 
-- Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställd på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för att alla datapunkter ska ha samlats in.
+Några av de orsaker till varför en utvärdering kan hämta ett låga säkerhetsomdöme:
 
-- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vi inte att kunna samla in prestandadata för den perioden.
-
-- Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
+- Du inte har Profilerar din miljö för hela som du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställt på 1 dag, måste du vänta minst en dag efter att du startar en identifiering för alla datapunkter att hämta samlas in.
+- Vissa virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om alla virtuella datorer stängdes av under en viss period, Azure Migrate Server-utvärdering kan inte samla in prestandadata för den perioden.
+- Vissa virtuella datorer skapades under perioden som utvärderingen utfördes. Till exempel om du skapar en utvärdering för prestandahistoriken för den senaste månaden, men vissa virtuella datorer har skapats i miljön en vecka sedan, prestandahistoriken för de nya virtuella datorerna inte det för hela perioden.
 
   > [!NOTE]
-  > Om säkerhetsomdömet för någon utvärdering är lägre än 5 stjärnor, rekommenderar vi att du väntar minst en dag att profilera miljön och sedan *beräkna om* utvärderingen. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
-
+  > Om säkerhetsomdömet för någon utvärdering är lägre än fem stjärnor, rekommenderar vi att du väntar minst en dag att profilera miljön och beräkna om utvärderingen. Om du inte prestandabaserade storleksändringar kanske inte är tillförlitlig, och vi och rekommenderas att byta att utvärderingen ska använda som lokala storlek.
+  
 ## <a name="monthly-cost-estimation"></a>Uppskattning per månad
 
-När storleksrekommendationer har slutförts kan beräknar Azure Migrate efter migrering beräknings- och kostnader.
+När storleksrekommendationer har slutförts kan beräknar Azure Migrate beräknings- och kostnaderna för efter migreringen.
 
-- **Beräkningskostnaden**: Med den rekommenderade storleken för virtuell Azure-dator kan använder Azure Migrate Billing-API för att beräkna den månatliga kostnaden för den virtuella datorn. Det operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Sammanställer kostnaden för samtliga datorer att beräkna den totala månadskostnaden för beräkning.
-- **Kostnaden för lagring**: Månatliga storage-kostnaden för en dator beräknas genom att sammanställa månadskostnaden för alla diskar som är anslutna till datorn. Azure Migrate beräknar de totala månatliga kostnaderna för lagring genom att sammanställa lagringskostnaderna för alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i utvärderingsinställningarna för i kontot.
+- **Beräkningskostnaden**: Med den rekommenderade storleken för virtuell Azure-dator kan använder Azure Migrate Billing-API för att beräkna den månatliga kostnaden för den virtuella datorn.
+    - Det operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen.
+    - Sammanställer kostnaden för samtliga datorer att beräkna den totala månadskostnaden för beräkning.
+- **Kostnaden för lagring**: Månatliga storage kostnaden för en dator beräknas genom att sammanställa månadskostnaden för alla diskar som är anslutna till datorn
+    - Azure Migrate Server-utvärdering beräknar de totala månatliga kostnaderna för lagring genom att sammanställa lagringskostnaderna för alla datorer.
+    - Beräkningen tar för närvarande inte erbjudanden som anges i utvärderingsinställningarna för i kontot.
 
 Kostnader visas i den valuta som anges i utvärderingsinställningarna för.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en utvärdering för lokala virtuella VMware-datorer](tutorial-assessment-vmware.md)
+Skapa en utvärdering för [virtuella VMware-datorer](tutorial-assess-vmware.md) eller [Hyper-V-datorer](tutorial-assess-hyper-v.md).

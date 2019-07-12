@@ -4,7 +4,7 @@ description: Microsoft Azure-tillägg för att installera NVIDIA GPU-drivrutiner
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683179"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706702"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
@@ -27,9 +27,11 @@ ms.locfileid: "64683179"
 
 Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
 
+Instruktioner för manuell installation av drivrutiner och aktuella versioner som stöds finns [här](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Windows virtuella datorer i N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -69,23 +71,23 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="properties"></a>Egenskaper
+### <a name="properties"></a>properties
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | sträng |
+| type | NvidiaGpuDriverLinux | sträng |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Inställningar
 
 Alla inställningar är valfria. Standardinställningen är att inte uppdatera kernel om det inte krävs för installation av drivrutiner, installera den senaste stödda drivrutinen och CUDA-toolkit (som tillämpligt).
 
-| Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
+| Namn | Beskrivning | Default Value | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | true, false | boolean |
-| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |
 | installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | true, false | boolean |
 
 

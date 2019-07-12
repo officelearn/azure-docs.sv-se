@@ -4,7 +4,7 @@ description: Microsoft Azure-tillägget för att installera NVIDIA GPU-drivrutin
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388683"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705959"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
 
@@ -27,9 +27,10 @@ ms.locfileid: "60388683"
 
 Det här tillägget installerar NVIDIA GPU-drivrutiner på Windows virtuella datorer i N-serien. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
 
+Instruktioner för manuell installation av drivrutiner och aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Linux N-serien virtuella datorer](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -37,7 +38,7 @@ Det här tillägget har stöd för följande operativsystem:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 (upp till version 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -69,13 +70,13 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="properties"></a>Egenskaper
+### <a name="properties"></a>properties
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | sträng |
+| type | NvidiaGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.2 | int |
 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242380"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704869"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på Azure Virtual Machines
 
@@ -29,7 +29,7 @@ Azure Backup kan återställa SQL Server-databaser som körs på virtuella Azure
 - Återställa en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Tänk på följande innan du återställer en databas:
 
@@ -156,7 +156,7 @@ Om du har valt **fullständig och differentiell** som typ av återställning gö
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Återställa databaser med stort antal filer
 
-Om den totala strängstorleken på filerna i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup lagrar listan över databasfiler i en annan pit komponent så att du inte kommer att kunna ange målsökväg för återställning under återställningen åtgärden. Filerna kommer att återställas till standardsökvägen SQL i stället.
+Om den totala strängstorleken på filerna i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup lagrar listan över databasfiler i en annan pit komponent så att du inte kommer att kunna ange målsökväg för återställning under återställningen åtgärden. Filerna kommer att återställas till standardsökvägen SQL i stället.
 
   ![Återställ databasen med stora filer](./media/backup-azure-sql-database/restore-large-files.jpg)
 

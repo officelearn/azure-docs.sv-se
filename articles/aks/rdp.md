@@ -2,21 +2,21 @@
 title: RDP i Azure Kubernetes Service (AKS) noder i Windows Server
 description: Lär dig hur du skapar en RDP-anslutning med klustret i Azure Kubernetes Service (AKS) Windows Server-noder för felsökning och underhållsåtgärder.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: twhitney
-ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688628"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614568"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Anslut med RDP till Azure Kubernetes Service (AKS) klusternoder i Windows Server för underhåll och felsökning
 
-Under livscykeln för ditt kluster i Azure Kubernetes Service (AKS), kan du behöva komma åt en AKS Windows Server-nod. Den här åtkomsten kan vara för underhåll, Logginsamling eller andra felsökning åtgärder. Du kan komma åt AKS Windows Server-noder med RDP. Om du vill använda SSH för att komma åt AKS Windows Server-noder och du har åtkomst till samma nyckelpar som användes när klustret skapas kan du också följa stegen i [SSH till noder i Azure Kubernetes Service (AKS)] [ssh-steps]. Av säkerhetsskäl exponeras inte AKS-noder till internet.
+Under livscykeln för ditt kluster i Azure Kubernetes Service (AKS), kan du behöva komma åt en AKS Windows Server-nod. Den här åtkomsten kan vara för underhåll, Logginsamling eller andra felsökning åtgärder. Du kan komma åt AKS Windows Server-noder med RDP. Om du vill använda SSH för att komma åt AKS Windows Server-noder och du har åtkomst till samma nyckelpar som användes när klustret skapas kan du också följa stegen i [SSH till noder i Azure Kubernetes Service (AKS)][ssh-steps]. Av säkerhetsskäl exponeras inte AKS-noder till internet.
 
 Stöd för Windows Server-noden är för närvarande i förhandsversion i AKS.
 
@@ -24,9 +24,9 @@ Den här artikeln visar hur du skapar en RDP-anslutning med ett AKS-noden med si
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster med en Windows Server-nod. Om du behöver ett AKS-kluster finns i artikeln på [skapar ett AKS-kluster med en Windows-behållare med Azure CLI][aks-windows-cli]. Du behöver det Windows-administratörsanvändarnamn och lösenord för Windows Server-nod som du vill felsöka. Du behöver också en RDP-klient som [Microsoft Remote Desktop][rdp-mac].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster med en Windows Server-nod. Om du behöver ett AKS-kluster finns i artikeln på [skapar ett AKS-kluster med en Windows-behållare med Azure CLI][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
-Du också ha Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Distribuera en virtuell dator i samma undernät som klustret
 
@@ -66,7 +66,7 @@ Anteckna den offentliga IP-adressen för den virtuella datorn. Du använder den 
 
 ## <a name="get-the-node-address"></a>Hämta nodadressen
 
-För att hantera Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. För att installera `kubectl` lokalt använder du kommandot [az aks install-cli][az-aks-install-cli]:
+Om du vill hantera ett Kubernetes-kluster måste du använda [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt, använda den [az aks install-cli][az-aks-install-cli] kommando:
     
 ```azurecli-interactive
 az aks install-cli
@@ -78,7 +78,7 @@ För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster anv
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Lista över den interna IP-adressen med Windows Server-noder med den [kubectl hämta] [ kubectl-get] kommando:
+Lista över den interna IP-adressen med Windows Server-noder med den [kubectl hämta][kubectl-get] kommando:
 
 ```console
 kubectl get nodes -o wide
@@ -113,7 +113,7 @@ Du kan nu köra kommandon som felsökning i den *cmd* fönster. Eftersom Windows
 
 ## <a name="remove-rdp-access"></a>Ta bort RDP-åtkomst
 
-När du är klar avsluta RDP-anslutning till Windows Server-noden och sedan avslutar du RDP-sessionen till den virtuella datorn. När du har avslutat båda RDP-sessioner, tar du bort den virtuella datorn med den [az vm ta bort] [ az-vm-delete] kommando:
+När du är klar avsluta RDP-anslutning till Windows Server-noden och sedan avslutar du RDP-sessionen till den virtuella datorn. När du har avslutat båda RDP-sessioner, tar du bort den virtuella datorn med den [az vm ta bort][az-vm-delete] kommando:
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
@@ -121,7 +121,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare felsökning data, kan du [visa Kubernetes-huvudnod loggar] [ view-master-logs] eller [Azure Monitor][azure-monitor-containers].
+Om du behöver ytterligare felsökning data, kan du [visa Kubernetes-huvudnod loggar][view-master-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

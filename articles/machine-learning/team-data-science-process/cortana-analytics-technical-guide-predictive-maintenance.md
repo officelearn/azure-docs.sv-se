@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568266"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626410"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
@@ -103,7 +103,7 @@ Azure Stream Analytics-fråga kan hittas genom att:
   * ***FRÅGA*** kan du se frågan själva
   * ***Matar ut*** att visa olika utdata
 
-Information om Azure Stream Analytics frågekonstruktion finns i den [referens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) på MSDN.
+Information om Azure Stream Analytics frågekonstruktion finns i den [referens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) på MSDN.
 
 I den här lösningen utdatauppsättningar frågorna tre med nära realtidsanalys information om inkommande dataström till en Power BI-instrumentpanel som tillhandahålls som en del av den här lösningsmallen. Eftersom det finns implicit kunskap om dataformat för inkommande, måste de här frågorna ändras baserat på dataformat.
 

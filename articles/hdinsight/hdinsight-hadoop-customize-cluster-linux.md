@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433630"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703967"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
@@ -173,7 +173,7 @@ Det här avsnittet beskrivs olika sätt du kan använda skriptåtgärder när du
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap | Värde |
+    | Egenskap | Value |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassad__. Annars väljer du något av skript som tillhandahålls. |
     | Name |Ange ett namn för skriptåtgärden. |
@@ -255,7 +255,7 @@ Gå till den [Azure-portalen](https://portal.azure.com):
 
     I följande tabell beskriver elementen i formuläret:
 
-    | Egenskap | Värde |
+    | Egenskap | Value |
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript, Välj __anpassade__. Annars väljer du en medföljande skriptet. |
     | Name |Ange ett namn för skriptåtgärden. |

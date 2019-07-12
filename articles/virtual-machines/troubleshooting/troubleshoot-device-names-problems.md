@@ -4,7 +4,7 @@ description: Förklarar varför ändra namn i Linux VM-enhet och hur du löser p
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362245"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710423"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhetsnamn Linux VM
 

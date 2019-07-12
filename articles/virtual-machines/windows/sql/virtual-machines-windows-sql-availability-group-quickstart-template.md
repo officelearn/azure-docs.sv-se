@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591325"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604567"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -34,11 +34,11 @@ Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis 
 Andra delar av tillgänglighetsgruppens konfiguration måste göras manuellt, till exempel skapa tillgänglighetsgruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller automatisk och manuell frågornas ordningsföljd.
  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 För att automatisera installationen av en Always On-tillgänglighetsgrupp med quickstart-mallar, måste du redan har följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resursgrupp med en domänkontrollant. 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - Två tillgängliga (inte används av en person) IP-adresser, en för den interna belastningsutjämnaren och en för tillgänglighetsgruppens lyssnare i samma undernät som tillgänglighetsgruppen. Om en befintlig belastningsutjämnare används krävs bara en tillgänglig IP-adress.  
 
 ## <a name="permissions"></a>Behörigheter
@@ -56,7 +56,7 @@ När SQL Server-datorer har registrerats med den nya resurs-providern för SQL V
 
     I följande tabell visas värden som krävs för mallen: 
 
-   | **Fält** | Värde |
+   | **Fält** | Value |
    | --- | --- |
    | **Prenumeration** |  Den prenumeration där din SQL Server-datorer finns. |
    |**Resursgrupp** | Den resursgrupp där din SQL Server-datorer finns. | 
@@ -95,7 +95,7 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
 4. På den **belastningsutjämnaren** bladet klickar du på **skapa**.
 5. I den **skapa belastningsutjämnare** dialogrutan Konfigurera belastningsutjämnaren på följande sätt:
 
-   | Inställning | Värde |
+   | Inställning | Value |
    | --- | --- |
    | **Namn** |Ett namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Interna**: De flesta implementeringar av använda en intern belastningsutjämnare, vilket gör att program i samma virtuella nätverk att ansluta till tillgänglighetsgruppen.  </br> **Externa**: Gör att program kan ansluta till tillgänglighetsgrupp via en offentlig Internetanslutning. |
@@ -105,7 +105,7 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
    | **Privat IP-adress** | Ange en tillgänglig IP-adress från undernätet. |
    | **Prenumeration** |Om du har flera prenumerationer, visas det här fältet. Välj den prenumeration som du vill associera med den här resursen. Det är vanligtvis samma prenumeration som alla resurser för tillgänglighetsgruppen. |
    | **Resursgrupp** |Välj den resursgrupp som SQL Server-instanserna. |
-   | **Plats** |Välj den Azure-plats som SQL Server-instanserna. |
+   | **Location** |Välj den Azure-plats som SQL Server-instanserna. |
    | &nbsp; | &nbsp; |
 
 6. Välj **Skapa**. 
@@ -190,7 +190,7 @@ Det här felet kan bero på något av två skäl. Antingen angivna domänkontot 
 
     ![Tom användarkonto anger saknas UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. Fyll i den **användarens inloggningsnamn** för att matcha namnet på användaren och väljer rätt domän i listrutan ned. 
+5. Fyll i den **användarens inloggningsnamn** för att matcha namnet på användaren och välj rätt domän från listrutan. 
 6. Välj **tillämpa** att spara ändringarna och Stäng dialogrutan genom att välja **OK**. 
 
    När dessa ändringar görs försök att distribuera Azure-Snabbstartsmall en gång till. 

@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564597"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839442"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +35,7 @@ ms.locfileid: "60564597"
 
 I den här självstudien skapar du din första Azure-datafabrik med en datapipeline. Pipelinen transformerar indata genom att köra Hive-skript på ett Azure HDInsight (Hadoop)-kluster för att producera utdata.  
 
-Den här artikeln innehåller översikt och förutsättningar för självstudien. När du har slutfört förutsättningarna kan du göra självstudien med något av följande verktyg/SDK: erna: Azure-portalen, Visual Studio, PowerShell, REST-API på Resource Manager-mall. Välj något av alternativen i listrutan i början (eller) länkarna i slutet av den här artikeln att göra självstudien med något av följande alternativ.    
+Den här artikeln innehåller översikt och förutsättningar för självstudien. När du har slutfört förutsättningarna kan du göra självstudien med något av följande verktyg/SDK: erna: Visual Studio, PowerShell, REST-API på Resource Manager-mall. Välj något av alternativen i listrutan i början (eller) länkarna i slutet av den här artikeln att göra självstudien med något av följande alternativ.    
 
 ## <a name="tutorial-overview"></a>Självstudier – översikt
 I den här självstudien får du göra följande:
@@ -80,7 +79,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Från rad exemplet som visas ovan, förstnämnda (med 2016-01-01) skrivs till filen 000000_0 i månaden = 1 mapp. På samma sätt kan den andra som skrivs till filen i månaden = 2 mappen och tredje en skrivs till filen i månaden = 3 mapp.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se den [kostnadsfri utvärderingsversion av](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan få ett kostnadsfritt konto.
@@ -93,13 +92,12 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 När du har slutfört förutsättningarna kan du välja något av följande verktyg/SDK: erna att göra självstudien: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure-portalen och Visual Studio tillhandahåller GUI sätt att skapa din datafabriker. Å andra sidan alternativ för REST API, PowerShell och Resource Manager-mall innehåller skript/programmering sätt att skapa din datafabriker.
+Visual Studio har ett GUI-sätt för att skapa din datafabriker. Å andra sidan alternativ för REST API, PowerShell och Resource Manager-mall innehåller skript/programmering sätt att skapa din datafabriker.
 
 > [!NOTE]
 > Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudie om hur du kopierar data med hjälp av Azure Data Factory finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

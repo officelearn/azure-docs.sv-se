@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244776"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797741"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
@@ -35,6 +35,11 @@ Använd följande steg för att aktivera TTL för en container utan upphörande.
    * Klicka på **Spara** för att spara ändringarna.
 
    ![Konfigurera Time to Live i Azure-portalen](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- När DefaultTimeToLive är null och sedan din Time to Live är inaktiverat
+- När DefaultTimeToLive är -1 och sedan tiden till verkliga livet är på (inte standard)
+- När DefaultTimeToLive har ett annat Int-värde (utom 0) finns din tid till Live-inställningen på
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Aktivera TTL för en container med hjälp av SDK
 

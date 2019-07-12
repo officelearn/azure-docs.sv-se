@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022168"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671914"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Dokumentation för kognitiv sökning arbetsbelastningar
 
@@ -26,8 +26,8 @@ I följande artiklar finns fullständig dokumentation för kognitiv sökning.
 ## <a name="getting-started"></a>Komma igång
 + [Vad är cognitive search?](cognitive-search-concept-intro.md)
 + [Snabbstart: Prova cognitive search i portalen](cognitive-search-quickstart-blob.md)
-+ [Självstudie: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
-+ [Exempel: skapa en anpassad kunskap](cognitive-search-create-custom-skill-example.md)
++ [Självstudier: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
++ [Exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Vägledning
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)

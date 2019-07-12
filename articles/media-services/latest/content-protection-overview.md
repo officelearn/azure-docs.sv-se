@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068850"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835799"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
@@ -73,7 +73,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
   
      Du kan skapa en spelare med hjälp av den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
 
-     För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
+     För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](http://aka.ms/azuremediaplayer). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
 
      Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. 
     
@@ -136,7 +136,7 @@ Smooth Streaming-protokollet stöder följande behållare format och krypterings
 
 Vanliga webbläsare har stöd för följande DRM-klienter:
 
-|Webbläsare|Kryptering|
+|Browser|Kryptering|
 |---|---|
 |Chrome|Widevine|
 |Microsoft Edge, Internet Explorer 11|PlayReady|

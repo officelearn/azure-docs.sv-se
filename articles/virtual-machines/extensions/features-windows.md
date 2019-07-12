@@ -4,7 +4,7 @@ description: Lär dig vilka tillägg som finns tillgängliga för Azure-datorer,
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd64b54b1a30080d7942a754bc0c0c72c59f88
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160252"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705992"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
 
@@ -43,7 +43,7 @@ Flera olika Azure VM-tillägg som finns tillgängliga, var och en med en specifi
 
 Förutom process-specifika tillägg finns ett anpassat skripttillägg för både Windows och Linux-datorer. Tillägget för anpassat skript för Windows kan alla PowerShell.skript som ska köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfigurering, förutom vilka interna Azure-verktyg kan ge. Mer information finns i [anpassade skripttillägg för Windows-VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att hantera tillägg på den virtuella datorn, måste du Azure Windows-agenten installerad. Vissa enskilda tillägg har förutsättningar, till exempel åtkomst till resurser eller beroenden.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507563"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835213"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "66507563"
 
 I den här artikeln får du lägga till en ny post i anges av användaren (ett anspråk) användarresan registrering i Azure Active Directory (Azure AD) B2C.  Du konfigurerar posten som en listruta och definiera om det krävs.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i artikeln [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Testa vägen registrerings- eller logga in användaren att registrera ett nytt lokalt konto innan du fortsätter.
 
@@ -79,7 +79,7 @@ Följande element används för att definiera anspråket:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Skärmbild av listrutealternativet](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Flervals-listmeny-kontroll som visar flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Följande element används för att definiera anspråket:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Skärmbild av Välj flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Välj flera kryssrutekontroll som visar flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ Följande element används för att definiera anspråket:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Lägg till den `<OutputClaim ClaimTypeReferenceId="city" />` anspråk till filen SignUporSignIn.xml så att det här anspråket skickas till programmet i token efter en lyckad användarresa.
 
     ```xml

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 2ef1e474dd5d36f1967501ea7bdedc4736954a2b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a815434cb8797acf6b92a8fe4a4f1ff69508975d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436016"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839222"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Hur du använder en dynamisk ordlista
 
@@ -24,6 +24,11 @@ Om du redan vet översättning som du vill använda på ett ord eller en fras ka
 **Syntax:**
 
 < mstrans:dictionary translation = ”översättning av frasen” > frasen < / mstrans:dictionary >
+
+**Krav:**
+
+* Den `From` och `To` språk måste vara olika. 
+* Du måste inkludera den `From` parametern i API-begäran translation istället för att använda funktionen auto-detect. 
 
 **Exempel: en-de:**
 

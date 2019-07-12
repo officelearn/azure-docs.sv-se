@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900897"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798349"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights SDK för .NET
 
@@ -51,7 +51,10 @@ I det här exemplet trace kontext sprids enligt den [HTTP-protokollet för korre
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -207,20 +210,7 @@ public async Task Process(BrokeredMessage message)
 I följande exempel visas hur du spårar den [Azure Storage-kö](../../storage/queues/storage-dotnet-how-to-use-queues.md) åtgärder och korrelera telemetri mellan producenten, konsumenten och Azure Storage. 
 
 Storage-kö har ett HTTP-API. Alla anrop till kön spåras med Application Insights beroende insamlaren för HTTP-begäranden.
-Kontrollera att du har `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` i `applicationInsights.config`. Om du inte har det, lägga till den programmässigt enligt beskrivningen i [filtrera och Förbearbeta i Azure Application Insights SDK](../../azure-monitor/app/api-filtering-sampling.md).
-
-Om du konfigurerar Application Insights manuellt, kontrollera att du skapar och initiera `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` på samma sätt till:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+Den är konfigurerad som standard på ASP.NET och ASP.NET Core-program med andra typer av program kan du kontrollera att [konsolen programdokumentationen](../../azure-monitor/app/console.md)
 
 Du kan även att korrelera åtgärds-ID för Application Insights med Storage begärande-ID. Information om hur du ställer och få en begäran om Storage-klient och server begäran-ID finns i [övervaka, diagnostisera och felsöka Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 

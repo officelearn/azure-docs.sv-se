@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449199"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612224"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågeparallellisering i Azure Stream Analytics
 Den här artikeln visar hur du drar nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -77,7 +77,7 @@ I följande avsnitt beskrivs några exempelscenarier som är embarrassingly para
 ### <a name="simple-query"></a>Exempelfråga
 
 * Indata: Event hub med 8 partitioner
-* Utdata: Event hub med 8 partitioner
+* Resultat: Event hub med 8 partitioner
 
 Fråga:
 
@@ -92,7 +92,7 @@ Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om
 ### <a name="query-with-a-grouping-key"></a>Fråga med en grupperingsnyckel
 
 * Indata: Event hub med 8 partitioner
-* Utdata: Blob Storage
+* Resultat: Blob Storage
 
 Fråga:
 
@@ -110,19 +110,19 @@ I det föregående avsnittet visade vi några embarrassingly parallel scenarier.
 
 ### <a name="mismatched-partition-count"></a>Ett felmatchat partitions-antal
 * Indata: Event hub med 8 partitioner
-* Utdata: Händelsehubb med 32 partitioner
+* Resultat: Händelsehubb med 32 partitioner
 
 Det spelar i det här fallet frågan är. Om antalet inkommande partitioner inte matchar antalet partitioner utdata, inte topologin embarrassingly parallellt. + men fortfarande få vissa nivå eller parallellisering.
 
 ### <a name="query-using-non-partitioned-output"></a>Fråga med hjälp av icke-partitionerad utdata
 * Indata: Event hub med 8 partitioner
-* Utdata: Power BI
+* Resultat: Power BI
 
 Power BI-utdata stöd inte för närvarande för partitionering. Det här scenariot är därför inte embarrassingly parallel.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Flera steg fråga med olika PARTITION BY-värden
 * Indata: Event hub med 8 partitioner
-* Utdata: Event hub med 8 partitioner
+* Resultat: Event hub med 8 partitioner
 
 Fråga:
 
@@ -144,7 +144,7 @@ I föregående exempel visas några Stream Analytics-jobb som överensstämmer m
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Kompatibilitetsnivån 1.2 - flerstegstest fråga med olika PARTITION BY-värden 
 * Indata: Event hub med 8 partitioner
-* Utdata: Event hub med 8 partitioner
+* Resultat: Event hub med 8 partitioner
 
 Fråga:
 
@@ -312,7 +312,7 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

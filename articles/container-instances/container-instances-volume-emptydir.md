@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563128"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657616"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montera en emptyDir-volym i Azure Container Instances
 
 Lär dig hur du monterar en *emptyDir* volymen för att dela data mellan behållare i en behållargrupp i Azure Container Instances.
 
 > [!NOTE]
-> Montera en *emptyDir* volymen är för närvarande begränsade till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+> Montera en *emptyDir* volymen är för närvarande begränsade till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare kan du hitta nuvarande skillnaderna i den [översikt](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>emptyDir volym
 

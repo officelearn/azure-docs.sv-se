@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 60a64758ae93320fc44a0705038e9db7e114b9bd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187172"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673527"
 ---
 Du kan visa anslutningsstatus i Azure Portal för en klassisk VNet VPN Gateway genom att navigera till anslutningen. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 
-1. I [Azure Portal](http://portal.azure.com) klickar du på **Alla resurser** och går till ditt klassiska virtuella nätverk.
+1. I [Azure Portal](https://portal.azure.com) klickar du på **Alla resurser** och går till ditt klassiska virtuella nätverk.
 2. På bladet virtuellt nätverk klickar du på **Översikt** för att få åtkomst till avsnittet **VPN-anslutningar** på bladet.
 3. På bilden VPN-anslutningar klickar du på platsen.
 

@@ -3,17 +3,17 @@ title: Felsöka Azure Backup-agenten
 description: Felsöka installation och registrering av Azure Backup-agenten
 services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b175efad081b8382d80be8427aa074920fd3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434016"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705045"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services MARS-agenten
 
@@ -46,7 +46,7 @@ Vi rekommenderar att du kontrollerar följande innan du börja felsöka Microsof
 | Orsak | Rekommenderade åtgärder |
 | ---     | ---    |
 | **Valvautentiseringsuppgifter är inte giltig** <br/> <br/> Valvautentisering filer kan vara skadad eller har gått. (Till exempel de kanske har laddats ned mer än 48 timmar innan tiden för registrering.)| Hämta nya autentiseringsuppgifter från Recovery Services-valv på Azure portal. (Se steg 6 i den [hämta MARS-agenten](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) avsnittet.) Gör sedan följande, efter behov: <ul><li> Om du har redan installerats och registrerats MARS, öppna Microsoft Azure Backup Agent MMC-konsolen och välj sedan **registrera Server** i den **åtgärder** fönstret för att slutföra registreringen med den nya autentiseringsuppgifter. <br/> <li> Om den nya installationen misslyckas försök att installera med de nya autentiseringsuppgifterna.</ul> **Obs!** Om flera valv credential filer har laddats ned, är endast den senaste filen giltig i nästa 48 timmar. Vi rekommenderar att du hämtar en ny valvautentiseringsfil.
-| **En proxyserver eller brandvägg blockerar registrering** <br/>eller <br/>**Utan internet-anslutning** <br/><br/> Om din dator eller proxy server har begränsad Internetanslutning och du inte att garantera åtkomst för de nödvändiga URL: er, misslyckas registreringen.| Göra följande:<br/> <ul><li> Arbeta med din IT-teamet att se till att systemet är ansluten till internet.<li> Om du inte har en proxyserver, kontrollera proxyalternativet inte är markerat när du registrerar agenten. [Kontrollera dina proxyinställningar](#verifying-proxy-settings-for-windows).<li> Om du har en brandvägg/proxyserver kan arbeta med ditt nätverksteam och se till att dessa URL: er och IP-adresser som har åtkomst:<br/> <br> **URL: er**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Prova att registrera igen när du har slutfört föregående felsökningsstegen.
+| **En proxyserver eller brandvägg blockerar registrering** <br/>eller <br/>**Utan internet-anslutning** <br/><br/> Om din dator eller proxy server har begränsad Internetanslutning och du inte att garantera åtkomst för de nödvändiga URL: er, misslyckas registreringen.| Göra följande:<br/> <ul><li> Arbeta med din IT-teamet att se till att systemet är ansluten till internet.<li> Om du inte har en proxyserver, kontrollera proxyalternativet inte är markerat när du registrerar agenten. [Kontrollera dina proxyinställningar](#verifying-proxy-settings-for-windows).<li> Om du har en brandvägg/proxyserver kan arbeta med ditt nätverksteam och se till att dessa URL: er och IP-adresser som har åtkomst:<br/> <br> **URL: er**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Prova att registrera igen när du har slutfört föregående felsökningsstegen.
 | **Antivirusprogramvaran blockerar registrering** | Om du har installerat på servern, Lägg till nödvändiga undantagsregler virusgenomsökning för dessa filer och mappar: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> Den temporära mappen. Standardplatsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Ytterligare rekommendationer
@@ -89,13 +89,13 @@ Vi rekommenderar att du kontrollerar följande innan du börja felsöka Microsof
 
 | Fel  | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-|<br />Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen senare. Kontakta Microsoft-supporten om problemet kvarstår.     | <li> Den temporära mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den temporära mappen har flyttats felaktigt. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som är mellan 5 och 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [vanliga frågor om hur du säkerhetskopierar filer och mappar](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller cachesökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen senare. Kontakta Microsoft-supporten om problemet kvarstår.     | <li> Den temporära mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den temporära mappen har flyttats felaktigt. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som är mellan 5 och 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [vanliga frågor om hur du säkerhetskopierar filer och mappar](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller cachesökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Krypteringslösenfrasen inte korrekt konfigurerad
 
 | Fel  | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-| <br />Fel vid 34506. Krypteringslösenfrasen lagras på den här datorn har inte konfigurerats korrekt.    | <li> Den temporära mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den temporära mappen har flyttats felaktigt. <li> Filen OnlineBackup.KEK saknas.        | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som är mellan 5 och 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [vanliga frågor om hur du säkerhetskopierar filer och mappar](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller cachesökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Fel vid 34506. Krypteringslösenfrasen lagras på den här datorn har inte konfigurerats korrekt.    | <li> Den temporära mappen finns på en volym som inte har tillräckligt med utrymme. <li> Den temporära mappen har flyttats felaktigt. <li> Filen OnlineBackup.KEK saknas.        | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som är mellan 5 och 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [vanliga frågor om hur du säkerhetskopierar filer och mappar](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller cachesökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Säkerhetskopieringar kan inte köras enligt schema

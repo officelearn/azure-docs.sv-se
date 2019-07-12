@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477271"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658146"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 ## <a id="images"></a> Bilder
 
-1. **Vilken SQL Server-galleriavbildningar av virtuella datorer är tillgängliga?**
+1. **Vilken SQL Server-galleriavbildningar av virtuella datorer är tillgängliga?** 
 
    Azure underhåller avbildningar av virtuella datorer för alla stöds större versioner av SQL Server i alla utgåvor för både Windows och Linux. Mer information finns i den fullständiga listan med [Windows VM-avbildningar](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) och [Linux VM-avbildningar](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -78,7 +78,6 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
    Det finns två sätt att göra detta på. Du kan etablera en av de [avbildningar av virtuella datorer som har stöd för licenser](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), som även kallas bring-your-own-license (BYOL). Ett annat alternativ är att kopiera SQL Server-installationsmedia till en virtuell Windows Server-dator och installera SQL Server på den virtuella datorn. Men om du installerar SQL Server manuellt finns det ingen portalintegrering, och SQL Server IaaS Agent-tillägget stöds inte. Därmed fungerar inte funktioner som automatisk säkerhetskopiering och automatisk uppdatering i det här scenariot. Därför rekommenderar vi att du använder en av BYOL-galleriavbildningarna. Om du vill använda BYOL eller din egen SQL Server-media på en Azure virtuell dator, måste du ha [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/). Mer information finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
-
 
 1. **Måste jag betala för att licensiera SQL Server på en virtuell Azure-dator om den endast används för vänteläge/redundans?**
 
@@ -147,9 +146,10 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    
 ## <a name="updating-and-patching"></a>Uppdatering och uppdatera
 
-1. **Hur ändrar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
+1. **Hur ändrar jag till en annan version/utgåva av SQL Server i en Azure-dator?**
 
-   Kunder med Software Assurance går att plats uppgraderingar av sina SQL Server på en Azure-dator med hjälp av installationsmediet Volume Licensing-portalen. Men för närvarande, går det inte att ändra versionen av en instans av SQL Server. Skapa en ny Azure-dator med den önskade versionen av SQL Server och migrera sedan databaserna till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
+   Kunder kan ändra sina version/utgåva av SQL Server med hjälp av installationsmediet med deras önskade version eller utgåva av SQL Server. När versionen har ändrats, kan du använda Azure-portalen för att ändra egenskapen utgåva för den virtuella datorn så att de avspeglar faktureringen för den virtuella datorn. Mer information finns i [ändra versionen av en SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **Hur uppdateringar och service packs tillämpas på en SQL Server VM?**
 
@@ -170,7 +170,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur installerar jag verktyg för SQL-Data på min Azure-VM**
 
-    Ladda ned och installera verktyg för SQL-Data från [Microsoft SQL Server Data Tools – Business Intelligence för Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Ladda ned och installera verktyg för SQL-Data från [Microsoft SQL Server Data Tools – Business Intelligence för Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **Är distribuerade transaktioner med MSDTC som stöds på SQL Server-datorer?**
    

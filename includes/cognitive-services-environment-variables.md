@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 734fce2c01614d5dca73f171fb59f25f39d13705
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 6d6451d50a00569eb1da8f5b0a0dc10d3c6b1115
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461504"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841426"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>Konfigurera en miljövariabel för autentisering
 
-Program måste autentisera åtkomsten till de kognitiva tjänsterna som de använder. För att autentisera, rekommenderar vi att skapa en miljövariabel för att lagra en nyckel i Azure-resurser. 
+Program måste autentisera åtkomsten till de kognitiva tjänsterna som de använder. För att autentisera, rekommenderar vi att skapa en miljövariabel för att lagra nycklarna för dina Azure-resurser. 
 
-När du har skapat din nyckel kan skriva till en ny miljövariabel på den lokala datorn där programmet körs. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `your-key` med din åtkomstnyckel för Avvikelseidentifiering detektor:
+När du har skapat din nyckel kan skriva till en ny miljövariabel på den lokala datorn där programmet körs. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `your-key` med någon av nycklarna för din resurs.
 
 * Windows
 

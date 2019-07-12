@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233888"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846672"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referens för fördefinierade för LUIS-appen
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -54,9 +54,9 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Entitetstyp|description|
 |--|--|
-|Kalender|Kalender är något om personliga möten och möten, _inte_ publika händelser (till exempel world cup scheman, Seattle händelsekalendrar eller allmänna kalendrar (till exempel vilken dag är det idag vad fall börjar, när är Labor Day).|
+|Kalender|Kalender är något om personliga möten och möten, _inte_ offentliga händelser (till exempel world cup scheman, Seattle händelsekalendrar) eller allmänna kalendrar (till exempel vilken dag är det idag vad fall börjar, när är Labor Day).|
 |Kommunikation|Begäranden om att göra anrop, skicka skickar ett SMS eller snabbmeddelanden, hitta och Lägg till kontakter och olika andra kommunikation skickas (utgående Allmänt). Kontaktperson endast frågor hör inte till domänen för kommunikation.|
-|E-post|Email is a subdomain of the Communication domain. Den innehåller främst begäranden för att skicka och ta emot meddelanden via e-postmeddelanden.|
+|Email|Email is a subdomain of the Communication domain. Den innehåller främst begäranden för att skicka och ta emot meddelanden via e-postmeddelanden.|
 |HomeAutomation|HomeAutomation domänen innehåller avsikter och entiteter relaterade till att styra smart home enheter. Den stöder huvudsakligen kommandot kontroll som rör lamporna och luftkonditionering, men den har vissa generalisering funktioner för andra elektriska apparater.|
 |Anteckningar|Obs domänen ger avsikter och entiteter för att skapa anteckningar och skriva ned objekt för användare.|
 |Platser|Platser är företag, institutioner, restauranger, offentliga blanksteg och adresser. Domänen har stöd för plats att söka efter och frågar om information om en offentlig plats, till exempel plats, operativsystem timmar och avstånd.|

@@ -4,7 +4,7 @@ description: Automatisera åtgärder för Linux VM-konfigurationen genom att anv
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b16d7b20c4d49398790d207065da946d98ef658
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725240"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839169"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
 Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
@@ -76,7 +76,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 ```json
 {
   "name": "config-app",
-  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "type": "Extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -110,16 +110,16 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | Namn | Värdet / exempel | Datatyp | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| publisher | Microsoft.Compute.Extensions | sträng |
+| type | CustomScript | sträng |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1> | sträng |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
 | skipDos2Unix (t.ex.) | false | boolean |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
-| storageAccountName (t.ex.) | examplestorageacct | string |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName (t.ex.) | examplestorageacct | sträng |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskapen
 * `skipDos2Unix`: (valfritt, booleskt) hoppa över dos2unix konvertering av skriptbaserade fil-URL: er eller skript.

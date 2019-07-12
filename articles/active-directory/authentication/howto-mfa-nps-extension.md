@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560764"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798211"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ När du installerar tillägget måste katalog-ID och administratörsautentiserin
 
 NPS-servern måste kunna kommunicera med följande webbadresser över portarna 80 och 443.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 Dessutom kan anslutningen till följande URL: er för att slutföra den [installationen av kortet använder tillhandahållna PowerShell-skript](#run-the-powershell-script)
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -221,7 +221,7 @@ När du aktiverar MFA för en RADIUS-klient som använder NPS-tillägget, måste
 
 Om du har användare som inte har registrerats för MFA, kan du bestämma vad som händer när de försöker att autentisera. Använda registerinställningen *REQUIRE_USER_MATCH* i registersökvägen *HKLM\Software\Microsoft\AzureMFA* att styra hur funktionen. Den här inställningen har ett enda konfigurationsalternativ:
 
-| Nyckel | Värde | Standard |
+| Nyckel | Value | Standard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | SANT/FALSKT | Inte har angetts (motsvarar SANT) |
 
@@ -230,6 +230,14 @@ Syftet med den här inställningen är att avgöra vad du ska göra när en anv�
 Du kan välja att skapa den här nyckeln och ange den till FALSE, medan användarna är och kan inte alla registreras för Azure MFA ännu. Eftersom inställningen nyckeln tillåter att användare som inte har registrerats för MFA för att logga in, bör du dock ta bort den här nyckeln innan du fortsätter till produktion.
 
 ## <a name="troubleshooting"></a>Felsökning
+
+### <a name="nps-extension-health-check-script"></a>NPS-tillägget hälsotillstånd Kontrollera skript
+
+Följande skript finns i TechNet-galleriet för att utföra grundläggande hälsotillstånds Kontrollera steg när du felsöker NPS-tillägget.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hur bekräftar jag att klientcertifikatet är korrekt installerat?
 

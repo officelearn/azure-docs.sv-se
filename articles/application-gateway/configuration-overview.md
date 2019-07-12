@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073967"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795904"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -25,7 +25,7 @@ Den här bilden illustrerar ett program som har tre lyssnare. De första två ä
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure-nätverk och dedikerade undernät
 
@@ -297,6 +297,7 @@ Den här inställningen kan du konfigurera ett valfritt anpassat vidarebefordran
   | / home/secondhome /          | /pathrule*      | /override/            | / åsidosättning/home/secondhome /   |
   | /pathrule/home /            | / pathrule/startsidan * | /override/            | /override/                   |
   | / pathrule/home/secondhome / | / pathrule/startsidan * | /override/            | / åsidosätta/secondhome /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>Använd för app service
 

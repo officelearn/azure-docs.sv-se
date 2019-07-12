@@ -7,20 +7,20 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 41200139ef55fa1ae441192e2d81b5228cf29bad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410225"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795319"
 ---
-# <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>Självstudier: Skapa anpassad provider och distribuera anpassade resurser
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Snabbstart: Skapa anpassad provider och distribuera anpassade resurser
 
-I de här självstudierna skapar du en egen resource provider och distribuera anpassade resurstyper för den resursprovidern. Läs mer om anpassade providers, [anpassade Providers förhandsversion av Azure-översikt](custom-providers-overview.md).
+I den här snabbstarten skapar du en egen resource provider och distribuera anpassade resurstyper för den resursprovidern. Läs mer om anpassade providers, [anpassade Providers förhandsversion av Azure-översikt](custom-providers-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här självstudien måste du anropa REST-åtgärder. Det finns [flera olika sätt att skicka REST-begäranden](/rest/api/azure/). Om du inte redan har ett verktyg för REST-åtgärder, installera [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager.
+För att slutföra stegen i den här snabbstarten måste du anropa REST-åtgärder. Det finns [flera olika sätt att skicka REST-begäranden](/rest/api/azure/). Om du inte redan har ett verktyg för REST-åtgärder, installera [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager.
 
 ## <a name="deploy-custom-provider"></a>Distribuera anpassad provider
 
@@ -122,7 +122,7 @@ Du får svaret:
 
 ## <a name="create-resource-type"></a>Skapa resurstyp
 
-Du kan distribuera resursen i en mall för att skapa anpassade resurstypen. Den här metoden illustreras i mallen som du distribuerade i den här självstudien. Du kan också skicka en PUT-begäran för resurstypen.
+Du kan distribuera resursen i en mall för att skapa anpassade resurstypen. Den här metoden illustreras i mallen som du distribuerade i den här snabbstarten. Du kan också skicka en PUT-begäran för resurstypen.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

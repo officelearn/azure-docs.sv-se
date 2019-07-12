@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399159"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620137"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -26,7 +26,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 
 * Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
 
-Den [skicka telemetri till IoT Hub (Java)](quickstart-send-telemetry-java.md) och [skicka meddelanden från moln till enhet med IoT Hub (Java)](iot-hub-java-java-c2d.md) självstudiekurser visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) Snabbstart och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) självstudien visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp
@@ -37,7 +37,7 @@ Dessa filer är vanligtvis bearbetas i molnet med hjälp av verktyg som [Azure D
 
 I slutet av den här kursen kan du köra två Java-konsolappar:
 
-* **simulated-device**, en modifierad version av appen skapades i självstudien [skicka molnet till enhet-meddelanden med IoT Hub]. Den här appen överför en fil till storage med hjälp av en SAS-URI som tillhandahålls av din IoT-hubb.
+* **simulated-device**, en modifierad version av appen skapades i självstudien [skicka moln-till-enhet-meddelanden med IoT Hub]. Den här appen överför en fil till storage med hjälp av en SAS-URI som tillhandahålls av din IoT-hubb.
 
 * **Läs –--filuppladdningsmeddelande**, som tar emot filen ladda upp meddelanden från IoT hub.
 
@@ -265,7 +265,9 @@ Du kan använda portalen för att visa den överförda filen i storage-behållar
 I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
 
 * [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
+
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:

@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97b54d57a13f0f2b47633a25f1a44efdfa17d11a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783290"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595061"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: Versionshistorik
 Den här artikeln visas de versioner och funktioner för Azure Active Directory (Azure AD) Application Proxy som har frisläppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner. Anslutningar för programproxy som uppdateras automatiskt när en ny version har släppts.

@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396604"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807040"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor log-processer med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggfrågor från en Log Analytics-arbetsyta i Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Du kan till exempel använda Microsoft Flow för att använda LAzure Monitor log-data i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett Slack-meddelande.  Du kan utlösa ett arbetsflöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot.  
+Du kan till exempel använda Microsoft Flow för att använda Azure Monitor log-data i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett Slack-meddelande.  Du kan utlösa ett arbetsflöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot.  
 
 Självstudie i den här artikeln visar hur du skapar ett flöde som skickar automatiskt resultaten av en Azure Monitor log-fråga via e-post, bara ett exempel på hur du kan använda Log Analytics-anslutning i Microsoft Flow. 
 

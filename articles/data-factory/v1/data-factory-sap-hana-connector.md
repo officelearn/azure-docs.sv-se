@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61258444"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836091"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -43,7 +43,7 @@ För att aktivera anslutning till SAP HANA-instans måste du installera följand
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal SAP HANA med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -58,14 +58,14 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SAP HANA-länkad tjänst.
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | string | Ja
+server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | sträng | Ja
 authenticationType | Typ av autentisering. | sträng. ”Grundläggande” eller ”Windows” | Ja 
-username | Namnet på den användare som har åtkomst till SAP-server | string | Ja
-password | Lösenordet för användaren. | string | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SAP HANA-instans. | string | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | string | Nej
+username | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
+password | Lösenordet för användaren. | sträng | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SAP HANA-instans. | sträng | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
@@ -80,12 +80,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som inkluderar SAP HANA), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query | Anger SQL-frågan som läser data från SAP HANA-instans. | SQL-fråga. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-exempel: Kopiera data från SAP HANA till Azure Blob
-I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Detta exempel visar hur du kopierar data från en lokal SAP HANA till Azure Blob Storage. Men du kan kopiera data **direkt** till någon av mottagare visas [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.  
+I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Detta exempel visar hur du kopierar data från en lokal SAP HANA till Azure Blob Storage. Men du kan kopiera data **direkt** till någon av mottagare visas [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.  
 
 > [!IMPORTANT]
 > Det här exemplet innehåller JSON-kodfragment. Stegvisa instruktioner för att skapa data factory omfattas inte. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner.
@@ -292,14 +292,14 @@ REAL | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | String
-NVARCHAR | String
+VARCHAR | Sträng
+NVARCHAR | Sträng
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | Sträng
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan
-TIDSSTÄMPEL | DateTime
+TIMESTAMP | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Kända begränsningar

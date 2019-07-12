@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: ad2ea32749c6556d17460b2a16ed41bbaa2ec62e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: fb90122f7277687886a6579fdb729b7f91660ed6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956146"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617281"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux-Python-app för Azure App Service
 
@@ -131,7 +132,7 @@ Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappe
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Du kan också lägga till några ytterligare argument för Gunicorn till  *\<anpassat kommando >*, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Du kan också lägga till några ytterligare argument för Gunicorn till  *\<anpassat kommando >* , till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 Att använda en icke-Gunicorn-server, till exempel [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), du kan ersätta  *\<anpassat kommando >* med ungefär så här:
 
@@ -184,10 +185,10 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux vanliga frågor och svar](app-service-linux-faq.md)

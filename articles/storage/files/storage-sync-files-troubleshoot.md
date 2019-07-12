@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9cd1be26f6832fffb86dfefd0d93d9dbb393c0f0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 68d0f4f85bc8879191784f038c74fafc40c422b7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303881"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604677"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -254,7 +254,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den behöver för att synkronisera igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken
-Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkod 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filnamnen. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning. Den [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) kan användas för att identifiera tecken som inte stöds.
+Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkod 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filnamnen. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning. Den [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds.
 
 Tabellen nedan innehåller alla Azure File Sync inte har stöd för Unicode-tecken.
 

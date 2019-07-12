@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111262"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795091"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skrivbordsappen som anropar webb-API: er – hämta en token
 
@@ -293,8 +293,9 @@ Du kan också hämta en token genom att ange användarnamn och lösenord. Det h�
 
 Det här flödet är **rekommenderas inte** eftersom ditt program som en användare ombeds ange sina lösenord inte är säker. Mer information om det här problemet finns i [i den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Prioriterade flödet för att skaffa en token tyst på Windows-domänanslutna datorer är [integrerad Windows-autentisering](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Annars kan du också använda [kodflöde för enhet](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > Även om detta är användbart i vissa fall (DevOps-scenario), om du vill använda användarnamn/lösenord i interaktiva scenarier där du anger din onw Användargränssnittet, bör du tycker om hur du flyttar från den. Med hjälp av användarnamn/lösenord du ge upp ett antal saker:
-
+>
 > - viktiga innehavare av moderna identitet: lösenord hämtar fiskas återupprepas. Eftersom vi har detta begrepp av en resurs-hemlighet som kan fångas.
 > Det här är inte kompatibel med lösenordslös.
 > - användare som behöver du MFA kommer inte kunna logga in (eftersom det finns inga åtgärder från)
@@ -651,7 +652,7 @@ Klasser och gränssnitt som ingår i token-cache serialisering är följande typ
 > [!IMPORTANT]
 > MSAL.NET skapar token cacheminnen för dig och förser dig med den `IToken` cachelagra när du anropar ett programs `GetUserTokenCache` och `GetAppTokenCache` metoder. Du ska inte implementerar gränssnittet själv. Det är ditt ansvar, när du implementerar en anpassad tokencache-serialisering att:
 >
-> - Reagera på `BeforeAccess` och `AfterAccess` ”händelser”. Den`BeforeAccess` ombudet är ansvarig för att deserialisera cache, medan den `AfterAccess` en ansvarar för serialisering av cachen.
+> - Reagera på `BeforeAccess` och `AfterAccess` ”händelser” (eller de *Async* motsvarighet). Den`BeforeAccess` ombudet är ansvarig för att deserialisera cache, medan den `AfterAccess` en ansvarar för serialisering av cachen.
 > - En del av händelserna lagra eller läsa in blobbar som skickas via argumentet händelse till det lagringsutrymme som du vill.
 
 Strategierna är olika beroende på om du skapar en token-cache-serialisering för en offentlig klient (skrivbord) eller en konfidentiell klientprogram (web app/web API, daemon app).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 En förhandsversion av en produkt kvalitet tokencache filbaserade serialiserare för offentliga klientprogram (för program som körs på Windows, Mac och linux) är tillgänglig från den [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) bibliotek med öppen källkod. Du kan inkludera den i dina program från följande nuget-paket: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > FRISKRIVNING. Microsoft.Identity.Client.Extensions.Msal biblioteket är ett tillägg över MSAL.NET. Klasserna i biblioteken kan hamna i MSAL.NET i framtiden, direkt eller med större ändringar.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Dubbel tokencache serialisering (MSAL unified cache + ADAL V3)

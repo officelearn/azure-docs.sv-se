@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237155"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786504"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -82,7 +82,7 @@ Skala ett kluster bestäms av antalet Virtuella noder. För samtliga klustertype
 
 Beroende på din typ av kluster, ökar antalet arbetsnoder lägger till ytterligare beräkningskapacitet (till exempel fler kärnor), men kan också lägga till den totala mängden minne som krävs att stödja minnesintern lagring av data som bearbetas hela klustret. Precis som med valet av VM-storlek och typ, är att välja rätt kluster skalan vanligtvis nått empiriskt, med simulerade arbetsbelastningar eller kontrollvärde frågor.
 
-Du kan skala ut klustret för att möta toppefterfrågan belastningen och sedan skala ned när dessa extra noder inte längre behövs. Mer information finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md).
+Du kan skala ut klustret för att möta toppefterfrågan belastningen och sedan skala ned när dessa extra noder inte längre behövs. Den [funktion skala automatiskt](hdinsight-autoscale-clusters.md) kan du automatiskt skala ditt kluster baserat på förinställda användningsstatistik och tidsinställningar. Mer information om att skala dina kluster manuellt finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Klustrets livscykel
 

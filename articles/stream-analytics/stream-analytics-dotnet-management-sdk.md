@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b1392adb2beee9e60d078d865257889b3205f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303044"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612715"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Konfigurera och köra analysjobb med hjälp av Azure Stream Analytics-API för .NET
 Lär dig hur du konfigurerar och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hjälp av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, transformeringar och starta och stoppa jobb. Du kan strömma data från Blob storage eller från en händelsehubb för analytics-jobb.
@@ -26,7 +26,7 @@ Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög ti
 > [!NOTE]
 > Vi har uppdaterat exempelkoden i den här artikeln med Azure Stream Analytics Management .NET SDK v2.x version. Exempelkod med hjälp av SDK-version använder lagecy (1.x), finns i [Använd Management .NET SDK-v1.x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha följande krav:
 
 * Installera Visual Studio 2019 eller 2015.
@@ -295,7 +295,7 @@ Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra a
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

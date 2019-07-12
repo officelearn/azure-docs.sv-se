@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544353"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797927"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direct federation med AD FS och tredjepartsleverantörer för gästanvändare (förhandsgranskning)
 |     |
@@ -62,7 +62,7 @@ Till exempel när du konfigurerar direkt federation för **fabrikam.com**, auten
 ### <a name="signing-certificate-renewal"></a>Signering certifikatförnyelse
 Om du anger metadata-URL i providern Identitetsinställningar förnyas automatiskt Azure AD signeringscertifikatet när den upphör att gälla. Men går om certifikatet har roterats av någon anledning innan den upphör att gälla, eller om du inte anger en URL för metadata, Azure AD inte att förnya den. I det här fallet måste du uppdatera signeringscertifikatet manuellt.
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>Kan jag konfigurera direkt federation med en ohanterad klient (e-postkontrollerad)? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan jag konfigurera direkt federation med en domän som det finns en ohanterad klient (e-postkontrollerad)? 
 Ja. Om domänen inte har verifierats och klienten inte har genomgått en [adminövertagande](../users-groups-roles/domains-admin-takeover.md), du kan ställa in direkt federation. Ohanterade eller e-postkontrollerad klienter skapas när en användare redeems en B2B-inbjudan eller utför en självbetjäningsregistrering för Azure AD med hjälp av en domän som för närvarande inte finns. Du kan ställa in direkt federation med dessa domäner. Om du försöker konfigurera direkt federation med en DNS-verifierad domän i Azure portal eller via PowerShell, visas ett fel.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Om både direct federation och e-post engångskod verifiering aktiveras vilken metod du företräde?
 När en direkt federation upprättas med en partnerorganisation, har företräde framför e-engångskod autentisering för nya gästanvändare från organisationen. Om en gästanvändare in inbjudan med engångskod autentisering innan du konfigurerar direkt federation, fortsätter de att använda autentisering med engångslösenord. 
@@ -96,7 +96,7 @@ Obligatoriska attribut för SAML 2.0-svar från IdP:
 
 Begärda anspråk för SAML 2.0-token som utfärdats av IDP: N:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |NameID-Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -113,7 +113,7 @@ I följande tabeller visas kraven för specifika attribut och anspråk som måst
 
 Obligatoriska attribut i WS-Fed meddelandet från IdP:
  
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -121,7 +121,7 @@ Obligatoriska attribut i WS-Fed meddelandet från IdP:
 
 Begärda anspråk för WS-Fed token som utfärdats av IDP: N:
 
-|Attribut  |Värde  |
+|Attribut  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

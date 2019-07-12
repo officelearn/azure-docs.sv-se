@@ -2,34 +2,37 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: jonbeck7
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/02/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 07/08/2019
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a57335eccfce1e81fe0cc85ae6fa7b12aa27e1c3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805877"
 ---
-Tillfälliga operativsystemdiskar skapas i den lokala lagringen för virtuell dator (VM) och inte sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar där program är toleranta för enskilda VM-fel, men är mer orolig för den tid det tar för storskaliga distributioner eller tid att återställa avbildningen av de enskilda Virtuella datorinstanserna. Det är också lämpliga för program som distribueras med den klassiska distributionsmodellen för att flytta till Resource Manager-distributionsmodellen. Med Ephemeral OS Disk får du lägre svarstider för läs- och skrivåtgärder till OS-disken och det går snabbare att återställa VM-avbildningar. Dessutom kan tillfälliga OS-disken är kostnadsfria, du betalar inga lagringskostnaden för OS-disken. 
+Tillfälliga operativsystemdiskar skapas på lagringen för lokala virtuella datorer (VM) och inte har sparats till fjärranslutna Azure Storage. Tillfälliga operativsystemdiskar fungerar bra för tillståndslösa arbetsbelastningar, där program är toleranta för enskilda VM-fel, men är mer påverkas av tidpunkten för distribution av VM eller avbildningen på flera Virtuella datorinstanser. Med tillfälliga OS-disk får du lägre läsning och skrivning till OS-disken och snabbare återställa VM-avbildning. 
  
 De viktigaste funktionerna i differentierande diskar är: 
-- De kan användas med både Marketplace-avbildningar och anpassade avbildningar.
-- Du kan distribuera VM-avbildningar upp till storleken på VM-cacheminne.
-- Möjlighet att snabbt återställa eller återställa avbildningen av de virtuella datorerna till det ursprungliga tillståndet för start.  
-- Lägre körning svarstid liknar en tillfällig disk. 
-- Utan kostnad för OS-disken. 
+- Perfekt för tillståndslösa program.
+- De kan användas med både Marketplace och anpassade avbildningar.
+- Möjligheten att snabbt återställa eller återställa avbildningen av de virtuella datorerna och skala inställd det ursprungliga tillståndet för start instanser.  
+- Kortare svarstider, liknar en tillfällig disk. 
+- Tillfälliga operativsystemdiskar är kostnadsfria, du betalar inga lagringskostnaden för OS-disken.
+- De är tillgängliga i alla Azure-regioner. 
+- Differentierande diskar som stöds av [delad bildgalleriet](/azure/virtual-machines/linux/shared-image-galleries). 
  
+
  
 Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 
 |                             | Permanent OS-Disk                          | Differentierande OS-disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Storleksgräns för OS-disk      | 2 TiB                                                                                        | Cache-storlek för den Virtuella datorstorleken eller 2TiB, beroende på vilket som är mindre - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), och [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
+| Storleksgräns för OS-disk      | 2 TiB                                                                                        | Cache-storlek för den Virtuella datorstorleken eller 2TiB, beroende på vilket som är mindre. För den **cachestorlek i GiB**, se [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), och [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
 | VM-storlekar som stöds          | Alla                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Stöd för diskar-typ           | Hanterade och ohanterade OS-disk                                                                | Hanterad operativsystemsdisk                                                               |
 | Regionsstöd              | Alla regioner                                                                                  | Alla regioner                              |
@@ -39,7 +42,57 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 | OS-diskstorlek              | Under skapandet av VM och virtuella datorn är frigörandet av som stöds                                | Stöds endast skapa en virtuell dator                                                  |
 | Ändra storlek till en ny VM-storlek   | OS-diskdata bevaras                                                                    | Data på OS-disken har tagits bort, OS är nytt etablerade                                      |
 
-## <a name="scale-set-deployment"></a>Scale Sets distribution  
+## <a name="size-requirements"></a>Storlekskraven
+
+Du kan distribuera virtuella datorer och instans avbildningar upp till storleken på VM-cacheminne. Till exempel är Standard Windows Server-avbildningar från marketplace håller 127 GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 127 GiB. I det här fallet den [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) har en cachestorlek på 86 GiB som inte är tillräckligt stor. Standard_DS2_v2 har en cachestorlek på 172 GiB som är tillräckligt stor. I det här fallet är Standard_DS3_v2 den minsta storleken i DSv2-serien som du kan använda den här avbildningen. Grundläggande Linux-avbildningar i Marketplace och Windows Server-avbildningar som med `[smallsize]` brukar vara cirka 30 GiB och kan använda de flesta av de tillgängliga storlekarna.
+
+Differentierande diskar kräver också att VM-storleken stöder premiumlagring. Storlekarna som vanligtvis (men inte alltid) har en `s` i namn, t.ex. DSv2 och EsV3. Mer information finns i [Azure VM-storlekar](../articles/virtual-machines/linux/sizes.md) för information om vilka storlekar stöd för Premium storage.
+
+## <a name="powershell"></a>PowerShell
+
+Om du vill använda en differentierande disk för en PowerShell-VM-distribution, använda [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) VM-konfiguration. Ange den `-DiffDiskSetting` till `Local` och `-Caching` till `ReadOnly`.     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
+```
+
+För distributioner skalningsuppsättning, använder den [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet i din konfiguration. Ange den `-DiffDiskSetting` till `Local` och `-Caching` till `ReadOnly`.
+
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
+
+## <a name="cli"></a>CLI
+
+Om du vill använda en differentierande disk för en CLI VM-distribution, ange den `--ephemeral-os-disk` parameter i [az vm skapa](/cli/azure/vm#az-vm-create) till `true` och `--os-disk-caching` parameter `ReadOnly`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+För skalningsuppsättningar använda samma `--ephemeral-os-disk true` parametern för [az vmss create](/cli/azure/vmss#az-vmss-create) och ange den `--os-disk-caching` parameter `ReadOnly`.
+
+## <a name="portal"></a>Portalen   
+
+I Azure-portalen kan du välja att använda differentierande diskar när du distribuerar en virtuell dator genom att öppna den **Avancerat** delen av den **diskar** fliken. För **använda differentierande diskar** Välj **Ja**.
+
+![Skärmbild som visar knappen för att du väljer att använda differentierande diskar](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+Om alternativet för att använda en differentierande disk är nedtonat kanske du har valt en VM-storlek som inte har en cachestorlek som är större än OS-avbildning eller som inte stöder Premium storage. Gå tillbaka till den **grunderna** sidan och välja en annan VM-storlek.
+
+Du kan också skapa skalningsuppsättningar med tillfälliga OS-diskar med hjälp av portalen. Se bara till att välja en VM-storlek med en tillräckligt stor cachestorlek och sedan i **använda differentierande diskar** Välj **Ja**.
+
+![Skärmbild som visar knappen för att du väljer att använda differentierande diskar för din skalningsuppsättning](./media/virtual-machines-common-ephemeral/scale-set.png)
+
+## <a name="scale-set-template-deployment"></a>Scale Sets malldistribution  
 Processen för att skapa en skalningsuppsättning som använder differentierande diskar är att lägga till den `diffDiskSettings` egenskap enligt den `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resurstyp i mallen. Principen för cachelagring måste också anges till `ReadOnly` för den differentierande disken. 
 
 
@@ -83,7 +136,7 @@ Processen för att skapa en skalningsuppsättning som använder differentierande
 }  
 ```
 
-## <a name="vm-deployment"></a>Distribution av virtuella datorer 
+## <a name="vm-template-deployment"></a>Mall för distribution av virtuella datorer 
 Du kan distribuera en virtuell dator med differentierande diskar med hjälp av en mall. Processen för att skapa en virtuell dator som använder differentierande OS-diskar är att lägga till den `diffDiskSettings` egenskapen till Microsoft.Compute/virtualMachines resurstypen i mallen. Principen för cachelagring måste också anges till `ReadOnly` för den differentierande disken. 
 
 ```json
@@ -133,7 +186,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **F: Vad är storleken på den lokala OS-diskar?**
 
-S: I förhandsvisningen stöder vi plattform och/eller avbildningar upp till den virtuella dator cachestorleken, där alla Läs/skrivningar till OS-disken ska vara lokal på samma nod som den virtuella datorn. 
+S: Vi stöder plattform och anpassade avbildningar upp till den virtuella dator cachestorleken, där alla Läs/skrivningar till OS-disken ska vara lokal på samma nod som den virtuella datorn. 
 
 **F: Kan den differentierande disken ändras?**
 

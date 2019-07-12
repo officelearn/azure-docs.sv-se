@@ -1,6 +1,6 @@
 ---
-title: Molnbaserad överföring och lagring med Azure Media Services | Microsoft Docs
-description: Den här artikeln molnöverföring och koncept.
+title: Azure Storage-konton med Azure Media Services-konton | Microsoft Docs
+description: När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439115"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619303"
 ---
-# <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
+# <a name="azure-storage-accounts"></a>Azure Storage-konton
 
 Om du vill börja hantera, kryptera, kodning, analysera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto. När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 

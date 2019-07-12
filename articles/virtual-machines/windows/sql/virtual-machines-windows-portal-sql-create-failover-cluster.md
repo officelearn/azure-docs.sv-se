@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591501"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607283"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -54,7 +54,7 @@ På Azure virtuella datorer som du kan licensiera SQL Server med användningsbas
 
 En redundansklusterinstans (FCI) av SQL Server på Azure Virtual Machines tillkommer avgifter för alla noder i FCI, inklusive de passiva noderna med PAYG licensiering. Mer information finns i [priser för SQL Server Enterprise virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Kunder med Enterprise-avtal med Software Assurance har rätt att använda en kostnadsfri passiv FCI nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure, använda BYOL VM-avbildningar och sedan använda samma licens på både aktiva och passiva noder i Redundansklusterinstanser. Mer information finns i [Företagsavtal](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Kunder med Enterprise-avtal med Software Assurance har rätt att använda en kostnadsfri passiv FCI nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure, använda BYOL VM-avbildningar och sedan använda samma licens på både aktiva och passiva noder i Redundansklusterinstanser. Mer information finns i [Företagsavtal](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Jämföra PAYG och BYOL licens för SQL Server på Azure Virtual Machines finns i [Kom igång med virtuella datorer med SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -421,7 +421,7 @@ Skapa belastningsutjämnaren:
    - **Hälsoavsökning**: Använda hälsoavsökning som du konfigurerade tidigare.
    - **Sessionspermanens**: Ingen.
    - **Inaktivitetstid (minuter)** : 4.
-   - **Flytande IP (direkt serverreturnering)** : Enabled
+   - **Flytande IP (direkt serverreturnering)** : Aktiverad
 
 1. Klicka på **OK**.
 

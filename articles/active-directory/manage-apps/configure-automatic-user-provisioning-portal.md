@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963569"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807626"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
 
@@ -31,14 +31,11 @@ Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal
 Använda Azure Active Directory-portalen för att visa och hantera alla program som har konfigurerats för enkel inloggning i en katalog. Enterprise-appar är appar som distribueras och används i din organisation. Följ stegen nedan för att visa och hantera dina företagsprogram:
 
 1. Öppna den [Azure Active Directory-portalen](https://aad.portal.azure.com).
-
 1. Välj **företagsprogram** i den vänstra rutan. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-
 1. Välj en app för att läsa in dess resource fönstret där du kan visa rapporter och hantera appinställningar.
-
 1. Välj **etablering** att hantera användarkonto etableringsinställningar för den valda appen.
 
-   ![Programmet resource fönstret](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Etablering av skärmen för att hantera användarkonto etableringsinställningar](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Etablering lägen
 
@@ -68,17 +65,17 @@ Expandera **mappningar** att visa och redigera användarattribut som flödar mel
 
 Det finns en förkonfigurerad uppsättning mappningar mellan Azure AD-användarobjekt och objekt för varje SaaS-app. Vissa appar hantera andra typer av objekt, till exempel grupper eller kontakter. Välj en avbildning i tabell för att öppna Redigeraren för mappning till höger, där du kan visa och anpassa dem.
 
-![Programmet resource fönstret](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Visar skärmen attributmappning](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Anpassningar som stöds är:
 
 * Aktivera och inaktivera mappningar för specifika objekt, till exempel Azure AD-användarobjektet med SaaS-appens användarobjektet.
 * Redigera attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Läs mer på attributmappning [förstå mappning attributtyper](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtrering etablering åtgärderna som Azure AD som körs på det aktuella programmet. Du kan begränsa de åtgärder som utförs i stället för att Azure AD fullt Synkronisera objekt. 
+* Filtrering etablering åtgärderna som Azure AD som körs på det aktuella programmet. Du kan begränsa de åtgärder som utförs i stället för att Azure AD fullt Synkronisera objekt.
 
   Exempelvis kan bara välja **uppdatering** och Azure AD endast säkerhetsuppdateringar befintliga konton i ett program men inte skapa nya. Välj bara **skapa** och Azure endast skapar nya användarkonton men inte uppdatera befintliga. Den här funktionen kan administratörer skapa olika mappningar för skapande av konto och uppdatera arbetsflöden.
 
-* Lägger till en ny attributmappning. Välj **Lägg till ny mappning** längst ned på den **attributmappning** fönstret. Fyll i **redigera attributet** formuläret och välj **Ok** att lägga till ny mappning i listan. 
+* Lägger till en ny attributmappning. Välj **Lägg till ny mappning** längst ned på den **attributmappning** fönstret. Fyll i **redigera attributet** formuläret och välj **Ok** att lägga till ny mappning i listan.
 
 ### <a name="settings"></a>Inställningar
 

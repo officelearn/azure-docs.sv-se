@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 3c0ca2b031b96abfdb598de7ec9553ebd5f18601
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 92bcb7f81082c1a5a66efa2fa06a6922a79905d0
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592988"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827522"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision Node.js SDK
 
@@ -50,8 +50,8 @@ Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Servic
 ```javascript
 const util = require('util');
 const fs = require('fs');
-const TrainingApiClient = require("azure-cognitiveservices-customvision-training");
-const PredictionApiClient = require("azure-cognitiveservices-customvision-prediction");
+const TrainingApiClient = require("@azure/cognitiveservices-customvision-training");
+const PredictionApiClient = require("@azure/cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 

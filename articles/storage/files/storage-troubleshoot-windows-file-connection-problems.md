@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480315"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805912"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
 Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Windows-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) så att Windows klientmiljö har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fel 5 när du monterar en Azure-filresurs
 
 När du försöker montera en filresurs kan du få följande fel:
@@ -108,7 +108,6 @@ Arbeta med din IT-avdelningen eller Internetleverantör att öppna port 445 utg�
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Lösningen 4 – Använd REST API-baserade verktyg som Storage Explorer/Powershell
 Azure Files stöder även REST förutom SMB. REST-åtkomst fungerar över port 443 (standard tcp). Det finns olika verktyg som är skrivna med hjälp av REST-API som gör det omfattande användargränssnitt. [Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) är en av dem. [Ladda ned och installera Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) och ansluter till filresursen backas upp av Azure Files. Du kan också använda [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) vilket användaren även REST API.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Orsak 2: NTLMv1 är aktiverat
 
 Systemfel 53 eller systemfel 87 kan inträffa om NTLMv1 kommunikation är aktiverad på klienten. Azure Files stöder endast NTLMv2-autentisering. Att ha aktiverat NTLMv1 skapar en mindre säkra klient. Därför blockeras kommunikation för Azure Files. 
@@ -136,6 +135,13 @@ Fel 1816 händer när du når den övre gränsen för samtidiga öppna referense
 
 Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [checklista för prestanda och skalbarhet i Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+Du kan visa öppna referenser för en filresurs, katalogen eller filen i [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet.  
+
+Stäng öppna referenser för en filresurs, katalogen eller filen genom att använda den [Stäng AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet.
+
+> [!Note]  
+> Cmdlet: Get-AzStorageFileHandle och Stäng AzStorageFileHandle ingår i Az PowerShell-Modulversion 2.4 eller senare. Om du vill installera den senaste Az PowerShell-modulen, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel ”Auktoriseringen misslyckades” när du går till en Azure-filresurs i portalen
 
@@ -155,6 +161,23 @@ Bläddra till det lagringskonto där Azure-filresursen är placerad, klicka på 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
 Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
+
+### <a name="cause"></a>Orsak
+Det här problemet inträffar vanligtvis om filen eller katalogen som har en öppen referens. 
+
+### <a name="solution"></a>Lösning
+
+Om SMB-klienter har stängt alla öppna referenser och problemet kvarstår kan du utföra följande:
+
+- Använd den [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet för att visa öppna referenser.
+
+- Använd den [Stäng AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet för att Stäng öppna referenser. 
+
+> [!Note]  
+> Cmdlet: Get-AzStorageFileHandle och Stäng AzStorageFileHandle ingår i Az PowerShell-Modulversion 2.4 eller senare. Om du vill installera den senaste Az PowerShell-modulen, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Långsam filkopieringen till och från Azure Files i Windows
@@ -183,7 +206,7 @@ Om snabbkorrigeringen har installerats, visas följande utdata:
 > Windows Server 2012 R2-avbildningar i Azure Marketplace har snabbkorrigering KB3114025 installeras som standard, från och med December 2015.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Ingen mapp med en enhetsbeteckning i **datorn**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Ingen mapp med en enhetsbeteckning i ”den här datorn” eller ”den här datorn”
 
 Om du mappar en Azure-filresurs som en administratör med hjälp av net Använd verkar resursen saknas.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341622"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723229"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
@@ -49,16 +49,16 @@ Mer information om hur du registrerar ett program med Azure AD finns i [integrer
 Därefter måste ge ditt program behörighet att anropa API: erna för Azure Storage. Det här steget gör att programmet att godkänna begäranden till Azure Storage med Azure AD.
 
 1. På den **översikt** sidan för ditt registrerade program, Välj **API visningsbehörigheter**.
-1. I den **API-behörigheter** väljer **lägga till en behörighet** och välj **API: er som min organisation använder**.
-1. Under den **API: er som min organisation använder** avsnittet, Sök efter ”Azure Storage” och välj **Azure Storage** i listan med resultat att visa den **begär API-behörigheter** fönstret.
+1. I den **API-behörigheter** väljer **lägga till en behörighet** och välj **Microsoft APIs**.
+1. Välj **Azure Storage** i listan med resultat att visa den **begär API-behörigheter** fönstret.
+1. Under **vilken typ av behörigheter för ditt program kräver?** , Observera att det är tillgängligt behörighetstyp **delegerade behörigheter**. Det här alternativet väljs automatiskt som standard.
+1. I den **Välj behörigheter** delen av den **begär API-behörigheter** fönstret markerar du kryssrutan bredvid **user_impersonation**, klicka sedan på **Lägg till behörigheter**.
 
     ![Skärmbild som visar behörigheter för lagring](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Under **vilken typ av behörigheter för ditt program kräver?** , Observera att det är tillgängligt behörighetstyp **delegerade behörigheter**. Det här alternativet väljs automatiskt som standard.
-1. I den **Välj behörigheter** delen av den **begär API-behörigheter** fönstret markerar du kryssrutan bredvid **user_impersonation**, klicka sedan på **Lägg till behörigheter**.
-1. Den **API-behörigheter** nu visar att din Azure AD-program har åtkomst till både Microsoft Graph och Azure Storage. Behörigheterna har beviljats till Microsoft Graph automatiskt när du först registrera din app med Azure AD.
+Den **API-behörigheter** rutan visar nu som din registrerade Azure AD-program har åtkomst till både Microsoft Graph och Azure Storage. Behörigheterna har beviljats till Microsoft Graph automatiskt när du först registrera din app med Azure AD.
 
-    ![Skärmbild som visar registrera app-behörigheter](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Skärmbild som visar registrera app-behörigheter](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>Skapa en klienthemlighet
 

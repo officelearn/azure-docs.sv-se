@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481451"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701159"
 ---
 # <a name="offer-creation-checklist"></a>Checklista för skapande av erbjudande
 
@@ -38,12 +38,12 @@ Objekt som du behöver ange eller ange anges nedan. Vissa områden är valfria e
 
 ## <a name="new-offer-modal"></a>Nytt erbjudande modal 
 
-De första uppgifter du blir ombedd att tillhandahålla är ett namn och ett ID för ditt erbjudande. 
+De första uppgifter du blir ombedd att tillhandahålla är ett ID och alias för ditt erbjudande. 
 
 | **Fältnamn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
 | Erbjudande-ID  | Krävs, kan inte ändras efter skapandet. Högst 50 tecken och måste bestå av gemener, alfanumeriska tecken, bindestreck eller understreck. |
-| Erbjudandets namn  | Krävs. |
+| Erbjudandet alias  | Obligatoriskt. |
 
 ## <a name="offer-setup-page"></a>Installationssidan för erbjudandet
 
@@ -51,7 +51,7 @@ Installationssidan för erbjudandet är där du kan välja olika kanaler och sä
 
 | **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
-| Vill du sälja via Microsoft?  | Krävs. standard: Ja |
+| Vill du sälja via Microsoft?  | Obligatoriskt. standard: Ja |
 | Hur vill du potentiella kunder att interagera med erbjudandet registrering? (Anrop till åtgärden)  | Krävs om inte sälja via Microsoft. standard: Kostnadsfri utvärderingsversion, alternativ: ”Hämta nu”, ”kostnadsfri utvärdering”, ”kontakta mig”. |
 | Utvärderingsversion URL  | Krävs om ”kostnadsfri utvärdering” väljs när sätt kunder bör interagerar med erbjudandet-listan. |
 | URL: en för erbjudandet  | Krävs om ”Hämta nu” är markerad, som kunderna sätt ska interagera med erbjudandet-lista |
@@ -83,8 +83,8 @@ Sidan lista kan du ge text och bilder som kunderna ser när de visar lista för 
 | Beskrivning  | 3000 tecken som krävs, max. |
 | Komma igång-anvisningar  | 3000 tecken som krävs, max. |
 | Komma igång-anvisningar  | 3000 tecken som krävs, max. |
-| Sökord  | Valfritt, rekommenderas, max 3 nyckelord. |
-| Sekretesswebbadress för principen  | Krävs. |
+| Sök efter nyckelord  | Valfritt, rekommenderas, max 3 nyckelord. |
+| Sekretesswebbadress för principen  | Obligatoriskt. |
 | CSP-programmet marknadsföring material URL  | Valfri. |
 | Användbara länkar titel + URL  | Valfri. |
 | Stöd för dokument titel + fil  | Krävs, min 1 och högst 3. Måste vara PDF-filformat. |
@@ -92,7 +92,7 @@ Sidan lista kan du ge text och bilder som kunderna ser när de visar lista för 
 | Store logotyper (liten, medel, stor, hela, Hero)  | Liten (48 X 48) och stor (216 X 216) krävs. andra storlekar som är valfritt men rekommenderas: Medel (90 x 90) hela (255 x 115), Hero (815 x 290). Måste vara i PNG-format. |
 | Videor namn, URL: en + miniatyr  | Valfritt, rekommenderas, högst 4 videor. Miniatyr måste vara minst 1 280 x 720 i PNG-format. Videon måste finnas i YouTube eller Vimeo. |
 | Kontakter (CSP-programmet, teknik, Support)  | Teknik- och Supportkontakt krävs (namn, e-post och telefonnummer). Kontakta CSP-programmet är valfritt men rekommenderas. |
-| Support-URL  | Krävs. |
+| Support-URL  | Obligatoriskt. |
 
 ## <a name="preview-page"></a>Förhandsgranskningssidan
 
@@ -137,9 +137,9 @@ Sidan plan priser och tillgänglighet är här du definierar de egenskaper för 
 | **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | Marknaden tillgänglighet  | Krävs, 1 för min och max 141. |
-| Prissättningsmodell  | Krävs. standard: Fast pris. Alternativ: Fast pris per användare. |
+| Prismodell  | Obligatoriskt. standard: Fast pris. Alternativ: Fast pris per användare. |
 | Lägsta och högsta platser  | Valfritt, endast tillgänglig om klientbaserade Prismodell valt. |
-| Fakturering termen  | Krävs. standard: Per månad. Alternativ: Månatliga, årliga. |
+| Fakturering termen  | Obligatoriskt. standard: Per månad. Alternativ: Månatliga, årliga. |
 | Pris  | Nödvändiga USD per månad, om månadsfaktureringen termen som valts. eller USD per år om årlig fakturering termen som valts. |
 | Planera målgrupp  | Valfri. standard: Offentliga plan. Alternativ: Offentlig, privat av klient-ID |
 | Begränsad planera målgrupp (klient-ID + beskrivning)  | Krävs om privata plan har valt. Min 1 och högst 10 klient-ID: N om anges manuellt. Max 20000 om CSV-filen import. |
@@ -150,7 +150,7 @@ Endast tillgänglig om du väljer för att erbjuda en testenhet för ditt erbjud
 
 | **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
-| Beskrivning  | Krävs. |
+| Beskrivning  | Obligatoriskt. |
 | Användarnamn för manuell + fil  | Krävs, max 1 dokument. Måste vara PDF-format. |
 | Namn på videon, URL: en + miniatyr  | Valfritt, rekommenderas. Miniatyr måste vara 533 x 324 i JPGP eller PNG-format. Videon måste finnas i YouTube eller Vimeo. |
 

@@ -3,22 +3,22 @@ title: 'Självstudier: Distribuera en maskininlärningsmodell med det visuella g
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skapar en lösning för förutsägelseanalys i det visuella gränssnittet för Azure Machine Learning-tjänsten. Träna, poäng, och distribuera en modell för maskininlärning med dra och släppa moduler. Den här självstudien är del två i en serie med två delar om att förutsäga bilpriser med hjälp av linjär regression.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/11/2019
+ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389207"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839311"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudier: Distribuera en maskininlärningsmodell med det visuella gränssnittet
 
-I den här självstudien får titta du närmare på att utveckla en förutsägande lösning i det visuella gränssnittet för Azure Machine Learning-tjänsten. Självstudien är **del två i en självstudieserie i två delar**. I [del ett av självstudiekursen](ui-tutorial-automobile-price-train-score.md), tränas, poängsättas och utvärderas en modell för att förutsäga bil priser. I den här delen av självstudiekursen ska du:
+Att ge andra prova att använda förutsägelsemodell som utvecklats i [del ett av självstudiekursen](ui-tutorial-automobile-price-train-score.md), du kan distribuera den som en Azure-webbtjänst. Hittills har du experimenterat med träna din modell. Nu är det dags att skapa nya förutsägelser baserat på indata från användaren. I den här delen av självstudiekursen ska du:
 
 > [!div class="checklist"]
 > * Förbereda en modell för distribution
@@ -27,58 +27,42 @@ I den här självstudien får titta du närmare på att utveckla en förutsägan
 > * Hantera en webbtjänst
 > * Förbruka webbtjänsten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Slutför [del ett av självstudien](ui-tutorial-automobile-price-train-score.md).
+Fullständig [del ett av självstudiekursen](ui-tutorial-automobile-price-train-score.md) och lär dig att träna och betygsätta ett machine learning-modellen i det visuella gränssnittet.
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
-För att ge andra prova att använda förutsägande modell som har utvecklats i den här självstudien måste distribuera du den som en Azure-webbtjänst.
+Innan du distribuerar ditt experiment som en webbtjänst måste du först behöva konvertera din *träningsexperiment* i en *förutsägelseexperiment*.
 
-Hittills har du experimenterat med träna din modell. Nu är det dags att skapa nya förutsägelser baserat på indata från användaren.
+1. Välj **skapa förutsägande experimentera*** längst ned på arbetsytan för experimentet.
 
-Förberedelse för distribution är en tvåstegsprocess:  
+    ![Animerad gif som visar automatisk konvertering av ett träningsexperiment till ett förutsägbart experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-1. Konvertera den *träningsexperiment* som du har skapat i en *förutsägbart experiment*
-1. Distribuera förutsägelseexperiment som en webbtjänst
+    När du väljer **skapa Förutsägelseexperiment**, flera saker:
+    
+    * Den tränade modellen lagras som en **Trained Model** modulen på modulpaletten. Du hittar den under **tränade modeller**.
+    * Moduler som har använts för utbildning tas bort; mer specifikt:
+      * Träningsmodell
+      * Dela data
+      * Utvärdera modell
+    * Den sparade tränade modellen har lagts till i experimentet.
+    * **Web service indata** och **Web service utdata** moduler har lagts till. Dessa moduler identifiera där användarens data kommer att ange modellen och där data returneras.
 
-Du kanske vill göra en kopia av experimentet först genom att välja **Spara som** längst ned på arbetsytan för experimentet.
+    Den **träningsexperiment** fortfarande sparas under de nya flikarna högst upp på arbetsytan för experimentet.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägbart experiment
+1. **Kör** experimentet.
 
-För att förbereda den här modellen för distribution måste du konvertera den här träningsexperiment till ett förutsägbart experiment. Detta omfattar vanligtvis tre steg:
-
-1. Spara modellen du har tränat och ersätter utbildningsmoduler
-1. Trimma experimentet för att ta bort moduler som behövdes endast för utbildning
-1. Definiera där webbtjänsten ska ta emot indata och där det genererar utdata
-
-Du kan utföra dessa steg manuellt eller så kan du välja **konfigurera Web Service** längst ned på arbetsytan för experimentet har gjort automatiskt.
-
-![Animerad gif som visar automatisk konvertering av ett träningsexperiment till ett förutsägbart experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
-
-När du väljer **konfigurera Web Service**, flera saker:
-
-* Den tränade modellen konverteras till en enda **Trained Model** modulen. Den är lagrad på modulpaletten till vänster om arbetsytan för experimentet. Du hittar den under **tränade modeller**.
-* Moduler som har använts för utbildning tas bort; mer specifikt:
-  * Träningsmodell
-  * Dela data
-  * Utvärdera modell
-* Den sparade tränade modellen har lagts till i experimentet
-* **Web service indata** och **Web service utdata** moduler har lagts till. Dessa moduler identifiera där användarens data kommer att ange modellen och där data returneras.
-
-Du kan se att experimentet sparas i två delar under de nya flikarna högst upp på arbetsytan för experimentet. Det ursprungliga träningsexperimentet är under fliken **träningsexperiment**, och den nyligen skapade förutsägelseexperiment är **förutsägelseexperiment**. Du ska distribuera förutsägelseexperimentet som en webbtjänst.
+1. Välj utdata från den **Poängmodell** modul och välj **visa resultat** att verifiera modellen fortfarande fungerar. Du kan se den ursprungliga informationen visas, tillsammans med det förväntade priset (”poängsatta etiketter”).
 
 Experimentet bör nu se ut så här:  
 
 ![Skärmbild som visar den förväntade konfigurationen av experimentet när du har förberett för distribution](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Kör experimentet en sista gång (Välj **kör**). Välja beräkningsmål som du vill att experiment att köra i popup-dialogruta. Om du vill kontrollera att modellen fortfarande fungerar, Välj utdata från modulen poängsätta modell och välj **visa resultat**. Du kan se den ursprungliga informationen visas, tillsammans med det förväntade priset (”poängsatta etiketter”).
-
 ## <a name="deploy-the-web-service"></a>Distribuera webbtjänsten
 
-Distribuera en ny webbtjänst som härrör från ditt experiment:
-
 1. Välj **distribuera webbtjänsten** under arbetsytan.
+
 1. Välj den **Compute Target** att du vill köra webbtjänsten.
 
     Det visuella gränssnittet stöder för närvarande bara distribution till Azure Kubernetes Service (AKS) beräkningsmål. Du kan välja bland tillgängliga beräkningsmål för AKS i din machine learning-arbetsyta eller konfigurera en ny AKS-miljö med hjälp av stegen i dialogrutan som visas.
@@ -91,9 +75,7 @@ Distribuera en ny webbtjänst som härrör från ditt experiment:
 
 ## <a name="test-the-web-service"></a>Testa webbtjänsten
 
-Indata för användaren anger din distribuerade modell via den **Web service indata** modulen. Indata beräknas sedan i den **Poängmodell** modulen. På sätt som du har konfigurerat förutsägelseexperiment modellen förväntas data i samma format som den ursprungliga datauppsättningen bil pris. Slutligen resultaten returneras till användaren via den **Web service utdata** modulen.
-
-Du kan testa en webbtjänst i web service-flik i det visuella gränssnittet.
+Du kan testa och hantera dina webbtjänster för visuella gränssnittet genom att navigera till den **webbtjänster** fliken.
 
 1. Gå till avsnittet web service. Du ser den webbtjänst som du har distribuerat med namnet **självstudie – förutsäga priset för bil [förutsägande Exp]** .
 
@@ -107,19 +89,13 @@ Du kan testa en webbtjänst i web service-flik i det visuella gränssnittet.
 
     ![Skärmbild som visar webbtjänsten testa sidan](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Ange testa data eller använda autofilled exempeldata och välj **Test** längst ned på sidan. Testbegäran har skickats till webbtjänsten och resultatet visas på sidan. Även om ett prisvärde genereras för indata, används den inte att generera förutsägelse-värde.
+1. Ange testa data eller använda autofilled exempeldata och välj **Test**.
 
-## <a name="manage-the-web-service"></a>Hantera webbtjänsten
-
-När du har distribuerat din webbtjänst kan du hantera den från den **webbtjänster** flik i det visuella gränssnittet.
-
-Du kan ta bort en webbtjänst genom att välja **ta bort** i sidan med web service.
-
-   ![Skärmbild som visar platsen för ta bort web service-knappen längst ned i fönstret](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
+    Testbegäran har skickats till webbtjänsten och resultatet visas på sidan. Även om ett prisvärde genereras för indata, används den inte att generera förutsägelse-värde.
 
 ## <a name="consume-the-web-service"></a>Förbruka webbtjänsten
 
-I de föregående stegen i den här kursen du har distribuerat en bil förutsägelsemodell som en Azure-webbtjänst. Användare kan nu skicka data till den och ta emot resultatet via REST-API.
+Användare kan nu skicka API-begäranden till din Azure-webbtjänst och ta emot resultaten för att förutsäga priset på sin nya bilar.
 
 **Begäran/svar** -användaren skickar en eller flera rader med bildata till tjänsten med hjälp av en HTTP-protokollet. Tjänsten svarar med en eller flera uppsättningar med resultat.
 
@@ -131,9 +107,9 @@ Navigera till den **API-dokument** fliken mer API-information.
 
   ![Skärmbild som visar ytterligare API-information som användarna kan hitta på fliken API-dokument](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## <a name="manage-models-and-deployments-in-azure-machine-learning-service-workspace"></a>Hantera modeller och distributioner i Azure Machine Learning-tjänstens arbetsyta
+## <a name="manage-models-and-deployments"></a>Hantera modeller och -distributioner
 
-Modeller och webbtjänstdistributioner som du skapar i det visuella gränssnittet kan hanteras från arbetsytan Azure Machine Learning-tjänsten.
+Modeller och webbtjänstdistributioner som du skapar i det visuella gränssnittet kan också hanteras från arbetsytan Azure Machine Learning-tjänsten.
 
 1. Öppna din arbetsyta i den [Azure-portalen](https://portal.azure.com/).  
 
@@ -155,7 +131,7 @@ Modeller och webbtjänstdistributioner som du skapar i det visuella gränssnitte
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig nyckeln steg i att skapa, distribuera och använda machine learning-modell i det visuella gränssnittet. Om du vill veta mer om hur du kan använda det visuella gränssnittet för att lösa andra typer av problem kan ta en titt på exempelexperiment.
+I den här självstudien har du lärt dig nyckeln steg i att skapa, distribuera och använda machine learning-modell i det visuella gränssnittet. Om du vill veta mer om hur du kan använda det visuella gränssnittet för att lösa andra typer av problem kan se ut våra andra exempelexperiment.
 
 > [!div class="nextstepaction"]
 > [Kredit risk klassificering exemplet](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187317"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671299"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plattformsunderstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS)-resurser från klassiskt till Resource Manager-distributionsmodeller och information om hur du ansluter resurser från de två distributionsmodeller som finnas i din prenumeration med hjälp av virtuellt nätverk plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager-funktioner och fördelar](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -113,7 +113,7 @@ Följande funktioner stöds inte för närvarande. Du kan eventuellt ta bort de 
 ### <a name="unsupported-configurations"></a>Konfigurationer som inte stöds
 Följande konfigurationer stöds inte för närvarande.
 
-| Tjänst | Konfiguration | Rekommendation |
+| Tjänsten | Konfiguration | Rekommendation |
 | --- | --- | --- |
 | Resource Manager |Rollbaserad åtkomstkontroll (RBAC) för klassiska resurser |Eftersom URI: N för resurserna som modifierats efter migrering, rekommenderar vi att du planerar de RBAC-principuppdateringar som behövs efter migreringen. |
 | Compute |Flera undernät som är associerade med en virtuell dator |Uppdatera undernätskonfiguration för att referera till endast ett undernät. Du kan behöva du ta bort ett sekundärt nätverkskort (som hänvisar till ett annat undernät) från den virtuella datorn och ansluta den igen när migreringen har slutförts. |

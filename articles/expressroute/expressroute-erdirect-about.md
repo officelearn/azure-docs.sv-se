@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367647"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807487"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
-ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s eller 10 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
 
 Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
 
@@ -38,9 +38,9 @@ Innan du använder ExpressRoute Direct, måste du först registrera din prenumer
 
 | **ExpressRoute med en tjänstleverantör** | **ExpressRoute Direct** | 
 | --- | --- |
-| Använder leverantörer för att möjliggöra snabb onboarding och anslutning till befintlig infrastruktur | Kräver 100 Gbit/s infrastruktur och fullständig hantering av alla lager
+| Använder leverantörer för att möjliggöra snabb onboarding och anslutning till befintlig infrastruktur | Kräver 100 Gbit/s/10 Gbit/s infrastruktur och fullständig hantering av alla lager
 | Kan integreras med hundratals av inklusive Ethernet och MPLS-leverantörer | Direct eller dedikerad kapacitet för reglerade branscher och enorma datainmatning |
-| Kretsar SKU: er från 50 Mbit/s till 10 Gbit/s | Kunden kan välja en kombination av följande kretsen SKU: er: 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s - begränsat till högst 200 Gbit/s
+| Kretsar SKU: er från 50 Mbit/s till 10 Gbit/s | Kunden kan välja en kombination av följande SKU: er på 100 Gbit/s ExpressRoute-krets direkt: <ul><li>5 Gbit/s</li><li>10 Gbit/s</li><li>40 Gbit/s</li><li>100 Gbit/s</li></ul> Kunden kan välja en kombination av följande SKU: er på 10 Gbit/s ExpressRoute-krets direkt:<ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbit/s</li></ul>
 | Optimerad för enskild klient | Optimerad för enskild klient-/ molntjänstleverantörer / flera affärsenheter
 
 ## <a name="expressroute-direct-circuits"></a>Direct för ExpressRoute-kretsar
@@ -53,7 +53,28 @@ Funktionerna i de flesta fall motsvarar kretsar som använder en ExpressRoute-le
 
 ## <a name="circuit-skus"></a>Kretsen SKU: er
 
-ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute circuits på ExpressRoute Direct nu också stöd för **40 Gbit/s** och **100 Gbit/s** krets SKU: er. De fysiska portpar är **100 Gbit/s** endast och kan ha flera virtuella kretsar med bandbredder 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s - upp till 200 GB/s i vilken kombination som helst. 
+ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute-kretsar på 100 Gbit/s ExpressRoute Direct stöder nu även **40 Gbit/s** och **100 Gbit/s** krets SKU: er. De fysiska portpar är **100 eller 10 Gbit/s** endast och kan ha flera virtuella kretsar. Kretsen storlekar:
+
+| **100 Gbit/s ExpressRoute Direct** | **10 Gbit/s ExpressRoute Direct** | 
+| --- | --- |
+| **Prenumererar på bandbredd**: 200 Gbit/s | **Prenumererar på bandbredd**: 20 Gbit/s |
+| <ul><li>5 Gbit/s</li><li>10 Gbit/s</li><li>40 Gbit/s</li><li>100 Gbit/s</li></ul> | <ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbit/s</li></ul>
+
+## <a name="technical-requirements"></a>Tekniska krav
+
+* Gränssnitt för Microsoft Enterprise Edge-routern (MSEE):
+    * Dubbla 10 eller 100 Gigabit Ethernet-portar endast över router-par
+    * Den enda läge LR Fiber anslutning
+    * IPv4 och IPv6
+    * IP-MTU 1500 byte
+
+* Växeln/Router Layer 2/Layer 3-anslutningen:
+    * Måste ha stöd för 1 802.1Q (Dot1Q)-tagg eller två taggen 802.1Q (QinQ) tagga inkapsling
+    * Ethertype = 0x8100
+    * Lägga till den yttre VLAN-tagg (STAG) baserat på det VLAN-ID som angetts av Microsoft - *gäller endast på QinQ*
+    * Måste ha stöd för flera BGP-sessioner (VLAN) per port och enhet
+    * IPv4 och IPv6-anslutning. *Inget ytterligare underordnade gränssnitt kommer att skapas för IPv6. IPv6-adressen kommer att läggas till befintliga underordnade gränssnittet*. 
+    * Valfritt: [Dubbelriktad vidarebefordran identifiering (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) stöder, som är konfigurerad som standard på alla privata Peerings på ExpressRoute-kretsar
 
 ## <a name="vlan-tagging"></a>VLAN-märkning
 

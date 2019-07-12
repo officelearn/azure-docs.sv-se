@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076161"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612281"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
 
@@ -24,7 +24,7 @@ Den här artikeln fortsätter från Stream Analytics [bedrägerier i realtid](st
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
@@ -242,5 +242,5 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Frågespråksreferens för Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Frågespråksreferens för Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)

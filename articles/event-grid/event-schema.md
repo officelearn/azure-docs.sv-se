@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304237"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785852"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema för Azure Event Grid-händelse
 
@@ -83,16 +83,16 @@ Schemat som publicerats för en Azure Blob storage-händelse är till exempel:
 
 Alla händelser har samma följande översta data:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Type | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata är specifika för resursprovidern. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| subject | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| subject | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| eventType | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | object | Händelsedata är specifika för resursprovidern. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Mer information om egenskaperna i dataobjektet, se händelsekällan:
 
@@ -104,6 +104,7 @@ Mer information om egenskaperna i dataobjektet, se händelsekällan:
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resursgrupper (åtgärder)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 
 För anpassade ämnen anger händelseutfärdaren dataobjektet. Översta data bör ha samma fält som standard resurs-definierade händelser.
 

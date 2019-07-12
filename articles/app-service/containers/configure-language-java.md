@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509644"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786299"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera ett Linux Java-program för Azure App Service
 
@@ -133,7 +133,7 @@ Utvecklare som kör ett program med en distributionsplats i deras App Service-pl
 
 När programmet heap justeringsinställningar, granska information om din App Service-plan och ta hänsyn till flera program och distributionsplats måste hitta den optimala allokeringen av minne.
 
-Om du distribuerar ett JAR-program kan det ha namnet *app.jar* så att den inbyggda avbildningen kan identifiera din app. (Maven-pluginprogrammet gör den här byta namn på automatiskt.) Om du inte vill att byta namn på din JAR till *app.jar*, du kan ladda upp ett kommandoskript med kommandot för att köra dina JAR-filen. Klistra in den fullständiga sökvägen till skriptet i den [startfil](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textrutan i konfigurationsavsnittet i portalen.
+Om du distribuerar ett JAR-program kan det ha namnet *app.jar* så att den inbyggda avbildningen kan identifiera din app. (Maven-pluginprogrammet gör den här byta namn på automatiskt.) Om du inte vill att byta namn på din JAR till *app.jar*, du kan ladda upp ett kommandoskript med kommandot för att köra dina JAR-filen. Klistra in den fullständiga sökvägen till skriptet i den [startfil](app-service-linux-faq.md#built-in-images) textrutan i konfigurationsavsnittet i portalen.
 
 ### <a name="turn-on-web-sockets"></a>Aktivera webbsockets
 
@@ -170,6 +170,10 @@ Du kan också konfigurera appinställningen med App Service-Maven-pluginprogramm
 ### <a name="adjust-startup-timeout"></a>Justera tidsgräns för Start
 
 Om ditt Java-program är särskilt stor, bör du öka tidsgräns för start. Gör detta genom att skapa en programinställning `WEBSITES_CONTAINER_START_TIME_LIMIT` och väljer hur många sekunder som App Service ska vänta innan den avbryts. Det högsta värdet är `1800` sekunder.
+
+### <a name="pre-compile-jsp-files"></a>Före kompilera JSP-filer
+
+För att förbättra prestandan hos program för Tomcat kan kompilera du JSP-filer innan du distribuerar till App Service. Du kan använda den [Maven-pluginprogrammet](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) tillhandahållna av Apache Slunga eller använder det här [Ant skapa filen](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Säkra program
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441638"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827799"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics-arbetsyta med hjälp av Azure Resource Manager-mallar
 
@@ -40,6 +40,7 @@ Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/res
 Den här artikeln innehåller mallexempel på som beskriva några av den konfiguration som du kan utföra med mallar.
 
 ## <a name="api-versions"></a>API-versioner
+
 I följande tabell visas den API-versionen för resurser som används i det här exemplet.
 
 | Resource | Resurstyp | API-version |
@@ -50,16 +51,8 @@ I följande tabell visas den API-versionen för resurser som används i det här
 | Lösning    | lösningar     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
-I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö.  
 
-Följande parametrar anger ett standardvärde:
-
-* plats – standardvärdet är USA, östra
-* SKU - som standard den nya Per GB prisnivån som introducerades i April 2018 prismodellen
-
-> [!NOTE]
->Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**.  
->Om du kanske har några prenumerationer i den [pre-April 2018 prismodellen](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), kan du ange den **fristående** prisnivå, och detta lyckas för båda prenumerationen i prismodellen pre-April 2018 och prenumerationer i den nya prissättningen. För arbetsytor i prenumerationer som har antagit den nya proicing modellen prisnivån anges till **PerGB2018**. 
+I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mallen har konfigurerats för att endast kräva namnet och platsen för den nya arbetsytan (med standardvärden för arbetsytan parametrar, till exempel prisnivå och kvarhållning).  
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
 
@@ -79,26 +72,35 @@ Följande parametrar anger ett standardvärde:
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ Följande parametrar anger ett standardvärde:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ Följande parametrar anger ett standardvärde:
        ]
     }
     ```
-2. Redigera mallen så att den uppfyller dina krav.  Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
+
+2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
-4. Nu är det dags att distribuera den här mallen. Du kan använda PowerShell eller från kommandoraden för att skapa arbetsytan.
+4. Nu är det dags att distribuera den här mallen. Du kan använda PowerShell eller från kommandoraden för att skapa arbetsytan kan ange arbetsytans namn och plats som en del av kommandot.
 
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * För kommandoraden, använder du följande kommandon från mappen som innehåller mallen:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempelresultat när distributionen är klar](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en Log Analytics-arbetsyta
+
 I följande exempel i mallen visas hur du:
 
 1. Lägga till lösningar i arbetsytan
@@ -161,19 +162,21 @@ I följande exempel i mallen visas hur du:
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ I följande exempel i mallen visas hur du:
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ I följande exempel i mallen visas hur du:
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ I följande exempel i mallen visas hur du:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ I följande exempel i mallen visas hur du:
 
 ```
 ### <a name="deploying-the-sample-template"></a>Distribuera exempelmallen
+
 För att distribuera exempelmallen:
 
 1. Spara bifogade exemplet i en fil, till exempel `azuredeploy.json` 
@@ -510,17 +544,20 @@ För att distribuera exempelmallen:
 3. Använda PowerShell eller från kommandoraden för att distribuera mallen
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Kommandorad
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Exempel Resource Manager-mallar
+
 Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, inklusive:
 
 * [Distribuera en virtuell dator som kör Windows med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, 
 * [Lägg till ett befintligt lagringskonto i Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-windows.md).
+
 * [Distribuera Linux-agenten till Azure virtuella datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-linux.md).

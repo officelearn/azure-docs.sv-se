@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835608"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836720"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -55,7 +56,7 @@ Modulen körs avskilt från din programkod och konfigureras med hjälp av appins
 
 ### <a name="user-claims"></a>Användaranspråk
 
-För alla språkramverken tillgängliggör App Service användarens anspråk i koden genom att placera dem i de begärda rubrikerna. För ASP.NET 4.6 appar fyller på App Service [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att du kan följa Standardmönstret för .NET-kod, inklusive den `[Authorize]` attribut. På samma sätt för PHP-appar, App Service fyller den `_SERVER['REMOTE_USER']` variabeln.
+För alla språkramverken tillgängliggör App Service användarens anspråk i koden genom att placera dem i de begärda rubrikerna. För ASP.NET 4.6 appar fyller på App Service [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att du kan följa Standardmönstret för .NET-kod, inklusive den `[Authorize]` attribut. På samma sätt för PHP-appar, App Service fyller den `_SERVER['REMOTE_USER']` variabeln. För Java-appar, anspråken är [kan nås från Tomcat servleten](containers/configure-language-java.md#authenticate-users).
 
 För [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` inte är hydrerat för .NET-kod, men du kan fortfarande hitta användaranspråk i huvudena för begäran.
 
@@ -144,8 +145,8 @@ Det här alternativet ger bättre flexibilitet vid hantering av anonyma begäran
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
-[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
+[Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
 [Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
 
 Provider-specifik instruktionsguider:
@@ -153,7 +154,7 @@ Provider-specifik instruktionsguider:
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning][AAD]
 * [Så här konfigurerar du din app för att använda Facebook-inloggning][Facebook]
 * [Så här konfigurerar du din app för att använda Google-inloggning][Google]
-* [Så här konfigurerar du din app om du vill använda Microsoft Account login][MSA]
+* [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning][MSA]
 * [Så här konfigurerar du din app för att använda Twitter-inloggning][Twitter]
 * [Anvisningar: Använd anpassad autentisering för ditt program][custom-auth]
 

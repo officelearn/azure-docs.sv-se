@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 01477ad3a5a0c4643721815fa2b0943512c0c520
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190272"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723978"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 
@@ -36,7 +36,7 @@ Det finns flera sätt att konfigurera ett program för enkel inloggning. Välja 
 
 Det här flödesschemat hjälper dig att bestämma vilken metod för enkel inloggning är bäst för just din situation.
 
-![Välj metod för enkel inloggning](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
+![Beslutsflödesschema för enkel inloggning, metod](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
 I följande tabell sammanfattas metoderna som enkel inloggning och länkar till mer information.
 
@@ -47,23 +47,24 @@ I följande tabell sammanfattas metoderna som enkel inloggning och länkar till 
 | [Lösenordsbaserad](#password-based-sso) | molnet och lokalt | Välj lösenordsbaserad när programmet autentiseras med användarnamn och lösenord. Lösenordsbaserad enkel inloggning kan du säkert program lösenordslagring och replay med ett webbläsartillägg eller mobilapp. Den här metoden använder den befintliga inloggningsprocessen tillhandahålls av programmet, men låter en administratör hantera lösenorden. |
 | [Länkade](#linked-sign-on) | molnet och lokalt | Välja länkad inloggning när programmet har konfigurerats för enkel inloggning i en annan identitet provider-tjänsten. Det här alternativet inte lägga till enkel inloggning till programmet. Programmet kan redan ha enkel inloggning implementeras med hjälp av en annan tjänst, till exempel Active Directory Federation Services.|
 | [Inaktiverad](#disabled-sso) | molnet och lokalt | Välj inaktiverade enkel inloggning när appen inte kan konfigureras för enkel inloggning. Användare måste ange sitt användarnamn och lösenord varje gång de starta det här programmet.|
-| [Integrerad Windows-autentisering (IWA)](#integrated-windows-authentication-iwa-sso) | endast lokalt | Välj IWA enkel inloggning för program som använder [integrerad Windows autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), eller anspråksmedvetna program. För IWA använda Application Proxy-kopplingar Kerberos-begränsad delegering (KCD) för att autentisera användare till programmet. | 
-| [Rubrikbaserad](#header-based-sso) | endast lokalt | Använd rubrikbaserad enkel inloggning när programmet använder rubriker för autentisering. Kräver PingAccess för Azure AD-huvud-baserad enkel inloggning. Programproxy använder Azure AD för att autentisera användaren och sedan skickar trafik via kopplingstjänsten.  | 
+| [Integrerad Windows-autentisering (IWA)](#integrated-windows-authentication-iwa-sso) | endast lokalt | Välj IWA enkel inloggning för program som använder [integrerad Windows autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), eller anspråksmedvetna program. För IWA använda Application Proxy-kopplingar Kerberos-begränsad delegering (KCD) för att autentisera användare till programmet. |
+| [Rubrikbaserad](#header-based-sso) | endast lokalt | Använd rubrikbaserad enkel inloggning när programmet använder rubriker för autentisering. Kräver PingAccess för Azure AD-huvud-baserad enkel inloggning. Programproxy använder Azure AD för att autentisera användaren och sedan skickar trafik via kopplingstjänsten.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect och OAuth
-När du utvecklar nya program, kan du använda moderna protokoll som OpenID Connect och OAuth för att uppnå den bästa enkel inloggning för din app på flera enhetsplattformar. OAuth gör att användare och administratörer att [ge medgivande](configure-user-consent.md) för skyddade resurser som [MS Graph](/graph/overview). Vi ger enkelt för att införa [SDK: er](../develop/reference-v2-libraries.md) för din app och dessutom din app är redo att använda [MS Graph](/graph/overview).
+
+När du utvecklar nya program, kan du använda moderna protokoll som OpenID Connect och OAuth för att uppnå den bästa enkel inloggning för din app på flera enhetsplattformar. OAuth gör att användare och administratörer att [ge medgivande](configure-user-consent.md) för skyddade resurser som [Microsoft Graph](/graph/overview). Vi ger enkelt för att införa [SDK: er](../develop/reference-v2-libraries.md) för din app och dessutom din app är redo att använda [Microsoft Graph](/graph/overview).
 
 Mer information finns i:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Azure Active Directory – Utvecklingsguide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Utvecklarguide för Microsoft identity-plattformen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SAML SSO
+
 Med **SAML enkel inloggning**, Azure AD autentiserar till programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Med SAML-baserad enkel inloggning, kan du mappa användare till specifika programroller baserat på regler som du definierar i SAML-anspråk.
 
 Välj SAML-baserad enkel inloggning när programmet stöder den.
-
 
 SAML-baserad enkel inloggning stöds för program som använder någon av dessa protokoll:
 
@@ -79,9 +80,10 @@ För att konfigurera ett lokalt program för SAML-baserad enkel inloggning, se [
 Läs mer om SAML-protokoll, [enkel inloggning SAML-protokoll](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Lösenordsbaserad SSO
-Med lösenordsbaserad inloggning, användare loggar in på programmet med ett användarnamn och lösenord för första gången som de har åtkomst till den. Efter den första inloggning tillhandahåller Azure AD användarnamnet och lösenordet till programmet. 
 
-Lösenordsbaserad enkel inloggning använder du den befintliga autentiseringsprocessen som tillhandahålls av programmet. När du aktiverar lösenord för enkel inloggning för ett program, Azure AD samlar in och lagrar på ett säkert sätt användarnamn och lösenord för programmet. Användarens autentiseringsuppgifter lagras i ett krypterat tillstånd i katalogen. 
+Med lösenordsbaserad inloggning, användare loggar in på programmet med ett användarnamn och lösenord för första gången som de har åtkomst till den. Efter den första inloggning tillhandahåller Azure AD användarnamnet och lösenordet till programmet.
+
+Lösenordsbaserad enkel inloggning använder du den befintliga autentiseringsprocessen som tillhandahålls av programmet. När du aktiverar lösenord för enkel inloggning för ett program, Azure AD samlar in och lagrar på ett säkert sätt användarnamn och lösenord för programmet. Användarens autentiseringsuppgifter lagras i ett krypterat tillstånd i katalogen.
 
 Välj lösenordsbaserad enkel inloggning när:
 
@@ -118,12 +120,12 @@ När Azure AD-administratör hanterar autentiseringsuppgifter:
 
 När användaren hanterar autentiseringsuppgifter:
 
-- Användarna kan hantera sina lösenord genom att uppdatera eller ta bort dem efter behov. 
+- Användarna kan hantera sina lösenord genom att uppdatera eller ta bort dem efter behov.
 - Administratörer kan fortfarande ange nya autentiseringsuppgifter för programmet.
 
-
 ## <a name="linked-sign-on"></a>Länkad inloggning
-Länkad inloggning gör att Azure AD att tillhandahålla enkel inloggning till ett program som redan är konfigurerad för enkel inloggning i en annan tjänst. Länkade programmet kan visas för slutanvändare i Office 365-portalen eller Azure AD MyApps-portalen. En användare kan till exempel starta ett program som har konfigurerats för enkel inloggning i Active Directory Federation Services 2.0 (AD FS) från Office 365-portalen. Ytterligare reporting är också tillgängligt för länkade program som startas från Office 365-portalen eller Azure AD MyApps-portalen. 
+
+Länkad inloggning gör att Azure AD att tillhandahålla enkel inloggning till ett program som redan är konfigurerad för enkel inloggning i en annan tjänst. Länkade programmet kan visas för slutanvändare i Office 365-portalen eller Azure AD MyApps-portalen. En användare kan till exempel starta ett program som har konfigurerats för enkel inloggning i Active Directory Federation Services 2.0 (AD FS) från Office 365-portalen. Ytterligare reporting är också tillgängligt för länkade program som startas från Office 365-portalen eller Azure AD MyApps-portalen.
 
 ### <a name="linked-sign-on-for-application-migration"></a>Länkad inloggning för program-migreringen
 
@@ -133,47 +135,43 @@ När en användare har autentiserats med ett länkade program, måste en kontopo
 
 ## <a name="disabled-sso"></a>Inaktiverad SSO
 
-Inaktiverat läge innebär att enkel inloggning inte används för programmet. När enkel inloggning har inaktiverats kan kan användarna behöva autentisera två gånger. Först användare autentisera till Azure AD och sedan logga in till programmet. 
+Inaktiverat läge innebär att enkel inloggning inte används för programmet. När enkel inloggning har inaktiverats kan kan användarna behöva autentisera två gånger. Först användare autentisera till Azure AD och sedan logga in till programmet.
 
 Använd inaktiverat läge för enkel inloggning:
 
 - Om du inte är redo att integrera programmet med Azure AD enkel inloggning, eller
 - Om du testar andra delar av programmet, eller
-- Som ett säkerhetslager till ett lokalt program som inte kräver att användarna ska autentisera. Användaren måste autentisera med inaktiveras. 
+- Som ett säkerhetslager till ett lokalt program som inte kräver att användarna ska autentisera. Användaren måste autentisera med inaktiveras.
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>Integrerad Windows-autentisering (IWA) SSO
 
 [Programproxy](application-proxy.md) tillhandahåller enkel inloggning (SSO) för program som använder [integrerad Windows autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), eller anspråksmedvetna program. Om programmet använder IWA, autentiserar Application Proxy för programmet med hjälp av Kerberos-begränsad delegering (KCD). Fungerar eftersom användaren redan har autentiserats med hjälp av Azure AD enkel inloggning för ett anspråksmedvetet program som litar på Azure Active Directory.
 
-Välj integrerad Windows-autentisering enkel inloggningsläge:
+Välj integrerad Windows-autentisering enkel inloggningsläge att tillhandahålla enkel inloggning till en lokal app som autentiserar med IWA.
 
-- Att tillhandahålla enkel inloggning till en lokal app som autentiserar med IWA. 
-
-För att konfigurera en lokal app för IWA Se [Kerberos-begränsad delegering för enkel inloggning för dina program med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md). 
+För att konfigurera en lokal app för IWA Se [Kerberos-begränsad delegering för enkel inloggning för dina program med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>Hur enkel inloggning med KCD fungerar
 Det här diagrammet beskriver flödet när en användare ansluter till ett lokalt program som använder IWA.
 
-![Flödesdiagram för Microsoft AAD-autentisering](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Flödesdiagram för Microsoft Azure AD-autentisering](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. Användaren anger URL: en för att komma åt programmet på plats via programproxy.
-2. Programproxyn omdirigerar begäran till Azure AD-autentiseringstjänster till preauthenticate. Nu kan gäller Azure AD alla tillämpliga autentisering och auktoriseringsprinciper, till exempel multifaktorautentisering. Om användaren har verifierats, Azure AD skapar en token och skickar det till användaren.
-3. Användaren skickar token till Application Proxy.
-4. Programproxyn verifierar token och hämtar User Principal Name (UPN) från token. Den skickar sedan begäran, UPN och Service Principal Name (SPN) till anslutningstjänsten via en autentiserad dually säker kanal.
-5. Anslutningen används Kerberos-begränsad delegering (KCD)-förhandling med lokala AD, Personifiera användare för att få en Kerberos-token för programmet.
-6. Active Directory skickar Kerberos-token för programmet till anslutningstjänsten.
-7. Kopplingen skickar den ursprungliga begäran till programservern som använder Kerberos-token som togs emot från AD.
-8. Programmet skickar svaret till anslutningstjänsten, som sedan returneras till Application Proxy-tjänsten och slutligen till användaren.
+1. Programproxyn omdirigerar begäran till Azure AD-autentiseringstjänster till preauthenticate. Nu kan gäller Azure AD alla tillämpliga autentisering och auktoriseringsprinciper, till exempel multifaktorautentisering. Om användaren har verifierats, Azure AD skapar en token och skickar det till användaren.
+1. Användaren skickar token till Application Proxy.
+1. Programproxyn verifierar token och hämtar User Principal Name (UPN) från token. Den skickar sedan begäran, UPN och Service Principal Name (SPN) till anslutningstjänsten via en autentiserad dually säker kanal.
+1. Anslutningen används Kerberos-begränsad delegering (KCD)-förhandling med lokala AD, Personifiera användare för att få en Kerberos-token för programmet.
+1. Active Directory skickar Kerberos-token för programmet till anslutningstjänsten.
+1. Kopplingen skickar den ursprungliga begäran till programservern som använder Kerberos-token som togs emot från AD.
+1. Programmet skickar svaret till anslutningstjänsten, som sedan returneras till Application Proxy-tjänsten och slutligen till användaren.
 
 ## <a name="header-based-sso"></a>Huvud-baserad enkel inloggning
 
-Huvud-baserad enkel inloggning fungerar för program som använder HTTP-huvuden för autentisering. Den här inloggnings-metoden använder en tjänst för autentiseringsmetoder från tredje part som kallas PingAccess. En användare behöver bara autentisera till Azure AD. 
+Huvud-baserad enkel inloggning fungerar för program som använder HTTP-huvuden för autentisering. Den här inloggnings-metoden använder en tjänst för autentiseringsmetoder från tredje part som kallas PingAccess. En användare behöver bara autentisera till Azure AD.
 
-Välj rubrik-baserad enkel inloggning när:
+Välj rubrik-baserad enkel inloggning om Application Proxy och PingAccess är konfigurerade för programmet.
 
-- Application Proxy och PingAccess är konfigurerade för programmet
-
-För att konfigurera rubrikbaserad autentisering, se [rubrikbaserad autentisering för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-ping-access.md). 
+För att konfigurera rubrikbaserad autentisering, se [rubrikbaserad autentisering för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ### <a name="what-is-pingaccess-for-azure-ad"></a>Vad är PingAccess för Azure AD?
 
@@ -183,15 +181,13 @@ Användarna ser inte något annorlunda när de loggar in att använda företaget
 
 ### <a name="how-do-i-get-a-license-for-pingaccess"></a>Hur får jag en licens för PingAccess?
 
-Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och PingAccess, behöver du licenser för båda tjänsterna. Azure AD Premium-prenumerationer innehåller dock en grundläggande PingAccess-licens som omfattar upp till 20 program. Om du vill publicera fler än 20 rubrikbaserad program kan skaffa du ytterligare en licens från PingAccess. 
+Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och PingAccess, behöver du licenser för båda tjänsterna. Azure AD Premium-prenumerationer innehåller dock en grundläggande PingAccess-licens som omfattar upp till 20 program. Om du vill publicera fler än 20 rubrikbaserad program kan skaffa du ytterligare en licens från PingAccess.
 
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
-
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Självstudie för att konfigurera enkel inloggning](configure-single-sign-on-portal.md)
-* [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
-* Nedladdningslänk: [Enkel inloggning distributionsplan](https://aka.ms/SSODeploymentPlan).
 
-
+- [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Självstudie för att konfigurera enkel inloggning](configure-single-sign-on-portal.md)
+- [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
+- Nedladdningslänk: [Enkel inloggning för distributionsplan](https://aka.ms/SSODeploymentPlan)

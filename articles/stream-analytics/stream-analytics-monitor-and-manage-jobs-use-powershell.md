@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148419"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612304"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics-jobb med Azure PowerShell-cmdlets
 Lär dig mer om att övervaka och hantera Stream Analytics-resurser med Azure PowerShell-cmdlets och powershell-skript som kör grundläggande Stream Analytics-uppgifter.
@@ -228,7 +228,7 @@ Om du anger indata som redan finns och att du inte anger parametern – Force, c
 
 Om du anger – tvinga parametern och ange en befintlig ange namn, kommer att ersättas indata utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa indata (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] delen av den [Stream Analytics Management REST API-referens Biblioteket][stream.analytics.rest.api.reference].
+Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa indata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -287,7 +287,7 @@ Om du anger ett Jobbnamn som redan finns och inte anger parametern – Force, cm
 
 Om du anger – framtvinga parametern och ange ett befintligt jobbnamn jobbdefinitionen ersätts utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa Stream Analytics-jobbet] [ msdn-rest-api-create-stream-analytics-job] delen av den [Stream Analytics Management REST API Reference Library] [stream.analytics.rest.api.reference].
+Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa Stream Analytics-jobbet][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -330,7 +330,7 @@ Om du anger utdata som redan finns och att du inte anger parametern – Force, c
 
 Om du anger – tvinga parametern och ange en befintlig utdata namn, utdata kommer att ersättas utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa utdata (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] delen av den [Stream Analytics Management REST API-referens Biblioteket][stream.analytics.rest.api.reference].
+Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa utdata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -373,7 +373,7 @@ Om du anger en transformation som redan finns och inte anger parametern – Forc
 
 Om du anger – framtvinga parametern och ange ett befintligt namn i omvandling transformeringen ersätts utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa transformering (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] delen av den [Stream Analytics Management REST API Referensbiblioteket][stream.analytics.rest.api.reference].
+Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa transformering (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -550,7 +550,7 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

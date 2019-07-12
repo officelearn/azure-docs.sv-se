@@ -254,7 +254,7 @@
         - name: Hantera långvariga åtgärder
           href: media-services-dotnet-long-operations.md
         - name: Specifikation för live-inmatning av fragmenterad MP4
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Komma igång
           href: media-services-azure-media-clipper-getting-started.md
         - name: Läsa in videor
@@ -458,11 +458,11 @@
     - name: Specifikationer
       items:
         - name: Liveinmatning – specifikation för liveinmatning av fragmenterad MP4
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Liveinmatning – signalering av metadata med tidsgräns i liveuppspelning
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming – HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Resurser
   items:
     - name: Azure Media Services-community

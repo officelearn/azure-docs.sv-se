@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7fcff6fa4dcea1af15efa2cb4ed3a743c9c402
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610746"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836121"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för den lokala Teradata till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en Teradata-datalager till datalager, men inte för att flytta data från andra datalager till en Teradata-datalager.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Data factory stöder anslutning till lokala Teradata källor via Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
 Gateway krävs även om Teradata finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS VM som datalager eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -47,7 +47,7 @@ För Data Management Gateway att ansluta till Teradata-databas, måste du instal
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er.
 
 - Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -66,8 +66,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | type |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
+| authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
+| username |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Teradata-databas. |Ja |
 
@@ -83,12 +83,12 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON-exempel: Kopiera data från Teradata till Azure Blob
-I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Teradata till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Teradata till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 Exemplet har följande data factory-entiteter:
 
@@ -285,11 +285,11 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 
 | Typ av Teradata-databas | .NET framework-typ |
 | --- | --- |
-| char |String |
-| Clob |String |
-| Graphic |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |Sträng |
+| Clob |Sträng |
+| Graphic |Sträng |
+| VarChar |Sträng |
+| VarGraphic |Sträng |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -298,13 +298,13 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | Decimal |Decimal |
 | Double |Double |
 | Integer |Int32 |
-| Tal |Double |
+| Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |
-| Tid |TimeSpan |
-| Time With Time Zone |String |
-| Tidsstämpel |DateTime |
-| Timestamp With Time Zone |Datetimeoffset |
+| Time |TimeSpan |
+| Time With Time Zone |Sträng |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |
@@ -315,15 +315,15 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Interval Month |String |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
-| Xml |String |
+| Interval Year |Sträng |
+| Interval Year To Month |Sträng |
+| Interval Month |Sträng |
+| Period(Date) |Sträng |
+| Period(Time) |Sträng |
+| Period(Time With Time Zone) |Sträng |
+| Period(Timestamp) |Sträng |
+| Period(Timestamp With Time Zone) |Sträng |
+| Xml |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

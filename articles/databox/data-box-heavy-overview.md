@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271754"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592304"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Vad är Azure Data Box – tung? (förhandsversion)
+# <a name="what-is-azure-data-box-heavy"></a>Vad är Azure Data Box – tung?
 
 Azure Data Box tung kan du skicka hundratals terabyte data till Azure i en snabb, prisvärd, och tillförlitligt sätt. Data överförs till Azure genom att skicka en Data Box tung enhet med 1 PB lagringskapacitet, där du fyller med dina data och skickar tillbaka till Microsoft. Enheten har en robust gemener och versaler att skydda och skydda dina data under överföringen.
 
-Data Box tung förhandsvisas just nu. Registrera dig att begära för en enhet via Azure portal. När enheten tas emot i ditt datacenter, konfigurera den med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. Dina data har överförts till Azure Storage-konton i Azure-datacenter. Du kan följa hela slutpunkt till slutpunkt-processen i Azure-portalen.
+När enheten tas emot i ditt datacenter, konfigurera den med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. Dina data har överförts till Azure Storage-konton i Azure-datacenter. Du kan följa hela slutpunkt till slutpunkt-processen i Azure-portalen.
 
 
 > [!IMPORTANT]
-> - Data Box – tung är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
-> - Om du vill beställa en enhet, registrerar du dig i [Preview-portalen](https://aka.ms/azuredatabox).
-> - Under förhandsversionen kan Data Box – tung levereras till kunder i USA och EU. Mer information finns i [Regional tillgänglighet](#region-availability).
+> - Om du vill begära en enhet, registrera dig i den [Azure-portalen](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Användningsfall
 
@@ -115,25 +114,14 @@ Gå till den senaste informationen om regiontillgänglighet för Data Box tung [
 
 ## <a name="sign-up"></a>Registrera dig
 
-Data Box – tung är en förhandsversion och du måste registrera dig. Vidta följande steg för att registrera dig för Data Box tung:
+Vidta följande steg för att registrera dig för Data Box tung:
 
-1. Logga in på Azure-portalen på: https://aka.ms/azuredatabox.
+1. Logga in på Azure-portalen på: https://portal.azure.com.
 2. Klicka på **+ skapa en resurs** att skapa en ny resurs. Sök efter **Azure Data Box**. Välj **Azure Data Box**-tjänsten.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Klicka på **Skapa**.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Välj den prenumeration som du vill använda för förhandsversionen av Data Box – tung. Välj den region där du vill distribuera Data Box – tung-resursen. I alternativet **Data Box – tung** klickar du på **Registrera dig**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Välj den prenumeration som du vill använda för Data Box tung. Välj den region där du vill distribuera Data Box – tung-resursen. I alternativet **Data Box – tung** klickar du på **Registrera dig**.
 5. Svara på frågor om data bosatt land/region, tidsperiod, target Azure-tjänsten för dataöverföring, nätverkets bandbredd och data transfer frekvens. Granska sekretess och villkor och markera kryssrutan mot att Microsoft kan använda din e-postadress för att kontakta dig.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-När du är registrerad och aktiverad för förhandsversionen kan beställa du en Data Box tung.
+När du har loggat, kan du beställa en Data Box tung.
 
     

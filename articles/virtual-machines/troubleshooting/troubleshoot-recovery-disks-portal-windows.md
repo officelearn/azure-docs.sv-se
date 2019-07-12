@@ -4,7 +4,7 @@ description: Lär dig att felsöka problem med Windows virtuell dator i Azure ge
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0569878d61ce83c4847867378d8e68fe0faa59b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320931"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709402"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator med Azure-portalen för återställning
 Om din Windows virtuell dator (VM) i Azure påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan virtuell Windows-dator att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 6e979db29f4a223b61580c48101c0d242fdbebbf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a18f6b57e203c40c0f667f07e8371348cb738c9b
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616339"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827571"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Vanliga och frågor svar om projektet Akustik
 
@@ -29,7 +29,7 @@ Du kan ladda ned den [projekt Akustik Unity-plugin-programmet](https://www.micro
 
 ## <a name="does-project-acoustics-support-ltxgt-platform"></a>Har stöd för projektet Akustik &lt;x&gt; plattform?
 
-Projektstöd Akustik plattform utvecklas baserat på kundernas behov. Kontakta oss på den [projekt Akustik forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) att fråga om stöd för ytterligare plattformar.
+Projektstöd Akustik plattform utvecklas baserat på kundernas behov. Kontakta oss på den [projekt Akustik problemet forum](https://github.com/microsoft/ProjectAcoustics/issues) att fråga om stöd för ytterligare plattformar.
 
 ## <a name="is-azure-used-at-runtime"></a>Används Azure vid körning?
 

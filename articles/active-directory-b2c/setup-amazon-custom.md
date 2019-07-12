@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b58aad8a5cb71744aca9baaa3a27d4d1efe8e2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512567"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655263"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Amazon-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "66512567"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Amazon-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har ett Amazon-konto, skapa en på [ https://www.amazon.com/ ](https://www.amazon.com/).
@@ -47,7 +47,7 @@ Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+4. På sidan Översikt väljer **Identitetsramverk**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Manual`.
 7. Ange en **namn** för principnyckeln. Till exempel `AmazonSecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
@@ -57,14 +57,14 @@ Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
 
-Om du vill att användarna att logga in med ett Amazon-konto måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats. 
+Om du vill att användarna att logga in med ett Amazon-konto måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
 
 Du kan definiera ett Amazon-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
 
 
 1. Öppna den *TrustFrameworkExtensions.xml*.
 2. Hitta den **ClaimsProviders** element. Om det inte finns, lägger du till det under rotelementet.
-3. Lägga till en ny **ClaimsProvider** på följande sätt:  
+3. Lägga till en ny **ClaimsProvider** på följande sätt:
 
     ```xml
     <ClaimsProvider>
@@ -147,7 +147,7 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
+
     Uppdatera värdet för **TechnicalProfileReferenceId** -ID: t för den tekniska profilen du skapade tidigare. Till exempel `Amazon-OAuth`.
 
 3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.

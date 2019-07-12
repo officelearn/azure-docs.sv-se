@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258961"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654005"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -22,11 +22,11 @@ Den här artikeln beskriver registrera som en cloud marketplace-utgivare. Beroen
 
 |  | Registreringssteget | Duration | Information |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | Skapa ett Partnercenter-konto | 15 min | [Skapa ett Partnercenter-konto](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
-| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
+| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](/azure/marketplace/deprecated/register-dev-center) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registrera i Microsoft Partner Network  
@@ -50,9 +50,9 @@ En Microsoft-konto, t.ex.  *\@outlook.com eller \@live.com*, används för att f
 [! [Viktigt] Tänk på att ett Microsoft-konto som är associerade med din e-postadress inte tillåter att du kan få åtkomst till portalen.
 
 > [!Note]
-> Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
+> Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-tenants) att avgöra om den kan användas för marketplace-publicering. 
 > 
-> Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
+> Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-users) innan du försöker skapa eller använda din befintliga Account.
 
 *   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

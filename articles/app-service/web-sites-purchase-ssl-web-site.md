@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955706"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618904"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -30,7 +31,7 @@ Den här självstudiekursen visar hur du skyddar dina [App Service-app](https://
 > App Service-certifikat kan användas för alla Azure- eller icke - Azure-tjänster och är inte begränsat till App Services. Om du vill göra det måste du skapa en lokal PFX-kopia av en App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapar en lokal PFX-kopia av ett App Service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Att följa den här guiden:
 
@@ -51,8 +52,8 @@ Använd följande tabell för att konfigurera certifikatet. Klicka på **Skapa**
 |-|-|
 | Namn | Ett eget namn för din App Service-certifikat. |
 | Värdnamnets domän | Om du anger här rotdomänen, får du ett certifikat som skyddar *både* rotdomän och `www` underdomänen. Att säkra en underdomän, ange det fullständigt kvalificerade domännamnet för underdomänen här (till exempel `mysubdomain.contoso.com`). |
-| Prenumeration | Datacenter som är värd för webbappen. |
-| Resursgrupp | Den resursgrupp som innehåller certifikatet. Du kan använda en ny resursgrupp eller Välj samma resursgrupp som din App Service-app, till exempel. |
+| Subscription | Datacenter som är värd för webbappen. |
+| Resource group | Den resursgrupp som innehåller certifikatet. Du kan använda en ny resursgrupp eller Välj samma resursgrupp som din App Service-app, till exempel. |
 | Certifikat-SKU | Avgör vilken typ av certifikat för att skapa, om ett standardcertifikat eller en [jokerteckencertifikat](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikat som erhålls från GoDaddy. |
 
@@ -71,7 +72,7 @@ I den **Key Vault-Status** klickar du på **Key Vault-lagret** att skapa ett nyt
 | Inställning | Beskrivning |
 |-|-|
 | Namn | Ett unikt namn som består för alfanumeriska tecken och bindestreck. |
-| Resursgrupp | Välj samma resursgrupp som din App Service-certifikat som en rekommendation. |
+| Resource group | Välj samma resursgrupp som din App Service-certifikat som en rekommendation. |
 | Location | Välj samma plats som din App Service-app. |
 | Prisnivå | Mer information finns i [prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Åtkomstprinciper| Definierar program och kunna komma till valvet-resurser. Du kan konfigurera den senare, följa stegen i [bevilja flera program åtkomst till key vault](../key-vault/key-vault-group-permissions-for-apps.md). |

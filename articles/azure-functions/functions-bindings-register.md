@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480338"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625902"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions tillägg av bindning
 
@@ -33,8 +33,8 @@ I följande tabell anger när och hur du registrerar bindningar.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure Portal|Automatisk|Automatisk|
 |Icke-.NET-språk eller lokal Azure Core Tools-utveckling|Automatisk|[Använd Azure Functions Core Tools och tillägget paket](#extension-bundles)|
-|C#med hjälp av Visual Studio 2019-klassbiblioteket|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2019)|[Använd NuGet-verktyg](#c-class-library-with-visual-studio-2019)|
-|C#-klassbibliotek har med hjälp av Visual Studio Code|Gäller inte|[Använda .NET Core CLI](#c-class-library-with-visual-studio-code)|
+|C#med Visual Studio-klassbiblioteket|[Använd NuGet-verktyg](#vs)|[Använd NuGet-verktyg](#vs)|
+|C#-klassbibliotek har med hjälp av Visual Studio Code|Gäller inte|[Använda .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles"></a>Tillägget paket för lokal utveckling
 
@@ -69,9 +69,9 @@ Den aktuella uppsättningen av tillägg installerade som standard paketet räkna
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>C\# -klassbiblioteket med Visual Studio 2019
+## <a name="vs"></a> C\# -klassbiblioteket med Visual Studio
 
-I **Visual Studio 2019**, du kan installera paket från Package Manager-konsolen med hjälp av den [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) kommandot, som visas i följande exempel:
+I **Visual Studio**, du kan installera paket från Package Manager-konsolen med hjälp av den [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) kommandot, som visas i följande exempel:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ Namnet på paketet som används för en viss bindning har angetts i referensarti
 
 Ersätt `<TARGET_VERSION>` i det här exemplet med en specifik version av paketet, till exempel `3.0.0-beta5`. Giltigt versioner visas på sidorna enskilda paket på [NuGet.org](https://nuget.org). Huvudversioner som motsvarar funktionskörningen 1.x och 2.x har angetts i referensartikeln för bindningen.
 
-## <a name="c-class-library-with-visual-studio-code"></a>C#-klassbibliotek med Visual Studio Code
+Om du använder `Install-Package` för att referera till en bindning, behöver du inte använda [tillägget paket](#extension-bundles). Den här metoden är specifik för klassbibliotek som är inbyggda i Visual Studio.
+
+## <a name="vs-code"></a> C#-klassbibliotek med Visual Studio Code
 
 > [!NOTE]
 > Vi rekommenderar att du använder [tillägget paket](#extension-bundles) har funktioner som automatiskt ska installera en kompatibel uppsättning bindning tilläggspaket.
 
-I **Visual Studio Code**, paket installeras för en C# klassbiblioteksprojektet från en kommandotolk med hjälp av den [dotnet lägga till paketet](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) kommando i CLI för .NET Core, som visas i följande exempel:
+I **Visual Studio Code**, paket installeras för en C# klassbiblioteksprojektet från en kommandotolk med hjälp av den [dotnet lägga till paketet](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) i .NET Core CLI. I följande exempel visar hur du lägger till en bindning:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 .NET Core CLI kan endast användas för Azure Functions 2.x-utveckling.
 
-Namnet på paketet som ska användas för en viss bindning har angetts i referensartikeln för bindningen. Ett exempel finns i den [paket i Service Bus-bindning referensartikeln](functions-bindings-service-bus.md#packages---functions-1x).
+Ersätt `<BINDING_TYPE_NAME>` med namnet på paketet som angavs i specifikt för din önskade bindning. Du kan hitta önskad bindning referensartikeln i den [listan över stöds bindningar](./functions-triggers-bindings.md#supported-bindings).
 
 Ersätt `<TARGET_VERSION>` i det här exemplet med en specifik version av paketet, till exempel `3.0.0-beta5`. Giltigt versioner visas på sidorna enskilda paket på [NuGet.org](https://nuget.org). Huvudversioner som motsvarar funktionskörningen 1.x och 2.x har angetts i referensartikeln för bindningen.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Azure Function-utlösare och bindningen exempel](./functions-bindings-example.md)
-

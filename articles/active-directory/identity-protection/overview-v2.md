@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108887"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673010"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdateras)?
 
@@ -119,7 +119,7 @@ Användaren risken beräknas genom att fundera över alla risker som är associe
 
 ## <a name="how-identity-protection-detects-risk"></a>Hur Identity Protection identifierar risker  
 
-Azure AD använder maskininlärning att identifiera avvikelser och misstänkta aktiviteter, med hjälp av båda signaler som identifierats i realtid under inloggningar samt som signalerar till icke-realtid relaterade till användare och deras inloggningsaktiviteter. Identity Protection beräknar använder dessa data, ett i realtid inloggningsrisk varje gång en användare autentiseras samt fastställa en övergripande risknivån för räckvidd användare. Identity Protection kan du vidta åtgärder automatiskt för dessa risker identifieringar genom att konfigurera Identity Protection användarrisk och Inloggningsrisk principer.  
+Azure AD använder maskininlärning att identifiera avvikelser och misstänkta aktiviteter, med hjälp av båda signaler som identifierats i realtid under inloggningar samt som signalerar till icke-realtid relaterade till användare och deras inloggningsaktiviteter. Identity Protection beräknar använder dessa data, ett i realtid inloggningsrisk varje gång en användare autentiseras samt fastställa en övergripande risknivån för varje användare. Identity Protection kan du vidta åtgärder automatiskt för dessa risker identifieringar genom att konfigurera Identity Protection användarrisk och Inloggningsrisk principer.  
 
  
 
@@ -194,7 +194,7 @@ Om du vill komma igång med Identity Protection måste du först konfigurera en 
 
 Identity Protection stöder 3 roller i Azure AD för att balansera hanteringsaktiviteter runt distributionen: 
 
-| Roll | Kan göra | Det går inte att göra |
+| Role | Kan göra | Det går inte att göra |
 | --- | --- | --- |
 | Global administratör | Fullständig åtkomst till Identity Protection, publicera Identity Protection | |
 | Säkerhetsadministratör | Fullständig åtkomst till Identity Protection | Publicera Identity Protection kan återställa lösenord för en användare |

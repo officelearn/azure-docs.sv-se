@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304213"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607125"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stöd för SQL Server 2008 och SQL Server 2008 R2 med Azure
 
@@ -43,7 +43,7 @@ Avbildningar som distribueras via Marketplace medföljer SQL IaaS-tillägget som
 ## <a name="licensing"></a>Licensiering
 Betala per användning SQL Server 2008R2-distributioner kan konvertera till [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Om du vill konvertera en licens med Software Assurance (SA) baserat till betala per användning, kunder bör registreras med SQL-VM [resursprovidern](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). När registrerad hos resursprovidern SQL VM, att licenstyp SQL utbytbara mellan AHB och betala per användning.
+Om du vill konvertera en licens med Software Assurance (SA) baserat till betala per användning, kunder bör registreras med SQL-VM [resursprovidern](virtual-machines-windows-sql-register-with-resource-provider.md). När registrerad hos resursprovidern SQL VM, att licenstyp SQL utbytbara mellan AHB och betala per användning.
 
 Lokal installerade instanser av SQL Server 2008 eller SQL Server 2008 R2 på Azure VM kan registrera med SQL-resursprovidern och konvertera sina licenstyp till betala per användning.
 
@@ -69,7 +69,7 @@ Lösningar för haveriberedskap för EOS SQL Server på Azure VM är följande:
 - **Azure Site Recovery**: Du kan replikera den virtuella datorn mellan zoner och -regioner via Azure Site Recovery-replikering. SQL Server kräver App programkonsekventa ögonblicksbilder att garantera rör katastrofåterställning. Azure Site Recovery erbjuder minst 1 timme RPO och två timmar + SQL Server-återställningstid RTO för EOS SQL Server DR.
 
 ## <a name="security-patching"></a>Säkerhetskorrigeringar
-Utökade säkerhetsuppdateringar för SQL Server-datorer kommer att levereras via Microsoft Update-kanaler när SQL Server-dator har registrerats med SQL [resursprovidern](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Antingen du kan hämta korrigeringar manuellt eller automatiskt.
+Utökade säkerhetsuppdateringar för SQL Server-datorer kommer att levereras via Microsoft Update-kanaler när SQL Server-dator har registrerats med SQL [resursprovidern](virtual-machines-windows-sql-register-with-resource-provider.md). Antingen du kan hämta korrigeringar manuellt eller automatiskt.
 
 **Automatisk uppdatering** är aktiverat som standard. Med inställningen Automatisk uppdatering kan Azure korrigera SQL Server och operativsystemet automatiskt. Du kan ange en dag i veckan, tid och varaktighet för en underhållsperiod om SQL IaaS-tillägget har installerats. Azure utför uppdateringar under den här underhållsperioden. Den virtuella datorns lokala tid används för underhållsperiodens schema.  Mer information finns i [Automatisk uppdatering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 

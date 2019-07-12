@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485363"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653530"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Fråga efter exempel med ”enkla” Söksyntaxen i Azure Search
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exempel 3: Filterfrågor
 
-[Filtrera syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) är ett OData-uttryck som du kan använda med **search** eller ensamt. Ett filter för fristående, utan en sökparameter är användbart när filteruttrycket kan fullständigt kvalificera dokument av intresse. Det finns inga lexikal eller lingvistisk analys utan en frågesträng utan bedömning som (samtliga värden är 1), och inga rangordning. Observera att strängen är tom.
+[Filtrera syntax](https://docs.microsoft.com/azure/search/search-query-odata-filter) är ett OData-uttryck som du kan använda med **search** eller ensamt. Ett filter för fristående, utan en sökparameter är användbart när filteruttrycket kan fullständigt kvalificera dokument av intresse. Det finns inga lexikal eller lingvistisk analys utan en frågesträng utan bedömning som (samtliga värden är 1), och inga rangordning. Observera att strängen är tom.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Ett annat kraftfulla sätt att kombinera filter och Sök **`search.ismatch*()`**
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Mer information om funktionen finns i [search.ismatch i ”Filter exempel”](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Mer information om funktionen finns i [search.ismatch i ”Filter exempel”](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Exempel 4: Intervallfiltren
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Exempel 5: Geo-sökning
 
-Exempelindexet innehåller ett geo_location fält med koordinater för latitud och longitud. Det här exemplet används den [geo.distance funktionen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) som filtrerar dokumenten i en startpunkt omkrets ut till en godtycklig avstånd (i kilometer) som du anger. Du kan justera det sista värdet i frågan (4) att minska eller öka ytan på frågan.
+Exempelindexet innehåller ett geo_location fält med koordinater för latitud och longitud. Det här exemplet används den [geo.distance funktionen](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) som filtrerar dokumenten i en startpunkt omkrets ut till en godtycklig avstånd (i kilometer) som du anger. Du kan justera det sista värdet i frågan (4) att minska eller öka ytan på frågan.
 
 I följande exempel är i formatet för POST för läsbarhet:
 

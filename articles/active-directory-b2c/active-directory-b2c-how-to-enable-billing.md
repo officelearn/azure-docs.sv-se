@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510129"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835426"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure Active Directory B2C-klient
 
@@ -45,9 +45,9 @@ Gå till Azure AD-klient som visar din Azure-prenumeration. Öppna den [Azure-po
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Hitta Azure AD B2C på Azure Marketplace
 
-Klicka på den **skapa en resurs** knappen. I fältet **Sök på marketplace** skriver du `B2C`.
+Klicka på den **skapa en resurs** knappen. I den **Sök på Marketplace** anger `Active Directory B2C`.
 
-![Lägg till knappen är markerad och texten Azure AD B2C i den fältet Sök på marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Portalen skärmbild med ”Active Directory B2C' i Marketplace-sökning](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 I resultatlistan väljer **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Välj en aktiv Azure-prenumeration som du är administratör för prenumeratione
 
 Välj en resursgrupp och plats för resursgruppen. Det här urvalet har ingen inverkan på din Azure AD B2C-klientplats, prestanda eller fakturering status.
 
-![Skapa B2C-resurs](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Sidan Azure AD B2C-resursen skapas i Azure-portalen](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Hantera dina resurser för Azure AD B2C-klient
 
@@ -80,7 +80,15 @@ Du kan använda den här resursen till:
 - Skicka en supportförfrågan
 - Flytta din Azure AD B2C-klient-resurs till en annan Azure-prenumeration eller till en annan resursgrupp.
 
-![Inställningar för B2C-resurs](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Inställningssidan för B2C-resursen i Azure portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Ändra Azure AD B2C-klient fakturering prenumeration
+
+Azure AD B2C-klienter kan flyttas till en annan prenumeration om käll- och -prenumerationer finns i samma Azure Active Directory-klient.
+
+Läs hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration i [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+
+Innan du startar flytten bör du läsa hela artikeln för att helt förstå begränsningar och krav för en sådan flytt. Förutom anvisningar för att flytta resurser innehåller den kritiska information som en checklista för före flytten och hur du validerar flyttåtgärden.
 
 ## <a name="known-issues"></a>Kända problem
 

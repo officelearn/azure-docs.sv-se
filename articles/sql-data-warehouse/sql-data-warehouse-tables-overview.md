@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851579"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626134"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Utforma tabeller i Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ För att visa hur tabellerna i SQL Data Warehouse, kan du använda fakta och dim
 
 | WideWorldImportersDW tabell  | Registertyp | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Stad | Dimension | wwi.DimCity |
+| City | Dimension | wwi.DimCity |
 | Beställa | Fakta för | wwi.FactOrder |
 
 
@@ -107,7 +107,7 @@ Som standard lagrar SQL Data Warehouse en tabell som ett grupperat kolumnlagring
 En lista över columnstore funktioner finns i [vad är nytt för kolumnlagringsindex](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för kolumnlagringsindex](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistik
-Frågeoptimeringen använder statistik på kolumnnivå när den skapar planen för att köra en fråga. För att förbättra frågeprestanda är det viktigt att ha statistik på enskilda kolumner, särskilt de kolumner som används i frågan kopplar. [Skapa statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) sker automatiskt.  Dock sker uppdaterar statistik inte automatiskt. Uppdatera statistik när ett stort antal rader läggs till eller ändras. Till exempel uppdatera statistiken efter att en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
+Frågeoptimeringen använder statistik på kolumnnivå när den skapar planen för att köra en fråga. För att förbättra frågeprestanda är det viktigt att ha statistik på enskilda kolumner, särskilt de kolumner som används i frågan kopplar. [Skapa statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) sker automatiskt.  Dock sker uppdaterar statistik inte automatiskt. Uppdatera statistik när ett stort antal rader läggs till eller ändras. Till exempel uppdatera statistiken efter att en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Kommandon för att skapa tabeller
 Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en select-instruktion. Här följer T-SQL-kommandon för att skapa en tabell.

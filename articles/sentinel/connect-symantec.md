@@ -1,43 +1,44 @@
 ---
-title: Anslut Symantec ICDX data till Azure Sentinel-Preview | Microsoft Docs
-description: Lär dig hur du ansluter Symantec ICDX data till Azure Sentinel.
+title: Anslut Symantec ICDx data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Symantec ICDx data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244349"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673756"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Ansluta din Symantec ICDX-installation 
+# <a name="connect-your-symantec-icdx-appliance"></a>Ansluta din Symantec ICDx-installation 
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Symantec ICDX-anslutningsappen kan du enkelt ansluta alla dina säkerhetslösningen för Symantec med din Azure Sentinel, att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden. Integreringen mellan Symantec ICDX och Azure Sentinel gör användning av REST API.
+Symantec ICDx-anslutningsappen kan du enkelt ansluta alla dina säkerhetslösningen för Symantec med din Azure Sentinel, att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden. Integreringen mellan Symantec ICDx och Azure Sentinel gör användning av REST API.
 
 
 > [!NOTE]
 > Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Konfigurera och ansluta Symantec ICDX 
+## <a name="configure-and-connect-symantec-icdx"></a>Konfigurera och ansluta Symantec ICDx 
 
-Symantec ICDX kan integrera och exportloggar direkt till Azure Sentinel.
+Symantec ICDx kan integrera och exportloggar direkt till Azure Sentinel.
 
-1. Öppna hanteringskonsolen för ICDX för att lägga till Microsoft Azure Sentinel (Log Analytics) vidarebefordrare.
+1. Öppna hanteringskonsolen för ICDx för att lägga till Microsoft Azure Sentinel (Log Analytics) vidarebefordrare.
 2. Klicka på navigeringsfältet ICDx **Configuration**. 
 3. Överst på den **Configuration** klickar du på **vidarebefordrare**.
 4. Under **vidarebefordrare**, bredvid Microsoft Azure Sentinel (Log Analytics), klickar du på **Lägg till**. 
@@ -66,7 +67,7 @@ Symantec ICDX kan integrera och exportloggar direkt till Azure Sentinel.
     - **Anpassat loggnamn**: Ange den anpassade Loggnamnet i Microsoft Azure portal Log Analytics-arbetsytan som du ska vidarebefordra händelser. Standardvärdet är SymantecICDx. Det här fältet är obligatoriskt.
 8. Klicka på *spara* Slutför forwarder-konfiguration. 
 9. Starta vidarebefordrare, under **alternativ**, klickar du på **mer** och sedan **starta**.
-10. Om du vill använda relevanta schemat i Log Analytics för Symantec ICDX-händelser, söka efter **SymantecICDX_CL**.
+10. Om du vill använda relevanta schemat i Log Analytics för Symantec ICDx-händelser, söka efter **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Verifiera anslutningen
@@ -76,7 +77,7 @@ Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytic
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Symantec ICDX till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter Symantec ICDx till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
 

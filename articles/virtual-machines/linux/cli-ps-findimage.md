@@ -4,7 +4,7 @@ description: Lär dig hur du använder Azure CLI för att fastställa utgivare, 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 453628dca04fbc3c48564f15b6cf61802165b0cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbe98c4ad3a1b737b9df0d2ea53d53875f26ba54
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60880579"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668374"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
@@ -202,7 +202,7 @@ Använd den här informationen för att hitta erbjudanden från en viss utgivare
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Location    Name
@@ -219,7 +219,7 @@ Du ser att regionen West US Canonical och publicerar den *UbuntuServer* erbjudan
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Location    Name
@@ -294,7 +294,7 @@ Till exempel Canonical Ubuntu Server 18.04 LTS-avbildning inte har ytterligare v
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
-Utdata:
+Resultat:
 
 ```
 {
@@ -315,7 +315,7 @@ Köra en liknande kommando för RabbitMQ certifierats av Bitnami-avbildningen vi
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Utdata:
+Resultat:
 
 ```
 {

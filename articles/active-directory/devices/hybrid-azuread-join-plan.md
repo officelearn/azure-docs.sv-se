@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509604"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655983"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -87,7 +87,7 @@ Om du lita på systemförberedelseverktyget (Sysprep) och om du använder en **i
 
 Om du lita på en virtuell dator (VM)-ögonblicksbild för att skapa ytterligare virtuella datorer, se till att ögonblicksbilden inte är från en virtuell dator som redan har registrerats med Azure AD som Hybrid Azure AD-anslutning.
 
-Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) till din klient, vi rekommenderar starkt att ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version:
+Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) till din klient, vi rekommenderar starkt att ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version:
 
 - Alla befintliga Azure AD-registrerad tillstånd skulle tas bort automatiskt när enheten är Hybrid Azure AD-anslutna.
 - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001.

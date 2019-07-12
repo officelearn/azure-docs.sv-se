@@ -1,5 +1,5 @@
 ---
-title: Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C | Microsoft Docs
+title: Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C
 description: Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508308"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654180"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "66508308"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från ett Salesforce-organisation med [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Du aktiverar inloggning genom att lägga till en [tekniska SAML-profilen](saml-technical-profile.md) till en anpassad princip.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan gjort det, registrera dig för en [kostnadsfritt Developer Edition konto](https://developer.salesforce.com/signup). Den här artikeln används den [Salesforce Lightning upplevelse](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
@@ -31,11 +31,11 @@ Den här artikeln visar hur du aktiverar inloggning för användare från ett Sa
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Konfigurera Salesforce som identitetsprovider
 
-1. [Logga in till Salesforce](https://login.salesforce.com/). 
+1. [Logga in till Salesforce](https://login.salesforce.com/).
 2. På den vänstra menyn under **inställningar**, expandera **identitet**, och välj sedan **identitetsprovider**.
 3. Välj **aktivera identitetsprovider**.
-4. Under **Välj certifikatet**, Välj det certifikat du vill Salesforce som du använder för att kommunicera med Azure AD B2C. Du kan använda standard-certifikatet. 
-5. Klicka på **Spara**. 
+4. Under **Välj certifikatet**, Välj det certifikat du vill Salesforce som du använder för att kommunicera med Azure AD B2C. Du kan använda standard-certifikatet.
+5. Klicka på **Spara**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Skapa en ansluten app i Salesforce
 
@@ -49,7 +49,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från ett Sa
       ```
 
 6. I den **ACS URL** fältet, anger du följande URL. Se till att du ersätter värdet för `your-tenant` med namnet på din Azure AD B2C-klient.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Du behöver lagra certifikatet som du skapade i din Azure AD B2C-klient.
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+4. På sidan Översikt väljer **Identitetsramverk**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Upload`.
 7. Ange ett **Namn** för principen. Till exempel SAMLSigningCert. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
-8. Bläddra till och välj det B2CSigningCert.pfx-certifikat som du skapade. 
+8. Bläddra till och välj det B2CSigningCert.pfx-certifikat som du skapade.
 9. Ange den **lösenord** för certifikatet.
 3. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
 
-Om du vill att användarna ska logga in med ett Salesforce-konto, måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats. 
+Om du vill att användarna ska logga in med ett Salesforce-konto, måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
 
 Du kan definiera en Salesforce-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
 
@@ -189,7 +189,7 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
 
 3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.

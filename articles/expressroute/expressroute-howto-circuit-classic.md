@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c3368408b06f13139b9126dfecad0a82857134
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370278"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657291"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
@@ -21,6 +21,7 @@ ms.locfileid: "60370278"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +126,7 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 Du kan utföra följande uppgifter utan avbrott:
 
 * Aktivera eller inaktivera en ExpressRoute-premiumtillägget för ExpressRoute-krets.
-* Öka bandbredden för ExpressRoute-kretsen under förutsättning att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte. 
+* Öka bandbredden för ExpressRoute-kretsen under förutsättning att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte.
 * Ändra Avläsning av planen från förbrukade Data till obegränsade Data. Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 
@@ -154,8 +155,8 @@ Kretsen har nu de ExpressRoute premium-tillägg-funktioner som aktiveras. När k
 
 > [!IMPORTANT]
 > Den här åtgärden kan misslyckas om du använder resurser som är större än vad som tillåts för standard-krets.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Överväganden
 
@@ -189,8 +190,8 @@ Kontrollera den [ExpressRoute vanliga frågor och svar](expressroute-faqs.md) f�
 > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
 >
 > Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradera bandbredd måste du ta bort etableringen av ExpressRoute-kretsen och etablera om en ny ExpressRoute-krets.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Ändra storlek på en krets
 

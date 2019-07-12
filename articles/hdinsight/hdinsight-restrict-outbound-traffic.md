@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433439"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620693"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg (förhandsversion)
 
@@ -54,13 +54,13 @@ På den **lägga till programmet regelsamlingen** skärmen, gör du följande:
 
 1. Ange en **namn**, **prioritet**, och klicka på **Tillåt** från den **åtgärd** listrutan och ange följande regler i **FQDN taggar avsnittet** :
 
-   | **Name** | **Källadress** | **FQDN Tag** | **Anteckningar** |
+   | **Namn** | **Källadress** | **FQDN Tag** | **Anteckningar** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight och WindowsUpdate | Krävs för HDI-tjänster |
 
 1. Lägg till följande regler för att den **Target FQDN avsnittet** :
 
-   | **Name** | **Källadress** | **Protokoll: Port** | **Målets fullständiga domännamn** | **Anteckningar** |
+   | **Namn** | **Källadress** | **Protokoll: Port** | **Målets fullständiga domännamn** | **Anteckningar** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Tillåter Windows inloggningsaktivitet |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Om ditt kluster backas upp av WASB, sedan lägga till en regel för WASB. För att använda endast https-anslutningar kan du till att [”säker överföring krävs”](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverat för lagringskontot. |
@@ -78,16 +78,16 @@ Skapa regler för network för att korrekt konfigurera ditt HDInsight-kluster.
 1. På den **Lägg till nätverk regelsamlingen** anger en **namn**, **prioritet**, och klicka på **Tillåt** från den **åtgärd** nedrullningsbara menyn.
 1. Skapa följande regler i den **IP-adresser** avsnittet:
 
-   | **Name** | **Protokoll** | **Källadress** | **Måladress** | **Målport** | **Anteckningar** |
+   | **Namn** | **Protokoll** | **Källadress** | **Måladress** | **Målport** | **Anteckningar** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Tidstjänst |
-   | Rule_2 | Alla | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Om du använder Enterprise Security Package (ESP), sedan lägga till en regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domänkontrollanterna i AAD-DS-avsnittet i portalen | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Om du använder Enterprise Security Package (ESP), sedan lägga till en regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domänkontrollanterna i AAD-DS-avsnittet i portalen | 
    | Rule_3 | TCP | * | IP-adressen för ditt Data Lake Storage-konto | `*` | Om du använder Azure Data Lake Storage kan du lägga till en regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen som kan leda till högre kostnader för stora databelastningar men trafiken kommer att loggas och granskningsbar i loggar från brandväggen. Kontrollera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett powershell-kommando som `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` att matcha detta FQDN till en IP-adress.|
    | Rule_4 | TCP | * | * | `12000` | (Valfritt) Om du använder Log Analytics kan skapa du en regel i avsnittet IP-adresser om du vill aktivera kommunikation med Log Analytics-arbetsytan. |
 
 1. Skapa följande regler i den **Tjänsttaggar** avsnittet:
 
-   | **Name** | **Protokoll** | **Källadress** | **Tjänsttaggar** | **Målport** | **Anteckningar** |
+   | **Namn** | **Protokoll** | **Källadress** | **Tjänsttaggar** | **Målport** | **Anteckningar** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_7 | TCP | * | SQL | `1433` | Konfigurera en regel i avsnittet Tjänsttaggar för SQL som gör att du kan logga in och granska SQL-trafik, såvida inte du har konfigurerat Tjänsteslutpunkter för SQL Server på HDInsight-undernät som ska passera brandväggen. |
 

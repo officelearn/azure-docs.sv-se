@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187161"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659916"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN Gateway-SKU:er?
 Nej, BGP stöds på Azure VPN-gatewayerna **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** och **HighPerformance**. **Basic** SKU stöds inte.
@@ -85,7 +85,7 @@ Ja, men minst en av dina virtuella nätverksgateways måste ha en aktiv-aktiv-ko
 Ja. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Vilken adress använder Azure VPN-gateway för BGP-peer-IP?
-Azure VPN-gatewayen allokerar en enda IP-adress från GatewayUndernäts-intervallet som definierats för det virtuella nätverket. Som standard är det den näst sista adressen i intervallet. Om ditt GatewaySubnet exempelvis är 10.12.255.0/27, med intervallet 10.12.255.0 till 10.12.255.31, kommer BGP-peer-IP-adressen på Azure VPN-gatewayen vara 10.12.255.30. Du hittar den här informationen när du listar Azure VPN-gatewayinformationen.
+Azure VPN-gatewayen allokerar en IP-adress från Gatewayundernäts-intervallet för aktiv-standby VPN-gatewayer eller två IP-adresser för aktiv-aktiv VPN-gatewayer. Du kan hämta den faktiska BGP IP-adresser som allokerats med hjälp av PowerShell (Get-AzVirtualNetworkGateway, leta efter egenskapen ”bgpPeeringAddress”) eller i Azure-portalen (under egenskapen ”konfigurera BGP ASN” på sidan Gateway-konfiguration).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Vad ställer BGP-peer-IP-adresserna för krav på min VPN-enhet?
 Din lokala BGP-peer-adress **FÅR INTE** vara densamma som den offentliga IP-adressen för din VPN-enhet. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP-adress. Det kan vara en adress som har tilldelats till loopback-gränssnittet på enheten, men observera att det inte kan vara en APIPA-adress (169.254.x.x). Ange den adressen i den motsvarande lokala nätverksgateway som representerar platsen.

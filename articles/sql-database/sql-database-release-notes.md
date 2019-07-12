@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: be39aa63cf923e74dc7ed13ef78ba554ffd3b8a4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070214"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658023"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
-Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL Database och SQL Database-dokumentationen. Förbättringar för SQL Database-tjänsten, finns även [uppdateringar av tjänsten SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates).
+Den här artikeln visar en lista över SQL Database-funktioner som finns i offentlig förhandsversion. SQL Database-uppdateringar och förbättringar finns i [uppdateringar av tjänsten SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Uppdateringar och förbättringar av andra Azure-tjänster finns i [uppdateringar av tjänsten](https://azure.microsoft.com/updates).
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig förhandsversion
 
@@ -44,131 +44,12 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 | Transparent datakryptering (TDE) med ta med din egen nyckel (BYOK) med hanterade instanser |Mer information finns i [Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
 
-## <a name="june-2019"></a>Juni 2019
+## <a name="updates"></a>Uppdateringar
 
-### <a name="service-improvements"></a>Förbättringar av tjänsten
+En lista över SQL Database-uppdateringar och förbättringar av finns i [uppdateringar av tjänsten SQL Database](https://azure.microsoft.com/updates/?product=sql-database).
 
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-| 4 vCores hanterad instans på Gen5 maskinvara generationens| Mer information finns i https://aka.ms/four-cores-sql-mi-update. |
-| Hanterad instans - stöd för prenumerationer med Azure-kredit varje månad för Visual Studio-prenumeranter | Mer information finns i https://aka.ms/sql-mi-visual-studio-subscribers. |
-|Större regionala begränsningar för den hanterade instansen| Mer information finns i [regionala resursbegränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
-| &nbsp; |
+Uppdateringar och förbättringar för alla Azure-tjänster finns i [uppdateringar av tjänsten](https://azure.microsoft.com/updates).
 
+## <a name="contribute-to-content"></a>Bidra till innehåll
 
-## <a name="may-2019"></a>Maj 2019
-
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-|Hyperskala tjänstnivå som släpps för allmän tillgänglighet| Mer information finns i [hyperskala tjänstnivå för upp till 100 TB](sql-database-service-tier-hyperscale.md) och [hämta högpresterande skalning för arbetsbelastningen i din Azure-databas med hyperskala](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
-|Serverlös Beräkningsnivån är för en förhandsversion | Mer information finns i [SQL-databas utan server (förhandsversion)](sql-database-serverless.md).|
-|Tidszon stöd för hanterade instanser som släppts för allmän tillgänglighet |Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
-|Med hanterade instanser som släppts för allmän tillgänglighet-instansens sortering |Mer information finns i [använda PowerShell med Azure Resource Manager-mall för att skapa en hanterad instans i Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
-| Ökade log transaktionspriser och mål-IOPS för databaser som använder den vCore-baserade inköpsmodellen| Mer information finns i [Resource gränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) och [Resource gränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-| Hyperskala service nivån docs uppdaterat GA-version| Mer information finns i [hyperskala tjänstnivå för upp till 100 TB](sql-database-service-tier-hyperscale.md).|
-|Beräkning utan Server nivån docs lanseras med offentlig förhandsversion| Mer information finns i [SQL-databas utan server (förhandsversion)](sql-database-serverless.md).|
-| &nbsp; |
-
-## <a name="april-2019"></a>April 2019
-
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-| Offentliga slutpunkter för den hanterade instansen i offentlig förhandsversion| Mer information finns i [med hjälp av Azure SQL Database-hanterad instans på ett säkert sätt med offentliga slutpunkten](sql-database-managed-instance-public-endpoint-securely.md).|
-| Tidszon stöd för hanterad instans i offentlig förhandsversion| Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
-| Versionen för att säkra Azure SQL-databaser med hanterade identiteter i andra offentlig förhandsversion| Se [skydda Azure SQL-databaser med hanterade identiteter blev just ännu enklare](https://azure.microsoft.com/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).|
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-| Offentliga slutpunkter för den hanterade instansen i offentlig förhandsversion| Mer information finns i [med hjälp av Azure SQL Database-hanterad instans på ett säkert sätt med offentliga slutpunkten](sql-database-managed-instance-public-endpoint-securely.md).|
-| Tidszon stöd för hanterad instans i offentlig förhandsversion| Mer information finns i [tidszonen i Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md). |
-| Resurs-styrning i Azure SQL Database | Mer information finns i [resurs-styrning i Azure SQL Database](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). || &nbsp; |
-
-## <a name="march-2019"></a>Mars 2019
-
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-| Läs stöd för Azure SQL Database som släpps för allmän tillgänglighet | Mer information finns i [lässkalning](sql-database-read-scale-out.md).|
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-| Har lagts till loggen gränser för enskilda databaser|Mer information finns i [enkel database vCore-resursgränser](sql-database-vcore-resource-limits-single-databases.md).|
-| Har lagts till loggen gränser för elastiska pooler och databaser i en pool|Mer information finns i [vCore resource begränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).|
-| Har lagts till Transaction log rate styrning| Lagt till nytt innehåll för [Transaction log rate styrning](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
-| Uppdaterade PowerShell-exempel för enskilda databaser och elastiska pooler använda az.sql modul | Mer information finns i [PowerShell-exempel för enskilda databaser och elastiska pooler](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
-| &nbsp; |
-
-## <a name="february-2019"></a>Februari 2019
-
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-|Skapa en återställningsbart online-index är nu allmänt tillgänglig| Mer information finns i [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
-|Hanterad instans-stöd för routningstabeller förbättrad| Mer information finns i [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
-|Databasen namnbyte stöds i hanterade instansen | Mer information finns i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) och [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntax.|
-|SQL-databas som en källa för referensdata för Stream Analytics. | Mer information finns i [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) och [Azure Stream Analytics nu stöd för Azure SQL Database som referensindata](https://azure.microsoft.com/blog/azure-stream-analytics-now-supports-azure-sql-database-as-reference-data-input/).|
-|Data Migration Assistant lägger till stöd för den hanterade instansen. |Mer information finns i [vad är nytt i DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
-|SQL Server Migration Assistant lägger till stöd för target diagnostisk utvärdering av för den hanterade instansen. | Mer information finns i [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
-|Datamigreringstjänst stöder migrering från Amazon RDS till managed instance | Mer information finns i [Självstudie: Migrera Fjärrskrivbordstjänster SQL Server till Azure SQL Database eller en Azure SQL Database hanterad instans online med DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-|Lägger till den hanterade instansen distribution alternativet förtydliganden|Uppdatera många artiklar för att förtydliga se om det gäller enkel databas och elastisk pool distributionsalternativ för hanterad instans. |
-|Uppdaterade tempdb-storlekar för DTU-baserade inköpsmodellen | Mer information finns i [Tempdb-databasen i SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
-|Uppdaterade import och export med bacpac-fil för hanterad instans-support| Mer information finns i [Import från BACPAC](sql-database-import.md) och [exportera till BACPAC](sql-database-export.md). |
-| &nbsp; |
-
-## <a name="january-2019"></a>Januari 2019
-
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
-| Förbättringar av tjänsten | Information |
-| --- | --- |
-| Ytterligare kornighet alternativ för att beräkna resurser | Generell användning och affärskritisk tjänstnivåer för [enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md) har nu mer detaljerade beräkningsalternativ.|
-| Visning av granskningsposter för den hanterade instansen i Azure portal | Visa [granskningsposter för hanterade instanser](sql-database-managed-instance-auditing.md) i Azure portal stöds nu.|
-| ADVANCE threat funktion för dubblettidentifiering bytt namn till avancerad säkerhet för Data | Funktionen för identifiering av avancerade hot som bytt namn till [avancerade datasäkerhet](sql-advanced-threat-protection.md) för enskilda databaser, elastiska pooler och hanterade instanser. |
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-| Hanterade instanser och Transaktionsreplikering | Har lagts till artikeln om hur du använder [Transaktionsreplikering med hanterade instanser](replication-with-sql-database-managed-instance.md). |
-| Har lagts till Azure AD med självstudiekursen för hanterad instans | Detta [Azure AD med hanterad instans](sql-database-managed-instance-aad-security-tutorial.md) självstudiekurs visar du behöva konfigurera och testa hanterade instans security med Azure AD-inloggningar. |
-| Uppdaterat innehåll för jobbet automation med hjälp av Transact-SQL-skript | Uppdaterade och tydliggjorde innehåll för att använda [jobbet automation med hjälp av Transact-SQL-skript](sql-database-job-automation-overview.md) för enskilda databaser, elastiska pooler och hanterade instanser. |
-| Säkerhetsinnehåll för hanterade instanser uppdateras | Uppdaterade och klargör innehållet för den [säkerhetsmodell för hanterade instanser](sql-database-security-overview.md), och skillnader i med säkerhetsmodell för enskilda databaser och elastiska pooler. |
-| Uppdatera alla snabbstarter och självstudier | Alla snabbstarter och självstudier i den [dokumentation](https://docs.microsoft.com/azure/sql-database) har uppdaterats och så att den matchar ändringar i Azure-portalen. |
-| Översikt för har lagts till snabbstartguider | Lagt till en översikt över Snabbstartsguide till [enkla databaser](sql-database-quickstart-guide.md) och för [hanterade instanser](sql-database-managed-instance-quickstart-guide.md). |
-| Har lagts till SQL-databas i ordlista | Detta [villkoren ordlista](sql-database-glossary-terms.md) artikeln innehåller en fullständig förteckning över SQL Database-termer och länkar till den primära konceptuella sidan som förklarar termen i kontexten. |
-| &nbsp; |
-
-## <a name="contribute-to-content-improvement"></a>Bidra till innehållet förbättring
-
-Azure SQL-dokumentationsuppsättningen är öppen källkod. Att arbeta offentligt ger flera fördelar:
-
-- Öppen källkod lagringsplatser med att få feedback på vilka dokument som behövs mest.
-- Granskning av lagringsplatser med öppen källkod med att publicera det mest hjälpfulla innehållet på din första utgåva.
-- Uppdatering av lagringsplatser med öppen källkod med att göra det enklare att kontinuerligt förbättra innehållet.
-
-Om du vill bidra till Azure SQL Database-dokumentationsinnehåll, se den [Microsoft Docs översikt över deltagarguiden](https://docs.microsoft.com/contribute/). Användarupplevelsen på [docs.microsoft.com](https://docs.microsoft.com/) integrerar [GitHub](https://github.com/) arbetsflödet direkt för att göra det ännu enklare. Börja med att [redigera det dokument du visar](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Hjälp till genom [granska nya ämnen](https://docs.microsoft.com/contribute/#review-open-prs), eller [skapa kvalitetsärenden](https://docs.microsoft.com/contribute/#create-quality-issues).
+För att bidra till dokumentationen för Azure SQL Database, finns det [Docs Deltagarguide](https://docs.microsoft.com/contribute/).

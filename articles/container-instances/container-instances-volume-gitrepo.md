@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563027"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657588"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 
 Lär dig hur du monterar en *gitRepo* volymen för att klona en Git-lagringsplats till dina behållarinstanser.
 
 > [!NOTE]
-> Montera en *gitRepo* volymen är för närvarande begränsade till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+> Montera en *gitRepo* volymen är för närvarande begränsade till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare kan du hitta nuvarande skillnaderna i den [översikt](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="gitrepo-volume"></a>gitRepo-volymer
 
@@ -35,9 +35,9 @@ När du monterar en *gitRepo* volym, kan du ange tre egenskaper för att konfigu
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Montera gitRepo volym: Azure CLI
 
-Montera en gitRepo volym när du distribuerar behållarinstanser med den [Azure CLI](/cli/azure), varor den `--gitrepo-url` och `--gitrepo-mount-path` parametrar till den [az container skapa] [ az-container-create] kommando. Alternativt kan du ange katalogen i volymen för att klona till (`--gitrepo-dir`) och commit-hash för revision kloning (`--gitrepo-revision`).
+Montera en gitRepo volym när du distribuerar behållarinstanser med den [Azure CLI](/cli/azure), varor den `--gitrepo-url` och `--gitrepo-mount-path` parametrar till den [az container skapa][az-container-create] kommando. Alternativt kan du ange katalogen i volymen för att klona till (`--gitrepo-dir`) och commit-hash för revision kloning (`--gitrepo-revision`).
 
-Det här exemplet kommandot klonar Microsofts [aci-helloworld] [ aci-helloworld] exempelprogrammet i `/mnt/aci-helloworld` i container-instans:
+Det här exemplet kommandot klonar Microsofts [aci-helloworld][aci-helloworld] exempelprogrammet i `/mnt/aci-helloworld` i container-instans:
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-Kontrollera gitRepo volymen har monterats genom att starta ett gränssnitt i behållaren med [az container exec] [ az-container-exec] och lista katalogen:
+Kontrollera gitRepo volymen har monterats genom att starta ett gränssnitt i behållaren med [az container exec][az-container-exec] och lista katalogen:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

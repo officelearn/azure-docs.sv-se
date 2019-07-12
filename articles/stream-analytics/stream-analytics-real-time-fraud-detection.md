@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076229"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621829"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
 
@@ -32,7 +32,7 @@ Den här självstudien används ett exempel på bedrägerier i realtid baserat p
 
 En telekomföretaget har en stor mängd data för inkommande anrop. Företaget vill identifiera bedrägliga samtal i realtid så att de kan meddela kunder eller stänga av tjänsten för ett specifikt nummer. En typ av SIM bedrägeri innebär att flera anrop från samma identitet ungefär samma tidpunkt men geografiskt olika platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter särskilda mönster – i det här fallet för anrop som görs ungefär samma tidpunkt i olika länder/regioner. Alla poster i telefon som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I de här självstudierna kommer du simulera telefonsamtal data med hjälp av en klientapp som genererar exempel telefonsamtal metadata. Vissa av posterna som tillverkar appen ser ut som bedrägliga samtal. 
 
@@ -188,7 +188,7 @@ Nu när du har en ström av anropshändelser kan du konfigurera ett Stream Analy
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias  |  CallStream   |  Ange ett namn som identifierar jobbets indata.   |
-   |Prenumeration   |  \<Din prenumeration\> |  Välj den prenumeration som har den Händelsehubb som du skapade.   |
+   |Subscription   |  \<Din prenumeration\> |  Välj den prenumeration som har den Händelsehubb som du skapade.   |
    |Namnområde för händelsehubb  |  asa-eh-ns-demo |  Ange namnet på namnområdet för Händelsehubben.   |
    |Namn på händelsehubb  | asa-eh-frauddetection-demo | Välj namnet på din Event Hub.   |
    |Principnamn för Event Hub  | asa-policy-manage-demo | Välj den åtkomstprincip som du skapade tidigare.   |
@@ -207,7 +207,7 @@ En enkel fråga kan bara läsa alla inkommande data. Men skapar du ofta förfrå
 
 De frågor som du skapar här visas bara omvandlade data på skärmen. I ett senare avsnitt får du konfigurera en utdatamottagare och en fråga som skriver transformerade data till den mottagaren.
 
-Mer information om språk finns i [Frågespråksreferens för Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx).
+Mer information om språk finns i [Frågespråksreferens för Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Hämta exempeldata för att testa frågor
 
@@ -289,11 +289,11 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Den här frågan använder den `Timestamp By` nyckelord i den `FROM` -satsen för att ange vilka tidsstämpelsfält i Indataströmmen du använder för att definiera utlösare för rullande fönster. I det här fallet fönstret delar in data i segment av den `CallRecTime` i varje post. (Om inget fält anges, används den tid som varje händelse anländer till event hub med fönsterhantering igen. Se ”tid Vs programmet ankomsttid” i [Stream Analytics Frågespråksreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Den här frågan använder den `Timestamp By` nyckelord i den `FROM` -satsen för att ange vilka tidsstämpelsfält i Indataströmmen du använder för att definiera utlösare för rullande fönster. I det här fallet fönstret delar in data i segment av den `CallRecTime` i varje post. (Om inget fält anges, används den tid som varje händelse anländer till event hub med fönsterhantering igen. Se ”tid Vs programmet ankomsttid” i [Stream Analytics Frågespråksreferens](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     Projektionen innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
 
-    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal efter land/region för anrop som var femte sekund.
+    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) fungera i den `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal efter land/region för anrop som var femte sekund.
 
 2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg om 5-sekundersintervall.
 
@@ -358,7 +358,7 @@ Om du har ett befintligt blob storage-konto kan använda du som. För den här s
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Utdataalias  |  CallStream-FraudulentCalls   |  Ange ett namn som identifierar jobbets utdata.   |
-   |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
+   |Subscription   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto  |  asaehstorage |  Ange namnet på det lagringskonto du skapade. |
    |Container  | asa-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållarnamn. |
 
@@ -418,5 +418,5 @@ Mer information om Stream Analytics i allmänhet finns i följande artiklar:
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

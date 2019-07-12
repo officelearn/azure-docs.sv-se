@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7bd0b025192c6754c59a915f9f66182f8188e60
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479214"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668799"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
@@ -28,11 +28,13 @@ Microsoft fortsätter att lägga till funktioner till Azure SQL Database. Gå ti
 - Filtrerade till [SQL Database-tjänsten](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtrerade till allmän tillgänglighet [meddelanden (GA)](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) för SQL Database-funktioner.
 
+Om du behöver mer information om skillnaderna du hittar dem på olika sidor för [enkel databas och elastiska pooler](sql-database-transact-sql-information.md) eller [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
+
 ## <a name="sql-server-feature-support-in-azure-sql-database"></a>Stöd för SQL Server-funktionen i Azure SQL Database
 
-I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller information om huruvida funktionen helt eller delvis stöds och en länk till mer information om funktionen.
+I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller information om huruvida funktionen helt eller delvis stöds i Managed Instance eller enskild databaser och elastiska pooler med en länk till mer information om funktionen.
 
-| **SQL-funktionen** | **Stöds av enskilda databaser och elastiska pooler** | **Stöds av hanterade instanser** |
+| **SQL-funktionen** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
 | --- | --- | --- |
 | [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – alla tjänstnivåer än hyperskala | Nej, se [automatisk redundans groups(preview)](sql-database-auto-failover-group.md) som ett alternativ |
 | [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänstnivåer än hyperskala | Ja, i [offentlig förhandsversion](sql-database-auto-failover-group.md)|
@@ -92,11 +94,12 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [GEO-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänstnivåer än hyperskala | Ja – med hjälp av [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Bearbeta diagram](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
+| [Hyperskala arkitektur](sql-database-service-tier-hyperscale.md) | Ja | Nej |
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [Premium och affärskritisk nivåer](sql-database-in-memory.md) | Ja – [företag affärskritisk nivå](sql-database-managed-instance.md) |
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Språkelement](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se enskilda element |  Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
-| [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej, se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Endast [SQLServer och SQL-databas](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | Internt inbyggda som en del av migreringsprocessen för DMS. [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas och det rekommenderas inte att använda loggöverföring som alternativ för hög tillgänglighet. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
+| [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej, se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Endast [SQL Server och SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) utan distribuerade transaktioner. |
+| [Loggöverföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | Inbyggda som en del av migreringsprocessen för DMS. Inte tillgängligt som lösning med hög tillgänglighet, eftersom andra [hög tillgänglighet](sql-database-high-availability.md) metoder är inkluderade i varje databas och det rekommenderas inte att använda loggöverföring som alternativ för hög tillgänglighet. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md). Inte tillgängligt som en replikeringsmekanism för mellan databaser – Använd sekundära repliker på [nivån affärskritisk](sql-database-service-tier-business-critical.md), [automatisk redundans grupper](sql-database-auto-failover-group.md), eller [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md)som alternativen. |
 | [Inloggningar och användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, men `CREATE` och `ALTER` inloggning instruktioner erbjuder inte alla alternativ (inga Windows och på servernivå Azure Active Directory-inloggningar). `EXECUTE AS LOGIN` har inte stöd för – använda `EXECUTE AS USER` i stället.  | Ja, med några [skillnader](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-inloggningar stöds inte och de ska ersättas med Azure Active Directory-inloggningar. |
 | [Långsiktig kvarhållning av säkerhetskopior – LTR](sql-database-long-term-retention.md) | Ja, du Behåll automatiskt gjordes säkerhetskopior till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhetskopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
@@ -113,15 +116,16 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Partitionering](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Ja | Ja |
 | Offentlig IP-adress | Ja. Åtkomsten kan begränsas med brandväggen eller tjänstens slutpunkter.  | Ja. Måste vara explicit aktiverad och port 3342 måste vara aktiverat i NSG-regler. Offentlig IP-adress kan inaktiveras om det behövs. Se [offentlig slutpunkt](sql-database-managed-instance-public-endpoint-securely.md) för mer information. | 
 | [Tidpunkt för återställning av databasen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja – alla tjänstnivåer än hyperskala – Se [återställning av SQL-databas](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja – Se [återställning av SQL-databas](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej | Nej |
+| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej. Du kan fråga efter data i filer på Azure Blob Storage med hjälp av `OPENROWSET` funktion. | Nej. Du kan fråga efter data i filer på Azure Blob Storage med hjälp av `OPENROWSET` funktion. |
 | [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
 | [Predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [Frågemeddelanden](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nej | Ja |
-| [Query Performance Insights](sql-database-query-performance.md) | Ja | Nej |
+| [Query Performance Insights](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [R-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Ja, i [offentlig förhandsversion](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nej |
 | [Resursstyrning](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Ja |
 | [RESTORE-uttryck](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nej | Ja, med obligatorisk `FROM URL` alternativ för säkerhetskopior av filer placeras i Azure Blob Storage. Se [återställa skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Återställa databasen från en säkerhetskopia](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Data från automatiska säkerhetskopieringar endast – se [återställning av SQL-databas](sql-database-recovery-using-backups.md) | Data från automatiska säkerhetskopieringar – Se [SQL Database recovery](sql-database-recovery-using-backups.md) och fullständiga säkerhetskopieringar för Azure Blob Storage - Se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) |
+| [Återställa databasen till SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Nej. | Nej, eftersom SQL Server Database Engine som används i hanterad instans har högre version än RTM-versionen av SQL Server användas lokalt. |
 | [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Ja | Ja |
 | [Semantisk sökning](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Nej | Nej |
 | [Sekvensnummer](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | Ja | Ja |
@@ -140,22 +144,23 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja [version 18,0 och högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Nej, se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
-| [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-single-database-migrate.md) | Ja, i [offentlig förhandsversion](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nej, [Se Power BI](https://docs.microsoft.com/power-bi/) | Nej, [Se Power BI](https://docs.microsoft.com/power-bi/) |
 | [Lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
 | [Systemlagrade funktioner](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Systemlagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Vissa – se enskilda lagrade procedurer | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Systemtabeller](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Vissa – se enskilda tabeller | Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 | [Systemkatalogvyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Vissa – se enskilda vyer | Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
+| [TempDB](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database) | Ja. [Storlek på 32GB per kärna för varje databas](sql-database-vcore-resource-limits-single-databases.md). | Ja. [24GB storleken per virtuell kärna för hela GP-nivå och begränsat av instansstorlek på BC nivån](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)  |
 | [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) (Temporära tabeller) | Lokal och databasbegränsade globala tillfälliga tabeller | Lokal och instans-omfattande globala tillfälliga tabeller |
 | [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](sql-database-temporal-tables.md) | [Ja](sql-database-temporal-tables.md) |
-| Val av tidszon | Nej | [Yes(Preview)](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone) |
+| Val av tidszon | Nej | [Ja](sql-database-managed-instance-timezone.md), och måste konfigureras när den hanterade instansen skapas. |
 | Identifiering av hot|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Spårningsflaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
+| [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) | Ja, [transaktion och ögonblicksbild ögonblicksbildsreplikering endast](sql-database-single-database-migrate.md) | Ja, i [förhandsversion](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Se begränsningarna [här](sql-database-managed-instance-transact-sql-information.md#replication). |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja – generell användning och affärskritisk tjänstnivåer endast| [Ja](transparent-data-encryption-azure-sql.md) |
-| [VNet](../virtual-network/virtual-networks-overview.md) | Delvis – Se [slutpunkter för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, Resource Manager-modellen |
-| [Windows Server-Redundansklustring](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
+| [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, det gör begränsad åtkomst med hjälp av [slutpunkter för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, Managed Instance matas in i kundens virtuella nätverk. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
+| [Windows Server-Redundansklustring](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Nej. Andra metoder som ger [hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | Nej. Andra metoder som ger [hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [XML-index](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg

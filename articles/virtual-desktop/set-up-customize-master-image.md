@@ -4,15 +4,15 @@ description: Hur du förbereder, anpassa och ladda upp en huvudavbildning för v
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 186086a94470faaf19fa8a3c07939b9856ae2ec9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466822"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620442"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -225,7 +225,7 @@ Följande instruktioner berätta hur du överför huvudavbildningen till ett Azu
 Nu när du har någon bild kan du skapa eller uppdatera värd pooler. Mer information om hur du skapar och uppdatera värden pooler finns i följande artiklar:
 
 - [Skapa en värd-pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudie: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Självstudier: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Skapa en värd-pool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en användare profil resurs för en värd-pool](create-host-pools-user-profile.md)
 - [Konfigurera den virtuella Windows-skrivbordet belastningsutjämningsmetoden](configure-host-pool-load-balancing.md)

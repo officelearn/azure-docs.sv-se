@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481113"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656651"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Säkerhetskopiera en SAP HANA-databas
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481113"
 
 **Support** | **Detaljer**
 --- | ---
-**Geografiska områden som stöds** | Australien, sydöstra Australien, östra <br> Södra Brasilien <br> Kanada, centrala Kanada, östra <br> Sydostasien, Östasien <br> Östra USA, östra USA 2, USA, västra centrala, USA, västra, USA, västra 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala Indien, södra <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra, Storbritannien, västra
+**Geografiska områden som stöds** | Australien, sydöstra Australien, östra <br> Södra Brasilien <br> Kanada, centrala Kanada, östra <br> Sydostasien, Östasien <br> Östra USA, östra USA 2, USA, västra centrala, USA, västra, USA, västra 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala Indien, södra <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra, Storbritannien, västra
 **VM-operativsystem som stöds** | SLES 12 SP2 eller SP3.
 **HANA-versioner som stöds** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 

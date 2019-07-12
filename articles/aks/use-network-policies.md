@@ -2,17 +2,17 @@
 title: Säker poddar med principer för nätverk i Azure Kubernetes Service (AKS)
 description: Lär dig att skydda trafik som flödar in och ut ur poddar genom att använda nätverksprinciper för Kubernetes i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230010"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613958"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
@@ -22,14 +22,14 @@ Den här artikeln visar hur du installerar principmodulen för nätverket och sk
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 > [!TIP]
 > Om du har använt funktionen nätverk princip under förhandsversionen, rekommenderar vi att du [skapar ett nytt kluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
 > Om du vill fortsätta att använda befintliga testkluster som använde nätverksprincip förhandsversionen uppgradera klustret till en ny Kubernetes-versioner för den senaste GA-versionen och sedan distribuera följande YAML-manifestet för att åtgärda kraschat mått server och Kubernetes instrumentpanelen. Den här snabbkorrigeringen är endast krävs för kluster som används för principmodulen Calico nätverk.
 >
-> Som en säkerhetsåtgärd [granska innehållet i den här YAML-manifest] [ calico-aks-cleanup] att förstå vad som har distribuerats i AKS-klustret.
+> Som en säkerhetsåtgärd [granska innehållet i den här YAML-manifest][calico-aks-cleanup] att förstå vad som har distribuerats i AKS-klustret.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -76,7 +76,7 @@ Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princi
 
 Först måste vi skapa ett AKS-kluster som har stöd för nätverksprincipen. Principfunktionen nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster.
 
-Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [Azure CNI plugin-programmet] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking].
+Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [Azure CNI plugin-programmet][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 Följande exempelskript:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-Det tar några minuter att skapa klustret. När klustret är klart, konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
+Det tar några minuter att skapa klustret. När klustret är klart, konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster med hjälp av den [aaz aks get-credentials][az-aks-get-credentials] kommando. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Tillämpa princip för nätverk med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa princip för nätverk med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Den här nätverksprincipen används en *namespaceSelector* och en *podSelector* element för inkommande regel. YAML-syntax är viktigt för inkommande regler är additiva. Båda elementen måste matcha för inkommande regel som ska användas i det här exemplet. Kubernetes-versioner före *1.12* kan inte tolka de här elementen på rätt sätt och begränsa nätverkstrafik som förväntat. Mer information om det här problemet finns i [funktionssätt till och från väljare][policy-rules].
 
-Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 I mer komplexa exempel kan du definiera flera inkommande regler som en *namespaceSelector* och sedan en *podSelector*.
 
-Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller][kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här artikeln har vi skapat två namnområdena och tillämpat en princip för. Om du vill rensa de här resurserna kan använda den [kubectl ta bort] [ kubectl-delete] kommandot och ange resursnamnen:
+I den här artikeln har vi skapat två namnområdena och tillämpat en princip för. Om du vill rensa de här resurserna kan använda den [kubectl ta bort][kubectl-delete] kommandot och ange resursnamnen:
 
 ```console
 kubectl delete namespace production

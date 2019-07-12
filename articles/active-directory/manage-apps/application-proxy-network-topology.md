@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e236d3142ba4410b6942f9e8069e1429aae5378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 734fd1d0c150cfb655279b7978a3dd1512923e49
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108431"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702254"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden för nätverk när du använder Azure Active Directory Application Proxy
 
@@ -32,8 +32,8 @@ Den här artikeln förklarar topologiöverväganden för nätverk när du använ
 När ett program publiceras via Azure AD Application Proxy, flödar trafiken från användare till program genom tre anslutningar:
 
 1. Användaren ansluter till Azure AD Application Proxy-tjänsten offentlig slutpunkt på Azure
-2. Application Proxy-tjänsten ansluts till anslutningsappen för programproxyn
-3. Application Proxy connector ansluter till målprogrammet
+1. Application Proxy-tjänsten ansluts till anslutningsappen för programproxyn
+1. Application Proxy connector ansluter till målprogrammet
 
 ![Diagram över trafikflödet från användare till målprogrammet](./media/application-proxy-network-topology/application-proxy-three-hops.png)
 
@@ -57,22 +57,22 @@ Programproxy väljer platsen för instanser för dig, baserat på din klientplat
 
 När du konfigurerar tjänsten Application Proxy kan du ställa följande frågor:
 
-* Var finns appen?
-* Var finns de flesta användare som har åtkomst till appen?
-* Var finns Application Proxy-instans?
-* Du redan har en dedikerad nätverksanslutning till Azure-Datacenter konfigurera Azure ExpressRoute eller ett liknande VPN?
+- Var finns appen?
+- Var finns de flesta användare som har åtkomst till appen?
+- Var finns Application Proxy-instans?
+- Du redan har en dedikerad nätverksanslutning till Azure-Datacenter konfigurera Azure ExpressRoute eller ett liknande VPN?
 
 Anslutningen måste kommunicera med både Azure och dina program (steg 2 och 3 i trafikflödesdiagram), så placeringen av anslutningen påverkar svarstiden för dessa två anslutningar. När du utvärderar placeringen av kopplingen, Tänk på följande saker övervägas:
 
-* Om du vill använda Kerberos-begränsad delegering (KCD) för enkel inloggning behöver åtkomst till ett datacenter med anslutningstjänsten. Dessutom måste connector-server vara domänanslutna.  
-* Installera connector närmare till programmet tveksamheter.
+- Om du vill använda Kerberos-begränsad delegering (KCD) för enkel inloggning behöver åtkomst till ett datacenter med anslutningstjänsten. Dessutom måste connector-server vara domänanslutna.  
+- Installera connector närmare till programmet tveksamheter.
 
 ### <a name="general-approach-to-minimize-latency"></a>Allmän metod för att minimera fördröjning
 
 Du kan minimera svarstiden för slutpunkt till slutpunkt-trafik genom att optimera varje nätverksanslutning. Varje anslutning kan optimeras genom att:
 
-* Minskar avståndet mellan två slutpunkterna hopp.
-* Välja rätt nätverk att passera. Exempel: gå igenom ett privat nätverk i stället för det offentliga Internet kanske snabbare, på grund av dedicerade länkar.
+- Minskar avståndet mellan två slutpunkterna hopp.
+- Välja rätt nätverk att passera. Exempel: gå igenom ett privat nätverk i stället för det offentliga Internet kanske snabbare, på grund av dedicerade länkar.
 
 Om du har en dedikerad VPN eller ExpressRoute-länk mellan Azure och företagets nätverk kan du använda den.
 
@@ -82,7 +82,7 @@ Det finns lite som du kan göra för att kontrollera anslutningen mellan dina an
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Mönstret 1: Placera nära programmet-anslutningen
 
-Placera nära målprogrammet kopplingen i kundens nätverk. Den här konfigurationen minskar steg 3 i diagrammet topografi eftersom anslutningen och program är Stäng. 
+Placera nära målprogrammet kopplingen i kundens nätverk. Den här konfigurationen minskar steg 3 i diagrammet topografi eftersom anslutningen och program är Stäng.
 
 Om din anslutningsapp behöver åtkomst till domänkontrollanten, är det fördelaktigt med det här mönstret. De flesta av våra kunder att använda det här mönstret eftersom den fungerar bra för de flesta scenarier. Det här mönstret kan också kombineras med mönstret 2 för att optimera trafik mellan tjänsten och anslutningen.
 
@@ -104,7 +104,7 @@ Fokus i den här artikeln är anslutningen placering, men du kan också ändra p
 
 Allt mer flyttar organisationer sina nätverk i värdbaserade miljöer. Detta gör det enkelt att placera sina appar i en miljö som också är en del av företagets nätverk, och fortfarande var i domänen. I det här fallet kan de mönster som beskrivs i föregående avsnitt tillämpas på den nya platsen för programmet. Om du funderar på att det här alternativet, se [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
-Överväg även ordna dina kopplingar med [anslutningsappgrupper](application-proxy-connector-groups.md) att rikta appar som finns i olika platser och nätverk. 
+Överväg även ordna dina kopplingar med [anslutningsappgrupper](application-proxy-connector-groups.md) att rikta appar som finns i olika platser och nätverk.
 
 ## <a name="common-use-cases"></a>Vanliga användarsituationer
 
@@ -130,11 +130,11 @@ Det här är ett enkelt mönster. Du kan optimera hopp 3 genom att placera anslu
 
 **Scenario:** Appen är i en organisations nätverk i USA, med användare som sprider globalt. Inga ExpressRoute eller VPN finns mellan Azure-datacentret och företagets nätverk.
 
-**Rekommendation:** Följ mönstret 1, som beskrivs i föregående avsnitt. 
+**Rekommendation:** Följ mönstret 1, som beskrivs i föregående avsnitt.
 
 Igen, det vanliga mönstret är att optimera hopp 3, där du placerar anslutningen i appen. Hopp 3 är inte vanligtvis dyr, om det är allt inom samma region. Hopp 1 kan dock dyrare beroende på var användaren befinner, eftersom användare över hela världen måste komma åt Application Proxy-instans i USA. Det är värt att någon proxy-lösning har liknande egenskaper om användare att sprida ut globalt.
 
-![Diagram som visar att användarna är fördelade globalt, men proxy-, anslutnings- och app finns i USA](./media/application-proxy-network-topology/application-proxy-pattern2.png)
+![Användare är fördelade globalt, men allt annat är i USA](./media/application-proxy-network-topology/application-proxy-pattern2.png)
 
 ### <a name="use-case-3"></a>Användningsfall 3
 
@@ -142,7 +142,7 @@ Igen, det vanliga mönstret är att optimera hopp 3, där du placerar anslutning
 
 **Rekommendation:** Följ mönster 1 och 2, som beskrivs i föregående avsnitt.
 
-Placera först anslutningen så nära som möjligt till appen. Systemet använder sedan automatiskt ExpressRoute för hopp 2. 
+Placera först anslutningen så nära som möjligt till appen. Systemet använder sedan automatiskt ExpressRoute för hopp 2.
 
 Om ExpressRoute-länken använder Microsoft-peering, flödar trafiken mellan proxyservern och anslutningen via länken. Hopp 2 har optimerats svarstid.
 
@@ -154,23 +154,23 @@ Om ExpressRoute-länken använder Microsoft-peering, flödar trafiken mellan pro
 
 **Rekommendation:** Följ mönstret 3, som beskrivs i föregående avsnitt.
 
-Placera anslutningen i Azure-datacentret som är ansluten till företagsnätverket via ExpressRoute privat peering. 
+Placera anslutningen i Azure-datacentret som är ansluten till företagsnätverket via ExpressRoute privat peering.
 
 Anslutningen kan placeras i Azure-datacentret. Eftersom anslutningen har fortfarande åtkomst till programmet och datacenter via det privata nätverket, förblir hopp 3 optimerad. Dessutom optimeras hopp 2 ytterligare.
 
-![Diagram över anslutningen i ett Azure-datacenter och ExpressRoute mellan anslutningsapp och app](./media/application-proxy-network-topology/application-proxy-pattern4.png)
+![Anslutningen i Azure-datacentret ExpressRoute mellan anslutningsapp och app](./media/application-proxy-network-topology/application-proxy-pattern4.png)
 
 ### <a name="use-case-5"></a>Användningsfall 5
 
 **Scenario:** Appen är i en organisations nätverk inom EU, med Application Proxy-instans och de flesta användare i USA.
 
-**Rekommendation:** Placera anslutningen i appen. Eftersom USA användarna kommer åt en Application Proxy-instans som råkar vara i samma region, är hopp 1 inte för dyrt. Hopp 3 optimeras. Överväg att använda ExpressRoute för att optimera hopp 2. 
+**Rekommendation:** Placera anslutningen i appen. Eftersom USA användarna kommer åt en Application Proxy-instans som råkar vara i samma region, är hopp 1 inte för dyrt. Hopp 3 optimeras. Överväg att använda ExpressRoute för att optimera hopp 2.
 
-![Diagram över användare och proxy i USA med anslutningsprogrammet och appen inom EU](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+![Diagrammet visar användare och proxy i USA, anslutning och appen inom EU](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
 Du kan också använda en annan variant i det här fallet. Om de flesta användare i organisationen finns i USA, så risken som finns som utökar ditt nätverk till USA också. Placera kopplingen i USA och använda dedikerade interna företagsnätverket raden till programmet inom EU. Det här sättet hopp 2 och 3 optimeras.
 
-![Diagram som visar användare, proxy och anslutningen i USA kan appen inom EU](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+![Diagrammet visar användare, proxy och anslutningen i USA kan appen inom EU](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

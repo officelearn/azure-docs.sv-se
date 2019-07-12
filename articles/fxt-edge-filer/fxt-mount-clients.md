@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542971"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828024"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Självstudier: Montera klustret
 
@@ -43,7 +43,7 @@ Läs om resursallokering DNS belastningsutjämning för klustret, [konfigurera D
 
 En enklare metod för små installationer är att använda ett skript för att tilldela IP-adresser i hela intervallet på monteringspunkten klienttid. 
 
-Andra metoder för belastningsutjämning kan vara lämpligt för stora eller komplicerade system. Kontakta din Microsoft-representant eller öppna en supportbegäran om du behöver hjälp. (Azure Load Balancer är för närvarande *stöds inte* med Azure FXT Edge Filer.)
+Andra metoder för belastningsutjämning kan vara lämpligt för stora eller komplicerade system. Kontakta ditt Microsoft-representativa eller öppna en [supportförfrågan](fxt-support-ticket.md) om du behöver hjälp. (Azure Load Balancer är för närvarande *stöds inte* med Azure FXT Edge Filer.)
 
 ## <a name="create-the-mount-command"></a>Skapa mount-kommando 
 

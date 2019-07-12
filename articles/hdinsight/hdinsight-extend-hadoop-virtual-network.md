@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543684"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839191"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -25,7 +25,9 @@ Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-ne
 * Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgänglig offentligt över internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!IMPORTANT]  
-> Efter den 28 februari 2019 levereras nätverksresurser (till exempel nätverkskort, LBs osv) för nya kluster som skapas i ett virtuellt nätverk i samma resursgrupp för HDInsight-kluster. Tidigare etablerades resurserna i resursgruppen VNET. Det finns ingen förändring av de aktuella pågående kluster och dessa kluster som skapas utan ett virtuellt nätverk.
+> Skapar ett HDInsight-kluster i ett virtuellt nätverk skapar flera nätverksresurser, t.ex nätverkskort och belastningsutjämnare. Gör **inte** ta bort dessa nätverksresurser, eftersom de behövs för ditt kluster ska fungera korrekt med det virtuella nätverket.
+>
+> Efter den 28 februari 2019 levereras dessa nätverksresurser (till exempel nätverkskort, LBs osv) för nya kluster som skapas i ett virtuellt nätverk i samma resursgrupp för HDInsight-kluster. Tidigare etablerades resurserna i resursgruppen VNET. Det finns ingen förändring av de aktuella pågående kluster och dessa kluster som skapas utan ett virtuellt nätverk.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Krav för kodexempel och exempel
 
@@ -270,8 +272,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar fö
     | ---- | ---- | ---- | ---- | ----- |
     | Asien | Östasien | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkommande |
     | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
-    | Australien | Australien, centrala | 20.36.36.33</br>20.36.36.196 | \*:443 | Inkommande |
-    | &nbsp; | Östra Australien | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
+    | Australien | Östra Australien | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
     | &nbsp; | Sydöstra Australien | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkommande |
     | Brasilien | Södra Brasilien | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkommande |
     | Kanada | Östra Kanada | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkommande |

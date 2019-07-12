@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388859"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666267"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -31,10 +31,6 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 
 ## <a name="devicetable"></a>Validerade VPN-enheter och guider för enhetskonfiguration
 
-> [!NOTE]
-> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.
->
-
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna i följande lista bör fungera med VPN-gatewayer. Mer information om VPN-typerna (PolicyBased eller RouteBased) för den VPN Gateway-lösning som du vill konfigurera finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
 Hjälp med att konfigurera din VPN-enhet, se länkarna som motsvarar lämplig enhetsfamilj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
@@ -48,6 +44,7 @@ Hjälp med att konfigurera din VPN-enhet, se länkarna som motsvarar lämplig en
 | Check Point |Security Gateway |R80.10 |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4 och senare versioner (IKEv2*) |Stöds |[Konfigurationsguide*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |Stöds |Stöds |
+| Cisco | CSR | Routningsbaserad: IOS-XE 16.10 | | [Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad *: IOS 15.1 |Stöds |Stöds |
 | Cisco |Meraki |Gäller inte |Inte kompatibel |Inte kompatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
@@ -157,22 +154,22 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Ingen         |
 | 2 |AES256        |SHA1              |Ingen         |
-| 3 |3DES          |SHA1              |Ingen         |
+| 3 |3DES          |SHA1              |Inga         |
 | 4 |AES256        |SHA256            |Ingen         |
 | 5 |AES128        |SHA1              |Ingen         |
-| 6 |3DES          |SHA256            |Ingen         |
+| 6 |3DES          |SHA256            |Inga         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure Gateway som svarare
 
 |-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 1 |GCM AES256    |GCM (AES256)      |Inga         |
 | 2 |AES256        |SHA1              |Ingen         |
-| 3 |3DES          |SHA1              |Ingen         |
-| 4 |AES256        |SHA256            |Ingen         |
-| 5 |AES128        |SHA1              |Ingen         |
-| 6 |3DES          |SHA256            |Ingen         |
-| 7 |DES           |SHA1              |Ingen         |
+| 3 |3DES          |SHA1              |Inga         |
+| 4 |AES256        |SHA256            |Inga         |
+| 5 |AES128        |SHA1              |Inga         |
+| 6 |3DES          |SHA256            |Inga         |
+| 7 |DES           |SHA1              |Inga         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |

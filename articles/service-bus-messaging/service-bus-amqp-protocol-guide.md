@@ -212,11 +212,11 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
-| hållbar |- |- |
-| prioritet |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |TTL-värde för det här meddelandet |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
-| Antal leveranser |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 

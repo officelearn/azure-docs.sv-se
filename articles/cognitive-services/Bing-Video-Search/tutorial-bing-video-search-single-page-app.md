@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a14954de1f8ae073780098f9286aa70502472dcd
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798460"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867870"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudier: Enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
@@ -373,7 +373,7 @@ Renderarfunktionen:
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
-Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Sedan levererar [Bings miniatyrbildtjänst](resize-and-crop-thumbnails.md) en miniatyrbild med exakt den storleken.
+Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Bing returnerar en [miniatyr](../bing-web-search/resize-and-crop-thumbnails.md) för exakt den storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
@@ -389,7 +389,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från sådan proxy har en `Access-Control-Expose-Headers` -huvud som tillåter svarshuvuden och gör dem tillgängliga för JavaScript.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

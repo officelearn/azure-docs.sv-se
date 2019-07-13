@@ -58,7 +58,8 @@
     - name: Få insikter med token
       href: use-insights-token.md
     - name: Ändra storlek på och beskär miniatyrer
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Söka efter en avbildning med token för avbildningsinsikter
       href: tutorial-visual-search-insights-token.md
     - name: Skapa en enkelsidig webbapp

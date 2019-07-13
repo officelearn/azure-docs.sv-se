@@ -55,7 +55,8 @@
     - name: Bläddra bland bilder
       href: paging-images.md
     - name: Ändra storlek på och beskär miniatyrer
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Begrepp

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 10bcbb4c1957735b0ddad6c97325c32be19ddcdb
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383406"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868261"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudie: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -369,7 +369,7 @@ Parametrarna `index` och `count` används för att numrera resultat, generera HT
     }, // relatedSearches renderer omitted
 ```
 
-Miniatyrbildernas `height` och `width` används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. På så sätt kan Bing returnera [en miniatyrbild](resize-and-crop-thumbnails.md) med den exakta storleken.
+Miniatyrbildernas `height` och `width` används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. På så sätt kan Bing returnera [en miniatyrbild](../bing-web-search/resize-and-crop-thumbnails.md) med den exakta storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 
@@ -386,7 +386,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från sådan proxy har en `Access-Control-Expose-Headers` -huvud som tillåter svarshuvuden och gör dem tillgängliga för JavaScript.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

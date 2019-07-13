@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 144ad8761b4d462012963e040b7699e38587831b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 10798b471012d53b5820b078b4be7c9c648d3233
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272790"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868367"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: Skapa en enkelsidig webbapp
 
@@ -381,7 +381,7 @@ Funktionen för nyhetsrendering:
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
-Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Sedan levererar [Bings miniatyrbildtjänst](resize-and-crop-thumbnails.md) en miniatyrbild med exakt den storleken.
+Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Sedan levererar [Bings miniatyrbildtjänst](../bing-web-search/resize-and-crop-thumbnails.md) en miniatyrbild med exakt den storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
@@ -397,7 +397,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från sådan proxy har en `Access-Control-Expose-Headers` -huvud som tillåter svarshuvuden och gör dem tillgängliga för JavaScript.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

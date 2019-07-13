@@ -45,7 +45,8 @@
 - name: Instruktionsguider
   items:
     - name: Ändra storlek på och beskär miniatyrer
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Begrepp
   items:
     - name: Söka efter entiteter

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272694"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868094"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Sök efter videor med API för videosökning i Bing
 
@@ -98,7 +98,7 @@ Svaret innehåller ett [Videos](https://docs.microsoft.com/rest/api/cognitiveser
 
 ## <a name="video-thumbnails"></a>Videominiatyrer
 
-Du kan visa alla eller en delmängd av videominiatyrerna som returneras av API för videosökning i Bing. Om du visar en delmängd bör du ge användaren möjlighet att visa återstående videor. som en del av [användnings- och visningskraven](../UseAndDisplayRequirements.md) för Bing API måste du visa videorna i den ordning som anges i svaret. Information om att ändra storlek på miniatyrbilden finns i [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md) (Ändra storlek på och beskär miniatyrbilder). 
+Du kan visa alla eller en delmängd av videominiatyrerna som returneras av API för videosökning i Bing. Om du visar en delmängd bör du ge användaren möjlighet att visa återstående videor. som en del av [användnings- och visningskraven](../UseAndDisplayRequirements.md) för Bing API måste du visa videorna i den ordning som anges i svaret. Information om att ändra storlek på miniatyrbilden finns i [Resizing and Cropping Thumbnails](../../bing-web-search/resize-and-crop-thumbnails.md) (Ändra storlek på och beskär miniatyrbilder). 
 
 När användaren för muspekaren över miniatyrbilden kan du använda [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) till att spela upp en miniatyrversion av videon. Se till att du tillskriver ursprunget när du visar en video.
 

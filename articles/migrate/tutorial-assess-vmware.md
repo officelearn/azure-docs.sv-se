@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: 5dc1a05e93bf1e82269a4291f147bac6e8ba657a
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813010"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868661"
 ---
-# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server-utvärdering
+# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server Assessment
 
 Den här artikeln visar hur du utvärdera lokala virtuella VMware-datorer, med hjälp av Azure Migrate: Server Assessment tool.
 
@@ -85,6 +85,7 @@ Azure Migrate: Server-utvärdering körs en förenklad VMware VM-installation.
     - Ladda ned en mall för OVA-filen och importera dem till vCenter-servern.
     - Skapa och kontrollera att den kan ansluta till Azure Migrate Server-utvärdering.
     - Konfigurera programmet för första gången och registrera den med Azure Migrate-projektet.
+- Du kan konfigurera flera installationer för en enda Azure Migrate-projekt. Över alla enheter stöds identifiering av upp till 35 000 virtuella datorer. Högst 10 000 servrar kan identifieras för varje produkt.
 
 ### <a name="download-the-ova-template"></a>Hämta OVA-mall
 
@@ -171,12 +172,24 @@ Ställ in den installationen med följande steg.
 Nu kan ansluta från installationen till vCenter-servern och starta identifieringen av virtuella datorer.
 
 1. I **ange vCenter-serverinformationen**, ange namn (FQDN) eller IP-adress för vCenter-servern. Du kan lämna standardporten eller ange en anpassad port som vCenter-servern lyssnar.
-2. I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som installationen använder för att identifiera virtuella datorer på vCenter-servern. Kontrollera att tjänstkontot har de [behörigheter som krävs för identifiering av](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som installationen använder för att identifiera virtuella datorer på vCenter-servern. Kontrollera att tjänstkontot har de [behörigheter som krävs för identifiering av](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomst till vCenter-kontot. Mer information om scope identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
 3. Klicka på **Validera anslutning** att se till att installationen kan ansluta till vCenter-servern.
 4. När anslutningen har upprättats klickar du på **spara och starta identifieringen**.
 
-
 Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer att visas på portalen.
+
+### <a name="scoping-discovery"></a>Konfigurera identifiering
+
+Identifiering kan begränsas genom att begränsa åtkomsten för vCenter-kontot som används för identifiering. Du kan ange omfånget till vCenter Server datacenter, kluster, mapp-kluster, värdar, mappen för värdar eller enskilda virtuella datorer. 
+
+> [!NOTE]
+> Server-utvärderingen är idag, inte kunna identifiera virtuella datorer om vCenter-konto har åtkomst beviljas på vCenter VM mappnivå. Om du vill begränsa din identifiering av VM-mappar, kan du göra det genom att kontrollera att vCenter-kontot har skrivskyddad åtkomst tilldelas på VM-nivå.  Följande är anvisningar om hur du kan göra detta:
+>
+> 1. Tilldela läsbehörighet på alla virtuella datorer i VM-mappar som du vill att definiera omfattningen av identifieringen. 
+> 2. Bevilja läsbehörighet till alla överordnade objekt där de virtuella datorerna finns. Alla överordnade objekt - host mappen för värdar, kluster, mapp av kluster - i hierarkin upp till datacentret är att ingå. Du behöver inte Sprid behörigheter till alla underordnade objekt.
+> 3. Använd autentiseringsuppgifter för identifiering av att välja datacenter som *samlingens omfattning*. RBAC konfigurera säkerställer att motsvarande vCenter-användaren har åtkomst till endast klientspecifik virtuella datorer.
+>
+> Observera mappen av värdar och kluster stöds.
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 

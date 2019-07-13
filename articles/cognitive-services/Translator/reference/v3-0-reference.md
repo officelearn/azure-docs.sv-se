@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357673"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868400"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -31,10 +31,10 @@ Version 3 av Translator Text API innehåller ett moderna JSON-baserade webb-API.
 
 ## <a name="base-urls"></a>Grundläggande URL: er
 
-Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 6 [geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 10 [geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** USA, västra 2 och USA, västra centrala 
-* **Asien/Stillahavsområdet:** Asien, sydöstra och Korea, södra
+* **Americas:** Östra USA, södra centrala USA, västra centrala USA och västra USA 2 
+* **Asien/Stillahavsområdet:** Södra Korea, östra Japan, Sydostasien och Östra Australien
 * **Europa:** Norra Europa och västra Europa
 
 Förfrågningar till Microsoft Translator Text API är oftast hanteras av datacentret som är närmast som begäran kom från. Om ett fel uppstår i datacenter, kan begäran skickas utanför Azure geografiska plats.
@@ -49,7 +49,7 @@ Om du vill tvinga begäran som ska hanteras av ett visst Azure geografiskt områ
 |Azure|Asien och stillahavsområdet|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Prenumererar på Translator Text API eller [flera-tjänsten för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) i Microsoft Cognitive Services och använda din prenumeration tangent (tillgängligt i Azure-portalen) för att autentisera. 
 

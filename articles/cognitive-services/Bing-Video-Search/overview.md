@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442715"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867852"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
 
@@ -27,7 +27,7 @@ API för videosökning i Bing gör det enkelt att lägga till videosökfunktione
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Föreslå söktermer i realtid](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Förbättra programupplevelsen med [automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). Föreslagna sökord visas medan användaren skriver. |
 | [Filtrera och begränsa videoresultat](concepts/get-videos.md#filtering-videos)                      | Filtrera videor som returneras genom att redigera frågeparametrar.                                                                                                       |
-| [Beskär, ändra storlek och visa miniatyrer](resize-and-crop-thumbnails.md)                                                | Redigera och visa miniatyrförhandsversioner för de videor som returneras av API för videosökning i Bing.                                                                                      |
+| [Beskär, ändra storlek och visa miniatyrer](../bing-web-search/resize-and-crop-thumbnails.md)                                                | Redigera och visa miniatyrförhandsversioner för de videor som returneras av API för videosökning i Bing.                                                                                      |
 | [Hämta trendande videor](trending-videos.md) | Sök efter trendande videor från hela världen.                                                                                                          |
 | [Hämta insikter om videor](video-insights.md) | Anpassa en sökning efter populära videor från hela världen.                                                                                                          |
 

@@ -51,7 +51,8 @@
     - name: Bläddra bland nyheter
       href: paging-news.md
     - name: Ändra storlek på och beskär miniatyrer
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: 'Uppgradera från v5 till v7 av API:et'
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Arbeta med Visual Studio

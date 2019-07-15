@@ -443,6 +443,13 @@
           href: ./partner-center-portal/offer-creation-checklist.md
         - name: Skapa ett SaaS-erbjudande
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS-fakturering efter förbrukning
+          href: ./partner-center-portal/saas-metered-billing.md
+          items:
+            - name: 'API:er för Marketplace Metering Service – vanliga frågor och svar'
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+            - name: 'API:er för Marketplace Metering Service'
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
         - name: 'API:er för uppfyllnad av SaaS'
           href: ./partner-center-portal/pc-saas-fulfillment-apis.md
           items:
@@ -452,6 +459,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
             - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+            - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
+              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
     - name: Publiceringsstatus
       href: ./partner-center-portal/publishing-status.md
     - name: Uppdatera befintliga erbjudanden

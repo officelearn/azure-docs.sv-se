@@ -6,16 +6,18 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Begäranden om att öka kvoten
   items:
-    - name: Begäranden om kvotökning för Resource Manager-distributionsmodellen
+    - name: Utökad vCPU-gräns för beräkning
       items:
-        - name: Utökad vCPU-gräns för VM-serie
-          href: per-vm-quota-requests.md
-        - name: Utökad gräns för totalt antal regionala vCPU
-          href: regional-quota-requests.md
-        - name: Höjning av nätverksgräns
-          href: networking-quota-requests.md
-    - name: Begäranden om kvotökning för den klassiska distributionsmodellen
-      href: classic-deployment-model-quota-increase-requests.md
+        - name: Distributionsmodell med Resource Manager
+          items:
+            - name: Utökad vCPU-gräns för VM-serie
+              href: per-vm-quota-requests.md
+            - name: Utökad gräns för totalt antal regionala vCPU
+              href: regional-quota-requests.md
+        - name: Klassisk distributionsmodell
+          href: classic-deployment-model-quota-increase-requests.md
+    - name: Höjning av nätverksgräns
+      href: networking-quota-requests.md
 - name: Felsökningsregion eller problem med SKU-prenumeration
   href: sku-series-unavailable.md
 - name: Referens

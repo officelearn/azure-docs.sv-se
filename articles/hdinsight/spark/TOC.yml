@@ -22,6 +22,8 @@
       href: apache-spark-load-data-run-query.md
     - name: Använda IntelliJ för att köra Apache Spark-frågor
       href: apache-spark-intellij-tool-plugin.md
+    - name: Felsökning av fel i Spark-jobb i IntelliJ (förhandsversion)
+      href: apache-spark-intellij-tool-failure-debug.md
     - name: Analysera data med BI-verktyg
       href: apache-spark-use-bi-tools.md
     - name: Köra ett direktuppspelningsjobb

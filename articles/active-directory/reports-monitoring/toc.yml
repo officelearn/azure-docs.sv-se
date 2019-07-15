@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: Konfigurera krav för Reporting-API
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Så här använder du Azure Monitor-arbetsböcker
+        - name: Så här använder du Azure AD-arbetsböcker
           href: howto-use-azure-monitor-workbooks.md
     - name: Övervakning
       items:
@@ -87,6 +87,8 @@
 - name: Referens
   expanded: true
   items:
+    - name: Azure AD PowerShell-cmdletar för rapportering
+      href: reference-powershell-reporting.md
     - name: API-referens för granskningsloggar
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: API-referens för inloggningsloggar

@@ -61,8 +61,16 @@
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Regioner och tillgänglighet
-      href: regions-and-availability.md
+    - name: Regioner
+      href: regions.md
+    - name: Tillgänglighet och prestanda
+      items:
+        - name: Tillgänglighet
+          href: availability.md
+        - name: Samlokalisering
+          href: co-location.md
+        - name: Nätverksprestanda
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: VM-typer och storlekar
       href: sizes.md
       items:
@@ -322,6 +330,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Hög tillgänglighet
           href: manage-availability.md
+        - name: Skapa en närhetsplaceringsgrupp
+          href: proximity-placement-groups.md
         - name: Lodrätt skalning
           href: vertical-scaling-automation.md
         - name: Skapa virtuell dator i tillgänglighetszon

@@ -45,8 +45,10 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Delegera ett undernät till Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Skapa en volym för Azure NetApp Files
+    - name: Skapa en NFS-volym för Azure NetApp Files
       href: azure-netapp-files-create-volumes.md
+    - name: Skapa en SMB-volym för Azure NetApp Files
+      href: azure-netapp-files-create-volumes-smb.md
     - name: Konfigurera exportprincipen för en NFS-volym
       href: azure-netapp-files-configure-export-policy.md
     - name: Hantera volymer

@@ -352,8 +352,12 @@
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Återställa borttagna blobar
               href: storage-blob-soft-delete.md
-        - name: Använda lagringsemulatorn
-          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Använda en lagringsemulator
+          items:
+            - name: Använda Azurite-emulatorn med öppen källkod
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Använda Azure Storage-emulatorn
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ange och hämta egenskaper och metadata
           href: storage-properties-metadata.md
         - name: Var värd för en statisk webbplats
@@ -370,7 +374,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Kom igång
+                - name: Komma igång
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Använda med blobar
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -581,7 +585,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Kom igång
+                - name: Komma igång
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Använda med Data Lake Storage Gen2
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

@@ -66,10 +66,17 @@
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
       maintainContext: true
-    - name: Regioner och tillgänglighet
-      href: ../virtual-machines/windows/regions-and-availability.md
+    - name: Regioner
+      href: ../virtual-machines/windows/regions.md
+    - name: Tillgänglighet och prestanda
       maintainContext: true
       items:
+        - name: Tillgänglighet
+          href: availability.md
+        - name: Samlokalisering
+          href: co-location.md
+        - name: Nätverksprestanda
+          href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Hantera feldomäner i skalningsuppsättningar
           href: virtual-machine-scale-sets-manage-fault-domains.md
     - name: VM-typer och storlekar
@@ -245,6 +252,8 @@
               href: share-images-across-tenants.md
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
+        - name: Skapa en närhetsplaceringsgrupp
+          href: proximity-placement-groups.md
         - name: Vertikal skalning i en skalningsuppsättning
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
         - name: Använda DSC och skalningsuppsättningar

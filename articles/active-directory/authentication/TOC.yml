@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Aktivera lokal SSPR-integration
       href: tutorial-enable-writeback.md
-    - name: Aktivera lösenordsåterställning för Windows 10
-      href: tutorial-sspr-windows.md
     - name: Integrera Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Begrepp
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Aktivera tillbakaskrivning av lösenord
           href: howto-sspr-writeback.md
-        - name: 'SSPR för Windows 7, 8 och Windows 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: SSPR för Windows-klienter
+          href: howto-sspr-windows.md
     - name: Molnbaserad MFA
       items:
         - name: Distribuera molnbaserad MFA

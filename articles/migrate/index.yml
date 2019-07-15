@@ -14,13 +14,30 @@ metadata:
   ms.date: 11/22/2017
   ms.author: raynew
 abstract:
-  description: Azure Migrate hjälper dig att identifiera och utvärdera hur lämpliga lokala datorer är för migrering till Azure och beräknar storlekar och kostnader för att köra virtuella Azure-datorer.
+  description: 'Azure Migrate hjälper dig att migrera till Azure-molnet. Azure Migrate ger en central hubb för att spåra identifiering, utvärdering och migrering av lokala arbetsbelastningar och virtuella datorer i molnet. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering, samt integrerade verktyg från oberoende programvaruleverantörer (ISV:er).'
 sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: Lär dig att utvärdera virtuella VMware-datorer för migrering till Azure
+        text: Lär dig att utvärdera och migrera virtuella VMware-datorer till Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure</a>
+          - html: <a href="tutorial-assess-vmware">Utvärdera virtuella VMware-datorer för migrering till Azure</a>
+          - html: <a href="tutorial-migrate-vmware">Migrera virtuella VMware-datorer till Azure med migrering utan agent</a>
+          - html: <a href="tutorial-migrate-vmware-agent">Migrera virtuella VMware-datorer till Azure med agentbaserad migrering</a>
+      - type: paragraph
+        text: Lär dig hur du utvärderar och migrerar virtuella Hyper-V-datorer till Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">Förbereda virtuella Hyper-V-datorer för utvärdering och migrering till Azure</a>
+          - html: <a href="tutorial-assess-hyper-v">Utvärdera virtuella Hyper-V-datorer för migrering till Azure</a>
+          - html: <a href="tutorial-migrate-hyper-v">Migrera virtuella Hyper-V-datorer till Azure</a>
+      - type: paragraph
+        text: 'Lär dig att migrera fysiska servrar, virtualiserade datorer och virtuella datorer i molnet till Azure'
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial-assessment-vmware">Utforska och utvärdera lokala virtuella VMware-datorer</a>
+          - html: <a href="tutorial-migrate-physical-virtual-machines">Migrera fysiska eller virtualiserade servrar till Azure</a>

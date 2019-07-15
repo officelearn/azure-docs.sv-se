@@ -98,7 +98,7 @@ Resultatet liknar följande:
 
 |Egenskapsnamn|Värde|
 |----|----|
-| Namn | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

@@ -6,104 +6,110 @@ documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 07/15/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 910069ab89cef18794e637b6bfbbc57fb732871c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550562"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872094"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-app
 
-I de här självstudierna lär du dig att bygga ett iOS-program och integrerar dem i Microsoft identity-plattformen. Mer specifikt ska den här appen logga in en användare få en åtkomsttoken att anropa Microsoft Graph API och gör en grundläggande begäran för Microsoft Graph API.  
+I de här självstudierna lär du dig att integrera en iOS-app med Microsoft identity-plattformen. Appen ska logga in en användare få en åtkomsttoken att anropa Microsoft Graph API och gör en begäran för Microsoft Graph API.  
 
 När du har slutfört guiden för ditt program ska ta emot inloggningar för personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbete eller skola konton från alla företag eller organisation som använder Azure Active Directory.
 
-## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
+## <a name="how-this-tutorial-works"></a>Hur fungerar den här självstudien
 
 ![Visar hur exempelapp som genererats av den här kursen fungerar](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
-Appen i det här exemplet ska logga in användare och hämta data å deras vägnar.  Dessa data kan nås via en skyddad API (Microsoft Graph API i det här fallet) som kräver auktorisering och skyddas också av Microsoft identity-plattformen.
+Appen i den här självstudien ska logga in användare och hämta data å deras vägnar.  Dessa data kan nås via en skyddad API (Microsoft Graph API i det här fallet) som kräver auktorisering och skyddas av Microsoft identity-plattformen.
 
 Mer specifikt:
 
 * Din app ska logga in användaren antingen via en webbläsare eller Microsoft Authenticator.
-* Användaren kommer att acceptera de behörigheter som programmet har begärt. 
+* Användaren kommer att acceptera de behörigheter som programmet har begärt.
 * Din app kommer att utfärdas en åtkomsttoken för Microsoft Graph API.
 * Åtkomsttoken inkluderas i HTTP-begäran till webb-API.
 * Process för Microsoft Graph-svaret.
 
-Det här exemplet använder Microsoft Authentication library (MSAL) för att implementera autentisering. MSAL kommer automatiskt förnya token, leverera enkel inloggning mellan andra appar på enheten och hantera konton.
+Det här exemplet använder Microsoft Authentication library (MSAL) för att implementera autentisering. MSAL kommer automatiskt förnya token, leverera enkel inloggning (SSO) mellan andra appar på enheten och hantera konton.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- XCode version 10.x krävs för exemplet som skapas i den här guiden. Du kan hämta XCode från den [iTunes webbplats](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode hämta URL: en").
-- Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda Beroendehanteraren eller lägga till manuellt. Det finns avsnittet nedan med [mer](#add-msal). 
-
-## <a name="set-up-your-project"></a>Konfigurera projektet
+- XCode version 10.x krävs för att skapa appar i den här guiden. Du kan hämta XCode från den [iTunes webbplats](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode hämta URL: en").
+- Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda en beroendehanterare eller lägga till i biblioteket manuellt. Anvisningarna nedan visar hur du gör.
 
 Den här självstudien skapas ett nytt projekt. Om du vill ladda ned den slutförda självstudien i stället [ladda ned koden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Skapa ett nytt projekt
+## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
 1. Öppna Xcode och välj **skapa ett nytt Xcode-projekt**.
-2. Välj **iOS > vy programmet** och välj **nästa**.
-3. Ge ett produktnamn och välj **nästa**.
-4. Välj en mapp för att skapa din app och klicka på *skapa*.
+2. Välj **iOS** > **vy App** och välj **nästa**.
+3. Ange ett produktnamn.
+4. Ange den **språk** till **Swift** och välj **nästa**.
+5. Välj en mapp för att skapa din app och klicka på **skapa**.
 
-## <a name="register-your-application"></a>Registrera ditt program 
+## <a name="register-your-application"></a>Registrera ditt program
 
-Du kan registrera programmet i något av två sätt, enligt beskrivningen i följande två avsnitt.
-
-### <a name="register-your-app"></a>Registrera din app
-
-1. Gå till den [Azure-portalen](https://aka.ms/MobileAppReg) > Välj `New registration`. 
-2. Ange en **namn** för din app > `Register`. **Ange inte en omdirigerings-URI i det här skedet**. 
-3. I den `Manage` avsnittet, gå till `Authentication` > `Add a platform` > `iOS`
-    - Ange ditt projekt programpaket-ID. Om du har hämtat koden, är detta `com.microsoft.identitysample.MSALiOS`.
-4. Tryck på `Configure` och lagra den `MSAL Configuration` till senare. 
+1. Gå till [Azure Portal](https://aka.ms/MobileAppReg)
+2. Öppna den [registreringar appbladet](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) och klicka på **+ ny registrering**.
+3. Ange en **namn** för din app och klicka sedan på, utan att ange en omdirigerings-URI **registrera**.
+4. I den **hantera** i fönstret som visas, Välj **autentisering**.
+5. Klicka på **testa den nya upplevelsen** överst på skärmen för att öppna den nya app-upplevelsen för registrering och klicka sedan på **+ ny registrering** >  **+ Lägg till en plattform**  >  **iOS**.
+    - Ange ditt projekt programpaket-ID. Om du har hämtat koden, är detta `com.microsoft.identitysample.MSALiOS`. Om du skapar dina egna projekt, väljer du ditt projekt i Xcode och öppna den **Allmänt** fliken. Paket-ID som visas i den **identitet** avsnittet.
+6. Klicka på `Configure` och spara den **MSAL Configuration** som visas i den **iOS configuration** så att du kan ange den när du konfigurerar appen senare.  Klicka på **Klar**.
 
 ## <a name="add-msal"></a>Lägg till MSAL
 
-### <a name="get-msal"></a>Get MSAL
+Välj något av följande sätt att installera MSAL biblioteket i din app:
 
-#### <a name="cocoapods"></a>CocoaPods
+### <a name="cocoapods"></a>CocoaPods
 
-Du kan använda [CocoaPods](https://cocoapods.org/) installera `MSAL` genom att lägga till din `Podfile` under mål:
+1. Om du använder [CocoaPods](https://cocoapods.org/), installera `MSAL` genom att först skapa en tom fil kallas `podfile` i samma mapp som ditt projekt `.xcodeproj` fil. Lägg till följande till `podfile`:
 
-```
-use_frameworks!
+   ```
+   use_frameworks!
+   
+   target '<your-target-here>' do
+      pod 'MSAL', '~> 0.4.0'
+   end
+   ```
 
-target '<your-target-here>' do
-   pod 'MSAL', '~> 0.4.0'
-end
-```
+2. Ersätt `<your-target-here>` med namnet på ditt projekt.
+3. I terminalfönstret, navigera till mappen som innehåller den `podfile` du skapat och kör `pod install` installera MSAL-biblioteket.
+4. Stäng Xcode och öppna `<your project name>.xcworkspace` läses in på nytt projekt i Xcode.
 
-#### <a name="carthage"></a>Carthage
+### <a name="carthage"></a>Carthage
 
-Du kan använda [Carthage](https://github.com/Carthage/Carthage) installera `MSAL` genom att lägga till din `Cartfile`: 
+Om du använder [Carthage](https://github.com/Carthage/Carthage), installera `MSAL` genom att lägga till din `Cartfile`:
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
 ```
 
-#### <a name="manually"></a>Manuellt
+### <a name="manually"></a>Manuellt
 
-Du kan också använda Git Submodule eller Kolla in den senaste versionen och Använd som framework i ditt program.
+Du kan också använda Git Submodule eller Kolla in den senaste versionen ska användas som ett ramverk i ditt program.
 
-### <a name="add-your-app-registration"></a>Lägg till appregistrering
+## <a name="add-your-app-registration"></a>Lägg till appregistrering
 
-Lägg din appregistrering i koden. Lägg till din ***klient / program-ID*** till `ViewController.swift`:
+Därefter lägger vi till din appregistrering till din kod. 
+
+Lägg först till följande importuttryck längst upp i den `ViewController.swift` och `AppDelegate.swift` filer:
+
+```swift
+import MSAL
+```
+
+Lägg sedan till följande kod i `ViewController.swift` före `viewDidLoad()`:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -116,13 +122,13 @@ var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 ```
 
-### <a name="configure-url-schemes"></a>Konfigurera URL-scheman
+Ändra värdet som tilldelas `kClientID`ska ditt program-ID. Det här värdet är en del av MSAL konfigurationsdata som du sparade under steget i början av den här kursen och registrera programmet i Azure-portalen.
 
-Registrera `CFBundleURLSchemes` så att en motringning så att användaren kan omdirigeras tillbaka till appen efter inloggningen.
+## <a name="configure-url-schemes"></a>Konfigurera URL-scheman
 
-`LSApplicationQueriesSchemes` gör med din app för att använda Microsoft Authenticator om det är tillgängligt. 
+I det här steget ska du registrera `CFBundleURLSchemes` så att användaren kan omdirigeras tillbaka till appen efter inloggningen. Förresten, `LSApplicationQueriesSchemes` tillåter även appen att använda Microsoft Authenticator.
 
-Gör detta genom att öppna `Info.plist` som en källa code och Lägg till följande, byta ut den ***BUNDLE_ID*** med vad du har konfigurerat i Azure-portalen.
+I Xcode öppnar `Info.plist` som en källkoden filen och Lägg till följande inuti den `<dict>` avsnittet. Ersätt `[BUNDLE_ID]` med värdet som du använde i Azure-portalen som om du har hämtat koden är `com.microsoft.identitysample.MSALiOS`. Om du skapar dina egna projekt, väljer du ditt projekt i Xcode och öppna den **Allmänt** fliken. Paket-ID som visas i den **identitet** avsnittet.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -141,26 +147,11 @@ Gör detta genom att öppna `Info.plist` som en källa code och Lägg till följ
 </array>
 ```
 
-### <a name="import-msal"></a>Importera MSAL
-
-Importera MSAL framework i `ViewController.swift` och `AppDelegate.swift` filer:
-
-```swift
-import MSAL
-```
-
 ## <a name="create-your-apps-ui"></a>Skapa din app-gränssnitt
 
-Den här självstudien måste du skapa:
-
-- Anropa Graph API-knappen
-- Logga ut knappen
-- Loggning textview
-
-I `ViewController.swift`, definiera egenskaper och `initUI()` på följande sätt:
+Nu skapar ett gränssnitt som innehåller en knapp för att anropa Microsoft Graph API, en annan för att logga ut, och en text visar för att se några utdata genom att lägga till följande kod för att den `ViewController`klass:
 
 ```swift
-
 var loggingText: UITextView!
 var signOutButton: UIButton!
 var callGraphButton: UIButton!
@@ -208,7 +199,7 @@ func initUI() {
     }
 ```
 
-Lägg till `viewDidLoad()` av ViewController.swift:
+Nästa också inuti den `ViewController` klass, ersätter den `viewDidLoad()` metoden med:
 
 ```swift
     override func viewDidLoad() {
@@ -226,7 +217,7 @@ Lägg till `viewDidLoad()` av ViewController.swift:
 
 ### <a name="initialize-msal"></a>Initiera MSAL
 
-Först måste du skapa en `MSALPublicClientApplication` med en instans av `MSALPublicClientConfiguration` för ditt program:
+Lägg till följande `InitMSAL` metod för att den `ViewController` klass:
 
 ```swift
     func initMSAL() throws {
@@ -243,9 +234,9 @@ Först måste du skapa en `MSALPublicClientApplication` med en instans av `MSALP
     }
 ```
 
-### <a name="handle-the-callback"></a>Hantera motringningen
+### <a name="handle-the-sign-in-callback"></a>Hantera motringningen inloggning
 
-Om du vill hantera motringningen efter inloggning, lägger du till `MSALPublicClientApplication.handleMSALResponse` i `appDelegate`:
+Öppna filen `AppDelegate.swift`. Om du vill hantera motringningen efter inloggning, lägger du till `MSALPublicClientApplication.handleMSALResponse` till den `appDelegate` klass så här:
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -260,13 +251,15 @@ Om du vill hantera motringningen efter inloggning, lägger du till `MSALPublicCl
 
 #### <a name="acquire-tokens"></a>Hämta token
 
-Nu kan vi implementera programmets användargränssnitt bearbetningslogiken och hämta token interaktivt via MSAL. 
+Nu kan vi implementera standardbearbetningslogiken för programmets användargränssnitt och hämta token interaktivt via MSAL.
 
-MSAL visar två huvudsakliga sätt för att hämta token: `acquireTokenSilently` och `acquireTokenInteractively`.  
+MSAL visar två huvudsakliga sätt för att hämta token: `acquireTokenSilently()` och `acquireTokenInteractively()`: 
 
-`acquireTokenSilently()` försöker att logga in en användare och hämta token utan någon användarinteraktion om ett konto finns.
+- `acquireTokenSilently()` försöker att logga in en användare och hämta token utan någon användarinteraktion, så länge det finns ett konto.
 
-`acquireTokenInteractively` alltid visa Användargränssnittet när du försöker logga in användaren och hämta token; dock kan den använda cookies i webbläsaren eller ett konto i Microsoft authenticator för att ge en interaktiv SSO-upplevelse. 
+- `acquireTokenInteractively()` Visar alltid Användargränssnittet när du försöker logga in användaren. Det kan använda cookies i webbläsaren eller ett konto i Microsoft authenticator för att tillhandahålla interaktiva enkel inloggning.
+
+Lägg till följande kod till den `ViewController` klass:
 
 ```swift
     @objc func callGraphAPI(_ sender: UIButton) {
@@ -303,12 +296,14 @@ MSAL visar två huvudsakliga sätt för att hämta token: `acquireTokenSilently`
 
 #### <a name="get-a-token-interactively"></a>Hämta en token interaktivt
 
-Om du vill hämta en token för första gången behöver du skapa en `MSALInteractiveTokenParameters` och anropa `acquireToken`.
+Koden nedan hämtar en token för första gången genom att skapa en `MSALInteractiveTokenParameters` objektet och anropa `acquireToken`. Sedan lägger du till kod som:
 
-1. Skapa `MSALInteractiveTokenParameters` med omfång.
-2. Anropa `acquireToken` med parametrarna som skapats.
-3. Hantera fel på lämpligt sätt. Mer information finns i den [iOS felhantering guiden](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
-4. Hantera lyckad fallet. 
+1. Skapar `MSALInteractiveTokenParameters` med omfång.
+2. Anrop `acquireToken()` med skapade parametrar.
+3. Hantera fel. Mer information finns i den [iOS felhantering guiden](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
+4. Hanterar lyckad fallet.
+
+Lägg till följande kod till den `ViewController` klass.
 
 ```swift
     func acquireTokenInteractively() {
@@ -340,7 +335,7 @@ Om du vill hämta en token för första gången behöver du skapa en `MSALIntera
 
 #### <a name="get-a-token-silently"></a>Hämta en token tyst
 
-Om du vill hämta en uppdaterad token tyst, behöver du skapa en `MSALSilentTokenParameters` och anropa `acquireTokenSilent`:
+Lägg till följande kod för att hämta en uppdaterad token tyst den `ViewController` klass. Den skapar en `MSALSilentTokenParameters` objekt och anropar `acquireTokenSilent()`:
 
 ```swift
     
@@ -378,13 +373,13 @@ Om du vill hämta en uppdaterad token tyst, behöver du skapa en `MSALSilentToke
 
 ### <a name="call-the-microsoft-graph-api"></a>Anropa Microsoft Graph API 
 
-När du har en token via `self.accessToken`, din app kan använda det här värdet i HTTP-huvud för att göra en auktoriserad begäran till Microsoft Graph:
+När du har en token kan kan din app använda HTTP-huvud och gör en auktoriserad begäran för Microsoft Graph:
 
 | Huvud-nyckel    | value                 |
 | ------------- | --------------------- |
 | Authorization | Ägar \<åtkomst-token > |
 
-Lägg till följande till `ViewController.swift`:
+Lägg till följande kod till den `ViewController` klass:
 
 ```swift
     func getContentWithToken() {        
@@ -414,15 +409,16 @@ Lägg till följande till `ViewController.swift`:
     }
 ```
 
-Läs mer om den [Microsoft Graph API](https://graph.microsoft.com)
+Se [Microsoft Graph API](https://graph.microsoft.com) mer information om Microsoft Graph API.
 
 ### <a name="use-msal-for-sign-out"></a>Använder MSAL för utloggning
 
-Därefter och vi lägger till stöd för utloggning i vår app. 
+Lägg sedan till stöd för utloggning.
 
-Det är viktigt att Observera att logga ut med MSAL tar bort alla kända information om en användare från det här programmet, men användaren fortfarande har en aktiv session på sin enhet. Om användaren misslyckas att logga in igen de kan se interaktion, men kanske inte behöver ange sina autentiseringsuppgifter på grund av enheten sessionen som aktiv igen. 
+> [!Important]
+> Logga ut med MSAL tar bort alla kända information om en användare från programmet, men användaren fortfarande har en aktiv session på sin enhet. Om användaren misslyckas att logga in igen de kan se Användargränssnittet för inloggning, men kanske inte behöver ange sina autentiseringsuppgifter igen eftersom sessionen enheten fortfarande är aktiv.
 
-Om du vill lägga till logga ut, kopiera följande metod i din `ViewController.swift`:
+Lägg till utloggning kapaciteten genom att lägga till följande kod i den `ViewController` klass. Den här metoden går igenom alla konton och tar bort dem:
 
 ```swift 
     @objc func signOut(_ sender: UIButton) {
@@ -436,8 +432,7 @@ Om du vill lägga till logga ut, kopiera följande metod i din `ViewController.s
             /**
              Removes all tokens from the cache for this application for the provided account
              
-             - account:    The account to remove from the cache
-             */
+             - account:    The account to remove from the cache */
             
             try applicationContext.remove(account)
             self.loggingText.text = ""
@@ -454,11 +449,13 @@ Om du vill lägga till logga ut, kopiera följande metod i din `ViewController.s
 
 Som standard cachelagrar MSAL din Apps tokens i iOS-nyckelringen. 
 
-Om du vill aktivera tokencachelagring, gå till projektinställningarna Xcode > `Capabilities tab`  >  `Enable Keychain Sharing` > klickar du på `Plus` > RETUR **com.microsoft.adalcache**.
+Aktivera cachelagring av token:
+1. Gå till projektinställningarna Xcode > **funktioner fliken** > **aktivera delning av nyckelringar**
+2. Klicka på **+** och ange `com.microsoft.adalcache` som en **Nyckelringsgrupper** posten.
 
 ### <a name="add-helper-methods"></a>Lägg till hjälpmetoder
 
-Lägg till dessa hjälpmetoder för att slutföra exemplet:
+Lägg till följande helper-metoder till den `ViewController` klassen för att slutföra exemplet:
 
 ``` swift
     
@@ -486,21 +483,18 @@ Lägg till dessa hjälpmetoder för att slutföra exemplet:
 
 ### <a name="multi-account-applications"></a>Konto för flera program
 
-Den här appen har skapats för ett enda konto-scenario. MSAL stöder också flera konto-scenarier, men det krävs några ytterligare arbete från appar. Du måste skapa gränssnitt för att användarens Välj vilket konto som de vill använda för varje åtgärd som kräver token. Din app kan också implementera en tumregel för att välja vilket konto som ska ta emot via den `getAllAccounts(...)` metoden.
+Den här appen har skapats för ett enda konto-scenario. MSAL stöder också flera konto scenarier, men det krävs några ytterligare arbete från appar. Du måste skapa gränssnitt för att användarens Välj vilket konto som de vill använda för varje åtgärd som kräver token. Din app kan också implementera en tumregel för att välja vilket konto som ska ta emot via den `getAccounts()` metoden.
 
 ## <a name="test-your-app"></a>Testa din app
 
 ### <a name="run-locally"></a>Lokal körning
 
-Om du har följt av koden ovan, försök att skapa och distribuera appen till en testenhet eller emulator. Du ska kunna logga in och hämta token för Azure AD eller personliga Microsoft-konton! När en användare loggar in, den här appen visar data som returneras från Microsoft Graph `/me` slutpunkt. 
+Skapa och distribuera appen till en testenhet eller emulator. Du ska kunna logga in och hämta token för Azure AD eller personliga Microsoft-konton.
 
-Passa på att öppna ett ärende i det här dokumentet eller i biblioteket MSAL och berätta för oss om du har problem. 
+Första gången en användare loggar in på din app, uppmanas de av Microsoft identity samtycker till att de behörigheter som begärdes.  De flesta användare är kapabel att samtycka, har vissa Azure AD-klienter inaktiverat tillstånd, vilket kräver att administratörer kan ge samtycke åt alla användare. För det här scenariot måste registrera din app omfång i Azure-portalen.
 
-### <a name="consent-to-your-app"></a>Godkänna din app
+När du har loggat in visas de data som returneras från Microsoft Graph `/me` slutpunkt.
 
-Första gången en användare loggar in på din app, uppmanas de av Microsoft identity samtycker till att de behörigheter som begärdes.  De flesta användare är kapabel att samtycka, har vissa Azure AD-klienter inaktiverat användargodkännande - att kräva att administratörer kan ge samtycke åt alla användare.  För att stödja det här scenariot måste du registrera din app omfång i Azure-portalen.
+## <a name="get-help"></a>Få hjälp
 
-## <a name="help-and-support"></a>Hjälp och Support
-
-Hade problem med den här självstudien eller med Microsoft identity-plattformen? Se [hjälp och support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
-
+Besök [hjälp och support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) om du har problem med den här självstudien eller med Microsoft identity-plattformen.

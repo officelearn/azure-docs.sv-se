@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0b65a8f3bf36d9c5506c0436e11c7be3abdcd9f6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565895"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000692"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera multimaster i dina program som använder Azure Cosmos DB
 
@@ -34,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3 (förhandsversion)
+## <a id="netv3"></a>.NET SDK v3
 
-Om du vill aktivera multimaster i ditt program ange `UseCurrentRegion` till regionen där programmet distribueras och där Cosmos DB replikeras:
+Om du vill aktivera multimaster i ditt program ange `ApplicationRegion` till regionen där programmet distribueras och där Cosmos DB replikeras:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Du kan även använda den `CosmosClientBuilder` och `WithApplicationRegion` att uppnå samma resultat:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java Async SDK

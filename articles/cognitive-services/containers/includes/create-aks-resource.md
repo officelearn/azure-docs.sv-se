@@ -1,7 +1,7 @@
 ---
-title: Stöd för containrar
+title: Skapa en resurs för Azure Kubernetes Service-kluster
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar ett azure kubernetes (AKS) resursen.
+description: Lär dig hur du skapar en resurs i Azure Kubernetes Service (AKS).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,43 +9,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712472"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877450"
 ---
-## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Skapa en klusterresurs för Azure Kubernetes Service (AKS)
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Skapa en resurs för Azure Kubernetes Service-kluster
 
-1. Gå till den [skapa](https://ms.portal.azure.com/#create/microsoft.aks) för Kubernetes-tjänster.
+1. Gå till [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) och välj **skapa**.
 
 1. På den **grunderna** ange följande information:
 
     |Inställning|Value|
     |--|--|
-    |Subscription|Välj lämplig prenumeration|
+    |Subscription|Välj en lämplig prenumeration|
     |Resource group|Välj en tillgänglig resursgrupp|
-    |Kubernetes-klusternamn|Önskat namn (gemener)|
+    |Kubernetes-klusternamn|Ange ett namn (små)|
     |Region|Välj en närliggande plats|
     |Kubernetes-version|1.12.8 (standard)|
     |DNS-namnprefix|Skapas automatiskt, men du kan åsidosätta|
     |Nodstorlek|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Antal noder|Lämna skjutreglaget på standardvärdet|
 
-1. På den **skala** fliken, lämna den *virtuella noder* och *VM-skalningsuppsättningar* standardvärdena.
-1. På den **autentisering** fliken, lämna *tjänstens huvudnamn* och *aktivera RBAC* standardvärdena.
+1. På den **skala** fliken, lämna **virtuella noder** och **skalningsuppsättningar för virtuella datorer (förhandsversion)** inställd på standardvärdena.
+1. På den **autentisering** fliken, lämna **tjänstens huvudnamn** och **aktivera RBAC** inställd på standardvärdena.
 1. På den **nätverk** ange följande val:
 
-    |Inställning|Value|
+    |Inställning|Värde|
     |--|--|
     |Routning av HTTP-program|Nej|
     |Nätverkskonfigurationen|Basic|
 
-1. På den **övervakning** fliken, se till att *aktivera behållarövervakning* är inställd på **Ja** och lämna den *Log Analytics-arbetsyta* som dess standardvärde
+1. På den **övervakning** fliken, se till att **aktivera behållarövervakning** är inställd på **Ja**, och lämna **Log Analytics-arbetsyta** som den standardvärde.
 1. På den **taggar** fliken, inget namn/värde-par för tillfället.
-1. Klicka på **granska och skapa**.
-1. När valideringen lyckats klickar du på **skapa**.
+1. Välj **granska och skapa**.
+1. När valideringen är godkänd väljer **skapa**.
 
 > [!NOTE]
-> Om valideringen misslyckas kan det bero på grund av en *tjänstens huvudnamn* fel. Gå tillbaka till den *autentisering* och sedan tillbaka till *granska + skapa* var verifiering bör köra och sedan skicka.
+> Om valideringen misslyckas, kanske på grund av felet ”tjänstens huvudnamn”. Gå tillbaka till den **autentisering** fliken och sedan tillbaka till **granska + skapa**, där verifiering bör köra och sedan skicka.

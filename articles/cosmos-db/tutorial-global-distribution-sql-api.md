@@ -4,15 +4,15 @@ description: Lär dig att konfigurera global distribution i Azure Cosmos DB med 
 author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2019
+ms.date: 07/15/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4f97d1f052cd8684674eecf479133051f2cfb76e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c4ce60e3532179efe3ac68c21b32850e73f92a69
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480547"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881214"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurera global distribution i Azure Cosmos DB med SQL API:et
 
@@ -47,7 +47,7 @@ Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar 
 ## <a name="net-sdk"></a>.NET SDK
 SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Strängvärdena formateras efter regionnamnskolumnen på sidan [Azure-regioner][regions], utan något blanksteg före det första tecknet eller efter det sista.
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Strängvärden som är formaterade efter regionnamnskolumnen på den [Azure-regionerna][regions] sida, utan blanksteg före eller efter först och sista tecknet respektive.
 
 De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.WriteEndpoint respektive DocumentClient.ReadEndpoint.
 
@@ -78,10 +78,10 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS-, JavaScript- och Python-SDK:er
+## <a name="nodejs-javascript-and-python-sdks"></a>Node.js-, JavaScript- och Python SDK: er
 SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för DocumentClient-konstruktorn har en ny egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i varje SDK av version 1.8 eller senare. Den här parametern är en matris med strängar som tar en lista med regionnamn. Namnen är formaterade efter regionnamnskolumnen på sidan [Azure-regioner][regions]. Du kan också använda de fördefinierade konstanterna i bekvämlighetsobjektet AzureDocuments.Regions
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en ny egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i varje SDK av version 1.8 eller senare. Den här parametern är en matris med strängar som tar en lista med regionnamn. Namnen är formaterade efter regionnamnskolumnen på den [Azure-regionerna][regions] sidan. Du kan också använda de fördefinierade konstanterna i bekvämlighetsobjektet AzureDocuments.Regions
 
 De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.getWriteEndpoint respektive DocumentClient.getReadEndpoint.
 
@@ -90,7 +90,7 @@ De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.getW
 >
 >
 
-Här nedan visas ett kodexempel för NodeJS/Javascript. Python och Java följer samma mönster.
+Nedan visas ett kodexempel för Node.js/Javascript. Python och Java följer samma mönster.
 
 ```JavaScript
 // Creating a ConnectionPolicy object

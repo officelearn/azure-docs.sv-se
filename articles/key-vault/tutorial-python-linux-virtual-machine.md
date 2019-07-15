@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66147763"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876713"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använda en virtuell Linux-dator och en Python-app för att lagra hemligheter i Azure Key Vault
 
@@ -32,7 +32,7 @@ I den här självstudien konfigurerar du en Azure-webbapp till att läsa informa
 
 Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](key-vault-whatis.md#basic-concepts).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Git](https://git-scm.com/downloads).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -50,7 +50,7 @@ När du aktiverar MSI för en Azure-tjänst som Virtual Machines, App Service el
 
 Koden anropar sedan en lokal metadatatjänst som är tillgänglig på Azure-resursen för att hämta en åtkomsttoken. Koden använder den åtkomsttoken som den får från den lokala MSI-slutpunkt för att autentisera till en Azure Key Vault-tjänst.
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Skapa en virtuell dator med hjälp av kommandot `az vm create`.
 
-Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern `--generate-ssh-keys` genererar automatiskt en SSH-nyckel och placerar den på standardnyckelplatsen (**~/.ssh**). Om du i stället vill skapa en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern `--generate-ssh-keys` genererar automatiskt en SSH-nyckel och placerar den på standardnyckelplatsen ( **~/.ssh**). Om du i stället vill skapa en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

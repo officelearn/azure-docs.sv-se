@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: 945bff075828bdbddd2a31642b35a5c592216b93
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: f195eaa0f5d22160de8c1e9e2f429073de001828
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565888"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986031"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
@@ -80,6 +80,7 @@ Om du etablerar dataflödet i en behållare i ett Azure Cosmos-konto som har kon
 > Använd SDK: er för Cosmos för SQL-API att etablera dataflöde för alla Cosmos DB API: er, utom Cassandra API.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin och tabell-API:er
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -92,6 +93,9 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 400 });
 ```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
 

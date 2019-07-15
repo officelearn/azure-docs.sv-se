@@ -8,20 +8,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: sngun
-ms.openlocfilehash: 24de1fe0695d0f7634d8f20f1876b5000496dbea
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 55bdcf9847f2194f269b92aed830a66c79c4d337
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475780"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985670"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudie om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-get-started.md)
-> * [.NET (förhandsversion)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (förhandsversion)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -77,7 +74,7 @@ Katalogen innehåller en `pom.xml`-fil för projektet och en `src`-mapp med Java
     </dependency>
 
 ## <a id="Connect"></a>Steg 3: Ansluta till ett Azure Cosmos DB-konto
-Gå sedan tillbaka till [Azure Portal](https://portal.azure.com) för att hämta din slutpunkt och primära huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
+Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primära huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
 
 Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**. Kopiera URI:n från portalen och klistra in den i `https://FILLME.documents.azure.com` i Program.java-filen. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den i `FILLME`.
 
@@ -87,7 +84,7 @@ Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**.
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Skärmbild av Azure Portal som används i NoSQL-självstudiekursen för att skapa en Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
+![Skärmbild av Azure portal som används i NoSQL-självstudiekursen för att skapa en Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.

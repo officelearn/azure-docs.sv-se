@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: de39581f832c30c64a69797805df7e13ce47b439
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: e44017ea2df24445c28361a0f3d7fb2671317b6d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565868"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000652"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera dataflöde för en databas i Azure Cosmos DB
 
@@ -59,6 +59,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > Du kan använda SDK: er Cosmos för SQL-API att etablera dataflöde för alla API: er. Om du vill kan du även använda följande exempel för API för Cassandra.
 
 ### <a id="dotnet-all"></a>Alla API:er
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 
 ```csharp
 //set the throughput for the database
@@ -72,6 +73,9 @@ await client.CreateDatabaseIfNotExistsAsync(
     new Database {Id = databaseName},  
     options);
 ```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
 

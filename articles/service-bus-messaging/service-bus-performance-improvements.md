@@ -82,9 +82,9 @@ Service Bus stöder inte transaktioner för ta emot och delete-åtgärder. Dessu
 
 Klientsidan batchbearbetning kan en kö eller ämne klient om du vill skicka ett meddelande för en viss tidsperiod. Om klienten skickar ytterligare meddelanden under den här tiden överförs dessa meddelanden i en enskild batch. Klientsidan batchbearbetning gör att en kö eller prenumeration klient för batch-flera **Slutför** begäranden till en enskild begäran. Batchbearbetning är endast tillgänglig för asynkron **skicka** och **Slutför** åtgärder. Synkrona åtgärder skickas direkt till Service Bus-tjänsten. Batchbearbetning inte inträffa för peek eller ta emot och inte heller batchbearbetning sker till klienter.
 
-Som standard använder en klient ett batch-intervall på 20 ms. Du kan ändra batch-intervall genom att ange den [BatchFlushInterval] [ BatchFlushInterval] egenskapen innan du skapar meddelandefabrik. Den här inställningen påverkar alla klienter som skapats med den här fabriken.
+Som standard använder en klient ett batch-intervall på 20 ms. Du kan ändra batch-intervall genom att ange den [BatchFlushInterval][BatchFlushInterval] egenskapen innan du skapar meddelandefabrik. Den här inställningen påverkar alla klienter som skapats med den här fabriken.
 
-Om du vill inaktivera batchbearbetning, ange den [BatchFlushInterval] [ BatchFlushInterval] egenskap **TimeSpan.Zero**. Exempel:
+Om du vill inaktivera batchbearbetning, ange den [BatchFlushInterval][BatchFlushInterval] egenskap **TimeSpan.Zero**. Exempel:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -113,7 +113,7 @@ För att öka dataflödet för en kö, ett ämne eller en prenumeration, slår S
 
 Ytterligare store-åtgärder som inträffar under det här intervallet har lagts till i gruppen. Batchar store åtkomst endast påverkar **skicka** och **Slutför** operations; ta emot påverkas inte. Satsvis store-åtkomst är en egenskap för en entitet. Batchbearbetning sker över alla entiteter som möjliggör åtkomst till batch store.
 
-När du skapar en ny kö, ett ämne eller en prenumeration, är gruppbaserade store-åtkomst aktiverat som standard. Om du vill inaktivera gruppbaserade store-åtkomst, ange den [EnableBatchedOperations] [ EnableBatchedOperations] egenskap **FALSKT** innan du skapar entiteten. Exempel:
+När du skapar en ny kö, ett ämne eller en prenumeration, är gruppbaserade store-åtkomst aktiverat som standard. Om du vill inaktivera gruppbaserade store-åtkomst, ange den [EnableBatchedOperations][EnableBatchedOperations] egenskap **FALSKT** innan du skapar entiteten. Exempel:
 
 ```csharp
 QueueDescription qd = new QueueDescription();

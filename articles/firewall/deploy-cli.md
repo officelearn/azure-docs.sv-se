@@ -284,7 +284,7 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   www.google.com begäranden ska lyckas och www.microsoft.com-begäranden ska misslyckas. Detta demonstrerar att brandväggsreglerna fungerar som förväntat.
+   [www.google.com](www.google.com) begäranden ska lyckas och www.microsoft.com -begäranden ska misslyckas. Detta demonstrerar att brandväggsreglerna fungerar som förväntat.
 
 Nu har du kontrollera att brandväggsreglerna fungerar:
 

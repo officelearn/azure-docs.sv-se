@@ -195,6 +195,8 @@
           href: search-howto-schedule-indexers.md
         - name: Mappa fält
           href: search-indexer-field-mappings.md
+        - name: Ansluta till hanterad SQL-instans
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Ansluta till virtuella SQL Server-datorer
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Övervaka indexerare

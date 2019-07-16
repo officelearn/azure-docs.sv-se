@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9de11c0049cf3db3feea311a2541640437ba8632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719928"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228085"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudier: Övervaka och diagnostisera en ASP.NET Core-app i Service Fabric med Application hjälp av Insights
 
@@ -41,12 +41,12 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
@@ -74,7 +74,7 @@ När du har fyllt i informationen som krävs, klickar du på **Skapa** för att 
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Lägga till Application Insights i tillämpningstjänsterna
 
-Starta Visual Studio 2017 med utökade privilegier genom att högerklicka på Visual Studio-ikonen på startmenyn och välja **kör som administratör**. Klicka på **Arkiv** > **Öppna** > **Projekt/lösning** och gå till programmet Röstning (antingen skapat i del ett av självstudien eller Git-klonad). Öppna *Voting.sln*. Om du uppmanas att återställa programmets NuGet-paket, klickar du på **Ja**.
+Starta Visual Studio 2019 med förhöjd behörighet genom att högerklicka på Visual Studio-ikonen på startmenyn och välja **kör som administratör**. Klicka på **Arkiv** > **Öppna** > **Projekt/lösning** och gå till programmet Röstning (antingen skapat i del ett av självstudien eller Git-klonad). Öppna *Voting.sln*. Om du uppmanas att återställa programmets NuGet-paket, klickar du på **Ja**.
 
 Följ stegen nedan för att konfigurera Application Insights för både VotingWeb- och VotingData-tjänster:
 
@@ -190,7 +190,7 @@ Navigera till Application Insights-resursen i Azure-portalen.
 Klicka på **Översikt** för att gå tillbaka till startsidan för din resurs. Klicka sedan på **Sök** överst för att se spårningen. Det tar några minuter innan spårningarna visas i Application Insights. Om du inte ser några kan du vänta en minut och sedan trycka på knappen **Uppdatera** längst upp.
 ![AI ser spårningar](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Rulla nedåt i fönstret *Sök* för att se all inkommande telemetri som medföljer Application Insights. För varje åtgärd som du har gjort i programmet Röstningsdatabasen det finnas en utgående PUT-förfrågan från *VotingWeb* (PLACERA röster/Put [name]), en inkommande PUT-begäran från *VotingData* (PLACERA VoteData/Put [namn]), följt av ett par med GET-begäranden för att uppdatera data som visas. Det finns också en beroendespårning för HTTP på localhost, eftersom det är HTTP-begäranden. Här är ett exempel på vad som ska visas när en röst har lagts till:
+Rulla nedåt i fönstret *Sök* för att se all inkommande telemetri som medföljer Application Insights. För varje åtgärd som du har gjort i programmet Röstning ska det finnas en utgående PUT-förfrågan från *VotingWeb* (PUT Votes/Put [namn]), en inkommande PUT-begäran från *VotingData* (PUT VoteData/Put [namn]), följt av ett par GET-begäranden om att uppdatera de data som visas. Det finns också en beroendespårning för HTTP på localhost, eftersom det är HTTP-begäranden. Här är ett exempel på vad som ska visas när en röst har lagts till:
 
 ![AI exempel på spårningsbegäran](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
@@ -214,10 +214,10 @@ Låt oss lägga till vissa anpassade händelser i *VoteDataController.cs* (under
 2. Deklarera en ny *TelemetryClient* i början av klassen under skapandet av *IReliableStateManager*: `private TelemetryClient telemetry = new TelemetryClient();`.
 3. I funktionen *Put()* lägger du till en händelse som bekräftar en röst har lagts till. Lägg till `telemetry.TrackEvent($"Added a vote for {name}");` när transaktionen har slutförts, direkt före return-instruktionen *OkResult*.
 4. I *Delete()* finns det ett ”if/else” som baseras på villkoret att *votesDictionary* innehåller röster för ett specifikt röstningsalternativ.
-    1. Lägg till en händelse som bekräftar borttagningen av en röst i *if*-instruktionen, efter *await tx.CommitAsync()*: `telemetry.TrackEvent($"Deleted votes for {name}");`
+    1. Lägg till en händelse som bekräftar borttagningen av en röst i *if*-instruktionen, efter *await tx.CommitAsync()* : `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. Lägg till en händelse som visar att borttagningen inte ägde rum i *else*-instruktionen före return-instruktionen: `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 
-Här är ett exempel på hur dina *Put()*- och *Delete()*-funktioner kan se ut när du har lagt till händelserna:
+Här är ett exempel på hur dina *Put()* - och *Delete()* -funktioner kan se ut när du har lagt till händelserna:
 
 ```csharp
 // PUT api/VoteData/name

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187589"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227772"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -158,7 +158,7 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
 
 3. Välj **Microsoft Azure Notification Hubs** i resultatlistan och sedan **Installera**. Slutför installationen och stäng sedan fönstret för NuGet-pakethanteraren.
 
-    Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Skapa en ny klassfil som representerar anslutningen med meddelandehubben som används för att skicka meddelanden. I Solution Explorer högerklickar du på mappen **Modeller**, välj **Lägg till** och sedan **Klass**. Ge den nya klassen namnet **Notifications.cs** och välj sedan **Lägg till** för att generera den nya klassen.
 
@@ -170,7 +170,7 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Ersätt `Notifications`-klassdefinitionen med följande kod och ersätt de två platshållarna med anslutningssträngen (med fullständig åtkomst) för din meddelandehubb samt hubbnamnet (tillgängligt på [Azure Portal](http://portal.azure.com)):
+6. Ersätt `Notifications`-klassdefinitionen med följande kod och ersätt de två platshållarna med anslutningssträngen (med fullständig åtkomst) för din meddelandehubb samt hubbnamnet (tillgängligt på [Azure Portal](https://portal.azure.com)):
 
     ```csharp
     public class Notifications

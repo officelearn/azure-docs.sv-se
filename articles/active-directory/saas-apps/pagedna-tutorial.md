@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095102"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudier: Azure Active Directory-integrering med PageDNA
 
@@ -35,7 +35,7 @@ Integrera PageDNA med Azure AD ger dig följande fördelar:
 
 Mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med PageDNA, behöver du följande objekt:
 
@@ -171,7 +171,7 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst PageDNA.
+I det här avsnittet ska låta du användarna Britta Simon att använda Azure enkel inloggning genom att bevilja användaråtkomst till PageDNA.
 
 1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **PageDNA**.
 
@@ -212,3 +212,4 @@ När du väljer **PageDNA** i portalen Mina appar du bör vara loggas in automat
 * [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

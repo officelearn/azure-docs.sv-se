@@ -137,10 +137,14 @@
           href: how-to-update-iot-edge.md
     - name: Automatisk etablering med DPS
       items:
-        - name: Linux
-          href: how-to-auto-provision-simulated-device-linux.md
-        - name: Windows
-          href: how-to-auto-provision-simulated-device-windows.md
+        - name: Symmetrisk nyckelattestering
+          href: how-to-auto-provision-symmetric-keys.md
+        - name: TPM-attestering
+          items:
+            - name: Linux
+              href: how-to-auto-provision-simulated-device-linux.md
+            - name: Windows
+              href: how-to-auto-provision-simulated-device-windows.md
     - name: Utveckla och felsöka anpassade moduler
       items:
         - name: Visual Studio 2019

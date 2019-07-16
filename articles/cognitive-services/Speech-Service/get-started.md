@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: aaae84fcb7df2abfe7e78adb64c22fb19fe45f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606721"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226411"
 ---
 # <a name="try-speech-services-for-free"></a>Testa Speech Services kostnadsfritt
 
@@ -89,7 +89,7 @@ Lägga till en resurs med Speech Services (nivå kostnadsfritt eller betalt) på
 
    * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
    * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
-   * Välj den region där resursen ska användas. Speech Services är för närvarande tillgängligt i östra Asien, Europa, norra och västra USA-regioner.
+   * Välj den [region](regions.md) där resursen ska användas.
    * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
    * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
    * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.

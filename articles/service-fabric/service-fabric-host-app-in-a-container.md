@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119087"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228124"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudier: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -36,19 +36,19 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
 3. Installera [Service Fabric Runtime version 6.2 eller senare](service-fabric-get-started.md) och [Service Fabric SDK version 3.1](service-fabric-get-started.md) eller senare.
-4. [Installera Visual Studio 2017 version 15.7](https://www.visualstudio.com/) eller senare med arbetsbelastningarna **Azure Development** och **ASP.NET och webbutveckling**.
+4. Installera [Visual Studio 2019 Version 16,1 tum](https://www.visualstudio.com/) eller senare med den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
 5. Installera [Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Ladda ned och kör Fabrikam Fiber CallCenter
-Ladda ned exempelprogrammet [Fabrikam Fiber CallCenter][link-fabrikam-github].  Klicka på länken för att **ladda ned arkiv**.  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
+Ladda ned den [Fabrikam Fiber CallCenter][link-fabrikam-github] exempelprogrammet.  Klicka på länken för att **ladda ned arkiv**.  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
 
-Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som **administratör** och öppna filen [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Tryck på F5 för att felsöka och köra programmet.
+Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som en **administratör** och öppna den [FabrikamFiber.CallCenter.sln][link-fabrikam-github] fil.  Tryck på F5 för att felsöka och köra programmet.
 
 ![Fabrikam-webbexempel][fabrikam-web-page]
 
@@ -235,7 +235,7 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. For example, http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Exempel: http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 

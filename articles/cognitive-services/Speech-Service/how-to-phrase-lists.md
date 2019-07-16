@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606514"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226353"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Fras listor för tal till text
 
@@ -24,6 +24,9 @@ Genom att tillhandahålla Taltjänster med en fras-lista, kan du förbättra tal
 Till exempel om du har ett kommando ”flytta till” och ”Ward” som kan läsas som möjligt mål du kan lägga till en post för ”Flytta till Ward”. Att lägga till en fras ökar sannolikheten som när ljudet känns att ”flytta till Ward” tolkas i stället för ”steg mot”.
 
 Enstaka ord eller fraser som fullständig kan läggas till i en lista med frasen. Under erkännande används en post i en lista med frasen om en exakt matchning som ingår i ljuduppspelningen. Utifrån föregående exempel om listan frasen innehåller ”flytta till Ward” och frasen avbildas är ”flytta mot långsamt” så att igenkänningsresultatet kommer att vara ”flytta till Ward långsamt”.
+
+>[!Note]
+> Stöder för närvarande frasen visas endast på engelska för tal till text.
 
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen visar en lista över
 

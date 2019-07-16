@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 07/15/2019
 ms.author: jowargo
-ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a01a71190f6de4bd08ee306f0175b01fee3db3d5
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653866"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227885"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 
@@ -79,7 +79,7 @@ Den här kursen är en förutsättning för att göra Meddelandehubbar kurs för
 2. Ange den **servernyckel** för FCM-projektet som du sparade tidigare. 
 3. I verktygsfältet väljer **spara**. 
 
-    ![Azure Notification Hub - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+    ![Azure Notification Hub – Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. Azure-portalen visas ett meddelande i aviseringar att hubben har uppdaterats. Knappen **Spara** är inaktiverad. 
 
 Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du kan också ha anslutningssträngar som är nödvändiga för att skicka meddelanden till en enhet och registrera en app för att ta emot meddelanden.
@@ -100,7 +100,6 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
     ![Android SDK Manager – Google Play Services valt](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Om du ser dialogrutan **Bekräfta ändringen** väljer du **OK**. De begärda komponenterna installeras. Välj **Slutför** när komponenterna har installerats.
 4. Välj **OK** för att stänga dialogrutan **Inställningar för nya projekt**.  
-5. Välj **synkronisera nu** ikonen i verktygsfältet.
 1. Öppna filen AndroidManifest.xml och Lägg sedan till följande kod till den *program* tagg.
 
     ```xml
@@ -115,7 +114,6 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
 
     ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
-    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. Lägg till följande lagringsplats efter avsnittet beroenden.
@@ -146,7 +144,7 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
 
 ### <a name="update-the-androidmanifestxml-file"></a>Uppdatera AndroidManifest.xml-filen
 
-1. När du tagit emot din Registreringstoken för fcm kan du använda den för att [registrering med Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Du stöder denna registrering i bakgrunden med hjälp av en `IntentService` med namnet `RegistrationIntentService`. Den här tjänsten uppdaterar även din FCM-registreringstoken.
+1. När du tagit emot din Registreringstoken för fcm kan du använda den för att [registrering med Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Du stöder denna registrering i bakgrunden med hjälp av en `IntentService` med namnet `RegistrationIntentService`. Den här tjänsten uppdaterar även din FCM-registreringstoken. Du också skapa en klass med namnet `FirebaseService` som en underklass till `FirebaseMessagingService` och åsidosätter den `onMessageReceived` metod för att ta emot och hantera meddelanden. 
 
     Lägg till följande tjänstedefinition i filen AndroidManifest.xml inuti taggen `<application>`.
 
@@ -155,22 +153,14 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
         android:name=".RegistrationIntentService"
         android:exported="false">
     </service>
-    ```
-
-2. Du måste också definiera en mottagare för att ta emot meddelanden. Lägg till följande mottagardefinition i filen AndroidManifest.xml inuti taggen `<application>`. 
-
-    ```xml
-    <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-        android:permission="com.google.android.c2dm.permission.SEND">
+    <service
+        android:name=".FirebaseService"
+        android:exported="false">
         <intent-filter>
-            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            <category android:name="<your package name>" />
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
         </intent-filter>
-    </receiver>
+    </service>
     ```
-
-    > [!IMPORTANT]
-    > Ersätt den `<your package NAME>` med det faktiska paketnamnet som visas överst i filen AndroidManifest.xml.
 3. Lägg till följande nödvändiga FCM-relaterade behörigheter nedan i `</application>` tagg.
 
     ```xml
@@ -307,7 +297,6 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
     ```java
     import com.google.android.gms.common.ConnectionResult;
     import com.google.android.gms.common.GoogleApiAvailability;
-    import com.microsoft.windowsazure.notifications.NotificationsManager;
     import android.content.Intent;
     import android.util.Log;
     import android.widget.TextView;
@@ -373,6 +362,7 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
 
         mainActivity = this;
         registerWithNotificationHubs();
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -421,11 +411,14 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
     android:id="@+id/text_hello"
     ```
 
-11. Därefter lägger du till en underklass för den mottagare som du har definierat i AndroidManifest.xml. Lägg till ytterligare en ny klass i projektet och ge den namnet `MyHandler`.
+11. Därefter lägger du till en underklass för den mottagare som du har definierat i AndroidManifest.xml. Lägg till ytterligare en ny klass i projektet och ge den namnet `FirebaseService`.
 
-12. Lägg till följande importuttryck längst upp i `MyHandler.java`:
+12. Lägg till följande importuttryck längst upp i `FirebaseService.java`:
 
     ```java
+    import com.google.firebase.messaging.FirebaseMessagingService;
+    import com.google.firebase.messaging.RemoteMessage;
+    import android.util.Log;
     import android.app.NotificationChannel;
     import android.app.NotificationManager;
     import android.app.PendingIntent;
@@ -436,16 +429,17 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
     import android.os.Build;
     import android.os.Bundle;
     import android.support.v4.app.NotificationCompat;
-    import com.microsoft.windowsazure.notifications.NotificationsHandler;    
-    import com.microsoft.windowsazure.notifications.NotificationsManager;
     ```
 
-13. Lägg till följande kod för den `MyHandler` klass, vilket gör det till en underklass av `com.microsoft.windowsazure.notifications.NotificationsHandler`.
+13. Lägg till följande kod för den `FirebaseService` klass, vilket gör det till en underklass av `FirebaseMessagingService`.
 
-    Den här koden åsidosätter metoden `OnReceive` vilket i sin tur gör att hanteraren rapporterar meddelanden som tas emot. Hanteraren skickar även push-meddelandena till Android Notification Manager genom att använda metoden `sendNotification()`. Anropa den `sendNotification()` metoden när appen körs inte och ett meddelande tas emot.
+    Den här koden åsidosätter den `onMessageReceived` metoden och rapporter meddelanden som tas emot. den skickar även push-meddelanden till Android notification manager med hjälp av den `sendNotification()` metoden. Anropa den `sendNotification()` metoden när appen inte körs och ett meddelande tas emot.
 
     ```java
-    public class MyHandler extends NotificationsHandler {
+    public class FirebaseService extends FirebaseMessagingService
+    {
+        private String TAG = "FirebaseService";
+    
         public static final String NOTIFICATION_CHANNEL_ID = "nh-demo-channel-id";
         public static final String NOTIFICATION_CHANNEL_NAME = "Notification Hubs Demo Channel";
         public static final String NOTIFICATION_CHANNEL_DESCRIPTION = "Notification Hubs Demo Channel";
@@ -453,16 +447,33 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
-        Context ctx;
+        static Context ctx;
     
         @Override
-        public void onReceive(Context context, Bundle bundle) {
-            ctx = context;
-            String nhMessage = bundle.getString("message");
-            sendNotification(nhMessage);
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            // ...
+    
+            // TODO(developer): Handle FCM messages here.
+            // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+            Log.d(TAG, "From: " + remoteMessage.getFrom());
+    
+            String nhMessage;
+            // Check if message contains a notification payload.
+            if (remoteMessage.getNotification() != null) {
+                Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+    
+                nhMessage = remoteMessage.getNotification().getBody();
+            }
+            else {
+                nhMessage = remoteMessage.getData().values().iterator().next();
+            }
+    
+            // Also if you intend on generating your own notifications as a result of a received FCM
+            // message, here is where that should be initiated. See sendNotification method below.
             if (MainActivity.isVisible) {
                 MainActivity.mainActivity.ToastNotify(nhMessage);
             }
+            sendNotification(nhMessage);
         }
     
         private void sendNotification(String msg) {
@@ -490,6 +501,8 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
         }
     
         public static void createChannelAndHandleNotifications(Context context) {
+            ctx = context;
+    
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel channel = new NotificationChannel(
                         NOTIFICATION_CHANNEL_ID,
@@ -500,8 +513,7 @@ Hubben har nu konfigurerats för att fungera med Firebase Cloud Messaging. Du ka
     
                 NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
                 notificationManager.createNotificationChannel(channel);
-                NotificationsManager.handleNotifications(context, "", MyHandler.class);
-            }
+             }
         }
     }
     ```
@@ -538,13 +550,13 @@ Du kan skicka push-meddelanden från den [Azure Portal] genom att utföra följa
 ### <a name="run-the-mobile-app-on-emulator"></a>Kör mobilappen i emulatorn
 Innan du testar push-meddelanden inne i en emulator, se till att emulatorbilden stöder den Google API-nivå som du har valt för din app. Om avbildningen inte stöder interna Google APIs kan du få den **SERVICE\_inte\_tillgänglig** undantag.
 
-Kontrollera dessutom att du har lagt till ditt Google-konto till din körs emulator under **inställningar** > **konton**. Annars kan försöken att registrera med FCM kan resultera i den **AUTENTISERING\_misslyckades** undantag.
+Kontrollera också att du har lagt till ditt Google-konto till din körs emulator under **inställningar** > **konton**. Annars kan försöken att registrera med FCM kan resultera i den **AUTENTISERING\_misslyckades** undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien använde du Firebase Cloud Messaging för att sända meddelanden till alla Android-enheter som registrerats med tjänsten. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:
 
 > [!div class="nextstepaction"]
->[Självstudie: Push-meddelanden till specifika Android-enheter](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
+>[Självstudier: Push-meddelanden till specifika Android-enheter](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

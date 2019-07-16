@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106951"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudier: Azure Active Directory-integrering med AnswerHub
 
@@ -34,7 +34,7 @@ När du integrerar AnswerHub med Azure AD innebär det följande fördelar:
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att konfigurera Azure AD-integrering med AnswerHub:
 
@@ -193,7 +193,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet konfigurerar du Britta Simon för att använda enkel inloggning med Azure AD genom att ge henne åtkomst till AnswerHub.
+I det här avsnittet ska ställa du in användaren Britta Simon att använda Azure AD enkel inloggning genom att bevilja användaråtkomst till AnswerHub.
 
 **Så här tilldelar du Azure AD-testanvändaren:**
 

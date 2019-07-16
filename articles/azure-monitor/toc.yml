@@ -280,8 +280,10 @@
               href: platform/custom-fields.md
         - name: Konfigurera program
           items:
-            - name: Azure-appar
+            - name: Appar med Azure som värd
               items:
+                - name: Virtuella Azure-datorer och VM-skalningsuppsättningar i Azure
+                  href: app/azure-vm-vmss-apps.md
                 - name: Azure App Service
                   href: app/azure-web-apps.md
                 - name: Azure Cloud Services
@@ -709,8 +711,8 @@
               href: platform/metrics-getting-started.md
             - name: Avancerade funktioner i Metrics Explorer
               href: platform/metrics-charts.md
-            - name: Exempel på måttdiagram
-              href: platform/metric-chart-samples.md
+            - name: Loggbaserade mått
+              href: platform/app-insights-metrics.md
             - name: Felsöka måttdiagram
               href: platform/metrics-troubleshoot.md
         - name: Loggar

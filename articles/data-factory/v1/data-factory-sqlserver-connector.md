@@ -79,7 +79,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | type |Type-egenskapen ska anges till: **OnPremisesSqlServer**. |Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till en lokal SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SQL Server-databasen. |Ja |
-| username |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
+| username |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\username**. |Nej |
 | password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 
 Du kan kryptera autentiseringsuppgifter med hjälp av den **New-AzDataFactoryEncryptValue** cmdlet och Använd dem i anslutningssträngen som du ser i följande exempel (**EncryptedCredential** egenskapen):

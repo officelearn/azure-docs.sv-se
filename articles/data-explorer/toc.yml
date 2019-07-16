@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Kontrollera klusterhälsa
           href: check-cluster-health.md
+        - name: Välja kluster-SKU för virtuell dator
+          href: manage-cluster-choose-sku.md
         - name: Hantera horisontell klusterskalning
           href: manage-cluster-horizontal-scaling.md
         - name: Hantera vertikal klusterskalning

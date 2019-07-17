@@ -23,7 +23,7 @@
           href: quickstart-netcore-visualstudio.md
     - name: Självstudier
       items:
-        - name: Java (VS-kod och CLI)
+        - name: Java (VS Code och CLI)
           items:
             - name: 1 – Kom igång
               href: get-started-java.md

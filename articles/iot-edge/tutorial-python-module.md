@@ -42,8 +42,8 @@ Använd följande tabell för att förstå dina alternativ för att utveckla och
 
 | Python | Visual Studio-koden | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Använda VS-kod för Python-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Använda VS-kod för Python-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Använda VS Code för Python-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Använda VS Code för Python-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Förutsättningar
 

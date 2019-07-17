@@ -1,5 +1,5 @@
 ---
-title: 'VS-kod: Ansluta till och fråga efter data i Azure SQL Database | Microsoft Docs'
+title: 'VS Code: Ansluta till och fråga efter data i Azure SQL Database | Microsoft Docs'
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att söka i och redigera data.
 keywords: ansluta till sql database
 services: sql-database

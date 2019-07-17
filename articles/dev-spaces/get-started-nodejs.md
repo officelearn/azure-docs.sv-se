@@ -268,7 +268,7 @@ Med Azure Dev Spaces kan du använda många av de utvecklingsarbetsflöden som d
 
 Prova följande steg:
 1. Stoppa VS Code-felsökaren.
-1. Klicka på ikonen Felsök i **aktivitetsfältet** längs kanten i VS-kod. 
+1. Klicka på ikonen Felsök i **aktivitetsfältet** längs kanten i VS Code. 
 1. Välj **Attach (AZDS)** (Koppla (AZDS)) som aktiv felsökningskonfiguration.
 1. Tryck på F5.
 

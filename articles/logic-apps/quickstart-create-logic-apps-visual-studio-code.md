@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera automatiserade arbetsflöden med Visual Studio Code – Azure Logic Apps | Microsoft Docs
-description: Snabbstart att skapa och hantera logikappar med JSON i Visual Studio Code (VS-kod)
+description: Snabbstart att skapa och hantera logikappar med JSON i Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.workload: azure-vs
@@ -224,4 +224,3 @@ Du kan öppna appens definitionsfilen för arbetsflödet i Visual Studio Code f�
 
 * Om du har frågor kan du besöka <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">forumet för Azure Logic Apps</a>.
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du <a href="https://aka.ms/logicapps-wish" target="_blank">webbplatsen för Logic Apps-användarfeedback</a>.
-

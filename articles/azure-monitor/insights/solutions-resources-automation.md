@@ -281,9 +281,9 @@ Om du ställer in det initiala värdet för variabeln måste den konfigureras so
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| string   | Ange värdet inom dubbla citattecken.  | "\"Hello world\"" | "Hello world" |
+| string   | Ange värdet inom dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
 | numeric  | Numeriskt värde med enkla citattecken.| "64" | 64 |
-| boolean  | **true** eller **false** inom citattecken.  Observera att det här värdet måste vara gemener. | "true" | true |
+| boolean  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | true |
 | datetime | Serialiserade datumvärdet.<br>Du kan använda cmdleten ConvertTo-Json i PowerShell för att skapa det här värdet för ett visst datum.<br>Exempel: get-date ”5/24/2017 13:14:57” \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler

@@ -17,6 +17,8 @@
       href: notifications.md
     - name: Hur är din inloggningsupplevelse?
       href: flows.md
+    - name: Identitetsskydd och B2B-användare
+      href: concept-identity-protection-b2b.md
 - name: Instruktionsguider
   expanded: true
   items:

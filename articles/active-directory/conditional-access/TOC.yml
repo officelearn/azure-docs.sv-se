@@ -68,6 +68,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer
       href: policy-migration.md
+    - name: Felsökning
+      items:
+        - name: Felsöka med hjälp av What If-verktyget
+          href: troubleshoot-conditional-access-what-if.md
 - name: Referens
   items:
     - name: Teknisk referens

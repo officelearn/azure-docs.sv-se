@@ -81,8 +81,8 @@
       href: sample-v2-code.md
     - name: Begrepp
       items:
-        - name: Programtyper
-          href: v2-app-types.md
+        - name: Autentiseringsflöden och appscenarier
+          href: authentication-flows-app-scenarios.md
         - name: Programscenarier
           items:
             - name: Logga in målgrupp
@@ -227,6 +227,8 @@
                   href: msal-client-application-configuration.md
                 - name: Initiera program (.NET)
                   href: msal-net-initializing-client-applications.md
+                - name: Klientförsäkran (.NET)
+                  href: msal-net-client-assertions.md
                 - name: Initiera program (JS)
                   href: msal-js-initializing-client-applications.md
             - name: Hantera fel och undantag
@@ -267,10 +269,12 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Kända problem – Safari
                       href: msal-js-known-issues-safari-browser.md
-        - name: Autentisering
+        - name: Autentiseringsprotokoll
           items:
             - name: Grundläggande om autentisering
               href: authentication-scenarios.md
+            - name: Programtyper och OAuth2.0
+              href: v2-app-types.md
             - name: OAuth 2.0- och OpenID Connect-protokoll
               href: active-directory-v2-protocols.md
             - name: OpenID Connect

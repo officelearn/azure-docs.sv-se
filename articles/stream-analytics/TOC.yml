@@ -94,10 +94,12 @@
           href: stream-analytics-clean-up-your-job.md
         - name: Koppla jobb för tillförlitlighet
           href: stream-analytics-job-reliability.md
-        - name: Autentisera med hanterad identitet
+        - name: Autentisera med hanterad identitet– ADLS Gen 1-utdata
           href: stream-analytics-managed-identities-adls.md
         - name: Använda SQL-referensdata
           href: sql-reference-data.md
+        - name: Autentisera med hanterad identitet– blobutdata
+          href: blob-output-managed-identity.md
     - name: Skapa lösningar
       items:
         - name: Twitter-attitydanalys

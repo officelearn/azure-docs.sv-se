@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163643"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275911"
 ---
 # <a name="application-settings"></a>Programinställningar
 
@@ -24,8 +24,8 @@ Dessa programinställningar lagras i den [exporteras](https://westus.dev.cogniti
 
 |Inställning|Standardvärde|Anteckningar|
 |--|--|--|
-|NormalizePunctuation|True|Tar bort skiljetecken.|
-|NormalizeDiacritics|True|Tar bort diakritiska tecken.|
+|NormalizePunctuation|Sant|Tar bort skiljetecken.|
+|NormalizeDiacritics|Sant|Tar bort diakritiska tecken.|
 
 ## <a name="diacritics-normalization"></a>Diakritiska tecken normalisering 
 
@@ -48,7 +48,7 @@ Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska (Brasilien) `pt-br` diakritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden
 
 #### <a name="dutch-nl-nl-diacritics"></a>Nederländska `nl-nl` diakritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden
 
 Detta inkluderar både franska och kanadensiska subkulturer.
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Detta inkluderar både franska och kanadensiska subkulturer.
 
 #### <a name="german-de-de-diacritics"></a>Tyska `de-de` diakritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Detta inkluderar både franska och kanadensiska subkulturer.
 
 #### <a name="italian-it-it-diacritics"></a>Italienska `it-it` diakritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Detta inkluderar både franska och kanadensiska subkulturer.
 
 Detta inkluderar både spanska och kanadensiska Mexikanska.
 
-|Diakritiska tecken inställd på false|Diakritiska tecken inställd på false|
+|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

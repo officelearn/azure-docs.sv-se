@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: I den här självstudien visas hur du skapar och hanterar en offentlig Standard Load Balancer med Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320862"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273354"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Självstudie: Belastningsutjämna internettrafik till virtuella datorer med hjälp av Azure-portalen
 
@@ -49,11 +49,11 @@ I det här avsnittet skapar du en Standardbelastningsutjämnare som hjälper til
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa nytt** och skriv *myResourceGroupSLB* i textrutan.|
+    | Subscription               | Välj din prenumeration.    |    
+    | Resource group         | Välj **Skapa nytt** och skriv *myResourceGroupSLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -86,10 +86,10 @@ För att belastningsutjämnaren ska övervaka status för din app måste använd
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *myHealthProbe*. |
-    | Protokoll | Välj **HTTP**. |
+    | Protocol | Välj **HTTP**. |
     | Port | Ange *80*.|
     | Interval | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsöken. |
-    | Tröskelvärde för Ej felfri | Välj *2* för antal **tröskelvärde för ej felfri** eller avsökningsfel som måste inträffa innan en virtuell dator betraktas som defekt.|
+    | Tröskelvärde för ej felfri | Välj *2* för antal **tröskelvärde för ej felfri** eller avsökningsfel som måste inträffa innan en virtuell dator betraktas som defekt.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
     
 4. Välj **OK**.
@@ -105,7 +105,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *myHTTPRule*. |
-    | Protokoll | Välj **TCP**. |
+    | Protocol | Välj **TCP**. |
     | Port | Ange *80*.|
     | Serverdelsport | Ange *80*. |
     | Serverdelspool | Välj *myBackendPool*.|
@@ -126,8 +126,8 @@ I det här avsnittet, skapa ett virtuellt nätverk, skapa tre virtuella datorer 
     | ------- | ----- |
     | Namn | Ange *myVNet*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj befintlig resurs - *myResourceGroupSLB*. |
+    | Subscription | Välj din prenumeration.|
+    | Resource group | Välj befintlig resurs - *myResourceGroupSLB*. |
     | Location | Välj **Västeuropa**.|
     | Undernät – Namn | Ange *myBackendSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |

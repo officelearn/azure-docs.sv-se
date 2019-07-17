@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 71fc32fb34ae67f6d3a4de556da8b107574cc920
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7c9385078b1f9b42847cf627cf49ac16158d6b52
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603532"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276418"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-ruby"></a>Snabbstart: Extrahera utskrivna text (OCR) med hjälp av REST API för visuellt innehåll och Ruby
 
@@ -33,8 +33,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerare.
-1. Gör nedanstående ändringar i koden där det behövs:
+1. Kopiera koden nedan i en textredigerare.
+1. Gör följande ändringar i koden:
     1. Ersätt `<Subscription Key>` med din prenumerationsnyckel.
     1. Ersätt `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) i Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
     1. Du kan också ersätta `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` med webbadressen till en annan bild från vilken du vill extrahera tryckt text.

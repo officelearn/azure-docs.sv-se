@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124175"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276212"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Självstudier: Extrahera namn med en enkel entitet och en fraslista
 
@@ -229,7 +229,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
 1. Välj **Create new phrase list** (Skapa ny fraslista). 
 
-1. Namnge den nya fraslistan `JobNames` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden). Välj Retur. 
+1. Namnge den nya fraslistan `JobNames` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden).
 
     [![Skärmbild på dialogrutan för att skapa en ny fraslista](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     Se till att **These values are interchangeable** (Dessa värden är utbytbara) är markerad eftersom alla dessa värden ska behandlas som synonymer för jobb. Läs mer om utbytbara och icke utbytbara [begrepp i fraslistan](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Välj **Save** (Spara) så aktiveras fraslistan.
+1. Välj **klar** att aktivera listan fras.
 
     [![Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

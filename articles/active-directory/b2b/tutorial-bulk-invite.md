@@ -1,5 +1,5 @@
 ---
-title: Självstudie om massinbjudning av B2B-samarbetsanvändare – Azure Active Directory | Microsoft Docs
+title: Självstudie för stora bjuda in användare för B2B-samarbetet - Azure Active Directory | Microsoft Docs
 description: I den här självstudien lär du dig hur du använder PowerShell och en CSV-fil för att skicka massinbjudningar till externa Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f91d51bda4c41a314c7cc1c2cc895e36bde0500
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768214"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278006"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
 
@@ -29,7 +29,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 

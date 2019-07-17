@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Den här självstudien beskriver hur du skapar en grundläggande intern lastbalanserare med hjälp av Azure-portalen.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61318500"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273501"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
@@ -89,13 +89,13 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
    
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
-    | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Subscription               | Välj din prenumeration.    |    
+    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Intern**.                                        |
+    | type          | Välj **Intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
     | IP-adresstilldelning              | Välj **Statisk**.   |

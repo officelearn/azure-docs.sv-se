@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557434"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275813"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Snabbstart: Slutpunkt för förutsägelsefråga med C# .NET SDK
 
@@ -23,7 +23,7 @@ Använd .NET SDK, som finns i [NuGet](https://www.nuget.org/packages/Microsoft.A
 
 Den här snabbstarten skickar talindata för användaren, som t.ex. `turn on the bedroom light`, till ett offentligt Language Understanding-program. Därefter tas förutsägelsen emot och visar den främsta avsikten `HomeAutomation.TurnOn` och entiteten `HomeAutomation.Room` i talindatan. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/)
 * Programmeringsspråket C# (ingår i VS Community 2017)
@@ -58,7 +58,7 @@ az cognitiveservices account create \
 Skapa ett .NET Core-konsolprojekt i Visual Studio Community 2017.
 
 1. Öppna Visual Studio Community 2017.
-1. Skapa ett nytt projekt genom att från avsnittet **Visual C#** välja **Konsolapp (.NET Core)**.
+1. Skapa ett nytt projekt genom att från avsnittet **Visual C#** välja **Konsolapp (.NET Core)** .
 1. Ange projektnamnet `QueryPrediction`, lämna kvar återstående standardvärden och välj **OK**.
     Detta skapar ett enkelt projekt med en primär kodfil med namnet **Program.cs**.
 
@@ -184,4 +184,4 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 Läs mer om [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) och [referensdokumentationen för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
 
 > [!div class="nextstepaction"] 
-> [Självstudie: Skapa en LUIS-app som identifierar användarens avsikter](luis-quickstart-intents-only.md) 
+> [Självstudier: Skapa en LUIS-app som identifierar användarens avsikter](luis-quickstart-intents-only.md) 

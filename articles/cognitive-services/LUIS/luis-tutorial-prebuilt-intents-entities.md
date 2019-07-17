@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597609"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277535"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Självstudier: Identifiera vanliga avsikter och entiteter
 
@@ -61,7 +61,7 @@ LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användarav
    * Utilities.StartOver (Verktyg.Börja_om)
    * Utilities.Stop (Verktyg.Stoppa)
 
-     Dessa avsikter är till hjälp när du ska avgöra var i en konversation användaren är och vad de ber dig att göra. 
+     Dessa avsikter är till hjälp när du ska avgöra var i en konversation användaren är och vad de ber dig att göra. Dessa avsikter omfattar användning av entiteter. De här entiteterna läggs automatiskt till LUIS-app: antal, nummer och Utilities.DirectionalReference. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Lägg till fördefinierade entiteter för att få hjälp med vanlig extrahering av datatyp

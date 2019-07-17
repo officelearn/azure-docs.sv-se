@@ -8,14 +8,14 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 94eacf6815a3fc0b65aa03d5620f19e783139a5e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f2b43349b1060739b44ab34f463300dd62569252
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593032"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276463"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision SDK för Go
 
@@ -29,12 +29,12 @@ Den här artikeln innehåller information och exempelkod som hjälper dig att ko
 
 Kör följande kommando i PowerShell för att installera Custom Vision Service SDK för Go:
 
-```
+```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-eller i din lagringsplatskörning om du använder dep:
-```
+Om du använder `dep`, i ditt lager som kör:
+```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
 
@@ -91,9 +91,9 @@ func main() {
 Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.go*:
 
 ```go
-    // Make two tags in the new project
-    hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
-    cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
+// Make two tags in the new project
+hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
+cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
 ### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
@@ -104,29 +104,29 @@ Infoga följande kod efter att taggen har skapats för att lägga till exempelbi
 > Du behöver ändra sökvägen till bilderna utifrån var du laddade ned Cognitive Services Python Go Samples-projektet tidigare.
 
 ```go
-    fmt.Println("Adding images...")
-    japaneseCherryImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Japanese Cherry"))
-    if err != nil {
-        fmt.Println("Error finding Sample images")
-    }
+fmt.Println("Adding images...")
+japaneseCherryImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Japanese Cherry"))
+if err != nil {
+    fmt.Println("Error finding Sample images")
+}
 
-    hemLockImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Hemlock"))
-    if err != nil {
-        fmt.Println("Error finding Sample images")
-    }
+hemLockImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Hemlock"))
+if err != nil {
+    fmt.Println("Error finding Sample images")
+}
 
-    for _, file := range hemLockImages {
-        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Hemlock", file.Name()))
-        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+for _, file := range hemLockImages {
+    imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Hemlock", file.Name()))
+    imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
 
-        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ hemlockTag.ID.String() })
-    }
+    trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ hemlockTag.ID.String() })
+}
 
-    for _, file := range japaneseCherryImages {
-        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Japanese Cherry", file.Name()))
-        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
-        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ cherryTag.ID.String() })
-    }
+for _, file := range japaneseCherryImages {
+    imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Japanese Cherry", file.Name()))
+    imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+    trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ cherryTag.ID.String() })
+}
 ```
 
 ### <a name="train-the-classifier-and-publish"></a>Träna klassificeraren och publicera
@@ -134,19 +134,19 @@ Infoga följande kod efter att taggen har skapats för att lägga till exempelbi
 Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
 
 ```go
-    fmt.Println("Training...")
-    iteration, _ := trainer.TrainProject(ctx, *project.ID)
-    for {
-        if *iteration.Status != "Training" {
-            break
-        }
-        fmt.Println("Training status: " + *iteration.Status)
-        time.Sleep(1 * time.Second)
-        iteration, _ = trainer.GetIteration(ctx, *project.ID, *iteration.ID)
+fmt.Println("Training...")
+iteration, _ := trainer.TrainProject(ctx, *project.ID)
+for {
+    if *iteration.Status != "Training" {
+        break
     }
     fmt.Println("Training status: " + *iteration.Status)
+    time.Sleep(1 * time.Second)
+    iteration, _ = trainer.GetIteration(ctx, *project.ID, *iteration.ID)
+}
+fmt.Println("Training status: " + *iteration.Status)
 
-    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
+trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på slutpunkten för förutsägelse
@@ -171,13 +171,13 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 
 Kör *sample.go*.
 
-```powershell
+```shell
 go run sample.go
 ```
 
 Programmets utdata bör ser ut ungefär som nedanstående text:
 
-```
+```console
 Creating project...
 Adding images...
 Training...

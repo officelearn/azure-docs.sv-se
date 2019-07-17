@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Citrix Netscaler | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Citrix Netscaler.
+title: 'Självstudier: Azure Active Directory-integrering med Citrix NetScaler | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64dd67680626857db7f39fa7fd721b28a02d1561
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105501"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276886"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Självstudier: Azure Active Directory-integrering med Citrix Netscaler
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Självstudier: Azure Active Directory-integrering med Citrix NetScaler
 
-I den här självstudien får lära du att integrera Citrix Netscaler med Azure Active Directory (AD Azure).
-Integrera Citrix Netscaler med Azure AD ger dig följande fördelar:
+I den här självstudien får lära du att integrera Citrix NetScaler med Azure Active Directory (AD Azure).
+Integrera Citrix NetScaler med Azure AD ger dig följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Citrix Netscaler.
-* Du kan aktivera användarna att vara automatiskt inloggad till Citrix Netscaler (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Citrix NetScaler.
+* Du kan aktivera användarna att vara automatiskt inloggad till Citrix NetScaler (Single Sign-On) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Citrix Netscaler, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Citrix NetScaler, behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Citrix Netscaler enkel inloggning aktiverat prenumeration
+* Citrix NetScaler enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Citrix Netscaler stöder **SP** -initierad SSO
+* Citrix NetScaler stöder **SP** -initierad SSO
 
-* Citrix Netscaler stöder **Just In Time** etableringen av användare
+* Citrix NetScaler stöder **Just In Time** etableringen av användare
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>Att lägga till Citrix Netscaler från galleriet
+## <a name="adding-citrix-netscaler-from-the-gallery"></a>Att lägga till Citrix NetScaler från galleriet
 
-För att konfigurera integrering av Citrix Netscaler i Azure AD, som du behöver lägga till Citrix Netscaler från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av Citrix NetScaler i Azure AD, som du behöver lägga till Citrix NetScaler från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Citrix Netscaler från galleriet:**
+**Utför följande steg för att lägga till Citrix NetScaler från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -67,31 +67,31 @@ För att konfigurera integrering av Citrix Netscaler i Azure AD, som du behöver
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Citrix Netscaler**väljer **Citrix Netscaler** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Citrix NetScaler**väljer **Citrix NetScaler** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![Citrix Netscaler i resultatlistan](common/search-new-app.png)
+     ![Citrix NetScaler i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Citrix Netscaler baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Citrix Netscaler upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Citrix NetScaler baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Citrix NetScaler upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Citrix Netscaler, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Citrix NetScaler, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Citrix Netscaler enkel inloggning](#configure-citrix-netscaler-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Citrix NetScaler enkel inloggning](#configure-citrix-netscaler-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Citrix Netscaler](#create-citrix-netscaler-test-user)**  – du har en motsvarighet för Britta Simon i Citrix Netscaler som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa testanvändare Citrix NetScaler](#create-citrix-netscaler-test-user)**  – du har en motsvarighet för Britta Simon i Citrix NetScaler som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix Netscaler:
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix NetScaler:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Citrix Netscaler** application integration markerar **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Citrix NetScaler** application integration markerar **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix 
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Citrix Netscaler domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
+    ![Citrix NetScaler domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix 
     c. I den **svars-URL (försäkran URL för Konsumenttjänst)** text skriver en URL med hjälp av följande mönster: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Citrix Netscaler klienten supportteamet](https://www.citrix.com/contact/technical-support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Citrix NetScaler klienten supportteamet](https://www.citrix.com/contact/technical-support.html) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
     > [!NOTE]
     > Dessa URL: er måste vara tillgängliga från offentliga webbplatser för att få enkel inloggning fungerar. Du måste aktivera brandväggen eller andra säkerhetsinställningar på Netscaler sida för att enble Azure AD för att publicera token till konfigurerade ACS-URL.
@@ -123,7 +123,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix 
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-6. På den **konfigurera Citrix Netscaler** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. På den **konfigurera Citrix NetScaler** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -133,9 +133,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Citrix 
 
     c. Utloggnings-URL
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>Konfigurera Citrix Netscaler enkel inloggning
+### <a name="configure-citrix-netscaler-single-sign-on"></a>Konfigurera Citrix NetScaler enkel inloggning
 
-1. I ett annat webbläsarfönster inloggning till Citrix Netscaler-klienten som administratör.
+1. I ett annat webbläsarfönster inloggning till Citrix NetScaler-klienten som administratör.
 
 2. Se till att den **NetScaler Version på inbyggd programvara = NS12.1: Skapa 48.13.nc**.
 
@@ -344,15 +344,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Citrix Netscaler.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Citrix NetScaler.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Citrix Netscaler**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Citrix NetScaler**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Citrix Netscaler**.
+2. I listan med program väljer **Citrix NetScaler**.
 
-    ![Citrix Netscaler-länk i listan med program](common/all-applications.png)
+    ![Citrix NetScaler-länk i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -368,18 +368,18 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-citrix-netscaler-test-user"></a>Skapa Citrix Netscaler testanvändare
+### <a name="create-citrix-netscaler-test-user"></a>Skapa Citrix NetScaler testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Citrix Netscaler. Citrix Netscaler stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Citrix Netscaler, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i Citrix NetScaler. Citrix NetScaler stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Citrix NetScaler, skapas en ny efter autentisering.
 
 >[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [Citrix Netscaler klienten supportteamet](https://www.citrix.com/contact/technical-support.html).
+>Om du vill skapa en användare manuellt kan du behöva kontakta den [Citrix NetScaler klienten supportteamet](https://www.citrix.com/contact/technical-support.html).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Citrix Netscaler i åtkomstpanelen, bör det vara loggas in automatiskt till den Citrix Netscaler som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Citrix NetScaler i åtkomstpanelen, bör det vara loggas in automatiskt till den Citrix NetScaler som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

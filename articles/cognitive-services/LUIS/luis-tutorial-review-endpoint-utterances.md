@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599641"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276029"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
@@ -74,31 +74,22 @@ Använd följande steg:
     
     [![Skärmbild av Granska slutpunktstalindata med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    Den här uttryck `I'm looking for a job with Natural Language Processing`, är inte i rätt avsikten. 
+
+    Uttryck var mispredicted anledningen är att den **ApplyForJob** syftet har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Avsikten med mer yttranden kommer att ha en högre förutsägelse. Det är viktigt att antalet och kvaliteten på yttranden över avsikter är balanserade.
+
+1.  Välj rätt avsikten och markera enheten jobbet inom den om du vill justera detta uttryck. Lägga till den ändrade uttryck i appen genom att välja kryssrutan grön. 
+
     |Yttrande|Rätt avsikt|Saknade entiteter|
     |:--|:--|:--|
-    |Jag letar efter ett jobb med naturlig språkbearbetning|GetJobInfo|Jobb – ”Natural Language Process”|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Jobb – ”Natural Language Process”|
 
-    Den här yttrandet är inte i rätt avsikt och har en poäng som är mindre än 50 %. Avsikten **ApplyForJob** har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Utöver korrekt justering av slutpunktsyttrandena bör fler yttranden läggas till i avsikten **GetJobInformation**. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
+    Att lägga till uttryck flyttar uttryck från den **granska endpoint yttranden** till den **GetJobInformation** avsikt. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
 
-1. För avsikten `I'm looking for a job with Natual Language Processing` väljer du rätt avsikt, **GetJobInformation**, i kolumnen **Aligned intent** (Justerad avsikt). 
-
-    [![Skärmbild av Granska slutpunktstalindata som justerar talindata till avsikt](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. I samma uttryck är entiteten för `Natural Language Processing` keyPhrase. Detta bör vara en **Job**-entitet (Jobb) i stället. Välj `Natural Language Processing` och välj sedan entiteten **Job** (Jobb) från listan.
-
-    [![Skärmbild av Granska slutpunktstalindata som märker entitet i talindata](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. På samma rad väljer du den inringade markeringen i kolumnen **Add to aligned intent** (Lägg till i justerad avsikt). 
-
-    [![Skärmbild av slutförande av talindatajustering i avsikt](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Den här åtgärden flyttar yttrandet från **yttrandena för slutpunktsgranskning** till avsikten **GetJobInformation**. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
+    Tillsammans med justeringen av den här uttryck korrekt, mer yttranden ska läggas till i **GetJobInformation** avsikt. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
 
 1. Granska de återstående yttrandena i den här avsikten, och märk yttranden och korrigera den **justerade avsikten** om dessa är felaktiga.
-
-1. När alla yttranden är korrekta markerar du kryssrutan på varje rad och väljer sedan **Add selected** (Lägg till valda) för att justera yttrandena korrekt. 
-
-    [![Skärmbild av slutförande av återstående talindata till justerad avsikt](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. Listan bör inte längre ha dessa yttranden. Om du ser flera yttranden fortsätter du att gå igenom listan, korrigera avsikter och märka ut eventuella saknade entiteter tills listan är tom. 
 

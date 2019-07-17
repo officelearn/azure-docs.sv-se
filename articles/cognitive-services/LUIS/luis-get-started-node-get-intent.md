@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 161056aa2cfe43375d5e555197b57f85685ca219
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 51ba4935afc2713fb0dc92ebbf6ca31f7c60355a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594098"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276091"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Snabbstart: Hämta avsikt med Node.js
 
@@ -24,7 +24,7 @@ ms.locfileid: "65594098"
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Programmeringsspråket [Node.js](https://nodejs.org/) 
 * [Visual Studio Code](https://code.visualstudio.com/)

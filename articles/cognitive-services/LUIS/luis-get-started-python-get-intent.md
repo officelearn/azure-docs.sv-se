@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 043b31aaaad30e9f2663b0a53273874e8c84ff6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559b934194fa9aa160f4e7c5fe65610063181223
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194605"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276094"
 ---
 # <a name="quickstart-get-intent-using-python"></a>Snabbstart: Hämta avsikt med Python
 I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få avsikt och entiteter tillbaka.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
 * [Visual Studio Code](https://code.visualstudio.com/)

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784996"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276642"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -60,8 +60,8 @@ Den här guiden skapar ett program som visar en knapp som frågar Graph API, en 
 ### <a name="create-your-application"></a>Skapa ditt program
 
 1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio.
-2. Under **mallar**väljer **Visual C#**.
-3. Välj **Tom app (Universal Windows)**.
+2. Under **mallar**väljer **Visual C#** .
+3. Välj **Tom app (Universal Windows)** .
 4. Ge appen ett namn och välj **OK**.
 5. Om det händer väljer du någon version för **Target** och **minsta** versioner och välj **OK**.
 
@@ -147,7 +147,7 @@ Det här avsnittet visar hur du använder MSAL för att hämta en token för Mic
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,12 +329,12 @@ Nu måste du registrera ditt program i portalen för registrering av Microsoft-p
 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
 1. Välj **ny registrering**.
    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `UWP-App-calling-MSGraph`.
-   - I den **stöds kontotyper** väljer **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)**.
+   - I den **stöds kontotyper** väljer **konton alla organisationskatalog och personliga Microsoft-konton (t.ex. Skype, Xbox, Outlook.com)** .
    - Välj **Registrera** för att skapa programmet.
 1. I appen **översikt** sidan, hitta den **(klient)-ID: T** värde och spara den till senare. Gå tillbaka till Visual Studio, öppna **MainPage.xaml.cs**, och Ersätt värdet för ClientId med program-ID som du just registrerade:
 1. I listan över sidor för appen väljer du **Autentisering**.
    1. I den **omdirigerings-URI: er** avsnittet i listan över omdirigerings-URI: er:
-   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)**.
+   1. I den **typ** kolumn väljer **offentlig klient (mobila och stationära)** .
    1. Ange `urn:ietf:wg:oauth:2.0:oob` i den **OMDIRIGERINGS-URI** kolumn.
 1. Välj **Spara**.
 1. I listan över sidor för appen, Välj **API-behörigheter**
@@ -368,7 +368,7 @@ När du är redo att testa väljer **anropa Microsoft Graph API**. Använd sedan
 
 ![På inloggningssidan](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
-### <a name="consent"></a>Samtycke
+### <a name="consent"></a>Medgivande
 
 Första gången du loggar in på ditt program, visas en godkännandeskärmen som liknar följande. Välj **Ja** uttryckligen samtycker till att komma åt:
 
@@ -382,7 +382,7 @@ Du ser information om användarprofiler returnerades av Microsoft Graph API-anro
 
 Du också se grundläggande information om den token som anskaffats `AcquireTokenInteractive` eller `AcquireTokenSilent` i den **tokeninformation** box:
 
-|Egenskap   |Format  |Beskrivning |
+|Egenskap  |Format  |Beskrivning |
 |---------|---------|---------|
 |**Användarnamn** |<span>user@domain.com</span> |Användarnamnet som identifierar användaren.|
 |**Token upphör att gälla** |DateTime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|

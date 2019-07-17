@@ -3,20 +3,20 @@ title: Förutsäga avsikter
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123897"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277566"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudier: Skapa en LUIS-app som identifierar användarens avsikter
 
@@ -49,7 +49,7 @@ Den här appen innehåller ett par avsikter.
 |--|--|
 |ApplyForJob|Avgör om användaren söker ett jobb.|
 |GetJobInformation|Avgör om användaren letar efter information om jobb allmänt eller ett specifikt jobb.|
-|Ingen|Avgör om användaren frågar om något som appen inte är avsedd att besvara. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
+|Inga|Avgör om användaren frågar om något som appen inte är avsedd att besvara. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 
@@ -131,7 +131,7 @@ Den här appen innehåller ett par avsikter.
 
     Frågesträngsparametern `verbose=true` innebär att inkludera **alla avsikter** i appens frågeresultat. Entitetsmatrisen är tom eftersom appen för närvarande inte har några entiteter. 
 
-    I JSON-resultatet identifieras avsikten med högst poäng i egenskapen **`topScoringIntent`**. Alla poäng är mellan 1 och 0, ju närmare 1 desto bättre. 
+    I JSON-resultatet identifieras avsikten med högst poäng i egenskapen **`topScoringIntent`** . Alla poäng är mellan 1 och 0, ju närmare 1 desto bättre. 
 
 ## <a name="create-intent-for-job-applications"></a>Skapa avsikt för jobbansökningar
 
@@ -239,7 +239,3 @@ Fortsätt med den här appen och [lägg till en enkel entitet och fraslista](lui
 
 > [!div class="nextstepaction"]
 > [Lägga till fördefinierade avsikter och entiteter i appen](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

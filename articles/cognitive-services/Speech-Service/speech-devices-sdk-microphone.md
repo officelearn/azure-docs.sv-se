@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606337"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277482"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon matris rekommendationer
 
@@ -31,7 +31,7 @@ Följande matris geometrier rekommenderas för användning med Microsoft ljud-st
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mikrofoner  | 7                 | 4                 | 4              | 2              |
-| geometri | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Längd = 120 mm avstånd = 40 mm | Avstånd = 40 mm |
+| geometri | 6 yttre, 1 Center, Radius = 42.5 mm, jämnt fördelade| 3 yttre, 1 Center, Radius = 42.5 mm, jämnt fördelade | Längd = 120 mm avstånd = 40 mm | Avstånd = 40 mm |
 
 Mikrofon kanaler ska sorteras enligt numreringen visas för varje ovan matris, vilket ökar från 0.  Microsoft ljud Stack kräver en ytterligare referens dataström för ljuduppspelning att utföra eko.
 
@@ -43,34 +43,34 @@ De rekommenderade egenskaperna när du väljer mikrofoner är:
 
 | Parameter                         | Rekommenderas                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (1 kHz signalen 94 dBSPL, A-viktade bruset)   |
-| Amplitud matchar                | ± 1 dB @ 1 kHz                     |
+| SNR                               | \>= 65 dB (1 kHz signalen 94 dBSPL, A-viktade bruset)   |
+| Amplitud matchar                | \+ 1 dB @ 1 kHz                     |
 | Matchning fasen                    | ± 2° @ 1 kHz                       |
-| Akustiska överlagring punkt (AOP)     | \> 120 dBSPL (THD = 10%)          |
+| Akustiska överlagring punkt (AOP)     | \>= 120 dBSPL (THD = 10%)          |
 | Bithastighet                          | Minst 24-bitars                    |
 | Samplingsfrekvens                     | Minsta 16 kHz\*                   |
-| Directivity                       | Rundstrålande                   |
 | Frekvens svar                | \+ 3 dB, 200 8000 Hz flytande Mask\*|
 | Tillförlitlighet                       | Lagringsomfång temperatur 40 ° C till 70 ° C<br />Operativ temperaturintervall 20 ° C till 55 ° C  |
 
-*\*Högre sampling betalning eller ”större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
+*\* Högre sampling betalning eller ”större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
 
 Bra komponenturvalet måste kopplas till bra electroacoustic integrering för att undvika att försämra läsarens prestanda för de komponenter som används. Unika användningsfall kan också kräva ytterligare krav (till exempel: driva temperatur).
 
 ## <a name="microphone-array-integration"></a>Mikrofon matris-integrering
 
-Prestanda för matriser när du har integrerat i en enhet och efter fast vinst eller EQ måste uppfylla följande rekommendationer:
+Prestanda för mikrofon matrisen när integreras i en enhet skiljer sig från komponent-specifikationen. Det är viktigt att se till att mikrofonerna väl matchar efter integrering. Därför Enhetsprestanda mäts efter fasta få eller EQ måste uppfylla följande rekommendationer:
 
 |  Parameter        |    Rekommenderas |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (1 kHz signalen 94 dBSPL, A-viktade bruset) |
+|  SNR                 | \> 63 dB (1 kHz signalen 94 dBSPL, A-viktade bruset) |
 |  Utdata känslighet  | -26 dBFS/Pa @ 1 kHz (rekommenderas) |
 |  Amplitud matchar  | ± 2 dB, 200-8000 Hz |
-|  Matchning fasen      | ± 5°, 200-8000 Hz |
-| THD %                 | ≤ 1%, 200 8000 Hz, 94 dBSPL, 5 ordning |
-|  Frekvens svar  | \+ 6 dB, 200 8000 Hz flytande Mask\* |
+| THD %\*                 | ≤ 1%, 200 8000 Hz, 94 dBSPL, 5 ordning |
+|  Frekvens svar  | \+ 6 dB, 200 8000 Hz flytande Mask\*\* |
 
-*\*”Större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
+*\*\* Låg förvrängningar föredragshållare krävs för att mäta THD (t.ex. Neumann KH120)*
+
+*\*\* ”Större” frekvensintervall kan krävas för program för hög kvalitet kommunikation (VoIP)*
 
 ## <a name="speaker-integration-recommendations"></a>Rekommendationer för API-integration
 

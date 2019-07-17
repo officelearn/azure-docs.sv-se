@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonindelad klientdel för att lastbalansera virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61096053"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273387"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure-portalen
 
@@ -50,13 +50,13 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
-    | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
+    | Subscription               | Välj din prenumeration.    |    
+    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |

@@ -1,5 +1,5 @@
 ---
-title: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
+title: Få åtkomst till Azure Storage med hjälp av en Windows VM systemtilldelade hanterad identitet | Microsoft Docs
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297583"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278014"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -47,7 +47,7 @@ I det här avsnittet skapar du ett lagringskonto.
 1. Klicka på knappen **+ Skapa en resurs** längst upp till vänster i Azure-portalen.
 2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
 3. Under **Namn** anger du ett namn för lagringskontot.
-4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**.
+4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)** .
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.
 

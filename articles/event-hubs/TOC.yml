@@ -59,6 +59,8 @@
   items:
     - name: Event Hubs-terminologi
       href: event-hubs-features.md
+    - name: Värd för händelsebearbetning
+      href: event-hubs-event-processor-host.md
     - name: Tillgänglighet och konsekvens
       href: event-hubs-availability-and-consistency.md
     - name: Skalbarhet
@@ -90,8 +92,6 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: Programmeringsguide
           href: event-hubs-programming-guide.md
-        - name: Ta emot händelser med hjälp av värden för händelsebearbetning
-          href: event-hubs-event-processor-host.md
     - name: Bearbeta data
       items:
         - name: Bearbeta data med Azure Stream Analytics

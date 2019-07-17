@@ -3,7 +3,7 @@ title: CLI-exempel – belastningsutjämna trafik till virtuella datorer för h�
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer för hög tillgänglighet
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: cc4af6e00660684345f21125509b471dbdf2a641
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 7ed3f0899d6a378285c9799b57e2aad76348c45d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507432"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273818"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exempel för Azure CLI-skript: Belastningsutjämna trafik till virtuella datorer för hög tillgänglighet
 

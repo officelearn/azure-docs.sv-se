@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 844d2ca9c2aa0e6a79eb7abebbec986f0fd5c5bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a28dd94f32eac3cba3443761671b3c846e52798c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604265"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277633"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-php"></a>Snabbstart: Extrahera utskrivna text (OCR) med hjälp av REST API för visuellt innehåll och PHP
 
@@ -219,7 +219,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbplatsen
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte behöver filen längre kan du ta bort den och sedan avinstallera PHP5-paketet `HTTP_Request2`. Avinstallera paketet på följande sätt:
+När du är inte längre med hjälp av projektet, ta bort filen och avinstallera PHP5 `HTTP_Request2` paketet. Avinstallera paketet på följande sätt:
 
 1. Öppna ett kommandotolksfönster som administratör.
 2. Kör följande kommando:

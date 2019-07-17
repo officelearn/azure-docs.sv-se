@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 2957e784540f7c6450235d26da43121db2458dd1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806983"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249517"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -46,7 +46,7 @@ Innan du börjar kontrollerar du den nedan:
 **Support** | **Detaljer**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
-**Geografiska områden som stöds** | Australien, sydöstra (ASE), Australien, östra (AE) <br> Brasilien, södra (BRS)<br> Canada Central (CNC), Canada East (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> USA, östra (EUS), östra USA 2 (EUS2), västra centrala (WCUS), USA, västra (WUS); Västra USA 2 (WUS 2) norra centrala (NCUS) USA, centrala (CUS) södra centrala (SCUS) <br> Indien, centrala (INC), Indien, södra (INS) <br> Japan, östra (JPE), Japan, västra (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> Europa, norra (NE), Europa, västra <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW)
+**Geografiska områden som stöds** | Australien, sydöstra (ASE), Australien, östra (AE) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> USA, östra (EUS), östra USA 2 (EUS2), västra centrala (WCUS), USA, västra (WUS); Västra USA 2 (WUS 2) norra centrala (NCUS) USA, centrala (CUS) södra centrala (SCUS) <br> Indien, centrala (INC), Indien, södra (INS) <br> Japan, östra (JPE), Japan, västra (JPW) <br> Centrala Korea (KRC) i Korea, södra (KRS) <br> Europa, norra (NE), Europa, västra <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW)
 **Operativsystem som stöds** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux stöds inte för närvarande.
 **SQL Server-versioner som stöds** | SQL Server 2017 enligt anvisningarna [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och Service Pack som detaljerad [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **.NET-versioner som stöds** | .NET framework 4.5.2 och senare har installerats på den virtuella datorn
@@ -76,7 +76,7 @@ Användare debiteras inte för den här funktionen till den tid som är allmänt
 - Du kan säkerhetskopiera upp till **cirka 2 000** SQL Server-databaser i ett valv. Du kan skapa flera valv du har ett större antal databaser.
 - Du kan konfigurera säkerhetskopiering för upp till **50** databaser i en gå; den här begränsningen hjälper till att optimera säkerhetskopierade belastning.
 - Vi har stöd för databaser upp till **2TB** i storlek; som är större än den som prestandaproblem kan komma.
-- För att få en uppfattning om hur många databaser kan skyddas per server ska behöver vi beakta faktorer, till exempel bandbredd, VM-storlek, säkerhetskopieringsfrekvens, databasens storlek, osv. Vi arbetar på en planner som kan hjälpa dig att beräkna dessa siffror på att du äger. Vi kommer att publicera dem inom kort.
+- För att få en uppfattning om hur många databaser kan skyddas per server ska behöver vi beakta faktorer, till exempel bandbredd, VM-storlek, säkerhetskopieringsfrekvens, databasens storlek, osv. [Ladda ned](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resource planeraren som ger det ungefärliga antalet databaser kan per server baserat på VM-resurser och principen för säkerhetskopiering.
 - När det gäller Tillgänglighetsgrupper är säkerhetskopior hämtade från de olika noderna baserat på ett antal faktorer. Säkerhetskopiering beteendet för en tillgänglighetsgrupp sammanfattas nedan.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Säkerhetskopiera beteende när Always on-Tillgänglighetsgrupper
@@ -107,7 +107,7 @@ Differentiell | Primär
 log |  Sekundär
 Kopiera bara fullständig |  Sekundär
 
-- **Inställning för säkerhetskopiering: Secondary**
+- **Inställning för säkerhetskopiering: Sekundär**
 
 **Typ av säkerhetskopiering** | **Node**
 --- | ---

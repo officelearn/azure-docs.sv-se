@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 16b653d1018c0c9c090f027ebcd01468af0eefd8
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688560"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234718"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -105,6 +105,10 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    * **Paketfil (.zip)** : Paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
    * **Klient-ID**: Klient-ID för konton som du får åtkomst.
    * **Aktivera JIT-åtkomst till**: Välj **Ja** att aktivera [just-in-time-åtkomstkontroll](request-just-in-time-access.md) för kontot. När aktiverad, kan du begära åtkomst till kundens konto för en angiven tidsperiod. Om du vill kräva att användare av det hanterade programmet ger ditt konto permanent åtkomst, Välj **nr**.
+   * **Anpassa tillåtna kunden åtgärder?** : Välj **Ja** för att ange vilka åtgärder som användare kan utföra på hanterade resurser.
+   * **Tillåtna åtgärder som kunden**: Om du väljer **Ja** för föregående inställning, kan du ange vilka åtgärder som har behörighet att konsumenter med hjälp av [neka tilldelningar för Azure-resurser](../role-based-access-control/deny-assignments.md).
+
+     Läs tillgängliga åtgärder, [Azure Resource Manager åtgärder för resursprovider](../role-based-access-control/resource-provider-operations.md). Till exempel om du vill tillåta användare att starta om virtuella datorer, lägger du till `Microsoft.Compute/virtualMachines/restart/action` för tillåtna åtgärder. Den `*/read` åtgärd tillåts automatiskt så att du inte behöver inkludera den här inställningen.
    * **PrincipalId**: Den här egenskapen är Azure Active Directory-ID:t (Azure AD) för en användare, en användargrupp eller ett program som har beviljats åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
    * **Principinställningar**: Använd [Azure Policy](../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../governance/policy/samples/index.md).

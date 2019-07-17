@@ -54,34 +54,32 @@
       href: migrate-replication-appliance.md
     - name: Metodtips för utvärderingar
       href: best-practices-assessment.md
-    - name: Utvärderingsberäkningar
+    - name: Översikt över utvärderingar
       href: concepts-assessment-calculation.md
     - name: Visualisering av beroenden
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
-    - name: Migreringsexempel – Contoso-serien
-      href: contoso-migration-overview.md
-    - name: Distribuera en installation för utvärdering/migrering av VMware (utan agent)
+    - name: Arbeta med en tidigare version
+      href: migrate-v1.md
+    - name: Distribuera en VMware-installation
       href: how-to-set-up-appliance-vmware.md
-    - name: Distribuera en installation för utvärdering/migrering av Hyper-V
+    - name: Distribuera en Hyper-V-installation
       href: how-to-set-up-appliance-hyper-v.md
-    - name: Lägga till ett utvärderings-/migreringsverktyg för första gången
+    - name: Lägga till ett verktyg för första gången
       href: how-to-add-tool-first-time.md
     - name: Lägga till utvärderingsverktyg
       href: how-to-assess.md
-    - name: Lägga till migreringsverktyg
-      href: how-to-migrate.md
     - name: Gruppera datorer för utvärdering
-      items:
-        - name: Skapa en grupp
-          href: how-to-create-a-group.md
-        - name: Gruppera datorer med datorberoenden
-          href: how-to-create-group-machine-dependencies.md
-        - name: Förfina grupper med gruppberoenden
-          href: how-to-create-group-dependencies.md
+      href: how-to-create-a-group.md
+    - name: Gruppera datorer med hjälp av beroendevisualisering
+      href: how-to-create-group-machine-dependencies.md
+    - name: Skapa en utvärdering
+      href: how-to-create-assessment.md
     - name: Anpassa en utvärdering
       href: how-to-modify-assessment.md
+    - name: Lägga till migreringsverktyg
+      href: how-to-migrate.md
     - name: Utvärdera och migrera i stor skala
       items:
         - name: Utvärdera ett stort antal virtuella VMware-datorer
@@ -90,6 +88,10 @@
           href: scale-hyper-v-assessment.md
         - name: Automatisera migrering av ett stort antal virtuella datorer
           href: how-to-migrate-at-scale.md
+    - name: Migreringsexempel – Contoso-serien
+      href: contoso-migration-overview.md
+- name: Felsöka
+  items:
     - name: Felsöka Azure Migrate
       href: troubleshooting-general.md
 - name: Resurser

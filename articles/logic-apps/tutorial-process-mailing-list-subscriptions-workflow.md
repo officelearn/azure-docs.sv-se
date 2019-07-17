@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60503565"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260600"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Hantera begäranden om distributionslistor med Azure Logic Apps
 
@@ -39,7 +39,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 Om du inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a> innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett MailChimp-konto. Skapa en lista med namnet test-members-ML där logikappen kan lägga till e-postadresser till godkända medlemmar. Om du inte har något konto kan du [registrera dig och skapa ett kostnadsfritt konto](https://login.mailchimp.com/signup/) och lära dig [hur du skapar en lista](https://us17.admin.mailchimp.com/lists/#). 
 
@@ -64,7 +64,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | **Namn** | LA-MailingList | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | LA-MailingList-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Plats** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
+   | **Location** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 
@@ -126,9 +126,9 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
-   | **Till** | <*approver-email-address*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. | 
+   | **To** | <*approver-email-address*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. | 
    | **Användaralternativ** | Godkänn, Avvisa | Svarsalternativ som godkännaren kan välja. Standardinställningen är att godkännaren kan välja svaren Godkänn och Avvisa. | 
-   | **Ämne** | Godkänn medlemsbegäran för test-members-ML | En beskrivande e-postrubrik | 
+   | **Subject** | Godkänn medlemsbegäran för test-members-ML | En beskrivande e-postrubrik | 
    |  |  |  | 
 
    För nu ska du ignorera listan med dynamiskt innehåll och listan med inlineparametrar som visas när du klickar i vissa redigeringsrutor. 
@@ -147,7 +147,7 @@ Lägg sedan till ett villkor för att kontrollera godkännarens valda svar.
 
 2. Byt namn på villkoret med en bättre beskrivning.
 
-   1. I villkorets rubriklist väljer du **ellipsknappen** (**...**) > **Byt namn**.
+   1. I villkorets rubriklist väljer du **ellipsknappen** ( **...** ) > **Byt namn**.
 
       Om webbläsaren till exempel visas i en smal vy:
 
@@ -206,7 +206,7 @@ Sedan lägger till ett villkor så att du kan kontrollera om den nya medlemmen h
 
 ## <a name="check-for-success-or-failure"></a>Kontrollera om status är lyckad eller misslyckad
 
-1. I förgreningen **If true** (Om sant) under åtgärden **Add member to list** (Lägg till medlem på listan) väljer du **More...** > **Add a condition** (Mer... > Lägg till ett villkor).
+1. I förgreningen **If true** (Om sant) under åtgärden **Add member to list** (Lägg till medlem på listan) väljer du **More...**  > **Add a condition** (Mer... > Lägg till ett villkor).
 
 2. Byt namn på villkoret med den här beskrivningen: ```If add member succeeded```
 
@@ -247,9 +247,9 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
-   | **Till** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
-   | **Ämne** | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>"Klart. Medlemmen lades till ”test-members-ML”: **E-postadress**” | 
-   | **Brödtext** | <*body-for-success-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer de angivna fälten under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll:  <p>”Ny medlem har anslutit” test-members-ML ”: **E-postadress**”</br>”Status för deltagande i medlem: **Status**" | 
+   | **To** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
+   | **Subject** | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>"Klart. Medlemmen lades till ”test-members-ML”: **E-postadress**” | 
+   | **Brödtext** | <*body-for-success-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer de angivna fälten under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll:  <p>”Ny medlem har anslutit” test-members-ML ”: **E-postadress**”</br>”Status för deltagande i medlem: **Status för**” | 
    | | | | 
 
 5. Spara din logikapp.
@@ -272,8 +272,8 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
-   | **Till** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
-   | **Ämne** | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>”Misslyckades, medlemmen lades inte till att” test-members-ML ”: **E-postadress**” | 
+   | **To** | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. | 
+   | **Subject** | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten och väljer det angivna fältet under **Add member to list** (Lägg till medlem på listan) från listan med parametrar eller listan med dynamiskt innehåll: <p>”Misslyckades, medlemmen lades inte till att” test-members-ML ”: **E-postadress**” | 
    | **Brödtext** | <*body-for-failure-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>”Medlemmen kanske redan finns. Kontrollera MailChimp-kontot." | 
    | | | | 
 

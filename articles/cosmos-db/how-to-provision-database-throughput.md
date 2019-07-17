@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: e44017ea2df24445c28361a0f3d7fb2671317b6d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2744422e2e082c5bc6f63975b1100f336d32d5fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000652"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250064"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera dataflöde för en databas i Azure Cosmos DB
 
@@ -33,6 +33,22 @@ Den här artikeln beskriver hur du etablera dataflöde för en databas i Azure C
    * Välj **OK**.
 
 ![Skärmbild av dialogrutan Ny databas](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+
+
+## <a name="provision-throughput-using-azure-cli"></a>Etablera dataflöde med hjälp av Azure CLI
+
+```azcli-interactive
+az cosmosdb database create --db-name
+                            [--key]
+                            [--name]
+                            [--resource-group-name]
+                            [--subscription]
+                            [--throughput]
+                            [--url-connection]
+```
+
+
+
 
 ## <a name="provision-throughput-using-powershell"></a>Etablera dataflöde med hjälp av PowerShell
 

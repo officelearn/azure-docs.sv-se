@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fe83cd5f38e8c091ee72875da370b6929a99b727
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: d222936f93f90573a46cd7f6216fbde8043332c7
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854145"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261419"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agentbaserad)
 
@@ -121,7 +121,7 @@ Klient/global administratör kan bevilja behörigheter på följande sätt
 
 #### <a name="assign-application-developer-role"></a>Tilldela programutvecklare roll 
 
-Klient/global administratör kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Klient/global administratör kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="assign-permissions-to-create-key-vault"></a>Tilldela behörigheter för att skapa Key Vault
 
@@ -326,7 +326,7 @@ När replikering installationen är registrerad, migrera Server utvärdering av 
 8. Kontrollera varje virtuell dator som du vill migrera. Klicka sedan på **nästa: Rikta inställningar**.
 9. I **rikta inställningar**, Välj prenumerationen och målregion som du migrerar och ange den resursgrupp där virtuella Azure-datorer kommer att finnas efter migreringen.
 10. I **virtuellt nätverk**, Välj Azure virtuellt nätverk/undernät som virtuella Azure-datorer ska anslutas efter migreringen.
-11. In **Azure Hybrid Benefit**:
+11. I **Azure Hybrid-förmånen**:
 
     - Välj **nr** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
     - Välj **Ja** om du har Windows Server-datorer som omfattas med aktiv Software Assurance eller Windows Server-prenumerationer och du vill använda förmånen med de datorer som du migrerar. Klicka sedan på **Nästa**.

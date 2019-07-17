@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620285"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253592"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -56,9 +56,9 @@ Personalizer tar funktioner som är ordnade i namnområden. Du avgör i ditt pro
 Här följer några exempel på funktionen namnområden som används av program:
 
 * User_Profile_from_CRM
-* Tid
+* Time
 * Mobile_Device_Info
-* http_user_agent
+* HTTP_USER_AGENT
 * VideoResolution
 * UserDeviceInfo
 * Väder
@@ -66,9 +66,10 @@ Här följer några exempel på funktionen namnområden som används av program:
 * current_time
 * NewsArticle_TextAnalytics
 
-Du kan kalla funktionen namnområden efter egna konventioner så länge de är giltig JSON-nycklarna.
+Du kan kalla funktionen namnområden efter egna konventioner så länge de är giltig JSON-nycklarna. Namnområden används för att organisera funktioner i olika uppsättningar och för att undvika funktioner med liknande namn. Föreställ dig av namnrum som ett prefix som läggs till i funktionsnamn. Namnområden kan inte kapslas.
 
-I följande JSON `user`, `state`, och `device` är funktionen namnområden.
+
+I följande JSON `user`, `state`, och `device` är funktionen namnområden. Offentlig förhandsversion Obs: För närvarande vi starkt bör du använda namn för funktionen namnområden som är UTF-8-baserade och börja med en annan bokstav. Till exempel `user`, `state`, och `device` börjar med `u`, `s`, och `d`. För närvarande med namnområden med samma första tecken kan resultera i kollisioner i index som används för maskininlärning.
 
 JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
 
@@ -77,7 +78,7 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En m
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },
@@ -167,7 +168,7 @@ De åtgärder som du skickar till API: et rangordning beror på vad du vill anpa
 
 Här följer några exempel:
 
-|Syfte|Åtgärd|
+|Syfte|Action|
 |--|--|
 |Anpassa vilka artikel är markerad på en webbplats med nyheter.|Varje åtgärd är en potentiell nyhetsartikel.|
 |Optimera ad placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonser (till exempel på överkanten på rätt, små bilderna, stora bilder).|

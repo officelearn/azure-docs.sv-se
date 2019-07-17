@@ -127,16 +127,38 @@
           href: security-center-apply-disk-encryption.md
         - name: Tillämpa systemuppdateringar
           href: security-center-apply-system-updates.md
+        - name: Aktivera kryptering för lagringskonto
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Aktivera VM-Agent
+          href: security-center-enable-vm-agent.md
         - name: Installera slutpunktsskydd
           href: security-center-install-endpoint-protection.md
         - name: Starta om datorn efter uppdateringarna
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Åtgärda säkerhetskonfigurationer
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Uppdatera OS-versionen
+          href: security-center-update-os-version.md
         - name: Sårbarhetsbedömning inte installerad
           href: security-center-vulnerability-assessment-recommendations.md
+        - name: Lägg till en brandvägg för webbappar
+          href: security-center-add-web-application-firewall.md
         - name: Slutföra programskydd
           href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Lägg till en nästa generations brandvägg
+          href: security-center-add-next-generation-firewall.md
+        - name: Aktivera nätverkssäkerhetsgrupper
+          href: security-center-enable-network-security-groups.md
+        - name: Begränsa åtkomst via Internet-riktade slutpunkter
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
         - name: Dirigera trafiken endast via NGFW
           href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Aktivera granskning och hotidentifiering på SQL-databaser
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Aktivera granskning och hotidentifiering på SQL-servrar
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Aktivera transparent datakryptering
+          href: security-center-enable-transparent-data-encryption.md
         - name: Hotrapporter
           href: security-center-threat-report.md
         - name: Anpassade aviseringar

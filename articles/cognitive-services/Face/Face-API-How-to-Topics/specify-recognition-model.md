@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592969"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254350"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
@@ -45,8 +45,7 @@ När du använder den [Ansiktsigenkänning – identifiera] API, tilldela versio
 
 Alternativt kan du ange den _returnRecognitionModel_ parametern (standard **FALSKT**) som anger om _recognitionModel_ ska returneras i svaret. Det öppnar en begärd URL för den [Ansiktsigenkänning – identifiera] REST API: et ser ut så här:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 Om du använder klientbiblioteket, kan du tilldela värdet för `recognitionModel` genom att skicka en sträng som representerar versionen.
 Om du lämnar den otilldelade, modell standardversionen (_recognition_01_) ska användas. Se följande kodexempel för .NET-klientbiblioteket.

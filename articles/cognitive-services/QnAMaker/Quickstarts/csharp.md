@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/13/2019
+ms.date: 07/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a19a257e2b4a39d9df8777215364f9cc026f72ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc005ee578e938311c640f7aa19f6643e7c99900
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072058"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253895"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Hur du använder den QnA Maker REST-APIC# 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
 

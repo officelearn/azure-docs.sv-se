@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 006f7270570eba17fb44421b1c181d9ad68ad2ee
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 2554501ecf6d4ef115e3283fa635c24510b8c797
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854184"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249594"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrera fysiska eller virtualiserade servrar till Azure 
 
@@ -104,7 +104,7 @@ Klient/global administratör kan bevilja behörigheter på följande sätt
 
 #### <a name="assign-application-developer-role"></a>Tilldela programutvecklare roll 
 
-Klient/global administratör kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Klient/global administratör kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="assign-permissions-to-create-key-vault"></a>Tilldela behörigheter för att skapa Key Vault
 
@@ -276,7 +276,7 @@ Du måste installera mobilitetstjänstagenten på datorer som du vill migrera. I
 
 9. I **rikta inställningar**, Välj prenumerationen och målregion som du migrerar och ange den resursgrupp där virtuella Azure-datorer kommer att finnas efter migreringen.
 10. I **virtuellt nätverk**, Välj Azure virtuellt nätverk/undernät som virtuella Azure-datorer ska anslutas efter migreringen.
-11. In **Azure Hybrid Benefit**:
+11. I **Azure Hybrid-förmånen**:
 
     - Välj **nr** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
     - Välj **Ja** om du har Windows Server-datorer som omfattas med aktiv Software Assurance eller Windows Server-prenumerationer och du vill använda förmånen med de datorer som du migrerar. Klicka sedan på **Nästa**.

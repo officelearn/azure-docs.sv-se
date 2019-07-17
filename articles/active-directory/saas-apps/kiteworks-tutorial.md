@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 853e23d4dd2c9192c15ab477571ca5cd0059e965
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225444"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248905"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Självstudier: Integrera Kiteworks med Azure Active Directory
 
@@ -104,7 +104,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
 1. I verktygsfältet längst upp klickar du på **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_06.png) 
+    ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. I den **autentisering och auktorisering** klickar du på **SSO installationsprogrammet**.
 
@@ -118,7 +118,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     b. Välj **initiera AuthnRequest**.
 
-    c. I den **IDP entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen. 
+    c. I den **IDP entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
 
     d. I den **enkel inloggnings-URL för** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
@@ -135,7 +135,7 @@ I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
 1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I den **användaren** egenskaper, Följ dessa steg:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I **Namn**-fältet skriver du `B.Simon`.
    1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
@@ -162,7 +162,7 @@ I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Kiteworks.
 
-Kiteworks stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kitewors om det inte finns ännu.
+Kiteworks stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kiteworks om det inte finns ännu.
 
 > [!NOTE]
 > Om du vill skapa en användare manuellt kan du behöva kontakta den [Kiteworks supportteam](https://accellion.com/support).
@@ -175,8 +175,8 @@ När du klickar på panelen Kiteworks i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

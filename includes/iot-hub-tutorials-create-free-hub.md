@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187968"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229270"
 ---
 Använda Azure-portalen för att skapa en IoT-hubb:
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**.
 
@@ -25,16 +25,16 @@ Använda Azure-portalen för att skapa en IoT-hubb:
 
 1. När du skapar din IoT-hubb på fri nivå använder du värdena i tabellen nedan:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
-    | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
-    | Resursgrupp | Skapa ny. I den här självstudiekursen används namnet **tutorial-iot-hub-rg**. |
+    | Subscription | I listrutan väljer du din Azure-prenumeration. |
+    | Resource group | Skapa ny. I den här självstudiekursen används namnet **tutorial-iot-hub-rg**. |
     | Region | I den här självstudien används **USA, västra**. Du väljer normalt den region som är närmast dig. |
     | Namn | Följande skärmbild använder namnet **tutorials-iot-hub**. Du måste välja ett eget unikt namn när du skapar din hubb. |
 
     ![Inställningar för hubb 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | Pris- och skalnivå | F1 Kostnadsfri. Du kan bara ha en hubb på den kostnadsfria nivån för en prenumeration. |
     | IoT Hub-enheter | 1 |

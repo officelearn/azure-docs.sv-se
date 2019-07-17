@@ -1,5 +1,5 @@
 ---
-title: Stöd för containrar
+title: Kontrollera behållarinstansen Attitydanalys
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att verifiera sentiment analysis container-instans.
 services: cognitive-services
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f68d9c7098f2b1ca782e2522c632c2e267b35336
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455143"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229180"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Kontrollera behållarinstansen Attitydanalys
 
 1. Välj den **översikt** fliken och kopiera den IP-adressen.
-1. Öppna en ny webbläsarflik och använda IP-adressen, till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`). Startsida för behållarens presenteras, du kan se behållaren körs.
+1. Öppna en ny webbläsarflik och ange IP-adressen. Ange till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`). Startsida för behållarens visas, att behållaren körs.
 
-    ![Visa behållaren startsidan för att kontrollera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Visa behållaren startsidan för att kontrollera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Välj den **API tjänstbeskrivning** länken för att gå till sidan behållare swagger.
+1. Välj den **API tjänstbeskrivning** länk som leder till behållarsidan swagger.
 
-1. Välj någon av de **POST** API: er och välj **prova**.  Parametrarna visas, inklusive till exempel anknytning:
+1. Välj någon av de **POST** API: er och välj **prova**.  Parametrarna är visas, inklusive det här exemplet indata:
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "67455143"
     }
     ```
 
-1. Ersätt indata med följande JSON:
+1. Ersätt indata med följande JSON-innehåll:
 
     ```json
     {
@@ -67,7 +67,7 @@ ms.locfileid: "67455143"
 
 1. Välj **kör** fastställa känslan i texten.
 
-    Modellen paketeras i behållaren genererar en poäng mellan 0 och 1, där 0 är negativt och 1 är positivt.
+    Den modell som är paketerat i behållaren genererar en poäng mellan 0 och 1, där 0 är negativt och 1 är positivt.
 
     JSON-svar som returneras innehåller sentiment för uppdaterade textinmatningen:
 
@@ -93,4 +93,4 @@ ms.locfileid: "67455143"
     }
     ```
 
-Vi kan nu jämföra dokumentet `id` svar-nyttolaster JSON till det ursprungliga begärd nyttolast dokumentet `id`, och se att det fanns ett resultat på över `.98` som anger en mycket positiv attityd.
+Vi kan nu jämföra dokumentet `id` av svarets nyttolast JSON-data till det ursprungliga begäran nyttolast dokumentet `id`. Vi kan se ett resultat på mer än `.98`, som anger en starkt positiv attityd.

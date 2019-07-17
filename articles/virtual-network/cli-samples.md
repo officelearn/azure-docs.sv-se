@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: de96f101778b7011a5d3c67905b24908df7a7362
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4caa19ad22faa0a921fb6397e5b376b65a29e519
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098464"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249059"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Azure CLI-exempel för virtuellt nätverk
 
@@ -32,4 +32,5 @@ Följande tabell innehåller länkar till bash-skript med Azure CLI-kommandon:
 | [Peerkoppla två virtuella nätverk](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Skapar och kopplar samman två virtuella nätverk i samma region. |
 | [Dirigera trafik via en virtuell nätverksinstallation](./scripts/virtual-network-cli-sample-route-traffic-through-nva.md) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät och en virtuell dator som kan dirigera trafik mellan de två undernäten. |
 | [Filtrera inkommande och utgående VM-nätverkstrafik](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät. Inkommande nätverkstrafik till klientdelsundernätet är begränsad till HTTP, HTTPS och SSH. Utgående trafik till Internet från serverdelsundernätet är inte tillåten. |
-|[Konfigurera IPv4 + IPv6 dual stack virtuellt nätverk](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Distribuerar dual-stack (IPv4 + IPv6) virtuellt nätverk med två virtuella datorer och en grundläggande belastningsutjämnare för Azure med IPv4 och IPv6 offentliga IP-adresser. |
+|[Konfigurera IPv4 + IPv6 dual stack virtuellt nätverk med Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Distribuerar dual-stack (IPv4 + IPv6) virtuellt nätverk med två virtuella datorer och en grundläggande belastningsutjämnare för Azure med IPv4 och IPv6 offentliga IP-adresser. |
+|[Konfigurera IPv4 + IPv6 dual stack virtuellt nätverk med Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Distribuerar dual-stack (IPv4 + IPv6) virtuellt nätverk med två virtuella datorer och en Azure Standard Load Balancer med IPv4 och IPv6 offentliga IP-adresser. |

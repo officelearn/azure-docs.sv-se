@@ -564,6 +564,8 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Kopiera nya filer genom LastModifiedDate
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Flytta filer
+          href: solution-template-move-files.md
         - name: Masskopiera med kontrolltabellen
           href: solution-template-bulk-copy-with-control-table.md
         - name: Deltakopiera med kontrolltabellen
@@ -574,6 +576,8 @@
       items:
         - name: Aktivitetsfelsökning
           href: data-factory-troubleshoot-guide.md
+        - name: Felsöka Azure-SSIS IR-hantering
+          href: ssis-integration-runtime-management-troubleshoot.md
         - name: Körning av felsökningspaket i Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Referens

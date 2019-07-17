@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717186"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229197"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Skapa en Behållarinstans i Azure-resurs
 
@@ -22,7 +22,7 @@ ms.locfileid: "67717186"
 
 2. På den **grunderna** ange följande information:
 
-    |Inställning|Value|
+    |Inställning|Värde|
     |--|--|
     |Subscription|Välj din prenumeration.|
     |Resource group|Välj den tillgängliga resursgruppen eller skapa en ny som `cognitive-services`.|
@@ -39,12 +39,12 @@ ms.locfileid: "67717186"
     |--|--|
     |Portar|Ange TCP-porten som `5000`. Visar behållaren på port 5000.|
 
-4. På den **Avancerat** ange de nödvändiga **miljövariabler** för behållaren [fakturering inställningar](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) på ACI-resursen:
+4. På den **Avancerat** ange de nödvändiga **miljövariabler** behållaren fakturering i inställningarna för ACI-resursen:
 
     | Nyckel | Värde |
     |--|--|
-    |`apikey`|Kopierade från den **nycklar** sidan av Text Analytics-resurs. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Kopierade från den **översikt** sidan av Text Analytics-resurs. Exempel: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Kopierade från den **nycklar** för resursen. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Kopierade från den **översikt** för resursen.|
     |`eula`|`accept`|
 
 1. Klicka på **granska och skapa**

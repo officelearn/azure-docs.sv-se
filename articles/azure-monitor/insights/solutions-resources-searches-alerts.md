@@ -179,7 +179,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | description | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde
@@ -188,7 +188,7 @@ Det här avsnittet är obligatoriskt. Den definierar egenskaperna för tröskelv
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
 | Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Värde | Ja | Värde att jämföra resultatet. |
+| Value | Ja | Värde att jämföra resultatet. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Det här avsnittet är valfritt. Tar med riskfaktorn för en avisering om metriska måttenheter.

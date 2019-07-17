@@ -1,7 +1,7 @@
 ---
-title: Stöd för språk - API för textanalys
+title: Språk stöd – API för textanalys
 titleSuffix: Azure Cognitive Services
-description: 'En lista med naturligt språk som stöds av API för textanalys. Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.'
+description: 'En lista över naturliga språk som stöds av API för textanalys. I den här artikeln förklaras vilka språk som stöds för varje åtgärd: sentiment analys, extrahering av nyckel fraser, språk identifiering och enhets igenkänning.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,70 +10,70 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 5e4f231db781b96fe204802555b56238b9e27e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 96539a59bd22644eaedb88886bc5b9facb4ca1c1
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442670"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302104"
 ---
-# <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
+# <a name="language-and-region-support-for-the-text-analytics-api"></a>Språk-och region stöd för API för textanalys
 
-Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av namngivna entiteter.
+I den här artikeln förklaras vilka språk som stöds för varje åtgärd: sentiment analys, extrahering av nyckel fraser, språk identifiering och identifiering av namngivna entiteter.
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk.  Språkidentifiering returnerar ”skript” för ett språk. Exempel för frasen ”jag har en hund” returneras `en` i stället för `en-US`. Endast specialfall är kinesiska, där identifieringsmöjligheter språk returnerar `zh_CHS` eller `zh_CHT` om det kan fastställa skriptet ges text som tillhandahålls. I situationer där ett visst skript inte kan identifieras för ett kinesiska dokument, returneras bara `zh`.
+API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk.  Språkidentifiering returnerar "skript" för ett språk. För frasen "Jag har en hund" kommer den att returneras `en` i stället för. `en-US` Det enda särskilda fallet är kinesiska, där språk identifierings funktionen kommer att `zh_CHS` returnera `zh_CHT` eller om den kan fastställa ett skript som har fått den angivna texten. I situationer där det inte går att identifiera ett särskilt skript för ett kinesiskt dokument kommer det `zh`bara att returnera.
 
-Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa nationella inställningar/kulturella språk. 
+Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk. 
 
-Om du har innehåll som uttrycks i ett språk som används mindre ofta kan försöka du språkidentifiering för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
+Om du har innehåll som uttrycks på ett mindre vanligt språk kan du prova Språkidentifiering för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, extrahering av diskussionsämne och igenkänning av namngivna entiteter
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, Extrahering av diskussionsämne och identifiering av namngiven entitet
 
-För attitydanalys, extrahering av diskussionsämne och entitetsidentifiering är listan över språk som stöds mer selektiv analysatorer är förfinade för språklig reglerna för ytterligare språk. Stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) begränsas till följande språk: 
+För sentiment-analys, extrahering av nyckel fraser och enhets igenkänning är listan över språk som stöds mer selektiv eftersom analys enheterna är förfinade för att hantera språkliga regler för ytterligare språk. Stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) är för närvarande begränsat till följande språk: 
 * Svenska
-* Chinese-Simplified
+* Kinesiska – Förenklad
 * Franska
 * Tyska
 * Spanska
 
-Endast den `Person`, `Location` och `Organization` namngivna entiteter returneras för andra språk.
+`Person`Endast, `Location` och namngivnaentiteterreturnerasfördeandraspråken.`Organization`
 
-## <a name="language-list-and-status"></a>Språklista och status
+## <a name="language-list-and-status"></a>Språk lista och status
 
-Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allmänt tillgänglig (GA) status, oberoende av varandra och av övergripande Text Analytics-tjänsten. Det är möjligt för språk som ska behållas i förhandsversion, även under API för textanalys övergår till allmänt tillgänglig.
+Språk stöd är inlednings vis insamlat i för hands version, som är i allmänhet tillgänglig (GA) status, oberoende av varandra och för Textanalys tjänsten. Det är möjligt att språken förblir i för hands versionen, även om API för textanalys över gångar till allmänt tillgängliga.
 
 | Språk    | Språkkod | Sentiment | Nyckelfraser | Igenkänning av namngiven enhet |   Anteckningar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabiska      | `ar`          |           |             | ✔ \*                     | |
-| Tjeckiska       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
-| Danska      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Nederländska       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| Svenska     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
-| Finska     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Franska      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| Tyska      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
-| Grekiska       | `el`          | ✔ \*     |             |            |     |
-| Ungerska   | `hu`          |           |             |  ✔ \*          |     | 
-| Italienska     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Japanska    | `ja`          |          | ✔           |  ✔ \*          |     |
-| Koreanska      | `ko`          |          | ✔           |  ✔ \*          |     |
-| Norska (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
-| Polska      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portugisiska (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` även accepterat|
-| Portugisiska (Brasilien)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
-| Ryska     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanska     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
-| Svenska     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
-| Turkiska     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
+| Arabiska      | `ar`          |           |             | ✔\*                     | |
+| Tjeckiska       | `cs`          |           |             | ✔\*                     | |
+| Kinesiska – Förenklad | `zh-CN`|           |             | ✔ \        |    |
+| Danska      | `da`          | ✔\*     | ✔           | ✔\*            |     |
+| Nederländska       | `nl`          | ✔\*     | ✔          |  ✔\*           |     |
+| Svenska     | `en`          | ✔        | ✔           |  ✔\*\*     |      |
+| Finska     | `fi`          | ✔\*     | ✔           |  ✔\*           |     |
+| Franska      | `fr`          | ✔        | ✔           |  ✔ \           |     |
+| Tyska      | `de`          | ✔\*     | ✔           |  ✔ \          |     |
+| Grekiska       | `el`          | ✔\*     |             |            |     |
+| Ungerska   | `hu`          |           |             |  ✔\*          |     | 
+| Italienska     | `it`          | ✔\*     | ✔           |  ✔\*           |     |
+| Japanska    | `ja`          |          | ✔           |  ✔\*          |     |
+| Koreanska      | `ko`          |          | ✔           |  ✔\*          |     |
+| Norska (bokmål) | `no`  | ✔\*     |  ✔          | ✔\*            |     |
+| Polska      | `pl`          | ✔\*     |  ✔          |  ✔\*           |     |
+| Portugisiska (Portugal) | `pt-PT`| ✔        |  ✔          | ✔\*      |`pt`även godkänd|
+| Portugisiska (Brasilien)   | `pt-BR`|          |  ✔   |  ✔\*       |     |
+| Ryska     | `ru`          | ✔\*     | ✔           |  ✔\*           |     |
+| Spanska     | `es`          | ✔        | ✔           |   ✔\*\*      |     | 
+| Svenska     | `sv`          | ✔\*     | ✔           |   ✔\*          |     |
+| Turkiska     | `tr`          | ✔\*     |             |   ✔\*          |  |
 
-\* Språk som stöds finns i förhandsversion
+\*Språk stöd finns i för hands version
 
-\*\* [Med namnet Entitetsidentifiering](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [entitetslänkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) finns både för det här språket.    
+\*\*Den [namngivna enhets igenkänningen](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [entitets länkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) är båda tillgängliga för det här språket.    
 
 ## <a name="see-also"></a>Se också
 
-[Dokumentationssidan för cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)   
+[Sidan Cognitive Services dokumentation](https://docs.microsoft.com/azure/cognitive-services/)   
 [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

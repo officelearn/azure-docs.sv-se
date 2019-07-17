@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: MayMSFT
 ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 07/12/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 355927dd8c1bb81265dfa728561ad83a75b0d51d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 55bece47ad2a9965e5137ad720631d9b5f5add48
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871714"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297886"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
-I den här självstudien får du lära dig hur du förbereder data för regression modellering med hjälp av den [databearbetningspaketet](https://aka.ms/data-prep-sdk) från den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
+I den här självstudien får du lära dig hur du förbereder data för Regressions modellering genom att använda [data förberedelse paketet](https://aka.ms/data-prep-sdk) från [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
 
 Den här självstudien är **del ett i en självstudieserie i två delar**. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
 
@@ -38,26 +38,26 @@ I den här kursen för du göra följande:
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
 * En notebook-server för Python 3.6 med följande installerat:
-    * Den `azureml-dataprep` paket från Azure Machine Learning-SDK
+    * `azureml-dataprep` Paketet från Azure Machine Learning SDK
 * Anteckningsboken för självstudie
 
-* Använd en [molnet notebook-server i din arbetsyta](#azure) 
+* Använd en [molnbaserad Notebook-server i din arbets yta](#azure) 
 * Använd [din egen Notebook-server](#server)
 
-### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
+### <a name="azure"></a>Använd en molnbaserad Notebook-server i din arbets yta
 
-Det är enkelt att komma igång med din egen molnbaserad notebook-server. Azure Machine Learning-SDK för Python har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
+Det är enkelt att komma igång med din egen molnbaserade Notebook-Server. Azure Machine Learning SDK för python har redan installerats och kon figurer ATS åt dig när du har skapat den här moln resursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-* När du startar notebook-webbsidan, kör du den **självstudier/regression – del 1 – data-prep.ipynb** anteckningsboken.
+* När du har startat Notebook-webbsidan kör du självstudierna **/regression-part1-data-prep. ipynb** Notebook.
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 
 Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Slutför installationen av stegen i [Snabbstart för Azure Machine Learning Python](setup-create-workspace.md#sdk) att skapa en Miniconda-miljö och installera SDK.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
-1. Den `azureml-dataprep` paketet installeras automatiskt när du installerar SDK.
+1. Slutför installations stegen i [Azure Machine Learning python-snabb start](setup-create-workspace.md#sdk) för att skapa en Miniconda-miljö och installera SDK: n.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
+1. `azureml-dataprep` Paketet installeras automatiskt när du installerar SDK: n.
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
 
     ```
@@ -92,7 +92,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Se till att du installerar den senaste versionen av paketet azureml.dataprep. Den här självstudien fungerar inte med versionsnummer som är lägre än 1.1.0
+> Se till att du installerar den senaste versionen av azureml. nu-paketet. Den här självstudien fungerar inte med det versions nummer som är lägre än 1.1.0
 
 ## <a name="load-data"></a>Läsa in data
 
@@ -112,6 +112,9 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
+
+> [!Note]
+> URL: en i samma exempel är inte en fullständig URL. I stället refererar den till demo-mappen i blobben. Den fullständiga URL: en till några av data är https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 Ett `Dataflow`-objekt liknar en dataram och representerar en serie Lazy-utvärderade, oföränderliga åtgärder med data. Åtgärder kan läggas till genom anrop till de olika tillgängliga transformerings- och filtreringsmetoderna. När du lägger till en åtgärd till ett `Dataflow` resulterar det alltid i ett nytt `Dataflow`-objekt.
 

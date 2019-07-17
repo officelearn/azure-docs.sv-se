@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med abstrakt | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med abstrakt | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och abstrakt.
 services: active-directory
 documentationCenter: na
@@ -16,72 +16,72 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8038784c9da30a42541688536169576cd9a92e9
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 81886fa9165269d89bde8306c5829be41952c190
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235013"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302592"
 ---
-# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Självstudier: Integrera abstrakt med Azure Active Directory
+# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Självstudier: Integrera abstrakta med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera abstrakt med Azure Active Directory (AD Azure). När du integrerar abstrakt med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar abstrakt med Azure Active Directory (Azure AD). När du integrerar abstrakt med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till abstrakt.
-* Ge dina användare att automatiskt inloggad till abstrakt med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till abstrakt.
+* Gör det möjligt för användarna att logga in automatiskt för att skapa abstrakta med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Aktiverat prenumeration abstrakt enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Abstrakt enkel inloggnings prenumeration (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Abstrakt stöder **SP och IDP** -initierad SSO
+* Abstrakt stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-abstract-from-the-gallery"></a>Att lägga till abstrakt från galleriet
+## <a name="adding-abstract-from-the-gallery"></a>Lägga till abstrakta från galleriet
 
-För att konfigurera integrering av abstrakt i Azure AD, som du behöver lägga till abstrakt från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av abstrakta i Azure AD måste du lägga till abstrakt från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **abstrakta** i sökrutan.
-1. Välj **abstrakta** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från Galleri skriver du** **abstrakt** i sökrutan.
+1. Välj **abstrakt** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD enkel inloggning med abstrakt med en testanvändare kallas **B.Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i abstrakt.
+Konfigurera och testa Azure AD SSO med abstrakt användning av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i abstrakta.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med abstrakt, utför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med abstrakt, slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera abstrakt SSO](#configure-abstract-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera abstrakt SSO](#configure-abstract-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa abstrakta testanvändare](#create-abstract-test-user)**  – du har en motsvarighet för Britta Simon i abstrakt som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+5. **[Skapa abstrakta test användare](#create-abstract-test-user)** – för att få en motsvarighet till Britta Simon i abstrakt som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **abstrakta** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. På sidan **abstrakt** program integration i [Azure Portal](https://portal.azure.com/), letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** avsnittet programmet är förinställd i **IDP** initierad läge och nödvändiga URL: er är redan ifyllda på förhand med Azure. Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -93,81 +93,81 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
 ### <a name="configure-abstract-sso"></a>Konfigurera abstrakt SSO
 
-Se till att hämta din `App Federation Metadata Url` och `Azure AD Identifier` från Azure-portalen som du behöver dem för att konfigurera enkel inloggning på abstrakt.
+Se till att hämta `App Federation Metadata Url` `Azure AD Identifier` och från Azure Portal, eftersom du behöver dem för att konfigurera SSO på abstrakt.
 
-Du hittar dessa information på den **ange in enkel inloggning med SAML** sidan:
+Du hittar informationen på sidan **Konfigurera enkel inloggning med SAML** :
 
-* Den `App Federation Metadata Url` finns i den **SAML-signeringscertifikat** avsnittet.
-* Den `Azure AD Identifier` finns i den **konfigurera abstrakt** avsnittet.
+* Finns i avsnittet certifikat för **SAML-signering.** `App Federation Metadata Url`
+* Finns i avsnittet **Konfigurera abstrakt.** `Azure AD Identifier`
 
 
-Du är nu redo att konfigurera enkel inloggning på abstrakt:
+Du är nu redo att konfigurera SSO på abstrakt:
 
 >[!Note]
->Du behöver att autentisera med en organisation administratörskonto för att komma åt inställningarna för enkel inloggning på abstrakt.
+>Du måste autentisera med ett organisations administratörs konto för att få åtkomst till SSO-inställningarna på abstrakt.
 
-1. Öppna den [abstrakta webbapp](https://app.abstract.com/).
-2. Gå till den **behörigheter** sida i vänster Sidopanel.
-3. I den **Konfigurera SSO** anger din **Metadata_url** och **entitets-ID**.
-4. Ange eventuella manuella undantag som du kanske har. E-postmeddelanden som anges i avsnittet Manuell undantag kommer kringgå SSO och logga in med e-post och lösenord. 
+1. Öppna den [abstrakta webbappen](https://app.abstract.com/).
+2. Gå till sidan **behörigheter** i det vänstra sid fältet.
+3. I avsnittet **Konfigurera SSO** anger du din **metadata-URL** och **entitets-ID**.
+4. Ange eventuella manuella undantag som du kan ha. E-postmeddelanden som anges i avsnittet manuella undantag hoppar över SSO och kan logga in med e-post och lösen ord. 
 5. Klicka på **Spara ändringar**.
 
 >[!Note] 
->Du måste använda primära e-postadresser i undantagslistan över manuella. Aktivering av enkel inloggning misslyckas om e-postmeddelandet du lista är en användares sekundära e-postadress. Om det händer visas ett felmeddelande med den primära e-postadress för kontot misslyckas. Lägg till den primära e-post i listan manuell undantag när du har kontrollerat att du vet att användaren.
+>Du måste använda primära e-postadresser i listan över manuella undantag. SSO-aktivering kommer att Miss inaktive ras om e-postmeddelandet är en användares sekundära e-post Om detta inträffar visas ett fel meddelande med det primära e-postmeddelandet för det misslyckade kontot. Lägg till det primära e-postmeddelandet i listan över manuella undantag när du har verifierat att du känner till användaren.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till abstrakt.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till abstrakt.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **abstrakta**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **abstrakt**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-abstract-test-user"></a>Skapa abstrakta testanvändare
+### <a name="create-abstract-test-user"></a>Skapa abstrakt test användare
 
-Testa enkel inloggning på abstrakt:
+Testa SSO vid abstrakthet:
 
-1. Öppna den [abstrakta webbapp](https://app.abstract.com/).
-2. Gå till den **behörigheter** sida i vänster Sidopanel.
-3. Klicka på **Test med mitt konto**. Om testet misslyckas [kontakta Vårt supportteam](https://www.abstract.com/help/contact/).
+1. Öppna den [abstrakta webbappen](https://app.abstract.com/).
+2. Gå till sidan **behörigheter** i det vänstra sid fältet.
+3. Klicka på **testa med mitt konto**. Om testet Miss lyckas kontaktar du [vårt support team](https://www.abstract.com/help/contact/).
 
 >[!Note]
->Du behöver att autentisera med en organisation administratörskonto för att komma åt inställningarna för enkel inloggning på abstrakt.
-Den här organisationen administratörskonto måste tilldelas till abstrakt på Azure portal.
+>Du måste autentisera med ett organisations administratörs konto för att få åtkomst till SSO-inställningarna på abstrakt.
+Det här organisations administratörs kontot måste tilldelas till abstrakta på Azure Portal.
 
-### <a name="test-sso"></a>Testa enkel inloggning 
+### <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen abstrakt i åtkomstpanelen, du bör vara loggas in automatiskt Abstract som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den abstrakta panelen i åtkomst panelen bör du loggas in automatiskt på den sammanfattning som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

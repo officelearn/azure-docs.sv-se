@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523504"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302530"
 ---
-# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding ordlista med gemensam terminologi och begrepp
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
 
 ## <a name="active-version"></a>Aktiva versionen
@@ -96,11 +96,11 @@ Det ser ut som en exempel-slutpunkt:
 
 I [batch testning](luis-interactive-test.md#batch-testing), ett mått på det test precision.
 
-## <a name="false-negative"></a>FALSKT negativt (TN)
+## <a name="false-negative"></a>Falskt negativt (FN)
 
 I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse avsaknad av avsikt/målentiteten.
 
-## <a name="false-positive"></a>Falsk positiv identifiering (TP)
+## <a name="false-positive"></a>Falskt positivt (RP)
 
 I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse förekomsten av avsikt/målentiteten.
 

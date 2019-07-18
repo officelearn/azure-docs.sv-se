@@ -1,22 +1,22 @@
 ---
 title: Snabbstart med Azure Application Insights | Microsoft Docs
-description: Innehåller instruktioner för att snabbt konfigurera en Java-Webbapp för övervakning med Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en Java-webbapp för övervakning med Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656749"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989891"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -36,7 +36,7 @@ Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Om du föredrar Spring framework prova den [konfigurerar en Spring Boot-initieringsapp om du vill använda Application Insights-guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Om du föredrar våren-ramverket kan du prova att [Konfigurera en fjäder Boot-initierare för att använda Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -49,8 +49,6 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 1. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
    ![lägg till en Application Insights-resurs](./media/java-quick-start/1createresourseappinsights.png)
-
-   ![lägg till en Application Insights-resurs](./media/java-quick-start/2createjavaapp.png)
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
@@ -91,7 +89,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
-1. Nu kan du öppna Application Insights **översikt** sida i Azure portal för att visa information om programmet som körs för närvarande.
+1. Nu kan du öppna sidan Application Insights **Översikt** i Azure Portal för att visa information om ditt program som körs.
 
    ![översiktsvyn för Application Insights](./media/java-quick-start/3overview.png)
 
@@ -99,7 +97,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Programkarta](./media/java-quick-start/4appmap.png)
 
-3.  Klicka på den **Appanalys** ikonen ![Programkartan ikonen](./media/java-quick-start/006.png) **visa i analys**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3.  Klicka på ikonen ![](./media/java-quick-start/006.png) program karta för **app Analytics** **i Analytics**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/java-quick-start/5analytics.png)
 
@@ -137,7 +135,7 @@ Mer information om övervakning av Java finns i den [ytterligare App Insights Ja
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar testning bör du ta bort resursgruppen och alla relaterade resurser. Att så att följa stegen nedan.
+När du är färdig med testningen kan du ta bort resurs gruppen och alla relaterade resurser. Följ stegen nedan.
 
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.

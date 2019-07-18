@@ -8,33 +8,32 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: d85b156e9c6d213b6f65fe738f5d22c8cce022ee
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514601"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68001181"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [NET](create-sql-api-dotnet.md)
-> * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och fråga efter dokument, nyckel/värde, bred kolumn och grafdatabaser. Alla dessa åtgärder dra nytta av distribution och skalning i Azure Cosmos DB.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och fråga dokument, nyckel/värde-, bred kolumn-och Graf-databaser. Alla dessa åtgärder drar nytta av distribution och skalning av Azure Cosmos DB.
 
-Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Sedan skapar du och kör en konsolapp som är byggd med Python SDK för [SQL API](sql-api-sdk-python.md). Den här snabbstarten används version 3.0 av den [Python SDK](https://pypi.org/project/azure-cosmos).
+Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Sedan skapar du och kör en konsolapp som är byggd med Python SDK för [SQL API](sql-api-sdk-python.md). I den här snabb starten används version 3,0 av [python SDK](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Python 3.6](https://www.python.org/downloads/), med den `python` körbar fil som är tillgängliga i din `PATH`.
+* [Python 3,6](https://www.python.org/downloads/)med den `python` `PATH`körbara filen som är tillgänglig i.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -63,7 +62,7 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
     ```cmd
     md "git-samples"
     ```
-   Om du använder ett bash-Kommandotolken, bör du i stället använda följande kommando:
+   Om du använder en bash-prompt bör du i stället använda följande kommando:
 
    ```bash
    mkdir "git-samples"
@@ -85,11 +84,11 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I den [Azure-portalen](https://portal.azure.com/), i ditt Azure Cosmos-konto i det vänstra navigeringsfönstret klickar du på **nycklar**. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
+1. I [Azure Portal](https://portal.azure.com/), i ditt Azure Cosmos-konto, i det vänstra navigeringset klickar du på **nycklar**. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
-2. Öppna den `CosmosGetStarted.py` filen i \git-samples\azure-cosmos-db-python-getting-started i Visual Studio Code.
+2. `CosmosGetStarted.py` Öppna filen i \git-samples\azure-Cosmos-DB-python-Getting-Started i Visual Studio Code.
 
 3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunktsnyckeln** i ``CosmosGetStarted.py``. 
 
@@ -103,7 +102,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Läs mer om databasresurser som skapats i kod eller gå vidare till [uppdatera din anslutningssträng](#update-your-connection-string).
+Det här steget är valfritt. Lär dig mer om databas resurserna som skapats i kod eller gå vidare till [Uppdatera anslutnings strängen](#update-your-connection-string).
 
 Observera att om du är bekant med den tidigare versionen av Python SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder flera API-modeller använder version 3.0+ av Python SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
 
@@ -216,7 +215,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapa en behållare med Datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapar en behållare med hjälp av Datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB för användning med SQL API:t](import-data.md)

@@ -8,18 +8,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 079f25cf9333b7ca090b5a3390d193b757117c1c
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754721"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986388"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en att göra-app med Xamarin med hjälp av Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [NET](create-sql-api-dotnet.md)
-> * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -35,9 +34,9 @@ Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, e
 
 ![Att göra-app i Xamarin som körs på iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du utvecklar i Windows och inte redan har Visual Studio 2019 installerat, kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar arbetsbelastningarna **Azure-utveckling** och **Mobil utveckling med .NET** under installationen av Visual Studio.
+Om du utvecklar på Windows och inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar arbetsbelastningarna **Azure-utveckling** och **Mobil utveckling med .NET** under installationen av Visual Studio.
 
 Om du använder en Mac kan du ladda ner den [Visual Studio för Mac](https://www.visualstudio.com/vs/mac/) **utan kostnad**.
 
@@ -92,7 +91,7 @@ Gå tillbaka till Azure Portal för att hämta API-nyckelinformationen och kopie
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Öppna filen APIKeys.cs i mappen azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers i antingen 2019 för Visual Studio eller Visual Studio för Mac.
+2. I antingen Visual Studio 2019 eller Visual Studio för Mac öppnar du filen APIKeys.cs i mappen mappen/Samples/Xamarin/ToDoItems/ToDoItems. Core/helpers.
 
 3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och ange det som värde för variabeln `CosmosEndpointUrl` i APIKeys.cs.
 
@@ -184,7 +183,7 @@ Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
     }
     ```
 
-    Här en ny URI krävs för att unikt identifiera dokument som ska ersättas och hämtas med hjälp av `UriFactory.CreateDocumentUri` och skicka den databasen, samlingsnamnen och ID för dokumentet.
+    Här behöver du en ny URI för att unikt identifiera det dokument som ska ersättas och hämtas genom att `UriFactory.CreateDocumentUri` använda och skicka det till databasen och samlings namnen och dokumentets ID.
 
     `DocumentClient.ReplaceDocumentAsync` ersätter dokumentet som identifieras av URI:n med det som anges som parameter.
 
@@ -245,7 +244,7 @@ Följande steg visar hur du kör appen med felsökningsprogrammet i Visual Studi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapa en behållare med Datautforskaren, bygger och distribuerar en Xamarin-app. Du kan nu importera ytterligare data till ditt Azure Cosmos-konto.
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapar en behållare med hjälp av Datautforskaren och skapar och distribuerar en Xamarin-app. Nu kan du importera ytterligare data till ditt Azure Cosmos-konto.
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

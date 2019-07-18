@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 557b917f53064f0e6e9ecd61e2d230a6a4fd2ad6
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514534"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853685"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en Python-app i Azure App Service i Linux
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
 
-I den här snabbstarten distribuerar du en enkel Python-app till [App Service i Linux](app-service-linux-intro.md), vilket ger en mycket skalbar och automatiskt uppdaterad Webbvärdtjänst värdtjänst. Du använder Azures kommandoradsgränssnitt (den [Azure CLI](/cli/azure/install-azure-cli)) via interaktiv, webbläsarbaserad Azure Cloud Shell, så att du kan följa stegen använder en Mac, Linux eller Windows-dator.
+I den här snabb starten distribuerar du en enkel python-app till [app service på Linux](app-service-linux-intro.md), som ger en mycket skalbar och automatisk korrigering av webb värd tjänst. Du kan använda Azures kommando rads gränssnitt ( [Azure CLI](/cli/azure/install-azure-cli)) via interaktiva, webbläsarbaserat Azure Cloud Shell, så du kan följa stegen i använda en Mac-, Linux-eller Windows-dator.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -33,7 +33,7 @@ För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Installera Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* En Azure-prenumeration. Om du inte har ett redan, skapar du en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+* En Azure-prenumeration. Om du inte redan har en, kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 ## <a name="download-the-sample-locally"></a>Ladda ned exemplet lokalt
 
@@ -105,7 +105,7 @@ Checking connectivity... done.
 
 Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-I följande exempel ersätter `<app-name>` med ett unikt appnamn.
+Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel.
 
 ```bash
 cd python-docs-hello-world
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 Spara dina ändringar och avsluta redigeraren. Använd kommandot `^S` för att spara och `^Q` för att avsluta.
 
-Distribuera om appen med den [ `az webapp up` ](/cli/azure/webapp#az-webapp-up) kommando. Ersätt namnet på din app för `<app-name>`, och ange en plats för `<location-name>` (med någon av de värden som visas från den [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
+Distribuera om appen med hjälp [`az webapp up`](/cli/azure/webapp#az-webapp-up) av kommandot. Ersätt namnet på din app för `<app-name>`och ange en plats för `<location-name>` (med ett av värdena som visas i [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -199,10 +199,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera Python-app](how-to-configure-python.md)
+> [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Köra Python-app i anpassad behållare](tutorial-custom-docker-image.md)
+> [Självstudier: Kör python-app i anpassad behållare](tutorial-custom-docker-image.md)

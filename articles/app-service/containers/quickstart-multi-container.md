@@ -1,7 +1,7 @@
 ---
 title: Skapa en app för flera containrar med Docker Compose – Azure App Service
 description: Distribuera din första app med flera containrar i Azure Web App for Containers på några minuter
-keywords: Azure apptjänst, webbapp, linux, docker compose, multicontainer, flera behållare, webbapp för behållare, flera behållare, behållare, wordpress, azure db för mysql, produktionsdatabasen med behållare
+keywords: Azure App Service, webbapp, Linux, Docker, skapa, flera behållare, flera behållare, webbapp för behållare, flera behållare, behållare, WordPress, Azure dB för MySQL, produktions databas med behållare
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fce819e84d5c532777ffee91ed4e75a0b65dec9b
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396925"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853691"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
@@ -102,7 +102,7 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 
 ## <a name="create-a-docker-compose-app"></a>Skapa en Docker Compose-app
 
-I Cloud Shell-terminalen skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+I Cloud Shell-terminalen skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta  _\<APP_NAME->_ med ett unikt namn på appen (giltiga `a-z`tecken `0-9`är, `-`och).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -138,7 +138,7 @@ Bläddra till den distribuerade appen på (`http://<app_name>.azurewebsites.net`
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudier: WordPress-app med flera behållare](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad behållare](configure-custom-container.md)

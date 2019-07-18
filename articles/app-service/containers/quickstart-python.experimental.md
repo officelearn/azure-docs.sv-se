@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396860"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853994"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -64,7 +64,7 @@ Checking connectivity... done.
 
 Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-Ersätt <app_name> med ett unikt programnamn i följande exempel.
+Ersätt *\<app_name>* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel.
 
 ```bash
 cd python-docs-hello-world
@@ -168,10 +168,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera Python-app](how-to-configure-python.md)
+> [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)

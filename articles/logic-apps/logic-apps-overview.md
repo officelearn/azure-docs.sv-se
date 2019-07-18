@@ -1,6 +1,6 @@
 ---
 title: Enterprise-integration med Azure Logic Apps
-description: Översikt över att skapa enterprise integrationslösningar genom att automatisera och samordna uppgifter och arbetsflöden som integrerar appar, data, tjänster och system i företag och organisationer. Skapa lösningar för dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och scenarier för orkestrering.
+description: Översikt över hur du skapar lösningar för företags integrering genom att automatisera och dirigera uppgifter, arbets flöden och affärs processer som integrerar appar, data, tjänster och system i företag och organisationer. Skapa lösningar för dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och scenarier för orkestrering.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,16 +11,16 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299113"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273133"
 ---
 # <a name="what-is-azure-logic-apps"></a>Vad är Azure Logic Apps?
 
-[Med Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) är en molnbaserad tjänst som hjälper dig att schemalägga, automatisera och samordna uppgifter, affärsprocesser och [arbetsflöden](#logic-app-concepts) när du behöver integrera appar, data, system och tjänster i företag eller organisationer. Logic Apps förenklar hur du utformar och skapar skalbara lösningar för [appintegrering](https://azure.microsoft.com/product-categories/integration/), dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och business-to-business-kommunikation (B2B) i molnet, lokalt eller både och.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) är en moln tjänst som hjälper dig att schemalägga, automatisera och dirigera uppgifter, affärs processer och [arbets flöden](#logic-app-concepts) när du behöver integrera appar, data, system och tjänster i företag eller organisationer. Logic Apps förenklar hur du utformar och skapar skalbara lösningar för [appintegrering](https://azure.microsoft.com/product-categories/integration/), dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och business-to-business-kommunikation (B2B) i molnet, lokalt eller både och.
 
 Här är exempel på några arbetsbelastningar som du kan automatisera med logikappar:
 
@@ -29,13 +29,13 @@ Här är exempel på några arbetsbelastningar som du kan automatisera med logik
 * Flytta uppladdade filer från en SFTP- eller FTP-server till Azure Storage. 
 * Övervaka tweets för ett visst ämne, analysera sentiment och skapa aviseringar eller uppgifter för objekt som behöver granskas.
 
-Om du vill skapa integreringslösningar för företag med Azure Logic Apps kan du välja från ett växande galleri med [över 200 anslutningsappar](../connectors/apis-list.md), som bland annat innehåller tjänster som Azure Service Bus, Functions och Storage, SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, filresurser och mer. [Anslutningsappar](#logic-app-concepts) tillhandahåller [utlösare](#logic-app-concepts), [åtgärder](#logic-app-concepts) eller både och för att skapa logikappar som får säker åtkomst till och bearbetar data i realtid.
+Om du vill bygga lösningar för företags integrering med Azure Logic Apps kan du välja från ett växande galleri med [hundratals färdiga kopplingar](../connectors/apis-list.md)som omfattar tjänster som Azure Service Bus, funktioner och lagring. SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, fil resurser med mera. [Anslutningsappar](#logic-app-concepts) tillhandahåller [utlösare](#logic-app-concepts), [åtgärder](#logic-app-concepts) eller både och för att skapa logikappar som får säker åtkomst till och bearbetar data i realtid.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
 ## <a name="how-does-logic-apps-work"></a>Hur fungerar Logic Apps? 
 
-Varje logikapps arbetsflöde börjar med en utlösare, som utlöses när en viss händelse sker eller när nya tillgängliga data uppfyller specifika villkor. Många utlösare som tillhandahålls av anslutningarna i Logic Apps innehåller grundläggande funktioner för schemaläggning så att du kan ställa in hur regelbundet dina arbetsbelastningar körs. Du kan använda en upprepningsutlösare som det första steget i alla arbetsflöden för mer komplex schemaläggning eller avancerade upprepningar. Läs mer om [schemabaserade arbetsflöden](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Varje logikapps arbetsflöde börjar med en utlösare, som utlöses när en viss händelse sker eller när nya tillgängliga data uppfyller specifika villkor. Många utlösare som tillhandahålls av kopplingarna i Logic Apps innehåller grundläggande schemaläggnings funktioner så att du kan konfigurera hur ofta dina arbets belastningar ska köras. För mer komplex schemaläggning eller avancerade upprepningar kan du använda en upprepnings utlösare som första steg i arbets flödet. Lär dig mer om [schemabaserade arbets flöden](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som kör åtgärderna i arbetsflödet. Åtgärderna kan även omfatta datakonverteringar och flödeskontroller, som villkorssatser, switch-satser, loopar och branchning. Den här logikappen till exempel börjar med en Dynamics 365-utlösare med det inbyggda villkoret ”När en post uppdateras”. Om utlösaren upptäcker en händelse som matchar villkoret utlöses utlösaren och kör arbetsflödets åtgärder. Här omfattar åtgärderna XML-transformering, datauppdateringar, beslutsbranchning och e-postmeddelanden.
 

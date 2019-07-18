@@ -1,6 +1,6 @@
 ---
-title: Daemon för Microsoft identity-plattformen .NET Core | Azure
-description: Lär dig hur en .NET Core-process kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft identity-plattformen slutpunkten med hjälp av appens egen identitet
+title: Microsoft Identity Platform .NET Core daemon | Azure
+description: Lär dig hur en .NET Core-process kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten med appens egen identitet
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a42cfe1374f3defdf6ed8acc828e6c7e446588bc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c5955be5670759329e42ec24999d73df977c665e
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595148"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276846"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
 I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet.
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -45,7 +45,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till den nya [Azure portal – appregistreringar](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) fönstret.
+> 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) .
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
@@ -57,9 +57,9 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
 > 1. Välj **ny registrering**.
-> 1. När den **registrera ett program** visas, ange registreringsinformation för ditt program. 
+> 1. När sidan **Registrera ett program** visas anger du programmets registrerings information. 
 > 1. I avsnittet **Namn** anger du ett beskrivande namn som visas för användare av appen, till exempel `Daemon-console`, och välj sedan **Registrera** för att skapa appen.
 > 1. När den har registrerats väljer du menyn **Certifikat och hemligheter**.
 > 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att använda i din kod.
@@ -98,7 +98,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
     
     > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
-    > > Den här snabbstarten har stöd för Enter_the_Supported_Account_Info_Here.
+    > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
     
     > [!div renderon="docs"]
     >> Där:
@@ -112,7 +112,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
     
 #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
-Om du försöker köra programmet nu returneras ett fel av typen *HTTP 403 – Ej tillåtet*: `Insufficient privileges to complete the operation`. Detta inträffar eftersom alla *appspecifik behörighet* kräver administratörens godkännande, vilket innebär att en global administratör i din katalog måste ge ditt medgivande till ditt program. Välj något av alternativen nedan beroende på din roll:
+Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation`. Detta beror på att en *app-only-behörighet* kräver administratörs medgivande, vilket innebär att en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
 
 ##### <a name="global-tenant-administrator"></a>Global innehavaradministratör
 
@@ -126,7 +126,7 @@ Om du försöker köra programmet nu returneras ett fel av typen *HTTP 403 – E
 
 ##### <a name="standard-user"></a>Standardanvändare
 
-Om du är standardanvändare i klientorganisationen måste du be en global administratör att bevilja administratörsmedgivande för din app. Gör detta genom att ge följande URL till administratören:
+Om du är en standard användare av din klient organisation måste du be en global administratör att bevilja administrativt medgivande för ditt program. Gör detta genom att ge följande URL till administratören:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -142,7 +142,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### <a name="step-5-run-the-application"></a>Steg 5: Köra programmet
 
-Om du använder Visual Studio trycker du på **F5** för att köra appen. Annars kör du appen via kommandotolken eller konsolen:
+Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -161,7 +161,7 @@ Du bör se en lista över användare i Azure AD-katalogen som resultat.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Enligt beskrivningen, begär den här snabbstarten token genom att använda egna Programidentitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)* . Läs mer om hur du använder MSAL.NET med flödet, [i den här artikeln](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Som beskrivs i den här snabb starten begär denna token genom att använda programmets egna identitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)* . Mer information om hur du använder MSAL.NET med flöde för klientautentiseringsuppgifter finns i [den här artikeln](https://aka.ms/msal-net-client-credentials).
 
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
@@ -215,14 +215,14 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er definieras `{Application ID URI}` under avsnittet **Exponera ett API** i Programregistrering (förhandsversion) i Azure-portalen. |
 
-Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [.NET core-daemon-exempel](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Exempel på .NET Core daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Lär dig mer om behörigheter och medgivande:
 

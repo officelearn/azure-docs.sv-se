@@ -5,50 +5,50 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/25/2019
+ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 126c825106b7844a5fc8a5a3cdbcc7aa6c273b5b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502807"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310242"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduktion till Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) är tjänsten globalt distribuerad databas för flera datamodeller från Microsoft för verksamhetskritiska program. Det är en databas för flera modeller och har stöd för dokument, nyckel / värde-, graf och kolumndatamodeller. Azure Cosmos DB Gremlin-API används för att lagra och arbeta med graph-data i en fullständigt hanterad databas-miljö i valfri skala.  
+[Azure Cosmos DB är en](introduction.md)globalt distribuerad databas tjänst för flera data modeller från Microsoft för verksamhets kritiska program.  Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. Azure Cosmos DB Gremlin-API: et används för att lagra och använda diagram data på en fullständigt hanterad databas tjänst som har utformats för alla skalor.  
 
 ![Azure Cosmos DB-diagramarkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga i grafer med millisekunds fördröjning och enkelt kan utveckla graph-struktur. Azure Cosmos DB Gremlin-API är baserad på den [Apache TinkerPop](https://tinkerpop.apache.org) graph-databasen som är standard och använder Gremlin-frågespråket. 
+Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API baseras på [Apache TinkerPop](https://tinkerpop.apache.org) graphs databas standard och använder Gremlin-frågespråket. 
 
-Azure Cosmos DB Gremlin-API kombinerar kraften i graph databas algoritmer med mycket skalbar och hanterad infrastruktur för att ge en unik, flexibel lösning för att de vanligaste problem som är associerade med brist på flexibilitet och relationella metoder. 
+Azure Cosmos DBens Gremlin-API kombinerar kraften i graf Database-algoritmer med en mycket skalbar, hanterad infrastruktur för att tillhandahålla en unik, flexibel lösning för de vanligaste data problemen som är kopplade till bristande flexibilitet och Relations metoder. 
 
 ## <a name="features-of-azure-cosmos-db-graph-database"></a>Funktioner i diagramdatabasen Azure Cosmos DB
  
 Azure Cosmos DB är en fullständigt hanterad diagramdatabas som erbjuder global distribution, elastisk skalbarhet av lagring och dataflöde, automatisk indexering och frågor, justerbara konsekvensnivåer och stöd för TinkerPop-standarden. 
 
-Följande är de differentierad funktionerna som erbjuder Azure Cosmos DB Gremlin-API:
+Följande är de differentierade funktionerna som Azure Cosmos DB Gremlin-API: er:
 
-* **Elastiska och skalbara dataflöden och lagring**
+* **Elastiskt skalbart data flöde och lagring**
 
-  Diagram i verkligheten behöver skala utöver kapaciteten för en enskild server. Azure Cosmos DB stöder horisontellt skalbar grafdatabaser som kan ha en nästan obegränsad storlek i och etablerade dataflöden. När graph databas skalan växer kan data distribueras automatiskt med hjälp av [grafpartitionering](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Diagram i verkligheten behöver skala utöver kapaciteten för en enskild server. Azure Cosmos DB stöder vågrätt skalbara diagram databaser som kan ha en i princip obegränsad storlek i termer av lagring och allokerat data flöde. I takt med att diagram databasen skalas, distribueras data automatiskt med hjälp av [diagram partitionering](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-* **Replikering av flera regioner**
+* **Replikering i flera regioner**
 
-  Azure Cosmos DB kan automatiskt replikera din diagramdata till alla Azure-regioner. Replikering förenklar utvecklingen av program som kräver global åtkomst till data. Förutom minimerar lässvarstid tillhandahåller Azure Cosmos DB en mekanism för regional redundans som kan kontinuiteten i ditt program i de sällsynta fall om ett tjänstavbrott i en region. 
+  Azure Cosmos DB kan automatiskt replikera dina diagram data till alla Azure-regioner i hela världen. Global replikering fören klar utvecklingen av program som kräver global åtkomst till data. Förutom att minimera Läs-och skriv fördröjning var som helst över hela världen, tillhandahåller Azure Cosmos DB automatisk regional redundans som kan garantera programmets kontinuitet i sällsynta fall av ett tjänst avbrott i en region. 
 
-* **Snabba frågor och bläddringar med standarden mest välbekanta graph-fråga**
+* **Snabba frågor och bläddringskontroll med den mest antagna standarden för kurv frågor**
 
-  Lagra heterogena brytpunkter och kanter och fråga de här dokumenten via ett bekant Gremlin-syntax. Gremlin är ett viktigt, funktions-frågespråk som tillhandahåller en omfattande gränssnitt för att implementera vanliga graph-algoritmer. 
+  Lagra heterogena hörn och kanter och fråga dem genom en välbekant Gremlin-syntax. Gremlin är ett tvingande, funktionellt frågespråk som ger ett omfattande gränssnitt för att implementera vanliga graf-algoritmer. 
   
-  Azure Cosmos DB möjliggör omfattande förfrågningar i realtid och bläddringar utan att behöva ange schematips, sekundärindex eller vyer. Läs mer i [Fråga diagram med hjälp av Gremlin](gremlin-support.md).
+  Azure Cosmos DB möjliggör omfattande frågor och bläddringskontroll i real tid utan att behöva ange schema tips, sekundära index eller vyer. Läs mer i [Fråga diagram med hjälp av Gremlin](gremlin-support.md).
 
-* **Fullständigt hanterad grafdatabas**
+* **Fullständigt hanterad diagram databas**
 
-  Azure Cosmos DB eliminerar behovet av att hantera databasen och datorresurserna. De flesta plattformar av graph-databasen är bundna till begränsningarna i sin infrastruktur och kräver ofta en hög grad av underhåll för att se till att dess drift. 
+  Azure Cosmos DB eliminerar behovet av att hantera databasen och datorresurserna. De flesta befintliga Graph Database-plattformarna är kopplade till begränsningarna i infrastrukturen och kräver ofta en hög grad av underhåll för att säkerställa driften. 
   
-  Som en fullständigt hanterad Microsoft Azure-tjänst finns behöver du inte hantera virtuella datorer, uppdatera runtime-programvara, hantera horisontell partitionering eller replikering eller hantera komplexa datanivå uppgraderingar. Varje databas säkerhetskopieras och skyddas automatiskt mot regionala fel. Dessa garantier att utvecklare kan fokusera på att leverera program värde i stället för att använda och hantera sina databaser. 
+  Som en helt hanterad tjänst tar Cosmos DB bort behovet av att hantera virtuella datorer, uppdatera runtime-programvaran, hantera horisontell partitionering eller replikering, eller hantera komplexa uppgraderingar av data nivåer. Varje databas säkerhetskopieras och skyddas automatiskt mot regionala fel. Dessa garantier gör att utvecklare kan fokusera på att leverera program värde i stället för att hantera sina graf-databaser. 
 
 * **Automatisk indexering**
 
@@ -56,66 +56,66 @@ Följande är de differentierad funktionerna som erbjuder Azure Cosmos DB Gremli
 
 * **Kompatibilitet med Apache TinkerPop**
 
-  Azure Cosmos DB stöder den [öppen källkod Apache TinkerPop standard](http://tinkerpop.apache.org/). Tinkerpop standard har ett stort ekosystem av program och bibliotek som enkelt kan integreras med Azure Cosmos DB Gremlin-API. 
+  Azure Cosmos DB stöder [Apache TinkerPop-standarden med öppen källkod](http://tinkerpop.apache.org/). Tinkerpop-standarden har ett stort eko system med program och bibliotek som enkelt kan integreras med Azure Cosmos DBens Gremlin-API. 
 
-* **Justerbara konsekvensnivåer**
+* **Justerbara konsekvens nivåer**
 
-  Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer i [Justerbara datakonsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
+  Azure Cosmos DB tillhandahåller fem väldefinierade konsekvens nivåer för att uppnå rätt kompromisser mellan konsekvens och prestanda för ditt program. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer i [Justerbara datakonsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
 ## <a name="scenarios-that-can-use-gremlin-api"></a>Scenarier där Gremlin-API:t kan användas
-Här följer några scenarier där diagramstödet för Azure Cosmos DB kan användas:
+Här följer några scenarier där diagram stöd för Azure Cosmos DB kan vara användbart:
 
-* Sociala nätverk
+* **Sociala nätverk/kund 365**
 
   Genom att kombinera data om dina kunder och deras interaktioner med andra personer kan du utveckla anpassade upplevelser, förutsäga kundbeteende eller ansluta personer med andra med liknande intressen. Azure Cosmos-DB kan användas för att hantera sociala nätverk och spåra kundinställningar och data.
 
-* Rekommendationsmotorer
+* **Rekommendations motorer**
 
-  Det här scenariot används ofta inom detaljhandeln. Genom att kombinera information om produkter, användare och användarinteraktioner som köp, bläddring eller klassificeringen av ett objekt, kan du skapa anpassade rekommendationer. De låga svarstiderna, elastiska skalbarheten och det interna diagramstödet för Azure Cosmos DB är idealiskt för modellering av de här interaktionerna.
+  Det här scenariot används ofta inom detaljhandeln. Genom att kombinera information om produkter, användare och användarinteraktioner som köp, bläddring eller klassificeringen av ett objekt, kan du skapa anpassade rekommendationer. Stöd för låg latens, elastisk skalning och inbyggd graf för Azure Cosmos DB är perfekt för dessa scenarier.
 
-* Geospatial
+* **Geospatiala**
 
   Många program inom telekommunikation, logistik och reseplanering måste hitta en plats av intresse inom ett område eller hitta den kortaste/optimala vägen mellan två platser. Azure Cosmos DB är en naturlig lösning på de här problemen.
 
-* Internet of Things
+* **Internet of Things**
 
   Med nätverket och anslutningarna mellan IoT-enheter som modellerats som ett diagram, kan du skapa en bättre förståelse för dina enheters och tillgångars tillstånd. Du kan också undersöka hur ändringar i en del av nätverket kan påverka en annan del.
 
-## <a name="introduction-to-graph-databases"></a>Introduktion till graph-databaser
-Data som de visas i verkligheten är naturligt sammanlänkade. Traditionella datamodellering fokuserar på Definiera entiteter separat och databehandling deras relationer vid körning. Även om den här modellen har sina fördelar, mycket anslutna data kan vara en utmaning för att hantera under dess begränsningar.  
+## <a name="introduction-to-graph-databases"></a>Introduktion till diagram databaser
+Data som de visas i verkligheten är naturligt sammanlänkade. Traditionell data modellering fokuserar på att definiera entiteter separat och att beräkna deras relationer vid körning. Även om den här modellen har sina fördelar kan data som är mycket anslutna vara svåra att hantera under sina begränsningar.  
 
-En metod för graph-databasen förlitar sig på bestående relationer i storage-skiktet i stället, vilket leder till högeffektiv graph datahämtningsrelaterade uppgifter. Azure Cosmos DB Gremlin API: et stöder den [egenskapen graph modellen](https://tinkerpop.apache.org/docs/current/reference/#intro).
+En diagram databas metod förlitar sig på beständiga relationer i lagrings lagret i stället, vilket leder till mycket effektiva diagram hämtnings åtgärder. Azure Cosmos DBens Gremlin-API stöder [egenskaps diagrammets modell](https://tinkerpop.apache.org/docs/current/reference/#intro).
 
-### <a name="property-graph-objects"></a>Egenskapen graph-objekt
+### <a name="property-graph-objects"></a>Egenskaps diagram objekt
 
-En egenskap [graph](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [hörn](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Båda-objekten kan ha ett valfritt antal nyckel / värde-par som egenskaper. 
+Ett egenskaps [diagram](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [hörn](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Båda objekten kan ha ett godtyckligt antal nyckel/värde-par som egenskaper. 
 
-* **Hörn** -hörn anger diskreta enheter, till exempel en person, plats eller en händelse.
+* **Formhörn** – hörnen kännetecknar diskreta entiteter, till exempel en person, en plats eller en händelse.
 
 * **Kanter** – Kanter betecknar relationer mellan brytpunkter. En person kan till exempel känna till en annan person, vara inblandad i en händelse och nyligen ha varit på en plats. 
 
-* **Egenskaper** – Egenskaper uttrycker information om brytpunkterna och kanterna. Det kan vara valfritt antal egenskaper i hörn eller kanter och de kan användas för att beskriva och filtrera objekten i en fråga. Egenskaper för exempel omfattar ett hörn som har namnet och ålder eller en kant som kan ha en tidsstämpel och/eller en vikt. 
+* **Egenskaper** – Egenskaper uttrycker information om brytpunkterna och kanterna. Det kan finnas ett valfritt antal egenskaper i antingen formhörn eller kanter, och de kan användas för att beskriva och filtrera objekten i en fråga. Exempel egenskaperna innehåller ett hörn som har namn och ålder, eller en kant, som kan ha en tidstämpel och/eller en vikt. 
 
-Grafdatabaser är ofta ingår i NoSQL eller icke-relationell databas kategori eftersom det finns inga beroende på ett schema eller begränsad datamodellen. Bristen på schemat kan modellering och lagrar anslutna strukturer naturligt och effektivt. 
+Graf-databaser ingår ofta i NoSQL eller icke-relationell databas kategori eftersom det inte finns något beroende av ett schema eller en begränsad data modell. Detta brist på schema möjliggör modellering och lagring av anslutna strukturer naturligt och effektivt. 
 
 ### <a name="gremlin-by-example"></a>Gremlin efter exempel
 Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  
 
 ![Exempeldatabas som visar personer, enheter och intressen](./media/gremlin-support/sample-graph.png) 
 
-Det här diagrammet innehåller följande brytpunktstyper (kallas etikett i Gremlin):
+Det här diagrammet har följande *hörn* typer (kallas "etikett" i Gremlin):
 
-- Personer: Diagrammet innehåller tre personer, Robin, Thomas och Ben
-- Intressen: Deras intressen, i det här exemplet, Fotboll
-- Enheter: De enheter som personerna använder
-- Operativsystem: De operativsystem som enheterna körs på
+- **Personer**: Diagrammet innehåller tre personer, Robin, Thomas och Ben
+- **Intressen**: Deras intressen, i det här exemplet, Fotboll
+- **Enheter**: De enheter som personerna använder
+- **Operativ system**: De operativsystem som enheterna körs på
 
-Vi representerar relationerna mellan dessa entiteter via följande kanttyper/etiketter:
+Vi representerar relationerna mellan dessa entiteter via följande *kant* typer/etiketter:
 
-- Känner: till exempel, Thomas känner Robin
-- Intressen: Representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
-- KörOS: den bärbara datorn kör Windows-operativsystemet
-- Använder: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
+- **Känner**: till exempel, Thomas känner Robin
+- **Intresse rad**: Representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
+- **Körs**: den bärbara datorn kör Windows-operativsystemet
+- **Använder**: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
 
 Vi kör några åtgärder mot det här diagrammet med [Gremlin-konsolen](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET).  Innan vi tittar på vad som stöds i Azure Cosmos DB ska vi titta på några exempel för att bekanta oss med syntaxen.
 
@@ -136,12 +136,11 @@ Följande fråga returnerar person-brytpunkten i fallande ordning efter deras f�
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-Där diagram verkligen kommer till sin rätt är när det gäller att svara på frågor som Vilka operativsystem använder Thomas vänner? Du kan köra den här Gremlin-genomgång för att hämta informationen från diagrammet:
+Där diagram verkligen kommer till sin rätt är när det gäller att svara på frågor som Vilka operativsystem använder Thomas vänner? Du kan köra den här Gremlin-genom gången för att hämta informationen från grafen:
 
 ```java
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
 ```
-Nu ska vi titta på vad Azure Cosmos DB tillhandahåller för Gremlin-utvecklare.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om diagramstöd i Azure Cosmos DB finns i:

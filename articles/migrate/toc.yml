@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: Självstudier
   items:
-    - name: Utvärdering och migrering av virtuella VMware-datorer
+    - name: Utvärdera och migrera virtuella VMware-datorer
       items:
         - name: Förbereda VMware för utvärdering och migrering
           href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: Migrera virtuella VMware-datorer med agentbaserad migrering
               href: tutorial-migrate-vmware-agent.md
-    - name: Utvärdering och migrering av Hyper-V
+    - name: Utvärdera och migrera virtuella Hyper-V-datorer
       items:
         - name: Förbereda Hyper-V för utvärdering och migrering
           href: tutorial-prepare-hyper-v.md

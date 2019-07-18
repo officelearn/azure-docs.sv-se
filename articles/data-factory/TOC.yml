@@ -564,12 +564,12 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Kopiera nya filer genom LastModifiedDate
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Masskopiera från databas
+          href: solution-template-bulk-copy-with-control-table.md
+        - name: Deltakopiera från databas
+          href: solution-template-delta-copy-with-control-table.md
         - name: Flytta filer
           href: solution-template-move-files.md
-        - name: Masskopiera med kontrolltabellen
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: Deltakopiera med kontrolltabellen
-          href: solution-template-delta-copy-with-control-table.md
         - name: Transformera data med Databricks
           href: solution-template-databricks-notebook.md
     - name: Felsökningsguide

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496375"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876466"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
@@ -79,7 +79,7 @@ Du kan utforska dina data på många sätt. Läs dessa artiklar:
 ### <a name="monitor"></a>Övervaka
 Installera Application Insights i din app, konfigurera [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) och:
 
-* Ta reda på standardvärdet [instrumentpanel för program](../../azure-monitor/app/overview-dashboard.md) sidan för ditt teamutrymme för att hålla ett öga på belastning, tillgänglighet och prestanda för dina beroenden, sidinläsningar och AJAX-anrop.
+* Kolla in standard [instrument panelen](../../azure-monitor/app/overview-dashboard.md) för ditt teamrum för att hålla utkik efter belastning, svars tider och prestanda för dina beroenden, sid inläsningar och AJAX-anrop.
 * Identifiera de begäranden som är långsammast och som misslyckas oftast.
 * Titta på [Live Stream](../../azure-monitor/app/live-stream.md) när du distribuerar en ny version så att du genast kan upptäcka en eventuell försämring.
 
@@ -103,12 +103,13 @@ Application Insights är en av de många tjänsterna som finns i Microsoft Azure
 Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäst. Du kan fortsätta med de andra senare.
 
 * **Vid körning: instrumentera webbappen på servern.** Perfekt för program som redan har distribuerats. Undviker uppdateringar av koden.
-  * [**ASP.NET-program som körs i IIS antingen lokalt eller i en virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**ASP.NET eller ASP.NET Core-program som körs på Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
-* **Vid utveckling: lägg till Application Insights i din kod.** Kan du anpassa telemetriinsamling och skicka ytterligare telemetri.
+  * [**ASP.NET eller ASP.NET Core program som finns på Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+  * [**ASP.NET program som finns i IIS på en virtuell Azure-dator eller skalnings uppsättning för virtuella Azure-datorer**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**ASP.NET program som finns i den lokala IIS-datorn**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* **Vid utveckling: lägg till Application Insights i din kod.** Gör att du kan anpassa telemetri-samlingen och skicka ytterligare telemetri.
   * [ASP.NET-program](../../azure-monitor/app/asp-net.md)
-  * [ASP.NET Core-program](../../azure-monitor/app/asp-net-core.md)
-  * [.NET-konsolprogram](../../azure-monitor/app/console.md)
+  * [ASP.NET Core program](../../azure-monitor/app/asp-net-core.md)
+  * [.NET-konsol program](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Andra plattformar](../../azure-monitor/app/platforms.md)
@@ -119,6 +120,7 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
 ## <a name="next-steps"></a>Nästa steg
 Kom igång under körningsfasen med:
 
+* [Virtuella Azure-datorer och skalnings uppsättningar i IIS-värdbaserade appar](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
@@ -142,8 +144,8 @@ Kom igång under utvecklingsfasen med:
 ## <a name="videos"></a>Videoklipp
 
 - Extern video: [konfigurera Application Insights med ett ASP.NET-program](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- Extern video: [konfigurera Application Insights med ASP.NET Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- Extern video: [konfigurera Application Insights med ASP.NET Core och Visual Studio Code](https://youtu.be/ygGt84GDync).
+- Extern video: [konfigurera Application Insights med ASP.net Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Extern video: [konfigurera Application Insights med ASP.net Core och Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

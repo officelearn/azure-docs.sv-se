@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117755"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854005"
 ---
-# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Kör en anpassad Linux-behållare i Azure App Service
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Köra en anpassad Linux-behållare i Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) tillhandahåller fördefinierade programstackar i Linux med stöd för språk som .NET, PHP, Node.js med flera. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. I den här snabbstarten får du lära dig hur man skapar en webbapp och distribuerar en Go-avbildning från Docker Hub. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -35,7 +35,7 @@ ms.locfileid: "62117755"
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Skapa en [webbapp](../overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta `<app name>` med ett globalt unikt programnamn.
+Skapa en [webbapp](../overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta `<app name>` med ett globalt unikt app-namn (giltiga tecken `a-z`är `0-9`, och `-`).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart
@@ -75,10 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad behållare](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudier: WordPress-app med flera behållare](tutorial-multi-container-app.md)

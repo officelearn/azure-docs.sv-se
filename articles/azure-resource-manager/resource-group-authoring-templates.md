@@ -42,10 +42,10 @@ I sin enklaste struktur har en mall följande element:
 | contentVersion |Ja |Versionen av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
 | apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen för den resurstyp som definieras i profilen.<br><br>API-profilegenskapen är särskilt användbart när du distribuerar en mall till olika miljöer, till exempel Azure Stack och globala Azure. Använda profilversionen API för att kontrollera att mallen använder automatiskt de versioner som stöds i båda miljöerna. En lista över de aktuella versionerna av API-profilen och resurserna som API-versioner som anges i profilen för finns i [API profil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
-| [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
-| [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| [Resurser](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
-| [utdata](#outputs) |Nej |Värden som returneras efter distributionen. |
+| [variables](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
+| [functions](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
+| [resources](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
+| [outputs](#outputs) |Nej |Värden som returneras efter distributionen. |
 
 Varje element har egenskaper som du kan ange. Den här artikeln beskriver avsnitt i mallen i större detalj.
 
@@ -130,7 +130,7 @@ Tillgängliga egenskaper för en parameter är:
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | parameterName |Ja |Namnet på parametern. Måste vara en giltig JavaScript-identifierare. |
-| typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **securestring**, **int**, **bool**, **objekt**, **secureObject**, och **matris**. |
+| type |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **securestring**, **int**, **bool**, **objekt**, **secureObject**, och **matris**. |
 | defaultValue |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att se till att rätt värde har angetts. |
 | minValue |Nej |Det minsta värdet för parametrar av typen int det här värdet är inkluderande. |

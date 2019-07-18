@@ -11,7 +11,7 @@ ms.date: 04/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
 ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502085"
@@ -100,7 +100,7 @@ Riktar in sig på fullständiga framework från .NET Core, fristående distribut
 
 Övervakning på klientsidan är Anmäl dig till ASP.NET. Aktivera övervakning på klientsidan:
 
-* Välj **inställningar** > ** ** program inställningar ***
+* Välj **inställningar** > ** **program inställningar****
    * Lägga till en ny under inställningar **app inställningsnamn** och **värdet**:
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`

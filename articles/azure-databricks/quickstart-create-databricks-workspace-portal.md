@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 43133810c6f8b7cb9fdacb2503103e09f345acfc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 3da0e5bb9ecb8557ac8b51b3aa6faf60a52dddf9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551194"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312118"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
-Den här snabbstarten visar hur du skapar en arbetsyta för Azure Databricks och ett Apache Spark-kluster i den arbetsytan. Dessutom får du lära dig hur du kör ett Spark-jobb på Databricks-klustret. Mer information om Azure Databricks finns i [Vad är Azure Databricks?](what-is-azure-databricks.md)
+I den här snabb starten använder du Azure Portal för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från säkerhets data i Boston.
 
-I den här snabbstarten analysera som en del av Spark-jobbet du Boston säkerhet data för att få insikter om olika rapporteringsmetoder.
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com). Det går inte att utföra den här självstudien med Azures kostnads fria utvärderings prenumeration. Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -49,11 +49,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
-    |**Prisnivå**     |  Välj mellan **Standard**, **Premium**, eller **utvärderingsversion**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Prisnivå**     |  Välj mellan **standard**, **Premium**eller **utvärdering**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**.
 
-4. Det tar några minuter att skapa arbetsytan. När arbetsytan skapas, kan du visa Distributionsstatus i **meddelanden**.
+4. Det tar några minuter att skapa arbetsytan. När du skapar arbets ytan kan du Visa distributions status i **meddelanden**.
 
     ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Distributionspanel för Databricks")
 
@@ -64,7 +64,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. I Azure Portal går du till arbetsytan Databricks som du skapade och klickar sedan på **Starta arbetsyta**.
 
-2. Du omdirigeras till Azure Databricks-portalen. I portalen klickar du på **nytt kluster**.
+2. Du omdirigeras till Azure Databricks-portalen. Klicka på **nytt kluster**från portalen.
 
     ![Databricks på Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks på Azure")
 
@@ -75,7 +75,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden, förutom följande:
 
    * Ange ett namn för klustret.
-   * Den här artikeln är att skapa ett kluster med **5.2** runtime.
+   * I den här artikeln skapar du ett kluster med **5,2** Runtime.
    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
     
      Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
@@ -84,21 +84,21 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
-Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfigurera den för att läsa data från en öppen datauppsättningar i Azure och kör ett Spark SQL-jobb på data.
+Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfigurera antecknings boken för att läsa data från en Azure Open-datauppsättning och kör sedan ett Spark SQL-jobb på data.
 
-1. I den vänstra rutan väljer **Azure Databricks**. Från den **vanliga uppgifter**väljer **ny anteckningsbok**.
+1. I den vänstra rutan väljer du **Azure Databricks**. Välj **ny antecknings bok**från **vanliga uppgifter**.
 
     ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
-2. I den **Skapa anteckningsbok** dialogrutan rutan, ange ett namn, Välj **Python** som språk och väljer det Spark-kluster som du skapade tidigare.
+2. I dialog rutan **skapa antecknings bok** anger du ett namn, väljer **python** som språk och väljer det Spark-kluster som du skapade tidigare.
 
     ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
 
     Välj **Skapa**.
 
-3. I det här steget skapar du en Spark DataFrame med Boston säkerhet Data från [Azure öppna datauppsättningar](https://azure.microsoft.com/services/open-datasets/catalog/boston-safety-data/#AzureDatabricks), och använda det för att fråga efter data.
+3. I det här steget skapar du en spark-DataFrame med Boston-säkerhetsdata från [Azure Open data uppsättningar](https://azure.microsoft.com/services/open-datasets/catalog/boston-safety-data/#AzureDatabricks)och använder SQL för att fråga data.
 
-   Följande kommando anger information för Azure storage-åtkomst. Klistra in den här PySpark-kod i den första cellen och använda **SKIFT + RETUR** att köra koden.
+   Följande kommando anger åtkomst information för Azure Storage. Klistra in den här PySpark-koden i den första cellen och Använd **Shift + Retur** för att köra koden.
 
    ```python
    blob_account_name = "azureopendatastorage"
@@ -107,7 +107,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
    blob_sas_token = r"?st=2019-02-26T02%3A34%3A32Z&se=2119-02-27T02%3A34%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=XlJVWA7fMXCSxCKqJm8psMOh0W4h7cSYO28coRqF2fs%3D"
    ```
 
-   Följande kommando gör att Spark kan läsa från Blob storage via en fjärranslutning. Klistra in den här PySpark-kod i nästa cells och använda **SKIFT + RETUR** att köra koden.
+   Med följande kommando kan Spark läsa från Blob Storage via fjärr anslutning. Klistra in den här PySpark-koden i nästa cell och Använd **Shift + Retur** för att köra koden.
 
    ```python
    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
@@ -115,7 +115,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
    print('Remote blob path: ' + wasbs_path)
    ```
 
-   Följande kommando skapar en dataram. Klistra in den här PySpark-kod i nästa cells och använda **SKIFT + RETUR** att köra koden.
+   Följande kommando skapar en DataFrame. Klistra in den här PySpark-koden i nästa cell och Använd **Shift + Retur** för att köra koden.
 
    ```python
    df = spark.read.parquet(wasbs_path)
@@ -123,7 +123,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
    df.createOrReplaceTempView('source')
    ```
 
-4. Köra ett SQL-uttryck som returnerar de översta 10 raderna med data från den tillfälliga vyn kallas **källa**. Klistra in den här PySpark-kod i nästa cells och använda **SKIFT + RETUR** att köra koden.
+4. Kör ett SQL-uttryck och returnera de 10 översta raderna med data från den temporära vyn som kallas **källa**. Klistra in den här PySpark-koden i nästa cell och Använd **Shift + Retur** för att köra koden.
 
    ```python
    print('Displaying top 10 rows: ')
@@ -132,20 +132,20 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 5. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-    ![Exempeldata](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "exempel-JSON-data")
+    ![Exempel data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel på JSON-data")
 
-6. Nu kan du skapa en visuell representation av dessa data att visa hur många säkerhet händelser rapporteras med medborgare Anslut App och Stad Worker App i stället för andra källor. Längst ned i tabellvyn, Välj den **stapeldiagram** ikon och klicka sedan på **ritalternativ**.
+6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata **väljer du stapeldiagram** och klickar sedan på **rit alternativ**.
 
     ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
 
 8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 
-    ![Anpassa cirkeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "anpassa stapeldiagram")
+    ![Anpassa cirkel diagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
    * Ange **nycklar** till **källa**.
-   * Ange **värden** till **< \id >**.
+   * Ange **värden** för att **< \id >** .
    * Ställ in **Sammansättning** på **COUNT** (Antal).
-   * Ange **bildskärmstyp** till **cirkeldiagram**.
+   * Ange **visnings typ** till **cirkel diagram**.
 
      Klicka på **Verkställ**.
 
@@ -159,7 +159,7 @@ Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förut
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du skapade ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure öppna datauppsättningar. Du kan också titta på [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
+I den här artikeln har du skapat ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure Open-datauppsättningar. Du kan också titta på [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extrahera, transformera och läsa in data med Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

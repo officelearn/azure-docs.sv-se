@@ -179,7 +179,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | description | Nej | Valfri beskrivning av aviseringen. |
-| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde
@@ -200,7 +200,7 @@ Det här avsnittet är valfritt. Tar med riskfaktorn för en avisering om metris
 |:--|:--|:--|
 | TriggerCondition | Ja | Anger om tröskelvärdet för totalt antal överträdelser eller efterföljande överträdelser bland följande värden:<br><br>**Totalt antal<br>i följd** |
 | Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Värde | Ja | Antal gånger villkoren måste vara uppfyllda för att utlösa aviseringen. |
+| Value | Ja | Antal gånger villkoren måste vara uppfyllda för att utlösa aviseringen. |
 
 
 #### <a name="throttling"></a>Begränsning

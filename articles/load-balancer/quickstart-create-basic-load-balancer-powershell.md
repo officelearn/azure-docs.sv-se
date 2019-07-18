@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en Basic-lastbalanserare med PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 5b77087557bc4ca1bea3cb4a36a50d787a5edf4d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 58b36265a5e440dbf33a5d6fb85e791abbd006a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729850"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274248"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
 
@@ -268,7 +268,7 @@ Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna 
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet nätverkskorten (*VM1* och *VM2*) skapade i föregående steg automatiskt tilldelas virtuella datorer *VM1* och *VM2*eftersom de har identiska namn och tilldelas samma virtuella nätverk (*myVnet*) och undernät (*mySubnet*). Dessutom eftersom nätverkskorten är kopplad till belastningsutjämnarens serverdelspool är läggs de virtuella datorerna automatiskt till i serverdelspoolen.
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet tilldelas nätverkskorten (*VM1* och *VM2*) som skapas i föregående steg automatiskt till virtuella datorer *VM1* och *VM2* eftersom de har identiska namn och tilldelas samma virtuella nätverk (*myVnet*) och undernät (*undernät*). Eftersom nätverkskorten är kopplade till belastningsutjämnarens backend-pool läggs de virtuella datorerna automatiskt till i backend-poolen.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

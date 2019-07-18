@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity-plattformen iOS Snabbstart | Azure
-description: Lär dig hur du loggar in användare och fråga Microsoft Graph i ett iOS-program.
+title: Snabb start för Microsoft Identity Platform iOS | Azure
+description: Lär dig hur du loggar in användare och frågar Microsoft Graph i ett iOS-program.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3a13142c6941ecc7bd2f96db923213dc9818afbb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962589"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311765"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
@@ -30,11 +30,11 @@ ms.locfileid: "65962589"
 
 Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-program kan logga in personliga konton eller arbets- och skolkonton, hämta en åtkomsttoken och anropa Microsoft Graph API.
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-ios/ios-intro.svg)
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!NOTE]
 > **Krav**
-> * XCode 10+
+> * XCode 10 +
 > * iOS 10+ 
 
 > [!div renderon="docs"]
@@ -45,8 +45,8 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
-> Att registrera din app
-> 1. Gå till den nya [Azure portal – appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) fönstret.
+> För att registrera din app
+> 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) .
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
@@ -55,20 +55,20 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
-> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://aka.ms/MobileAppReg) sidan.
+> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://aka.ms/MobileAppReg) .
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
->      - I den **namn** anger ett beskrivande programnamn som ska visas för användare av appen när de loggar in eller godkänna din app, till exempel `iOSQuickstart`.
+>      - I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen när de loggar in eller godkänner din app, till exempel `iOSQuickstart`.
 >      - Hoppa över andra konfigurationer på den här sidan. 
->      - Tryck på den `Register` knappen.
-> 1. Klicka på den nya appen > Gå till `Authentication`  >  `Add Platform`  >  `iOS`.    
->      - Ange den ***paketidentifieraren*** för ditt program. 
-> 1. Välj `Configure` och spara den ***MSAL Configuration*** information till senare. 
+>      - Tryck på `Register` knappen.
+> 1. Klicka på den nya appen > gå till `Authentication`.  >  `Add Platform`  >  `iOS`    
+>      - Ange ***paket-ID*** : t för ditt program. 
+> 1. Välj `Configure` och spara konfigurations informationen för ***MSAL*** för senare. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
-> Du måste lägga till en omdirigerings-URI som är kompatibel med Auth Service broker för kodexempel för den här snabbstarten ska fungera. 
+> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en omdirigerings-URI som är kompatibel med auth Broker. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
@@ -77,12 +77,12 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Steg 2: Ladda ned webbservern eller projektet
 
-- [Ladda ned kodexempel](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
 
 > [!div renderon="docs"]
-> Om du har valt alternativ 1 ovan kan du hoppa över de här stegen. 
+> Om du valde alternativ 1 ovan kan du hoppa över de här stegen. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extrahera zip-filen och öppna projektet i XCode.
@@ -90,10 +90,9 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
-> 1. Högerklicka på **Info.plist** och välj **öppna som** > **källkoden**.
-> 1. Under rotnoden dict Ersätt med din ***paket-Id***:
+>    ``` 
+> 1. Högerklicka på **info. plist** och välj **öppna som** > **källkod**.
+> 1. Ersätt med ditt ***paket-ID***under noden dict root:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -107,19 +106,23 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 >    </array>
 > 
 >    ```
-> 1. Skapa och köra appen! 
+> 1. Bygg & kör appen! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
 > 1. Extrahera zip-filen och öppna projektet i XCode.
-> 1. Redigera **ViewController.swift** och Ersätt den rad som börjar med ”Låt kClientID” med följande kodavsnitt:
+> 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment:
 >
 >    ```swift
 >    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
 > 
 >    ```
-> 1. Högerklicka på **Info.plist** och välj **öppna som** > **källkoden**.
-> 1. Under rotnoden dict Ersätt med din ***paket-Id***:
+> 1. Högerklicka på **info. plist** och välj **öppna som** > **källkod**.
+> 1. Ersätt med ditt ***paket-ID***under noden dict root:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -133,21 +136,21 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 >    </array>
 >
 >    ```
-> 1. Skapa och köra appen! 
+> 1. Bygg & kör appen! 
 
 ## <a name="more-information"></a>Mer information
 
 Läs dessa avsnitten om du vill lära dig mer om den här snabbstarten.
 
-### <a name="getting-msal"></a>Hämta MSAL
+### <a name="getting-msal"></a>Hämtar MSAL
 
-MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Du kan lägga till MSAL i ditt program med hjälp av följande process:
+MSAL ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Du kan lägga till MSAL i ditt program med hjälp av följande process:
 
 ```
 $ vi Podfile
 
 ```
-Lägg till följande i podfile (med projektmål):
+Lägg till följande i den här Podfile (med projektets mål):
 
 ```
 use_frameworks!
@@ -179,12 +182,12 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Där: ||
 > |---------|---------|
 > | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
-> | `authority` | Slutpunkt för Microsoft identity-plattformen. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
-> | `redirectUri` | Omdirigerings-URI för programmet. Du kan skicka noll om du vill använda standardvärdet eller din anpassade omdirigerings-URI. |
+> | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
+> | `redirectUri` | Omdirigerings-URI för programmet. Du kan skicka Nil om du vill använda standardvärdet eller din anpassade omdirigerings-URI. |
 
-### <a name="additional-app-requirements"></a>Ytterligare Appkrav  
+### <a name="additional-app-requirements"></a>Ytterligare krav för appen  
 
-Din app måste också ha följande din `AppDelegate`. På så sätt kan MSAL SDK hantera token svar från koordinatorappen autentisering när du utför autentisering.
+Din app måste också ha följande i din `AppDelegate`. Detta låter MSAL SDK hantera token-svar från auth Broker-appen när du utför autentisering.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -197,7 +200,7 @@ Din app måste också ha följande din `AppDelegate`. På så sätt kan MSAL SDK
 
 ```
 
-Slutligen din app måste har en `LSApplicationQueriesSchemes` post i din ***Info.plist*** tillsammans med den `CFBundleURLTypes`. Exemplet levereras med det här ingår. 
+Slutligen måste appen ha en `LSApplicationQueriesSchemes` post i din ***info. plist*** tillsammans med. `CFBundleURLTypes` Exemplet följer med detta. 
 
    ```xml 
    <key>LSApplicationQueriesSchemes</key>
@@ -207,18 +210,18 @@ Slutligen din app måste har en `LSApplicationQueriesSchemes` post i din ***Info
    </array>
    ```
 
-### <a name="sign-in-users--request-tokens"></a>Logga in användare och begära token
+### <a name="sign-in-users--request-tokens"></a>Logga in användare & token för begäran
 
 MSAL har två metoder som används för att hämta token: `acquireToken` och `acquireTokenSilent`.
 
 #### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: Få en token interaktivt
 
-Vissa situationer kräver att användare interagerar med Microsoft identity-plattformen. I dessa fall kan det krävas användaren att välja sitt konto, ange sina autentiseringsuppgifter eller godkänna din app-behörigheter. Exempel: 
+Vissa situationer kräver att användare interagerar med Microsoft Identity Platform. I sådana fall kan slutanvändaren behöva välja sitt konto, ange sina autentiseringsuppgifter eller godkänna appens behörigheter. Exempel: 
 
 * Första gången användaren loggar in på programmet
-* Om en användare återställer sitt lösenord, uppmanas användaren att ange sina autentiseringsuppgifter 
+* Om en användare återställer sitt lösen ord måste de ange sina autentiseringsuppgifter 
 * När ditt program begär åtkomst till en resurs för första gången
-* När MFA- eller andra principer för villkorlig åtkomst krävs
+* När MFA eller andra principer för villkorlig åtkomst krävs
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
@@ -227,11 +230,11 @@ applicationContext.acquireToken(with: parameters) { (result, error) in /* Add yo
 
 > |Där:||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärts (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Innehåller de omfattningar som begärs (det `[ "user.read" ]` vill säga för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ()`api://<Application ID>/access_as_user` |
 
 #### <a name="acquiretokensilent-getting-an-access-token-silently"></a>acquireTokenSilent: Hämta en åtkomsttoken obevakat
 
-Appar bör inte kräver att användarna ska logga in varje gång de begär en token. Om användaren har redan loggat in, kan den här metoden appar att begära token tyst. 
+Appar bör inte kräva att användarna loggar in varje gång de begär en token. Om användaren redan har loggat in, tillåter den här metoden appar att begära token tyst. 
 
 ```swift
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: applicationContext.allAccounts().first)
@@ -240,12 +243,12 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 > |Där: ||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärts (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
-> | `account` | Kontot som en token begärs för. Den här snabbstarten är ett enda konto-program, om du vill skapa en app för flera konto måste du definiera logik för att identifiera vilket konto som ska användas för token begäranden `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `scopes` | Innehåller de omfattningar som begärs (det `[ "user.read" ]` vill säga för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ()`api://<Application ID>/access_as_user` |
+> | `account` | Det konto som en token begärs för. Den här snabb starten är ett enda konto program, om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för token-begäranden`applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda iOS-självstudien i en fullständig vägledning om hur du skapar program, inklusive en fullständig förklaring av den här snabbstarten.
+Prova iOS-självstudien om du vill ha en fullständig steg-för-steg-guide om hur du skapar program, inklusive en fullständig förklaring av den här snabb starten.
 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
 

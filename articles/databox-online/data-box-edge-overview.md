@@ -1,52 +1,41 @@
 ---
 title: Översikt över Microsoft Azure Data Box Edge | Microsoft Docs
-description: Beskriver Azure Data Box Edge, en lagringslösning som använder en fysisk enhet för nätverksbaserad överföring till Azure.
+description: Beskriver Azure Data Box Edge, en lagrings lösning som använder en fysisk enhet för nätverks baserad överföring till Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 07/17/2019
 ms.author: alkohli
-ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 69580f956b603423ef302353953a45ad5d00391e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701480"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305427"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
-Azure Data Box Edge är en lagringslösning som gör det möjligt att bearbeta data och skicka dem via nätverk till Azure. Den här artikeln ger dig en översikt över Data Box Edge-lösningen, dess fördelar, viktiga funktioner och scenarier där du kan distribuera den här enheten. 
+Azure Data Box Edge är en AI-aktiverad edge-beräkningsenhet med funktioner för nätverksdataöverföring. Den här artikeln ger dig en översikt över Data Box Edge-lösningen, dess fördelar, viktiga funktioner och scenarier där du kan distribuera den här enheten. 
 
-Data Box Edge använder en fysisk enhet som tillhandahålls av Microsoft för att påskynda säker dataöverföring. Den fysiska enheten finns lokalt hos dig och du skriver data till den med hjälp av NFS- och SMB-protokoll. 
-
-Data Box Edge har alla gateway-funktioner hos Data Box Gateway. Data Box är även utrustat med AI-aktiverade edge-beräkningsfunktioner som hjälper till att analysera, bearbeta eller filtrera data som flyttas till Azure-blockblob, sidblob eller Azure Files.  
+Data Box Edge är en maskinvaru-som-tjänst-lösning. Microsoft levererar en molnbaserad enhet med en inbyggd fält programmerbar grind mat ris (FPGA) som aktiverar accelererad AI-inferencing och har alla funktioner i en Storage Gateway. 
 
 ## <a name="use-cases"></a>Användningsfall
 
-Azure Data Box Edge är en AI-aktiverad edge-beräkningsenhet med funktioner för nätverksdataöverföring. Här följer olika scenarier där Data Box Edge kan användas för dataöverföring.
+Här följer de olika scenarier där Data Box Edge kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbehandling av data innan de skickas till Azure.
 
-- **Förbearbeta data** – analysera data från lokala enheter eller IoT-enheter för att snabbt få resultat nära det ställe där data genereras. Data Box Edge överför de fullständiga datauppsättningarna till molnet för att kunna utföra mer avancerad bearbetning eller djupare analyser.  Förbearbeta kan användas för att: 
+- **Härledning med Azure Machine Learning** – med data Box Edge kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder de accelererade modellerna för Azure ML-maskin vara på Data Box Edge-enheten finns i [Distribuera Azure ml-accelererade modeller på data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+
+- **Förbearbeta data** för datatransformering innan du skickar dem till Azure för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att: 
 
     - Aggregera data.
-    - Ändra data, till exempel för att ta bort personligt identifierbar Information (PII).
-    - Dela in de data som behövs för djupare analys i molnet i delmängder och överföra dem.
+    - Ändra data, till exempel för att ta bort personliga data.
+    - Delmängd data för att optimera lagring och bandbredd, eller för ytterligare analys.
     - Analysera och reagera på IoT-händelser. 
-
-- **Inference Azure Machine Learning** – med Data Box Edge kan du köra ML-modeller (Machine Learning) för att få snabba resultat som kan användas innan data skickas till molnet. En fullständig uppsättning data kan överföras om du vill fortsätta att träna och förbättra dina ML-modeller. Läs mer om hur du använder Azure ML-maskinvara snabbare modellerna på Data Box Edge-enhet i [distribuera Azure ML maskinvara accelerated modeller på Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Överföra data över nätverket till Azure** – använd Data Box Edge för att snabbt och enkelt överföra data till Azure för att möjliggöra ytterligare beräkning och analys eller i arkiveringssyfte. 
 
-## <a name="benefits"></a>Fördelar
-
-Data Box Edge har följande fördelar:
-
-- **Enkel dataöverföring** – gör det lika enkelt att flytta data till och från Azure Storage som att arbeta med en lokal nätverksresurs.  
-- **Höga presteranda** – ger högpresterande dataöverföringar till och från Azure. 
-- **Snabb åtkomst** – cachelagrar de senaste filerna för snabb åtkomst av lokala filer.  
-- **Begränsad bandbreddsanvändning** – data kan skrivas till Azure även om nätverket begränsar användningen vid tider med hög belastning.  
-- **Omvandla data** – möjliggör analys, bearbetar och filtrering av data som flyttas till Azure.
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -54,15 +43,16 @@ Data Box Edge har följande funktioner:
 
 |Funktion |Beskrivning  |
 |---------|---------|
-|Höga prestanda     | Helt automatiserad och optimerad dataöverföring och bandbredd.|
-|Protokoll som stöds     | Stöd för SMB- och NFS-standardprotokoll för datainmatning. <br> Mer information om versioner som stöds finns i [systemkraven för Data Box Edge](data-box-edge-system-requirements.md).|
+|Accelererad AI-inferencing| Aktive rad av de inbyggda FPGA.|
 |Databehandling       |Möjliggör analys, bearbetning och filtrering av data.|
-|Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet.|
-|Snabb åtkomst     | Lokal cache på enheten för snabb åtkomst till de senast använda filerna.|
+|Höga prestanda | Beräkning och data överföringar med höga prestanda.|
+|Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
+|Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.  |
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
+|Protokoll som stöds     | Stöd för SMB- och NFS-standardprotokoll för datainmatning. <br> Mer information om versioner som stöds finns i [systemkraven för Data Box Edge](data-box-edge-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
-|Kryptering    | BitLocker-stöd för lokal kryptering av data och skydda dataöverföring till molnet via *https*.       |
-|Återhämtning     | Inbyggd nätverksåterhämtning.        |
+|Kryptering    | BitLocker-stöd för lokal kryptering av data och skydda dataöverföring till molnet via *https*.|
+|Bandbredds begränsning| Begränsa bandbredds användningen under hög belastnings tider.|
 
 
 ## <a name="components"></a>Komponenter
@@ -75,7 +65,7 @@ Data Box Edge-lösningen består av Data Box Edge-resursen, en fysisk Data Box E
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Mer information går du till [skapa en order för din Data Box Edge-enhet](data-box-edge-deploy-prep.md#create-a-new-resource).
+    Mer information finns i [skapa en order för din data Box Edge-enhet](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Lokalt Data Box-webbgränssnitt** – Använd det lokala webbgränssnittet till att köra diagnostik, stänga och starta om Data Box Edge-enheten, visa kopieringsloggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
 
@@ -88,9 +78,9 @@ Data Box Edge-lösningen består av Data Box Edge-resursen, en fysisk Data Box E
 
 Den fysiska Data Box Edge-enheten, Azure-resursen och mållagringskontot som du vill överföra data till behöver inte alla finnas i samma region.
 
-- **Resurstillgänglighet** – en lista över alla regioner där Data Box Edge-resursen är tillgänglig, gå till [Azure produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge kan också distribueras i Azure Government-molnet. Mer information finns i [vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resurs tillgänglighet** – en lista över alla regioner där data Box Edges resursen är tillgänglig finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagringskontona som lagrar Data Box Edge-data bör ligga nära där enheten har hittats för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda. 
+- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings kontona lagrar Data Box Edge data finns nära den plats där enheten finns för bästa prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda. 
 
 
 ## <a name="next-steps"></a>Nästa steg

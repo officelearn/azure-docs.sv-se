@@ -1,118 +1,114 @@
 ---
-title: Vad är Windows Virtual Desktop förhandsversionen?  – Azure
-description: En översikt över Windows Virtual Desktop-förhandsversion.
+title: Vad är för hands versionen av Windows Virtual Desktop?  – Azure
+description: En översikt över för hands versionen av Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/17/2019
 ms.author: helohr
-ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476724"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305056"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
+# <a name="what-is-windows-virtual-desktop-preview"></a>Vad är för hands versionen av Windows Virtual Desktop? 
 
-Nu tillgängligt i offentlig förhandsversion, Windows virtuella skrivbord Preview är en skrivbords- och app-virtualiseringstjänsten som körs i molnet.
+För hands versionen av Windows Virtual Desktop är tillgänglig i den offentliga för hands versionen är en stationär dator och app Virtualization-tjänst som körs i molnet.
 
-Här är vad du kan göra när du kör virtuella Windows-skrivbordet på Azure:
+Det här kan du göra när du kör Windows Virtual Desktop på Azure:
 
-* Konfigurera en Windows 10-distribution för flera sessioner som levererar en fullständig Windows 10 med skalbarhet
-* Virtualisera Office 365 ProPlus och optimera köras i virtuella scenarier för flera användare
-* Tillhandahålla virtuella skrivbord i Windows 7 med kostnadsfria utökade säkerhetsuppdateringar
-* Ta med din befintliga Remote Desktop Services (RDS) och Windows Server-skrivbord och appar på alla datorer
-* Virtualisera både skrivbord och appar
-* Hantera Windows 10, Windows Server och Windows 7-skrivbord och appar med en enhetlig hanteringsupplevelse
+* Konfigurera en Windows 10-distribution med flera sessioner som ger en fullständig Windows 10 med skalbarhet
+* Virtualisera Office 365 ProPlus och optimera det för att köras i virtuella scenarier med flera användare
+* Tillhandahålla virtuella Windows 7-datorer med kostnads fria utökade säkerhets uppdateringar
+* Ta med dina befintliga Fjärrskrivbordstjänster (RDS) och Windows Server-datorer och appar till valfri dator
+* Virtualisera både Station ära datorer och appar
+* Hantera Windows 10-, Windows Server-och Windows 7-datorer och-appar med en enhetlig hanterings upplevelse
 
-## <a name="introductory-video"></a>Introduktionsvideo
+## <a name="introductory-video"></a>Introduktions video
 
-I följande video visar Scott Manchester några av Windows virtuella skrivbordet funktioner:
+I följande video demonstrerar Scott Manchester några av funktionerna i Windows Virtual Desktop:
 
 <br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
-Med virtuella Windows-skrivbordet, kan du ställa in en skalbar och flexibel miljö:
+Med Windows Virtual Desktop kan du konfigurera en skalbar och flexibel miljö:
 
-* Skapa en fullständig skrivbordsvirtualisering-miljö i din Azure-prenumeration utan att behöva köra eventuella ytterligare gateway-servrar.
-* Publicera eftersom många värdar för pooler som du behöver för dina olika arbetsbelastningar.
-* Ta med din egen avbildning för produktionsarbetsbelastningar eller testa från Azure-galleriet.
-* Minska kostnaderna med resurser som pooler, flera session. Med den nya Windows 10 Enterprise flera session funktionen exklusivt för virtuella Windows-skrivbordet och Remote värd för fjärrskrivbordssession (RDSH)-rollen på Windows Server, kan du avsevärt minska antalet virtuella datorer och operativsystem (OS) overhead när du fortfarande att tillhandahålla samma resurser till dina användare.
-* Ange enskilda ägarskap via personliga (permanent) skrivbord.
+* Skapa en fullständig Virtualization-miljö för skriv bord i din Azure-prenumeration utan att behöva köra några ytterligare Gateway-servrar.
+* Publicera så många värdbaserade pooler som du behöver för att hantera dina olika arbets belastningar.
+* Ta med din egen bild för produktions arbets belastningar eller test från Azure-galleriet.
+* Minska kostnaderna med poolbaserade resurser för flera sessioner. Med den nya funktionen Windows 10 Enterprise multi-session exklusiv till Windows Virtual Desktop och värd för fjärrskrivbordssession (RDSH) i Windows Server kan du minska antalet virtuella datorer och operativ system (OS) samtidigt som du fortfarande tillhandahålla samma resurser för dina användare.
+* Ge individuella ägarskap via personliga (beständiga) Skriv bord.
 
-Du kan distribuera och hantera virtuella skrivbord:
+Du kan distribuera och hantera virtuella skriv bord:
 
-* Använda Windows PowerShell för virtuella skrivbord och REST-gränssnitt för att konfigurera värd-pooler, skapa app-grupper, tilldela användare och publicera resurser.
-* Publicera helt skrivbord eller enskilda remote appar från en enda värd-pool, skapa grupper med enskilda appar för olika uppsättningar med användare eller även tilldela användare till flera appgrupper för att minska antalet avbildningar.
-* När du hanterar din miljö kan du använda inbyggda delegerad åtkomst att tilldela roller och samla in diagnostik för att förstå konfiguration eller användaren fel.
-* Använd den nya diagnostik-tjänsten för att felsöka.
-* Hantera endast avbildningen och virtuella datorer, inte på infrastrukturen. Du behöver inte personligen hantera fjärrskrivbord-roller som du gör med Fjärrskrivbordstjänster, bara de virtuella datorerna i din Azure-prenumeration.
+* Använd Windows Virtual Desktop PowerShell och REST Interfaces för att konfigurera värd grupper, skapa app-grupper, tilldela användare och publicera resurser.
+* Publicera hela Skriv bordet eller enskilda fjärrappar från en enda adresspool, skapa enskilda grupp grupper för olika uppsättningar med användare eller till och med tilldela användare till flera app-grupper för att minska antalet avbildningar.
+* När du hanterar din miljö kan du använda inbyggd delegerad åtkomst för att tilldela roller och samla in diagnostik för att förstå olika konfigurations-eller användar fel.
+* Använd den nya diagnostik tjänsten för att felsöka fel.
+* Hantera bara avbildningen och virtuella datorer, inte infrastrukturen. Du behöver inte personligen hantera de fjärr skrivbords roller som du gör med Fjärrskrivbordstjänster, bara de virtuella datorerna i din Azure-prenumeration.
 
-Du kan också tilldela och ansluta användare till dina virtuella skrivbord:
+Du kan också tilldela och ansluta användare till dina virtuella skriv bord:
 
-* När de har tilldelats kan användarna starta alla virtuella skrivbordet i Windows-klienter för att ansluta användare till sina publicerade Windows-skrivbord och program. Anslut från valfri enhet via ett internt program på din enhet eller Windows Virtual Desktop HTML5-webbklienten.
-* Upprätta en användare via omvänd anslutningar till tjänsten, så att du aldrig behöver lämna några ingående portar öppna.
+* När de har tilldelats kan användarna starta en virtuell Windows-klient för att ansluta användare till publicerade Windows-datorer och program. Anslut från valfri enhet via antingen ett inbyggt program på din enhet eller på Windows Virtual Desktop HTML5 webb klient.
+* Upprätta en säker anslutning till tjänsten på ett säkert sätt, så att du aldrig behöver lämna några öppna inkommande portar.
 
 ## <a name="requirements"></a>Krav
 
-Det finns några saker som du behöver för att konfigurera virtuella Windows-skrivbordet och ansluta dina användare till sina Windows-skrivbord och program.
+Det finns några saker du behöver för att konfigurera virtuella Windows-datorer och ansluta dina användare till sina Windows-datorer och program.
 
-Vi planerar att lägga till stöd för följande operativsystem, så se till att du har den [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på skrivbordet och appar som du planerar att distribuera:
+Vi planerar att lägga till stöd för följande operativ system, så se till att du har [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på Skriv bordet och appar som du planerar att distribuera:
 
-|Operativsystem|Licens som krävs|
+|OS|Nödvändig licens|
 |---|---|
-|Flera sessionen för Windows 10 Enterprise eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS-klientåtkomstlicens (CAL) med Software Assurance|
+|Windows Server 2012 R2, 2016, 2019|Klient åtkomst licens för fjärr skrivbords tjänster med Software Assurance|
 
-Din infrastruktur behöver följande för virtuella Windows-skrivbordet:
+Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* En Windows Server Active Directory synkroniserat med Azure Active Directory. Det här kan aktiveras via:
+* En [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Detta kan aktive ras via:
   * Azure AD Connect
   * Azure AD Domain Services
-* En Azure-prenumeration, som innehåller ett virtuellt nätverk som innehåller eller är ansluten till Windows Server Active Directory
+* En Azure-prenumeration som innehåller ett virtuellt nätverk som antingen innehåller eller är anslutet till Windows Server-Active Directory
   
-Azure-datorer som du skapar för virtuella Windows-skrivbordet måste vara:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
-* [Standard-domänanslutna](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [Hybrid AD-anslutna](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer får inte vara Azure AD-anslutning.
-* Kör något av följande [stöd för OS-avbildningar](#supported-virtual-machine-os-image).
+* [Standard domän ansluten](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [hybrid AD-ansluten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer kan inte vara Azure AD-anslutna.
+* Köra en av följande OS-avbildningar som [stöds](#supported-virtual-machine-os-image).
 
 >[!NOTE]
->Om du behöver en Azure-prenumeration kan du [registrera dig för en månads kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). Om du använder en kostnadsfri utvärderingsversion av Azure, bör du använda Azure AD Domain Services för att synkronisera dina Windows Server Active Directory med Azure Active Directory.
+>Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
 
-Virtuella Windows-skrivbordet består av Windows-skrivbord och appar som du leverera till användare och den hanteringslösning som tillhandahålls av Microsoft som en tjänst på Azure. Allmänt tillgängliga förhandsversionen skrivbord och appar kan distribueras på virtuella datorer (VM) i alla Azure-regioner och hanteringslösningen och data för dessa virtuella datorer kommer att finnas i USA (USA, Öst 2 region). Det kan resultera i dataöverföringen till USA medan du testa den offentliga förhandsversionen. Vi börjar att skala ut management lokalisering för lösningen och data till alla Azure-regioner med början vid allmän tillgänglighet.
+Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Under den offentliga för hands versionen kan Station ära datorer och appar distribueras på virtuella datorer i valfri Azure-region, och hanterings lösningen och data för dessa virtuella datorer finns i USA (USA, östra 2). Detta kan leda till att data överförs till USA medan du testar tjänsten under en offentlig för hands version. Vi börjar skala ut hanterings lösningen och data lokaliseringen till alla Azure-regioner som börjar med allmän tillgänglighet.
 
-För bästa prestanda bör du kontrollera nätverket uppfyller följande krav:
+För bästa prestanda bör du kontrol lera att nätverket uppfyller följande krav:
 
-* Tidszonsbevarande (RTT) svarstid från klientens nätverk till Azure-region där värden pooler har distribuerats bör vara mindre än 150 ms.
-* Nätverkstrafik kan flöda utanför landet/regionen kantlinjer när virtuella datorer som är värdar för skrivbord och appar som ansluter till management-tjänsten.
-* Optimera nätverksprestanda, rekommenderar vi att värd för fjärrskrivbordssession virtuella datorer är samordnad i samma Azure-region som management-tjänsten.
+* Svars tid för tur och retur från klientens nätverk till den Azure-region där värdbaserade pooler har distribuerats måste vara mindre än 150 ms.
+* Nätverks trafiken kan flöda utanför lands-/region gränser när virtuella datorer som är värdar för Station ära datorer och appar ansluter till hanterings tjänsten.
+* För att optimera för nätverks prestanda rekommenderar vi att de virtuella datorerna i samordnad i samma Azure-region som hanterings tjänsten.
 
-## <a name="supported-remote-desktop-clients"></a>Remote Desktop-klienter som stöds
+## <a name="supported-remote-desktop-clients"></a>Fjärr skrivbords klienter som stöds
 
-Följande Remote Desktop-klienter har stöd för virtuella Windows-skrivbordet:
+Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-image"></a>Stöds den virtuella datoravbildning
+## <a name="supported-virtual-machine-os-image"></a>Operativ system avbildning för virtuella datorer som stöds
 
-Virtuella Windows-skrivbordet stöder följande OS-avbildningar:
+Windows Virtual Desktop stöder följande OS-avbildningar:
 
-* Windows 10 Enterprise flera session
+* Windows 10 Enterprise multi-session
 * Windows Server 2016
-
-## <a name="provide-feedback"></a>Ge feedback
-
-Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar. Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång, måste du skapa en klient. Om du vill veta mer om hur du skapar en klient kan du fortsätta till självstudien för klient-skapa.
+För att komma igång måste du skapa en klient. Om du vill veta mer om hur du skapar en klient fortsätter du till självstudien för skapande av innehavare.
 
 > [!div class="nextstepaction"]
-> [Skapa en klient i förhandsversion för virtuella skrivbord i Windows](tenant-setup-azure-active-directory.md)
+> [Skapa en klient i för hands versionen av Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

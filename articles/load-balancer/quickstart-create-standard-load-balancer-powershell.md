@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en Standard Load Balancer med PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730476"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274111"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Snabbstart: Skapa en Standard Load Balancer med Azure PowerShell
 
-Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa belastningsutjämnaren distribuerar tre virtuella datorer (VM) som kör Windows server och belastningsutjämna en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
+Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa belastningsutjämnaren distribuerar du tre virtuella datorer som kör Windows Server och belastningsutjämna en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här art
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSLB* i den *EastUS* plats:
+Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myResourceGroupSLB* på platsen för *öster* :
 
 ```azurepowershell
 $rgName='MyResourceGroupSLB'
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i den *myResourceGroupSLB* resursgrupp:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resurs gruppen *myResourceGroupSLB* :
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -131,7 +131,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa Standard Load Balancer med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig Standardbelastningsutjämnare med namnet myLoadBalancer med hjälp av IP-konfigurationen, backend-poolen, hälsoavsökning, regel för belastningsutjämning och NAT-regler som du skapade i föregående steg:
+Skapa Standard Load Balancer med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig Standard Load Balancer med namnet myLoadBalancer med hjälp av klient delens IP-konfiguration, backend-pool, hälso avsökning, belastnings Utjämnings regel och NAT-regler som du skapade i föregående steg:
 
 ```azurepowershell
 $lb = New-AzLoadBalancer `
@@ -168,7 +168,7 @@ $vnet = New-AzVirtualNetwork `
 ```
 ### <a name="create-public-ip-addresses-for-the-vms"></a>Skapa offentliga IP-adresser för de virtuella datorerna
 
-För att komma åt dina virtuella datorer med hjälp av en RDP-anslutning, behöver du offentliga IP-adressen för de virtuella datorerna. Eftersom en Standardbelastningsutjämnare används i det här scenariot, måste du skapa offentliga IP-adresser för de virtuella datorerna med [New AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+För att få åtkomst till dina virtuella datorer med en RDP-anslutning behöver du en offentlig IP-adress för de virtuella datorerna. Eftersom en Standard Load Balancer används i det här scenariot måste du skapa standard offentliga IP-adresser för de virtuella datorerna med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -229,7 +229,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RgName -Location $location
 ```
 
 ### <a name="create-nics"></a>Skapa nätverkskort
-Skapa virtuella nätverkskort och associera med offentliga IP-adressen och nätverkssäkerhetsgrupper som skapats i de föregående stegen med [New AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+Skapa virtuella nätverkskort och associera med offentliga IP-adresser och nätverks säkerhets grupper som skapats i de föregående stegen med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell
 # Create NIC for VM1
@@ -254,7 +254,7 @@ Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna 
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet nätverkskorten (*MyNic1*, *MyNic2*, och *MyNic3*) skapade i föregående steg virtuella datorerna har tilldelats *myVM1* , *myVM2*, och *VM3*. Dessutom eftersom nätverkskorten är kopplad till belastningsutjämnarens serverdelspool är läggs de virtuella datorerna automatiskt till i serverdelspoolen.
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet är nätverkskorten (*MyNic1*, *MyNic2*och *MyNic3*) som skapas i föregående steg kopplade till virtuella datorer *myVM1*, *myVM2*och *VM3*. Eftersom nätverkskorten är kopplade till belastningsutjämnarens backend-pool läggs de virtuella datorerna automatiskt till i backend-poolen.
 
 ```azurepowershell
 
@@ -294,18 +294,18 @@ $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmCo
 
 Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
-### <a name="install-iis-with-a-custom-web-page"></a>Installera IIS med en anpassad sida
+### <a name="install-iis-with-a-custom-web-page"></a>Installera IIS med en anpassad webb sida
 
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serverdelen enligt följande:
 
-1. Hämta offentliga IP-adresserna för de tre virtuella datorer med hjälp av `Get-AzPublicIPAddress`.
+1. Hämta de tre virtuella datorernas offentliga IP-adresser `Get-AzPublicIPAddress`med hjälp av.
 
    ```azurepowershell
      $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
      $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
      $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
     ```
-2. Skapa anslutningar till fjärrskrivbord med *myVM1*, *myVM2*, och *myVM3* med offentliga IP-adresser för de virtuella datorerna enligt följande: 
+2. Skapa fjärr skrivbords anslutningar med *myVM1*, *myVM2*och *MyVM3* med hjälp av de virtuella datorernas offentliga IP-adresser enligt följande: 
 
    ```azurepowershell    
      mstsc /v:$vm1_rdp_ip
@@ -314,8 +314,8 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
    
     ```
 
-3. Ange autentiseringsuppgifterna för varje virtuell dator att starta RDP-session.
-4. Starta Windows PowerShell på varje virtuell dator och använder följande kommandon för att installera IIS-servern och uppdatera standard htm-fil.
+3. Ange autentiseringsuppgifterna för varje virtuell dator för att starta RDP-sessionen.
+4. Starta Windows PowerShell på varje virtuell dator och Använd följande kommandon för att installera IIS-servern och uppdatera standard-htm-filen.
 
     ```azurepowershell
     # Install IIS
@@ -328,7 +328,7 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
     ```
 
-5. Stäng RDP-anslutningar med *myVM1*, *myVM2*, och *myVM3*.
+5. Stäng RDP-anslutningarna med *myVM1*, *myVM2*och *myVM3*.
 
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren

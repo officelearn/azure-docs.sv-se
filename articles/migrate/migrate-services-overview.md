@@ -7,95 +7,95 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 083eaaa5be35d515a477ce6286f226b267569e1e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840350"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227815"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
-Den här artikeln innehåller en snabb översikt över Azure Migrate.
+Den här artikeln ger en snabb översikt över Azure Migrate.
 
-Azure Migrate hjälper dig att migrera till Azure. Azure Migrate erbjuder en centraliserad hubb för att spåra identifiering, bedömning och migrering av lokala infrastruktur, program och data till Azure. Hubben tillhandahåller Azure-verktyg för bedömning och migrering, samt tredjepartsprogram oberoende programvaruleverantörer (ISV)-erbjudanden. Den tillhandahåller:
+Azure Migrate hjälper dig att migrera till Azure. Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure. Hubben ger Azure-verktyg för utvärdering och migrering, samt oberoende program varu leverantörer från tredje part (ISV). Den tillhandahåller:
 
-- **Enhetlig migreringsplattform**: Använda en enda portal för att starta, körs, och spåra migreringen till Azure.
-- **Antal verktyg**: Azure Migrate innehåller inbyggda verktyg och integreras med andra Azure-tjänster, samt med ISV-verktyg. Välj rätt bedömning och migrering verktyg baserat på din organisations krav. 
-- **Azure Migrate Server-utvärdering**: Använd verktyget Server-utvärdering för att utvärdera lokala virtuella VMware-datorer och Hyper-V-datorer för migrering till Azure.
-- **Azure Migrate servermigrering**: Använd Migreringsverktyget för Server för att migrera lokala virtuella VMware-datorer, Hyper-V-datorer, virtuella datorer och fysiska servrar till Azure.
-- **Azure Migrate Databasutvärderingen**: Utvärdera lokala databaser för migrering till Azure.
-- **Azure Migrate Databasmigrering**: Migrera lokala databaser till Azure.
+- **Plattform för enhetlig migrering**: Använd en enda portal för att starta, köra och spåra migrerings resan till Azure.
+- **Verktygs intervall**: Azure Migrate tillhandahåller inbyggda verktyg och integreras med andra Azure-tjänster, samt med ISV-verktyg. Välj rätt verktyg för bedömning och migrering baserat på organisationens krav. 
+- **Azure Migrate Server utvärdering**: Använd verktyget för Server utvärdering för att utvärdera lokala virtuella VMware-datorer och virtuella Hyper-V-datorer för migrering till Azure.
+- **Migrering av Azure Migrate Server**: Använd Migreringsverktyg för Server för att migrera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer, virtuella datorer i molnet och fysiska servrar till Azure.
+- **Utvärdering av Azure Migrates databas**: Utvärdera lokala databaser för migrering till Azure.
+- **Migrering av Azure Migrate Database**: Migrera lokala databaser till Azure.
 
 
-## <a name="azure-migrate-versions"></a>Azure Migrate-versioner
+## <a name="azure-migrate-versions"></a>Azure Migrate versioner
 
-Det finns två versioner av Azure Migrate-tjänsten:
+Det finns två versioner av tjänsten Azure Migrate:
 
-- **Aktuell version**: Använd den här versionen för att skapa Azure Migrate-projekt, upptäcka lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om nyheterna i den här versionen.
-- **Tidigare version**: Om du använde den tidigare versionen av Azure Migrate (endast bedömning av lokala virtuella VMware-datorer har stöds), bör du nu använda den aktuella versionen. Du kan inte längre skapa Azure Migrate-projekt med hjälp av den tidigare versionen eller utföra nya identifieringar. Du kan emellertid fortfarande komma åt befintliga projekt. Att göra detta i Azure portal > **alla tjänster**, Sök efter **Azure Migrate**. På instrumentpanelen för Azure Migrate finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
+- **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om vad som är nytt i den här versionen.
+- **Tidigare version**: Om du använde den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Du kan inte längre skapa Azure Migrate projekt med hjälp av den tidigare versionen och vi rekommenderar att du inte gör nya identifieringar. Om du vill komma åt befintliga projekt går du till Azure Portal > **alla tjänster**och söker efter **Azure Migrate**. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
 
 ## <a name="isv-integration"></a>ISV-integrering
 
-Förutom inbyggda Azure-verktyg integreras Azure Migrate med ett antal ISV-erbjudanden. Du kan identifiera de verktyg du behöver och lägga till den i ett Azure Migrate-projekt. Du kan centralt spåra migreringen från inom Azure Migrate-projekt i Azure och ISV-verktyg.
+Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-erbjudanden. Du identifierar det verktyg som du behöver och lägger till det i ett Azure Migrate-projekt. Du kan centralt spåra migrerings resan från Azure Migrate-projektet, via Azure och ISV-verktyg.
 
 **ISV** | **Funktion**
 --- | ---
 [Cloudamize](https://www.cloudamize.com/platform) | Utvärdera
-[Enheten 42](https://docs.device42.com/) | Utvärdera
+[Enhet 42](https://docs.device42.com/) | Utvärdera
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera
-[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera
+[Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrera
 
-### <a name="selecting-an-isv-tool"></a>Att välja ett ISV-verktyg
+### <a name="selecting-an-isv-tool"></a>Välja ett ISV-verktyg
 
-När du lägger till ett ISV-verktyg i ett Azure Migrate-projekt, Kom igång med verktyget genom att hämta en licens eller registrera dig för en kostnadsfri utvärderingsversion, i enlighet med ISV-princip. Det finns ett alternativ för att ansluta till Azure Migrate i varje verktyg. Följ anvisningarna för verktyg och dokumentation, för att ansluta verktyget med Azure Migrate.
+När du har lagt till ett ISV-verktyg till ett Azure Migrate-projekt, kom igång med verktyget genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate.
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate Server-utvärdering
+## <a name="azure-migrate-server-assessment"></a>Utvärdering av Azure Migrate Server
 
-Azure Migrate Server-utvärdering identifierar och utvärderar lokala virtuella VMware-datorer och Hyper-V-datorer för migrering till Azure. Det hjälper dig att identifiera följande:
+Azure Migrate Server utvärderingen identifierar och utvärderar lokala virtuella VMware-datorer och virtuella Hyper-V-datorer för migrering till Azure. Det hjälper dig att identifiera följande:
 
-- **Azure-beredskap:** Bedöma om lokala datorer är klara för migrering till Azure.
-- **Azure storlek:** Beräkna storleken på virtuella Azure-datorer efter migreringen.
-- **Azure kostnadsuppskattning:** Beräknar kostnaderna för att köra lokala servrar i Azure.
-- **Visualisering av beroenden:** Identifiera beroenden mellan servrar och det bästa sättet att flytta beroende servrar till Azure. 
+- **Azure-beredskap:** Utvärdera om lokala datorer är klara för migrering till Azure.
+- **Azure-storlek:** Beräkna storleken på virtuella Azure-datorer efter migreringen.
+- **Kostnads uppskattning i Azure:** Uppskattar kostnader för att köra lokala servrar i Azure.
+- **Beroende visualisering:** Identifiera beroenden mellan servrar och det bästa sättet att flytta beroende servrar till Azure. 
 
-Server-utvärdering använder en enkel installation som du distribuerar både lokalt och registrera med Server-utvärdering.
+Server utvärderingen använder en förenklad installation som du distribuerar lokalt och registrerar dig för Server utvärdering.
 
-- Installationen identifierar lokala datorer, ansluter till Server-utvärdering och kontinuerligt skickar metadata och prestandarelaterade data till Azure Migrate.
-- Identifiering är utan Agent. Inget behöver installeras på identifierade virtuella datorer.
-- När datorerna är identifierade du samla in dem i grupper som vanligtvis består av virtuella datorer du vill migrera tillsammans.
-- Du skapar en utvärdering för en grupp. Du kan sedan analysera utvärderingen, att ta reda på migreringsstrategin.
+- Enheten identifierar lokala datorer, ansluter till Server utvärdering och skickar kontinuerligt data om metadata och prestanda till Azure Migrate.
+- Identifieringen är agent utan agent. Inget måste installeras på identifierade virtuella datorer.
+- När datorerna har identifierats samlar du in dem i grupper som vanligt vis består av virtuella datorer som du vill migrera tillsammans.
+- Du skapar en utvärdering för en grupp. Sedan kan du analysera utvärderingen för att ta reda på din strategi för migrering.
 
-## <a name="azure-migrate-server-migration"></a>Azure Migrate-servermigrering
+## <a name="azure-migrate-server-migration"></a>Migrering av Azure Migrate Server
 
-Azure Migrate servermigrering kan du migrera lokala virtuella VMware-datorer, Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och offentliga molnbaserade virtuella datorer till Azure. Du kan migrera datorer efter en bedömning av dem, eller utan en utvärdering. 
+Med Azure Migrate Server-migrering kan du migrera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure. Du kan migrera datorer efter att ha bedömt dem, eller utan en utvärdering. 
 
-## <a name="azure-migrate-database-assessment"></a>Azure Migrate Databasutvärderingen
+## <a name="azure-migrate-database-assessment"></a>Utvärdering av Azure Migrate databasen
 
-Azure Migrate kan integreras med Data Migration Assistant (DMA) att utvärdera den lokala SQL Server-databaser för migrering till Azure SQL DB, Azure SQL Managed Instance eller virtuella Azure-datorer som kör SQL Server. DMA innehåller information om potentiella blockerande problem för migrering. Den identifierar funktioner som inte stöds, samt nya funktioner som du kan dra nytta av efter migreringen och hjälper dig att identifiera rätt väg för Databasmigrering. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
+Azure Migrate integreras med Data Migration Assistant (DMA) för att utvärdera lokala SQL Server-databaser för migrering till Azure SQL DB, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. DMA tillhandahåller information om möjliga spärrnings problem för migrering. Den identifierar funktioner som inte stöds, samt nya funktioner som du kan dra nytta av efter migreringen, och hjälper dig att identifiera rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 
 
-## <a name="azure-migrate-database-migration"></a>Azure Migrate Databasmigrering
+## <a name="azure-migrate-database-migration"></a>Migrering av Azure Migrate Database
 
-Azure Migrate kan integreras med den Azure Database Migration Service (DMS), att migrera lokala databaser till Azure. Använd DMS för att migrera lokala databaser till Azure virtuella datorer som kör SQL, Azure SQL DB och Azure SQL-hanterade instanser. [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview).
+Azure Migrate integreras med Azure Database Migration Service (DMS) för att migrera lokala databaser till Azure. Använd DMS för att migrera lokala databaser till virtuella Azure-datorer som kör SQL, Azure SQL DB och Azure SQL Managed instances. [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview).
 
-## <a name="web-app-assessment-and-migration"></a>Web app bedömning och migrering
+## <a name="web-app-assessment-and-migration"></a>Webb programs bedömning och migrering
 
-Du kan utvärdera och migrera lokala webbappar till Azure från Azure Migrate-hubben.
+Från Azure Migrate Hub kan du utvärdera och migrera lokala webbappar till Azure.
 
-- **Utvärdera webbappar online**: Använda Azure App Service Migration Assistant för att bedöma lokala webbplatser för migrering till Azure App Service.
-- **Migrera webbprogram**: Migrera .NET- och PHP-webbappar till Azure med Azure App Service Migration Assistant.
+- **Utvärdera Web Apps online**: Använd Azure App Service Migration Assistant för att utvärdera lokala webbplatser för migrering till Azure App Service.
+- **Migrera webbappar**: Migrera .NET-och PHP-webbappar till Azure med hjälp av Azure App Service Migration Assistant.
 
 [Läs mer.](https://appmigration.microsoft.com/)
 
-## <a name="offline-data-migration"></a>Migrering av data offline
+## <a name="offline-data-migration"></a>Datamigrering offline
 
-Du kan använda Data Box offline produktfamiljen för att flytta stora mängder data till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/)
+Du kan använda Data Box-enhet offline-serien med produkter för att flytta stora mängder data till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Prova våra självstudier för att utvärdera [virtuella VMware-datorer](tutorial-assess-vmware.md) och [Hyper-V-datorer](tutorial-assess-hyper-v.md).
+- Prova våra självstudier för att utvärdera virtuella [VMware-datorer](tutorial-assess-vmware.md) och [virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md).
 - [Läs mer](https://azure.microsoft.com/pricing/details/azure-migrate/) om priser för Azure Migrate.
 - [Läs vanliga frågor och svar](resources-faq.md) om Azure Migrate.

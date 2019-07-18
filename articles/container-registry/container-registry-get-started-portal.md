@@ -3,17 +3,18 @@ title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure Portal
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure-portalen.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827632"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309470"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure Portal
 
@@ -21,7 +22,7 @@ Ett Azure-containerregister är ett privat Docker-register i Azure där du kan l
 
 För att logga in i registret för att arbeta med containeravbildningar kräver den här snabbstarten att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på [Mac][docker-mac], [Windows][docker-windows], eller [Linux][Docker-Linux-] system.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -37,7 +38,7 @@ Ange värden för **Registernamn** och **Resursgrupp**. Registernamnet måste va
 
 ![Skapa ett containerregister med Azure-portalen][qs-portal-03]
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [SKU: er för container Registry][container-registry-skus].
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
@@ -47,7 +48,7 @@ Anteckna **inloggningsserverns** värde. Du använder de här värdena i kommand
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Öppna en kommandotolk i ditt operativsystem och använd kommandot [az acr login][az-acr-login] i Azure CLI.
+Innan du skickar och hämtar containeravbildningar måste du logga in på ACR-instansen. Öppna ett kommando gränssnitt i operativ systemet och Använd kommandot [AZ ACR login][az-acr-login] i Azure CLI.
 
 ```azurecli
 az acr login --name <acrName>
@@ -61,7 +62,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Om du vill visa en lista över avbildningarna i registret navigerar du till registret i portalen och väljer **Centrallager**. Välj sedan det lager du skapade med `docker push`.
 
-I det här exemplet väljer vi den **hello-world** databasen, och vi kan se den `v1`-taggade avbildningen under **taggar**.
+I det här exemplet väljer vi databasen **Hello-World** och vi kan se `v1`bilden med märkord under **taggar**.
 
 ![Visa lista över containeravbildningar i Azure-portalen][qs-portal-09]
 
@@ -78,7 +79,7 @@ Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i 
 I den här snabbstarten skapade du ett Azure Container Registry med Azure-portalen, push-överförde en containeravbildning och hämtade och körde avbildningen från registret. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
-> [Självstudier för Azure Container Registry][container-registry-tutorial-quick-task]
+> [Azure Container Registry själv studie kurser][container-registry-tutorial-quick-task]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png

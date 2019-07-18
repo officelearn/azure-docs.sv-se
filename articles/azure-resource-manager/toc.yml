@@ -152,6 +152,12 @@
               href: ./move-limitations/virtual-machines-move-limitations.md
             - name: Virtuella nätverk
               href: ./move-limitations/virtual-network-move-limitations.md
+    - name: Taggar
+      items:
+        - name: Tagga resurser
+          href: resource-group-using-tags.md
+        - name: Stöd för taggar
+          href: tag-support.md
     - name: Hantera
       items:
         - name: Hantera resursgrupper
@@ -176,9 +182,6 @@
             - name: Använda Azure PowerShell
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: Organisera resurser
-          displayName: tags
-          href: resource-group-using-tags.md
         - name: Lås resurser
           href: resource-group-lock-resources.md
         - name: Autentiserings-API för att få åtkomst till prenumerationer
@@ -251,12 +254,8 @@
           href: resource-group-template-functions-resource.md
         - name: Strängfunktioner
           href: resource-group-template-functions-string.md
-    - name: Resursfunktioner
-      items:
-        - name: Borttagning i complete-läget
-          href: complete-mode-deletion.md
-        - name: Stöd för taggar
-          href: tag-support.md
+    - name: Borttagning i complete-läget
+      href: complete-mode-deletion.md
     - name: Resursprovidrar som stöds av tjänsten
       href: azure-services-resource-providers.md
     - name: REST – Resource Manager

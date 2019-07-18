@@ -4,14 +4,14 @@ description: Beskriver begreppen för Azure Managed Applications
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479823"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234743"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -29,7 +29,7 @@ Trots att kunder distribuerar hanterade program i sina prenumerationer måste de
 
 För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du vet att lösningarna uppfyller organisationens standarder.
 
-Hanterade program som stöder [hanterade identiteter för Azure-resurser](./publish-managed-identity.md).
+Hanterade program har stöd [för hanterade identiteter för Azure-resurser](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Typer av hanterade program
 
@@ -51,7 +51,7 @@ Mer information om hur du publicerar program på Marketplace finns i [Använda m
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Resurser för ett hanterat program är oftast i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Utgivaren kan begära antingen en permanent rolltilldelning eller [just-in-time-åtkomst](request-just-in-time-access.md) för en uppgift som är begränsad till en viss tidsperiod.
+Normalt är resurserna för ett hanterat program i två resurs grupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Utgivaren kan begära antingen en permanent roll tilldelning eller [just-in-Time-åtkomst](request-just-in-time-access.md) för en tilldelning som är begränsad till en tids period.
 
 Möjligheten att begränsa åtkomsten för [dataåtgärder](../role-based-access-control/role-definitions.md) stöds inte för närvarande för alla datalprovidrar i Azure.
 
@@ -67,7 +67,9 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 
 ### <a name="managed-resource-group"></a>Hanterad resursgrupp
 
-Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomst är antingen permanenta eller begränsad till en viss tidpunkt.
+Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomsten är antingen permanent eller begränsad till en viss tidpunkt.
+
+När du publicerar det [hanterade programmet på Marketplace](publish-marketplace-app.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 

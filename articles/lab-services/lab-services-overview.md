@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711075"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275722"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
 Med Azure Lab Services kan du snabbt konfigurera en miljö för ditt team (till exempel en utvecklingsmiljö, en testmiljö eller en labbmiljö i klassrummet) i molnet. En labbägare skapar ett labb, etablerar Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg och gör dem tillgängliga för labbanvändare. Labbanvändarna ansluter till virtuella datorer (VM) i labbet och använder dem för sitt dagliga arbete, kortare projekt eller för att göra klassrumsövningar. När användarna börjar använda resurser i labbet, kan en labbadministratör analysera kostnaden och användningen för flera labb och ange övergripande principer för att optimera din organisations eller ditt teams kostnader.
@@ -39,7 +39,7 @@ Azure Lab Services stöder följande viktiga funktioner:
 - **Integration i dina arbetsflöden och verktyg**. Med Azure Lab Services kan du integrera labb i din organisations webbplats och hanteringssystem. Du kan automatiskt etablera miljöer inifrån dina verktyg för kontinuerlig integration/kontinuerlig distribution (för närvarande tillgängligt endast i DevTest Labs).
 
 > [!NOTE]
-> Azure Lab Services stöder för närvarande endast virtuella datorer som skapas med Azure Marketplace-avbildningar. Om du vill använda anpassade avbildningar eller skapa andra PaaS-resurser i en labbmiljö kan du använda DevTest Labs. Mer information finns i dokumentationen om att [skapa en anpassad avbildning i DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) och att [skapa labbmiljöer med hjälp av Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
+> Azure Lab Services stöder för närvarande endast virtuella datorer som skapas med Azure Marketplace-avbildningar. Om du vill använda anpassade avbildningar eller skapa andra PaaS-resurser i en labbmiljö kan du använda DevTest Labs. Mer information finns i [skapa en anpassad bild i DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) och [Skapa labb miljöer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -120,5 +120,5 @@ I följande tabell jämförs två typer av labb som stöds av Azure Lab Services
 
 Se följande artiklar: 
 
-- [Om klassrum Labs](./classroom-labs/classroom-labs-overview.md)
+- [Om klass rums labb](./classroom-labs/classroom-labs-overview.md)
 - [Om DevTest Labs](devtest-lab-overview.md)

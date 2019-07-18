@@ -3,17 +3,18 @@ title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure CLI
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure CLI.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787412"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309521"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure CLI
 
@@ -21,7 +22,7 @@ Azure Container Registry är en hanterad Docker-behållarregistertjänst som anv
 
 För den här snabbstarten krävs att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på ett [macOS][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-system.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på alla [MacOS][docker-mac], [Windows][docker-windows]-eller [Linux][-Docker-Linux-] system.
 
 Eftersom Azure Cloud Shell inte innehåller alla nödvändiga Docker-komponenter (`dockerd`-daemon), kan du inte använda Cloud Shell för denna snabbstart.
 
@@ -37,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [SKU: er för container Registry][container-registry-skus].
 
 Skapa en ACR-instans med hjälp av kommandot [az acr create][az-acr-create]. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel används *myContainerRegistry007*. Uppdatera det här till ett unikt värde.
 
@@ -90,7 +91,7 @@ I följande exempel visas lagringsplatserna i ditt register:
 az acr repository list --name <acrName> --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Result
@@ -98,13 +99,13 @@ Result
 hello-world
 ```
 
-I följande exempel visas taggarna för den **hello-world** lagringsplats.
+I följande exempel visas taggarna i databasen **Hello-World** .
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Result
@@ -116,7 +117,7 @@ v1
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När resursgruppen inte längre behövs kan du använda kommandot [az group delete][az-group-delete] till att ta bort resursgruppen, containerregistret och containeravbildningarna som är lagrade där.
+När de inte längre behövs kan du använda kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen, behållar registret och behållar avbildningarna som lagras där.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -127,7 +128,7 @@ az group delete --name myResourceGroup
 I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI, push-överförde en containeravbildning till registret och hämtade och körde avbildningen från registret. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
-> [Självstudier för Azure Container Registry][container-registry-tutorial-quick-task]
+> [Azure Container Registry själv studie kurser][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

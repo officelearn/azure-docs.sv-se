@@ -1,7 +1,7 @@
 ---
-title: Skapa Java-webbapp på Windows - Azure App Service
-description: I den här snabbstarten får distribuera du din första Java Hello World i Azure App Service i Windows på bara några minuter.
-keywords: azure, app service, web app, windows, java, maven, quickstart
+title: Skapa Java-webbapp på Windows-Azure App Service
+description: I den här snabb starten distribuerar du din första Java-Hello World i Azure App Service i Windows på några minuter.
+keywords: Azure, App Service, Web App, Windows, Java, maven, snabb start
 services: app-service\web
 documentationcenter: ''
 author: msangapu-msft
@@ -16,23 +16,23 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc
-ms.openlocfilehash: 0ca50bae0748570932c7a4cc3bb10cde17c940f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1e25f65cf7ec52b4a58386843a1d2f5796c66e65
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617713"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297361"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Snabbstart: Skapa en Java-app i App Service
 
 > [!NOTE]
-> I den här artikeln distribueras en app till App Service i Windows. Distribuera till App Service på _Linux_, se [skapa Java-webbapp i Linux](./containers/quickstart-java.md).
+> I den här artikeln distribueras en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns i [skapa Java-webbapp på Linux](./containers/quickstart-java.md).
 >
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstarten visar hur du använder den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med den [Maven-pluginprogrammet för Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) ska distribuera en Java web Arkiv (WAR)-fil.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [maven-plugin-programmet för Azure App Service för](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) att distribuera en War-fil (Java Web Archive).
 
 > [!NOTE]
-> Kan du också göra samma sak med hjälp av populära IDEs som IntelliJ och Eclipse. Kolla in våra liknande dokument på [Azure Toolkit för IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) eller [Azure Toolkit för Eclipse Snabbstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> Samma sak kan också göras med populära IDE: er som IntelliJ och Sol förmörkelse. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) eller [Azure Toolkit for Eclipse snabb start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
 ![Exempelapp som körs i Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
@@ -66,7 +66,7 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -104,10 +104,10 @@ Uppdatera följande platshållare i konfigurationen av plugin-program:
 
 | Platshållare | Beskrivning |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | Unikt ID för prenumerationen som du vill distribuera din app. Standard prenumerations-ID finns från Cloud Shell eller CLI med den `az account show` kommando. Använd för alla tillgängliga prenumerationer den `az account list` kommando.|
-| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med en unik ny resursgruppens namn, till exempel *myResourceGroup*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
-| `WEBAPP_NAME` | Appnamnet som ska ingå i värdnamnet för appen när de distribueras till Azure (WEBAPP_NAME.azurewebsites.net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
-| `REGION` | En Azure-region där appen finns till exempel *westus2*. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
+| `SUBSCRIPTION_ID` | Unikt ID för den prenumeration som du vill distribuera appen till. Standard prenumerationens ID kan hittas från Cloud Shell eller CLI med hjälp `az account show` av kommandot. För alla tillgängliga prenumerationer använder du `az account list` kommandot.|
+| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resurs grupp namn, till exempel *myResourceGroup*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
+| `WEBAPP_NAME` | Appens namn kommer att ingå i värd namnet för appen när den distribueras till Azure (WEBAPP_NAME. azurewebsites. net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
+| `REGION` | En Azure-region där appen finns, till exempel *westus2*. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Distribuera appen
 
@@ -121,14 +121,14 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 ![Exempelapp som körs i Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-**Grattis!** Du har distribuerat din första Java-app till App Service i Windows.
+**Grattis!** Du har distribuerat din första java-app till App Service i Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure för Java-utvecklare resurser](/java/azure/)
+> [Resurser för Azure för Java-utvecklare](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

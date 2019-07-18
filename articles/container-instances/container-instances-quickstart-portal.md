@@ -61,7 +61,7 @@ När distributionen inleds visas ett meddelande som indikerar att distributionen
 
 ![Översikt över gruppcontainer i Azure-portalen][aci-portal-06]
 
-När dess **Status***Körs*, navigera till containerns FQDN i webbläsaren.
+När dess **Status** *Körs*, navigera till containerns FQDN i webbläsaren.
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-portal-07]
 

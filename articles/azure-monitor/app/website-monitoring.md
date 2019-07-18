@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384099"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990099"
 ---
 # <a name="start-monitoring-your-website"></a>Börja övervaka din webbplats
 
@@ -23,7 +23,7 @@ Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med
 
 Den här snabbstarten vägleder dig genom att lägga till [Application Insights JavaScript SDK med öppen källkod](https://github.com/Microsoft/ApplicationInsights-JS) så att du förstår upplevelsen på klient-/webbläsarsidan för användarna på din webbplats.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -41,14 +41,16 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
 1. Välj **Skapa en resurs** > **Hanteringsverktyg** > **Application Insights**.
 
+   > [!NOTE]
+   >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till artikeln [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        | Värde           | Beskrivning  |
+    | Inställningar        | Value           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Programtyp** | Allmänt program | Typen av app du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Plats** | Östra USA | Välj en plats nära dig eller nära där appen finns |
+   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 

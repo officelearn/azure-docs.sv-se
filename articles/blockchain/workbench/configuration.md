@@ -55,7 +55,7 @@ Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtg
 
 | Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
-| Namn | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja | 50 |
+| Name | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja | 50 |
 | DisplayName | Eget namn för arbetsflödet. | Ja | 255 |
 | Description | Beskrivning av arbetsflödet. | Nej | 255 |
 | Initierare | Insamling av [ApplicationRoles](#application-roles). Roller som är tilldelade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja | |

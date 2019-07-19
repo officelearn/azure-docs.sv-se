@@ -17,22 +17,22 @@ ms.locfileid: "67206377"
 
 Resource Manager tillhandahåller flera funktioner för att arbeta med matriser och -objekt.
 
-* [Matris](#array)
-* [Slå samman](#coalesce)
+* [array](#array)
+* [coalesce](#coalesce)
 * [concat](#concat)
-* [innehåller](#contains)
+* [contains](#contains)
 * [createArray](#createarray)
-* [tom](#empty)
-* [första](#first)
-* [skärningspunkten](#intersection)
+* [empty](#empty)
+* [first](#first)
+* [intersection](#intersection)
 * [json](#json)
 * [last](#last)
-* [Längd](#length)
+* [length](#length)
 * [max](#max)
 * [min](#min)
-* [Adressintervall](#range)
+* [range](#range)
 * [skip](#skip)
-* [ta](#take)
+* [take](#take)
 * [union](#union)
 
 Om du vill ha en matris med strängvärden avgränsat med ett värde, se [dela](resource-group-template-functions-string.md#split).

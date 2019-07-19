@@ -1,86 +1,86 @@
 ---
-title: Förstå Azure Digital Twins rollbaserad åtkomstkontroll | Microsoft Docs
-description: Läs om autentisering i digitala Twins med rollbaserad åtkomstkontroll.
+title: Lär dig mer om rollbaserad åtkomst kontroll i Azure Digitals Microsoft Docs
+description: Lär dig mer om autentisering i digitala dubbla med rollbaserad åtkomst kontroll.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
-ms.author: lyrana
-ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: lyhughes
+ms.openlocfilehash: 33e09ad52722665e6162b18159012d69ec1463bd
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534154"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849279"
 ---
-# <a name="role-based-access-control-in-azure-digital-twins"></a>Rollbaserad åtkomstkontroll i Azure Digital Twins
+# <a name="role-based-access-control-in-azure-digital-twins"></a>Rollbaserad åtkomst kontroll i Azure Digitals dubbla
 
-Azure Digital Twins kan exakt åtkomstkontroll till specifika data, resurser och åtgärder i grafen spatial. Detta sker via detaljerade roll- och behörighetshantering som kallas rollbaserad åtkomstkontroll (RBAC). RBAC består av _roller_ och _rolltilldelningar_. Roller identifiera behörighetsnivån. Rolltilldelningar koppla en roll till en användare eller enhet.
+Azure Digitals dubbla ger exakt åtkomst kontroll till specifika data, resurser och åtgärder i din spatialdata. Det gör det genom detaljerad roll-och behörighets hantering som kallas rollbaserad åtkomst kontroll (RBAC). RBAC består av _roller_ och _roll tilldelningar_. Roller identifierar behörighets nivån. Roll tilldelningar associerar en roll med en användare eller enhet.
 
-Med RBAC kan kan behörighet beviljas till:
+Med RBAC kan du bevilja behörighet till:
 
 - En användare.
 - En enhet.
-- Ett huvudnamn för tjänsten.
+- Ett huvud namn för tjänsten.
 - En användardefinierad funktion.
 - Alla användare som tillhör en domän.
 - En klient.
 
-Graden av åtkomst kan också vara välavvägda.
+Åtkomst graden kan också finjusteras.
 
-RBAC är unikt eftersom behörigheter ärvs av spatial diagrammet.
+RBAC är unikt i den behörigheten som ärvs nedåt i diagrammets avstånd.
 
 ## <a name="what-can-i-do-with-rbac"></a>Vad kan jag göra med RBAC?
 
-Utvecklare kan använda RBAC för att:
+En utvecklare kan använda RBAC för att:
 
-- Bevilja en användare möjlighet att hantera enheter för en hel byggnad eller endast för ett specifikt rum eller våning.
-- Bevilja en global administratörsåtkomst till alla spatial graph-noder för en hela diagrammet eller endast för en del av diagrammet.
-- Ger en support specialist läsåtkomst till diagrammet, förutom åtkomstnycklar.
-- Ge alla medlemmar i en domän läsbehörighet till alla objekt i diagrammet.
+- Ge en användare möjlighet att hantera enheter för en hel byggnad eller bara för ett speciellt rum eller våning.
+- Bevilja en global administratörs åtkomst till alla spatiala diagram-noder för en hel graf eller bara för en del av diagrammet.
+- Ge support specialist Läs behörighet till grafen, förutom åtkomst nycklar.
+- Ge varje medlem i en domän Läs behörighet till alla graf-objekt.
 
-## <a name="rbac-best-practices"></a>Metodtips för RBAC
+## <a name="rbac-best-practices"></a>Metod tips för RBAC
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
 ## <a name="roles"></a>Roller
 
-### <a name="role-definitions"></a>Rolldefinitioner
+### <a name="role-definitions"></a>Roll definitioner
 
-En rolldefinition är en uppsättning behörigheter och andra attribut som utgör en roll. En rolldefinition visar en lista över tillåtna åtgärder, bland annat *skapa*, *läsa*, *uppdatering*, och *ta bort* att något objekt med som rollen kan utföra. Den anger också som objektbehörigheter för typer som gäller för.
+En roll definition är en samling behörigheter och andra attribut som utgör en roll. En roll definition visar en lista över tillåtna åtgärder, bland annat *skapa*, *läsa*, *Uppdatera*och *ta bort* som alla objekt med den rollen kan utföra. Den anger också vilka objekt typs behörigheter som ska gälla för.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
-> Fråga systemet/roller API för att hämta fullständig definitionerna för rollerna som tidigare.
-> Lär dig mer genom att läsa [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md#all).
+> Om du vill hämta de fullständiga definitionerna för de tidigare rollerna frågar du system/roles-API.
+> Läs mer om att [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#all).
 
-### <a name="object-identifier-types"></a>Identifierare för objekttyper
+### <a name="object-identifier-types"></a>Objekt identifierare typer
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Lär dig att ge behörighet till tjänstens huvudnamn genom att läsa [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md#grant).
+> Lär dig hur du beviljar behörigheter till tjänstens huvud namn genom att läsa [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#grant).
 
-I följande dokumentation referensartiklar beskriver:
+I följande artiklar i referens dokumentation beskrivs:
 
-- Så här [fråga eller objekt-ID för en användare](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Så här [hämta objekt-ID för tjänstens huvudnamn](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
-- Så här [hämta objekt-ID för en Azure AD-klient](../active-directory/develop/quickstart-create-new-tenant.md).
+- [Fråga eller objekt-ID för en användare](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+- Så här [hämtar du objekt-ID för ett huvud namn för tjänsten](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
+- Så här [hämtar du objekt-ID för en Azure AD-klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Rolltilldelningar
 
-En rolltilldelning i Azure Digital Twins associerar ett objekt, till exempel en användare eller en Azure AD-klient med en roll eller ett blanksteg. Behörigheter för alla objekt som hör till det området. Området innehåller hela spatial diagrammet under den.
+En Azure Digitals sammanflätad roll tilldelning associerar ett objekt, till exempel en användare eller en Azure AD-klient, med en roll och ett utrymme. Behörigheter beviljas till alla objekt som tillhör det utrymmet. Utrymmet omfattar hela det spatiala diagrammet under det.
 
-Exempelvis kan en användare får en rolltilldelning med rollen `DeviceInstaller` för rotnoden i ett spatial diagram, som representerar en byggnad. Användaren kan läsa och uppdatera enheter för den aktuella noden och alla andra underordnade utrymmen i byggnaden.
+En användare får till exempel en roll tilldelning med rollen `DeviceInstaller` för rotnoden i en spatial graf, som representerar en byggnad. Användaren kan sedan läsa och uppdatera enheter för den noden och alla andra underordnade utrymmen i byggnaden.
 
-Skapa en rolltilldelning för att tilldela behörigheter till en mottagare. Om du vill återkalla behörighet att ta bort rolltilldelningen.
+Om du vill bevilja behörighet till en mottagare skapar du en roll tilldelning. Ta bort roll tilldelningen om du vill återkalla behörigheter.
 
 >[!IMPORTANT]
-> Läs mer om rolltilldelningar genom att läsa [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md).
+> Lär dig mer om roll tilldelningar genom att läsa [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om att skapa och hantera rolltilldelningar i Azure Digital Twins [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md).
+- Om du vill veta mer om hur du skapar och hanterar Azure Digitals sammanflätade roll tilldelningar läser du [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md).

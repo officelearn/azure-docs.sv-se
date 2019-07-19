@@ -1,10 +1,10 @@
 ---
-title: Skapa en belastningsutjämnare med en zonindelad frontend - Azure-portalen
+title: Skapa en Load Balancer med en zonindelade-frontend-Azure Portal
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en Standardbelastningsutjämnare med zonindelad klientdel med Azure portal
+description: Lär dig hur du skapar en Standard Load Balancer med zonindelade-frontend med Azure Portal
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
-ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 9a260c267febb3dc851fe0a8ca8a8e351124116b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60753516"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275144"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med hjälp av Azure portal
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure Portal
 
-Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdelens IP-konfiguration. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
+Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en IP-konfiguration för zonindelade-frontend. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -49,7 +49,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 1. För **resursgrupp**, klickar du på **Skapa nytt**, och skriv sedan **myResourceGroupZLB** som namnet på resursgruppen.
 1. För **plats**väljer **Västeuropa**, och klicka sedan på **OK**. Nu startar distributionen av lastbalanseraren. Distributionen tar några minuter att slutföra.
 
-    ![Skapa zonredundant Standardbelastningsutjämnare med Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![Skapa zon – redundanta Standard Load Balancer med Azure Portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

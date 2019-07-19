@@ -1,32 +1,32 @@
 ---
 title: Mata in data från Event Hub i Azure Data Explorer
-description: I den här artikeln får lära du att mata in (load) data i Azure Data Explorer från Event Hub.
+description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren från Event Hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67621985"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311623"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln får du skapa en händelsehubb, ansluter till den från Azure-Datautforskaren och se dataflödet genom systemet.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln skapar du en Event Hub, ansluter till den från Azure Datautforskaren och ser data flödet genom systemet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* [Ett testkluster och databasen](create-cluster-database-portal.md).
+* [Ett test kluster och en databas](create-cluster-database-portal.md).
 
 * [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb. Ladda ned exempelprogrammet till datorn.
 
-* [Visual Studio-2019](https://visualstudio.microsoft.com/vs/) att köra exempelappen.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) för att köra exempel appen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -34,7 +34,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-I den här artikeln får du generera exempeldata och skicka den till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
+I den här artikeln skapar du exempel data och skickar dem till en Event Hub. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
 
 1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
 
@@ -118,18 +118,18 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
 
     Måltabell:
 
-    Det finns två alternativ för routning insamlade data: *Statiska* och *dynamisk*. 
-    För den här artikeln får använda du statisk routning, anger du den tabellnamn och dataformat mappning. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
+    Det finns två alternativ för att dirigera inmatade data: *statiska* och *dynamiska*. 
+    I den här artikeln använder du statisk routning, där du anger tabell namn, data format och mappning. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
 
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
     | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. |
-    | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**. Krävs för JSON, MULTILINE JSON eller AVRO och valfri för andra format.|
+    | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**. Krävs för JSON, Multiline JSON eller AVRO, och valfritt för andra format.|
     | | |
 
     > [!NOTE]
-    > Välj **Mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller nödvändiga routning information som visas i den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) kommentarer. Om både statisk och dynamisk egenskaperna in åsidosätta statiska dynamiska egenskaper. 
+    > Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
@@ -187,7 +187,9 @@ Med appen som genererar data kan du nu se flödet av dessa data från händelseh
     ![Meddelanderesultat](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer har en sammansättningsprincip (batchbearbetning) för datainmatning som är utformad för att optimera inmatningsprocessen. Principen konfigureras som standard 5 minuter så att det kan förekomma en fördröjning. Se [batchbearbetning princip](/azure/kusto/concepts/batchingpolicy) för aggregering alternativ. Se [streaming princip](/azure/kusto/concepts/streamingingestionpolicy) ska matas in med Ingen aggregering.
+    > * Azure Data Explorer har en sammansättningsprincip (batchbearbetning) för datainmatning som är utformad för att optimera inmatningsprocessen. Principen är konfigurerad till 5 minuter eller 500 MB data som standard, så att du kan uppleva en fördröjning. Se [batch-principen](/azure/kusto/concepts/batchingpolicy) för sammansättnings alternativ. 
+    > * Inmatningen av Event Hub inkluderar svars tiden för Event Hub på 10 sekunder eller 1 MB. 
+    > * Konfigurera din tabell så att den stöder strömning och ta bort fördröjningen i svars tiden. Se [strömmande princip](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -205,4 +207,4 @@ Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)
+* [Fråga efter data i Azure Datautforskaren](web-query-data.md)

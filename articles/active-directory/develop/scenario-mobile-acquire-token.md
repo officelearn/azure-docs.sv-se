@@ -1,9 +1,9 @@
 ---
-title: 'Mobilapp att anrop webb-API: er – hämta en token för appen | Microsoft identity-plattformen'
-description: 'Lär dig att skapa en mobilapp som anropar webb-API: er (få en token för appen)'
+title: 'Mobilapp som anropar webb-API: er – hämtar en token för appen | Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (Hämta en token för appen)'
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111150"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320895"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobila appar som anropar webb-API: er – hämta en token
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobilapp som anropar webb-API: er – hämta en token
 
-Innan du kan anropa skyddade behöver web API: er, din app en åtkomst-token. Den här artikeln vägleder dig genom processen för att hämta en token med hjälp av Microsoft Authentication Library (MSAL).
+Innan du kan börja anropa skyddade webb-API: er behöver din app en åtkomsttoken. Den här artikeln vägleder dig genom processen för att hämta en token med hjälp av Microsoft Authentication Library (MSAL).
 
-## <a name="scopes-to-request"></a>Sökomfång för att begära
+## <a name="scopes-to-request"></a>Omfattningar som ska begäras
 
-När du begär en token kan behöva du definiera ett omfång. Omfång avgör vilka data som kan komma åt din app.  
+När du begär en token måste du definiera ett omfång. Omfånget avgör vilka data som din app kan komma åt.  
 
-Den enklaste metoden är att kombinera den önskade web API: er `App ID URI` med omfattningen `.default`. Detta talar om Microsoft identity-plattformen som din app kräver alla omfattningar som angetts i portalen.
+Det enklaste sättet är att kombinera det önskade webb-API `App ID URI` : et med `.default`omfånget. Om du gör det meddelar Microsoft Identity Platform att appen kräver alla omfattningar som anges i portalen.
 
 #### <a name="android"></a>Android
 ```Java
@@ -52,7 +52,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### <a name="via-msal"></a>Via MSAL
 
-MSAL kan appar för att hämta token tyst och interaktivt. Anropa bara metoderna och MSAL returnerar en åtkomsttoken för de begärda omfång. Rätt mönster är att utföra en tyst begäran och återgår till att en interaktiv förfrågan.
+MSAL gör att appar kan hämta token tyst och interaktivt. Anropa bara de här metoderna och MSAL returnerar en åtkomsttoken för de begärda omfattningarna. Rätt mönster är att utföra en tyst begäran och återgå till en interaktiv begäran.
 
 #### <a name="android"></a>Android
 
@@ -163,9 +163,9 @@ catch(MsalUiRequiredException e)
 
 ### <a name="via-the-protocol"></a>Via protokollet
 
-Vi rekommenderar inte att du använder protokollet direkt. Om du gör stöder appen inte vissa enkel inloggning (SSO), hantering av enheter och scenarier med villkorlig åtkomst.
+Vi rekommenderar inte att du använder protokollet direkt. Om du gör det stöder appen inte vissa scenarier för enkel inloggning (SSO), enhets hantering och villkorlig åtkomst.
 
-När du använder protokollet för att hämta token för mobila appar, måste du göra två begäranden: få en auktoriseringskod och exchange för en token.
+När du använder protokollet för att hämta token för mobila appar måste du göra två begär Anden: Hämta en auktoriseringskod och Utbyt den för en token.
 
 #### <a name="get-authorization-code"></a>Hämta auktoriseringskod
 
@@ -179,7 +179,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-token"></a>Få åtkomst till och uppdatera token
+#### <a name="get-access-and-refresh-token"></a>Hämta åtkomst och uppdatera token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -196,4 +196,4 @@ client_id=<CLIENT_ID>
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anropa ett webb-API](scenario-mobile-call-api.md)
+> [Anropar ett webb-API](scenario-mobile-call-api.md)

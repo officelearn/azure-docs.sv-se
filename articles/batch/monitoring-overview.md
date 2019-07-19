@@ -1,9 +1,9 @@
 ---
 title: Övervaka Azure Batch | Microsoft Docs
-description: Läs mer om Azures övervakningstjänster, mått, diagnostikloggar och andra övervakningsfunktioner för Azure Batch.
+description: Lär dig mer om Azures övervaknings tjänster, statistik, diagnostikloggar och andra övervakningsfunktioner för Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -11,62 +11,62 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128863"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322457"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
-Azure och Batch-tjänsten tillhandahåller ett antal tjänster, verktyg och API: er för att övervaka dina Batch-lösningar. Den här översiktsartikeln hjälper dig att välja en övervakning metod som passar dina behov.
+Azure och batch-tjänsten tillhandahåller en mängd tjänster, verktyg och API: er för att övervaka dina batch-lösningar. I den här översikts artikeln får du hjälp att välja en övervaknings metod som passar dina behov.
 
-En översikt över Azure-komponenter och tjänster som är tillgängliga för att övervaka Azure-resurser finns i [övervakning av Azure-program och resurser](../monitoring-and-diagnostics/monitoring-overview.md).
+En översikt över de Azure-komponenter och-tjänster som är tillgängliga för övervakning av Azure-resurser finns i [övervaka Azure-program och-resurser](../monitoring-and-diagnostics/monitoring-overview.md).
 
-## <a name="subscription-level-monitoring"></a>Prenumerationsnivå övervakning
+## <a name="subscription-level-monitoring"></a>Övervakning på prenumerations nivå
 
-På prenumerationsnivån, vilket innefattar Batch-konton, den [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md) samlar in operativa händelsedata i [flera kategorier](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+På prenumerations nivå, som innehåller batch-konton, samlar [Azure aktivitets loggen](../azure-monitor/platform/activity-logs-overview.md) in drifts händelse data i [flera kategorier](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
-Batch-konton mer specifikt aktivitetsloggen samlar du in händelser som rör hantering av skapandet och borttagningen och nyckel.
+För batch-konton är det specifikt att samla in händelser som rör skapande och borttagning av konton och nyckel hantering i aktivitets loggen.
 
-Ett sätt att hämta händelser från din aktivitetslogg är att använda Azure-portalen. Klicka på **alla tjänster** > **aktivitetsloggen**. Eller fråga efter händelser med hjälp av Azure CLI, PowerShell-cmdletar och REST-API i Azure Monitor. Du kan också exportera aktivitetsloggen eller konfigurera [aktivitetsloggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Ett sätt att hämta händelser från aktivitets loggen är att använda Azure Portal. Klicka på **alla tjänster** > **aktivitets logg**. Du kan också fråga efter händelser med hjälp av Azure CLI, PowerShell-cmdletar eller Azure Monitor REST API. Du kan också exportera aktivitets loggen eller konfigurera [aktivitets logg aviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
-## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto på
+## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto-nivå
 
-Övervaka varje Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-platform-metrics.md) och eventuellt [diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) för resurser som är begränsade på nivån för ett Batch-konto, till exempel pooler, jobb och aktiviteter. Samla in och använda dessa data manuellt eller programmässigt att övervaka aktiviteter i Batch-kontot och diagnostisera problem. Mer information finns i [Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
+Övervaka varje batch-konto med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [Mät värden](../azure-monitor/platform/data-platform-metrics.md) och eventuella [diagnostiska loggar](../azure-monitor/platform/diagnostic-logs-overview.md) för resurser som omfattas på samma nivå som ett batch-konto, till exempel pooler, jobb och uppgifter. Samla in och Använd dessa data manuellt eller program mässigt för att övervaka aktiviteter i ditt batch-konto och för att diagnosticera problem. Mer information finns i [batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
  
 > [!NOTE]
-> Mått är tillgängliga som standard i ditt Batch-konto utan ytterligare konfiguration och de har en rullande 30-dagars historik. Du måste aktivera Diagnostisk loggning för ett Batch-konto och du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data. 
+> Mått är tillgängliga som standard i batch-kontot utan ytterligare konfiguration, och de har en historik på 30 dagar. Du måste aktivera diagnostikloggning för ett batch-konto och du kan debiteras ytterligare kostnader för att lagra eller bearbeta diagnostikdata. 
 
-## <a name="batch-resource-monitoring"></a>Övervaka batch-resurser
+## <a name="batch-resource-monitoring"></a>Batch-resurs-övervakning
 
-I dina Batch-program, använder du Batch-API: er att övervaka eller fråga status för dina resurser inklusive jobb, uppgifter, noder och pooler. Exempel:
+I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Exempel:
 
-* [Antal uppgifter och beräkningsnoder efter delstat](batch-get-resource-counts.md)
-* [Skapa frågor för att lista Batch-resurser effektivt](batch-efficient-list-queries.md)
-* [Skapa aktivitetssamband](batch-task-dependencies.md)
-* Använd en [job manager-aktivitet](/rest/api/batchservice/job/add#jobmanagertask)
-* Övervaka den [uppgift tillstånd](/rest/api/batchservice/task/list#taskstate)
-* Övervaka den [Nodtillstånd](/rest/api/batchservice/computenode/list#computenodestate)
-* Övervaka den [lagringspoolen tillstånd](/rest/api/batchservice/pool/get#poolstate)
-* Övervaka [lagringspoolen användning i kontot](/rest/api/batchservice/pool/listusagemetrics)
-* [Antal poolnoder efter delstat](/rest/api/batchservice/account/listpoolnodecounts)
+* [Räkna aktiviteter och Compute-noder efter tillstånd](batch-get-resource-counts.md)
+* [Skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md)
+* [Skapa aktivitets beroenden](batch-task-dependencies.md)
+* Använd en [Job Manager-aktivitet](/rest/api/batchservice/job/add#jobmanagertask)
+* Övervaka [uppgifts status](/rest/api/batchservice/task/list#taskstate)
+* Övervaka [nodens tillstånd](/rest/api/batchservice/computenode/list#computenodestate)
+* Övervaka [poolens tillstånd](/rest/api/batchservice/pool/get#poolstate)
+* Övervaka [pool användning i kontot](/rest/api/batchservice/pool/listusagemetrics)
+* [Antal noder per tillstånd för poolen](/rest/api/batchservice/account/listpoolnodecounts)
 
-## <a name="vm-performance-counters-and-application-monitoring"></a>Prestandaräknare för virtuell dator och programövervakning
+## <a name="vm-performance-counters-and-application-monitoring"></a>Prestanda räknare för virtuella datorer och program övervakning
 
-* [Application Insights](../azure-monitor/app/app-insights-overview.md) är en Azure-tjänst du kan använda för att programmässigt övervaka tillgänglighet, prestanda och användning för dina Batch-jobb och uppgifter. Enkelt beräkningsnoder get prestandaräknare från (virtuella datorer) och anpassad information om aktiviteter från de virtuella datorerna. 
+* [Application Insights](../azure-monitor/app/app-insights-overview.md) är en Azure-tjänst som du kan använda för att övervaka tillgänglighet, prestanda och användning för dina batch-jobb och-aktiviteter. Du kan enkelt få prestanda räknare från datornoder (VM) och anpassad information för aktiviteter från de virtuella datorerna. 
 
-  Ett exempel finns i [övervaka och felsöka ett Batch .NET-program med Application Insights](monitor-application-insights.md) och den tillhörande [kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+  Ett exempel finns i [övervaka och felsöka ett batch .NET-program med Application Insights](monitor-application-insights.md) och det medföljande [kod exemplet](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
   > [!NOTE]
-  > Du kan medföra ytterligare kostnader för att använda Application Insights. Se den [prisalternativ](https://azure.microsoft.com/pricing/details/application-insights/). 
+  > Du kan debiteras ytterligare kostnader för att använda Application Insights. Se [pris alternativ](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnadsfritt, omfattande funktioner, fristående klientverktyg för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Du kan också konfigurera din Batch-lösning till [visa Application Insights-data](https://github.com/Azure/batch-insights) , till exempel prestandaräknare för virtuella datorer i Batch Explorer.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnads fritt, fristående klient verktyg med omfattande funktioner som hjälper dig att skapa, felsöka och övervaka Azure Batch program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Du kan också konfigurera batch-lösningen så att den [visar Application Insights data](https://github.com/Azure/batch-insights) , till exempel prestanda räknare för virtuella datorer i batch Explorer.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
-* Läs mer om [diagnostikloggning](batch-diagnostics.md) med Batch.
+* Lär dig mer om [diagnostisk loggning](batch-diagnostics.md) med batch.

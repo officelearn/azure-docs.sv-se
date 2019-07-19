@@ -1,25 +1,26 @@
 ---
-title: Snabbstart – distribuera Docker-behållare till Azure Container Instances – PowerShell
-description: I den här snabbstarten använder du Azure PowerShell till att snabbt distribuera en behållarbaserad webbapp som körs i en isolerad Azure container-instans
+title: Snabb start – distribuera Docker-behållare till Azure Container Instances – PowerShell
+description: I den här snabb starten använder du Azure PowerShell för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c6baf10308f04d5f08ba651bd70ac2b48dfc013c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 7fe199d2ac228ddb0ccfd1e5bc980e680e160acf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729455"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325831"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Snabbstart: Distribuera en behållar instans i Azure med hjälp av Azure PowerShell
 
-Använd Azure Container Instances för att köra serverlös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en container-instans på begäran när du inte behöver en fullständig behållarplattform orchestration som Azure Kubernetes Service.
+Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten.
 
-I den här snabbstarten använder du Azure PowerShell för att distribuera en isolerad Windows-behållare och tillgängliggöra dess program med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kör en enkel distribution-kommando som du kan bläddra till det program som körs i behållaren:
+I den här snabb starten använder du Azure PowerShell för att distribuera en isolerad Windows-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). Några sekunder efter att du kört ett enda distributions kommando kan du bläddra till programmet som körs i behållaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
@@ -35,7 +36,7 @@ Om du väljer att installera och använda PowerShell lokalt behöver du ha Azure
 
 Azure-containerinstanser måste, precis som alla Azure-resurser, distribueras i en resursgrupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
 
-Skapa först en resursgrupp med namnet *myResourceGroup* på platsen *eastus* (USA, östra) med följande kommando [New-AzResourceGroup][New-AzResourceGroup]:
+Skapa först en resurs grupp med namnet *myResourceGroup* på den *östra* platsen med följande [New-AzResourceGroup-][New-AzResourceGroup] kommando:
 
  ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,17 +44,17 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure PowerShell anger du ett resursgruppsnamn, ett instansnamn för containern och avbildningen av dockercontainern till cmdleten [New-AzContainerGroup][New-AzContainerGroup]. I den här snabbstarten använder du offentligt `mcr.microsoft.com/windows/servercore/iis:nanoserver` bild. Den här bilden Microsoft Internet Information Services (IIS) för att köra i Nano Server-paket.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en behållar instans med Azure PowerShell anger du ett resurs grupp namn, behållar instans namn och Docker-behållar avbildning till cmdleten [New-AzContainerGroup][New-AzContainerGroup] . I den här snabb starten använder du den `mcr.microsoft.com/windows/servercore/iis:nanoserver` offentliga avbildningen. Den här avbildningen paketerar Microsoft Internet Information Services (IIS) för körning i Nano Server.
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att IIS kan nås offentligt.
 
-Köra ett kommando som liknar följande att starta en behållarinstans. Ange en `-DnsNameLabel` värde som är unikt i Azure-regionen där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+Kör ett kommando som liknar följande för att starta en behållar instans. Ange ett `-DnsNameLabel` värde som är unikt inom den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Inom några sekunder bör du få ett första svar från Azure. Containerns `ProvisioningState` är initialt **Skapa**, men bör flyttas till **Lyckades** inom en minut eller två. Kontrollera distributionsstatusen med hjälp av cmdleten [Get-AzContainerGroup][Get-AzContainerGroup]:
+Inom några sekunder bör du få ett första svar från Azure. Containerns `ProvisioningState` är initialt **Skapa**, men bör flyttas till **Lyckades** inom en minut eller två. Kontrol lera distributions statusen med [Get-AzContainerGroup][Get-AzContainerGroup] -cmdlet:
 
  ```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +92,7 @@ När containerns `ProvisioningState` är **Lyckades** navigerar du till dess `Fq
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med containern kan du ta bort den med cmdleten [Remove-AzContainerGroup][Remove-AzContainerGroup]:
+När du är klar med behållaren tar du bort den med cmdleten [Remove-AzContainerGroup][Remove-AzContainerGroup] :
 
  ```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer

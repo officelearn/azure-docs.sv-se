@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart för Azure: Skapa en blob i objektlagring med hjälp av Java Storage SDK V10 | Microsoft Docs'
+title: 'Azure snabb start: Skapa en BLOB i objekt lagring med hjälp av Java Storage SDK-v10 | Microsoft Docs'
 description: I den här snabbstarten skapar du en container i objektlagring (Azure Blob), laddar upp en fil, visar en lista med objekt och laddar ned med hjälp av Java Storage SDK.
 services: storage
 author: mhopkins-msft
@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f023f3fdbc82960f3994f8e5763310dc95ca1c2f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2aa004ffa98730341c8de105f16feea6e3931a86
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152865"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326690"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK V10
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK-v10
 
 I den här snabbstarten får du lära dig hur du använder nya Java Storage SDK för att ladda upp, ladda ned och visa blockblobar i en container i Azure Blob Storage. Detta nya Java-SDK använder den reaktiva programmeringsmodellen med RxJava som gör att du kan använda asynkrona åtgärder. Mer information om RxJava: [reaktiva tillägg för Java VM](https://github.com/ReactiveX/RxJava). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -50,14 +50,14 @@ Den här lösningen kräver att du lagrar namnet och nyckeln för ditt lagringsk
 
 ### <a name="linux-example"></a>Linux-exemplet
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Windows-exempel
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +74,7 @@ Om du vill köra exemplet med hjälp av Maven på kommandoraden öppnar du ett g
 
 Det här exemplet visar dina utdata om du kör programmet på Windows.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample

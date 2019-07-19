@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728599"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327154"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java Spring Boot-program till Service Fabric
 
@@ -37,7 +37,7 @@ I den här snabbstarten lär du dig att:
 * Skala ut programmet över flera noder
 * Utför redundans av tjänsten utan att påverka tillgängligheten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. Lägg till resursen **Slutpunkter** i filen `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+1. Lägg till resursen **slut punkter** i filen *GS-Spring-Boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest. XML*
 
     ```xml 
         <Resources>
@@ -145,7 +145,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080**. När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
+    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
@@ -161,7 +161,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     ./install.sh
     ```
 
-1. Öppna valfri webbläsare och hitta programmet genom att öppna `http://localhost:8080`.
+1. Öppna din favorit webbläsare och få åtkomst till programmet genom att gå `http://localhost:8080`till.
 
     ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

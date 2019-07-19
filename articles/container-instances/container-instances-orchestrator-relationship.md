@@ -1,72 +1,73 @@
 ---
-title: Azure Container Instances och orkestrering av behållare
-description: Förstå hur Azure container instances interagera med behållarinitierare.
+title: Azure Container Instances-och container dirigering
+description: Förstå hur Azure Container instances samverkar med behållar dirigering.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072992"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325766"
 ---
-# <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances och behållarinitierare
+# <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances-och behållar dirigering
 
-Liten storlek och orientering för programmet är behållare bra för smidig leverans miljöer och mikrotjänstbaserade arkitekturer. Uppgiften att automatisera och hantera ett stort antal behållare och hur de samverkar kallas *orchestration*. Populära behållarinitierare är Kubernetes, DC/OS och Docker Swarm.
+På grund av deras små storlek och program orientering är behållare lämpade för smidiga leverans miljöer och mikrotjänstbaserade arkitekturer. Uppgiften att automatisera och hantera ett stort antal behållare och hur de interagerar kallas för *dirigering*. Populära behållar dirigeringar omfattar Kubernetes, DC/OS och Docker Swarm.
 
-Azure Container Instances erbjuder några av de grundläggande funktionerna för schemaläggning av orchestration-plattformar. Och medan de inte täcker högre värde-tjänster som dessa plattformar tillhandahåller, Azure Container Instances kan komplettera dem. Den här artikeln beskriver omfånget för Azure Container Instances hanterar och hur fullständig behållarinitierare kan interagera med den.
+Azure Container Instances innehåller några av de grundläggande schemaläggnings funktionerna i Orchestration-plattformar. Och även om det inte omfattar de tjänster med högt värde som plattformarna tillhandahåller Azure Container Instances kan komplettera dem. I den här artikeln beskrivs omfattningen av vad Azure Container Instances hanterar och hur fullständiga behållar dirigeringar kan interagera med det.
 
-## <a name="traditional-orchestration"></a>Traditionella orchestration
+## <a name="traditional-orchestration"></a>Traditionellt dirigering
 
-Standard definitionen av orchestration omfattar följande:
+Standard definitionen för Orchestration innehåller följande uppgifter:
 
-- **Schemaläggning**: Baserat på en behållaravbildning och en resursbegäran, hitta en lämplig dator som du vill köra behållaren.
-- **Tillhörighet/program-affinity**: Ange att en uppsättning behållare ska köras i närheten varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
-- **Hälsoövervakning**: Håll utkik efter fel för behållare och omboka dem automatiskt.
-- **Redundans**: Håll koll på vad som körs på varje dator och omboka behållare från datorer som inte fungerar till felfria noder.
-- **Skalning**: Lägg till eller ta bort behållarinstanser för att möta efterfrågan, antingen manuellt eller automatiskt.
-- **Nätverk**: Ange ett överlägg nätverk för samordning behållare kan kommunicera över flera värddatorerna.
-- **Tjänstidentifiering**: Aktivera behållare för att hitta varandra automatiskt, även när de flyttas mellan värddatorerna och ändra IP-adresser.
-- **Koordinerad programuppgraderingar**: Hantera behållare uppgraderingar för att undvika driftavbrott och aktivera återställning om något går fel.
+- **Schemaläggning**: När du har fått en behållar avbildning och en resurs förfrågan söker du efter en lämplig dator där behållaren ska köras.
+- **Tillhörighet/anti-tillhörighet**: Ange att en uppsättning behållare ska köras nära varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
+- **Hälso övervakning**: Titta efter behållar felen och Schemalägg dem automatiskt.
+- **Redundans**: Håll koll på vad som körs på varje dator och Schemalägg sedan om behållare från misslyckade datorer till felfria noder.
+- **Skalning**: Lägg till eller ta bort behållar instanser för att matcha efter frågan, antingen manuellt eller automatiskt.
+- **Nätverk**: Ange ett överordnat nätverk för koordinerande behållare för att kommunicera över flera värddatorer.
+- **Tjänst identifiering**: Aktivera behållare för att hitta varandra automatiskt, även när de flyttas mellan värddatorer och ändra IP-adresser.
+- **Koordinerade program uppgraderingar**: Hantera behållar uppgraderingar för att undvika avbrott i programmet och aktivera återställning om något går fel.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestration med Azure Container Instances: Ett lager
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Dirigering med Azure Container Instances: Ett skiktat tillvägagångs sätt
 
-Azure Container Instances möjliggör en överlappande tillvägagångssättet för orkestrering, eftersom alla schemaläggning och hanteringsfunktioner som krävs för att köra en enskild behållare, samtidigt som orchestrator-plattformar för att hantera flera behållare uppgifter ovanpå den.
+Azure Container Instances aktiverar ett skiktat tillvägagångs sätt för att dirigera, vilket ger alla schemaläggnings-och hanterings funktioner som krävs för att köra en enda behållare, samtidigt som Orchestrator-plattformarna hanterar aktiviteter med flera behållare ovanpå den.
 
-Eftersom den underliggande infrastrukturen för container instances hanteras av Azure, behöver inte en orchestrator-plattformen rör sig själv med att hitta en lämplig värd-dator som du vill köra en enskild behållare. Elasticiteten i molnet säkerställer att en alltid är tillgänglig. Orchestrator kan i stället fokusera på de aktiviteter som förenklar utvecklingen av flera behållare arkitekturer, inklusive skalning och koordinerade uppgraderingar.
+Eftersom den underliggande infrastrukturen för container instances hanteras av Azure behöver en Orchestrator-plattform inte oroa sig för att hitta en lämplig värddator som kör en enda behållare. Molnets elastiskhet säkerställer att det alltid är tillgängligt. I stället kan Orchestrator fokusera på de uppgifter som fören klar utvecklingen av arkitekturer i flera behållare, inklusive skalning och koordinerade uppgraderingar.
 
 ## <a name="scenarios"></a>Scenarier
 
-Orchestrator-integrering med Azure Container Instances är fortfarande framväxande, vi förväntar oss att några olika miljöer dyker upp:
+Även om Orchestrator-integrering med Azure Container Instances fortfarande är Nascent, förväntar vi dig att några olika miljöer kommer att framställas:
 
-### <a name="orchestration-of-container-instances-exclusively"></a>Orkestrering av behållare instanser exklusivt
+### <a name="orchestration-of-container-instances-exclusively"></a>Dirigering av container instanser exklusivt
 
-Eftersom de kom snabbt igång och faktureras per sekund, erbjuder en miljö som enbart utifrån Azure Container Instances det snabbaste sättet att komma igång och hantera med mycket varierande arbetsbelastningar.
+Eftersom de startar snabbt och faktureras med den andra, erbjuder en miljö som baseras uteslutande på Azure Container Instances det snabbaste sättet att komma igång och hantera mycket varierande arbets belastningar.
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Kombinationen av behållarinstanser och behållare i virtuella datorer
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Kombination av behållar instanser och behållare i Virtual Machines
 
-För tidskrävande och stabil arbetsbelastningar och är samordna behållare i ett kluster på dedikerade virtuella datorer vanligtvis billigare än samma behållare som körs med Azure Container Instances. Behållarinstanser erbjuder dock en bra lösning för att snabbt utöka och köpa exakt den totala kapaciteten att hantera oväntade eller tillfällig toppar i användningen.
+För långvariga, stabila arbets belastningar är det vanligt vis billigare att dirigera behållare i ett kluster med dedikerade virtuella datorer än att köra samma behållare med Azure Container Instances. Behållar instanser erbjuder dock en bra lösning för att snabbt utöka och uppfylla den övergripande kapaciteten för att hantera oväntade eller korta toppar i användningen.
 
-I stället för att skala ut antalet virtuella datorer i klustret, och sedan distribuera ytterligare behållare till dessa datorer, orchestrator kan bara schemalägga ytterligare behållare i Azure Container Instances och ta bort dem när de är inte längre behövs.
+I stället för att skala ut antalet virtuella datorer i klustret, och sedan distribuera ytterligare behållare till dessa datorer, kan Orchestrator bara schemalägga ytterligare behållare i Azure Container Instances och ta bort dem när de inte längre är behöv.
 
-## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Exempel på implementering: virtuella noder för Azure Kubernetes Service (AKS)
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Exempel på implementering: virtuella noder för Azure Kubernetes service (AKS)
 
-Snabbt skala arbetsbelastningar för program i en [Azure Kubernetes Service](../aks/intro-kubernetes.md) kluster (AKS), som du kan använda *virtuella noder* skapats dynamiskt i Azure Container Instances. Virtuella noder aktivera nätverkskommunikationen mellan poddar som körs i ACI och AKS-klustret. 
+Om du snabbt vill skala program arbets belastningar i ett [Azure Kubernetes service](../aks/intro-kubernetes.md) -kluster (AKS) kan du använda *virtuella noder* som skapats dynamiskt i Azure Container instances. Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i ACI och AKS-klustret. 
 
-Virtuella noder har för närvarande stöd för Linux-behållare-instanser. Kom igång med virtuella noder med hjälp av den [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) eller [Azure-portalen](https://go.microsoft.com/fwlink/?linkid=2047545).
+Virtuella noder har för närvarande stöd för Linux container instances. Kom igång med virtuella noder med hjälp av [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) eller [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Virtuella noder med öppen källkod [Virtual Kubelet] [ aci-connector-k8s] att efterlikna Kubernetes [kubelet] [ kubelet-doc] genom att registrera som en nod med obegränsad kapacitet. Virtual Kubelet skickar skapandet av [poddar] [ pod-doc] som behållargrupper i Azure Container Instances.
+Virtuella noder använder den [virtuella Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] med öppen källkod genom att registrera sig som en nod med obegränsad kapacitet. Den virtuella Kubelet skickar skapandet av [poddar][Pod-doc] som behållar grupper i Azure Container instances.
 
-Se den [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) projekt fler exempel på att utöka Kubernetes-API i serverlös behållarplattformar.
+I det [virtuella Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) -projektet finns ytterligare exempel på hur du utökar Kubernetes-API: et till Server lös behållar plattformar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första behållare med Azure Container Instances med hjälp av den [Snabbstartsguide](container-instances-quickstart.md).
+Skapa din första behållare med Azure Container Instances med hjälp av [snabb starts guiden](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 

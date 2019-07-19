@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2019
-ms.author: jaredr80
-ms.openlocfilehash: 21d06dfaecb0448194355f13978483779a2ff6be
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.date: 07/17/2019
+ms.author: cherylmc
+ms.openlocfilehash: 331a554332db8c05d4ece1a1df5d6557d6e86906
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805686"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310364"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -43,15 +43,15 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Geopolitisk region** | **Zon** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- | --- |
 | **Australiensiska myndigheter** | 1 | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Zurich |
+| **Europa** | 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, London2, Marseille, Newport (Wales), Paris, Zürich |
 | **Nordamerika** | 1 |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
-| **Asien** | 2 |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 Taipei |
+| **Asien** | 2 |Östra Asien, Sydostasien |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei, |
 | **Indien** | 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Oceanien** | 2 |Sydöstra Australien, östra Australien |Auckland, Melbourne, Perth, Sydney | 
 | **Sydkorea** | 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
-| **UAE** | 3 | Förenade Arabemiraten, centrala, Förenade Arabemiraten, Norra | Dubai, Dubai2 |
-| **Sydafrika** | 3 |Sydafrika, västra, Sydafrika, Norra |Kapstaden, Johannesburg |
+| **FÖRENADE ARABEMIRATEN** | 3 | Förenade Arabemiraten Central, Förenade Arabemiraten Nord | Dubai, Dubai2 |
+| **Sydafrika** | 3 |Sydöstra Sydafrika, norra Sydafrika |Kapstaden, Johannesburg |
 | **Sydamerika** | 3 |Södra Brasilien |Sao Paulo |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
@@ -70,63 +70,63 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 
 Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för varje plats. Om du vill visa leverantörer och de platser där de kan tillhandahålla service går du till [Platser efter tjänsteleverantör](expressroute-locations.md#locations). 
 
-**Lokala Azure-regioner** är de som [ExpressRoute lokal](expressroute-faqs.md) i varje peeringplats kan komma åt. **Ej tillämpligt** innebär att ExpressRoute lokal inte är tillgängliga där peering.
+**Lokala Azure-regioner** är de som [ExpressRoute lokala](expressroute-faqs.md) på varje peering-plats kan komma åt. **n/a** anger att ExpressRoute Local inte är tillgängligt på peering-platsen.
 
 
 ### <a name="production-azure"></a>Produktions-Azure
-| **Location** | **Peering-platsägare** | **Lokal Azure-regioner** | **Tjänstleverantörer** |
+| **Location** | **Peering-platsägare** | **Lokala Azure-regioner** | **Tjänstleverantörer** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | Västra Europa | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | Västra Europa | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
+| **Amsterdam2** | Interxion | Västra Europa | CenturyLink Cloud Connect, CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | Saknas | Equinix, Megaport |
-| **Auckland** | Vocus | Saknas | Devoli, Kordia, Megaport |
+| **Auckland** | Vocus-grupp NZ | Saknas | Devoli, Kordia, Megaport, Vocus grupp NZ |
 | **Busan** |LG CNS | Sydkorea, södra | LG CNS |
 | **Canberra** | CDC | Australien, centrala | CDC |
 | **Canberra2** | CDC | Australien, centrala 2| CDC |
 | **Kapstaden** | Teraco | Sydafrika, västra | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | Södra Indien | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Södra Indien | Airtel |
-| **Chicago** | Equinix | Norra centrala USA | Aryaka Networks, AT & T NetBond, CenturyLink moln ansluta, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW globala begränsad, Sprint, Telia operatör, Verizon, Zayo |
+| **Chicago** | Equinix | Norra centrala USA | Aryaka Networks, på & T netobligation, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, intercloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW global Limited, Sprint, Telia-bärvåg, Verizon, Zayo |
 | **Dallas** | Equinix | Saknas | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | Västra centrala USA | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat Förenade Arabemiraten | Förenade Arabemiraten, norra | Etisalat Förenade Arabemiraten |
 | **Dubai2** | du datamena | Förenade Arabemiraten, norra | du datamena, Orixcom |
 | **Dublin** | Equinix | Norra Europa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | Saknas | DE-CIX, Interxion |
-| **Hongkong SAR** | Equinix | Östasien | Aryaka nätverk, British Telecom CenturyLink Cloud Connect, Chief telekom, Kina Kostnadsuppföljning av globala, Equinix, Megaport, NTT Communications, Orange, PCCW globala begränsad, Tata Communications, Telia operatör, Verizon |
+| **Hong Kong SAR** | Equinix | Östasien | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Kina Telecom global, Equinix, Megaport, NTT Communications, orange, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Johannesburg** | Teraco | Sydafrika, norra | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | Saknas | TIME dotCom |
 | **Las Vegas** | Växel | Saknas | CenturyLink Cloud Connect, Megaport |
 | **London** | Equinix | Storbritannien, södra | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse – KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | Telehouse | Storbritannien, södra | IX räckvidd, Equinix |
 | **Los Angeles** | CoreSite | Saknas | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marseille** |Interxion | Frankrike, södra | DE-CIX, Interxion, Jaguar Network |
+| **Marseille** |Interxion | Frankrike, södra | CIX, Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Sydöstra Australien | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | Saknas | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Saknas | Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai** | Tata Communications | Indien, västra | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | Indien, västra | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | Saknas | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
-| **Newport(Wales)** | Nästa generations data | Storbritannien, västra | British Telecom, Colt, Level 3 Communications, nästa generations brandvägg |
+| **Newport(Wales)** | Nästa generations data | Storbritannien, västra | Brittiska telekom, Colt, nivå 3-kommunikation, nästa generations data |
 | **Osaka** | Equinix | Västra Japan | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** | Interxion | Frankrike, centrala | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
+| **Paris** | Interxion | Frankrike, centrala | CenturyLink Cloud Connect, Colt, Equinix, intercloud, Interxion, orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | Saknas | Megaport, NextDC |
 | **Quebec City** | 4Degrees | Östra Kanada | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | Södra centrala USA | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | Equinix | Södra Brasilien | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | Västra USA 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
 | **Söul** | KINX | Sydkorea, centrala | KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** | Equinix | Västra USA | Aryaka Networks, AT & T NetBond, British Telecom CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX nå, paket, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
+| **Silicon Valley** | Equinix | Västra USA | Aryaka Networks, på & T netobligation, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, intercloud, IX Reach, paket, PacketFabric, Level 3 Communications, Megaport, orange, Sprint, Tata kommunikation, Verizon, Zayo |
 | **Silicon Valley2** | Coresite | Västra USA | Coresite | 
 | **Singapore** | Equinix | Sydostasien | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Sydostasien | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **Sydney** | Equinix | Östra Australien | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
+| **Sydney** | Equinix | Östra Australien | AARNet, på & T netobligation, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus-grupp NZ |
 | **Taipei** | Chief Telecom | Saknas | Chief Telecom, FarEasTone |
 | **Tokyo** | Equinix | Östra Japan | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Centrala Kanada | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Washington DC** | Equinix | Östra USA, östra USA 2 | Aryaka Networks, AT & T NetBond, British Telecom, CenturyLink moln ansluta, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona nätverk, NTT Communications, Orange, PacketFabric, Sprint, Tata Kommunikation, Telia operatör, Verizon, Zayo |
+| **Washington DC** | Equinix | Östra USA, östra USA 2 | Aryaka Networks, på & T netobligation, British Telecom, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, Internet2, intercloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, orange, PacketFabric, Sprint, Tata Kommunikation, Telia-bärvåg, Verizon, Zayo |
 | **Washington DC2** | Coresite | Östra USA, östra USA 2 |Coresite | 
-| **Zürich** | Interxion | Saknas | Intercloud, Interxion |
+| **Zürich** | Interxion | Saknas | Mellan moln, Interxion |
 
  **+** kommer snart
 
@@ -148,9 +148,9 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Location** | **Tjänstleverantörer** |
 | --- | --- |
 | **Peking** |China Telecom |
-| **Beijing2** | China Telecom, GDS |
+| **Beijing2** | Kina, GDS |
 | **Shanghai** |China Telecom |
-| **Shanghai2** | China Telecom, GDS |
+| **Shanghai2** | Kina, GDS |
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
 
@@ -180,31 +180,31 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 ## <a name="c1partners"></a>Anslutning via ytterligare leverantörer
 | **Location** | **Exchange** | **Anslutningsproviders** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
-| **Atlanta** | Equinix| SLOTT krona
+| **Amsterdam** | Equinix, Interxion, nivå 3-kommunikation, stad | BICS, CloudXpress, euro fiber, Fastweb S. p. A, Mellanöstern, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, post, Proximus, TDC Erhverv, Telecom Italia gnistrande, telekom Deutschland GmbH, Telia |
+| **Atlanta** | Equinix| Kron Castle
 | **Kapstaden** | Teraco | MTN |
-| **Chicago** | Equinix | Krona slott, spektrumet Enterprise Windstream |
-| **Dallas** | Equinix, Megaport | Axtel C3ntro Telecom Cox band företag, krona slott Data Foundry, spektrumet Enterprise Transtelco |
-| **Frankfurt** | Telecity | BICS, Cinia, Nianet, QSC AG |
+| **Chicago** | Equinix| Kron Castle, spektrum Enterprise, windstream |
+| **Dallas** | Equinix, Megaport | AXTEL, C3ntro Telecom, Cox Business, kron Castle, data Funna, spektrum Enterprise, Transtelco |
+| **Frankfurt** | Interxion, stad | BICS, Cinia, Nianet, QSC AG, telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
-| **Hongkong SAR** | Equinix | Chief, Macroview Telecom |
+| **Hong Kong SAR** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
-| **London** | BICS, Equinix, euNetworks, Telecity | Bezeq AB, CoreAzure, Epsilon telekommunikation Limited, exponentiellt E, HSO, NexGen nätverk, Proximus, Tamares telekom, Zain |
-| **Los Angeles** | Equinix |Krona slott, spektrumet Enterprise Transtelco |
+| **London** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon, Epsilon-begränsad, exponentiell E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
+| **Los Angeles** | Equinix |Kron Castle, spektrum Enterprise, Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
-| **New York** |Equinix, Megaport | Altice företag, krona slott spektrumet Enterprise, Webair |
+| **New York** |Equinix, Megaport | Altice Business, kron Castle, spektrum Enterprise, Webair |
 | **Paris** | Equinix | Proximus |
 | **Quebec City** | Megaport | Fibrenoire |
 | **Sao Paula** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
-| **Silicon Valley** |Coresite, Equinix | Cox band företag, å Enterprise, Windstream, X2nsat Inc. |
+| **Silicon Valley** |Coresite, Equinix | Cox Business, Spectrum Enterprise, windstream, X2nsat Inc. |
 | **Singapore** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **Toronto** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
-| **Washington DC** |Equinix | Altice företag, BICS, Cox band företag, krona slott, Gtt kommunikation Inc, Epsilon telekommunikation Limited, Masergy, Windstream |
+| **Toronto** | Equinix, Megaport | Luftgate Technologies Inc., Beanfield MetroConnect, Cogeco peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
+| **Washington DC** |Equinix | Altice Business, BICS, Cox Business, kron Castle, GTT Communications Inc, Epsilon-Limited Limited, Masergy, windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-systemintegratörer
 Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, beroende på hur stort nätverk du har. Du kan använda någon av systemintegratörer som finns i följande tabell. De hjälper dig med integrationen till ExpressRoute.

@@ -15,27 +15,21 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513453"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324074"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabbstart: Använda Azure Cache for Redis med Python
 
-
-## <a name="introduction"></a>Introduktion
-
-Den här snabbstarten visar hur du ansluter Azure Cache for Redis med Python för att läsa och skriva cache. 
-
-![Python-testet slutfördes](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+I den här snabb starten införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Python 2 eller 3 för Python-miljön](https://www.python.org/downloads/) installeras med [pip](https://pypi.org/project/pip/). 
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [Python 2 eller 3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-on-azure"></a>Skapa Azure Cache for Redis på Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -46,7 +40,7 @@ Den här snabbstarten visar hur du ansluter Azure Cache for Redis med Python fö
 
 [Redis-py](https://github.com/andymccurdy/redis-py) är ett Python-gränssnitt för Azure Cache for Redis. Använd Python-verktygspaketet *pip* för att installera redis-py-paketet. 
 
-I följande exempel används *pip3* för Python3 att installera paketet redis-py på Windows 10 med ett Visual Studio 2019 Kommandotolken för utvecklare som körs med förhöjd administratörsbehörighet.
+I följande exempel används *PIP3* för python3 för att installera Redis-py-paketet på Windows 10 med hjälp av en Visual Studio 2019 Developer-kommando tolk som körs med utökade administratörs privilegier.
 
 ```python
     pip3 install redis
@@ -70,7 +64,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> Redis är version 3.0 eller högre, SSL-certifikatkontroll tillämpas. ssl_ca_certs måste anges explicit när du ansluter till Redis. När det gäller RH Linux ssl_ca_certs finns i den ”/ etc/pki/tls/certs/ca-bundle.crt” certifikat-modulen.
+> För Redis-versionen är 3,0 eller högre tillämpas SSL-certifikats kontrollen. ssl_ca_certs måste anges explicit vid anslutning till Redis. Om du använder RH Linux finns ssl_ca_certs i certifikats-modulen "/etc/PKI/TLS/certs/ca-Bundle.CRT".
 
 ## <a name="create-a-python-script"></a>Skapa ett Python-skript
 
@@ -127,13 +121,10 @@ Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på di
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Skapa en enkel ASP.NET-webbapp som använder Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

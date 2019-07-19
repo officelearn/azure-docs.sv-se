@@ -1,9 +1,9 @@
 ---
-title: 'Mobilapp att anrop web API: er (flytta till produktion) - Microsoft identity-plattformen'
-description: 'Lär dig att skapa en mobilapp att anrop webb-API: er (flytta till produktion)'
+title: 'Mobilapp som anropar webb-API: er (övergå till produktion) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (flytta till produktion)'
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8b6a5c2a29228de806088ea93e197d42bf1ab47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e778e55bd87e325b3dcf14a8c9f1616157a420b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320879"
 ---
-# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Mobila appar som anropar webb-API: er – flytta till produktion
+# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Mobilapp som anropar webb-API: er – flytta till produktion
 
-Den här artikeln innehåller information om hur du förbättrar kvaliteten och tillförlitligheten för din app innan du flyttar det till produktion.
+Den här artikeln innehåller information om hur du förbättrar appens kvalitet och pålitlighet innan du flyttar den till produktion.
 
 ## <a name="handling-errors-in-mobile-applications"></a>Hantera fel i mobila program
 
-Ett antal fel kan inträffa i din app nu. De huvudsakliga scenarierna för att hantera är tyst fel och återgångarna tar interaktion. Andra villkor som du bör tänka på för produktion är Nej nätverk situationer, tjänstavbrott, krav för administratörens godkännande och andra scenariospecifika fall.
+Ett antal fel villkor kan uppstå i din app i det här läget. Huvud scenarierna för hantering är tysta haverier och återställningar för interaktion. Andra villkor som du bör tänka på för produktion inkluderar inga nätverks situationer, tjänst avbrott, krav på administrativt godkännande och andra scenario-särskilda fall.
 
-Varje MSAL biblioteket har kod och wiki exemplen som beskriver hur du hanterar dessa villkor:
+Varje MSAL-bibliotek har exempel kod och wiki-innehåll som beskriver hur du hanterar dessa villkor:
 
-- [MSAL Android Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
-- [MSAL iOS Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
+- [MSAL Android-wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
+- [MSAL iOS-wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigating-and-investigating-issues"></a>Minimera och undersöka problem
+## <a name="mitigating-and-investigating-issues"></a>Åtgärda och undersöka problem
 
-För att diagnostisera problem i din app, det hjälper dig att samla in data. Information om vilka typer av data kan du samla in, se MSAL plattform wikis.
+För att diagnosticera problem i din app kan du samla in data. Information om vilka typer av data du kan samla in finns i MSAL-plattformens wiki-wiki.
 
-- Användare kan be om hjälp när det uppstår några problem. Ett bra tips är att samla in och tillfälligt lagra loggar och ge en plats där användarna kan ladda upp dem. MSAL tillhandahåller loggning tillägg för att samla in detaljerad information om autentisering.
-- Om den är tillgänglig, aktivera telemetri via MSAL för att samla in data om hur användare loggar in på din app.
+- Användarna kan be om hjälp när de stöter på problem. Ett bra tips är att samla in och lagra loggar tillfälligt och ange en plats där användarna kan ladda upp dem. MSAL tillhandahåller loggnings tillägg för att samla in detaljerad information om autentisering.
+- Om det är tillgängligt aktiverar du telemetri via MSAL för att samla in data om hur användarna loggar in i din app.
 
 ## <a name="next-steps"></a>Nästa steg
 

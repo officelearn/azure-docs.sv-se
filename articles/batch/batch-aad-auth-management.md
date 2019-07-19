@@ -1,10 +1,10 @@
 ---
-title: Använd Azure Active Directory för att autentisera lösningar för Batch | Microsoft Docs
-description: Program som skapats med Azure Resource Manager och Batch-resursprovidern autentisera med Azure AD.
+title: Använd Azure Active Directory för att autentisera lösningar för batch-hantering | Microsoft Docs
+description: Program som skapats med Azure Resource Manager och batch-resurs-providern autentiseras med Azure AD.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,69 +15,69 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18cb7433de81ddf6733a494778d0a7c82afb5677
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922816"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323986"
 ---
-# <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för Batch med Active Directory
+# <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för batch-hantering med Active Directory
 
-Program som anropar Azure Batch Management-tjänsten autentisera med [Azure Active Directory] [ aad_about] (Azure AD). Azure AD är Microsofts flera innehavare molnbaserad katalog- och identity management-tjänsten. Azure själva använder Azure AD för autentisering av dess kunder, administratörer och användare i organisationer.
+Program som anropar tjänsten Azure Batch hantering autentiseras med [Azure Active Directory][aad_about] (Azure AD). Azure AD är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Azure använder sig av Azure AD för att autentisera sina kunder, tjänst administratörer och organisations användare.
 
-Batch Management .NET-biblioteket visar typer för att arbeta med Batch-konton, nycklar, program och programpaket. Batch Management .NET-biblioteket är en Azure resource provider-klient och används tillsammans med [Azure Resource Manager] [ resman_overview] att hantera dessa resurser programmässigt. Azure AD som krävs för att autentisera begäranden som görs via alla Azure resource provider postklienter, inklusive Batch Management .NET-biblioteket och via [Azure Resource Manager][resman_overview].
+Batch Management .NET-biblioteket exponerar typer för att arbeta med batch-konton, konto nycklar, program och programpaket. Batch Management .NET-biblioteket är en Azure Resource Provider-klient och används tillsammans med [Azure Resource Manager][resman_overview] för att hantera dessa resurser program mässigt. Azure AD krävs för att autentisera begär Anden som görs via en Azure Resource Provider-klient, inklusive batch Management .NET-biblioteket och via [Azure Resource Manager][resman_overview].
 
-I den här artikeln förklarar vi med Azure AD för att autentisera från program som använder Batch Management .NET-biblioteket. Vi visar hur du använder Azure AD för att autentisera en administratör för prenumerationen eller delad administratör, med integrerad autentisering. Vi använder den [AccountManagement] [ acct_mgmt_sample] exempelprojektet, finns på GitHub för att gå igenom med hjälp av Azure AD med Batch Management .NET-biblioteket.
+I den här artikeln går vi igenom hur du använder Azure AD för att autentisera från program som använder .NET-biblioteket för batch Management. Vi visar hur du använder Azure AD för att autentisera en prenumerations administratör eller medadministratör med integrerad autentisering. Vi använder [AccountManagement][acct_mgmt_sample] -exempelprojektet, som finns på GitHub, för att gå igenom användningen av Azure AD med batch Management .net-biblioteket.
 
-Mer information om hur du använder Batch Management .NET-biblioteket och AccountManagement exemplet finns [hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET](batch-management-dotnet.md).
+Mer information om hur du använder batch Management .NET-biblioteket och AccountManagement-exemplet finns i [Hantera batch-konton och kvoter med klient biblioteket för batch-hantering för .net](batch-management-dotnet.md).
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrera ditt program med Azure AD
 
-Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) innehåller ett programmeringsgränssnitt till Azure AD för användning i dina program. För att anropa ADAL från ditt program, måste du registrera ditt program i en Azure AD-klient. När du registrerar ditt program kan ange du Azure AD med information om ditt program, inklusive ett namn för den i Azure AD-klient. Sedan Azure AD tillhandahåller ett program-ID som används för att associera ditt program med Azure AD vid körning. Läs mer om program-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+Azure [Active Directory-autentiseringsbibliotek][aad_adal] (ADAL) tillhandahåller ett programmerings gränssnitt för Azure AD för användning i dina program. Om du vill anropa ADAL från ditt program måste du registrera ditt program i en Azure AD-klient. När du registrerar ditt program anger du Azure AD med information om ditt program, inklusive ett namn för det i Azure AD-klienten. Azure AD tillhandahåller sedan ett program-ID som du använder för att associera ditt program med Azure AD vid körning. Mer information om program-ID finns [i program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Om du vill registrera AccountManagement exempelprogrammet, följer du stegen i den [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i avsnittet [integrera program med Azure Active Directory] [ aad_integrate]. Ange **internt klientprogram** för typ av program. Branschens standard OAuth 2.0-URI för den **omdirigerings-URI** är `urn:ietf:wg:oauth:2.0:oob`. Du kan dock ange en giltig URI (till exempel `http://myaccountmanagementsample`) för den **omdirigerings-URI**, som den inte behöver vara en verklig slutpunkt:
+Registrera AccountManagement-exempel programmet genom att följa stegen i avsnittet [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i [integrera program med Azure Active Directory][aad_integrate]. Ange ett **internt klient program** för typen av program. Bransch standard OAuth 2,0-URI för omdirigerings- `urn:ietf:wg:oauth:2.0:oob`URI: **n** är. Du kan dock ange en giltig URI (till exempel `http://myaccountmanagementsample`) för omdirigerings-URI: **n**, eftersom den inte behöver vara en verklig slut punkt:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-När du har slutfört registreringsprocessen ser du det program-ID och Objektidentifieraren (tjänstens huvudnamn) för ditt program.  
+När du har slutfört registrerings processen ser du program-ID: t och det ID för objektet (tjänstens huvud namn) som anges för ditt program.  
 
 ![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
-## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>Ge Azure Resource Manager API-åtkomst till ditt program
+## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>Bevilja Azure Resource Manager API-åtkomst till ditt program
 
-Därefter måste du delegera åtkomst till programmet till Azure Resource Manager-API. Azure AD-identifieraren för Resource Manager-API är **Windows Azure Service Management API**.
+Därefter måste du delegera åtkomst till ditt program till Azure Resource Manager API. Azure AD-identifieraren för Resource Manager API är **Windows Azure Service Management-API**.
 
-Följ dessa steg i Azure portal:
+Följ de här stegen i Azure Portal:
 
-1. I det vänstra navigeringsfönstret i Azure-portalen, väljer **alla tjänster**, klickar du på **Appregistreringar**, och klicka på **Lägg till**.
-2. Sök efter namnet på ditt program i listan över app-registreringar:
+1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**, klickar på app- **registreringar**och klickar på **Lägg till**.
+2. Sök efter namnet på ditt program i listan med app-registreringar:
 
-    ![Sök efter namnet på appen](./media/batch-aad-auth-management/search-app-registration.png)
+    ![Sök efter ditt program namn](./media/batch-aad-auth-management/search-app-registration.png)
 
-3. Visa den **inställningar** bladet. I den **API-åtkomst** väljer **behörigheter som krävs för**.
-4. Klicka på **Lägg till** att lägga till en ny nödvändig behörighet. 
-5. I steg 1, ange **Windows Azure Service Management API**, Välj det API: et i resultatlistan och klicka på den **Välj** knappen.
-6. I steg 2, markera kryssrutan bredvid **åtkomst Azure klassiska distributionsmodellen som organisationsanvändare**, och klicka på den **Välj** knappen.
-7. Klicka på den **klar** knappen.
+3. Visa bladet **Inställningar** . I den **API-åtkomst** väljer **behörigheter som krävs för**.
+4. Klicka på **Lägg** till för att lägga till en ny nödvändig behörighet. 
+5. I steg 1 anger du **Windows Azure Service Management-API**, väljer detta API i listan över resultat och klickar på knappen **Välj** .
+6. I steg 2 markerar du kryss rutan bredvid åtkomst till den **klassiska Azure-distributions modellen som organisations användare**och klickar på knappen **Välj** .
+7. Klicka på knappen **OK** .
 
-Den **nödvändiga behörigheter** bladet visas nu att programmet behörighet beviljas både ADAL och Resource Manager API: er. Behörigheterna har beviljats till ADAL som standard när du först registrera din app med Azure AD.
+Bladet **nödvändiga behörigheter** visar nu att behörigheterna till ditt program beviljas både ADAL-och Resource Manager-API: er. Behörigheter beviljas till ADAL som standard när du först registrerar din app med Azure AD.
 
 ![Delegera behörigheter till Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
 ## <a name="azure-ad-endpoints"></a>Azure AD-slutpunkter
 
-Du behöver två välkända slutpunkter för att autentisera dina Batch Management-lösningar med Azure AD.
+Du behöver två välkända slut punkter för att kunna autentisera dina batch Management-lösningar med Azure AD.
 
-- Den **vanliga Azure AD-slutpunkten** ger en allmän referens samla in gränssnittet när en specifik klient inte anges när det gäller integrerad autentisering:
+- Den **vanliga slut punkten för Azure AD** tillhandahåller ett allmänt gränssnitt för insamling av autentiseringsuppgifter när en särskild klient inte tillhandahålls, som i fallet med integrerad autentisering:
 
     `https://login.microsoftonline.com/common`
 
-- Den **Azure Resource Manager-slutpunkten** används för att hämta en token för autentisering av förfrågningar till Batch management-tjänsten:
+- **Azure Resource Manager slut punkten** används för att hämta en token för att autentisera begär anden till batch Management-tjänsten:
 
     `https://management.core.windows.net/`
 
-Exempelprogrammet AccountManagement definierar konstanter för de här slutpunkterna. Lämna konstanterna oförändrade:
+Exempel programmet AccountManagement definierar konstanter för dessa slut punkter. Lämna dessa konstanter oförändrade:
 
 ```csharp
 // Azure Active Directory "common" endpoint.
@@ -88,7 +88,7 @@ private const string ResourceUri = "https://management.core.windows.net/";
 
 ## <a name="reference-your-application-id"></a>Referera till ditt program-ID 
 
-Klientprogrammet använder program-ID (kallas även för klient-ID) för att få åtkomst till Azure AD vid körning. När du har registrerat ditt program i Azure-portalen, kan du uppdatera din kod för att använda program-ID som tillhandahålls av Azure AD för ditt registrerade program. Kopiera ditt program-ID i exempelprogrammet AccountManagement från Azure-portalen till lämplig konstant:
+Klient programmet använder program-ID: t (kallas även klient-ID) för att få åtkomst till Azure AD vid körning. När du har registrerat ditt program i Azure Portal uppdaterar du koden för att använda det program-ID som tillhandahålls av Azure AD för ditt registrerade program. I exempel programmet AccountManagement kopierar du ditt program-ID från Azure Portal till lämplig konstant:
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
@@ -97,7 +97,7 @@ Klientprogrammet använder program-ID (kallas även för klient-ID) för att få
 // https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 private const string ClientId = "<application-id>";
 ```
-Kopiera också omdirigeringen-URI som du angav under registreringen. Omdirigerings-URI som angetts i din kod måste matcha omdirigeringen-URI som du angav när du har registrerat programmet.
+Kopiera också omdirigerings-URI: n som du angav under registrerings processen. Den omdirigerings-URI som anges i din kod måste matcha den omdirigerings-URI som du angav när du registrerade programmet.
 
 ```csharp
 // The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
@@ -108,7 +108,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Hämta en Azure AD-autentiseringstoken
 
-När du registrerar AccountManagement exemplet i Azure AD-klient och uppdatera exempelkod för källan med dina värden kan är exemplet redo att autentisera med hjälp av Azure AD. När du kör exemplet försöker ADAL hämta en autentiseringstoken. I det här steget ombeds du ange autentiseringsuppgifterna för ditt Microsoft: 
+När du har registrerat AccountManagement-exemplet i Azure AD-klienten och uppdaterat exempel käll koden med dina värden, är exemplet redo att autentisera med hjälp av Azure AD. När du kör exemplet försöker ADAL hämta en autentiseringstoken. I det här steget uppmanas du att ange dina Microsoft-autentiseringsuppgifter: 
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -121,20 +121,20 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-När du har angett dina autentiseringsuppgifter för kan exempelprogrammet fortsätta att utfärda autentiserade begäranden till Batch management-tjänsten. 
+När du har angett dina autentiseringsuppgifter kan exempel programmet fortsätta att utfärda autentiserade begär anden till batch Management-tjänsten. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om körs den [AccountManagement exempelprogrammet][acct_mgmt_sample], se [hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET](batch-management-dotnet.md) .
+Mer information om hur du kör [exempel programmet AccountManagement][acct_mgmt_sample]finns i [Hantera batch-konton och kvoter med klient biblioteket för batch-hantering för .net](batch-management-dotnet.md).
 
-Läs mer om Azure AD i den [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i den [kodexempel för Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
+Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
 
-För att autentisera Batch service-program med hjälp av Azure AD, se [autentisera Batch service-lösningar med Active Directory](batch-aad-auth.md). 
+Information om hur du autentiserar batch-tjänstprogram med hjälp av Azure AD finns i [autentisera batch service-lösningar med Active Directory](batch-aad-auth.md). 
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Autentiseringsscenarier för Azure AD"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Autentiserings scenarier för Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrera program med Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com

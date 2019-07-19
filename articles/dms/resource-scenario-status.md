@@ -1,6 +1,6 @@
 ---
-title: Migrering scenariot databasstatus | Microsoft Docs
-description: Läs mer om status för migreringsscenarier som stöds av Azure Database Migration Service.
+title: Status för databas migrerings scenario | Microsoft Docs
+description: Läs om status för de migrerings scenarier som stöds av Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,36 +10,41 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/04/2019
-ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2019
+ms.openlocfilehash: 44ac290a471fd0099b6589f84fea604249818432
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473016"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868604"
 ---
-# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
-Azure Database Migration Service är utformad för att stödja olika migreringsscenarion (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som för närvarande stöds av Azure Database Migration Service och status (privat förhandsversion, offentlig förhandsversion eller allmän tillgänglighet) för varje scenario.
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status för migrerings scenarier som stöds av Azure Database Migration Service
 
-## <a name="offline-versus-online-migrations"></a>Offline och online migreringar
-Du kan göra en offline- eller en online-migrering med Azure Database Migration Service. Med *offline* migreringar, nedtid börjar samtidigt som startar migreringen. Om du vill begränsa avbrott på den tid som krävs för att klippa ut över till den nya miljön när migreringen är klar kan du använda en *online* migrering. Vi rekommenderar att du testar en offline-migrering för att avgöra om driftstoppet är okej; Annars kan du göra en online-migrering.
+Azure Database Migration Service har utformats för att stödja olika migreringar (käll-/mål par) för migrering av både offline-(eng-Time) och online (kontinuerlig synkronisering). Scenario täckningen som tillhandahålls av Azure Database Migration Service utökas med tiden. Nya scenarier läggs till regelbundet. I den här artikeln identifieras scenarier för migrering som för närvarande stöds av Azure Database Migration Service och status (privat för hands version, offentlig för hands version eller allmän tillgänglighet) för varje scenario.
 
-## <a name="migration-scenario-status"></a>Status för scenario
-Status för migreringsscenarier som stöds av Azure Database Migration Service varierar med tiden. I allmänhet scenarier är introducerades i **privat förhandsgranskning**. Delta i privat förhandsvisning kräver kunder kan skicka en utnämning via den [plats DMS förhandsversion](https://aka.ms/dms-preview). Efter privat förhandsgranskning scenariot status ändras till **förhandsversion**. Azure Database Migration Service-användare kan testa Migreringsscenarier i offentlig förhandsversion direkt från användargränssnittet. Utan att behöva registrera måste anges.  Migreringsscenarier som offentlig förhandsversion kanske inte tillgänglig i alla regioner och kan genomgå ytterligare ändringar innan slutversionen. Efter den offentliga granskningen scenariot status ändras till **Allmänt tillgänglighet**. Allmän tillgänglighet (GA) är slutversionen status och funktionen är klar och tillgänglig för alla användare.
+## <a name="offline-versus-online-migrations"></a>Offline kontra online-migreringar
 
-## <a name="migration-scenario-support"></a>Migreringsstöd för scenario
-Följande tabeller visar vilka migreringsscenarier som stöds när du använder Azure Database Migration Service.
+Med Azure Database Migration Service kan du göra en offline-eller en online-migrering. Vid migrering *offline* påbörjas avbrotts tiden för programmet samtidigt som migreringen startar. Använd en *online* -migrering om du vill begränsa stillestånds tiden till den tid som krävs för att skära över till den nya miljön när migreringen är klar. Vi rekommenderar att du testar en offline-migrering för att avgöra om avbrotts tiden är acceptabel. om inte, gör du en online-migrering.
+
+## <a name="migration-scenario-status"></a>Status för migrerings scenario
+
+Status för migrerings scenarier som stöds av Azure Database Migration Service varierar med tiden. I allmänhet släpps scenarierna först i **privat förhands granskning**. Delta i privat förhands granskning kräver att kunder skickar in en utnämning via [DMS Preview-webbplatsen](https://aka.ms/dms-preview). Efter privat förhands granskning ändras scenario statusen till **offentlig för hands version**. Azure Database Migration Service användare kan testa scenarier för migrering i offentlig för hands version direkt från användar gränssnittet. Ingen registrering krävs.  Migrerings scenarier i offentlig för hands version kanske däremot inte är tillgängliga i alla regioner och kan genomgå ytterligare ändringar innan den slutliga versionen. Efter den offentliga för hands versionen ändras scenario statusen till **allmänt tillgänglig**. Allmän tillgänglighet (GA) är den slutliga versions statusen och funktionen är fullständig och tillgänglig för alla användare.
+
+## <a name="migration-scenario-support"></a>Stöd för migrerings scenario
+
+Följande tabeller visar vilka migrerings scenarier som stöds när du använder Azure Database Migration Service.
 
 > [!NOTE]
-> Om ett scenario som visas som stöds under inte visas i användargränssnittet kan du kontakta den [Data Migreringsteam](mailto:datamigrationteam@microsoft.com) för ytterligare information.
+> Om ett scenario som anges som stöds nedan inte visas i användar gränssnittet kan du kontakta aliaset i [fråga Azure Database](mailto:AskAzureDatabaseMigrations@service.microsoft.com) -migreringen om du vill ha mer information.
 
 > [!IMPORTANT]
-> Alla scenarier som stöds av Azure Database Migration Service i privat förhandsgranskning för närvarande finns det [plats DMS förhandsversion](https://aka.ms/dms-preview).
+> Om du vill visa alla scenarier som för närvarande stöds av Azure Database Migration Service i privat för hands version, se [DMS Preview-webbplatsen](https://aka.ms/dms-preview).
 
-### <a name="offline-one-time-migration-support"></a>Stöd för offline-migrering (engångs)
+### <a name="offline-one-time-migration-support"></a>Stöd för migrering offline (eng ång slö läge)
+
 I följande tabell visas Azure Database Migration Service stöd för offline-migrering.
 
-| Mål  | source | Support | Status |
+| Mål  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL |  |  |
@@ -47,33 +52,35 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 | **Azure SQL DB MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL |  |  |
 |   | Oracle |  |   |
-| **Azure SQL VM** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
+| **Virtuell Azure SQL-dator** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | Offentlig förhandsversion |
+| **Azure Cosmos DB** | MongoDB | ✔ | Allmän tillgänglighet (GA) |
 | **Azure DB för MySQL** | MySQL |   |   |
 |   | RDS MySQL |   |   |
 | **Azure DB för PostgreSQL** | PostgreSQL |  |
 |  | RDS-PostgreSQL |   |   |
 
-### <a name="online-continuous-sync-migration-support"></a>Migreringsstöd online (kontinuerlig synkronisering)
-I följande tabell visas Azure Database Migration Service stöd för online migreringar.
+### <a name="online-continuous-sync-migration-support"></a>Stöd för migrering online (kontinuerlig synkronisering)
 
-| Mål  | source | Support | Status |
+I följande tabell visas Azure Database Migration Service stöd för online-migreringar.
+
+| Mål  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
-|   | Oracle | ✔ | Privat förhandsgranskning |
-| **Azure SQL VM** | SQL Server |   |   |
+|   | Oracle | ✔ | Privat för hands version |
+| **Virtuell Azure SQL-dator** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | Offentlig förhandsversion |
+| **Azure Cosmos DB** | MongoDB | ✔ | Allmän tillgänglighet (GA) |
 | **Azure DB för MySQL** | MySQL | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS MySQL | ✔ | Allmän tillgänglighet (GA) |
 | **Azure DB för PostgreSQL** | PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
-|   | Oracle | ✔ | Privat förhandsgranskning |
+|   | Oracle | ✔ | Privat för hands version |
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över Azure Database Migration Service och regional tillgänglighet finns i artikeln [vad är Azure Database Migration Service](dms-overview.md).
+
+En översikt över Azure Database Migration Service och regional tillgänglighet finns i artikeln [Vad är Azure Database migration service](dms-overview.md).

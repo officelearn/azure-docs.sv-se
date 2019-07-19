@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: 229814b908861080ff56d6f4bcba25cc996f00ff
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.date: 07/18/2019
+ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228070"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325099"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -278,6 +278,9 @@ Den här sekvensen rekommenderas särskilt för att undvika problemet där den s
 
 > [!NOTE]
 > Om du har skapat en sekundär databas som en del av konfigurationen av redundanskonfiguration bör du inte nedgradera den sekundära databasen. Detta är för att säkerställa att data nivån har tillräckligt med kapacitet för att bearbeta din normala arbets belastning När redundansväxlingen har Aktiver ATS.
+
+> [!IMPORTANT]
+> Det finns för närvarande inte stöd för att uppgradera eller nedgradera en hanterad instans som är medlem i en failover-grupp.
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
 

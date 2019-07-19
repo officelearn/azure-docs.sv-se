@@ -1,74 +1,74 @@
 ---
-title: Köra flera åtgärder från en regel för Azure IoT Central | Microsoft Docs
-description: Kör flera åtgärder från en enda IoT Central-regel och skapa grupper av åtgärder som du kan köra från flera regler.
+title: Köra flera åtgärder från en Azure IoT Central-regel | Microsoft Docs
+description: Kör flera åtgärder från en enda IoT Central regel och skapa återanvändbara grupper av åtgärder som du kan köra från flera regler.
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/19/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60517238"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848998"
 ---
-# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder som ska köras från en eller flera regler
+# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder för att köra från en eller flera regler
 
-*Den här artikeln gäller för builders och administratörer.*
+*Den här artikeln gäller för byggare och administratörer.*
 
-I Azure IoT Central, kan du skapa regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på enhetstelemetri eller händelser. Du kan till exempel meddela en operatör när temperaturen i en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../azure-monitor/overview.md) *åtgärdsgrupper* att bifoga flera åtgärder i en regel för IoT Central. Du kan koppla en åtgärdsgrupp till flera regler. En [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) är en samling felaviseringar som definieras av ägaren av en Azure-prenumeration.
+I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på telemetri eller händelser på enheten. Du kan till exempel meddela en operatör när temperaturen i en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../azure-monitor/overview.md) *Åtgärds grupper* för att koppla flera åtgärder till en IoT Central-regel. Du kan koppla en åtgärds grupp till flera regler. En [Åtgärds grupp](../azure-monitor/platform/action-groups.md) är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ett program för betala per användning
-- En Azure-konto och prenumeration för att skapa och hantera Azure Monitor åtgärdsgrupper
+- Ett program som du betalar per användning
+- Ett Azure-konto och-prenumeration för att skapa och hantera Azure Monitor åtgärds grupper
 
 ## <a name="create-action-groups"></a>Skapa åtgärdsgrupper
 
-Du kan [skapa och hantera åtgärdsgrupper i Azure-portalen](../azure-monitor/platform/action-groups.md) eller med en [Azure Resource Manager-mall](../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Du kan [skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md) eller med en [Azure Resource Manager mall](../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-En åtgärdsgrupp kan:
+En åtgärds grupp kan:
 
-- Skicka meddelanden, till exempel ett e-postmeddelande, ett SMS eller göra ett röstsamtal.
-- Kör en åtgärd, till exempel anropa en webhook.
+- Skicka meddelanden som ett e-postmeddelande, ett SMS eller ett röst samtal.
+- Kör en åtgärd som att anropa en webhook.
 
-I följande skärmbild visas en åtgärdsgrupp som skickar e-post och SMS-meddelanden och anropar en webhook:
+Följande skärm bild visar en åtgärds grupp som skickar e-post och SMS-meddelanden och anropar en webhook:
 
-![Åtgärdsgrupp](media/howto-use-action-groups/actiongroup.png)
+![Åtgärds grupp](media/howto-use-action-groups/actiongroup.png)
 
-Om du vill använda en åtgärdsgrupp i en regel för IoT Central måste åtgärdsgruppen vara i samma Azure-prenumeration som IoT Central-programmet.
+Om du vill använda en åtgärds grupp i en IoT Central regel måste åtgärds gruppen finnas i samma Azure-prenumeration som IoT Central programmet.
 
-## <a name="use-an-action-group"></a>Använda en åtgärdsgrupp
+## <a name="use-an-action-group"></a>Använda en åtgärds grupp
 
-För att använda en åtgärdsgrupp i ditt IoT Central-program måste du först skapa en telemetri- eller händelse regel. När du lägger till en åtgärd för regeln, Välj **Azure Monitor-åtgärdsgrupper**:
+Om du vill använda en åtgärds grupp i ditt IoT Central program måste du först skapa en telemetri eller händelse regel. När du lägger till en åtgärd i regeln väljer du **Azure Monitor åtgärds grupper**:
 
 ![Välj åtgärd](media/howto-use-action-groups/chooseaction.png)
 
-Välj en åtgärdsgrupp från Azure-prenumerationen:
+Välj en åtgärds grupp från din Azure-prenumeration:
 
-![Välj åtgärdsgrupp](media/howto-use-action-groups/chooseactiongroup.png)
+![Välj åtgärds grupp](media/howto-use-action-groups/chooseactiongroup.png)
 
-Välj **Spara**. Åtgärdsgruppen visas nu i listan över åtgärder som ska köras när regeln utlöses:
+Välj **Spara**. Åtgärds gruppen visas nu i listan med åtgärder som ska köras när regeln utlöses:
 
-![Sparade åtgärdsgrupp](media/howto-use-action-groups/savedactiongroup.png)
+![Sparad åtgärds grupp](media/howto-use-action-groups/savedactiongroup.png)
 
-I följande tabell sammanfattas informationen som skickas till åtgärdstyperna som stöds:
+I följande tabell sammanfattas informationen som skickas till de åtgärds typer som stöds:
 
 | Åtgärdstyp | Utdataformat |
 | ----------- | -------------- |
-| E-post       | Standard IoT Central e-postmall |
-| SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
-| Röst       | Azure I.O.T Central-avisering: regeln ”${ruleName}” utlöses på enhet ”${deviceName}” på ${triggerDate} ${triggerTime}, i programmet ${applicationName} |
-| Webhook     | {”schemaId”: "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](#payload)} } |
+| Email       | Standard IoT Central e-postmall |
+| SMS         | Azure IoT Central-avisering: $ {applicationName}-"$ {ruleName}" utlöses på "$ {enhets namn}" på $ {triggerDate} $ {triggerTime} |
+| Röst       | Azure I. O. T Central avisering: regel "$ {ruleName}" utlöst på enheten "$ {enhets namn}" vid $ {triggerDate} $ {triggerTime}, i programmet $ {applicationName} |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](#payload)} } |
 
-Följande text är ett exempel SMS-meddelande från en åtgärdsgrupp:
+Följande text är ett exempel på ett SMS-meddelande från en åtgärds grupp:
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
 
-<a id="payload"></a> Följande JSON visar ett exempel webhook-nyttolasten för åtgärd:
+<a id="payload"></a>Följande JSON visar ett exempel på en nytto last för webhook-åtgärd:
 
 ```json
 {
@@ -111,4 +111,4 @@ Följande text är ett exempel SMS-meddelande från en åtgärdsgrupp:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder åtgärdsgrupper med regler, föreslagna nästa steg är att lära dig hur du [hantera dina enheter](howto-manage-devices.md).
+Nu när du har lärt dig hur du använder åtgärds grupper med regler, är det föreslagna nästa steg att lära dig hur du [hanterar dina enheter](howto-manage-devices.md).

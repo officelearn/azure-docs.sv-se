@@ -1,32 +1,33 @@
 ---
 title: Uppdatera behållare i Azure Container Instances
-description: Lär dig hur du uppdaterar behållare som körs i dina grupper för Azure Container Instances-behållare.
+description: Lär dig hur du uppdaterar pågående behållare i Azure Container Instances behållar grupper.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686899"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325537"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera behållare i Azure Container Instances
 
-Under normal drift av dina behållarinstanser kan det vara nödvändigt att uppdatera behållare i en behållargrupp. Du kanske exempelvis vill uppdatera versionsnumret för avbildningen, ändra ett DNS-namn, uppdatera miljövariabler eller uppdatera tillståndet för en behållare som vars program har kraschat.
+Under normal drift av dina behållar instanser kan du se till att du behöver uppdatera behållarna i en behållar grupp. Till exempel kanske du vill uppdatera avbildnings versionen, ändra ett DNS-namn, uppdatera miljövariabler eller uppdatera status för en behållare vars program har kraschat.
 
-## <a name="update-a-container-group"></a>Uppdatera en behållargrupp
+## <a name="update-a-container-group"></a>Uppdatera en behållar grupp
 
-Uppdatera behållare i en behållargrupp genom att omdistribuera en befintlig grupp med minst en ändrad egenskap. När du uppdaterar en behållargrupp alla behållare som körs i gruppen har startats om på plats.
+Uppdatera behållarna i en behållar grupp genom att distribuera om en befintlig grupp med minst en modifierad egenskap. När du uppdaterar en behållar grupp startas alla behållare som körs i gruppen om på plats.
 
-Distribuera om en befintlig behållargrupp genom att utfärda kommandot för att skapa (eller Använd Azure portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap i gruppen när du utfärdar kommandot create att utlösa omdistributionen. Inte alla egenskaperna för behållargruppen är giltiga för omdistribution. Se [egenskaper som kräver delete](#properties-that-require-container-delete) en lista över egenskaper som inte stöds.
+Distribuera om en befintlig behållar grupp genom att utfärda kommandot CREATE (eller använda Azure Portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap för gruppen när du utfärdar kommandot CREATE för att utlösa omdistributionen. Alla behållar grupp egenskaper är inte giltiga för omdistribution. Se [egenskaper som kräver ta bort](#properties-that-require-container-delete) för en lista med egenskaper som inte stöds.
 
-I följande Azure CLI-exempel uppdaterar en behållargrupp med en ny DNS-namnetikett. Eftersom etikettegenskapen för DNS-namn för gruppen ändras behållargruppen omdistribueras och dess behållare startas om.
+Följande Azure CLI-exempel uppdaterar en behållar grupp med en ny DNS-benämning. Eftersom egenskaps egenskapen för DNS-namn för gruppen ändras omdistribueras behållar gruppen och dess behållare startas om.
 
-Inledande distribution med DNS-Namnetiketten *myapplication mellanlagring*:
+Första distribution med DNS-namn etikett för *program-mellanlagring*:
 
 ```azurecli-interactive
 # Create container group
@@ -34,7 +35,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Uppdatera behållargruppen med en ny DNS-Namnetiketten *myapplication*:
+Uppdatera behållar gruppen med en ny DNS-benämning, mina *program*:
 
 ```azurecli-interactive
 # Update container group (restarts container)
@@ -42,27 +43,27 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
 
-## <a name="update-benefits"></a>Uppdatera fördelar
+## <a name="update-benefits"></a>Uppdatera förmåner
 
-Den främsta fördelen för att uppdatera en befintlig behållargrupp är snabbare distribution. När du distribuerar om en befintlig behållargrupp hämtas dess behållare avbildningslager från de som cachelagras av föregående distributionen. I stället för att hämta alla avbildningslager ny från registret som görs med nya distributioner, hämtas endast ändrade lager (om sådan finns).
+Den främsta fördelen med att uppdatera en befintlig behållar grupp är snabbare distribution. När du distribuerar om en befintlig behållar grupp, hämtas dess behållar avbildnings lager från de som cachelagrats av den tidigare distributionen. I stället för att hämta alla bild lager från registret när det är gjort med nya distributioner, hämtas endast ändrade lager.
 
-Programmen baserat på större behållaravbildningar som Windows Server Core kan se viktig förbättringar i distributionen hastighet när du uppdaterar i stället för ta bort och distribuera nya.
+Program som baseras på större behållar avbildningar som Windows Server Core kan se avsevärd förbättring av distributions hastigheten när du uppdaterar i stället för att ta bort och distribuera nya.
 
 ## <a name="limitations"></a>Begränsningar
 
-Inte alla egenskaper för en behållargrupp har stöd för uppdateringar. Om du vill ändra vissa egenskaper för en behållargrupp måste du först ta bort och sedan distribuera om gruppen. Mer information finns i [egenskaper som kräver behållare ta bort](#properties-that-require-container-delete).
+Alla egenskaper för en behållar grupp har inte stöd för uppdateringar. Om du vill ändra vissa egenskaper för en behållar grupp måste du först ta bort och sedan distribuera om gruppen. Mer information finns i [egenskaper som kräver borttagning av behållare](#properties-that-require-container-delete).
 
-Alla behållare i en behållargrupp startas om när du uppdaterar behållargruppen. Du kan inte utföra en uppdatering eller på plats måste starta om en specifik behållare i en grupp med flera behållare.
+Alla behållare i en behållar grupp startas om när du uppdaterar behållar gruppen. Det går inte att utföra en uppdatering eller omstart på plats av en speciell behållare i en grupp med flera behållare.
 
-IP-adressen för en behållare vanligtvis ändras inte mellan uppdateringar, men det har inte säkert förblir oförändrade. Så länge behållargruppen har distribuerats till samma underliggande värd, behåller sin IP-adress i behållargruppen. Även om det är sällsynt, och även om Azure Container Instances gör allt för att distribuera om till samma värd, finns det vissa Azure-interna händelser som kan orsaka omdistribution till en annan värd. För att minimera detta problem genom att alltid använda en DNS-Namnetiketten för container instances.
+IP-adressen för en behållare ändras normalt inte mellan uppdateringar, men det är inte säkert att den är oförändrad. Så länge behållar gruppen distribueras till samma underliggande värd, behåller behållar gruppen sin IP-adress. Även om det sällsynta, och medan Azure Container Instances gör att omdistribution till samma värd, finns det vissa Azure-interna händelser som kan leda till omdistribution till en annan värd. Använd alltid en DNS-etikett för behållar instanser för att undvika det här problemet.
 
-Avslutade eller borttagna behållargrupper kan inte uppdateras. När en behållargrupp har stoppats (finns i den *Uppsagd* tillstånd) eller har tagits bort, gruppen har distribuerats när nya.
+Avslutade eller borttagna behållar grupper kan inte uppdateras. När en behållar grupp har stoppats (är i *avslutat* tillstånd) eller har tagits bort, distribueras gruppen som ny.
 
-## <a name="properties-that-require-container-delete"></a>Egenskaper som kräver container delete
+## <a name="properties-that-require-container-delete"></a>Egenskaper som kräver borttagning av behållare
 
-Som tidigare nämnts kan du uppdatera alla egenskaperna för behållargruppen. Till exempel för att ändra portarna eller starta om princip för en behållare, måste du först ta bort behållargruppen och sedan skapa det igen.
+Som tidigare nämnts kan inte alla behållar grupps egenskaper uppdateras. Om du till exempel vill ändra portarna eller starta om principen för en behållare måste du först ta bort behållar gruppen och sedan skapa den igen.
 
-De här egenskaperna kräver borttagning av behållare innan omdistribution:
+De här egenskaperna kräver att behållar gruppen tas bort innan omdistribution:
 
 * OS-typ
 * Processor
@@ -70,11 +71,11 @@ De här egenskaperna kräver borttagning av behållare innan omdistribution:
 * Starta om princip
 * Portar
 
-När du tar bort en behållargrupp och återskapa den, har det inte ”omdistribueras”, men skapas nya. Alla avbildningslager hämtas ny från registret, inte från cachelagrade för en tidigare distribution. IP-adressen för behållaren kan också ändras på grund av att distribueras till en annan underliggande värd.
+När du tar bort en behållar grupp och återskapar den, är den inte "omdistribuerad", men skapade ny. Alla bild lager hämtas från registret, inte från de som cachelagrats av en tidigare distribution. IP-adressen för behållaren kan också ändras på grund av att den distribueras till en annan underliggande värd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nämns flera gånger i den här artikeln är den **behållargruppen**. Varje behållare i Azure Container Instances är distribuerat i en behållargrupp och behållargrupper kan innehålla flera behållare.
+Som nämns flera gånger i den här artikeln är behållar **gruppen**. Varje behållare i Azure Container Instances distribueras i en behållar grupp och behållar grupper kan innehålla fler än en behållare.
 
 [Behållargrupper i Azure Container Instances](container-instances-container-groups.md)
 

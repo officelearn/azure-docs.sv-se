@@ -1,6 +1,6 @@
 ---
-title: Hur du fråga loggar från Azure Monitor för behållare | Microsoft Docs
-description: Azure Monitor för behållare samlar in data för mått och loggfiler och den här artikeln beskriver posterna och innehåller exempelfrågor.
+title: Så här frågar du efter loggar från Azure Monitor för behållare | Microsoft Docs
+description: Azure Monitor för behållare samlar in Mät värden och loggdata och den här artikeln beskriver posterna och innehåller exempel frågor.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,17 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494781"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989817"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Hur du frågar loggar från Azure Monitor för behållare
-Azure Monitor för behållare samlar in prestandamått och lagerdata hälsotillståndsinformation från behållare-värdar och behållare och vidarebefordrar den till arbetsytan Log Analytics i Azure Monitor. Data som samlas in var tredje minut. Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
+# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
+
+Azure Monitor för behållare samlar in prestanda statistik, inventerings data och hälso tillstånds information från behållar värdar och behållare, och vidarebefordrar den till arbets ytan Log Analytics i Azure Monitor. Data som samlas in var tredje minut. Dessa data är tillgängliga för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
 
 ## <a name="container-records"></a>Behållarposter
 
@@ -33,24 +34,32 @@ Exempel på poster som samlas in av Azure Monitor för behållare och vilka data
 | Behållare-inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
 | Behållarloggen | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, namn, LogEntrySource, LogEntry, SourceSystem, behållar-ID |
 | Behållarnodslager | `ContainerNodeInventory`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Inventering av poddar i ett Kubernetes-kluster | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus,  ContainerStatusReason, behållar-ID, ContainerName, namn, PodLabel, Namespace, PodStatus, klusternamn, PodIp, SourceSystem |
+| Inventering av poddar i ett Kubernetes-kluster | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, container status,  ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, kluster namn, PodIp, SourceSystem |
 | Inventering av noder tillhör ett Kubernetes-kluster | `KubeNodeInventory` | TimeGenerated, dator, klusternamn, ClusterId, LastTransitionTimeReady, etiketter, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes-händelser | `KubeEvents` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
 | Tjänster i Kubernetes-kluster | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Prestandamått för noder som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SNode” | Datorn, objektnamn, CounterName &#40;cpuAllocatableBytes memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
-| Prestandamått för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40; cpuRequestNanoCores memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
-| InsightsMetrics | Computer, Name, Namespace, Origin, SourceSystem, Tags, TimeGenerated, Type, Value |
+| Prestandamått för noder som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SNode” | Dator, ObjectName, CounterName &#40;CpuAllocatableBytes, MemoryAllocatableBytes, CpuCapacityNanoCores, MemoryCapacityBytes, MemoryRssBytes, CpuUsageNanoCores, MemoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Prestandamått för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Anpassade mått |`InsightsMetrics` | Dator, namn, namn område, ursprung, SourceSystem, Taggar<sup>1</sup>, TimeGenerated, typ, va, _ResourceId | 
+
+<sup>1</sup> egenskapen *taggar* representerar [flera dimensioner](../platform/data-platform-metrics.md#multi-dimensional-metrics) för motsvarande mått. Mer information om de mått som samlas in och lagras i `InsightsMetrics` tabellen och en beskrivning av post egenskaperna finns i [Översikt över InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+
+>[!NOTE]
+>Stöd för Prometheus är en funktion i offentlig för hands version för tillfället.
+>
 
 ## <a name="search-logs-to-analyze-data"></a>Sök i loggar att analysera data
-Azure Monitor-loggar kan hjälpa dig att söka trender, diagnostisera flaskhalsar, prognoser och korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt. Fördefinierade loggsökningar tillhandahålls för du omedelbart börja använda eller anpassa för att returnera informationen som du vill. 
+
+Azure Monitor loggar kan hjälpa dig att söka efter trender, diagnostisera Flask halsar, prognostisera eller korrelera data som kan hjälpa dig att avgöra om den aktuella kluster konfigurationen fungerar optimalt. Fördefinierade loggsökningar tillhandahålls för du omedelbart börja använda eller anpassa för att returnera informationen som du vill.
 
 Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **visa Kubernetes-händelseloggar** eller **visa behållarloggarna** alternativet i förhandsgranskningsfönstret. Den **Loggsökning** visas till höger om Azure portal sidan som du var på.
 
 ![Analysera data i Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
-Utdata för container-loggar som vidarebefordras till din arbetsyta är STDOUT och STDERR. Eftersom Azure Monitor övervakar Azure-hanterade Kubernetes (AKS), Kube system som inte samlas in idag på grund av den stora mängden skapas. 
+Behållaren loggar utdata som vidarebefordras till din arbets yta är STDOUT och STDERR. Eftersom Azure Monitor övervakar Azure-hanterade Kubernetes (AKS), Kube system som inte samlas in idag på grund av den stora mängden skapas. 
 
 ### <a name="example-log-search-queries"></a>Exempel loggsökningsfrågor
+
 Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem efter dina behov. För att skapa mer avancerade frågor kan experimentera du med följande exempelfrågor:
 
 | Söka i data | Beskrivning | 
@@ -61,5 +70,38 @@ Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ä
 | **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”cpuUsageNanoCores” &#124; sammanfatta AvgCPUUsageNanoCores = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
 | **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
 
+Följande exempel är en Prometheus mått fråga. De mått som samlas in är räknare och för att fastställa hur många fel som inträffade inom en viss tids period måste vi subtrahera från antalet. Data uppsättningen partitioneras av *partitionKey*, vilket innebär för varje unik uppsättning *namn*, *värdnamn*och *OperationType*, och vi kör en under fråga på den uppsättning som beställer loggarna efter *TimeGenerated*, en process som gör det möjligt att hitta föregående *TimeGenerated* och det antal som registrerats för den tiden för att fastställa en kostnad.
+
+```
+let data = InsightsMetrics 
+| where Namespace contains 'prometheus' 
+| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
+| extend Tags = todynamic(Tags) 
+| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
+| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
+| partition by partitionKey ( 
+    order by TimeGenerated asc 
+    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
+    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
+    | where isnull(Rate) == false 
+) 
+| project TimeGenerated, Name, HostName, OperationType, Rate; 
+let operationData = data 
+| where Name == 'kubelet_docker_operations' 
+| project-rename OperationCount = Rate; 
+let errorData = data 
+| where Name == 'kubelet_docker_operations_errors' 
+| project-rename ErrorCount = Rate; 
+operationData 
+| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
+| project-away TimeGenerated1, Name1, HostName1, OperationType1 
+| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+```
+
+Resultatet kommer att visa resultat som liknar följande:
+
+![Logga frågeresultaten för data inmatnings volym](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+
 ## <a name="next-steps"></a>Nästa steg
-Azure Monitor för behållare inkluderar inte en fördefinierad uppsättning aviseringar. Granska den [skapa aviseringar med Azure Monitor för behållare](container-insights-alerts.md) att lära dig hur du skapar rekommenderade aviseringar för hög användning av processor och minne för dina DevOps eller operativa processer och procedurer. 
+
+Azure Monitor för behållare innehåller inte en fördefinierad uppsättning aviseringar. Mer information om hur du skapar rekommenderade aviseringar för hög processor-och minnes användning finns i avsnittet [skapa prestanda aviseringar med Azure Monitor för behållare](container-insights-alerts.md) som stöder DevOps eller operativa processer och procedurer 

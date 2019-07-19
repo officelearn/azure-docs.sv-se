@@ -1,71 +1,71 @@
 ---
-title: Förstå enheten mall versionshantering för dina appar med Azure IoT Central | Microsoft Docs
-description: Iterera över mallarna för din enhet genom att skapa nya versioner och utan att påverka dina live anslutna enheter
+title: Förstå versions hantering av enhets mallar för dina Azure IoT Central-appar | Microsoft Docs
+description: Iterera över dina enhetsspecifika mallar genom att skapa nya versioner och utan att påverka dina Live-anslutna enheter
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509734"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848990"
 ---
-# <a name="create-a-new-device-template-version"></a>Skapa en ny enhet mallversion
+# <a name="create-a-new-device-template-version"></a>Skapa en ny version av enhets mal len
 
-Azure IoT Central kan snabb utveckling av IoT-program. Du kan snabbt iterera över din enhet mallar som genom att lägga till, redigera eller ta bort mätning av faktisk användning, inställningar eller egenskaper. Några av de här ändringarna kan vara störande för de anslutna enheterna. Azure IoT Central identifierar dessa ändringar och gör det möjligt att distribuera uppdateringarna på ett säkert sätt till enheter.
+Med Azure IoT Central kan du snabbt utveckla IoT-program. Du kan snabbt iterera över dina mallar för enhets mal len genom att lägga till, redigera eller ta bort mätningar, inställningar eller egenskaper. Några av de här ändringarna kan vara påträngande för de enheter som är anslutna för tillfället. Azure IoT Central identifierar dessa ändringar och gör det möjligt att distribuera uppdateringarna till enheterna på ett säkert sätt.
 
-En mall för enheten har ett versionsnummer när du skapar den. Som standard är versionsnumret 1.0.0. Om du redigerar en mall för enheten, och om den ändringen kan påverka live-anslutna enheter, Azure IoT Central uppmanas du att skapa en ny enhet mallversion.
-
-> [!NOTE]
-> Mer information om hur du skapar en mall för enheten finns [ställa in en mall för enhet](howto-set-up-template.md)
-
-## <a name="changes-that-prompt-a-version-change"></a>Ändringar som uppmanar en ändring av version
-
-I allmänhet uppmana ändringar i inställningar eller egenskaperna för din mall för enheten versionen ändras.
+En enhets mall har ett versions nummer när du skapar den. Versions numret är som standard 1.0.0. Om du redigerar en enhets mall och om denna ändring kan påverka Live-anslutna enheter, så blir det möjligt för Azure IoT Central att skapa en ny version av enhets mal len.
 
 > [!NOTE]
-> Fråga inte ändringar som gjorts i mallen för enheten för att skapa en ny version när ingen enhet eller på de flesta en enhet är ansluten.
+> Mer information om hur du skapar en enhets mall finns i [Konfigurera en enhets mall](howto-set-up-template.md)
 
-I följande lista beskrivs de användaråtgärder som kräver att en ny version:
+## <a name="changes-that-prompt-a-version-change"></a>Ändringar som efterfrågar en versions ändring
 
-* Egenskaper (krävs)
-    * Att lägga till eller ta bort en obligatorisk egenskap
-    * Ändra namnet på en egenskap, fältnamn som används av dina enheter för att skicka meddelanden.
+I allmänna ändringar av inställningar eller egenskaper för enhets mal len visas en versions ändring.
+
+> [!NOTE]
+> Ändringar som görs i enhets mal len kommer inte att uppmanas att skapa en ny version när enheten eller en enhet är ansluten.
+
+I följande lista beskrivs de användar åtgärder som kan kräva en ny version:
+
+* Egenskaper (obligatoriskt)
+    * Lägga till eller ta bort en obligatorisk egenskap
+    * Ändra fält namnet för en egenskap, fält namn som används av enheterna för att skicka meddelanden.
 *  Egenskaper (valfritt)
     * Tar bort en valfri egenskap
-    * Ändra namnet på en egenskap, fältnamn som används av dina enheter för att skicka meddelanden.
+    * Ändra fält namnet för en egenskap, fält namn som används av enheterna för att skicka meddelanden.
     * Ändra en valfri egenskap till en obligatorisk egenskap
 *  Inställningar
-    * Att lägga till eller ta bort en inställning
-    * Ändra namnet på en inställning, fältnamn som används av dina enheter för att skicka och ta emot meddelanden.
+    * Lägga till eller ta bort en inställning
+    * Ändra fält namnet för en inställning, fält namn som används av dina enheter för att skicka och ta emot meddelanden.
 
-## <a name="what-happens-on-version-change"></a>Vad händer vid ändring av version?
+## <a name="what-happens-on-version-change"></a>Vad händer om versionen ändras?
 
-Vad händer med regler och enheten instrumentpaneler när versionen ändras?
+Vad händer med regler och enhets instrument paneler när det finns en versions ändring?
 
-**Regler** kan innehålla villkor som är beroende av egenskaper. Om du har tagit bort en eller flera av de här egenskaperna, kan de här reglerna delas i din nya mall enhetsversion. Du kan gå till dessa specifika regler och uppdatera villkor för att åtgärda reglerna. Regler för en tidigare version bör fungera utan att påverka.
+**Regler** kan innehålla villkor som är beroende av egenskaper. Om du har tagit bort en eller flera av dessa egenskaper kan dessa regler brytas i den nya versionen av enhets mal len. Du kan gå till dessa regler och uppdatera villkoren för att åtgärda reglerna. Regler för din tidigare version bör fungera utan påverkan.
 
-**Enheten instrumentpaneler** kan innehålla flera typer av paneler. Vissa av paneler kan innehålla inställningar och egenskaper. När en egenskap eller en inställning som används i en panel tas bort, bryts panelen helt eller delvis. Du kan gå till panelen och åtgärda problemet antingen genom att ta bort panelen eller uppdaterar innehållet i panelen.
+**Enhets instrument paneler** kan innehålla flera typer av paneler. Några av panelerna kan innehålla inställningar och egenskaper. När en egenskap eller inställning som används i en panel tas bort, är panelen helt eller delvis bruten. Du kan gå till panelen och åtgärda problemet antingen genom att ta bort panelen eller uppdatera innehållet i panelen.
 
-## <a name="migrate-a-device-across-device-template-versions"></a>Migrera en enhet över mallversioner för enhet
+## <a name="migrate-a-device-across-device-template-versions"></a>Migrera en enhet över enhets mal len versioner
 
-Du kan skapa flera versioner av mallen för enheten. Med tiden har du flera anslutna enheter med hjälp av dessa mallar för enheten. Du kan migrera enheter från en version av din enhet-mall till en annan. Följande steg beskriver hur du migrerar en enhet:
+Du kan skapa flera versioner av enhets mal len. Med tiden kommer du att ha flera anslutna enheter som använder dessa enhets mallar. Du kan migrera enheter från en version av din enhets mall till en annan. Följande steg beskriver hur du migrerar en enhet:
 
-1. Gå till den **Device Explorer** sidan.
-1. Välj den enhet som du behöver migrera till en annan version.
-1. Välj **migrera enheten**.
-1. Välj det lägre versionsnumret som du vill migrera till enheten och välj **migrera**.
+1. Gå till sidan **Device Explorer** .
+1. Välj den enhet som du vill migrera till en annan version.
+1. Välj **migrera enhet**.
+1. Välj det versions nummer som du vill migrera enheten till och välj **migrera**.
 
 ![Så här migrerar du en enhet](media/howto-version-device-template/pick-version.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder enheten mallversioner i Azure IoT Central programmet, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du använder versioner av enhets mallar i ditt Azure IoT Central-program är du det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Hur du skapar regler för telemetri](howto-create-telemetry-rules.md)
+> [Skapa regler för telemetri](howto-create-telemetry-rules.md)

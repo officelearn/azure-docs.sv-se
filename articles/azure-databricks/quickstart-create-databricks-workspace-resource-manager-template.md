@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/12/2018
-ms.openlocfilehash: bee2be55ef34de90d7fec23844e5a2604e6a1294
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 07/12/2019
+ms.openlocfilehash: 612c249abc3124e33badebd545f7220dd4cfc593
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126723"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311728"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
-I den här snabbstarten får du se hur du skapar en Azure Databricks-arbetsyta med en Azure Resource Manager-mall. Du kan använda arbetsytan för att skapa ett Apache Spark-kluster och köra ett Spark-jobb i Databricks-klustret. Mer information om Azure Databricks finns i [Vad är Azure Databricks?](what-is-azure-databricks.md)
+I den här snabb starten använder du en Azure Resource Manager-mall för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från en kostnads fri/betald användning baserat på demografiska.
 
-I den här snabbstarten analyserar du, som en del av Spark-jobbet, prenumerationsdata för en radiokanal, så att du får insikter om kostnadsfri/betald användning baserat på demografiska data.
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
-> [!Note]
-> Den här självstudien inte kan utföras med hjälp av **Azure kostnadsfria Testprenumerationen**.
-> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
+Logga in på [Azure Portal](https://portal.azure.com). Det går inte att utföra den här självstudien med Azures kostnads fria utvärderings prenumeration. Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -47,7 +47,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
    |---------|---------|
    |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-   |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+   |**Location**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
    |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -108,7 +108,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
    I följande kodfragment ersätter du `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med lämpliga värden för ditt Azure Storage-konto. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen.
 
-   * **Montera lagringskontot med DBFS (rekommenderas)**. I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
+   * **Montera lagringskontot med DBFS (rekommenderas)** . I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
 
           dbutils.fs.mount(
             source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",

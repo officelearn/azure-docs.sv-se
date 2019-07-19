@@ -1,48 +1,48 @@
 ---
-title: Azure Container Registry format
-description: Läs mer om content de format som stöds i Azure Container Registry.
+title: Azure Container Registry innehålls format
+description: Lär dig mer om innehålls format som stöds i Azure Container Registry.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: danlep
-ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c804dd7b73ea4a51c02c8b342a4ac60d992ec7c5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827467"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310681"
 ---
-# <a name="content-formats-supported-in-azure-container-registry"></a>Innehåll format som stöds i Azure Container Registry
+# <a name="content-formats-supported-in-azure-container-registry"></a>Innehålls format som stöds i Azure Container Registry
 
-Använda en privat lagringsplats i Azure Container Registry för att hantera något av följande innehåll format. 
+Använd ett privat lager i Azure Container Registry för att hantera något av följande innehålls format. 
 
-## <a name="docker-compatible-container-images"></a>Docker-kompatibla behållaravbildningar
+## <a name="docker-compatible-container-images"></a>Docker-kompatibla behållar avbildningar
 
-De följande bildformat för Docker-behållaren stöds:
+Följande versioner av Docker-behållar avbildningar stöds:
 
-* [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
+* [Docker-avbildnings manifest v2, schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker-avbildning Manifest V2, schemat 2](https://docs.docker.com/registry/spec/manifest-v2-2/) -innehåller Manifest visas som tillåter register att lagra flera plattformar avbildningar i en enda ”image: tag”-referens
+* [Docker-avbildnings manifest v2, schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) – innehåller manifest listor som tillåter register att lagra avbildningar av flera plattformar under en enda "image: tag"-referens
 
-## <a name="oci-images"></a>OCI avbildningar
+## <a name="oci-images"></a>OCI-avbildningar
 
-Azure Container Registry har även stöd för avbildningar som uppfyller den [öppna behållare initiativ (OCI) formatspecifikationen](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paketering format är [Singularity bild Format (så)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry stöder också bilder som uppfyller specifikationen för [avbildnings formatet Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paket formaten innehåller ett [bild format för bilder (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
 
 ## <a name="helm-charts"></a>Helm-diagram
 
-Azure Container Registry kan vara värd för databaser för [Helm diagram](https://helm.sh/), en förpackningsformat som används för att snabbt hantera och distribuera program för Kubernetes. [Helm klienten](https://docs.helm.sh/using_helm/#installing-helm) version 2.11.0 eller senare stöds.
+Azure Container Registry kan vara värd för databaser för [Helm-diagram](https://helm.sh/), ett paket format som används för att snabbt hantera och distribuera program för Kubernetes. [Helm](https://docs.helm.sh/using_helm/#installing-helm) -2.11.0 eller senare stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se hur du [skicka och hämta](container-registry-get-started-docker-cli.md) avbildningar med Azure Container Registry.
+* Se hur du [push-överför och hämtar](container-registry-get-started-docker-cli.md) bilder med Azure Container Registry.
 
-* Använd [ACR uppgifter](container-registry-tasks-overview.md) att skapa och testa behållaravbildningar. 
+* Använd [ACR-uppgifter](container-registry-tasks-overview.md) för att bygga och testa behållar avbildningar. 
 
-* Använd den [Moby BuildKit](https://github.com/moby/buildkit) att bygga och paketera behållare i OCI format.
+* Använd [Moby-BuildKit](https://github.com/moby/buildkit) för att bygga och paketera behållare i OCI-format.
 
-* Konfigurera en [Helm-lagringsplatsen](container-registry-helm-repos.md) i Azure Container Registry. 
+* Konfigurera en [Helm-lagringsplats](container-registry-helm-repos.md) som finns i Azure Container Registry. 
 
 

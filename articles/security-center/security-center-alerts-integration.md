@@ -1,6 +1,6 @@
 ---
-title: Security Center-integrering med Azure Security-produkter | Microsoft Docs
-description: Detta avsnitt visar Azure säkerhetsprodukter som har integrerats med Azure Security Center.
+title: Security Center integrering med Azures säkerhets produkter | Microsoft Docs
+description: I det här avsnittet presenteras Azure-säkerhetsprodukter som har integrerats med Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,41 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 805c770f1a7e9bb4e0619b27ac937a2451421dc6
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
-ms.translationtype: MT
+ms.author: v-mohabe
+ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571743"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295740"
 ---
-# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Security Center-integrering med Azure Security-produkter i ASC
+# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Security Center integrering med Azures säkerhets produkter i ASC
 
-Security Center erbjuder kunderna med ytterligare Microsoft-licenser för att publicera sina resultat till Security Center och visa dem i en konsoliderad sätt.
+Security Center erbjuder kunder ytterligare Microsoft-licenser för att publicera sina resultat för att Security Center och visa dem på ett konsoliderat sätt.
 
 * [Azure WAF](#azure-waf)
 * [Azure DDoS](#azure-ddos)
 
-## Azure WAF <a name="azure-waf"></a>
+## Azure-WAF<a name="azure-waf"></a>
 
 Azure Application Gateway erbjuder en WAF (brandvägg för webbaserade program) som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem.
 
-Webbprogram som alltmer omfattas av skadliga attacker som utnyttjar ofta kända sårbarheter. Application Gateway WAF är baserad på Core Rule ange (CRS) 3.0 eller 2.2.9 från den öppna OWASP Web Application Security Project (). WAF uppdateras automatiskt för att skydda mot nya säkerhetsrisker med ingen ytterligare konfiguration krävs. Aviseringar som genereras av WAF strömmas till Security Center. Mer information om aviseringar som genereras av WAF finns i den här [artikeln](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
+Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. Application Gateway-WAF baseras på kärn regel uppsättningen (DATORISERAt) 3,0 eller 2.2.9 från det öppna webb programmet säkerhets projekt (OWASP). WAF uppdateras automatiskt för att skydda mot nya sårbarheter, utan ytterligare konfiguration som behövs. Aviseringar som genereras av WAF strömmas till Security Center. Mer information om de aviseringar som genererats av WAF finns i den här [artikeln](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
 
 ## Azure DDoS <a name="azure-ddos"></a>
 
-Distribuerade attacker denial of service (DDoS) har visat sig vara enkelt att köra. De har därför blivit en bra säkerhetsproblematik för kunder som migrerar sina program till molnet. 
+DDoS-attacker (distributed denial of Service) är kända för att vara lätta att köra. Därför har de blivit ett bra säkerhets problem för kunder som flyttar sina program till molnet. 
 
-En DDoS-attack syftar till att göra slut på ett programs resurser, så att programmet blir otillgängligt för behöriga användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås via Internet.
+En DDoS-attack syftar till att göra slut på ett programs resurser, så att programmet blir otillgängligt för behöriga användare. DDoS-attacker kan rikta in sig på alla slut punkter som kan nås via Internet.
 
-Azure DDoS protection, tillsammans med programmet Metodtips för design, skapa skydd mot DDoS-attacker. Azure DDoS protection erbjuder olika tjänstnivåer. Mer information finns i [översikt över Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Azure DDoS Protection, kombinerat med bästa praxis för program design, ger ett försvar mot DDoS-attacker. Azure DDoS Protection tillhandahåller olika tjänst nivåer. Mer information finns i [Azure DDoS Protection översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
-DDoS Protection Standard kan minimera följande typer av attacker:
+DDoS Protection standard kan minimera följande typer av attacker:
 
 > [!div class="mx-tableFixed"]
 
 |Varning|Beskrivning|
 |---|---|
-|**Överför-attack upptäcktes**|Den här attack målet är att översvämma nätverksnivå med en betydande mängd till synes legitima trafik. Den innehåller UDP översvämningar, förstärkning översvämning och andra falska paket översvämningar. DDoS Protection Standard minskar risken för potentiella flera gigabyte angrepp genom att absorbera och Skrubba dem, med Azures globala nätverk skala automatiskt.|
-|**Protokoll-attack upptäcktes**|Dessa attacker, kanske ett mål användas, genom att utnyttja en svaghet i layer 3 och layer 4-protokollstacken. Den innehåller, SYN-översvämning attacker, reflektionsattacker och andra protokoll-attacker. DDoS Protection Standard minskar risken för sådana attacker så skilja mellan skadlig och legitima trafik genom att interagera med klienten och blockera skadlig trafik.|
-|**Resurs (program) layer-attack upptäcktes**|Dessa attacker rikta web application paket, för att störa överföring av data mellan värdar. Attackerna omfattar HTTP protokollbrott SQL injection, cross site scripting och andra layer 7-attacker. Använda Azure Application Gateway waf, med DDoS Protection Standard för att skydda mot angrepp. Det finns även andra leverantörers webb-programmet brandväggen erbjudanden på Azure Marketplace.|
+|**En volym attack upptäcktes**|Det här angrepps målet är att överbelasta nätverks lagret med en stor mängd som verkar vara legitim trafik. Den innehåller UDP-översvämmare, förstärknings belastningar och andra översvämmade paket belastningar. DDoS Protection standard minskar risken för angrepp med flera gigabyte genom att absorbera och rensa dem, med Azures globala nätverks skalning automatiskt.|
+|**Protokoll attack identifierad**|Dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. Den innehåller, SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik.|
+|**Resurs (program) lager attack har identifierats**|Dessa angrepp riktar sig mot webb program paket, för att avbryta överföring av data mellan värdar. Vid angrepp ingår HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd brand väggen för webbaserade Azure Application Gateway, med DDoS Protection standard, för att skydda dig mot dessa attacker. Det finns även brand Väggs erbjudanden från tredje part som är tillgängliga på Azure Marketplace.|

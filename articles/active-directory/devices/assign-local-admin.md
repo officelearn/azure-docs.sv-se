@@ -1,6 +1,6 @@
 ---
-title: Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter | Microsoft Docs
-description: Lär dig hur du tilldelar Azure-roller till den lokala administratörsgruppen för en Windows-enhet.
+title: Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter | Microsoft Docs
+description: Lär dig hur du tilldelar Azure-roller till den lokala gruppen Administratörer på en Windows-enhet.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,86 +11,86 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b71b4656181da328cf630cefa4d25cb4f4efda
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482120"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983670"
 ---
-# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
+# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
-Du måste vara medlem i gruppen lokala administratörer för att hantera en Windows-enhet. Som en del av processen i Azure Active Directory (AD Azure) uppdaterar Azure AD medlemskap i den här gruppen på en enhet. Du kan anpassa medlemskap uppdateringen för att uppfylla dina affärsbehov. Uppdateringen av gruppmedlemskap är till exempel användbart om du vill aktivera supportpersonalen att utföra uppgifter som kräver administratörsbehörighet på en enhet.
+Om du vill hantera en Windows-enhet måste du vara medlem i den lokala gruppen Administratörer. Som en del av den Azure Active Directory (Azure AD) Join-processen uppdaterar Azure AD medlemskapet för den här gruppen på en enhet. Du kan anpassa medlemskaps uppdateringen så att den uppfyller dina affärs behov. En medlemskaps uppdatering är till exempel användbart om du vill att supportavdelningen ska kunna utföra uppgifter som kräver administratörs behörighet på en enhet.
 
-Den här artikeln förklarar hur medlemskap uppdateringen fungerar och hur du kan anpassa den under en Azure AD Join. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
+I den här artikeln förklaras hur medlemskaps uppdateringen fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-När du ansluter en Windows-enhet med Azure AD med en Azure AD-anslutning, lägger Azure AD följande säkerhetsprinciper till den lokala administratörsgruppen på enheten:
+När du ansluter en Windows-enhet med Azure AD med hjälp av en Azure AD-anslutning lägger Azure AD till följande säkerhets principer i den lokala gruppen Administratörer på enheten:
 
-- Den globala administratörsrollen för Azure AD
-- Administratörsrollen för Azure AD-enhet 
-- Användaren som utför Azure AD-anslutning   
+- Rollen global administratör för Azure AD
+- Administratörs rollen för Azure AD-enhet 
+- Användaren som utför Azure AD Join   
 
-Genom att lägga till Azure AD-roller till den lokala administratörsgruppen, kan du uppdatera de användare som kan hantera en enhet när som helst i Azure AD utan att ändra något på enheten. För närvarande kan tilldela du inte en administratörsroll.
-Azure AD lägger också till administratörsrollen för Azure AD-enheten till den lokala administratörsgruppen för principen om lägsta behörighet (PoLP). Utöver de globala administratörerna kan du också aktivera användare som har *endast* tilldelade enhetsadministratörens roll att hantera en enhet. 
+Genom att lägga till Azure AD-roller i den lokala gruppen Administratörer kan du uppdatera användare som kan hantera en enhet när som helst i Azure AD utan att ändra något på enheten. För närvarande kan du inte tilldela grupper till en administratörs roll.
+Azure AD lägger också till rollen Azure AD-enhets administratör i den lokala gruppen Administratörer för att stödja principen om minsta behörighet (PoLP). Förutom de globala administratörerna kan du också aktivera användare som *endast* har tilldelats rollen enhets administratör för att hantera en enhet. 
 
-## <a name="manage-the-global-administrators-role"></a>Hantera den globala administratörsrollen
+## <a name="manage-the-global-administrators-role"></a>Hantera rollen som global administratör
 
-Om du vill visa och uppdatera medlemskap i rollen som global administratör, se:
+Information om hur du visar och uppdaterar medlemskapet för den globala administratörs rollen finns i:
 
-- [Visa alla medlemmar i en administratörsroll i Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
-- [Tilldela en användare till administratörsroller i Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Visa alla medlemmar i en administratörs roll i Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Tilldela en användare till administratörs roller i Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
-## <a name="manage-the-device-administrator-role"></a>Hantera enhetsadministratörens roll 
+## <a name="manage-the-device-administrator-role"></a>Hantera rollen som enhets administratör 
 
-I Azure-portalen kan du hantera enhetsadministratörens roll på den **enheter** sidan. Öppna den **enheter** sidan:
+I Azure Portal kan du hantera rollen som enhets administratör på sidan **enheter** . Så här öppnar du sidan **enheter** :
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör eller enhetsadministratör för.
-1. I det vänstra navigeringsfältet, klickar du på **Azure Active Directory**. 
-1. I den **hantera** klickar du på **enheter**.
-1. På den **enheter** klickar du på **Enhetsinställningar**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör eller enhets administratör.
+1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet. 
+1. I avsnittet **Hantera** klickar du på **enheter**.
+1. På sidan **enheter** klickar du på **enhets inställningar**.
 
-Om du vill ändra enhetsadministratörens roll, konfigurera **ytterligare lokala administratörer på Azure AD-anslutna enheter**.  
+Om du vill ändra rollen som enhets administratör konfigurerar du **ytterligare lokala administratörer på Azure AD-anslutna enheter**.  
 
 ![Ytterligare lokala administratörer](./media/assign-local-admin/10.png)
 
 >[!NOTE]
-> Det här alternativet kräver en Azure AD Premium-klient. 
+> Det här alternativet kräver en Azure AD Premium klient. 
 
-Enhetsadministratörer har tilldelats till alla Azure AD-anslutna enheter. Du kan inte begränsa enhetsadministratörer till en specifik uppsättning enheter. Uppdatera enhetsadministratörens roll ha inte nödvändigtvis en omedelbar inverkan på de berörda användarna. För enheterna en användare redan är inloggad på, privilegier uppdateringen sker:
+Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan inte begränsa enhets administratörer till en speciell uppsättning enheter. Uppdatering av enhets administratörs rollen behöver inte nödvändigt vis påverka de berörda användarna direkt. För enheterna är en användare redan inloggad i, behörighets uppdateringen äger rum:
 
-- När en användare loggar.
-- Efter 4 timmar när en ny utfärdas primär uppdatera Token. 
+- När en användare loggar ut.
+- Efter 4 timmar när en ny primär uppdateringstoken utfärdas. 
 
 ## <a name="manage-regular-users"></a>Hantera vanliga användare
 
-Som standard Azure AD lägger du till användaren som utför Azure AD-anslutning i administratörsgruppen på enheten. Om du vill förhindra att vanliga användare blir lokala administratörer har följande alternativ:
+Som standard lägger Azure AD till användaren som utför Azure AD-anslutning till gruppen Administratörer på enheten. Om du vill förhindra att vanliga användare blir lokala administratörer har du följande alternativ:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -Windows Autopilot tillhandahåller ett alternativ för att förhindra att den primära användaren som utför kopplingen blir lokal administratör. Du kan göra detta genom att [skapar en Autopilot-profilen](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Massregistrering](https://docs.microsoft.com/intune/windows-bulk-enroll) – en Azure AD-koppling som utförs i kontexten för en massregistrering sker i samband med en automatiskt skapade användare. Användare som loggar in när en enhet har varit ansluten läggs inte till i administratörsgruppen.   
+- [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) – Windows autopilot ger dig ett alternativ för att förhindra att den primära användaren utför en anslutning från att bli lokal administratör. Du kan göra detta genom att [skapa en autopilot-profil](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Mass registrering](https://docs.microsoft.com/intune/windows-bulk-enroll) – en Azure AD-anslutning som utförs i kontexten för en Mass registrering sker i kontexten för en automatiskt skapad användare. Användare som loggar in när en enhet har anslutits läggs inte till i gruppen Administratörer.   
 
-## <a name="manually-elevate-a-user-on-a-device"></a>Höj manuellt för en användare på en enhet 
+## <a name="manually-elevate-a-user-on-a-device"></a>Öka manuellt en användare på en enhet 
 
-Förutom att använda Azure AD join-processen, kan du också manuellt höja en vanlig användare om att bli en lokal administratör på en specifik enhet. Det här steget kräver att du redan är medlem i gruppen lokala administratörer. 
+Förutom att använda Azure AD Join-processen kan du också manuellt öka en vanlig användare så att den blir lokal administratör på en enskild enhet. Det här steget kräver att du redan är medlem i den lokala gruppen Administratörer. 
 
-Från och med den **Windows 10 1709** versionen kan du utföra den här uppgiften från **Inställningar -> konton -> andra användare**. Välj **lägga till en arbets- eller skolkonto användare**, ange användarens UPN under **användarkonto** och välj *administratör* under **kontotyp**  
+Från och med **Windows 10 1709** -versionen kan du utföra den här åtgärden från **Inställningar-> Konton – > andra användare**. Välj **Lägg till en arbets-eller skol användare**, ange användarens UPN under **användar konto** och välj *administratör* under **Kontotyp**  
  
-Dessutom kan du lägga till användare med hjälp av Kommandotolken:
+Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 
-- Om dina klientanvändare synkroniseras från den lokala Active Directory måste du använda `net localgroup administrators /add "Contoso\username"`.
-- Om dina klientanvändare skapas i Azure AD, använda `net localgroup administrators /add "AzureAD\UserUpn"`
+- Om klient användarna synkroniseras från lokala Active Directory använder `net localgroup administrators /add "Contoso\username"`du.
+- Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Överväganden 
 
-Du inte kan tilldela grupper till enhetsadministratörens roll, tillåts bara enskilda användare.
+Du kan inte tilldela grupper till enhets administratörs rollen, endast enskilda användare tillåts.
 
-Enhetsadministratörer har tilldelats till alla enheter i Azure AD har anslutits. De kan inte begränsas till en specifik uppsättning enheter.
+Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. De kan inte begränsas till en speciell uppsättning enheter.
 
-När du tar bort användare från administratörsrollen enhet ha de fortfarande lokal administratörsbehörighet på en enhet så länge som de har loggat in till den. Behörigheten har återkallats under nästa inloggningen eller efter 4 timmar när en ny primär uppdateringstoken utfärdas.
+När du tar bort användare från enhets administratörs rollen har de fortfarande den lokala administratörs behörigheten på en enhet så länge de är inloggade på den. Privilegiet återkallas vid nästa inloggning, eller efter 4 timmar när en ny primär uppdateringstoken utfärdas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill ha en översikt över hantering av enheter i Azure-portalen kan du läsa om att [hantera enheter med Azure-portalen](device-management-azure-portal.md)
-- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
+- Mer information om enhets villkorliga åtkomst finns i [Konfigurera Azure Active Directory enhet-baserade principer för villkorlig åtkomst](../conditional-access/require-managed-devices.md).

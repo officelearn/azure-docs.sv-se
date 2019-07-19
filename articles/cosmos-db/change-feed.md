@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954397"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986242"
 ---
-# <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändringsflödet i Azure Cosmos DB - översikt
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändra feed i Azure Cosmos DB – översikt
 
 Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
 
@@ -33,7 +33,7 @@ Azure Cosmos DB är passar bra för IoT, spel, återförsäljnings, och operativ
 
 Den här funktionen stöds för närvarande av följande Azure Cosmos DB API: er och klient-SDK: er.
 
-| **Klientdrivrutiner** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API**|**Table API** |
+| **Klientdrivrutiner** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB s API för MongoDB** | **Gremlin-API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Ej tillämpligt | Ja | Nej | Nej | Ja | Nej |
 |Java|Ej tillämpligt|Ja|Nej|Nej|Ja|Nej|
@@ -58,7 +58,7 @@ Om en egenskap för TTL (Time to Live) har angetts för ett objekt till-1, behå
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Ändringsfeed och _etag, _lsn eller _ts
 
-Formatet _etag är intern och du bör inte koppla beroende på det, eftersom den kan ändras när som helst. _ts är en ändring av eller en tidsstämpel vid skapande. Du kan använda _ts kronologisk jämförelse. _lsn är ett batch-ID som har lagts till för ändringsflödet. representerar transaktions-ID. Många objekt som kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som du ser på objektet. _etag är en intern identifierare och används för samtidighet kontroll meddelar om versionen av objektet medan ETag används för ordningsföljd feeden.
+Formatet _etag är intern och du bör inte koppla beroende på det, eftersom den kan ändras när som helst. _ts är en ändring av eller en tidsstämpel vid skapande. Du kan använda _ts kronologisk jämförelse. _lsn är ett batch-ID som endast läggs till för ändrings flöde. den representerar transaktions-ID: t. Många objekt som kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som du ser på objektet. _etag är en intern identifierare och används för samtidighet kontroll meddelar om versionen av objektet medan ETag används för ordningsföljd feeden.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Ändringsfeed användningsområden och scenarier
 
@@ -94,7 +94,7 @@ Här följer några scenarier som du enkelt kan implementera med ändringsfeed:
 Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
 * [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
-* [Med hjälp av ändringen feed med biblioteket change feed processor](change-feed-processor.md) 
+* [Använda Change feed med Change feed processor](change-feed-processor.md) 
 
 Ändringsfeed är tillgängliga för varje logisk partitionsnyckel i behållaren och den kan distribueras på en eller flera konsumenter för parallell bearbetning, enligt bilden nedan.
 
@@ -108,7 +108,7 @@ Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
 * Ändringsflöde innehåller INSERT och update-åtgärder som utförs för objekt i behållaren. Du kan avbilda borttagningar genom att ange en ”mjuk borttagning”-flagga i dina objekt (till exempel dokument) i stället för borttagningar. Du kan också ange en begränsad utgångstiden för dina objekt med den [TTL funktionen](time-to-live.md). Exempel: 24 timmar och Använd värdet för egenskapen att samla in tas bort. Med den här lösningen har att bearbeta ändringarna inom ett kortare tidsintervall än TTL giltighetsperiod. 
 
-* Varje ändring till ett objekt visas exakt en gång i den ändringsflödet och klienterna måste hantera kontrollpunkter logiken. Om du vill undvika komplexiteten med att hantera kontrollpunkter tillhandahåller biblioteket för change feed processor automatiska kontrollpunkter och ”minst en gång” semantik. Se [med ändringen feed med ändringsflödet i biblioteket processor](change-feed-processor.md).
+* Varje ändring till ett objekt visas exakt en gång i den ändringsflödet och klienterna måste hantera kontrollpunkter logiken. Om du vill undvika komplexiteten med att hantera kontroll punkter, tillhandahåller Change feed-processorn automatisk kontroll punkt och "minst en gång"-semantik. Se [använda ändra feed med Change feed processor](change-feed-processor.md).
 
 * Den senaste ändringen för ett visst objekt ingår i ändringsloggen. Mellanliggande ändringar är kanske inte tillgänglig.
 
@@ -118,7 +118,7 @@ Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
 * Ändringar är tillgängliga samtidigt för alla logisk partitionsnycklarna för en Azure Cosmos-behållare. Den här funktionen kan ändringar från stora behållare som ska bearbetas parallellt av flera användare.
 
-* Program kan begära flera ändringen flöden på samma behållare samtidigt. ChangeFeedOptions.StartTime kan användas för att ge en första startpunkt. Till exempel vill hitta fortsättningstoken som motsvarar en viss clock-tid. ContinuationToken, vinner om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
+* Program kan begära flera ändrings flöden på samma behållare samtidigt. ChangeFeedOptions.StartTime kan användas för att ge en första startpunkt. Till exempel vill hitta fortsättningstoken som motsvarar en viss clock-tid. ContinuationToken, vinner om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -126,4 +126,4 @@ Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
 
 * [Alternativ för att läsa ändringsflödet](read-change-feed.md)
 * [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
-* [Med hjälp av ändringen feed processor-biblioteket](change-feed-processor.md)
+* [Använda Change feed processor](change-feed-processor.md)

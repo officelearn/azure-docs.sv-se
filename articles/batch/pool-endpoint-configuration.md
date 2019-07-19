@@ -1,39 +1,39 @@
 ---
-title: Konfigurera nod slutpunkter i Azure Batch-pool | Microsoft Docs
-description: Hur du konfigurerar eller inaktivera åtkomst till SSH eller RDP portar på beräkningsnoder i en Azure Batch-pool.
+title: Konfigurera nodens slut punkter i Azure Batch pool | Microsoft Docs
+description: Konfigurera eller inaktivera åtkomst till SSH-eller RDP-portar på datornoderna i en Azure Batch pool.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: d788db9d554c6200316bb4e3f36640dac1925fc4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322461"
 ---
-# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurera och inaktivera fjärråtkomst till beräkningsnoder i en Azure Batch-pool
+# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurera eller inaktivera fjärråtkomst till Compute-noder i en Azure Batch pool
 
-Som standard tillåter Batch en [noden användare](/rest/api/batchservice/computenode/adduser) med nätverksanslutning till externt ansluta till en beräkningsnod i en Batch-pool. En användare kan till exempel ansluta med RDP (Remote Desktop) på port 3389 till en beräkningsnod i en Windows-pool. På samma sätt kan en användare som standard ansluta med SSH (Secure Shell) på port 22 till en beräkningsnod i en Linux-pool. 
+Som standard tillåter batch att en [nods användare](/rest/api/batchservice/computenode/adduser) med nätverks anslutning ansluter externt till en Compute-nod i en batch-pool. En användare kan till exempel ansluta via fjärr skrivbord (RDP) på port 3389 till en Compute-nod i en Windows-pool. På samma sätt kan en användare som standard ansluta via Secure Shell (SSH) på port 22 till en Compute-nod i en Linux-pool. 
 
-Du kan behöva begränsa eller inaktivera dessa standardinställningar för extern åtkomst i din miljö. Du kan ändra de här inställningarna med hjälp av Batch-API: er att ställa in den [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) egenskapen. 
+I din miljö kan du behöva begränsa eller inaktivera dessa standardinställningar för extern åtkomst. Du kan ändra de här inställningarna genom att använda batch-API: erna för att ange egenskapen [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) . 
 
-## <a name="about-the-pool-endpoint-configuration"></a>Om slutpunktskonfiguration i pool
-Konfigurationen av slutpunkten består av en eller flera [network adress translation (NAT) pooler](/rest/api/batchservice/pool/add#inboundnatpool) av frontend-portar. (Blanda inte ihop NAT-pool med Batch-pool med beräkningsnoder.) Du kan ställa in varje NAT-pool för att åsidosätta standardinställningarna för anslutning på poolens beräkningsnoder. 
+## <a name="about-the-pool-endpoint-configuration"></a>Om konfigurationen av poolens slut punkt
+Slut punkts konfigurationen består av en eller flera [Network Address Translation-pooler (NAT)](/rest/api/batchservice/pool/add#inboundnatpool) för klient dels portar. (Blanda inte ihop en NAT-pool med datornoderna för datornoder.) Du konfigurerar varje NAT-pool för att åsidosätta standard anslutnings inställningarna för poolens datornoder. 
 
-Varje konfiguration för NAT-pool som innehåller ett eller flera [network regler för nätverkssäkerhetsgrupper (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Varje NSG-regel som tillåter eller nekar vissa nätverkstrafik till slutpunkten. Du kan välja att tillåta eller neka all trafik, trafik som identifierats av en [servicetagg](../virtual-network/security-overview.md#service-tags) (till exempel ”Internet”) eller trafik från specifika IP-adresser eller undernät.
+Varje konfiguration av NAT-pool innehåller en eller flera [regler för nätverks säkerhets grupper (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Varje NSG-regel tillåter eller nekar viss nätverks trafik till slut punkten. Du kan välja att tillåta eller neka all trafik, trafik som identifieras av en [service tagg](../virtual-network/security-overview.md#service-tags) (till exempel Internet) eller trafik från vissa IP-adresser eller undernät.
 
 ### <a name="considerations"></a>Överväganden
-* Slutpunktskonfiguration i pool är en del av poolens [nätverkskonfiguration](/rest/api/batchservice/pool/add#networkconfiguration). Nätverkskonfigurationen kan även inkludera inställningar för att ansluta till poolen till en [Azure-nätverk](batch-virtual-network.md). Om du ställer in pool i ett virtuellt nätverk, kan du skapa NSG-regler som använder inställningar för adresser i det virtuella nätverket.
-* Du kan konfigurera flera NSG-regler när du konfigurerar en NAT-pool. Regler kontrolleras enligt prioritetsordning. När villkoren för en regel uppfylls testas inga fler regler.
+* Konfigurationen för poolens slut punkt är en del av poolens [nätverks konfiguration](/rest/api/batchservice/pool/add#networkconfiguration). Nätverks konfigurationen kan också innehålla inställningar för att ansluta poolen till ett [virtuellt Azure-nätverk](batch-virtual-network.md). Om du konfigurerar poolen i ett virtuellt nätverk kan du skapa NSG-regler som använder adress inställningar i det virtuella nätverket.
+* Du kan konfigurera flera NSG-regler när du konfigurerar en NAT-pool. Reglerna kontrol leras i prioritetsordning. När villkoren för en regel uppfylls testas inga fler regler.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Exempel: Neka alla RDP-trafik
+## <a name="example-deny-all-rdp-traffic"></a>Exempel: Neka all RDP-trafik
 
-Följande C# kodfragment visar hur du konfigurerar RDP-slutpunkt på beräkningsnoder i en Windows-pool som nekar all nätverkstrafik. Slutpunkten som använder en adresspool på klientdelen av portar i intervallet *60000 60099*. 
+Följande C# kodfragment visar hur du konfigurerar RDP-slutpunkten på datornoderna i en Windows-pool för att neka all nätverks trafik. Slut punkten använder en frontend-pool med portar i intervallet *60000-60099*. 
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -48,9 +48,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exempel: Neka alla SSH-trafik från internet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exempel: Neka all SSH-trafik från Internet
 
-Python följande kodfragment visar hur du konfigurerar SSH-slutpunkten på beräkningsnoder i en Linux-pool som nekar all Internettrafik. Slutpunkten som använder en adresspool på klientdelen av portar i intervallet *4000 4100*. 
+Följande python-kodfragment visar hur du konfigurerar SSH-slutpunkten för Compute-noder i en Linux-pool för att neka all Internet trafik. Slut punkten använder en frontend-pool med portar i intervallet *4000-4100*. 
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -74,9 +74,9 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exempel: Tillåt RDP-trafik från en specifik IP-adress
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exempel: Tillåt RDP-trafik från en speciell IP-adress
 
-Följande C# kodfragment visar hur du konfigurerar RDP-slutpunkt på beräkningsnoder i en Windows-pool att tillåta RDP-åtkomst från IP-adress *198.51.100.7*. Den andra NSG-regeln nekar trafik som inte matchar IP-adressen.
+Följande C# fragment visar hur du konfigurerar RDP-slutpunkten på datornoderna i en Windows-pool som endast tillåter RDP-åtkomst från IP- *198.51.100.7*. Den andra NSG-regeln nekar trafik som inte matchar IP-adressen.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -92,9 +92,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exempel: Tillåta SSH-trafik från ett specifikt undernät
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exempel: Tillåt SSH-trafik från ett speciellt undernät
 
-Python följande kodfragment visar hur du konfigurerar SSH-slutpunkten på beräkningsnoder i en Linux-pool att tillåta åtkomst från undernätet *192.168.1.0/24*. Den andra NSG-regeln nekar trafik som inte matchar undernätet.
+Följande python-kodfragment visar hur du konfigurerar SSH-slutpunkten för Compute-noder i en Linux-pool som endast tillåter åtkomst från under nätet *192.168.1.0/24*. Den andra NSG-regeln nekar trafik som inte matchar under nätet.
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -125,7 +125,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om regler för Nätverkssäkerhetsgrupper i Azure finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+- Mer information om NSG-regler i Azure finns i [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md).
 
-- En detaljerad översikt över Batch finns [utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
+- En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
 

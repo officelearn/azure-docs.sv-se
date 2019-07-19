@@ -1,6 +1,6 @@
 ---
-title: Webb-aktiviteten i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kan använda Web-aktivitet, något av kontrollflödesaktiviteter som stöds av Data Factory för att anropa en REST-slutpunkt från en pipeline.
+title: Webb aktivitet i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kan använda webb aktivitet, en av de kontroll flödes aktiviteter som stöds av Data Factory, för att anropa en REST-slutpunkt från en pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764296"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325394"
 ---
-# <a name="web-activity-in-azure-data-factory"></a>Web-aktivitet i Azure Data Factory
+# <a name="web-activity-in-azure-data-factory"></a>Webb aktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
+
+> [!NOTE]
+> Webb aktivitet kan endast anropa offentligt exponerade URL: er. Det finns inte stöd för URL: er som finns i ett privat virtuellt nätverk.
 
 ## <a name="syntax"></a>Syntax
 
@@ -59,40 +62,40 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 ```
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | Namnet på webbaktiviteten | String | Ja
-type | Måste vara inställt på **WebActivity**. | String | Ja
-method | REST API-metoden för mål-slutpunkten. | sträng. <br/><br/>Typer som stöds: ”HÄMTA”, ”POST”, ”PUT” | Ja
-url | Mål-slutpunkten och sökvägen | Sträng (eller uttryck med resultType av sträng). Aktiviteten kommer tidsgräns på 1 minut med ett fel om det inte får ett svar från slutpunkten. | Ja
-Rubriker | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller ett uttryck med resultType av sträng) | Ja, krävs Content-type-huvud. `"headers":{ "Content-Type":"application/json"}`
-body | Representerar den nyttolast som skickas till slutpunkten.  | Sträng (eller uttryck med resultType av sträng). <br/><br/>Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](#request-payload-schema) avsnittet. | Krävs för efter/PUT-metoder.
-autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic eller ClientCertificate”. Mer information finns i [autentisering](#authentication) avsnittet. Undanta den här egenskapen om autentisering inte krävs. | Sträng (eller ett uttryck med resultType av sträng) | Nej
-datasets | Lista över datauppsättningar som har överförts till slutpunkten. | Matris med referenser för datauppsättningen. Kan vara tomma matriser. | Ja
-linkedServices | Listan över länkade tjänster som har överförts till slutpunkten. | Matris med länkade tjänsten refererar till. Kan vara tomma matriser. | Ja
+name | Namn på webb aktiviteten | Sträng | Ja
+type | Måste vara inställt på **webactivity**. | Sträng | Ja
+method | REST API-metod för mål slut punkten. | Nollängd. <br/><br/>Typer som stöds: "GET", "POST", "PLACERA" | Ja
+url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten. | Ja
+Sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. `"headers":{ "Content-Type":"application/json"}`
+Brödtext | Representerar den nytto last som skickas till slut punkten.  | Sträng (eller uttryck med resultType för sträng). <br/><br/>Se schemat för nytto lasten för begäran i [nytto Last schema](#request-payload-schema) avsnittet. | Krävs för metoderna POST/infört.
+autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](#authentication) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej
+datasets | Lista över data uppsättningar som skickats till slut punkten. | Matris med data uppsättnings referenser. Kan vara en tom matris. | Ja
+linkedServices | Lista över länkade tjänster som skickats till slut punkten. | Matris med länkade tjänst referenser. Kan vara en tom matris. | Ja
 
 > [!NOTE]
-> REST-slutpunkter som web-aktivitet anropar måste returnera ett svar av typen JSON. Aktiviteten kommer tidsgräns på 1 minut med ett fel om det inte får ett svar från slutpunkten.
+> REST-slutpunkter som webb aktiviteten anropar måste returnera ett svar av typen JSON. Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten.
 
 I följande tabell visas kraven för JSON-innehåll:
 
-| Värdetyp | Begärandetext | Svarstext |
+| Värdetyp | Begärandetext | Svars text |
 |---|---|---|
 |JSON-objekt | Stöds | Stöds |
-|JSON-matris | Stöds <br/>(För närvarande JSON-matriser fungerar inte på grund av ett programfel. En korrigering pågår.) | Stöds inte |
+|JSON-matris | Stöds <br/>(För närvarande fungerar JSON-matriser inte som ett resultat av ett fel. En korrigering pågår.) | Stöds inte |
 | JSON-värde | Stöds | Stöds inte |
 | Icke-JSON-typ | Stöds inte | Stöds inte |
 ||||
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 ### <a name="none"></a>Ingen
-Om autentisering inte krävs, omfattar inte egenskapen ”autentisering”.
+Om autentisering inte krävs inkluderar du inte egenskapen "Authentication".
 
 ### <a name="basic"></a>Basic
-Ange användarnamn och lösenord som ska användas med grundläggande autentisering.
+Ange användar namn och lösen ord som ska användas med grundläggande autentisering.
 
 ```json
 "authentication":{
@@ -102,8 +105,8 @@ Ange användarnamn och lösenord som ska användas med grundläggande autentiser
 }
 ```
 
-### <a name="client-certificate"></a>Klientcertifikat
-Ange base64-kodad innehållet i en PFX-filen och lösenordet.
+### <a name="client-certificate"></a>Klient certifikat
+Ange Base64-kodat innehåll för en PFX-fil och lösen ordet.
 
 ```json
 "authentication":{
@@ -115,7 +118,7 @@ Ange base64-kodad innehållet i en PFX-filen och lösenordet.
 
 ### <a name="managed-identity"></a>Hanterad identitet
 
-Ange resurs-uri för vilken åtkomst-token kommer att begäras med hjälp av den hanterade identitet för data factory. För att anropa Azure Resource Management-API, använda `https://management.azure.com/`. Mer information om hur hanterade identiteter fungerar finns i den [hanterade identiteter för Azure-resurser översiktssidan](/azure/active-directory/managed-identities-azure-resources/overview).
+Ange resurs-URI för vilken åtkomsttoken ska begäras med hjälp av den hanterade identiteten för data fabriken. Använd `https://management.azure.com/`för att anropa Azure Resource Management-API: et. Mer information om hur hanterade identiteter fungerar finns på [översikts sidan hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -124,8 +127,8 @@ Ange resurs-uri för vilken åtkomst-token kommer att begäras med hjälp av den
 }
 ```
 
-## <a name="request-payload-schema"></a>Schema för nyttolasten för begäran
-När du använder POST/PUT-metoden, representerar egenskapen brödtext den nyttolast som skickas till slutpunkten. Du kan skicka länkade tjänster och datauppsättningar som en del av nyttolasten. Här är schemat för nyttolasten:
+## <a name="request-payload-schema"></a>Schema för begäran om nytto Last
+När du använder metoden POST/placering representerar egenskapen Body den nytto last som skickas till slut punkten. Du kan skicka länkade tjänster och data uppsättningar som en del av nytto lasten. Här är schemat för nytto lasten:
 
 ```json
 {
@@ -148,7 +151,7 @@ När du använder POST/PUT-metoden, representerar egenskapen brödtext den nytto
 ```
 
 ## <a name="example"></a>Exempel
-I det här exemplet anropar web-aktivitet i pipelinen en REST-slutpunkten. Den skickar en länkad Azure SQL-tjänst och en Azure SQL-datauppsättning till slutpunkten. REST-slutpunkten använder Azure SQL-anslutningssträng för att ansluta till Azure SQL-servern och returnerar namnet på instansen av SQLServer.
+I det här exemplet anropar webb aktiviteten i pipelinen en REST-slutpunkt. Den skickar en länkad Azure SQL-tjänst och en Azure SQL-datauppsättning till slut punkten. RESTEN av slut punkten använder Azure SQL-anslutningssträngen för att ansluta till Azure SQL-servern och returnerar namnet på SQL Server-instansen.
 
 ### <a name="pipeline-definition"></a>Pipeline-definition
 
@@ -202,7 +205,7 @@ I det här exemplet anropar web-aktivitet i pipelinen en REST-slutpunkten. Den s
 
 ```
 
-### <a name="pipeline-parameter-values"></a>Pipeline-parametervärden
+### <a name="pipeline-parameter-values"></a>Parameter värden för pipeline
 
 ```json
 {
@@ -212,7 +215,7 @@ I det här exemplet anropar web-aktivitet i pipelinen en REST-slutpunkten. Den s
 
 ```
 
-### <a name="web-service-endpoint-code"></a>Koden för slutpunkt
+### <a name="web-service-endpoint-code"></a>Slut punkts kod för webb tjänst
 
 ```csharp
 
@@ -242,7 +245,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory:
+Se andra kontroll flödes aktiviteter som stöds av Data Factory:
 
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)

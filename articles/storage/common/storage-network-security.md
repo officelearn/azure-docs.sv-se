@@ -9,21 +9,21 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449729"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326940"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell. Den här modellen kan du skydda dina storage-konton till en specifik uppsättning stöds nätverk. Om Nätverksregler har konfigurerats endast program som begär data via den angivna uppsättningen nätverk kan komma åt ett storage-konto.
 
-Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas kräver rätt behörighet på begäran. Auktorisering stöds med autentiseringsuppgifter för Azure Active Directory (Azure AD) för blobbar och köer, med en giltig åtkomstnyckel eller med en SAS-token.
+Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas kräver rätt behörighet på begäran. Auktorisering stöds med Azure Active Directory (Azure AD)-autentiseringsuppgifter för blobbar och köer, med en giltig konto åtkomst nyckel eller med en SAS-token.
 
 > [!IMPORTANT]
-> Azure File Sync stöder ännu inte brandväggar och virtuella nätverk. Om du använder Azure File Sync på ditt lagringskonto och aktiverar dessa, kommer det inte att synkronisera Azure File Sync.
+> Azure File Sync har ännu inte stöd för brand väggar och virtuella nätverk. Om du använder Azure File Sync på ditt lagrings konto och aktiverar dessa, kommer Azure File Sync inte att synkroniseras.
 >
 > Aktivera brandväggsregler för ditt lagringskonto blockerar inkommande begäranden om data som standard inte begäranden som kommer från en tjänst som körs i Azure Virtual Network (VNet). Begäranden som blockeras är de från andra Azure-tjänster från Azure-portalen från loggning och mått tjänster, och så vidare.
 >
@@ -353,15 +353,16 @@ Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster...**  undantag, f
 |Tjänst|Providernamn för resursen|Syfte|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.RecoveryServices|Köra säkerhetskopieringar och återställningar av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för hanterade diskar.) [Läs mer](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Aktiverar importen av data till Azure med Data Box. [Läs mer](/azure/databox/data-box-overview).|
+|Azure Data Box|Microsoft.DataBox|Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Anpassad avbildning skapande och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser och låt Event Grid att publicera till storage-köer. Lär dig mer om [blob storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Etablera det inledande innehållet i standardfilsystemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
+| Azure File Sync| Microsoft.StorageSync| Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md)|
+|Azure HDInsight|Microsoft.HDInsight|Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure-nätverk|Microsoft.Network|Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Konfigurera haveriberedskap genom att aktivera replikering för Azure IaaS-datorer. Detta krävs om du använder brandvägg är aktiverad cachelagringskontot eller källagringskontot eller mållagringskontot.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Gör att importera och exportera scenarier från den specifika SQL-databaser instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Tillåter import-och export scenarier från vissa instanser av SQL-databaser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Dataåtkomst för Storage analytics
 

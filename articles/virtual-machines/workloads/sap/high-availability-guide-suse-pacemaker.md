@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 46044c061cca24714d1a951e28cf01ca29f14a7e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707212"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228354"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -84,7 +84,7 @@ Kör följande kommandon på alla **iSCSI virtuella måldatorer**.
 
 Kör följande kommandon på alla **iSCSI virtuella måldatorer** att skapa iSCSI-diskar för kluster som används av dina SAP-system. I följande exempel skapas uppstår enheter för flera kluster. Den visar hur du använder en iSCSI-målservern för flera kluster. Enheterna som uppstår placeras på OS-disken. Se till att du har tillräckligt med utrymme.
 
-**`nfs`** används för att identifiera NFS-klustret **ascsnw1** används för att identifiera ASCS-kluster med **NW1**, **dbnw1** används för att identifiera databasen kluster **NW1** , **nfs-0** och **nfs-1** är värdnamnen för klusternoderna NFS **nw1-xscs-0** och **nw1 xscs 1**är värdnamnen för den **NW1** ASCS klusternoder och **nw1-db-0** och **nw1-db-1** är värdnamnen för databasen klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
+**`nfs`** används för att identifiera NFS-klustret, **ascsnw1** används för att identifiera ASCS-klustret för **NW1**, **dbnw1** används för att identifiera databas klustret för **NW1**, **NFS-0** och **NFS-1** är värd namnen för NFS-klusternoderna.  **NW1-xscs-0** och **NW1-xscs-1** är värd namnen för **NW1** ASCS-klusternoderna och **NW1-dB-0** och **NW1-DB-1** är värd namnen för databasens klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Skapa den `softdog` konfigurationsfil
+   `softdog` Skapa konfigurations filen
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Konfigurera operativsystemet
+1. **[A]** konfigurera operativ systemet
 
    I vissa fall kan Pacemaker skapar många processer och använt all därmed det tillåtna antalet processer. I detta fall är kan ett pulsslag mellan noder i klustret misslyckas och leda till redundans för dina resurser. Vi rekommenderar att öka de högsta tillåtna processerna genom att ange följande parameter.
 
@@ -348,9 +348,9 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Konfigurera molnet-netconfig azure för hög tillgänglighet kluster
+1. **[A]** konfigurera Cloud-netconfig-Azure för ha-kluster
 
-   Ändra konfigurationsfilen för nätverksgränssnittet som visas nedan för att förhindra att moln nätverk plugin-programmet från att ta bort den virtuella IP-adressen (Pacemaker måste bestämmer VIP-tilldelning). Mer information finns i [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Ändra konfigurations filen för nätverks gränssnittet så som visas nedan för att förhindra att Cloud Network-plugin-programmet tar bort den virtuella IP-adressen (pacemaker måste styra VIP-tilldelningen). Mer information finns i [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -448,7 +448,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
+   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
-1. Gå till [https://portal.azure.com](https://portal.azure.com)
+1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
    Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
 1. Klicka på App-registreringar
-1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http\://localhost) och klicka på Skapa
-1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
-1. Välj den nya appen och klicka på nycklar på fliken Inställningar
-1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
+1. Klicka på ny registrering
+1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
+2. Välj program typ "Web", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Lägg till  
+   Inloggnings-URL: en används inte och kan vara vilken giltig URL
+1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
+1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
+1. Välj översikt. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
 
@@ -533,11 +534,11 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  Och tilldela den anpassade rollen till tjänstens huvudnamn
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** tilldela den anpassade rollen till tjänstens huvud namn
 
 Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägarrollen längre!
 
-1. Gå till [https://portal.azure.com](https://portal.azure.com)
+1. Gå till[https://portal.azure.com](https://portal.azure.com)
 1. Öppna bladet alla resurser
 1. Välj den virtuella datorn från den första noden i klustret
 1. Klicka på åtkomstkontroll (IAM)
@@ -576,16 +577,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker konfigurationen för Azure schemalagda händelser
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker-konfiguration för schemalagda Azure-händelser
 
-Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via metadata-tjänsten och väntar tills programmet för att förbereda för händelser avstängningen, ny distribution av virtuella datorer, t.ex. Resurs-agenten **[azure-händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda händelser i Azure. Om händelserna identifieras försöker agenten stoppa alla resurser på den berörda virtuella datorn och flytta dem till en annan nod i klustret. För att uppnå de ytterligare Pacemaker resurserna måste konfigureras. 
+Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via meta-data-tjänsten och ger tid för programmet att förbereda för händelser som avstängning av virtuella datorer, omdistribution av virtuella datorer osv. Resurs agent **[Azure – händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda Azure-händelser. Om händelser identifieras försöker agenten stoppa alla resurser på den virtuella datorn som påverkas och flytta dem till en annan nod i klustret. För att uppnå att ytterligare pacemaker-resurser måste konfigureras. 
 
-1. **[A]**  Installera den **azure-händelser** agent. 
+1. **[A]** installera **Azure-Events-** agenten. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Konfigurera resurserna i Pacemaker. 
+2. **[1]** konfigurera resurserna i pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,17 +601,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > När du har konfigurerat Pacemaker resurser för azure-händelser agent, när du placerar klustret i eller ur underhållsläge, kan du få varningsmeddelanden som:  
-     Varning: cib-bootstrap-alternativ: Okänt attribut ”hostName_  <strong>värdnamn</strong>'  
-     Varning: cib-bootstrap-alternativ: Okänt attribut ”azure-events_globalPullState”  
-     Varning: cib-bootstrap-alternativ: Okänt attribut ”hostName_ <strong>värdnamn</strong>'  
-   > Dessa varningsmeddelanden kan ignoreras.
+   > När du har konfigurerat pacemaker-resurserna för Azure-Events-agenten kan du få varnings meddelanden som:  
+     Varning: CIB-bootstrap-Options: okänt attribut ' hostName_ <strong>hostname</strong>'  
+     Varning: CIB-bootstrap-Options: okänt attribut ' Azure-events_globalPullState '  
+     Varning: CIB-bootstrap-Options: okänt attribut ' hostName_ <strong>hostname</strong>'  
+   > Dessa varnings meddelanden kan ignoreras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure virtuella datorer, planering och implementering av SAP][planning-guide]
-* [Azure Virtual Machines-distribution för SAP][deployment-guide]
+* [Azure Virtual Machines planera och implementera SAP][planning-guide]
+* [Azure Virtual Machines distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
 * [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server][sles-nfs-guide]
 * [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sles-guide]
-* Läs hur du etablerar hög tillgänglighet och planera för katastrofåterställning av SAP HANA på Azure Virtual Machines i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]
+* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på virtuella Azure-datorer finns i [hög tillgänglighet för SAP HANA på Azure-Virtual Machines (VM)][sap-hana-ha]

@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61408987"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320588"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Java
 
@@ -36,9 +36,8 @@ För att kunna slutföra det här exemplet behöver du följande:
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  
   > [!IMPORTANT]
   > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 

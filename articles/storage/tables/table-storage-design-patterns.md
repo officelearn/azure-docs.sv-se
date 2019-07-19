@@ -1,6 +1,6 @@
 ---
-title: Designmönster för Azure storage-table | Microsoft Docs
-description: Använda mönster för Azure table service-lösningar.
+title: Design mönster för Azure Storage-tabell | Microsoft Docs
+description: Använd mönster för Azure Table service-lösningar.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,47 +8,47 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295122"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249582"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
-Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
+I den här artikeln beskrivs några mönster som lämpar sig för användning med Table service lösningar. Dessutom får du se hur du praktiskt taget kan åtgärda några av de problem och kompromisser som beskrivs i andra tabell lagrings design artiklar. Följande diagram sammanfattar relationerna mellan de olika mönster:  
 
-![att söka efter relaterade data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
+![så här söker du efter relaterade data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-Mönstret kartan ovan visar relationer mellan (blå) mönster och antimönster (orange) som finns dokumenterade i den här guiden. Det finns för många andra mönster som är värda att hänsyn tagits till. Till exempel ett av scenarierna för Tabelltjänsten är att använda den [mönster för materialiserad vy](https://msdn.microsoft.com/library/azure/dn589782.aspx) från den [kommandot fråga ansvar uppdelning (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) mönster.  
+Mönstret kartan ovan visar relationer mellan (blå) mönster och antimönster (orange) som finns dokumenterade i den här guiden. Det finns många andra mönster som är värda att tänka på. Till exempel ett av scenarierna för Tabelltjänsten är att använda den [mönster för materialiserad vy](https://msdn.microsoft.com/library/azure/dn589782.aspx) från den [kommandot fråga ansvar uppdelning (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) mönster.  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>Mönster för Intra-partition sekundärt index
-Store flera kopior av varje entitet med hjälp av olika **RowKey** värden (i samma partition) att aktivera snabb och effektiv sökningar och alternativa sorteringsordningar med hjälp av olika **RowKey** värden. Uppdateringar mellan kopior kan vara konsekvent med EGT'S.  
+Store flera kopior av varje entitet med hjälp av olika **RowKey** värden (i samma partition) att aktivera snabb och effektiv sökningar och alternativa sorteringsordningar med hjälp av olika **RowKey** värden. Uppdateringar mellan kopior kan behållas konsekvent med hjälp av avsättning.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med hjälp av dessa värden. Till exempel använder tabellstrukturen visas nedan, ett klientprogram kan använda en punkt-fråga för att hämta en enskild medarbetare entitet med hjälp av ID och ett avdelningsnamn (den **PartitionKey** och **RowKey**  värden). En klient kan också hämta entiteter sorterade efter anställnings-ID i varje avdelning.
+Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med hjälp av dessa värden. Om du till exempel använder tabell strukturen som visas nedan kan ett klient program använda en punkt fråga för att hämta en enskild anställd entitet med hjälp av avdelnings namnet och anställnings-ID: t ( **PartitionKey** och **RowKey** ). En-klient kan också hämta entiteter sorterade efter anställnings-ID inom varje avdelning.
 
 ![Image06](media/storage-table-design-guide/storage-table-design-IMAGE06.png)
 
 Om du vill ska kunna hitta en anställd entitet som baseras på värdet för en annan egenskap, till exempel e-postadress, måste du använda en mindre effektivt partition genomsökning för att hitta en matchning. Det beror på att table service inte tillhandahåller sekundära index. Dessutom är det inget alternativ för att begära en lista över anställda sorterad i en annan ordning än **RowKey** ordning.  
 
 ### <a name="solution"></a>Lösning
-Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med ett annat **RowKey** värde. Om du lagrar en entitet med strukturer som visas nedan kan kan du enkelt hämta anställdas enheter baserat på e-postadress eller medarbetare-ID. Prefixet värden för den **RowKey**, ”empid_” och ”email_” kan du fråga för en enskild anställd eller en mängd anställda med hjälp av en mängd e-postadresser eller medarbetare-ID: n.  
+Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med ett annat **RowKey** värde. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixet värden för den **RowKey**, ”empid_” och ”email_” kan du fråga för en enskild anställd eller en mängd anställda med hjälp av en mängd e-postadresser eller medarbetare-ID: n.  
 
-![Medarbetaren entiteter](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
+![Personal enheter](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
-Följande två filtervillkoren (en Leta upp av anställnings-ID och en Leta upp av e-postadress) ange både punktfrågor:  
+Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågor:  
 
 * $filter = (PartitionKey eq ”försäljning”) och (RowKey eq 'empid_000223 ”)  
 * $filter = (PartitionKey eq ”försäljning”) och (RowKey eq 'email_jonesj@contoso.com”)  
 
-Om du frågar efter ett intervall med anställdas enheter, du kan ange ett intervall som är sorterad i anställdas ID ordning eller ett intervall som är sorterad i e-postadress ordning genom att fråga om entiteter med ett prefix i den **RowKey**.  
+Om du frågar efter ett antal anställdas entiteter kan du ange ett intervall som sorterats i anställnings-ID-ordning, eller ett intervall som sorterats i e-postadressen genom att fråga efter entiteter med lämpligt prefix i **RowKey**.  
 
-* Du hittar ID alla anställda på försäljningsavdelningen med en medarbetare i intervallet 000100 000199 användning: $filter = (PartitionKey eq ”försäljning”) och (RowKey ge ”empid_000100”) och (RowKey le 'empid_000199 ”)  
+* Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID inom intervallet 000100 till 000199 använder du: $filter = (PartitionKey EQ Sales) och (RowKey ge empid_000100) och (RowKey Le ' empid_000199 ')  
 * Du hittar alla anställda på försäljningsavdelningen med en e-postadress som börjar med bokstaven ”a” Använd: $filter = (PartitionKey eq ”försäljning”) och (RowKey ge ”email_a”) och (RowKey ll ”email_b”)  
   
-  Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Observera att den filter-syntax som används i exemplen ovan kommer från Table service REST API. mer information finns i [fråga](https://msdn.microsoft.com/library/azure/dd179421.aspx)om entiteter.  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -57,13 +57,13 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Eftersom sekundära index entiteterna lagras i samma partition som de ursprungliga entiteterna, bör du kontrollera att du inte överskrider det för skalbarhetsmål för en enskild partition.  
 * Du kan behålla dina dubbla entiteter överensstämmer med varandra med hjälp av EGTs för att uppdatera två kopior av entiteten atomiskt. Detta innebär att du ska lagra alla kopior av en entitet i samma partition. Mer information finns i avsnittet [med hjälp av Entitetsgrupptransaktioner](table-storage-design.md#entity-group-transactions).  
 * Det värde som används för den **RowKey** måste vara unikt för varje entitet. Överväg att använda sammansatt nyckelvärden.  
-* Utfyllnad numeriska värden i den **RowKey** (exempelvis anställdas ID 000223), kan korrigera sortering och filtrering baserat på övre och nedre gränser.  
+* Utfyllnad av numeriska värden i **RowKey** (till exempel anställnings-ID 000223), aktiverar korrekt sortering och filtrering baserat på övre och nedre gränser.  
 * Du behöver inte nödvändigtvis att duplicera alla egenskaperna för entiteten. Till exempel om frågorna som lookup entiteter med hjälp av e-postmeddelandet adressen i den **RowKey** behöver aldrig medarbetarens ålder, dessa entiteter kan ha följande struktur:
 
-   ![Medarbetare entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE08.png)
+   ![Enhets struktur för anställd](media/storage-table-design-guide/storage-table-design-IMAGE08.png)
 
 
-* Det är vanligtvis bättre att lagra duplicerade data och se till att du kan hämta alla data som du behöver med en enda fråga, än att använda en fråga för att hitta en entitet och en annan för att hämta nödvändiga data.  
+* Det är vanligt vis bättre att lagra dubblettdata och se till att du kan hämta alla data du behöver med en enda fråga, än att använda en fråga för att hitta en entitet och en annan för att söka efter nödvändiga data.  
 
 ### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när klientprogrammet måste hämta entiteter med hjälp av en mängd olika nycklar när din klient behöver hämta entiteter i olika sorteringsordningar, och där du kan identifiera varje entitet med hjälp av en rad unika värden. Dock bör du se till att du inte överskrider skalbarhetsgränserna för partition när du utför entitet sökningar med hjälp av de olika **RowKey** värden.  
@@ -80,31 +80,31 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Store flera kopior av varje entitet med hjälp av olika **RowKey** värden i separata partitioner eller i separata tabeller för att aktivera snabb och effektiv uppslag och alternativ sorteringsordningar med hjälp av olika **RowKey**värden.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med hjälp av dessa värden. Till exempel använder tabellstrukturen visas nedan, ett klientprogram kan använda en punkt-fråga för att hämta en enskild medarbetare entitet med hjälp av ID och ett avdelningsnamn (den **PartitionKey** och **RowKey**  värden). En klient kan också hämta entiteter sorterade efter anställnings-ID i varje avdelning.  
+Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med hjälp av dessa värden. Om du till exempel använder tabell strukturen som visas nedan kan ett klient program använda en punkt fråga för att hämta en enskild anställd entitet med hjälp av avdelnings namnet och anställnings-ID: t ( **PartitionKey** och **RowKey** ). En-klient kan också hämta entiteter sorterade efter anställnings-ID inom varje avdelning.  
 
-![Anställnings-ID](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
+![Medarbetar-ID](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
 Om du vill ska kunna hitta en anställd entitet som baseras på värdet för en annan egenskap, till exempel e-postadress, måste du använda en mindre effektivt partition genomsökning för att hitta en matchning. Det beror på att table service inte tillhandahåller sekundära index. Dessutom är det inget alternativ för att begära en lista över anställda sorterad i en annan ordning än **RowKey** ordning.  
 
-Du att ett mycket stort antal transaktioner mot dessa entiteter och vill du minimera risken för tabelltjänsten begränsning din klient.  
+Du förväntar dig en mycket stor mängd transaktioner mot dessa entiteter och vill minimera risken för Table service begränsning av klienten.  
 
 ### <a name="solution"></a>Lösning
-Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med hjälp av olika **PartitionKey** och **RowKey** värden. Om du lagrar en entitet med strukturer som visas nedan kan kan du enkelt hämta anställdas enheter baserat på e-postadress eller medarbetare-ID. Prefixet värden för den **PartitionKey**, ”empid_” och ”email_” kan du identifiera det index som du vill använda för en fråga.  
+Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med hjälp av olika **PartitionKey** och **RowKey** värden. Om du lagrar en entitet med de strukturer som visas nedan kan du effektivt hämta personal enheter baserat på e-postadress eller medarbetar-ID. Prefixet värden för den **PartitionKey**, ”empid_” och ”email_” kan du identifiera det index som du vill använda för en fråga.  
 
 ![Primärt index och sekundärt index](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
 
-Följande två filtervillkoren (en Leta upp av anställnings-ID och en Leta upp av e-postadress) ange både punktfrågor:  
+Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågor:  
 
 * $filter = (PartitionKey eq ' empid_Sales ”) och (RowKey eq '000223”)
 * $filter = (PartitionKey eq ' email_Sales ”) och (RowKey eq 'jonesj@contoso.com”)  
 
-Om du frågar efter ett intervall med anställdas enheter, du kan ange ett intervall som är sorterad i anställdas ID ordning eller ett intervall som är sorterad i e-postadress ordning genom att fråga om entiteter med ett prefix i den **RowKey**.  
+Om du frågar efter ett antal anställdas entiteter kan du ange ett intervall som sorterats i anställnings-ID-ordning, eller ett intervall som sorterats i e-postadressen genom att fråga efter entiteter med lämpligt prefix i **RowKey**.  
 
-* Du hittar alla anställda på försäljningsavdelningen med en anställnings-ID i intervallet **000100** till **000199** sorterade medarbetare ID kunna använda: $filter = (PartitionKey eq ' empid_Sales ”) och (RowKey ge '000100') och (RowKey le '000199 ”)  
+* Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID i intervallet **000100** till **000199** sorterat i anställnings-ID order användning: $filter = (PartitionKey EQ ' empid_Sales ') och (RowKey ge ' 000100 ') och (RowKey Le ' 000199 ')  
 * Du hittar alla anställda på försäljningsavdelningen med en e-postadress som börjar med ”a” i e-postadress kunna använda: $filter = (PartitionKey eq ' email_Sales ”) och (RowKey ge” a ”) och (RowKey ll” b ”)  
 
-Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Observera att den filter-syntax som används i exemplen ovan kommer från Table service REST API. mer information finns i [fråga](https://msdn.microsoft.com/library/azure/dd179421.aspx)om entiteter.  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -112,10 +112,10 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Du kan behålla dina dubbla entiteter konsekvent med varandra med hjälp av den [konsekvent transaktioner mönstret](#eventually-consistent-transactions-pattern) att underhålla de primära och sekundära index entiteterna.  
 * Table storage är relativt billiga att använda kostnaden arbetet med att lagra duplicerade data bör inte vara en stor utmaning. Du bör dock alltid utvärdera kostnaden för din design utifrån din förväntade lagringsbehov och bara lägga till dubbla entiteter för att stödja de frågor som ska köra klientprogrammet.  
 * Det värde som används för den **RowKey** måste vara unikt för varje entitet. Överväg att använda sammansatt nyckelvärden.  
-* Utfyllnad numeriska värden i den **RowKey** (exempelvis anställdas ID 000223), kan korrigera sortering och filtrering baserat på övre och nedre gränser.  
+* Utfyllnad av numeriska värden i **RowKey** (till exempel anställnings-ID 000223), aktiverar korrekt sortering och filtrering baserat på övre och nedre gränser.  
 * Du behöver inte nödvändigtvis att duplicera alla egenskaperna för entiteten. Till exempel om frågorna som lookup entiteter med hjälp av e-postmeddelandet adressen i den **RowKey** behöver aldrig medarbetarens ålder, dessa entiteter kan ha följande struktur:
   
-   ![Medarbetaren entitet (sekundära index)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
+   ![Anställd entitet (sekundärt index)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
 * Det är vanligtvis bättre att lagra duplicerade data och se till att du kan hämta alla data som du behöver med en enda fråga att använda en fråga för att hitta en entitet med hjälp av det sekundära indexet och en annan för sökning nödvändiga data i det primära indexet än.  
 
@@ -146,7 +146,7 @@ EGTs aktivera atomiska transaktioner över flera enheter som delar samma partiti
 Du kan implementera en lösning som ger konsekvens mellan två eller flera partitioner eller lagringssystem med hjälp av Azure-köer.
 Anta att du har ett krav för att kunna arkivera gamla anställdas enheter för att visa den här metoden kan. Den gamla anställdas enheter efterfrågas sällan och bör undantas från alla aktiviteter som handlar om aktuella anställda. För att implementera det här kravet du lagrar aktiva medarbetare i den **aktuella** tabell och tidigare anställda i den **Arkiv** tabell. Arkivera en anställd måste du ta bort enheten från den **aktuella** tabellen och Lägg till entitet till den **Arkiv** tabell, men du kan inte använda en EGT för att utföra de här två åtgärderna. För att undvika risken för att ett fel gör en entitet som ska visas i båda eller ingen tabeller, måste arkivåtgärden vara konsekvent. Följande sekvensdiagram illustrerar stegen i den här åtgärden. Mer information ges för undantag sökvägar i följande text.  
 
-![Lösningen för Azure-köer](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
+![Lösning för Azure-köer](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
 En klient initierar Arkiv igen genom att placera ett meddelande på en Azure-kö, i det här exemplet att arkivera medarbetare #456. En arbetsroll söker i kön för nya meddelanden. När den hittar en läser meddelandet och lämnar en dold kopia för kön. Arbetsrollen bredvid hämtar en kopia av entiteten från den **aktuella** tabellen, infogar en kopia i den **Arkiv** tabellen och tar sedan bort ursprungligt från den **aktuella** tabell. Slutligen, om det finns några fel från föregående steg, arbetsrollen tar bort dolda meddelandet från kön.  
 
@@ -162,7 +162,7 @@ Fel från tabell och kö tjänsterna tillfälliga fel och klientprogrammet bör 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
-* Den här lösningen ger inte för transaktionsisoleringen. Till exempel en klient kan läsa den **aktuella** och **Arkiv** tabeller när arbetsrollen har mellan stegen **4** och **5**, och se en Inkonsekvent vy över data. Observera att data ska vara konsekvent så småningom.  
+* Den här lösningen ger inte för transaktionsisoleringen. Till exempel en klient kan läsa den **aktuella** och **Arkiv** tabeller när arbetsrollen har mellan stegen **4** och **5**, och se en Inkonsekvent vy över data. Observera att data kommer att vara konsekventa.  
 * Du måste vara säker på att steg 4 och 5 är idempotenta för att säkerställa konsekvens.  
 * Du kan skala lösningen med hjälp av flera köer och worker-rollinstanser.  
 
@@ -180,11 +180,11 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 > 
 > 
 
-## <a name="index-entities-pattern"></a>Mönster för index-entiteter
+## <a name="index-entities-pattern"></a>Mönster för index entiteter
 Underhålla index entiteter för att aktivera effektiv sökning som returnerar en lista över entiteter.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med en punkt-fråga. Till exempel använder tabellstrukturen visas nedan, ett klientprogram enkelt kan hämta en enskild medarbetare entitet med hjälp av ID och ett avdelningsnamn (den **PartitionKey** och **RowKey**).  
+Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med en punkt-fråga. Med hjälp av tabell strukturen som visas nedan kan ett klient program effektivt hämta en enskild anställd entitet med hjälp av avdelnings namnet och medarbetar-ID: t ( **PartitionKey** och **RowKey**).  
 
 ![Medarbetaren entitet](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -197,23 +197,23 @@ Om du vill aktivera sökning efter efternamn med entitetsstruktur som anges ovan
 * Skapa index entiteter i samma partition som anställdas enheter.  
 * Skapa index entiteter i en separat partition eller tabellen.  
 
-<u>Alternativ #1: Använda blob storage</u>  
+<u>Alternativ #1: Använda Blob Storage</u>  
 
-För det första alternativet, du skapa en blob för varje unikt efternamn och varje blob store en lista över de **PartitionKey** (avdelning) och **RowKey** (anställnings-ID) värden för anställda som har det senaste namnet. När du lägger till eller ta bort en medarbetare bör du kontrollera att innehållet i den relevanta blobben är konsekvent med enheterna som anställda.  
+För det första alternativet skapar du en BLOB för varje unikt efter namn och i varje BLOB-Arkiv visas en lista över värdena **PartitionKey** (avdelning) och **RowKey** (medarbetar-ID) för anställda som har det efter namnet. När du lägger till eller tar bort en medarbetare bör du se till att innehållet i den relevanta blobben stämmer överens med de anställdas entiteter.  
 
-<u>Alternativ #2:</u> Skapa index entiteter i samma partition  
+<u>Alternativ #2:</u> Skapa index enheter i samma partition  
 
 För det andra alternativet, använder du index entiteter som lagrar följande data:  
 
-![Medarbetaren index entitet](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
+![Entitet för medarbetar index](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
 Den **EmployeeIDs** egenskapen innehåller en lista över anställda ID: n för anställda med efternamn som lagras i den **RowKey**.  
 
 Följande steg beskriver hur du bör följa när du lägger till en ny medarbetare om du använder det andra alternativet. I det här exemplet lägger vi till en medarbetare med Id 000152 och efternamn Jones på försäljningsavdelningen:  
 
 1. Hämta entiteten index med en **PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”Jones”. Spara ETag för den här entiteten som ska användas i steg 2.  
-2. Skapa entiteten grupp transaktion (det vill säga en batchåtgärd) som infogar entiteten medarbetare (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”000152”), och uppdaterar indexet entiteten (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”Jones”) genom att lägga till nya anställnings-ID i listan i fältet EmployeeIDs. Mer information om entitetsgrupptransaktioner finns i Entitetsgrupptransaktioner.  
-3. Om entitet grupp transaktionen misslyckas på grund av en Optimistisk samtidighet-fel (någon annan har bara ändrat entiteten index), måste du börja om igen i steg 1.  
+2. Skapa en enhets grupp transaktion (det vill säga en batch-åtgärd) som infogar den nya personal enheten (**PartitionKey** värde "försäljning" och **RowKey** värde "000152") och uppdaterar index enheten (**PartitionKey** värde "Sales" och **RowKey** värdet "Johansson") genom att lägga till det nya medarbetar-ID: t i listan i fältet EmployeeIDs. Mer information om enhets grupps transaktioner finns i enhets grupp transaktioner.  
+3. Om enhets grupp transaktionen Miss lyckas på grund av ett optimistiskt samtidigt fel (någon annan har precis ändrat entiteten index) måste du börja om steg 1.  
 
 Du kan använda en liknande metod för att ta bort en medarbetare om du använder det andra alternativet. Ändra en anställds efternamn är lite mer komplext eftersom du behöver att köra en entitet grupp transaktion som uppdaterar tre entiteter: anställd entiteten och entiteten index för det gamla efternamnet entiteten index för det nya efternamnet. Varje entitet måste du hämta innan du gör några ändringar för att hämta de ETag-värden som du sedan kan använda för att utföra uppdateringarna med Optimistisk samtidighet.  
 
@@ -223,11 +223,11 @@ Följande steg beskriver hur du bör följa när du behöver leta upp alla anst�
 2. Parsa listan över anställnings-ID i fältet EmployeeIDs.  
 3. Om du behöver ytterligare information om var och en av dessa anställda (till exempel sina e-postadresser) kan du hämta var och en av anställdas entiteter med hjälp av **PartitionKey** värdet ”Försäljning” och **RowKey** värden från den lista över anställda som du hämtade i steg 2.  
 
-<u>Alternativ #3:</u> Skapa index entiteter i en separat partition eller tabell  
+<u>Alternativ #3:</u> Skapa index enheter i en separat partition eller tabell  
 
 Det tredje alternativet Använd index entiteter som lagrar följande data:  
 
-![Medarbetaren index entitet i en separat partition](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
+![Entiteten för medarbetar index i en separat partition](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
 Den **EmployeeIDs** egenskapen innehåller en lista över anställda ID: n för anställda med efternamn som lagras i den **RowKey**.  
@@ -238,7 +238,7 @@ Du kan inte använda EGTs med det tredje alternativet för att underhålla konse
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
 * Denna lösning kräver minst två frågor för att hämta matchande entiteter: en för att fråga indexet entiteter för att hämta listan över **RowKey** värden och frågor för att hämta varje entitet i listan.  
-* Tanke på att en enskild entitet har en maximal storlek på 1 MB, förutsätter #2 och 3 # i lösningen att listan över anställdas ID: n för alla angivna efternamn aldrig är större än 1 MB. Om listan över anställdas ID: n är troligt att vara större än 1 MB i storlek, Använd alternativ #1 och lagra indexet data i blob storage.  
+* Eftersom en enskild entitet har en maximal storlek på 1 MB, #2 och alternativ #3 i lösningen förutsätter vi att listan med anställnings-ID: n för ett visst efter namn aldrig är större än 1 MB. Om listan över anställdas ID: n är troligt att vara större än 1 MB i storlek, Använd alternativ #1 och lagra indexet data i blob storage.  
 * Om du använder alternativet #2 måste (med EGTs som hanterar att lägga till och ta bort anställda och ändra en anställds efternamn) du utvärdera om mängden transaktioner kommer närma dig skalbarhetsgränserna i en given partition. Om så är fallet bör du överväga en konsekvent lösning (alternativ #1 eller #3) som använder köer för att hantera uppdateringsbegäranden och gör det möjligt att lagra dina index entiteter i en separat partition från medarbetare entiteter.  
 * Alternativ #2 i den här lösningen förutsätter att du vill leta upp efter efternamn inom en avdelning: till exempel du vill hämta en lista över anställda med ett efternamn Jones på försäljningsavdelningen. Om du vill kunna söka efter alla anställda med ett efternamn Jones i hela organisationen använda antingen alternativ #1 eller #3.
 * Du kan implementera en Köbaserad lösning som ger slutlig konsekvens (se den [konsekvent transaktioner mönstret](#eventually-consistent-transactions-pattern) för mer information).  
@@ -258,14 +258,14 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Kombinera relaterade data tillsammans i en enda enhet så att du kan hämta alla data som du behöver med en enda fråga.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-I en relationsdatabas normalisera du normalt data för att ta bort duplicering, vilket resulterar i frågor som hämtar data från flera tabeller. Om du normalisera data i Azure-tabeller, måste du se flera kommunikationsturer från klienten till servern för att hämta relaterade data. Till exempel med tabellstrukturen nedan om du behöver två tur och RETUR att hämta information för en avdelning: en för att hämta entiteten avdelning som innehåller hanterare användarens ID och sedan en annan begäran att hämta chefens information i en anställd entitet.  
+I en relationsdatabas normalisera du normalt data för att ta bort duplicering, vilket resulterar i frågor som hämtar data från flera tabeller. Om du normalisera data i Azure-tabeller, måste du se flera kommunikationsturer från klienten till servern för att hämta relaterade data. Med tabell strukturen som visas nedan behöver du till exempel två tur och svar för att hämta information om en avdelning: en för att hämta information om en avdelning: en för att hämta den avdelnings enhet som innehåller chefens ID och en annan begäran att hämta chefens information i en anställds entitet.  
 
 ![Avdelning och medarbetare](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Lösning
 I stället för att lagra data i två separata entiteter, avnormalisera data och behålla en kopia av chefens information i entiteten avdelning. Exempel:  
 
-![Avdelning entitet](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
+![Avdelnings enhet](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
 Avdelning entiteter som lagras med de här egenskaperna, kan du nu hämta all information du behöver om en avdelning med hjälp av en punkt-fråga.  
 
@@ -289,24 +289,24 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Använd sammansatta **RowKey** värden att aktivera en klient att söka efter relaterade data med en enda fråga.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-I en relationsdatabas är det ganska naturligt att använda kopplingar i frågor för att gå tillbaka relaterade typer av data till klienten i en enskild fråga. Du kan exempelvis använda anställnings-ID för att leta upp en lista över relaterade entiteter som innehåller prestanda och granska data för denna medarbetare.  
+I en Relations databas är det ganska naturligt att använda kopplingar i frågor för att returnera relaterade data delar till klienten i en enskild fråga. Du kan till exempel använda medarbetar-ID: t för att leta upp en lista över relaterade entiteter som innehåller prestanda och granska data för den anställda.  
 
 Anta att du lagrar medarbetare entiteter i tabelltjänsten med följande struktur:  
 
-![Medarbetare entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Enhets struktur för anställd](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 Du måste också att lagra historiska data som rör granskningar och prestanda för varje år medarbetaren har arbetat för din organisation och du behöver för att kunna komma åt informationen per år. Ett alternativ är att skapa en annan tabell som lagrar entiteter med följande struktur:  
 
-![Alternativa medarbetare entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE19.png)
+![Struktur för alternativ medarbetar enhet](media/storage-table-design-guide/storage-table-design-IMAGE19.png)
 
 Observera att med den här metoden kan du välja att duplicera viss information (till exempel förnamn och efternamn) i den nya entiteten så att du kan hämta dina data med en enskild begäran. Du kan dock ha stark konsekvens eftersom du inte kan använda en EGT för att uppdatera de två entiteterna atomiskt.  
 
 ### <a name="solution"></a>Lösning
 Store en ny entitet skapas i den ursprungliga tabellen med entiteter med följande struktur:  
 
-![Lösning för medarbetare entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
+![Lösning för entitets struktur för medarbetare](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
-Observera hur **RowKey** är nu en sammansatt nyckel som består av anställnings-ID och året för de data som gör att du kan hämta medarbetarens prestanda och granska data med en enskild begäran för en enda entitet.  
+Observera att **RowKey** nu är en sammansatt nyckel som består av medarbetar-ID: t och året för gransknings data som gör det möjligt att hämta den anställdas prestanda och granska data med en enda begäran för en enda enhet.  
 
 I följande exempel beskrivs hur du kan hämta alla granska data för en viss medarbetare (till exempel medarbetare 000123 på försäljningsavdelningen):  
 
@@ -333,7 +333,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Hämta den *n* entiteter som nyligen lagt till en partition med hjälp av en **RowKey** värde som sorteras listan i omvänd datum- och tidsordning.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Ett vanligt krav är att kunna hämta de nyligen skapade entiteterna, till exempel de senaste tio utgifter ansökningar som görs av en medarbetare. Tabellen frågar stöd för en **$top** fråga åtgärden att returnera först *n* entiteter från en uppsättning: det finns inga motsvarande frågeåtgärden att returnera de sista n entiteterna i en uppsättning.  
+Ett vanligt krav kan hämta de senast skapade entiteterna, till exempel de tio senaste utgifts anspråk som skickats av en medarbetare. Tabellen frågar stöd för en **$top** fråga åtgärden att returnera först *n* entiteter från en uppsättning: det finns inga motsvarande frågeåtgärden att returnera de sista n entiteterna i en uppsättning.  
 
 ### <a name="solution"></a>Lösning
 Store entiteter med hjälp av en **RowKey** att naturligt sorterar i tidsvärdet i omvänd ordning med hjälp av så den senaste posten är alltid den första i tabellen.  
@@ -369,16 +369,16 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Aktivera borttagning av ett stort antal entiteter genom att lagra alla entiteter för samtidiga borttagning i sina egna separata tabell. Du kan ta bort entiteter genom att ta bort tabellen.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Många program ta bort gamla data som behöver inte längre ska vara tillgängliga för ett klientprogram eller som programmet har arkiverats till ett annat lagringsmedium. Du vanligtvis identifiera sådana data genom att ett datum: exempel: du har ett krav att ta bort poster för alla inloggningsbegäranden som är mer än 60 dagar.  
+Många program tar bort gamla data som inte längre behöver vara tillgängliga för ett klient program eller som programmet har arkiverat till ett annat lagrings medium. Du kan vanligt vis identifiera sådana data med ett datum: exempelvis har du ett krav för att ta bort poster för alla inloggnings begär Anden som är äldre än 60 dagar gamla.  
 
-Ett möjligt design är att använda datum och tid för inloggningsförfrågan i den **RowKey**:  
+En möjlig design är att använda datum och tid för inloggningsbegäran i **RowKey**:  
 
-![Datum och tid för inloggningsförsök](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
+![Datum och tid för inloggnings försök](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
-Den här metoden undviker partition hotspots eftersom programmet kan infoga och ta bort inloggningen entiteter för varje användare i en separat partition. Den här metoden kan dock vara kostsamt och tidskrävande om du har ett stort antal entiteter eftersom först måste du utföra en tabellgenomsökning för att identifiera alla enheter ska ta bort och sedan måste du ta bort varje gamla entitet. Observera att du kan minska antalet sändningar till servern som krävs för att ta bort de gamla enheterna med batchbearbetning flera delete-begäranden till EGTs.  
+Med den här metoden undviker du hotspot-filer för partitioner eftersom programmet kan infoga och ta bort inloggnings enheter för varje användare i en separat partition. Den här metoden kan dock vara kostsamt och tidskrävande om du har ett stort antal entiteter eftersom först måste du utföra en tabellgenomsökning för att identifiera alla enheter ska ta bort och sedan måste du ta bort varje gamla entitet. Observera att du kan minska antalet fördröjningar till servern som krävs för att ta bort de gamla entiteterna genom att gruppera flera borttagnings begär anden till EGTs.  
 
 ### <a name="solution"></a>Lösning
-Använd en separat tabell för varje dag på inloggningsförsök. Du kan använda entiteten designen ovan för att undvika anslutningar när du infogar entiteter och tar bort gamla enheter är nu helt enkelt en fråga av att ta bort en tabell varje dag (en enda lagringsåtgärd) i stället för att söka efter och tar bort hundratals och tusentals person logga in entiteter varje dag.  
+Använd en separat tabell för varje dag med inloggnings försök. Du kan använda entitetens design ovan för att undvika hotspots när du infogar entiteter, och om du tar bort gamla entiteter är det nu bara en fråga om att ta bort en tabell varje dag (en enda lagrings åtgärd) i stället för att söka efter och ta bort hundratals och tusentals enskilda Logga in entiteter varje dag.  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -386,7 +386,7 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Din design som har stöd för andra sätt som programmet ska använda data, till exempel söka efter specifika entiteter, länkar till andra data eller generering samlar in information?  
 * Din design undviker aktiva punkter när du infogar nya entiteter?  
 * Förvänta dig en fördröjning om du vill återanvända samma namn när du tar bort den. Är det bättre att alltid använda unikt tabellnamn.  
-* Förvänta dig vissa begränsningar när du först använda en ny tabell medan tabelltjänsten lär sig mönster i databasåtkomst och distribuerar partitionerna mellan noder. Du bör överväga hur ofta du behöver skapa nya tabeller.  
+* Vänta lite begränsning när du först använder en ny tabell medan Table service lär sig åtkomst mönstren och distribuerar partitionerna över noderna. Du bör överväga hur ofta du behöver skapa nya tabeller.  
 
 ### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
 Använd det här mönstret när du har ett stort antal entiteter som du måste ta bort samtidigt.  
@@ -403,7 +403,7 @@ Store fullständig dataserier i en enda entitet att minimera antalet begäranden
 ### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt scenario är för ett program för att lagra en serie med data som vanligtvis krävs för att hämta allt samtidigt. Ditt program kan till exempel registrera hur många IM meddelanden varje medarbetare skickar varje timme och sedan använda informationen för att rita ut hur många meddelanden varje användare som skickas över föregående 24 timmar. En design kan vara att lagra 24 entiteter för varje medarbetare:  
 
-![Store 24 entiteter för varje medarbetare](media/storage-table-design-guide/storage-table-design-IMAGE22.png)
+![Lagra 24 entiteter för varje medarbetare](media/storage-table-design-guide/storage-table-design-IMAGE22.png)
 
 Med den här designen kan du enkelt hitta och uppdatera enheten att uppdatera för varje medarbetare när programmet måste uppdatera värdet för antal meddelande. Men om du vill hämta information för att rita ett diagram för aktiviteten i föregående 24 timmar, måste du hämta 24 entiteter.  
 
@@ -441,7 +441,7 @@ Du kan lagra flera entiteter för att representera ett objekt för stora företa
 
 ![Flera entiteter](media/storage-table-design-guide/storage-table-design-IMAGE24.png)
 
-Du kan använda en EGT om du behöver göra en ändring som kräver uppdaterar båda entiteter för att hålla dem synkroniserade med varandra. Annars kan använda du en enda merge-operation för att uppdatera meddelandeantalet för en viss dag. För att hämta alla data för en enskild anställd måste du hämta båda enheter som du kan göra med två effektiv förfrågningar som använder både en **PartitionKey** och en **RowKey** värde.  
+Om du behöver göra en ändring som måste uppdatera båda enheterna för att synkronisera dem med varandra kan du använda en avhjälpe. Annars kan använda du en enda merge-operation för att uppdatera meddelandeantalet för en viss dag. För att hämta alla data för en enskild anställd måste du hämta båda enheter som du kan göra med två effektiv förfrågningar som använder både en **PartitionKey** och en **RowKey** värde.  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -466,7 +466,7 @@ En enskild entitet kan inte lagra mer än 1 MB data totalt. Om en eller flera av
 ### <a name="solution"></a>Lösning
 Om din entitet överskrider 1 MB i storlek eftersom en eller flera egenskaper innehåller en stor mängd data kan du lagra data i Blob-tjänsten och sedan lagra den blob-adressen i en egenskap i entiteten. Du kan till exempel lagra foto av en medarbetare i blob storage och lagra en länk till bilden i den **foto** egenskap för dina medarbetare entitet:  
 
-![Foto-egenskapen](media/storage-table-design-guide/storage-table-design-IMAGE25.png)
+![Foto egenskap](media/storage-table-design-guide/storage-table-design-IMAGE25.png)
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -489,16 +489,16 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Öka skalbarheten när du har ett stort antal infogningar genom att sprida tillägg över flera partitioner.  
 
 ### <a name="context-and-problem"></a>Kontext och problem
-Prepending eller lägger till entiteter i dina entiteter för lagrade vanligtvis resulterar i programmet att lägga till nya entiteter i den första eller sista partitionen i en sekvens av partitioner. I det här fallet som alla infogningar vid en given tidpunkt äger rum i samma partition, skapar en hotspot som förhindrar tabelltjänsten från belastningsutjämning infogningar över flera noder och vilket kan orsaka att ditt program att träffa skalbarhetsmål för partition. Till exempel om du har ett program som loggar nätverks- och komma åt genom att anställda kan sedan en entitetsstruktur enligt nedan kan resultera i den aktuella timman partition blir en överbelastad punkt om mängden transaktioner når skalbarhetsmålen för en enskild partition:  
+Prepending eller lägger till entiteter i dina entiteter för lagrade vanligtvis resulterar i programmet att lägga till nya entiteter i den första eller sista partitionen i en sekvens av partitioner. I det här fallet sker alla infogningar vid en specifik tidpunkt i samma partition, vilket skapar en hotspot som förhindrar att tabell tjänsten från belastnings utjämning infogas över flera noder, vilket kan orsaka att ditt program når skalbarhets målen för partitionstabellen. Till exempel om du har ett program som loggar nätverks- och komma åt genom att anställda kan sedan en entitetsstruktur enligt nedan kan resultera i den aktuella timman partition blir en överbelastad punkt om mängden transaktioner når skalbarhetsmålen för en enskild partition:  
 
-![Entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
+![Enhets struktur](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
 ### <a name="solution"></a>Lösning
 Följande alternativ entitetsstruktur undviker en hotspot på en viss partition som program loggar händelser:  
 
-![Alternativa entitetsstruktur](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
+![Alternativ enhets struktur](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
 
-Meddelande med det här exemplet hur både den **PartitionKey** och **RowKey** är sammansatta nycklar. Den **PartitionKey** använder både avdelning och employee ID för att distribuera loggning över flera partitioner.  
+Meddelande med det här exemplet hur både den **PartitionKey** och **RowKey** är sammansatta nycklar. **PartitionKey** använder både avdelnings-och medarbetar-ID för att distribuera loggningen över flera partitioner.  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -507,7 +507,7 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Betyder din förväntade mängden transaktioner att du förmodligen att nå skalbarhetsmål för en enskild partition och att begränsas av storage-tjänsten?  
 
 ### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
-Undvik prepend/lägga till ett mönstret när volymen av transaktioner är sannolikt att begränsning av storage-tjänsten när du använder en frekvent partition.  
+Undvik lägga/Lägg till anti-mönstret när din volym av transaktioner sannolikt kommer att leda till begränsning av lagrings tjänsten när du använder en aktiv partition.  
 
 ### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
@@ -524,11 +524,11 @@ Ett vanligt användningsfall för loggdata är att hämta en uppsättning loggpo
 
 ![Log-meddelandeentiteten](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
-I det här exemplet på **RowKey** innehåller datum och tid för loggmeddelande så att loggmeddelanden lagras i datum/tid-ordning och innehåller ett meddelande-ID om flera loggmeddelanden delar samma datum och tid.  
+I det här exemplet inkluderar **RowKey** datum och tid för logg meddelandet för att säkerställa att logg meddelanden lagras sorterade i datum-/tids ordning och innehåller ett meddelande-ID om flera logg meddelanden delar samma datum och tid.  
 
 En annan metod är att använda en **PartitionKey** som säkerställer att programmet skriver meddelanden över flera olika partitioner. Om källan för loggmeddelandet är ett sätt att distribuera meddelanden över många partitioner, kan du till exempel använda följande entitetsschemat:  
 
-![Alternativa log-meddelandeentiteten](media/storage-table-design-guide/storage-table-design-IMAGE29.png)
+![Alternativt entitet för logg meddelande](media/storage-table-design-guide/storage-table-design-IMAGE29.png)
 
 Problem med det här schemat är dock att om du vill hämta alla loggmeddelanden för en viss tidsrymd måste du söka varje partition i tabellen.
 
@@ -541,7 +541,7 @@ Lagringsanalys lagrar loggmeddelanden i en avgränsad format i flera blobar. Avg
 
 Storage Analytics använder en namngivningskonvention för blobbar som gör det möjligt för dig att hitta blob (eller blobbar) som innehåller loggmeddelanden som du söker. Till exempel innehåller en blob med namnet ”queue/2014/07/31/1800/000001.log” loggmeddelanden som relaterar till kötjänst för med början vid 18:00 31 juli 2014. ”000001” anger att detta är den första loggfilen för den här perioden. Lagringsanalys registrerar också tidsstämplarna för de första och sista loggmeddelanden som lagras i filen som en del av den blob-metadata. API för blob storage kan du hitta blobbar i en behållare baserat på ett namnprefix: Om du vill hitta alla blobbar som innehåller kön loggdata för med början vid 18:00, kan du använda prefixet ”kö/2014/07/31/1800”.  
 
-Storage Analytics buffertar logga meddelanden internt och sedan regelbundet uppdaterar lämplig blob eller skapar en ny med den senaste batchen av loggposter. Detta minskar antalet skrivningar som måste utföras mot blob service.  
+Lagringsanalys buffrar logg meddelanden internt och uppdaterar sedan regelbundet rätt BLOB eller skapar en ny med den senaste batchen med logg poster. Detta minskar antalet skrivningar som måste utföras mot blob service.  
 
 Om du implementerar en liknande lösning i ditt eget program, måste du tänka på hur du hanterar en kompromiss mellan tillförlitlighet (skriver varje loggpost till blob storage som händer) och kostnaden och skalbarhet (buffring uppdateringar i ditt program och skriva dem till blob storage i batchar).  
 
@@ -556,7 +556,7 @@ Tänk på följande när du bestämmer hur du lagrar loggdata:
 Det här avsnittet beskrivs några saker att ha i åtanke när du implementerar de mönster som beskrivs i föregående avsnitt. De flesta av det här avsnittet använder exempel som skrivits i C# och som använder Storage-klientbibliotek (version 4.3.0 då skrivs).  
 
 ## <a name="retrieving-entities"></a>Hämtar entiteter
-Enligt beskrivningen i avsnittet Design för att fråga, är mest effektiva frågan en punkt-fråga. I vissa situationer kan du dock behöva hämta flera entiteter. Det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av Storage-klientbiblioteket.  
+Som det beskrivs i avsnittet design för frågor, är den mest effektiva frågan en punkt fråga. I vissa situationer kan du dock behöva hämta flera entiteter. Det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av Storage-klientbiblioteket.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Kör en punkt-fråga med hjälp av Storage-klientbibliotek
 Det enklaste sättet att köra en punkt-fråga är att använda den **hämta** tabellen åtgärden som visas i C# kodfragment som hämtar en entitet med en **PartitionKey** värde ”försäljning” och en  **RowKey** värde ”212”:  
@@ -574,13 +574,13 @@ if (retrieveResult.Result != null)
 Observera hur entiteten förväntar att det här exemplet hämtas för att vara av typen **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Hämtar flera entiteter med hjälp av LINQ
-Du kan använda LINQ för att hämta flera entiteter från tabelltjänsten när du arbetar med standardbibliotek för Microsoft Azure Cosmos-tabell. 
+Du kan använda LINQ för att hämta flera entiteter från Table service när du arbetar med Microsoft Azure Cosmos tabell standard bibliotek. 
 
 ```cli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 
-Att göra det under exempel arbete måste du inkludera namnområden:
+Om du vill att nedanstående exempel ska fungera måste du ta med namn områden:
 
 ```csharp
 using System.Linq;
@@ -588,9 +588,9 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable är ett CloudTable-objekt som implementerar en CreateQuery<ITableEntity>()-metod som returnerar en TableQuery<ITableEntity>. Objekt av den här typen implementera en IQueryable och Tillåt med både LINQ-frågeuttryck och punkt notation-syntax.
+EmployeeTable är ett CloudTable-objekt som implementerar en CreateQuery\<ITableEntity > ()-metod som returnerar en TableQuery\<ITableEntity->. Objekt av den här typen implementerar en IQueryable och tillåter att både LINQ Query-uttryck och punkt notation används.
 
-Hämta flera entiteter och uppnås genom att ange en fråga med en **där** satsen. Om du vill undvika en tabellgenomsökning, bör du alltid skriva den **PartitionKey** värdet i where-satsen, och om möjligt den **RowKey** värde att undvika tabell och partition genomsökningar. Table service har stöd för en begränsad uppsättning jämförelseoperatorer (större än, större än eller lika med, mindre, mindre än eller lika med, lika med och inte lika med) att använda i where-satsen. 
+Hämtar flera entiteter och uppnår genom att ange en fråga med en **WHERE** -sats. Om du vill undvika en tabellgenomsökning, bör du alltid skriva den **PartitionKey** värdet i where-satsen, och om möjligt den **RowKey** värde att undvika tabell och partition genomsökningar. Table service har stöd för en begränsad uppsättning jämförelseoperatorer (större än, större än eller lika med, mindre, mindre än eller lika med, lika med och inte lika med) att använda i where-satsen. 
 
 I följande C#-kodavsnitt som söker efter alla anställda vars efternamn börjar med ”B” (förutsatt att den **RowKey** lagrar efternamn) på försäljningsavdelningen (förutsatt att den **PartitionKey** lagrar den avdelningsnamn):  
 
@@ -607,7 +607,7 @@ var employees = query.Execute();
 
 Observera hur frågan anger både en **RowKey** och en **PartitionKey** säkerställa bättre prestanda.  
 
-Följande kodexempel visar motsvarande funktioner utan att använda LINQ-syntax:  
+Följande kod exempel visar likvärdiga funktioner utan att använda LINQ-syntax:  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 
@@ -685,7 +685,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projektion för serversidan
-En enda entitet kan ha upp till 255 egenskaper och upp till 1 MB i storlek. När du frågar tabellen och hämta entiteter kan du kanske inte behöver alla egenskaper och kan undvika att överföra data onödan (om du vill minska svarstid och kostnader). Du kan använda serversidan projektion Överför bara de egenskaper som du behöver. I följande exempel är hämtar bara **e-post** egenskapen (tillsammans med **PartitionKey**, **RowKey**, **tidsstämpel**, och **ETag**) från de entiteter som valts av frågan.  
+En enda entitet kan ha upp till 255 egenskaper och upp till 1 MB i storlek. När du frågar tabellen och hämta entiteter kan du kanske inte behöver alla egenskaper och kan undvika att överföra data onödan (om du vill minska svarstid och kostnader). Du kan använda serversidan projektion Överför bara de egenskaper som du behöver. I följande exempel hämtas bara egenskapen **e-post** (tillsammans med **PartitionKey**, **RowKey**, **timestamp**och **etag**) från entiteterna som valts av frågan.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -703,9 +703,9 @@ foreach (var e in entities)
 Observera hur **RowKey** värdet är tillgängliga även om den inte ingick i listan över egenskaper som hämtas.  
 
 ## <a name="modifying-entities"></a>Ändra entiteter
-Storage-klientbiblioteket kan du ändra dina entiteter som lagras i tabelltjänsten genom att lägga till, ta bort och uppdatera entiteter. Du kan använda EGTs batch flera insert-, update- och delete-åtgärder tillsammans för att minska antalet sändningar som krävs och förbättra prestandan för din lösning.  
+Storage-klientbiblioteket kan du ändra dina entiteter som lagras i tabelltjänsten genom att lägga till, ta bort och uppdatera entiteter. Du kan använda EGTs för att köra flera INSERT-, Update-och Delete-åtgärder för att minska antalet tur och svar som krävs och förbättra lösningens prestanda.  
 
-Observera att undantag som utlöses när en EGT körs vanligtvis i Storage-klientbiblioteket inkluderar index för den entitet som orsakade batch misslyckas. Detta är användbart när du felsöker kod som använder EGTs.  
+Observera att undantag som uppstår när lagrings klient biblioteket kör en EGT vanligt vis inkluderar index för den enhet som gjorde att batchen kunde köras. Detta är användbart när du felsöker kod som använder EGTs.  
 
 Du bör också överväga hur din design påverkar hanteringen av samtidighet och uppdateringsåtgärderna i klientprogrammet.  
 
@@ -799,7 +799,7 @@ Table service är en *utan schema* tabellarkiv innebär det att en enda tabell k
 <th>FirstName</th>
 <th>LastName</th>
 <th>Ålder</th>
-<th>E-post</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -812,7 +812,7 @@ Table service är en *utan schema* tabellarkiv innebär det att en enda tabell k
 </tr>
 </table>
 
-Observera att varje entitet måste fortfarande ha **PartitionKey**, **RowKey**, och **tidsstämpel** värden, men kan ha en uppsättning egenskaper. Det finns inget att ange vilken typ av en entitet om du inte väljer att lagra informationen någonstans. Det finns två alternativ för att identifiera entitetstypen:  
+Observera att varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestamp** -värden, men kan ha en uppsättning egenskaper. Det finns inget att ange vilken typ av en entitet om du inte väljer att lagra informationen någonstans. Det finns två alternativ för att identifiera entitetstypen:  
 
 * Lägg till åtkomstgruppen entitetstypen till den **RowKey** (eller eventuellt den **PartitionKey**). Till exempel **EMPLOYEE_000123** eller **DEPARTMENT_SALES** som **RowKey** värden.  
 * Använda en separat egenskap för att registrera enhetstypen som visas i tabellen nedan.  
@@ -914,7 +914,7 @@ Observera att varje entitet måste fortfarande ha **PartitionKey**, **RowKey**, 
 
 Det första alternativet, prepending entiteten skriver till den **RowKey**, är användbart om det finns en risk att två entiteter med olika typer kan ha samma nyckelvärde. Den också grupperar entiteter av samma typ tillsammans i partitionen.  
 
-De metoder som beskrivs i det här avsnittet är särskilt relevanta till diskussionen [arvsrelationer](table-storage-design-modeling.md#inheritance-relationships) tidigare i den här guiden i artikeln [modellering relationer](table-storage-design-modeling.md).  
+De metoder som beskrivs i det här avsnittet är särskilt relevanta för diskussions [arvs relationerna](table-storage-design-modeling.md#inheritance-relationships) tidigare i den här hand boken i artikeln [modellerings relationer](table-storage-design-modeling.md).  
 
 > [!NOTE]
 > Du bör inkludera ett versionsnummer i entiteten TYPVÄRDE och låt klientprogram att utvecklas POCO-objekt och arbeta med olika versioner.  
@@ -926,7 +926,7 @@ Resten av det här avsnittet beskrivs några av de funktioner i Storage-klientbi
 ### <a name="retrieving-heterogeneous-entity-types"></a>Hämtning av heterogena entitetstyper
 Om du använder Storage-klientbiblioteket, har du tre alternativ för att arbeta med flera typer av enheter.  
 
-Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **PartitionKey** värden, kan du ange entitetstypen när du hämtar entitet som du ser i föregående två exempel som Hämta entiteter av typen **EmployeeEntity**: [Kör en punkt-fråga med hjälp av Storage-klientbiblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med hjälp av LINQ](#retrieving-multiple-entities-using-linq).  
+Om du vet vilken typ av entitet som lagras med ett särskilt värde för **RowKey** och **PartitionKey** kan du ange entitetstypen när du hämtar entiteten som du ser i föregående två exempel som hämtar entiteter av typen **EmployeeEntity** : [Köra en punkt fråga med lagrings klient biblioteket](#executing-a-point-query-using-the-storage-client-library) och [Hämta flera entiteter med LINQ](#retrieving-multiple-entities-using-linq).  
 
 Det andra alternativet är att använda den **DynamicTableEntity** typ (en egenskapsuppsättning) i stället för en konkret POCO entitetstypen (det här alternativet kan också förbättra prestanda eftersom det finns inget behov att serialisera och deserialisera entiteten till .NET-typer). Följande C#-kod potentiellt hämtar flera entiteter av olika typer från tabellen, men returnerar alla entiteter som **DynamicTableEntity** instanser. Därefter använder den **EntityType** som bestämmer vilken typ av varje entitet:  
 
@@ -959,7 +959,7 @@ foreach (var e in entities)
 }  
 ```
 
-Observera att om du vill hämta andra egenskaper som du måste använda den **TryGetValue** metoden på den **egenskaper** egenskapen för den **DynamicTableEntity** klass.  
+Observera att du måste använda metoden **TryGetValue** i egenskapen **Properties** för klassen **DynamicTableEntity** för att hämta andra egenskaper.  
 
 Ett tredje alternativ är att kombinera med hjälp av den **DynamicTableEntity** typ och en **EntityResolver** instans. Detta gör det möjligt för dig att lösa flera POCO-typer i samma fråga. I det här exemplet på **EntityResolver** ombud använder den **EntityType** egenskapen att skilja mellan de två typerna av entiteten som returneras av frågan. Den **lösa** metoden används den **matchare** ombud för att lösa **DynamicTableEntity** -instanser till **TableEntity** instanser.  
 
@@ -1024,7 +1024,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>Kontrollera åtkomst med signaturer för delad åtkomst
-Du kan använda token för signatur för delad åtkomst (SAS) för att aktivera klientprogram för att ändra (och fråga) tabellenheter utan att behöva ta med din lagringskontonyckel i din kod. Det finns vanligtvis tre huvudsakliga fördelar med SAS i ditt program:  
+Du kan använda signaturer för delad åtkomst (SAS) för att göra det möjligt för klient program att ändra (och fråga)-tabell enheter utan att behöva inkludera din lagrings konto nyckel i din kod. Det finns vanligtvis tre huvudsakliga fördelar med SAS i ditt program:  
 
 * Du behöver inte distribuera din lagringskontonyckel till ett osäkert plattform (till exempel en mobil enhet) för att tillåta att enheten för att komma åt och ändra entiteter i Table service.  
 * Du omfördela några av det arbete som webb-och arbetsroller utföra i hanteringen av dina entiteter till klientenheter, till exempel slutanvändarnas datorer och mobila enheter.  
@@ -1032,7 +1032,7 @@ Du kan använda token för signatur för delad åtkomst (SAS) för att aktivera 
 
 Läs mer om hur du använder SAS-token med Table service, [med signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
-Du måste dock fortfarande generera SAS-token som ger ett klientprogram till entiteter i tabelltjänsten: du bör göra detta i en miljö som har säker åtkomst till dina lagringskontonycklar. Normalt använder du en web- eller worker-roll för att generera SAS-token och skicka dem till klientprogram som behöver åtkomst till dina entiteter. Eftersom det finns fortfarande en belastning i genererar och leverera SAS-token till klienter, bör du hur du bäst för att minska den här kostnader, särskilt i scenarion med stora volymer.  
+Du måste dock fortfarande generera SAS-token som ger ett klient program till entiteterna i tabell tjänsten: du bör göra detta i en miljö som har säker åtkomst till dina lagrings konto nycklar. Normalt använder du en web- eller worker-roll för att generera SAS-token och skicka dem till klientprogram som behöver åtkomst till dina entiteter. Eftersom det finns fortfarande en belastning i genererar och leverera SAS-token till klienter, bör du hur du bäst för att minska den här kostnader, särskilt i scenarion med stora volymer.  
 
 Det är möjligt att skapa en SAS-token som beviljar åtkomst till en delmängd entiteter i en tabell. Som standard kan du skapa en SAS-token för en hel tabell, men det är också möjligt att ange att SAS-token ger åtkomst till antingen en mängd **PartitionKey** värden, eller en mängd **PartitionKey** och **RowKey** värden. Du kan välja att generera SAS-token för enskilda användare i systemet så att varje användares SAS-token endast ger dem åtkomst till sina egna entiteter i table service.  
 
@@ -1091,7 +1091,7 @@ I den här asynkrona exempelvis ser du följande ändringar från den synkrona v
 
 Klientprogrammet kan anropa den här metoden flera gånger (med olika värden för den **avdelning** parametern), och varje fråga ska köras på en separat tråd.  
 
-Observera att det inte finns någon asynkron version av den **kör** -metod i den **TableQuery** klassen eftersom den **IEnumerable** gränssnittet stöder inte asynkrona uppräkning.  
+Observera att det inte finns någon asynkron version av **execute** -metoden i klassen **TableQuery** eftersom **IEnumerable** -gränssnittet inte stöder asynkron uppräkning.  
 
 Du kan också infoga, uppdatera och ta bort entiteter asynkront. I följande C#-exempel visas en enkel, synkron metod för att infoga eller ersätta en anställd entitet:  
 
@@ -1126,7 +1126,7 @@ Klientprogrammet kan anropa flera asynkrona metoder som det här och varje metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Modellering relationer](table-storage-design-modeling.md)
+- [Modellerings relationer](table-storage-design-modeling.md)
 - [Design för frågor](table-storage-design-for-query.md)
-- [Kryptering av tabelldata som](table-storage-design-encrypt-data.md)
-- [Design för dataändringar](table-storage-design-for-modification.md)
+- [Kryptera tabell data](table-storage-design-encrypt-data.md)
+- [Design för data ändring](table-storage-design-for-modification.md)

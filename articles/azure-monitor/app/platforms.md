@@ -13,34 +13,38 @@ ms.topic: conceptual
 ms.date: 07/06/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 100f1f8875dd53f954e99c50f0bc5b9cd3fee31b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617808"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990059"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>Språk – som officiellt stöds av Application Insights-teamet
+# <a name="languages---officially-supported-by-application-insights-team"></a>Språk – stöds officiellt av Application Insights-teamet
+
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript-webbsidor](../../azure-monitor/app/javascript.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
-## <a name="languages---community-supported"></a>Språk – som stöds av vårt community
+## <a name="community-sdks"></a>Community-SDK: er
 
-Det finns ett antal community stöds Application Insights SDK: er, som ursprungligen har skapats av Microsoft. Community stöds SDK: er är officiellt inte hanteras av Microsoft och vi kan inte tillhandahålla support för alla SDK som inte finns med på listan stöds officiellt. Dessa SDK: er betraktas experimentella och rekommenderas inte för användning i produktion.
+Det finns ett antal community-SDK: er för Azure Application Insights, många av dem som ursprungligen skapats av Microsoft. Community SDK: er hanteras inte officiellt av Microsoft. Vi kan inte tillhandahålla stöd för SDK: er som inte finns med i listan över officiellt stöd. Dessa SDK: er betraktas som experimentella och rekommenderas inte för produktions användning.
 
 ## <a name="platforms-and-frameworks"></a>Plattformar och ramverk
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentering för redan distribuerade program (kodad, agent-baserad)
+* [Skalnings uppsättningar för virtuella Azure-datorer och virtuella Azure-datorer](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET – för appar som redan är live](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md), inklusive både webb-och arbets roller
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### <a name="instrumentation-through-code-sdks"></a>Instrumentering genom kod (SDK: er)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
-* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) (webb- och worker-roller)
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
-* [Java EE](../../azure-monitor/app/java-get-started.md)
+* [Java-EE](../../azure-monitor/app/java-get-started.md)
 * [Node.js](https://www.npmjs.com/package/applicationinsights)
 * [Universell Windows-app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](../../azure-monitor/app/windows-desktop.md)
@@ -52,6 +56,6 @@ Det finns ett antal community stöds Application Insights SDK: er, som ursprungl
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
-## <a name="export-and-data-analysis"></a>Export- och dataanalys
+## <a name="export-and-data-analysis"></a>Export och data analys
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)

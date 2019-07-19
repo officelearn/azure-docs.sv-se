@@ -1,6 +1,6 @@
 ---
-title: 'Azure statusövervakaren v2 API-referens: Inaktivera övervakning | Microsoft Docs'
-description: Status Monitor v2 API-referens. Disable-ApplicationInsightsMonitoring. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Azure Statusövervakare v2 API-referens: Inaktivera övervakning | Microsoft Docs'
+description: API-referens för Statusövervakare v2. Disable-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,29 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 98171692284f5f28fb189e2658d207fb80d428ba
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 368365251ec61464869c6120ded2ec2237acffea
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807133"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326402"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v040-alpha"></a>Status Monitor v2 API: Inaktivera ApplicationInsightsMonitoring (v0.4.0-alfa)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>API för Statusövervakare v2: Disable-ApplicationInsightsMonitoring
 
-Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Beskrivning
 
-Inaktiverar övervakning på måldatorn.
-Denna cmdlet tas bort redigering av IIS-applicationHost.config och ta bort registernycklar.
+Inaktiverar övervakning på mål datorn.
+Denna cmdlet kommer att ta bort ändringar i IIS applicationHost. config och ta bort register nycklar.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-session med administratörsbehörigheter.
+> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
 
 ## <a name="examples"></a>Exempel
 
@@ -44,13 +39,13 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 
 ## <a name="parameters"></a>Parametrar 
 
-### <a name="-verbose"></a>-Verbose
-**Vanliga parameter.** Använd den här växeln om du vill visa detaljerade loggar.
+### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-successfully-disabling-monitoring"></a>Exempel på utdata från har inaktivering av övervakning
+#### <a name="example-output-from-successfully-disabling-monitoring"></a>Exempel på utdata från att inaktivera övervakning
 
 ```
 Initiating Disable Process
@@ -76,5 +71,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Nästa steg
 
- Gör mer med Status Monitor v2:
- - Använd vår guide om hur du [felsöka](status-monitor-v2-troubleshoot.md) statusövervakaren v2.
+ Gör mer med Statusövervakare v2:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.

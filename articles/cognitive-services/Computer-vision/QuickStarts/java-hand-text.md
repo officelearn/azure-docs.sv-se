@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera handskriven text – REST, Java'
+title: 'Snabbstart: Extrahera tryckt och handskriven text – vila, Java'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten extraherar du handskriven text från en bild med hjälp av API:et för visuellt innehåll med Java.
+description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1776a387add47464287e4ee3a22a2e1f5c3c781a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 545bd3acbd212a26b3e35020559ab62788ab7257
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604387"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312013"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Snabbstart: Extrahera handskriven text med hjälp av REST API för visuellt innehåll och Java
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Snabbstart: Extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java
 
-I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API och [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kan du identifiera handskriven text i en bild och sedan extrahera identifieras tecken till en teckenström som kan användas av datorn.
+I den här snabb starten extraherar du tryckt och/eller handskriven text från en bild genom att använda Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
 > [!IMPORTANT]
-> Till skillnad från den [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) metoden den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) metoden körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället till Batch-Read-metoden returnerar en URI i värdet för den `Operation-Content` svarsfältet för rubriken. Du kan sedan anropa denna URI som representerar den [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) metod för att kontrollera status och returnerar resultatet av Batch-Läs-metodanrop.
+> Till skillnad från [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -metoden körs [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -metoden asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Content` fältet svars huvud. Du kan sedan anropa den här URI: n, som representerar [resultat metoden Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -60,8 +60,8 @@ Så här skapar du och kör exemplet:
 
 1. Ersätt public-klassen `Main` med följande kod och gör sedan följande ändringar i koden där det behövs:
    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-   1. Ersätt värdet för `uriBase` med slutpunkts-URL för den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) metod från Azure-regionen där du har fått dina prenumerationsnycklar om det behövs.
-   1. Du kan också ersätta värdet för `imageToAnalyze` med webbadressen till en annan bild som du vill extrahera handskriven text ur.
+   1. Ersätt värdet för `uriBase` med slut punkts-URL: en för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -filläsningen från den Azure-region där du har köpt dina prenumerations nycklar, om det behövs.
+   1. Du kan också ersätta värdet för `imageToAnalyze` med URL: en för en annan bild som du vill extrahera text från.
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
 
@@ -112,7 +112,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Two REST API methods are required to extract handwritten text.
+            // Two REST API methods are required to extract text.
             // One method to submit the image for processing, the other method
             // to retrieve the text found in the image.
 
@@ -152,12 +152,12 @@ public class Main {
             // If the first REST API method completes successfully, the second
             // REST API method retrieves the text written in the image.
             //
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
-            // amount of time depending on the length of the handwritten text.
+            // amount of time depending on the length of the text.
             // You may need to wait or retry this operation.
 
-            System.out.println("\nHandwritten text submitted.\n" +
+            System.out.println("\nText submitted.\n" +
                     "Waiting 10 seconds to retrieve the recognized text.\n");
             Thread.sleep(10000);
 
@@ -187,7 +187,7 @@ public class Main {
 Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i konsolfönstret enligt följande exempel:
 
 ```json
-Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.
+Text submitted. Waiting 10 seconds to retrieve the recognized text.
 
 Text recognition result response:
 

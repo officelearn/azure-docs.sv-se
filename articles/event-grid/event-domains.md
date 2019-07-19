@@ -1,71 +1,71 @@
 ---
-title: Händelse-domäner i Azure Event Grid
-description: Beskriver hur du använder Event domäner att hantera avsnitt i Azure Event Grid.
+title: Händelse domäner i Azure Event Grid
+description: Beskriver hur händelse domäner används för att hantera ämnen i Azure Event Grid.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304300"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305413"
 ---
-# <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid-ämnen
+# <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid ämnen
 
-Den här artikeln beskriver hur du använder event domäner för att hantera flödet av anpassade händelser och dina olika företag och organisationer, kunder eller program. Använd event domäner till:
+Den här artikeln beskriver hur du använder händelse domäner för att hantera flödet av anpassade händelser till olika affärs organisationer, kunder eller program. Använd händelse domäner för att:
 
-* Hantera flera innehavare eventing arkitekturer i stor skala.
-* Hantera auktorisering och autentisering.
-* Partitionera dina ämnen utan att hantera varje individuellt.
-* Undvik att publicera individuellt till var och en av dina slutpunkter i avsnittet.
+* Hantera händelse arkitekturer för flera klient organisationer i stor skala.
+* Hantera din auktorisering och autentisering.
+* Partitionera dina ämnen utan att behöva hantera dem individuellt.
+* Undvik att individuellt publicera till var och en av dina ämnes slut punkter.
 
-## <a name="event-domain-overview"></a>Översikt över Event-domän
+## <a name="event-domain-overview"></a>Översikt över händelse domän
 
-En händelsedomän är ett hanteringsverktyg för stora mängder Event Grid-ämnen som är relaterade till samma program. Du kan se det som ett meta-ämne som kan ha tusentals enskilda avsnitt.
+En händelse domän är ett hanterings verktyg för ett stort antal Event Grid ämnen relaterade till samma program. Du kan tänka på det som ett meta-ämne som kan ha tusentals enskilda ämnen.
 
-Händelsen domäner gör tillgänglig för dig samma arkitektur som används av Azure-tjänster (t.ex. lagring och IoT-hubb) för att publicera händelser. De gör att du kan publicera händelser till tusentals olika ämnen. Domäner också ge autentisering och auktorisering kontroll över varje avsnitt så att du kan partitionera dina klienter.
+Händelse domäner är tillgängliga för dig samma arkitektur som används av Azure-tjänster (t. ex. lagring och IoT Hub) för att publicera sina händelser. De gör att du kan publicera händelser till tusentals ämnen. Domäner ger dig också auktoriserings-och verifierings kontroll över varje ämne så att du kan partitionera dina klienter.
 
 ### <a name="example-use-case"></a>Exempel på användningsfall
 
-Händelsen domäner beskrivs enklast med ett exempel. Vi antar att du kör Contoso konstruktion maskiner, där du tillverkar att hjul, gräva utrustning och andra tunga maskiner. Som en del av företaget, skicka information i realtid till kunder om underhåll och hälsotillståndet kontrakt uppdateringar. All information går till olika slutpunkter med din app, kund-slutpunkter och annan infrastruktur som kunder har skapat.
+Händelse domäner förklaras enklast med ett exempel. Anta att du kör Contosos konstruktions maskiner, där du tillverkar traktorer, utforska-utrustning och andra tunga maskiner. Som en del av att köra verksamheten kan du skicka real tids information till kunder om utrustnings underhåll, system hälsa och kontrakt uppdateringar. All den här informationen går till olika slut punkter, inklusive din app, kund slut punkter och annan infrastruktur som kunderna har konfigurerat.
 
-Händelse-domäner kan du modellen Contoso konstruktion maskiner som en enda eventing-enhet. Var och en av dina kunder representeras ett ämne i domänen. Autentisering och auktorisering hanteras med hjälp av Azure Active Directory. Var och en av dina kunder kan prenumerera på deras ämne och få de händelser som levereras till dem. Hanterad åtkomst via event domänen säkerställer att de kan bara komma åt sina avsnittet.
+Med händelse domäner kan du modellera Contosos konstruktions maskiner som en enskild händelse enhet. Var och en av dina kunder visas som ett ämne i domänen. Autentisering och auktorisering hanteras med hjälp av Azure Active Directory. Var och en av dina kunder kan prenumerera på sitt ämne och få sina händelser levererade till dem. Hanterad åtkomst via händelse domänen säkerställer att de endast kan komma åt sina ämnen.
 
-Du får också en enda slutpunkt som du kan publicera alla kundhändelser till. Event Grid hand tar om att se till att varje avsnitt är bara medveten om händelser som är begränsade till dess klient.
+Du får också en enda slut punkt, som du kan publicera alla kund händelser till. Event Grid bör vara noga med att se till att varje ämne bara känner till de händelser som omfattas av klienten.
 
-![Exempel för Contoso-konstruktion](./media/event-domains/contoso-construction-example.png)
+![Exempel på Contoso-konstruktion](./media/event-domains/contoso-construction-example.png)
 
-## <a name="access-management"></a>Åtkomsthantering
+## <a name="access-management"></a>Åtkomst hantering
 
-Med en domän får du noggrann autentisering och auktorisering kontroll över varje avsnitt via Azures rollbaserad åtkomstkontroll (RBAC). Du kan använda dessa roller för att begränsa varje klient i din app för endast de avsnitt som du vill ge åtkomst till.
+Med en domän får du detaljerad auktorisering och verifierings kontroll över varje ämne via Azures rollbaserad åtkomst kontroll (RBAC). Du kan använda dessa roller för att begränsa varje klient i ditt program till endast de ämnen som du vill ge dem åtkomst till.
 
-RBAC i händelsen domäner fungerar på samma sätt [hanteras åtkomstkontroll](security-authentication.md#management-access-control) fungerar i resten av Event Grid och Azure. Använd RBAC för att skapa och genomdriva anpassade rolldefinitioner i händelsen domäner.
+RBAC i händelse domäner fungerar på samma sätt som [hanterad åtkomst kontroll](security-authentication.md#management-access-control) fungerar i resten av event Grid och Azure. Använd RBAC för att skapa och tillämpa anpassade roll definitioner i händelse domäner.
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
-Event Grid har två inbyggda rolldefinitioner att underlätta RBAC för att arbeta med händelsen domäner. Dessa roller är **EventGrid EventSubscription deltagare (förhandsgranskning)** och **EventGrid EventSubscription läsare (förhandsgranskning)** . Du kan tilldela dessa roller till användare som behöver prenumerera på ämnen i händelsedomän. Du kan begränsa rolltilldelning till endast som användarna behöver för att prenumerera på ämnet.
+Event Grid har två inbyggda roll definitioner som gör det enklare för RBAC att arbeta med händelse domäner. De här rollerna är **EventGrid EventSubscription Contributor (för hands version)** och **EventGrid EventSubscription Reader (för hands version)** . Du tilldelar dessa roller till användare som behöver prenumerera på ämnen i din händelse domän. Du omfångerar roll tilldelningen till endast det ämne som användarna behöver för att prenumerera på.
 
 Information om dessa roller finns i [inbyggda roller för Event Grid](security-authentication.md#built-in-roles).
 
-## <a name="subscribing-to-topics"></a>Prenumerera på ämnen
+## <a name="subscribing-to-topics"></a>Prenumererar på ämnen
 
-Prenumerera på händelser på ett ämne i en händelsedomän är samma som [skapa en händelseprenumeration på ett anpassat ämne](./custom-event-quickstart.md) eller prenumerera på en händelse från en Azure-tjänst.
+Att prenumerera på händelser för ett ämne i en händelse domän är detsamma som att [skapa en händelse prenumeration i ett anpassat ämne](./custom-event-quickstart.md) eller prenumerera på en händelse från en Azure-tjänst.
 
-### <a name="domain-scope-subscriptions"></a>Domän omfång prenumerationer
+### <a name="domain-scope-subscriptions"></a>Domän omfattnings prenumerationer
 
-Händelse-domäner kan även domänomfattningen prenumerationer. En händelseprenumeration på en händelsedomän får alla händelser som skickas till domänen, oavsett händelserna som ska skickas till ämnet. Domän omfång prenumerationer kan vara användbart för hanterings- och granskningsändamål.
+Händelse domäner tillåter även DNS-omfångs prenumerationer. En händelse prenumeration på en händelse domän får alla händelser som skickas till domänen, oavsett vilket ämne händelserna skickas till. DNS-omfångs prenumerationer kan vara användbara för hanterings-och gransknings syfte.
 
-## <a name="publishing-to-an-event-domain"></a>Publicering till en händelsedomän
+## <a name="publishing-to-an-event-domain"></a>Publicera till en händelse domän
 
-När du skapar en händelsedomän, får du en publiceringsslutpunkten som liknar om du har skapat ett ämne i Event Grid. 
+När du skapar en händelse domän får du en publicerings slut punkt som liknar om du har skapat ett ämne i Event Grid. 
 
-För att publicera händelser i något ämne i en domän för händelsen, push-händelser till domänens slutpunkten i [samma sätt som för ett anpassat ämne](./post-to-custom-topic.md). Den enda skillnaden är att du måste ange avsnittet om du vill att händelsen ska levereras till.
+Om du vill publicera händelser till ett ämne i en händelse domän, pusha händelserna till domänens slut punkt på [samma sätt som du skulle göra för ett anpassat ämne](./post-to-custom-topic.md). Den enda skillnaden är att du måste ange det ämne som du vill att händelsen ska leverera till.
 
-Till exempel publicera följande matris med händelser skulle skicka händelse med `"id": "1111"` till ämnet `foo` när händelsen med `"id": "2222"` skulle skickas till ämnet `bar`:
+Exempel: om du publicerar följande händelse mat ris `"id": "1111"` skickas händelse med till ämne `foo` medan händelsen med `"id": "2222"` skulle skickas till ämnet `bar`:
 
 ```json
 [{
@@ -94,24 +94,24 @@ Till exempel publicera följande matris med händelser skulle skicka händelse m
 }]
 ```
 
-Händelsen domäner hantera publicering till avsnitt åt dig. Du kan publicera alla händelser till domänens slutpunkten i stället för att publicera händelser till varje ämne som du hanterar individuellt. Event Grid ser till att varje händelse skickas till rätt avsnitt.
+Händelse domäner hanterar publicering till ämnen. I stället för att publicera händelser till varje ämne som du hanterar individuellt kan du publicera alla dina händelser till domänens slut punkt. Event Grid ser till att varje händelse skickas till rätt ämne.
 
 ## <a name="limits-and-quotas"></a>Begränsningar och kvoter
-Här följer de begränsningar och kvoter som rör händelse domäner:
+Här följer de gränser och kvoter som rör händelse domäner:
 
-- 100 000 ämnen per event domän 
+- 100 000 ämnen per händelse domän 
 - 100 händelse domäner per Azure-prenumeration 
 - 500 händelseprenumerationer per ämne i en händelsedomän
-- 50 domän omfång prenumerationer 
-- 5 000 händelser per andra inmatning frekvens (i en domän)
+- 50 domän omfångs prenumerationer 
+- antal 5 000 händelser per sekund (till en domän)
 
-Om gränserna inte passar dig, nå ut till produktteamet genom att öppna ett supportärende eller genom att skicka ett e-postmeddelande till [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
+Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e [askgrid@microsoft.com](mailto:askgrid@microsoft.com)-postmeddelande till. 
 
 ## <a name="pricing"></a>Prissättning
-Händelsen domäner använder samma [operations priser](https://azure.microsoft.com/pricing/details/event-grid/) med alla andra funktioner i Event Grid.
+Händelse domäner använder samma Operations- [prissättning](https://azure.microsoft.com/pricing/details/event-grid/) som alla andra funktioner i Event Grid använda.
 
-Åtgärder fungerar på samma sätt i händelsen domäner som i anpassade ämnen. Varje ingångshändelser på en händelse till en händelsedomän är en åtgärd och varje leveransförsök för en händelse är en åtgärd.
+Åtgärder fungerar på samma sätt i händelse domäner som i anpassade ämnen. Varje ingress av en händelse till en händelse domän är en åtgärd, och varje leverans försök för en händelse är en åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du konfigurerar event domäner, hur du skapar ämnen, skapa prenumerationer på händelser och publicera händelser, se [hantera händelse domäner](./how-to-event-domains.md).
+* Information om hur du konfigurerar händelse domäner, skapar ämnen, skapar händelse prenumerationer och publicerar händelser finns i [Hantera händelse domäner](./how-to-event-domains.md).

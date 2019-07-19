@@ -1,123 +1,123 @@
 ---
-title: Ladda upp bilder till programmet Azure IoT Central | Microsoft Docs
-description: Lär dig hur du förbereder och ladda upp bilder till Azure IoT Central programmet som en builder.
+title: Ladda upp bilder till ditt Azure IoT Central-program | Microsoft Docs
+description: Som ett verktyg kan du läsa om hur du förbereder och laddar upp bilder till ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 255033f03acd40580fb4d4a92b0aa9b3e16969f3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236479"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850167"
 ---
-# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
+# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp avbildningar till ditt Azure IoT Central-program
 
-Den här artikeln beskrivs hur, som ett verktyg du kan anpassa ditt Azure IoT Central program genom att ladda upp anpassade avbildningar. Du kan exempelvis anpassa en instrumentpanel för enheten med en bild av enheten.
+Den här artikeln beskriver hur du kan anpassa ditt Azure IoT Central-program genom att ladda upp anpassade avbildningar som ett verktyg. Du kan till exempel anpassa en instrument panel för enheten med en bild av enheten.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-1. Ett verktyg för att skala och ändra storlek på avbildningar filer.
+1. Ett Azure IoT Central-program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+1. Ett verktyg för att skala och ändra storlek på bildfiler.
 
-## <a name="choose-where-to-use-custom-images"></a>Välj var du vill använda anpassade avbildningar
+## <a name="choose-where-to-use-custom-images"></a>Välj var anpassade bilder ska användas
 
-Du kan lägga till anpassade avbildningar på följande platser i en Azure IoT Central program:
+Du kan lägga till anpassade avbildningar på följande platser i ett Azure IoT Central-program:
 
-* Den **Mina program** sidan
+* Sidan **Mina program**
 
-    ![Bild på program manager-sidan](media/howto-prepare-images/applicationmanager.png)
+    ![Bild på program hanterings Sidan](media/howto-prepare-images/applicationmanager.png)
 
-* Instrumentpanel för program
+* Instrument panelen för programmet
 
-    ![Bild på instrumentpanel för program](media/howto-prepare-images/homepage.png)
+    ![Bild på program instrument panel](media/howto-prepare-images/homepage.png)
 
 * En mall för enhet
 
-    ![Bild på enheten mall](media/howto-prepare-images/devicetemplate.png)
+    ![Bild på enhets mal len](media/howto-prepare-images/devicetemplate.png)
 
-* En panel på en instrumentpanel för enhet
+* En panel på en enhets instrument panel
 
-    ![Bild på enhetspanelen för](media/howto-prepare-images/devicetile.png)
+    ![Bild på enhets panel](media/howto-prepare-images/devicetile.png)
 
-* En panel på en enhet ange instrumentpanel
+* En panel på en instrument panel för enhets uppsättningar
 
-    ![Bild på enheten set panel](media/howto-prepare-images/devicesettile.png)
+    ![Bild på panelen enhets uppsättning](media/howto-prepare-images/devicesettile.png)
 
-## <a name="prepare-the-images"></a>Förbered avbildningar
+## <a name="prepare-the-images"></a>Förbereda avbildningarna
 
-Du kan använda PNG-, GIF- eller JPEG-bilder på alla fyra platser.
+På alla fyra platser kan du använda antingen PNG-, GIF-eller JPEG-bilder.
 
-I följande tabell sammanfattas bildstorleken som du kan använda:
+I följande tabell sammanfattas de bild storlekar som du kan använda:
 
 | Location | Storlekar |
 | -------- | ------ |
-| Programhanterare | 268 x 160 bpt |
-| Mall för enhet | 64x64 px |
-| Paneler på instrumentpanelen | Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter |
+| Program hanterare | 268x160 BPT |
+| Enhets mall | 64x64 BPT |
+| Paneler på instrument panelen | Den minsta storleks rutan är 200x200 BPT, större paneler kan vara antingen kvadratiska eller rektangulära multiplar av små paneler. Till exempel 200x400 px, 400x200 px eller 400x400 px |
 
-För bästa utseende i programmet, bör du skapa bilder som motsvarar de dimensioner som visas i föregående tabell.
+För bästa visning i programmet bör du skapa bilder som matchar de dimensioner som visas i föregående tabell.
 
-## <a name="upload-the-images"></a>Ladda upp avbildningar
+## <a name="upload-the-images"></a>Ladda upp avbildningarna
 
-I följande avsnitt beskrivs hur du laddar upp bilder på olika platser:
+I följande avsnitt beskrivs hur du laddar upp avbildningarna på olika platser:
 
-### <a name="application-manager"></a>Programhanterare
+### <a name="application-manager"></a>Program hanterare
 
-Ladda upp en bild som används på den **Mina program** sidan, gå till den **programinställningar** sidan i den **Administration** avsnittet. Du måste vara administratör för att slutföra den här åtgärden:
+Om du vill ladda upp en bild som ska användas på sidan **Mina program** går du till sidan **program inställningar** i avsnittet **Administration** . Du måste vara administratör för att slutföra den här uppgiften:
 
-![Ladda upp programavbildning](media/howto-prepare-images/uploadapplicationmanager.png)
+![Ladda upp program avbildning](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Välj den **programavbildningen** panelen för att ladda upp en bild (268 x 160 bpt) från din lokala dator.
+Välj panelen **program avbildning** för att ladda upp en bild (268x160 px) från den lokala datorn.
 
 ### <a name="application-dashboard"></a>Instrumentpanel för program
 
-Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** i dina program och välj **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på program instrument panelen navigerar du till sidan **instrument panel** i programmet och väljer **Redigera**. Du måste vara ett verktyg för att slutföra den här uppgiften:
 
-![Ladda upp instrumentpanelen bild](media/howto-prepare-images/uploadhomepage.png)
+![Ladda upp instrument panels avbildning](media/howto-prepare-images/uploadhomepage.png)
 
-Under **konfigurera bild**väljer den **bild** panelen för att ladda upp en bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **Konfigurera avbildning**väljer du panelen **bild** för att ladda upp en bild från den lokala datorn. Den minsta storleks rutan är 200x200 BPT, större paneler kan vara antingen kvadratiska eller rektangulära multiplar av små paneler. Till exempel 200x400 px, 400x200 BPT eller 400x400 px.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Välj **klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigerings läge. Välj **klart** när du är färdig.
 
-### <a name="device-template"></a>Mall för enhet
+### <a name="device-template"></a>Enhets mall
 
-Om du vill ladda upp en bild i en mall för enhet, gå till **enheten mallar** och välj mallen för enheten. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en avbildning i en enhets mall navigerar du till **enhetens mallar** och väljer enhets mal len. Du måste vara ett verktyg för att slutföra den här uppgiften:
 
-![Ladda upp enheten mall-bild](media/howto-prepare-images/uploaddevicetemplate.png)
+![Ladda upp enhets mal len avbildning](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Välj panelen bild att ladda upp en bild (64 x 64 px) från din lokala dator.
+Välj panelen bild för att ladda upp en bild (64x64 px) från den lokala datorn.
 
 ### <a name="device-dashboard"></a>Instrumentpanel för enhet
 
-Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **enheten mallar** och välj mallen för enheten. Välj sedan den **instrumentpanelen** fliken. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en avbildning på en enhets instrument panel navigerar du till **enhetens mallar** och väljer enhets mal len. Välj fliken **instrument panel** . Du måste vara ett verktyg för att slutföra den här uppgiften:
 
-![Ladda upp enhetsavbildning för instrumentpanelen](media/howto-prepare-images/uploaddevicedashboard.png)
+![Ladda upp instrument panels bild för enhet](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Under **konfigurera bild**väljer den **bild** panelen och välj sedan den fil som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **Konfigurera avbildning**väljer du panelen **bild** och väljer sedan den fil som ska laddas upp från den lokala datorn. Den minsta storleks rutan är 200x200 BPT, större paneler kan vara antingen kvadratiska eller rektangulära multiplar av små paneler. Till exempel 200x400 px, 400x200 BPT eller 400x400 px.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den i redigerings läget. Välj **klart** när du är färdig.
 
-### <a name="device-set-dashboard"></a>Instrumentpanelen för set
+### <a name="device-set-dashboard"></a>Instrument panel för enhets uppsättning
 
-Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhetsuppsättningar** och välj enhetsuppsättningen och en enhet. Välj sedan den **instrumentpanelen** och välj **redigera**:
+Om du vill ladda upp en avbildning på en instrument panel för enhets uppsättningar, navigerar du till **enhets uppsättningar** och väljer enhets uppsättningen och sedan en enhet. Välj sedan sidan **instrument panel** och välj **Redigera**:
 
-![Ladda upp enhetsavbildning set instrumentpanel](media/howto-prepare-images/uploaddevicesetdashboard.png)
+![Ladda upp instrument panels bild för enhets uppsättning](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Under **konfigurera bild**väljer den **bild** panelen för att ladda upp en bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Under **Konfigurera avbildning**väljer du panelen **bild** för att ladda upp en bild från den lokala datorn. Den minsta storleks rutan är 200x200 BPT, större paneler kan vara antingen kvadratiska eller rektangulära multiplar av små paneler. Till exempel 200x400 px, 400x200 BPT eller 400x400 px.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den i redigerings läget. Välj **klart** när du är färdig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du förbereder och ladda upp bilder till Azure IoT Central programmet, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du förbereder och laddar upp bilder till ditt Azure IoT Central-program, så är det förslag på nästa steg:
 
 * [Anpassa Azure IoT Central UI](./howto-customize-ui.md)
-* [Konfigurera instrumentpanel för program](./howto-configure-homepage.md)
-* [Hantera enheter i ditt program med Azure IoT Central](howto-manage-devices.md)
+* [Konfigurera program instrument panelen](./howto-configure-homepage.md)
+* [Hantera enheter i ditt Azure IoT Central-program](howto-manage-devices.md)

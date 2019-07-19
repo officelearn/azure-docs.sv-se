@@ -1,120 +1,120 @@
 ---
 title: Exportera data till Azure Event Hubs och Azure Service Bus | Microsoft Docs
-description: Hur du exporterar data från Azure IoT Central programmet till Azure Event Hubs och Azure Service Bus
+description: Så här exporterar du data från ditt Azure IoT Central-program till Azure Event Hubs och Azure Service Bus
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6f10352646350152c5aac795885231697e81fe7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65463936"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850197"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
 *Det här avsnittet gäller för administratörer.*
 
-Den här artikeln beskriver hur du använder funktionen löpande export i Azure IoT Central för att exportera data till dina egna **Azure Event Hubs**, och **Azure Service Bus** instanser. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till dina egna mål för varma sökvägen insikter och analyser. Detta inkluderar att utlösa anpassade regler i Azure Stream Analytics, utlösa anpassade arbetsflöden i Azure Logic Apps eller omvandlar data och skicka den via Azure Functions. 
+Den här artikeln beskriver hur du använder funktionen för kontinuerlig data export i Azure IoT Central för att exportera dina data till dina egna **Azure-Event Hubs**och **Azure Service Bus** instanser. Du kan exportera **mått**, **enheter**och **enhetsspecifika** till ditt eget mål för att kunna använda insikter och analyser av varma sökvägar. Detta inkluderar att aktivera anpassade regler i Azure Stream Analytics, utlösa anpassade arbets flöden i Azure Logic Apps eller omvandla data och skicka dem via Azure Functions. 
 
 > [!Note]
-> Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
+> När du sedan aktiverar kontinuerlig data export får du bara data från det tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara administratör i din IoT Central-App
+- Du måste vara administratör i IoT Centrals programmet
 
-## <a name="set-up-export-destination"></a>Konfigurera exportera
+## <a name="set-up-export-destination"></a>Konfigurera export mål
 
-Följ dessa steg om du inte har en befintlig Event Hubs/Service Bus för att exportera till:
+Om du inte har någon befintlig Event Hubs/Service Bus att exportera till, följer du dessa steg:
 
-## <a name="create-event-hubs-namespace"></a>Skapa Event Hubs-namnområdet
+## <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
 
-1. Skapa en [nya Event Hubs-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Händelsehubbar i Azure-docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. Skapa ett [nytt Event Hubs-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Azure Event Hubs-dokument](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 2. Välj en prenumeration. 
 
     > [!Note] 
-    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
-3. Skapa en händelsehubb i namnområdet för Event Hubs. Gå till ditt namnområde och välj **+ Event Hub** överst för att skapa en event hub-instans.
+    > Nu kan du exportera data till andra prenumerationer som **inte är samma** som den som du betalar per användning för IoT Central programmet. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
+3. Skapa en Event Hub i Event Hubs namn området. Gå till ditt namn område och välj **+ Event Hub** överst för att skapa en Event Hub-instans.
 
-## <a name="create-service-bus-namespace"></a>Skapa Service Bus-namnområde
+## <a name="create-service-bus-namespace"></a>Skapa Service Bus namn område
 
-1. Skapa en [nya Service Bus-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Du kan läsa mer i [Azure Service Bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+1. Skapa ett [nytt Service Bus-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Du kan läsa mer i [Azure Service Bus dokument](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
 2. Välj en prenumeration. 
 
     > [!Note] 
-    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+    > Nu kan du exportera data till andra prenumerationer som **inte är samma** som den som du betalar per användning för IoT Central programmet. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
 
-3. Gå till ditt Service Bus-namnområde och välj **+ kö** eller **+ ämne** överst för att skapa en kö eller ämne att exportera till.
+3. Gå till din Service Bus namnrymd och välj **+ kö** eller **+ ämne** överst för att skapa en kö eller ett ämne att exportera till.
 
 
-## <a name="set-up-continuous-data-export"></a>Konfigurera löpande dataexport
+## <a name="set-up-continuous-data-export"></a>Konfigurera kontinuerlig data export
 
-Nu när du har ett Event Hubs/Service Bus-mål för att exportera data för att följa dessa steg för att konfigurera löpande dataexport. 
+Nu när du har ett Event Hubs/Service Bus-mål att exportera data till, följer du dessa steg för att konfigurera kontinuerlig data export. 
 
 1. Logga in på ditt IoT Central-program.
 
-2. I den vänstra menyn väljer du **löpande Export av Data**.
+2. På den vänstra menyn väljer du **kontinuerlig data export**.
 
     > [!Note]
-    > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
+    > Om du inte ser kontinuerliga data export på den vänstra menyn är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu1.png)
+    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_menu1.png)
 
-3. Välj den **+ ny** knappen uppe till höger. Välj något av **Azure Event Hubs** eller **Azure Service Bus** som mål för exporten. 
+3. Välj knappen **+ ny** längst upp till höger. Välj en av **Azure Event Hubs** eller **Azure Service Bus** som export mål. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
 
-    ![Skapa ny löpande dataexport](media/howto-export-data/export_new1.png)
+    ![Skapa ny kontinuerlig data export](media/howto-export-data/export_new1.png)
 
-4. I den nedrullningsbara listrutan väljer du din **Event Hubs-namnområde/Service Bus-namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
-
-    > [!NOTE] 
-    > Du ser bara Storage konton/Event Hubs-namnområden/Service Bus-namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
+4. I list rutan väljer du namn området för **Event Hubs namnrymd/Service Bus**. Du kan också välja det sista alternativet i listan som **anger en anslutnings sträng**. 
 
     > [!NOTE] 
-    > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
+    > Du ser bara lagrings konton/Event Hubs namn områden/Service Bus namn områden i **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 5.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export_create1.png)
+    > [!NOTE] 
+    > För 7 dagars test av appar är det enda sättet att konfigurera kontinuerlig data export genom en anslutnings sträng. Detta beror på att sju dagars prov versioner inte har någon tillhör ande Azure-prenumeration.
 
-5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
-    - Event Hubs eller Azure Service Bus, går du till namnområdet i Azure-portalen.
-        - Under **inställningar**väljer **principer för delad åtkomst**
-        - Välj standard **RootManageSharedAccessKey** eller skapa en ny
-        - Kopiera den primär eller sekundär anslutningssträngen
+    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_create1.png)
+
+5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
+    - Event Hubs eller Service Bus går du till namn området i Azure Portal.
+        - Under **Inställningar**väljer du **principer för delad åtkomst**
+        - Välj standard- **RootManageSharedAccessKey** eller skapa en ny
+        - Kopiera antingen den primära eller sekundära anslutnings strängen
  
-6. Välj en Event hub/kö eller ämne i nedrullningsbara listrutan.
+6. Välj en Händelsehubben/kö eller ett ämne i list rutan.
 
-7. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
+7. Under **data som ska exporteras**anger du varje typ av data som ska exporteras genom att ange typen till **på**.
 
-6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
+6. Om du vill aktivera kontinuerlig data export kontrollerar du att **data exporten** är **på**. Välj **Spara**.
 
-    ![Konfigurera löpande dataexport](media/howto-export-data/export_list1.png)
+    ![Konfigurera kontinuerlig data export](media/howto-export-data/export_list1.png)
 
-7. Efter ett par minuter visas dina data i ditt valda mål.
+7. Efter några minuter visas dina data i det valda målet.
 
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportera till Azure Event Hubs och Azure Service Bus
 
-Mått, enheter och mallar enhetsdata exporteras till din händelsehubb eller Service Bus-kö eller ett ämne i nära realtid. Exporterade mätningar data innehåller i sin helhet meddelandet dina enheter som skickas till IoT Central, inte bara värdena för själva mätningarna. Exporterade enheter data innehåller ändringar av egenskaper och inställningar för alla enheter och exporterade enheten mallar innehåller ändringar i alla mallar för enheten. Exporterade data är i egenskapen ”body” och är i JSON-format.
+Data för mått, enheter och enhets information exporteras till händelsehubben eller Service Bus kö eller ämne i nära real tid. Exporterade mått data innehåller hela det meddelande som dina enheter skickade till IoT Central, inte bara värdena för själva måtten. Exporterade enhets data innehåller ändringar i egenskaper och inställningar för alla enheter och exporterade enheter innehåller ändringar i alla enhets mallar. Exporterade data finns i "Body"-egenskapen och är i JSON-format.
 
 > [!NOTE]
-> När du väljer en Service Bus som en export-mål, köer och ämnen **får inte ha sessioner eller dubblettidentifiering aktiverat**. Om något av dessa alternativ är aktiverat, kommer inte några meddelanden anländer i din kö eller ämne.
+> När du väljer en Service Bus som ett export mål får inte köer och ämnen **ha sessioner eller dubblettidentifiering aktiverade**. Om något av dessa alternativ är aktiverat kommer vissa meddelanden inte att tas emot i din kö eller ämne.
 
 ### <a name="measurements"></a>Mått
 
-Ett nytt meddelande exporteras snabbt efter IoT Central får meddelandet från en enhet. Varje exporterad meddelande i Händelsehubbar och Service Bus innehåller hela meddelandet enheten skickades i egenskapen ”body” i JSON-format. 
+Ett nytt meddelande exporteras snabbt när IoT Central tar emot meddelandet från en enhet. Varje exporterat meddelande i Event Hubs och Service Bus innehåller det fullständiga meddelande som enheten skickade i "Body"-egenskapen i JSON-format. 
 
 > [!NOTE]
-> De enheter som skickar mått som representeras av enhets-ID (se nedan). Om du vill hämta namnen på enheterna som, exportera enhetsdata och korrelera varje meddelandet med hjälp av den **connectionDeviceId** som matchar den **deviceId** för enhet-meddelande.
+> De enheter som skickar måtten representeras av enhets-ID: n (se följande avsnitt). För att hämta namnen på enheterna, exportera enhets data och korrelera varje messsage med hjälp av **connectionDeviceId** som matchar enhets meddelandets **deviceId** .
 
-I följande exempel visas ett meddelande om mätningar av data som tas emot i event hub eller Service Bus-kö eller ämne.
+I följande exempel visas ett meddelande om mätnings data som tagits emot i Event Hub eller Service Bus kö eller ämne.
 
 ```json
 {
@@ -155,24 +155,24 @@ I följande exempel visas ett meddelande om mätningar av data som tas emot i ev
 
 ### <a name="devices"></a>Enheter
 
-Meddelanden som innehåller enhetsdata skickas till din händelsehubb eller Service Bus-kö eller ett ämne en gång några minuters mellanrum. Det innebär att några minuters mellanrum, en grupp med meddelanden anländer med data om
+Meddelanden som innehåller enhets data skickas till händelsehubben eller Service Bus kö eller ämne en gång om några minuter. Det innebär att en batch med meddelanden tas emot med data om
 - Nya enheter som har lagts till
-- Enheter med ändrade egenskapen och ange värden
+- Enheter med ändrad egenskap och inställnings värden
 
-Varje meddelande som representerar en eller flera ändringar till en enhet eftersom det sista meddelandet som exporterade. Information som skickas i varje meddelande som innehåller:
-- `id` för enheten i IoT Central
-- `name` enhetens
-- `deviceId` från [Device Provisioning-tjänst](https://aka.ms/iotcentraldocsdps)
-- Mallen enhetsinformation
+Varje meddelande representerar en eller flera ändringar av en enhet sedan det senaste exporterade meddelandet. Information som ska skickas i varje meddelande inkluderar:
+- `id`av enheten i IoT Central
+- `name`av enheten
+- `deviceId`från [enhets etablerings tjänst](https://aka.ms/iotcentraldocsdps)
+- Information om enhets mal len
 - Egenskapsvärden
-- Inställningsvärden
+- Inställnings värden
 
 > [!NOTE]
-> Enheter som har tagits bort sedan den senaste batchen inte exporteras. Det finns för närvarande inga indikatorer i exporterade meddelanden för enheter som har tagits bort.
+> Enheter som tagits bort sedan den senaste batchen inte exporteras. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enheter.
 >
-> Mallen enhet som varje enhet som tillhör representeras av en enhet mall-ID. För att hämta namnet på mallen enheten, måste du Exportera mall enhetsdata för.
+> Enhets mal len som varje enhet tillhör representeras av ett mall-ID för enhet. Om du vill hämta namnet på enhets mal len måste du också exportera enhetens mall data.
 
-I följande exempel visas ett meddelande om enhetsdata i event hub eller Service Bus-kö eller ett ämne:
+I följande exempel visas ett meddelande om enhets data i händelsehubben eller Service Bus kö eller ämne:
 
 
 ```json
@@ -214,24 +214,24 @@ I följande exempel visas ett meddelande om enhetsdata i event hub eller Service
 }
 ```
 
-### <a name="device-templates"></a>Enheten mallar
+### <a name="device-templates"></a>Enhets mallar
 
-Meddelanden som innehåller mallar enhetsdata skickas till din händelsehubb eller Service Bus-kö eller ämne en gång några minuters mellanrum. Det innebär att några minuters mellanrum, en grupp med meddelanden anländer med data om
-- Ny enhet mallar som har lagts till
-- Enheten mallar med ändrade mått, egenskap och ange definitioner
+Meddelanden som innehåller information om enhetens mallar skickas till händelsehubben eller Service Bus kö eller ämne en gång om några minuter. Det innebär att en batch med meddelanden tas emot med data om
+- Nya enhetsspecifika mallar som har lagts till
+- Enhets mallar med ändrade mått, egenskaper och inställnings definitioner
 
-Varje meddelande som representerar en eller flera ändringar i en mall för enheten eftersom det sista meddelandet som exporterade. Information som skickas i varje meddelande som innehåller:
-- `id` för mall för enhet
-- `name` för mall för enhet
-- `version` för mall för enhet
-- Datatyper för mätning och min/max-värden
-- Egenskapen datatyper och standardvärden
-- Typer av data för inställningar och standardvärden
+Varje meddelande representerar en eller flera ändringar i en enhets mall sedan det senaste exporterade meddelandet. Information som ska skickas i varje meddelande inkluderar:
+- `id`av enhets mal len
+- `name`av enhets mal len
+- `version`av enhets mal len
+- Mät data typer och minsta/högsta värde
+- Egenskaps data typer och standardvärden
+- Ange data typer och standardvärden
 
 > [!NOTE]
-> Enhet-mallar som har tagits bort sedan den senaste batchen exporteras inte. Det finns för närvarande inga indikatorer i exporterade meddelanden för borttagna mallar.
+> Enhetsspecifika har tagits bort sedan den senaste batchen inte har exporter ATS. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enhets mallar.
 
-I följande exempel visas ett meddelande om mallar enhetsdata i event hub eller Service Bus-kö eller ett ämne:
+I följande exempel visas ett meddelande om Device templates-data i händelsehubben eller Service Bus kö eller ämne:
 
 ```json
 {
@@ -295,7 +295,7 @@ I följande exempel visas ett meddelande om mallar enhetsdata i event hub eller 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet hur du exporterar dina data till Azure Event Hubs och Azure Service Bus kan du fortsätta till nästa steg:
+Nu när du vet hur du exporterar dina data till Azure Event Hubs och Azure Service Bus fortsätter du till nästa steg:
 
 > [!div class="nextstepaction"]
-> [Hur du utlöser Azure Functions](howto-trigger-azure-functions.md)
+> [Så här utlöser du Azure Functions](howto-trigger-azure-functions.md)

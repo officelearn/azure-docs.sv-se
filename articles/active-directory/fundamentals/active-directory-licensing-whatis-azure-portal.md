@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d41c8edf3985e77e0f67a54013d1b59abbaf72f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248304"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297567"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
@@ -27,17 +27,17 @@ Microsoft-betaltjänster i molnet, till exempel Office 365, Enterprise Mobility 
 
 Hittills har det endast gått att tilldela licenser på nivån för enskilda användare, vilket kan försvåra storskalig hantering. För att till exempel lägga till eller ta bort licenser baserat på organisationsförändringar, till exempel om användare börjar eller slutar på företaget eller på en avdelning, måste administratören ofta skriva ett komplext PowerShell-skript. Det här skriptet gör separata anrop till molntjänsten.
 
-För att underlätta för administratörer erbjuder Azure AD nu gruppbaserad licensiering. Du kan tilldela en eller flera produktlicenser till en grupp. Azure AD ser till att licenserna tilldelas till alla medlemmar i gruppen. Nya medlemmar som ansluter till gruppen tilldelas korrekta licenser. När de lämnar gruppen tas dessa licenser bort. Den här licensiering management eliminerar behovet för automatisering av hantering av programvarulicenser via PowerShell att återspegla ändringar i organisationen och avdelningens struktur på basis av per användare.
+För att underlätta för administratörer erbjuder Azure AD nu gruppbaserad licensiering. Du kan tilldela en eller flera produktlicenser till en grupp. Azure AD ser till att licenserna tilldelas till alla medlemmar i gruppen. Nya medlemmar som ansluter till gruppen tilldelas korrekta licenser. När de lämnar gruppen tas dessa licenser bort. Den här licensierings hanteringen eliminerar behovet av att automatisera licens hantering via PowerShell för att avspegla ändringar i organisations-och avdelnings strukturen per användare.
 
-## <a name="licensing-requirements"></a>Licenskrav
-Du måste ha något av följande licenser du använder gruppbaserad licensiering:
+## <a name="licensing-requirements"></a>Licensierings krav
+Du måste ha någon av följande licenser för att använda gruppbaserad licensiering:
 
-- Betald eller utvärderingslicens prenumeration för Azure AD Basic
+- Betald eller utvärderings prenumeration för Azure AD Basic och senare
 
-- Betald eller utvärderingslicens versionen av Office 365 Enterprise E3 eller Office 365 A3 och senare
+- Betald eller utvärderings version av Office 365 Enterprise E3 eller Office 365 a3 eller Office 365 GCC G3 och högre
 
-### <a name="required-number-of-licenses"></a>Nödvändigt antal licenser
-Du måste också ha en licens för varje unikt ingår för alla grupper som har tilldelats en licens. Även om du inte behöver tilldela varje medlem i gruppen en licens måste du ha tillräckligt med licenser för att inkludera alla medlemmar. Om du har 1 000 unika medlemmar som är en del av licensierade grupper i din klient, måste du ha minst 1 000 licenser för att uppfylla licensavtalet.
+### <a name="required-number-of-licenses"></a>Antalet licenser som krävs
+För grupper som har tilldelats en licens måste du också ha en licens för varje unik medlem. Även om du inte behöver tilldela varje medlem i gruppen en licens måste du ha minst tillräckligt många licenser för att inkludera alla medlemmar. Om du till exempel har 1 000 unika medlemmar som är en del av licensierade grupper i din klient organisation måste du ha minst 1 000 licenser för att uppfylla licens avtalet.
 
 ## <a name="features"></a>Funktioner
 
@@ -45,11 +45,11 @@ Här är de viktigaste funktionerna i gruppbaserad licensiering:
 
 - Licenser kan tilldelas till valfri säkerhetsgrupp i Azure AD. Säkerhetsgrupper kan synkroniseras från en lokal plats, med hjälp av Azure AD Connect. Du kan också skapa säkerhetsgrupper direkt i Azure AD (även kallade molnspecifika grupper) eller automatiskt via funktionen för dynamiska grupper i Azure AD.
 
-- När en produktlicens har tilldelats en grupp kan administratören inaktivera en eller flera tjänstplaner i produkten. Tilldelningen sker vanligtvis när organisationen inte ännu är redo att börja använda en tjänst som ingår i en produkt. Administratören kan till exempel tilldela Office 365 till en avdelning, men tillfälligt inaktivera tjänsten Yammer.
+- När en produktlicens har tilldelats en grupp kan administratören inaktivera en eller flera tjänstplaner i produkten. Normalt görs den här tilldelningen när organisationen ännu inte är redo att börja använda en tjänst som ingår i en produkt. Administratören kan till exempel tilldela Office 365 till en avdelning, men tillfälligt inaktivera tjänsten Yammer.
 
-- Alla Microsoft-molntjänster som kräver licensiering på användarnivå stöds. Det här stödet innehåller alla Office 365-produkter, Enterprise Mobility + Security och Dynamics 365.
+- Alla Microsoft-molntjänster som kräver licensiering på användarnivå stöds. Det här stödet omfattar alla Office 365-produkter, Enterprise Mobility + Security och Dynamics 365.
 
-- Gruppbaserad licensiering är för närvarande bara tillgänglig via den [Azure-portalen](https://portal.azure.com). Om du främst använder andra hanteringsportaler för användare och grupphantering, till exempel den [Microsoft 365 Administrationscenter](https://admin.microsoft.com), du kan fortsätta att göra detta. Men du bör använda Azure Portal för att hantera licenser på gruppnivå.
+- Gruppbaserad licensiering är för närvarande endast tillgängligt via [Azure Portal](https://portal.azure.com). Om du huvudsakligen använder andra hanterings portaler för användar-och grupp hantering, till exempel [Microsoft 365 administrations Center](https://admin.microsoft.com), kan du fortsätta att göra det. Men du bör använda Azure Portal för att hantera licenser på gruppnivå.
 
 - Azure AD hanterar automatiskt licensändringar som uppstår vid ändringar av gruppmedlemskap. Licensändringarna börjar normalt att tillämpas inom några minuter efter en ändring av gruppmedlemskapet.
 
@@ -59,7 +59,7 @@ Här är de viktigaste funktionerna i gruppbaserad licensiering:
 
 ## <a name="your-feedback-is-welcome"></a>Vi vill gärna ha din feedback!
 
-Om du har feedback eller funktionsönskemål kan dela dem med oss med hjälp av [forum för Azure AD-administratör](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
+Om du har feedback eller funktions förfrågningar kan du dela dem med oss med hjälp av [Azure AD admin-forumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
 
 ## <a name="next-steps"></a>Nästa steg
 

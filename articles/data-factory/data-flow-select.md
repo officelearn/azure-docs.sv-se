@@ -1,40 +1,43 @@
 ---
-title: Azure Data Factory mappning väljer Dataomvandling för Flow
-description: Azure Data Factory mappning väljer Dataomvandling för Flow
+title: Azure Data Factory mappa data flöde Välj omvandling
+description: Azure Data Factory mappa data flöde Välj omvandling
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: bc83b41067d587adce41658a2c4b3d68969750ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364483"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314194"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory mappning väljer Dataomvandling för Flow
-
+# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory mappa data flöde Välj omvandling
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Använd den här transformationen för kolumnen selektivitet (minskar antalet kolumner) eller till stream namn och alias kolumner.
+Använd den här omvandlingen för kolumn urval (minska antalet kolumner), Ali Aset och Stream Names och ändra ordning på kolumner.
 
-Välj transformeringen kan du till alias en hela stream eller kolumner i dataströmmen, tilldela olika namn (alias) och sedan referera till de nya namnen senare i ditt dataflöde. Den här transformeringen är användbart för självkoppling scenarier. Sätt att implementera en självkoppling i ADF dataflöde är att ta en dataström, gren det med ”ny gren” och sedan omedelbart efteråt lägga till en ”Välj” transformering. Dataströmmen har nu ett nytt namn som du kan använda för att ansluta till den ursprungliga stream, skapar en självkoppling:
+## <a name="how-to-use-select-transformation"></a>Använda Välj omvandling
+Med alternativet Välj transformering kan du ange alias för en hel ström eller kolumner i den data strömmen, tilldela olika namn (alias) och sedan referera till de nya namnen senare i ditt data flöde. Den här transformeringen är användbar för självkopplings scenarier. Sättet att implementera en själv koppling i ett ADF-dataflöde är att ta en ström, förgrena den med "ny gren", sedan omedelbart efteråt, lägga till en "Välj"-transformering. Den data strömmen kommer nu att ha ett nytt namn som du kan använda för att koppla tillbaka till den ursprungliga strömmen och skapa en själv koppling:
 
-![Självkoppling](media/data-flow/selfjoin.png "självkoppling")
+![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
 
-I diagrammet ovan är väljer vi högst upp. Det här är alias ursprungliga direkt för att ”OrigSourceBatting”. Du kan se att vi använder dataströmmen väljer alias som kopplingen till höger så att vi kan referera till samma nyckel i både vänster och höger sida av den inre koppling i higlighted Join transformeringen under den.
+I diagrammet ovan är Select Transform överst. Detta är alias för den ursprungliga strömmen till "OrigSourceBatting". I den markerade kopplings transformeringen nedan kan du se att vi använder den här Välj Ali strömmen som höger koppling, så att vi kan referera till samma nyckel i både vänster & högra sida av den inre kopplingen.
 
-Välj kan också användas som ett sätt avmarkerar kolumner från ditt dataflöde. Till exempel om du har 6 kolumner som definierats i dina mottagare, men du vill välja en specifik 3 för att omvandla och sedan flöda till mottagaren, kan du välja de 3 med hjälp av väljer transformeringen.
+Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data flöde. Om du t. ex. har 6 kolumner som definierats i din mottagare, men du bara vill välja en viss 3 att transformera och sedan flöda till mottagaren, kan du bara välja de tre genom att använda alternativet Välj transformering.
 
 > [!NOTE]
-> Du måste stänga av ”Markera alla” att välja endast specifika kolumner
+> Du måste stänga av "Markera alla" om du bara vill välja vissa kolumner
 
-Alternativ
+![Välj omvandling](media/data-flow/select001.png "Välj alias")
 
-Standardinställningen för ”Välj” är att inkludera alla inkommande kolumner och behålla de ursprungliga namn. Du kan alias dataströmmen genom att ange namnet på väljer transformeringen.
+## <a name="options"></a>Alternativ
+* Standardvärdet för "Välj" är att inkludera alla inkommande kolumner och behålla de ursprungliga namnen. Du kan ange ett alias för strömmen genom att ange namnet på Välj transformering.
+* Om du vill ange alias för enskilda kolumner avmarkerar du "Markera alla" och använder kolumn mappningen längst ned.
+* Välj hoppa över dubbletter för att eliminera dubblerade kolumner från indata-eller utdata-metadata.
 
-Avmarkera ”Markera alla” till alias enskilda kolumner, och Använd kolumnmappningen längst ned på sidan.
+![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "Hoppa över dubbletter")
 
-![Välj omvandling](media/data-flow/select001.png "Välj Alias")
+## <a name="next-steps"></a>Nästa steg
+* När du har använt Välj för att byta namn på, ändra ordning och alias använder du [omvandling av mottagare](data-flow-sink.md) för att använda data i ett data lager.

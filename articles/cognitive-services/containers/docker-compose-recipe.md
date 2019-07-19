@@ -1,7 +1,7 @@
 ---
-title: Docker compose behållare recept
+title: Använd Docker Compose för att distribuera flera behållare
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du distribuerar flera Cognitive Services-behållare. Den här proceduren visar hur du samordnar flera Docker-behållaravbildningar med Docker Compose.
+description: Lär dig hur du distribuerar flera Cognitive Services behållare. Den här artikeln visar hur du dirigerar flera Docker-behållar avbildningar med hjälp av Docker Compose.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8afb7e866bc2a5fefe28a71653c4a2a87fdc7a5b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445795"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311559"
 ---
-# <a name="use-multiple-containers-in-a-private-network-with-docker-compose"></a>Använda flera behållare i ett privat nätverk med Docker Compose
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använd Docker Compose för att distribuera flera behållare
 
-Lär dig hur du distribuerar flera Cognitive Services-behållare. Den här proceduren visar hur du samordnar flera Docker-behållaravbildningar med Docker Compose.
+Den här artikeln visar hur du distribuerar flera Azure Cognitive Services-behållare. Mer specifikt lär du dig hur du använder Docker Compose för att dirigera flera Docker-behållar avbildningar.
 
-> [Docker Compose](https://docs.docker.com/compose/) är ett verktyg för att definiera och köra program med flera behållare Docker. Skriv använder en YAML-fil för att konfigurera din programtjänster. Med ett enda kommando, skapa och starta alla tjänster från din konfiguration.
+> [Docker Compose](https://docs.docker.com/compose/) är ett verktyg för att definiera och köra Docker-program med flera behållare. I skapa, använder du en YAML-fil för att konfigurera programmets tjänster. Sedan skapar du och startar alla tjänster från konfigurationen genom att köra ett enda kommando.
 
-När det är lämpligt, kan det vara intressant att samordna flera behållaravbildningar på en enda värddator. I den här artikeln har ska vi hämta tjänsterna identifiera Text och formuläret Igenkännande tillsammans.
+Det kan vara användbart att dirigera flera behållar avbildningar på en dator med en enda värddator. I den här artikeln ska vi samla ihop Identifiera text-och formulär igenkännings behållarna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här proceduren kräver flera verktyg som måste installeras och köras lokalt.
+Den här proceduren kräver flera verktyg som måste installeras och köras lokalt:
 
-* Använda en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Docker-motorn](https://www.docker.com/products/docker-engine) och verifiera att Docker CLI fungerar i ett konsolfönster.
-* En Azure-resurs med rätt prisnivån. Inte alla prisnivåer arbetar du med den här behållaren:
-  * **Visuellt** resurs med F0 eller standardpriserna nivåerna endast.
-  * **Formuläret Igenkännande** resurs med F0 eller standardpriserna nivåerna endast.
-  * **Cognitive Services** resurs med S0 prisnivå.
+* En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* [Docker-motorn](https://www.docker.com/products/docker-engine). Bekräfta att Docker CLI fungerar i ett konsol fönster.
+* En Azure-resurs med rätt pris nivå. Endast följande pris nivåer fungerar med den här behållaren:
+  * **Visuellt innehåll** resurs med endast F0 eller standard pris nivå.
+  * **Formulär igenkännings** resurs med endast F0 eller standard pris nivå.
+  * **Cognitive Services** resurs med pris nivån S0.
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
+## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Slutför och skicka den [Cognitive Services tal behållare formulär](https://aka.ms/speechcontainerspreview/) att begära åtkomst till behållaren. 
+Slutför och skicka [formuläret Cognitive Services tal behållare för begäran](https://aka.ms/speechcontainerspreview/). 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>Docker compose-fil
+## <a name="docker-compose-file"></a>Docker Compose-fil
 
-YAML-fil definierar alla tjänster som ska distribueras. De här tjänsterna är beroende av antingen en `DockerFile` eller en befintlig behållaravbildning i det här fallet använder vi två Förhandsgranska bilder. Kopiera och klistra in följande YAML-fil och spara den som *docker compose.yaml*. Ange rätt _apikey_, _fakturering_, och _endpoint URI_ värdena i den _docker-compose.yml_ filen nedan.
+YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen `DockerFile` en eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
 
 ```yaml
 version: '3.7'
@@ -61,10 +61,10 @@ services:
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
-         source: e:\publicpreview\output
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> Skapa kataloger på värddatorn som anges under den `volumes` noden. Detta är nödvändigt eftersom katalogerna måste finnas innan du försöker montera en avbildning med volym-bindningar.
+> Skapa de kataloger på värddatorn som anges under noden **volymer** . Den här metoden krävs eftersom katalogerna måste finnas innan du försöker montera en avbildning med hjälp av volym bindningar.
 
-## <a name="start-the-configured-docker-compose-services"></a>Starta konfigurerade docker compose tjänster
+## <a name="start-the-configured-docker-compose-services"></a>Starta den konfigurerade Docker Compose-tjänsterna
 
-Docker compose-fil kan hanteringen av alla definierade tjänstens supportlivscykel; Visa status för tjänsten och loggströmningen från Starta/Stoppa och återskapa tjänster. Öppna ett kommandoradsgränssnitt från projektkatalogen (där den *docker compose.yaml* filen finns).
+Med en Docker-fil kan du hantera alla faser i en definierad tjänst livs cykel: starta, stoppa och återskapa tjänster; Visa tjänst status; och logg strömning. Öppna ett kommando rads gränssnitt från projekt katalogen (där Docker-Compos. yaml-filen finns).
 
 > [!NOTE]
-> Du kan undvika fel genom att se till att värddatorn är korrekt dela enheter med den **Docker-motorn**. Till exempel om *e:\publicpreview* används som en katalog i den *docker compose.yaml* dela den *E enhet* med docker.
+> Undvik fel genom att kontrol lera att värddatorn delar enheter med Docker-motorn på rätt sätt. Om E:\publicpreview till exempel används som en katalog i filen Docker-Compos. yaml delar du enhet E med Docker.
 
-Från kommandoradsgränssnittet, kör du följande kommando för att starta (eller starta om) alla tjänster som definierats i den *docker compose.yaml*:
+Kör följande kommando från kommando rads gränssnittet för att starta (eller starta om) alla de tjänster som definierats i filen Docker-Compos. yaml:
 
 ```console
 docker-compose up
 ```
 
-Den första körningstid den `docker-compose up` med den här konfigurationen **Docker** hämtar de avbildningar som konfigurerats den `services` nod – ladda ned/montera dem:
+Den första gången Docker kör kommandot **Docker-sammanställning** med hjälp av den här konfigurationen hämtar de avbildningar som kon figurer ATS under noden **tjänster** och laddar sedan ned och monterar dem:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-Bilderna laddas ned och sedan bild tjänsterna är igång.
+När avbildningarna har hämtats startas avbildnings tjänsterna:
 
 ```console
 Starting docker_ocr_1   ... done
@@ -158,11 +158,11 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## <a name="verify-the-service-availability"></a>Kontrollera tjänsttillgänglighet
+## <a name="verify-the-service-availability"></a>Kontrol lera tjänstens tillgänglighet
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-Nedan visas ett exempel på utdata:
+Här är några exempel på utdata:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -170,19 +170,19 @@ IMAGE ID            REPOSITORY                                                  
 4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Testa behållaren identifiera text
+### <a name="test-the-recognize-text-container"></a>Testa Identifiera text container
 
-Öppna en webbläsare på värddatorn och gå till `localhost` med den angivna porten från den *docker compose.yaml*, till exempel `http://localhost:5021/swagger/index.html`. Du kan använda prova den här funktionen för API för att testa identifiera text-slutpunkt.
+Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från Docker-Compos. yaml-filen, till exempel http://localhost:5021/swagger/index.html. Du kan använda funktionen "prova" i API för att testa Identifiera text slut punkten.
 
-![Identifiera Text Swagger](media/recognize-text-swagger-page.png)
+![Identifiera text behållare](media/recognize-text-swagger-page.png)
 
-### <a name="test-the-form-recognizer-container"></a>Testa behållaren formuläret Igenkännande
+### <a name="test-the-form-recognizer-container"></a>Testa formulärets tolknings behållare
 
-Öppna en webbläsare på värddatorn och gå till `localhost` med den angivna porten från den *docker compose.yaml*, till exempel `http://localhost:5010/swagger/index.html`. Du kan använda prova den här funktionen för API för att testa formuläret Igenkännande slutpunkten.
+Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från Docker-Compos. yaml-filen, till exempel http://localhost:5010/swagger/index.html. Du kan använda funktionen "Testa funktionen" i API: et för att testa formulär tolkens slut punkt.
 
-![Form Recognizer Swagger](media/form-recognizer-swagger-page.png)
+![Formulär igenkännings behållare](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Cognitive Services-behållare](../cognitive-services-container-support.md)
+> [Cognitive Services behållare](../cognitive-services-container-support.md)

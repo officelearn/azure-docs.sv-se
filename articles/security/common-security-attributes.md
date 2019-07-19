@@ -1,517 +1,821 @@
 ---
-title: Security attribut för Azure-tjänster
-description: En lista med vanliga security attribut för att utvärdera Azure Service Fabric
+title: Säkerhetsattribut för Azure-tjänster
+description: En check lista över gemensamma säkerhetsattribut för utvärdering av Azure-Service Fabric
 services: security
 documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d45e28175412b574432adb59cf700568c9a7fb39
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474531"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304253"
 ---
-# <a name="security-attributes-for-azure-services"></a>Security attribut för Azure-tjänster
+# <a name="security-attributes-for-azure-services"></a>Säkerhetsattribut för Azure-tjänster
 
-Den här artikeln samlar in vanliga security-attribut för valda Azure-tjänster. 
+Den här artikeln samlar in gemensamma säkerhetsattribut för de valda Azure-tjänsterna. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="azure-api-managementapi-managementapi-management-security-attributesmd"></a>[Azure API Management](../api-management/api-management-security-attributes.md)
+## <a name="api-managementapi-managementapi-management-security-attributesmd"></a>[API Management](../api-management/api-management-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja (endast tjänstsidan kryptering) | Känsliga data, till exempel certifikat, nycklar och värden för krypterad hemlighet är krypterade med tjänsthanterad per instans för för tjänsten. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | [Express Route](../expressroute/index.yml) och tillhandahålls krypteringen av virtuellt nätverk av [Azure-nätverk](../virtual-network/index.yml). |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej | Alla krypteringsnycklar är per instans och tjänsthanterade. |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | Hantering av plan anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Det krävs en giltig JSON webbtoken (JWT).  Plan dataöverföringar kan skyddas med TLS och en av autentiseringsmekanismer som stöds (t.ex. klientcertifikatet eller JWT).
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Känsliga data, till exempel certifikat, nycklar och hemliga värden, krypteras med hanterade tjänst instanser, per tjänst instans nycklar. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | [Express Route](../expressroute/index.yml) och VNET-kryptering tillhandahålls av [Azure-nätverk](../virtual-network/index.yml). |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej | Alla krypterings nycklar är per tjänst instans och hanteras av tjänsten. |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Hanterings Plans anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. En giltig JSON Web token (JWT) krävs.  Data Plans anrop kan skyddas med TLS och en av de autentiseringsmekanismer som stöds (till exempel klient certifikat eller JWT).
  |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej | |
-| VNet-stöd för inmatning| Ja | |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG) och Azure Application Gateway (eller andra programinstallation) respektive. |
-| Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
+| Stöd för tjänst slut punkt| Nej | |
+| Stöd för VNet-injektering| Ja | |
+| Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG) och Azure Application Gateway (eller annan program varu installation). |
+| Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | |
-| Auktorisering| Ja | |
+| Authentication| Ja | |
+| Authorization| Ja | |
 
 
-### <a name="audit-trail"></a>Granskningslogg
+### <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | [Azure Monitor-aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md) |
-| Data plan loggning och granskning| Ja | [Azure Monitor-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och (frivilligt) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | [Azure Monitor aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md) |
+| Loggning och granskning av data planet| Ja | [Azure Monitor diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och (valfritt) [Azure Application](../azure-monitor/app/app-insights-overview.md)insikter.  |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Med hjälp av den [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Använda [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |
+
+### <a name="vulnerability-scans-false-positives"></a>Sårbarhet söker efter falska positiva identifieringar
+
+I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure-API Management.
+
+| Brist               | Beskrivning                                                                                                                                                                                                                                                                                                               |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ticketbleed (CVE-2016-9244) | Ticketbleed är ett säkerhets problem i implementeringen av TLS SessionTicket-tillägget som finns i vissa F5-produkter. Det tillåter läckage ("avblödning") på upp till 31 byte data från ej initierat minne. Detta orsakas av att utfyllnaden av TLS-stacken är ett sessions-ID som skickas från klienten, med data som gör den 32 bitar lång. |
 
 
-## <a name="azure-app-serviceapp-serviceapp-service-security-attributesmd"></a>[Azure App Service](../app-service/app-service-security-attributes.md)
+## <a name="app-serviceapp-serviceapp-service-security-attributesmd"></a>[App Service](../app-service/app-service-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering i vila (t.ex kryptering på serversidan, kryptering på serversidan med Kundhanterade nycklar och andra krypteringsfunktioner) | Ja | Webbplats filinnehållet lagras i Azure Storage, som krypterar automatiskt innehållet i vila. Se [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md).<br><br>Kunden tillhandahållna hemligheter krypteras i vila. Hemligheterna är krypterade i vila medan lagras i App Service-konfigurationsdatabaser.<br><br>Lokalt anslutna diskar kan du kan också användas som tillfällig lagring av webbplatser (D:\local och % TMP %). Lokalt anslutna diskar som är inte krypterade i vila. |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i virtuella nätverk, och kryptering för VNet-VNet)| Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik. Finns i bloggposten [hur du gör en Azure App Service endast HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Kunder kan välja att lagra hemligheter i Key Vault och hämta dem vid körning. Se [använda Key Vault refererar till för App Service och Azure Functions (förhandsversion)](../app-service/app-service-key-vault-references.md).|
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | Hanteringsanrop att konfigurera App Service sker [Azure Resource Manager](../azure-resource-manager/index.yml) anrop via HTTPS. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Innehållet på webbplats filen lagras i Azure Storage, vilket automatiskt krypterar innehållet i vila. Se [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md).<br><br>Kunder som har tillhandahållit hemligheter är krypterade i vila. Hemligheterna är krypterade i rest medan de lagras i App Service konfigurations databaser.<br><br>Lokalt anslutna diskar kan alternativt användas som temporär lagring av webbplatser (D:\Local och% TMP%). Lokalt anslutna diskar är inte krypterade i vila. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik. Se blogg inlägget [så här gör du endast Azure App Service https](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Ja | Kunder kan välja att lagra program hemligheter i Key Vault och hämta dem vid körning. Se [använda Key Vault referenser för app service och Azure Functions (för hands version)](../app-service/app-service-key-vault-references.md).|
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Hanterings anrop för att konfigurera App Service sker via [Azure Resource Manager](../azure-resource-manager/index.yml) -anrop via https. |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja | För närvarande tillgängligt i förhandsversionen av App Service. Se [åtkomstbegränsningar för Azure App Service](../app-service/app-service-ip-restrictions.md). |
-| VNet-stöd för inmatning| Ja | App Service-miljöer är privat implementeringar av Apptjänst som är dedikerad till en enda kund som införs i kundens virtuella nätverk. Se [introduktion till App Service-miljöer](../app-service/environment/intro.md). |
-| Stöd för isolering av nätverk och Firewalling| Ja | Kunder kan konfigurera åtkomstkontrollistor (IP-begränsningar) för att låsa tillåten inkommande trafik i nätverket för den offentliga flera innehavare-variationen av App Service.  Se [åtkomstbegränsningar för Azure App Service](../app-service/app-service-ip-restrictions.md).  App Service-miljöer har distribuerats direkt i virtuella nätverk och därför kan skyddas med NSG: er. |
-| Tvingad tunneltrafik support| Ja | App Service-miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunneltrafik har konfigurerats. Kunder måste följa anvisningarna i [konfigurera App Service Environment med tvingande dirigering](../app-service/environment/forced-tunnel-support.md). |
+| Stöd för tjänst slut punkt| Ja | För närvarande tillgängligt som för hands version för App Service. Se [begränsningar för Azure App Service åtkomst](../app-service/app-service-ip-restrictions.md). |
+| Stöd för VNet-injektering| Ja | App Service miljöer är privata implementeringar av App Service dedikerade till en enskild kund som injiceras i ett kunds virtuella nätverk. Se [Introduktion till App Service miljöer](../app-service/environment/intro.md). |
+| Stöd för nätverks isolering och brand vägg| Ja | För den offentliga variationen av flera innehavare av App Service kan kunder konfigurera nätverks-ACL: er (IP-begränsningar) för att låsa tillåten inkommande trafik.  Se [begränsningar för Azure App Service åtkomst](../app-service/app-service-ip-restrictions.md).  App Service miljöer distribueras direkt till virtuella nätverk och kan därför skyddas med NSG: er. |
+| Stöd för Tvingad tunnel trafik| Ja | App Service miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunnel trafik har kon figurer ATS. Kunderna måste följa anvisningarna i [Konfigurera din app service-miljön med Tvingad tunnel trafik](../app-service/environment/forced-tunnel-support.md). |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | App Service kan integreras med Application Insights för språk som har stöd för Application Insights (fullständiga .NET Framework, .NET Core, Java och Node.JS).  Se [övervaka Azure App Service-prestanda](../azure-monitor/app/azure-web-apps.md). App Service skickar också programmått i Azure Monitor. Se [övervaka appar i Azure App Service](../app-service/web-sites-monitor.md). |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | App Service integreras med Application Insights för språk som stöder Application Insights (fullständig .NET Framework, .NET Core, Java och Node. JS).  Se [övervaka Azure App Service prestanda](../azure-monitor/app/azure-web-apps.md). App Service skickar även program statistik till Azure Monitor. Se [övervaka appar i Azure App Service](../app-service/web-sites-monitor.md). |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Kunder kan utveckla program i App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth kompatibla identitetsleverantörer; Se [autentisering och auktorisering Azure App Service](../app-service/overview-authentication-authorization.md). För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller. |
-| Auktorisering| Ja | För av hanteringsåtkomst till App Service-tillgångar måste styrs all åtkomst av en kombination av huvudnamn för Azure AD som autentiseras och Azure Resource Manager RBAC-roller.  |
+| Authentication| Ja | Kunder kan bygga program på App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth-kompatibla identitets leverantörer. Se [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md). För hanterings åtkomst till App Service till gångar styrs all åtkomst av en kombination av Azure AD-autentiserade huvud konton och Azure Resource Manager RBAC-roller. |
+| Authorization| Ja | För hanterings åtkomst till App Service till gångar styrs all åtkomst av en kombination av Azure AD-autentiserade huvud konton och Azure Resource Manager RBAC-roller.  |
 
 
-### <a name="audit-trail"></a>Granskningslogg
+### <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Alla hanteringsåtgärder som utförts på App Service-objekt sker [Azure Resource Manager](../azure-resource-manager/index.yml). Historiska loggarna för dessa åtgärder är tillgängliga både i portalen och via CLI; Se [Azure Resource Manager åtgärder för resursprovider](../role-based-access-control/resource-provider-operations.md#microsoftweb) och [az monitor-aktivitetsloggen](/cli/azure/monitor/activity-log). |
-| Data plan loggning och granskning | Nej | Dataplanet för App Service är en fjärransluten filresurs som innehåller en kund s distribuerade webbplats innehåll.  Det finns ingen granskning fjärransluten filresurs. |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Alla hanterings åtgärder som utförs på App Service objekt sker via [Azure Resource Manager](../azure-resource-manager/index.yml). Historiska loggar för dessa åtgärder är tillgängliga både i portalen och via CLI; Se [Azure Resource Manager Resource Provider Operations](../role-based-access-control/resource-provider-operations.md#microsoftweb) och [AZ Monitor Activity-Log](/cli/azure/monitor/activity-log). |
+| Loggning och granskning av data planet | Nej | Data planet för App Service är en fjärran sluten fil resurs som innehåller en kunds distribuerad webbplats innehåll.  Det finns ingen granskning av fjärran sluten fil resurs. |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | För hanteringsåtgärder, kan tillståndet för en App Service-konfiguration exporteras som en Azure Resource Manager-mall och version över tid. Kunder kan underhålla flera olika live versioner av ett program med App Service-fack distributionsfunktion för runtime åtgärder. | 
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | För hanterings åtgärder kan tillstånd för en App Service-konfiguration exporteras som en Azure Resource Manager mall och versions hantering över tid. För körnings åtgärder kan kunder underhålla flera olika Live-versioner av ett program med hjälp av funktionen för App Service distributions platser. | 
+
 
 
 ## <a name="azure-resource-managerazure-resource-managerazure-resource-manager-security-attributesmd"></a>[Azure Resource Manager](../azure-resource-manager/azure-resource-manager-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja |  |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | HTTPS/TLS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Gäller inte | Azure Resource Manager lagrar endast kontrolldata inget kund-innehåll. |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Ja | |
-| API-anrop som är krypterad| Ja | |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | HTTPS/TLS. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Gäller inte | Azure Resource Manager lagrar inget kund innehåll, endast kontroll data. |
+| Kryptering på kolumn nivå (Azure Data Services)| Ja | |
+| Krypterade API-anrop| Ja | |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej | |
-| VNet-stöd för inmatning| Ja | |
-| Isolering av nätverk och brandväggsfunktioner support| Nej |  |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Nej | |
+| Stöd för VNet-injektering| Ja | |
+| Stöd för nätverks isolering och brand vägg| Nej |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Nej | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Nej | |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | [Azure Active Directory](/azure/active-directory) baserat.|
-| Auktorisering| Ja | |
+| Authentication| Ja | [Azure Active Directory](/azure/active-directory) baserad.|
+| Authorization| Ja | |
 
 
-### <a name="audit-trail"></a>Granskningslogg
+### <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Aktivitetsloggar exponerar alla skrivåtgärder (PUT, POST, ta bort) utförs på dina resurser. Se [visa aktivitetsloggar till granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md). |
-| Data plan loggning och granskning| Gäller inte | |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Aktivitets loggar visar alla Skriv åtgärder (placering, POST, DELETE) som utförs på resurserna. Se [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md). |
+| Loggning och granskning av data planet| Gäller inte | |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja |  |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja |  |
 
 
 ## <a name="azure-backupbackupbackup-security-attributesmd"></a>[Azure Backup](../backup/backup-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Med hjälp av kryptering av lagringstjänst för storage-konton. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Nej | Med hjälp av HTTPS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej |  |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Nej |  |
-| API-anrop som är krypterad| Ja |  |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)| Ja | Använda kryptering av lagrings tjänst för lagrings konton. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Nej | Använda HTTPS. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Nej |  |
+| Krypterade API-anrop| Ja |  |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej |  |
-| VNet-stöd för inmatning| Nej |  |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | Tvingad tunneltrafik har stöd för säkerhetskopiering av virtuella datorer. Tvingad tunneltrafik finns inte stöd för arbetsbelastningar som körs på virtuella datorer. |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Nej |  |
+| Stöd för VNet-injektering| Nej |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Tvingad tunnel trafik stöds för VM-säkerhetskopiering. Tvingad tunnel trafik stöds inte för arbets belastningar som körs i virtuella datorer. |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Log Analytics stöds via diagnostikloggar. Se övervakaren Azure Backup skyddade arbetsbelastningar med hjälp av Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) för mer information. |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Log Analytics stöds via diagnostikloggar. Mer information finns i [övervaka Azure Backup skyddade arbets belastningar med hjälp av Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) . |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Autentisering är via Azure Active Directory. |
-| Auktorisering| Ja | Kunden har skapat och inbyggda RBAC-roller används. Se Use Role-Based Access Control för att hantera Azure Backup återställningspunkter (/ azure/backup/backup-rbac-rs-valv) för mer information. |
+| Authentication| Ja | Autentisering är via Azure Active Directory. |
+| Authorization| Ja | Kunden skapade och inbyggda RBAC-roller används. Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](/azure/backup/backup-rbac-rs-vault) . |
 
 
-### <a name="audit-trail"></a>Granskningslogg
+### <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Alla åtgärder som kund som utlöses från Azure portal loggas aktivitetsloggar. |
-| Data plan loggning och granskning| Nej | Azure Backup-dataplanet kan inte nås direkt.  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kunder som har utlöst åtgärder från Azure Portal loggas till aktivitets loggar. |
+| Loggning och granskning av data planet| Nej | Det går inte att nå Azure Backup data planet direkt.  |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja|  |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja|  |
 
-
-## <a name="azure-key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Azure Key Vault](../key-vault/key-vault-security-attributes.md)
+## <a name="cosmos-dbcosmos-dbcosmos-db-security-attributesmd"></a>[Cosmos DB](../cosmos-db/cosmos-db-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Alla objekt som är krypterade. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | All kommunikation är via krypterade API-anrop |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Kunden styr alla nycklar i sina Key Vault. När modul (HSM) som backas upp av maskinvara säkerhetsnycklar anges, skyddar en FIPS nivå 2 HSM nyckeln, certifikat eller hemligheten. |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
-| API-anrop som är krypterad| Ja | Med hjälp av HTTPS. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Alla Cosmos DB databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Alla Azure Cosmos DB data krypteras vid överföring. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [introduktion till Azure Cosmos DB: Tabell-API](../cosmos-db/table-introduction.md). |
+| Krypterade API-anrop| Ja | Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2-anslutningar, men detta är inte tvingande än. Om kunderna stänger av lågnivå-TLS på deras sida, kan de se till att de ansluter till Cosmos DB.  |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja | Med tjänstslutpunkter i virtuella nätverk (VNet). |
-| VNet-stöd för inmatning| Nej |  |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Ja |  |
+| stöd för vNET-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler.  Se [åtkomst Azure Cosmos dB från virtuella nätverk](../cosmos-db/vnet-service-endpoint.md). |
+| Stöd för nätverks isolering och brand vägg| Ja | Med brand Väggs stöd kan du konfigurera ditt Azure Cosmos-konto så att det bara tillåter åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller moln tjänster. Se [Konfigurera IP-brandvägg i Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md).|
+| Stöd för Tvingad tunnel trafik | Ja | Kan konfigureras på klient sidan på det VNET där de virtuella datorerna finns.   |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Använda Log Analytics. |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Alla begär Anden som skickas till Azure Cosmos DB loggas. [Azure-övervakning](../azure-monitor/overview.md), Azure-mått, Azure gransknings loggning stöds.  Du kan logga information som motsvarar data Plans begär Anden, fråga efter körnings statistik, frågetext, MongoDB-begäranden. Du kan också konfigurera aviseringar. |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Autentisering är via Azure Active Directory. |
-| Auktorisering| Ja | Med hjälp av Nyckelvalvets åtkomstprincip. |
+| Authentication| Ja | Ja på databas konto nivå; på data planet nivå använder Cosmos DB resurspooler och nyckel åtkomst. |
+| Authorization| Ja | Stöds på Azure Cosmos-kontot med huvud nycklar (primära och sekundära) och resurs-token. Du kan hämta Läs-och skriv-eller Läs behörighet till data med huvud nycklar. Med resurs-token får du begränsad åtkomst till resurser som dokument och behållare. |
 
+### <a name="audit-trail"></a>Gransknings logg
 
-### <a name="audit-trail"></a>Granskningslogg
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering dataplaner loggning och granskning| Ja | Använda Log Analytics. |
-| Data plan loggning och granskning| Ja | Använda Log Analytics. |
-
-### <a name="access-controls"></a>Åtkomstkontroller
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
-|---|---|--|
-| Kontroll och hantering dataplanets åtkomstkontroller | Ja | Azure Resource Manager rollbaserad åtkomstkontroll (RBAC) |
-| Data dataplanets åtkomstkontroller (på varje servicenivå) | Ja | Nyckelvalvets åtkomstprincip |
-
-## <a name="azure-service-bus-messagingservice-bus-messagingservice-bus-messaging-security-attributesmd"></a>[Azure Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-security-attributes.md)
-
-### <a name="preventative"></a>Förebyggande
-
-| Säkerhetsattributet | Ja/nej | Anteckningar |
-|---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>|  Ja för serversidan kryptering vid vila som standard. | Kundhanterade nycklar och BYOK stöds inte ännu. Kryptering är klientens ansvar |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Stöder standard HTTPS/TLS-mekanism. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej |   |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | API-anrop som görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och HTTPS. |
-
-### <a name="network-segmentation"></a>Nätverkssegmentering
-
-| Säkerhetsattributet | Ja/nej | Anteckningar |
-|---|---|--|
-| Stöd för Service-slutpunkt| Ja (endast Premium-nivån) | Tjänstslutpunkter i virtuella nätverk stöds för [Service Bus Premium-nivån](../service-bus-messaging/service-bus-premium-messaging.md) endast. |
-| VNet-stöd för inmatning| Nej | |
-| Isolering av nätverk och brandväggsfunktioner support| Ja (endast Premium-nivån) |  |
-| Tvingad tunneltrafik support| Nej |  |
-
-### <a name="detection"></a>Detection (Identifiering)
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
-|---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Stöds via [Azure Monitor och aviseringar](../service-bus-messaging/service-bus-metrics-azure-monitor.md). |
-
-### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
-|---|---|--|
-| Autentisering| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](../service-bus-messaging/service-bus-managed-service-identity.md); Se [Service Bus, autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md).|
-| Auktorisering| Ja | Har stöd för auktorisering via [RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) (förhandsversion) och SAS-token, se [Service Bus, autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md). |
-
-### <a name="audit-trail"></a>Granskningslogg
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
-|---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Åtgärdsloggar är tillgängliga. Se [Service Bus diagnostikloggar](../service-bus-messaging/service-bus-diagnostic-logs.md).  |
-| Data plan loggning och granskning| Nej |  |
+| Kontroll/hanterings plan loggning och granskning| Ja | Azure aktivitets logg för åtgärder på konto nivå, till exempel brand väggar, virtuella nätverk, nycklar åtkomst och IAM. |
+| Loggning och granskning av data planet | Ja | Loggning av diagnostik för behållar åtgärder, till exempel skapa behållare, etablera data flöde, indexerings principer och CRUD åtgärder för dokument. |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Har stöd för resource provider versionshantering via den [Azure Resource Manager API](/rest/api/resources/).|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Nej  | | 
+
+### <a name="additional-security-attributes-for-cosmos-db"></a>Ytterligare säkerhetsattribut för Cosmos DB
+
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
+|---|---|--|
+| Resurs delning mellan ursprung (CORS) | Ja | Se [Konfigurera CORS (Cross-Origin resurs delning)](../cosmos-db/how-to-configure-cross-origin-resource-sharing.md). |
 
 
-## <a name="azure-service-bus-relayservice-bus-relayservice-bus-relay-security-attributesmd"></a>[Azure Service Bus Relay](../service-bus-relay/service-bus-relay-security-attributes.md)
+## <a name="event-hubsevent-hubsevent-hubs-security-attributesmd"></a>[Event Hubs](../event-hubs/event-hubs-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>|  Gäller inte | Relay är en web-socket och data sparas inte. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Tjänsten kräver TLS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej | Använder Microsoft TLS-certifikat.  |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | HTTPS. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) |  Ja | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja |  |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej |  |
-| Isolering av nätverk och brandväggsfunktioner support| Nej |  |
-| Tvingad tunneltrafik support| Gäller inte | Relay är TLS-tunnel  |
+| Stöd för tjänst slut punkt| Ja |  |
+| stöd för vNET-injektering| Nej | |
+| Stöd för nätverks isolering och brand vägg| Ja |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Via SAS. |
-| Auktorisering|  Ja | Via SAS. |
+| Authentication| Ja | |
+| Authorization|  Ja | |
 
 
-### <a name="audit-trail"></a>Granskningslogg
+### <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Via [med Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Data plan loggning och granskning| Ja | Anslutningen lyckas / fel och fel och loggas.  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja |  |
+| Loggning och granskning av data planet| Ja |   |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Via [med Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | |
 
 
-## <a name="azure-service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+## <a name="expressrouteexpressrouteexpressroute-security-attributesmd"></a>[ExpressRoute](../expressroute/expressroute-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Kunden äger klustret och skalningsuppsättningen för virtuell dator (VM) som klustret bygger på. Azure-diskkryptering kan aktiveras på virtuella datorns skalningsuppsättning. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja |  |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Kunden äger klustret och skalningsuppsättningen för virtuell dator (VM) som klustret bygger på. Azure-diskkryptering kan aktiveras på virtuella datorns skalningsuppsättning. |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
-| API-anrop som är krypterad| Ja | Service Fabric-API-anrop görs via Azure Resource Manager. Det krävs en giltig JSON webbtoken (JWT). |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) |  Gäller inte | ExpressRoute lagrar inte kund information. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Nej | |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Gäller inte |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja |  |
-| VNet-stöd för inmatning| Ja |  |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
-| Tvingad tunneltrafik support| Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
+| Stöd för tjänst slut punkt| Gäller inte |  |
+| stöd för vNET-injektering| Gäller inte | |
+| Stöd för nätverks isolering och brand vägg| Ja | Varje kund ingår i en egen routningsdomän och dirigeras sedan till sitt eget VNet |
+| Stöd för Tvingad tunnel trafik| Gäller inte | Via Border Gateway Protocol (BGP). |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Med hjälp av Azure-övervakning stöd och stöd från tredje part. |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [ExpressRoute-övervakning, mått och aviseringar](../expressroute/expressroute-monitoring-metrics-alerts.md).|
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Autentisering är via Azure Active Directory. |
-| Auktorisering| Ja | Identitets- och åtkomsthantering (IAM) för anrop via SFRP. Anrop direkt till slutpunkten för klustret har stöd för två roller: Användare och administratör. Kunden kan mappa API: erna till någon av rollerna. |
+| Authentication| Ja | Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
+| Authorization|  Ja |Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
 
-### <a name="audit-trail"></a>Granskningslogg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar| 
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Alla kontrollplanåtgärder kör via processer för att granska och godkännanden. |
-| Data plan loggning och granskning| Gäller inte | Kunden äger klustret.  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja |  |
+| Loggning och granskning av data planet| Nej |   |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Tjänstkonfigurationen är versionsnummer och distribuerade använda Azure distribuerar. Koden (program och runtime) skapas med Azure-versionen.
- |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Via nätverks resurs leverantören (NRP). |
 
-## <a name="azure-sql-databasesql-databasesql-database-security-attributesmd"></a>[Azure SQL Database](../sql-database/sql-database-security-attributes.md)
+
+## <a name="key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Key Vault](../key-vault/key-vault-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Kallas ”kryptering vid användning”, enligt beskrivningen i artikeln [Always Encrypted](../sql-database/sql-database-always-encrypted.md). Tjänstsidan kryptering använder [transparent datakryptering](../sql-database/transparent-data-encryption-azure-sql.md) (TDE).|
-| Kryptering under överföring:<ul><li>ExpressRoute-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Med hjälp av HTTPS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Både tjänsthanterad och kundhanterad nyckel hantering erbjuds (det senare via [Azure Key Vault](../key-vault/index.yml). |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Ja | Via [Always Encrypted](../sql-database/sql-database-always-encrypted.md). |
-| API-anrop som är krypterad| Ja | Med hjälp av HTTPS/SSL. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Alla objekt är krypterade. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | All kommunikation sker via krypterade API-anrop |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Ja | Kunden styr alla nycklar i sina Key Vault. När HSM-säkerhetskopierade nycklar har angetts skyddar en FIPS-nivå 2 HSM nyckeln, certifikatet eller hemligheten. |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte |  |
+| Krypterade API-anrop| Ja | Använda HTTPS. |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja | Gäller för [enkel databas](../sql-database/sql-database-single-index.yml) endast. |
-| VNet-stöd för inmatning| Ja | Gäller för [hanterad instans](../sql-database/sql-database-managed-instance.md) endast. |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | Brandväggen på båda databas - och server-nivå. nätverksisolering för [hanterad instans](../sql-database/sql-database-managed-instance.md) endast |
-| Tvingad tunneltrafik support| Ja | [hanterad instans](../sql-database/sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Stöd för tjänst slut punkt| Ja | Använda tjänst slut punkter för Virtual Network (VNet). |
+| Stöd för VNet-injektering| Nej |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Använd brand Väggs regler för VNet. |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | SIEM-lösning från tredje part från Imperva (SecureSphere) är också stöds via [Azure Event Hubs](../event-hubs/index.yml) integrering via [SQL audit](../sql-database/sql-database-auditing.md). |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Använda Log Analytics. |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Azure Active Directory. |
-| Auktorisering| Ja |  |
+| Authentication| Ja | Autentisering är via Azure Active Directory. |
+| Authorization| Ja | Använda Key Vault åtkomst princip. |
 
+### <a name="audit-trail"></a>Gransknings logg
 
-### <a name="audit-trail"></a>Granskningslogg
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Ja för endast vissa händelser. |
-| Data plan loggning och granskning | Ja | Via [SQL audit](../sql-database/sql-database-auditing.md). |
+| Kontroll/hantering plan-loggning och granskning| Ja | Använda Log Analytics. |
+| Loggning och granskning av data planet| Ja | Använda Log Analytics. |
 
-### <a name="configuration-management"></a>Konfigurationshantering
+### <a name="access-controls"></a>Åtkomst kontroller
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Nej  | | 
+| Åtkomst kontroller för kontroll/hanterings plan | Ja | Azure Resource Manager rollbaserad åtkomstkontroll (RBAC) |
+| Åtkomst kontroller för data plan (på varje service nivå) | Ja | Key Vault åtkomst princip |
 
-### <a name="additional-security-attributes-for-sql-database"></a>Attribut för ytterligare säkerhet för SQL-databas
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
-|---|---|--|
-| Förebyggande: utvärdering av säkerhetsrisker | Ja | Se [Sårbarhetsbedömning för SQL service hjälper dig att identifiera databasen sårbarheter](../sql-database/sql-vulnerability-assessment.md). |
-| Förebyggande: dataidentifiering och klassificering  | Ja | Se [Azure SQL Database och SQL Data Warehouse dataidentifiering och klassificering](../sql-database/sql-database-data-discovery-and-classification.md). |
-| Identifiering: hotidentifiering | Ja | Se [Avancerat skydd för Azure SQL Database](../sql-database/sql-database-threat-detection-overview.md). |
-
-## <a name="azure-storagestoragecommonstorage-security-attributesmd"></a>[Azure Storage](../storage/common/storage-security-attributes.md)
+## <a name="load-balancerload-balancerload-balancer-security-attributesmd"></a>[Lastbalanserare](../load-balancer/load-balancer-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja |  |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Stöd för standardmetoder HTTPS/TLS.  Användare kan också kryptera data innan de skickas till tjänsten. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Se [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
-| API-anrop som är krypterad| Ja |  |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Gäller inte | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Gäller inte | |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Gäller inte | |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
-### <a name="network-segmentation"></a>Nätverkssegmentering
+### <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja |  |
-| VNet-stöd för inmatning| Gäller inte |  |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | |
-| Tvingad tunneltrafik support| Gäller inte |  |
+| Stöd för tjänst slut punkt| Gäller inte | |
+| Stöd för VNet-injektering| Gäller inte | . |
+| Stöd för nätverks isolering och brand vägg| Gäller inte |  |
+| Stöd för Tvingad tunnel trafik| Gäller inte | |
 
 ### <a name="detection"></a>Detection (Identifiering)
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Azure Monitor Metrics som är tillgängliga nu loggar från förhandsversion |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [Azure Monitor-loggar för offentliga grundläggande Load Balancer](../load-balancer/load-balancer-monitor-log.md). |
 
 ### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Azure Active Directory delad nyckel, delad åtkomst-token. |
-| Auktorisering| Ja | Stöd för auktorisering via RBAC, POSIX-ACL: er och SAS-token |
+| Authentication| Gäller inte |  |
+| Authorization| Gäller inte |  |
 
+### <a name="audit-trail"></a>Gransknings logg
 
-### <a name="audit-trail"></a>Granskningslogg
-
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning | Ja | Azure Resource Manager-aktivitetslogg |
-| Data plan loggning och granskning| Ja | Diagnostikloggar för tjänsten och Azure Monitor-loggning från förhandsversion  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Se [Azure Monitor-loggar för offentliga grundläggande Load Balancer](../load-balancer/load-balancer-monitor-log.md). |
+| Loggning och granskning av data planet | Gäller inte |  |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Stöd för versionshantering Resource Provider via Azure Resource Manager API: er |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Gäller inte |  | 
+
+## <a name="service-bus-messagingservice-bus-messagingservice-bus-messaging-security-attributesmd"></a>[Service Bus meddelanden](../service-bus-messaging/service-bus-messaging-security-attributes.md)
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) |  Ja för kryptering på Server sidan – rest som standard. | Kundhanterade nycklar och BYOK stöds inte ännu. Kryptering på klient sidan är klientens ansvar |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Stöder standard-HTTPS/TLS-mekanismen. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |   |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | API-anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Ja (endast Premium-nivå) | VNet-tjänstens slut punkter stöds endast för [Service Bus Premium-nivån](../service-bus-messaging/service-bus-premium-messaging.md) . |
+| Stöd för VNet-injektering| Nej | |
+| Stöd för nätverks isolering och brand vägg| Ja (endast Premium-nivå) |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Stöds via [Azure Monitor och aviseringar](../service-bus-messaging/service-bus-metrics-azure-monitor.md). |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](../service-bus-messaging/service-bus-managed-service-identity.md); Se [Service Bus autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md).|
+| Authorization| Ja | Stöder auktorisering via [RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) (för hands version) och SAS-token; Se [Service Bus autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md). |
+
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Det finns tillgängliga åtgärds loggar. Se [Service Bus diagnostikloggar](../service-bus-messaging/service-bus-diagnostic-logs.md).  |
+| Loggning och granskning av data planet| Nej |  |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Stöder versions hantering av resurs leverantörer via [Azure Resource Manager API](/rest/api/resources/).|
+
+
+## <a name="service-bus-relayservice-bus-relayservice-bus-relay-security-attributesmd"></a>[Service Bus Relay](../service-bus-relay/service-bus-relay-security-attributes.md)
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) |  Gäller inte | Relay är en webbsocket och bevarar inte data. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Tjänsten kräver TLS. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej | Använder endast Microsoft TLS-certifikat.  |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | HTTPS. |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Nej |  |
+| Stöd för nätverks isolering och brand vägg| Nej |  |
+| Stöd för Tvingad tunnel trafik| Gäller inte | Relä är TLS-tunneln  |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | Via SAS. |
+| Authorization|  Ja | Via SAS. |
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Loggning och granskning av data planet| Ja | Lyckad/misslyckad anslutning och fel och loggad.  |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|
+
+## <a name="service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte |  |
+| Krypterade API-anrop| Ja | Service Fabric API-anrop görs via Azure Resource Manager. En giltig JSON Web token (JWT) krävs. |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Ja |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG). |
+| Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Använda Azure Monitoring support och stöd från tredje part. |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | Autentisering är via Azure Active Directory. |
+| Authorization| Ja | Identitets-och åtkomst hantering (IAM) för anrop via SFRP. Anrop direkt till kluster slut punkten har stöd för två roller: Användare och administratör. Kunden kan mappa API: erna till vilken roll som möjligt. |
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kontroll Plans åtgärder körs genom processer för granskning och godkännanden. |
+| Loggning och granskning av data planet| Gäller inte | Kunden äger klustret.  |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | |
+
+## <a name="sql-databasesql-databasesql-database-security-attributesmd"></a>[SQL Database](../sql-database/sql-database-security-attributes.md)
+
+SQL Database innehåller både [en enkel databas och en](../sql-database/sql-database-single-index.yml) [hanterad instans](../sql-database/sql-database-managed-instance.md). Följande poster gäller för båda erbjudandena utom i de fall där annat anges.
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Kallas "kryptering i användning", enligt beskrivningen i artikeln [Always Encrypted](../sql-database/sql-database-always-encrypted.md). Kryptering på Server sidan använder [transparent data kryptering](../sql-database/transparent-data-encryption-azure-sql.md).|
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Använda HTTPS. |
+| Kryptering – nyckel hantering, till exempel CMK eller BYOK| Ja | Både hanterad och kundhanterad nyckel hantering erbjuds. Den senare erbjuds via [Azure Key Vault](../key-vault/index.yml). |
+| Kryptering på kolumn nivå som tillhandahålls av Azure Data Services| Ja | Via [Always Encrypted](../sql-database/sql-database-always-encrypted.md). |
+| Krypterade API-anrop| Ja | Använda HTTPS/SSL. |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Ja | Gäller endast för [en enskild databas](../sql-database/sql-database-single-index.yml) . |
+| Stöd för Azure Virtual Network-injektering| Ja | Gäller endast för [hanterade instanser](../sql-database/sql-database-managed-instance.md) . |
+| Nätverks isolering och brand Väggs stöd| Ja | Brand väggen på både databas nivå och server nivå. Nätverks isolering är endast för [hanterad instans](../sql-database/sql-database-managed-instance.md) . |
+| Stöd för Tvingad tunnel trafik| Ja | [Hanterad instans](../sql-database/sql-database-managed-instance.md) via en [ExpressRoute](../expressroute/index.yml) VPN. |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Stöd för Azure-övervakning, till exempel Log Analytics eller Application Insights| Ja | SecureSphere, SIEM-lösningen från Imperva, stöds också via [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL-granskning](../sql-database/sql-database-auditing.md). |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | Azure Active Directory (Azure AD) |
+| Authorization| Ja | Inga |
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Kontroll – plan och hantering – plan loggning och granskning| Ja | Ja endast för vissa händelser |
+| Data Plans loggning och granskning | Ja | Via [SQL audit](../sql-database/sql-database-auditing.md) |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfiguration – hanterings stöd, till exempel konfiguration av versioner| Nej  | Ingen |
+
+### <a name="additional-security-attributes-for-sql-database"></a>Ytterligare säkerhetsattribut för SQL Database
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Förebyggande: sårbarhets bedömning | Ja | Se [SQL sårbarhet Assessment service hjälper dig att identifiera databas sårbarheter](../sql-database/sql-vulnerability-assessment.md). |
+| Förebyggande: data identifiering och klassificering  | Ja | Se [Azure SQL Database och SQL Data Warehouse data identifiering & klassificering](../sql-database/sql-database-data-discovery-and-classification.md). |
+| Identifiering: Hot identifiering | Ja | Se [Avancerat skydd för Azure SQL Database](../sql-database/sql-database-threat-detection-overview.md). |
+
+
+## <a name="storagestoragecommonstorage-security-attributesmd"></a>[Storage](../storage/common/storage-security-attributes.md)
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering) | Ja | Stöd för standard-HTTPS/TLS-mekanismer.  Användare kan också kryptera data innan de skickas till tjänsten. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Ja | Se [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte |  |
+| Krypterade API-anrop| Ja |  |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Gäller inte |  |
+| Stöd för nätverks isolering och brand vägg| Ja | |
+| Stöd för Tvingad tunnel trafik| Gäller inte |  |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Azure Monitor tillgängliga mått nu, loggar startar för hands version |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | Azure Active Directory, delad nyckel, delad åtkomsttoken. |
+| Authorization| Ja | Stöd för auktorisering via RBAC, POSIX ACL: er och SAS-token |
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan | Ja | Azure Resource Manager aktivitets logg |
+| Loggning och granskning av data planet| Ja | Loggar för tjänsten Diagnostic och Azure Monitor loggning starta för hands version  |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Stöd för Resource Provider-versioner via Azure Resource Manager API: er |
+
+## <a name="virtual-machines-and-virtual-machine-scale-sets"></a>Virtual Machines och Virtual Machine Scale Sets
+
+[Virtuella Linux-datorer](../virtual-machines/windows/virtual-machines-windows-security-attributes.md) | [Windows VM](../virtual-machines/windows/virtual-machines-windows-security-attributes.md) | [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md)
+
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Se [så här krypterar du en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/encrypt-disks) och [krypterar virtuella diskar på en virtuell Windows-dator](/azure/virtual-machines/windows/encrypt-disks). |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Ja | Kundhanterade nycklar är ett Azure-krypterings scenario som stöds. Se [Översikt över Azure-kryptering](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Via HTTPS och SSL. |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Ja | |
+| Stöd för VNet-injektering| Ja | . |
+| Stöd för nätverks isolering och brand vägg| Ja |  |
+| Stöd för Tvingad tunnel trafik| Ja | Se [Konfigurera Tvingad tunnel trafik med Azure Resource Manager distributions modell](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring) och [övervaka och uppdatera en virtuell Windows-dator i Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja |  |
+| Authorization| Ja |  |
+
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan| Ja |  |
+| Loggning och granskning av data planet | Nej |  |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja |  | 
+
+
+## <a name="vpn-gatewayvpn-gatewayvpn-gateway-security-attributesmd"></a>[VPN Gateway](../vpn-gateway/vpn-gateway-security-attributes.md)
+
+### <a name="preventative"></a>Förebyggande
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Gäller inte | Kunddata för VPN gateway-överföring lagrar inte kund information |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | VPN gateway krypterar kund paket mellan Azure VPN-gatewayer och lokala VPN-enheter (S2S) eller VPN-klienter (P2S). VPN-gatewayer stöder även VNet-till-VNet-kryptering. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej | Kundspecificerade i förväg delade nycklar är krypterade i vila. men inte integrerat med CMK än. |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https  |
+
+### <a name="network-segmentation"></a>Nätverks segmentering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar |
+|---|---|--|
+| Stöd för tjänst slut punkt| Gäller inte | |
+| Stöd för VNet-injektering| Gäller inte | . |
+| Stöd för nätverks isolering och brand vägg| Ja | VPN-gatewayer är dedikerade VM-instanser för varje kund Virtual Network  |
+| Stöd för Tvingad tunnel trafik| Ja |  |
+
+### <a name="detection"></a>Detection (Identifiering)
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [Azure Monitor diagnostikloggar/varning](../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor mått/avisering](../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+
+### <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Authentication| Ja | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) för att hantera tjänsten och konfigurera Azure VPN-gatewayen. |
+| Authorization| Ja | Stöd för auktorisering via [RBAC](../role-based-access-control/overview.md). |
+
+### <a name="audit-trail"></a>Gransknings logg
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Azure Resource Manager aktivitets logg. |
+| Loggning och granskning av data planet | Ja | [Azure Monitor diagnostikloggar](../azure-resource-manager/resource-group-audit.md) för loggning och granskning av VPN-anslutningar. |
+
+### <a name="configuration-management"></a>Konfigurationshantering
+
+| Säkerhetsattribut | Ja/nej | Anteckningar|
+|---|---|--|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | För hanterings åtgärder kan statusen för en Azure VPN gateway-konfiguration exporteras som en Azure Resource Manager mall och versions hantering över tid. | 
+

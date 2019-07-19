@@ -1,6 +1,6 @@
 ---
-title: Hur fungerar Azure Traffic Manager | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Traffic Manager dirigerar trafik för hög prestanda och tillgänglighet för dina webbprogram
+title: Så här fungerar Azure Traffic Manager | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur Traffic Manager dirigerar trafik för hög prestanda och tillgänglighet för dina webb program
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -12,69 +12,92 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071187"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312154"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
-Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
+Med Azure Traffic Manager kan du styra trafiken mellan dina program slut punkter. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
 
-Traffic Manager har två viktiga fördelar:
+Traffic Manager ger två viktiga fördelar:
 
-- Fördelning av trafik enligt ett av flera [trafikroutningsmetoder](traffic-manager-routing-methods.md)
-- [Kontinuerlig övervakning av slutpunktshälsa](traffic-manager-monitoring.md) och automatisk redundans när slutpunkter misslyckas
+- Fördelning av trafik enligt en av flera [metoder för trafik cirkulation](traffic-manager-routing-methods.md)
+- [Kontinuerlig övervakning av slut punkts hälsa](traffic-manager-monitoring.md) och automatisk redundans när slut punkter inte fungerar
 
-När en klient försöker ansluta till en tjänst, måste den först matcha DNS-namnet på tjänsten till en IP-adress. Klienten ansluter sedan till IP-adressen åtkomst till tjänsten.
+När en klient försöker ansluta till en tjänst måste den först matcha DNS-namnet för tjänsten med en IP-adress. Klienten ansluter sedan till den IP-adressen för att få åtkomst till tjänsten.
 
-**Det mest viktiga att förstå är att Traffic Manager fungerar på DNS-nivå.**  Traffic Manager använder DNS för att dirigera klienterna till specifika tjänstslutpunkter utifrån reglerna för routning av nätverkstrafik-metoden. Klienterna ansluter till den valda slutpunkten **direkt**. Traffic Manager är inte en proxy eller en gateway. Traffic Manager kan inte se den trafik som passerar mellan klienten och tjänsten.
+**Den viktigaste punkten att förstå är att Traffic Manager fungerar på DNS-nivå.**  Traffic Manager använder DNS för att dirigera klienter till vissa tjänst slut punkter baserat på reglerna för metoden för trafik dirigering. Klienterna ansluter till den valda slut punkten **direkt**. Traffic Manager är inte en proxy eller gateway. Traffic Manager ser inte trafiken som passerar mellan klienten och tjänsten.
 
-## <a name="traffic-manager-example"></a>Traffic Manager-exempel
+## <a name="traffic-manager-example"></a>Traffic Manager exempel
 
-Contoso Corp har utvecklat en ny partner-portalen. URL: en för den här portalen är https://partners.contoso.com/login.aspx. Programmet finns i tre regioner för Azure. För att förbättra tillgängligheten och maximera globala prestanda, använda de Traffic Manager för att distribuera klienttrafik till närmaste tillgängliga slutpunkten.
+Contoso Corp har utvecklat en ny partner Portal. URL: en för den här https://partners.contoso.com/login.aspx portalen är. Programmet finns i tre regioner i Azure. För att förbättra tillgängligheten och maximera globala prestanda använder de Traffic Manager för att distribuera klient trafik till den närmast tillgängliga slut punkten.
 
-För att uppnå den här konfigurationen kan utföra de följande steg:
+För att uppnå den här konfigurationen slutförs följande steg:
 
-1. Distribuera tre instanser av tjänsten. DNS-namn för dessa distributioner är ”contoso-us.cloudapp .net”, ”contoso-eu.cloudapp .net” och ”contoso-asia.cloudapp .net”.
-1. Skapa en Traffic Manager-profil med namnet contoso.trafficmanager.net, och konfigurera den att använda metoden ”Performance” routning av nätverkstrafik i tre slutpunkter.
-1. Konfigurera sina anpassad domännamn, ”partners.contoso.com” så att den pekar till contoso.trafficmanager.net, med hjälp av en DNS CNAME-post.
+1. Distribuera tre instanser av tjänsten. DNS-namnen för dessa distributioner är "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" och "contoso-asia.cloudapp.net".
+1. Skapa en Traffic Manager-profil med namnet "contoso.trafficmanager.net" och konfigurera den så att den använder metoden "prestanda" för Traffic-routing över de tre slut punkterna.
+1. Konfigurera deras anpassad domän namn, "partners.contoso.com", så att de pekar på "contoso.trafficmanager.net" med en DNS CNAME-post.
 
 ![Traffic Manager DNS-konfiguration][1]
 
 > [!NOTE]
-> När du använder en anpassad domän med Azure Traffic Manager, måste du använda en CNAME-post så att den pekar ditt domännamn för anpassad till ditt Traffic Manager-domännamn. DNS-standarden tillåter inte att du kan skapa en CNAME-post på 'apex ”(eller rot) i en domän. Därför skapa du inte en CNAME-post för ”contoso.com” (kallas ibland för en ”utan www-domän). Du kan bara skapa en CNAME-post för en domän under ”contoso.com”, till exempel ”www.contoso.com”. För att undvika denna begränsning, rekommenderar vi som är värd för din DNS-domän på [Azure DNS](../dns/dns-overview.md) och använder [Alias poster](../dns/tutorial-alias-tm.md) att peka mot din traffic manager-profil. Du kan också använda en enkel HTTP-omdirigering till direkta begäranden för ”contoso.com” till ett alternativt namn, till exempel ”www.contoso.com”.
+> När du använder en anpassad-domän med Azure Traffic Manager måste du använda en CNAME för att peka ditt anpassad-domännamn till ditt Traffic Manager domän namn. DNS-standarder tillåter inte att du skapar en CNAME vid en domäns "Apex" (eller rot). Därför kan du inte skapa en CNAME för "contoso.com" (kallas ibland för en "blott"-domän). Du kan bara skapa en CNAME för en domän under "contoso.com", till exempel "www.contoso.com". För att undvika den här begränsningen rekommenderar vi att du är värd för din DNS-domän på [Azure DNS](../dns/dns-overview.md) och använder [Ali Aset](../dns/tutorial-alias-tm.md) för att peka på din Traffic Manager-profil. Alternativt kan du använda en enkel HTTP-omdirigering för att dirigera begär Anden för "contoso.com" till ett alternativt namn, till exempel "www.contoso.com".
 
-### <a name="how-clients-connect-using-traffic-manager"></a>Hur klienter ansluter via Traffic Manager
+### <a name="how-clients-connect-using-traffic-manager"></a>Hur klienter ansluter med hjälp av Traffic Manager
 
-Fortsätter från föregående exempel, när en klient begär sidan https://partners.contoso.com/login.aspx, utför följande steg för att lösa DNS-namn och upprätta en anslutning för klienten:
+När en klient begär sidan https://partners.contoso.com/login.aspx från föregående exempel utför klienten följande steg för att lösa DNS-namnet och upprätta en anslutning:
 
-![Anslutningen upprättas med Traffic Manager][2]
+![Anslutnings etablering med hjälp av Traffic Manager][2]
 
-1. Klienten skickar en DNS-fråga till dess konfigurerade rekursiv DNS-tjänst för att matcha namnet ”partners.contoso.com”. DNS-domäner är inte värd direkt i en rekursiv DNS-tjänst, vilket ibland kallas en ”lokal DNS-tjänst. I stället off-loads klienten arbetet med att kontakta de olika auktoritativa DNS-tjänsterna via Internet som behövs för att lösa ett DNS-namn.
-2. Om du vill matcha DNS-namnet, hittar rekursiv DNS-tjänst namnservrarna för domänen ”contoso.com”. Den kontaktar sedan dessa namnservrar för att begära DNS-posten ”partners.contoso.com”. Contoso.com DNS-servrar returnera CNAME-post som pekar på contoso.trafficmanager.net.
-3. Därefter hittar rekursiv DNS-tjänst namnservrarna för domänen ”trafficmanager.net”, som tillhandahålls av Azure Traffic Manager-tjänsten. Sedan skickar den en begäran om DNS-posten 'contoso.trafficmanager.net' till dessa DNS-servrar.
-4. Traffic Managers namnservrar tar emot förfrågan. De välja en slutpunkt som baseras på:
+1. Klienten skickar en DNS-fråga till den konfigurerade rekursiva DNS-tjänsten för att matcha namnet "partners.contoso.com". En rekursiv DNS-tjänst, som ibland kallas för en lokal DNS-tjänst, är inte värd för DNS-domäner direkt. I stället för att klienten ska kunna kontakta de olika auktoritativa DNS-tjänsterna över Internet som behövs för att matcha ett DNS-namn.
+2. Den rekursiva DNS-tjänsten hittar namnservrarna för domänen "contoso.com" för att matcha DNS-namnet. Den kontaktar sedan dessa namnservrar för att begära DNS-posten "partners.contoso.com". Contoso.com DNS-servrarna returnerar CNAME-posten som pekar på contoso.trafficmanager.net.
+3. Sedan hittar den rekursiva DNS-tjänsten namnservrarna för domänen "trafficmanager.net", som tillhandahålls av Azure Traffic Manager-tjänsten. Den skickar sedan en begäran om DNS-posten "contoso.trafficmanager.net" till dessa DNS-servrar.
+4. Traffic Manager namnservrar får begäran. De väljer en slut punkt baserat på:
 
-    - Det angivna tillståndet för varje slutpunkt (inaktiverad slutpunkter returneras inte)
-    - Det aktuella hälsotillståndet för varje slutpunkt, enligt systemets hälsokontroller Traffic Manager. Mer information finns i [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md).
-    - Den valda trafikdirigeringsmetoden. Mer information finns i [Traffic Manager Routing Methods](traffic-manager-routing-methods.md).
+    - Det konfigurerade läget för varje slut punkt (inaktiverade slut punkter returneras inte)
+    - Den aktuella hälsan för varje slut punkt, enligt Traffic Manager hälso kontroller. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md).
+    - Den valda metoden för trafik dirigering. Mer information finns i [Traffic Manager metoder för routning](traffic-manager-routing-methods.md).
 
-5. Den valda slutpunkten returneras som en annan DNS CNAME-post. I det här fallet kan vi anta att contoso-us.cloudapp.net returneras.
-6. Därefter hittar rekursiv DNS-tjänst namnservrarna för domänen ”cloudapp.net”. Den kontaktar dessa namnservrar för att begära contoso us.cloudapp .net DNS-post. En DNS-”A”-post som innehåller IP-adressen för den amerikanska tjänstslutpunkten returneras.
-7. Rekursiv DNS-tjänst konsoliderar resultaten och returnerar ett enda DNS-svar till klienten.
-8. Klienten tar emot DNS-resultat och ansluter till den angivna IP-adressen. Klienten ansluter till tjänstslutpunkten programmet direkt, inte via Traffic-Manager. Eftersom det är en HTTPS-slutpunkt klienten utför nödvändiga SSL/TLS-handskakning och gör sedan en HTTP GET-begäran för den ' / login.aspx-sidan.
+5. Den valda slut punkten returneras som en annan DNS CNAME-post. I det här fallet kan vi anta att contoso-us.cloudapp.net returneras.
+6. Sedan hittar den rekursiva DNS-tjänsten namnservrarna för domänen "cloudapp.net". Den kontaktar dessa namnservrar för att begära DNS-posten "contoso-us.cloudapp.net". En DNS-post som innehåller IP-adressen för den amerikanska-baserade tjänst slut punkten returneras.
+7. Den rekursiva DNS-tjänsten konsoliderar resultaten och returnerar ett enskilt DNS-svar till klienten.
+8. Klienten får DNS-resultatet och ansluter till den tilldelade IP-adressen. Klienten ansluter direkt till program tjänstens slut punkt, inte via Traffic Manager. Eftersom det är en HTTPS-slutpunkt utför klienten den nödvändiga SSL/TLS-hand skakningen och gör sedan en HTTP GET-begäran för sidan "/login.aspx".
 
-Rekursiv DNS-tjänst cachelagrar DNS-svar tas emot. DNS-matchare på klientenheten cachelagrar också resultatet. Cachelagring kan efterföljande DNS-frågor som ska besvaras snabbare genom att använda data från cachen i stället för att fråga andra namnservrar. Varaktigheten för cachen bestäms av egenskapen ”time-to-live” (TTL) för varje DNS-post. Kortare värden resultera i snabbare cache förfallodatum och därmed flera turer till Traffic Managers namnservrar. Längre värden innebär att det kan ta längre tid att dirigera trafik från en misslyckad slutpunkt. Traffic Manager låter dig konfigurera TTL-värde som används i Traffic Manager DNS-svar för att vara så lågt som 0 sekunder och så mycket som 2 147 483 647 sekunder (maximalt intervall som är kompatibla med [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), så att du kan välja värdet som på bästa sätt balanserar programmets behov.
+Den rekursiva DNS-tjänsten cachelagrar de DNS-svar som den tar emot. DNS-matcharen på klient enheten cachelagrar också resultatet. Cachelagring gör att efterföljande DNS-frågor kan besvaras snabbare med hjälp av data från cachen i stället för att fråga andra namnservrar. Längden på cachen bestäms av egenskapen "Time-to-Live" (TTL) för varje DNS-post. Kortare värden leder till snabbare cache-utgång och därmed fler turer till Traffic Manager namnservrar. Längre värden innebär att det kan ta längre tid att dirigera trafik bort från en misslyckad slut punkt. Med Traffic Manager kan du konfigurera det TTL som används i Traffic Manager DNS-svar så att det blir så lågt som 0 sekunder och så högt som 2 147 483 647 sekunder (det maximala intervallet är kompatibelt med [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), så att du kan välja det värde som bäst balanserar behoven hos ditt program.
 
+## <a name="faqs"></a>Vanliga frågor och svar
+
+* [Vilken IP-adress använder Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [Vilka typer av trafik kan dirigeras med hjälp av Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [Stöder Traffic Manager "tröga" sessioner?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [Varför ser jag ett HTTP-fel när jag använder Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [Vilken prestanda påverkas om du använder Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [Vilka program protokoll kan jag använda med Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [Kan jag använda Traffic Manager med domän namnet "blott"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [Anser Traffic Manager klient under nät adressen vid hantering av DNS-frågor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [Vad är DNS TTL och hur påverkar det mina användare?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [Hur hög eller låg kan jag ange TTL för Traffic Manager svar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [Hur kan jag förstå hur många frågor som kommer till min profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Traffic Manager [slutpunkt för övervakning och automatisk redundans](traffic-manager-monitoring.md).
+Läs mer om Traffic Manager [slut punkts övervakning och automatisk redundans](traffic-manager-monitoring.md).
 
-Läs mer om Traffic Manager [trafikroutningsmetoder](traffic-manager-routing-methods.md).
+Läs mer om hur du Traffic Manager [metoder för trafik cirkulation](traffic-manager-routing-methods.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

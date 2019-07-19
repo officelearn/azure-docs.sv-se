@@ -1,29 +1,29 @@
 ---
-title: Priser för erbjudanden som virtuell dator | Azure Marketplace
-description: Beskriver de tre metoderna för att ange priser för erbjudanden för virtuella datorer.
+title: Priser för virtuella datorer erbjuder | Azure Marketplace
+description: Förklarar de tre metoderna för att ange prissättningen för erbjudanden för virtuella datorer.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935727"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868747"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 ==================================
 
-Det finns tre sätt att ange priser för erbjudanden som virtuell dator: anpassade core priser, priser per kärna och kalkylblad priser.
+Det finns tre sätt att ange prissättning för virtuella datorer: anpassade grund priser, priser per kärna och priser för kalkyl blad.
 
 
-<a name="customized-core-pricing"></a>Anpassade core priser
+<a name="customized-core-pricing"></a>Anpassat kärn pris
 -----------------------
 
-Prissättning är specifik för varje region och core-kombination. Varje region i listan över säljer måste anges i den **virtualMachinePricing**/**regionPrices** avsnitt i definitionen.  Använd rätt valutakoder för varje [region](#regions) i din begäran.  I följande exempel visar dessa krav:
+Priset är särskilt för varje region och kärn kombination. Varje region i försäljnings listan måste anges i **virtualMachinePricing**/**regionPrices** -avsnittet i definitionen.  Använd rätt valuta koder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
 
 ``` json
     "virtualMachinePricing": 
@@ -34,21 +34,31 @@ Prissättning är specifik för varje region och core-kombination. Varje region 
             "currency": "USD",
                 "individually": 
                 {
-                    "sharedcore": 2,
+                    "sharedcore": 1,
                     "1core": 2,
-                    "2core": 3,
-                    "4core": 4,
-                    "6core": 5,
+                    "2core": 2,
+                    "4core": 2,
+                    "6core": 2,
                     "8core": 2,
+                    "10core": 4,
                     "12core": 4,
                     "16core": 4,
                     "20core": 4,
                     "24core": 4,
-                    "32core": 4,
-                    "36core": 4,
-                    "40core": 4,
-                    "64core": 4,
-                    "128core": 4
+                    "32core": 6,
+                    "36core": 6,
+                    "40core": 6,
+                    "44core": 6,
+                    "48core": 10,
+                    "60core": 10,
+                    "64core": 10,
+                    "72core": 10,
+                    "80core": 12,
+                    "96core": 12,
+                    "120core": 15,
+                    "128core": 15,
+                    "208core": 20,
+                    "416core": 30
                 }
         }
         ...
@@ -56,10 +66,10 @@ Prissättning är specifik för varje region och core-kombination. Varje region 
 ```
 
 
-<a name="per-core-pricing"></a>Per kärna-priser
+<a name="per-core-pricing"></a>Priser per kärna
 ----------------
 
-I det här fallet utgivarna anger ett pris i USD för deras SKU: N och alla andra priser har genererats automatiskt. Pris per kärna har angetts i den **enda** parameter i förfrågan.
+I detta fall anger utgivaren ett pris i USD för deras SKU och alla andra priser genereras automatiskt. Priset per kärna anges i den **enskilda** parametern i begäran.
 
 ``` json
      "virtualMachinePricing": 
@@ -74,10 +84,10 @@ I det här fallet utgivarna anger ett pris i USD för deras SKU: N och alla andr
 ```
 
 
-<a name="spreadsheet-pricing"></a>Priser för kalkylblad
+<a name="spreadsheet-pricing"></a>Priser för kalkyl blad
 -------------------
 
-Utgivaren kan även överföra sina priser kalkylblad till en temporär lagringsplats och sedan inkludera URI i begäran som andra artefakter i filen. Kalkylbladet sedan har överförts kan översättas för att utvärdera det angivna pris schemat och uppdaterar slutligen erbjudandet med prisinformation. Efterföljande GET-begäranden för erbjudandet returneras i kalkylbladet URI och utvärderade priserna för regionen.
+Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings plats. ta sedan med URI: n i begäran som andra fil artefakter. Kalkyl bladet laddas sedan upp, översätts för att utvärdera det angivna pris schemat och uppdaterar slutligen erbjudandet med pris informationen. Efterföljande GET-begäranden för erbjudandet returnerar kalkyl bladets URI och de utvärderade priserna för regionen.
 
 ``` json
      "virtualMachinePricing": 
@@ -90,12 +100,18 @@ Utgivaren kan även överföra sina priser kalkylblad till en temporär lagrings
      }
 ```
 
+<a name="new-core-sizes-added-on-722019"></a>Nya kärn storlekar som lagts till på 7/2/2019
+---------------------------
+
+VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser.  Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
+
+
 <a name="regions"></a>Regions
 -------
 
-I följande tabell visas de olika regionerna att du kan ange anpassade core priser och deras motsvarande valutakoder.
+I följande tabell visas olika regioner som du kan ange för anpassade kärn priser och deras motsvarande valuta koder.
 
-| **Region** | **Namn**             | **Valutakod** |
+| **Region** | **Namn**             | **Valuta kod** |
 |------------|----------------------|-------------------|
 | DZ         | Algeriet              | DZD               |
 | AR         | Argentina            | ARS               |
@@ -126,9 +142,9 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | GT         | Guatemala            | GTQ               |
 | HK         | Hongkong SAR        | HKD               |
 | HU         | Ungern              | HUF               |
-| IS         | Island              | ISK               |
+| IS         | Island              | ISKALLOKERING               |
 | IN         | Indien                | INR               |
-| ID         | Indonesien            | IDR               |
+| id         | Indonesien            | IDR               |
 | IE         | Irland              | EUR               |
 | IL         | Israel               | ILS               |
 | IT         | Italien                | EUR               |
@@ -142,7 +158,7 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Norra Makedonien      | MKD               |
+| MK         | Nord Makedonien      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |
@@ -156,7 +172,7 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
 | PY         | Paraguay             | PYG               |
-| PE         | Peru                 | PENNA               |
+| PE         | Peru                 | PENNOR               |
 | PH         | Filippinerna          | PHP               |
 | PL         | Polen               | PLN               |
 | PT         | Portugal             | EUR               |
@@ -176,7 +192,7 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | CH         | Schweiz          | CHF               |
 | TW         | Taiwan               | TWD               |
 | TH         | Thailand             | THB               |
-| TT         | Trinidad och Tobago  | TTD               |
+| TT         | Trinidad och Tobago  | TDD               |
 | TN         | Tunisien              | TND               |
 | TR         | Turkiet               | TRY               |
 | UA         | Ukraina              | UAH               |

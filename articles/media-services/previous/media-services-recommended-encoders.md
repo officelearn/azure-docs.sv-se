@@ -1,25 +1,25 @@
 ---
-title: Lär dig mer om kodare som rekommenderas av Azure Media Services | Microsoft Docs
-description: Lär dig mer om kodare som rekommenderas av media services
+title: Läs mer om kodare som rekommenderas av Azure Media Services | Microsoft Docs
+description: Läs mer om kodare som rekommenderas av Media Services
 services: media-services
-keywords: kodning; kodare; media
+keywords: Encoding; encoders; Media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840113"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854251"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
-När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en på lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en på lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med på lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+När Live streaming med Azure Media Services kan du ange hur du vill att din kanal ska ta emot indataströmmen. Om du väljer att använda en lokal kodare med en Live encoding-kanal bör kodaren skicka en högkvalitativ data ström med hög kvalitet som utdata. Om du väljer att använda en lokal kodare med en genom strömnings kanal, bör kodaren skicka en data ström med flera bit hastigheter som utdata med alla önskade utgångs kvaliteter. Mer information finns i [Direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
-Azure Media Services rekommenderar att du använder ett av följande livekodare som har RTMP som utdata:
+Azure Media Services rekommenderar att du använder någon av följande Live-kodare som har RTMP som utdata:
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
@@ -33,52 +33,52 @@ Azure Media Services rekommenderar att du använder ett av följande livekodare 
 - xStream
 - Switcher Studio (iOS)
 
-Azure Media Services rekommenderar att du använder något av följande livekodare som har flera bithastigheter fragmenterad-MP4 (Smooth Streaming) som utdata:
+Azure Media Services rekommenderar att du använder någon av följande Live-kodare med fragmenterad-MP4 (Smooth Streaming) med flera bit hastigheter som utdata:
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
-- Imagine Communications Selenio MCP3
+- Föreställ dig Selenio-MCP3
 
 > [!NOTE]
-> En livekodare kan skicka en dataström med enkel bithastighet till släppa igenom kanal, men den här konfigurationen rekommenderas inte eftersom det inte tillåter för strömning med anpassad bithastighet till klienten.
+> En Live-kodare kan skicka en data ström med en bit hastighet till en direkt kanal, men den här konfigurationen rekommenderas inte eftersom den inte tillåter strömning med anpassad bit hastighet till klienten.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hur du blir partner på lokala kodare
-Som ett Azure Media Services i lokala kodare partner främjar medietjänster din produkt genom att rekommendera kodaren för företagskunder. Om du vill bli partner kodare på plats måste du kontrollera kompatibiliteten för kodaren på plats med Media Services. Slutför följande verifieringar gör du:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Så här blir du en lokal kodare-partner
+Som en Azure Media Services lokal Encoder-partner Media Services befordrar din produkt genom att rekommendera din kodare till företags kunder. För att bli en lokal kodare-partner måste du kontrol lera kompatibiliteten för din lokala kodare med Media Services. Det gör du genom att utföra följande verifieringar:
 
-Passera kanal verifiering
-1. Skapa eller gå till ditt Azure Media Services-konto
-2. Skapa och starta en **direkt** kanal
-3. Konfigurera kodaren för att skicka en direktsänd dataström i multibithastighet.
-4. Skapa en publicerade live-händelse
-5. Kör din live-kodare i cirka 10 minuter
-6. Stoppa direktsändningen
-7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
-8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
-9. Återställs kanalen när du har skapat varje prov
-10. Upprepa steg 3 till 9 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning)
+Släpp igenom kanal verifiering
+1. Skapa eller besök ditt Azure Media Services konto
+2. Skapa och starta en **genom strömnings** kanal
+3. Konfigurera kodaren för att skicka en Live-bit-ström med flera bit hastigheter.
+4. Skapa en publicerad Live-händelse
+5. Kör din Live-kodare i cirka 10 minuter
+6. Stoppa Live-händelsen
+7. Skapa, starta en slut punkt för direkt uppspelning, Använd en spelare som [Azure Media Player](https://aka.ms/azuremediaplayer) för att se den arkiverade till gången för att säkerställa att uppspelningen inte har några synliga fel för alla kvalitets nivåer (eller titta på och verifiera via URL: en för för hands versionen under Live-sessionen före steg 6)
+8. Registrera till gångs-ID, publicerad strömmande URL för Live-arkivet och de inställningar och den version som används i din Live Encoder
+9. Återställ kanal statusen när du har skapat varje exempel
+10. Upprepa steg 3 till och med 9 för alla konfigurationer som stöds av kodaren (med och utan AD-signalering/under texter/olika kodnings hastigheter)
 
-Live encoding kanal-verifiering
-1. Skapa eller gå till ditt Azure Media Services-konto
-2. Skapa och starta en **direktsänd kodning** kanal
-3. Konfigurera kodaren för att skicka en direktsänd dataström med enkel bithastighet.
-4. Skapa en publicerade live-händelse
-5. Kör din live-kodare i cirka 10 minuter
-6. Stoppa direktsändningen
-7. Skapa, starta slutpunkten för direktuppspelning, Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller du kan också se och validera via förhandsgransknings-URL under den direktsända sessionen innan steg 6)
-8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
-9. Återställs kanalen när du har skapat varje prov
-10. Upprepa steg 3 till 9 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning)
+Verifiering av direktsänd kodnings kanal
+1. Skapa eller besök ditt Azure Media Services konto
+2. Skapa och starta en **Live encoding** -kanal
+3. Konfigurera kodaren för att skicka en Live-dataström med enkel bit hastighet.
+4. Skapa en publicerad Live-händelse
+5. Kör din Live-kodare i cirka 10 minuter
+6. Stoppa Live-händelsen
+7. Skapa, starta en slut punkt för direkt uppspelning, Använd en spelare som [Azure Media Player](https://aka.ms/azuremediaplayer) för att se den arkiverade till gången för att säkerställa att uppspelningen inte har några synliga fel för alla kvalitets nivåer (eller titta på och verifiera via URL: en för för hands versionen under Live-sessionen före steg 6)
+8. Registrera till gångs-ID, publicerad strömmande URL för Live-arkivet och de inställningar och den version som används i din Live Encoder
+9. Återställ kanal statusen när du har skapat varje exempel
+10. Upprepa steg 3 till och med 9 för alla konfigurationer som stöds av kodaren (med och utan AD-signalering/under texter/olika kodnings hastigheter)
 
-Verifiering av livslängd
-1. Skapa eller gå till ditt Azure Media Services-konto
-2. Skapa och starta en **direkt** kanal
-3. Konfigurera kodaren för att skicka en direktsänd dataström i multibithastighet.
-4. Skapa en publicerade live-händelse
-5. Kör din live-kodare för en vecka eller längre
-6. Använd en spelare som [Azure Media Player](http://aka.ms/azuremediaplayer) att titta på live direktuppspelning från tid till tid (eller arkiverade tillgången) för att säkerställa att uppspelningen har inga synliga problem
-7. Stoppa direktsändningen
-8. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare
+Longevity-verifiering
+1. Skapa eller besök ditt Azure Media Services konto
+2. Skapa och starta en **genom strömnings** kanal
+3. Konfigurera kodaren för att skicka en Live-bit-ström med flera bit hastigheter.
+4. Skapa en publicerad Live-händelse
+5. Kör din Live-kodare i en vecka eller längre
+6. Använd en spelare som [Azure Media Player](https://aka.ms/azuremediaplayer) för att se direkt uppspelningen från tid till gång (eller Arkiverad till gång) för att säkerställa att uppspelningen inte har några synliga fel
+7. Stoppa Live-händelsen
+8. Registrera till gångs-ID, publicerad strömmande URL för Live-arkivet och de inställningar och den version som används i din Live Encoder
 
-Till sist skicka dina inspelade inställningar och live-arkivet parametrar till Media Services genom att skicka e-post amsstreaming@microsoft.com. Mottagit utför medietjänster verifieringstest på exempel från din live-kodare. Du kan kontakta medietjänster med några frågor om den här processen.
+Skicka slutligen dina inspelade inställningar och Live Archive-parametrarna till Media Services via amsstreaming@microsoft.come-post. Vid inleverans utför Media Services verifierings test på exemplen från din Live Encoder. Du kan kontakta Media Services om du har frågor om den här processen.

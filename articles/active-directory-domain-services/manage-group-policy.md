@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Administrera Grupprincip i hanterade domäner | Microsoft Docs'
-description: Administrera Grupprincip i Azure Active Directory Domain Services hanterade domäner
+title: 'Azure Active Directory Domain Services: Administrera grupprincip | Microsoft Docs'
+description: Administrera grupprincip på Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,118 +15,118 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c7b32885fdb3cf4f3e584c916d6b234fff54bfc4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473106"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234030"
 ---
-# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrera Grupprincip i en Azure AD Domain Services-hanterad domän
-Azure Active Directory Domain Services innehåller inbyggda grupprincipobjekt (GPO) för behållarna ”AADDC-användare” och ”AADDC-datorer”. Du kan anpassa dessa inbyggda grupprincipobjekt för att konfigurera en Grupprincip på den hanterade domänen. Medlemmar i gruppen ”AAD DC-administratörer” kan även skapa egna anpassade organisationsenheter i den hanterade domänen. De kan också skapa anpassade grupprincipobjekt och koppla dem till dessa anpassade organisationsenheter. Användare som tillhör gruppen ”AAD DC-administratörer” beviljas som gruppolicy administratörsbehörighet för den hanterade domänen.
+# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip på en Azure AD Domain Services hanterad domän
+Azure Active Directory Domain Services innehåller inbyggda grupprincip objekt (GPO) för behållarna "AADDC användare" och "AADDC Computers". Du kan anpassa de här inbyggda grupprincipobjekten för att konfigurera grupprincip på den hanterade domänen. Medlemmar i gruppen "AAD DC-administratörer" kan dessutom skapa egna anpassade organisationsenheter i den hanterade domänen. De kan också skapa anpassade grup princip objekt och länka dem till dessa anpassade organisationsenheter. Användare som tillhör gruppen "AAD DC-administratörer" beviljas grupprincip administratörs behörighet på den hanterade domänen.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du vill utföra åtgärderna i den här artikeln behöver du:
+För att utföra de uppgifter som anges i den här artikeln behöver du:
 
 1. En giltig **Azure-prenumeration**.
-2. En **Azure AD-katalog** -antingen synkroniseras med en lokal katalog eller en molnbaserad katalog.
-3. **Azure AD Domain Services** måste aktiveras för Azure AD-katalog. Om du inte gjort det, följer du alla uppgifter som beskrivs i den [komma igång-guiden](create-instance.md).
-4. En **domänansluten VM** varifrån du administrerar den hanterade domänen i Azure AD Domain Services. Om du inte har sådan en virtuell dator, följer du alla uppgifter som beskrivs i artikeln [ansluta en Windows-dator till en hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Du måste ha autentiseringsuppgifter för en **användarkonto som hör till gruppen ”AAD DC-administratörer”** i katalogen för att administrera en grupprincip för din hanterade domän.
+2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
+3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](create-instance.md).
+4. En **domänansluten virtuell dator** från vilken du administrerar den Azure AD Domain Services hanterade domänen. Om du inte har en sådan virtuell dator följer du alla uppgifter som beskrivs i artikeln [Anslut en virtuell Windows-dator till en hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Du behöver autentiseringsuppgifterna för ett **användar konto som tillhör gruppen "AAD DC-administratörer"** i din katalog för att administrera grupprincip för din hanterade domän.
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>Uppgift 1 – etablera en virtuell dator ingår i domänen för att fjärradministrera en grupprincip för den hanterade domänen
-Azure AD Domain Services-hanterade domäner kan hanteras via en fjärranslutning med hjälp av välbekanta Active Directory-administrationsverktyg, till exempel Active Directory administrativa Center (ADAC) eller AD PowerShell. På samma sätt kan kan en grupprincip för den hanterade domänen fjärradministreras med administrationsverktygen för en Grupprincip.
+## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>Uppgift 1 – etablera en domänansluten virtuell dator för fjärr administration av grupprincip för den hanterade domänen
+Azure AD Domain Services hanterade domäner kan fjärrhanteras med hjälp av välbekanta Active Directory administrations verktyg som Active Directory Administrationscenter (ADAC) eller AD PowerShell. På samma sätt kan grupprincip för den hanterade domänen fjärradministreras med hjälp av grupprincip administrations verktyg.
 
-Administratörer i Azure AD-katalogen har inte behörighet för att ansluta till domänkontrollanter i den hanterade domänen via fjärrskrivbord. Medlemmar i gruppen ”AAD DC-administratörer” kan administrera Grupprincip för hanterade domäner via en fjärranslutning. De kan använda en grupprincip verktyg på en Windows Server/klient-dator som är anslutna till den hanterade domänen. Verktyg för gruppen kan installeras som en del av funktionen Grupprinciphantering valfritt i Windows Server och klientdatorer som är anslutna till den hanterade domänen.
+Administratörer i din Azure AD-katalog har inte behörighet att ansluta till domänkontrollanter på den hanterade domänen via fjärr skrivbord. Medlemmar i gruppen "AAD DC-administratörer" kan administrera grupprincip fjärrstyrda domäner. De kan använda grupprincip verktyg på en Windows Server/klient dator som är ansluten till den hanterade domänen. Grupprincip verktyg kan installeras som en del av den valfria funktionen grupprincip Management på Windows Server och klient datorer som är anslutna till den hanterade domänen.
 
-Den första uppgiften är att etablera en Windows Server-dator som är ansluten till den hanterade domänen. Mer information finns i artikeln [ansluta en Windows Server-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
+Den första aktiviteten är att etablera en virtuell Windows Server-dator som är ansluten till den hanterade domänen. Instruktioner finns i artikeln [ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md).
 
-## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Uppgift 2 – installera en grupprincip verktyg på den virtuella datorn
-Utför följande steg för att installera administrationsverktygen för grupp princip på den domänanslutna virtuella datorn.
+## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Uppgift 2 – Installera grupprincip verktyg på den virtuella datorn
+Utför följande steg för att installera grupprincip administrations verktyg på den domänanslutna virtuella datorn.
 
-1. Gå till Azure-portalen. Klicka på **alla resurser** på den vänstra panelen. Leta upp och klicka på den virtuella datorn som du skapade i uppgift 1.
-2. Klicka på den **Connect** på fliken Översikt. En Remote Desktop Protocol (RDP)-fil skapas och hämtas.
+1. Navigera till Azure Portal. Klicka på **alla resurser** i den vänstra panelen. Leta upp och klicka på den virtuella dator som du skapade i uppgift 1.
+2. Klicka på knappen **Anslut** på fliken Översikt. En Remote Desktop Protocol-fil (. RDP) skapas och hämtas.
 
-    ![Ansluta till Windows-dator](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Om du uppmanas till detta klickar du på **Anslut**. Använd autentiseringsuppgifterna för en användare som tillhör gruppen ”AAD DC-administratörer” i inloggning-Kommandotolken. Exempelvis kan vi använda 'bob@domainservicespreview.onmicrosoft.com' i vårt fall. Du kan få en certifikatvarning under inloggningen. Klicka på Ja eller fortsätta att fortsätta med anslutningen.
-4. Från startskärmen öppnar **Serverhanteraren**. Klicka på **Lägg till roller och funktioner** i fönstret i mitten av Serverhanteraren.
+    ![Anslut till den virtuella Windows-datorn](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Om du uppmanas till detta klickar du på **Anslut**. I inloggnings frågan använder du autentiseringsuppgifterna för en användare som tillhör gruppen "AAD DC-administratörer". Vi använder exempelvis "bob@domainservicespreview.onmicrosoft.com" i vårt fall. Du kan få en certifikatvarning under inloggningen. Klicka på Ja eller Fortsätt för att fortsätta med anslutningen.
+4. Öppna **Serverhanteraren**på Start skärmen. Klicka på **Lägg till roller och funktioner** i det centrala fönstret i fönstret Serverhanteraren.
 
     ![Starta Serverhanteraren på den virtuella datorn](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. På den **innan du börjar** för den **guiden Lägg till roller och funktioner**, klickar du på **nästa**.
+5. På sidan **innan du börjar** i **guiden Lägg till roller och funktioner**klickar du på **Nästa**.
 
-    ![Innan du börjar sidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. På den **installationstyp** lämnar den **rollbaserad eller funktionsbaserad installation** alternativet är markerat och klicka på **nästa**.
+    ![Innan du börjar Sidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
+6. På sidan **Installations typ** lämnar du alternativet **rollbaserad eller funktion-baserad installation** markerad och klickar på **Nästa**.
 
-    ![Installationstyp](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. På den **Serverval** , Välj den aktuella virtuella datorn från serverpoolen och klicka på **nästa**.
+    ![Sidan Installations typ](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
+7. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen och klickar på **Nästa**.
 
-    ![Sida för val av Server](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. På den **serverroller** klickar du på **nästa**. Vi hoppar över den här sidan eftersom vi inte installerar några roller på servern.
-9. På den **funktioner** väljer den **Group Policy Management** funktionen.
+    ![Sidan Server val](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
+8. På sidan **Server roller** klickar du på **Nästa**. Vi hoppar över den här sidan eftersom vi inte installerar några roller på servern.
+9. På sidan **funktioner** väljer du funktionen **Grupprincip hantering** .
 
-    ![Funktionssidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
-10. På den **bekräftelse** klickar du på **installera** du installerar funktionen Grupprinciphantering på den virtuella datorn. När funktionsinstallationen är klar, klickar du på **Stäng** att avsluta den **Lägg till roller och funktioner** guiden.
+    ![Sidan funktioner](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
+10. På sidan **bekräftelse** klickar du på **Installera** för att installera Grupprincip hanterings funktionen på den virtuella datorn. När funktions installationen har slutförts klickar du på **Stäng** för att stänga guiden **Lägg till roller och funktioner** .
 
-    ![Bekräftelsesida](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
+    ![Bekräftelse sida](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
-## <a name="task-3---launch-the-group-policy-management-console-to-administer-group-policy"></a>Uppgift 3 – Starta hanteringskonsolen Grupprincip för att administrera en Grupprincip
-Du kan använda konsolen för Grupprinciphantering på den virtuella datorn ingår i domänen för att administrera en Grupprincip på den hanterade domänen.
+## <a name="task-3---launch-the-group-policy-management-console-to-administer-group-policy"></a>Uppgift 3 – Starta grupprincip hanterings konsolen för att administrera grupprincip
+Du kan använda grupprincip Management-konsolen på den domänanslutna virtuella datorn för att administrera grupprincip på den hanterade domänen.
 
 > [!NOTE]
-> Du måste vara medlem i gruppen ”AAD DC-administratörer” för att administrera en Grupprincip på den hanterade domänen.
+> Du måste vara medlem i gruppen "AAD DC-administratörer" för att administrera grupprincip på den hanterade domänen.
 >
 >
 
-1. På startsidan klickar du på **Administrationsverktyg**. Du bör se den **Group Policy Management** konsolen har installerats på den virtuella datorn.
+1. Klicka på **administrations verktyg**på Start skärmen. Du bör se att den **Grupprincip hanterings** konsolen är installerad på den virtuella datorn.
 
-    ![Starta Grupprinciphantering](./media/active-directory-domain-services-admin-guide/gp-management-installed.png)
-2. Klicka på **Group Policy Management** att starta konsolen Grupprinciphantering.
+    ![Starta grupprincip hantering](./media/active-directory-domain-services-admin-guide/gp-management-installed.png)
+2. Klicka på **Grupprincip hantering** för att starta Grupprincip hanterings konsolen.
 
-    ![Group Policy Console](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
+    ![grupprincip-konsol](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-## <a name="task-4---customize-built-in-group-policy-objects"></a>Uppgift 4 – anpassa inbyggda grupprincipobjekt
-Det finns två inbyggda grupprincipobjekt (GPO) – ett för behållarna ”AADDC-datorer” och ”AADDC-användare” i din hanterade domän. Du kan anpassa dessa grupprincipobjekt för att konfigurera en Grupprincip på den hanterade domänen.
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Uppgift 4 – anpassa inbyggda grupprincip objekt
+Det finns två inbyggda grupprincip objekt (GPO) – en var och en för behållarna "AADDC Computers" och "AADDC Users" i din hanterade domän. Du kan anpassa dessa grup princip objekt för att konfigurera grup principer på den hanterade domänen.
 
-1. I den **Group Policy Management** konsolen, klicka på och expandera den **skog: contoso100.com** och **domäner** noder att se grupprinciper för din hanterade domän.
+1. I **Grupprincip hanterings** konsolen klickar du på för att expandera noderna **skog: contoso100.com** och **domäner** för att se grup principerna för din hanterade domän.
 
-    ![Inbyggda grupprincipobjekt](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Du kan anpassa dessa inbyggda grupprincipobjekt för att konfigurera grupprinciper på den hanterade domänen. Högerklicka på Grupprincipobjektet och klicka på **redigera...**  att anpassa det inbyggda Grupprincipobjektet. Verktyget Configuration redigeraren kan du anpassa Grupprincipobjektet.
+    ![Inbyggda grup princip objekt](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
+2. Du kan anpassa de här inbyggda grupprincipobjekten för att konfigurera grup principer på din hanterade domän. Högerklicka på GRUPPRINCIPOBJEKTet och klicka på **Redigera...** för att anpassa det inbyggda grupprincipobjektet. Med verktyget grupprincip konfigurations redigeraren kan du anpassa GRUPPRINCIPOBJEKTet.
 
-    ![Redigera inbyggda GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-3. Du kan nu använda den **Redigeraren för Grupprinciphantering** konsolen för att redigera det inbyggda Grupprincipobjektet. Till exempel visar följande skärmbild hur du anpassar det inbyggda Grupprincipobjektet ”AADDC-datorer”.
+    ![Redigera inbyggt grup princip objekt](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
+3. Du kan nu använda **redigeraren Grupprinciphantering** -konsolen för att redigera det inbyggda grupprincipobjektet. Följande skärm bild visar till exempel hur du anpassar det inbyggda GRUPPRINCIPOBJEKTet "AADDC Computers".
 
     ![Anpassa GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Uppgift 5 – skapa en anpassad grupprincipobjektet (GPO)
-Du kan skapa eller importera egna anpassade grupprincipobjekt. Du kan också länka anpassade grupprincipobjekt till en anpassad Organisationsenhet som du har skapat i din hanterade domän. Läs mer om hur du skapar anpassade organisationsenheter [skapa en anpassad OU på en hanterad domän](create-ou.md).
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Uppgift 5 – skapa ett anpassat grupprincip-objekt (GPO)
+Du kan skapa eller importera dina egna anpassade grup princip objekt. Du kan också länka anpassade grup princip objekt till en anpassad ORGANISATIONSENHET som du har skapat i din hanterade domän. Mer information om hur du skapar anpassade organisationsenheter finns i [skapa en anpassad Organisationsenhet på en hanterad domän](create-ou.md).
 
 > [!NOTE]
-> Du måste vara medlem i gruppen ”AAD DC-administratörer” för att administrera en Grupprincip på den hanterade domänen.
+> Du måste vara medlem i gruppen "AAD DC-administratörer" för att administrera grupprincip på den hanterade domänen.
 >
 >
 
-1. I den **Group Policy Management** konsolen, klickar du på din anpassade organisationsenhet (OU). Högerklicka på OU: N och klicka på **skapa ett grupprincipobjekt i den här domänen och länka det här...** .
+1. I **Grupprincip hanterings** konsolen klickar du på för att välja din anpassade ORGANISATIONSENHET (OU). Högerklicka på ORGANISATIONSENHETen och klicka på **skapa ett grup princip objekt i den här domänen och länka det här.** ...
 
-    ![Skapa en anpassad grupprincipobjekt](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
-2. Ange ett namn för det nya Grupprincipobjektet och klicka på **OK**.
+    ![Skapa ett anpassat grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Ange ett namn för det nya GRUPPRINCIPOBJEKTet och klicka på **OK**.
 
     ![Ange ett namn för GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
-3. Ett nytt grupprincipobjekt skapas och länkade till ditt anpassade Organisationsenhet. Högerklicka på Grupprincipobjektet och klicka på **redigera...**  på menyn.
+3. Ett nytt grup princip objekt skapas och länkas till din anpassade ORGANISATIONSENHET. Högerklicka på GRUPPRINCIPOBJEKTet och klicka på **Redigera...** på menyn.
 
-    ![Nyligen skapade GPO](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
-4. Du kan anpassa den nyligen skapade GPO med hjälp av den **Redigeraren för Grupprinciphantering**.
+    ![Nyligen skapat grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. Du kan anpassa det nyligen skapade GRUPPRINCIPOBJEKTet med hjälp av **redigeraren Grupprinciphantering**.
 
-    ![Anpassa nytt GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
+    ![Anpassa nytt grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
-Mer information om hur du använder [konsolen Grupprinciphantering](https://technet.microsoft.com/library/cc753298.aspx) finns på Technet.
+Mer information om hur du använder [konsolen Grupprinciphantering](https://technet.microsoft.com/library/cc753298.aspx) finns på TechNet.
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services – komma igång-guiden](create-instance.md)
-* [Ansluta en Windows Server-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Hantera en Azure AD Domain Services-domän](manage-domain.md)
-* [Konsolen Grupprinciphantering](https://technet.microsoft.com/library/cc753298.aspx)
+* [Azure AD Domain Services-Komma igång guide](create-instance.md)
+* [Ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Hantera en Azure AD Domain Services domän](manage-domain.md)
+* [konsolen grupprinciphantering](https://technet.microsoft.com/library/cc753298.aspx)

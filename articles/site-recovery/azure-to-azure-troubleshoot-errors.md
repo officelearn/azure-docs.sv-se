@@ -387,7 +387,7 @@ GRUB-konfigurationsfilerna (”/ boot/grub/menu.lst” ”, / boot/grub/grub.cfg
 
 
 - Följande rad är GRUB-fil **/boot/grub/menu.lst**
-  *kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 
 Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn för parametrar ”rot” och ”återuppta” istället för UUID.
 

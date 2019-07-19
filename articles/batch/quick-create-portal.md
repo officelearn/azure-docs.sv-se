@@ -3,19 +3,19 @@ title: Azure Snabbstart – Köra Batch-jobb – Portal
 description: Lär dig snabbt att köra ett Batch-jobb på Azure-portalen.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33455a95dff946676e3dfffbd2737ed36be59c64
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619959"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322369"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Köra ditt första Batch-jobb i Azure-portalen
 

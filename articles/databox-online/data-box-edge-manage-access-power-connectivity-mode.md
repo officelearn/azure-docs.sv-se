@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge Enhetsåtkomst, kraft och anslutningsläget | Microsoft Docs
-description: Beskriver hur du hanterar åtkomst, kraft och anslutningsläget för Azure Data Box Edge-enhet som hjälper dig att överföra data till Azure
+title: Azure Data Box Edge enhets åtkomst, energi läge och anslutnings läge | Microsoft Docs
+description: Beskriver hur du hanterar åtkomst, energi och anslutnings läge för den Azure Data Box Edge enheten som hjälper till att överföra data till Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,130 +8,130 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7ce4b9dda853e63e427757317abc2f7c878ba3a4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442959"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253167"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Hantera åtkomst, power och anslutningsläget för Azure Data Box-Edge
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Edge
 
-Den här artikeln beskriver hur du hanterar åtkomst, kraft och anslutningen läge för din Azure Data Box Edge. Dessa åtgärder utförs via det lokala webbgränssnittet eller Azure-portalen.
+Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings läge för din Azure Data Box Edge. De här åtgärderna utförs via det lokala webb gränssnittet eller Azure Portal.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Hantera Enhetsåtkomst
-> * Hantera anslutningsläget
-> * Hantera power
+> * Hantera enhets åtkomst
+> * Hantera anslutnings läge
+> * Hantera energi
 
 
-## <a name="manage-device-access"></a>Hantera Enhetsåtkomst
+## <a name="manage-device-access"></a>Hantera enhets åtkomst
 
-Åtkomst till din Data Box Edge-enhet är kontrolleras med hjälp av enhetens lösenord. Du kan ändra lösenordet via det lokala webbgränssnittet. Du kan också återställa lösenordet för enheten i Azure-portalen.
+Åtkomsten till din Data Box Edge-enhet styrs av användningen av ett enhets lösen ord. Du kan ändra lösen ordet via det lokala webb gränssnittet. Du kan också återställa enhetens lösen ord i Azure Portal.
 
 ### <a name="change-device-password"></a>Ändra enhetens lösenord
 
-Följ dessa steg i det lokala Användargränssnittet för att ändra lösenordet för enheten.
+Följ de här stegen i det lokala användar gränssnittet för att ändra enhetens lösen ord.
 
-1. I det lokala webbgränssnittet går du till **Underhåll > lösenordsändring**.
-2. Ange det aktuella lösenordet och sedan det nya lösenordet. Det angivna lösenordet måste vara mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Bekräfta det nya lösenordet.
+1. I det lokala webb gränssnittet går du till **underhåll > ändra lösen ordet**.
+2. Ange det aktuella lösen ordet och sedan det nya lösen ordet. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Bekräfta det nya lösen ordet.
 
-    ![Ändra lösenord](media/data-box-edge-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Ändra lösen ord](media/data-box-edge-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. Välj **ändra lösenord**.
+3. Välj **ändra lösen ord**.
  
-### <a name="reset-device-password"></a>Återställa enhetens lösenord
+### <a name="reset-device-password"></a>Återställ enhets lösen ord
 
-Återställ arbetsflöde kräver inte användare att komma ihåg det gamla lösenordet och är användbart när lösenordet går förlorat. Det här arbetsflödet utförs i Azure-portalen.
+Återställnings arbets flödet kräver inte att användaren återkallar det gamla lösen ordet och är användbart när lösen ordet går förlorat. Det här arbets flödet utförs i Azure Portal.
 
-1. I Azure-portalen går du till **översikt > Återställ administratörslösenord**.
+1. I Azure Portal går du till **översikt > Återställ administratörs lösen ord**.
 
     ![Återställ lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
-2. Ange det nya lösenordet och bekräftar det sedan. Det angivna lösenordet måste vara mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Välj **återställa**.
+2. Ange det nya lösen ordet och bekräfta det sedan. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Välj **Återställ**.
 
     ![Återställ lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
-## <a name="manage-resource-access"></a>Hantera åtkomst till resurser
+## <a name="manage-resource-access"></a>Hantera resurs åtkomst
 
-För att skapa din Data Box Edge/Data Box-Gateway, IoT Hub och Azure Storage-resursen, behöver du behörigheter som deltagare eller högre på en resursgruppsnivå. Du måste också motsvarande resursprovidrar som ska registreras. För att utföra åtgärder som rör aktiveringsnyckeln och autentiseringsuppgifter krävs också behörighet till Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
+Om du vill skapa en Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurs måste du ha behörighet som deltagare eller högre på resurs grupps nivå. Du måste också ha motsvarande resurs leverantörer för att kunna registreras. För alla åtgärder som inbegriper aktiverings nyckel och autentiseringsuppgifter krävs även behörighet att Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
 
 ### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Hantera Microsoft Azure Active Directory Graph API-behörigheter
 
-När du genererar aktiveringsnyckeln för Data Box Edge-enhet eller utföra åtgärder som kräver autentiseringsuppgifter behöver behörigheter till Azure Active Directory Graph API. De åtgärder som måste ha autentiseringsuppgifter som kan vara följande:
+När du genererar aktiverings nyckeln för Data Box Edge-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Azure Active Directory Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
 
--  Skapa en resurs med ett associerat lagringskonto.
--  Skapa en användare som har åtkomst till resurser på enheten.
+-  Skapa en resurs med ett associerat lagrings konto.
+-  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha en `User` åtkomst till i Active Directory-klient som du behöver för att kunna `Read all directory objects`. Du kan inte vara en gästanvändare som de inte har behörighet att `Read all directory objects`. Om du är en gäst och åtgärder som till exempel generation av en aktivering nyckel, skapa en resurs på din Data Box Edge-enhet, skapandet av en användare, konfiguration av Edge compute roll, återställning av lösenordet misslyckas alla.
+Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver `Read all directory objects`kunna. Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects`. Om du är gäst, kommer de åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Data Box Edge enhet, skapa en användare, konfiguration av Edge Compute-rollen, återställa enhets lösen ord.
 
-Mer information om hur du ger åtkomst till användare till Azure Active Directory Graph API finns i [standard åtkomst för administratörer, användare och gästanvändare](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Mer information om hur du ger åtkomst till användare för att Azure Active Directory Graph API finns i [standard åtkomst för administratörer, användare och gäst användare](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 ### <a name="register-resource-providers"></a>Registrera resursprovidrar
 
-För att etablera en resurs i Azure (i Azure Resource Manager-modellen), behöver du en provider för nätverksresurser som har stöd för skapandet av den här resursen. Du bör till exempel ha en ”Microsoft.Compute-resursprovidern som är tillgängliga i prenumerationen för att etablera en virtuell dator.
+Om du vill etablera en resurs i Azure (i Azure Resource Manager-modellen) behöver du en resurs leverantör som stöder skapandet av resursen. Om du till exempel vill etablera en virtuell dator bör du ha en Resource-Provider för Microsoft. Compute som är tillgänglig i prenumerationen.
  
-Resursproviders är registrerad på nivån för prenumerationen. Alla nya Azure-prenumerationer är redan registrerad med en lista över vanliga resursproviders som standard. Resursprovidern för 'Microsoft.DataBoxEdge' ingår inte i den här listan.
+Resursprovidrar registreras på prenumerationsnivån. Alla nya Azure-prenumerationer är som standard förregistrerade med en lista över vanliga resursprovidrar. Resurs leverantören för Microsoft. DataBoxEdge ingår inte i den här listan.
 
-Du behöver inte bevilja behörigheter för åtkomst till prenumerationsnivå för användare för att kunna skapa resurser som ”Microsoft.DataBoxEdge” i sina resursgrupper som de har ägarrättigheter på, så länge resursprovidrar för dessa resurser används redan registrerad.
+Du behöver inte bevilja åtkomst behörigheter till prenumerations nivån för att användarna ska kunna skapa resurser som "Microsoft. DataBoxEdge" inom sina resurs grupper som de har ägar rättigheter på, så länge resurs leverantörerna för dessa resurser redan är registrerad.
 
-Kontrollera att resursprovidern har registrerats i prenumerationen innan du försöker skapa en resurs. Om resursprovidern inte är registrerat, behöver du se till att den användare som skapar den nya resursen har tillräcklig behörighet för att registrera resursprovidern som krävs på prenumerationsnivån. Om du inte gjort detta samt, ser du följande fel:
+Innan du försöker skapa en resurs måste du kontrol lera att resurs leverantören är registrerad i prenumerationen. Om resurs leverantören inte är registrerad måste du kontrol lera att användaren som skapar den nya resursen har tillräckligt med behörighet för att registrera den nödvändiga resurs leverantören på prenumerations nivån. Om du inte har gjort det kan du se följande fel:
 
-*Prenumerationen <Subscription name> har inte behörighet att registrera resursprovidersarna: Microsoft.DataBoxEdge.*
+*Prenumerations \<prenumerationens namn > har inte behörighet att registrera resurs leverantörerna: Microsoft.DataBoxEdge.*
 
 
-Om du vill hämta en lista över registrerade resursprovidrar i den aktuella prenumerationen, kör du följande kommando:
+Om du vill hämta en lista över registrerade resurs leverantörer i den aktuella prenumerationen kör du följande kommando:
 
 ```PowerShell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För Data Box Edge-enhet, `Microsoft.DataBoxEdge` ska registreras. Att registrera `Microsoft.DataBoxEdge`, prenumerationsadministratör bör köra följande kommando:
+För data Box Edge enhet `Microsoft.DataBoxEdge` ska registreras. För att `Microsoft.DataBoxEdge`registrera dig bör prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Läs mer om hur du registrerar en resursprovider [åtgärda fel för registreringen av resursprovidern](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Mer information om hur du registrerar en resurs leverantör finns i [lösa fel för registrering av resurs leverantör](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
-## <a name="manage-connectivity-mode"></a>Hantera anslutningsläget
+## <a name="manage-connectivity-mode"></a>Hantera anslutnings läge
 
-Förutom de fullständigt anslutna standardläget, kan enheten också köra i delvis ansluten eller helt frånkopplad läge. Var och en av dessa lägen beskrivs nedan:
+Förutom det fullständigt anslutna standard läget kan enheten också köras i delvis ansluten eller helt frånkopplat läge. Vart och ett av dessa lägen beskrivs nedan:
 
-- **Anslutas fullständigt** – detta är normalt standardläget där enheten fungerar. Både molnöverföring och hämtning av data är aktiverat i det här läget. Du kan använda Azure portal eller det lokala webbgränssnittet för att hantera enheten.
+- **Fullständigt ansluten** – detta är det normala standard läget där enheten fungerar. Både moln överföring och hämtning av data är aktiverat i det här läget. Du kan använda Azure Portal eller det lokala webb gränssnittet för att hantera enheten.
 
-- **Delvis frånkopplad** – i det här läget enheten kan inte överföra eller hämta alla dela data men kan hanteras via Azure portal.
+- **Delvis frånkopplad** – i det här läget kan enheten inte ladda upp eller ladda ned några delnings data, men de kan hanteras via Azure Portal.
 
-    Det här läget används vanligtvis när du är i ett bevakat satelliten nätverk och målet är att minimera bandbreddsanvändning i nätverket. Minimal nätverksförbrukning kan fortfarande ha åtgärder för enhetsövervakning.
+    Det här läget används vanligt vis i ett avgiftsbelagdt satellit nätverk och målet är att minimera användningen av nätverks bandbredd. Minimal nätverks förbrukning kan fortfarande uppstå för enhets övervaknings åtgärder.
 
-- **Frånkopplad** – i det här läget enheten är helt frånkopplad från molnet och både i molnet överföringar och hämtningar har inaktiverats. Enheten kan bara hanteras via det lokala webbgränssnittet.
+- **Frånkopplad** – i det här läget är enheten helt frånkopplad från molnet och både moln överföringar och hämtningar är inaktiverade. Enheten kan bara hanteras via det lokala webb gränssnittet.
 
-    Det här läget används vanligtvis när du vill koppla från enheten.
+    Det här läget används vanligt vis när du vill ta enheten offline.
 
-Följ dessa steg om du vill ändra Enhetsläge:
+Följ dessa steg om du vill ändra enhets läge:
 
-1. I det lokala webbgränssnittet på din enhet, går du till **Configuration > Molninställningar**.
-2. Välj det läge som du vill använda enheten i den nedrullningsbara listan. Du kan välja från **anslutas fullständigt**, **delvis ansluten**, och **helt frånkopplad**. Om du vill köra enheten i delvis frånkopplat läge, aktivera **hantering av Azure portal**.
+1. I enhetens lokala webb gränssnitt går du till **konfiguration > moln inställningar**.
+2. I list rutan väljer du det läge som du vill att enheten ska köras i. Du kan välja från **fullständigt anslutna**, **delvis anslutna**och **helt frånkopplade**. Aktivera **Azure Portal hantering**för att köra enheten i delvis frånkopplat läge.
 
-    ![Läge för dataanslutning](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
+    ![Anslutnings läge](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
-## <a name="manage-power"></a>Hantera power
+## <a name="manage-power"></a>Hantera energi
 
-Du kan stänga av eller starta om den fysiska enheten med hjälp av det lokala webbgränssnittet. Vi rekommenderar att innan du startar om ta resurser offline på data-server och sedan på enheten. Den här åtgärden minimerar risk att data skadas.
+Du kan stänga av eller starta om den fysiska enheten med hjälp av det lokala webb gränssnittet. Innan du startar om, bör du koppla från resurserna på data servern och sedan enheten. Den här åtgärden minimerar risken för skadade data.
 
-1. I det lokala webbgränssnittet går du till **Underhåll > energiinställningar**.
-2. Välj **avstängning** eller **starta om** beroende på vad du vill göra.
+1. I det lokala webb gränssnittet går du till **underhåll > energi inställningar**.
+2. Välj **Stäng** av eller **starta om** beroende på vad du vill göra.
 
-    ![Energiinställningar](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Energi inställningar](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
-3. När du uppmanas att bekräfta väljer **Ja** att fortsätta.
+3. När du uppmanas att bekräfta, väljer du **Ja** för att fortsätta.
 
 > [!NOTE]
-> Om du stänger av den fysiska enheten kommer du behöva på strömknappen på enheten för att aktivera den.
+> Om du stänger av den fysiska enheten måste du aktivera ström knappen på enheten för att aktivera den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [hantera filresurser](data-box-edge-manage-shares.md).
+- Lär dig hur du [hanterar resurser](data-box-edge-manage-shares.md).

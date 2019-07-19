@@ -1,5 +1,5 @@
 ---
-title: Trafikdirigering i virtuella Azure-nätverket
+title: Trafik dirigering för Azure Virtual Network
 titlesuffix: Azure Virtual Network
 description: Lär dig hur Azure dirigerar trafik i virtuella nätverk och hur du kan anpassa Azures routning.
 services: virtual-network
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop; kumud
-ms.openlocfilehash: 383282aedd83f8f3e673444354bf17fdbf3f453c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: b26f876fbe07b1667a579fc040562f1d6ee8a85e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798959"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871804"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -39,7 +40,7 @@ Varje väg innehåller ett adressprefix och en nästa hopp-typ. När trafik läm
 |Standard|Unikt för det virtuella nätverket                           |Virtuellt nätverk|
 |Standard|0.0.0.0/0                                               |Internet       |
 |Standard|10.0.0.0/8                                              |Inga           |
-|Standard|192.168.0.0/16                                          |Inga           |
+|Standard|192.168.0.0/16                                          |Ingen           |
 |Standard|100.64.0.0/10                                           |Inga           |
 
 Nästa hopptyper som anges i föregående tabell representerar hur Azure dirigerar trafik till det angivna adressprefixet. Här följer förklaringar för nästa hopptyper:
@@ -91,14 +92,14 @@ Du kan ange följande nästa hopptyper när du skapar en användardefinierad vä
 
     Du kan definiera en väg med 0.0.0.0/0 som adressprefix och en nästa hopptyp som virtuell installation. Det gör att enheten kan inspektera trafiken och avgöra om den ska vidarebefordras eller tas bort. Om du vill skapa en användardefinierad väg som innehåller adressprefixet 0.0.0.0/0 läser du först [adressprefixet 0.0.0.0/0](#default-route).
 
-* **Virtuell nätverksgateway**: Ange när du vill att trafik till specifika adressprefix dirigeras till en virtuell nätverksgateway. Den virtuella nätverksgatewayen måste skapas med typen **VPN**. Du kan inte ange en virtuell nätverksgateway som skapats som typen **ExpressRoute** i en användardefinierad väg eftersom med ExpressRoute kan du använda BGP för anpassade vägar. Du kan definiera en väg som dirigerar trafik som är avsedd för adressprefixet 0.0.0.0/0 till en [vägbaserad](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) virtuell nätverksgateway. Lokalt kan du ha en enhet som inspekterar trafiken och avgör om den ska vidarebefordras eller tas bort. Om du vill skapa en användardefinierad väg för adressprefixet 0.0.0.0/0 läser du först [adressprefixet 0.0.0.0/0](#default-route). I stället för att konfigurera en användardefinierad väg för adressprefixet 0.0.0.0/0 kan du annonsera en väg med prefixet 0.0.0.0/0 prefix via BGP, om du har [aktiverat BGP för en virtuell VPN-nätverksgateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+* **Virtuell nätverksgateway**: Ange när du vill att trafik till specifika adressprefix dirigeras till en virtuell nätverksgateway. Den virtuella nätverksgatewayen måste skapas med typen **VPN**. Du kan inte ange en virtuell nätverksgateway som skapats som typen **ExpressRoute** i en användardefinierad väg eftersom med ExpressRoute måste du använda BGP för anpassade vägar. Du kan definiera en väg som dirigerar trafik som är avsedd för adressprefixet 0.0.0.0/0 till en [vägbaserad](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) virtuell nätverksgateway. Lokalt kan du ha en enhet som inspekterar trafiken och avgör om den ska vidarebefordras eller tas bort. Om du vill skapa en användardefinierad väg för adressprefixet 0.0.0.0/0 läser du först [adressprefixet 0.0.0.0/0](#default-route). I stället för att konfigurera en användardefinierad väg för adressprefixet 0.0.0.0/0 kan du annonsera en väg med prefixet 0.0.0.0/0 prefix via BGP, om du har [aktiverat BGP för en virtuell VPN-nätverksgateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 * **Ingen**: Ange när du vill ta bort trafik till ett adressprefix, istället för att vidarebefordra trafiken till en destination. Om du inte har konfigurerat en funktion fullständigt kan Azure ange *None* (Ingen) för vissa av de valfria systemvägarna. Om du till exempel ser att det står *None* (Ingen) som **IP-adress till nästa hopp** och **Nästa hopptyp** är *Virtuell nätverksgateway* eller *Virtuell installation* kan det bero på att enheten inte körs eller inte är fullständigt konfigurerad. Azure skapar [systemstandardvägar](#default) för reserverade adressprefix med **None** (Ingen) som nästa hopptyp.<br>
 * **Virtuellt nätverk**: Ange när du vill åsidosätta standardroutning inom ett virtuellt nätverk. I [Exempel på dirigering](#routing-example) finns ett exempel på varför du kan skapa en väg med hopptypen **Virtuellt nätverk**.<br>
 * **Internet**: Ange när du uttryckligen vill dirigera trafik till ett adressprefix till Internet eller om du vill att trafik till Azure-tjänster med offentliga IP-adresser behålls i Azure-stamnätverket.
 
 Du kan inte ange **VNet-peering** eller **VirtualNetworkServiceEndpoint** son nästa hopptyp i användardefinierade vägar. Vägar med nästa hopptyperna **VNet-peering** eller **VirtualNetworkServiceEndpoint** skapas endast av Azure när du konfigurerar en virtuell nätverkspeering eller en tjänstslutpunkt.
 
-## <a name="next-hop-types-across-azure-tools"></a>Nästa hopptyper i Azure-verktyg
+## <a name="next-hop-types-across-azure-tools"></a>Nästa hopp typer i Azure-verktyg
 
 Namnet som visas och refereras för nästa hopptyper är olika för Azure-portalen och kommandoradsverktyg och Azure Resource Manager och klassiska distributionsmodeller. I följande tabell visas de namn som används för att referera till varje nästa hopptyp med olika verktyg och [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -121,7 +122,7 @@ En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i A
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
 
-ER och spridning för VPN-Gateway kan inaktiveras på ett undernät med en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för alla undernät med Virtual network gateway spridning inaktiverad. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). Mer information finns i [så här inaktiverar du Virtual network gateway-spridning](manage-route-table.md#create-a-route-table).
+För-och VPN Gateway väg spridningen kan inaktive ras på ett undernät med hjälp av en egenskap i en routningstabell. När du utbyter vägar med Azure med hjälp av BGP läggs inte vägar till i routningstabellen för alla undernät med Routning av virtuell nätverks-Gateway-spridning inaktiverat. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). Mer information finns i [så här inaktiverar du routning av virtuell nätverks-Gateway](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 
@@ -229,7 +230,7 @@ En förklaring av varje väg-ID följer:
 1. Azure la automatiskt till den här vägen för alla undernät i *Virtual-network-1*, eftersom 10.0.0.0/16 är det enda adressintervall som definierats i adressutrymmet för det virtuella nätverket. Om den användardefinierade vägen i väg ID2 inte hade skapats skulle trafik som skickades till en adress mellan 10.0.0.1 och 10.0.255.254 dirigeras inom det virtuella nätverket, eftersom prefixet är längre än 0.0.0.0/0, och inte inom de andra vägarnas adressprefix. Azure ändrade automatiskt tillståndet från *Aktiv* till *Ogiltig*, när ID2, en användardefinierad väg, lades till, eftersom den har samma prefix som standardvägen och användardefinierade vägar åsidosätter standardvägar. Vägens tillstånd är fortfarande *Aktiv* för *Subnet2*, eftersom routningstabellen som den användardefinierade vägen ID2 finns i inte är kopplad till *Subnet2*.
 2. Den här vägen lades till i Azure när en användardefinierad väg för adressprefixet 10.0.0.0/16 associerades till undernätet *Subnet1* i det virtuella nätverket *Virtual-network-1*. Den användardefinierade vägen anger 10.0.100.4 som IP-adress för den virtuella installationen, eftersom adressen är den privata IP-adress som tilldelats den virtuella installationens virtuella dator. Vägtabellen som den här vägen finns i var inte associerad till *Subnet2*, så den visas inte i routningstabellen för *Subnet2*. Den här vägen åsidosätter standardvägen för prefixet 10.0.0.0/16 (ID1), som automatiskt dirigerade trafik adresserad till 10.0.0.1 och 10.0.255.254 i det virtuella nätverket via det virtuella nätverkets nästa hopptyp. Den här vägen finns för att uppfylla [krav](#requirements) 3 för att tvinga all utgående trafik via en virtuell installation.
 3. Den här vägen lades till i Azure när en användardefinierad väg för adressprefixet 10.0.0.0/24 associerades till undernätet *Subnet1*. Trafik till adresser mellan 10.0.0.1 och 10.0.0.254 stannar kvar i undernätet, istället för att dirigeras till den virtuella installation som anges i den föregående regeln (ID2), eftersom det har ett längre prefix än ID2-vägen. Den här vägen var inte associerad till *Subnet2*, så vägen visas inte i routningstabellen för *Subnet2*. Den här vägen åsidosätter effektivt ID2-vägen för trafik i *Subnet1*. Den här vägen finns för att uppfylla [krav](#requirements) 3.
-4. Azure la automatiskt till den här vägarna i IDs 4 och 5 för alla undernät i *Virtual-network-1* när det virtuella nätverket var peerkopplat med *Virtual-network-2.* *Virtual-network-2* har två adressintervall i sitt adressutrymme: 10.1.0.0/16 och 10.2.0.0/16, så Azure la till en väg för varje intervall. Om de användardefinierade vägarna i väg iDs 6 och 7 inte hade skapats skulle trafik som skickades till en adress mellan 10.1.0.1-10.1.255.254 och 10.2.0.1-10.2.255.254 dirigeras inom det peer-kopplade virtuella nätverket, eftersom prefixet är längre än 0.0.0.0/0, och inte inom de andra vägarnas adressprefix. Azure ändrade automatiskt tillståndet från *Aktiv* till *Ogiltig* när vägarna i IDs 6 och 7 lades till, eftersom de har samma prefix som vägarna i IDs 4 och 5, och användardefinierade vägar åsidosätter standardvägar. Tillståndet för vägarna i IDs 4 och 5 är fortfarande *Active* för *Subnet2*, eftersom routningstabellen som de användardefinierade vägarna i IDs 6 och 7 tillhör inte är kopplad till *Subnet2*. En virtuell nätverkspeering har skapats för att uppfylla [krav](#requirements) 1.
+4. Azure la automatiskt till den här vägarna i IDs 4 och 5 för alla undernät i *Virtual-network-1* när det virtuella nätverket var peerkopplat med *Virtual-network-2.* *Virtual-network-2* har två adressintervall i sitt adressutrymme: 10.1.0.0/16 och 10.2.0.0/16, så Azure la till en väg för varje intervall. Om de användardefinierade vägarna i väg iDs 6 och 7 inte hade skapats skulle trafik som skickades till en adress mellan 10.1.0.1-10.1.255.254 och 10.2.0.1-10.2.255.254 dirigeras inom det peer-kopplade virtuella nätverket, eftersom prefixet är längre än 0.0.0.0/0, och inte inom de andra vägarnas adressprefix. Azure ändrade automatiskt tillståndet från *Aktiv* till *Ogiltig* när vägarna i IDs 6 och 7 lades till, eftersom de har samma prefix som vägarna i IDs 4 och 5, och användardefinierade vägar åsidosätter standardvägar. Status för vägarna i ID 4 och 5 är fortfarande *aktiva* för *Subnet2*, eftersom routningstabellen som de användardefinierade vägarna i ID 6 och 7 är i inte är kopplad till *Subnet2*. En virtuell nätverkspeering har skapats för att uppfylla [krav](#requirements) 1.
 5. Samma förklaring som ID4.
 6. Azure la till den här vägen och vägen i ID7, när användardefinierade vägar för adressprefixen 10.1.0.0/16 och 10.2.0.0/16 kopplades till undernätet *Subnet1*. Trafik till adresser mellan 10.1.0.1-10.1.255.254 och 10.2.0.1-10.2.255.254 tas bort av Azure, istället för att den dirigeras till det peer-kopplade virtuella nätverket, eftersom användardefinierade vägar åsidosätter standardvägar. De här vägarna var inte associerade till *Subnet2*, så de visas inte i routningstabellen för *Subnet2*. Vägarna åsidosätter vägarna ID4 och ID5 för trafik som lämnar *Subnet1*. Vägarna ID6 och ID7 finns för att uppfylla [krav](#requirements) 3 för att ta bort trafik som är avsedd för det andra virtuella nätverket.
 7. Samma förklaring som ID6.
@@ -237,7 +238,7 @@ En förklaring av varje väg-ID följer:
 9. Den här vägen lades till i Azure när en användardefinierad väg för adressprefixet 10.10.0.0/16 lades till i routningstabellen som är kopplad till *Subnet1*. Den här vägen åsidosätter ID8. Vägen skickar all trafik till lokala nätverk till en NVA för granskning, istället för att dirigera trafiken lokalt direkt. Den här vägen har skapats för att uppfylla [krav](#requirements) 3.
 10. Azure la automatiskt till den här vägen i undernätet när en tjänstslutpunkt till en Azure-tjänst aktiverades för undernätet. Azure dirigerar trafik från undernätet till en offentlig IP-adress för tjänsten via nätverket i Azure-infrastrukturen. Prefixet är längre än 0.0.0.0/0 och är inte inom adressprefixet för någon av de andra vägarna. En tjänstslutpunkt skapades för att uppfylla [krav](#requirements) 3, för att göra det möjligt för trafik avsedd för Azure Storage att flöda direkt till Azure Storage.
 11. Azure la automatiskt till den här vägen i routningstabellen för alla undernät inom *Virtual-network-1* och *Virtual-network-2.* Adressprefixet 0.0.0.0/0 är kortast. All trafik som skickas till adresser inom ett längre adressprefix dirigeras baserat på andra vägar. Som standard dirigerar Azure all trafik som är avsedd för adresser utöver de adresser som angavs i någon av de andra vägarna till Internet. Azure ändrade automatiskt tillståndet från *Aktiv* till *Ogiltig* för undernätet *Subnet1* när en användardefinierad väg för adressprefixet 0.0.0.0/0 (ID12) kopplades till undernätet. Tillståndet för den här vägen är fortfarande *Aktiv* för alla andra undernät i de båda virtuella nätverken, eftersom vägen inte är kopplad till några andra undernät i några andra virtuella nätverk.
-12. Den här vägen lades till i Azure när en användardefinierad väg för adressprefixet 0.0.0.0/0 associerades till undernätet *Subnet1*. Den användardefinierade vägen anger 10.0.100.4 som IP-adress för den virtuella installationen. Den här vägen var inte associerad till *Subnet2*, så vägen visas inte i routningstabellen för *Subnet2*. All trafik för adresser som inte ingår i adressprefixen för någon av de andra vägarna skickas till den virtuella installationen. Tillägget av den här vägen ändrade tillståndet för standardvägen för adressprefixet 0.0.0.0/0 (ID11) från *Aktiv* till *Ogiltig* för *Subnet1*, eftersom en användardefinierad väg åsidosätter en standardväg. Den här vägen finns för att uppfylla tredje [krav](#requirements).
+12. Den här vägen lades till i Azure när en användardefinierad väg för adressprefixet 0.0.0.0/0 associerades till undernätet *Subnet1*. Den användardefinierade vägen anger 10.0.100.4 som IP-adress för den virtuella installationen. Den här vägen var inte associerad till *Subnet2*, så vägen visas inte i routningstabellen för *Subnet2*. All trafik för adresser som inte ingår i adressprefixen för någon av de andra vägarna skickas till den virtuella installationen. Tillägget av den här vägen ändrade tillståndet för standardvägen för adressprefixet 0.0.0.0/0 (ID11) från *Aktiv* till *Ogiltig* för *Subnet1*, eftersom en användardefinierad väg åsidosätter en standardväg. Den här vägen finns för att uppfylla det tredje [kravet](#requirements).
 
 #### <a name="subnet2"></a>Subnet2
 
@@ -250,11 +251,11 @@ Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 |Standard |Aktiv |10.2.0.0/16         |VNET-peering              |                   |
 |Standard |Aktiv |10.10.0.0/16        |Virtuell nätverksgateway   |[X.X.X.X]          |
 |Standard |Aktiv |0.0.0.0/0           |Internet                  |                   |
-|Standard |Aktiv |10.0.0.0/8          |Ingen                      |                   |
-|Standard |Aktiv |100.64.0.0/10       |Inga                      |                   |
+|Standard |Aktiv |10.0.0.0/8          |Inga                      |                   |
+|Standard |Aktiv |100.64.0.0/10       |Ingen                      |                   |
 |Standard |Aktiv |192.168.0.0/16      |Inga                      |                   |
 
-Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adressprefixen 10.0.0.0/8, 192.168.0.0/16 och 100.64.0.0/10 från den *Subnet1* routningstabellen när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till *Subnet1*.  
+Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adresserna 10.0.0.0/8, 192.168.0.0/16 och 100.64.0.0/10 från *Subnet1* Route-tabellen när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till i *Subnet1*.  
 
 ## <a name="next-steps"></a>Nästa steg
 

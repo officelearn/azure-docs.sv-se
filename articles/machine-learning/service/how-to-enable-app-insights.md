@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Azure Application Insights för att övervaka ML-modeller
 titleSuffix: Azure Machine Learning service
-description: Övervaka webbtjänster som distribueras med Azure Machine Learning-tjänsten med Azure Application Insights
+description: Övervaka webb tjänster som distribueras med Azure Machine Learning-tjänsten med hjälp av Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820104"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871786"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 [Läs mer om Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -131,11 +131,11 @@ Mer information om hur du använder Application Insights finns [vad är Applicat
 
 ## <a name="example-notebook"></a>Exempel-anteckningsbok
 
-Den [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrerar begreppen i den här artikeln. 
+Den [Enable-App-Insights-in-producting-service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Notebook visar begrepp i den här artikeln. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan också samla in data på dina modeller i produktion. Läs artikeln [samla in data för modeller i produktion](how-to-enable-data-collection.md). 
 
-Läs även [Azure Monitor för behållare](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Läs också [Azure Monitor för behållare](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

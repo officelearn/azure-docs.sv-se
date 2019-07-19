@@ -1,109 +1,109 @@
 ---
-title: Skapa och köra jobb i ditt program med Azure IoT Central | Microsoft Docs
-description: Azure IoT Central-jobb gör det möjligt att bulk hanteringsfunktioner för enheter, till exempel uppdaterar en enhetsegenskap, inställning eller ett kommando har körts.
+title: Skapa och köra jobb i ditt Azure IoT Central-program | Microsoft Docs
+description: Azure IoT Central-jobb möjliggör hantering av enhets hanterings funktioner, till exempel uppdatering av enhets egenskaper, inställningar eller körning av ett kommando.
 ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/18/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 903b4f1ea1484aec827c4b2d54c8dd8a9dd69d8f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 298770b1b2da816ddef9154fafb20d7c6cb82df3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509538"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849044"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
-Du kan använda Microsoft Azure IoT Central för att hantera dina anslutna enheter i stor skala med jobb. Jobb låter dig massuppdateringar till enhetsegenskaper, inställningar och kommandon. Den här artikeln vägleder dig igenom hur du kommer igång med jobb i ditt eget program.
+Du kan använda Microsoft Azure IoT Central för att hantera dina anslutna enheter i skala med hjälp av jobb. Med jobb kan du göra Mass uppdateringar av enhets egenskaper, inställningar och kommandon. Den här artikeln vägleder dig genom hur du kommer igång med jobb i ditt eget program.
 
 ## <a name="create-and-run-a-job"></a>Skapa och köra ett jobb
 
-Det här avsnittet visar hur du skapar och kör ett jobb. Den visar hur du ökar fläkthastighet för flera kylda varuautomater.
+I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du ökar fläkt hastigheten för flera kylda Vending-datorer.
 
-1. Gå till jobb i navigeringsfönstret.
+1. Navigera till jobb från navigerings fönstret.
 
-1. Välj **+ ny** att skapa ett nytt jobb.
+1. Välj **+ nytt** för att skapa ett nytt jobb.
 
     ![Skapa nytt jobb](./media/howto-run-a-job/createnewjob.png)
 
-1. Ange ett namn och beskrivning för att identifiera jobbet som du skapar.
+1. Ange ett namn och en beskrivning för att identifiera det jobb som du skapar.
 
-1. Markera de enheter du vill att jobbet ska tillämpas på. När du markerar enheten visas till höger fylla med enheter i enhetsuppsättningen. Om du väljer en bruten enhetsuppsättning inga enheter visas och du ser ett meddelande om att din enhet är bruten.
+1. Välj den enhets uppsättning som du vill att jobbet ska tillämpas på. När du har valt enhets uppsättningen ser du den högra sidan som du fyller i med enheterna i enhets uppsättningen. Om du väljer en bruten enhets uppsättning visas inga enheter och du ser ett meddelande om att din enhets uppsättning är bruten.
 
-1. Välj sedan typ av jobb för att definiera (en inställning, egenskapen eller kommandot). Välj **+** markerat vid vilken typ av jobb och lägger till din verksamhet.
+1. Välj sedan den typ av jobb som du vill definiera (en inställning, egenskap eller kommando). Välj **+** bredvid den typ av jobb som du har valt och Lägg till dina åtgärder.
 
     ![Konfigurera jobb](./media/howto-run-a-job/configurejob.png)
 
-1. Markera de enheter som du vill köra jobbet på till höger. Genom att välja den översta kryssrutan markeras alla enheter i uppsättningen hela enheten. Genom att välja kryssrutan nära **namn**, alla enheter på den aktuella sidan har valts.
+1. På den högra sidan väljer du de enheter som du vill köra jobbet på. Genom att markera kryss rutan överst markeras alla enheter i hela enhets uppsättningen. Genom att markera kryss rutan nära **namn**, markeras alla enheter på den aktuella sidan.
 
-1. När du har valt dina enheter, Välj **kör** eller **spara**. Jobbet nu visas på din huvud **jobb** sidan. På den här vyn visas ditt pågående jobb och historik över eventuella tidigare köra jobb. Jobbet körs visas alltid överst i listan. Sparade jobbet kan öppnas igen när som helst att fortsätta att redigera eller köra.
+1. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . I den här vyn kan du se jobbet som körs och historiken för tidigare körnings jobb. Jobbet som körs visas alltid överst i listan. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera eller köra.
 
     ![Visa jobb](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
-    > Du kan visa historiken för dina jobb som körts tidigare i upp till 30 dagar.
+    > Du kan visa historiken för dina tidigare körnings jobb i upp till 30 dagar.
 
-1. Välj jobbet att visa i listan om du vill få en översikt över ditt jobb. Den här översikten innehåller jobbinformation, enheter och statusvärden för enheten. Den här översikten, du kan också välja **hämta jobbinformation** att hämta en CSV-fil av Jobbdetaljer om, inklusive enheterna och deras statusvärden. Den här informationen kan vara användbar vid felsökning.
+1. Om du vill få en översikt över jobbet väljer du det jobb som ska visas i listan. Den här översikten innehåller värdena för jobb information, enheter och enhets status. I den här översikten kan du också välja **Hämta jobb information** för att ladda ned en. csv-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
 
     ![Visa enhetsstatus](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>Stoppa ett jobb som körs
+### <a name="stop-a-running-job"></a>Stoppa ett pågående jobb
 
-Stoppa ett jobb som körs genom att markera den och välj **stoppa** på panelen. Jobbet status ändras så att jobbet har stoppats.
+Om du vill stoppa ett pågående jobb markerar du det och väljer **stoppa** i panelen. Jobbets status ändras för att visa att jobbet stoppas.
 
    ![Stoppa jobb](./media/howto-run-a-job/stopjob.png)
 
-### <a name="run-a-stopped-job"></a>Kör ett stoppat jobb
+### <a name="run-a-stopped-job"></a>Köra ett stoppat jobb
 
-Välj det stoppat jobbet för att köra ett jobb som har för närvarande stoppats. Välj **kör** på panelen. Ändras statusen för jobbet att återspegla jobbet körs nu igen.
+Om du vill köra ett jobb som är stoppat väljer du det stoppade jobbet. Välj **Kör** i panelen. Jobbets status ändras för att återspegla jobbet körs nu igen.
 
-   ![Återupptagna jobb](./media/howto-run-a-job/resumejob.png)
+   ![Återupptog jobb](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
-Om du vill kopiera ett befintligt jobb som du har skapat, markerar du det från sidan huvudsakliga jobb och välj **kopiera**. En ny kopia av jobbkonfigurationen öppnas där du kan redigera. Du kan spara eller köra det nya projektet. Om några ändringar har gjorts till din valda enhetsuppsättning, är de visas i kopierade jobbet som du kan redigera.
+Om du vill kopiera ett befintligt jobb som du har skapat väljer du det på sidan huvud jobb och väljer **Kopiera**. En ny kopia av jobb konfigurationen öppnas så att du kan redigera den. Du kan spara eller köra det nya jobbet. Om du har gjort ändringar i den valda enhets uppsättningen, återspeglas de i det kopierade jobbet så att du kan redigera det.
 
-   ![Kopieringsjobb](./media/howto-run-a-job/copyjob.png)
+   ![Kopiera jobb](./media/howto-run-a-job/copyjob.png)
 
-## <a name="view-the-job-status"></a>Visa jobbets status
+## <a name="view-the-job-status"></a>Visa jobb status
 
-När ett jobb har skapats kan den **Status** kolumnen uppdateringar med det senaste statusmeddelandet för jobbet. I följande tabell visas möjliga statusvärden:
+När ett jobb har skapats uppdateras **status** kolumnen med det senaste status meddelandet för jobbet. I följande tabell visas möjliga status värden:
 
 | Statusmeddelande       | Status betydelse                                          |
 | -------------------- | ------------------------------------------------------- |
 | Slutfört            | Det här jobbet har körts på alla enheter.              |
-| Misslyckad               | Det här jobbet har misslyckades och inte helt körs på enheter.  |
-| Väntande              | Det här jobbet har inte ännu har startat körs på enheter.         |
-| Körs              | Det här jobbet körs för tillfället på enheter.             |
+| Misslyckad               | Det här jobbet har misslyckats och inte körts fullständigt på enheterna.  |
+| Väntande              | Det här jobbet har ännu inte börjat köra på enheter.         |
+| Körs              | Det här jobbet körs för närvarande på enheter.             |
 | Stoppad              | Det här jobbet har stoppats manuellt av en användare.           |
 
-Statusmeddelanden som följs av en översikt över enheter i jobbet. I följande tabell visas möjliga enheten statusvärden:
+Status meddelandet följs av en översikt över enheterna i jobbet. I följande tabell visas möjliga enhets status värden:
 
 | Statusmeddelande       | Status betydelse                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Lyckades            | Antalet enheter som jobbet har gjorts på.       |
-| Misslyckad               | Antalet enheter som misslyckats jobbet ska köras på.       |
+| Lyckades            | Antalet enheter som jobbet har körts på.       |
+| Misslyckad               | Antalet enheter som jobbet inte kunde köras på.       |
 
 ### <a name="view-the-device-status"></a>Visa enhetens status
 
-Välj jobbet för att visa status för jobbet och alla de berörda enheterna. Om du vill hämta en CSV-fil som innehåller jobbinformation, inklusive listan över enheter och deras statusvärden, Välj **hämta jobbinformation**. Du ser något av följande status visas bredvid varje enhetsnamn:
+Om du vill visa status för jobbet och alla berörda enheter väljer du jobbet. Om du vill hämta en. csv-fil som innehåller jobb information, inklusive listan över enheter och deras status värden, väljer du **Hämta jobb information**. Bredvid varje enhets namn ser du något av följande status meddelanden:
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Slutfört            | Jobbet har körts på den här enheten.                                     |
-| Misslyckad               | Jobbet har inte kunnat köra på den här enheten. Ett felmeddelande visas mer information.  |
-| Väntande              | Jobbet har inte ännu körs på den här enheten.                                   |
+| Misslyckad               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
+| Väntande              | Jobbet har ännu inte körts på den här enheten.                                   |
 
 > [!NOTE]
-> Om en enhet har tagits bort, du kan inte välja enheten och visar tagits bort med enhets-ID.
+> Om en enhet har tagits bort kan du inte välja enheten och den visas som borttagen med enhets-ID: t.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar jobb i Azure IoT Central programmet, är här några nästa steg:
+Nu när du har lärt dig hur du skapar jobb i ditt Azure IoT Central-program kan du använda följande steg:
 
 - [Använda enhetsuppsättningar](howto-use-device-sets.md)
 - [Hantera dina enheter](howto-manage-devices.md)
-- [Version mallen för enhet](howto-version-device-template.md)
+- [Version din enhets mall](howto-version-device-template.md)

@@ -1,5 +1,5 @@
 ---
-title: Fastställa din publicering alternativ i Azure Marketplace | Azure Marketplace
+title: Fastställa publicerings alternativ i Azure Marketplace | Azure Marketplace
 description: Den här artikeln beskrivs kriterierna för kvalificering och publicera krav partner försöker förstå hur du publicerar appar på Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
@@ -7,42 +7,42 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: qianw211
-ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442054"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876061"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
-När du [besluta om en publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), du är redo att välja den typ av erbjudande som används för att presentera ditt erbjudande. 
+När du [bestämmer dig för ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)kan du välja den erbjudande typ som ska användas för att presentera ditt erbjudande. 
 
- Den *erbjudandetyp* definierar strukturen för erbjudandet, som innehåller metadata, artefakter och annat innehåll som används för att presentera erbjudandet i marketplace.
+ *Erbjudande typen* definierar erbjudande strukturen, som innehåller de metadata, artefakter och annat innehåll som används för att presentera erbjudandet i Marketplace.
 
-Innan du kan skapa ett erbjudande, måste du välja en typ av erbjudande. Typ av erbjudande motsvarar typ av lösning, app, eller tjänsterbjudande som du önskar att publicera, samt dess justering till Microsoft-produkter och tjänster. 
+Innan du kan skapa ett erbjudande måste du välja en erbjudande typ. Erbjudande typen motsvarar den typ av lösning, app eller tjänst erbjudande som du vill publicera, samt dess justering för Microsofts produkter och tjänster. 
 
-En typ av erbjudande kan konfigureras på olika sätt för att aktivera olika publiceringsalternativ anrop till åtgärden, etablering och priser. Publicering alternativet och konfigurationen av typ av erbjudande också justera erbjudandet behörighet och tekniska krav. 
+En enda erbjudande typ kan konfigureras på olika sätt för att möjliggöra olika publicerings alternativ, anrop till åtgärd, etablering eller prissättning. Publicerings alternativet och konfigurationen av erbjudande typen överensstämmer också med kravet på erbjudanden och tekniska krav. 
 
-Glöm inte att granska storefront och erbjuda typ behörighetskraven och de tekniska kraven för publicering innan du skapar ditt erbjudande.
+Se till att granska kraven för butik och erbjudande typ och de tekniska publicerings kraven innan du skapar erbjudandet.
 
-## <a name="list-of-offer-types"></a>Lista över typer av erbjudanden
+## <a name="list-of-offer-types"></a>Lista över erbjudande typer
 
-Typer av Azure Marketplace-erbjudanden visas i tabellen nedan.
+Erbjudanden för Azure Marketplace-erbjudanden visas i tabellen nedan.
 
-| **Erbjudandetyp**    | **Beskrivning**  |
+| **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| [**Virtuella datorer**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell installation till den prenumeration som är associerad med kunden. |
-| [**Lösningsmallar**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Använd lösning erbjudandet malltyp när din lösning kräver ytterligare distribution och konfiguration av automation utöver en enkel virtuell dator. |
-| [**Hanterade program**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Använda Azure-appen: hanterade erbjudande apptyp när följande villkor krävs: <br> <ul> <li> Du distribuerar antingen en prenumeration-baserad lösning för din kund som använder en virtuell dator eller en hel IaaS-baserad lösning. </li> <li>Du eller dina kunder kräver att lösningen hanteras av en partner. </li> <ul> |
-| [**SaaS-program**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Aktivera kunden att köpa din SaaS-baserade, teknisk lösning som en prenumeration med hjälp av erbjudandetypen för SaaS-app. |
-| [**Behållare-erbjudanden**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Använd typ av erbjudande behållaren när din lösning är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserade Azure-behållartjänst. |
-| [**IoT Microsoft Edge-moduler**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge-moduler är de minsta beräkning enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster 3 part eller din egen Lösningsspecifika kod. |
-| [**Konsulttjänster**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Konsulttjänster hjälpa till att ansluta kunder med tjänster för att stödja och utöka deras användning av Azure, Dynamics 365 eller Power Suite-tjänster.|
+| [**Virtuella datorer**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
+| [**Solution-mallar**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Använd lösnings mal len erbjudande typ när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator. |
+| [**Hanterade program**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: <br> <ul> <li> Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
+| [**SaaS-program**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Använd SaaS-appens erbjudande typ för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration. |
+| [**Container-erbjudanden**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |
+| [**IoT Microsoft Edge-moduler**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
+| [**Konsult tjänster**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
 
 
-Slutligen finns i [ **Azure AD-kraven** ](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) genom att visa en lista över alternativ och tillhandahåller mer information om kraven för enkel inloggning.
+Slutligen kan du se [**krav för Azure AD**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) genom att ange alternativ och erbjudanden för att få mer information om krav för enkel inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 

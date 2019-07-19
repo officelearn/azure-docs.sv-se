@@ -1,70 +1,70 @@
 ---
-title: Azure attribution för användning av partners och kunder | Azure Marketplace
-description: Översikt över hur du spårar KUNDANVÄNDNING för Azure Marketplace-lösningar
+title: Azure-partner och kund användnings behörighet | Azure Marketplace
+description: Översikt över hur du spårar kund användning för Azure Marketplace-lösningar
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
-ms.author: yijenj
-ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: fa0a88ce3f74c20ab36931a6a78f8265bdb9d8be
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807195"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876240"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
-Dina lösningar kräver Azure-komponenter som programvara partner för Azure, eller de behöver för att distribueras direkt på Azure-infrastrukturen. Kunder som distribuerar en partnerlösning och etablera sina egna Azure-resurser kan vara svårt att få insyn i statusen för distributionen och få optik i påverkan på Azure tillväxt. När du lägger till en högre nivå av synlighet överensstämmer med Microsofts säljteam och få kredit för Microsoft partner-program.
+Som en program varu partner för Azure kräver dina lösningar Azure-komponenter eller så måste de distribueras direkt i Azure-infrastrukturen. Kunder som distribuerar en partner lösning och etablerar sina egna Azure-resurser kan vara svåra att få insyn i distributionens status och få optik till påverkan på Azure-tillväxten. När du lägger till en högre Synlighets nivå kan du justera mot Microsofts försäljnings team och få kredit för Microsoft partner program.
 
-Microsoft erbjuder nu en metod för att hjälpa partner att bättre spåra Azure-användning av kunders distributioner av sin programvara på Azure. Den nya metoden använder Azure Resource Manager för att dirigera distributionen av Azure-tjänster.
+Nu erbjuder Microsoft en metod för att hjälpa våra partner att bättre spåra Azures användning av kund distributioner av program varan på Azure. Den nya metoden använder Azure Resource Manager för att dirigera distributionen av Azure-tjänster.
 
-Som Microsoft-partner kan associera du Azure-användning med alla Azure-resurser som du etablerar för en kunds räkning. Du kan skapa kopplingen via Azure Marketplace, Snabbstart-databasen, privat GitHub-databaser och personlig Kundengagemang. Kundens användning attribution stöder tre alternativ:
+Som Microsoft-partner kan du associera Azure-användning med alla Azure-resurser som du etablerar för en kunds räkning. Du kan skapa kopplingen via Azure Marketplace, snabb starts databasen, privata GitHub-lagringsplatser och en-till-ett-kund engagemang. Kund användnings behörighet stöder tre distributions alternativ:
 
-- Azure Resource Manager-mallar: Partner kan använda Resource Manager-mallar för att distribuera Azure-tjänster för att köra partnerns programvara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen av sina Azure-lösning. Resource Manager-mall kan du och dina kunder att distribuera din lösning under dess livscykel. Du kan vara säker på att resurserna distribueras i ett konsekvent tillstånd.
-- Azure Resource Manager API: er: Partner kan anropa Resource Manager API: er direkt för att distribuera en Resource Manager-mall eller att generera API-anrop till direkt etablera Azure-tjänster.
-- Terraform: Partner kan använda molnet initierare som Terraform att distribuera en Resource Manager-mall eller distribuera direkt Azure-tjänster.
+- Azure Resource Manager mallar: Partner kan använda Resource Manager-mallar för att distribuera Azure-tjänster för att köra partnerns program vara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen för deras Azure-lösning. Med en Resource Manager-mall kan du och dina kunder distribuera din lösning under hela livs cykeln. Du kan vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
+- Azure Resource Manager-API: er: Partner kan anropa Resource Manager-API: erna direkt för att distribuera en Resource Manager-mall eller generera API-anrop för att direkt etablera Azure-tjänster.
+- Terraform Partner kan använda Cloud Orchestrator, till exempel terraform, för att distribuera en Resource Manager-mall eller Distribuera Azure-tjänster direkt.
 
-Kundens användning attribution är för ny distribution och har inte stöd för taggning befintliga resurser som redan har distribuerats.
+Kund användnings behörighet är för ny distribution och stöder inte taggning av befintliga resurser som redan har distribuerats.
 
-Kundens användning attribution krävs på [Azure-program](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): lösning mall erbjudandet publicerats på Azure Marketplace.
+Kund användnings behörighet krävs på [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): Solution Template-erbjudandet har publicerats på Azure Marketplace.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
-Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera kundens användning attribution vara enkelt.
+Många partner lösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabb start, ska processen för att ändra din mall för att aktivera kund användnings behörighet vara rak framåt.
 
-Läs mer om att skapa och publicera Lösningsmallar
+Mer information om hur du skapar och publicerar Solution-mallar finns i
 
 * [Skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-* [Azure Application-erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Video: [Att skapa mallar för lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+* [Azure Application erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Skapa Solution-mallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
-## <a name="add-a-guid-to-your-template"></a>Lägga till ett GUID i mallen
+## <a name="add-a-guid-to-your-template"></a>Lägg till ett GUID i mallen
 
-Om du vill lägga till en globalt unik identifierare (GUID), kan du göra en enda ändring huvudsakliga mallfilen:
+Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild ändring av filen med huvud mal len:
 
-1. [Skapa ett GUID](#create-guids) med metoden föreslagna och [registrera GUID](#register-guids-and-offers).
+1. [Skapa ett GUID](#create-guids) med den föreslagna metoden och [Registrera GUID](#register-guids-and-offers).
 
 1. Öppna Resource Manager-mallen.
 
-1. Lägg till en ny resurs i den huvudsakliga mallfilen. Resursen måste finnas i den **mainTemplate.json** eller **azuredeploy.json** filen endast, och inte i någon kapslad eller länkad mallar.
+1. Lägg till en ny resurs i filen main Template. Resursen måste vara i **mainTemplate. JSON** -eller **azuredeploy. JSON** -filen och inte i några kapslade eller länkade mallar.
 
-1. Ange GUID-värde efter den **pid -** prefix (t.ex. pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Ange GUID-värdet efter **PID-** prefixet (t. ex. pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
-1. Kontrollera mallen innehåller fel.
+1. Kontrol lera om det finns några fel i mallen.
 
 1. Publicera om mallen i lämpliga databaser.
 
-1. [Kontrollera GUID i malldistributionen](#verify-the-guid-deployment).
+1. [Verifiera att GUID lyckades i mal Lav distributionen](#verify-the-guid-deployment).
 
-### <a name="sample-resource-manager-template-code"></a>Exemplet Resource Manager-mallkod
+### <a name="sample-resource-manager-template-code"></a>Exempel på Resource Manager-mallkod
 
-Du måste lägga till följande ytterligare resurs under resursavsnittet för att aktivera spårning resurser för din mall. Glöm inte att ändra den nedan exempelkod med egna indata när du lägger till det huvudsakliga mallfilen.
-Resursen måste läggas till i den **mainTemplate.json** eller **azuredeploy.json** filen endast, och inte i någon kapslad eller länkad mallar.
+Om du vill aktivera spårning av resurser för mallen måste du lägga till följande ytterligare resurs under avsnittet resurser. Se till att ändra exempel koden nedan med dina egna indata när du lägger till den i filen för huvud mal len.
+Resursen måste läggas till i **mainTemplate. JSON** -eller **azuredeploy. JSON** -filen och inte i någon kapslad eller länkad mall.
 
 ```
 // Make sure to modify this sample code with your own inputs where applicable
@@ -84,33 +84,33 @@ Resursen måste läggas till i den **mainTemplate.json** eller **azuredeploy.jso
 } // remove all comments from the file when complete
 ```
 
-## <a name="use-the-resource-manager-apis"></a>API: er i Resource Manager
+## <a name="use-the-resource-manager-apis"></a>Använda Resource Manager-API: er
 
-I vissa fall kanske du föredrar att göra anrop direkt mot Resource Manager REST API: er för att distribuera Azure-tjänster. [Azure har stöd för flera SDK: er](https://docs.microsoft.com/azure/#pivot=sdkstools) att aktivera dessa anrop. Du kan använda någon av de SDK: er eller anropa REST-API: er direkt om du vill distribuera resurser.
+I vissa fall kanske du föredrar att ringa direkt till Resource Manager REST-API: er för att distribuera Azure-tjänster. [Azure stöder flera SDK](https://docs.microsoft.com/azure/#pivot=sdkstools) : er för att aktivera dessa anrop. Du kan använda en av SDK: erna eller anropa REST-API: er direkt för att distribuera resurser.
 
-Om du använder Resource Manager-mall ska du tagga din lösning genom att följa anvisningarna ovan. Om du inte använder en Resource Manager-mall och att direkta API-anrop, kan du fortfarande tagga distributionen om du vill associera användningen av Azure-resurser.
+Om du använder en Resource Manager-mall bör du tagga lösningen genom att följa anvisningarna ovan. Om du inte använder en Resource Manager-mall och gör direkta API-anrop kan du fortfarande tagga distributionen för att associera användningen av Azure-resurser.
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Tagga en distribution med Resource Manager-API: er
 
-Om du vill aktivera KUNDANVÄNDNING attribution, när du utformar din API-anrop, inkludera ett GUID i användaren agent huvudet i begäran. Lägg till GUID för varje erbjudande eller SKU. Formatera strängen med den **pid -** prefix och inkludera GUID som genereras av partner. Här är ett exempel på GUID-format för infogning i användaragenten:
+Om du vill aktivera kund användnings behörighet ska du inkludera ett GUID i användar agent huvudet i begäran när du utformar dina API-anrop. Lägg till GUID för varje erbjudande eller SKU. Formatera strängen med **PID-** prefixet och inkludera GUID för den partner som genereras. Här är ett exempel på GUID-formatet för infogning i användar agenten:
 
-![Exempelformat för GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
-
-> [!Note]
-> Formatet för strängen är viktigt. Om den **pid -** prefix är inte inkluderade, det går inte att fråga efter data. Olika SDK: er spåra på olika sätt. Granska stöd och spåra metoden för din önskade Azure SDK för att implementera den här metoden.
-
-#### <a name="example-the-python-sdk"></a>Exempel: The Python SDK
-
-För Python och använder den **config** attribut. Du kan bara lägga till attributet till en UserAgent. Här är ett exempel:
-
-![Lägga till attributet i en användaragent](media/marketplace-publishers-guide/python-for-lu.PNG)
+![Exempel-GUID-format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
-> Lägg till attribut för varje klient. Det finns ingen global statisk konfiguration. Du kan tagga en klientfabrik för att se till att spåra alla klienter. Mer information finns i den här [klienten factory exemplet på GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+> Strängens format är viktigt. Om **PID-** prefixet inte ingår är det inte möjligt att fråga efter data. Olika SDK: er spårar på olika sätt. Om du vill implementera den här metoden granskar du support-och spårnings metoden för din önskade Azure SDK.
+
+#### <a name="example-the-python-sdk"></a>Exempel: Python SDK
+
+För python använder du **config** -attributet. Du kan bara lägga till attributet i en UserAgent. Här är ett exempel:
+
+![Lägg till attributet i en användar agent](media/marketplace-publishers-guide/python-for-lu.PNG)
+
+> [!Note]
+> Lägg till attributet för varje klient. Det finns ingen global statisk konfiguration. Du kan tagga en klient fabrik för att se till att alla klienter spårar. Mer information finns i detta [klient fabriks exempel på GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Tagga en distribution med hjälp av Azure PowerShell
 
-Om du har distribuerat resurser via Azure PowerShell kan du lägga till din GUID med hjälp av följande metod:
+Om du distribuerar resurser via Azure PowerShell lägger du till ditt GUID med hjälp av följande metod:
 
 ```powershell
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
@@ -118,18 +118,18 @@ Om du har distribuerat resurser via Azure PowerShell kan du lägga till din GUID
 
 #### <a name="tag-a-deployment-by-using-the-azure-cli"></a>Tagga en distribution med hjälp av Azure CLI
 
-När du använder Azure CLI för att lägga till din GUID, ange den **AZURE_HTTP_USER_AGENT** miljövariabeln. Du kan ange den här variabeln inom omfånget för ett skript. Du kan också ange variabeln globalt för shell omfång:
+När du använder Azure CLI för att lägga till ditt GUID, ställer du in miljövariabeln **AZURE_HTTP_USER_AGENT** . Du kan ange den här variabeln inom omfånget för ett skript. Du kan också ställa in variabeln globalt för Shell-omfång:
 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Mer information finns i [Azure SDK för Go](https://docs.microsoft.com/go/azure/).
+Mer information finns i [Azure SDK för go](https://docs.microsoft.com/go/azure/).
 
-## <a name="use-terraform"></a>Använd Terraform
+## <a name="use-terraform"></a>Använd terraform
 
-Stöd för Terraform är tillgänglig via Azure-providern 1.21.0 viktig: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Detta stöd gäller för alla partner som distribuerar lösningen via Terraform och alla resurser distribueras och förbrukade av Azure-providern (version 1.21.0 eller senare).
+Support för terraform är tillgängligt via Azure providers 1.21.0-utgåva: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Detta stöd gäller alla partner som distribuerar sin lösning via terraform, och alla resurser som distribueras och mäts av Azure-providern (version 1.21.0 eller senare).
 
-Azure Terraform-providern har lagts till ett nytt valfritt fält som kallas [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) där du kan ange spårnings GUID som du använder för din lösning. Värdet för det här fältet kan också hämtas från den *ARM_PARTNER_ID* miljövariabel.
+Azure-providern för terraform har lagt till ett nytt valfritt fält med namnet [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , där du kan ange det spårnings-GUID som du använder för din lösning. Värdet för det här fältet kan också hämtas från miljövariabeln *ARM_PARTNER_ID* .
 
 ```
 provider "azurerm" {
@@ -139,80 +139,80 @@ provider "azurerm" {
           # new stuff for ISV attribution
           partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
-Partners som vill få deras distribution via Terraform spåras av kundens användning attribution måste du göra följande:
+Partner som vill få sin distribution via terraform som spåras av kund användnings behörighet måste göra följande:
 
-* Skapa en GUID (GUID ska läggas till för varje erbjudande eller SKU)
-* Uppdatera sina Azure-providern för att ställa in värdet för *partner_id* till GUID (inte före korrigering GUID med ”pid-”, bara ange den till det faktiska GUID)
+* Skapa ett GUID (GUID ska läggas till för varje erbjudande eller SKU)
+* Uppdatera Azure-providern för att ange värdet för *partner_id* till GUID (korrigera inte GUID med "PID-", och Ställ in det på det faktiska GUID)
 
 ## <a name="create-guids"></a>Skapa GUID
 
-Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skapa GUID för spårning, bör du använda en GUID-generator. Azure Storage-teamet har skapat en [GUID generator formuläret](https://aka.ms/StoragePartners) att skicka en GUID för korrekt format och kan återanvändas i olika spårnings-system.
+Ett GUID är ett unikt referens nummer som innehåller 32 hexadecimala siffror. Om du vill skapa GUID för spårning bör du använda en GUID-Generator. Azure Storages teamet har skapat ett [GUID Generator-formulär](https://aka.ms/StoragePartners) som kommer att skicka ett GUID till rätt format och kan återanvändas över olika spårnings system.
 
 > [!Note]
-> Vi rekommenderar starkt att du använder [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners) att skapa din GUID. Mer information finns i vår [vanliga frågor och svar](#faq).
+> Vi rekommenderar starkt att du använder [Azure Storage s GUID Generator form](https://aka.ms/StoragePartners) för att skapa ditt GUID. Mer information finns i [vanliga frågor och svar](#faq).
 
-Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distribution kanal för varje produkt. Du kan välja för att använda en enda GUID för produktens flera distributionskanaler om du inte vill att rapportering ska delas.
+Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributions kanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributions kanaler om du inte vill att rapportering ska delas.
 
-Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub, kan du skapa och registrera 2 olika GUID:
+Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub, kan du skapa och registrera två distinkta GUID:
 
-*   Produkten A i Azure Marketplace
-*   Produkten A på GitHub
+*   Produkt A på Azure Marketplace
+*   Produkt A på GitHub
 
-Rapportering sker genom att värdet för partner (Microsoft Partner-ID) och GUID.
+Rapportering görs av partner värdet (Microsoft partner-ID) och GUID.
 
-Du kan också spåra GUID på en mer detaljerad nivå som SKU: N, där SKU: er är varianter av ett erbjudande.
+Du kan också spåra GUID på en mer detaljerad nivå, till exempel SKU, där SKU: er är varianter av ett erbjudande.
 
 ## <a name="register-guids-and-offers"></a>Registrera GUID och erbjudanden
 
-GUID måste vara registrerad för att aktivera attribution för användning av kunden.
+GUID måste registreras för att aktivera kund användnings behörighet.
 
-Alla registreringar för mall-GUID görs via Azure Marketplace Cloud Partner Portal (CPP).
+Alla registreringar för mall-GUID görs via Azure Marketplace-Cloud Partner Portal (CPP).
 
-När du lägger till GUID i mallen eller i användaragenten och registrera GUID i CPP, spåras alla distributioner.
+När du har lagt till GUID i mallen eller i användar agenten och registrerat GUID i CPP, spåras alla distributioner.
 
-1. Gäller för [Azure Marketplace](https://aka.ms/listonazuremarketplace) och få tillgång till CPP.
+1. Tillämpa på [Azure Marketplace](https://aka.ms/listonazuremarketplace) och få åtkomst till cpp.
 
-   * Partner som krävs för att [har en profil i CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Är du rekommenderas att erbjudandet i Azure Marketplace eller AppSource-lista.
-   * Partner kan registrera flera GUID: er.
-   * Partner kan registrera ett GUID för mallar för inte finns på Marketplace-lösningar och erbjudanden.
+   * Partner måste [ha en profil i cpp](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
+   * Partner kan registrera flera GUID.
+   * Partner kan registrera ett GUID för mallarna och erbjudandena för icke-Marketplace-lösningar.
 
-1. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-1. Välj din ikon i det övre högra hörnet och välj sedan **utgivarprofil**.
+1. I det övre högra hörnet väljer du din konto ikon och väljer sedan utgivar **profil**.
 
-   ![Välj utgivarprofil](media/marketplace-publishers-guide/guid-image-for-lu.png)
+   ![Välj utgivar profil](media/marketplace-publishers-guide/guid-image-for-lu.png)
 
-1. På den **profilsida**väljer **lägga till spårnings-GUID.**
+1. På **sidan profil**väljer du **Lägg till spårnings-GUID.**
 
-   ![Välj Lägg till spårning GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+   ![Välj Lägg till spårnings-GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
-1. I den **spåra GUID** anger din spårning GUID. Ange bara GUID utan den **pid -** prefix. I den **anpassad beskrivning** anger du ditt erbjudandenamn eller beskrivning.
+1. I rutan **spårnings-GUID** anger du ditt spårnings-GUID. Ange bara GUID utan **PID-** prefix. Ange namnet eller beskrivningen för erbjudandet i rutan **anpassad Beskrivning** .
 
-   ![Profilsida](media/marketplace-publishers-guide/guid-dev-center-login.png)
+   ![Profil sida](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
-   ![Ange GUID och erbjuder beskrivning](media/marketplace-publishers-guide/guid-dev-center-example.png)
+   ![Ange ett GUID och en beskrivning av erbjudandet](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
-1. Om du vill registrera mer än en GUID, Välj **lägga till spårnings-GUID** igen. Ytterligare rutor visas på sidan.
+1. Om du vill registrera fler än ett GUID väljer du **Lägg till spårnings-GUID** igen. Fler rutor visas på sidan.
 
-   ![Välj Lägg till spårning GUID igen](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+   ![Välj Lägg till spårnings-GUID igen](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
 
-   ![Ange ett annat GUID och erbjuder beskrivning](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+   ![Ange ett annat GUID och en beskrivning av erbjudandet](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
 1. Välj **Spara**.
 
-   ![Klicka på Spara](media/marketplace-publishers-guide/guid-dev-center-save.png)
+   ![Välj Spara](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
-När du lägger till GUID i mallen eller i användaragenten och registrera GUID i CPP, spåras alla distributioner.
+När du har lagt till GUID i mallen eller i användar agenten och registrerat GUID i CPP, spåras alla distributioner.
 
-## <a name="verify-the-guid-deployment"></a>Kontrollera GUID-distributionen
+## <a name="verify-the-guid-deployment"></a>Verifiera GUID-distributionen
 
-När du ändrar din mall och kör en test-distribution kan du använda följande PowerShell-skript för att hämta de resurser som du har distribuerat och taggade.
+När du har ändrat mallen och kört en test distribution använder du följande PowerShell-skript för att hämta de resurser som du har distribuerat och taggat.
 
-Du kan använda skriptet för att kontrollera att GUID som har lagts till Resource Manager-mallen. Skriptet gäller inte för Resource Manager API eller Terraform distributioner.
+Du kan använda skriptet för att kontrol lera att GUID har lagts till i Resource Manager-mallen. Skriptet gäller inte för Resource Manager API eller terraform-distributioner.
 
-Logga in i Azure. Välj prenumerationen med distributionen som du vill kontrollera innan du kör skriptet. Kör skriptet inom ramen för prenumerationen för distributionen.
+Logga in i Azure. Välj den prenumeration med distributionen som du vill verifiera innan du kör skriptet. Kör skriptet i prenumerations kontexten för distributionen.
 
-Den **GUID** och **resourceGroup** namnet på distributionen är obligatoriska parametrar.
+**GUID** och **resourceGroup** namn för distributionen är obligatoriska parametrar.
 
 Du kan hämta [det ursprungliga skriptet](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) på GitHub.
 
@@ -247,112 +247,112 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Du hittar i rapporten för kundens användning attribution på Partner Center analysera instrumentpanelen. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Du måste använda din Partner Center-autentiseringsuppgifter för att logga in om du vill se rapporten. Om du får problem med rapporten eller logga in, kan du skapa en supportbegäran som följa anvisningarna i avsnittet få stöd för.
+Du hittar rapporten för kund användnings behörighet i din partner Center analys instrument panel. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). För att kunna se rapporten måste du använda dina partner Center-autentiseringsuppgifter för att logga in. Om du stöter på problem med rapporten eller inloggningen skapar du en supportbegäran enligt anvisningarna i avsnittet få support.
 
-Välj spåras mall i den nedrullningsbara listan med Partner associationstypen vill visa rapporten.
+Välj spårad mall i list rutan över partner associerings typ för att visa rapporten.
 
-![Rapport för kundens användning attribution](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+![Rapport för kund användnings behörighet](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
 
-## <a name="notify-your-customers"></a>Meddela dina kunder
+## <a name="notify-your-customers"></a>Meddela kunderna
 
-Partner bör informera kunderna om distributioner som använder kundens användning attribution. Microsoft rapporterar den Azure-användning som associeras med dessa distributioner till partnern. I följande exempel innehåller innehåll som du kan använda för att informera kunderna om dessa distributioner. I exemplen är ersätter \<PARTNER > med namnet på ditt företag. Partner bör kontrollera att meddelandet som överensstämmer med deras data sekretess och samling principer, inklusive alternativ för kunder som ska undantas från spårning.
+Partner bör informera sina kunder om distributioner som använder sig av kund användnings behörighet. Microsoft rapporterar Azure-användningen som är kopplad till dessa distributioner till partnern. Följande exempel innehåller innehåll som du kan använda för att meddela dina kunder om dessa distributioner. I exemplen ersätter \<du partner > med ditt företags namn. Partner bör se till att meddelandet överensstämmer med sina principer för data sekretess och insamling, inklusive alternativ för kunder som ska undantas från spårning.
 
-### <a name="notification-for-resource-manager-template-deployments"></a>Meddelande för Resource Manager malldistributioner
+### <a name="notification-for-resource-manager-template-deployments"></a>Meddelande för distributioner av Resource Manager-mallar
 
-När du distribuerar den här mallen kan Microsoft kan identifiera installationen av \<PARTNER > programvara med Azure-resurser som har distribuerats. Microsoft kan kombinera Azure-resurser som används för att stödja programvaran. Microsoft samlar in den här informationen för att tillhandahålla de bästa upplevelserna med sina produkter och att driva sin verksamhet. Data samlas in och styrs av Microsofts sekretessprinciper, som finns på https://www.microsoft.com/trustcenter.
+När du distribuerar den här mallen kan Microsoft identifiera installationen av \<partner > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
 
-### <a name="notification-for-sdk-or-api-deployments"></a>Meddelande för SDK eller API-distributioner
+### <a name="notification-for-sdk-or-api-deployments"></a>Meddelande om SDK-eller API-distributioner
 
-När du distribuerar \<PARTNER > programvara, Microsoft kan identifiera installationen av \<PARTNER > programvara med Azure-resurser som har distribuerats. Microsoft kan kombinera Azure-resurser som används för att stödja programvaran. Microsoft samlar in den här informationen för att tillhandahålla de bästa upplevelserna med sina produkter och att driva sin verksamhet. Data samlas in och styrs av Microsofts sekretessprinciper, som finns på https://www.microsoft.com/trustcenter.
+När du distribuerar \<partner >-programvara kan Microsoft identifiera installationen av \<partner > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Få support
 
-Det finns två supportkanaler, beroende på de problem som du får.
+Det finns två Support kanaler beroende på de problem som du är riktad mot.
 
-Om det uppstår problem på Partner Center, till exempel se attribution kund användningsrapporten eller inloggning, kan du skapa en supportförfrågan med Partner Center supportteamet här: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Om du behöver hjälp för Marketplace Onboarding och/eller kundens användning attribution generellt sätt, till exempel hur du ställer in kundens användning attribution, följer du stegen nedan:
+Om du behöver hjälp med att registrera dig för Marketplace och/eller kund användning i allmänhet, till exempel hur du ställer in kund användnings behörighet, följer du stegen nedan:
 
-1. Gå till den [supportsidan](https://go.microsoft.com/fwlink/?linkid=844975).
+1. Gå till [support Sidan](https://go.microsoft.com/fwlink/?linkid=844975).
 
-1. Under **problemtyp**väljer **Marketplace Onboarding**.
+1. Välj **Marketplace**-onboarding under **problem typ**.
 
-1. Välj den **kategori** för problemet:
+1. Välj **kategori** för ditt problem:
 
-   - Association användningsproblem, Välj **andra**.
-   - Åtkomstproblem med Azure Marketplace CPP, Välj **problem med anslutningen**.
+   - För användnings Kopplings problem väljer du **annat**.
+   - För åtkomst problem med Azure Marketplace CPP väljer du **åtkomst problem**.
 
-     ![Välj problem-kategori](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Välj ärende kategori](media/marketplace-publishers-guide/lu-article-incident.png)
 
-1. Välj **Startförfrågan**.
+1. Välj **Start förfrågan**.
 
-1. Ange värdena som krävs på nästa sida. Välj **Fortsätt**.
+1. Ange de värden som krävs på nästa sida. Välj **Fortsätt**.
 
-1. Ange värdena som krävs på nästa sida.
+1. Ange de värden som krävs på nästa sida.
 
    > [!Important]
-   > I den **titeln Incident** anger **ISV användning spåra**. Beskrivning av problemet i detalj.
+   > I rutan **incident rubrik** anger du **användnings spårning för ISV**. Beskriv problemet i detalj.
 
-   ![Ange ISV användning spårning för incidentrubrik](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
+   ![Ange användnings spårning i ISV för incident rubriken](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
-1. Fyll i formuläret och välj sedan **skicka**.
+1. Fyll i formuläret och välj sedan **Skicka**.
 
-Du kan också få teknisk vägledning från Microsoft Partner teknisk konsult för tekniska före försäljning, distribution och app utvecklingsscenarier måste förstå och infoga attribution för användning av kunden.
+Du kan också få teknisk vägledning från en Microsoft-partner teknisk konsult för tekniska försäljnings-, distributions-och app Development-scenarier för att förstå och införliva kund användnings behörighet.
 
-### <a name="how-to-submit-a-technical-consultation-request"></a>Hur du skickar en begäran om teknisk samråd
+### <a name="how-to-submit-a-technical-consultation-request"></a>Så här skickar du en begäran om tekniskt samråd
 
-1. Besök [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
-1. Välj moln-infrastruktur och hantering samt en ny sida öppnas om du vill visa den tekniska resan.
-1. Klicka på Skicka en begäran-knappen under Deployment Services
-1. Logga in med ditt MSA (MPN-konto) eller din AAD (konto på instrumentpanelen för Partner;) utifrån dina inloggningsuppgifter öppnas en begäran om online-formuläret:
-    * Slutför/granska kontaktinformation.
-    * Samråd information kan fyllas eller välja från listrutorna.
-    * Ange en rubrik och beskrivning av problemet (ange så mycket information som möjligt).
+1. Besök [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Välj moln infrastruktur och hantering, så öppnas en ny sida där du kan se den tekniska resan.
+1. Under distributions tjänster klickar du på knappen Skicka en förfrågan
+1. Logga in med ditt MSA (MPN-konto) eller ditt AAD-konto (partner instrument panel). baserat på dina inloggnings uppgifter öppnas ett formulär för online-begäran:
+    * Slutför/granska kontakt uppgifterna.
+    * Information om konsultationen kan vara ifylld eller väljas i list rutan.
+    * Ange en rubrik och en beskrivning av problemet (ange så mycket information som möjligt).
 1. Klicka på Skicka
 
-Visa instruktioner med skärmdumpar på [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
+Visa steg-för-steg-instruktioner med skärm [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)dum par på.
 
-### <a name="whats-next"></a>Vad händer nu
+### <a name="whats-next"></a>Vad händer härnäst?
 
-Du kommer att kontaktas av en Microsoft-Partner teknisk konsult för att ställa in ett anrop till omfång för dina behov.
+Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**Vad är fördelen med att lägga till GUID för mallen?**
+**Vad är fördelen med att lägga till GUID i mallen?**
 
-Microsoft ger partner med en vy av kunders distributioner av sina lösningar och insikter på deras influenced användning. Både Microsoft och partner kan använda denna information för att öka närmare engagemanget mellan försäljningsteam för hjälp. Både Microsoft och partner kan använda data för att få en mer konsekvent överblick över en partner påverkan på Azure tillväxt.
+Microsoft tillhandahåller partner med en överblick över kund distributioner av lösningar och insikter om deras påverkan på användningen. Både Microsoft och partnern kan använda den här informationen för att driva närmare engagemang mellan sälj team. Både Microsoft och partnern kan använda dessa data för att få en mer enhetlig vy av en enskild partners påverkan på Azure-tillväxten.
 
-**När ett GUID har lagts till, kan det ändras?**
+**Kan den ändras när ett GUID har lagts till?**
 
-Ja, en kund eller implementering partner kan anpassa mallen och kan ändra eller ta bort GUID. Vi rekommenderar att partner proaktivt beskriver rollen för resursen och GUID för sina kunder och partner som förhindrar borttagning eller ändringar till GUID. Om du ändrar GUID påverkas endast nya, inte befintliga distributioner och resurser.
+Ja, en kund-eller implementerings partner kan anpassa mallen och kan ändra eller ta bort GUID. Vi rekommenderar att partners proaktivt beskriver rollen för resursen och GUID för sina kunder och partners för att förhindra borttagning eller redigering av GUID. Att ändra GUID påverkar endast nya, inte befintliga, distributioner och resurser.
 
-**Kan jag spåra mallar distribueras från en icke-Microsoft-lagringsplats som GitHub?**
+**Kan jag spåra mallar som har distribuerats från en annan databas än Microsoft, t. ex. GitHub?**
 
-Ja, så länge som GUID som är tillgängliga när mallen distribueras användning spåras. Partner måste ha en profil i CPP att registrera GUID som används för distribution utanför Azure Marketplace.
+Ja, så länge som GUID finns när mallen distribueras, spåras användningen. Partner måste ha en profil i CPP för att registrera GUID som används för distributionen utanför Azure Marketplace.
 
-**Får kunden reporting samt?**
+**Kan kunden även ta emot rapportering?**
 
-Kunder kan spåra deras användning av enskilda resurser eller kunddefinierad resursgrupper i Azure-portalen.
+Kunder kan spåra användningen av enskilda resurser eller kunddefinierade resurs grupper inom Azure Portal.
 
-**Påminner om den här metoden att den Digital Partner of Record (DPOR)?**
+**Liknar den här metoden en digital partner av Record (DPOR)?**
 
-Den nya metoden för att ansluta distribution och användning till en partnerlösning är en mekanism för att länka en partnerlösning till Azure-användning. DPOR är avsedd att associera en konsult (systemintegratör) eller hanteringspartnern (Managed Service Provider) med en kunds Azure-prenumeration.
+Den här nya metoden för att ansluta distribution och användning till en partners lösning är en mekanism för att länka en partner lösning till Azure-användning. DPOR är avsett att koppla en konsult (Systems Integrator) eller hanterings partner (hanterad tjänst leverantör) till en kunds Azure-prenumeration.
 
-**Vad är fördelen för Azure Storage GUID Generator formatet?**
+**Vad är fördelarna med att använda Azure Storages GUID Generator form?**
 
-Azure Storage GUID Generator formuläret garanteras att generera en GUID för formatet som krävs. Om du använder någon av Azure Storage-dataplanet spåra metoder, kan du dessutom använda samma GUID för Marketplace kontrollplanet spårning. På så sätt kan du utnyttja ett en enkel och enhetlig GUID för Partner attribution utan att behöva underhålla olika GUID.
+Azure Storages formulär för GUID-Generator garanterar att ett GUID för det begärda formatet genereras. Om du använder någon av Azure Storages spårnings metoder för data planet kan du dessutom använda samma GUID för spårning av plats kontroll planet. På så sätt kan du använda en enda enhetlig GUID för partner tilldelning utan att behöva ha separata GUID.
 
-**Kan jag använda en privat, anpassade virtuell Hårddisk till en lösning för mallen i Azure Marketplace?**
+**Kan jag använda en privat, anpassad VHD för en lösnings mal len-erbjudande på Azure Marketplace?**
 
-Nej, du kan inte. Avbildningen av virtuella datorn måste komma från Azure Marketplace, se: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Nej, du kan inte. Avbildningen av den virtuella datorn måste komma från Azure Marketplace, se [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines):.
 
-Du kan skapa en VM-erbjudandet i marketplace med hjälp av din anpassade virtuella Hårddisk och markeras som privat så att ingen kan se den. Sedan referens till den här virtuella datorn i din mall.
+Du kan skapa ett virtuellt dator erbjudande i Marketplace med din anpassade virtuella hård disk och markera det som privat så att ingen kan se den. Referera till den här virtuella datorn i din lösnings mall.
 
-**Det gick inte att uppdatera *mallegenskapen* egenskapen för den huvudsakliga mallen?**
+**Det gick inte att uppdatera *contentVersion* -egenskapen för huvud mal len?**
 
-Troligen en bugg i vissa fall när mallen distribueras med hjälp av en TemplateLink från en annan mall som räknar äldre mallegenskapen av någon anledning. Lösningen är att använda metadata-egenskap:
+Troligen en bugg i vissa fall när mallen distribueras med hjälp av en TemplateLink från en annan mall som förväntar sig äldre contentVersion av någon anledning. Lösningen är att använda egenskapen metadata:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -4,16 +4,16 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187592"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229251"
 ---
 ## <a name="webapi-project"></a>WebAPI-projekt
-1. Visual Studio, öppna den **AppBackend** projektet som du skapade i den **meddela användare** självstudien.
-2. Ersätt hela i Notifications.cs **meddelanden** klassen med följande kod. Var noga med att ersätta platshållarna med anslutningssträngen (med fullständig åtkomst) för din meddelandehubb samt hubbnamnet. Du kan hämta dessa värden från den [Azure-portalen](http://portal.azure.com). Den här modulen representerar nu olika säkra meddelanden som skickas. En fullständig implementering kommer meddelanden att sparas i en databas. för enkelhetens skull lagra i det här fallet vi dem i minnet.
+1. Öppna det **AppBackend** -projekt som du skapade i självstudien **meddela användare** i Visual Studio.
+2. I Notifications.cs ersätter du hela **meddelande** klassen med följande kod. Se till att ersätta plats hållarna med din anslutnings sträng (med fullständig åtkomst) för Notification Hub och hubbens namn. Du kan hämta dessa värden från [Azure Portal](https://portal.azure.com). Den här modulen representerar nu de olika säkra meddelanden som kommer att skickas. I en fullständig implementering kommer meddelandena att lagras i en databas. för enkelhetens skull lagrar vi dem i minnet.
    
         public class Notification
         {
@@ -53,7 +53,7 @@ ms.locfileid: "67187592"
             }
         }
 
-1. Ersätt Koden i i NotificationsController.cs den **NotificationsController** klassdefinitionen med följande kod. Den här komponenten implementerar ett sätt för enheten hämtar meddelandet på ett säkert sätt och innehåller också ett sätt (för den här självstudien) för att utlösa en säker push till dina enheter. Observera att när du skickar meddelandet till notification hub, vi bara skicka ett raw-meddelande med ID meddelandet (och inga faktiska meddelanden):
+1. I NotificationsController.cs ersätter du koden inuti definitionen av **NotificationsController** -klassen med följande kod. Den här komponenten implementerar ett sätt för enheten att hämta meddelandet på ett säkert sätt och ger också ett sätt (i den här självstudien) att utlösa en säker push-överföring till dina enheter. Observera att när du skickar meddelandet till Notification Hub skickar vi bara ett RAW-meddelande med ID för meddelandet (och inget faktiskt meddelande):
    
        public NotificationsController()
        {
@@ -88,8 +88,8 @@ ms.locfileid: "67187592"
         }
 
 
-Observera att den `Post` metoden tar nu inte skicka ett popup-meddelande. Skickar den ett raw-meddelande som innehåller endast meddelande-ID och inte alla känsligt innehåll. Kontrollera också att kommentera Sändningsåtgärden för de plattformar som du inte har autentiseringsuppgifter som konfigurerats på din meddelandehubb, eftersom de kommer att orsaka fel.
+Observera att `Post` metoden nu inte skickar ett popup-meddelande. Den skickar ett RAW-meddelande som endast innehåller meddelande-ID och inte något känsligt innehåll. Se också till att kommentera sändnings åtgärden för de plattformar som du inte har konfigurerade autentiseringsuppgifter för i Notification Hub, eftersom de leder till fel.
 
-1. Nu ska vi nytt distribuera den här appen till en Azure-webbplats för att kunna göra det tillgängligt från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
-2. Välj Azure-webbplats som din publiceringsmål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna den **mål-URL** -egenskapen i den **anslutning** fliken. Vi ska referera till den här URL:en som *serverdelens slutpunkt* senare i den här självstudiekursen. Klicka på **Publicera**.
+1. Nu kommer vi att omdistribuera den här appen till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
+2. Välj Azure-webbplats som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi ska referera till den här URL:en som *serverdelens slutpunkt* senare i den här självstudiekursen. Klicka på **Publicera**.
 

@@ -1,7 +1,7 @@
 ---
-title: Automatiserad ML remote beräkningsmål
+title: Automatiserade ML fjärrberäknings mål
 titleSuffix: Azure Machine Learning service
-description: Lär dig att bygga modeller med automatiserade maskininlärning på en Azure Machine Learning remote beräkningsmål med Azure Machine Learning-tjänsten
+description: Lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning på ett Azure Machine Learning fjärrberäknings mål med Azure Machine Learning-tjänsten
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,28 +10,27 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/12/2019
+ms.openlocfilehash: 00e4e9d5a1fc63dd73fe5a4dba7e1f1416cd08bc
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551340"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868875"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
-I Azure Machine Learning träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-mål kan vara en lokal dator eller en dator i molnet.
+I Azure Machine Learning träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-målet kan vara en lokal dator eller en resurs i molnet.
 
-Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål, till exempel Azure Machine Learning Compute (AmlCompute). AmlCompute är en infrastruktur för hanterade beräkning som gör att du enkelt kan skapa en beräkning för en eller flera noder.
+Du kan enkelt skala upp eller skala ut dator inlärnings experimentet genom att lägga till ytterligare beräknings mål, till exempel Azure Machine Learning Compute (AmlCompute Compute). AmlCompute är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en beräkning med en enda eller flera noder.
 
-I den här artikeln får du lära dig hur du skapar en modell med AmlCompute automatiserade ML.
+I den här artikeln får du lära dig hur du skapar en modell med hjälp av automatiserad ML med AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig remote från lokal?
 
-Självstudien ”[tränar en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md)” Lär dig hur du använder en lokal dator för att träna modellen med automatiserade ML.  Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att träna via fjärranslutning skapa du först fjärransluten beräkningsmål, till exempel AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
+I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
 
-Den här artikeln visar de extra steg som behövs för att köra ett automatiserat ML-experiment på en fjärransluten AmlCompute mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
+Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -39,22 +38,22 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Skapa resurs
 
-Skapa AmlCompute målet i din arbetsyta (`ws`) om den inte redan finns.  
+Skapa AmlCompute-målet på din arbets yta`ws`() om det inte redan finns.
 
-**Uppskattad tidsåtgång**: Skapandet av AmlCompute målet tar cirka 5 minuter.
+**Tids uppskattning**: Det tar cirka 5 minuter att skapa AmlCompute-målet.
 
 ```python
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
 amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
                                                             #vm_priority = 'lowpriority', # optional
                                                             max_nodes = 6)
 
 compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
-    
+
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
 compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
@@ -62,23 +61,19 @@ compute_target.wait_for_completion(show_output = True, min_node_count = None, ti
 
 Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
 
-Begränsningar för klustret är:
-+ Måste vara kortare än 64 tecken.  
+Kluster namns begränsningarna är:
++ Måste vara kortare än 64 tecken.
 + Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
 
-## <a name="access-data-using-getdata-file"></a>Åtkomst till data med hjälp av get_data fil
+## <a name="access-data-using-getdata-function"></a>Åtkomst till data med hjälp av funktionen get_data ()
 
-Ger fjärresursen åtkomst till dina utbildningsdata. För automatiserade machine learning-experiment som körs på fjärranslutna beräkning, data ska hämtas med hjälp av en `get_data()` funktion.  
+Ger fjärresursen åtkomst till dina utbildningsdata. För automatiserade machine learning-experiment som körs på fjärranslutna beräkning, data ska hämtas med hjälp av en `get_data()` funktion.
 
 För att ge åtkomst måste du:
-+ Skapa en fil som get_data.py innehåller en `get_data()` funktion 
-+ Placera filen i en katalog som är tillgänglig som en absolut sökväg 
++ Skapa en fil som get_data.py innehåller en `get_data()` funktion
++ Placera filen i en katalog som är tillgänglig som en absolut sökväg
 
 Du kan kapsla kod för att läsa data från blob storage- eller lokal disk i filen get_data.py. I följande kodexempel kommer data från sklearn-paketet.
-
->[!Warning]
->Om du använder fjärranslutna beräkning så måste du använda `get_data()` där dina data-transformeringar utförs. Om du behöver installera ytterligare bibliotek för Datatransformationer som en del av get_data() finns ytterligare steg ska följas. Referera till den [automatisk-ml-förberedelse av data exempel notebook](https://aka.ms/aml-auto-ml-data-prep ) mer information.
-
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -93,7 +88,7 @@ from scipy import sparse
 import numpy as np
 
 def get_data():
-    
+
     digits = datasets.load_digits()
     X_digits = digits.data[10:,:]
     y_digits = digits.target[10:]
@@ -101,11 +96,28 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
+## <a name="create-run-configuration"></a>Skapa körnings konfiguration
+
+Definiera ett `RunConfiguration` objekt med definierat `CondaDependencies`för att göra beroenden tillgängliga för get_data. py-skriptet. Använd det här objektet för `run_configuration` parametern i `AutoMLConfig`.
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+
+run_config = RunConfiguration(framework="python")
+run_config.target = compute_target
+run_config.environment.docker.enabled = True
+run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+
+dependencies = CondaDependencies.create(pip_packages=["scikit-learn", "scipy", "numpy"])
+run_config.environment.python.conda_dependencies = dependencies
+```
+
+I den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) finns ytterligare ett exempel på det här design mönstret.
+
 ## <a name="configure-experiment"></a>Konfigurera experiment
 
 Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
-
-I inställningarna för `run_configuration` är inställd på den `run_config` objekt som innehåller de inställningar och konfiguration för DSVM.  
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -126,7 +138,8 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -141,6 +154,7 @@ automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target = compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -154,7 +168,7 @@ Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametr
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -168,7 +182,7 @@ Du ser utdata som liknar följande exempel:
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     ***********************************************************************************************
-    
+
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
              2      Standardize SGD classifier            0:02:36                  0.954     0.954
              7      Normalizer DT                         0:02:22                  0.161     0.954
@@ -206,7 +220,7 @@ Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i t
 ![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
 Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.
- 
+
 ### <a name="view-logs"></a>Visa loggar
 
 Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
@@ -215,12 +229,12 @@ Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Hämtning av modellen förklaring data kan du se detaljerad information om modeller för att öka transparens för program som körs på serverdelen. I det här exemplet kör du modellen förklaringar endast för den bästa anpassa modellen. Om du kör för alla modeller i pipelinen, resulterar det i betydande körningstid. Förklaring modellinformation innehåller:
 
-* shap_values: Förklaring-information som genereras av formdata lib.
-* expected_values: Det förväntade värdet av modellen som används för att ställa in X_train data.
-* overall_summary: De modellen på funktionen vikten värden sorteras i fallande ordning.
-* overall_imp: Funktionsnamnen sorteras i samma ordning som i overall_summary.
-* per_class_summary: Klass på funktionen vikten värden sorteras i fallande ordning. Endast tillgängligt för klassificering.
-* per_class_imp: Funktionsnamnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificering.
+* shap_values: Förklarings informationen som genereras av Shap-lib.
+* expected_values: Det förväntade värdet för modellen som används för en uppsättning X_train-data.
+* overall_summary: Modell nivå funktionens prioritets värden sorterade i fallande ordning.
+* overall_imp: Funktions namnen sorteras i samma ordning som i overall_summary.
+* per_class_summary: Nivå värden för funktionen på klass nivå sorteras i fallande ordning. Endast tillgängligt för klassificerings ärendet.
+* per_class_imp: Funktions namnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificerings ärendet.
 
 Använd följande kod för att välja den bästa pipelinen från din iterationer. Den `get_output` metoden returnerar den bästa körningen och den anpassade modellen för senaste passar anrop.
 
@@ -256,7 +270,7 @@ Du också visualisera funktionen vikten via widget Användargränssnittet, samt 
 
 ## <a name="example"></a>Exempel
 
-Den [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook demonstrerar begreppen i den här artikeln. 
+Antecknings boken [How-to-use-azureml/Automated-Machine-Learning/Remote-amlcompute/Auto-ml-Remote-amlcompute. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) visar begreppen i den här artikeln.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

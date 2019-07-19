@@ -11,42 +11,52 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8662ef3aa7002ede0b183d72e7278d02c551c33
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b2076778751161d5763d7bd0643cfe8f71a5f522
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707350"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869202"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Vad är SAP HANA på stora Azure-instanser?
 
-SAP HANA på Azure (stora instanser) är en unik lösning till Azure. Förutom att tillhandahålla virtuella datorer för att distribuera och köra SAP HANA, ger Azure dig möjlighet att köra och distribuera SAP HANA på bare metal-servrar som är dedikerade till dig. SAP HANA på Azure (stora instanser) lösningen bygger på icke-delade/värdservern bare metal-maskinvara som är tilldelad till dig. Servermaskinvaran är inbäddad i större stämplar som innehåller beräkning/server-, nätverks- och lagringsinfrastrukturen. Som en kombination är det HANA skräddarsydda center dataintegrering (TDI) certifierade. SAP HANA på Azure (stora instanser) erbjuder olika server-SKU: er eller storlekar. Enheter kan ha 36 Intel CPU-kärnor och 768 GB minne och gå upp till enheter som har upp till 480 Intel CPU-kärnor och upp till 24 TB minne.
+SAP HANA på Azure (stora instanser) är en unik lösning till Azure. Förutom att tillhandahålla virtuella datorer för att distribuera och köra SAP HANA, erbjuder Azure dig möjligheten att köra och distribuera SAP HANA på Bare Metal-servrar som är dedikerade till dig. SAP HANA på Azure (stora instanser) lösning bygger på icke-delad maskin vara som är tilldelad värd/server utan operativ system. Server maskin varan är inbäddad i större stämplar som innehåller beräknings-/Server-, nätverks-och lagrings infrastruktur. En kombination är att den är HANA-certifierad (skräddarsyd Data Center integration). SAP HANA på Azure (stora instanser) erbjuder olika Server-SKU: er eller storlekar. Enheter kan ha 36 Intel CPU-kärnor och 768 GB minne och gå upp till enheter som har upp till 480 Intel CPU-kärnor och upp till 24 TB minne.
 
-Kundisolering inom infrastruktur stämpeln utförs i klienter, som ser ut som:
+Kund isolering inom infrastrukturens stämpel utförs i klient organisationer, som ser ut så här:
 
-- **Nätverk**: Isolering av kunder i infrastrukturen stack via virtuella nätverk per kund tilldelats klienten. En klient har tilldelats en enda kund. En kund kan ha flera klienter. Nätverksisolering med klienter förbjuder nätverkskommunikation mellan klienter i stämpel infrastrukturnivå, även om innehavarna som tillhör samma kund.
-- **Lagringskomponenter**: Isolering via storage virtuella datorer som har lagringsvolymer som tilldelats. Lagringsvolymer kan tilldelas till en virtuell dator. En virtuell dator för lagring har tilldelats exklusivt avsedd för en enskild klient i SAP HANA TDI-certifierade infrastruktur-stacken. Därför är lagringsvolymer som tilldelats en virtuell dator för lagring tillgängliga i en specifik och relaterade-klient. De är inte synliga mellan de olika distribuerade klienterna.
-- **Servern eller värden**: En server eller värden enhet delas inte mellan kunder eller klienter. En server eller en värd som har distribuerats till en kund är en atomisk bare metal-beräkningsenhet som är tilldelad till en enda klient. *Inte* maskinvara partitionering eller mjuk partitionering används som kan resultera i att du delar en värd eller en server med en annan kund. Lagringsvolymer som är kopplade till den virtuella datorn för lagring av specifik klient monteras till sådana en server. En klient kan ha en till många server enheter av olika SKU: er som tilldelats exklusivt.
-- Inom en SAP HANA på Azure (stora instanser) infrastruktur stämpel, många olika klienter distribueras och isolerade mot varandra via klient-koncepten för nätverk, lagring och beräkningsnivå. 
-
-
-Serverenheterna utan operativsystem stöder endast kör SAP HANA. SAP-programnivån eller arbetsbelastning mitten kod layer körs i virtuella datorer. De stämplar som infrastrukturen som kör SAP HANA på Azure (stora instanser) enheter är anslutna till de Azure-tjänster för fibernätverk. På så sätt kan tillhandahålls med låg latens anslutning mellan virtuella datorer och SAP HANA på Azure (stora instanser)-enheter.
-
-Det här dokumentet är en av flera dokument som behandlar SAP HANA på Azure (stora instanser). Det här dokumentet beskriver de grundläggande arkitektur, ansvarsområden och tjänster som tillhandahålls i lösningen. På hög nivå diskuteras av lösningen också. För de flesta andra områden, till exempel nätverk och anslutning, täcker fyra andra dokument information och information på detaljnivå. I dokumentationen för SAP HANA på Azure (stora instanser) omfattar inte aspekter av SAP NetWeaver-installation eller distributioner av SAP NetWeaver på virtuella datorer. SAP NetWeaver på Azure täcks i separata dokument som finns i samma behållare i Azure-dokumentationen. 
+- **Nätverk**: Isolering av kunder inom infrastrukturs stacken via virtuella nätverk per kund tilldelad klient. En klient tilldelas till en enskild kund. En kund kan ha flera klienter. Nätverks isoleringen av klienter förbjuder nätverkskommunikation mellan klienter på infrastrukturens stampnivå, även om klienterna tillhör samma kund.
+- **Lagrings komponenter**: Isolering genom virtuella lagrings datorer som har tilldelade lagrings volymer. Lagrings volymer kan endast tilldelas till en virtuell lagrings dator. En virtuell lagrings dator tilldelas exklusivt till en enda innehavare i stacken SAP HANA TDI-certifierad infrastruktur. Det innebär att lagrings volymer som tilldelas till en virtuell lagrings dator kan nås i en enda enskild och relaterad klient. De är inte synliga mellan de olika distribuerade klient organisationerna.
+- **Server eller värd**: En server eller en värd enhet delas inte mellan kunder eller klienter. En server eller värd som har distribuerats till en kund är en atomisk dator som är tilldelad en enda klient. *Ingen* maskinvarubaserad partitionering eller mjuk partitionering används som kan leda till att du delar en värd eller en server med en annan kund. Lagrings volymer som är kopplade till den virtuella lagrings datorn för den angivna klienten monteras på en sådan server. En klient kan ha en till många Server enheter med olika SKU: er som tilldelats exklusivt.
+- I en SAP HANA på en Azure-dator (stor instans) är många olika klienter distribuerade och isolerade mot varandra via klient koncepten för nätverk, lagring och beräknings nivåer. 
 
 
-Olika dokument för stora HANA-instansen vägledning täcker följande områden:
+Dessa servrar för Bare Metal-enheter stöds endast för att köra SAP HANA. Lagret för SAP-program eller mellanliggande arbets belastning körs på virtuella datorer. De infrastruktur stämplar som kör SAP HANA på Azure-enheter (stora instanser) är anslutna till Azure Network Services-arbetsben. På så sätt tillhandahålls låg latens anslutning mellan SAP HANA på Azure-enheter (stora instanser) och virtuella datorer.
 
-- [SAP HANA (stora instanser) översikt och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (stora instanser) infrastruktur och anslutningsmöjlighet på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Installera och konfigurera SAP HANA (stora instanser) på Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (stora instanser) felsökning och övervakning i Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Hög tillgänglighet som angetts i SUSE med hjälp av STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Säkerhetskopiering och återställning av operativsystem för Type II-SKU:er](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+Från och med juli 2019 skiljer vi mellan två olika revisioner av HANA-stora instanser och distributions platser:
+
+- "Revision 3" (rev 3): Är de stämplar som har gjorts tillgängliga för kunden att distribuera före 2019 juli
+- "Revision 4" (rev 4): Ny stämpel design som distribueras i nära närhet till Azure VM-värdar och som hittills är frigjord i Azure-regionerna av:
+    -  USA, västra 2 
+    -  East US 
+    -  Västra Europa
+    -  Norra Europa
+
+
+Det här dokumentet är ett av flera dokument som behandlar SAP HANA på Azure (stora instanser). Det här dokumentet innehåller en introduktion till den grundläggande arkitekturen, ansvars områden och tjänster som tillhandahålls av lösningen. Hög nivå funktioner i lösningen diskuteras också. För de flesta andra områden, t. ex. nätverk och anslutning, innehåller fyra andra dokument information och detaljerad information. Dokumentationen för SAP HANA på Azure (stora instanser) tar inte upp aspekter av SAP NetWeaver-installationen eller distributionerna av SAP NetWeaver på virtuella datorer. SAP NetWeaver på Azure beskrivs i separata dokument som finns i samma Azure-dokumentations behållare. 
+
+
+De olika dokumenten i den här vägledningen HANA-stor instans tar upp följande områden:
+
+- [Översikt över SAP HANA (stora instanser) och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (stora instanser) infrastruktur och anslutning i Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Installera och konfigurera SAP HANA (stora instanser) i Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (stora instanser) fel sökning och övervakning i Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Hög tillgänglighet har kon figurer ATS i SUSE med hjälp av STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Nästa steg**
-- Se [vet villkoren](hana-know-terms.md)
+- Se mer information [om villkoren](hana-know-terms.md)

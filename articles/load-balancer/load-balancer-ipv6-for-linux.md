@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Så här konfigurerar du DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516553"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274919"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
@@ -54,9 +54,9 @@ Det här dokumentet beskriver hur du aktiverar DHCPv6 så att din Linux-dator h�
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Från och med Ubuntu 17.10 kan standardmekanism för konfiguration av nätverk är [NETPLAN]( https://netplan.io).  Installera/instansiering samtidigt läser NETPLAN nätverkskonfiguration från YAML konfigurationsfiler på den här platsen: / {lib,etc,run}/netplan/*.yaml.
+Från och med Ubuntu 17,10 är standard mekanismen för nätverks konfiguration [netplan]( https://netplan.io).  Vid installation/instansiering kan netplan läsa nätverks konfiguration från YAML konfigurationsfiler på den här platsen:/{lib, etc, kör}/netplan/*. yaml.
 
-Inkludera en *dhcp6:true* instruktionen för varje ethernet-gränssnitt i konfigurationen.  Exempel:
+Inkludera en *dhcp6: true* -instruktion för varje Ethernet-gränssnitt i konfigurationen.  Exempel:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Inkludera en *dhcp6:true* instruktionen för varje ethernet-gränssnitt i konfig
             eno1:
               dhcp6: true
 
-Under tidig start i netplan ”network återgivning” skriver konfiguration/run för hand av kontroll över enheter till den angivna nätverk daemonen referensinformation om NETPLAN, se https://netplan.io/reference.
+Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att få referensinformation om netplan https://netplan.io/reference, se.
  
 ## <a name="debian"></a>Debian
 

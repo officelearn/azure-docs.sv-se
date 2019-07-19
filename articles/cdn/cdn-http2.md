@@ -12,40 +12,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: rli
-ms.openlocfilehash: c59ecceee35587f1b7d844f160ac0f61c5288e0e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: ril
+ms.openlocfilehash: 703623e3f7f314d87417458f3f9a218dfdf45427
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593752"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849979"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Stöd för HTTP/2 i Azure CDN
 
-HTTP/2 är en huvudversion till HTTP/1.1\. Det ger snabbare webbprestanda, minskade svarstid och förbättrad upplevelse samtidigt som den välbekanta HTTP-metoder och statuskoder semantik. Även om HTTP/2 är utformat för att arbeta med HTTP och HTTPS, stöd många webbläsare för klienten endast för HTTP/2 via TLS.
+HTTP/2 är en större revidering av HTTP/1.1 \. Det ger snabbare webb prestanda, minskad svars tid och bättre användar upplevelse, samtidigt som de välkända HTTP-metoderna, status koderna och semantiken bibehålls. Även om HTTP/2 är utformad för att fungera med HTTP och HTTPS, stöder många klient webbläsare bara HTTP/2 över TLS.
 
 ### <a name="http2-benefits"></a>HTTP/2-fördelar
 
 Fördelarna med HTTP/2 är:
 
-*   **Multiplexing och samtidighet**
+*   **Multiplexering och samtidighet**
 
-    Med HTTP 1.1 kan flera begäranden för resursen kräver flera TCP-anslutningar och varje anslutning har prestanda försämras kopplade till den. HTTP/2 kan flera resurser som krävs för en enda TCP-anslutning.
+    Med hjälp av HTTP 1,1 krävs flera TCP-anslutningar för att göra flera resurs begär Anden, och varje anslutning har en associerad prestanda. HTTP/2 gör att flera resurser kan begäras på en enda TCP-anslutning.
 
-*   **Komprimering**
+*   **Sidhuvud komprimering**
 
-    Genom att komprimera HTTP-huvuden för resurser som hanteras, minskar tiden på kabeln avsevärt.
+    Genom att komprimera HTTP-huvudena för att hantera resurser, minskas tiden på kabeln avsevärt.
 
-*   **Stream-beroenden**
+*   **Strömma beroenden**
 
-    Stream beroenden kan klienten för att ange att servern vilka resurser som har prioritet.
+    Stream-beroenden gör att klienten kan ange för servern vilka resurser har prioritet.
 
 
 ## <a name="http2-browser-support"></a>Stöd för HTTP/2-webbläsare
 
-Alla större webbläsare har implementerat stöd för HTTP/2 i aktuell version. Stöds inte webbläsare används automatiskt HTTP/1.1.
+Alla större webbläsare har implementerat HTTP/2-stöd i sina aktuella versioner. Webbläsare som inte stöds återgår automatiskt till HTTP/1.1.
 
-|Browser|Lägsta Version|
+|Browser|Lägsta version|
 |-------------|------------|
 |Microsoft Edge| 12|
 |Google Chrome| 43|
@@ -55,16 +55,16 @@ Alla större webbläsare har implementerat stöd för HTTP/2 i aktuell version. 
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Aktivera stöd för HTTP/2 i Azure CDN
 
-För närvarande är stöd för HTTP/2 aktiv för alla Azure CDN-profiler. Ingen ytterligare åtgärd krävs från kunder.
+HTTP/2-stöd är för närvarande aktivt för alla Azure CDN profiler. Ingen ytterligare åtgärd krävs från kunderna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fördelarna med HTTP/2 i praktiken finns i [den här demon från Akamai](https://http2.akamai.com/demo).
+Om du vill se fördelarna med HTTP/2 i praktiken kan du läsa [den här demon från Akamai](https://http2.akamai.com/demo).
 
-Mer information om HTTP/2 finns i följande resurser:
+Om du vill veta mer om HTTP/2 kan du besöka följande resurser:
 
-*   [Startsida för HTTP/2-specifikation](https://http2.github.io/)
-*   [Officiella HTTP/2 vanliga frågor och svar](https://http2.github.io/faq/)
+*   [Start sida för HTTP/2-specifikation](https://http2.github.io/)
+*   [Vanliga frågor och svar om HTTP/2](https://http2.github.io/faq/)
 *   [Akamai HTTP/2-information](https://http2.akamai.com/)
 
-Läs mer om Azure CDN tillgängliga funktioner i den [översikt över Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+Mer information om tillgängliga funktioner i Azure CDN finns i [Översikt över Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).

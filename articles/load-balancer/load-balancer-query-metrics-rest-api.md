@@ -1,32 +1,32 @@
 ---
 title: Hämta mått med REST API
 titlesuffix: Azure Load Balancer
-description: 'Använd Azure REST API: er för att samla in hälsa och användning mått för belastningsutjämnaren för ett visst område för tid och datum.'
+description: 'Använd Azure REST-API: erna för att samla in hälso-och användnings statistik för Load Balancer under ett angivet tidsintervall och datum.'
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734549"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274531"
 ---
-# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Få mätvärden för resursutnyttjande belastningsutjämnare med hjälp av REST-API
+# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Få Load Balancer användnings mått med hjälp av REST API
 
-Den här anvisningen visar hur du samlar in antalet byte som bearbetas av en [Standardbelastningsutjämnare](/azure/load-balancer/load-balancer-standard-overview) för ett intervall på tid med den [Azure REST API](/rest/api/azure/).
+Den här instruktionen visar hur du samlar in antalet byte som bearbetas av en [standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) under ett tidsintervall med hjälp av [Azure REST API](/rest/api/azure/).
 
-Fullständig referensdokumentation och ytterligare exempel för REST API finns i den [Azure Monitor REST-referens för](/rest/api/monitor). 
+Fullständig referens dokumentation och ytterligare exempel för REST API finns i [Azure Monitor rest](/rest/api/monitor)-referensen. 
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Använd följande GET-begäran för att samla in den [ByteCount mått](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) från en Standard Load Balancer. 
+Använd följande GET-begäran för att samla in [ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) -måttet från en standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -34,32 +34,32 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="request-headers"></a>Begärandehuvud
 
-Följande huvuden krävs: 
+Följande rubriker krävs: 
 
-|Begärandehuvud|Beskrivning|  
+|Begär ande huvud|Beskrivning|  
 |--------------------|-----------------|  
-|*Content-Type:*|Krävs. Ange `application/json`.|  
-|*Authorization:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Innehålls typ:*|Obligatoriskt. Ange till `application/json`.|  
+|*Authorization:*|Obligatoriskt. Ange en giltig `Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
 | Namn | Beskrivning |
 | :--- | :---------- |
-| subscriptionId | Prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | Namnet på resursgruppen som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager-API, CLI eller portalen. |
+| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | Namnet på den resurs grupp som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | loadBalancerName | Namnet på Azure Load Balancer. |
-| metricnames | Kommaavgränsad lista över giltiga [belastningsutjämnaren mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| API-versionen | API-version för begäran.<br /><br /> Det här dokumentet beskriver api-versionen `2018-01-01`och ingår i URL: en ovan.  |
-| TimeSpan | Tidsintervall för frågan. Det är en sträng med formatet `startDateTime_ISO/endDateTime_ISO`. Valfria parametern är inställd att returnera en dags data i det här exemplet. |
+| metricnames | Kommaavgränsad lista över giltiga Load Balancers [mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| API-versionen | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API- `2018-01-01`versionen, som ingår i ovanstående URL.  |
+| TimeSpan | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO`. Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Begärandetext
 
-Inga begärandetexten krävs för den här åtgärden.
+Ingen begär ande text krävs för den här åtgärden.
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-Statuskod 200 returneras när listan över måttvärden returnerades. En fullständig lista över felkoder finns i den [referensdokumentation](/rest/api/monitor/metrics/list#errorresponse).
+Status koden 200 returneras när listan med mått värden returneras. En fullständig lista över felkoder finns i [referens dokumentationen](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Exempelsvar 
 

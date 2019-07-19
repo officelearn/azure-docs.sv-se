@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK och resurser'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK &-resurser'
 description: Lär dig allt om SQL .NET Core API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB .NET Core SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340202"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226185"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET-standard](sql-api-sdk-dotnet-standard.md)
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -35,66 +36,60 @@ ms.locfileid: "67340202"
 |**Hämta SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API-dokumentation**|[.NET API-referensdokumentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Exempel**|[.NET-kodexempel](sql-api-dotnet-samples.md)|
-|**Kom igång**|[Kom igång med Azure Cosmos DB .NET Core SDK](sql-api-dotnet-core-get-started-preview.md)|
+|**Kom igång**|[Kom igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Självstudier om webbappen**|[Utveckling av webbappar med Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Aktuella framework som stöds**|[.NET standard 1.6 och .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Viktig information
 
-Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
-
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
-* Förhandsversion 1 av [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) av .NET SDK för en förhandsversion.
-* Target .NET Standard som har stöd för .NET framework 4.6.1+ och .NET Core 2.0 +
-* Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser.
-* Stöd för strömmar.
-* Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras.
+> [!NOTE]
+> Om du använder .NET Core, se den senaste versionen 3. x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är riktad mot .net standard. 
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Korrigeringar för spårning av konkurrenstillstånd för frågor som gjorde att tomma sidor
+* Åtgärdar villkor för att spåra tävling för frågor som orsakade tomma sidor
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK: er System.Net.Http versionen matchar det som definieras i NuGet-paketet
-* Ökat decimalprecision storleken för LINQ-frågor.
-* Har lagts till nya klasser CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
-* Har lagts till TimeToLivePropertyPath till dokumentsamling
-* Har lagts till CompositeIndexes och SpatialIndexes till IndexPolicy
-* Har lagts till versionen till PartitionKeyDefinition
-* Lagt till ingen till PartitionKey
+* SDK: s system .net. http-version matchar vad som definieras i NuGet-paketet
+* Ökad decimal precisions storlek för LINQ-frågor.
+* Nya klasser har lagts till CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
+* Lade till TimeToLivePropertyPath till DocumentCollection
+* Lade till CompositeIndexes och SpatialIndexes till IndexPolicy
+* Version har lagts till PartitionKeyDefinition
+* Ingen har lagts till i PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * Har lagts till IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection och MaxTcpConnectionsPerEndpoint till ConnectionPolicy.
+ * IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection och MaxTcpConnectionsPerEndpoint har lagts till i ConnectionPolicy.
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* Diagnostikförbättringar
+* Förbättringar av diagnostik
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
-* Har lagts till variabeln miljöinställning ”POCOSerializationOnly”.
+* Miljö variabel inställningen "POCOSerializationOnly" har lagts till.
 
-* Ta bort DocumentDB.Spatial.Sql.dll och ingår nu i Microsoft.Azure.Documents.ServiceInterop.dll
+* Tog bort DocumentDB. spatial. SQL. dll och ingår nu i Microsoft. Azure. Documents. ServiceInterop. dll
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
-* Förbättringar i logik för omprövning under en redundansväxling för StoredProcedure utföra anrop.
+* Förbättring av omprövnings logik under redundans för StoredProcedure-körnings anrop.
 
 * Gjort DocumentClientEventSource singleton. 
 
-* Åtgärda GatewayAddressCache tidsgräns som inte respekterar ConnectionPolicy RequestTimeout.
+* Åtgärda GatewayAddressCache-timeout och ConnectionPolicy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
-* Lagt till TransportException, en typ av interna undantag av SDK direkt/TCP-transport diagnostik. När det finns i undantag meddelanden, skriver den här typen ytterligare information för felsökning av anslutningsproblem för klienten.
+* För direkt-/TCP-transportprovidern, lades till TransportException, en intern undantags typ för SDK. När det förekommer i undantags meddelanden skriver den här typen ytterligare information för att felsöka problem med klient anslutningen.
 
-* Har lagts till nya konstruktorn överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
+* Ny överlagring för konstruktor lades till som tar en HttpMessageHandler, en HTTP-hanterare som används för att skicka HttpClient-förfrågningar (t. ex. HttpClientHandler).
 
-* Åtgärda fel där huvud med null-värden har inte hanteras korrekt.
+* Åtgärda fel där huvudet med null-värden inte hanteras korrekt.
 
-* Förbättrad samling cache-verifiering.
+* Förbättrad verifiering av samlings-cache.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -143,11 +138,11 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Fast KeyNotFoundException för mellan partition sortering av frågor i specialfall.
-* En bugg har åtgärdats där JsonProperty attribut i select-satsen för LINQ-frågor inte som lösts in.
+* Åtgärdat fel där attributet JsonProperty i SELECT-satsen för LINQ-frågor inte har lösts.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* En bugg har åtgärdats som uppnås under vissa konkurrenstillstånd som resulterar i återkommande ”Microsoft.Azure.Documents.NotFoundException: Läs sessionen är inte tillgänglig för inkommande sessionstoken ”fel när du använder Session konsekvensnivå.
+* Åtgärdat fel som träffas under vissa tävlings villkor, vilket resulterar i ett tillfälligt "Microsoft. Azure. Documents. NotFoundException: Read-sessionen är inte tillgänglig för fel i åtkomsttokenbegäran när du använder konsekvens nivån för sessioner.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -220,7 +215,7 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Korrigering för ett problem som ibland medför en WebException: Fjärrnamnet kunde inte lösas.
+* Åtgärda ett problem som ibland orsakar en WebException: Det gick inte att matcha fjärrnamnet.
 * Lagt till stöd för att läsa in ett skrivet dokument genom att lägga till nya överlagringar till ReadDocumentAsync API direkt.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -244,24 +239,24 @@ Azure Cosmos DB .NET Core SDK gör det möjligt att bygga snabba, plattformsober
 Förhandsversion av Azure Cosmos DB .NET Core SDK gör det möjligt att bygga snabba, plattformsoberoende [ASP.NET Core](https://www.asp.net/core) och [.NET Core](https://www.microsoft.com/net/core#windows) appar för att köras på Windows, Mac och Linux.
 
 Förhandsversion av Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) och har stöd för följande:
-* Alla [anslutningsläge](performance-tips.md#networking): Gateway-läge, direkt TCP och Direct HTTPs.
-* Alla [konsekvensnivåer](consistency-levels.md): Begränsad föråldring, stark, Session och slutlig.
+* Alla [anslutnings lägen](performance-tips.md#networking): Gateway-läge, direkt TCP och Direct HTTPs.
+* Alla [konsekvens nivåer](consistency-levels.md): Stark, session, begränsad föråldrad och eventuell.
 * [Partitionerade samlingar](partition-data.md).
 * [Databaskonton och geo-replikering](distribute-data-globally.md).
 
-Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), eller rapportera problemet i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues).
+Om du har frågor som rör detta SDK, publicera på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb)eller fil ett problem i GitHub- [lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.4.1](#2.4.1) |Den 20 juni 2019 |--- |
-| [2.4.0](#2.4.0) |05 maj 2019 |--- |
+| [2.4.1](#2.4.1) |20 juni 2019 |--- |
+| [2.4.0](#2.4.0) |Maj 05, 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 mars 2019 |--- |
 | [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |24 december 2018 |--- |
-| [2.2.0](#2.2.0) |07 december 2018 |--- |
+| [2.2.0](#2.2.0) |Den 07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |

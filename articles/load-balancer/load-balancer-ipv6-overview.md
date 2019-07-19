@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Förstå IPv6-stöd för Azure Load Balancer och belastningsutjämnade virtuella datorer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,78 +13,78 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: kumud
-ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861959"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274824"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
 
 >[!NOTE] 
->Azure Load Balancer stöder två typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md).
+>Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md).
 
-Internetuppkopplad belastningsutjämnare kan distribueras med en IPv6-adress. Förutom IPv4-anslutningen kan följande funktioner:
+Belastningsutjämnare mot Internet kan distribueras med en IPv6-adress. Förutom IPv4-anslutning möjliggör detta följande funktioner:
 
-* Enhetlig slutpunkt till slutpunkt IPv6-anslutning mellan offentliga Internet-klienter och Azure-datorer (VM) via belastningsutjämnaren.
-* Intern slutpunkt till slutpunkt IPv6 utgående anslutningar mellan virtuella datorer och offentliga Internet IPv6-aktiverade klienter.
+* Inbyggd IPv6-anslutning från slut punkt till slut punkt mellan offentliga Internet-klienter och Azure-Virtual Machines (VM) via belastningsutjämnaren.
+* Inbyggd IPv6 utgående anslutning från slut punkt till slut punkt mellan virtuella datorer och offentliga Internet IPv6-aktiverade klienter.
 
-Följande bild illustrerar IPv6-funktioner för Azure Load Balancer.
+Följande bild illustrerar IPv6-funktionerna för Azure Load Balancer.
 
 ![Azure Load Balancer med IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
 
-När distribuerats kan en IPv4- eller IPv6-aktiverad Internet-klient kommunicera med den offentliga IPv4 eller IPv6-adresser (eller värdnamn) för internetaktiverad Azure-belastningsutjämnaren. Belastningsutjämnaren dirigerar IPv6-paket till de privata IPv6-adresserna för de virtuella datorerna med hjälp av network adress translation (NAT). IPv6-Internet-klienten inte kan kommunicera direkt med IPv6-adressen för de virtuella datorerna.
+När en IPv4-eller IPv6-aktiverad Internet-klient har distribuerats kan den kommunicera med offentliga IPv4-eller IPv6-adresser (eller värdnamn) för Azure Internet-riktade Load Balancer. Belastningsutjämnaren dirigerar IPv6-paketen till de privata IPv6-adresserna för de virtuella datorerna med hjälp av Network Address Translation (NAT). IPv6-Internet klienten kan inte kommunicera direkt med den virtuella datorns IPv6-adress.
 
 ## <a name="features"></a>Funktioner
 
-Inbyggt IPv6-stöd för virtuella datorer som distribueras via Azure Resource Manager innehåller:
+Inbyggt IPv6-stöd för virtuella datorer som distribueras via Azure Resource Manager ger:
 
-1. Belastningsutjämnad IPv6-tjänster för IPv6-klienter på Internet
-2. Inbyggd IPv6 och IPv4-slutpunkter på virtuella datorer (”dubbla liggande”)
-3. Inkommande och utgående-initierad interna IPv6-anslutningar
-4. Protokoll som stöds, till exempel TCP, UDP och HTTP (S) Aktivera en fullständig uppsättning tjänstarkitekturer
+1. Belastningsutjämnade IPv6-tjänster för IPv6-klienter på Internet
+2. Inbyggda IPv6-och IPv4-slutpunkter på virtuella datorer ("dubbla staplade")
+3. Inkommande och utgående initierade interna IPv6-anslutningar
+4. Protokoll som stöds som TCP, UDP och HTTP (S) aktiverar en fullständig uppsättning tjänst arkitekturer
 
 ## <a name="benefits"></a>Fördelar
 
-Den här funktionen gör det möjligt för följande viktiga fördelar:
+Den här funktionen möjliggör följande viktiga fördelar:
 
-* Uppfyll statliga regleringar kräver att nya program vara tillgänglig för endast IPv6-klienter
-* Aktivera mobile och Internet of things (IOT)-utvecklare kan använda dubbla Staplad (IPv4 + IPv6) Azure-datorer för att hantera växande mobilappar och IOT-marknader
+* Uppfylla myndighets bestämmelser som kräver att nya program är tillgängliga för endast IPv6-klienter
+* Gör det möjligt för utvecklare av mobil-och Sakernas Internet (IOT) att använda Dual-Stack (IPv4 + IPv6) Azure Virtual Machines för att hantera de växande mobil & IOT-marknaderna
 
 ## <a name="details-and-limitations"></a>Information och begränsningar
 
 Information
 
-* Azure DNS-tjänsten innehåller poster för både IPv4-A- och IPv6-AAAA namn och svarar med båda posterna för belastningsutjämnaren. Klienten väljer vilken adress (IPv4 eller IPv6) ska kunna kommunicera med.
-* När en virtuell dator upprättar en anslutning till en offentlig IPv6 Internet-ansluten enhet, är den Virtuella datorns källan IPv6-adress nätverksadress översättas (NAT) till den offentliga IPv6-adressen för belastningsutjämnaren.
-* Virtuella datorer som kör Linux-operativsystem måste konfigureras för att ta emot en IPv6-IP-adress via DHCP. Många av Linux-avbildningar i Azure-galleriet är redan konfigurerad för att stödja IPv6 utan modifiering. Mer information finns i [konfigurera DHCPv6 för virtuella Linux-datorer](load-balancer-ipv6-for-linux.md)
-* Om du väljer att använda en hälsoavsökning med din belastningsutjämnare, skapar en IPv4-avsökning och använder den med både IPv4 och IPv6-slutpunkter. Om tjänsten på den virtuella datorn slutar att fungera tas både IPv4 och IPv6-slutpunkter bort från roteringen.
+* Tjänsten Azure DNS innehåller både IPv4 A-och IPv6 AAAA-namn och svarar med båda posterna för belastningsutjämnaren. Klienten väljer vilken adress (IPv4 eller IPv6) som ska kommunicera med.
+* När en virtuell dator initierar en anslutning till en offentlig Internet IPv6-ansluten enhet, är den virtuella datorns käll-IPv6-adress översatt (NAT) till den offentliga IPv6-adressen för belastningsutjämnaren.
+* Virtuella datorer som kör Linux-operativsystemet måste konfigureras för att ta emot en IPv6 IP-adress via DHCP. Många av Linux-avbildningarna i Azure-galleriet har redan kon figurer ATS för att stödja IPv6 utan modifiering. Mer information finns i [Konfigurera DHCPv6 för virtuella Linux-datorer](load-balancer-ipv6-for-linux.md)
+* Om du väljer att använda en hälso avsökning med belastningsutjämnaren skapar du en IPv4-avsökning och använder den med både IPv4-och IPv6-slutpunkter. Om tjänsten på den virtuella datorn slutar fungera tas både IPv4-och IPv6-slutpunkterna bort från rotationen.
 
 Begränsningar
 
-* Du kan inte lägga till IPv6-belastningsutjämningsregler i Azure-portalen. Reglerna kan bara skapas via mallen, CLI, PowerShell.
+* Det går inte att lägga till regler för IPv6-belastnings utjämning i Azure Portal. Reglerna kan bara skapas via mallen, CLI, PowerShell.
 * Du kan inte uppgradera befintliga virtuella datorer för att använda IPv6-adresser. Du måste distribuera nya virtuella datorer.
-* En IPv6-adress kan tilldelas till ett enda nätverksgränssnitt på varje virtuell dator.
-* Offentliga IPv6-adresser kan inte tilldelas till en virtuell dator. De kan endast tilldelas till en belastningsutjämnare.
-* Du kan inte konfigurera omvänd DNS-sökning för din offentliga IPv6-adresser.
-* De virtuella datorerna med IPv6-adresser kan inte vara medlemmar i en Azure-molntjänst. De kan anslutas till Azure Virtual Network (VNet) och kommunicera med varandra via sina IPv4-adresser.
-* Privata IPv6-adresser kan distribueras på enskilda virtuella datorer i en resursgrupp, men kan inte distribueras i en resursgrupp via Scale Sets.
-* Virtuella Azure-datorer kan inte ansluta via IPv6 till andra virtuella datorer, andra Azure-tjänster eller lokala enheter. De kan endast kommunicera med Azure load balancer över IPv6. De kan dock kommunicera med dessa resurser som använder IPv4.
-* Nätverkssäkerhetsgrupp (NSG) skydd för IPv4 stöds i dual-stack (IPv4 + IPv6)-distributioner. NSG: er gäller inte för IPv6-slutpunkter.
-* IPv6-ändpunkten på den virtuella datorn visas inte direkt till internet. Det är bakom en belastningsutjämnare. Endast de portar som anges i regler för belastningsutjämnaren är tillgänglig via IPv6.
-* Ändra parametern IdleTimeout för IPv6 är **för närvarande inte**. Standardvärdet är fyra minuter.
-* Ändra parametern loadDistributionMethod för IPv6 är **för närvarande inte**.
-* Reserverade IPv6 IP-adresser (där ipallocationmethod inställt = statisk) är **för närvarande inte**.
+* En enda IPv6-adress kan tilldelas till ett enda nätverks gränssnitt i varje virtuell dator.
+* Det går inte att tilldela offentliga IPv6-adresser till en virtuell dator. De kan bara tilldelas till en belastningsutjämnare.
+* Det går inte att konfigurera omvänd DNS-sökning för dina offentliga IPv6-adresser.
+* De virtuella datorerna med IPv6-adresser kan inte vara medlemmar i en Azure-moln tjänst. De kan anslutas till ett Azure-Virtual Network (VNet) och kommunicera med varandra över sina IPv4-adresser.
+* Privata IPv6-adresser kan distribueras på enskilda virtuella datorer i en resurs grupp, men kan inte distribueras till en resurs grupp via skalnings uppsättningar.
+* Virtuella Azure-datorer kan inte ansluta via IPv6 till andra virtuella datorer, andra Azure-tjänster eller lokala enheter. De kan bara kommunicera med Azure Load Balancer via IPv6. De kan dock kommunicera med de här andra resurserna med hjälp av IPv4.
+* Skydd för nätverks säkerhets gruppen (NSG) för IPv4 stöds i distributioner med dubbla stackar (IPv4 + IPv6). NSG: er gäller inte för IPv6-slutpunkterna.
+* IPv6-slutpunkten på den virtuella datorn exponeras inte direkt för Internet. Det ligger bakom en belastningsutjämnare. Endast de portar som anges i belastnings Utjämnings reglerna är tillgängliga via IPv6.
+* Det finns **för närvarande inte stöd**för att ändra idleTimeout-parametern för IPv6. Standardvärdet är fyra minuter.
+* Det finns **för närvarande inte stöd**för att ändra parametern LoadDistributionMethod för IPv6.
+* Reserverade IPv6 IP-adresser (där IPAllocationMethod = static) **stöds inte för närvarande**.
 * NAT64 (översättning av IPv6 till IPv4) stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att distribuera en belastningsutjämnare med IPv6.
+Lär dig hur du distribuerar en belastningsutjämnare med IPv6.
 
-* [Tillgängligheten för IPv6 efter region](https://go.microsoft.com/fwlink/?linkid=828357)
-* [Distribuera en belastningsutjämnare med IPv6 med en mall](load-balancer-ipv6-internet-template.md)
+* [Tillgänglighet för IPv6 efter region](https://go.microsoft.com/fwlink/?linkid=828357)
+* [Distribuera en belastningsutjämnare med IPv6 med hjälp av en mall](load-balancer-ipv6-internet-template.md)
 * [Distribuera en belastningsutjämnare med IPv6 med hjälp av Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Distribuera en belastningsutjämnare med IPv6 med Azure CLI](load-balancer-ipv6-internet-cli.md)

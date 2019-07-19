@@ -1,93 +1,108 @@
 ---
-title: Kontinuerlig övervakning av din version DevOps-pipeline med Azure DevOps och Azure Application Insights | Microsoft Docs
+title: Kontinuerlig övervakning av din DevOps release-pipeline med Azure-pipeline och Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/13/2017
+ms.date: 07/16/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902390"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277667"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din releasepipeline
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
 
-Azure DevOps-tjänster som integreras med Azure Application Insights för att tillåta kontinuerlig övervakning av din DevOps-pipeline för versionen i hela livscykel. 
+Azure-pipeliner integreras med Azure Application insikter för att tillåta kontinuerlig övervakning av din DevOps release-pipeline under hela livs cykeln för program utveckling. 
 
-Azure DevOps-tjänster har nu stöd för kontinuerlig övervakning innebär att distributions-pipelines kan införliva övervakningsdata från Application Insights och andra Azure-resurser. När en avisering för Application Insights identifieras distributionen kan vara skyddad eller återställas tillbaka förrän aviseringen har lösts. Om alla kontroller skickar kan distributioner fortsätta automatiskt från test ända till produktion utan att behöva ingripa manuellt. 
+Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings data från Application Insights och andra Azure-resurser. När en release-pipeline identifierar en Application Insights avisering, kan pipelinen eller återställa distributionen tills aviseringen har lösts. Om alla kontroller godkänns kan distributionerna fortsätta automatiskt från testa hela vägen till produktion, utan att behöva vidta några manuella åtgärder. 
 
-## <a name="configure-continuous-monitoring"></a>Konfigurera en löpande övervakning
+## <a name="configure-continuous-monitoring"></a>Konfigurera kontinuerlig övervakning
 
-1. Välj en befintlig Azure DevOps-tjänster.
+1. I [Azure DevOps](https://dev.azure.com)väljer du en organisation och ett projekt.
+   
+1. På den vänstra menyn på sidan projekt väljer du **pipelines** > **releases**. 
+   
+1. Släpp pilen bredvid **ny** och välj **ny versions pipeline**. Eller, om du inte har en pipeline ännu, väljer du **ny pipeline** på sidan som visas.
+   
+1. I fönstret **Välj en mall** söker du efter och väljer **Azure App service distribution med kontinuerlig övervakning**och väljer sedan **Använd**. 
 
-2. Hovra över **Build and Release** > Välj **versioner** > klickar du på den **plustecknet** > **skapa versionsdefinition** > Sök efter **övervakning** > **Azure App Service-distribution med kontinuerlig övervakning.**
+   ![Ny pipeline för Azure pipeline-utgåvor](media/continuous-monitoring/001.png)
 
-   ![Nya Releasepipeline för Azure DevOps-tjänster](media/continuous-monitoring/001.png)
+1. I rutan **steg 1** väljer du hyperlänken för att **Visa steg uppgifter.**
 
-3. Klicka på **gäller.**
+   ![Visa steg uppgifter](media/continuous-monitoring/002.png)
 
-4. Bredvid rött utropstecken markerar du texten i blått till **visa miljöuppgifter.**
+1. I konfigurations fönstret **steg 1** fyller du i följande fält: 
 
-   ![Visa miljöuppgifter](media/continuous-monitoring/002.png)
-
-   En konfigurationsruta visas, Använd följande tabell för att fylla i indatafälten.
-
-    | Parameter        | Värde |
+    | Parameter        | Value |
    | ------------- |:-----|
-   | **Miljönamn**      | Namn som beskriver den version pipeline-miljön |
-   | **Azure-prenumeration** | Listrutan fylls med Azure-prenumerationer som länkade till organisationen Azure DevOps-tjänsterna|
-   | **Namn på App Service** | Manuell inmatning av ett nytt värde kan krävas för det här fältet för andra alternativ |
-   | **Resursgrupp**    | Listrutan fylls med tillgängliga resursgrupper |
-   | **Application Insights-resursnamn** | Listrutan fylls i med alla Application Insights-resurser som motsvarar den tidigare valda resursgruppen.
+   | **Namn på fas**      | Ange ett stadium namn eller lämna det i **steg 1**. |
+   | **Azure-prenumeration** | List rutan och välj den länkade Azure-prenumeration som du vill använda.|
+   | **Typ av app** | List rutan och välj din typ av app. |
+   | **App Service namn** | Ange namnet på Azure App Service. |
+   | **Resurs grupps namn för Application Insights**    | I list rutan och väljer du den resurs grupp som du vill använda. |
+   | **Application Insights resurs namn** | List rutan och välj Application Insights resursen för den resurs grupp som du har valt.
 
-5. Välj **konfigurera Application Insights-aviseringar**
+1. Om du vill spara pipelinen med standardinställningar för varnings regler väljer du **Spara** längst upp till höger i fönstret Azure-DevOps. Ange en beskrivande kommentar och välj sedan **OK**.
 
-6. Standard Varningsregler, Välj **spara** > Ange en kommentar > Klicka på **OK**
+## <a name="modify-alert-rules"></a>Ändra aviserings regler
 
-## <a name="modify-alert-rules"></a>Ändra notifieringsregler
+I rutan har **Azure App service distribution med kontinuerlig övervakning** fyra aviserings regler: **Tillgänglighet**, **misslyckade förfrågningar**, **Server svars tid**och **Server undantag**. Du kan lägga till fler regler eller ändra regel inställningarna så att de uppfyller dina service nivå behov. 
 
-1. Om du vill ändra de fördefinierade aviseringsinställningarna, klicka på rutan med **ellipserna...**  till höger om **Aviseringsregler.**
+Ändra inställningar för varnings regler:
 
-   (Out of box fyra Varningsregler finns: Tillgänglighet, misslyckade begäranden, svarstid för servern, Server-undantag.)
+1. I det vänstra fönstret på sidan Frisläpp pipelines väljer du **konfigurera Application Insights aviseringar**.
 
-2. Klicka på symbolen listrutan bredvid **tillgänglighet.**
+1. I fönstret **Azure Monitor aviseringar** väljer du ellipsen **...** bredvid **varnings regler**.
+   
+1. I dialog rutan **aviserings regler** väljer du den nedrullningsbara symbolen bredvid en varnings regel, till exempel **tillgänglighet**. 
+   
+1. Ändra **tröskelvärdet** och andra inställningar så att de uppfyller dina krav.
+   
+   ![Ändra avisering](media/continuous-monitoring/003.png)
+   
+1. Välj **OK**och välj sedan **Spara** längst upp till höger i fönstret Azure-DevOps. Ange en beskrivande kommentar och välj sedan **OK**.
 
-3. Ändra tillgängligheten **tröskelvärdet** att uppfylla behoven för tjänsten.
+## <a name="add-deployment-conditions"></a>Lägg till distributions villkor
 
-   ![Ändra varning](media/continuous-monitoring/003.png)
+När du lägger till distributions portar till din versions pipeline förhindrar du oönskade frisläppnings åtgärder. När du har löst aviseringen kan distributionen fortsätta automatiskt.
 
-4. Välj **OK** > **spara** > Ange en kommentar > Klicka på **OK.**
+Lägga till distributions portar:
 
-## <a name="add-deployment-conditions"></a>Lägg till villkor för distribution
+1. På sidan för huvud pipelinen, under **steg**, väljer du **villkor för för distribution** eller **efter distribution** , beroende på vilket stadium som kräver en kontinuerlig övervaknings grind.
+   
+   ![Villkor för distribution](media/continuous-monitoring/004.png)
+   
+1. I konfigurations fönstret **villkor för distribution** anger du att **portarna** ska **aktive ras**.
+   
+1. Bredvid **distributions portar**väljer du **Lägg till**.
+   
+1. Välj **fråga Azure Monitor aviseringar** från List menyn. Med det här alternativet kan du komma åt både Azure Monitor-och Application Insights-aviseringar.
+   
+   ![Fråga Azure Monitor aviseringar](media/continuous-monitoring/005.png)
+   
+1. Under **utvärderings alternativ**anger du de värden som du vill använda för inställningar som **tiden mellan omutvärderingen av grindarna** och **den tids gräns efter vilken grinden har misslyckats**. 
 
-1. Klicka på **Pipeline** > Välj den **Pre** eller **efter distributionen villkor** beroende på scenen som kräver en kontinuerlig övervakning gate.
+## <a name="view-release-logs"></a>Visa versions loggar
 
-   ![Före villkor](media/continuous-monitoring/004.png)
+Du kan se beteendet för distributions porten och andra versions steg i versions loggarna. Så här öppnar du loggarna:
 
-2. Ange **Gates** till **aktiverad** > **godkännande gates**> Klicka på **Lägg till.**
-
-3. Välj **Azure Monitor** (det här alternativet ger dig möjlighet att åtkomst aviseringar både från Azure Monitor och Application Insights)
-
-    ![Azure Monitor](media/continuous-monitoring/005.png)
-
-4. Ange en **Gates timeout** värde.
-
-5. Ange en **samplingsintervall.**
-
-## <a name="deployment-gate-status-logs"></a>Distributionsloggar för gate-status
-
-När du lägger till distribution gates skyddar en avisering i Application Insights som överskrider tröskeln för ditt tidigare definierade, distributionen från oönskad versionen befordran. När aviseringen har lösts fortsätta distributionen automatiskt.
-
-Om du vill se det här beteendet, Välj **versioner** > Högerklicka på versionen namn **öppna** > **loggar.**
-
-![Loggar](media/continuous-monitoring/006.png)
+1. Välj **versioner** på den vänstra menyn på sidan pipelines. 
+   
+1. Välj en version. 
+   
+1. Under **steg**väljer du ett steg för att visa en versions Sammanfattning. 
+   
+1. Om du vill visa loggar väljer du **Visa loggar** i versions sammanfattningen, väljer länken **slutförd** eller **misslyckad** i något Stadium eller hovrar över alla steg och väljer **loggar**. 
+   
+   ![Visa versions loggar](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Pipelines försök med dessa [snabbstarter.](https://docs.microsoft.com/azure/devops/pipelines)
+Mer information om Azure-pipeliner finns i [dokumentationen för Azure pipeline](https://docs.microsoft.com/azure/devops/pipelines).

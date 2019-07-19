@@ -1,110 +1,106 @@
 ---
-title: Diagnostisera prestandaproblem för grafik i Fjärrskrivbord - Azure
-description: Den här artikeln beskriver hur du använder RemoteFX grafik räknare i Fjärrskrivbordsprotokollet sessioner för att diagnostisera prestandaproblem med bilderna i virtuella Windows-skrivbordet.
+title: Diagnostisera problem med grafik prestanda i fjärr skrivbord – Azure
+description: Den här artikeln beskriver hur du använder RemoteFX-grafikkort i sessioner med fjärr skrivbords protokoll för att diagnostisera prestanda problem med grafik i Windows Virtual Desktop.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: v-chjenk
-ms.openlocfilehash: a139542bf9272336784ac96d667d65caa1ed96ff
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607337"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233627"
 ---
-# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera prestandaproblem för grafik i Fjärrskrivbord
+# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera problem med grafik prestanda i fjärr skrivbord
 
-När systemet inte fungerar som förväntat, är det viktigt att identifiera orsaken till problemet. Den här artikeln hjälper dig att identifiera och åtgärda flaskhalsar i grafik-relaterade prestanda under Remote Desktop Protocol (RDP)-sessioner.
+Om du vill diagnostisera upplevelsens kvalitets problem med dina fjärrsessioner har du fått räknare under avsnittet RemoteFX-grafik i prestanda övervakaren. Den här artikeln hjälper dig att hitta och åtgärda bildrelaterade prestanda Flask halsar under Remote Desktop Protocol (RDP)-sessioner med hjälp av dessa räknare.
 
-## <a name="find-your-remote-session-name"></a>Hitta fjärrsession namn
+## <a name="find-your-remote-session-name"></a>Hitta namnet på din fjärrsession
 
-Du behöver din fjärrsession namn som identifierar prestandaräknarna för grafik. Följ anvisningarna i det här avsnittet för att identifiera namnet på din Windows Virtual Desktop förhandsversion fjärrsessionen.
+Du behöver Fjärrsessionens namn för att identifiera grafik prestanda räknarna. Följ anvisningarna i det här avsnittet för att identifiera din instans av varje räknare.
 
-1. Öppna Kommandotolken Windows från fjärrsessionen.
-2. Kör den **qwinsta** kommando.
-    - Om din session är värd för en flera session virtuell dator (VM): Suffix för varje räknarnamnet är samma suffixet i din sessionsnamn, till exempel ”rdp-tcp 37”.
-    - Om din session är värd för en virtuell dator som har stöd för virtuella GPU-enheter (vGPU): Räknarna lagras på servern i stället för i den virtuella datorn. Räknarinstanser omfattar VM-namnet i stället för i sessionsnamn som ”Win8 Enterprise VM”.
-
->[!NOTE]
-> Medan räknare har RemoteFX i sina namn kan inkludera de remote desktop grafik i vGPU-scenarier.
-
-## <a name="access-performance-counters"></a>Prestandaräknare för åtkomst
-
-Prestandaräknare i RemoteFX grafik hjälper dig identifiera flaskhalsar genom att hjälpa dig spåra saker som ram kodning tid och överhoppade ramar.
-
-När du har bestämt fjärrsession-namn, följer du dessa instruktioner för att samla in prestandaräknare RemoteFX grafik för fjärrsessionen.
-
-1. Välj **starta** > **Administrationsverktyg** > **Prestandaövervakaren**.
-2. I den **Prestandaövervakaren** dialogrutan Expandera **övervakningsverktyg**väljer **Prestandaövervakaren**, och välj sedan **Lägg till**.
-3. I den **Lägg till räknare** dialogrutan från den **tillgängliga räknare** Expandera prestandaräknarobjektet för RemoteFX grafik.
-4. Välj räknarna som ska övervakas.
-5. I den **instanser av markerade objekt** väljer du de specifika instanserna som ska övervakas för valda räknare och välj sedan **Lägg till**. Om du vill välja alla tillgängliga räknarinstanser, Välj **alla instanser**.
-6. När du lägger till räknarna, Välj **OK**.
-
-Valda prestandaräknare visas på skärmen Prestandaövervakaren.
+1. Öppna kommando tolken i Windows från fjärrsessionen.
+2. Kör kommandot **Qwinsta** och leta reda på namnet på sessionen.
+    - Om sessionen finns i en virtuell dator med flera sessioner (VM): Din instans av varje räknare har suffix med samma nummer som suffix för ditt sessionsnamn, till exempel RDP-TCP 37.
+    - Om sessionen finns i en virtuell dator som stöder virtuella grafik processorer (vGPU): Din instans av varje räknare lagras på-servern i stället för på den virtuella datorn. Dina räknar instanser inkluderar det virtuella dator namnet i stället för numret i sessionsnamnet, till exempel "Win8 Enterprise VM".
 
 >[!NOTE]
->Varje aktiv session på en värd har en egen instans av varje prestandaräknare.
+> Medan räknare har RemoteFX i sina namn, inkluderar de även fjärr skrivbords grafik i vGPU-scenarier.
 
-## <a name="diagnosis"></a>Du kan undersöka
+## <a name="access-performance-counters"></a>Åtkomst till prestanda räknare
 
-Grafik minnesrelaterade prestandaproblem vanligtvis faller inom fyra kategorier:
+När du har bestämt namnet på fjärrsessionen följer du dessa anvisningar för att samla in prestanda räknare för RemoteFX-bilder för din fjärrsession.
 
-- Låg bildfrekvens
-- Slumpmässig bås
-- Fördröjningar som indata
-- Dålig ramens kvalitet
+1. Välj **Starta** > **administrations verktyg** > **prestanda övervakaren**.
+2. I dialog rutan **prestanda övervakaren** expanderar du **övervaknings verktyg**, väljer **prestanda övervakare**och väljer sedan **Lägg till**.
+3. I dialog rutan **Lägg till räknare** , i listan **tillgängliga räknare** , expanderar du avsnittet för RemoteFX-grafik.
+4. Välj de räknare som ska övervakas.
+5. I listan **instanser av valt objekt** väljer du de instanser som ska övervakas för de valda räknarna och väljer sedan **Lägg till**. Om du vill välja alla tillgängliga räknar instanser väljer du **alla instanser**.
+6. När du har lagt till räknarna väljer du **OK**.
 
-Starta genom att ta itu med låg bildfrekvens och slumpmässiga bås fördröjningar som indata. Nästa avsnitt får du veta vilka prestandaräknare mäta varje kategori.
+De valda prestanda räknarna visas på skärmen prestanda övervakaren.
 
-### <a name="performance-counters"></a>Prestandaräknare
+>[!NOTE]
+>Varje aktiv session på en värd har en egen instans av varje prestanda räknare.
 
-Det här avsnittet hjälper dig att identifiera flaskhalsar.
+## <a name="diagnose-issues"></a>Diagnostisera problem
 
-Kontrollera först utdata Frames/Second räknaren. Mäter antalet ramar som blir tillgängliga för klienten. Om det här värdet är mindre än räknaren indata Frames/Second, ramar som hoppas över. Använd ramar ignoreras per sekund räknare för att identifiera flaskhalsen.
+Grafik-relaterade prestanda problem finns vanligt vis i fyra kategorier:
 
-Det finns tre typer av ramar ignoreras per sekund räknare:
+- Låg bild frekvens
+- Slumpmässiga bås
+- Svars tid med hög svars tid
+- Dålig ram-kvalitet
 
-- Bildrutor hoppas över per sekund (otillräckligt nätverksresurser)
-- Bildrutor hoppas över per sekund (inte tillräckligt med klientens resurser)
-- Bildrutor hoppas över per sekund (inte tillräckligt med serverresurser)
+### <a name="addressing-low-frame-rate-random-stalls-and-high-input-latency"></a>Ta itu med låg bild frekvens, slumpmässiga bås och lång svars tid för svars tider
 
-Ett högt värde för någon av ramar som ignoreras per sekund räknare innebär att problemet är relaterat till resursen spårar räknaren. Till exempel om klienten inte avkoda och finns bildrutor enligt samma taxa servern bildrutorna, ska räknaren bildrutor ignoreras per sekund (otillräcklig i klientens resurser) vara hög.
+Kontrol lera först räknarna för utdata/sekund. Det mäter antalet ramar som gjorts tillgängliga för klienten. Om det här värdet är mindre än räknarna för indatamängder/sekund hoppas ramarna över. Om du vill identifiera Flask halsen använder du bild rutor som hoppats över/sekund räknare.
 
-Om räknaren utdata Frames/Second matchar räknaren indata Frames/Second, men du måste fortfarande ovanliga lag eller fördröjs, kan problemet vara genomsnittstiden kodning. Kodning är en synkron process som körs på servern i en session (vGPU)-scenariot och på den virtuella datorn i flera session-scenario. Genomsnittlig tid för kodning ska vara under 33 ms. Om kodning genomsnittstiden är under 33 ms, men du fortfarande har problem med prestanda, kan det finnas ett problem med appen eller operativsystemet som du använder.
+Det finns tre typer av ramar som hoppas över/andra räknare:
 
-Mer information om hur du diagnostiserar app-relaterade problem finns i [användarens indata fördröjning prestandaräknare](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+- Överhoppade bild rutor per sekund (otillräckliga server resurser)
+- Överhoppade bild rutor per sekund (otillräckliga nätverks resurser)
+- Överhoppade bild rutor per sekund (otillräckliga klient resurser)
 
-Eftersom RDP har stöd för en genomsnittlig kodning tid på 33 ms, stöder en inkommande bildfrekvens upp till 30 bilder per sekund. Observera att 33 ms är maximala stöds hastigheten. I många fall blir den erfarna av användaren hastigheten mindre, beroende på hur ofta en ram har angetts för RDP av källan. Uppgifter som till exempel tittar på en video som kräver en fullständig inkommande bildfrekvens på 30 bildrutor per sekund, men mindre omfattande resurs uppgifter, t.ex. sällan redigerar ett word-dokument som inte kräver en hög frekvens av inkommande bildrutor per sekund för en bra användarupplevelse.
+Ett högt värde för någon av de överhoppade bild rutorna/sekund räknarna innebär att problemet är relaterat till den resurs som räknaren spårar. Om klienten till exempel inte avkodar och presenterar bild rutor i samma takt som servern innehåller ramarna, kommer bild rutorna som hoppades över/sekund (otillräckliga klient resurser) att vara höga.
 
-Använd räknaren ramens kvalitet för att diagnostisera kvalitetsproblem i ramen. Den här räknaren uttrycker kvaliteten på utdata-ram som en procentandel av kvaliteten på käll-ramen. Kvalitetsförlust kan bero på RemoteFX eller det kan vara kommer med grafik-källan. Om RemoteFX orsakade kvalitetsförlust, vara problemet brist på resurser för nätverks- eller att skicka större exakthet innehållet.
+Om räknarna för utdata/sekund matchar indata-och sekund räknare, trots att du fortfarande märker ovanliga fördröjningar eller fickor, kan den genomsnittliga kodnings tiden vara orsaken. Encoding är en synkron process som inträffar på servern i vGPU-scenariot (Single-session) och på den virtuella datorn i scenariot för flera sessioner. Genomsnittlig kodnings tid ska vara under 33 MS. Om den genomsnittliga kodnings tiden är under 33 MS men du fortfarande har prestanda problem, kan det bero på ett problem med den app eller det operativ system som du använder.
+
+För ytterligare information om hur du diagnostiserar problem med appar, se [prestanda räknare](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters)för användarindata.
+
+Eftersom RDP stöder en genomsnittlig kodnings tid på 33 MS, stöder den en bild Rute frekvens på upp till 30 bild rutor per sekund. Observera att 33 MS är den maximala bild Rute frekvensen som stöds. I många fall kommer bild frekvensen som användaren upplever att vara lägre, beroende på hur ofta en ram tillhandahålls till RDP av källan. Till exempel kan aktiviteter som att titta på en video kräva en full bilds frekvens på 30 bild rutor per sekund, men mindre beräknings intensiva uppgifter som att sällan redigera ett dokument resulterar i ett mycket lägre värde för indata-ramar/sekund utan försämring i användarens upplevelsens kvalitet.
+
+### <a name="addressing-poor-frame-quality"></a>Hantera dålig ram-kvalitet
+
+Använd ram kvalitets räknaren för att diagnosticera problem med frame-kvalitet. Den här räknaren uttrycker kvaliteten på utmatnings ramen som en procent andel av käll ramens kvalitet. Kvalitets förlusten kan bero på att RemoteFX eller grafik källan kan vara inbyggd. Om RemoteFX orsakade kvalitets förlusten kan problemet bero på brist på nätverks-eller server resurser för att skicka innehåll med högre åter givning.
 
 ## <a name="mitigation"></a>Åtgärd
 
-Om serverresurser orsakar flaskhalsen, pröva någon av följande saker att förbättra prestanda:
+Om server resurser orsakar Flask halsen kan du prova någon av följande metoder för att förbättra prestanda:
 
 - Minska antalet sessioner per värd.
-- Öka mängden minne och beräkna resurser på servern.
-- Ta bort lösning av anslutningen.
+- Öka minnes-och beräknings resurserna på servern.
+- Ta bort anslutningens upplösning.
 
-Om nätverksresurser som orsakar flaskhalsen, pröva någon av följande saker att förbättra nätverkets tillgänglighet per session:
+Om nätverks resurserna orsakar Flask halsen kan du prova någon av följande metoder för att förbättra nätverks tillgänglighet per session:
 
 - Minska antalet sessioner per värd.
-- Ta bort lösning av anslutningen.
-- Använd ett nätverk med högre bandbredd.
+- Använd ett nätverk med större bandbredd.
+- Ta bort anslutningens upplösning.
 
-Om klientens resurser som orsakar flaskhalsen, gör du något eller båda av följande saker att förbättra prestanda:
+Om klient resurserna orsakar Flask halsen kan du prova någon av följande metoder för att förbättra prestandan:
 
-- Installera den senaste fjärrskrivbordsklienten.
-- Öka minne och beräkningsresurser på klientdatorn.
+- Installera den senaste fjärr skrivbords klienten.
+- Öka minnes-och beräknings resurserna på klient datorn.
 
 > [!NOTE]
-> Vi stöder för närvarande inte källan Frames/Second räknaren. För tillfället anges räknaren källa Frames/Second alltid till 0.
+> Vi stöder för närvarande inte käll ramarna/sekund räknaren. För tillfället visar räknaren för käll ramar och sekund alltid 0.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill skapa en Azure-dator i GPU-optimerad [konfigurera grafikprocessorer (GPU) unit acceleration för Windows Virtual Desktop förhandsversionsmiljön](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- En översikt över felsökning och Eskalering spårar finns i [översikt, feedback och support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Läs mer om förhandsversionen av tjänsten i [Windows Desktop förhandsversionsmiljön](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Information om hur du skapar en GPU-optimerad virtuell Azure-dator finns i [Konfigurera GPU-acceleration (Graphics Processing Unit) för för hands versionen av Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- En översikt över fel sökning och eskalerade spår finns i [fel söknings översikt, feedback och support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
+- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

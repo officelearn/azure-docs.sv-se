@@ -1,6 +1,6 @@
 ---
 title: Distribuera IBM DB2 pureScale på Azure
-description: Lär dig hur du distribuerar en exempel-arkitektur som använts nyligen migrera företaget från dess IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure.
+description: Lär dig hur du distribuerar en exempel arkitektur som används nyligen för att migrera ett företag från dess IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: edprice
+ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716055"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871885"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
-Den här artikeln beskriver hur du distribuerar en [exempel arkitektur](ibm-db2-purescale-azure.md) som en företagskund nyligen används för att migrera från dess IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure.
+Den här artikeln beskriver hur du distribuerar en [exempel arkitektur](ibm-db2-purescale-azure.md) som en företags kund nyligen använt för att migrera från sin IBM DB2-miljö som körs på z/OS till IBM DB2 PureScale på Azure.
 
-Om du vill följa de steg som används för migreringen, se installationsskript i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub. Dessa skript baseras på arkitekturen för en typisk, medelstora online transaction processing (OLTP) arbetsbelastning.
+För att följa stegen som används för migreringen, se installations skripten i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Dessa skript baseras på arkitekturen för en typisk OLTP-arbetsbelastning (Online Transaction Processing) i medel stora mängder.
 
 ## <a name="get-started"></a>Kom igång
 
-Om du vill distribuera arkitekturen genom att ladda ned och kör skriptet deploy.sh finns i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub.
+Om du vill distribuera den här arkitekturen laddar du ned och kör deploy.sh-skriptet som finns i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub.
 
-Databasen har också skript för att konfigurera en Grafana-instrumentpanel. Du kan använda instrumentpanelen för att fråga Prometheus, öppen källkod övervaknings- och aviseringssystemet som ingår i DB2.
-
-> [!NOTE]
-> Deploy.sh skriptet på klienten skapar privata SSH-nycklar och skickar dem till distributionsmallen via HTTPS. Av säkerhetsskäl bör du använda [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) att lagra hemligheter, nycklar och lösenord.
-
-## <a name="how-the-deployment-script-works"></a>Så här fungerar distributionsskriptet
-
-Skriptet deploy.sh skapar och konfigurerar Azure-resurser för den här arkitekturen. Skriptet frågar efter Azure-prenumeration och virtuella datorer som används i målmiljön och utför följande åtgärder:
-
--   Ställer in den resursgrupp, virtuellt nätverk och undernät i Azure för att installera
-
--   Ställer in nätverkssäkerhetsgrupper och SSH för miljön
-
--   Ställer in nätverkskorten på både GlusterFS och DB2 pureScale virtuella datorer
-
--   Skapar de virtuella datorerna för lagring av GlusterFS
-
--   Skapar den virtuella jumpbox-datorn
-
--   Skapar DB2 pureScale virtuella datorer
-
--   Skapar den virtuella datorn vittne de DB2 pureScale-ping
-
--   Skapar en virtuell dator i Windows för testning men installerar inte något på den
-
-Distribueringsskripten konfigurera sedan en iSCSI-virtuellt SAN (vSAN) för delad lagring på Azure. I det här exemplet ansluter iSCSI till GlusterFS. Den här lösningen får du också alternativet att installera iSCSI-mål som en Windows-nod. iSCSI tillhandahåller ett gränssnitt för lagring av delade block över TCP/IP som tillåter DB2 pureScale installationsprocessen för ett enhetsgränssnitt för att ansluta till delad lagring. GlusterFS grunderna, finns det [arkitektur: Typer av volymer](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) avsnittet i Gluster Docs.
-
-Distribueringsskripten kör dessa allmänna steg:
-
-1.  Använd GlusterFS för att konfigurera ett kluster med delad lagring på Azure. Det här steget ska ha minst två Linux-noder. Installationsprogrammet information finns i [konfigurerar Red Hat Gluster Storage i Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) i Red Hat Gluster-dokumentationen.
-
-2.  Ställ in en direkt iSCSI-gränssnittet på mål-Linux-servrar för GlusterFS. Installationsprogrammet information finns i [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) i GlusterFS Administration Guide.
-
-3.  Konfigurera iSCSI-initieraren på Linux-datorer. Initieraren åt GlusterFS klustret genom att använda ett iSCSI-mål. Installationsprogrammet information finns i [hur du konfigurerar en iSCSI-mål och initierare i Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) i RootUsers-dokumentationen.
-
-4.  Installera GlusterFS som lagringsskikt för iSCSI-gränssnittet.
-
-När skripten skapar iSCSI-enhet kan är det sista steget att installera DB2 pureScale. Som en del av installationsprogrammet för DB2 pureScale [IBM Spectrum skala](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (kallades tidigare GPFS) samlas in och installeras i klustret GlusterFS. Den här klustrade filsystem kan DB2 pureScale att dela data mellan de virtuella datorer som kör DB2 pureScale motorn. Mer information finns i den [IBM Spectrum skala](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) dokumentationen på webbplatsen IBM.
-
-## <a name="db2-purescale-response-file"></a>Svarsfilen för DB2 pureScale
-
-GitHub-lagringsplatsen innehåller DB2server.rsp, en svarsfil (.rsp) där du kan generera ett automatiserat skript för DB2 pureScale installationen. I följande tabell visas de DB2 pureScale alternativ som svarsfilen används för installation. Du kan anpassa svarsfilen som behövs för din miljö.
+Lagrings platsen innehåller också skript för att konfigurera en Grafana-instrumentpanel. Du kan använda instrument panelen för att fråga Prometheus, övervaknings-och aviserings systemet med öppen källkod som ingår i DB2.
 
 > [!NOTE]
-> En exempelfil för svar, DB2server.rsp, som ingår i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub. Om du använder den här filen kan redigera du den innan de fungerar i din miljö.
+> Deploy.sh-skriptet på klienten skapar privata SSH-nycklar och skickar dem till distributions mal len över HTTPS. För större säkerhet rekommenderar vi att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) för att lagra hemligheter, nycklar och lösen ord.
 
-| Skärmnamn               | Fält                                        | Värde                                                                                                 |
+## <a name="how-the-deployment-script-works"></a>Så här fungerar distributions skriptet
+
+Deploy.sh-skriptet skapar och konfigurerar Azure-resurser för den här arkitekturen. Skriptet efterfrågar dig för Azure-prenumerationen och virtuella datorer som används i mål miljön och utför sedan följande åtgärder:
+
+-   Konfigurerar resurs gruppen, det virtuella nätverket och undernät i Azure för installationen
+
+-   Konfigurerar nätverks säkerhets grupper och SSH för miljön
+
+-   Konfigurerar nätverkskort på både GlusterFS-och DB2 pureScale-virtuella datorer
+
+-   Skapar virtuella datorer för GlusterFS-lagring
+
+-   Skapar den virtuella bygel-datorn
+
+-   Skapar virtuella DB2 pureScale-datorer
+
+-   Skapar den virtuella vittnes datorn som DB2 pureScale-pingar
+
+-   Skapar en virtuell Windows-dator som ska användas för testning men installerar inte något på den
+
+Sedan konfigurerar distributions skripten en virtuell iSCSI-storage area network (virtuellt SAN) för delad lagring på Azure. I det här exemplet ansluter iSCSI till GlusterFS. Den här lösningen ger dig också möjlighet att installera iSCSI-målen som en enda Windows-nod. iSCSI tillhandahåller ett delat block lagrings gränssnitt över TCP/IP som gör att installations proceduren för DB2-pureScale kan använda ett enhets gränssnitt för att ansluta till delad lagring. Grundläggande information om GlusterFS finns i [arkitekturen: Avsnittet typer av](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) volymer i Gluster-dokument.
+
+Distributions skripten kör dessa generella steg:
+
+1.  Använd GlusterFS för att konfigurera ett delat lagrings kluster i Azure. Det här steget omfattar minst två Linux-noder. Installations information finns i Konfigurera [Red Hat Gluster Storage i Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) i Red Hat Gluster-dokumentationen.
+
+2.  Konfigurera ett iSCSI Direct-gränssnitt på mål Linux-servrar för GlusterFS. Installations information finns i [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) i administrations guiden för GlusterFS.
+
+3.  Konfigurera iSCSI-initieraren på de virtuella Linux-datorerna. Initieraren kommer åt GlusterFS-klustret med hjälp av ett iSCSI-mål. Installations information finns i [så här konfigurerar du ett iSCSI-mål och en initierare i Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) i RootUsers-dokumentationen.
+
+4.  Installera GlusterFS som lagrings skikt för iSCSI-gränssnittet.
+
+När skripten har skapat iSCSI-enheten är det sista steget att installera DB2 pureScale. Som en del av installationen av DB2-pureScale kompileras och installeras [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (tidigare kallat GPFS) och installeras i GlusterFS-klustret. Det här klustrade fil systemet gör det möjligt för DB2 pureScale att dela data mellan de virtuella datorerna som kör DB2 pureScale-motorn. Mer information finns i dokumentationen för [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) på IBM-webbplatsen.
+
+## <a name="db2-purescale-response-file"></a>DB2 pureScale-svarsfil
+
+GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör att du kan generera ett automatiserat skript för installationen av DB2 pureScale. I följande tabell visas de DB2 pureScale-alternativ som svars filen använder för installations programmet. Du kan anpassa svars filen efter behov för din miljö.
+
+> [!NOTE]
+> En exempel svars fil, DB2server. rsp, ingår i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Om du använder den här filen måste du redigera den innan den kan fungera i din miljö.
+
+| Skärm namn               | Fält                                        | Value                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
-| Välj en produkt          |                                              | DB2 Version 11.1.3.3. Serverversioner med DB2 pureScale                                              |
+| Välj en produkt          |                                              | DB2-version 11.1.3.3. Server versioner med DB2 pureScale                                              |
 | Konfiguration             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
-|                           | Välj installationstypen                 | Vanliga                                                                                               |
-|                           | Jag samtycker till villkoren IBM                     | Markerad                                                                                               |
-| Instans-ägare            | Befintliga For användarinstans, användarnamn        | DB2sdin1                                                                                              |
-| Inhägnade användare               | Befintliga användare, användarnamn                     | DB2sdfe1                                                                                              |
-| Kluster-filsystem       | Delad disk partition enhetens sökväg            | /dev/dm-2                                                                                             |
-|                           | Monteringspunkt                                  | /DB2sd\_1804a                                                                                         |
+|                           | Välj Installations typ                 | Vanligt                                                                                               |
+|                           | Jag godkänner IBM-villkoren                     | Markerad                                                                                               |
+| Instans ägare            | Befintlig användare för instans, användar namn        | DB2sdin1                                                                                              |
+| Avgränsad användare               | Befintlig användare, användar namn                     | DB2sdfe1                                                                                              |
+| Kluster fil system       | Enhets Sök väg för delad diskpartition            | /dev/dm-2                                                                                             |
+|                           | Monterings punkt                                  | /DB2sd\_1804a                                                                                         |
 |                           | Delad disk för data                         | /dev/dm-1                                                                                             |
-|                           | Monteringspunkt (Data)                           | / DB2fs/datafs1                                                                                        |
+|                           | Monterings punkt (data)                           | /DB2fs/datafs1                                                                                        |
 |                           | Delad disk för logg                          | /dev/dm-0                                                                                             |
-|                           | Monteringspunkt (loggning)                            | / DB2fs/logfs1                                                                                         |
-|                           | DB2 Kluster Services Tiebreaker. Enhetens sökväg | /dev/dm-3                                                                                             |
-| Värdlistan                 | D1 [eth1] d2 [eth1] cf1 [eth1] cf2 [eth1] |                                                                                                       |
-|                           | Prioriterade primära CF                         | cf1                                                                                                   |
-|                           | Prioriterade sekundära CF                       | cf2                                                                                                   |
-| Svarsfilen och sammanfattning | första alternativet                                 | Installera DB2 Server Edition med funktionen pureScale IBM DB2 och spara mina inställningar i en svarsfil |
-|                           | Svaret filnamn                           | /root/DB2server.rsp                                                                                   |
+|                           | Monterings punkt (logg)                            | /DB2fs/logfs1                                                                                         |
+|                           | DB2 Cluster Services tiebreaker. Enhets Sök väg | /dev/dm-3                                                                                             |
+| Värd lista                 | D1 [eth1], D2 [eth1], CF1 [eth1], CF2 [eth1] |                                                                                                       |
+|                           | Prioritera primär CF                         | cf1                                                                                                   |
+|                           | Prioriterad sekundär CF                       | cf2                                                                                                   |
+| Svarsfil och sammanfattning | första alternativet                                 | Installera DB2 Server Edition med funktionen IBM DB2 pureScale och spara inställningarna i en svarsfil |
+|                           | Svars filens namn                           | /root/DB2server.rsp                                                                                   |
 
 ### <a name="notes-about-this-deployment"></a>Information om den här distributionen
 
-- Värdena för /dev-dm0, /dev-dm1, /dev-dm2 och /dev-dm3 ändras efter en omstart på den virtuella datorn där installationen äger rum (d0 i automatiserade skript). För att hitta rätt värden, kan du utfärda följande kommando innan du slutför svarsfilen på servern där installationen körs:
+- Värdena för/dev-dm0,/dev-DM1,/dev-dm2 och/dev-DM3 kan ändras efter en omstart på den virtuella datorn där installationen äger rum (D0 i det automatiserade skriptet). Om du vill hitta rätt värden kan du utfärda följande kommando innan du slutför svars filen på den server där installationen ska köras:
 
    ```
    [root\@d0 rhel]\# ls -als /dev/mapper
@@ -116,42 +116,42 @@ GitHub-lagringsplatsen innehåller DB2server.rsp, en svarsfil (.rsp) där du kan
    0 lrwxrwxrwx 1 root root 7 May 30 11:08 db2tieb -\> ../dm-3
    ```
 
-- Installationsskripten Använd alias för iSCSI-diskar så att de faktiska namnen lätt kan hittas.
+- Installations skripten använder alias för iSCSI-diskarna så att de faktiska namnen kan hittas enkelt.
 
-- När du kör installationsskriptet på d0, den **/dev/dm -\***  värden kan vara olika på d1 och cf0 cf1. Skillnaden i värden påverkar inte DB2 pureScale installationen.
+- När installations skriptet körs på D0 kan **/dev/DM-\***  -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Felsökning och kända problem
 
-GitHub-lagringsplatsen innehåller en kunskapsbas som författarna underhållas. Den visar eventuella problem som du kanske och lösningar som du kan prova. Till exempel kända problem kan inträffa när:
+GitHub-lagrings platsen innehåller en kunskaps bas som författarna underhåller. Det visar potentiella problem som du kan ha och lösningar som du kan prova. Till exempel kan kända problem inträffa när:
 
--   Du försöker nå gatewayens IP-adress.
+-   Du försöker komma åt gatewayens IP-adress.
 
--   Du kompilerar General Public License (GPL).
+-   Du kompilerar allmän offentlig licens (GPL).
 
--   Det går inte att säkerhetshandskakningen mellan värdar.
+-   Säkerhets hand skakningen mellan värdarna Miss lyckas.
 
--   DB2-installationsprogrammet identifierar en befintlig filsystem.
+-   DB2-installationsprogrammet identifierar ett befintligt fil system.
 
--   Du installerar manuellt IBM Spectrum skala.
+-   Du installerar IBM Spectrum-skalning manuellt.
 
--   Du installerar DB2 pureScale när IBM Spectrum skala har redan skapats.
+-   Du installerar DB2 pureScale när IBM Spectrum Scale redan har skapats.
 
--   Du bort DB2 pureScale och IBM Spectrum skala.
+-   Du tar bort DB2 pureScale och IBM Spectrum Scale.
 
-Mer information om dessa och andra kända problem finns i filen kb.md i den [DB2onAzure](https://aka.ms/DB2onAzure) lagringsplatsen.
+Mer information om dessa och andra kända problem finns i kb.md-filen i [DB2onAzure](https://aka.ms/DB2onAzure) -lagrings platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 -   [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
 
--   [Skapa nödvändiga användare för en DB2-pureScale funktionsinstallation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+-   [Skapa nödvändiga användare för en funktion installation av DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 
--   [DB2icrt - skapa instans-kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+-   [DB2icrt – skapa instans kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale lösning för kluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [Data lösning för DB2 pureScale-kluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
--   [Plattformen modernisering Alliance: IBM DB2 i Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+-   [Plattform modernisering Alliance: IBM DB2 på Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
--   [Azure Virtual Datacenter Lift and Shift-Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Guide för att lyfta och flytta Azure Virtual Data Center](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

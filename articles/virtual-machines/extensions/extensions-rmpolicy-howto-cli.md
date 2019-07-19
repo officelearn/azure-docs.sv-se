@@ -1,6 +1,6 @@
 ---
-title: Använda Azure för att begränsa installation av VM-tillägg | Microsoft Docs
-description: Använda Azure för att begränsa VM-tillägg-distributioner.
+title: Använd Azure Policy för att begränsa installationen av VM-tillägg | Microsoft Docs
+description: Använd Azure Policy för att begränsa distributioner av VM-tillägg.
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -12,33 +12,34 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: roiyz;cynthn
-ms.openlocfilehash: 5a885637aa2321e12953a72754eed42c91b5b201
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: roiyz
+ms.reviewer: cynthn
+ms.openlocfilehash: 79a65dc0e7aa85b2f8cef5f884fab7bc6cd076fe
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706731"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876725"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Linux-datorer
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använd Azure Policy för att begränsa installationen av tillägg på virtuella Linux-datorer
 
-Om du vill förhindra användning eller installationen av vissa tillägg på din virtuella Linux-datorer kan du skapa en Azure-princip med hjälp av CLI för att begränsa tillägg för virtuella datorer i en resursgrupp. 
+Om du vill förhindra användning eller installation av vissa tillägg på virtuella Linux-datorer kan du skapa en Azure-princip med hjälp av CLI för att begränsa tillägg för virtuella datorer i en resurs grupp. 
 
-Den här självstudien använder CLI i Azure Cloud Shell, som uppdateras ständigt till den senaste versionen. Om du vill köra Azure CLI lokalt måste du installera versionen 2.0.26 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+I den här självstudien används CLI i Azure Cloud Shell, som uppdateras kontinuerligt till den senaste versionen. Om du vill köra Azure CLI lokalt måste du installera version 2.0.26 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
-## <a name="create-a-rules-file"></a>Skapa en regelfil
+## <a name="create-a-rules-file"></a>Skapa en regel fil
 
-För att begränsa vilka tillägg som kan installeras men, du måste ha en [regeln](../../governance/policy/concepts/definition-structure.md#policy-rule) att tillhandahålla logik för att identifiera tillägget.
+För att begränsa vilka tillägg som kan installeras måste du ha en [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) för att kunna identifiera tillägget.
 
-Det här exemplet visar hur du neka installera tillägg som publicerats av ”Microsoft.OSTCExtensions” genom att skapa en regelfil i Azure Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och Ersätt sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
+Det här exemplet visar hur du nekar installation av tillägg som publicerats av "Microsoft. OSTCExtensions" genom att skapa en regel fil i Azure Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och ersätta sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
 
-I en [bash Cloud Shell](https://shell.azure.com/bash), typ:
+I en [bash Cloud Shell](https://shell.azure.com/bash)skriver du:
 
 ```azurecli-interactive 
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
-Kopiera och klistra in följande .json i filen.
+Kopiera och klistra in följande. json i filen.
 
 ```json
 {
@@ -64,22 +65,22 @@ Kopiera och klistra in följande .json i filen.
 }
 ```
 
-När du är klar trycker du på den **Esc** tangenten och skriv sedan **: wq** att spara och stäng filen.
+När du är färdig trycker du på **ESC** -tangenten och skriver sedan **: Wq** för att spara och stänga filen.
 
 
-## <a name="create-a-parameters-file"></a>Skapa en fil med parametrar
+## <a name="create-a-parameters-file"></a>Skapa en parameter fil
 
-Du behöver också en [parametrar](../../governance/policy/concepts/definition-structure.md#parameters) -fil som skapar en struktur som du kan använda för att skicka en lista över tillägg ska blockeras. 
+Du behöver också en [parameter](../../governance/policy/concepts/definition-structure.md#parameters) fil som skapar en struktur som du kan använda för att skicka en lista över tillägg som ska blockeras. 
 
-Det här exemplet visar hur du skapar en fil med parametrar för virtuella Linux-datorer i Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och ersätts sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
+Det här exemplet visar hur du skapar en parameter fil för virtuella Linux-datorer i Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och ersätta sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
 
-I den [bash Cloud Shell](https://shell.azure.com/bash), typ:
+I [bash Cloud Shell](https://shell.azure.com/bash)skriver du:
 
 ```azurecli-interactive
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
-Kopiera och klistra in följande .json i filen.
+Kopiera och klistra in följande. json i filen.
 
 ```json
 {
@@ -94,13 +95,13 @@ Kopiera och klistra in följande .json i filen.
 }
 ```
 
-När du är klar trycker du på den **Esc** tangenten och skriv sedan **: wq** att spara och stäng filen.
+När du är färdig trycker du på **ESC** -tangenten och skriver sedan **: Wq** för att spara och stänga filen.
 
 ## <a name="create-the-policy"></a>Skapa principen
 
-En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder filerna regler och parametrar för att definiera principen. Skapa den principdefinition med [az principdefinitionen skapa](/cli/azure/role/assignment?view=azure-cli-latest).
+En princip definition är ett objekt som används för att lagra den konfiguration som du vill använda. Princip definitionen använder filerna regler och parametrar för att definiera principen. Skapa princip definitionen med [AZ-princip definition Create](/cli/azure/role/assignment?view=azure-cli-latest).
 
-I det här exemplet är filerna du skapas och lagras som JSON-filer i cloudshell av de regler och parametrar.
+I det här exemplet är reglerna och parametrarna de filer som du har skapat och lagrat som JSON-filer i Cloud Shell.
 
 ```azurecli-interactive
 az policy definition create \
@@ -115,9 +116,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Tilldela principen
 
-Det här exemplet tilldelar principen till en resurs med [az principtilldelningens skapa](/cli/azure/policy/assignment). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera Linux VM-åtkomst eller anpassade skripttillägg för Linux. Resursgruppen måste finnas innan du kan tilldela principen.
+I det här exemplet tilldelas principen en resurs grupp med [AZ policy Assignment Create](/cli/azure/policy/assignment). Alla virtuella datorer som skapats i resurs gruppen **myResourceGroup** kommer inte att kunna installera Linux VM-åtkomst eller anpassade skript tillägg för Linux. Resurs gruppen måste finnas innan du kan tilldela principen.
 
-Använd [az kontolista](/cli/azure/account?view=azure-cli-latest) att få ditt prenumerations-ID du använder i stället för den i det här exemplet.
+Använd [AZ Account List](/cli/azure/account?view=azure-cli-latest) för att hämta ditt PRENUMERATIONS-ID i stället för det som visas i exemplet.
 
 
 ```azurecli-interactive
@@ -137,7 +138,7 @@ az policy assignment create \
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Testa principen genom att skapa en ny virtuell dator och försök att lägga till en ny användare.
+Testa principen genom att skapa en ny virtuell dator och försöka lägga till en ny användare.
 
 
 ```azurecli-interactive
@@ -148,7 +149,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Försök att skapa en ny användare med namnet **myNewUser** med hjälp av VM Access-tillägg.
+Försök att skapa en ny användare med namnet **myNewUser** med hjälp av tillägget för VM-åtkomst.
 
 ```azurecli-interactive
 az vm user update \

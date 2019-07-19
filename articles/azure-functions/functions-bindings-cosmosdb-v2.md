@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB-bindningar för Functions 2.x
+title: Azure Cosmos DB bindningar för funktioner 2. x
 description: Förstå hur du använder Azure Cosmos DB-utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,25 +11,25 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 1a505fc5ef09fe9842e72488843155af7c0888cb
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b0f8b5efcf7e22a3f9d98d5c812ba4821a8b2124
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480806"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254774"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB bindningar för Azure Functions 2. x
 
-> [!div class="op_single_selector" title1="Välj versionen av Azure Functions-runtime som du använder: "]
+> [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindningar i Azure Functions 2.x. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
+Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) -bindningar i Azure Functions 2. x. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
 
 > [!NOTE]
-> Den här artikeln är [Azure Functions version 2.x](functions-versions.md).  Information om hur du använder dessa bindningar i Functions 1.x, se [Azure Cosmos DB-bindningar för Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> Den här artikeln är för [Azure Functions version 2. x](functions-versions.md).  Information om hur du använder dessa bindningar i functions 1. x finns [Azure Cosmos DB bindningar för Azure Functions 1. x](functions-bindings-cosmosdb.md).
 >
-> Den här bindningen hette ursprungligen DocumentDB. I funktioner version är 2.x, utlösare, bindningar och paketet alla namngivna Cosmos DB.
+> Den här bindningen hette ursprungligen DocumentDB. I functions version 2. x är utlösaren, bindningarna och paketet alla namngivna Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,7 @@ Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](../cosmos-db/s
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Azure Cosmos DB-bindningar för Functions version 2.x finns i den [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet-paketet, version 3.x. Källkoden för bindningarna finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-lagringsplatsen.
+Azure Cosmos DB-bindningar för functions version 2. x finns i [Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet-paketet, version 3. x. Källkoden för bindningarna finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -57,7 +57,7 @@ Se exempel språkspecifika:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-Hoppa över utlösare-exempel
+Hoppa över utlösare exempel
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Hoppa över utlösare-exempel
+Hoppa över utlösare exempel
 
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
@@ -131,7 +131,7 @@ Här är C#-skriptkoden:
     }
 ```
 
-Hoppa över utlösare-exempel
+Hoppa över utlösare exempel
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
@@ -164,7 +164,7 @@ Här är JavaScript-kod:
 
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
-I följande exempel visas en Cosmos DB-utlösare bindande i *function.json* fil och en [Java funktionen](functions-reference-java.md) som använder bindningen. Funktionen ingår när det finns infogar eller uppdaterar i den angivna databasen och samlingen.
+I följande exempel visas en Cosmos DB trigger-bindning i *Function. JSON* -filen och en [Java-funktion](functions-reference-java.md) som använder bindningen. Funktionen är involverad när det finns infogningar eller uppdateringar i den angivna databasen och samlingen.
 
 ```json
 {
@@ -196,14 +196,14 @@ Här är den Java-kod:
 ```
 
 
-I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@CosmosDBTrigger` anteckning om parametrar vars värde skulle hämtas från Cosmos DB.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av valfritt<T>.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBTrigger` anteckningen för parametrar vars värde kommer från Cosmos dB.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med\<valfria T >.
 
 
-Hoppa över utlösare-exempel
+Hoppa över utlösare exempel
 
-### <a name="trigger---python-example"></a>Utlösare – Python-exempel
+### <a name="trigger---python-example"></a>Utlös – python-exempel
 
-I följande exempel visas en Cosmos DB-utlösare bindning i en *function.json* fil och en [funkce Pythonu](functions-reference-python.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster har ändrats.
+I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster har ändrats.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -220,7 +220,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
     import logging
@@ -232,7 +232,7 @@ Här är Python-kod:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-## <a name="trigger---c-attributes"></a>Utlösare – C#-attribut
+## <a name="trigger---c-attributes"></a>Utlös ande C# attribut
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribut.
 
@@ -274,9 +274,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**leaseAcquireInterval**| **leaseAcquireInterval**| (Valfritt) När värdet definierar den, i millisekunder, intervallet sätta igång en uppgift att beräkna om partitioner fördelas jämnt mellan kända ha instanser. Standardvärdet är 13000 (13 sekunder).
 |**leaseExpirationInterval**| **leaseExpirationInterval**| (Valfritt) När värdet definierar den, i millisekunder, intervallet som fattas lånet om ett lån som representerar en partition. Om lånet inte förnyas inom intervallet, det gör att det upphör att gälla och ägarskap för partitionen flyttas till en annan instans. Standardvärdet är 60000 (60 sekunder).
 |**leaseRenewInterval**| **leaseRenewInterval**| (Valfritt) När värdet definierar den, i millisekunder, förnyelseintervallet för alla lån för partitioner som för tillfället hålls av en instans. Standardvärdet är 17000 (17 sekunder).
-|**checkpointFrequency**| **checkpointFrequency**| (Valfritt) När värdet definierar den, i millisekunder, hur många lån kontrollpunkter. Standardvärdet är alltid efter varje funktionsanrop.
+|**checkpointFrequency**| **checkpointFrequency**| (Valfritt) När värdet definierar den, i millisekunder, hur många lån kontrollpunkter. Standardvärdet är alltid efter varje funktions anrop.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (Valfritt) När värdet anpassar det den maximala mängden objekt tas emot per funktionsanrop.
-|**startFromBeginning**| **startFromBeginning**| (Valfritt) När värdet meddelar utlösaren ska börja läsa ändringarna från början av historiken för samlingen i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, som i efterföljande körningar, kontrollpunkterna lagras redan. Du anger detta till `true` när det finns redan skapat lån har ingen effekt.
+|**startFromBeginning**| **StartFromBeginning**| Valfritt När det är inställt, instrueras utlösaren att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, precis som vid efterföljande körningar, så är kontroll punkterna redan lagrade. Att ställa in `true` detta på när det redan har skapats lån har ingen påverkan.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -387,7 +387,7 @@ namespace CosmosDBSamplesV2
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
 
 >[!NOTE]
->HTTP-frågesträngparametern är skiftlägeskänsligt.
+>Parametern HTTP-frågesträng är Skift läges känslig.
 >
 
 ```cs
@@ -480,7 +480,7 @@ namespace CosmosDBSamplesV2
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder dirigera data för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Exemplet visar hur du använder en bindning uttryck i den `SqlQuery` parametern. Du kan skicka vidarebefordra data till den `SqlQuery` parameter som det visas, men för närvarande [du kan inte skicka frågesträngsvärden](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
+Exemplet visar hur du använder ett bindnings uttryck i `SqlQuery` parametern. Du kan skicka flödes data till `SqlQuery` parametern som visas, men för närvarande kan [du inte skicka frågesträngs värden](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 
 ```cs
@@ -990,7 +990,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 ### <a name="input---javascript-examples"></a>Indata - JavaScript-exempel
 
-Det här avsnittet innehåller följande exempel som läser ett enskilt dokument genom att ange ett ID-värde från olika källor:
+Det här avsnittet innehåller följande exempel som läser ett enda dokument genom att ange ett ID-värde från olika källor:
 
 * [Köutlösare, leta upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-javascript)
@@ -1196,9 +1196,9 @@ Här är JavaScript-kod:
 
 [Hoppa över inkommande exempel](#input---attributes)
 
-### <a name="input---python-examples"></a>Indata - Python-exempel
+### <a name="input---python-examples"></a>In-python-exempel
 
-Det här avsnittet innehåller följande exempel som läser ett enskilt dokument genom att ange ett ID-värde från olika källor:
+Det här avsnittet innehåller följande exempel som läser ett enda dokument genom att ange ett ID-värde från olika källor:
 
 * [Köutlösare, leta upp ID från JSON](#queue-trigger-look-up-id-from-json-python)
 * [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-python)
@@ -1207,9 +1207,9 @@ Det här avsnittet innehåller följande exempel som läser ett enskilt dokument
 
 [Hoppa över inkommande exempel](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-json-python"></a>Köutlösare, leta upp ID från JSON (Python)
+#### <a name="queue-trigger-look-up-id-from-json-python"></a>Köa utlösare, leta upp ID från JSON (python)
 
-I följande exempel visas en Cosmos DB-indatabindning i en *function.json* fil och en [funkce Pythonu](functions-reference-python.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -1238,7 +1238,7 @@ Här är bindningsdata i den *function.json* fil:
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
 import azure.functions as func
@@ -1253,9 +1253,9 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 [Hoppa över inkommande exempel](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-query-string-python"></a>HTTP-utlösare, leta upp ID från frågesträngen (Python)
+#### <a name="http-trigger-look-up-id-from-query-string-python"></a>HTTP-utlösare, leta upp ID från frågesträng (python)
 
-I följande exempel visas en [funkce Pythonu](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
+I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
 
 Här är den *function.json* fil:
 
@@ -1292,7 +1292,7 @@ Här är den *function.json* fil:
 }
 ```
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
 import logging
@@ -1311,9 +1311,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 [Hoppa över inkommande exempel](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP-utlösare, leta upp ID från dirigera data (Python)
+#### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP-utlösare, leta upp ID från rutt data (python)
 
-I följande exempel visas en [funkce Pythonu](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
+I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. ID: T är används för att hämta en `ToDoItem` dokument från den angivna databasen och samlingen.
 
 Här är den *function.json* fil:
 
@@ -1351,7 +1351,7 @@ Här är den *function.json* fil:
 }
 ```
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
 import logging
@@ -1369,9 +1369,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 [Hoppa över inkommande exempel](#input---attributes)
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>Kö utlösaren, hämta flera, med hjälp av SQL-fråga (Python)
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>Köa utlösare, hämta flera dokument med SqlQuery (python)
 
-I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json* fil och en [funkce Pythonu](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga som använder en kö-utlösare för att anpassa Frågeparametrar.
+I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga som använder en kö-utlösare för att anpassa Frågeparametrar.
 
 Kö-utlösare innehåller en parameter `departmentId`. Ett kömeddelande för `{ "departmentId" : "Finance" }` returneras alla poster för ekonomiavdelningen.
 
@@ -1391,7 +1391,7 @@ Här är bindningsdata i den *function.json* fil:
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
 import azure.functions as func
@@ -1452,15 +1452,15 @@ Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.D
 
 Att lägga till en `project.json` fil, se [ F# paket på](functions-reference-fsharp.md#package).
 
-### <a name="input---java-examples"></a>Indata - Java-exempel
+### <a name="input---java-examples"></a>In-Java-exempel
 
 Det här avsnittet innehåller följande exempel:
 
-* [HTTP-utlösare, leta upp ID från frågesträngen - parametern för frågesträngen](#http-trigger-look-up-id-from-query-string---string-parameter-java)
-* [HTTP-utlösare, leta upp ID från frågesträngen - POJO-parameter](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [HTTP-utlösare, leta upp ID från frågesträngparametern-String-parameter](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [HTTP-utlösare, leta upp ID från frågesträng-POJO-parameter](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
 * [HTTP-utlösare, leta upp ID från dirigera data](#http-trigger-look-up-id-from-route-data-java)
 * [HTTP-utlösare, leta upp ID från dirigera data med SQL-fråga](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
-* [HTTP utlösa, hämta flera från dirigera data med SQL-fråga](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+* [HTTP-utlösare, hämta flera dokument från väg data med SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
 
 Exemplen finns en enkel `ToDoItem` typ:
 
@@ -1485,9 +1485,9 @@ public class ToDoItem {
 }
 ```
 
-#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP-utlösare, leta upp ID från frågesträngen - parametern för frågesträngen (Java)
+#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP-utlösare, leta upp ID från frågesträng-sträng (Java)
 
-I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen i form av strängen.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen i sträng format.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1529,11 +1529,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@CosmosDBInput` anteckningen i funktionsparametrar vars värde skulle hämtas från Cosmos DB.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av valfritt<T>.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBInput` anteckningen för funktions parametrar vars värde kommer från Cosmos dB.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med\<valfria T >.
 
-#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP-utlösare, leta upp ID från frågesträngen - POJO-parametern (Java)
+#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP-utlösare, leta upp ID från frågesträng-POJO parameter (Java)
 
-I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen. Dokumentet konverteras sedan till en instans av den ```ToDoItem``` POJO tidigare skapas och skickas som ett argument till funktionen.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen. Dokumentet konverteras sedan till en instans av ```ToDoItem``` POJO som tidigare skapats och skickades som ett argument till funktionen.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1573,9 +1573,9 @@ public class DocByIdFromQueryStringPojo {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP-utlösare, leta upp ID från dirigera data (Java)
+#### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP-utlösare, leta upp ID från rutt data (Java)
 
-I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg-parameter för att ange ID för att leta upp. Att ID används för att hämta ett dokument från den angivna databasen och samlingen, returnerar den som en ```Optional<String>```.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg parameter för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen, och returnerar det som ```Optional<String>```en.
 
 ```java
 public class DocByIdFromRoute {
@@ -1618,9 +1618,9 @@ public class DocByIdFromRoute {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP-utlösare, leta upp ID från dirigera data med SQL-fråga (Java)
+#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP-utlösare, slå upp ID från routa data med SqlQuery (Java)
 
-I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg-parameter för att ange ID för att leta upp. Att ID för att hämta ett dokument från den angivna databasen och samlingen, konvertera resultatet inställd på en ```ToDoItem[]```, eftersom många dokument returneras, beroende på frågevillkor.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg parameter för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen, vilket konverterar resultat uppsättningen till ett ```ToDoItem[]```, eftersom många dokument kan returneras, beroende på frågevillkor.
 
 ```java
 public class DocByIdFromRouteSqlQuery {
@@ -1660,9 +1660,9 @@ public class DocByIdFromRouteSqlQuery {
 }
  ```
 
-#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP utlösa, hämta flera från dirigera data med SQL-fråga (Java)
+#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP-utlösare, hämta flera dokument från väg data med SqlQuery (Java)
 
-I följande exempel visas en Java-funktion som flera dokument. Funktionen som utlöses av en HTTP-begäran som använder en väg parameter ```desc``` att ange den sträng som ska söka efter i den ```description``` fält. Söktermen som används för att hämta en samling dokument från den angivna databasen och samlingen, konvertering av resultatuppsättningen till en ```ToDoItem[]``` och skicka den som ett argument till funktionen.
+I följande exempel visas en Java-funktion som innehåller flera dokument. Funktionen utlöses av en http-begäran som använder en Route-parameter ```desc``` för att ange strängen som ska sökas efter ```description``` i fältet. Sök termen används för att hämta en samling dokument från den angivna databasen och samlingen, vilket konverterar resultat uppsättningen till en ```ToDoItem[]``` och skickar den som ett argument till funktionen.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1704,7 +1704,7 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="input---attributes"></a>Indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribut.
+Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
 Attributets konstruktorn tar databasens namn och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [följande konfigurationsavsnittet](#input---configuration).
 
@@ -1730,7 +1730,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 I C# och F# funktion, när funktionen avslutas, ändringar som görs till dokumentet via namngivna indata parametrar sparas automatiskt.
 
-I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se exemplet JavaScript.
+I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se JavaScript-exemplet.
 
 ## <a name="output"></a>Output
 
@@ -2114,17 +2114,17 @@ Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.D
 
 Att lägga till en `project.json` fil, se [ F# paket på](functions-reference-fsharp.md#package).
 
-### <a name="output---java-examples"></a>Resultat – Java-exempel
+### <a name="output---java-examples"></a>Utdata – Java-exempel
 
-* [Köutlösare spara meddelande till databasen via returvärde](#queue-trigger-save-message-to-database-via-return-value-java)
-* [HTTP-utlösare, spara ett dokument till databasen via returvärde](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [Köa utlösare, Spara meddelande till databas via retur värde](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP-utlösare, spara ett dokument till databasen via retur värde](#http-trigger-save-one-document-to-database-via-return-value-java)
 * [HTTP-utlösare, spara ett dokument till databasen via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
-* [HTTP-utlösare, spara flera dokument i databasen via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+* [HTTP-utlösare, spara flera dokument till databasen via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
 
 
-#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>Köutlösare spara meddelande till databasen via returvärdet (Java)
+#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>Köa utlösare, Spara meddelande till databas via retur värde (Java)
 
-I följande exempel visas en Java-funktion som lägger tillför ett dokument till en databas med data från ett meddelande i Queue storage.
+I följande exempel visas en Java-funktion som lägger till ett dokument i en databas med data från ett meddelande i Queue Storage.
 
 ```java
 @FunctionName("getItem")
@@ -2142,9 +2142,9 @@ public String cosmosDbQueryById(
    }
 ```
 
-#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>HTTP-utlösare, spara ett dokument till databasen via returvärdet (Java)
+#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>HTTP-utlösare, spara ett dokument till databasen via retur värde (Java)
 
-I följande exempel visas en Java-funktion som vars signatur är kommenterade med ```@CosmosDBOutput``` och har returvärde av typen ```String```. JSON-dokumentet som returnerades av funktionen skrivs automatiskt till motsvarande CosmosDB-samling.
+I följande exempel visas en Java-funktion vars signatur är kommenterad ```@CosmosDBOutput``` och har returnerat värde av ```String```typen. JSON-dokumentet som returnerades av funktionen skrivs automatiskt till motsvarande CosmosDB-samling.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -2181,7 +2181,7 @@ I följande exempel visas en Java-funktion som vars signatur är kommenterade me
 
 #### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP-utlösare, spara ett dokument till databasen via OutputBinding (Java)
 
-I följande exempel visas en Java-funktion som skriver ett dokument till CosmosDB via en ```OutputBinding<T>``` utdataparameter. Observera att, i den här konfigurationen är det den ```outputItem``` parameter som måste förses med ```@CosmosDBOutput```, inte i funktionssignaturen. Med hjälp av ```OutputBinding<T>``` kan funktionen dra nytta av bindningen till skriva dokumentet till CosmosDB samtidigt som också ett annat värde returneras till anroparen funktion, till exempel ett JSON eller XML-dokument.
+I följande exempel visas en Java-funktion som skriver ett dokument till CosmosDB via ```OutputBinding<T>``` en utdataparameter. Observera att i den här konfigurationen är ```outputItem``` det den parameter som måste vara kommenterad ```@CosmosDBOutput```, inte funktions-signaturen. Med ```OutputBinding<T>``` kan du använda funktionen för att dra nytta av bindningen för att skriva dokumentet till CosmosDB, samtidigt som du även tillåter att ett annat värde returneras till funktions anrop, till exempel ett JSON-eller XML-dokument.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -2223,9 +2223,9 @@ I följande exempel visas en Java-funktion som skriver ett dokument till CosmosD
     }
 ```
 
-#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP-utlösare, spara flera dokument i databasen via OutputBinding (Java)
+#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP-utlösare, spara flera dokument till databasen via OutputBinding (Java)
 
-I följande exempel visas en Java-funktion som skriver flera dokument till CosmosDB via en ```OutputBinding<T>``` utdataparameter. Observera att, i den här konfigurationen är det den ```outputItem``` parameter som måste förses med ```@CosmosDBOutput```, inte i funktionssignaturen. Output-parameter ```outputItem``` har en lista över ```ToDoItem``` objekt som dess parametertypen för mallen. Med hjälp av ```OutputBinding<T>``` kan funktionen dra nytta av bindningen till skriva dokument till CosmosDB samtidigt som också ett annat värde returneras till anroparen funktion, till exempel ett JSON eller XML-dokument.
+I följande exempel visas en Java-funktion som skriver flera dokument till CosmosDB via ```OutputBinding<T>``` en utdataparameter. Observera att i den här konfigurationen är ```outputItem``` det den parameter som måste vara kommenterad ```@CosmosDBOutput```, inte funktions-signaturen. Parametern output innehåller en ```outputItem``` lista med ```ToDoItem``` objekt som mall-parameter typ. Med ```OutputBinding<T>``` kan du använda funktionen för att dra nytta av bindningen för att skriva dokumenten till CosmosDB samtidigt som du också tillåter att ett annat värde returneras till funktions anrop, till exempel ett JSON-eller XML-dokument.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -2272,12 +2272,12 @@ I följande exempel visas en Java-funktion som skriver flera dokument till Cosmo
     }
 ```
 
-I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@CosmosDBOutput` anteckning på parametrar som ska skrivas till Cosmos DB.  Parametertypen anteckning ska vara ```OutputBinding<T>```, där T är en inbyggd Java-typ eller en POJO.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som ska skrivas till Cosmos dB.  Typ av antecknings parameter bör ```OutputBinding<T>```vara, där T är antingen en ursprunglig Java-typ eller en POJO.
 
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribut.
+Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
 Attributets konstruktorn tar databasens namn och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata - konfigurationen](#output---configuration). Här är en `CosmosDB` attributet exemplet i signaturen för metoden:
 
@@ -2291,7 +2291,7 @@ Attributets konstruktorn tar databasens namn och samlingens namn. Information om
     }
 ```
 
-Ett komplett exempel finns i utdata - C# exempel.
+Ett fullständigt exempel finns i utdata- C# exempel.
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -2347,9 +2347,9 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|GatewayMode|Gateway|Anslutningsläge som används av funktionen när du ansluter till Azure Cosmos DB-tjänsten. Alternativen är `Direct` och `Gateway`|
-|Protocol|Https|Anslutningsprotokoll som används av funktionen när anslutningen till Azure Cosmos DB-tjänsten.  Läs [här som en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)| 
-|leasePrefix|Saknas|Lån-prefix kan använda alla funktioner i en app.| 
+|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
+|Protocol|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.| 
 
 ## <a name="next-steps"></a>Nästa steg
 

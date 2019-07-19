@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879114"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226097"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 implementerar en modell för åtkomstkontroll som h
 
 Det finns två sorters åtkomstkontrollistor (ACL:er), **Åtkomst-ACL:er** och **Standard-ACL:er**.
 
-* **Åtkomst-ACL**: De här kontrollerar åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
+* **Åtkomst-ACL: er**: Dessa styr åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
 
-* **Standard-ACL**: En ”mall” av ACL: er som är associerade med en mapp som bestämmer åtkomst-ACL: er för underordnade objekt som har skapats under mappen. Filer har inte standard-ACL:er.
+* **Standard-ACL: er**: En "mall" av ACL: er som är associerade med en mapp som bestämmer åtkomst-ACL: er för underordnade objekt som skapas i den mappen. Filer har inte standard-ACL:er.
 
 
 Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
@@ -132,8 +132,8 @@ Eftersom det finns inga ”primär grupp” som tillhör användare i Data Lake 
 
 **Tilldela den ägande gruppen för en ny fil eller mapp**
 
-* **Fall 1**: Rotmappen ”/”. Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
-* **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
+* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
+* **Fall 2** (Alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
 **Ändra den ägande gruppen**
 
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en 
 
 ### <a name="umask"></a>umask
 
-När du skapar en fil eller mapp, används umask för att ändra hur standard-ACL: er är inställda på det underordnade objektet. umask är ett 9-bitars ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**, och **andra**.
+När du skapar en fil eller mapp, används umask för att ändra hur standard-ACL: er är inställda på det underordnade objektet. umask är ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**och **annat**.
 
-Umask för Azure Data Lake Storage Gen1 en konstant värde som är inställt på 007. Det här värdet motsvarar
+Umask för Azure Data Lake Storage Gen1 är ett konstant värde som är inställt på 007. Det här värdet motsvarar
 
 | umask-komponent     | Numeriskt format | Kortformat | Betydelse |
 |---------------------|--------------|------------|---------|

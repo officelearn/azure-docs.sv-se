@@ -1,24 +1,24 @@
 ---
-title: Azure SaaS-program-erbjudande | Azure Marketplace
-description: Översikt över processen för att publicera ett Azure SaaS-program erbjuder på Azure Marketplace.
+title: Erbjudande för Azure SaaS-program | Azure Marketplace
+description: Översikt över processen för att publicera ett erbjudande för Azure SaaS-program på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 70801f7d616434df83a7fd3399780a73afde1f32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: de799780ecbfeb3cbe66c5cc57f0e6c3bd2d1350
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751699"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872006"
 ---
-# <a name="azure-saas-application-offer"></a>Azure SaaS-program-erbjudande
+# <a name="azure-saas-application-offer"></a>Erbjudande för Azure SaaS-program
 
-Den [Cloud Partner Portal](https://cloudpartner.azure.com/) inte längre stöd för skapandet och hanteringen av SaaS-program-erbjudanden.  I stället den här funktionen har flyttats till Microsofts [Partner Center-portalen](https://partner.microsoft.com/pcv/).  Mer information finns i [skapa ett nytt SaaS-erbjudande](../../partner-center-portal/create-new-saas-offer.md). 
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera erbjudanden för SaaS-program.  I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/pcv/).  Mer information finns i [skapa ett nytt SaaS-erbjudande](../../partner-center-portal/create-new-saas-offer.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du skapar ett nytt erbjudande för SaaS-app kan du läsa den [SaaS-program erbjuder publiceringsguide](../../marketplace-saas-applications-technical-publishing-guide.md) och granska Partner Center portal stegen i den [erbjudandet skapa checklista](../../partner-center-portal/offer-creation-checklist.md). 
+Innan du skapar ett nytt SaaS app-erbjudande bör du läsa [publicerings guiden för SaaS-program](../../marketplace-saas-applications-technical-publishing-guide.md) och granska Partner Center-portalens steg som anges i check listan för att [Skapa erbjudanden](../../partner-center-portal/offer-creation-checklist.md). 

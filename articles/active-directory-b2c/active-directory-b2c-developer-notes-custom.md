@@ -1,6 +1,6 @@
 ---
-title: Kommentarer för utvecklare för anpassade principer – Azure Active Directory B2C | Microsoft Docs
-description: Information för utvecklare på Konfigurera och underhålla Azure AD B2C med anpassade principer.
+title: Developer-kommentarer för anpassade principer – Azure Active Directory B2C | Microsoft Docs
+description: Anteckningar för utvecklare om hur man konfigurerar och underhåller Azure AD B2C med anpassade principer.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,131 +10,133 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d0be4ec2ed8feb308839377e0494ef2f4b78368
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f8d1ac217647ee292338da875671ef8bd3f79db
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510202"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227202"
 ---
-# <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Kommentarer för utvecklare för anpassade principer i Azure Active Directory B2C
+# <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
-Anpassad princip för konfiguration i Azure Active Directory B2C är nu allmänt tillgänglig. Den här metoden för konfiguration är avsett för avancerade identity-utvecklare som skapar komplexa identitetslösningar. Anpassade principer gör kraften hos de Identitetsramverk som är tillgängliga i Azure AD B2C-klienter. Avancerade identitets-utvecklare som använder anpassade principer bör planera att investera tid slutförs genomgångarna och läsa referensdokument.
+Anpassad princip konfiguration i Azure Active Directory B2C är nu allmänt tillgänglig. Den här konfigurations metoden riktar sig till avancerade identitets utvecklare som skapar komplexa identitets lösningar. Anpassade principer gör kraften i det tillgängliga ramverket för identitets miljö i Azure AD B2C klienter.
+Avancerade identitets utvecklare som använder anpassade principer bör planera att investera lite tid genom att gå igenom och läsa referens dokument.
 
-De flesta av de tillgängliga alternativen för anpassad princip är nu allmänt tillgängliga, finns men det underliggande funktioner, till exempel tekniska profiltyperna och innehållsdefinition API: er som finns i olika faser i programvarans livscykel. Många fler kommer. Tabellen nedan anger nivån för tillgänglighet på en mer detaljerad nivå.  
+De flesta anpassade princip alternativ är nu allmänt tillgängliga, men det finns underliggande funktioner, till exempel tekniska profil typer och API: er för innehålls definition som finns i olika faser i program varu livs cykeln. Många fler kommer. Tabellen nedan anger nivån på tillgänglighet på en mer detaljerad nivå.
 
 ## <a name="features-that-are-generally-available"></a>Funktioner som är allmänt tillgängliga
 
-- Författare och överföra anpassad autentisering användaren utbildning genom att använda anpassade principer.  
-    - Beskriv användaren resor stegvisa som utbyten mellan Anspråksproviders.  
-    - Definiera villkorlig branchning i utbildning för användaren.  
-- Samverka med REST API-aktiverade tjänster i din utbildning för anpassad autentisering-användaren.  
-- Federera med identitetsleverantörer som är kompatibla med OpenIDConnect-protokollet.  
-- Federera med identitetsleverantörer som följer SAML 2.0-protokollet.   
+- Skapa och ladda upp användar transporter för anpassad autentisering med hjälp av anpassade principer.
+    - Beskriv användar resan steg för steg som utbyten mellan anspråks leverantörer.
+    - Definiera villkorlig grenning i användar resor.
+- Samverka med REST API-aktiverade tjänster i dina anpassade användar resor för autentisering.
+- Federera med identitets leverantörer som är kompatibla med OpenIDConnect-protokollet.
+- Federera med identitets leverantörer som följer SAML 2,0-protokollet.
 
-## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Ansvaret för anpassad princip funktionsuppsättningen utvecklare
+## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Ansvars områden för anpassad princip funktion – Ställ in utvecklare
 
-Manuell konfiguration ger lägre nivå åtkomst till den underliggande plattformen av Azure AD B2C och resulterar i att skapa ett unikt förlitar sig på framework. Många möjliga varianter av anpassade identitetsprovidrar, förtroenderelationer integreringar med externa tjänster och stegvisa arbetsflöden kräver en metodisk strategi design och konfiguration. 
+Den manuella princip konfigurationen ger lägre åtkomst till den underliggande plattformen av Azure AD B2C och resulterar i att ett unikt förtroende ramverk skapas. Många möjliga permutationer av anpassade identitets leverantörer, förtroende relationer, integreringar med externa tjänster och steg för steg-arbets flöden kräver en metodisk metod för design och konfiguration.
 
-Utvecklare som använder funktionen för anpassade principuppsättningen måste uppfylla följande riktlinjer:
+Utvecklare som använder den anpassade princip inställningen bör följa följande rikt linjer:
 
-- Bekanta dig med den anpassade principer och nyckel/hemligheter management configuration språk. Mer information finns i [TrustFrameworkPolicy](trustframeworkpolicy.md). 
-- Bli ägare till scenarier och anpassade integreringar. Dokumentera ditt arbete och informera organisationen live-webbplatsen.  
-- Utföra metodisk scenariotestning. 
-- Följ programutveckling och bästa praxis med minst en utvecklings- och testmiljö och en produktionsmiljö. 
-- Håll dig informerad om ny utveckling från identitetsleverantörer och tjänster som du integrerar med. Till exempel Håll koll på ändringar i hemligheter och planerade och oplanerade ändringar till tjänsten. 
-- Konfigurera övervakning av aktiva och övervaka svarstiden för produktionsmiljöer. Mer information om hur du integrerar med Application Insights finns [Azure Active Directory B2C: Samla in loggar](active-directory-b2c-custom-guide-eventlogger-appins.md). 
-- Håll kontakta e-postadresser i Azure-prenumeration och hålls nere till e-post med Microsoft team på aktiv webbplats. 
-- Vidta lämpliga åtgärder när vi rekommenderar att göra det genom Microsofts team för live-webbplatser.
+- Bekanta dig med konfigurations språket för anpassade principer och hantering av nyckel/hemligheter. Mer information finns i [TrustFrameworkPolicy](trustframeworkpolicy.md).
+- Bli ägare till scenarier och anpassade integreringar. Dokumentera ditt arbete och informera din Live site-organisation.
+- Utför metodiska scenario testning.
+- Följ program utvecklings-och mellanlagringsplatsen med bästa praxis med minst en utvecklings-och test miljö och en produktions miljö.
+- Håll dig informerad om ny utveckling från identitets leverantörer och tjänster som du integrerar med. Du kan till exempel hålla reda på ändringar i hemligheter och schemalagda och oplanerade ändringar i tjänsten.
+- Konfigurera aktiv övervakning och övervaka svars tiderna för produktions miljöer. Mer information om hur du integrerar med Application Insights [finns i Azure Active Directory B2C: Samlar in](active-directory-b2c-custom-guide-eventlogger-appins.md)loggar.
+- Behåll kontaktens e-postadresser som är aktuella i Azure-prenumerationen och håll dig uppdaterad med e-postmeddelandena från Microsoft Live-site.
+- Ta åtgärds tid när du uppmanas att göra det av Microsoft Live-site-teamet.
 
-## <a name="terms-for-features-in-public-preview"></a>Villkor för funktioner i offentlig förhandsversion
+## <a name="terms-for-features-in-public-preview"></a>Villkor för funktioner i offentlig för hands version
 
-- Vi rekommenderar att du kan använda funktionerna offentlig förhandsgranskning i utvärderingssyfte. 
-- Serviceavtal (SLA) gäller inte för de offentliga förhandsfunktionerna.
-- Supportärenden för offentlig förhandsversionsfunktioner kan lämnas via vanliga supportkanaler. 
+- Vi rekommenderar att du bara använder de offentliga för hands funktionerna i utvärderings syfte.
+- Service avtal (service avtal) gäller inte för de offentliga för hands versions funktionerna.
+- Support förfrågningar för offentliga för hands versions funktioner kan arkiveras via vanliga Support kanaler.
 
-## <a name="features-by-stage-and-known-issues"></a>Funktioner av steg och kända problem
+## <a name="features-by-stage-and-known-issues"></a>Funktioner efter steg och kända problem
 
-Anpassad princip/identitet upplevelse Framework-funktioner är under konstant och snabb utveckling. I följande tabell är ett index över funktioner och komponenttillgänglighet.
+Funktioner för anpassad princip/identitets upplevelse Framework är under konstant och snabb utveckling. Följande tabell är ett index över funktioner och tillgänglighet för komponenter.
 
-### <a name="identity-providers-tokens-protocols"></a>Identitets-Providers, token, protokoll
+### <a name="identity-providers-tokens-protocols"></a>Identitets leverantörer, token, protokoll
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-|-------- | ----------- | ------- | -- | ----- |
+|-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Till exempel Google +.  |
 | IDP-OAUTH2 |  |  | X | Till exempel Facebook.  |
-| IDP-OAUTH1 (twitter) |  | X |  | Till exempel Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | Stöds inte |
-| IDP-SAML |  |   | X | Till exempel Salesforce, AD FS. |
+| IDP – OAUTH1 (Twitter) |  | X |  | Till exempel Twitter. |
+| IDP – OAUTH1 (t. ex. Twitter) |  |  |  | Stöds inte |
+| IDP-SAML |  |   | X | Till exempel Salesforce, ADFS. |
 | IDP-WSFED | X |  |  |  |
-| Förlitande part OAUTH1 |  |  |  | Stöds ej. |
-| Förlitande part OAUTH2 |  |  | X |  |
-| Förlitande part OIDC |  |  | X |  |
-| Förlitande part SAML | X |  |  |  |
-| Förlitande part WSFED | X |  |  |  |
-| REST-API med basic- och certifikatbaserad autentisering |  |  | X | Till exempel Azure Logic Apps. |
+| OAUTH1 för förlitande part |  |  |  | Stöds ej. |
+| OAUTH2 för förlitande part |  |  | X |  |
+| OIDC för förlitande part |  |  | X |  |
+| SAML för förlitande part | X |  |  |  |
+| WSFED för förlitande part | X |  |  |  |
+| REST API med Basic-och certifikatautentisering |  |  | X | Till exempel Azure Logic Apps. |
 
-### <a name="component-support"></a>Stöd för komponent
+### <a name="component-support"></a>Komponent stöd
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | Azure Active Directory som lokal katalog |  |  | X |  |
-| Azure e-undersystem för e-Postverifiering |  |  | X |  |
+| Azure E-mail Subsystem för e-postverifiering |  |  | X |  |
 | Stöd för flera språk|  |  | X |  |
-| Predikatet verifieringar |  |  | X | Till exempel lösenordskomplexitet. |
-| Med hjälp av e-tredjepartsleverantörer | X |  |  |  |
+| Predikat-validering |  |  | X | Till exempel komplexitet av lösen ord. |
+| Använda e-postleverantörer från tredje part | X |  |  |  |
 
-### <a name="content-definition"></a>Content Definition
+### <a name="content-definition"></a>Innehålls definition
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-| ------- | ----------- | ------- | -- | ----- |
-| Felsidan, api.error |  |  | X |  |
-| Sidan för val av IDP: N, api.idpselections |  |  | X |  |
-| Val av IDP: N för registrering, api.idpselections.signup |  |  | X |  |
-| Forgot Password, api.localaccountpasswordreset |  |  | X |  |
-| Lokalt konto för inloggning, api.localaccountsignin |  |  | X |  |
-| Registrering för, api.localaccountsignup för lokalt konto |  |  | X |  |
-| MFA-sida, api.phonefactor |  |  | X |  |
-| Registrering för, api.selfasserted för självkontrollerad socialt konto |  |  | X |  |
-| Lokal verifieringsvillkor profil update api.selfasserted.profileupdate |  |  | X |  |
-| Enhetlig registrering eller på inloggningssidan api.signuporsignin med parametern ”disableSignup” |  |  | X |  |
-| JavaScript / sidan kontrakt |  | X |  |  |
+| ------- | :-----------: | :-------: | :--: | ----- |
+| Felsida, API. fel |  |  | X |  |
+| IDP-urvals sida, API. idpselections |  |  | X |  |
+| IDP-val för registrering, API. idpselections. signup |  |  | X |  |
+| Glömt lösen ord, API. localaccountpasswordreset |  |  | X |  |
+| Inloggning för lokalt konto, API. localaccountsignin |  |  | X |  |
+| Registrera lokalt konto, API. localaccountsignup |  |  | X |  |
+| MFA-sida, API. phonefactor |  |  | X |  |
+| Självkontrollerad registrering av sociala konton, API. selfasserted |  |  | X |  |
+| Självkontrollerad profil uppdatering, API. selfasserted. profileupdate |  |  | X |  |
+| Unified signup eller inloggnings sida, API. signuporsignin med parametern "disableSignup" |  |  | X |  |
+| Java Script/sidlayout |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-| ------- | ----------- | ------- | -- | ----- |
-| Fråga sträng parametern domain_hint |  |  | X | Tillgänglig som anspråk, kan skickas till IDP: N. |
-| Fråga sträng parametern login_hint |  |  | X | Tillgänglig som anspråk, kan skickas till IDP: N. |
-| Infoga JSON i UserJourney via client_assertion | X |  |  | Upphör att gälla. |
-| Infoga JSON i UserJourney som id_token_hint |  | X |  | Gå framåt strategi för att skicka JSON. |
-| Skicka TOKEN IDP till programmet |  | X |  | Till exempel från Facebook till appen. |
+| ------- | :-----------: | :-------: | :--: | ----- |
+| Domain_hint för frågesträngparametern |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
+| Login_hint för frågesträngparametern |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
+| Infoga JSON i UserJourney via client_assertion | X |  |  | Är föråldrad. |
+| Infoga JSON i UserJourney som id_token_hint |  | X |  | Go-Forward-metoden för att skicka JSON. |
+| Skicka IDP-TOKEn till programmet |  | X |  | Till exempel från Facebook till app. |
 
 ### <a name="session-management"></a>Sessionshantering
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-| ------- | ----------- | ------- | -- | ----- |
-| Provider för SSO-Session |  |  | X |  |
-| Externa Inloggningsprovider för Session |  |  | X |  |
-| Provider för SAML SSO-Session |  |  | X |  |
-| Standardprovidern för SSO-Session |  |  | X |  |
+| ------- | :-----------: | :-------: | :--: | ----- |
+| SSO-sessionsbiljett |  |  | X |  |
+| Provider för extern inloggningssession |  |  | X |  |
+| SAML SSO-sessionsbiljett |  |  | X |  |
+| Standardprovider för SSO-session |  |  | X |  |
 
 ### <a name="security"></a>Säkerhet
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-|-------- | ----------- | ------- | -- | ----- |
-| Princip för nycklar – generera, manuell, ladda upp |  |  | X |  |
-| Princip för nycklar - RSA/Cert hemligheter |  |  | X |  |
-| Principuppladdning |  |  | X |  |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| Princip nycklar – generera, manuell, uppladdning |  |  | X |  |
+| Princip nycklar – RSA/cert, hemligheter |  |  | X |  |
+| Princip uppladdning |  |  | X |  |
 
-### <a name="developer-interface"></a>Developer-gränssnitt
+### <a name="developer-interface"></a>Gränssnittet för utvecklare
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
-| ------- | ----------- | ------- | -- | ----- |
-| Azure Portal-IEF UX |  |  | X |  |
-| UserJourney loggar i Application Insights |  | X |  | Används för felsökning under utveckling.  |
-| Application Insights-händelseloggarna (via orchestration-steg) |  | X |  | Används för att övervaka användarflöden i produktion. |
+| ------- | :-----------: | :-------: | :--: | ----- |
+| Azure Portal – IEF UX |  |  | X |  |
+| Application Insights UserJourney-loggar |  | X |  | Används för fel sökning under utveckling.  |
+| Application Insights händelse loggar (via Orchestration-steg) |  | X |  | Används för att övervaka användar flöden i produktionen. |
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om anpassade principer och skillnader med användarflöden](active-directory-b2c-overview-custom.md).
+
+Lär dig mer om [anpassade principer och skillnaderna med användar flöden](active-directory-b2c-overview-custom.md).

@@ -5,22 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 5/3/2019
+ms.date: 7/16/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8709d4d903bd31ff94d04ec61e226857e4190407
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a42284765a46f4a000dc5b7fcf2867ef17d69570
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187718"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229189"
 ---
 | Resource | Standardgräns |
 | --- | --- |
-| Dataflöde |30 Gbit/s<sup>1</sup> |
-|Regler|10 000, regeln alla typer kombineras.|
-|Minimistorlek för AzureFirewallSubnet |/26|
-|Portintervall i nätverk och regler|0-64,000. Arbete pågår till slappna av den här begränsningen.|
-|Routningstabell|AzureFirewallSubnet har som standard en väg med 0.0.0.0/0 med NextHopType värdet **Internet**.<br><br>Azure-brandväggen måste ha direkt Internetanslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP, måste du åsidosätta detta med en 0.0.0.0/0 UDR med den **NextHopType** värdet **Internet** att upprätthålla direkt Ansluten till Internet. Som standard stöder Azure brandvägg inte framtvingad tunneling till ett lokalt nätverk.<br><br>Men om din konfiguration kräver Tvingad tunneltrafik till ett lokalt nätverk, stöder Microsoft den på en fall till fall. Kontakta supporten, så att vi kan granska ditt ärende. Om godkända vi godkänna din prenumeration och se till att Internet-anslutning krävs brandväggen underhålls.|
+| Data genom strömning |30 Gbit/s<sup>1</sup> |
+|Regler|10 000, alla regel typer kombineras.|
+|Minsta AzureFirewallSubnet-storlek |/26|
+|Portintervall i nätverk och regler|0 – 64000. Arbetet pågår för att minska den här begränsningen.|
+|Offentliga IP-adresser|100 Max|
+|Routningstabell|Som standard har AzureFirewallSubnet en router på 0.0.0.0/0 med NextHopType-värdet inställt på **Internet**.<br><br>Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP, måste du åsidosätta att med värdet 0.0.0.0/0 UDR med **NextHopType** -värdet inställt på **Internet** för att upprätthålla direkt Internet anslutning. Som standard stöder inte Azure-brandväggen Tvingad tunnel trafik till ett lokalt nätverk.<br><br>Men om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk, kommer Microsoft att stödja den på ett fall med hjälp av fall. Kontakta supporten så att vi kan granska ditt ärende. Om det godkänns kommer vi att tillåta din prenumeration och se till att den nödvändiga brand Väggs anslutningen för Internet underhålls.|
 
-<sup>1</sup>kontakta Azure-supporten om du behöver utöka gränserna.
+<sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.

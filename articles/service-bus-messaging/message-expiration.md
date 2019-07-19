@@ -1,6 +1,6 @@
 ---
-title: Förfallodatum för Azure Service Bus-meddelanden | Microsoft Docs
-description: Förfallodatum och TTL-värde för Azure Service Bus-meddelanden
+title: Azure Service Bus förfallo datum för meddelande | Microsoft Docs
+description: Förfallo tid och tid för att leva Azure Service Bus meddelanden
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,78 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800263"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310298"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
-Nyttolasten i ett meddelande eller ett kommando eller en förfrågan som ett meddelande som förmedlas till en mottagare är nästan alltid omfattas av någon form av programnivå utgångsdatum. Innehållet levereras inte längre efter tidsgräns, eller den begärda åtgärden körs inte längre.
+Nytto lasten i ett meddelande, eller ett kommando eller en fråga om att ett meddelande skickas till en mottagare, är nästan alltid beroende av en viss typ av förfallo datum för program nivå. Efter en sådan tids gräns levereras inte längre innehållet eller så körs inte den begärda åtgärden längre.
 
-För utveckling och test-miljöer som köer och ämnen används ofta i samband med partiella körningar av program eller program delar kan är det också önskvärt för tvinnad testmeddelanden automatiskt vara skräpinsamlats så att nästa testkörning kan Starta ren.
+För utvecklings-och test miljöer där köer och ämnen ofta används i samband med delvis körning av program eller program delar, är det också önskvärt att insamlade test meddelanden automatiskt kan samlas in så att nästa test körning kan Starta rensning.
 
-Förfallodatum för alla enskilda meddelanden kan kontrolleras genom att ange den [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) Systemegenskapen som anger en relativ varaktighet. Förfallodatum blir ett absolut ögonblick när meddelandet är i kö till entiteten. Då den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) egenskapen tar på värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Inställningen time to live (TTL) på en asynkrona meddelanden upprätthålls inte när ingen klient inte lyssnar aktivt.
+Förfallo datum för enskilda meddelanden kan styras genom att ange system egenskapen [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , som anger en relativ varaktighet. Förfallo datumet blir en absolut omedelbarhet när meddelandet är i kö i entiteten. Vid detta tillfälle tar egenskapen [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) med värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). TTL-inställningen (Time-to-Live) på ett Service Broker-meddelande är inte tvingande när det inte finns några klienter aktivt som lyssnar.
 
-Senaste den **ExpiresAtUtc** omedelbar, meddelanden blir inte berättigade för hämtning. Förfallodatum påverkar inte meddelanden som för närvarande är låsta för leverans. Dessa meddelanden hanteras fortfarande normalt. Om låset upphör att gälla eller meddelandet överges, tar förfallodatum börjar gälla omedelbart.
+Tidigare **ExpiresAtUtc** -meddelanden blir inkompatibla för hämtning. Förfallo tiden påverkar inte meddelanden som för närvarande är låsta för leverans. dessa meddelanden hanteras fortfarande som vanligt. Om låset går ut eller meddelandet överges, börjar giltighets tiden att gälla omedelbart.
 
-Meddelandet är under lås, kanske programmet tillgång ett meddelande som har upphört att gälla. Om programmet är villig att gå vidare med bearbetning eller väljer att lämna meddelandet är upp till Implementeraren.
+Även om meddelandet är under låst kan programmet ha ett meddelande som har upphört att gälla. Huruvida programmet är villigt att fortsätta med bearbetning eller väljer att överge meddelandet är upp till Implementeraren.
 
-## <a name="entity-level-expiration"></a>På entitetsnivå upphör att gälla
+## <a name="entity-level-expiration"></a>Förfallo datum för enhets nivå
 
-Alla meddelanden som skickas till en kö eller ämne som är föremål för en standard-utgångsdatum som anges på entiteten med det [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) egenskap och som kan också ange i portalen när du skapar och justeras senare. Standard-förfallodatum används för alla meddelanden som skickas till enheten där [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) anges inte uttryckligen. Standard-giltighetstid fungerar också som ett tak för den **TimeToLive** värde. Meddelanden som har en längre **TimeToLive** giltighetstid än standardvärdet tyst justeras efter den **defaultMessageTimeToLive** värdet innan du kan i kön.
+Alla meddelanden som skickas till en kö eller ett ämne är underkastade ett standard förfallo datum som anges på enhets nivå med egenskapen [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) och som även kan anges i portalen när den skapas och justeras senare. Standard förfallo datum används för alla meddelanden som skickas till entiteten där [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) inte uttryckligen anges. Standard förfallo tiden fungerar också som ett tak för **TimeToLive** -värdet. Meddelanden som har en längre **TimeToLive** förfallo tid än standardvärdet justeras tyst till **defaultMessageTimeToLive** -värdet innan de placeras i kö.
 
 > [!NOTE]
-> Standard [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) för asynkrona meddelanden är [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) om inte annat anges.
+> Standardvärdet för [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) för ett brokerat meddelande är [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) om inget annat anges.
 >
-> För meddelandeentiteter (köer och ämnen), standard-förfallotid är också [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) för Service Bus standard och premium-nivåerna.  Förfallotid för standard är 14 dagar för basic-nivån.
+> För meddelande enheter (köer och ämnen) är standard förfallo tiden också [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) för Service Bus standard-och Premium-nivån.  För Basic-nivån är standard förfallo tiden 14 dagar.
 
-Utgångna meddelanden kan du kan också flyttas till en [obeställbara meddelanden](service-bus-dead-letter-queues.md) genom att ange den [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) egenskap eller respektive kryssruta i portalen. Om alternativet är inaktiverat, ignoreras utgångna meddelanden. Utgångna meddelanden i kön för obeställbara meddelanden kan särskiljas från andra lettered förlorade meddelanden genom att utvärdera den [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) egenskap som den asynkrona meddelandekön lagrar i avsnittet användare egenskaper; värdet är [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) i det här fallet.
+Förfallna meddelanden kan alternativt flyttas till en [kö för obeställbara](service-bus-dead-letter-queues.md) meddelanden genom att ange egenskapen [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) , eller genom att markera respektive ruta i portalen. Om alternativet lämnas inaktiverat, släpps utgångna meddelanden. Förfallna meddelanden som flyttats till kön för obeställbara meddelanden kan särskiljas från andra meddelanden om obeställbara meddelanden genom att utvärdera egenskapen [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) som Service Broker lagrar i avsnittet användar egenskaper. värdet är [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) i det här fallet.
 
-I det tidigare nämnda fallet där meddelandet är skyddat från upphör att gälla samtidigt under Lås och om flaggan är inställd på entiteten flyttas meddelandet till kön för obeställbara låset överges eller upphör att gälla. Det är dock inte flytta om meddelandet är har reglerats, vilket förutsätter att programmet har hanterat, trots nominell förfallodatum.
+I det fall då meddelandet skyddas från förfallo datum under lås och om flaggan har angetts för entiteten, flyttas meddelandet till kön för obeställbara meddelanden när låset överges eller upphör att gälla. Det flyttas dock inte om meddelandet har kvittats, vilket förutsätter att programmet har hanterat det, trots det nominella förfallo datumet.
 
-Kombinationen av [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) och automatisk (och transaktionell) dead-lettering vid utgången är ett värdefullt verktyg för att upprätta förtroende om ett jobb som ges till en hanterare eller en grupp av hanterare under en tidsgräns hämtas för bearbetning som tidsgränsen har nåtts.
+Kombinationen av [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) och automatisk (och transaktionell) obeställbara meddelanden vid förfallo datum är ett värdefullt verktyg för att fastställa om ett jobb har tilldelats en hanterare eller en grupp med hanterare under en tids gräns hämtas för bearbetning som tids gräns har nåtts.
 
-Anta exempelvis att en webbplats som kräver att tillförlitligt köra jobb på en skala begränsad serverdel och som ibland upplevelser trafik toppar eller vill isoleras mot tillgänglighet avsnitt av den serverdelen. I vanliga fall serversidan hanteraren för skickade användardata skickar informationen till en kö och därefter tar emot ett svar som bekräftar lyckade hanteringen av transaktionen i en kö för meddelandesvar. Om det finns ett trafikstopp och backend-hanteraren kan inte behandla dess eftersläpning för objekt i tid, returneras jobb som har upphört att gälla i kön för obeställbara meddelanden. Den interaktiva användaren kan bli meddelad att den begärda åtgärden kan ta lite längre tid än vanligt begäran kan sedan placeras på en annan kö för bearbetning av banor där eventuell bearbetning resultatet skickas till användaren via e-post. 
+Anta till exempel att du har en webbplats som behöver köra jobb på ett tillförlitligt sätt på en begränsad Server del och som ibland upplever trafik toppar eller vill vara isolerad mot tillgänglighets avsnitt i den server delen. I det vanliga fallet skickar Server sidans hanterare för de inskickade användar data informationen till en kö och därefter får du ett svar som bekräftar lyckad hantering av transaktionen i en svarskö. Om det finns en trafik ökning och Server dels hanteraren inte kan bearbeta sina efter släpning-objekt i tid, returneras de utgångna jobben i kön för obeställbara meddelanden. Den interaktiva användaren kan meddelas att den begärda åtgärden tar lite längre tid än vanligt, och begäran kan sedan placeras i en annan kö för en bearbetnings väg där det slutliga bearbetnings resultatet skickas till användaren via e-post. 
 
 
-## <a name="temporary-entities"></a>Tillfällig entiteter
+## <a name="temporary-entities"></a>Temporära entiteter
 
-Service Bus-köer, ämnen och prenumerationer kan skapas som tillfällig enheter som tas bort automatiskt när de inte har använts under en angiven tidsperiod.
+Service Bus köer, ämnen och prenumerationer kan skapas som temporära entiteter, vilka tas bort automatiskt när de inte har använts under en angiven tids period.
  
-Automatisk rensning är användbart i utvecklings- och scenarier där entiteter skapas dynamiskt och inte rensas efter användning på grund av vissa avbrott i testning eller felsökning kör. Det är också användbart när ett program skapar dynamiska entiteter, till exempel en svarskö för att ta emot svar tillbaka till en process som webbservern eller till ett annat relativt kortvarig objekt där det är svårt att på ett tillförlitligt sätt att rensa upp dessa entiteter när objektet instans försvinner.
+Automatisk rensning är användbart i utvecklings-och test scenarier där entiteter skapas dynamiskt och inte rensas efter användningen, på grund av avbrott i testet eller fel söknings körningen. Det är också användbart när ett program skapar dynamiska entiteter, t. ex. en svarskö, för att få svar tillbaka till en webb Server process, eller till ett annat relativt kortvarigt objekt där det är svårt att säkert rensa dessa enheter när objektet instansen försvinner.
 
-Funktionen är aktiverad med hjälp av den [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) egenskapen. Den här egenskapen anges till den varaktighet som en entitet måste vara inaktiv (som inte används) innan den tas bort automatiskt. Det minsta värdet för den här egenskapen är 5.
+Funktionen aktive ras med egenskapen [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) . Den här egenskapen anges till den varaktighet för vilken en entitet måste vara inaktiv (oanvänd) innan den tas bort automatiskt. Det minsta värdet för den här egenskapen är 5.
  
-Den **autoDeleteOnIdle** egenskapen måste anges via en Azure Resource Manager-åtgärd eller via .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er. Du kan inte ange den i portalen.
+Egenskapen **autoDeleteOnIdle** måste anges via en Azure Resource Manager-åtgärd eller via .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er. Du kan inte ange den i portalen.
 
-## <a name="idleness"></a>Idleness
+## <a name="idleness"></a>Inaktivitetskrav
 
-Här är vad som anses idleness för entiteter (köer, ämnen och prenumerationer):
+Det här är vad som anses vara inaktivitet i entiteter (köer, ämnen och prenumerationer):
 
 - Köer
-    - Inga skickar  
-    - Inte tar emot  
-    - Inga uppdateringar till kön  
+    - Inga sändningar  
+    - Inga mottagningar  
+    - Inga uppdateringar i kön  
     - Inga schemalagda meddelanden  
-    - Inga Bläddra/peek 
+    - Ingen Browse/spetsig 
 - Ämnen  
-    - Inga skickar  
-    - Inga uppdateringar till ämnet  
+    - Inga sändningar  
+    - Inga uppdateringar av ämnet  
     - Inga schemalagda meddelanden 
-- Subscriptions
-    - Inte tar emot  
-    - Inga uppdateringar till prenumerationen  
-    - Inga nya regler för prenumerationen  
-    - Inga Bläddra/peek  
+- Prenumerationer
+    - Inga mottagningar  
+    - Inga uppdateringar av prenumerationen  
+    - Inga nya regler har lagts till i prenumerationen  
+    - Ingen Browse/spetsig  
  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

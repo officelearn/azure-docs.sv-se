@@ -13,20 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
-ms.author: kumud
-ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122371"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275619"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar med hög tillgänglighet för en intern belastningsutjämnare
 
 Den här artikeln innehåller ett exempel på distribution av portar med hög tillgänglighet på en intern belastningsutjämnare. Mer information om konfigurationer som är specifika för virtuella nätverksinstallationer (Nva) finns på motsvarande provider-webbplatser.
 
 >[!NOTE]
->Azure Load Balancer stöder två typer: Basic och Standard. Den här artikeln beskriver Standard Load Balancer. Läs mer om grundläggande belastningsutjämnare [översikt över Load Balancer](load-balancer-overview.md).
+>Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver Standard Load Balancer. Läs mer om grundläggande belastningsutjämnare [översikt över Load Balancer](load-balancer-overview.md).
 
 Bilden visar följande konfiguration för distribution till exempel i den här artikeln:
 

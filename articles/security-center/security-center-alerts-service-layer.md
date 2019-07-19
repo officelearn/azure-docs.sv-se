@@ -1,6 +1,6 @@
 ---
-title: Hotidentifiering för Azure-tjänst-lager i Azure Security Center | Microsoft Docs
-description: Det här avsnittet innehåller Azure-tjänsten layer aviseringar tillgängliga i Azure Security Center.
+title: Hot identifiering för Azure Service Layer i Azure Security Center | Microsoft Docs
+description: I det här avsnittet presenteras Azure Service Layer-aviseringar som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,68 +13,68 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 8c1733877834f82d9ee2524cf8bf54f532e7d9c4
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571730"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295558"
 ---
-# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Hotidentifiering för Azure-tjänst-lager i Azure Security Center
+# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Hot identifiering för Azure Service Layer i Azure Security Center
 
-Det här avsnittet innehåller de Säkerhetscenter aviseringarna som är tillgängliga när du övervakar följande nivåer i Azure-tjänsten.
+I det här avsnittet presenteras Security Centers aviseringar som är tillgängliga när du övervakar följande Azure Service-lager.
 
-* [Azure nätverksnivå](#network-layer)
-* [Azure hanteringslager (Azure Resource Manager) (förhandsversion)](#management-layer)
+* [Azure nätverks lager](#network-layer)
+* [Azure Management Layer (Azure Resource Manager) (för hands version)](#management-layer)
 
 >[!NOTE]
->Med hjälp av telemetrin som Security Center använder från att interna Azure-feeds gäller analytics som anges nedan för alla typer av resurser.
+>Med hjälp av Telemetrin som Security Center utnyttjar från att trycka in i Azures interna flöden, är den analys som anges nedan tillämplig på alla resurs typer.
 
-## Azure nätverksnivå<a name="network-layer"></a>
+## Azure nätverks lager<a name="network-layer"></a>
 
-Security Center nätverkslager analytics baseras på exemplet [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), som är paketrubriker som samlas in av Azure core routrar. Security Center machine learning-modeller är baserat på denna datafeed, identifiera och flaggan skadlig trafik aktiviteter. Security Center använder Microsofts Threat Intelligence databas om du vill utöka IP-adresser.
+Security Center Network Layer Analytics baseras på [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), som är paket rubriker som samlas in av Azure Core-routrar. Baserat på denna datafeed kan Security Center Machine Learning-modeller identifiera och flagga skadliga trafik aktiviteter. Security Center använder Microsoft Threat Intelligence-databasen för att utöka IP-adresser.
 
 > [!div class="mx-tableFixed"]
 
 |Varning|Beskrivning|
 |---|---|
-|**Misstänkt utgående RDP-nätverksaktivitet**|Provade analysen av nätverkstrafik identifierade avvikande utgående Remote Desktop Protocol (RDP)-kommunikation från en resurs i din distribution. Den här aktiviteten anses onormalt för den här miljön och kan indikera att din resurs har komprometterats och används nu för råstyrkeattacker mot externa RDP-slutpunkt. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
-|**Misstänkt utgående RDP-nätverksaktivitet till flera mål**|Provade analysen av nätverkstrafik identifierade avvikande utgående Remote Desktop Protocol (RDP)-kommunikation från en resurs i din distribution till flera destinationer. Den här aktiviteten anses onormalt för den här miljön och kan indikera att din resurs har komprometterats och används nu för råstyrkeattacker mot externa RDP-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
-|**Misstänkt utgående SSH-nätverksaktivitet**|Provade analysen av nätverkstrafik identifierade avvikande utgående SSH (Secure Shell)-kommunikation från en resurs i din distribution. Den här aktiviteten anses onormalt för den här miljön och kan indikera att din resurs har komprometterats och används nu för råstyrkeattacker mot externa SSH-slutpunkten. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
-|**Misstänkt utgående SSH-nätverksaktivitet till flera mål**|Provade analysen av nätverkstrafik identifierade avvikande utgående SSH (Secure Shell)-kommunikation från en resurs i din distribution till flera destinationer. Den här aktiviteten anses onormalt för den här miljön och kan indikera att din resurs har komprometterats och används nu för råstyrkeattacker mot externa SSH-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
-|**Misstänkt inkommande SSH-nätverksaktivitet från flera källor**|Provade analysen av nätverkstrafik identifierade avvikande inkommande SSH-kommunikation från flera källor till en resurs i distributionen. Olika unika IP-adresser ansluter till din resurs anses onormalt för den här miljön. Den här aktiviteten kan indikera ett försök till råstyrkeattacker mot din SSH-gränssnittet från flera värdar (Botnät).|
-|**Misstänkt inkommande SSH-nätverksaktivitet**|Provade analysen av nätverkstrafik identifierade avvikande inkommande SSH-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till resursen anses onormalt för den här miljön. Den här aktiviteten kan indikera ett försök till råstyrkeattacker mot din SSH-gränssnittet.
-|**Misstänkt inkommande RDP-nätverksaktivitet från flera källor**|Provade analysen av nätverkstrafik identifierade avvikande inkommande RDP-kommunikation från flera källor till en resurs i distributionen. Olika unika IP-adresser ansluter till din resurs anses onormalt för den här miljön. Den här aktiviteten kan indikera ett försök till råstyrkeattacker mot din RDP-gränssnittet från flera värdar (Botnät).|
-|**Misstänkt inkommande RDP-nätverksaktivitet**|Provade analysen av nätverkstrafik identifierade avvikande inkommande RDP-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till resursen anses onormalt för den här miljön. Den här aktiviteten kan indikera ett försök till råstyrkeattacker mot din SSH-gränssnittet.|
+|**Misstänkt utgående RDP-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande RDP-kommunikation (utgående Remote Desktop Protocol) som kommer från en resurs i distributionen. Den här aktiviteten betraktas som onormal för den här miljön och kan tyda på att din resurs har komprometterats och att den nu används för att stoppa extern RDP-slutpunkt. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
+|**Misstänkt utgående RDP-nätverks aktivitet till flera destinationer**|Analys av exempel på nätverks trafik upptäckte avvikande RDP-kommunikation (utgående Remote Desktop Protocol) som kommer från en resurs i distributionen till flera mål. Den här aktiviteten betraktas som onormal för den här miljön och kan tyda på att din resurs har komprometterats och att den nu används för att bryta gällande externa RDP-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
+|**Misstänkt utgående SSH-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande SSH-kommunikation (utgående Secure Shell) som kommer från en resurs i distributionen. Den här aktiviteten betraktas som onormal för den här miljön och kan tyda på att din resurs har komprometterats och att den nu används för att bryta den externa SSH-slutpunkten. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
+|**Misstänkt utgående SSH-nätverks aktivitet till flera mål**|Analys av exempel på nätverks trafik upptäckte avvikande SSH-kommunikation (utgående Secure Shell) som kommer från en resurs i distributionen till flera mål. Den här aktiviteten betraktas som onormal för den här miljön och kan tyda på att din resurs har komprometterats och att den nu används för att bryta tvingande externa SSH-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
+|**Misstänkt inkommande SSH-nätverks aktivitet från flera källor**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande SSH-kommunikation från flera källor till en resurs i distributionen. Olika unika IP-adresser som ansluter till din resurs betraktas som onormala för den här miljön. Den här aktiviteten kan indikera ett försök att bryta fram ditt SSH-gränssnitt från flera värdar (botnät).|
+|**Misstänkt inkommande SSH-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande SSH-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till din resurs betraktas som onormalt för den här miljön. Den här aktiviteten kan indikera ett försök att bryta gällande SSH-gränssnitt.
+|**Misstänkt inkommande RDP-nätverks aktivitet från flera källor**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande RDP-kommunikation från flera källor till en resurs i distributionen. Olika unika IP-adresser som ansluter till din resurs betraktas som onormala för den här miljön. Den här aktiviteten kan indikera ett försök att bryta mot RDP-gränssnittet från flera värdar (botnät).|
+|**Misstänkt inkommande RDP-nätverks aktivitet**|Analys av exempel på nätverks trafik upptäckte avvikande inkommande RDP-kommunikation till en resurs i distributionen. Relativt högt antal inkommande anslutningar till din resurs betraktas som onormalt för den här miljön. Den här aktiviteten kan indikera ett försök att bryta gällande SSH-gränssnitt.|
 
-Att förstå hur Security Center kan använda nätverk relaterade signaler att tillämpa skydd mot hot, se [heuristisk DNS identifieringar i Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
-## Azure hanteringslager (Azure Resource Manager) (förhandsversion)<a name ="management-layer"></a>
+Information om hur Security Center kan använda nätverksrelaterade signaler för att använda hot skydd finns [i heuristisk DNS-identifieringar i Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+## Azure Management Layer (Azure Resource Manager) (för hands version)<a name ="management-layer"></a>
 
 >[!NOTE]
->Security Center skyddslager baserat på Azure Resource Manager är för närvarande i förhandsversion.
+>Security Center skydds lager baserat på Azure Resource Manager är för närvarande en för hands version.
 
-Security Center erbjuder ett extra skyddslager med hjälp av Azure Resource Manager-händelser, vilket anses vara kontrollplanet för Azure. Genom att analysera poster för Azure Resource Manager kan identifierar Security Center onormal eller potentiellt skadliga åtgärder i Azure-prenumeration-miljö.
+Security Center erbjuder ett extra skydds lager genom att använda Azure Resource Manager händelser, vilket anses vara kontroll planet för Azure. Genom att analysera Azure Resource Manager poster Security Center identifiera ovanliga eller potentiellt skadliga åtgärder i Azure-prenumerationens miljö.
 
 > [!div class="mx-tableFixed"]
 
 |Varning|Beskrivning|
 |---|---|
-|**MicroBurst toolkit kör**|Ett känt molnmiljö rekognosering-verktyg som körs har identifierats i din miljö. Verktyget ”MicroBurst” (se https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller penetrationstester tester) att mappa dina prenumerationer resurser, identifiera osäkert konfigurationer och läcka konfidentiell information.|
-|**Azurite toolkit kör**|Ett känt molnmiljö rekognosering-verktyg som körs har identifierats i din miljö. Verktyget ”Azurite” (se https://github.com/mwrlabs/Azurite) kan användas av en angripare (eller penetrationstester tester) att mappa resurserna i prenumerationer och identifiera osäkert konfigurationer.|
-|**Av misstänkt hanteringssession med ett inaktivt konto**|Analys av loggar för prenumeration aktivitet har identifierat ett misstänkt beteende. Ett huvudkonto som inte används under en lång tidsperiod, utför nu åtgärder som kan skydda persistence för en angripare.|
-|**Av misstänkt hanteringssession med hjälp av PowerShell**|Analys av loggar för prenumeration aktivitet har identifierat ett misstänkt beteende. Ett huvudkonto som inte använder PowerShell regelbundet för att hantera prenumerationsmiljö är nu med hjälp av PowerShell och utföra åtgärder som skyddar persistence för en angripare.|
-|**Användning av avancerade Azure persistence-tekniker**|Analys av loggar för prenumeration aktivitet har identifierat ett misstänkt beteende. Anpassade roller har fått legitimized identitet entiteter. Detta kan leda till att angriparen tar persistens i en Azure-kund-miljö.|
-|**Aktivitet från ovanligt land**|Aktivitet från en plats som nyligen eller aldrig inte besöktes av någon användare i organisationen har uppstått.<br/>Den här identifieringen tar hänsyn till de senaste aktivitet platser att fastställa nya och ovanliga platser. Avvikelseidentifieringsmotorn lagrar information om tidigare platser som används av användarna i organisationen. 
-|**Aktivitet från anonyma IP-adresser**|Användare aktivitet från en IP-adress som har identifierats som en anonym proxy IP-adress har identifierats. <br/>Dessa proxyservrar används av personer som vill dölja sina enheters IP-adress och kan användas i skadligt syfte. Den här identifieringen använder machine learning-algoritm som minskar ”FALSKT positiva resultat”, till exempel argumentantal taggade IP-adresser som ofta används av användare i organisationen.|
-|**Omöjlig resa har identifierats**|Två användaraktiviteter (är en eller flera sessioner) som har inträffat kommer från geografiskt avlägsna platser inom en tidsperiod som är kortare än tid det skulle ha tagit användaren överföras från den första platsen till andra. Detta anger att en annan användare använder samma autentiseringsuppgifter. <br/>Den här identifieringen använder machine learning-algoritm som ignorerar uppenbara ”FALSKT positiva resultat” bidrar till omöjlig resa villkor, till exempel virtuella privata nätverk och platser som ofta används av andra användare i organisationen. Identifieringen har en inledande inlärningsperiod på sju dagar under vilken den lär sig den nya användarens aktivitetsmönster.|
+|**Körning av mikroburst-verktyget**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget "mikroburst" (se https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser, identifiera oskyddade konfigurationer och avslöja konfidentiell information.|
+|**Azurite Toolkit-körning**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget "Azurite" (se https://github.com/mwrlabs/Azurite) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser och identifiera oskyddade konfigurationer.|
+|**Misstänkt hanterings-session med ett inaktivt konto**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte används under en lång tids period utför nu åtgärder som kan skydda beständigheten för en angripare.|
+|**Misstänkt hanterings-session med PowerShell**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte regelbundet använder PowerShell för att hantera prenumerations miljön, använder nu PowerShell och utför åtgärder som kan skydda beständigheten för en angripare.|
+|**Användning av avancerade metoder för Azure-persistence**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Anpassade roller har fått legitimized identitets enheter. Detta kan leda till att angriparen får persistency i en Azure-kundmiljö.|
+|**Aktivitet från ovanligt land**|Aktivitet från en plats som inte nyligen har besökts av någon användare i organisationen har inträffat.<br/>Den här identifieringen tar hänsyn till de senaste aktivitet platser att fastställa nya och ovanliga platser. Avvikelseidentifieringsmotorn lagrar information om tidigare platser som används av användarna i organisationen. 
+|**Aktivitet från anonyma IP-adresser**|Användares aktivitet från en IP-adress som har identifierats som en anonym proxy-IP-adress har identifierats. <br/>Dessa proxyservrar används av personer som vill dölja sina enheters IP-adress och kan användas i skadligt syfte. Den här identifieringen utnyttjar en Machine Learning-algoritm som minskar "falska positiva identifieringar", till exempel mis-märkta IP-adresser som används ofta av användare i organisationen.|
+|**Omöjlig resa upptäcktes**|Två användar aktiviteter (är en eller flera sessioner) har inträffat, som kommer från geografiskt avlägsna platser inom en tids period som är kortare än den tid då användaren skulle resa från den första platsen till den andra. Detta indikerar att en annan användare använder samma autentiseringsuppgifter. <br/>Den här identifieringen utnyttjar en algoritm för maskin inlärning som ignorerar tydliga "falska positiva identifieringar" som bidrar till omöjliga rese villkor, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Identifieringen har en inledande inlärningsperiod på sju dagar under vilken den lär sig den nya användarens aktivitetsmönster.|
 
 >[!NOTE]
-> Flera av de ovanstående analyser drivs av Microsoft Cloud App Security (MCAS). Om du vill dra nytta av dessa analytics, krävs en aktiverad MCAS-licens. Om du har en MCAS-licens kan är dessa aviseringar aktiverade som standard. Inaktivera dem:
+> Flera av analyserna ovan drivs av Microsoft Cloud App Security (MCAS). För att dra nytta av dessa analyser krävs en aktive rad MCAS-licens. Om du har en MCAS-licens är de här aviseringarna aktiverade som standard. Så här inaktiverar du dem:
 >
-> 1. I Security Center-bladet väljer **säkerhetsprincip**. För den prenumeration som du vill ändra, klickar du på **redigera inställningar för**.
-> 2. Klicka på **Hotidentifiering**.
-> 3. Under **för att göra integreringar**, avmarkera **Tillåt Microsoft Cloud App Security åtkomst till Mina data**, och klicka på **spara**.
+> 1. På bladet Security Center väljer du **säkerhets princip**. Klicka på **Redigera inställningar**för den prenumeration som du vill ändra.
+> 2. Klicka på **hot identifiering**.
+> 3. Under **Aktivera integreringar**avmarkerar **du Tillåt Microsoft Cloud App Security åtkomst till mina data**och klickar på **Spara**.
 
 >[!NOTE]
->Azure Security Center lagrar säkerhetsrelaterade kunddata i samma geografiska område som dess resurs. Om Microsoft inte har ännu distribuerats Azure Security Center i resursens geo, lagrar data i USA. Den här informationen lagras i enlighet med reglerna för geo-plats för MCAS när Microsoft Cloud App Security (MCAS) är aktiverat. Se [datalagring för icke-regionala tjänster för mer information](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center lagrar säkerhetsrelaterad kund information i samma geo som dess resurs. Om Microsoft ännu inte har distribuerat Azure Security Center i resursens geografiska område, lagrar data i USA. När Microsoft Cloud App Security (MCAS) är aktive rad lagras informationen i enlighet med reglerna för geo-platsen för MCAS. [Mer information finns i data lagring för icke-regionala tjänster](http://azuredatacentermap.azurewebsites.net/).

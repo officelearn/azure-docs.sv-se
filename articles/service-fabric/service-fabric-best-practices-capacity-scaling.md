@@ -1,6 +1,6 @@
 ---
-title: Kapacitetsplanering och skalning för Azure Service Fabric | Microsoft Docs
-description: Bästa praxis för planering och skalning av Service Fabric-kluster och program.
+title: Kapacitets planering och skalning för Azure Service Fabric | Microsoft Docs
+description: Metod tips för planering och skalning Service Fabric kluster och program.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444722"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277782"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitetsplanering och skalning för Azure Service Fabric
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
 
-Innan du skapar ett Azure Service Fabric-kluster eller skala beräkningsresurser som är värdar för klustret, är det viktigt att planera kapaciteten. Läs mer om hur du planerar kapaciteten [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Ytterligare bästa praxis riktlinjer för klustret skalbarhet, se [överväganden angående skalbarhet av Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
+Innan du skapar ett Azure Service Fabric-kluster eller skalar beräknings resurser som är värdar för klustret är det viktigt att planera för kapacitet. Mer information om att planera för kapacitet finns i [planera Service Fabric kluster kapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). För ytterligare vägledning för kluster skalbarhet, se [Service Fabric skalbarhets överväganden](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
-Utöver att bedöma noden egenskaper typ och -kluster, bör du förväntar dig skalningsåtgärder tar längre tid än en timme att slutföra för en produktionsmiljö. Detta gäller oavsett hur många virtuella datorer du vill lägga till.
+Förutom att överväger nodtyp och kluster egenskaper bör du förvänta dig skalnings åtgärder att ta längre tid än en timme att slutföra för en produktions miljö. Detta gäller även om antalet virtuella datorer som du lägger till.
 
 ## <a name="autoscaling"></a>Automatisk skalning
-Du bör utföra skalningsåtgärder via Azure Resource Manager-mallar, eftersom det är bäst att behandla [resurskonfigurationer som kod]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Du bör utföra skalnings åtgärder via Azure Resource Manager mallar, eftersom det är bästa praxis att behandla [resursfiler som kod]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
 
-Med automatisk skalning med VM-skalningsuppsättningar gör version Resource Manager-mallen felaktigt definiera antalet instanser för VM-skalningsuppsättningar. Felaktig definition ökar risken att oönskade skalningsåtgärder resulterar i framtida distributioner. I allmänhet bör du använda automatisk skalning om:
+Om du använder automatisk skalning via skalnings uppsättningar för virtuella datorer blir din version av Resource Manager-mallen felaktigt definierad för antalet instanser för skalnings uppsättningar för virtuella datorer. Felaktig definition ökar risken för att framtida distributioner kommer att orsaka oönskade skalnings åtgärder. I allmänhet bör du använda autoskalning om:
 
-* Distribuera dina Resource Manager-mallar med rätt kapacitet som deklarerats stöder inte ditt användningsområde.
+* Att distribuera dina Resource Manager-mallar med lämplig kapacitet som har deklarerats stöder inte ditt användnings fall.
      
-   Manuell skalning kan du konfigurera en [kontinuerlig integrering och leverans pipeline i Azure DevOps-tjänster med hjälp av Azure-resurs distributionsprojekt](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Denna pipeline utlöses ofta av en logikapp som använder prestandamått för virtuella datorer som efterfrågas från den [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). Pipelinen effektivt skalar baserat på måtten du vill, under optimering för Resource Manager-mallar.
-* Du behöver skala vågrätt endast en VM scale set nod i taget.
+   Förutom manuell skalning kan du konfigurera en [kontinuerlig integrering och leverans pipeline i Azure DevOps Services med hjälp av distributions projekt för Azure Resource Group](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Den här pipelinen utlöses ofta av en Logic app som använder prestanda mått för virtuella datorer som frågas från [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). Pipelinen skalas effektivt baserat på de mått som du vill ha, medan du optimerar för Resource Manager-mallar.
+* Du behöver bara skala en nod för skalnings uppsättning för virtuella datorer i taget.
    
-   Om du vill skala ut med tre eller fler noder i taget, bör du [skala ut ett Service Fabric-kluster genom att lägga till en VM-skalningsuppsättning](virtual-machine-scale-set-scale-node-type-scale-out.md). Är det säkrast att skala in och skala ut virtuella datorer anger vågrätt, en nod i taget.
-* Du har Silver tillförlitlighet eller högre för Service Fabric-kluster och Silver hållbarhet eller senare på valfri skala konfigurerar du reglerna för automatisk skalning.
+   För att skala ut med tre eller fler noder i taget bör du [skala ut ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer](virtual-machine-scale-set-scale-node-type-scale-out.md). Det är säkert att skala in och skala ut skalnings uppsättningar för virtuella datorer vågrätt, en nod i taget.
+* Du har silver tillförlitlighet eller högre för ditt Service Fabric-kluster och silver tålighet eller högre i alla skalor där du konfigurerar regler för automatisk skalning.
   
-   Den minsta kapaciteten för reglerna för automatisk skalning måste vara lika med eller större än fem instanser av virtuella datorer. Det måste också vara lika med eller större än din tillförlitlighetsnivån minimum för den primära nodtypen.
+   Den lägsta kapaciteten för regler för automatisk skalning måste vara lika med eller större än fem instanser av virtuella datorer. Det måste också vara lika med eller större än din högsta Tillförlitlighets nivå för den primära nodtypen.
 
 > [!NOTE]
-> Service Fabric tillståndskänslig service fabric: / System/InfastructureService/< NODE_TYPE_NAME > körs på varje nodtyp som har Silver eller högre tillförlitlighet. Det är den enda systemtjänst som går för att köra i Azure på någon av dina kluster nodtyper.
+> Service Fabric tillstånds känsliga Service Fabric:/system/InfastructureService/< NODE_TYPE_NAME > körs på varje nodtyp som har silver eller högre hållbarhet. Det är den enda system tjänst som stöds för att köras i Azure på någon av dina kluster Node-typer.
 
-## <a name="vertical-scaling-considerations"></a>Lodrät skalning överväganden
+## <a name="vertical-scaling-considerations"></a>Överväganden vid vertikal skalning
 
-[Vertikal skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal åtgärder och överväganden. Exempel:
+[Lodrät skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal steg och överväganden. Exempel:
 
-* Klustret måste vara felfria innan du skalar. I annat fall kommer du bli instabilt klustret ytterligare.
-* Silver hållbarhet nivå eller högre krävs för alla Service Fabric-kluster nodtyper som är värdar för tillståndskänsliga tjänster.
+* Klustret måste vara felfritt innan skalningen. Annars kommer du att göra klustret ytterligare.
+* Silver hållbarhets nivån eller större krävs för alla Service Fabric klusternoder som är värdar för tillstånds känsliga tjänster.
 
 > [!NOTE]
-> Den primära nodtypen som är värd för tillståndskänslig Service Fabric-systemtjänster måste vara Silver hållbarhet nivå eller högre. När du har aktiverat Silver hållbarhet klusteråtgärder, till exempel uppgraderingar, blir att lägga till eller ta bort noder och så vidare långsammare eftersom systemet optimerar för datasäkerheten över hastigheten på åtgärder.
+> Den primära nodtypen som är värd för tillstånds känsliga Service Fabric system tjänster måste vara silver hållbarhets nivå eller större. När du har aktiverat silver tålighet är kluster åtgärder som uppgraderingar, tillägg eller borttagning av noder och så vidare långsammare eftersom systemet optimerar för data säkerhet över åtgärds hastigheten.
 
-Vertikal skalning en VM-skalningsuppsättning är en destruktiv åtgärd. I stället vågrätt skala ditt kluster genom att lägga till en ny skalningsuppsättning med önskad SKU: N. Sedan migrera dina tjänster till din önskade SKU för att slutföra en säker lodrät skalning åtgärd. Ändra en VM scale set resurs-SKU: N är en destruktiv åtgärd eftersom den skapar ny avbildning av dina värdar, vilken tar bort alla lokalt sparade tillstånd.
+Vertikal skalning en skalnings uppsättning för en virtuell dator är en destruktiv åtgärd. Skala i stället horisontellt klustret genom att lägga till en ny skalnings uppsättning med önskad SKU. Migrera sedan dina tjänster till önskad SKU för att slutföra en säker vertikal skalnings åtgärd. Att ändra en resurs-SKU för en virtuell dators skalnings uppsättning är en destruktiv åtgärd eftersom den avbildningen av värdarna, vilket tar bort allt lokalt sparat tillstånd.
 
-Klustret använder Service Fabric [nodegenskaper och placeringsbegränsningar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) du bestämma om att tillhandahålla tjänster för ditt program. När du skalar lodrätt den primära nodtypen, deklarera identiska egenskapsvärden för `"nodeTypeRef"`. Du hittar dessa värden i Service Fabric-tillägget för VM-skalningsuppsättningar. 
+Klustret använder Service Fabric- [nodens egenskaper och placerings begränsningar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) för att bestämma var du ska vara värd för programmets tjänster. När du skalar den primära nodtypen lodrätt måste du deklarera identiska egenskaps `"nodeTypeRef"`värden för. Du hittar dessa värden i Service Fabric-tillägget för skalnings uppsättningar för virtuella datorer. 
 
-Resource Manager-mall följande kodavsnitt visar egenskaper som du måste deklarera. Den har samma värde för de nyetablerade skalningsuppsättningar som du skalar till och stöds endast som en tillfällig tillståndskänslig tjänst för klustret.
+Följande kodfragment i en Resource Manager-mall visar de egenskaper som du deklarerar. Det har samma värde för de nyligen etablerade skalnings uppsättningar som du skalar till och stöds bara som en tillfällig tillstånds känslig tjänst för klustret.
 
 ```json
 "settings": {
@@ -68,38 +68,29 @@ Resource Manager-mall följande kodavsnitt visar egenskaper som du måste deklar
 ```
 
 > [!NOTE]
-> Lämna inte ditt kluster som körs med flera skalningsuppsättningar som använder samma `nodeTypeRef` egenskapsvärde som är längre än krävs för att slutföra en lyckad åtgärd för lodrät skalning.
+> Lämna inte klustret som körs med flera skalnings uppsättningar som använder samma `nodeTypeRef` egenskaps värde längre än vad som krävs för att slutföra en lyckad lodrät skalnings åtgärd.
 >
-> Verifiera alltid åtgärder i testmiljöer innan du försöker ändringar till produktionsmiljön. Som standard har Service Fabric-kluster systemtjänster villkoret placering till bara den primära noden måltypen.
+> Verifiera alltid åtgärder i test miljöer innan du försöker göra ändringar i produktions miljön. Som standard har Service Fabric kluster system tjänster en placerings begränsning som bara är den primära nodtypen för målet.
 
-Med den nodegenskaper och placeringsbegränsningar som deklarerats, gör du följande steg för en VM-instansen i taget. Detta gör systemtjänster (och dina tillståndskänsliga tjänster) kan stängas av smidigt på VM-instans som du ska ta bort då nya repliker skapas någon annanstans.
+Med de egenskaper för Node och placering som deklarerats utför du följande steg en VM-instans i taget. Detta gör att system tjänsterna (och dina tillstånds känsliga tjänster) kan stängas av på ett smidigt sätt på den virtuella dator instans som du tar bort när nya repliker skapas någon annan stans.
 
-1. Från PowerShell, kör `Disable-ServiceFabricNode` med avsikt `RemoveNode` att inaktivera noden ska du ta bort. Ta bort nodtyp som har det högsta antalet. Till exempel om du har ett kluster med sex noder tar du bort ”MyNodeType_5” VM-instans.
-2. Kör `Get-ServiceFabricNode` att se till att noden har gått över till inaktiverad. Annars kan du vänta tills noden är inaktiverad. Det kan ta ett par timmar för varje nod. Inte fortsätta förrän noden har gått över till inaktiverad.
-3. Minska antalet virtuella datorer med en i den nodtypen. Den högsta VM-instansen tas nu bort.
-4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära nodtyperna mindre än tillförlitlighetsnivån kräver. Se [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
-5. När alla virtuella datorer är borta (som visas som ”ned”) i fabric: / System/InfrastructureService / [nodnamn] visar ett feltillstånd. Du kan sedan uppdatera klusterresursen för att ta bort nodtyp. Du kan antingen använda ARM-mallsdistribution eller redigera klusterresursen via den [Azure resource manager](https://resources.azure.com). Detta startar en uppgradering av klustret som tar bort fabric: / / InfrastructureService / [nodtyp] systemtjänst som är i feltillstånd.
- 6. Efter att du kan också ta bort VMScaleSet, du kommer fortfarande att se noderna som ”inaktiv” visa dock från Service Fabric Explorer. Det sista steget är att rensa dem med `Remove-ServiceFabricNodeState` kommando.
-
-### <a name="example-scenario"></a>Exempel på ett scenario
-Ett scenario som stöds när du vill utföra en åtgärd med vertikal skalning är: du vill migrera dina Service Fabric-kluster och program från en ohanterad disk till hanterade diskar utan driftavbrott. 
-
-Du kan etablera en ny VM-skalningsuppsättning med hanterade diskar och utföra en uppgradering av programmet med placeringsbegränsningar som är riktade till etablerad kapacitet. Service Fabric-klustret kan sedan schemalägga din arbetsbelastning på etablerade klustret noden kapaciteten som distribueras av uppgraderingsdomän utan driftavbrott. 
-
-Backend-poolen slutpunkter för den [Azure Load Balancers grundläggande SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) kan vara virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. Det innebär att du inte kan använda en grundläggande SKU-belastningsutjämnare om du flyttar dina system Service Fabric-program mellan skalningsuppsättningar, utan att orsaka tillfälliga inaccessibility för hanteringsslutpunkten Service Fabric-kluster. Detta gäller även om klustret och dess program körs fortfarande.
-
-Användare etablera ofta en Standard-SKU-belastningsutjämnare när du utför en virtuell IP-adress (VIP)-växling mellan Basic SKU belastningsutjämnare och Standard-SKU resurser för belastningsutjämning. Den här tekniken begränsar alla framtida inaccessibility till 30 sekunder krävs för VIP växlar.
+1. Från PowerShell kör `Disable-ServiceFabricNode` du med avsikt `RemoveNode` att inaktivera noden som du ska ta bort. Ta bort nodtypen som har det högsta värdet. Om du till exempel har ett kluster med sex noder tar du bort den virtuella dator instansen "MyNodeType_5".
+2. Kör `Get-ServiceFabricNode` för att kontrol lera att noden har övergått till inaktive rad. Annars kan du vänta tills noden är inaktiverad. Detta kan ta några timmar för varje nod. Fortsätt inte förrän noden har övergått till inaktive rad.
+3. Minska antalet virtuella datorer med ett i den nodtypen. Den högsta virtuella dator instansen tas nu bort.
+4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära nodtyperna mindre än tillförlitlighetsnivån kräver. Se [planera Service Fabric kluster kapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
+5. När alla virtuella datorer är borta (representeras som "nere") visas ett fel tillstånd i Fabric:/system/InfrastructureService/[Node Name]. Sedan kan du uppdatera kluster resursen för att ta bort nodtypen. Du kan antingen använda distribution av ARM-mallen eller redigera kluster resursen via [Azure Resource Manager](https://resources.azure.com). Detta startar en kluster uppgradering som tar bort tjänsten Fabric:/system/InfrastructureService/[Node Type] som är i fel tillstånd.
+ 6. När du vill ta bort VMScaleSet kan du fortfarande se noderna som "nere" från Service Fabric Explorer Visa. Det sista steget är att rensa dem med `Remove-ServiceFabricNodeState` kommandot.
 
 ## <a name="horizontal-scaling"></a>Horisontell skalning
 
-Du kan göra horisontell skalning antingen [manuellt](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) eller [programmässigt](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Du kan göra horisontell skalning antingen [manuellt](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) eller [via programmering](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
-> Om du skalar en nodtyp som har Silver eller Gold hållbarhet skalning kommer att vara långsamma.
+> Om du skalar en nodtyp som har silver eller guld tålighet blir skalningen långsam.
 
 ### <a name="scaling-out"></a>Skala ut
 
-Skala ut ett Service Fabric-kluster genom att öka instansantalet för en viss VM-skalningsuppsättning. Du kan skala ut med hjälp av programmässigt `AzureClient` och ID för önskad skalningsuppsättningen att öka kapaciteten.
+Skala ut ett Service Fabric kluster genom att öka antalet instanser för en viss skalnings uppsättning för virtuella datorer. Du kan skala ut program mässigt genom att använda `AzureClient` och ID: t för önskad skalnings uppsättning för att öka kapaciteten.
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -107,7 +98,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Om du vill skala ut manuellt uppdatera kapaciteten i SKU-egenskapen för den önskade [virtual machine scale Sets](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resurs.
+Om du vill skala ut manuellt uppdaterar du kapaciteten i SKU-egenskapen för önskad resurs för [skalnings uppsättning för virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) .
 
 ```json
 "sku": {
@@ -117,21 +108,21 @@ Om du vill skala ut manuellt uppdatera kapaciteten i SKU-egenskapen för den ön
 }
 ```
 
-### <a name="scaling-in"></a>Skala in
+### <a name="scaling-in"></a>Skalning i
 
-Skala i kräver mer övervägande än skala ut. Exempel:
+Skalning i kräver mer hänsyn än att skala ut. Exempel:
 
-* Service Fabric-systemtjänster kör i den primära nodtypen i klustret. Aldrig stänga eller skala ned antalet instanser för den nodtypen så att du har färre instanser än tillförlitlighetsnivån kräver. 
-* För en tillståndskänslig tjänst behöver du ett visst antal noder som alltid är igång för att bibehålla tillgänglighet och bevara tillståndet för din tjänst. Minst behöver du ett antal noder lika target set replikantalet av partitionen eller tjänsten.
+* Service Fabric system tjänster körs i den primära nodtypen i klustret. Stäng aldrig av antalet instanser för den nodtypen så att du har färre instanser än vad Tillförlitlighets nivån garanterar. 
+* För en tillstånds känslig tjänst behöver du ett visst antal noder som alltid är upp till att upprätthålla tillgänglighet och bevara statusen för din tjänst. Du behöver minst ett antal noder som motsvarar antalet mål replik uppsättningar för partitionen eller tjänsten.
 
 Följ dessa steg om du vill skala i manuellt:
 
-1. Från PowerShell, kör `Disable-ServiceFabricNode` med avsikt `RemoveNode` att inaktivera noden ska du ta bort. Ta bort nodtyp som har det högsta antalet. Till exempel om du har ett kluster med sex noder tar du bort ”MyNodeType_5” VM-instans.
-2. Kör `Get-ServiceFabricNode` att se till att noden har gått över till inaktiverad. Annars kan du vänta tills noden är inaktiverad. Det kan ta ett par timmar för varje nod. Inte fortsätta förrän noden har gått över till inaktiverad.
-3. Minska antalet virtuella datorer med en i den nodtypen. Den högsta VM-instansen tas nu bort.
-4. Upprepa steg 1 till 3 tills du etablerar den kapacitet som du vill. Inte skala ned antalet instanser i de primära nodtyperna till färre än tillförlitlighetsnivån kräver. Se [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
+1. Från PowerShell kör `Disable-ServiceFabricNode` du med avsikt `RemoveNode` att inaktivera noden som du ska ta bort. Ta bort nodtypen som har det högsta värdet. Om du till exempel har ett kluster med sex noder tar du bort den virtuella dator instansen "MyNodeType_5".
+2. Kör `Get-ServiceFabricNode` för att kontrol lera att noden har övergått till inaktive rad. Annars kan du vänta tills noden är inaktiverad. Detta kan ta några timmar för varje nod. Fortsätt inte förrän noden har övergått till inaktive rad.
+3. Minska antalet virtuella datorer med ett i den nodtypen. Den högsta virtuella dator instansen tas nu bort.
+4. Upprepa steg 1 till 3 efter behov tills du har etablerat den kapacitet du önskar. Skala inte ned antalet instanser i de primära nodtypen till mindre än vad Tillförlitlighets nivån garanterar. Se [planera Service Fabric kluster kapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) för en lista över rekommenderade instanser.
 
-Om du vill skala i manuellt uppdatera kapaciteten i SKU-egenskapen för den önskade [virtual machine scale Sets](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resurs.
+Om du vill skala i manuellt uppdaterar du kapaciteten i SKU-egenskapen för önskad resurs för [skalnings uppsättning för virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) .
 
 ```json
 "sku": {
@@ -141,7 +132,7 @@ Om du vill skala i manuellt uppdatera kapaciteten i SKU-egenskapen för den öns
 }
 ```
 
-Du måste förbereda noden för nedstängning för att skala i programmässigt. Hitta noden ska tas bort (den högsta instans noden). Exempel:
+Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Exempel:
 
 ```c#
 using (var client = new FabricClient())
@@ -158,7 +149,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Inaktivera och ta bort noden med hjälp av samma `FabricClient` instans (`client` i det här fallet) och -nod (`instanceIdString` i det här fallet) som du använde i den tidigare koden:
+Inaktivera och ta bort noden genom att använda samma `FabricClient` instans (`client` i det här fallet) och Node-instansen (`instanceIdString` i det här fallet) som du använde i föregående kod:
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -184,24 +175,24 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> När du skalar ned ett kluster, visas den borttagna nod och VM-instans som visas i ett feltillstånd i Service Fabric Explorer. En förklaring av det här problemet finns i [beteenden som du kan se i Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Du kan:
-> * Anropa den [kommandot Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) med namnet på lämplig noden.
-> * Distribuera den [hjälpprogram för Service Fabric Autoskala](https://github.com/Azure/service-fabric-autoscale-helper/) i klustret. Det här programmet säkerställer att skalas ned noderna tas bort från Service Fabric Explorer.
+> När du skalar ned ett kluster ser du att den borttagna noden/VM-instansen visas i ett ohälsosamt tillstånd i Service Fabric Explorer. En förklaring av det här problemet finns [i beteenden som du kan studera i Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Du kan:
+> * Anropa [kommandot Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) med rätt nodnamn.
+> * Distribuera [Service Fabric AutoScale Helper-programmet](https://github.com/Azure/service-fabric-autoscale-helper/) i klustret. Det här programmet ser till att de skalade noderna rensas från Service Fabric Explorer.
 
-## <a name="reliability-levels"></a>Tillförlitlighetsnivåer
+## <a name="reliability-levels"></a>Tillförlitlighets nivåer
 
-Den [tillförlitlighetsnivån](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) är en egenskap i Service Fabric-klusterresursen. Det kan inte konfigureras på olika sätt för enskilda nodtyper. Den styr replikeringsfaktorn systemtjänster för klustret och är en inställning på klusternivå för resursen. 
+[Tillförlitlighets nivån](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) är en egenskap för Service Fabric kluster resurs. Den kan inte konfigureras på olika sätt för enskilda nodtyper. Den styr replikeringstrafiken för system tjänsterna för klustret och är en inställning på kluster resurs nivån. 
 
-Tillförlitlighetsnivån avgör det minsta antalet noder som den primära nodtypen måste innehålla. Tillförlitlighetsnivån kan ha följande värden:
+Tillförlitlighets nivån avgör det lägsta antalet noder som den primära nodtypen måste ha. Tillförlitlighets nivån kan ha följande värden:
 
-* Platina: Kör systemtjänster med en target replica set uppräkning av sju och nio startvärdesnoder.
-* Gold: Kör systemtjänster med en target replica set uppräkning av sju och sju startvärdesnoder.
-* Silver: Kör systemtjänster med en target replica set uppräkning av fem och fem startvärdesnoder.
-* Brons: Kör systemtjänster med en target replica set uppräkning av tre och tre startvärdesnoder.
+* Platina Kör system tjänsterna med en mål replik uppsättning antal sju och nio startnoder.
+* Gult Kör system tjänsterna med ett mål replik uppsättnings antal sju och sju startnoder.
+* Ställd Kör system tjänsterna med ett mål replik uppsättnings antal fem och fem startnoder.
+* Brons Kör system tjänsterna med ett mål replik uppsättnings antal tre och tre startnoder.
 
-Den minsta rekommenderade tillförlitlighetsnivån är Silver.
+Den minsta rekommenderade Tillförlitlighets nivån är silver.
 
-Tillförlitlighetsnivån som anges i egenskapsavsnittet i den [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters), så här:
+Tillförlitlighets nivån anges i avsnittet Egenskaper i [resursen Microsoft. ServiceFabric/Clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters), så här:
 
 ```json
 "properties":{
@@ -209,14 +200,14 @@ Tillförlitlighetsnivån som anges i egenskapsavsnittet i den [Microsoft.Service
 }
 ```
 
-## <a name="durability-levels"></a>Hållbarhet nivåer
+## <a name="durability-levels"></a>Hållbarhets nivåer
 
 > [!WARNING]
-> Nodtyper som körs med Brons hållbarhet hämta _saknad behörighet_. Infrastruktur för jobb som påverkar din tillståndslösa arbetsbelastningar kan inte stoppas eller fördröjd, som kan påverka dina arbetsbelastningar. 
+> Nodtyper som kör med brons hållbarhet får _inga privilegier_. Infrastruktur jobb som påverkar dina tillstånds lösa arbets belastningar kommer inte att stoppas eller fördröjas, vilket kan påverka dina arbets belastningar. 
 >
-> Använd Brons hållbarhet enbart för nodtyper som kör tillståndslösa arbetsbelastningar. Kör Silver eller högre för att säkerställa konsekvens tillstånd för produktionsarbetsbelastningar. Välj rätt tillförlitligheten baserat på vägledningen i det [dokumentation för kapacitetsplanering](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+> Använd endast brons-hållbarhet för nodtyper som kör tillstånds lösa arbets belastningar. För produktions arbets belastningar kör du silver eller högre för att säkerställa tillstånds konsekvens. Välj rätt tillförlitlighet baserat på vägledningen i dokumentationen för [kapacitets planering](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Hållbarhetsnivå måste ställas in i två resurser. En är tilläggsprofilen för den [VM-skalningsuppsättningen resource](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
+Hållbarhets nivån måste anges i två resurser. Det finns en tilläggs profil för den [virtuella datorns skalnings uppsättnings resurs](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
 
 ```json
 "extensionProfile": {
@@ -231,7 +222,7 @@ Hållbarhetsnivå måste ställas in i två resurser. En är tilläggsprofilen f
 }
 ```
 
-Andra resursen är `nodeTypes` i den [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
+Den andra resursen finns under `nodeTypes` i [resursen Microsoft. ServiceFabric/Clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
 
 ```json
 "nodeTypes": [
@@ -244,8 +235,8 @@ Andra resursen är `nodeTypes` i den [Microsoft.ServiceFabric/clusters resource]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Skapa för Service Fabric-kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa en Linux-kluster](service-fabric-cluster-creation-via-portal.md).
-* Lär dig mer om [Service Fabric-supportalternativ](service-fabric-support.md).
+* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md).
+* Läs mer om [Service Fabric support alternativ](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

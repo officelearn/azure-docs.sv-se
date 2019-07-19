@@ -1,58 +1,58 @@
 ---
-title: Konfigurera en AlwaysOn VPN-tunnel för VPN-Gateway
-description: Steg för att konfigurera alltid på VPN-tunnel för VPN-Gateway
+title: Konfigurera en VPN-tunnel som alltid är på för VPN Gateway
+description: Steg för att konfigurera Always on VPN-tunnel för VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 81822297dcf9370fc8ce7f7ce0285689c31606ce
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695836"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295474"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Konfigurera en VPN-enhetstunnel för AlwaysOn
 
-En av de nya funktionerna i Windows 10 virtuella privata nätverk (VPN)-klient är möjligheten att ha en VPN-anslutning. Always On är en Windows 10-funktion som gör det möjligt för aktiva VPN-profilen att ansluta automatiskt och vara anslutna baserat på utlösare – nämligen användarinloggning tillståndsändring för nätverk eller enhetens skärm som är aktiva.
+En av de nya funktionerna i VPN-klienten (Virtual Private Network) i Windows 10 är möjligheten att underhålla en VPN-anslutning. Always On är en funktion i Windows 10 som gör det möjligt för den aktiva VPN-profilen att ansluta automatiskt och förblir ansluten baserat på utlösare – nämligen användar inloggning, ändring av nätverks tillstånd eller enhets skärm aktiv.
 
-Azures virtuella nätverksgatewayar kan användas med Windows 10 alltid på att upprätta beständiga användaren tunnlar samt enheten tunnlar till Azure. Den här artikeln beskriver hur du konfigurerar en enhet alltid på VPN-tunnel.
+Virtuella Azure-nätverksgateway kan användas med Windows 10 Always on för att upprätta permanenta användar tunnlar samt enhets tunnlar till Azure. Den här artikeln hjälper dig att konfigurera en tunnel för Always ON VPN-enheter.
 
-Alltid på VPN-anslutningar innehåller två typer av tunnlar:
+Alltid på VPN-anslutningar är två typer av tunnlar:
 
-* **Enheten tunnel** ansluter till den angivna VPN-servrar innan användarna logga in på enheten. Scenarier för före inloggningen anslutning och hanteringsändamål för enheten du använder enheten tunnlar.
+* **Enhets tunneln** ansluter till angivna VPN-servrar innan användarna loggar in på enheten. Anslutnings scenarier för inloggning och enhets hantering använder enhets tunnel.
 
-* **Användaren tunnel** ansluter bara när en användare loggar i enheten. Användaren tunnel låter användare åtkomst till organisationens resurser via VPN-servrar.
+* **Användar tunneln** ansluter bara efter att en användare har loggat in på enheten. Användar tunnel ger användare åtkomst till organisations resurser via VPN-servrar.
 
-Både tunnel för enheten och användaren tunnel är oberoende av varandra med sina VPN-profiler. De kan anslutas samtidigt och kan använda olika autentiseringsmetoder och andra konfigurationsinställningar för VPN-efter behov.
+Både enhets tunnel och användar tunnel körs oberoende av sina VPN-profiler. De kan vara anslutna samtidigt, och kan använda olika autentiseringsmetoder och andra inställningar för VPN-konfigurationen efter behov.
 
 ## <a name="1-configure-the-gateway"></a>1. Konfigurera gatewayen
 
-Konfigurera VPN-gateway för att använda IKEv2 och certifikatbaserad autentisering som använder det här [punkt-till-plats-artikeln](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Konfigurera VPN-gatewayen att använda IKEv2 och certifikatbaserad autentisering med hjälp av den här [punkt-till-plats-artikeln](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="2-configure-the-user-tunnel"></a>2. Konfigurera tunneln användare
+## <a name="2-configure-the-user-tunnel"></a>2. Konfigurera användar tunneln
 
-1. Installera klientcertifikat på Windows 10-klient som visas i den här [punkt-till-plats VPN-klienten artikeln](point-to-site-how-to-vpn-client-install-azure-cert.md). Certifikatet måste finnas i den aktuella användaren Store
-2. Konfigurera AlwaysOn VPN-klienten med hjälp av PowerShell, SCCM eller Intune [instruktionerna](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Installera klient certifikat på Windows 10-klienten som visas i [artikeln punkt-till-plats-VPN-klient](point-to-site-how-to-vpn-client-install-azure-cert.md). Certifikatet måste finnas i det aktuella användar arkivet
+2. Konfigurera Always on VPN-klienten via PowerShell, SCCM eller Intune med hjälp av [dessa instruktioner](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-## <a name="3-configure-the-device-tunnel"></a>3. Konfigurera enheten-tunnel
+## <a name="3-configure-the-device-tunnel"></a>3. Konfigurera enhets tunneln
 
-Följande krav måste uppfyllas för att skapa en tunnel för enheten:
+Följande krav måste uppfyllas för att du ska kunna upprätta en enhets tunnel:
 
 * Enheten måste vara en domänansluten dator som kör Windows 10 Enterprise eller Education version 1709 eller senare.
-* Tunneln kan bara konfigureras för den inbyggda VPN-lösningen för Windows och upprättas med hjälp av IKEv2 med autentisering med datorcertifikat. 
-* Endast en enhet tunnel kan konfigureras per enhet.
+* Tunneln kan bara konfigureras för den inbyggda VPN-lösningen i Windows och upprättas med hjälp av IKEv2 med autentisering med dator certifikat. 
+* Endast en enhets tunnel kan konfigureras per enhet.
 
-1. Installera klientcertifikat på Windows 10-klient som visas i den här [punkt-till-plats VPN-klienten artikeln](point-to-site-how-to-vpn-client-install-azure-cert.md). Certifikatet måste finnas i lokala datorns Arkiv.
-1. Använd [instruktionerna](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration) du skapar en VPN-profil och konfigurerar enheten tunnel i samband med det lokala systemkontot.
+1. Installera klient certifikat på Windows 10-klienten som visas i [artikeln punkt-till-plats-VPN-klient](point-to-site-how-to-vpn-client-install-azure-cert.md). Certifikatet måste finnas i den lokala datorns Arkiv.
+1. Använd [de här anvisningarna](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration) för att skapa en VPN-profil och konfigurera enhets tunneln i kontexten för det lokala system kontot.
 
-### <a name="configuration-example-for-device-tunnel"></a>Konfigurationsexempel för enhet-tunnel
+### <a name="configuration-example-for-device-tunnel"></a>Konfigurations exempel för enhets tunnel
 
-När du har konfigurerat den virtuella nätverksgatewayen och har installerat klientcertifikatet i det lokala datorarkivet på Windows 10-klienten, kan du använda följande exempel för att konfigurera en tunnel för klient-enhet.
+När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient certifikatet i den lokala datorns Arkiv på Windows 10-klienten, använder du följande exempel för att konfigurera en klient enhets tunnel.
 
-1. Kopiera följande text och spara den som ***devicecert.ps1***.
+1. Kopiera följande text och spara den som ***devicecert. ps1***.
 
    ```
    Param(
@@ -104,7 +104,7 @@ När du har konfigurerat den virtuella nätverksgatewayen och har installerat kl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Kopiera följande text och spara den som ***VPNProfile.xml*** i samma mapp som **devicecert.ps1**. Redigera följande text som matchar din miljö.
+1. Kopiera följande text och spara den som ***VPNProfile. XML*** i samma mapp som **devicecert. ps1**. Redigera följande text för att matcha din miljö.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
@@ -140,7 +140,7 @@ När du har konfigurerat den virtuella nätverksgatewayen och har installerat kl
    </VPNProfile>
    ```
 1. Ladda ned **PsExec** från [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) och extrahera filerna till **C:\PSTools**.
-1. Starta PowerShell genom att köra från en administratör CMD-kommandotolk:
+1. Starta PowerShell från en administratörs kommando tolk genom att köra:
 
    ```
    C:\PsTools\PsExec.exe Powershell for 32-bit Windows
@@ -148,27 +148,27 @@ När du har konfigurerat den virtuella nätverksgatewayen och har installerat kl
    ```
 
    ![PowerShell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
-1. I PowerShell, växla till mappen där **devicecert.ps1** och **VPNProfile.xml** finns och kör följande kommando:
+1. I PowerShell växlar du till den mapp där **devicecert. ps1** och **VPNProfile. XML** finns och kör följande kommando:
 
    ```powershell
    C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)
-1. Kör **rasphone**.
+1. Kör **Rasphone**.
 
    ![RASPHONE](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
-1. Leta efter den **MachineCertTest** posten och klicka på **Connect**.
+1. Leta efter **MachineCertTest** -posten och klicka på **Anslut**.
 
    ![Anslut](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
-1. Om anslutningen lyckas, kan du starta om datorn. Tunneln ansluter automatiskt.
+1. Om anslutningen lyckas startar du om datorn. Tunneln kommer att ansluta automatiskt.
 
 ## <a name="cleanup"></a>Rensa
 
-Ta bort profilen genom att köra följande kommando:
+Om du vill ta bort profilen kör du följande kommando:
 
 ![Rensa](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om felsökning finns [Azure punkt-till-plats-anslutningsproblem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+Information om fel sökning finns i [problem med Azure punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

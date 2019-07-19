@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsaviseringar i Azure Security Center | Microsoft Docs
-description: Det här avsnittet beskriver vad är säkerhetsaviseringar och olika typer i Azure Security Center.
+title: Säkerhets aviseringar i Azure Security Center | Microsoft Docs
+description: I det här avsnittet beskrivs vad är säkerhets aviseringar och de olika typer som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,70 +13,70 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 06f41bbfd97d5deb59e7bfd08615b2f28e256070
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571678"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295689"
 ---
-# <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
+# <a name="security-alerts-in-azure-security-center"></a>Säkerhets aviseringar i Azure Security Center
 
-Den här artikeln beskriver vi de olika typerna av säkerhetsaviseringar som är tillgängliga i Azure Security Center (ASC). Det finns en mängd olika aviseringar för många olika resurstyper. ASC genererar varningar för båda resurser som distribueras på Azure och resurser som distribueras lokalt och hybrid-miljöer i molnet. 
+Den här artikeln visar de olika typerna av säkerhets aviseringar som är tillgängliga i Azure Security Center (ASC). Det finns flera olika aviseringar för många olika resurs typer. ASC genererar aviseringar för båda resurser som distribueras på Azure och resurser som distribueras i lokala miljöer och hybrid moln miljöer. 
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
 
-Aviseringar är de meddelanden som Security Center genererar när hot på dina resurser. Den prioriterar och visar en lista över aviseringar tillsammans med den information som behövs att snabbt undersöka problemet. Security Center innehåller också rekommendationer för hur du kan avhjälpa angrepp.
+Aviseringar är de meddelanden som Security Center genererar när de identifierar hot på dina resurser. Den prioriterar och listar aviseringarna tillsammans med den information som behövs för att du snabbt ska kunna undersöka problemet. Security Center innehåller också rekommendationer för hur du kan åtgärda ett angrepp.
 
-## <a name="how-does-security-center-detect-threats"></a>Hur identifierar hot i Security Center?
+## <a name="how-does-security-center-detect-threats"></a>Hur identifierar Security Center hot?
 
-För att identifiera verkliga hot och minska falska positiva identifieringar, Security Center samlar in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandvägg och slutpunktsskyddslösningar. Security Center analyserar den här informationen korrelerar ofta information från flera källor för att identifiera hot.
+Security Center samlar in, analyserar och integrerar loggdata från dina Azure-resurser, nätverket och anslutna partner lösningar som brand Väggs-och slut punkts skydds lösningar för att identifiera verkliga hot och minska antalet falska positiva identifieringar. Security Center analyserar informationen, som ofta korrelerar information från flera källor, för att identifiera hot.
 
-ASC övervakar resurser om distribueras på Azure eller distribuerats andra lokalt och hybrid-miljöer i molnet. Läs mer om att identifiera och svara på hot i [hur Security Center identifierar och svarar på hot](security-center-detection-capabilities.md#asc-detects).
+ASC övervakar resurserna oavsett om de distribueras på Azure eller distribueras på andra lokala miljöer och hybrid moln miljöer. Läs mer om att identifiera och svara på hot i [hur Security Center identifierar och svarar på hot](security-center-detection-capabilities.md#asc-detects).
 
-## <a name="security-alert-types"></a>Security aviseringstyper
+## <a name="security-alert-types"></a>Säkerhets aviserings typer
 
-I följande avsnitt får du via de olika ASC aviseringarna enligt resurstyper:
+Följande avsnitt vägleder dig genom de olika ASC-aviseringarna enligt resurs typer:
 
-* [Aviseringar för virtuella IaaS-datorer och servrar](security-center-alerts-iaas.md)
-* [Interna beräkningsfunktioner aviseringar](security-center-alerts-compute.md)
-* [Data services-aviseringar](security-center-alerts-data-services.md)
+* [IaaS VM & Server-aviseringar](security-center-alerts-iaas.md)
+* [Interna beräknings aviseringar](security-center-alerts-compute.md)
+* [Aviseringar för data tjänster](security-center-alerts-data-services.md)
 
-I följande avsnitt förklarar hur Security Center använder olika telemetrin som det samlar in från integrera med Azure-infrastrukturen för att kunna tillämpa ytterligare skydd lager för resurser som distribueras på Azure:
+I följande avsnitt förklaras hur Security Center utnyttjar olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
 
-* [Tjänstvarningar med lager](security-center-alerts-service-layer.md)
-* [Integrering med Azure Security-produkter](security-center-alerts-integration.md)
+* [Aviseringar för service nivå](security-center-alerts-service-layer.md)
+* [Integrering med Azures säkerhets produkter](security-center-alerts-integration.md)
 
-## <a name="what-are-alert-incidents"></a>Vad är aviseringar incidenter?
+## <a name="what-are-alert-incidents"></a>Vad är varnings incidenter?
 
-En säkerhetsincident är en samling relaterade aviseringar så i stället för att visa en lista över varje avisering individuellt. Security Center använder fusion för korrelation olika aviseringar och otillförlitliga signaler i säkerhetsincidenter.
+En säkerhets incident är en samling relaterade aviseringar i stället för att lista varje avisering individuellt. Security Center använder fusion för att korrelera olika aviseringar och låg åter givning av signaler till säkerhets incidenter.
 
-Med incidenter kan ger Security Center dig en vy av en attackkampanj och alla relaterade aviseringar. Den här vyn kan du snabbt kan förstå vilka åtgärder angriparen vidtog och vilka resurser som har påverkats. Mer information finns i [molnet Smart Incidenthanteringssystem](security-center-alerts-cloud-smart.md).
+Med hjälp av incidenter ger Security Center en enda vy över en angrepps kampanj och alla relaterade aviseringar. Med den här vyn kan du snabbt förstå vilka åtgärder som angriparen tog och vilka resurser som påverkas. Mer information finns i [Cloud Smart Alert-korrelation](security-center-alerts-cloud-smart.md).
 
 ## <a name="get-started-with-alerts"></a>Kom igång med aviseringar
 
-Se följande avsnitt kommer du lär dig mer om de resurser som övervakas av ASC, och riktlinjer för hur du svarar på aviseringar som presenteras av ASC.
+I följande avsnitt kan du läsa mer om de resurser som övervakas av ASC, och rikt linjer för hur du svarar på de aviseringar som presenteras av ASC.
 
-* Om du vill se vilka plattformar och funktioner som är skyddade av ASC, se [plattformar och funktioner som stöds av Azure Security Center](security-center-os-coverage.md).  
-* Information om vad är säkerhetsincidenter och hur ASC reagerar på dem finns i [hur du hanterar säkerhetsincidenter i Azure Security Center](security-center-incident.md). 
-* Läs hur du hanterar aviseringar som du får i [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Verifiera information på hur Security Center är korrekt konfigurerad och för att främja en avisering om test av Se [aviseringar verifiering i Azure Security Center](security-center-alert-validation.md).  
+* Om du vill se vilka plattformar och funktioner som skyddas av ASC, se [plattformar och funktioner som stöds av Azure Security Center](security-center-os-coverage.md).  
+* Information om vad som är säkerhets incidenter och hur ASC svarar på dem finns i [hantera säkerhets incidenter i Azure Security Center](security-center-incident.md). 
+* Information om hur du hanterar de aviseringar du får finns i [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+* Information om hur du verifierar att Security Center är korrekt konfigurerad och för att stimulera en test avisering finns [i varningar validering i Azure Security Center](security-center-alert-validation.md).  
 
 
-## <a name="upgrade-to-standard-for-advanced-detections"></a>Uppgradera till Standard för avancerad identifiering rekommenderar vi
+## <a name="upgrade-to-standard-for-advanced-detections"></a>Uppgradera till standard för avancerad identifiering
 
 För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. 
 
-1. Security Center-menyn väljer **säkerhetsprincip**.
-2. För prenumerationer som du vill flytta till Standard-nivån, klickar du på **redigera inställningar för**. 
-3. På sidan Inställningar väljer **prisnivå**. 
-   En kostnadsfri utvärderingsversion är tillgänglig i en månad. Läs mer i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/). 
+1. På Security Center-menyn väljer du **säkerhets princip**.
+2. Klicka på **Redigera inställningar**för prenumerationer som du vill flytta till standard nivån. 
+3. På sidan Inställningar väljer du **pris nivå**. 
+   En kostnads fri utvärderings version är tillgänglig i en månad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/security-center/). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs vad är säkerhetsaviseringar och olika typer av aviseringar som är tillgängliga i Security Center. Mer information finns i följande avsnitt:
+I den här artikeln har du lärt dig vad som är säkerhets aviseringar och de olika typerna av aviseringar som är tillgängliga i Security Center. Mer information finns i följande avsnitt:
 
 * [Planerings- och bruksanvisning för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-* [Vanliga frågor om Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq): Här finns vanliga frågor om att använda tjänsten.
+* [Azure Security Center vanliga frågor och svar](https://docs.microsoft.com/azure/security-center/security-center-faq): Här finns vanliga frågor om att använda tjänsten.
 

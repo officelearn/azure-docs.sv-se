@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB-Prestandatips för Java
-description: Lär dig klienten konfigurationsalternativ för att förbättra prestanda för Azure Cosmos DB-databasen
+title: Azure Cosmos DB prestanda tips för Java
+description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos DB databas prestanda
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 2ce8c0b369cd59ac61279fe3c7acd2cdecfc007c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d6427db7090b3419fbe67535baeb4a5df6a5d65
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225609"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261318"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
+# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestanda tips för Azure Cosmos DB och Java
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -22,25 +22,25 @@ ms.locfileid: "66225609"
 > * [NET](performance-tips.md)
 > 
 
-Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop. Mer information finns i [hur du etablerar dataflöden i behållare](how-to-provision-container-throughput.md) eller [hur du etablerar databasen dataflöde](how-to-provision-database-throughput.md). Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL Java SDK](documentdb-sdk-java.md).
+Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL Java SDK](documentdb-sdk-java.md).
 
-Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg följande alternativ:
+Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg följande alternativ:
 
 ## <a name="networking"></a>Nätverk
 <a id="direct-connection"></a>
 
-1. **Anslutningsläge: Använda DirectHttps**
+1. **Anslutnings läge: Använd DirectHttps**
 
-    Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt när det gäller observerade klientens svarstid. Det finns en nyckeln är konfigurerad inställning är tillgänglig för att konfigurera klienten [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) – den [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Det finns två tillgängliga ConnectionModes:
+    Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt i förhållande till den observerade svars tiden på klient sidan. Det finns en inställning för nyckel konfiguration som är tillgänglig för konfigurering av klientens [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  De två tillgängliga ConnectionModes är:
 
    1. [Gateway (standard)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-      Gateway-läge stöds på alla SDK-plattformar och är konfigurerad standard.  Om programmet körs inifrån ett företagsnätverk med strikta brandväggsbegränsningar, är Gateway det bästa valet eftersom det använder HTTPS-standardport och en enda slutpunkt. Prestanda-Nackdelen är dock att Gateway-läge innebär att en ytterligare ett hopp varje gång som data har lästs eller skrivits till Azure Cosmos DB. Därför erbjuder bättre prestanda på grund av färre nätverkssteg i DirectHttps läge. 
+      Gateway-läget stöds på alla SDK-plattformar och är det konfigurerade standardvärdet.  Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway det bästa valet eftersom det använder standard-HTTPS-porten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare nätverks hopp varje gång data läses eller skrivs till Azure Cosmos DB. Därför erbjuder DirectHttps-läget bättre prestanda på grund av färre nätverks hopp. 
 
-      Java SDK använder HTTPS som transport-protokoll. HTTPS använder SSL för den inledande autentiseringen och kryptering av trafik. När du använder Java SDK, måste endast HTTPS-port 443 är öppna. 
+      Java SDK använder HTTPS som ett transport protokoll. HTTPS använder SSL för inledande autentisering och kryptering av trafik. När du använder Java SDK måste endast HTTPS-port 443 vara öppen. 
 
-      ConnectionMode konfigureras under konstruktionen av DocumentClient-instansen med parametern ConnectionPolicy. 
+      ConnectionMode konfigureras under konstruktion av DocumentClient-instansen med parametern ConnectionPolicy. 
 
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
@@ -54,66 +54,66 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      ![Bild av principen för Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
+      ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
-2. **Samordna klienter i samma Azure-region för prestanda**
+2. **Samordna-klienter i samma Azure-region för prestanda**
 
-    Om det är möjligt placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos DB-databasen. En ungefärlig jämförelse anrop till Azure Cosmos DB inom samma region som slutförs inom 1 – 2 ms, men fördröjningen mellan västra och östra västkust är > 50 ms. Den här fördröjningen kan förmodligen variera från begäran till begäran beroende på vilken väg begäran när det överförs från klienten till Azure-datacenter-gränsen. Lägsta möjliga tidsfördröjning uppnås genom att kontrollera att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB-slutpunkten. En lista över tillgängliga regioner finns i [Azure-regionerna](https://azure.microsoft.com/regions/#services).
+    När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos DBs databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är > 50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-    ![Bild av principen för Azure Cosmos DB](./media/performance-tips/same-region.png)
+    ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
    
 ## <a name="sdk-usage"></a>SDK-användning
-1. **Installera den senaste SDK**
+1. **Installera den senaste SDK: n**
 
-    Azure Cosmos DB SDK är ständigt bättre för att ge bästa möjliga prestanda. Se den [Azure Cosmos DB SDK](documentdb-sdk-java.md) sidor för att fastställa den senaste SDK och granska förbättringar.
-2. **Använda en singleton Azure Cosmos DB-klient under hela programmets livslängd**
+    Azure Cosmos DB SDK: er har ständigt förbättrats för att ge bästa möjliga prestanda. Se de [Azure Cosmos DB SDK](documentdb-sdk-java.md) -sidorna för att fastställa de senaste SDK: er och gransknings förbättringarna.
+2. **Använd en singleton Azure Cosmos DB-klient för programmets livs längd**
 
-    Varje [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) instansen är trådsäker och utför effektiv anslutningshanteringen och cachelagring av adresser vid användning i direkt-läge. För att tillåta effektiv anslutningshanteringen och bättre prestanda genom att DocumentClient, rekommenderar vi att du använder en enda instans av DocumentClient per AppDomain för hela programmets livslängd.
+    Varje [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) -instans är tråd säker och utför effektiv anslutnings hantering och cachelagring av adresser när du arbetar i direkt läge. För att möjliggöra effektiv anslutnings hantering och bättre prestanda av DocumentClient rekommenderar vi att du använder en enda instans av DocumentClient per AppDomain för programmets livs längd.
 
    <a id="max-connection"></a>
-3. **Öka MaxPoolSize per värd i Gateway-läge**
+3. **Öka MaxPoolSize per värd när du använder Gateway-läge**
 
-    Azure Cosmos DB begär görs över HTTPS/REST i Gateway-läge och har utsatts för Standardgränsen för anslutning per värdnamn eller IP-adress. Du kan behöva ställa in MaxPoolSize på ett högre värde (200-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK standardvärdet för [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) är 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) att ändra värdet.
+    Azure Cosmos DB begär Anden görs via HTTPS/REST vid användning av Gateway-läge och omfattas av standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange MaxPoolSize till ett högre värde (200-1000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK är standardvärdet för [ConnectionPolicy. getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) för att ändra värdet.
 
-4. **Justering parallella frågor partitionerade samlingar**
+4. **Justera parallella frågor för partitionerade samlingar**
 
-    Azure Cosmos DB SQL Java SDK-version 1.9.0 och högre support parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt. Mer information finns i [kodexempel](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) gäller när du arbetar med SDK: erna. Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet.
+    Azure Cosmos DB SQL Java SDK-version 1.9.0 och senare stöder parallella frågor, vilket gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) för att arbeta med SDK: er. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet.
 
-    (a) ***justering setMaxDegreeOfParallelism\:***  parallella frågor arbete genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerad samling seriellt med avseende på frågan. Därför använder [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) anges att ange hur många partitioner som har högsta risken för att uppnå de mest högpresterande fråga, alla andra system villkor är desamma. Om du inte vet hur många partitioner, du kan använda setMaxDegreeOfParallelism för att ange ett högre värde och systemet väljer minst (antal partitioner, tillhandahålls användarindata) som högsta grad av parallellitet. 
+    (a) ***fin justering\: av setMaxDegreeOfParallelism*** -parallella frågor fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad samling hämtas dock i serie med avseende på frågan. Använd [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) för att ställa in antalet partitioner som har maximal chans att uppnå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte känner till antalet partitioner kan du använda setMaxDegreeOfParallelism för att ange ett högt antal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som den högsta graden av parallellitet. 
 
-    Det är viktigt att notera att parallella frågor ger bästa fördelarna om data är jämnt fördelat över alla partitioner med avseende på frågan. Om partitionerade samlingen är partitionerad så att hela eller en merparten av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall) och sedan prestanda hos frågan skulle att skapa en flaskhals eftersom dessa partitioner.
+    Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
-    (b) ***justering setMaxBufferedItemCount\:***  parallell har utformats för att hämta förväg resultat när den aktuella batchen med resultat som behandlas av klienten. Den förhämtning hjälper i den övergripande svarstiden förbättring av en fråga. setMaxBufferedItemCount begränsar antalet förväg hämtade resultat. Genom att ange [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) till det förväntade antalet resultat som returneras (eller fler) Detta gör att frågan för att få största möjliga nytta från förhämtning.
+    (b) ***justering av\: setMaxBufferedItemCount*** parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. setMaxBufferedItemCount begränsar antalet i förväg hämtade resultat. Genom att ange [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) till det förväntade antalet returnerade resultat (eller ett högre tal) gör detta att frågan får maximal nytta av för hämtning.
 
-    Förhämtning fungerar på samma sätt oavsett MaxDegreeOfParallelism och det finns en enda buffert för data från alla partitioner.  
+    För hämtning fungerar på samma sätt oavsett MaxDegreeOfParallelism, och det finns en enda buffert för data från alla partitioner.  
 
-5. **Implementera backoff med getRetryAfterInMilliseconds intervall**
+5. **Implementera backoff med getRetryAfterInMilliseconds-intervall**
 
-    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff på begränsning för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Återförsök princip support ingår i versionen 1.8.0 och senare av den [Java SDK](documentdb-sdk-java.md). Mer information finns i [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden blir begränsad. Om detta är begränsat bör klient programmet backoff vid begränsningen för det Server-angivna återförsöksintervallet. Genom att respektera backoff garanterar du att du tillbringar minimal tid på att vänta mellan återförsök. Stöd för återförsök finns i version 1.8.0 och senare av [Java SDK](documentdb-sdk-java.md). Mer information finns i [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
-6. **Skala ut din klient-arbetsbelastning**
+6. **Skala ut din klient arbets belastning**
 
-    Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på CPU- eller användning. Om du når den här punkten kan fortsätta du att skicka ytterligare Azure Cosmos DB-kontot genom att skala ut dina klientprogram på flera servrar.
+    Om du testar med höga data flödes nivåer (> 50000 RU/s) kan klient programmet bli Flask halsen på grund av att datorn capping ut på processor-eller nätverks användning. Om du når den här punkten kan du fortsätta att skicka det Azure Cosmos DB kontot ytterligare genom att skala ut dina klient program över flera servrar.
 
-7. **Använda namn baserat adressering**
+7. **Använd namn baserat adressering**
 
-    Använda namnbaserat adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, i stället för SelfLinks (\_själv), som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` att undvika hämtar ResourceIds över alla resurser som används för att konstruera länken. Dessutom som resurserna hämta återskapas (eventuellt med samma namn), kan cachelagring av dessa inte hjälpa.
+    Använd namnbaserade adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, i stället för SelfLinks (\_Self), som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` för att undvika att hämta ResourceIds för alla resurser som används för att skapa länken. Som de här resurserna kommer att återskapas (eventuellt med samma namn) kan cachelagring av dem inte vara till hjälp.
 
    <a id="tune-page-size"></a>
-8. **Finjustera sidstorleken för frågor/läsning feeds för bättre prestanda**
+8. **Justera sid storleken för frågor/läsa feeds för bättre prestanda**
 
-    När utför en massinläsning läsa dokument med hjälp av Läs feed-funktioner (till exempel [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) eller när en SQL-fråga, resultaten returneras i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i segment om 100 objekt eller 1 MB som standard, uppnås för beroende på vilken gräns först.
+    När du utför en Mass läsning av dokument med hjälp av funktionen för att läsa feeds (till exempel [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) eller när du utfärdar en SQL-fråga, returneras resultatet i ett segment om resultat mängden är för stor. Som standard returneras resultaten i segment om 100 objekt eller 1 MB, beroende på vilken gräns som nåtts först.
 
-    För att minska antalet nätverk nätverksförfrågningar som krävs för att hämta alla tillämpliga resultat, kan du öka storleken sida med de [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel, om ditt användar-gränssnittet eller ett program-API returnerar endast 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska det dataflöde som används för läsningar och frågor.
+    För att minska antalet nätverks fördröjningar som krävs för att hämta alla tillämpliga resultat kan du öka sid storleken med rubriken [x-MS-Max-item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) till upp till 1000. I de fall där du bara behöver visa några få resultat, till exempel om ditt användar gränssnitt eller ditt program-API bara returnerar 10 resultat en gång, kan du också minska sid storleken till 10 för att minska data flödet som används för läsningar och frågor.
 
-    Du kan också ange sida storlek med den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
+    Du kan också ange sid storleken med SetPageSize- [metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
 ## <a name="indexing-policy"></a>Indexeringspolicy
  
-1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
+1. **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 
-    Indexeringsprincip för Azure Cosmos DB kan du ange vilka dokument sökvägar för att inkludera eller exkludera från indexering genom att använda indexering sökvägar ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) och [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). Användning av indexering sökvägar kan erbjuda bättre skrivprestanda och lagring med lägre index för scenarier där frågemönstren är kända i förväg, som korreleras indexering kostnader direkt till antal unika sökvägar som indexeras.  Till exempel visar följande kod hur du undantar en hela avsnittet dokument (alias) ett underträd) från indexering med den ”*” med jokertecken.
+    Med Azure Cosmos DB indexerings principen kan du ange vilka dokument Sök vägar som ska tas med eller undantas från indexering genom att använda indexerings Sök vägar ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) och [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). Användningen av indexerings Sök vägar kan ge bättre skriv prestanda och lägre index lagring för scenarier där fråge mönstren är kända i förväg, eftersom indexerings kostnader direkt korreleras med antalet unika sökvägar som indexeras.  Följande kod visar till exempel hur du undantar en hel del av dokumenten (kallas även ett under träd) från indexering med jokertecknet "*".
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -125,20 +125,20 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Mer information finns i [Azure Cosmos DB indexeringsprinciper](indexing-policies.md).
+    Mer information finns i [Azure Cosmos DB indexerings principer](indexing-policies.md).
 
 ## <a name="throughput"></a>Dataflöde
 <a id="measure-rus"></a>
 
-1. **Mät och justering för lägre begäran begärandeenheter/sekund användning**
+1. **Mått och justering för lägre enheter för programbegäran/andra användning**
 
-    Azure Cosmos DB erbjuder en omfattande uppsättning databasoperationer, inklusive Relations- och Hierarkifrågor med användardefinierade funktioner, lagrade procedurer och utlösare – allt opererar på dokumenten i en databassamling. Den kostnad som hör till var och en av dessa operationer varierar beroende på CPU, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskinvaruresurser kan tänka du på en begäransenhet (RU) som det enda måttet på de resurser som krävs för att utföra olika databasoperationer och behandla en programbegäran.
+    Azure Cosmos DB erbjuder en omfattande uppsättning databas åtgärder, inklusive relationella och hierarkiska frågor med UDF: er, lagrade procedurer och utlösare – allt som körs på dokumenten i en databas samling. Kostnaden som är kopplad till var och en av dessa åtgärder varierar beroende på processor, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskin varu resurser kan du tänka på en enhet för begäran (RU) som ett enda mått för de resurser som krävs för att utföra olika databas åtgärder och betjäna en programbegäran.
 
-    Dataflöde etableras baserat på antalet [programbegäran](request-units.md) för varje behållare. Konsumtion för begäran om enheten utvärderas som en avgift per sekund. Program som överstiger den etablerade begäranhastigheten för sina behållare är begränsade tills frekvensen sjunker under den etablerade nivån för behållaren. Om programmet kräver högre dataflöde kan öka du dataflödet genom att etablera ytterligare enheter för programbegäran. 
+    Data flödet har allokerats baserat på antalet enheter för [programbegäran](request-units.md) som angetts för varje behållare. Den begärda enhets förbrukningen utvärderas som en taxa per sekund. Program som överskrider den allokerade enhets hastigheten för deras behållare är begränsade tills hastigheten sjunker under den allokerade nivån för behållaren. Om ditt program kräver en högre data flödes nivå kan du öka data flödet genom att tillhandahålla ytterligare enheter för programbegäran. 
 
-    Komplexiteten för en fråga påverkar hur många enheter för programbegäran som förbrukas för en åtgärd. Antal predikat, natur predikat, antal UDF: er och storleken på källan datauppsättningen alla påverkar kostnaden för frågeåtgärder.
+    Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Att mäta arbetet med att alla åtgärder (skapa, uppdatera eller ta bort), granska de [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) rubrik (eller motsvarande RequestCharge-egenskapen i [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) eller [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) att mäta antalet enheter för programbegäran som förbrukas av de här åtgärderna.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) ska du inspektera [x-MS-Request-Charge-](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvudet (eller motsvarande RequestCharge-egenskap i [ResourceResponse\<T >](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) eller [FeedResponse\<T > ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)för att mäta antalet enheter för programbegäran som används av dessa åtgärder.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -146,24 +146,24 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     response.getRequestCharge();
     ```             
 
-    Kostnad för begäran som returnerades i det här sidhuvudet är en del av det tilldelade dataflödet. Till exempel om du har 2000 etablerade RU/s och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1 000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet som begränsar efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+    Begär ande avgiften som returnerades i den här rubriken är en bråkdel av ditt etablerade data flöde. Om du till exempel har 2000 RU/s etablerad, och om föregående fråga returnerar 1000 1 KB-dokument, är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i [enheter](request-units.md) för programbegäran och [Kalkylatorn för begär ande](https://www.documentdb.com/capacityplanner)enheter.
    <a id="429"></a>
-1. **Hantera hastighet begränsar/begärandehastighet för stor**
+1. **Hastighets begränsning/begär ande frekvens för stor**
 
-    När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av dataflödeskapacitet utöver nivån som är reserverade. Servern kommer sluta på begäran med RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-återförsök-efter-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.
+    När en klient försöker överskrida det reserverade data flödet för ett konto, finns det ingen prestanda försämring på servern och ingen användning av data flödes kapaciteten utöver den reserverade nivån. Servern kommer att förebyggande syfte avsluta begäran med RequestRateTooLarge (HTTP-statuskod 429) och returnera huvudet [x-MS-retry-efter-MS](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) som anger hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
 
-    SDK: erna alla implicit fånga upp svaret, respekterar det server angiven sidhuvudet retry-after och försök begäran. Om inte ditt konto är samtidigt som används av flera klienter, lyckas nästa återförsök.
+    SDK: erna fångar alla implicita dessa svar, med den server-angivna återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-    Om du har mer än en för klienten kumulativt konsekvent ovan blir förfrågningsfrekvensen Standardantal försök som för närvarande inställd på 9 internt av klienten inte finns tillräckligt; i det här fallet klienten genererar ett [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) med status code 429 till programmet. Standardvärdet för antal återförsök kan ändras med hjälp av [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) på den [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) instans. Som standard returneras DocumentClientException med statuskoden 429 efter en kumulativ väntetid på 30 sekunder om begäran fortsätter att fungera ovan blir förfrågningsfrekvensen. Detta inträffar även när det aktuella antalet återförsök är mindre än antalet försök, oavsett om det är standardvärdet 9 eller ett användardefinierat värde.
+    Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen är standard antalet nya försök som för närvarande är 9 internt av klienten inte tillräckligt. i det här fallet genererar klienten en [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) med status kod 429 i programmet. Standard antalet återförsök kan ändras genom att använda [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) på [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) -instansen. Som standard returneras DocumentClientException med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde.
 
-    När det automatiska återförsöksbeteendet hjälper oss för att förbättra återhämtning och användbarhet för de flesta program, kan det ha följt emot varandra när du gör prestandamått, särskilt när mäta svarstiden.  Svarstid för klient-observerade att utnyttja om experimentet som kommer till server-begränsning och leder till att klienten SDK att göra om tyst. Mät den kostnad som returneras av varje åtgärd för att undvika svarstidsspikar under prestanda experiment, och se till att begäranden fungerar nedan reserverade begäranhastigheten. Mer information finns i [programbegäran](request-units.md).
-3. **Design för mindre dokument för högre dataflöde**
+    Även om det automatiserade återförsöket hjälper till att förbättra återhämtning och användbarhet för de flesta program, kan det komma på strider när du gör prestanda mått, särskilt när du mäter svars tid.  Den klientbaserade svars tiden kommer att inaktive ras om experimentet träffar Server begränsningen och gör att klient-SDK: n kan försöka tyst igen. För att undvika fördröjningar vid prestanda experiment kan du mäta den avgift som returneras av varje åtgärd och se till att förfrågningarna fungerar under den reserverade begär ande frekvensen. Mer information finns i [enheter](request-units.md)för programbegäran.
+3. **Design för mindre dokument för högre data flöde**
 
-    Kostnaden för begäran (kostnaden för bearbetning av begäran) för en viss åtgärd korreleras direkt till storleken på dokumentet. Åtgärder för stora dokument kostar mer än åtgärder för små dokument.
+    Begär ande avgiften (bearbetnings kostnaden för begäran) för en specifik åtgärd är direkt korrelerad med dokumentets storlek. Åtgärder i stora dokument kostar mer än åtgärder för små dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du utformar ditt program för skalning och hög prestanda, finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).

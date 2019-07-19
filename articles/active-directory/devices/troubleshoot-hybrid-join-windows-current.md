@@ -1,6 +1,6 @@
 ---
-title: Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016 | Microsoft Docs
-description: Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016.
+title: Felsöka hybrid Azure Active Directory anslutna enheter – Azure Active Directory
+description: Felsöka hybrid Azure Active Directory anslutna Windows 10-och Windows Server 2016-enheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,39 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481608"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297579"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
-Den här artikeln gäller för följande klienter:
+Innehållet i den här artikeln gäller enheter som kör Windows 10 eller Windows Server 2016.
 
--   Windows 10
--   Windows Server 2016
+För andra Windows-klienter kan du läsa artikeln [Felsöka hybrid Azure Active Directory anslutna enheter på den äldre nivån](troubleshoot-hybrid-join-windows-legacy.md).
 
-Andra Windows-klienter finns i [felsökning Azure Active Directory-anslutna äldre enheter](troubleshoot-hybrid-join-windows-legacy.md).
+I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-plan.md) som stöd för följande scenarier:
 
-Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory-anslutna hybridenheter](hybrid-azuread-join-plan.md) till stöd för följande scenarier:
-
-- Enhetsbaserad villkorlig åtkomst
-- [Företagsnätverksväxling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
+- Enhets-baserad villkorlig åtkomst
+- [Företags växling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
 
-Det här dokumentet innehåller felsökningsinformation för att lösa eventuella problem. 
+Det här dokumentet innehåller fel söknings vägledning för att lösa eventuella problem. 
 
-För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling har stöd för Windows 10 November 2015 uppdatera och senare. Vi rekommenderar att du använder Anniversary update.
+För Windows 10 och Windows Server 2016 har hybrid Azure Active Directorys anslutning stöd för Windows 10 november 2015 Update och senare.
 
-## <a name="step-1-retrieve-the-join-status"></a>Steg 1: Hämta join-status 
+## <a name="troubleshoot-join-failures"></a>Felsök anslutnings fel
 
-**Hämta join-status:**
+### <a name="step-1-retrieve-the-join-status"></a>Steg 1: Hämta kopplings status 
 
-1. Öppna Kommandotolken som administratör
+**Hämta anslutnings status:**
 
-2. Typ **dsregcmd/status**
+1. Öppna en kommando tolk som administratör
+2. Typ `dsregcmd /status`
 
 ```
 +----------------------------------------------------------------------+
@@ -59,7 +57,7 @@ För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling 
      TpmProtected: YES
      KeySignTest: : MUST Run elevated to test.
               Idp: login.windows.net
-         TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47
+         TenantId: 72b988bf-xxxx-xxxx-xxxx-2d7cd011xxxx
        TenantName: Contoso
       AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize
    AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token
@@ -90,48 +88,324 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-## <a name="step-2-evaluate-the-join-status"></a>Steg 2: Utvärdera join-status 
+### <a name="step-2-evaluate-the-join-status"></a>Steg 2: Utvärdera kopplings status 
 
-Granska följande fält och se till att de har de förväntade värdena:
+Granska följande fält och kontrol lera att de har de förväntade värdena:
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined: JA  
+#### <a name="domainjoined--yes"></a>DomainJoined : JA  
 
-Det här fältet visar om enheten är ansluten med Azure AD. Om värdet är **nr**, ansluta till Azure AD har inte slutförts ännu. 
+Det här fältet anger om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **Nej**kan enheten inte utföra en hybrid Azure AD-anslutning.  
 
-**Möjliga orsaker:**
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
 
-- Det gick inte att autentisering på datorn för en koppling.
-- Det finns en HTTP-proxy i organisationen som inte kan identifieras av datorn
-- Datorn kan inte nå Azure AD för att autentisera eller Azure DRS för registrering
-- Datorn kanske inte i organisationens interna nätverket eller VPN-anslutning med direkt åtkomst till en lokal AD-domänkontrollant.
-- Om datorn har TPM, kan det vara i ett felaktigt tillstånd.
-- Det kan finnas en felaktig konfiguration av tjänsterna anges i dokumentet tidigare att du måste verifiera igen. Vanliga exempel:
-   - Federationsservern har inte aktiverat WS-Trust-slutpunkter
-   - Federationsservern tillåter inte inkommande autentisering från datorer i nätverket med hjälp av integrerad Windows-autentisering.
-   - Det finns ingen tjänstanslutningspunkt-objekt som pekar på ett verifierat domännamn i Azure AD i AD-skogen där datorn tillhör
+Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (markerad som *arbets plats ansluten*). Det här värdet ska vara **Nej** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja**, har ett arbets-eller skol konto lagts till innan hybriden av Azure AD-anslutning slutfördes. I det här fallet ignoreras kontot när du använder uppdaterings versionen för Windows 10 (1607).
 
----
+#### <a name="azureadjoined--yes"></a>AzureAdJoined : JA  
 
-### <a name="domainjoined--yes"></a>DomainJoined: JA  
+Det här fältet anger om enheten är ansluten till Azure AD. Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu. 
 
-Det här fältet visar om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **nr**, enheten kan inte utföra en hybrid Azure AD-anslutning.  
+Fortsätt till nästa steg för ytterligare fel sökning.
 
----
+### <a name="step-3-find-the-phase-in-which-join-failed-and-the-errorcode"></a>Steg 3: Hitta fasen där anslutningen misslyckades och felkoden
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined: NO  
+#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
 
-Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (märkta *Arbetsplatsanslutna*). Det här värdet ska vara **nr** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja**, ett arbets- eller skolkonto konto har lagts till innan slutförandet av hybrid Azure AD-anslutning. I det här fallet ignoreras kontot när du använder Anniversary Update-versionen av Windows 10 (1607).
+Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status.
+I fältet "fel fas" anges fasen för kopplings felet medan klient ErrorCode anger felkoden för kopplings åtgärden.
 
----
+```
++----------------------------------------------------------------------+
+     Previous Registration : 2019-01-31 09:16:43.000 UTC
+         Registration Type : sync
+               Error Phase : join
+          Client ErrorCode : 0x801c03f2
+          Server ErrorCode : DirectoryError
+            Server Message : The device object by the given id (e92325d0-xxxx-xxxx-xxxx-94ae875d5245) is not found.
+              Https Status : 400
+                Request Id : 6bff0bd9-820b-484b-ab20-2a4f7b76c58e
++----------------------------------------------------------------------+
+```
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Ja och AzureADPrt: JA
+#### <a name="older-windows-10-versions"></a>Äldre Windows 10-versioner
+
+Använd Loggboken loggar för att hitta fasen och felkoden för kopplings felen.
+
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+2. Sök efter händelser med följande eventIDs 304, 305, 307.
+
+![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/1.png)
+
+![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/2.png)
+
+### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Steg 4: Sök efter möjliga orsaker och lösningar från listorna nedan
+
+#### <a name="pre-check-phase"></a>Fas för kontroll
+
+Möjliga orsaker till problemet:
+
+- Enheten har ingen detaljerad information om domänkontrollanten.
+   - Enheten måste finnas i organisationens interna nätverk eller på VPN med nätverks ledningen till en lokal Active Directory (AD) domänkontrollant.
+
+#### <a name="discover-phase"></a>Identifierings fas
+
+Möjliga orsaker till problemet:
+
+- SCP-objektet (Service Connection Point) är felkonfigurerat/kunde inte läsa SCP-objekt från DOMÄNKONTROLLANTen.
+   - Ett giltigt SCP-objekt krävs i AD-skogen, som enheten tillhör, som pekar på ett verifierat domän namn i Azure AD.
+   - Information finns i avsnittet [Konfigurera en tjänst anslutnings punkt](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+- Det gick inte att ansluta och hämta metadata för identifiering från identifierings slut punkten.
+   - Enheten ska kunna komma åt `https://enterpriseregistration.windows.net`, i system kontexten, för att identifiera slut punkterna för registrering och auktorisering. 
+   - Om den lokala miljön kräver en utgående proxy måste IT-administratören se till att enhetens dator konto kan identifiera och tyst autentisera till den utgående proxyn.
+- Det gick inte att ansluta till användar sfär slut punkten och utföra sfär identifiering. (Endast Windows 10 version 1809 och senare)
+   - Enheten ska kunna komma åt `https://login.microsoftonline.com`, i system kontexten, för att utföra sfär identifiering för den verifierade domänen och fastställa domän typen (hanterad/federerad).
+   - Om den lokala miljön kräver en utgående proxy, måste IT-administratören se till att SYSTEM kontexten på enheten kan identifiera och tyst autentisera till den utgående proxyn.
+
+**Vanliga felkoder:**
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Pga Det går inte att läsa SCP-objektet och hämta information om Azure AD-klienten.
+   - Lösning: Se avsnittet [Konfigurera en tjänst anslutnings punkt](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+- **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
+   - Pga Allmänt identifierings problem. Det gick inte att hämta metadata för identifiering från DRS.
+   - Lösning: Hitta underfelet nedan för att undersöka ytterligare.
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
+   - Pga Tids gränsen för åtgärden nåddes under identifieringen.
+   - Lösning: Se till `https://enterpriseregistration.windows.net` att den är tillgänglig i system kontexten. Mer information finns i avsnittet krav på [nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
+   - Pga Det gick inte att identifiera generisk sfär. Det gick inte att fastställa domän typ (hanterad/federerad) från STS. 
+   - Lösning: Hitta underfelet nedan för att undersöka ytterligare.
+
+**Vanliga under fel koder:**
+
+Använd någon av följande metoder för att hitta underfelkodna för identifierings fel koden.
+
+##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
+
+Sök efter "DRS Discovery test" i avsnittet "diagnostikdata" i sammanfognings statusens utdata.
+
+```
++----------------------------------------------------------------------+
+| Diagnostic Data                                                      |
++----------------------------------------------------------------------+
+
+     Diagnostics Reference : www.microsoft.com/aadjerrors
+              User Context : UN-ELEVATED User
+               Client Time : 2019-06-05 08:25:29.000 UTC
+      AD Connectivity Test : PASS
+     AD Configuration Test : PASS
+        DRS Discovery Test : FAIL [0x801c0021/0x80072ee2]
+     DRS Connectivity Test : SKIPPED
+    Token acquisition Test : SKIPPED
+     Fallback to Sync-Join : ENABLED
+
++----------------------------------------------------------------------+
+```
+
+##### <a name="older-windows-10-versions"></a>Äldre Windows 10-versioner
+
+Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen.
+
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+2. Sök efter händelser med följande eventIDs 201
+
+![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/5.png)
+
+###### <a name="network-errors"></a>Nätverks fel
+
+- **WININET_E_CANNOT_CONNECT** (0x80072efd/-2147012867)
+   - Pga Det gick inte att upprätta en anslutning till servern
+   - Lösning: Säkerställ nätverks anslutningen till de Microsoft-resurser som krävs. Mer information finns i [krav för nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
+   - Pga Allmän tids gräns för nätverk.
+   - Lösning: Säkerställ nätverks anslutningen till de Microsoft-resurser som krävs. Mer information finns i [krav för nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **WININET_E_DECODING_FAILED** (0x80072f8f beror/-2147012721)
+   - Pga Nätverks stacken kunde inte avkoda svaret från servern.
+   - Lösning: Se till att nätverks proxyn inte stör och ändrar Server svaret.
+
+###### <a name="http-errors"></a>HTTP-fel
+
+- **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582)
+   - Pga SCP-objekt har kon figurer ATS med fel klient-ID. Eller inga aktiva prenumerationer hittades i klient organisationen.
+   - Lösning: Se till att SCP-objektet är konfigurerat med rätt Azure AD-klient-ID och aktiva prenumerationer eller finns i klient organisationen.
+- **DSREG_SERVER_BUSY** (0x801c0025/-2145648603)
+   - Pga HTTP 503 från DRS-servern.
+   - Lösning: Servern är inte tillgänglig för tillfället. framtida anslutnings försök kommer sannolikt att lyckas när servern är online igen.
+
+###### <a name="other-errors"></a>Andra fel
+
+- **E_INVALIDDATA** (0x8007000d/-2147024883)
+   - Pga Det gick inte att parsa Server svars-JSON. Troligen på grund av proxy som returnerar HTTP 200 med en HTML-auth-sida.
+   - Lösning: Om den lokala miljön kräver en utgående proxy, måste IT-administratören se till att SYSTEM kontexten på enheten kan identifiera och tyst autentisera till den utgående proxyn.
+
+#### <a name="authentication-phase"></a>Autentiserings fas
+
+Gäller endast för federerade domän konton.
+
+Orsaker till problemet:
+
+- Det går inte att hämta en åtkomsttoken tyst för DRS-resursen.
+   - Windows 10-enheter hämtar auth-token från Federations tjänsten med integrerad Windows-autentisering till en aktiv WS-Trust-slutpunkt. Information: [Federationstjänst konfiguration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+
+**Vanliga felkoder:**
+
+Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och Server fel meddelande.
+
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+2. Sök efter händelser med följande eventID 305
+
+![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/3.png)
+
+##### <a name="configuration-errors"></a>Konfigurationsfel
+
+- **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
+   - Pga Autentiseringsprotokollet är inte WS-Trust.
+   - Lösning: Den lokala identitets leverantören måste ha stöd för WS-Trust 
+- **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
+   - Pga Lokal Federations tjänst returnerade inget XML-svar.
+   - Lösning: Se till att MEX-slutpunkten returnerar en giltig XML. Kontrol lera att proxyn inte stör och returnerar icke-XML-svar.
+- **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
+   - Pga Det gick inte att hitta slut punkten för autentisering med användar namn/lösen ord.
+   - Lösning: Kontrol lera inställningarna för lokal identitetsprovider. Se till att WS-Trust-slutpunkterna är aktiverade och se till att MEX-svaret innehåller rätt slut punkter.
+
+##### <a name="network-errors"></a>Nätverks fel
+
+- **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
+   - Pga Allmän tids gräns för nätverk.
+   - Lösning: Se till `https://login.microsoftonline.com` att den är tillgänglig i system kontexten. Se till att den lokala identitets leverantören är tillgänglig i SYSTEM kontexten. Mer information finns i [krav för nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
+   - Pga Anslutningen till auth-slutpunkten avbröts.
+   - Lösning: Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
+- **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
+   - Pga Det gick inte att verifiera det Secure Sockets Layer (SSL)-certifikat som skickades av servern.
+   - Lösning: Kontrol lera att klientens tids skevning. Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats. 
+- **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
+   - Pga Försöket att ansluta till `https://login.microsoftonline.com` misslyckades.
+   - Lösning: Kontrol lera nätverks anslutningen `https://login.microsoftonline.com`till.
+
+##### <a name="other-errors"></a>Andra fel
+
+- **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT** (0xcaa20003/-895352829)
+   - Pga SAML-token från den lokala identitets leverantören accepterades inte av Azure AD.
+   - Lösning: Kontrol lera inställningarna för Federations servern. Leta efter server fel koden i inloggnings loggarna.
+- **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
+   - Pga Server WS-Trust-svar rapporterade ett fel undantag och kunde inte hämta försäkran
+   - Lösning: Kontrol lera inställningarna för Federations servern. Leta efter server fel koden i inloggnings loggarna.
+- **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
+   - Pga Ett fel togs emot vid försök att hämta åtkomsttoken från token-slutpunkten.
+   - Lösning: Leta efter det underliggande felet i ADAL-loggen. 
+- **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
+   - Pga Allmänt ADAL-problem
+   - Lösning: Leta efter felkoden eller server fel koden från inloggnings loggarna.
+    
+#### <a name="join-phase"></a>Kopplings fas
+
+Orsaker till problemet:
+
+Sök efter registrerings typen och leta efter felkoden i listan nedan.
+
+#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
+
+Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status.
+Fältet "registrerings typ" anger vilken typ av koppling som utförs.
+
+```
++----------------------------------------------------------------------+
+     Previous Registration : 2019-01-31 09:16:43.000 UTC
+         Registration Type : sync
+               Error Phase : join
+          Client ErrorCode : 0x801c03f2
+          Server ErrorCode : DirectoryError
+            Server Message : The device object by the given id (e92325d0-7ac4-4714-88a1-94ae875d5245) is not found.
+              Https Status : 400
+                Request Id : 6bff0bd9-820b-484b-ab20-2a4f7b76c58e
++----------------------------------------------------------------------+
+```
+
+#### <a name="older-windows-10-versions"></a>Äldre Windows 10-versioner
+
+Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen.
+
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+2. Sök efter händelser med följande eventIDs 204
+
+![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/4.png)
+
+##### <a name="http-errors-returned-from-drs-server"></a>HTTP-fel som returnerats från DRS-servern
+
+- **DSREG_E_DIRECTORY_FAILURE** (0x801c03f2/-2145647630)
+   - Pga Tog emot ett felsvar från DRS med ErrorCode: DirectoryError
+   - Lösning: Se Server fel koden för möjliga orsaker och lösningar.
+- **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
+   - Pga Tog emot ett felsvar från DRS med ErrorCode: "AuthenticationError" och ErrorSubCode är inte "DeviceNotFound". 
+   - Lösning: Se Server fel koden för möjliga orsaker och lösningar.
+- **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
+   - Pga Tog emot ett felsvar från DRS med ErrorCode: DirectoryError
+   - Lösning: Se Server fel koden för möjliga orsaker och lösningar.
+
+##### <a name="tpm-errors"></a>TPM-fel
+
+- **NTE_BAD_KEYSET** (0x80090016/-2146893802)
+   - Pga TPM-åtgärden misslyckades eller var ogiltig
+   - Lösning: Troligen på grund av en felaktig Sysprep-avbildning. Se till att den dator där Sysprep-avbildningen skapades inte är Azure AD-ansluten, att en hybrid Azure AD är ansluten eller att Azure AD är registrerad.
+- **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
+   - Pga Allmänt TPM-fel. 
+   - Lösning: Inaktivera TPM på enheter med det här felet. Windows 10 version 1809 och högre identifierar automatiskt TPM-haverier och slutför Azure AD-anslutning utan att använda TPM.
+- **TPM_E_NOTFIPS** (0x80280036/-2144862154)
+   - Pga TPM i FIPS-läge stöds inte för närvarande.
+   - Lösning: Inaktivera TPM på enheter med det här felet. Windows 1809 identifierar automatiskt TPM-haverier och slutför Azure AD-anslutning utan att använda TPM.
+- **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
+   - Pga TPM är låst.
+   - Lösning: Tillfälligt fel. Vänta på cooldowns perioden. Försök att ansluta efter en stund. Mer information finns i artikeln om TPM- [grunderna](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+
+##### <a name="network-errors"></a>Nätverks fel
+
+- **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
+   - Pga Tids gräns för allmänt nätverk vid försök att registrera enheten på DRS
+   - Lösning: Kontrol lera nätverks anslutningen `https://enterpriseregistration.windows.net`till.
+- **WININET_E_NAME_NOT_RESOLVED** (0x80072EE7/-2147012889)
+   - Pga Det gick inte att matcha Server namnet eller adressen.
+   - Lösning: Kontrol lera nätverks anslutningen `https://enterpriseregistration.windows.net`till. Se till att DNS-matchningen för värd namnet är korrekt i n/w och på enheten.
+- **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
+   - Pga Anslutningen till servern avslutades på ett onormalt sätt.
+   - Lösning: Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
+
+##### <a name="federated-join-server-errors"></a>Federerat kopplings Server fel
+
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
+| --- | --- | --- | --- |
+| DirectoryError | Din begäran är tillfälligt begränsad. Försök igen om 300 sekunder. | Förväntat fel. Detta kan bero på att du gör flera registrerings begär anden i snabb följd. | Försök ansluta igen efter cooldown-perioden |
+
+##### <a name="sync-join-server-errors"></a>Fel vid synkronisering av kopplings Server
+
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
+| --- | --- | --- | --- |
+| DirectoryError | AADSTS90002: Klienten <UUID> kunde inte hittas. Det här felet kan inträffa om det inte finns några aktiva prenumerationer för klienten. Kontakta prenumerations administratören. | Klient-ID i SCP-objektet är felaktigt | Se till att SCP-objektet är konfigurerat med rätt Azure AD-klient-ID och aktiva prenumerationer och finns i klient organisationen. |
+| DirectoryError | Det gick inte att hitta enhets objektet med angivet ID. | Förväntat fel för sync-anslutning. Enhetsobjektet har inte synkroniserats från AD till Azure AD | Vänta tills den Azure AD Connect synkroniseringen har slutförts och nästa anslutnings försök efter att synkroniseringen har slutförts löser problemet |
+| AuthenticationError | Verifieringen av mål datorns SID | Certifikatet på Azure AD-enheten stämmer inte överens med det certifikat som användes för att signera blobben under Sync-anslutningen. Det här felet innebär vanligt vis att synkroniseringen inte har slutförts än. |  Vänta tills den Azure AD Connect synkroniseringen har slutförts och nästa anslutnings försök efter att synkroniseringen har slutförts löser problemet |
+
+### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Steg 5: Samla in loggar och kontakta Microsoft Support
+
+Hämta offentliga skript här: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+
+1. Öppna en administratörs kommando tolk och `start_ngc_tracing_public.cmd`kör.
+2. Utför stegen för att återskapa problemet.
+3. Stoppa körningen av loggnings skriptet genom `stop_ngc_tracing_public.cmd`att köra.
+4. Zip och skicka loggarna under `%SYSTEMDRIVE%\TraceDJPP\*` för analys.
+
+## <a name="troubleshoot-post-join-issues"></a>Felsöka problem efter anslutning
+
+### <a name="retrieve-the-join-status"></a>Hämta kopplings status 
+
+#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Ja och AzureADPrt: JA
   
-De här fälten anger om användaren har autentiserats till Azure AD när du loggar in på enheten. Om värdena är **nr**, det kan vara på grund av:
+Fälten visar om användaren har autentiserats för Azure AD vid inloggning på enheten. Om värdena är **Nej**kan det bero på att:
 
-- Felaktig lagringsnyckeln (STK) i TPM som hör till enheten vid registreringen (kontrollera KeySignTest när du kör upphöjd).
-- Alternativa inloggnings-ID
-- Det gick inte att hitta HTTP-Proxy
+- Felaktig lagrings nyckel i den TPM som är kopplad till enheten vid registreringen (kontrol lera KeySignTest vid körning).
+- Alternativt inloggnings-ID
+- Det gick inte att hitta HTTP-proxy
 
 ## <a name="next-steps"></a>Nästa steg
 
-Frågor finns i den [enhetshantering vanliga frågor och svar](faq.md) 
+Fortsätt [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md)
+
+Frågor finns i [vanliga frågor och svar om enhets hantering](faq.md)

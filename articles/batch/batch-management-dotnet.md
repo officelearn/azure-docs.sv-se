@@ -1,10 +1,10 @@
 ---
-title: Hantera resurser i kontot med klientbiblioteket för .NET – Azure Batch | Microsoft Docs
-description: Skapa, ta bort och ändra resurser i Azure Batch-kontot med Batch Management .NET-biblioteket.
+title: Hantera konto resurser med klient biblioteket för .NET-Azure Batch | Microsoft Docs
+description: Skapa, ta bort och ändra Azure Batch konto resurser med batch Management .NET-biblioteket.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
@@ -16,14 +16,14 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41f3eecb1b3f488c355b1bad65b90dae8c76126e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775142"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323460"
 ---
-# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera batch-konton och kvoter med klient biblioteket för batch-hantering för .NET
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](batch-account-create-portal.md)
@@ -31,22 +31,22 @@ ms.locfileid: "60775142"
 > 
 > 
 
-Du kan sänka Underhåll overhead i dina Azure Batch-program med hjälp av den [Batch Management .NET] [ api_mgmt_net] -biblioteket för att automatiskt skapa en Batch-konto, borttagning, nyckelhantering och kvot identifiering.
+Du kan minska underhålls kostnader i Azure Batch-program genom att använda [batch Management .net][api_mgmt_net] -biblioteket för att automatisera skapandet av batch-konton, borttagning, nyckel hantering och kvot identifiering.
 
-* **Skapa och ta bort Batch-konton** inom en region. Om som en oberoende programvaruleverantör (ISV) exempelvis kan du tillhandahålla en tjänst för klienter där var och en har tilldelats ett separat Batch-konto för fakturering, du kan lägga till kontot skapas eller tas bort funktioner till din kundportal.
-* **Hämta och återskapa nycklar** programmässigt för någon av dina Batch-konton. Detta kan hjälpa dig följa säkerhetsprinciperna som tillämpar periodiska förnya eller upphörande av nycklar. När du har flera Batch-konton i olika Azure-regioner, ökar automatisering av den här processen för förnyelse av effektiviteten för din lösning.
-* **Kontrollera kontots kvoter** och ta bort trial and error gissningarna avgör vilken Batch-konton har vilka gränser. Skapar pooler eller att lägga till compute-noder kan du proaktivt kan justera var genom att kontrollera dina kvoter för kontot innan du startar jobb, eller när dessa beräkningsalternativ resurser skapas. Du kan bestämma vilka konton som behövs kvot ökar innan du allokerar ytterligare resurser i dessa konton.
-* **Kombinera funktionerna i andra Azure-tjänster** för en komplett hanteringsmiljö – med hjälp av Batch Management .NET [Azure Active Directory][aad_about], och [Azure Resource Manager] [ resman_overview] tillsammans i samma program. Genom att använda dessa funktioner och deras API: er kan ange du en smidig autentiseringsupplevelse möjligheten att skapa och ta bort resursgrupper och de funktioner som beskrivs ovan för en lösning för slutpunkt till slutpunkt.
+* **Skapa och ta bort batch-konton** inom vilken region som helst. Om du till exempel är en oberoende program varu leverantör (ISV) som till exempel tillhandahåller en tjänst för dina klienter där varje har tilldelats ett separat batch-konto för fakturering kan du lägga till funktioner för att skapa och ta bort konton på kund portalen.
+* **Hämta och återskapa konto nycklar** program mässigt för alla batch-konton. Detta kan hjälpa dig att följa säkerhets principer som tvingar regelbunden förnyelse eller förfallo datum för konto nycklar. När du har flera batch-konton i olika Azure-regioner ökar lösningens effektivitet genom automatisering av den här förnyelse processen.
+* **Kontrol lera konto kvoter** och ta prov-och fel gissningen att avgöra vilka batch-konton som har vilka gränser. Genom att kontrol lera konto kvoterna innan jobb startas, skapa pooler eller lägga till Compute-noder, kan du proaktivt justera var eller när dessa beräknings resurser skapas. Du kan avgöra vilka konton som kräver kvot ökningar innan du allokerar ytterligare resurser i dessa konton.
+* **Kombinera funktioner i andra Azure-tjänster** för en komplett hanterings upplevelse – genom att använda batch Management .net, [Azure Active Directory][aad_about] , and the [Azure Resource Manager][resman_overview] tillsammans i samma program. Genom att använda dessa funktioner och deras API: er, kan du tillhandahålla en friktions lös autentisering, möjlighet att skapa och ta bort resurs grupper och de funktioner som beskrivs ovan för en heltäckande hanterings lösning.
 
 > [!NOTE]
-> Den här artikeln fokuserar på programmässig hantering av dina Batch-konton, nycklar och kvoter, du kan utföra många av dessa aktiviteter med hjälp av den [Azure-portalen][azure_portal]. Mer information finns i [skapar ett Azure Batch-konto med Azure-portalen](batch-account-create-portal.md) och [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md).
+> Den här artikeln fokuserar på programmerings hanteringen av dina batch-konton, nycklar och kvoter, och du kan utföra många av dessa aktiviteter med hjälp av [Azure Portal][azure_portal]. Mer information finns i [skapa ett Azure Batch konto med hjälp av Azure Portal](batch-account-create-portal.md) och [kvoter och begränsningar för Azure Batchs tjänsten](batch-quota-limit.md).
 > 
 > 
 
-## <a name="create-and-delete-batch-accounts"></a>Skapa och ta bort Batch-konton
-Som tidigare nämnts är en av de primära funktionerna i Batch Management-API att skapa och ta bort Batch-konton i en Azure-region. Du gör detta genom att använda [BatchManagementClient.Account.CreateAsync] [ net_create] och [DeleteAsync][net_delete], eller motsvarigheterna synkron.
+## <a name="create-and-delete-batch-accounts"></a>Skapa och ta bort batch-konton
+Som vi nämnt är en av de viktigaste funktionerna i batch Management-API: et att skapa och ta bort batch-konton i en Azure-region. Det gör du genom att använda [BatchManagementClient. account. CreateAsync][net_create] and [DeleteAsync][net_delete]eller deras synkrona motsvarigheter.
 
-Följande kodavsnitt skapar ett konto, hämtar det nya kontot från Batch-tjänsten och tar sedan bort den. I det här kodfragmentet och andra i den här artikeln `batchManagementClient` är en helt initierad instans av [BatchManagementClient][net_mgmt_client].
+Följande kodfragment skapar ett konto, hämtar det nyligen skapade kontot från batch-tjänsten och tar sedan bort det. I det här kodfragmentet och de andra i den `batchManagementClient` här artikeln är en fullständigt initierad instans av [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -64,12 +64,12 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Program som använder Batch Management .NET-biblioteket och dess BatchManagementClient klass kräver **tjänstadministratör** eller **medadministratör** åtkomst till prenumerationen som äger Batch konto som ska hanteras. Mer information finns i avsnittet Azure Active Directory och [AccountManagement] [ acct_mgmt_sample] kodexempel.
+> Program som använder .NET-biblioteket för batch Management och dess BatchManagementClient-klass kräver **tjänst administratör** eller **Administratörs** åtkomst till den prenumeration som äger det batch-konto som ska hanteras. Mer information finns i avsnittet Azure Active Directory och exemplet på [AccountManagement][acct_mgmt_sample] -kod.
 > 
 > 
 
-## <a name="retrieve-and-regenerate-account-keys"></a>Hämta och återskapa nycklar
-Hämta primära och sekundära nycklar från alla Batch-kontot i din prenumeration med hjälp av [ListKeysAsync][net_list_keys]. Du kan återskapa dessa nycklar med hjälp av [RegenerateKeyAsync][net_regenerate_keys].
+## <a name="retrieve-and-regenerate-account-keys"></a>Hämta och återskapa konto nycklar
+Hämta primära och sekundära konto nycklar från alla batch-konton i prenumerationen med hjälp av [ListKeysAsync][net_list_keys]. You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys].
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -91,17 +91,17 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> Du kan skapa ett arbetsflöde för smidig anslutning för av hanteringsprogram. Skaffa först en kontonyckel för Batch-kontot som du vill hantera med [ListKeysAsync][net_list_keys]. Använd den här nyckeln när initiering av Batch .NET-biblioteket [BatchSharedKeyCredentials] [ net_sharedkeycred] klass, som används vid initiering av [BatchClient] [ net_batch_client].
+> Du kan skapa ett effektiviserat anslutnings arbets flöde för dina hanterings program. Börja med att skaffa en konto nyckel för det batch-konto som du vill hantera med klassen [ListKeysAsync][net_list_keys] . Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] , som används när [metoden batchclient]-[net_batch_client]initieras.
 > 
 > 
 
-## <a name="check-azure-subscription-and-batch-account-quotas"></a>Kontrollera Azure-prenumeration och kvoter för Batch-konto
-Azure-prenumerationer och de enskilda Azure-tjänsterna som alla har standardkvoter som begränsar antalet vissa entiteter i dem. Standardkvoter för Azure-prenumerationer, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md). Standardkvoter för Batch-tjänsten finns i [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md). Du kan kontrollera dessa kvoter i dina program med hjälp av Batch Management .NET-biblioteket. Detta gör att du kan fatta beslut om tilldelning innan du lägger till konton eller beräkna resurser som pooler och beräkningsnoder.
+## <a name="check-azure-subscription-and-batch-account-quotas"></a>Kontrol lera kvoter för Azure-prenumeration och batch-konto
+Azure-prenumerationer och enskilda Azure-tjänster som batch alla har standard kvoter som begränsar antalet vissa entiteter i dem. Standard kvoter för Azure-prenumerationer finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md). Standard kvoterna för batch-tjänsten finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md). Med hjälp av .NET-biblioteket för batch Management kan du kontrol lera kvoterna i dina program. På så sätt kan du fatta beslut om tilldelning innan du lägger till konton eller beräknings resurser som pooler och datornoder.
 
-### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Kontrollera en Azure-prenumeration för kvoter för Batch-konto
-Innan du skapar ett Batch-konto i en region, kan du kontrollera din Azure-prenumeration om du vill se om du ska kunna lägga till ett konto i den regionen.
+### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Kontrol lera en Azure-prenumeration för batch-konto kvoter
+Innan du skapar ett batch-konto i en region kan du kontrol lera din Azure-prenumeration för att se om du kan lägga till ett konto i den regionen.
 
-I kodfragmentet nedan först använder vi [BatchManagementClient.Account.ListAsync] [ net_mgmt_listaccounts] att hämta en samling med alla Batch-konton som är inom en prenumeration. När vi har köpt den här samlingen kan fastställa hur många konton är i målregionen. Sedan använder vi [BatchManagementClient.Subscriptions] [ net_mgmt_subscriptions] erhålla kvoten för Batch-konto och fastställa hur många konton (om sådan finns) kan skapas i den regionen.
+I kodfragmentet nedan använder vi först [BatchManagementClient. account. ListAsync][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] för att hämta batch-kontots kvot och fastställa hur många konton (om det finns några) som kan skapas i den regionen.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -125,10 +125,10 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-I fragmentet ovan, `creds` är en instans av [TokenCloudCredentials][azure_tokencreds]. Ett exempel på det här objektet skapas finns i den [AccountManagement] [ acct_mgmt_sample] kodexempel på GitHub.
+I kodfragmentet ovan `creds` är en instans av [TokenCloudCredentials][azure_tokencreds] . To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample] kod exempel på GitHub.
 
-### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Kontrollera ett Batch-konto för beräkning resurskvoter
-Innan du ökar beräkningsresurser i Batch-lösningar, kan du kontrollera för att säkerställa att de resurser som du vill allokera inte överskrida kontots kvoter. I kodfragmentet nedan vi skriva ut kvotinformation för Batch-kontot med namnet `mybatchaccount`. Du kan använda sådan information i ditt eget program för att avgöra om konton som kan hantera de ytterligare resurserna som ska skapas.
+### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Kontrol lera ett batch-konto för beräknings resurs kvoter
+Innan du ökar beräknings resurserna i din batch-lösning kan du kontrol lera att de resurser som du vill allokera inte överskrider kontots kvoter. I kodfragmentet nedan skriver vi ut kvot informationen för batch-kontot med namnet `mybatchaccount`. I ditt eget program kan du använda sådan information för att avgöra om kontot kan hantera ytterligare resurser som ska skapas.
 
 ```csharp
 // First obtain the Batch account
@@ -143,42 +143,42 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Det finns standardkvoter för Azure-prenumerationer och tjänster, många av dessa begränsningar kan höjas genom att utfärda en begäran i den [Azure-portalen][azure_portal]. Se exempelvis [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md) anvisningar för att öka dina kvoter för Batch-konto.
+> Även om det finns standard kvoter för Azure-prenumerationer och-tjänster kan många av dessa gränser höjas genom att en begäran utfärdas i [Azure Portal][azure_portal]. Se till exempel [kvoter och begränsningar för Azure Batchs tjänsten](batch-quota-limit.md) för instruktioner om hur du ökar dina kvoter för batch-kontot.
 > 
 > 
 
-## <a name="use-azure-ad-with-batch-management-net"></a>Använd Azure AD med Batch Management .NET
+## <a name="use-azure-ad-with-batch-management-net"></a>Använda Azure AD med batch Management .NET
 
-Batch Management .NET-biblioteket är en Azure resource provider-klient och används tillsammans med [Azure Resource Manager] [ resman_overview] att hantera resurser för kontot programmässigt. Azure AD som krävs för att autentisera begäranden som görs via alla Azure resource provider postklienter, inklusive Batch Management .NET-biblioteket och via [Azure Resource Manager][resman_overview]. Information om hur du använder Azure AD med Batch Management .NET-biblioteket finns i [Använd Azure Active Directory att autentisera Batch-lösningar](batch-aad-auth.md). 
+Batch Management .NET-biblioteket är en Azure Resource Provider-klient och används tillsammans med [Azure Resource Manager][resman_overview] för att hantera konto resurser program mässigt. Azure AD krävs för att autentisera begär Anden som görs via en Azure Resource Provider-klient, inklusive batch Management .NET-biblioteket och via [Azure Resource Manager][resman_overview]. Information om hur du använder Azure AD med batch Management .NET-biblioteket finns i [använda Azure Active Directory för att autentisera batch-lösningar](batch-aad-auth.md). 
 
-## <a name="sample-project-on-github"></a>Exempelprojektet på GitHub
+## <a name="sample-project-on-github"></a>Exempel projekt på GitHub
 
-Om du vill se hur Batch Management .NET fungerar, ta en titt på [AccountManagement] [ acct_mgmt_sample] exempelprojektet på GitHub. AccountManagement-exempelprogrammet demonstrerar följande åtgärder:
+Om du vill se batch Management .NET i praktiken kan du kolla [AccountManagement][acct_mgmt_sample] -exempelprojektet på GitHub. Exempel programmet AccountManagement demonstrerar följande åtgärder:
 
-1. Hämta en säkerhetstoken från Azure AD med hjälp av [ADAL][aad_adal]. Om användaren inte är redan är inloggad uppmanas de att ange sina autentiseringsuppgifter för Azure.
-2. Med den säkerhetstoken som hämtats från Azure AD, skapa en [SubscriptionClient] [ resman_subclient] att fråga Azure efter en lista över prenumerationer som är kopplade till kontot. Användaren kan välja en prenumeration i listan om den innehåller mer än en prenumeration.
+1. Hämta en säkerhetstoken från Azure AD med hjälp av [ADAL][aad_adal]. Om användaren inte redan är inloggad uppmanas de att ange sina autentiseringsuppgifter för Azure.
+2. Med säkerhetstoken som hämtats från Azure AD skapar du en [SubscriptionClient][resman_subclient] för att fråga Azure efter en lista över prenumerationer som är kopplade till kontot. Användaren kan välja en prenumeration i listan om den innehåller fler än en prenumeration.
 3. Hämta autentiseringsuppgifter som är associerade med den valda prenumerationen.
-4. Skapa en [ResourceManagementClient] [ resman_client] objekt med hjälp av autentiseringsuppgifterna.
-5. Använd en [ResourceManagementClient] [ resman_client] objektet för att skapa en resursgrupp.
-6. Använd en [BatchManagementClient] [ net_mgmt_client] objektet för att utföra flera åtgärder för Batch-konto:
-   * Skapa ett Batch-konto i den nya resursgruppen.
-   * Hämta det nya kontot från Batch-tjänsten.
-   * Skriva ut kontonycklarna för det nya kontot.
+4. Skapa ett [ResourceManagementClient][resman_client] -objekt med hjälp av autentiseringsuppgifterna.
+5. Använd ett [ResourceManagementClient][resman_client] -objekt för att skapa en resurs grupp.
+6. Använd ett [BatchManagementClient][net_mgmt_client] -objekt för att utföra flera batch-konto-åtgärder:
+   * Skapa ett batch-konto i den nya resurs gruppen.
+   * Hämta det nyligen skapade kontot från batch-tjänsten.
+   * Skriv ut konto nycklarna för det nya kontot.
    * Återskapa en ny primär nyckel för kontot.
-   * Skriva ut kvotinformation för kontot.
-   * Skriva ut kvotinformation för prenumerationen.
-   * Skriva ut alla konton inom prenumerationen.
-   * Ta bort nyligen skapade kontot.
-7. Ta bort resursgruppen.
+   * Skriv ut kvot informationen för kontot.
+   * Skriv ut kvot informationen för prenumerationen.
+   * Skriv ut alla konton i prenumerationen.
+   * Ta bort nyligen skapade konto.
+7. Ta bort resurs gruppen.
 
-Innan du tar bort den nyligen skapade konto- och batchgruppen kan du se dem i den [Azure-portalen][azure_portal]:
+Innan du tar bort det nyligen skapade batch-kontot och resurs gruppen kan du visa dem i [Azure Portal][azure_portal]:
 
-Om du vill köra exempelprogrammet har du först registrera den med din Azure AD-klient i Azure-portalen och ge behörigheter till Azure Resource Manager-API. Följ stegen i [autentisera med Batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
+För att köra exempel programmet måste du först registrera det med din Azure AD-klient i Azure Portal och bevilja behörighet till Azure Resource Manager API. Följ de steg som beskrivs i [autentisera hanterings lösningar för batch med Active Directory](batch-aad-auth-management.md).
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Autentiseringsscenarier för Azure AD"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Autentiserings scenarier för Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrera program med Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx

@@ -1,6 +1,6 @@
 ---
-title: Hantera feldomäner i Azure VM scale sets | Microsoft Docs
-description: Lär dig hur du väljer rätt antal FD även skapa en VM-skalningsuppsättning.
+title: Hantera fel domäner i skalnings uppsättningar för virtuella Azure-datorer | Microsoft Docs
+description: Lär dig hur du väljer rätt antal fd när du skapar en skalnings uppsättning för virtuella datorer.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617987"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871945"
 ---
-# <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Välja rätt antal feldomäner för virtual machine scale Sets
-VM-skalningsuppsättningar skapas med fem feldomäner som standard i Azure-regioner utan zoner. För de regioner som har stöd för zonindelade distribution av VM-skalningsuppsättningar, är standardvärdet för antalet feldomäner 1 för alla zoner. FD = 1 i det här fallet innebär det att de Virtuella datorinstanserna som hör till skalningsuppsättningen sprids över flera rack efter bästa förmåga.
+# <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Välja rätt antal fel domäner för skalnings uppsättningen för den virtuella datorn
+Skalnings uppsättningar för virtuella datorer skapas med fem fel domäner som standard i Azure-regioner utan zoner. För regioner som stöder zonindelade-distribution av virtuella datorers skalnings uppsättningar är standardvärdet för fel domän antalet 1 för var och en av zonerna. FD = 1 i det här fallet innebär det att de virtuella dator instanserna som hör till skalnings uppsättningen kommer att spridas över flera rack på bästa möjliga sätt.
 
-Du kan också justera antalet feldomäner för scale set med antalet feldomäner för Managed Disks. Den här justering kan förhindra förlust av kvorum om en hel Managed Disks feldomän som stängs av. Antalet FD kan anges till mindre än eller lika med antalet hanterade diskar feldomäner som är tillgängliga i var och en av regionerna. Referera till denna [dokumentet](../virtual-machines/windows/manage-availability.md) vill veta mer om antalet feldomäner för hanterade diskar per region.
+Du kan också överväga att justera antalet fel domäner för skalnings uppsättningar med antalet Managed Disks fel domäner. Den här justeringen kan hjälpa till att förhindra förlust av kvorum om hela Managed Disks fel domänen slutar fungera. Antalet FD-instanser kan anges till mindre än eller lika med antalet Managed Disks fel domäner som är tillgängliga i varje region. Läs det här [dokumentet](../virtual-machines/windows/manage-availability.md) om du vill veta mer om antalet Managed disks fel domäner per region.
 
 ## <a name="rest-api"></a>REST-API
-Du kan ange egenskapen `properties.platformFaultDomainCount` till 1, 2 eller 3 (standard är 5 om inget anges). Läs dokumentationen för REST API [här](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+Du kan ange egenskapen `properties.platformFaultDomainCount` till 1, 2 eller 3 (Standardvärdet är 5 om inget anges). Läs dokumentationen för REST API [här](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>Azure CLI
-Du kan ange parametern `--platform-fault-domain-count` till 1, 2 eller 3 (standard är 5 om inget anges). Läs dokumentationen för Azure CLI [här](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
+Du kan ange parametern `--platform-fault-domain-count` till 1, 2 eller 3 (Standardvärdet är 5 om inget anges). Se dokumentationen för Azure CLI [här](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -47,4 +47,4 @@ az vmss create \
 Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [tillgänglighet och redundans funktioner](../virtual-machines/windows/regions-and-availability.md) för Azure-miljöer.
+- Lär dig mer om tillgänglighets- [och redundans funktioner](../virtual-machines/windows/availability.md) för Azure-miljöer.

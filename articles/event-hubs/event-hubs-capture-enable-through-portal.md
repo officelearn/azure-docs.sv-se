@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822572"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320316"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
-Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i Event Hubs till valfritt [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)- eller [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-konto.
+Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i Event Hubs till ett [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) -eller [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) -konto som du väljer.
 
 Du kan konfigurera avbildningsfunktionen med [Azure Portal](https://portal.azure.com) när du skapar händelsehubben. Du kan antingen samla in data till en Azure [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)-container eller till ett [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-konto.
 
@@ -47,10 +47,8 @@ Om du vill samla in data till Azure Data Lake Store skapar du ett Data Lake Stor
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Skapa ett Azure Data Lake Store-konto och mappar
 
-> [!NOTE]
-> Funktionen Event Hubs Capture stöder för närvarande endast Gen 1 av Azure Data Lake Store, inte generation 2. 
 
-1. Skapa ett Data Lake Store Gen 1-konto, följa anvisningarna i [Kom igång med Azure Data Lake Store med Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
+1. Skapa ett Data Lake Store-konto enligt anvisningarna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Följ anvisningarna i avsnittet [Tilldela behörigheter till Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) om du vill skapa en mapp i det Data Lake Store-konto där du vill samla in data från Event Hubs och vill tilldela behörigheter till Event Hubs så att det kan skriva data till ditt Data Lake Store-konto.  
 
 
@@ -81,7 +79,7 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Event Hubs Capture i [Översikt över Event Hubs Capture][capture-overview].
+- Läs mer om hur du Event Hubs Capture genom att läsa [Översikt över Event Hubs Capture][capture-overview].
 - Du kan också konfigurera avbildningsfunktionen i Event Hubs med hjälp av Azure Resource Manager-mallar. Mer information finns i [Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 - [Lär dig hur du skapar en Azure Event Grid-prenumeration med en Event Hubs-namnrymd som dess källa](store-captured-data-data-warehouse.md)
 - [Kom igång med Azure Data Lake Store med Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)

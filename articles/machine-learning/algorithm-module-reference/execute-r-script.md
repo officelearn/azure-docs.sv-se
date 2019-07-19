@@ -1,40 +1,40 @@
 ---
 title: 'Kör R-skript: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen köra R-skript i Azure Machine Learning-tjänsten för att köra R-kod.
+description: Lär dig hur du använder modulen kör R-skript i Azure Machine Learning-tjänsten för att köra R-kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
-ms.author: peterclu
+ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: bfddcd3db4825ea1875474aa16544aa15412bdea
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518058"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875716"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
-Den här artikeln beskriver hur du använder den **kör R-skript** modul för att köra R-kod i experimentet visuella gränssnittet.
+I den här artikeln beskrivs hur du använder modulen **Kör r-skript** för att köra r-kod i ditt visuella gränssnitt.
 
-Med R, kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler som: 
-- Skapa anpassade Datatransformationer
+Med R kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel: 
+- Skapa anpassade data transformationer
 - Använd dina egna mått för att utvärdera förutsägelser
-- Skapa modeller med hjälp av algoritmer som inte är implementerat som fristående moduler i visuella gränssnittet
+- Bygg modeller med algoritmer som inte har implementerats som fristående moduler i Visual Interface
 
-## <a name="r-version-support"></a>Stöd för R-version
+## <a name="r-version-support"></a>Stöd för R-versioner
 
-Det visuella gränssnittet för Azure Machine Learning-tjänsten använder CRAN (Comprehensive R Archive Network) distribution av R. Den aktuella versionen är CRAN 3.5.1.
+Det visuella gränssnittet för Azure Machine Learnings tjänsten använder CRAN-distributionen (omfattande R Archive Network) för R. Den version som används är CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>R-paket som stöds
 
-R-miljö är förinstallerade med över 100 paket. En fullständig lista finns i avsnittet [förinstallerat R-paket](#pre-installed-r-packages).
+R-miljön är förinstallerad med över 100-paket. En fullständig lista finns i avsnittet förinstallerade [R-paket](#pre-installed-r-packages).
 
-Du kan också lägga till följande kod till någon **kör R-skript** modulen och för att se de installerade paket.
+Du kan också lägga till följande kod i valfri **execute R-skript** -modul och se de installerade paketen.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -45,7 +45,7 @@ azureml_main <- function(dataframe1, dataframe2){
 ```
 
 ## <a name="installing-r-packages"></a>Installera R-paket
-Om du vill installera ytterligare R-paket i `install.packages()` metod. Glöm inte att ange CRAN repository. Paket som är installerade för varje **kör R-skript** modulen, och inte delas mellan andra **kör R-skript** moduler.
+Om du vill installera ytterligare R-paket `install.packages()` använder du-metoden. Se till att ange CRAN-lagringsplatsen. Paket installeras för varje **execute r-skript** -modul och delas inte mellan andra **Kör r-skript** moduler.
 
 Det här exemplet visar hur du installerar Zoo:
 ```R
@@ -68,68 +68,68 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
-Den **kör R-skript** modulen innehåller exempelkod som du kan använda som startpunkt. Så här konfigurerar du den **kör R-skript** modulen, tillhandahåller en uppsättning indata och kod att köra.
+**Skriptet kör R-skript** innehåller exempel kod som du kan använda som utgångs punkt. Konfigurera modulen **Kör R-skript** genom att ange en uppsättning indata och kod att köra.
 
 ![R-modul](media/module/execute-r-script.png)
 
-Datauppsättningar som lagras i visuella gränssnittet konverteras automatiskt till en dataram i R vid har lästs in med den här modulen.
+Data uppsättningar lagrade i visuella gränssnitt konverteras automatiskt till en R data-ram när de läses in med den här modulen.
 
-1.  Lägg till den **kör R-skript** modulen i experimentet.
+1.  Lägg till modulen **Kör R-skript** i experimentet.
 
     > [!NOTE]
-    > Alla data som skickas till den **kör R-skript** modulen konverteras till R `data.frame` format.
+    > Alla data som skickas till modulen **Kör R-skript** konverteras till R `data.frame` -formatet.
 
-1. Anslut alla indata som krävs av skriptet. Indata är valfria och kan innehålla data och ytterligare R-kod.
+1. Anslut alla indata som behövs för skriptet. Indata är valfria och kan innehålla data och ytterligare R-kod.
 
-    * **Dataset1**: Referera till den första indatan som `dataframe1`. Datauppsättningen för indata måste formateras som en CSV, TVS, ARFF eller du kan ansluta en Azure Machine Learning-datauppsättning.
+    * **Dataset1**: Referera till den första indatamängden som `dataframe1`. Data uppsättningen för indata måste formateras som en CSV-, TSV-ARFF eller så kan du ansluta en Azure Machine Learning data uppsättning.
 
-    * **Dataset2**: Referera till andra indata som `dataframe2`. Den här datauppsättningen också måste formateras som en CSV, TVS, ARFF fil, eller som en Azure Machine Learning-datauppsättning.
+    * **Dataset2**: Referera till den andra ingången som `dataframe2`. Den här data uppsättningen måste också formateras som en CSV-, TSV-, ARFF-fil eller som en Azure Machine Learning data uppsättning.
 
-    * **Skriptet paket**: Tredje indata accepterar ZIP-filer. Den komprimerade filen kan innehålla flera filer och flera filtyper.
+    * **Skript paket**: De tredje indatafilerna accepterar ZIP-filer. Den zippade filen kan innehålla flera filer och flera filtyper.
 
-1. I den **R-skriptet** textrutan skriver eller klistrar du in giltig R-skript.
+1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 
-    Hjälper dig att komma igång, den **R-skriptet** textrutan är förifylld med exempelkod, som du kan redigera eller ersätta.
+    För att hjälpa dig att komma igång fylls text rutan **R-skript** i förväg med exempel kod, som du kan redigera eller ersätta.
 
-    * Skriptet måste innehålla en funktion som heter `azureml_main`, vilket är startpunkten för den här modulen.
+    * Skriptet måste innehålla en funktion med namnet `azureml_main`, som är start punkten för den här modulen.
 
-    * Funktionens startadress kan innehålla upp till två inkommande argument: `Param<dataframe1>` och `Param<dataframe2>`
+    * Start punkts funktionen kan innehålla upp till två indataargument: `Param<dataframe1>` och`Param<dataframe2>`
  
     > [!NOTE]
-    >  Befintlig R-kod kan behöva mindre ändringar att köras i ett experiment med visuella gränssnittet. Till exempel ska indata som du anger i CSV-format explicit konverteras till en datauppsättning innan du kan använda den i din kod. Data och column typer som används i R-språket skiljer sig även på vissa sätt från data och column-typer som används i det visuella gränssnittet.
+    >  Befintlig R-kod kan kräva mindre ändringar för att köras i ett visuellt gränssnitts experiment. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typerna som används i det visuella gränssnittet.
 
-1.  **Slumpmässig dirigering**: Ange ett värde som ska användas i R-miljö som slumpmässiga seed-värdet. Den här parametern motsvarar att anropa `set.seed(value)` i R-kod.  
+1.  **Slumpmässigt utsäde**: Ange ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
 
 1. Kör experimentet.  
 
 ## <a name="results"></a>Resultat
 
-Den **kör R-skript** moduler kan returnera flera utdata, men de måste anges som R dataramar. Dataramar konverteras automatiskt till visuella gränssnittet datauppsättningar för kompatibilitet med andra moduler.
+**Kör R** -skriptets moduler kan returnera flera utdata, men de måste anges som R-databildor. Data ramar konverteras automatiskt till Visual Interface-datauppsättningar för kompatibilitet med andra moduler.
 
-Standard-meddelanden och fel från R returneras till modulens log.
+Standard meddelanden och fel från R returneras till modulens logg.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
-Det finns många sätt som du kan utöka ditt experiment med hjälp av anpassade R-skript.  Det här avsnittet innehåller exempelkod för vanliga uppgifter.
+Det finns många sätt som du kan använda för att utöka experimentet med hjälp av anpassat R-skript.  Det här avsnittet innehåller exempel kod för vanliga uppgifter.
 
 
-### <a name="add-r-script-as-an-input"></a>Lägg till R-skript som indata
+### <a name="add-r-script-as-an-input"></a>Lägg till R-skript som inmatade
 
-Den **kör R-skript** modulen stöder godtyckliga R-skript-filer som indata. Om du vill göra det, måste de överföras till din arbetsyta som en del av ZIP-filen.
+Modulen **Kör R-skript** stöder godtyckliga r-skriptfiler som indata. För att göra det måste de överföras till din arbets yta som en del av ZIP-filen.
 
-1. Om du vill överföra en ZIP-fil som innehåller R-kod till din arbetsyta, klickar du på **New**, klickar du på **datauppsättning**, och välj sedan **från lokal fil** och **Zip-filen**alternativet.  
+1. Om du vill ladda upp en ZIP-fil som innehåller R-kod till din arbets yta, klickar du på **ny**, **data uppsättning**och väljer sedan alternativet **från lokal fil** och **zip-fil** .  
 
-1. Kontrollera att den komprimerade filen är tillgänglig på den **sparade datauppsättningar** lista.
+1. Kontrol lera att den zippade filen är tillgänglig i listan med **sparade data uppsättningar** .
 
-1.  Ansluta datauppsättningen till den **skriptet paket** indataporten.
+1.  Anslut data uppsättningen till **skript paketets** indataport.
 
-1. Alla filer som finns i ZIP-filen är tillgängliga under experiment körtid. 
+1. Alla filer som finns i ZIP-filen är tillgängliga under experimentets körnings tid. 
 
-    Om skriptet samlingsfil innehöll en katalogstruktur, bevaras strukturen. Dock måste du ändra koden och Lägg till åtkomstgruppen katalogen **. / skript paketera** till sökvägen.
+    Om skript paket filen innehåller en katalog struktur bevaras strukturen. Du måste dock ändra koden för att lägga Directory **./script-paketet** till sökvägen.
 
 ### <a name="process-data"></a>Bearbeta data
 
-I följande exempel visas hur du skalar och normalisera indata:
+I följande exempel visas hur du skalar och normaliserar indata:
 
 ```R
 # R version: 3.5.1
@@ -158,15 +158,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Läsa en ZIP-fil som indata
+### <a name="read-a-zip-file-as-input"></a>Läs en ZIP-fil som indata
 
-Det här exemplet visas hur du använder en datauppsättning i en ZIP-fil som indata till den **kör R-skript** modulen.
+Det här exemplet visar hur du använder en data uppsättning i en ZIP-fil som indata för modulen **Kör R-skript** .
 
-1. Skapa datafilen i CSV-format och ge den namnet ”mydatafile.csv”.
-1. Skapa en ZIP-fil och lägga till CSV-filen i arkivet.
-1. Ladda upp den komprimerade filen till din Azure Machine Learning-arbetsyta. 
-1. Anslut den resulterande datauppsättningen till den **ScriptBundle** indata av din **kör R-skript** modulen.
-1. Med följande kod för att läsa CSV-data från ZIP-fil.
+1. Skapa data filen i CSV-format och ge den namnet "min datafile. csv".
+1. Skapa en ZIP-fil och Lägg till CSV-filen i arkivet.
+1. Ladda upp den zippade filen till din Azure Machine Learning-arbetsyta. 
+1. Anslut den resulterande data uppsättningen till **ScriptBundle** -indata för modulen **Kör R-skript** .
+1. Använd följande kod för att läsa CSV-data från den zippade filen.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -179,7 +179,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="replicate-rows"></a>Replikera rader
 
-Det här exemplet visar hur du replikerar positivt poster i en datauppsättning för att balansera exemplet:
+Det här exemplet visar hur du replikerar positiva poster i en data uppsättning för att balansera exemplet:
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -194,11 +194,11 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-### <a name="pass-r-objects-between-execute-r-script-modules"></a>Skicka R-objekt mellan moduler som kör R-skript
+### <a name="pass-r-objects-between-execute-r-script-modules"></a>Pass R-objekt mellan exekvera R-skript moduler
 
-Du kan skicka R-objekt mellan olika instanser av den **kör R-skript** modulen med hjälp av funktionen intern serialisering. Det här exemplet förutsätts att du vill flytta R-objekt med namnet `A` mellan två **kör R-skript** moduler.
+Du kan skicka R-objekt mellan instanser av modulen **Kör R-skript** med hjälp av funktionen för intern serialisering. Det här exemplet förutsätter att du vill flytta R-objektet `A` med namnet mellan två **köra r-skript** moduler.
 
-1. Lägg till först **kör R-skript** modul till ditt experiment, och ange följande kod i den **R-skriptet** textrutan för att skapa ett serialiserat objekt `A` som en kolumn i modulen utdatafiler datatabell:  
+1. Lägg till den första **execute R-skript** -modulen i experimentet och skriv följande kod i text rutan R- **skript** för att skapa ett `A` serialiserat objekt som en kolumn i modulen utdata data tabell:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -212,11 +212,11 @@ Du kan skicka R-objekt mellan olika instanser av den **kör R-skript** modulen m
     }
     ```
 
-    För explicit konvertering till heltalstyp görs eftersom funktionen serialisering matar ut data i R `Raw` format, vilket inte stöds av det visuella gränssnittet.
+    Den explicita konverteringen till Integer-typ görs eftersom serialiserings funktionen matar ut data i R `Raw` -formatet, vilket inte stöds av det visuella gränssnittet.
 
-1. Lägg till en andra instans av den **kör R-skript** modulen, och ansluter den till utdataporten för den föregående modulen.
+1. Lägg till en andra instans av modulen **Kör R-skript** och Anslut den till utdataporten för den föregående modulen.
 
-1. Skriv följande kod i den **R-skriptet** textrutan för att extrahera objekt `A` från tabellen inkommande Data. 
+1. Skriv följande kod i text rutan **R-skript** för att extrahera objekt `A` från indata-tabellen. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -229,154 +229,154 @@ Du kan skicka R-objekt mellan olika instanser av den **kör R-skript** modulen m
 
 ## <a name="pre-installed-r-packages"></a>Förinstallerade R-paket
 
-Den aktuella listan över tidigare installerade R-paket som kan användas:
+Den aktuella listan över förinstallerade R-paket som är tillgängliga för användning:
 
 |              |            | 
 |--------------|------------| 
 | Paket      | Version    | 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
-| backportar    | 1.1.4      | 
-| Base         | 3.5.1      | 
-| base64enc    | 0.1-3      | 
+| backports    | 1.1.4      | 
+| grund         | 3.5.1      | 
+| base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
-| bindr        | 0.1.1      | 
+| binder        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
-| bitops       | 1.0-6      | 
-| start         | 1.3-22     | 
-| kvast        | 0.5.2      | 
-| callr        | 3.2.0      | 
-| cirkumflex        | 6.0-84     | 
+| i överkant       | 1.0 – 6      | 
+| start         | 1.3 – 22     | 
+| Broom        | 0.5.2      | 
+| anropare        | 3.2.0      | 
+| tecken        | 6.0 – 84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | Klass        | 7.3-15     | 
-| cli          | 1.1.0      | 
-| clipr        | 0.6.0      | 
-| Kluster      | 2.0.7-1    | 
-| codetools    | 0.2-16     | 
-| avläsningsmeddelanden   | 1.4-1      | 
-| compiler     | 3.5.1      | 
-| Crayon       | 1.3.4      | 
-| CURL         | 3.3        | 
-| data.Table   | 1.12.2     | 
+| CLI          | 1.1.0      | 
+| klippare        | 0.6.0      | 
+| Flernodskluster      | 2.0.7-1    | 
+| codetools    | 0,2 – 16     | 
+| colorspace   | 1.4-1      | 
+| kompilatorn     | 3.5.1      | 
+| färg       | 1.3.4      | 
+| klammerparentes         | 3.3        | 
+| data. table   | 1.12.2     | 
 | datasets     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| utvärdera     | 0.14       | 
-| fansi        | 0.4.0      | 
+| utvärdera     | 0,14       | 
+| fläktar        | 0.4.0      | 
 | forcats      | 0.3.0      | 
-| Foreach      | 1.4.4      | 
-| sekundärnyckel      | 0.8-71     | 
+| foreach      | 1.4.4      | 
+| förvalta      | 0,8-71     | 
 | fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
-| generisk     | 0.0.2      | 
+| generisk typ     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
-| glmnet       | 2.0-18     | 
-| sammanlänkande         | 1.3.1      | 
+| glmnet       | 2.0 – 18     | 
+| emot         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
-| grafik     | 3.5.1      | 
+| bild     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| rutnät         | 3.5.1      | 
+| stödrastret         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| haven        | 2.1.0      | 
-| highr        | 0.8        | 
+| Jag        | 2.1.0      | 
+| hög        | 0,8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
-| ipred        | 0.9-9      | 
-| Iteratorer    | 1.0.10     | 
+| ipred        | 0,9 – 9      | 
+| iteratorer    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
-| knitr        | 1.23       | 
-| Märkning     | 0.3        | 
-| gitter      | 0.20-38    | 
+| knitr        | 1,23       | 
+| märkning     | 0,3        | 
+| rutindex      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
-| Markdown     | 1          | 
+| markdown     | 1          | 
 | MASS         | 7.3-51.4   | 
-| Matris       | 1.2-17     | 
-| Metoder      | 3.5.1      | 
+| Matrix       | 1.2 – 17     | 
+| indatametod      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| MIME         | 0.7        | 
+| MIME         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
-| modelr       | 0.1.4      | 
+| Modellerare       | 0.1.4      | 
 | munsell      | 0.5.0      | 
 | nlme         | 3.1-140    | 
-| nnet         | 7.3-12     | 
+| vasslepulver         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
 | parallel     | 3.5.1      | 
-| Pelare       | 1.4.1      | 
+| pelar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
 | prettyunits  | 1.0.2      | 
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
-| Pågår     | 1.2.2      | 
-| ps           | 1.3.0      | 
+| pågår     | 1.2.2      | 
+| PS           | 1.3.0      | 
 | purrr        | 0.3.2      | 
-| quadprog     | 1.5-7      | 
+| quadprog     | 1,5 – 7      | 
 | quantmod     | 0.4-15     | 
 | R6           | 2.4.0      | 
-| RandomForest | 4.6-14     | 
+| randomForest | 4.6-14     | 
 | RColorBrewer | 1.1-2      | 
 | Rcpp         | 1.0.1      | 
 | RcppRoll     | 0.3.0      | 
-| readr        | 1.3.1      | 
+| Reader        | 1.3.1      | 
 | readxl       | 1.3.1      | 
 | recept      | 0.1.5      | 
-| rematch      | 1.0.1      | 
+| matcha om      | 1.0.1      | 
 | reprex       | 0.3.0      | 
 | reshape2     | 1.4.3      | 
-| reticulate   | 1.12       | 
+| reticulate   | 1,12       | 
 | rlang        | 0.4.0      | 
-| rmarkdown    | 1.13       | 
-| ROCR         | 1.0-7      | 
+| rmarkdown    | 1,13       | 
+| ROCR         | 1,0-7      | 
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
-| skalor       | 1.0.0      | 
-| selectr      | 0.4-1      | 
-| Spatial      | 7.3-11     | 
-| spline-kurvor      | 3.5.1      | 
-| SQUAREM      | 2017.10-1  | 
-| Statistik        | 3.5.1      | 
+| skalas       | 1.0.0      | 
+| väljare      | 0.4-1      | 
+| Geospatial      | 7.3-11     | 
+| spline      | 3.5.1      | 
+| KVADRATISKT      | 2017.10-1  | 
+| spelarna        | 3.5.1      | 
 | stats4       | 3.5.1      | 
-| stringi      | 1.4.3      | 
-| stringr      | 1.3.1      | 
-| Överlevnadsguide     | 2.44-1.1   | 
+| strängi      | 1.4.3      | 
+| strängare      | 1.3.1      | 
+| lever     | 2.44-1.1   | 
 | sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
-| tidyr        | 0.8.3      | 
+| städat        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
-| timeDate     | 3043.102   | 
-| tinytex      | 0.13       | 
+| timeDate     | 3043,102   | 
+| tinytex      | 0,13       | 
 | verktyg        | 3.5.1      | 
-| tseries      | 0.10-47    | 
+| tseries      | 0,10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
-| utils        | 3.5.1      | 
+| uppgradering        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| whisker      | 0.3-2      | 
-| withr        | 2.1.2      | 
-| xfun         | 0.8        | 
+| hårs värde      | 0,3-2      | 
+| med        | punkt      | 
+| xfun         | 0,8        | 
 | xml2         | 1.2.0      | 
-| xts          | 0.11-2     | 
+| XTS          | 0,11-2     | 
 | yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
-| zoo          | 1.8-6      | 
+| Zoo          | 1.8 – 6      | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

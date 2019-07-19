@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: e59b82c3b1000d679e6faa0fc3c55c624a255443
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
-ms.translationtype: HT
+ms.openlocfilehash: 3d2aefa7040ca2082e0e584d250d99f1ca00edf7
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302542"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326431"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Tjänsten [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) använder ett antal IP-adresser. Du kan behöva känna till de här adresserna om appen som du övervakar ligger bakom en brand vägg.
@@ -52,7 +52,7 @@ Statusövervakare konfiguration – behövs bara när du gör ändringar.
 | Konfiguration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Konfiguration |`auth.gfx.ms` | |`443` |
 | Konfiguration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org`, `nuget.org`, `api.nuget.org` ,`az320820.vo.msecnd.net` (NuGet nedladdningar) | |`443` |
+| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`,`dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Tillgänglighetstester
 Det här är listan över adresser från vilka [webb testerna för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) körs. Om du vill köra webbtester på din app, men webb servern är begränsad till att betjäna vissa klienter, måste du tillåta inkommande trafik från våra tillgänglighets test servrar.

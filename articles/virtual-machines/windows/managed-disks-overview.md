@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Storage managed disk översikt för Windows-datorer | Microsoft Docs
-description: Översikt över Azure-hanterade diskar, som hanterar storage-konton åt dig när du använder virtuella Azure Windows-datorer
+title: Översikt över Azure-disklagring Managed disk för virtuella Windows-datorer | Microsoft Docs
+description: Översikt över Azure Managed disks, som hanterar lagrings kontona åt dig när du använder virtuella Azure-datorer i Windows
 services: virtual-machines-windows,storage
 author: roygara
 ms.service: virtual-machines-windows
@@ -11,17 +11,17 @@ ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: fb1ee8556935b141dfee6a18c96ecafb476aa584
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 07/18/2019
 ms.locfileid: "64725814"
 ---
-# <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure hanterade diskar
+# <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed disks
 
-En Azure-hanterad disk är en virtuell hårddisk (VHD). Du kan se det som en fysisk disk i en lokal server men virtualiserade. Azure-hanterade diskar lagras som sidblobar som är ett slumpmässigt i/o-lagringsobjekt i Azure. Vi kallar en hanterad disk som ”hanterad” eftersom det är en abstraktion över page blobs, blob-behållare och Azure storage-konton. Allt du behöver göra är att etablera disken med hanterade diskar och Azure tar hand om resten.
+En Azure-hanterad disk är en virtuell hård disk (VHD). Du kan tänka på det som en fysisk disk på en lokal server, men virtualiserad. Azure Managed disks lagras som Page BLOB-objekt, som är ett slumpmässigt IO-lagringssystem i Azure. Vi kallar en hanterad disk hanterad eftersom det är en abstraktion över Page blobbar, BLOB-behållare och Azure Storage-konton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
 
-När du väljer att använda Azure hanterade diskar med dina arbetsbelastningar, Azure skapar och hanterar disken åt dig. Tillgängliga typer av diskar är Ultra Solid tillstånd-hårddiskar (SSD) (förhandsversion), Premium SSD, Standard SSD och Standard hårddiskar (HDD). Läs mer om varje enskild disk-typ, [väljer en disktyp för virtuella IaaS-datorer](disks-types.md).
+När du väljer att använda Azure Managed disks med dina arbets belastningar, skapar och hanterar Azure disken åt dig. De tillgängliga disk typerna är otroligt solid state-hårddiskar (SSD) (för hands version), Premium SSD, Standard SSD och standard hård diskar (HDD). Mer information om varje enskild disk typ finns i [Välj en disktyp för virtuella IaaS-datorer](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

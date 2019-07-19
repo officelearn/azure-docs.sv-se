@@ -4,7 +4,7 @@ description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782567"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323723"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 Du kan skapa de flesta Batch-resurser enbart med kommandoradsalternativ, men vissa funktioner kräver att du anger en JSON-formaterad fil som innehåller information om resursen. Du måste till exempel använda en JSON-fil om du vill ange resursfiler för en startuppgift.
 
-Du kan läsa vilken JSON-syntax som krävs för att skapa en resurs i dokumentationen [Batch REST API reference][rest_api] (REST API-referens för Batch). Varje ämne om att *lägga till resurstyper* i REST API-referensen innehåller exempel på JSON-skript för att skapa den aktuella resursen. Du kan använda dessa JSON-exempelskript som en mall för JSON-filer att använda med Azure CLI. Om du till exempel vill se JSON-syntaxen för att skapa en pool läser du [Add a pool to an account][rest_add_pool] (Lägga till en pool för ett konto).
+Om du vill se den JSON-syntax som krävs för att skapa en resurs, se [Batch REST API referens][rest_api] dokumentation. Varje ämne om att *lägga till resurstyper* i REST API-referensen innehåller exempel på JSON-skript för att skapa den aktuella resursen. Du kan använda dessa JSON-exempelskript som en mall för JSON-filer att använda med Azure CLI. Om du till exempel vill se JSON-syntaxen för att skapa en pool, se [lägga till en pool till ett konto][rest_add_pool].
 
 Ett exempelskript som anger en JSON-fil finns i [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md).
 

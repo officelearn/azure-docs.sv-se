@@ -13,16 +13,16 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807175"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323967"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
-Den här artikeln hjälper dig med hjälp av kommandoradsverktyget Maven för att skapa och publicera en Java-funktion till Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
+Den här artikeln vägleder dig genom att använda kommando rads verktyget Maven för att bygga och publicera en Java-funktion för att Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,10 +30,10 @@ Den här artikeln hjälper dig med hjälp av kommandoradsverktyget Maven för at
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
-- [Java Development Kit](https://aka.ms/azure-jdks), version 8
-- [Apache Maven](https://maven.apache.org), version 3.0 eller senare
+- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Apache maven](https://maven.apache.org), version 3,0 eller senare
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare
+- [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare
 
 > [!IMPORTANT]
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
@@ -51,7 +51,7 @@ mvn archetype:generate \
 ```
 
 > [!NOTE]
-> Om du upplever problem med att köra kommandot, ta en titt på vad `maven-archetype-plugin` version som används. Eftersom du kör kommandot i en tom katalog utan `.pom` filen, den kanske försöker använda ett plugin-program på den äldre versionen från `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` om du har uppgraderat din Maven från en äldre version. I så, fall försök att ta bort den `maven-archetype-plugin` directory och köra kommandot.
+> Om du har problem med att köra kommandot bör du ta en titt på vilken `maven-archetype-plugin` version som används. Eftersom du kör kommandot i en tom katalog utan `.pom` fil, kan det försöka använda ett plugin-program av den äldre versionen från `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` om du har uppgraderat maven från en äldre version. I så fall kan du `maven-archetype-plugin` försöka ta bort katalogen och köra kommandot igen.
 
 ### <a name="windows"></a>Windows
 
@@ -82,7 +82,7 @@ Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Klart att körklara genererade koden i projektet är en [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som utgörs av begäran. Ersätt *src/main/java/com/fabrikam/functions/Function.java* med följande kod: 
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den färdiga koden för att köra genererad kod i projektet är en [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar ut bröd texten i begäran. Ersätt *src/main/Java/com/Fabrikam/functions. java* med följande kod: 
 
 ```java
 package com.fabrikam.functions;
@@ -117,7 +117,7 @@ public class Function {
 
 ```
 
-## <a name="enable-extension-bundles"></a>Aktivera tillägget paket
+## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -125,7 +125,7 @@ public class Function {
 
 Byt katalog till den nyskapade projektmappen. Skapa och kör sedan funktionen med Maven:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -147,7 +147,7 @@ Http Functions:
 
 Utlös funktionen från kommandoraden med curl i ett nytt terminalfönster:
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -165,12 +165,12 @@ Under distribueringen till Azure Functions används autentiseringsuppgifter frå
 az login
 ```
 
-Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`. Det här alternativet utförs en [Zip distribuera kör från paketet](functions-deployment-technologies.md#zip-deploy) läge har aktiverats.
+Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`. Detta utför en [zip-distribution med kör från paket](functions-deployment-technologies.md#zip-deploy) läge aktiverat.
 
 > [!NOTE]
-> När du använder Visual Studio Code för att distribuera funktionsappen, Kom ihåg att välja en icke-kostnadsfria prenumeration och du får ett felmeddelande. Du kan se din prenumeration på vänster sida av IDE.
+> När du använder Visual Studio Code för att distribuera din Function-app måste du komma ihåg att välja en icke-kostnads fri prenumeration eller så får du ett fel meddelande. Du kan titta på din prenumeration på vänster sida av IDE-nätverket.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -187,9 +187,9 @@ När distributionen är klar kan du se den webbadress som används för att få 
 Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra URL-adressen från exemplet till den distribuerade URL-adressen för din egen funktionsapp från föregående steg.
 
 > [!NOTE]
-> Se till att ange den **åtkomstbehörigheter** till `Anonymous`. När du väljer vilken `Function`, måste du presentera den [funktionsnyckel](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) i förfrågningar om åtkomst till din funktion-slutpunkt.
+> Se till att du ställer in **åtkomst behörighet** till `Anonymous`. När du väljer standard nivån för `Function`, måste du presentera [funktions nyckeln](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) i begär Anden för att få åtkomst till funktions slut punkten.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
@@ -211,7 +211,7 @@ Till följande:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Spara ändringarna. Kör mvn ren paket och distribuera om genom att köra `azure-functions:deploy` från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:
+Spara ändringarna. Kör mvn Clean Package och distribuera om genom att `azure-functions:deploy` köra från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello

@@ -1,10 +1,10 @@
 ---
-title: Mått, aviseringar och diagnostikloggar – Azure Batch | Microsoft Docs
+title: Mått, varningar och diagnostikloggar – Azure Batch | Microsoft Docs
 description: Registrera och analysera diagnostiklogg för resurser som pooler och uppgifter i Azure Batch-kontot.
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242626"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323627"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -29,7 +29,7 @@ Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av fun
 
 ## <a name="batch-metrics"></a>Batch-mått
 
-Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Exempel mått i ett Batch-konto är: Skapande av pool händelser, antal noder med låg prioritet och uppgiften slutföra händelser. 
+Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Exempel på mått i ett batch-konto är: Pool, skapa händelser, antal noder med låg prioritet och aktivitetens kompletta händelser. 
 
 Se den [lista över mått som stöds Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -37,7 +37,7 @@ Mått är:
 
 * Aktiverat som standard i varje Batch-konto utan ytterligare konfiguration
 * Genereras varje minut
-* Beständiga inte automatiskt, men har en rullande 30-dagars historik. Du kan även spara aktivitetsmått som en del av Diagnostisk loggning.
+* Beständiga inte automatiskt, men har en rullande 30-dagars historik. Du kan spara aktivitets mått som en del av diagnostisk loggning.
 
 ### <a name="view-metrics"></a>Visa mått
 
@@ -91,7 +91,7 @@ Andra valfritt mål för diagnostikloggar:
 
 * Stream Batch diagnostiklogg händelser till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljontals händelser per sekund, vilket du kan omvandla och lagra med hjälp av valfri leverantör av realtidsanalys. 
 
-* Skicka diagnostikloggar till [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
+* Skicka diagnostikloggar till [Azure Monitor loggar](../log-analytics/log-analytics-overview.md)där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
 
 > [!NOTE]
 > Du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data med Azure-tjänster. 
@@ -101,7 +101,7 @@ Andra valfritt mål för diagnostikloggar:
 
 1. I portalen klickar du på **alla tjänster** > **Batch-konton**, och klicka sedan på namnet på ditt Batch-konto.
 2. Under **övervakning**, klickar du på **diagnostikloggar** > **slå på diagnostik**.
-3. I **diagnostikinställningar**, ange ett namn för inställningen och väljer en loggmålet (befintligt lagringskonto, Event Hub eller Azure Monitor-loggar). Välj ett eller båda **ServiceLog** och **AllMetrics**.
+3. I **diagnostikinställningar**anger du ett namn för inställningen och väljer ett mål för loggen (befintligt lagrings konto, Event Hub eller Azure Monitor loggar). Välj ett eller båda **ServiceLog** och **AllMetrics**.
 
     När du väljer ett lagringskonto om du vill ange en bevarandeprincip. Om du inte anger ett antal dagar för kvarhållning, bevaras under din arbetsgrens livstid storage-konto.
 

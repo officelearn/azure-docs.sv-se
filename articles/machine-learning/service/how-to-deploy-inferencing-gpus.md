@@ -1,7 +1,7 @@
 ---
-title: Distribuera en modell för inferens med GPU
+title: Distribuera en modell för härledning med GPU
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln lär du dig hur du använder Azure Machine Learning-tjänsten för att distribuera en GPU-aktiverade Tensorflow som deep learning-modell som en web-service.service och poäng inferens begäranden.
+description: Den här artikeln lär dig hur du använder Azure Machine Learnings tjänsten för att distribuera en GPU-aktiverad Tensorflow djup inlärnings modell som en webb tjänst. tjänst-och Poäng härlednings begär Anden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,41 +10,41 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/01/2019
-ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: eeb1bc35e0438a7e99ea5ed8284f0c8611108da0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543806"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326990"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en modell för djupinlärning för inferens med GPU
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 
-Den här artikeln lär du dig hur du använder Azure Machine Learning-tjänsten för att distribuera en GPU-aktiverade Tensorflow som deep learning-modell som en webbtjänst.
+Den här artikeln lär dig hur du använder Azure Machine Learning-tjänsten för att distribuera en GPU-aktiverad Tensorflow djup inlärnings modell som en webb tjänst.
 
-Distribuera din modell till ett Azure Kubernetes Service (AKS)-kluster för att göra GPU-aktiverade inferensjobb. Inferensjobb eller modell bedömning är fasen där distribuerade modellen används för förutsägelse. Med GPU: er i stället för processorer erbjudandet prestandafördelar på mycket kan beräkning.
+Distribuera din modell till ett Azure Kubernetes service-kluster (AKS) för att göra GPU-aktiverad inferencing. Inferencing eller modell poängsättning är fasen där den distribuerade modellen används för förutsägelse. Att använda GPU: er i stället för processorer ger prestanda för delar med mycket kan göras parallella beräkning.
 
-Även om det här exemplet används en TensorFlow-modell, kan du använda följande steg till alla machine learning-ramverk som stöder GPU: er genom att göra små ändringar till bedömningsfil och miljöfil. 
+Även om det här exemplet använder en TensorFlow-modell kan du tillämpa följande steg för alla Machine Learning-ramverk som stöder GPU: er genom att göra små ändringar i bedömnings filen och miljö filen. 
 
 I den här självstudien gör du följande:
 
-* Skapa en GPU-aktiverade AKS-kluster
+* Skapa ett GPU-aktiverat AKS-kluster
 * Distribuera en Tensorflow GPU-modell
-* Utfärda en exempelfråga i din distribuerade modell
+* Skicka en exempel fråga till din distribuerade modell
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänster.
-* En Python-distribution.
-* En registrerad Tensorflow spara modellen.
-    * Läs hur du registrerar modeller i [distribuera modeller](../service/how-to-deploy-and-where.md#registermodel).
+* En Azure Machine Learning Services-arbetsyta.
+* En python-distribution.
+* En registrerad Tensorflow-Sparad modell.
+    * Information om hur du registrerar modeller finns i [Distribuera modeller](../service/how-to-deploy-and-where.md#registermodel).
 
-Du kan slutföra första delen i det här instruktionsserie [hur du tränar en modell för TensorFlow](how-to-train-tensorflow.md), för att uppfylla kraven.
+Du kan slutföra en del av den här instruktions serien, [hur du tränar en TensorFlow-modell](how-to-train-tensorflow.md)för att uppfylla de nödvändiga förutsättningarna.
 
 ## <a name="provision-an-aks-cluster-with-gpus"></a>Etablera ett AKS-kluster med GPU: er
 
-Azure har många olika GPU-alternativ. Du kan använda någon av dem för inferensjobb. Se [listan över virtuella datorer i N-serien](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) för en fullständig uppdelning av funktioner och kostnader.
+Azure har många olika GPU-alternativ. Du kan använda dem för inferencing. Se [listan över virtuella datorer i N-serien](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) för en fullständig analys av funktioner och kostnader.
 
-Mer information om att använda AKS med Azure Machine Learning-tjänsten finns i [hur du distribuerar och var](../service/how-to-deploy-and-where.md#deploy-aks).
+Mer information om hur du använder AKS med Azure Machine Learning-tjänsten finns i [distribuera och var](../service/how-to-deploy-and-where.md#deploy-aks).
 
 ```Python
 # Choose a name for your cluster
@@ -52,7 +52,7 @@ aks_name = "aks-gpu"
 
 # Check to see if the cluster already exists
 try:
-    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    aks_target = ComputeTarget(workspace=ws, name=aks_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
@@ -68,11 +68,11 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> Azure fakturerar så länge AKS-klustret har etablerats. Se till att ta bort ditt AKS-kluster när du är klar med den.
+> Azure kommer att debiteras så länge AKS-klustret är etablerad. Se till att ta bort ditt AKS-kluster när du är klar.
 
-## <a name="write-the-entry-script"></a>Skriva skript för transaktion
+## <a name="write-the-entry-script"></a>Skriv start skriptet
 
-Spara följande kod i din arbetskatalog som `score.py`. Den här filen poängsätter bilder när de skickas till din tjänst. Den läser in sparade TensorFlow-modellen, skickar in avbildningen till TensorFlow-session på varje POST-begäran och returnerar sedan resulterande poängen. Andra inferensjobb ramverk kräver olika bedömningsfilerna.
+Spara följande kod i din arbets katalog som `score.py`. Den här filen visar bilder som de skickas till din tjänst. Den läser in den sparade modellen TensorFlow, överför indata-avbildningen till TensorFlow-sessionen på varje POST-begäran och returnerar sedan resultaten. Andra inferencing-ramverk kräver olika bedömnings filer.
 
 ```python
 import json
@@ -101,9 +101,9 @@ def run(raw_data):
     return y_hat.tolist()
 
 ```
-## <a name="define-the-conda-environment"></a>Definiera conda-miljö
+## <a name="define-the-conda-environment"></a>Definiera Conda-miljön
 
-Skapa en conda miljö-fil med namnet `myenv.yml` ange beroenden för din tjänst. Det är viktigt att ange att du använder `tensorflow-gpu` att uppnå högre prestanda.
+Skapa en Conda-miljö fil `myenv.yml` med namnet för att ange beroenden för din tjänst. Det är viktigt att ange att du använder `tensorflow-gpu` för att uppnå accelererade prestanda.
 
 ```yaml
 name: project_environment
@@ -120,9 +120,9 @@ channels:
 - conda-forge
 ```
 
-## <a name="define-the-gpu-inferenceconfig-class"></a>Definiera GPU InferenceConfig-klass
+## <a name="define-the-gpu-inferenceconfig-class"></a>Definiera GPU-InferenceConfig-klassen
 
-Skapa en `InferenceConfig` objekt som gör att de GPU: er och säkerställer att CUDA har installerats med en Docker-avbildning.
+Skapa ett `InferenceConfig` objekt som aktiverar GPU: er och säkerställer att CUDA installeras med Docker-avbildningen.
 
 ```python
 from azureml.core.model import Model
@@ -148,7 +148,7 @@ Mer information finns i:
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Distribuera modellen till AKS-klustret och vänta tills det för att skapa din tjänst.
+Distribuera modellen till ditt AKS-kluster och vänta tills den har skapat din tjänst.
 
 ```python
 aks_service = Model.deploy(ws,
@@ -163,13 +163,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning-tjänsten inte kommer att distribuera en modell med en `InferenceConfig` objekt som förväntar sig GPU aktiveras till ett kluster som inte har en GPU.
+> Azure Machine Learning tjänsten distribuerar inte en modell med ett `InferenceConfig` objekt som förväntar sig att GPU är aktiverat för ett kluster som inte har någon GPU.
 
-Mer information finns i [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Mer information finns i [modell klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-a-sample-query-to-your-model"></a>Utfärda en exempelfråga i din modell
+## <a name="issue-a-sample-query-to-your-model"></a>Skicka en exempel fråga till din modell
 
-Skicka en Testfråga till distribuerad modell. När du skickar en JPEG-bild till modellen poängsätter avbildningen. Följande kodexempel används en funktion för externa verktyg för att läsa in bilder. Du hittar den relevanta koden på pir [TensorFlow-exemplet på GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
+Skicka en test fråga till den distribuerade modellen. När du skickar en JPEG-bild till modellen, visas bilden. I följande kod exempel används en extern funktion för att läsa in bilder. Du hittar relevant kod i pir TensorFlow- [exemplet på GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
 
 ```python
 # Used to test your webservice
@@ -194,14 +194,14 @@ print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]
-> Kontrollera att klienten är i samma Azure-region som slutpunkt för att minimera svarstiden och optimera genomflödet. I det här exemplet skapas av API: er i regionen östra USA Azure.
+> Kontrol lera att klienten finns i samma Azure-region som slut punkten för att minimera svars tiden och optimera data flödet. I det här exemplet skapas API: erna i Azure-regionen USA, östra.
 
 ## <a name="clean-up-the-resources"></a>Rensa resurserna
 
-Ta bort resurserna när du är klar med det här exemplet.
+Om du har skapat AKS-klustret specifikt för det här exemplet tar du bort dina resurser när du är klar.
 
 > [!IMPORTANT]
-> Azure fakturerar dig baserat på hur länge AKS-klustret distribueras. Se till att rensa upp när du är klar med den.
+> Azure-räkningar baseras på hur länge AKS-klustret distribueras. Se till att rensa upp den när du är klar.
 
 ```python
 aks_service.delete()
@@ -210,6 +210,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera modellen på FPGA](../service/how-to-deploy-fpga-web-service.md)
+* [Distribuera modell på FPGA](../service/how-to-deploy-fpga-web-service.md)
 * [Distribuera modell med ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
-* [Träna DNN Tensorflow-modeller](../service/how-to-train-tensorflow.md)
+* [Träna Tensorflow DNN-modeller](../service/how-to-train-tensorflow.md)

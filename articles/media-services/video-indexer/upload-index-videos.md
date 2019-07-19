@@ -10,35 +10,35 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799193"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305626"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
-När du laddar upp videor med Video Indexer API, har följande Uppladdningsalternativ: 
+När du laddar upp videor med Video Indexer API har du följande uppladdnings alternativ: 
 
 * ladda upp videon från en URL (rekommenderas),
 * skicka videofilen som en bytematris i begärandetexten,
-* Använder befintliga Azure Media Services-tillgången genom att tillhandahålla den [tillgångs-ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds i endast betalda konton).
+* Använd befintlig Azure Media Services till gång genom att ange [till gångs-ID: t](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds endast i betalda konton).
 
 Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen. <br/>Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
 
-När din video har laddats upp, kodar Video Indexer kan du kan också videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
 
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Överföringsstorlek med URL: er är begränsad till 30GB
-- Begäran-URL-längd är begränsad till 2048 tecken
-- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB
-- Alternativet byte-matris på grund av timeout efter 30 min
+- Uppladdnings storleken med URL-alternativet är begränsad till 30 GB
+- Längden på URL: en för begäran är begränsad till 2048 tecken
+- Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB
+- Tids gränsen nåddes för byte mat ris-alternativet efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
-- Indexering tillgångar i Media Services har samma begränsningar som indexering från URL
-- Video Indexer har en maximal varaktighet högst 4 timmar för en enskild fil
+- Indexering av Media Services till gångar har samma begränsning som indexering från URL
+- Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
@@ -64,9 +64,9 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
-    - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID=1234ABCD&State=processed
 - Person som identifierades i videon:
-  - Egenskaper
+  - properties
     
       |Namn|Beskrivning|
       |---|---|
@@ -75,7 +75,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
         
-    - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID=1234ABCD&FaceID=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Anteckningar
 
@@ -92,9 +92,9 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 
 Priset beror på det valda indexeringsalternativet.  
 
-### <a name="priority"></a>prioritet
+### <a name="priority"></a>priority
 
-Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **hög**.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard) och **hög**.
 
 **Prioritet**-parametern stöds endast för betalda konton.
 
@@ -291,4 +291,4 @@ De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgär
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska Azure Video Indexer-utdata som genereras av API](video-indexer-output-json-v2.md)
+[Granska Azure Video Indexer-utdata som skapats av API](video-indexer-output-json-v2.md)

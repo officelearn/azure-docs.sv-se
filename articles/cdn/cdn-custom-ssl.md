@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594049"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321674"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -53,7 +53,7 @@ Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-pr
 Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudie: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md) 
 
 > [!IMPORTANT]
-> CDN-hanterade certifikat är inte tillgängliga för rot- eller apex domäner. Om din anpassade domän i Azure CDN är en rot- eller apex-domän, måste du använda ta med dina egna certifikat-funktionen. 
+> CDN-hanterade certifikat är inte tillgängliga för rot-eller Apex-domäner. Om din Azure CDN anpassade domän är en rot-eller Apex-domän måste du använda funktionen ta med din egen certifikat. 
 >
 
 ---
@@ -94,10 +94,10 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Alternativ 2: Aktivera HTTPS med ditt eget certifikat](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och **Azure CDN från Verizon** profiler. 
+> Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och **Azure CDN från Verizon** -profiler. 
 >
  
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**, tas emot någon giltig Certifikatutfärdare. 
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna ca: er finns i [tillåtna certifikat utfärdare för att aktivera anpassad https på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**godkänns alla giltiga ca: er. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
@@ -174,7 +174,7 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade domän och *Värde* är CDN-slutpunktens värdnamn:
 
-| Namn            | Typ  | Värde                 |
+| Namn            | Typ  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -182,7 +182,7 @@ Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.mi
 
 Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
-Automatiska verifieringen tar vanligtvis några timmar. Öppna ett supportärende om du inte ser din domän har verifierats i 24 timmar.
+Det tar vanligt vis några timmar att validera automatiskt. Om du inte ser din domän verifierad inom 24 timmar öppnar du ett support ärende.
 
 >[!NOTE]
 >Om du har en CAA-post (Certificate Authority Authorization) hos DNS-providern måste den innehålla DigiCert som giltig certifikatutfärdare. En CAA-post gör att domänägare kan ange med sina DNS-provider vilka certifikatutfärdare som är auktoriserade att utfärda certifikat för deras domän. Om en certifikatutfärdare mottar en order för ett certifikat för en domän som har en CAA-post och den certifikatutfärdaren inte finns med i listan över auktoriserade utfärdare hindras certifikatufärdaren att utfärda certifikatet till den domänen eller underdomänen. Information om hur du hanterar CAA poster finns i [Hantera CAA-poster](https://support.dnsimple.com/articles/manage-caa-record/). Hjälpverktyg för CAA-poster finns i [CAA Record Helper](https://sslmate.com/caa/).
@@ -190,15 +190,11 @@ Automatiska verifieringen tar vanligtvis några timmar. Öppna ett supportärend
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
 >[!NOTE]
->E-postvalidering av ägande av anpassad domän är för närvarande inte tillgänglig för **Azure CDN från Akamai**-profiler. Om du använder **Azure CDN från Akamai**, din anpassade domän måste mappas till din cdn-slutpunkten med en CNAME-post som angetts ovan.  Den här funktionen är för närvarande planerad inför framtiden. 
+>Om du använder **Azure CDN från Akamai**måste din anpassade domän mappas till ditt CDN-ställe med en CNAME-post som anges ovan.  Den här funktionen är för närvarande planerad inför framtiden. 
 
-Om CNAME-posten innehåller cdnverify-underdomänen, följer du instruktionerna i det här steget.
+Om posten CNAME innehåller cdnverify-underdomänen följer du resten av anvisningarna i det här steget.
 
-När du har skickat en begäran att aktivera HTTPS på din domän så verifierar DigiCert-Certifikatutfärdaren ägarskapet för din domän genom att kontakta registranten enligt domänens [WHOIS](http://whois.domaintools.com/) registrantinformation. Kontakten sker via e-postadressen (som standard) eller telefonnumret som står i WHOIS-registreringen. Du måste slutföra domänverifieringen för att HTTPS ska aktiveras på din anpassade domän. Du har sex arbetsdagar på dig att godkänna domänen. Begäranden som inte godkänns inom sex arbetsdagar avbryts automatiskt. 
-
-![WHOIS-post](./media/cdn-custom-ssl/whois-record.png)
-
-DigiCert skickar också ett bekräftelsemeddelande till ytterligare e-postadresser. Om WHOIS-registrantinformationen är privat, kontrollerar du att du kan godkänna direkt från en av följande adresser:
+DigiCert skickar ett verifierings-e-postmeddelande till följande e-postadresser. Kontrol lera att du kan godkänna direkt från någon av följande adresser:
 
 admin@&lt;dittdomännamn.com&gt;  
 administrator@&lt;dittdomännamn.com&gt;  
@@ -206,7 +202,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter lägger du till admin@digicert.com i listan med tillåtna adresser. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter lägger du till verification@digicert.com i listan med tillåtna adresser. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
     
 ![Domänverifieringsmeddelande](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -331,5 +327,5 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagring på en CDN-slutpunkt.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Konfigurera Azure CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
+> [Självstudier: Konfigurera Azure CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
 

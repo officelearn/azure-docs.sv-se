@@ -3,36 +3,37 @@ title: Ange miljövariabler i Azure Container Instances
 description: Lär dig hur du ställer in miljövariabler i de behållare som du kör i Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149157"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326042"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i container instances
+# <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i behållar instanser
 
-Ställa in miljövariabler i container instances kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren. Detta liknar den `--env` kommandoradsargument till `docker run`. 
+Genom att ställa in miljövariabler i behållar instanserna kan du tillhandahålla dynamisk konfiguration av programmet eller skriptet som körs av behållaren. Detta liknar `--env` kommando rads argumentet för `docker run`. 
 
-Ange miljövariabler i en behållare genom att ange dem när du skapar en behållarinstans. Den här artikeln visar exempel på att ställa in miljövariabler när du startar en behållare med den [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), och [Azure-portalen](#azure-portal-example). 
+Ange miljövariabler i en behållare genom att ange dem när du skapar en behållar instans. Den här artikeln innehåller exempel på hur du ställer in miljövariabler när du startar en behållare med [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)och [Azure Portal](#azure-portal-example). 
 
-Exempel: Om du kör Microsofts [aci wordcount] [ aci-wordcount] behållaravbildningen, du kan ändra sitt beteende genom att ange följande miljövariabler:
+Om du till exempel kör behållar avbildningen Microsoft [ACI-WORDCOUNT][aci-wordcount] kan du ändra dess beteende genom att ange följande miljövariabler:
 
-*NumWords*: Antalet ord som skickas till STDOUT.
+*NUMWORDS*: Antalet ord som skickats till STDOUT.
 
-*MinLength*: Minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
+*MinLength*: Det minsta antalet tecken i ett ord som ska räknas. Ett högre tal ignorerar vanliga ord som "av" och "."
 
-Om du vill skicka hemligheter som miljövariabler kan Azure Container Instances stöder [säkra värden](#secure-values) för både Windows och Linux-behållare.
+Om du behöver skicka hemligheter som miljövariabler stöder Azure Container Instances [säkra värden](#secure-values) för både Windows-och Linux-behållare.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-cli-example"></a>Exempel på Azure CLI
+## <a name="azure-cli-example"></a>Azure CLI-exempel
 
-Se standardutdata från den [aci wordcount] [ aci-wordcount] behållare, kör först med den här [az container skapa] [ az-container-create] kommando (Nej miljövariabler anges):
+Så här visar du standardutdata för kommandot [ACI-WORDCOUNT][aci-wordcount] container, run it first with this [az container create][az-container-create] (inga miljövariabler har angetts):
 
 ```azurecli-interactive
 az container create \
@@ -42,7 +43,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Om du vill ändra utdata, starta en andra behållare med den `--environment-variables` argumentet som har lagts till, att ange värden för den *NumWords* och *MinLength* variabler. (Det här exemplet förutsätter att du kör CLI i ett Bash-gränssnittet eller Azure Cloud Shell. Om du använder Windows-kommandotolk, ange variablerna med dubbla citattecken, till exempel `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Om du vill ändra utdata startar du en andra behållare med `--environment-variables` det tillagda argumentet och anger värden för *NUMWORDS* -och *minLength* -variablerna. (Det här exemplet förutsätter att du kör CLI i ett bash-gränssnitt eller Azure Cloud Shell. Om du använder kommando tolken i Windows anger du variablerna med dubbla citat tecken, till `--environment-variables "NumWords"="5" "MinLength"="8"`exempel.)
 
 ```azurecli-interactive
 az container create \
@@ -53,14 +54,14 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-När båda behållare status visas som *Uppsagd* (Använd [az container show] [ az-container-show] att kontrollera tillstånd), visa loggar med [az behållarloggarna] [ az-container-logs] att se utdata.
+När båda behållarens status visas som *avslutad* (Använd [AZ container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] för att visa utdata.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Utdata från behållarna som visar hur du har ändrat behållaren andra skript beteende genom att ange miljövariabler.
+Utdata från behållarna visar hur du har ändrat den andra behållarens skript beteende genom att ställa in miljövariabler.
 
 ```console
 azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
@@ -83,11 +84,11 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('GUILDENSTERN', 54)]
 ```
 
-## <a name="azure-powershell-example"></a>Exempel på Azure PowerShell
+## <a name="azure-powershell-example"></a>Azure PowerShell exempel
 
-Ange miljövariabler i PowerShell liknar CLI, men använder den `-EnvironmentVariable` kommandoradsargument.
+Att ställa in miljövariabler i PowerShell liknar CLI, men använder `-EnvironmentVariable` kommando rads argumentet.
 
-Starta först den [aci wordcount] [ aci-wordcount] behållare med standardkonfigurationen med den här [New-AzContainerGroup] [ new-Azcontainergroup] kommando:
+Starta först kommandot [ACI-WORDCOUNT][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -96,7 +97,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Kör nu följande [New-AzContainerGroup] [ new-Azcontainergroup] kommando. Den här anger den *NumWords* och *MinLength* miljövariabler när du har fyllt en matrisvariabel `envVars`:
+Kör nu följande [New-AzContainerGroup-][new-Azcontainergroup] kommando. Detta anger *NUMWORDS* -och *minLength* -miljövariablerna när du har `envVars`fyllt i en mat ris variabel:
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -108,14 +109,14 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-När båda behållare tillstånd är *Uppsagd* (använda [Get-AzContainerInstanceLog] [ azure-instance-log] att kontrollera tillstånd), hämta loggar för med den [ Get-AzContainerInstanceLog] [ azure-instance-log] kommando.
+När båda behållarens tillstånd har *avslut ATS* (Använd [Get-AzContainerInstanceLog][azure-instance-log] för att kontrol lera tillstånd) hämtar du loggarna med kommandot [Get-AzContainerInstanceLog][azure-instance-log] .
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-Utdata för varje behållare visar hur du har ändrat det skriptet som körs av behållaren genom att ange miljövariabler.
+Utdata för varje behållare visar hur du har ändrat skriptet som körs av behållaren genom att ställa in miljövariabler.
 
 ```console
 PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -141,31 +142,31 @@ PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -Conta
 Azure:\
 ```
 
-## <a name="azure-portal-example"></a>Exempel på Azure portal
+## <a name="azure-portal-example"></a>Azure Portal exempel
 
-Om du vill ange miljövariabler när du startar en behållare i Azure-portalen, kan du ange dem i den **Avancerat** när du skapar behållaren.
+Om du vill ställa in miljövariabler när du startar en behållare i Azure Portal anger du dem på sidan **Avancerat** när du skapar behållaren.
 
-1. På den **Avancerat** ställer du in den **omstartsprincip** till *vid fel*
-2. Under **miljövariabler**, ange `NumWords` med värdet `5` för den första variabeln, och ange `MinLength` med värdet `8` för den andra variabeln. 
-1. Välj **granska + skapa** att verifiera och sedan distribuerar du behållaren.
+1. På sidan **Avancerat** ställer du in principen för att **starta om** *på att Miss lyckas*
+2. Under **miljövariabler**anger `NumWords` du ett värde `5` för den första variabeln och anger `MinLength` värdet `8` för den andra variabeln. 
+1. Välj **Granska + skapa** för att verifiera och distribuera behållaren.
 
-![Portal-sida som visar miljö variabeln aktivera-knappen och textrutor][portal-env-vars-01]
+![Portal sidan visar hur du aktiverar knappar och text rutor i miljö variabeln][portal-env-vars-01]
 
-Visa behållarens loggar under **inställningar** Välj **behållare**, sedan **loggar**. Liknar utdata visas i den tidigare CLI och PowerShell avsnitt ser du hur skriptets beteendet har ändrats av miljövariablerna. Endast fem ord visas var och en med en minsta längd på åtta tecken.
+Om du vill visa behållarens loggar går du till **Inställningar** och väljer **behållare**och **loggar**sedan. På liknande sätt som visas i föregående CLI-och PowerShell-avsnitt kan du se hur skriptets beteende har ändrats av miljövariablerna. Endast fem ord visas, vart och ett får bestå av minst åtta tecken.
 
-![Portalen med loggutdata för behållaren][portal-env-vars-02]
+![Portal som visar behållar logg utdata][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Säkra värden
 
-Objekt med säkra värden är avsedda att lagra känslig information, t.ex. lösenord eller nycklar för ditt program. Med säkra värden för miljövariabler är både säkrare och mer flexibelt än att inkludera den i din behållaravbildning. Ett annat alternativ är att använda hemliga volymer, som beskrivs i [montera hemlighetsvolymen i Azure Container Instances](container-instances-volume-secret.md).
+Objekt med säkra värden är avsedda att innehålla känslig information som lösen ord eller nycklar för ditt program. Att använda säkra värden för miljövariabler är både säkrare och mer flexibelt än att inkludera det i behållarens avbildning. Ett annat alternativ är att använda hemliga volymer, som beskrivs i [montera en hemlig volym i Azure Container instances](container-instances-volume-secret.md).
 
-Miljövariabler med säkra värden inte visas i behållaregenskaperna--deras värden kan nås från i behållaren. Till exempel visas egenskaper för behållare i Azure portal eller Azure CLI visas endast en säker variabelns namn, inte dess värde.
+Miljövariabler med säkra värden visas inte i behållarens egenskaper – deras värden kan bara nås från behållaren. Till exempel visar behållar egenskaper som visas i Azure Portal eller Azure CLI bara en säker variabels namn, inte dess värde.
 
-Ange en säker miljövariabel genom att ange den `secureValue` egenskap i stället för vanliga `value` för variabeltypen. De två variabler som definieras i följande YAML visar två variabeltyper.
+Ange en säker miljö variabel genom att `secureValue` ange egenskapen i stället för vanlig `value` för variabelns typ. De två variablerna som definieras i följande YAML demonstrerar de två variabel typerna.
 
 ### <a name="yaml-deployment"></a>YAML-distribution
 
-Skapa en `secure-env.yaml` fil med följande kodavsnitt.
+Skapa en `secure-env.yaml` fil med följande kodfragment.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -192,21 +193,21 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Kör följande kommando för att distribuera behållargrupp med YAML (justera resursgruppens namn efter behov):
+Kör följande kommando för att distribuera behållar gruppen med YAML (justera resurs gruppens namn efter behov):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
-### <a name="verify-environment-variables"></a>Kontrollera miljövariabler
+### <a name="verify-environment-variables"></a>Verifiera miljövariabler
 
-Kör den [az container show] [ az-container-show] kommando för att fråga din behållare miljövariabler:
+Kör kommandot [AZ container show][az-container-show] för att fråga efter behållares miljövariabler:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-JSON-svar visas både i osäkert miljövariabeln nyckel och värde, men bara namnet på variabeln säker miljö:
+JSON-svaret visar både den oskyddade Miljövariabelns nyckel och värde, men endast namnet på den säkra miljövariabeln:
 
 ```json
 [
@@ -225,13 +226,13 @@ JSON-svar visas både i osäkert miljövariabeln nyckel och värde, men bara nam
 ]
 ```
 
-Med den [az container exec] [ az-container-exec] kommando, vilket gör det möjligt att köra ett kommando från en behållare som körs, du kan kontrollera att miljövariabeln säker har ställts in. Kör följande kommando för att starta en interaktiv bash-session i behållaren:
+Med kommandot [AZ container exec][az-container-exec] , som aktiverar körning av ett kommando i en behållare som körs, kan du kontrol lera att variabeln säker miljö har angetts. Kör följande kommando för att starta en interaktiv bash-session i behållaren:
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-När du har öppnat ett interaktivt gränssnitt i behållaren kan du komma åt den `SECRET` variabelns värde:
+När du har öppnat ett interaktivt gränssnitt i behållaren kan du komma åt `SECRET` variabelns värde:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
@@ -240,7 +241,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Nästa steg
 
-Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera behållare för batchbearbetning kan dra nytta av anpassade miljövariabler vid körning. Mer information om hur du kör uppgiftsbaserade behållare finns i [köra behållarbaserade uppgifter med principer för omstart](container-instances-restart-policy.md).
+Uppgiftsbaserade scenarier, t. ex. batchbearbetning av en stor data uppsättning med flera behållare, kan dra nytta av anpassade miljövariabler vid körning. Mer information om att köra uppgiftsbaserade behållare finns i [köra behållare aktiviteter med principer för omstart](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641828"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326912"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
@@ -37,7 +37,7 @@ I den här självstudien får du utföra följande uppgifter:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande objekt:
 
@@ -122,7 +122,7 @@ Skapa därefter tjänstens huvudnamn för Azure som Jenkins använder för auten
 
 ## <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-I ett senare avsnitt skapar du ett Jenkins-pipeline-jobb som skapar din app från GitHub och distribuerar appen till Azure App Service. För att ge Jenkins tillgång till Azure utan att ange dina autentiseringsuppgifter skapar du [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i Azure Active Directory för Jenkins. Tjänstens huvudnamn är en separat identitet som Jenkins kan använda för att autentisera åtkomst till Azure-resurser. Kör Azure CLI-kommandot [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) för att skapa tjänstens huvudnamn, antingen från din lokala kommandorad eller Azure Cloud Shell, till exempel: 
+I ett senare avsnitt skapar du ett Jenkins-pipeline-jobb som skapar din app från GitHub och distribuerar appen till Azure App Service. För att ge Jenkins tillgång till Azure utan att ange dina autentiseringsuppgifter skapar du [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i Azure Active Directory för Jenkins. Tjänstens huvudnamn är en separat identitet som Jenkins kan använda för att autentisera åtkomst till Azure-resurser. Kör Azure CLI-kommandot [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) för att skapa tjänstens huvudnamn, antingen från din lokala kommandorad eller Azure Cloud Shell, till exempel: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -130,7 +130,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
 Kontrollera att du använder tjänstens huvudnamn inom citattecken. Skapa även ett starkt lösenord baserat på [reglerna och begränsningarna för Azure Active Directory-lösenord](/azure/active-directory/active-directory-passwords-policy). Om du inte anger ett lösenord skapar Azure CLI ett lösenord. 
 
-Följande utdata genereras av kommandot **`create-for-rbac`**: 
+Följande utdata genereras av kommandot **`create-for-rbac`** : 
 
 ```json
 {
@@ -162,14 +162,13 @@ Följande utdata genereras av kommandot **`create-for-rbac`**:
 
    ![Lägga till autentiseringsuppgifter för tjänstens huvudnamn](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Egenskap  | Värde | Beskrivning | 
+   | Egenskap | Value | Beskrivning | 
    |----------|-------|-------------| 
    | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips!** Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från kommandoraden eller i Cloud Shell och sedan använda GUID-värdet `id`: <p>`az account list` | 
    | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
    | **Klienthemlighet** | <*yourSecurePassword*> | Värdet `password` eller ”hemligheten” du angav för Azure-tjänstens huvudnamn | 
    | **Klient-ID** | <*yourAzureActiveDirectoryTenant-ID*> | `tenant` GUID-värdet för din Azure Active Directory-klient | 
    | **ID** | <*yourAzureServicePrincipalName*> | `displayName`-värdet för Azure-tjänstens huvudnamn | 
-   |||| 
 
 1. Bekräfta att tjänstens huvudnamn fungerar genom att välja **Verifiera tjänstens huvudnamn**. När du är klar väljer du **OK**.
 

@@ -1,13 +1,14 @@
 ---
-title: Hur du fyller i specifika fält för ett egenutvecklat program | Microsoft Docs
-description: Anvisningar för hur du fyller i specifika fält när du registrerar ett anpassat utvecklade program med Azure AD
+title: Så här fyller du i specifika fält för ett anpassat, utvecklat program | Microsoft Docs
+description: Vägledning om hur du fyller i specifika fält när du registrerar ett anpassat utvecklat program med Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,64 +16,64 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 46bc6d2ebbb22ffc37ca73a3fff3b7b5a3a534b8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656000"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325336"
 ---
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Hur du fyller i specifika fält för ett egenutvecklat program
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Så här fyller du i specifika fält för ett anpassat, utvecklat program
 
-Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registreringsformuläret för programmet i den [Azure-portalen](https://portal.azure.com).
+Den här artikeln innehåller en kort beskrivning av alla tillgängliga fält i program registrerings formuläret i [Azure Portal](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Registrera ett nytt program
 
--   Om du vill registrera ett nytt program, navigerar du till den [Azure-portalen](https://portal.azure.com).
+-   Om du vill registrera ett nytt program går du till [Azure Portal](https://portal.azure.com).
 
--   I det vänstra navigeringsfönstret klickar du på **Azure Active Directory.**
+-   Klicka på Azure Active Directory i det vänstra navigerings fönstret **.**
 
--   Välj **appregistreringar** och klicka på **Lägg till**.
+-   Välj **Appregistreringar** och klicka på **Lägg till**.
 
--   Den här öppna programmet registreringsformuläret.
+-   Då öppnas formuläret för program registrering.
 
-## <a name="fields-in-the-application-registration-form"></a>Fält i registreringsformuläret för program
+## <a name="fields-in-the-application-registration-form"></a>Fält i program registrerings formuläret
 
 
 | Fält            | Beskrivning                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Namn             | Namnet på programmet. Den bör ha minst fyra tecken.                |
-| Kontotyper som stöds| Välja vilka konton som du vill ha ditt program för att stödja: konton i den här organisationens katalog, konton i en organisations katalog eller konton i en organisations katalog och personliga Microsoft-konton.  |
-| Omdirigerings-URI (valfritt) | Välj typ av app du skapar, **Web** eller **offentlig klient (mobila och stationära)** , och sedan ange omdirigerings-URI: N (eller svars-URL) för ditt program. För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifika för ditt program, till exempel myapp://auth. Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop).|
+| Namn             | Namnet på programmet. Det får innehålla minst fyra tecken.                |
+| Kontotyper som stöds| Välj vilka konton som du vill att ditt program ska stödja: konton i den här organisations katalogen, konton i valfri organisations katalog eller konton i alla organisations kataloger och personliga Microsoft-konton.  |
+| Omdirigerings-URI (valfritt) | Välj den typ av app som du skapar, **webb** eller **offentlig klient (mobilt & Desktop)** och ange omdirigerings-URI (eller svars-URL) för ditt program. För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifik för ditt program, till exempel myapp://auth. Specifika exempel på webbappar och interna program finns i [snabbstarterna](https://docs.microsoft.com/azure/active-directory/develop).|
 
-När du har fyllt fälten ovan kan programmet registreras i Azure-portalen och omdirigeras du till appen på översiktssidan. För inställningssidor i det vänstra fönstret under **hantera** har fler fält som du kan anpassa ditt program. I tabellerna nedan beskriver alla fält. Du ser bara en delmängd av fälten, beroende på om du har skapat ett webbprogram eller en offentlig klientprogram.
+När du har fyllt i fälten ovan registreras programmet i Azure Portal och du omdirigeras till program översikts sidan. Sidan Inställningar i den vänstra rutan under **Hantera** har fler fält som du kan använda för att anpassa ditt program. I tabellerna nedan beskrivs alla fält. Du ser bara en delmängd av dessa fält, beroende på om du har skapat ett webb program eller ett offentligt klient program.
 
 ### <a name="overview"></a>Översikt
 | Fält           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Program-ID:t  | När du registrerar ett program, tilldelas Azure AD ditt program en program-ID. Program-ID kan användas för att identifiera ditt program i autentiseringsförfrågningar till Azure AD, samt för att komma åt resurser som Graph API.                                                          |
-| App-ID-URI      | Det här ska vara en unik URI, vanligtvis i formatet **https://&lt;klient\_namn&gt;/&lt;programmet\_namn&gt;.** Den används vid auktorisering bevilja flödet, som en unik identifierare för att ange den resurs som token ska utfärdas för. Det blir också 'aud ”-anspråk i utfärdade åtkomsttoken. |
+| Program-ID:t  | När du registrerar ett program tilldelar Azure AD ditt program ett program-ID. Program-ID: t kan användas för att unikt identifiera ditt program i autentiseringsbegäranden till Azure AD, samt för att få åtkomst till resurser som Graph API.                                                          |
+| App-ID-URI      | Detta bör vara en unik URI, vanligt vis av formatet **https://&lt;klient\_&lt;namn&gt;/program\_namn&gt;.** Detta används under flödet för auktoriserings beviljande, som en unik identifierare för att ange den resurs som token ska utfärdas för. Det blir också AUD-anspråket i den utfärdade åtkomsttoken. |
 
 ### <a name="branding"></a>Anpassning
 
 | Fält           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ladda upp ny logo | Du kan använda detta för att ladda upp en logotyp för ditt program. Logotypen måste vara i formatet .bmp, .jpg eller .png och filstorleken ska vara mindre än 100 KB. Dimensioner för avbildningen ska vara 215 x 215 bildpunkter, med centrala bildförhållanden på 94 x 94 pixlar.|
-| URL-Adressen   | Det här är inloggnings-URL som anges under programregistrering.|
+| Ladda upp ny logo typ | Du kan använda den för att ladda upp en logo typ för ditt program. Logo typen måste vara i formatet. bmp,. jpg eller. png och fil storleken måste vara mindre än 100 KB. Måtten för bilden ska vara 215x215 pixlar, med centrala bild dimensioner för 94x94-bild punkter.|
+| URL för start sidan   | Detta är inloggnings-URL: en som anges under program registreringen.|
 
 ### <a name="authentication"></a>Authentication
 
 | Fält           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Utloggnings-URL      | Det här är URL för enkel utloggning utloggning. Azure AD skickar en utloggningsbegäran till denna URL när användaren tar bort sin session med Azure AD med hjälp av andra registrerade program.|
-| Kontotyper som stöds  | Den här växeln anger om programmet kan användas av flera klienter. Detta innebär normalt att externa organisationer kan använda ditt program genom att registrera den i deras klienter och bevilja åtkomst till organisationens data.|
-| Omdirigerings-URL      | Omdirigering, eller svara, URL: er är slutpunkter där Azure AD returnerar de token som programmet begär. Detta är för interna program där användaren skickas efter auktoriseringen. Azure AD kontrollerar att omdirigeringen-URI som ditt program finns i OAuth 2.0-begäran matchar något av de registrerade värdena i portalen.|
+| Utloggnings-URL      | Detta är URL: en för enkel utloggning. Azure AD skickar en utloggnings förfrågan till denna URL när användaren tar bort sin session med Azure AD med hjälp av något annat registrerat program.|
+| Kontotyper som stöds  | Den här växeln anger om programmet kan användas av flera klienter. Det innebär vanligt vis att externa organisationer kan använda ditt program genom att registrera det i klienten och bevilja åtkomst till organisationens data.|
+| Omdirigera URL: er      | URL: erna för omdirigering eller svar är de slut punkter där Azure AD returnerar alla tokens som programmet begär. För interna program är det här som användaren skickas efter en lyckad auktorisering. Azure AD kontrollerar att den omdirigerings-URI som ditt program tillhandahåller i OAuth 2,0-begäran matchar ett av de registrerade värdena i portalen.|
 
 ### <a name="certificates-and-secrets"></a>Certifikat och hemligheter
 
 | Fält           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Klienten hemligheter            | Du kan skapa klienten hemligheter eller nycklar för att programmässigt åtkomst webb API: er som skyddas av Azure AD utan någon användarinteraktion. Från den **nya klienthemligheten** anger en nyckelbeskrivning och utgångsdatum och spara för att generera nyckeln. Se till att spara den någonstans säkert, som du kan inte komma åt den senare.             |
+| Klient hemligheter            | Du kan skapa klient hemligheter eller nycklar för att program mässigt få åtkomst till webb-API: er som skyddas av Azure AD utan användar interaktion. På sidan **ny klient hemlighet** anger du en nyckel beskrivning och förfallo datum och spara för att generera nyckeln. Se till att spara den på ett säkert sätt, eftersom du inte kan komma åt den senare.             |
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](../manage-apps/what-is-application-management.md)

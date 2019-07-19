@@ -1,6 +1,6 @@
 ---
-title: Datorgrupper i Azure Monitor logga frågor | Microsoft Docs
-description: Datorgrupper i Azure Monitor kan du logga attributbegränsade frågor till en viss uppsättning datorer.  Den här artikeln beskrivs de olika metoderna som du kan använda för att skapa datorgrupper och hur de används i en loggfråga.
+title: Dator grupper i Azure Monitor logg frågor | Microsoft Docs
+description: Med dator grupper i Azure Monitor kan du begränsa logg frågor till en viss uppsättning datorer.  I den här artikeln beskrivs de olika metoder som du kan använda för att skapa dator grupper och hur du använder dem i en logg fråga.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,93 +13,93 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741002"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320675"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Datorgrupper i Azure Monitor log-frågor
-Datorgrupper i Azure Monitor kan du även agera omfång [logga frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggfråga, är resultat begränsade till poster som matchar datorerna i gruppen.
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
+Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en logg fråga begränsas resultatet till poster som matchar datorerna i gruppen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="creating-a-computer-group"></a>Skapa en datorgrupp
-Du kan skapa en datorgrupp i Azure Monitor med någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
+Du kan skapa en dator grupp i Azure Monitor med någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
 
 | Metod | Beskrivning |
 |:--- |:--- |
-| Loggfråga |Skapa en loggfråga som returnerar en lista med datorer. |
-| Loggsöknings-API |Använd Log Search API du programmässigt skapar en datorgrupp baserat på resultatet av en loggfråga. |
-| Active Directory |Genomsök automatiskt gruppmedlemskap för alla agentdatorer som är medlemmar i en Active Directory-domän och skapa en grupp i Azure Monitor för varje säkerhetsgrupp. (Endast Windows-datorer)|
+| Logg fråga |Skapa en logg fråga som returnerar en lista med datorer. |
+| Loggsöknings-API |Använd API för loggs ökning för att program mässigt skapa en dator grupp baserat på resultatet av en logg fråga. |
+| Active Directory |Sök automatiskt efter grupp medlemskap för alla agent datorer som är medlemmar i en Active Directory domän och skapa en grupp i Azure Monitor för varje säkerhets grupp. (Endast Windows-datorer)|
 | Configuration Manager | Importera samlingar från System Center Configuration Manager och skapa en grupp i Azure Monitor för var och en. |
-| Windows Server Update Services |Skanna WSUS-servrar eller klienter för grupper och skapa en grupp i Azure Monitor för varje automatiskt. |
+| Windows Server Update Services |Skanna automatiskt WSUS-servrar eller klienter för mål grupper och skapa en grupp i Azure Monitor för var och en. |
 
-### <a name="log-query"></a>Loggfråga
-Datorgrupper som skapats från en loggfråga innehåller alla datorer som returneras av en fråga som du definierar.  Den här frågan körs varje gång datorgruppen används så att alla ändringar eftersom gruppen har skapats visas.  
+### <a name="log-query"></a>Logg fråga
+Dator grupper som skapas från en logg fråga innehåller alla datorer som returneras av en fråga som du definierar.  Den här frågan körs varje gång datorgruppen används så att alla ändringar eftersom gruppen har skapats visas.  
 
-Du kan använda en fråga för en datorgrupp, men den måste returnera en specifik uppsättning datorer med hjälp av `distinct Computer`.  Följande är ett typexempel-fråga som du kan använda för som en datorgrupp.
+Du kan använda en fråga för en datorgrupp, men den måste returnera en specifik uppsättning datorer med hjälp av `distinct Computer`.  Följande är en typisk exempel fråga som du kan använda som en dator grupp.
 
     Heartbeat | where Computer contains "srv" | distinct Computer
 
 Använd följande procedur för att skapa en datorgrupp från en loggsökning i Azure-portalen.
 
-1. Klicka på **loggar** i den **Azure Monitor** menyn i Azure-portalen.
-1. Skapa och kör en fråga som returnerar de datorer som du vill i gruppen.
-1. Klicka på **spara** överst på skärmen.
-1. Ändra **Spara som** till **funktionen** och välj **spara frågan som en datorgrupp**.
-1. Ange värden för varje egenskap för datorgruppen som beskrivs i tabellen och klickar på **spara**.
+1. Klicka på **loggar** på **Azure Monitor** -menyn i Azure Portal.
+1. Skapa och kör en fråga som returnerar de datorer som du vill ha i gruppen.
+1. Klicka på **Spara** längst upp på skärmen.
+1. Ändra **Spara som** till **funktion** och välj **Spara den här frågan som en dator grupp**.
+1. Ange värden för varje egenskap för dator gruppen som beskrivs i tabellen och klicka på **Spara**.
 
 I följande tabell beskrivs de egenskaper som definierar en datorgrupp.
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 |:---|:---|
-| Namn   | Namnet på frågan som visas i portalen. |
+| Namn   | Namnet på frågan som ska visas i portalen. |
 | Funktionsalias | Ett unikt alias som används för att identifiera datorgruppen i en fråga. |
-| Category       | Kategori för att organisera frågor i portalen. |
+| Category       | Kategori för att organisera frågorna i portalen. |
 
 
 ### <a name="active-directory"></a>Active Directory
-När du konfigurerar Azure Monitor för att importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla Windows-domänanslutna datorer med Log Analytics-agenten.  En datorgrupp som har skapats i Azure Monitor för varje säkerhetsgrupp i Active Directory och varje Windows-dator läggs till i de datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
+När du konfigurerar Azure Monitor att importera Active Directory grupp medlemskap analyseras grupp medlemskapet för alla Windows-domänanslutna datorer med Log Analytics agenten.  En dator grupp skapas i Azure Monitor för varje säkerhets grupp i Active Directory, och varje Windows-dator läggs till i de dator grupper som motsvarar de säkerhets grupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
 
 > [!NOTE]
-> Importerade Active Directory-grupper bara innehålla Windows-datorer.
+> Importerade Active Directory grupper innehåller bara Windows-datorer.
 
-Du konfigurerar Azure Monitor för att importera Active Directory-säkerhetsgrupper från **avancerade inställningar** i Log Analytics-arbetsytan i Azure-portalen.  Välj **datorgrupper**, **Active Directory**, och sedan **importera Active Directory-gruppmedlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
+Du konfigurerar Azure Monitor att importera Active Directory säkerhets grupper från **Avancerade inställningar** i din Log Analytics arbets yta i Azure Portal.  Välj **datorgrupper**, **Active Directory**, och sedan **importera Active Directory-gruppmedlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
 
 ![Datorgrupper från Active Directory](media/computer-groups/configure-activedirectory.png)
 
 När grupper har importerats visas på menyn antalet datorer med gruppmedlemskap har identifierats och antalet grupper som importeras.  Du kan klicka på någon av dessa länkar för att returnera den **ComputerGroup** poster med den här informationen.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-När du konfigurerar Azure Monitor för att importera WSUS-gruppmedlemskap, analyserar målobjekt gruppmedlemskap för alla datorer med Log Analytics-agenten.  Om du använder klientsidan har mål, alla datorer som är ansluten till Azure Monitor och är en del av alla WSUS riktar in sig på grupper dess gruppmedlemskap som importeras till Azure Monitor. Om du använder serversidan ska med använder Log Analytics agenten installeras på WSUS-servern för information som ska importeras till Azure Monitor gruppmedlemskap.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
+När du konfigurerar Azure Monitor för att importera WSUS-gruppmedlemskap analyseras mål grupps medlemskapet för alla datorer med Log Analytics agenten.  Om du använder mål på klient sidan, har alla datorer som är anslutna till Azure Monitor och ingår i alla WSUS-målfält importerade grupp medlemskap för att Azure Monitor. Om du använder riktad på Server sidan bör Log Analytics Agent installeras på WSUS-servern för att grupp medlemskaps informationen ska importeras till Azure Monitor.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
 
-Du konfigurerar Azure Monitor för att importera WSUS-grupper från **avancerade inställningar** i Log Analytics-arbetsytan i Azure-portalen.  Välj **datorgrupper**, **WSUS**, och sedan **importera WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
+Du konfigurerar Azure Monitor att importera WSUS-grupper från **Avancerade inställningar** i Log Analytics-arbetsytan i Azure Portal.  Välj **datorgrupper**, **WSUS**, och sedan **importera WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
 
 ![Datorgrupper från WSUS](media/computer-groups/configure-wsus.png)
 
 När grupper har importerats visas på menyn antalet datorer med gruppmedlemskap har identifierats och antalet grupper som importeras.  Du kan klicka på någon av dessa länkar för att returnera den **ComputerGroup** poster med den här informationen.
 
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
-När du konfigurerar Azure Monitor för att importera Configuration Manager-samlingsmedlemskap, skapas en datorgrupp för varje samling.  Samling medlemskapsinformation hämtas var tredje timme om du vill behålla det aktuella datorgrupper. 
+När du konfigurerar Azure Monitor för att importera Configuration Manager samlings medlemskap skapas en dator grupp för varje samling.  Samling medlemskapsinformation hämtas var tredje timme om du vill behålla det aktuella datorgrupper. 
 
-Innan du kan importera samlingar i Configuration Manager, måste du [ansluta Configuration Manager till Azure Monitor](collect-sccm.md).  Du kan sedan konfigurera importera från **avancerade inställningar** i Log Analytics-arbetsytan i Azure-portalen.  Välj **datorgrupper**, **SCCM**, och sedan **Import Configuration Manager-samlingsmedlemskap**.  Det krävs ingen ytterligare konfiguration.
+Innan du kan importera Configuration Manager samlingar måste du [ansluta Configuration Manager till Azure Monitor](collect-sccm.md).  
 
 ![Datorgrupper från SCCM](media/computer-groups/configure-sccm.png)
 
 När samlingar har importerats visas på menyn antalet datorer med gruppmedlemskap har identifierats och antalet grupper som importeras.  Du kan klicka på någon av dessa länkar för att returnera den **ComputerGroup** poster med den här informationen.
 
 ## <a name="managing-computer-groups"></a>Hantera datorgrupper
-Du kan visa datorgrupper som har skapats från en loggfråga eller Log Search-API från **avancerade inställningar** i Log Analytics-arbetsytan i Azure-portalen.  Välj **datorgrupper** och sedan **sparade grupper**.  
+Du kan visa dator grupper som har skapats från en logg fråga eller API: et för loggs ökning från **Avancerade inställningar** i Log Analytics arbets ytan i Azure Portal.  Välj **datorgrupper** och sedan **sparade grupper**.  
 
 Klicka på den **x** i den **ta bort** kolumnen för att ta bort datorgruppen.  Klicka på den **visa medlemmarna** ikon för en grupp för att köra gruppens loggsökning som returnerar dess medlemmar.  Du kan inte ändra en datorgrupp men i stället måste ta bort och återskapa den med ändrade inställningar.
 
 ![Sparade datorgrupper](media/computer-groups/configure-saved.png)
 
 
-## <a name="using-a-computer-group-in-a-log-query"></a>Använda en datorgrupp i en loggfråga
-Du kan använda en datorgrupp som skapats från en loggfråga i en fråga genom att behandla dess alias som en funktion, vanligtvis med följande syntax:
+## <a name="using-a-computer-group-in-a-log-query"></a>Använda en dator grupp i en logg fråga
+Du använder en dator grupp som skapats från en logg fråga i en fråga genom att behandla dess alias som en funktion, vanligt vis med följande syntax:
 
   `Table | where Computer in (ComputerGroup)`
 
@@ -123,7 +123,7 @@ Följande fråga returnerar UpdateSummary-poster för endast datorer i Domändat
 
 
 ## <a name="computer-group-records"></a>Datorn gruppera poster
-En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och har egenskaperna i följande tabell.  Poster skapas inte för datorgrupper baserat på loggfrågor.
+En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och har egenskaperna i följande tabell.  Poster skapas inte för dator grupper baserat på logg frågor.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |

@@ -1,44 +1,49 @@
 ---
-title: Aggregera omvandling i mappning dataflöde – Azure Data Factory | Microsoft Docs
-description: Lär dig mer om att samla data i stor skala i Azure Data Factory med mappning av Data flöda sammanställd transformeringen.
+title: Sammanställd transformering i data flöde för mappning – Azure Data Factory | Microsoft Docs
+description: Lär dig hur du sammanställer data i skala i Azure Data Factory med den sammanställda omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21135b26d4bc840b3fcb091e675e5e6bd24d8548
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312138"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314233"
 ---
-# <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd omvandling i mappning av dataflöde 
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Sammanställd omvandlingen är där du ska definiera aggregeringar av kolumner i din dataströmmar. Du kan definiera olika typer av aggregeringar som SUM, MIN, MAX och antal som kan grupperas efter befintliga eller beräknade kolumner med Uttrycksverktyget.
+Med den sammanställda omvandlingen kan du definiera agg regeringar för kolumner i dina data strömmar. Med uttrycks verktyget kan du definiera olika typer av agg regeringar som SUM, MIN, MAX och COUNT som kan grupperas efter befintliga eller beräknade kolumner.
 
 ## <a name="group-by"></a>Gruppera efter
-Välj en befintlig kolumn eller skapa en ny beräknad kolumn som används som en grupp by-sats för din aggregering. Välj den önskade kolumnen i listrutan om du vill använda en befintlig kolumn. Hovra över en sats för att skapa en ny beräknad kolumn, och klicka på ”beräknad kolumn'. Då öppnas det [Data flöda Uttrycksverktyget](concepts-data-flow-expression-builder.md). Ange kolumnnamnet utdata under fältet ”namn som” när du har skapat din beräknad kolumn. Om du vill lägga till ytterligare en grupp av satsen hovra över en befintlig instruktion och klickar på ”+”.
+Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas som en Group by-sats för din AGG regering. Om du vill använda en befintlig kolumn väljer du önskad kolumn i list rutan. Om du vill skapa en ny beräknad kolumn hovrar du över satsen och klickar på beräknad kolumn. Detta öppnar uttrycks [verktyget för data flöde](concepts-data-flow-expression-builder.md). När du har skapat en beräknad kolumn anger du namnet på kolumnen utdata i fältet "namn som". Om du vill lägga till ytterligare en Group by-sats, Hovra över en befintlig sats och klicka på +.
 
-![Sammanställd omvandling Gruppera efter inställningar](media/data-flow/agg.png "sammanställd omvandling Gruppera efter inställningar")
-
-> [!NOTE]
-> En group by-sats är valfri i en sammanställd transformering.
-
-## <a name="aggregate-column"></a>Sammanställningskolumnen 
-Välj fliken ”aggregeringar” för att skapa mängduttryck. Du kan antingen välja en befintlig kolumn och skriva över värdet med aggregering eller skapa ett nytt fält med ett nytt namn. Uttryck för aggregering anges i den högra rutan bredvid namnet kolumnväljaren. Redigera uttrycket genom att klicka på textrutan så att du öppnar Uttrycksverktyget. Att lägga till en ytterligare aggregering, hovrar du över ett befintligt uttryck och klicka på ”+” Skapa en ny kolumn för aggregering eller [mönster för kolumnen](concepts-data-flow-column-pattern.md).
-
-![Aggregera omvandling sammanställd inställningar](media/data-flow/agg2.png "aggregera omvandling sammanställd inställningar")
+![Sammanställd omvandlings grupp efter inställningar](media/data-flow/agg.png "Sammanställd omvandlings grupp efter inställningar")
 
 > [!NOTE]
-> Varje aggregering-uttryck måste innehålla minst en mängdfunktion.
+> En Group by-sats är valfri i en mängd omvandling.
+
+## <a name="aggregate-column"></a>Sammanställd kolumn 
+Välj fliken aggregator för att bygga agg regerings uttryck. Du kan antingen välja en befintlig kolumn och skriva över värdet med agg regeringen, eller skapa ett nytt fält med ett nytt namn. Agg regerings uttrycket anges i den högra rutan bredvid kolumn namns väljaren. Redigera uttrycket genom att klicka på text rutan för att öppna uttrycks verktyget. Om du vill lägga till ytterligare en agg regering hovrar du över ett befintligt uttryck och klickar på + för att skapa ett nytt agg regerings kolumn-eller [kolumn mönster](concepts-data-flow-column-pattern.md).
+
+![Mängd inställningar] för sammanställd transformering (media/data-flow/agg2.png "Mängd inställningar") för sammanställd transformering
 
 > [!NOTE]
-> I felsökningsläge och kan inte Uttrycksverktyget producera förhandsgranskningar av data med mängdfunktioner. Om du vill visa förhandsgranskningar av data för sammanställd transformationer att Stäng Uttrycksverktyget och visa data via fliken ”Förhandsgranskning”.
+> Varje agg regerings uttryck måste innehålla minst en mängd funktion.
+
+> [!NOTE]
+> I fel söknings läge kan uttrycks verktyget inte producera data för hands versionerna med mängd funktioner. Om du vill visa data förhands granskningar för sammanställda transformeringar stänger du uttrycks verktyget och visar data via fliken Data förhands granskning.
+
+## <a name="reconnect-rows-and-columns"></a>Återanslut rader och kolumner
+Sammanställda transformeringar motsvarar i nära SQL agg regerings urvals frågor. Kolumner som inte ingår i din Group by-sats eller mängd funktioner flödar inte genom utdata från din mängd omvandling. Om det finns andra kolumner som du vill inkludera i dina sammanställda rader, måste du antingen:
+
+* Använd en mängd funktion för att inkludera ytterligare en kolumn, till exempel Last () eller First ()
+* Koppla ihop kolumnerna igen innan du börjar samla in med hjälp av [själv kopplings mönstret](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="next-steps"></a>Nästa steg
 
--Ange Windows-baserad aggregering med hjälp av den [fönstret omvandling](data-flow-window.md)
+* Definiera Window-baserad agg regering med [fönster omvandlingen](data-flow-window.md)

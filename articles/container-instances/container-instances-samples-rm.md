@@ -1,54 +1,55 @@
 ---
-title: Azure Resource Manager-mallexempel – Azure Container Instances
-description: Azure Resource Manager-mallexempel för Azure Container Instances
+title: Exempel på Azure Resource Manager mallar – Azure Container Instances
+description: Azure Resource Manager mal len exempel för Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537963"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325701"
 ---
-# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-mallar för Azure Container Instances
+# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager mallar för Azure Container Instances
 
-Följande exempelmallarna distribuera behållarinstanser i olika konfigurationer.
+Följande exempel mallar distribuerar behållar instanser i olika konfigurationer.
 
-Distributionsalternativ finns i den [distribution](#deployment) avsnittet. Om du vill skapa egna mallar, Azure Container Instances [Resource Manager-mallreferensen] [ ref] innehåller mallformat och tillgängliga egenskaper.
+Information om distributions alternativ finns i avsnittet [distribution](#deployment) . Om du vill skapa egna mallar kan du använda mallarna för referens information för mallen i Azure Container Instances [Resource Manager][ref] och tillgängliga egenskaper.
 
 ## <a name="sample-templates"></a>Exempelmallar
 
 | | |
 |-|-|
 | **Program** ||
-| [WordPress][app-wp] | Skapar en WordPress-webbplats och dess MySQL-databas i en behållargrupp. WordPress webbplatsens innehåll och MySQL-databas har sparats till en Azure Files dela. Skapar även en application gateway om du vill exponera offentliga nätverksåtkomst till WordPress. |
-| [MS NAV med SQLServer och IIS][app-nav] | Distribuerar en enkel Windows-behållare med en komplett funktionalitet självständigt Dynamics NAV / Dynamics 365 Business Central miljö. |
-| **Volymer** ||
+| [WordPress][app-wp] | Skapar en WordPress-webbplats och dess MySQL-databas i en behållar grupp. WordPress-webbplatsens innehåll och MySQL-databasen är bestående av en Azure Files-resurs. Skapar också en Programgateway för att exponera offentlig nätverks åtkomst till WordPress. |
+| [MS NAV med SQL Server och IIS][app-nav] | Distribuerar en enda Windows-behållare med en helt aktuell fristående Dynamics NAV/Dynamics 365 Business central-miljö. |
+| **Enheter** ||
 | [emptyDir][vol-emptydir] | Distribuerar två Linux-behållare som delar en emptyDir-volym. |
-| [gitRepo][vol-gitrepo] | Distribuerar en Linux-behållare som du klonar en GitHub-lagringsplatsen och monterar den som en volym. |
-| [secret][vol-secret] | Distribuerar en Linux-behållare med ett PFX-certifikat som monterats som en hemlig volym. |
+| [gitRepo][vol-gitrepo] | Distribuerar en Linux-behållare som klonar en GitHub-lagrings platsen och monterar den som en volym. |
+| [secret][vol-secret] | Distribuerar en Linux-behållare med ett PFX-certifikat monterat som en hemlig volym. |
 | **Nätverk** ||
-| [UDP-exponerade behållare][net-udp] | Distribuerar en Windows- eller Linux-behållare som Exponerar en UDP-port. |
-| [Linux-behållare med offentliga IP-adress][net-publicip] | Distribuerar en enkel Linux behållare som är tillgängliga via en offentlig IP-adress. |
-| [Distribuera en behållargrupp med ett virtuellt nätverk (förhandsversion)][net-vnet] | Distribuerar ett nytt virtuellt nätverk, undernät, nätverksprofil och behållargruppen. |
+| [UDP-exponerad behållare][net-udp] | Distribuerar en Windows-eller Linux-behållare som exponerar en UDP-port. |
+| [Linux-behållare med offentlig IP][net-publicip] | Distribuerar en enda Linux-behållare som kan nås via en offentlig IP-adress. |
+| [Distribuera en behållar grupp med ett virtuellt nätverk (för hands version)][net-vnet] | Distribuerar ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp. |
 | **Azure-resurser** ||
-| [Skapa Azure Storage-konto och dela filer][az-files] | Använder Azure CLI i en behållarinstans för att skapa ett lagringskonto och en Azure Files-resurs.
+| [Skapa Azure Storage konto-och fil resurs][az-files] | Använder Azure CLI i en behållar instans för att skapa ett lagrings konto och en Azure Files-resurs.
 
 ## <a name="deployment"></a>Distribution
 
-Har du flera alternativ för att distribuera resurser med Resource Manager-mallar:
+Du har flera alternativ för att distribuera resurser med Resource Manager-mallar:
 
 [Azure CLI][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 
-[Azure-portalen][deploy-portal]
+[Azure Portal][deploy-portal]
 
-[REST API][deploy-rest]
+[REST-API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

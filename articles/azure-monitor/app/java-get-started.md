@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061216"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226826"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Att [automatiskt betalningsinstrument begäran, spåra beroenden och samla in prestandaräknare](auto-collect-dependencies.md#java), diagnostisera prestandaproblem och undantag, och [skriva kod] [ api] att se vad användarna gör med din app. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Använd den för att [automatiskt begära instrument, spåra beroenden och samla in prestanda räknare](auto-collect-dependencies.md#java), diagnostisera prestanda problem och undantag och [skriva kod][api] för att spåra vad användarna gör med din app. 
 
-![Skärmbild av översikt exempeldata](./media/java-get-started/overview-graphs.png)
+![Skärm bild av exempel data för översikt](./media/java-get-started/overview-graphs.png)
 
 Application Insights har stöd för Java-appar som körs på Linux, Unix eller Windows.
 
@@ -150,14 +150,14 @@ Konfigurationsfilen kan också finnas på valfri plats som är tillgänglig för
 
 * Instrumenteringsnyckeln skickas tillsammans med alla element i telemetrin och uppmanar Application Insights att visa den i din resurs.
 * Komponenten HTTP-begäran är valfri. Den skickar automatiskt telemetri om förfrågningar och svarstider till portalen.
-* Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje förfrågan som tas emot av servern och lägger till denna identifierare som en egenskap för alla objekt i telemetrin som egenskapen Operation.Id. Detta gör att du kan korrelera telemetrin som är associerad med varje begäran genom att ange ett filter i [Diagnostiksökning][diagnostic].
+* Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje förfrågan som tas emot av servern och lägger till denna identifierare som en egenskap för alla objekt i telemetrin som egenskapen Operation.Id. Det gör att du kan korrelera Telemetrin som är associerad med varje begäran genom att ange ett filter i [diagnostisk sökning][diagnostic].
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Olika sätt att konfigurera instrumenteringsnyckeln på
 Application Insights SDK:n söker efter nyckeln i följande ordning:
 
 1. Systemegenskap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
-2. Miljövariabeln: APPLICATION_INSIGHTS_IKEY
-3. Konfigurationsfilen: ApplicationInsights.xml
+2. Miljö variabel: APPLICATION_INSIGHTS_IKEY
+3. Konfigurations fil: ApplicationInsights.xml
 
 Du kan också [ange den i koden](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -169,6 +169,8 @@ Du kan också [ange den i koden](../../azure-monitor/app/api-custom-events-metri
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Observera att [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) inte stöder läsning av Instrumentation-nyckel från kod.
 
 ## <a name="4-add-an-http-filter"></a>4. Lägga till ett HTTP-filter
 Det sista konfigurationssteget gör att komponenten HTTP-begäran kan logga varje webbegäran. (Krävs inte om du bara vill ha det avskalade API:et.)
@@ -304,13 +306,13 @@ Gå tillbaka till Application Insights-resursen på [Microsoft Azure Portal](htt
 
 Data om HTTP-förfrågningar visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
 
-![Skärmbild av översikt exempeldata](./media/java-get-started/overview-graphs.png)
+![Skärm bild av exempel data för översikt](./media/java-get-started/overview-graphs.png)
 
 [Lär dig mer om mätvärden.][metrics]
 
 Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätvärden.
 
-![Application Insights fel fönstret med diagram](./media/java-get-started/006-barcharts.png)
+![Fönstret Application Insightss problem med diagram](./media/java-get-started/006-barcharts.png)
 
 > Application Insights förutsätter att formatet för HTTP-begäranden för MVC-program är: `VERB controller/action`. `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` och `GET Home/Product/sdf96vws` grupperas t.ex. i `GET Home/Product`. Denna gruppering gör det möjligt att skapa meningsfulla förfrågningsaggregeringar, t.ex. antal förfrågningar och genomsnittlig körningstid för förfrågningarna.
 >
@@ -319,9 +321,9 @@ Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätv
 ### <a name="instance-data"></a>Instansdata
 Klicka dig vidare inom en specifik begärandetyp om du vill visa enskilda instanser.
 
-![Öka detaljnivån i en specifik exempelvy](./media/java-get-started/007-instance.png)
+![Detaljgranska i en speciell exempel vy](./media/java-get-started/007-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Analytics: Kraftfullt frågespråk
+### <a name="analytics-powerful-query-language"></a>Tjänstprogrammet Kraftfullt frågespråk
 Allt eftersom du ackumulerar mer data kan du köra frågor både för att aggregera data och för att hitta enskilda instanser.  [Analytics](../../azure-monitor/app/analytics.md) är ett kraftfullt verktyg både för att bättre förstå prestanda och användning, och för diagnostikändamål.
 
 ![Exempel med Analytics](./media/java-get-started/0025.png)
@@ -342,9 +344,9 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
 
     (Den här komponenten gör det möjligt att använda prestandaräknare.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service-konfiguration (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (våren boot)
 
-Spring Boot-appar som körs på Windows kräver ytterligare konfiguration för att köra på Azure App Services. Ändra **web.config** och Lägg till följande:
+Våren Boot-appar som körs på Windows kräver ytterligare konfiguration för att köras på Azure App Services. Ändra **Web. config** och Lägg till följande:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -364,24 +366,24 @@ Ohanterade undantag samlas in automatiskt.
 
 Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
-* [Infoga anrop till trackException() i din kod][apiexceptions].
+* [Infoga anrop till trackException () i koden][apiexceptions].
 * [Installera Java-agenten på servern](java-agent.md). Du anger de metoder som du vill övervaka.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Övervaka metodanrop och externa beroenden
 [Installera Java-agenten](java-agent.md) om du vill logga angivna interna metoder och anrop som görs via JDBC, med tidsinställningsdata.
 
-## <a name="w3c-distributed-tracing"></a>W3C distribuerad spårning
+## <a name="w3c-distributed-tracing"></a>Distribuerad W3C-spårning
 
-Application Insights Java SDK stöder nu [W3C distribuerad spårning](https://w3c.github.io/trace-context/).
+Application Insights Java SDK stöder nu [distribuerad W3C-spårning](https://w3c.github.io/trace-context/).
 
-Inkommande SDK-konfiguration beskrivs mer i vår artikel om [korrelation](correlation.md#w3c-distributed-tracing).
+Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md#w3c-distributed-tracing).
 
-Utgående SDK-konfiguration har definierats i den [AI-Agent.xml](java-agent.md) fil.
+Den utgående SDK-konfigurationen definieras i filen [AI-agent. XML](java-agent.md) .
 
 ## <a name="performance-counters"></a>Prestandaräknare
-Öppna **Undersök**, **mått**, för att se ett utbud av prestandaräknare.
+Öppna **Undersök**, **statistik**, om du vill se en serie prestanda räknare.
 
-![Skärmbild av fönstret mått med privata byte för process valt](./media/java-get-started/011-perf-counters.png)
+![Skärm bild av mått fönstret med process privata byte valda](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Anpassa samlingen med prestandaräknare
 Om du vill inaktivera datainsamlingen från standarduppsättningen med prestandaräknare lägger du till följande kod under rotnoden i filen ApplicationInsights.xml:
@@ -434,35 +436,11 @@ Varje [Windows-prestandaräknare](https://msdn.microsoft.com/library/windows/des
 ### <a name="unix-performance-counters"></a>Unix-prestandaräknare
 * [Installera collectd med Application Insights-plugin-programmet](java-collectd.md) om du vill samla in en mängd olika system- och nätverksdata.
 
-## <a name="local-forwarder"></a>Lokal vidarebefordrare
-
-[Lokala vidarebefordrare](https://docs.microsoft.com/azure/application-insights/local-forwarder) är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och ramverk och den vidare till Application Insights. Det kan köras under Windows och Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Om du använder SpringBoot starter, lägger du till följande konfigurationsfilen (application.properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Standardvärden är desamma för SpringBoot application.properties och applicationinsights.xml konfiguration.
-
 ## <a name="get-user-and-session-data"></a>Samla in användar- och sesionsdata
 Du skickar telemetri från webbservern. Men för att få en heltäckande bild av ditt program kan du lägga till ännu mer övervakning:
 
-* [Lägg till telemetri till webbsidor][usage] om du vill övervaka sidvisningar och användarmått.
-* [Konfigurera webbtester][availability] för att se till att ditt program är aktivt och effektivt.
+* [Lägg till telemetri till dina webb sidor][usage] för att övervaka sidvyer och användar mått.
+* [Konfigurera][availability] webbtester för att se till att ditt program hålls Live och svarar.
 
 ## <a name="capture-log-traces"></a>Samla in loggspårningar
 Du kan använda Application Insights om du vill arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig mer][javalogs].
@@ -470,7 +448,7 @@ Du kan använda Application Insights om du vill arbeta med loggar från Log4J, L
 ## <a name="send-your-own-telemetry"></a>Skicka din egen telemetri
 Nu när du har installerat SDK kan du använda API:et för att skicka din egen telemetri.
 
-* [Spåra anpassade händelser och mått][api] och ta reda på vad användare gör med ditt program.
+* [Spåra anpassade händelser och mått][api] för att lära dig vad användarna gör med ditt program.
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 
 ## <a name="availability-web-tests"></a>Webbtester för tillgänglighet

@@ -13,163 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 07/17/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5375d47c1b012a1c808a1115b7c902d99b05bf9d
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 38728bbeb4376e1584b3cb22c9a93c4fb63efc1d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304707"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321080"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-baserat webb-API som integreras med Azure AD för autentisering och auktorisering
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+[Microsoft Identity Platform](v2-overview.md) är en utveckling av Azure Active Directory (Azure AD) Developer Platform. Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt.
 
-Om du skapar en app som ger åtkomst till skyddade resurser behöver du veta hur du förhindrar obehörig åtkomst till de resurserna. Azure Active Directory (Azure AD) gör det enkelt att skydda ett webb-API med hjälp av OAuth 2.0-ägaråtkomsttoken med bara några får rader kod.
+Med [Microsoft Authentication Library (MSAL)](msal-overview.md) kan utvecklare Hämta tokens från slut punkten för Microsoft Identity Platform för att få åtkomst till säkra webb-API: er. Active Directory-autentiseringsbibliotek (ADAL) integreras med slut punkten för Azure AD för utvecklare (v 1.0), där MSAL integreras med slut punkten för Microsoft Identity Platform (v 2.0).
 
-I ASP.NET-webbappar kan du åstadkomma detta skydd med hjälp av Microsoft-implementeringen för det community-drivna OWIN-programmet som ingår i .NET Framework 4.5. Här använder du OWIN för att skapa ett webb-API för Att göra-lista som:
-
-* Anger vilka API:er som skyddas.
-* Verifierar att webb-API-anropen innehåller en giltig åtkomsttoken.
-
-I den här snabbstarten skapar du en ett API för Att göra-lista och lär dig hur du:
-
-1. Registrera ett program med Azure AD.
-2. Konfigurerar appen att använda OWIN-autentiserings-pipelinen.
-3. Konfigurera ett klientprogram att anropa ett webb-API.
-
-## <a name="prerequisites"></a>Förutsättningar
-
-Kom igång genom att slutföra följande krav:
-
-* [Ladda ned appens stomme](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) eller [ladda ned det färdiga exemplet](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Var och en är en Visual Studio 2013-lösning.
-* Ha en Azure AD-klientorganisation där du registrerar appen. Om du inte redan har en kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
-
-## <a name="step-1-register-an-application-with-azure-ad"></a>Steg 1: Registrera ett program med Azure AD
-
-För att skydda appen måste du först skapa en app i klientorganisationen och ge Azure AD några viktiga uppgifter.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj din Azure AD-klientorganisation genom att välja ditt konto i det övre högra hörnet på sidan. Välj navigeringen **Växla katalog** och välj sedan rätt klientorganisation.
-    * Hoppa över det här steget om du bara har en Azure AD-klientorganisation under ditt konto eller om du redan har valt den rätta Azure AD-klientorganisationen.
-
-3. Välj **Azure Active Directory** i det vänstra navigeringsfönstret.
-4. Välj **Appregistreringar**och välj sedan **ny registrering**.
-5. När sidan **Registrera ett program** visas anger du ett namn för programmet. Till exempel "att göra-lista".
-Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-6. Välj webb plattformen under avsnittet omdirigerings **-** **URI** och ange värdet till `https://localhost:44321/` (platsen som Azure AD ska returnera tokens till).
-7. När det är klart väljer du **Registrera**. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
-8. Välj **exponera ett API** och klicka sedan på **Lägg till ett omfång**.
-9. Godkänn den föreslagna program-ID-URI: n (API://{clientId}) genom att välja **Spara och fortsätt**.
-10. Ange följande parametrar:
-    1. Ange "access_as_user" som **scopenamn**.
-    1. Se till att alternativet **Administratörer och användare** är markerat för **vem som kan godkänna?** .
-    1. I **visnings namn för administratörs medgivande**anger du "Access TodoListService as a User".
-    1. I **Administratörs godkännande Beskrivning** skriver "ansluter till TodoListService webb-API som en användare".
-    1. I **användar medgivande visnings namn** skriver du "Access-TodoListService som en användare".
-    1. I **användar medgivande Beskrivning** skriver "ansluter till TodoListService webb-API som en användare".
-    1. I **tillstånd**väljer du **aktive rad**.
-11. Välj **Lägg till omfattning** för att spara konfigurationen. Lämna portalen öppen, eftersom du även måste registrera ditt klientprogram inom kort.
-
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Steg 2: Konfigurera appen att använda pipelinen för OWIN-autentisering
-
-För att verifiera inkommande begäranden och token måste du konfigurera appen att kommunicera med Azure AD.
-
-1. Börja genom att öppna lösningen och lägga till OWIN-mellanprogrammets NuGet-paket i TodoListService-projektet genom att använda Package Manager-konsolen.
-
-    ```
-    Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
-    Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
-    ```
-
-2. Lägg till en OWIN Startup-klass i TodoListService-projektet med namnet `Startup.cs`.  Högerklicka på projektet, välj **Lägg till > Nytt objekt** och sök sedan efter **OWIN**. OWIN-mellanprogrammet anropar `Configuration(…)`-metoden när appen startas.
-
-3. Ändra klassdeklarationen till `public partial class Startup`. Vi har redan implementerat en del av denna klass åt dig i en annan fil. I metoden `Configuration(…)` gör du ett anrop till `ConfigureAuth(…)` för att konfigurera autentisering för webbappen.
-
-    ```csharp
-    public partial class Startup
-    {
-        public void Configuration(IAppBuilder app)
-        {
-            ConfigureAuth(app);
-        }
-    }
-    ```
-
-4. Öppna filen `App_Start\Startup.Auth.cs` och implementera `ConfigureAuth(…)`-metoden. Parametrarna du anger i `WindowsAzureActiveDirectoryBearerAuthenticationOptions` fungerar som koordinater för appen för att kommunicera med Azure AD. Om du vill använda dem måste du använda klasser i `System.IdentityModel.Tokens` namn området.
-
-    ```csharp
-    using Microsoft.IdentityModel.Tokens;
-    ```
-
-    ```csharp
-    public void ConfigureAuth(IAppBuilder app)
-    {
-        app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-            new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-            {
-                 Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
-                 TokenValidationParameters = new TokenValidationParameters
-                 {
-                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
-                 }
-            });
-    }
-    ```
-
-5. Använd `[Authorize]`-attributen för att skydda dina kontrollanter och åtgärder med ägarautentisering med JSON Web Token (JWT). Anpassa klassen `Controllers\TodoListController.cs` med en auktorisera-tagg, som tvingar användaren att logga in innan användaren får åtkomst till den sidan.
-
-    ```csharp
-    [Authorize]
-    public class TodoListController : ApiController
-    {
-    ```
-
-    När en behörig anropare anropar ett av `TodoListController`-API:erna kanske åtgärden behöver åtkomst till information om anroparen. OWIN ger åtkomst till anspråk i ägartoken via objektet `ClaimsPrincpal`.  
-
-6. Ett vanligt krav för webb-API:er är att verifiera ”omfång” som finns i token för att kontrollera att användaren har godkänt behörigheterna som krävs för att få åtkomst till To Do List Service.
-
-    ```csharp
-    public IEnumerable<TodoItem> Get()
-    {
-        // user_impersonation is the default permission exposed by applications in Azure AD
-        if (ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value != "user_impersonation")
-        {
-            throw new HttpResponseException(new HttpResponseMessage {
-              StatusCode = HttpStatusCode.Unauthorized,
-              ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found"
-            });
-        }
-        ...
-    }
-    ```
-
-7. Öppna `web.config`-filen i roten för TodoListService-projektet och ange dina konfigurationsvärden i `<appSettings>`-avsnittet.
-    * `ida:Tenant` är namnet din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com.
-    * `ida:Audience` är app-ID-URI för den app som du angav i Azure-portalen.
-
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Steg 3: Konfigurera ett klientprogram och köra tjänsten
-
-Innan du kan se To Do List Service i aktion måste du konfigurera To Do List-klienten så att den kan hämta token från Azure AD och göra anrop till tjänsten.
-
-1. Gå tillbaka till [Azure-portalen](https://portal.azure.com).
-1. Skapa en ny program registrering i din Azure AD-klient.  Ange ett **namn** som beskriver ditt program för användarna, ange `https://TodoListClient/` för omdirigerings- **URI** -värdet och välj **offentlig klient (mobil och stationär dator)** i list rutan.
-1. När du har slutfört registreringen tilldelar Azure AD ett unikt ID till din app. Du behöver det här värdet i nästa steg, så kopiera det från appsidan.
-1. Välj **API-behörigheter**och **Lägg sedan till en behörighet**.  Leta upp och markera **tjänsten att göra-lista**, Lägg till behörigheten **user_impersonation Access TodoListService** under **delegerade behörigheter**och välj sedan **Lägg till behörigheter**.
-1. I Visual Studio öppnar du `App.config` i TodoListClient-projektet och anger sedan dina konfigurationsvärden i avsnittet `<appSettings>`.
-
-    * `ida:Tenant` är namnet din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com.
-    * `ida:ClientId` är det app-ID som du kopierade från Azure-portalen.
-    * `todo:TodoListResourceId` är app-ID-URI för To Do List Service-appen som du angav i Azure-portalen.
-
-1. Rensa, skapa och kör varje projekt.
-1. Om du inte redan gjort det skapar du en ny användare i din klientorganisation med en *.onmicrosoft.com-domän.
-1. Logga in på To Do List-klienten med den användaren och lägg till några uppgifter i användarens att göra-lista.
-
-## <a name="next-steps"></a>Nästa steg
-
-* Som referens kan du ladda ned det färdiga exemplet (utan dina konfigurationsvärden) från [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Du kan nu gå vidare till andra identity-scenarier.
+För nya webb-API: er rekommenderar vi att du använder Microsoft Identity Platform (v 2.0) och MSAL för att hämta tokens och åtkomst till säkra webb-API: er: [Snabbstart: Lägg till inloggning med Microsoft i en ASP.NET-webbapp](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2#calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2)

@@ -3,17 +3,18 @@ title: Självstudie – Distribuera en containerapp till Azure Container Instanc
 description: Självstudie om Azure Container Instances del 3 av 3 – Distribuera ett containerprogram till Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684223"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325636"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett containerprogram till Azure Container Instances
 
@@ -46,7 +47,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Distribuera containern
 
-Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` med det värde som du fick från föregående kommando. Ersätt `<service-principal-ID>` och `<service-principal-password>` med det ID och det lösenord för tjänstens huvudnamn som du skapade för att komma åt registret. Ersätt `<aciDnsLabel>` med önskat DNS-namn.
+Använd nu kommandot [AZ container Create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` med det värde som du fick från föregående kommando. Ersätt `<service-principal-ID>` och `<service-principal-password>` med det ID och det lösenord för tjänstens huvudnamn som du skapade för att komma åt registret. Ersätt `<aciDnsLabel>` med önskat DNS-namn.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
@@ -56,17 +57,17 @@ Inom några sekunder bör du få ett första svar från Azure. Värdet `--dns-na
 
 ### <a name="verify-deployment-progress"></a>Verifiera distributionens fortskridande
 
-Du kan se statusen för distributionen med [az container show][az-container-show]:
+Om du vill visa status för distributionen använder du [AZ container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Upprepa kommandot [az container show][az-container-show] tills status ändras från *Väntar* till *Körs*, vilket bör ta mindre än en minut. När containern *Körs* fortsätter du till nästa steg.
+Upprepa kommandot [AZ container show][az-container-show] tills statusen ändras från *väntar* till *körning*, vilket bör ta under en minut. När containern *Körs* fortsätter du till nästa steg.
 
 ## <a name="view-the-application-and-container-logs"></a>Visa program- och containerloggar
 
-När distributionen är klar kan du visa behållarens fullständiga domännamn (FQDN) med kommandot [az container show][az-container-show]:
+När distributionen har slutförts visar du behållarens fullständigt kvalificerade domän namn (FQDN) med kommandot [AZ container show][az-container-show] :
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
@@ -99,7 +100,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av de resurser som du skapade i den här självstudieserien, kan du köra kommandot [az group delete][az-group-delete] för att ta bort resursgruppen och alla resurser som den innehåller. Det här kommandot tar bort containerregistret som du skapade, den container som körs och alla relaterade resurser.
+Om du inte längre behöver någon av resurserna som du skapade i den här själv studie serien kan du köra kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen och alla resurser den innehåller. Det här kommandot tar bort containerregistret som du skapade, den container som körs och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

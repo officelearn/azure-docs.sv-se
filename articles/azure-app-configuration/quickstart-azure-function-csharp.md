@@ -14,52 +14,48 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798432"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326588"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med Azure App konfiguration
 
-Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan använda den för att enkelt lagra och hantera alla programinställningarna på ett ställe som är avgränsade från din kod. Den här snabbstarten visar hur du införliva tjänsten i en Azure-funktion. 
-
-Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
-
-![Snabbstart för fullständig lokal](./media/quickstarts/dotnet-core-function-launch-local.png)
+I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure-funktion för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad. Även installera den [senaste Azure Functions-verktygen](../azure-functions/functions-develop-vs.md#check-your-tools-version).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
+- [Azure Functions verktyg](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** >  **+ skapa** att lägga till följande nyckel / värde-par:
+6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
-    Lämna **etikett** och **innehållstyp** tom för tillfället.
+    Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
+## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Högerklicka på projektet och välj **hantera NuGet-paket**. På den **Bläddra** fliken, söka och Lägg till följande NuGet-paketen i projektet. Om du inte kan hitta dem, väljer du den **inkludera förhandsversion** markerar du kryssrutan.
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du och lägger till följande NuGet-paket i projektet. Om du inte hittar dem markerar du kryss rutan **Inkludera för hands version** .
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Öppna *Function1.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern.
+2. Öppna *Function1.cs*och Lägg till en referens till .net Core app Configuration-providern.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -91,7 +87,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
-1. Ange en miljövariabel som heter **ConnectionString**, och ange att snabbtangent i din appbutik för konfiguration. Om du använder Windows-Kommandotolken kör du följande kommando och starta om Kommandotolken så att ändringen ska börja gälla:
+1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -99,17 +95,17 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Om du använder macOS eller Linux, kör du följande kommando:
+    Om du använder macOS eller Linux kör du följande kommando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)** -verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-begäranden.
+2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)** -verktyg. Du kan också behöva aktivera ett brand Väggs undantag så att verktygen kan hantera HTTP-begäranden.
 
 3. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
 
     ![Snabbstart för funktionsfelsökning i VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren för att den lokala GET-begäran som returnerades av funktionen.
+4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren till den lokala GET-begäran som returnerades av funktionen.
 
     ![Snabbstart för lokal funktionsstart](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -119,7 +115,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2019](https://
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en Azure-funktion. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Azure-funktion. Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

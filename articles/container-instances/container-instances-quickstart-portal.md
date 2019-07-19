@@ -1,25 +1,26 @@
 ---
-title: Snabbstart – distribuera Docker-behållare till Azure Container Instances - Portal
-description: I den här snabbstarten använder du Azure portal att snabbt distribuera en behållarbaserad webbapp som körs i en isolerad Azure container-instans
+title: Snabb start – distribuera Docker-behållare till Azure Container Instances-portalen
+description: I den här snabb starten använder du Azure Portal för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf3bea07fa2fcb67a467d4087ea9e2ccbfd95206
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519608"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325806"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure-portalen
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabbstart: Distribuera en behållar instans i Azure med hjälp av Azure Portal
 
-Använd Azure Container Instances för att köra serverlös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en container-instans på begäran när du inte behöver en fullständig behållarplattform orchestration som Azure Kubernetes Service.
+Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten.
 
-I den här snabbstarten använder du Azure-portalen för att distribuera en isolerad dockerbehållare och tillgängliggöra dess program med ett fullständigt kvalificerat domännamn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
+I den här snabb starten använder du Azure Portal för att distribuera en isolerad Docker-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-portal-07]
 
@@ -27,7 +28,7 @@ I den här snabbstarten använder du Azure-portalen för att distribuera en isol
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-free-account] konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-free-account] innan du börjar.
 
 ## <a name="create-a-container-instance"></a>Skapa en containerinstans
 
@@ -35,7 +36,7 @@ Välj **Skapa en resurs** > **Behållare** > **Behållarinstanser**.
 
 ![Skapa en ny containerinstans i Azure Portal][aci-portal-01]
 
-På den **grunderna** anger du följande värden i den **resursgrupp**, **behållarnamn**, och **behållaravbildning** textrutor. Lämna de övriga standardvärdena oförändrade och välj **OK**.
+På sidan **grundläggande** anger du följande värden i text rutorna **resurs grupp**, **behållar namn**och behållar **avbildning** . Lämna de övriga standardvärdena oförändrade och välj **OK**.
 
 * Resursgrupp: **Skapa ny** > `myresourcegroup`
 * Containernamn: `mycontainer`
@@ -43,21 +44,21 @@ På den **grunderna** anger du följande värden i den **resursgrupp**, **behål
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-I den här snabbstarten använder du standardvärdet **bildtyp** inställningen för den **offentliga** att distribuera offentliga Microsoft `aci-helloworld` bild. Den här Linux-avbildning paket en liten webbapp som skrivits i Node.js som har en statisk HTML-sida.
+I den här snabb starten använder du inställningen standard **avbildnings typ** för **offentlig** för att distribuera den `aci-helloworld` offentliga Microsoft-avbildningen. Den här Linux-avbildningen paketerar en liten webbapp som skrivits i Node. js och som hanterar en statisk HTML-sida.
 
-På den **nätverk** anger en **DNS-Namnetiketten** för behållaren. Namnet måste vara unikt inom Azure-region där du skapar behållarinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+På sidan **nätverk** anger du en **DNS-** benämning på din behållare. Namnet måste vara unikt inom den Azure-region där du skapar behållar instansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 ![Konfigurera en ny containerinstans i Azure Portal][aci-portal-04]
 
-Lämna de andra inställningarna oförändrade och välj sedan **granska + skapa**.
+Lämna de andra inställningarna till standardinställningarna och välj sedan **Granska + skapa**.
 
-När verifieringen är klar visas en sammanfattning av containerinställningarna. Välj **skapa** att skicka din begäran om distribution av behållare.
+När verifieringen är klar visas en sammanfattning av containerinställningarna. Välj **skapa** för att skicka begäran om distribution av behållare.
 
 ![Sammanfattning av inställningar för en ny containerinstans i Azure Portal][aci-portal-05]
 
 När distributionen inleds visas ett meddelande som indikerar att distributionen pågår. Ett nytt meddelande visas när containergruppen har distribuerats.
 
-Öppna översikten för behållargruppen genom att gå till **resursgrupper** > **myresourcegroup** > **mycontainer**. Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
+Öppna översikten för behållar gruppen genom att gå till **resurs grupper** > **myresourcegroup** > -**behållare.** Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
 
 ![Översikt över gruppcontainer i Azure-portalen][aci-portal-06]
 
@@ -87,7 +88,7 @@ Välj **Ja** i bekräftelsedialogrutan när den visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har skapat du ett Azure container-instans från en offentlig avbildning av Microsoft. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabb starten skapade du en Azure Container instance från en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

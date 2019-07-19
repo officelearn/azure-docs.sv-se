@@ -1,143 +1,143 @@
 ---
-title: Azure Container Instances-säkerhetsaspekter
-description: Rekommendationer för att säkra bilder och hemligheter för Azure Container Instances och allmänna säkerhetsaspekter för vilken behållarplattform som
+title: Azure Container Instances säkerhets aspekter
+description: Rekommendationer för att skydda bilder och hemligheter för Azure Container Instances och allmänna säkerhets överväganden för alla behållar plattformar
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: dc516277d79e37500e73e1aee6b88c908acb9b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 618d3a901698e46760d970f6d4fbc4157c5d2ea3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64944003"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325909"
 ---
-# <a name="security-considerations-for-azure-container-instances"></a>Säkerhetsöverväganden för Azure Container Instances
+# <a name="security-considerations-for-azure-container-instances"></a>Säkerhets överväganden för Azure Container Instances
 
-Den här artikeln introducerar säkerhetsöverväganden vid användning av Azure Container Instances för att köra appar i behållaren. Ämnena omfattar:
+Den här artikeln beskriver säkerhets överväganden för att använda Azure Container Instances för att köra behållar appar. Ämnena omfattar:
 
 > [!div class="checklist"]
-> * **Säkerhetsrekommendationer** för att hantera avbildningar och hemligheter för Azure Container Instances
-> * **Överväganden för behållaren ekosystem** under behållaren hela livscykel för vilken behållarplattform som
+> * **Säkerhets rekommendationer** för att hantera avbildningar och hemligheter för Azure Container instances
+> * **Överväganden för containerns eko system** under hela livs cykelns livs cykel, för alla behållar plattformar
 
-## <a name="security-recommendations-for-azure-container-instances"></a>Säkerhetsrekommendationer för Azure Container Instances
+## <a name="security-recommendations-for-azure-container-instances"></a>Säkerhets rekommendationer för Azure Container Instances
 
-### <a name="use-a-private-registry"></a>Använda ett privat register
+### <a name="use-a-private-registry"></a>Använd ett privat register
 
-Container skapas från avbildningar som lagras i en eller flera databaser. Dessa databaser kan höra till ett offentligt register som [Docker Hub](https://hub.docker.com), eller till ett privat register. Ett exempel på ett privat register är [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), som kan installeras lokalt eller i ett virtuellt privat moln. Du kan också använda molnbaserade privata container registry-tjänster, inklusive [Azure Container Registry](../container-registry/container-registry-intro.md). 
+Container skapas från avbildningar som lagras i en eller flera databaser. Dessa databaser kan tillhöra ett offentligt register, som [Docker Hub](https://hub.docker.com)eller till ett privat register. Ett exempel på ett privat register är [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), som kan installeras lokalt eller i ett virtuellt privat moln. Du kan också använda molnbaserad privata behållar register tjänster, inklusive [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
-En offentligt tillgänglig behållaravbildning garanterar inte säkerhet. Behållaravbildningar består av flera programvarulager och varje programvarulager kan medföra säkerhetsrisker. För att minska risken för attacker, bör du lagra och hämta avbildningar från ett privat register, till exempel Azure Container Registry eller Docker Trusted Registry. Förutom att tillhandahålla ett hanterat privat register stöder Azure Container Registry [autentisering med tjänstens huvudnamn](../container-registry/container-registry-authentication.md) via Azure Active Directory för grundläggande autentiseringsflöden. Den här autentiseringen innehåller rollbaserad åtkomst för skrivskyddat läge (pull), skriva (push) och ägarbehörigheter.
+En offentligt tillgänglig behållar avbildning garanterar inte säkerheten. Behållar avbildningar består av flera program varu lager och varje program varu lager kan ha sårbarheter. För att minska risken för attacker bör du lagra och hämta avbildningar från ett privat register, till exempel Azure Container Registry eller Docker Trusted Registry. Förutom att tillhandahålla ett hanterat privat register, Azure Container Registry stödja [tjänstens huvudbaserad autentisering](../container-registry/container-registry-authentication.md) via Azure Active Directory för grundläggande autentiserings flöden. Den här autentiseringen innehåller rollbaserad åtkomst för Skriv-, skriv-(push) och ägar behörigheter.
 
-### <a name="monitor-and-scan-container-images"></a>Övervaka och söka igenom behållaravbildningar
+### <a name="monitor-and-scan-container-images"></a>Övervaka och skanna behållar avbildningar
 
-Säkerhetsövervakning och säkerhetsgenomsökning lösningar som [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) och [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) är tillgängliga via Azure Marketplace. Du kan använda dem för att söka igenom behållaravbildningar i ett privat register och eventuella säkerhetsrisker. Det är viktigt att förstå djup för genomsökningen att ge olika lösningar. 
+Säkerhetsövervaknings-och skannings lösningar som [twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) och [turkos säkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) är tillgängliga via Azure Marketplace. Du kan använda dem för att genomsöka behållar avbildningar i ett privat register och identifiera potentiella sårbarheter. Det är viktigt att förstå djupet vid genomsökning av de olika lösningarna. 
 
 ### <a name="protect-credentials"></a>Skydda autentiseringsuppgifter
 
-Behållare kan sprids över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösenord eller token. Se till att enbart behöriga användare kan komma åt de här behållarna vid överföring och i vila. Inventera alla autentiseringsuppgifter hemligheter och kräver utvecklare använda nya hemligheter-hanteringsverktyg som är utformade för behållarplattformar.  Kontrollera att din lösning innehåller krypterade databaser, TLS-kryptering för hemligheter data i rörelse och lägsta behörighet [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) är en molnbaserad tjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar och lösenord) för program i behållare. Eftersom dessa data är känsliga och verksamhetskritiska, säker åtkomst till din nyckel-valv så att endast auktoriserade program och användare kan komma åt dem.
+Behållare kan spridas över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösen ord eller tokens. Se till att endast privilegierade användare kan komma åt dessa behållare under överföring och i vila. Inventera alla hemligheter för autentiseringsuppgifter och Kräv sedan att utvecklare använder nya hemligheter – hanterings verktyg som är utformade för behållar plattformar.  Se till att lösningen innehåller krypterade databaser, TLS-kryptering för hemligheterade data i överföring och [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md)med minst behörighet. [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) är en moln tjänst som skyddar krypterings nycklar och hemligheter (till exempel certifikat, anslutnings strängar och lösen ord) för program i behållare. Eftersom dessa data är känsliga och affärs kritiska kan du skydda åtkomsten till dina nyckel valv så att endast auktoriserade program och användare kan komma åt dem.
 
-## <a name="considerations-for-the-container-ecosystem"></a>Överväganden för container-ekosystem
+## <a name="considerations-for-the-container-ecosystem"></a>Överväganden för containerns eko system
 
-Följande säkerhetsåtgärder, även implementeras och hanteras effektivt, kan hjälpa dig att säkra och skydda dina behållare ekosystem. Dessa åtgärder gäller under behållaren hela livscykel, från utveckling till, Produktionsdistribution och till en rad olika behållarinitierare, värdar och plattformar. 
+Följande säkerhets åtgärder, som implementeras väl och hanteras effektivt, kan hjälpa dig att skydda och skydda ditt eko system. Dessa åtgärder gäller under hela livs cykelns livs cykel, från utveckling till produktions distribution och till ett antal behållar dirigeringar, värdar och plattformar. 
 
-### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Använda sårbarhetshantering som en del av din livscykeln för utveckling av behållare 
+### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Använd sårbarhets hantering som en del av livs cykeln för behållar utveckling 
 
-Genom att använda effektiva sårbarhetshantering genom hela livscykeln för behållare kan förbättra du sannolikheten att identifiera och lösa säkerhetsproblem innan de blir ett allvarligt fel. 
+Genom att använda effektiv sårbarhets hantering i livs cykeln för container utveckling förbättrar du strider som du identifierar och löser säkerhets problem innan de blir allvarligare. 
 
-### <a name="scan-for-vulnerabilities"></a>Söka efter säkerhetsrisker 
+### <a name="scan-for-vulnerabilities"></a>Sök efter sårbarheter 
 
-Nya problem upptäcks hela tiden, så söker efter och identifiera säkerhetsrisker är en kontinuerlig process. Införliva granskar säkerhetsrisker i hela livscykeln för behållaren:
+Nya sårbarheter upptäcks hela tiden, så genomsökning av och identifiera sårbarheter är en kontinuerlig process. Införliva säkerhets genomsökning under hela livs cykeln för behållare:
 
-* Som en slutlig kontroll i din pipeline för utveckling, bör du utföra en genomsökning för sårbarhetsbedömning på behållare innan du push-överför avbildningar till ett offentligt eller privat register. 
-* Fortsätta att söka igenom behållaravbildningar i registret både för att identifiera svagheter som missades på något sätt under utvecklingen och för att alla nyupptäckta problem som kan finnas i den kod som används i behållaravbildningarna.  
+* Som en slutgiltig kontroll i din utvecklings pipeline bör du utföra en sårbarhets sökning på behållare innan du skickar avbildningarna till ett offentligt eller privat register. 
+* Fortsätt att skanna behållar avbildningar i registret för att identifiera eventuella fel som skulle ha missats under utvecklingen och för att åtgärda eventuella nyligen identifierade säkerhets risker som kan finnas i koden som används i behållar avbildningarna.  
 
-### <a name="map-image-vulnerabilities-to-running-containers"></a>Mappa bild säkerhetsproblem för att köra behållare 
+### <a name="map-image-vulnerabilities-to-running-containers"></a>Avbilda avbildnings sårbarheter för att köra behållare 
 
-Du måste ha ett sätt att mappningen sårbarheter som identifieras i behållaravbildningar till att köra behållare, så att säkerhetsproblem kan undvikas eller löst.  
+Du behöver ett sätt att mappa sårbarheter som identifieras i behållar avbildningar till att köra behållare, så säkerhets problem kan åtgärdas eller lösas.  
 
 ### <a name="ensure-that-only-approved-images-are-used-in-your-environment"></a>Se till att endast godkända avbildningar används i din miljö 
 
-Det finns tillräckligt med ändrings- och volatil i en behållare ekosystemet utan att tillåta okända behållare också. Tillåt endast godkända behållaravbildningar. Har verktyg och processer för att övervaka för och förhindra användning av icke-godkända avbildningar. 
+Det finns tillräckligt med ändrings-och flyktiga i ett eko system för behållare utan att tillåta okända behållare. Tillåt endast godkända behållar avbildningar. Ha verktyg och processer på plats för att övervaka och förhindra användning av icke-godkända behållar avbildningar. 
 
-Ett effektivt sätt att minska risken för angrepp och förhindrar att utvecklare att göra misstag kritiska säkerhet är att styra flödet av behållaravbildningar i din utvecklingsmiljö. Du kan till exempel har sanktionerat en enkel Linux-distribution som en basavbildning helst ett som är smidiga (Alpine eller CoreOS snarare än Ubuntu), för att minimera risken för potentiella attacker. 
+Ett effektivt sätt att minska risken för attacker och förhindra utvecklare från att fatta kritiska säkerhets fel är att styra flödet av behållar avbildningar till utvecklings miljön. Du kan till exempel sanktionera en enskild Linux-distribution som en bas avbildning, helst en som är Lean (Alpine eller core i stället för Ubuntu), för att minimera ytan för potentiella attacker. 
 
-Bild-signering eller fingeravtryck kan ge en spårbarhet som hjälper dig att kontrollera integriteten för behållarna. Till exempel Azure Container Registry har stöd för Docker [innehåll förtroende](https://docs.docker.com/engine/security/trust/content_trust) modellera, vilket gör att avbildningsutgivare logga avbildningar som skickas till ett register och avbildning konsumenter att hämta endast signerade avbildningar.
+Bild signering eller finger avtryck kan ge en kedja av vårdnad som gör det möjligt att verifiera behållarens integritet. Azure Container Registry har till exempel stöd för Docker-modellen för [innehålls förtroende](https://docs.docker.com/engine/security/trust/content_trust) , som tillåter avbildnings utgivare att signera bilder som skickas till ett register och avbildnings konsumenter för att bara Hämta signerade avbildningar.
 
 ### <a name="permit-only-approved-registries"></a>Tillåt endast godkända register 
 
-Det är ett tillägg för att säkerställa att bara godkända avbildningar används i din miljö så att bara använda godkända behållarregister. Kräver användning av godkänd behållarregister minskar din exponering för risken genom att begränsa risken för introduktionen av okända problem eller säkerhetsproblem. 
+Ett tillägg för att säkerställa att miljön endast använder godkända avbildningar är att endast tillåta användning av godkända behållar register. Genom att kräva att godkända behållar register används minskar exponeringen för risker genom att begränsa möjligheten att införa okända sårbarheter eller säkerhets problem. 
 
-### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>Kontrollera integriteten för bilder i hela livscykeln 
+### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>Säkerställa integriteten för avbildningar under hela livs cykeln 
 
-En del av att hantera säkerhet i hela livscykeln för behållare är att säkerställa integriteten hos behållaravbildningar i registret och som de är ändras eller distribueras till produktionen. 
+En del av att hantera säkerhet i livs cykeln för behållare är att säkerställa att behållar avbildningens integritet i registret och att de ändras eller distribueras till produktion. 
 
-* Avbildningar med säkerhetsrisker, även mindre sådana, bör inte tillåtas att köras i en produktionsmiljö. Alla avbildningar som distribuerats i produktionsmiljön bör helst sparas i ett privat register är tillgängliga för några få utvalda. Hålla nere antalet produktionsavbildningar så att de kan hanteras effektivt.
+* Avbildningar med sårbarheter, även mindre, bör inte tillåtas att köras i produktions miljöer. Vi rekommenderar att alla avbildningar som distribueras i produktion sparas i ett privat register som är tillgängligt för ett urval. Behåll antalet produktions bilder små för att säkerställa att de kan hanteras effektivt.
 
-* Eftersom det är svårt att fastställa ursprunget för programvara från en offentligt tillgänglig behållaravbildning, skapa avbildningar från källan till lagrets ursprung lagret. När en säkerhetsrisk identifieras i en egenutvecklad containeravbildning är det lättare för kunderna att snabbt komma fram till en lösning. Med offentliga avbildningar måste kunderna hitta roten till den offentliga avbildningen för att åtgärda den, eller få en annan säker avbildning från utgivaren. 
+* Eftersom det är svårt att hitta ursprunget för program varan från en offentligt tillgänglig behållar avbildning skapar du avbildningar från källan för att säkerställa att lagrets ursprung. När en säkerhetsrisk identifieras i en egenutvecklad containeravbildning är det lättare för kunderna att snabbt komma fram till en lösning. Med en offentlig avbildning måste kunderna hitta roten till en offentlig avbildning för att kunna åtgärda den eller få en annan säker avbildning från utgivaren. 
 
-* En noggrant genomsökt avbildning som distribuerats i produktionsmiljön är inte säkert att vara uppdaterad under hela programmets livslängd. Säkerhetsproblem kan rapporteras för lager i avbildningen som inte tidigare var kända eller som uppstått efter distributionen i produktionsmiljön. 
+* En väl skannad avbildning som distribueras i produktion är inte garanterat uppdaterad under programmets livs längd. Säkerhetsproblem kan rapporteras för lager i avbildningen som inte tidigare var kända eller som uppstått efter distributionen i produktionsmiljön. 
 
-  Regelbundet granska avbildningar som distribuerats i produktionsmiljön för att identifiera avbildningar som är inaktuella eller som inte har uppdaterats på ett tag. Du kan använda blå-grön distribution metoder och löpande uppgradering mekanismer för att uppdatera behållaravbildningar utan avbrott. Du kan skanna bilder med hjälp av verktygen som beskrivs i föregående avsnitt. 
+  Granska regelbundet bilder som distribuerats i produktion för att identifiera avbildningar som är inaktuella eller som inte har uppdaterats på ett tag. Du kan använda blå och gröna distributions metoder och metoder för löpande uppgradering för att uppdatera behållar avbildningar utan drift stopp. Du kan skanna bilder med hjälp av verktygen som beskrivs i föregående avsnitt. 
 
-* Använda en pipeline för kontinuerlig integrering (CI) med integrerad säkerhetsgenomsökning för att skapa säkra avbildningar och skicka dem till ditt privata register. Den inbyggda säkerhetsgenomsökningen i CI-lösningen ser till att avbildningar som klarar alla testerna skickas till det privata registret som produktionsarbetsbelastningarna distribueras från. 
+* Använd en pipeline för kontinuerlig integrering (CI) med integrerad säkerhets genomsökning för att bygga säkra avbildningar och skicka dem till ditt privata register. Den inbyggda säkerhetsgenomsökningen i CI-lösningen ser till att avbildningar som klarar alla testerna skickas till det privata registret som produktionsarbetsbelastningarna distribueras från. 
 
-  Ett fel för CI-pipelinen säkerställer att avbildningar med identifierade säkerhetsrisker inte skickas till det privata registret som används för distribution av produktionsarbetsbelastningar. Den också säkerhetsgenomsökningar om det finns ett stort antal avbildningar. Att manuellt söka efter säkerhetsrisker i avbildningar kan vara en enormt tidskrävande och felbenägen uppgift. 
+  Ett problem med en CI-pipeline garanterar att sårbara avbildningar inte skickas till det privata registret som används för distributioner av produktions arbets belastningar. Dessutom automatiseras avbildnings säkerhets genomsökningen om det finns ett stort antal avbildningar. Att manuellt söka efter säkerhetsrisker i avbildningar kan vara en enormt tidskrävande och felbenägen uppgift. 
 
-### <a name="enforce-least-privileges-in-runtime"></a>Framtvinga lägsta privilegier i runtime 
+### <a name="enforce-least-privileges-in-runtime"></a>Framtvinga minst behörighet i körnings miljön 
 
-Konceptet lägsta privilegier är en grundläggande säkerhetsåtgärd som gäller även för behållare. När en sårbarhet utnyttjas den i allmänhet ger angriparen tillgång och privilegier med vad komprometterade program eller process. Att säkerställa att behållare fungerar med de minsta privilegier och åtkomst som krävs för att få jobbet gjort minskar din exponering för risk. 
+Begreppet minst privilegier är en grundläggande säkerhets metod som också gäller för behållare. När ett säkerhets problem utnyttjas ger det vanligt vis angripare åtkomst och privilegier som motsvarar de i det komprometterade programmet eller processen. Att se till att behållare använder de lägsta privilegier och åtkomst som krävs för att få jobbet utfört minskar exponeringen för risk. 
 
-### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>Minska attackytan behållaren genom att ta bort onödiga behörigheter 
+### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>Minska behållar attack ytan genom att ta bort onödiga privilegier 
 
-Du kan också minimera potentiella attacker genom att ta bort oanvända eller onödiga processer eller behörigheter från behållaren runtime. Privilegierade behållare kör som rot. Om du lämnar en obehörig användare eller en arbetsbelastning i en privilegierad behållare, körs sedan behållaren som rot på systemet.
+Du kan också minimera den potentiella angrepps ytan genom att ta bort oanvända eller onödiga processer eller behörigheter från container Runtime. Privilegierade behållare körs som rot. Om en obehörig användare eller arbets belastning utsätts i en privilegie rad behållare, körs behållaren som rot på det systemet.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Lista över tillåtna filer och körbara filer som behållaren tillåts att komma åt eller kör 
+### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Vitlista-filer och körbara filer som behållaren kan komma åt eller köra 
 
-Minska antalet variabler eller obekanta faktorer hjälper dig att bibehålla en stabil och tillförlitlig miljö. Begränsa behållare så att de kan komma åt eller kör endast förgodkända eller godkänd filer och körbara filer är en beprövad metod för att begränsa exponeringen för risk.  
+Genom att minska antalet variabler eller okända, kan du underhålla en stabil, tillförlitlig miljö. Begränsa behållare så att de kan komma åt eller köra enbart förgodkännda eller vit listas filer och körbara filer är en beprövad metod för att begränsa exponeringen för risker.  
 
-Det är mycket enklare att hantera en lista över tillåtna när den har implementerats från början. En lista över tillåtna ger ett mått av kontroll och hanterbarhet medan du lär dig vilka filer och körbara filer som krävs för att programmet ska fungera korrekt. 
+Det är mycket enklare att hantera en vitlista när den implementeras från början. En vitlista tillhandahåller ett mått på kontroll och hanterbarhet när du lär dig vilka filer och körbara filer som krävs för att programmet ska fungera korrekt. 
 
-En lista över tillåtna kan inte bara minskar risken för angrepp men också tillhandahålla en baslinje för avvikelser och förhindra användningsfallen ”resursfördelningen” och seminarium om behållarscenarier. 
+En vitlista minskar inte bara angrepps ytan, men kan också tillhandahålla en bas linje för avvikelser och förhindra användnings fall av scenarier med "bruset" och container grupp. 
 
-### <a name="enforce-network-segmentation-on-running-containers"></a>Framtvinga nätverkssegmentering på behållare som körs  
+### <a name="enforce-network-segmentation-on-running-containers"></a>Tvinga nätverks segmentering på behållare som körs  
 
-För att skydda behållare i ett undernät från säkerhetsrisker i ett annat undernät, underhålla nätverkssegmentering (eller nano-segmentering) eller uppdelning mellan behållare som körs. Underhålla nätverkssegmentering kan också vara nödvändigt för att använda behållare i olika branscher som krävs för att uppfylla efterlevnadsmål.  
+Du kan skydda behållare i ett undernät från säkerhets risker i ett annat undernät genom att underhålla nätverks segmentering (eller nano-segmentering) eller uppdelning mellan behållare som körs. Det kan också vara nödvändigt att underhålla nätverks segmentering för att kunna använda behållare i branscher som krävs för att uppfylla villkoren för efterlevnad.  
 
-Till exempel verktyget partner [turkos](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) tillhandahåller en automatiserad metod för nano-segmentering. Turkos övervakar behållare Nätverksaktiviteter under körning. Den identifierar alla inkommande och utgående nätverksanslutningar till och från andra behållare, tjänster, IP-adresser och det offentliga internet. Nano-segmentering skapas automatiskt utifrån övervakad trafik. 
+Till exempel tillhandahåller partner verktyget [turkos](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) en automatiserad metod för nano-segmentering. Turkos övervakar nätverks aktiviteter för behållare i körnings miljön. Den identifierar alla inkommande och utgående nätverks anslutningar till/från andra behållare, tjänster, IP-adresser och det offentliga Internet. Nano-segmentering skapas automatiskt baserat på övervakad trafik. 
 
-### <a name="monitor-container-activity-and-user-access"></a>Övervaka aktivitet och användaren åtkomst för behållare 
+### <a name="monitor-container-activity-and-user-access"></a>Övervaka container aktivitet och användar åtkomst 
 
-Precis som med alla IT-miljöer, bör du konsekvent övervaka aktivitet och användaråtkomst till dina behållare ekosystem för att snabbt identifiera eventuella misstänkta eller skadlig aktivitet. Azure tillhandahåller övervakning av lösningar, inklusive:
+Precis som med en IT-miljö bör du konsekvent övervaka aktivitet och användares åtkomst till ditt container eko system för att snabbt identifiera misstänkt eller skadlig aktivitet. Azure tillhandahåller övervaknings lösningar för behållare, inklusive:
 
-* [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) att övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS). Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. 
+* [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) för att övervaka prestanda för dina arbets belastningar som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS). Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. 
 
-* Den [övervakningslösningen för Azure Container](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker och Windows behållare-värdar i en enda plats. Exempel:
+* [Azure Container Monitoring-lösningen](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker-och Windows container-värdar på en enda plats. Exempel:
 
-  * Visa detaljerad granskning av information som visar kommandon som används med behållare. 
-  * Felsöka behållare genom att visa och söka i centraliserade loggar utan att behöva fjärrvisa Docker eller Windows-värdar.  
-  * Hitta behållare som kan vara mycket brus och konsumerande ytterligare resurser på en värd.
-  * Visa centraliserad processor, minne, lagring och nätverksinformation om användning och prestanda för behållare.  
+  * Visa detaljerad gransknings information som visar kommandon som används med behållare. 
+  * Felsök behållare genom att visa och söka i centraliserade loggar utan att behöva fjärrans luta till Docker eller Windows-värdar.  
+  * Hitta behållare som kan vara störningar och förbruka överskott av resurser på en värd.
+  * Visa centraliserad processor, minne, lagring och nätverks användning och prestanda information för behållare.  
 
-  Lösningen stöder behållarinitierare, inklusive Docker Swarm, DC/OS, ohanterade Kubernetes, Service Fabric och Red Hat OpenShift. 
+  Lösningen stöder behållar dirigering, inklusive Docker Swarm, DC/OS, ohanterad Kubernetes, Service Fabric och Red Hat OpenShift. 
 
-### <a name="monitor-container-resource-activity"></a>Övervaka resource behållaraktivitet 
+### <a name="monitor-container-resource-activity"></a>Övervaka container resurs aktivitet 
 
-Övervaka din resurs-aktivitet, t.ex. filer, nätverk och andra resurser som har åtkomst till dina behållare. Övervaka aktivitet resurs och förbrukning är användbart för prestandaövervakning av såväl som en säkerhetsåtgärd. 
+Övervaka resurs aktiviteten, t. ex. filer, nätverk och andra resurser som behållarna har åtkomst till. Övervakning av resurs aktivitet och konsumtion är användbart både för prestanda övervakning och som ett säkerhets mått. 
 
-[Azure Monitor](../azure-monitor/overview.md) aktiverar Kärnövervakning för Azure-tjänster genom att låta insamling av mått, aktivitetsloggar och diagnostikloggar. Aktivitetsloggen ger dig t.ex. information om när nya resurser skapas eller ändras. 
+[Azure Monitor](../azure-monitor/overview.md) möjliggör kärn övervakning av Azure-tjänster genom att tillåta insamling av mått, aktivitets loggar och diagnostikloggar. Aktivitetsloggen ger dig t.ex. information om när nya resurser skapas eller ändras. 
 
-Tillgängliga mått tillhandahåller prestandastatistik för olika resurser och även för operativsystemet i en virtuell dator. Du kan visa dessa data med någon av utforskarna i Azure Portal och skapa aviseringar som baseras på måtten. Azure Monitor innehåller de snabbaste mått pipeline (5 minuter per 1 minut), så du bör använda den för tidskritiska aviseringar och meddelanden. 
+Tillgängliga mått tillhandahåller prestandastatistik för olika resurser och även för operativsystemet i en virtuell dator. Du kan visa dessa data med någon av utforskarna i Azure Portal och skapa aviseringar som baseras på måtten. Azure Monitor ger en pipeline för snabbast mått (5 minuter ned till 1 minut), så du bör använda den för tids kritiska aviseringar och meddelanden. 
 
-### <a name="log-all-container-administrative-user-access-for-auditing"></a>Logga alla administrativa användare åtkomst till behållare för granskning 
+### <a name="log-all-container-administrative-user-access-for-auditing"></a>Logga all behållar administrativ användar åtkomst för granskning 
 
-Underhålla en korrekt verifieringskedja för administrativ åtkomst till din container-ekosystemet, container registry och behållaravbildningar. Dessa loggar kan krävas för granskning och ska användas vid kriminaltekniska bevis efter alla säkerhetsincidenter. Du kan använda den [övervakningslösningen för Azure Container](../azure-monitor/insights/containers.md) att uppnå det här ändamålet. 
+Ha en korrekt Gransknings logg över administrativ åtkomst till ditt eko system, behållar register och behållar avbildningar. Dessa loggar kan vara nödvändiga för gransknings syfte och kommer att vara användbara som kriminal tekniska-bevis efter eventuella säkerhets incidenter. Du kan använda [Azure Container Monitor-lösningen](../azure-monitor/insights/containers.md) för att uppnå detta syfte. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du hanterar behållare säkerhetsproblem med lösningar från [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) och [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).
+* Lär dig mer om att hantera sårbarheter för behållare med lösningar från [twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) och [turkos säkerhet](https://www.aquasec.com/solutions/azure-container-security/).
 
-* Läs mer om [behållarsäkerhet i Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).
+* Lär dig mer om behållar [säkerhet i Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).

@@ -1,62 +1,62 @@
 ---
-title: Konfigurera haveriberedskap för en SharePoint-flernivåapp med hjälp av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar haveriberedskap för en SharePoint-flernivåapp med hjälp av Azure Site Recovery-funktioner.
+title: Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar haveri beredskap för ett SharePoint-program med flera nivåer med hjälp av Azure Site Recovery-funktioner.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491838"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325115"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera haveriberedskap för en SharePoint-flernivåapp för haveriberedskap med hjälp av Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
-Den här artikeln beskrivs i detalj hur du skyddar en SharePoint-program med [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver i detalj hur du skyddar ett SharePoint-program med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Översikt
 
-Microsoft SharePoint är ett kraftfullt program som kan hjälpa en grupp eller avdelning ordna, samarbeta och dela information. SharePoint kan ge intranät portaler, dokument och filhantering, samarbete, sociala nätverk, extranät, webbplatser, företagssökning och business intelligence. Det har även systemintegrering, processintegrering och funktioner för automatisering av arbetsflöde. Normalt organisationer du betrakta dem som ett program på nivå 1 känsliga för stopptid och dataförlust.
+Microsoft SharePoint är ett kraftfullt program som kan hjälpa en grupp eller avdelning att organisera, samar beta och dela information. SharePoint kan tillhandahålla intranät portaler, dokument-och fil hantering, samarbete, sociala nätverk, extra nät, webbplatser, Enterprise Search och Business Intelligence. Den har också funktioner för system integrering, process integrering och automatisering av arbets flöde. Organisationer anser vanligt vis att det är ett nivå 1-program som är känsligt för stillestånds tid och data förlust.
 
-Microsoft SharePoint ger idag, inte alla funktioner för out-of the box katastrofåterställning. Återställning innebär användningen av en standby-datacenter som du kan återställa servergrupp till oavsett typ och skalning av ett haveri. Standby-Datacenter krävs för scenarier där lokala redundanta system och säkerhetskopieringar inte kan återställa från strömavbrott i det primära datacentralen.
+Idag tillhandahåller Microsoft SharePoint inte några färdiga funktioner för katastrof återställning. Oavsett typ och skala för en katastrof, innebär återställningen att du använder ett vänte läges Data Center som du kan återställa Server gruppen till. Vänte läges Data Center krävs för scenarier där lokala redundanta system och säkerhets kopieringar inte kan återställas från strömavbrottet vid det primära data centret.
 
-En bra katastrofåterställningslösning ska tillåta modellering av återställningsplaner runt arkitekturer för komplexa program som SharePoint. Det bör även ha möjligheten att lägga till anpassade steg för att hantera mappning mellan olika nivåer och därför att tillhandahålla ett enda musklick redundans med en lägre RTO vid ett haveri.
+En felfri lösning för haveri beredskap bör möjliggöra modellering av återställnings planer runt komplexa program arkitekturer som SharePoint. Det bör också ha möjlighet att lägga till anpassade steg för att hantera program mappningar mellan olika nivåer och därmed tillhandahålla en enkel klickning med en lägre RTO i händelse av en katastrof.
 
-Den här artikeln beskrivs i detalj hur du skyddar en SharePoint-program med [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskriver Metodtips för att replikera en tre nivån, SharePoint-program till Azure, hur du kan göra ett haveriberedskapstest och hur du kan redundansväxla programmet till Azure.
+Den här artikeln beskriver i detalj hur du skyddar ett SharePoint-program med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskriver metod tips för att replikera ett SharePoint-program på tre nivåer till Azure, hur du kan göra en granskning av haveri beredskap och hur du kan redundansväxla programmet till Azure.
 
-Du kan titta på den nedan video om hur du återställer ett flerskiktat program till Azure.
+Du kan titta på videon nedan om hur du återställer ett program på flera nivåer till Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar bör du kontrollera att du förstår följande:
+Innan du börjar ska du kontrol lera att du förstår följande:
 
 1. [Replikera en virtuell dator till Azure](site-recovery-vmware-to-azure.md)
-2. Så här [utforma återställningsnätverk](site-recovery-network-design.md)
-3. [Gör ett redundanstest till Azure](site-recovery-test-failover-to-azure.md)
-4. [Gör en redundansväxling till Azure](site-recovery-failover.md)
-5. Så här [replikera en domänkontrollant](site-recovery-active-directory.md)
-6. Så här [replikera SQL Server](site-recovery-sql.md)
+2. Så här [skapar du ett återställnings nätverk](site-recovery-network-design.md)
+3. [Utföra en redundanstest till Azure](site-recovery-test-failover-to-azure.md)
+4. [Göra en redundansväxling till Azure](site-recovery-failover.md)
+5. Så här [replikerar du en domänkontrollant](site-recovery-active-directory.md)
+6. Så här [replikerar du SQL Server](site-recovery-sql.md)
 
 ## <a name="sharepoint-architecture"></a>SharePoint-arkitektur
 
-SharePoint kan distribueras på en eller flera servrar med hjälp av nivåindelade topologier och serverroller du implementerar en servergrupp design som uppfyller specifika mål och delmål. En typisk stora, hög efterfrågan SharePoint-servergrupp som stöder ett stort antal samtidiga användare och ett stort antal innehållsposter använda tjänsten gruppering som en del av sin strategi för skalbarhet. Den här metoden innebär att köra tjänster på dedicerade servrar, gruppera de här tjänsterna och sedan skala ut servrar som en grupp. Följande topologi illustrerar tjänsten och server gruppering för en SharePoint-servergrupp med tre nivåer. Se SharePoint-dokumentationen och produkten rad arkitekturer för detaljerad information om olika SharePoint-topologier. Du hittar mer information om distribution av SharePoint 2013 i [det här dokumentet](https://technet.microsoft.com/library/cc303422.aspx).
+SharePoint kan distribueras på en eller flera servrar med hjälp av nivåbaserade topologier och Server roller för att implementera en server grupps design som uppfyller vissa mål och mål. En typisk, omfattande SharePoint-servergrupp med hög begäran som stöder ett stort antal samtidiga användare och ett stort antal innehålls objekt använder tjänst grupper som en del av deras skalbarhets strategi. Den här metoden omfattar att köra tjänster på dedikerade servrar, gruppera dessa tjänster tillsammans och sedan skala ut servrarna som en grupp. Följande topologi illustrerar tjänst-och Server grupperingen för en SharePoint-servergrupp på tre nivåer. Detaljerad information om olika SharePoint-topologier finns i dokumentation och produkt linje arkitekturer i SharePoint. Du hittar mer information om SharePoint 2013-distribution i [det här dokumentet](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 
-![Mönster för distribution 1](./media/site-recovery-sharepoint/sharepointarch.png)
+![Distributions mönster 1](./media/site-recovery-sharepoint/sharepointarch.png)
 
 
 ## <a name="site-recovery-support"></a>Site Recovery-stöd
 
-VMware-datorer med Windows Server 2012 R2 Enterprise användes för att skapa den här artikeln. SharePoint 2013 Enterprise edition och SQL server 2014 Enterprise edition användes. Eftersom Site Recovery-replikering är oberoende av program, förväntas de rekommendationer som anges här vänta för följande scenarier.
+För att skapa den här artikeln användes virtuella VMware-datorer med Windows Server 2012 R2 Enterprise. SharePoint 2013 Enterprise Edition och SQL Server 2014 Enterprise Edition användes. Eftersom Site Recovery replikeringen är Application oberoende, förväntas de rekommendationer som anges här även i följande scenarier.
 
 ### <a name="source-and-target"></a>Källa och mål
 
@@ -68,143 +68,143 @@ VMware-datorer med Windows Server 2012 R2 Enterprise användes för att skapa de
 **Azure** | Ej tillämpligt | Ja
 
 ### <a name="sharepoint-versions"></a>SharePoint-versioner
-Följande SharePoint server-versioner stöds.
+Följande SharePoint Server-versioner stöds.
 
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
+* SharePoint Server 2013 standard
+* SharePoint Server 2013 Enterprise
+* SharePoint Server 2016 standard
+* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>Saker att tänka på
 
-Om du använder ett delat kluster diskbaserade som valfri nivå i din app kommer sedan du inte att kunna använda Site Recovery-replikering för att replikera de virtuella datorerna. Du kan använda inbyggda replikering som tillhandahålls av programmet och sedan använda en [återställningsplanen](site-recovery-create-recovery-plans.md) att redundansväxla alla nivåer.
+Om du använder ett delat disk-baserat kluster som vilken nivå som helst i ditt program kan du inte använda Site Recovery replikering för att replikera de virtuella datorerna. Du kan använda intern replikering som tillhandahålls av programmet och sedan använda en [återställnings plan](site-recovery-create-recovery-plans.md) för att redundansväxla alla nivåer.
 
-## <a name="replicating-virtual-machines"></a>Replikering av virtuella datorer
+## <a name="replicating-virtual-machines"></a>Replikera virtuella datorer
 
-Följ [den här vägledningen](site-recovery-vmware-to-azure.md) att börja replikera den virtuella datorn till Azure.
+Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbörja replikering av den virtuella datorn till Azure.
 
-* När replikeringen är klar kan du se till att du går till varje virtuell dator på respektive nivå och välj samma tillgänglighetsuppsättning i ”replikerat objekt > Inställningar > Egenskaper > beräkning och nätverk”. Exempel: om din webbnivå har 3 virtuella datorer, se till att alla 3 virtuella datorer är konfigurerade som en del av samma tillgänglighetsuppsättning i Azure.
+* När replikeringen är klar, se till att du går till varje virtuell dator för varje nivå och välj samma tillgänglighets uppsättning i replikerat objekt > Inställningar > Egenskaper > beräkning och nätverk. Om din webb nivå till exempel har tre virtuella datorer, se till att alla de 3 virtuella datorerna är konfigurerade att ingå i samma tillgänglighets uppsättning i Azure.
 
-    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Ange tillgänglighets uppsättning](./media/site-recovery-sharepoint/select-av-set.png)
 
-* Anvisningar om hur du skyddar Active Directory och DNS avser [skydda Active Directory och DNS](site-recovery-active-directory.md) dokumentet.
+* Anvisningar om hur du skyddar Active Directory och DNS finns i [skydda Active Directory och DNS-](site-recovery-active-directory.md) dokument.
 
-* Vägledning om hur du skyddar databasnivån som körs på SQLServer finns i [skydda SQL Server](site-recovery-active-directory.md) dokumentet.
+* Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-active-directory.md) -dokument.
 
-## <a name="networking-configuration"></a>Nätverkskonfigurationen
+## <a name="networking-configuration"></a>Nätverks konfiguration
 
-### <a name="network-properties"></a>Nätverksegenskaper
+### <a name="network-properties"></a>Nätverks egenskaper
 
-* För appen och webb-nivån virtuella datorer kan du konfigurera nätverksinställningar i Azure portal så att de virtuella datorerna får ansluts till rätt DR-nätverket efter redundans.
+* Konfigurera nätverks inställningar i Azure Portal så att de virtuella datorerna blir anslutna till rätt DR-nätverk efter redundansväxlingen.
 
     ![Välj nätverk](./media/site-recovery-sharepoint/select-network.png)
 
 
-* Om du använder en statisk IP-adress, anger du IP-adress som du vill att den virtuella datorn i den **mål-IP** fält
+* Om du använder en statisk IP-adress anger du den IP-adress som du vill att den virtuella datorn ska ta i **mål-IP-** fältet
 
-    ![Ställ in statisk IP-adress](./media/site-recovery-sharepoint/set-static-ip.png)
+    ![Ange statisk IP](./media/site-recovery-sharepoint/set-static-ip.png)
 
-### <a name="dns-and-traffic-routing"></a>DNS and Traffic Routing
+### <a name="dns-and-traffic-routing"></a>DNS och trafik dirigering
 
-För platser som riktas mot internet [skapa en Traffic Manager-profil av typen ”prioritet”](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumeration. Och sedan konfigurera din DNS- och Traffic Manager-profil på följande sätt.
+För webbplatser som riktas mot Internet [skapar du en Traffic Manager profil med prioritets typ](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumerationen. Och konfigurera sedan din DNS-och Traffic Manager-profil på följande sätt.
 
 
-| **där** | **Källa** | **Mål**|
+| **Vilken** | **Källa** | **Fokusera**|
 | --- | --- | --- |
-| Offentligt DNS | Offentliga DNS för SharePoint-webbplatser <br/><br/> Exempel: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
-| Den lokala DNS | sharepointonprem.contoso.com | Offentlig IP-adress på en lokal grupp |
+| Offentligt DNS | Offentlig DNS för SharePoint-webbplatser <br/><br/> Till exempel: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
+| Lokal DNS | sharepointonprem.contoso.com | Offentlig IP-adress i den lokala gruppen |
 
 
-I Traffic Manager-profilen [skapa primära slutpunkter](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Använd den externa slutpunkten för den lokala slutpunkten och offentlig IP-adress för Azure-slutpunkt. Se till att prioriteten ställs högre till den lokala slutpunkten.
+[Skapa de primära och återställnings slut punkterna](../traffic-manager/traffic-manager-configure-priority-routing-method.md)i Traffic Manager profilen. Använd den externa slut punkten för lokal slut punkt och offentlig IP för Azure-slutpunkt. Se till att prioriteten är högre till den lokala slut punkten.
 
-Vara värd för en testsida på en viss port (t.ex, 800) i SharePoint-webbnivån i ordning för Traffic Manager att automatiskt identifiera tillgänglighet efter redundans. Det här är en lösning om du inte kan aktivera anonym autentisering på någon av dina SharePoint-webbplatser.
+Var värd för en testsida på en speciell port (till exempel 800) på SharePoint-webbnivån för att Traffic Manager automatiskt identifiera tillgänglighet efter redundans. Det här är en lösning om du inte kan aktivera anonym autentisering på någon av dina SharePoint-webbplatser.
 
-[Konfigurera Traffic Manager-profilen](../traffic-manager/traffic-manager-configure-priority-routing-method.md) med den under inställningar.
+[Konfigurera Traffic Manager profilen](../traffic-manager/traffic-manager-configure-priority-routing-method.md) med inställningarna nedan.
 
-* Routningsmetod - ”prioritet”
-* DNS-tid att live (TTL) - 30 sekunder'
-* Inställningar för slutpunktsövervakning - om du kan aktivera anonym autentisering kan du ge en viss webbplats-slutpunkt. Eller du kan använda en testsida på en viss port (t.ex, 800).
+* Routningsmetod-prioritet
+* TTL-värde (Time to Live) för DNS – 30 sekunder
+* Inställningar för slut punkts övervakning – om du kan aktivera anonym autentisering kan du ge en speciell webbplats slut punkt. Du kan också använda en testsida på en angiven port (till exempel 800).
 
-## <a name="creating-a-recovery-plan"></a>Skapa en återställningsplan
+## <a name="creating-a-recovery-plan"></a>Skapa en återställnings plan
 
-En återställningsplan kan ordningsföljd redundans för olika nivåer i ett flerskiktat program, därför kan underhålla programkonsekvens. Följ de nedanstående steg när du skapar en återställningsplan för ett webbprogram med flera nivåer. [Läs mer om hur du skapar en återställningsplan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+En återställnings plan gör det möjligt att sekvensera redundansväxlingen av olika nivåer i ett program på flera nivåer, och därmed underhålla programmets konsekvens. Följ stegen nedan när du skapar en återställnings plan för ett webb program med flera nivåer. [Lär dig mer om att skapa en återställnings plan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>Lägga till virtuella datorer i grupper för växling vid fel
+### <a name="adding-virtual-machines-to-failover-groups"></a>Lägga till virtuella datorer i grupper för redundans
 
-1. Skapa en återställningsplan genom att lägga till appen och webb-nivån virtuella datorer.
-2. Klicka på Anpassa om du vill gruppera de virtuella datorerna. Som standard har alla virtuella datorer ingår i ”grupp 1”.
+1. Skapa en återställnings plan genom att lägga till app-och webb nivåns virtuella datorer.
+2. Klicka på Anpassa för att gruppera de virtuella datorerna. Som standard ingår alla virtuella datorer i "grupp 1".
 
     ![Anpassa RP](./media/site-recovery-sharepoint/rp-groups.png)
 
-3. Skapar en ny grupp (Grupp2) och flytta virtuella datorer på webbnivå till den nya gruppen. Din App-nivå virtuella datorer ska vara en del av ”grupp 1” och virtuella datorer på webbnivå ska vara en del av ”Grupp2”. Det här är att se till att de App-nivå virtuella datorer startar upp först följt av virtuella datorer på webbnivå.
+3. Skapa en annan grupp (grupp 2) och flytta webb nivåns virtuella datorer till den nya gruppen. De virtuella datorerna på din app-nivå måste vara en del av "grupp 1" och virtuella datorer i virtuella datorer ska ingå i "grupp 2". Detta är för att säkerställa att app-Tier VM: ar startas först och sedan virtuella datorer på virtuella datorer.
 
 
-### <a name="adding-scripts-to-the-recovery-plan"></a>Lägga till skript i en återställningsplan
+### <a name="adding-scripts-to-the-recovery-plan"></a>Lägga till skript i återställnings planen
 
-Du kan distribuera de mest använda Azure Site Recovery-skript i ditt Automation-konto att klicka på knappen ”distribuera till Azure” nedan. När du använder alla publicerade skript, se till att du följer riktlinjerna i skriptet.
+Du kan distribuera de vanligaste Azure Site Recovery-skripten till ditt Automation-konto genom att klicka på knappen distribuera till Azure nedan. När du använder ett publicerat skript, se till att du följer anvisningarna i skriptet.
 
 [![Distribuera till Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Lägg till en åtgärd skript till ”grupp 1” till redundans SQL-tillgänglighetsgrupp. Använd ”ASR-SQL-FailoverAG'-skript som publiceras i exempelskripten. Se till att du följer riktlinjerna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
+1. Lägg till ett skript för för åtgärd i gruppen 1 i SQL-tillgänglighetsgruppen för redundans. Använd skriptet "ASR-SQL-FailoverAG" publicerat i exempel skripten. Se till att du följer anvisningarna i skriptet och gör de nödvändiga ändringarna i skriptet på lämpligt sätt.
 
     ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
     ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
-2. Lägg till en post åtgärd skript om du vill koppla en belastningsutjämnare på den redundansväxlade virtuella datorerna på webbnivå (Grupp2). Använd ”ASR-AddSingleLoadBalancer'-skript som publiceras i exempelskripten. Se till att du följer riktlinjerna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
+2. Lägg till ett inläggs åtgärds skript för att koppla en belastningsutjämnare på den misslyckade över virtuella datorerna på webb nivån (grupp 2). Använd skriptet "ASR-AddSingleLoadBalancer" publicerat i exempel skripten. Se till att du följer anvisningarna i skriptet och gör de nödvändiga ändringarna i skriptet på lämpligt sätt.
 
-    ![Lägg till-LB-skript-steg-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Lägg till-LB-skript-steg-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
-3. Lägg till en manuell åtgärd för att uppdatera DNS-posterna pekar på den nya gruppen i Azure.
+3. Lägg till en manuell åtgärd för att uppdatera DNS-posterna så att de pekar på den nya server gruppen i Azure.
 
-    * För platser som riktas mot internet, är inga DNS-uppdateringar krävs efter redundans. Följ stegen som beskrivs i avsnittet ”nätverksvägledning” om du vill konfigurera Traffic Manager. Om Traffic Manager-profil har konfigurerats enligt beskrivningen i föregående avsnitt, lägger du till ett skript för att öppna dummy-porten (800 i det här exemplet) på Azure-VM.
+    * För webbplatser som riktas mot Internet krävs inga DNS-uppdateringar efter redundansväxlingen. Följ stegen som beskrivs i avsnittet "nätverks vägledning" för att konfigurera Traffic Manager. Om Traffic Manager profilen har kon figurer ATS enligt beskrivningen i föregående avsnitt lägger du till ett skript för att öppna dummy-porten (800 i exemplet) på den virtuella Azure-datorn.
 
-    * Lägg till en manuell åtgärd för att uppdatera DNS-post som pekar på den nya Web nivån Virtuella datorns IP-load balancer för interna kundinriktade webbplatser.
+    * För interna riktade platser lägger du till ett manuellt steg för att uppdatera DNS-posten så att den pekar på den nya IP-adressen för belastningsutjämnaren för den virtuella webb nivån.
 
-4. Lägg till en manuell åtgärd för att återställa sökprogram från en säkerhetskopia eller starta en ny söktjänst.
+4. Lägg till en manuell åtgärd för att återställa sökprogrammet från en säkerhets kopia eller starta en ny Sök tjänst.
 
-5. Följ stegen nedan för att återställa Search service-program från en säkerhetskopia.
+5. För att återställa Sök tjänst programmet från en säkerhets kopia följer du stegen nedan.
 
-    * Den här metoden förutsätter att en säkerhetskopia av Search Service Application utfördes innan den i händelsen av katastrof och att säkerhetskopian är tillgänglig på DR-plats.
-    * Detta kan enkelt uppnås genom att schemalägga säkerhetskopieringen (till exempel, en gång per dag) och använda en kopia procedur för att placera säkerhetskopian på DR-plats. Kopiera procedurer kan omfatta skriptbaserade program, till exempel AzCopy (Azure Copy) eller hur du konfigurerar DFSR (Distributed File Services Replication).
-    * Nu när SharePoint-servergruppen kör kan navigera den centraladministrationen av ”säkerhetskopiera och återställa” och väljer Återställ. Återställningen interrogates säkerhetskopieringsplatsen angetts (du kan behöva uppdatera värdet). Välj Search Service Application-säkerhetskopia som du vill återställa.
-    * Sök igen. Tänk på att återställningen förväntar sig att hitta samma topologi (samma antal servrar) och samma hårddisk bokstäver som är tilldelade till dessa servrar. Mer information finns i [återställa Search service application i SharePoint 2013](https://technet.microsoft.com/library/ee748654.aspx) dokumentet.
+    * Den här metoden förutsätter att en säkerhets kopia av Search Service programmet utfördes före den oåterkalleliga händelsen och att säkerhets kopian är tillgänglig på DR-platsen.
+    * Detta kan enkelt uppnås genom att schemalägga säkerhets kopieringen (till exempel en gång per dag) och använda en kopierings procedur för att placera säkerhets kopian på DR-platsen. Kopierings procedurer kan innehålla skriptbaserade program som AzCopy (Azure Copy) eller för att ställa in DFSR (Distributed File Services-replikering).
+    * Nu när SharePoint-servergruppen körs går du till Central administration, säkerhets kopiering och återställning och väljer Återställ. Återställningen uppdaterar den angivna säkerhets kopierings platsen (du kan behöva uppdatera värdet). Välj den Search Service program säkerhets kopia som du vill återställa.
+    * Sökningen har återställts. Tänk på att återställningen förväntar sig att hitta samma topologi (samma antal servrar) och samma hård disks beteckningar som tilldelats dessa servrar. Mer information finns i dokumentet [restore search service app in SharePoint 2013](https://technet.microsoft.com/library/ee748654.aspx) .
 
 
-6. Följ stegen nedan för att starta med ett nytt program för Search-tjänsten.
+6. För att börja med ett nytt Sök tjänst program följer du stegen nedan.
 
-    * Den här metoden förutsätter att en säkerhetskopia av databasen ”sökadministration” är tillgänglig på DR-plats.
-    * Eftersom de andra Search Service Application-databaserna inte replikeras, måste de skapas på nytt. Gå till Central Administration för att göra det, och ta bort Search Service Application. Ta bort indexfilerna på alla servrar som är värd för Search-Index.
-    * Återskapa Search Service Application och det här återskapar databaserna. Vi rekommenderar att ha en förberedd skript som skapar det här programmet eftersom det inte går att utföra alla åtgärder via Användargränssnittet. Till exempel är att enhetsplats index och konfigurera söktopologin bara kan utföras med hjälp av SharePoint PowerShell-cmdletar. Använda Windows PowerShell-cmdleten Restore-SPEnterpriseSearchServiceApplication och ange log-levererade och replikerade Search Administration databasen Search_Service__DB. Denna cmdlet kan Sökkonfiguration, schema, hanterade egenskaper, regler och källor och skapa en standarduppsättning med andra komponenter.
-    * När Search Service Application har återskapas, måste du starta en fullständig crawl för varje innehållskälla att återställa söktjänsten. Du förlorar analytics information från den lokala gruppen, t.ex Sök efter rekommendationer.
+    * Den här metoden förutsätter att en säkerhets kopia av databasen "Sök administration" är tillgänglig på DR-webbplatsen.
+    * Eftersom de andra Search Service program databaserna inte replikeras måste de skapas på nytt. Det gör du genom att gå till Central administration och ta bort det Search Service programmet. Ta bort indexfilerna på alla servrar som är värdar för Sök indexet.
+    * Återskapa Search Service-programmet och skapa databaserna på nytt. Vi rekommenderar att du har ett för berett skript som återskapar det här tjänst programmet eftersom det inte går att utföra alla åtgärder via det grafiska användar gränssnittet. Det går till exempel att ställa in platsen för index enheten och konfigurera söktopologin med hjälp av SharePoint PowerShell-cmdlets. Använd Windows PowerShell-cmdleten Restore-SPEnterpriseSearchServiceApplication och ange den loggade och replikerade Sök administrations databasen, Search_Service__DB. Denna cmdlet ger Sök konfigurationen, schemat, de hanterade egenskaperna, reglerna och källorna och skapar en standard uppsättning av de andra komponenterna.
+    * När Search Service programmet har återskapats måste du starta en fullständig crawlning för varje innehålls källa för att återställa Search Service. Du förlorar lite analys information från den lokala server gruppen, till exempel Sök rekommendationer.
 
-7. När alla steg har slutförts, spara återställningsplanen och sista återställningsplanen ska se ut så här.
+7. När alla steg har slutförts sparar du återställnings planen och den slutliga återställnings planen kommer att se ut så här.
 
-    ![Sparade RP](./media/site-recovery-sharepoint/saved-rp.png)
+    ![Spara RP](./media/site-recovery-sharepoint/saved-rp.png)
 
-## <a name="doing-a-test-failover"></a>Gör ett redundanstest
-Följ [den här vägledningen](site-recovery-test-failover-to-azure.md) att göra ett redundanstest.
+## <a name="doing-a-test-failover"></a>Utföra en redundanstest
+Följ [den här vägledningen](site-recovery-test-failover-to-azure.md) för att utföra ett redundanstest.
 
-1.  Gå till Azure portal och välj Recovery Service-valv.
-2.  Klicka på återställningsplanen som skapats för SharePoint-programmet.
-3.  Klicka på ”Redundanstest”.
-4.  Välj återställningspunkten och Azure-nätverk för att börja testa redundans.
-5.  När den sekundära miljön är igång, kan du utföra dina verifieringar.
-6.  När validering är klar kan du kan klicka på Rensa redundanstestning i återställningsplanen och redundanstestmiljön har rensats.
+1.  Gå till Azure Portal och välj ditt Recovery Service-valv.
+2.  Klicka på återställnings planen som skapats för SharePoint-programmet.
+3.  Klicka på testa redundans.
+4.  Välj återställnings punkt och Azure Virtual Network för att starta processen för redundanstest.
+5.  När den sekundära miljön är igång kan du utföra dina verifieringar.
+6.  När verifieringen är klar kan du klicka på Rensa redundanstest i återställnings planen och testa redundansväxlingen.
 
-Anvisningar om hur du gör redundanstestningen för AD och DNS, referera till [testa redundans överväganden för AD- och DNS](site-recovery-active-directory.md#test-failover-considerations) dokumentet.
+Information om hur du testar redundans för AD och DNS finns i avsnittet [testa redundansväxling för AD och DNS-](site-recovery-active-directory.md#test-failover-considerations) dokument.
 
-Vägledning om hur du gör redundanstestningen för SQL Always ON-Tillgänglighetsgrupper finns i [programmet utför DR med Azure Site Recovery och gör redundanstestningen](site-recovery-sql.md#disaster-recovery-of-application) dokumentet.
+Information om hur du testar redundans för SQL Always ON-tillgänglighetsgrupper finns i [utföra Application Dr med Azure Site Recovery och utföra dokument för redundanstest](site-recovery-sql.md#disaster-recovery-of-an-application) .
 
-## <a name="doing-a-failover"></a>Gör en redundansväxling
-Följ [den här vägledningen](site-recovery-failover.md) för att göra en redundansväxling.
+## <a name="doing-a-failover"></a>Utföra en redundansväxling
+Följ [den här vägledningen](site-recovery-failover.md) för att utföra en redundansväxling.
 
-1.  Gå till Azure portal och välj Recovery Services-valvet.
-2.  Klicka på återställningsplanen som skapats för SharePoint-programmet.
-3.  Klicka på ”redundans”.
-4.  Välj återställningspunkt för att starta redundansprocessen.
+1.  Gå till Azure Portal och välj Recovery Services-valvet.
+2.  Klicka på återställnings planen som skapats för SharePoint-programmet.
+3.  Klicka på redundans.
+4.  Välj återställnings punkt för att starta redundansväxlingen.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan läsa mer om [replikering av andra program](site-recovery-workload.md) med Site Recovery.
+Du kan lära dig mer om att [Replikera andra program](site-recovery-workload.md) med hjälp av Site Recovery.

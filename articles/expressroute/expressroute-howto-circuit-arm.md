@@ -1,19 +1,20 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets - PowerShell: Azure | Microsoft Docs'
+title: 'Skapa och ändra en ExpressRoute-krets – PowerShell: Azure | Microsoft Docs'
 description: Skapa, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: ganesr;cherylmc
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657304"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846642"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Skapa och ändra en ExpressRoute-krets med PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +46,7 @@ Innan du börjar bör du granska den [krav](expressroute-prerequisites.md) och [
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Hämta listan över providers som stöds, platser och bandbredder
 Innan du skapar en ExpressRoute-krets, behöver du lista över anslutningsleverantörer som stöds, platser och bandbreddsalternativ för.
 
-PowerShell-cmdleten **Get-AzExpressRouteServiceProvider** returnerar den här informationen som du ska använda i senare steg:
+PowerShell-cmdleten **Get-AzExpressRouteServiceProvider** returnerar den här informationen, som du kommer att använda i senare steg:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -90,7 +91,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lista över alla ExpressRoute-kretsar
-Om du vill hämta en lista över alla ExpressRoute-kretsar som du skapade, kör den **Get-AzExpressRouteCircuit** kommando:
+Om du vill hämta en lista över alla ExpressRoute-kretsar som du har skapat kör du kommandot **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -216,7 +217,7 @@ Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](e
 Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd den [länka virtuella nätverk till ExpressRoute-kretsar](expressroute-howto-linkvnet-arm.md) artikel när du arbetar med Resource Manager-distributionsmodellen.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Hämta status för en ExpressRoute-krets
-Du kan hämta den här informationen när som helst med hjälp av den **Get-AzExpressRouteCircuit** cmdlet. Att göra anrop utan parametrar visar en lista över alla kretsar.
+Du kan hämta den här informationen när som helst med hjälp av cmdleten **Get-AzExpressRouteCircuit** . Att göra anrop utan parametrar visar en lista över alla kretsar.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

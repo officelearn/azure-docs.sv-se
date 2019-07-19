@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en offentlig grundläggande lastbalanserare med Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727594"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274090"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en Basic-lastbalanserare med hjälp av Azure-portalen
 
@@ -37,13 +37,13 @@ Först skapar du en Basic-lastbalanserare med hjälp av portalen. Det namn och d
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
-    | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Subscription               | Välj din prenumeration.    |    
+    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | *MyPublicIP*   |
@@ -235,9 +235,9 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
    
    Den virtuella datorns skrivbord öppnas i ett nytt fönster. 
    
-**Att installera IIS**
+**Så här installerar du IIS**
 
-1. Välj **alla tjänster** i den vänstra menyn och väljer **alla resurser**, och välj sedan i resurslistan **myVM1** som finns i den  *myResourceGroupSLB* resursgrupp.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen *myResourceGroupSLB* i resurs gruppen.
 2. Välj **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 5. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn. När du gör det startar en fjärrskrivbordssession med den virtuella datorn *myVM1*.
 6. Navigera till **Windows Administrationsverktyg**>**Windows PowerShell** på serverdatorn.

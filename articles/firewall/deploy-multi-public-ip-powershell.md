@@ -1,39 +1,36 @@
 ---
-title: Distribuera Azure-brandvägg med flera offentliga IP-adresser med hjälp av Azure PowerShell
+title: Distribuera Azure-brandväggen med flera offentliga IP-adresser med hjälp av Azure PowerShell
 description: I den här artikeln får du lära dig hur du distribuerar en Azure-brandvägg med flera offentliga IP-adresser med hjälp av Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703989"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325237"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuera en Azure-brandvägg med flera offentliga IP-adresser med hjälp av Azure PowerShell
 
-> [!IMPORTANT]
-> Azure-brandväggen med flera offentliga IP-adresser är tillgängligt via Azure PowerShell, Azure CLI, REST och mallar. Användargränssnittet för portalen läggs till regioner stegvis och är tillgänglig i alla regioner när distributionen är klar.
+Den här funktionen möjliggör följande scenarier:
 
-Du kan distribuera en Azure-brandvägg med upp till 100 offentliga IP-adresser.
+- **DNAt** – du kan översätta flera standard port instanser till backend-servrarna. Om du till exempel har två offentliga IP-adresser kan du översätta TCP-port 3389 (RDP) för båda IP-adresserna.
+- **SNAT** -ytterligare portar är tillgängliga för utgående SNAT-anslutningar, vilket minskar risken för SNAT-port överbelastning. För tillfället väljer Azure Firewall slumpmässigt den offentliga IP-adress som ska användas för en anslutning. Om du har filtrering av underordnade i nätverket måste du tillåta alla offentliga IP-adresser som är kopplade till din brand vägg.
+ 
+Azure-brandväggen med flera offentliga IP-adresser är tillgänglig via Azure Portal, Azure PowerShell, Azure CLI, REST och mallar. Du kan distribuera en Azure-brandvägg med upp till 100 offentliga IP-adresser.
 
-Den här funktionen gör det möjligt för följande scenarier:
-
-- **DNAT** – du kan översätta flera instanser av standard-port till backend-servrar. Du kan till exempel översätta TCP-port 3389 (RDP) för båda IP-adresser om du har två offentliga IP-adresser.
-- **SNAT** -ytterligare portar som är tillgängliga för utgående SNAT-anslutningar, minskar risken för SNAT portöverbelastning. För tillfället väljer Azure brandvägg slumpmässigt offentliga IP-källadressen för en anslutning. Om du har någon underordnad filtrering i nätverket, måste du tillåta alla offentliga IP-adresser som är associerade med din brandvägg.
-
-I följande Azure PowerShell-exempel visas hur du kan konfigurera, lägga till och ta bort offentliga IP-adresser för Azure-brandväggen.
+Följande Azure PowerShell exempel visar hur du kan konfigurera, lägga till och ta bort offentliga IP-adresser för Azure-brandväggen.
 
 > [!NOTE]
-> Du kan inte ta bort den första ipConfiguration från Azure-brandvägg offentliga IP-adress konfigurationssidan. Om du vill ändra IP-adressen kan du använda Azure PowerShell.
+> Du kan inte ta bort den första ipConfiguration från sidan konfiguration av offentliga IP-adresser i Azure-brandväggen. Om du vill ändra IP-adressen kan du använda Azure PowerShell.
 
-## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Skapa en brandväggsregel med två eller flera offentliga IP-adresser
+## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Skapa en brand vägg med två eller flera offentliga IP-adresser
 
-Det här exemplet skapar en brandvägg som är kopplade till det virtuella nätverket *vnet* med två offentliga IP-adresser.
+I det här exemplet skapas en brand vägg som är kopplad till det virtuella nätverkets *VNet* med två offentliga IP-adresser.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -64,9 +61,9 @@ New-AzFirewall `
   -PublicIpAddress @($pip1, $pip2)
 ```
 
-## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Lägga till en offentlig IP-adress till en befintlig brandvägg
+## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Lägga till en offentlig IP-adress i en befintlig brand vägg
 
-I det här exemplet, offentliga IP-adress *azFwPublicIp1* är kopplad till brandväggen.
+I det här exemplet är den offentliga IP- *azFwPublicIp1* kopplad till brand väggen.
 
 ```azurepowershell
 $pip = New-AzPublicIpAddress `
@@ -85,9 +82,9 @@ $azFw.AddPublicIpAddress($pip)
 $azFw | Set-AzFirewall
 ```
 
-## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>Ta bort en offentlig IP-adress från en befintlig brandvägg
+## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>Ta bort en offentlig IP-adress från en befintlig brand vägg
 
-I det här exemplet, offentliga IP-adress *azFwPublicIp1* har kopplats från brandväggen.
+I det här exemplet är den offentliga IP- *azFwPublicIp1* frånkopplad från brand väggen.
 
 ```azurepowershell
 $pip = Get-AzPublicIpAddress `

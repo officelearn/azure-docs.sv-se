@@ -1,652 +1,453 @@
 ---
-title: Vanliga frågor om Azure Marketplace
+title: Vanliga frågor och svar om Azure Marketplace
 description: Svar på vanliga frågor om Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 07/11/2019
 ms.author: ellacroi
-ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8d0759d96b0b2566934f117f5dea32ec4ad015c
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964045"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000010"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
 
 Svar på vanliga frågor om Microsoft Azure Marketplace.
 
-## <a name="faq-for-customers"></a>Vanliga frågor och svar för kunder
+## <a name="faq-for-customers"></a>Vanliga frågor och svar om kunder
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Vad du behöver veta om Azure Marketplace
 
 **Vad är Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) innehåller åtkomst och information om lösningar och tjänster som är tillgängliga från Microsoft och våra partner. Kunder (IT-proffs och utvecklare) kan identifiera försök köpa programvarulösningar för molnet som bygger på eller för Azure. Vår katalog med 8 000 + publiceringar tillhandahåller Azure att skapa till exempel virtuella datorer (VM), blockerar API: er, Azure-appar, Lösningsmallar och hanterade program, SaaS-appar, behållare och konsulttjänster.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) ger åtkomst och information om lösningar och tjänster som är tillgängliga från Microsoft och våra partner. Kunder (IT-proffs och utvecklare) kan upptäcka, försöka köpa moln program varu lösningar som bygger på eller skapats för Azure. Vår katalog med 8000 +-tablåer ger Azure-byggblock, till exempel Virtual Machines (VM), API: er, Azure-appar, lösningsfiler och hanterade program, SaaS-appar, behållare och konsult tjänster. 
 
-**Vem är Azure Marketplace för kunder?**
+**Vem är Azure Marketplace-kunder?**
 
-Azure Marketplace är utformat för IT-experter och molnutvecklare som är intresserade av kommersiell IT-programvara och tjänster.
+Azure Marketplace är utformat för IT-proffs och moln utvecklare som är intresserade av kommersiella IT-program och-tjänster.
 
-**Vilken typ av produkter är tillgängliga i Azure Marketplace?**
+**Vilken typ av produkter finns för närvarande på Azure Marketplace?**
 
-Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och Microsofts partner som skapats för att förbättra Azure-produkter och -tjänster. I lösningskatalogen flera kategorier, inklusive men inte begränsat till:
+Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och Microsofts partner som skapats för att förbättra Azure-produkter och -tjänster. Lösnings katalogen omfattar flera kategorier, inklusive men inte begränsat till:
 
-* grundläggande operativsystem
-* databaser
+* bas operativ system
+* databases
 * security
 * identity
 * nätverk
-* blockchain
+* Blockchain
 * utvecklarverktyg
-* och mycket mer
+* och mer
 
-SaaS-program, virtuella datorer, Lösningsmallar, Azure-hanterade program och konsulttjänster erbjudanden på Azure Marketplace.
+Azure Marketplace erbjuder SaaS-program, Virtual Machines, Solution templates, Azure-hanterade program och konsult tjänster.
 
 ### <a name="azure-marketplace-for-customers"></a>Azure Marketplace för kunder
 
-**Hur kommer jag igång på Azure Marketplace?**
+**Hur gör jag för att kom igång på Azure Marketplace?**
 
-Du kan hitta ett brett utbud av företagsprogram och lösningar som är certifierade och optimerade för körning på Azure, genom att besöka [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace kan även nås via den [Azure-hanteringsportalen](https://portal.azure.com/) under [ **skapa en resurs**](https://ms.portal.azure.com/#create/hub).
+Du hittar ett brett utbud av företags program och lösningar som är certifierade och optimerade för att köras på Azure, genom att besöka [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace kan också nås via [Azure Portal] när du [**skapar en resurs**](https://portal.azure.com/#create/hub).
 
-**Vilka är de främsta fördelarna med Azure Marketplace?**
+**Vilka är de viktigaste fördelarna med Azure Marketplace?**
 
-Kunder kan hitta tekniska program som skapats för eller bygger på Azure med Azure Marketplace. Den kombinerar Microsoft Azures marknad av lösningar och tjänster till en enda, enhetlig plattform för att identifiera, testa, köpa eller distribuera lösningar med bara några klick.
+Med Azure Marketplace kan kunderna identifiera tekniska program som skapats för eller bygger på Azure. Det kombinerar Microsoft Azure på marknaden av lösningar och tjänster till en enda, enhetlig plattform för att upptäcka, testa, köpa eller distribuera lösningar på bara några få klick.
 
-**Hur köper jag produkter från Azure Marketplace?**
+**Hur gör jag för att köpa produkter från Azure Marketplace?**
 
-Azure Marketplace-erbjudanden kan köpas genom:
+Azure Marketplace-erbjudanden kan köpas via:
 
-* [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* [Den webbaserade butik](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Azure Portal] [Azure Portal]
+* [Kommando rads gränssnittet för Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
->Förbetald kredit och andra typer av betalningsåtaganden kan inte användas för att betala för programvarulicenser, men kan användas för att betala för associerade Azure-användning.  Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>Förbetalda krediter och andra former av penning åtagande kan inte användas för att betala för licens avgifter för program vara, men kan användas för att betala associerade Azure-användnings kostnader. Undantag anges i [Azures penning åtagande](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
-**Kan jag välja vilken Microsoft Azure-region för att distribuera min Azure Marketplace-köp?**
+**Kan jag välja vilka Azure-regioner som ska distribuera mitt Azure Marketplace-köp?**
 
-Kunden har möjlighet att distribuera till valfri Azure data center-region som de gör. Vi rekommenderar att du väljer data center platserna närmast dina tjänster för att optimera prestanda och kontroll budget.
+Kunden kan välja att distribuera till valfri Azure Data Center-region som de har aktiverat. Vi rekommenderar att du väljer de data Center platser som är närmast dina tjänster för att optimera prestanda och kontrol lera budgeten.
 
-**Om jag råkar ta bort ett Azure Marketplace-köp, kan jag ”ångra” åtgärden?**
+**Kan jag *Ångra* åtgärden om jag råkar ta bort ett Azure Marketplace-köp?**
 
-Nej. Borttagningar är slutgiltiga. Om en prenumeration tas bort av misstag kan köpas tillbaka. Eventuella outnyttjade funktioner eller förbetalda tjänster går förlorade.
+Nej. Borttagningar är slutgiltiga. Om en prenumeration tas bort av misstag kan den omköpas. Outnyttjade funktioner eller förbetalda tjänster går förlorade.
 
-**Är jag någon varning om jag försöker ta bort ett Azure Marketplace-köp som används av en av Mina program?**
+**Varnas jag om jag försöker ta bort ett Azure Marketplace-köp som används i något av mina program?**
 
-Azure tillhandahåller Nej, ingen varning när du tar bort ett inköp, även om det är för närvarande används, eller ett program är beroende av.
+Nej, Azure ger ingen varning när ett köp tas bort, även om det används för närvarande eller om ett program är beroende av.
 
-**Om mitt Azure Marketplace-köp har några beroenden som hör till exempel en Azure-webbplats, måste jag hantera dem?**
+**Måste jag hantera dem om mitt Azure Marketplace-köp har några beroenden för andra till gångar, till exempel en Azure-webbplats?**
 
-Beroenden hanteras inte automatiskt för Azure Marketplace-erbjudanden. Noga igenom beskrivningen av Azure Marketplace-köp innan du använder det för att se om det finns några beroenden som krävs innan du distribuerar lösningen.
+Beroenden hanteras inte automatiskt för Azure Marketplace-erbjudanden. Läs noggrant igenom beskrivningen av Azure Marketplace-köp innan du använder det för att avgöra om det finns några beroenden som krävs innan du distribuerar lösningen.
 
-**Kan jag köpa Azure Marketplace-lösningar från en Azure Cloud Solution Provider?**
+**Kan jag köpa Azure Marketplace-lösningar från en Azure Cloud Solution-leverantör?**
 
-Om utgivaren har konfigurerat sitt erbjudande ska vara tillgängliga via CSP-kanalen, blir den tillgänglig via din återförsäljare.
+Om utgivaren har konfigurerat erbjudandet så att det är tillgängligt via Cloud Solution Provider (CSP)-kanalen, har moln lösnings leverantörs partner möjlighet att sälja lösningen igen.
 
-**Vilka länder/regioner kan användas för att köpa program och tjänster som säljs/etableras genom Azure Marketplace?**
+**Vilka länder/regioner stöds för att köpa program och tjänster som säljs/tillhandahålls via Azure Marketplace?**
 
-Azure Marketplace är tillgängligt för Microsoft Azure-kunder i de länder/regioner som anges i den [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Marketplace är tillgängligt för Azure-kunder i de länder/regioner som anges i [principerna för deltagande](/legal/marketplace/participation-policy).
 
-**Vilka valutor som stöds av Azure Marketplace?**
+**Vilka valutor stöds av Azure Marketplace?**
 
-Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, UPPDELADE, WON, NOK, NZD, RUB, SEK, TWD, USD, RMB.
+Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, WON, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuera en lösning från Azure Marketplace
 
-**Jag har distribuerat Azure Marketplace virtuell dator (VM) till en prenumeration och nu vill jag migrera prenumerationen från ett Azure-konto till en annan. För närvarande stöds detta?**
+**Jag har distribuerat en virtuell Azure Marketplace-dator (VM) till en prenumeration och nu vill jag migrera prenumerationen från ett Azure-konto till ett annat. Stöds detta för närvarande?**
 
-Migrera en Azure-prenumeration, inklusive Azure Marketplace-VM och tjänster, ta bort eller avbryta alla tidigare Azure-prenumeration innan du kan koppla till det nya Azure-kontot. När migreringen är klar debiteras resulterande med den nya registrerat konto betalningsmetoden.
+Om du vill migrera en Azure-prenumeration, inklusive virtuella datorer och tjänster från Azure Marketplace, tar du bort eller avbryter tidigare Azure-prenumerationer innan du kopplar till det nya Azure-kontot. När migreringen är klar faktureras de resulterande förbruknings avgifterna med hjälp av det nya registrerade kontots betalnings sätt.
 
-**Jag vill migrera en prenumeration på Azure Marketplace virtuell dator (VM) till mitt Enterprise Agreement. För närvarande stöds detta?**
+**Jag vill migrera en Azure Marketplace-prenumeration för virtuell dator (VM) till min Enterprise-avtal. Stöds detta för närvarande?**
 
-Om du vill migrera en prenumeration på Azure Marketplace virtuell dator (VM) till ett Enterprise-avtal, stoppa eller avbryta alla tidigare prenumeration före migreringen. När migreringen av ditt Azure-konto och associerade prenumerationer är klar kan förbrukningsavgifterna du till Azure Marketplace-datorn eller tjänsten.  De resulterande Användningsavgift faktureras kvartalsvis under ditt Enterprise Agreement.
+Om du vill migrera en Azure Marketplace-prenumeration (virtuell dator) till en Enterprise-avtal stoppar eller avbryter du eventuella tidigare prenumerationer innan migreringen. När migreringen av ditt Azure-konto och associerade prenumerationer är klar kan du köpa om den virtuella Azure Marketplace-datorn eller-tjänsten.  De resulterande förbruknings avgifterna faktureras kvartals vis under din Enterprise-avtal.
 
-### <a name="pricing-and-payment"></a>Priser och betalningsalternativ
+### <a name="pricing-and-payment"></a>Priser och betalning
 
-**Hur prissätts Azure Marketplace-prenumerationer?**
+**Hur priss ätts Azure Marketplace-prenumerationer?**
 
 Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration.
 
 *Unbundled:*
 
-*BYOL-modell:* Bring-your-own-license. När du fått en programvarulicens direkt från utgivaren eller en återförsäljare, finns det inga ytterligare avgifter för programvaran eller avgifter.
++ *BYOL-modell (in-your-License)* : När du skaffar en program varu licens direkt från utgivaren eller en åter försäljare finns det inga ytterligare kostnader eller avgifter för program vara.
 
-*Bundled:*
+*Tillsammans*
 
-Azure-prenumeration ingår utgivarens oberoende leverantörer (ISV) lösning priser.
+Azure-prenumeration ingår i utgivarens priser för oberoende program varu leverantörer (ISV).
 
-*Debiteras:*
+*Kost*
 
-*Kostnadsfri:* Kostnadsfri SKU. Inga kostnader tillämpas för programvarulicensavgifter eller användning av erbjudandet.
++ *Kostnads fria* Kostnadsfri SKU. Inga avgifter tillämpas för licens avgifter för program vara eller användningen av erbjudandet.
 
-*Utvärderingsversion av kostnadsfri programvara:* Ett erbjudande som är kostnadsfri under en begränsad period. Det finns ingen kostnad för utgivarens programvarulicensavgifter för användning under utvärderingsperioden. När utvärderingsperioden går ut konverterar det automatiskt till en betalprenumeration baserat på standardpriser som utfärdats av utgivaren.
++ *Kostnads fri utvärdering av program vara:* Ett erbjudande som är kostnads fritt under en begränsad period. Det kostar ingen avgift för utgivarens program varu licens avgifter för användning under utvärderings perioden. Vid förfallo datum omvandlas det automatiskt till ett betalt erbjudande baserat på de standard priser som utfärdats av utgivaren.
 
-*Användningsbaserat:* Avgifter debiteras eller faktureras utifrån omfattningen användning av erbjudandet. För avbildningar av virtuella datorer är det debiteras en avgift för varje timme. För utvecklartjänster och API: er, är det debiteras per mätenhet som definieras av erbjudandet.
++ *Användning-baserad:* Priserna debiteras eller faktureras baserat på den omfattning användningen av erbjudandet. För Virtual Machines avbildningar debiteras de per tim avgift. För utvecklings tjänster och API: er debiteras de per mått enhet som definieras av erbjudandet.
 
-*Månadsavgift:* Avgifter debiteras eller faktureras en fast månadsavgift för en prenumeration på erbjudandet (från startdatumet för prenumerationen för den prenumerationen). Månadsavgiften kan beräknas prorata för uppsägningar mitt i månaden eller outnyttjade tjänster.
++ *Fast avgift:* SaaS-prenumerationer kan vara priss ätts som en fast avgift som faktureras per månad eller per år. Detta kan även inkludera ytterligare fakturerings dimensioner som debiteras enligt förbrukningen (till exempel bandbredd, e-post eller biljetter). 
 
-Prisinformation om ett specifikt erbjudande finns på lösningens detaljsida på [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/) eller i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/).
++ *Per användare:* SaaS-prenumerationer kan vara pris per användare som faktureras per månad eller per år. 
 
->[!Note]
-> Undantag för månatliga avgifter debiteras Azure-användning alla prismodellerna om inte annat anges.
+Erbjud pris information finns på lösnings informations sidan på [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) eller inom [Azure Portal].
 
-**Hur ska jag ge mitt programvara licensnyckel för BYOL marketplace-lösningar och vilken roll spelar Azure Marketplace upp?**
+> [!Note]
+> Med undantag för månads avgifter gäller Azures användnings kostnader för alla pris modeller om inget annat anges.
 
-Förvärv och tillämpning av autentiseringsuppgifter för licensen för BYOL-lösningar är ansvar för utgivaren. VM-erbjudanden normalt förvärv av licensnyckeln i utgivarens program när programmet har startats. När du använder ett erbjudande för virtuella datorer som distribuerats via en lösning för Azure Programmall kan ARM-mall konfigureras för att fråga användaren om ett antal indata inklusive autentiseringsuppgifter licensen.
+**Hur ska jag tillhandahålla min program licens nyckel för BYOL Marketplace-lösningar och vilken roll kan Azure Marketplace spela?**
 
-Det här är de vanligaste alternativen per typ av erbjudande:
+Förvärv och tvång av licens uppgifter för BYOL-lösningar är utgivarens ansvar. För erbjudanden om virtuell dator sker förvärvet av licens nyckeln vanligt vis i utgivarens program efter att programmet har startats. När du använder ett erbjudande för virtuella datorer som distribueras via en mall för Azure Application lösning kan du konfigurera Resource Manager-mallen så att användaren uppmanas att ange en mängd olika indata, inklusive licens uppgifter.
+
+Detta är de vanligaste alternativen per erbjudande typ:
 
 *Erbjudande för virtuell dator:*
 
-*Alternativ 1:* Förvärvet av licensnyckeln normalt i utgivarens program när programmet har startats.
++ *Alternativ 1:* Anskaffningen av licens nyckeln inträffar vanligt vis i utgivarens program när programmet har startats.
 
-*Alternativ 2:* Licensnyckeln anges av användaren (via kommandoraden / webb-gränssnittet som tillhandahålls av erbjudandet) efter distributionen av erbjudande för virtuell dator i den valda prenumerationen. Licensen kan vara en nyckel och/eller filen, vilket fastställs av utgivaren.
++ *Alternativ 2:* Licens nyckeln anges av slutanvändaren (via kommando raden/webb gränssnittet som tillhandahålls av erbjudandet) efter distributionen av det virtuella dator erbjudandet i den valda prenumerationen. Licensen kan vara en nyckel och/eller fil, som definieras av utgivaren.
 
-*Azure-appar (lösningsmallen och hanterade appar):*
+*Azure-appar (lösnings mal len och hanterade appar):*
 
-*Alternativ 1:* ARM-mall kan konfigureras så att du tillfrågas för ett antal indata inklusive autentiseringsuppgifter licensen. Detta kan göras som en licensfil (filöverföring) eller en nyckel (textrutan indata) innan distributionen av erbjudandet, i prenumerationen.
++ *Alternativ 1:* Du kan konfigurera Resource Manager-mallen så att du tillfrågas om en mängd indata, inklusive licens uppgifter. Detta kan göras som en licens fil (fil överföring) eller en nyckel (text Rute indata), före distribution av erbjudandet i slut användar prenumerationen.
 
-*Alternativ 2:* Du kan ange licensnyckeln via kommandoraden / webb-gränssnittet som tillhandahålls av erbjudandet.  Det görs efter distributionen av erbjudandet i Azure-appar i den valda prenumerationen. Licensen kan vara en nyckel och/eller filen, vilket fastställs av utgivaren.
++ *Alternativ 2:* Du kan ange licens nyckeln via kommando rads-/webb gränssnitt som tillhandahålls av erbjudandet.  Det görs efter distributionen av Azure Apps-erbjudandet i den valda prenumerationen. Licensen kan vara en nyckel och/eller fil, som definieras av utgivaren.
 
-**Vad är skillnaden mellan ”kostnadsfri utvärdering” och ”kostnadsfri utvärderingsversion av programvara”?**
+**Vilka typer av försök stöds?**
 
-Erbjudandet för en ”kostnadsfri utvärdering” är alltid gratis.  En ”kostnadsfri programvara utvärderingsversion' ' (Prova nu”) erbjudandet är ett kostnadsbelagt erbjudande, men ledigt under en begränsad utvärderingsversion perioder.
+De kostnads fria utvärderings erbjudandena är listor med ett anrop till åtgärd för att initiera en utvärderings version. Dessa leder kunden till en webbplats som definierats av utgivaren för att ställa in utvärderings versionen. Test versioner kan också läggas till i avgiftsbelagda erbjudanden där den första månaden är kostnads fri. 
 
-**Måste jag ha ett betalningsinstrument (till exempel kreditkort) registrerat för att distribuera kostnadsfria nivån eller ta med din egen (BYOL)-licenserbjudanden?**
+**Måste jag ha ett betalnings instrument (t. ex. kredit kort) i filen för att distribuera den kostnads fria nivån eller ta med dina egna licens erbjudanden (BYOL)?**
 
-Nej. Informationen om betalningsalternativet som är inte krävs för att distribuera erbjudanden på den kostnadsfria nivån eller BYOL. Men erbjudanden för kostnadsfria utvärderingsversioner kräver ett betalningsinstrument. Publiceringar med den **Hämta nu** eller **kostnadsfri utvärdering av programvara** knappar har distribuerats till den valda Azure-prenumerationen.  Dessa listningar debiteras med det valda kontot registrerade betalningsmetoden. Avgifter för Azure-användning faktureras separat från programvarulicensavgifter.
+Nej. Det krävs ingen betalnings metod för att distribuera kostnads fria nivåer eller BYOL-erbjudanden. Men erbjudanden för kostnadsfria utvärderingsversioner kräver ett betalningsinstrument. Listor som inkluderar knapparna **Hämta nu** eller **kostnads fri program varu utvärdering** distribueras till den valda Azure-prenumerationen.  Dessa listor faktureras med hjälp av det valda kontots registrerade betalnings metod. Azure-användning debiteras separat från licens avgifter för program vara.
 
-**Om de har frågor om priser för erbjudanden som säljs på Azure Marketplace som ett indirekt Enterprise Agreement (EA)-kund kontaktar?**
+**Om de har frågor om priser för erbjudanden som säljs på Azure Marketplace, vem gör en Enterprise-avtal (EA) indirekt kund kontakt?**
 
-Enterprise Agreement (EA) indirekta kunder måste kontakta sin LSP Licensing Solution Provider () för alla frågor om priser för Azure Marketplace.
+Enterprise-avtal (EA) indirekta kunder måste kontakta sin Licensing Solution Provider (LSP) för alla pris frågor för Azure Marketplace.
 
-**Kan jag kontrollera Mina anställdas åtkomst till Azure Marketplace och köpbehörigheter?**
+**Kan jag kontrol lera mina anställdas åtkomst till Azure Marketplace och Köp behörighet?**
 
-För kunder med Enterprise Agreement (EA), Ja, stänga registreringsadministratören av köpbehörigheten för samtliga konton i registreringen och aktivera den igen tillräckligt länge göra ett inköp. Alla kunder kan dessutom använda Azure Policy för att förhindra distributionsalternativ för deras Azure-prenumerationer, inklusive hantering av Azure Marketplace-resurser.
+Ja, för kunder med Enterprise-avtal (EA) kan registrerings administratören stänga av köp behörighet för alla konton i registreringen och aktivera den igen tillräckligt länge för att göra ett köp. Dessutom kan alla kunder använda Azure Policy för att begränsa distributions alternativen för sina Azure-prenumerationer, inklusive hantering av Azure Marketplace-resurser.
 
-**Kan jag använda Azure-prenumerationskrediter eller åtagandesaldon på mitt konto för Azure Marketplace-erbjudanden?**
+**Kan jag använda Azures prenumerations krediter eller betalnings medel i mitt konto mot Azure Marketplace-erbjudanden?**
 
-För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. Se [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) en fullständig lista över produkter som medverkar i det här programmet. Dessa erbjudanden inkluderar inte BYOL eller BYOS alternativ. Alla andra Azure Marketplace-erbjudanden inte kan använda Azure-prenumerationskrediter eller betalningsåtaganden: till exempel den kostnadsfria krediten för en månads utvärdering, månatliga MSDN-krediter, krediter från Azure-kampanjer, åtagandesaldo och alla andra kostnadsfria krediter från Azure.
+För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. En fullständig lista över produkter som ingår i det här programmet finns i det [monetära åtagandet i Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) . Dessa erbjudanden omfattar inte BYOL-eller BYOS-alternativ. Alla andra Azure Marketplace-erbjudanden kan inte använda Azures prenumerations krediter eller betalnings åtagande: som den kostnads fria utvärderings versionen på en månad, månatliga MSDN-krediter, krediter från Azure-kampanjer, kredit sal Don och andra kostnads fria krediter från Azure.
 
-**Gäller volymlicensieringsrabatter för köp på Azure Marketplace?**
+**Gäller volym licens rabatter för Azure Marketplace-köp?**
 
-Nej. Utgivaren som äger lösningar på Azure Marketplace kan ange priser.  Vanliga Microsoft-volymlicensieringsrabatter gäller inte för Azure Marketplace-köp.
+Nej. Utgivaren som äger lösningar på Azure Marketplace kan ange priser.  Microsofts standard volym licens rabatter gäller inte för Azure Marketplace-köp.
 
-**Hur betalar jag för dessa prenumerationer? Mitt Azure Marketplace-köp på Azure-faktura, eller finns det en separat faktura?**
+**Hur gör jag för att betala för de här prenumerationerna? Visas mina Azure Marketplace-köp på Azure-fakturan eller någon annan faktura?**
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) kunder (d.v.s. web-direct) debiteras via samma kreditkort som finns på profilen för deras Azure-prenumeration. Om du inte har något kreditkort på fil, kan du köpa från Azure Marketplace. I detta fall använder fått du beviljats ett särskilt tillstånd om du vill att dina Azure-avgifter fakturerade i stället.
+MOSP – [Microsoft Online Subscription-program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (t. ex. Web-Direct) debiteras mot samma kredit kort som finns i filen för prenumerations profilen för Azure. Om du inte har ett kredit kort på en fil kan du inte köpa från Azure Marketplace. I det här fallet fick du ett särskilt avstående för att få dina Azure-avgifter fakturerade i stället.
 
-Kunder med Enterprise Agreement (EA) debiteras mot deras EA. Specifika Azure Marketplace-erbjudanden som beskrivs här är först dras av från eventuellt tillgängligt betalningsåtagande sedan faktureras som överförbrukning på en gemensam kvartalsfaktura. Indirekta EA-kunder, utbildningskunder och myndighetskunder faktureras av deras providern LSP (Licensing Solution).
+Enterprise-avtal-kunder (EA) debiteras mot deras EA. Vissa Azure Marketplace-erbjudanden som anges här är först avdragen från alla tillgängliga betalnings åtaganden och faktureras som överanvändning på en enda kvartals faktura. Indirekta EA-, utbildnings-och myndighets Kunder debiteras av deras LSP (Licensing Solution Provider).
 
-**Var kan jag se på min Azure Marketplace-prenumeration och faktureringsinformation?**
+**Var kan jag se information om min Azure Marketplace-prenumeration och fakturerings information?**
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web-direct) kunder kan se information om en Marketplace-köp på fliken fakturor för kostnadshantering + fakturering avsnitt av Azure-hanteringsportalen.
+MOSP – kunder som prenumererar på [Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
-Enterprise Agreement (EA)-kunder kan se information om en Marketplace-köp i fliken fakturor för kostnadshantering + fakturering avsnitt av Azure-hanteringsportalen.
+Enterprise-avtal-kunder (EA) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
-Partner för cloud Solution Provider (CSP) kan visa information om en Marketplace-köp för varje kund i Partner Center på fliken orderhistorik när du har valt ett företag i vyn kunder.
+Leverantörer av moln lösningar (CSP) kan visa inköps information för Marketplace för varje kund i Partner Center på fliken order historik när du har valt ett företag i vyn kunder.
 
-**Hur avbryter jag ett Azure Marketplace-tillägg för virtuell dator i Azure?**
+**Hur gör jag för att avbryta ett Azure Marketplace-tillägg till Azure VM?**
 
-Eftersom tillägg är associerad till Azure Virtual Machine (VM), om du vill avbryta köpet från Azure Marketplace först stoppa den virtuella datorn genom att ta bort den. Därför stoppar all prenumerationsanvändning och kostnader på Azure Marketplace-köp.
+Eftersom tillägget är kopplat till den virtuella Azure-datorn (VM) för att avbryta Azure Marketplace-köpet måste du först stoppa den virtuella datorn genom att ta bort den. Stoppa därför all prenumerations användning och avgifter på Azure Marketplace-köpet.
 
-**Hur ofta faktureras jag för Mina Azure Marketplace-köp?**
+**Hur ofta faktureras jag för mina Azure Marketplace-köp?**
 
-Enterprise Agreement-kunder för de specifika tjänster som beskrivs, först har tillgängliga betalningsåtaganden reducerade med tjänsterna totala kostnaderna för tjänsterna i den månad de förbrukas. Alla Azure Marketplace-erbjudanden som inte dras av från åtagandebeloppet, faktureras varje månad i efterhand. Årlig SaaS-prenumerationer faktureras en gång för tjänster som ett helt år.
+Enterprise-avtal kunder, för de specifika tjänsterna som beskrivs, har först tillgängliga betalnings åtaganden som minskas med den totala kostnaden för dessa tjänster under den månad de förbrukas. Alla Azure Marketplace-erbjudanden som inte dras av från betalnings åtagandet faktureras månads vis. Årliga SaaS-prenumerationer faktureras en gång för hela årets tjänster.
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) kunder (web-direct) debiteras varje månad via samma kreditkort som finns på profilen för deras Azure-prenumeration. Årlig SaaS-prenumerationer faktureras en gång för tjänster som ett helt år.
+MOSP – kunder med [Microsoft Online prenumerations program](https://azure.microsoft.com/support/legal/subscription-agreement/) (Web Direct) debiteras månads vis mot samma kredit kort som finns i filen för prenumerations profilen för Azure. Årliga SaaS-prenumerationer faktureras en gång för hela årets tjänster.
 
-**Hur kan jag flytta mina Azure Marketplace-köp från min MOSP-prenumeration till min direkta Enterprise Agreement (EA)-prenumeration?**
+**Hur kan jag flytta mina Azure Marketplace-köp från min MOSP-prenumeration till min direkta Enterprise-avtal-prenumeration (EA)?**
 
-Även om de flesta Microsoft-prenumerationerna enkelt kan omvandlas till ett Enterprise-avtal, inte Azure Marketplace-köp inom dessa prenumerationer.
+Även om de flesta Microsoft-prenumerationer enkelt kan konverteras till en Enterprise-avtal kan Azure Marketplace-köp i dessa prenumerationer inte.
 
-Om du vill migrera andra tjänster som köpts från Azure Marketplace till en EA-prenumeration, först avbryta från andra program i den befintliga MOSP-prenumerationen och förbrukningsavgifterna dessa program i EA-prenumeration. Då kan du skicka in en kreditbegäran för en återbetalning under månaden potentiella överlappningen mellan Marketplace-tjänstprenumerationerna – skapa en [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Om du vill migrera andra tjänster som köpts från Azure Marketplace till en EA-prenumeration måste du först avbryta program inifrån den befintliga MOSP-prenumerationen och köpa programmen i EA-prenumerationen igen. Genom att göra det kan du skicka in en kredit förfrågan om åter betalning under den potentiella månaden med överlappande täckning mellan Marketplace-tjänstens prenumerationer – skapa ett [support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-**Vad är skillnaden mellan ”pris”, ”programvarupris” och ”totalt pris” i kostnadsstrukturen för den virtuella datorn erbjuder på Azure Marketplace?**
+**Vad är skillnaden mellan *pris*, *program varu pris*och *Total pris* i kostnads strukturen för erbjudanden om virtuella datorer på Azure Marketplace?**
 
-Med ”pris” avses den virtuella Azure-datorns kostnad för att köra programvaran. Med "programvarupris" avses kostnaden för att köra Marketplace-utgivarens programvara på den virtuella Azure-datorn. Med ”totalt pris” avses den totala kostnaden för den virtuella Azure-datorn och Marketplace-utgivarens programvara på en virtuell Azure-dator.
+*Priset* avser kostnaden för den virtuella Azure-datorn för att köra program varan. *Program varu priset* avser kostnaden för Marketplace-utgivarens program vara som körs på en virtuell Azure-dator. Det *totala priset* avser den sammanlagda kostnaden för den virtuella Azure-datorn och Marketplace-utgivarens program vara som körs på en virtuell Azure-dator.
 
-**Kan jag använda Azure-prenumerationskrediter eller monetära medel på mitt konto för Azures produkter och tjänster som krävs för att köra Azure Marketplace-erbjudanden?**
+**Kan jag använda Azures prenumerations krediter eller penning belopp på mitt konto för Azure-produkter och-tjänster som krävs för att köra Azure Marketplace-erbjudanden?**
 
-Ja. Azure-prenumerationskrediter eller åtagandesaldo på konton som du kan använda för Azure-produkter och Azure Marketplace-erbjudanden. Till exempel kan Azure-betalningsåtaganden tillämpas gentemot komponenten ”price” för ett erbjudande för virtuell dator på Azure Marketplace. Azure-prenumerationskrediter eller betalningsåtaganden kan dock endast tillämpas för vissa Marketplace-utgivare programvara (”programvarupris”) som körs på en Azure-dator.
+Ja. Azures prenumerations krediter eller penning åtagande fonder på kontot kan användas för Azure-produkter och Azure Marketplace-erbjudanden. Till exempel kan du använda Azures penning åtagande för *pris* komponenten i ett erbjudande för virtuella datorer på Azure Marketplace. Azures prenumerations krediter och penning åtagande fonder kan dock endast tillämpas på vissa Marketplace-program (*program varu pris*) som körs på en virtuell Azure-dator.
 
-**Hur kan jag se hur mycket av Mina Azure Marketplace-köp jag har använt?**
+**Hur gör jag för att ta reda på hur mycket av mitt Azure Marketplace-köp jag har använt?**
 
-En informationen finns i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/). Informationen får inte innehålla senaste aktiviteter, och baseras på beräkningar från tidigare förbrukning. Under den offentliga förhandsversionen kan den här funktionen kanske inte tillgänglig för alla köp, och kan variera beroende på produkttyp.
+Du hittar en uppskattad användnings information i [Azure Portal]. Sådan uppskattad användnings information får inte innehålla senaste aktiviteter och kan baseras på projektioner som härletts från tidigare konsumtion. Under den offentliga för hands versionen kanske den här funktionen inte är tillgänglig för alla köp och kan variera beroende på produkt typ.
 
 ### <a name="customer-support"></a>Kundsupport
 
-**Vem kontaktar jag för allmänna supportärenden gällande Azure Marketplace?**
+**Vem kontaktar jag för allmänna support ärenden med Azure Marketplace?**
 
-Kontakta programutgivaren direkt för allmän programsupport om användning eller felsökning.
+Kontakta program utgivaren direkt för allmän program support om användning eller fel sökning.
 
-Fakturerings- och problem med ditt Azure Marketplace-köp, kontakta [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Kontakta [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
 **Vem kontaktar jag om jag behöver teknisk support för en lösning som jag har köpt på Azure Marketplace?**
 
-Kontakta leverantören utgivare för all teknisk produktsupport. Utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats finns på lösningens detaljsida på Azure Marketplace.
+Kontakta utgivar leverantören för all teknisk produkt support. Information om utgivarens kontakt information och/eller en länk till support webbplatsen finns på sidan lösnings information på Azure Marketplace.
 
-**Vem kontaktar jag för fakturering supportfrågor om en lösning från tredje part som köpts från Marketplace?**
+**Vem kontaktar jag för fakturerings support/frågor om en lösning från tredje part som köpts från Marketplace?**
 
-Kontakta Microsoft Support vid [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Kontakta Microsoft Support på [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten.
 
-**Finns det ett Supportforum för Azure Marketplace?**
+**Vem kontaktar jag om jag har frågor om priser eller villkor för partner lösningar som säljs på Azure Marketplace?**
 
-Ja. Gå till den [Azure Marketplace-forum](https://social.msdn.microsoft.com/Forums/home?forum=DataMarket) för community-support.
+Kontakta utgivar leverantören för all teknisk produkt support. Information om utgivarens kontakt information och/eller en länk till support webbplatsen finns på sidan lösnings information på Azure Marketplace.
 
-**Vem kontaktar jag om jag har frågor om prissättning eller villkor för partnerlösningar som säljs på Azure Marketplace?**
+**Kan jag returnera ett köp om jag inte är nöjd?**
 
-Kontakta leverantören utgivare för all teknisk produktsupport. Utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats finns på varje lösningens detaljsida på Azure Marketplace.
+Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Förbruknings erbjudanden faktureras baserat på användning, så när den stoppas upphör även avgifterna. Prenumerationer annulleras och debiteras inte efter den aktuella fakturerings perioden. Om en prenumeration annulleras kort efter köpet (24 timmar för varje månad och 14 dagar per år) ges en fullständig åter betalning.
 
-**Om jag inte är nöjd kan jag lämna tillbaka det?**
+Kunderna måste kontakta utgivaren direkt för att få tekniska problem som rör sin Marketplace-tjänst eller köp. Information om utgivarens kontakt information och/eller en länk till support webbplatsen finns på sidan lösnings information på Azure Marketplace.
 
-Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Beroende erbjudanden faktureras enligt användning, förbrukning så debiterar när tjänsten har stoppats stoppas också. Prenumerationer har avbrutits och kommer inte att debiteras efter den aktuella faktureringsperioden. Om en prenumeration avbryts strax efter köp (24 timmar för varje månad och 14 dagar för årliga) så tillhandahålls en full återbetalning.
-
-Kunder måste kontakta utgivaren direkt för alla tekniska problem som rör deras Marketplace-tjänst eller köp. Utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats finns på lösningens detaljsida på Azure Marketplace.
-
-### <a name="dev-center-registration"></a>Dev Center-registrering
-
-**Vilken utgivare kräver Kontoregistrering för en Dev Center?**
-
-Utgivare som publicerar i Transact listtyp: Virtuella Azure-appar: Lösningsmallar och hanterade appar.
-
-**Varför är en Dev Center-konto som krävs?**
-
-En [Dev Center-konto](https://docs.microsoft.com/azure/marketplace/register-dev-center) krävs för att Microsoft ska fakturera kunden på utgivarens räkning för ett Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag.
-
-**Hur kommer jag igång med Dev Center registrering?**
-
-Börja med att skapa en [Microsoft Partner Network (MPN) ID](https://partner.microsoft.com). Logga in och registrera dig som en försäljning i Dev Center med ditt MPN-ID. Om du vill förhindra duplicering, kontrollerar du att ditt företag inte redan har en [Dev Center-konto](https://docs.microsoft.com/azure/marketplace/register-dev-center) registrerad. (Observera: fylla i registreringsformuläret för Marketplace för att ta emot en Dev Center kampanjkoden före registreringen.)
-
-**Vad kan jag förvänta mig efter registreringen?**
-
-Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Verifiera det konto som fått e-postmeddelande med Microsoft ”. Klicka på länken tid känsliga verifiering för att slutföra registreringen. Om inga e-postmeddelanden har tagits emot inom 24 timmar, kontrollera mappen för skräppost.
-
-**Vad är nästa steg efter Dev Center-verifiering?**
-
-Gå till [programmen](https://developer.microsoft.com/en-us/dashboard/Account/Programs) och logga in på Dev Center-konto. Det bör finnas ett avsnitt som heter **rekommenderade program du** och som ett avsnitt som heter **Azure**. Klicka på **börjar** och går igenom processen för att skapa ett Azure-konto.
-
-**Varför avvisas mitt Dev Center-program?**
-
-Konto registreringar baseras på geografiska problem. Företag med dotterbolag baserat på platser som skiljer sig från huvudkontoret behöver bara en Dev Center-konto.
-
-**Hur kontaktar jag support för frågor om Dev Center registrering?**
-
-Att få tillgång till support finns på Windows developer support-sidan finns på [ https://developer.microsoft.com/en-us/windows/support ](https://developer.microsoft.com/windows/support).
-
-## <a name="faq-for-publishers"></a>Vanliga frågor och svar för utgivare
+## <a name="faq-for-publishers"></a>Vanliga frågor och svar om utgivare
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Vad du behöver veta om Azure Marketplace
 
 **Vad är Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) är en Onlinemarknadsplats för program och tjänster. Kunder (främst IT-proffs och utvecklare) kan identifiera och köpa programvarulösningar som skapats med eller för Azure för molnet. Katalogen har över 8 000 publiceringar, till exempel Azure-byggblock som virtuella datorer (VM), API: er, Lösningsmallar, SaaS-program, och konsulttjänst erbjuder.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) är en Marketplace för program och tjänster online. Kunder (det mesta av IT-proffs och utvecklare) kan upptäcka och köpa moln program varu lösningar som skapats med eller för Azure. Dess katalog har över 8 000 listor, till exempel Azure-byggblock som Virtual Machines (VM), API: er, Solution templates, SaaS-program och konsult tjänst erbjudanden.
 
-Azure Marketplace är startpunkten för alla gemensamt Microsoft Go-To-Market-aktiviteter.  Vi fokusera på att hjälpa partner att nå fler kunder. Du kan publicera nya listor och även använda Azure Marketplace för att genomföra erbjudanden och kräver generation kampanjer, utföra gemensamma försäljning /-marknadsföring aktiviteter med Microsoft.
+Azure Marketplace är start punkten för alla gemensamma Microsoft go-to-Marketing-aktiviteter.  Vi fokuserar på att hjälpa partners att komma åt fler kunder. Du kan publicera nya listor och även använda Azure Marketplace för att utföra kampanjer och skapa kampanjer på begäran, utföra gemensamma försäljnings-och marknadsförings aktiviteter med Microsoft.
 
-**Vem är Azure Marketplace för kunder?**
+**Vem är Azure Marketplace-kunder?**
 
-Azure Marketplace är utformat för IT-experter och molnutvecklare intresserad av kommersiella IT-programvara och tjänster.
+Azure Marketplace är utformat för IT-proffs och moln utvecklare som är intresserade av kommersiella IT-program och tjänster.
 
 ### <a name="azure-marketplace-for-publishers"></a>Azure Marketplace för utgivare
 
-**Varför bör jag publicera mitt program på Azure Marketplace och hur jag nytta av det?**
+**Varför ska jag publicera mitt program på Azure Marketplace och hur fördelar det mig?**
 
-Azure Marketplace är en marknadsplats där Microsoft-Partners att marknadsföra och sälja produkter och tjänster till Azure-kunder. Utgivare, få direkt åtkomst till 140 globala marknader, våra 300 000 +-partner och Azures nätverk för företagskunder.  Marketplace innehåller mer än 90% av Fortune 500-företagen och många andra av världens ledande utvecklare. Ny partner i Azure Marketplace erbjuds automatiskt en uppsättning [kostnadsfria Go-To-Market-fördelar](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#go-to-market-gtm-benefits-in-the-marketplace) för att öka medvetenhet om deras erbjudanden på Azure marketplace.
+Azure Marketplace tillhandahåller en marknad för Microsoft-partner för att marknadsföra och sälja produkter och tjänster till Azure-kunder. Utgivare får direkt åtkomst till 140 globala marknader, våra 300000 + partners och Azures nätverk för företags kunder.  Marketplace innehåller över 90% av Fortune 500-företag och många av världens ledande utvecklare. Nya partner i Azure Marketplace erbjuds automatiskt en uppsättning [kostnads besparingar på marknaden](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) för att öka medvetenheten om sina erbjudanden i Azures marknads plats.
 
-**Vad är faktorn särskiljande mellan Azure Marketplace och AppSource?**
+**Vad är differentierings faktorn mellan Azure Marketplace och AppSource?**
 
-Microsoft-Partners kan välja var du vill publicera baserat på deras målgrupp.
+Microsoft-partner kan välja var du vill publicera baserat på mål gruppen.
 
-Microsoft tillhandahåller två skilda molnbutiker – Azure Marketplace och AppSource. De här butikerna gör det möjligt för kunder att hitta, prova och köpa molnprogram och -tjänster. Varje butik uppfyller unika kundbehov och gör Microsoft-Partners att fokusera på sina lösningar eller -tjänster baserat på vilken målgrupp.
+Microsoft tillhandahåller två olika moln marknads platser butiker – Azure Marketplace och AppSource. De här butikerna gör det möjligt för kunder att hitta, prova och köpa molnprogram och -tjänster. Varje butik hanterar unika kund behov och gör att Microsoft-partner kan rikta sina lösningar eller tjänster baserat på mål gruppen.
 
-Välj [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) att rikta IT-proffs och utvecklare eller tekniska användare.
+Välj [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) för att rikta in IT-proffs och-utvecklare eller tekniska användare.
 
-Välj [AppSource](https://appsource.microsoft.com/) att rikta line-of-business-beslutsfattare och företagsägare.
+Välj [AppSource](https://appsource.microsoft.com/) för att rikta in företags besluts fattare och företags ägare.
 
-Granska den [Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) för mer information om fördelarna med Azure Marketplace och AppSource.
+Läs [utgivar guiden](marketplace-publishers-guide.md) för mer information och fördelar med Azure Marketplace och AppSource.
 
-**Hur börjar jag publicera på Azure Marketplace?**
+**Måste jag vara medlem i Microsoft Partner Network (MPN) för att kunna lista mina program och tjänster på Azure Marketplace?**
 
-Börja din publicering på Azure Marketplace genom att granska den [Publiceringsguiden för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och [bli en utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher). Sedan skickar du in genom att ange [skicka in ditt erbjudande](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Se hur du [skapa ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information.
+Ja, en MPN krävs för att publicera på Azure Marketplace. Kom igång genom att besöka [Microsoft Partner Network](https://partner.microsoft.com/membership) .
 
-**Måste jag vara medlem i Microsoft Partner Network (MPN) att lista Mina program och tjänster på Azure Marketplace?**
+**Vad är villkoret för att publicera en lösning på Azure Marketplace?**
 
-Ja, krävs en MPN för att publicera på Azure Marketplace. Besök [Microsoft Partner Network](https://partner.microsoft.com/membership) att komma igång.
+För att publicera på Azure Marketplace måste partner Visa att deras program körs på eller utökar Azure. Utgivare krävs för att ge kunderna en [serviceavtal](https://azure.microsoft.com/support/legal/sla/), [sekretess policy](https://privacy.microsoft.com/privacystatement)och telefon support och onlinesupport. Olika arbetsbelastningar har ytterligare krav. Läs igenom [principerna för deltagande i Azure Marketplace](./marketplace-participation-policy.md) och [Publisher-guiden](marketplace-publishers-guide.md) för ytterligare vägledning.
 
-**Vad kan jag förvänta mig när jag har skickat in min registrering för att publicera på Azure Marketplace?**
+**Finns det någon avgift för att publicera på Azure Marketplace?**
 
-När du har skickat din registrering, marketplace onboarding-teamet granskar och anger ett välkomstmeddelande information om nästa steg inom 1 – 3 arbetsdagar.
+Det finns inga publicerings avgifter när du överför en lista, en utvärderings version eller en BYOL (ta med din egen licens)-lösning via Azure Marketplace.
 
-**Vad är kriteriet för att publicera en lösning på Azure Marketplace?**
+**Finns det några transaktions avgifter för inköp via Azure Marketplace?**
 
-Om du vill publicera på Azure Marketplace måste partner bevisa att deras program körs på eller utökar Azure. Utgivare måste erbjuda kunderna en [serviceavtal](https://azure.microsoft.com/support/legal/sla/), [sekretesspolicy](https://privacy.microsoft.com/privacystatement), telefon- och onlinesupport. Olika arbetsbelastningar har ytterligare krav. Granska den [Deltagandepolicyer för Azure Marketplace](./marketplace-participation-policy.md) och [Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) ytterligare vägledning.
+När lösnings licensen har köpts via Azure Marketplace delas intäkterna för program varu licensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i Marketplace: a utgivar [avtal](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Lösningar med BYOL (ta med egna licens tjänster) debiterar dessutom inte transaktions avgifter.
 
-**Finns det en avgift för att publicera på Azure Marketplace?**
+**Vad är ett standard kontrakt?**
 
-Det finns inga publishing avgifter när du laddar upp en lista, utvärderingsversion eller BYOL (Bring Your Own License) lösning via Azure Marketplace.
+Microsoft erbjuder standard avtals villkor som en utgivare kan välja att utnyttja, så att kunder har en förenklad tillvaratagande och juridisk gransknings process.
 
-**Finns det några Transaktionsavgifter ut för köp via Azure Marketplace?**
+**Var hittar jag rikt linjer för att integrera mitt program med Azure Active Directory (AAD)?**
 
-När de köps via Azure Marketplace, delas intäkter för programvarulicensen mellan utgivare och Microsoft.  Detta görs i enlighet med villkoren villkoren i den [Publiceringsavtalet Marketplace](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Dessutom är det inte möjligt att någon Transaktionsavgifter med lösningar med BYOL (Bring Your Own License) utgivare.
+Microsoft autentiserar alla Marketplace-användare med AAD.  Du kan konfigureras direkt i en utvärderings version utan att ett ytterligare inloggnings steg krävs.  En autentiserad användare klickar till exempel på en utvärderings lista i Marketplace och omdirigeras till en utvärderings miljö.
 
-**Vad är ett standardavtal?**
+Mer information och kom igång med att aktivera en utvärdering med AAD finns i [avsnittet Azure Active Directory i utgivar hand boken](enable-appsource-marketplace-using-azure-ad.md).
 
-Microsoft erbjuder Standardavtalsvillkor som en utgivare kan välja för att använda, så att kunder har en förenklad inköp och juridiska granskningsprocessen.
+**Hur gör jag för att kom igång med dev Center-registrering?**
 
-**Var hittar jag riktlinjer för att integrera Mina program med Azure Active Directory (AAD)?**
+För att komma igång bör utgivare verifiera att ett [dev Center-konto](deprecated/register-dev-center.md) inte redan har registrerats (för att förhindra duplicering). När du har bekräftat är nästa steg att registrera genom att [Logga in](https://account.microsoft.com/account/) med ett Microsoft-konto som ska kopplas till Developer-kontot.
 
-Microsoft autentiserar alla Marketplace-användare med AAD.  Du kan direkt etableras en utvärderingsversion utan ytterligare logga in ett steg.  Exempelvis kan en autentiserad användare klickar sig igenom en utvärderingspubliceringar i Marketplace och omdirigeras till en utvärderingsmiljö.
+Om du inte redan har en Microsoft-konto kan du [skapa ett konto](https://signup.live.com/) (till exempel: contoso_marketplace@live.com).
 
-Mer information och kom igång med att aktivera en utvärderingsversion med AAD hittar du den [Azure Active Directory-avsnittet i guiden Publisher](https://docs.microsoft.com/azure/marketplace/enable-trial-using-azure-ad).
+**Varför krävs ett dev Center-konto?**
 
-**Hur kommer jag igång med Dev Center registrering?**
+Ett dev Center-konto krävs för att göra det möjligt för Microsoft att fakturera kunder för utgivarens räkning av typen av Transact-listor. Med konto registreringen i dev Center kan Microsoft verifiera juridisk information, skatte-och bank information. Mer information finns i [Registrera i dev Center](./partner-center-portal/create-account.md).
 
-För att komma igång, utgivare ska kontrollerar du att en [Dev Center-konto](https://docs.microsoft.com/azure/marketplace/register-dev-center) inte redan har registrerats (om du vill förhindra duplicering). När du bekräftat, nästa steg är att registrera genom [inloggning](https://account.microsoft.com/account/) med ett Microsoft-konto som ska associeras med developer-konto.
+**Vad är leads och varför är de viktiga för mig som utgivare i Marketplace?**
 
-Om du inte redan har ett Microsoft-konto, kan du [skapa ett konto](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (till exempel: contoso_marketplace@live.com).
+Leads är kunder som distribuerar dina produkter från Marketplace. Oavsett om produkten är listad på [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [AppSource](https://appsource.microsoft.com)kan du ta emot leads från kunder som är intresserade av produkten.  Du kan ställa in Lead-mål på ditt erbjudande. Mer information finns i avsnittet om att [bli en Cloud Marketplace-utgivare](./partner-center-portal/create-account.md).
 
-**Varför är Dev Center-konto som krävs?**
+**Var kan jag få hjälp med att ställa in mitt lead-mål?**
 
-Ett Dev Center-konto krävs för att Microsoft att debitera kunder för utgivarens räkning för Transact visa en lista över typer. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher).
+Läs mer i [Cloud Partner Portal – hämta dokumentation om kund ledare](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) eller skicka ett support ärende genom [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) att välja din erbjudande typ och lead-hantering.
 
-**Vilken utgivare kräver Kontoregistrering för en Dev Center?**
+**Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande på Marketplace?**
 
-Utgivare som publicerar Transact visa en lista över typer: Virtuella Azure-appar, lösningsmallar och hanterade appar.
+Ja, om du publicerar en **kontakta mig**, **SaaS-app**eller **konsult tjänster** , måste du konfigurera ett lead-mål.
 
-**Vilka leads och varför de viktiga för mig som utgivare på Marketplace?**
+**Hur kan jag bekräfta att lead-konfigurationen är korrekt?**
 
-Leads är kunder som distribuerar dina produkter från Marketplace. Om din produkt visas på [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [AppSource](https://appsource.microsoft.com), kan du få leads från kunder som är intresserade av din produkt.  Du kan ställa in lead mål på ditt erbjudande. Mer information finns i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).
+När du har slutfört erbjudandet och konfigurerat ett lead-mål kan du publicera listan korrekt i [Cloud Partner Portal](https://cloudpartner.azure.com/). Innan du fortsätter med registreringen kan du kontrol lera om konfigurations konfigurationen för leadet fungerar som den ska.  Skicka ett test-lead till det lead-mål som kon figurer ATS i erbjudandet.
 
-**Var kan jag få hjälp att konfigurera min lead-mål?**
+**Vilka länder/regioner är Azure Marketplace tillgängligt för utgivare att sälja från?**
 
-Läs mer i [Cloud Partner Portal-Get-kund leder](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) dokumentation, eller skicka in ett supportärende via [ https://aka.ms/marketplacepublishersupport ](https://aka.ms/marketplacepublishersupport) genom att välja erbjudandetypen och lead-hantering.
+Utgivare som baseras på följande länder/regioner kan för närvarande sälja på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Finland, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Dominikanska republiken Kongo, Kongo (Dr), Costa Rica, Elfenbenskusten, Kroatien, Cypern, Republiken Tjeckien, Danmark, Dominica, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fiji Öarna, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hongkong SAR, Ungern, Island, Indien, Indonesien, Japan, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Korea (södra), Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro, Marocko, Moçambique, Nepal, Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, södra Afrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Förenade kungariket, USA, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia och Zimbabwe.
 
-**Måste jag konfigurera en lead-målet för att publicera ett erbjudande på Marketplace?**
+**Hur gör jag för att ta bort en lista från Azure Marketplace?**
 
-Ja, om du publicerar en **kontakta mig**, **SaaS-app**, eller **konsulttjänster** erbjuder du måste konfigurera ett lead-mål.
+*Virtuell dator & Azure-appar:*
 
-**Hur kan jag bekräftar att lead-konfigurationen är korrekt?**
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Välj erbjudandet på fliken **alla erbjudanden** .
+1. I rutan till vänster på skärmen väljer du fliken **SKU: er** .
+1. Välj SKU: n för borttagning och klicka på knappen **ta bort** för den SKU: n.
+1. [Publicera](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) om erbjudandet på Azure Marketplace.
 
-När du har slutfört erbjudandet och hur du konfigurerar ett lead-mål, listan korrekt kan publiceras i den [Cloud Partner Portal](https://cloudpartner.azure.com/). Innan det lanseras på listan, kan du validera om lead configuration konfiguration fungerar korrekt.  Skicka ett test-lead till lead-mål som konfigurerats i erbjudandet.
+Mer information finns i [ta bort ett erbjudande](./cloud-partner-portal/manage-offers/cpp-delete-offer.md).
 
-**Vilka länder/regioner finns Azure Marketplace-utgivare sälja från?**
+*Web Apps (SaaS-appar,-tillägg) & Konsult tjänster:*
 
-För närvarande kan utgivare i följande länder/regioner sälja på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Österrike, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Komorerna, Kongo, Kongo (Dr), Costa Rica, Elfenbenskusten, Kroatien, Cypern, Tjeckien, Danmark, Dominica, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fiji Yttre öar, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Sydkorea, Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro, Marocko, Mosambik, Nepal, i Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, och Zimbabwe.
-
-**Hur tar jag bort en lista från Azure Marketplace?**
-
-Virtuell dator & Azure-appar:
-
-1. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
-1. Välja erbjudandet från fliken ”alla, erbjudanden.
-1. Välj fliken SKU: er i fönstret till vänster på skärmen.
-1. Välj SKU för borttagning och klicka på ”delete-knappen för SKU: N.
-1. [Publicera](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer) erbjudandet på Azure Marketplace.
-
-Mer information finns i [tar bort ett erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer).
-
-Webbappar (SaaS-appar, tillägg) & konsulttjänster:
-1. Välj frågetecken-ikonen i partnerportalen i molnet och klicka sedan på ”Support”.
-1. Gå till [https://go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975).
-1. Välj typ av erbjudande på supportsidan.
-1. Välj ”Ta bort” ett publicerade erbjudande.
+1. I Cloud Partner Portal väljer du frågetecknet och klickar sedan på **stöd**.
+1. Gå till <https://go.microsoft.com/fwlink/?linkid=844975>.
+1. På sidan support väljer du typ av erbjudande.
+1. Välj **ta bort** ett publicerat erbjudande.
 1. Skapa en incident biljett.
-1. Submit.
+1. Uppvisa.
 
-O365-appar
-1.  Logga in på [ https://sellerdashboard.microsoft.com ](https://sellerdashboard.microsoft.com) med Dev-konto.
-1.  Återkalla-tillägget.
+*O365-appar:*
 
-OBS! Appen kommer att försvinna befintlig lista efter 90 dagar.
+1.  Logga in på <https://sellerdashboard.microsoft.com> med ditt dev-konto.
+1.  Återkalla tillägget.
 
-Power BI Apps
-* Kontakta: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+    > [!NOTE]
+    > Appar försvinner från en befintlig lista efter 90 dagar.
 
-### <a name="benefits-and-go-to-market-gtm-resources"></a>Fördelar och Go-To-Market (GTM) resurser
+*Power BI appar:*
 
-**Vilka är några av Go-To-Market-fördelar finns för utgivare på Azure Marketplace?**
+Kontakt [Anjana Sompur (slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
 
-Azure Marketplace är startpunkten för gemensamma Go-To-Market-aktiviteter med Microsoft och även inkörsporten för ett Medförsäljning redo partnerskap. Alla nya publiceringar på Azure Marketplace erbjuds automatiskt en uppsättning [kostnadsfria Go-To-Market-fördelar](https://assetsprod.microsoft.com/mpn/marketplace-gtm-benefits.pdf) som hjälper erbjudanden Microsofts kunder. När ett erbjudande publiceras kontaktar du Microsoft GTM-team och börjar leverera dina förmåner.
+### <a name="benefits-and-go-to-market-gtm-resources"></a>Förmåner och GTM-resurser (go-to-Marketing)
 
-Besök [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/gtm) mer information om våra GTM-fördelar och sätt att utöka verksamheten på marketplace.
+**Vilka är några av fördelarna till marknaden för utgivare som visas på Azure Marketplace?**
 
-**Där befordras Azure Marketplace-lösningar i Egenskaper för Microsoft-webbplats?**
+Azure Marketplace är start punkten för en gemensam go-to-Marketing-aktivitet med Microsoft och nyckeln till en samförsäljnings klar partner. Alla nya listor på Azure Marketplace erbjuds automatiskt en uppsättning [kostnads besparingar till marknaden](https://assetsprod.microsoft.com/mpn/marketplace-gtm-benefits.pdf) som hjälper till att öka medvetenheten om erbjudanden till Microsofts kunder. När ett erbjudande publiceras kontaktar Microsoft GTM-teamet dig och börjar leverera dina förmåner.
 
-Azure Marketplace-lösningar finns i Microsofts [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), och [webbplatsen för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Molnutvecklare och IT-personal som använder Azure har du exponeringen för partnerlösningar varje gång de loggar in. En delmängd av partnerlösningar är och roteras på den [startsidan för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar sidan](https://azure.microsoft.com/solutions/).
+Besök [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/gtm) om du vill ha mer information om våra GTM-fördelar och hur du kan utveckla din verksamhet på Marketplace.
+
+**Var marknadsförs Azure Marketplace-lösningar i Microsofts webb egenskaper?**
+
+Azure Marketplace-lösningar finns på webbplatsen Microsoft [Azure Portal]och [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Moln utvecklare och IT-proffs som använder Azure har exponering för partner lösningar varje gång de loggar in. En del av partner lösningarna visas också och roteras på sidan för [Start sidan för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Fakturering och betalningar
 
-**Hur får jag betalningsmetod för Mina försäljningar på Azure Marketplace?**
+**Hur gör jag för att få betalning för min Azure Marketplace-försäljning?**
 
-Alla betalningar från Microsoft behandlas via PayPal eller elektronisk Betalningstransfer (EFT) månadsvis. Betalning sker inom två månader efter det datum som kunden har använt tjänsten, men den exakta tidsplan beror på kundens betalningsmedel. För kreditkortskunder gäller en depositionsperiod på 45 dagar.
+Alla betalningar från Microsoft bearbetas via PayPal eller Electronic Fund Transfer (EFT) månads vis. Betalningen görs inom två månader från det datum då kunden använde tjänsten, även om den exakta tiden är beroende av kundens betalnings instrument. För kreditkortskunder gäller en depositionsperiod på 45 dagar.
 
-**För VM-baserade lösningar som köpts med användarbaserad debitering när en kund upp storlekar eller downsizes den underliggande virtuella datorn, priser för min följer?**
+**För virtuella datorbaserade lösningar som har köpts med användnings-baserad fakturering, när en kund i storlek eller storleken den underliggande virtuella datorn, följer prissättningen för min program varu licens?**
 
-Ja, det nya priset debiteras omedelbart.  Prisändringar inträffa när en kund ändrar storleken på virtuella datorn och anger olika priser i pristabellen, som baseras på VM-storlek.
+Ja, det nya priset faktureras omedelbart.  Pris ändringar sker när en kund ändrar storlek på den virtuella datorn och anger olika priser i pris tabellen, som baseras på storleken på den virtuella datorn.
 
-**Är per nod fakturering tillgängliga för Azure Marketplace?**
+**Är fakturering per nod tillgängligt för Azure Marketplace?**
 
-Azure Marketplace stöder för närvarande inte fakturering per nod med virtuella datorer. Utgivare kan fortfarande fastställa en per nod debiteringen med Microsoft VM faktureringstaxor.  Beräkningen är att avgöra hur många virtuella datorer med antalet timmar som används och pris per timme.
+Azure Marketplace har för närvarande inte stöd för fakturering per nod med Virtual Machines. Utgivare kan fortfarande fastställa fakturerings taxa per nod med fakturerings taxa för Microsoft VM.  Beräkningen är att fastställa antalet virtuella datorer med antalet timmar som använts och per timme.
 
-**Som jag kontakta för fakturering eller erbjuda frågor som rör hantering?**
+**Vem kontaktar jag för fakturerings-eller erbjudande hanterings frågor?**
 
-Logga in en biljett hos [Microsoft Support](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfName=productselection&prid=15635).
+Logga ett ärende med [Microsoft Support](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfName=productselection&prid=15635).
 
-### <a name="publisher-support"></a>Supportinformation för utgivaren
+### <a name="publisher-support"></a>Stöd för utgivare
 
-**Vem kontaktar jag för allmänna supportärenden gällande Azure Marketplace?**
+**Vem kontaktar jag för allmänna support ärenden med Azure Marketplace?**
 
-För allmän programsupport om användbarhet eller felsökning, kontakta [Cloud Partner Portal-supporten](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
+Kontakta [Cloud Partner Portal support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007)om du vill ha allmän program support för användbarhet eller fel sökning.
 
-Fakturerings- och problem med ditt Azure Marketplace-köp, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Kontakta [Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
-**Finns det ett Supportforum för Azure Marketplace?**
+**Vem kontaktar jag för att publicera eller erbjuda hanterings frågor?**
 
-Gå till den [Azure Marketplace-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket).
+Besök [Azure Marketplace Publisher-guiden](marketplace-publishers-guide.md) för att få en uppdaterad resurs och dokumentation om vanliga frågor och svar. Dessutom kan du logga ett ärende med [Microsoft Support i Cloud Partner Portal](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
-**Som jag kontakta angående publicering eller erbjuda frågor som rör hantering?**
+### <a name="azure-marketplace-for-publishers"></a>Azure Marketplace för utgivare
 
-Gå till den [Publiceringsguiden för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) för uppdaterade resurser och dokumentation om vanliga frågor och svar. Dessutom kan du logga en biljett hos [Microsoft Support i Cloud Partner Portal](https://support.microsoft.com/en-us/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+**Hur gör jag för att definiera min geografiska tillgänglighet för att möjliggöra försäljning i olika länder/regioner?**
 
-### <a name="azure-marketplace-for-customers"></a>Azure Marketplace för kunder
-
-**Hur kommer jag igång på Azure Marketplace?**
-
-Gå till den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) webbaserade butiken och bläddra genom det breda utbud av kvalitet företagsprogram och lösningar, certifierade och optimerade för körning på Azure. Azure Marketplace kan även nås via [klassiska Azure-portalen](https://portal.azure.com/) under ”Skapa en resurs”. Mer information finns i [ https://azuremarketplace.microsoft.com/about ](https://azuremarketplace.microsoft.com/about).
-
-**Vilka är de främsta fördelarna med Azure Marketplace?**
-
-Azure Marketplace är en butik för IT-personal och utvecklare där de kan hitta tekniska program som skapats för eller på Azure. Får direkt tillgång till [140 globala marknader](https://azure.microsoft.com/global-infrastructure/regions/) och lösningar och erbjudanden från vårt 300 000 + partner-nätverket. Den kombinerar Microsoft Azure marketplace-lösningar och tjänster till en enda, enhetlig plattform där du kan upptäcka, prova, och köpa lösningar med bara några klick.
-
-**Hur köper jag produkter från Azure Marketplace?**
-
-Du hittar Azure Marketplace-erbjudanden via den [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/)i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). När du har loggat in på Azure Marketplace kan du upptäcka och köpa lösningar som utformats av Microsoft och våra partner. Obs! Förbetald kredit och andra typer av Betalningsåtaganden används inte för programvarulicenser.  I stället täcker de kostnader associerade Azure-användning. Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
-
-**Om jag råkar ta bort ett Azure Marketplace-köp, kan jag ”ångra” åtgärden?**
-
-Nej. Borttagningar är slutgiltiga. Om du av misstag tar bort en prenumeration kan du enkelt starta om den genom att köpa den igen.  Dock några oanvända funktioner eller förbetalda tjänster går förlorade, så var försiktig när du tar bort en prenumeration.
-
-**Finns det några varningar om jag försöker ta bort ett Azure Marketplace-köp som används av en av Mina program?**
-
-Nej, Azure varnar dig inte när du tar bort ett köp som ditt program är beroende av.
-
-**Om mitt Azure Marketplace-köp har några beroenden som hör till exempel en Azure-webbplats, sedan måste jag hantera dem?**
-
-Beroenden hanteras inte automatiskt för Azure Marketplace-erbjudanden. Noga igenom beskrivningen av ditt Azure Marketplace-köp innan du använder den.  Du bör fastställa om det finns några beroenden innan du distribuerar lösningen.
-
-**Vem kan köpa program och tjänster som säljs/etableras genom Azure Marketplace?**
-
-Azure Marketplace är tillgängligt för Microsoft Azure-kunder i följande länder/regioner:
-
-Algeriet, Argentina, Australien, Österrike, Bahrain, Vitryssland, Belgien, Brasilien, Bulgarien, Kanada, Chile, Colombia, Costa Rica, Kroatien, Cypern, Tjeckien, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Finland, Frankrike, Tyskland, Grekland , Guatemala, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irland, Israel, Italien, Japan, Jordanien, Kazakstan, Kenya, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malaysia, Malta, Mexiko, Montenegro, Marocko, Nederländerna, nya Zeeland, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Puerto Rico, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Singapore, Slovakien, Slovenien, Sydafrika, Sydkorea, Spanien, Sri Lanka, Sverige, Schweiz, Taiwan, Thailand, Trinidad och Tobago, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Venezuela.
-
-**Hur definierar jag min geografisk tillgänglighet att sälja i olika länder/regioner?**
-
-1.  Gå till SKU: N som du vill lägga till nya länder/regioner i partnerportalen i molnet.  Navigera till ”land/Region tillgänglighet” i ”SKU-information” och klicka ”utvalda regioner”.
+1.  I Cloud Partner Portal navigerar du till den SKU som du vill lägga till nya länder/regioner i.  I **SKU-detaljerna**navigerar du till **tillgänglighet för land/region** och klickar på **Välj regioner**.
 
     ![Välj regioner](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  En lista visas med alla tillgängliga länder/regioner sälja till.  Klicka på kryssrutan bredvid varje land/region som du vill att denna SKU. Klicka på ”OK”.
+1.  En lista visas med alla tillgängliga länder/regioner att sälja till.  Klicka på kryss rutan bredvid varje land/region som du vill göra den här SKU: n tillgänglig för. Klicka på **OK**.
 
-    ![Välj land/region lista](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Välj lista över länder/regioner](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
-1.  Klicka slutligen på ”Publicera” för att ändringarna ska tillämpas på ditt live erbjudande  
+1.  Klicka slutligen på **publicera**om du vill att ändringarna ska tillämpas på Live-erbjudandet.  
 
->[!Note]
->Det kan ta 24 timmar för att ändringarna ska börja gälla.
+    > [!Note]
+    > Det tar 24 timmar innan ändringarna börjar gälla.
 
 <!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
 
-**Hur ändrar en utgivare geografisk tillgänglighet i ett befintligt erbjudande?**
+**Hur kan en utgivare ändra geografisk tillgänglighet för ett befintligt erbjudande?**
 
-Utgivaren kan redigera ett befintligt erbjudande, Välj de nya länder/regionerna och använda funktionen kalkylblad download/laddar upp för att ange priser.
+Utgivaren kan redigera ett befintligt erbjudande, välja de nya länderna/regionerna och använda kalkyl bladet Ladda ned/Ladda ned för att ange prissättning.
 
-**I vilka länder/regioner kan kunder som köper Azure Marketplace-erbjudanden?**
+**I vilka länder/regioner kan kunder köpa Azure Marketplace-erbjudanden?**
 
-Azure Marketplace har stöd för 141 köp från geografiska områden som definieras av kundens faktureringsadress. Se [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy) en lista över länder/regioner.
+Azure Marketplace stöder 141 köp från geografiska områden som definieras av kundens fakturerings adress. Se [deltagande principer](/legal/marketplace/participation-policy) för en lista över länder/regioner.
 
-**Vilka valutor som stöds av Azure Marketplace?**
+**Vilka valutor stöds av Azure Marketplace?**
 
-Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, UPPDELADE, WON, NOK, NZD, RUB, SEK, TWD, USD.
-
-### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuera en lösning från Azure Marketplace
-
-**Jag har distribuerat Azure Marketplace virtuell dator (VM) till en prenumeration och nu vill jag migrera den prenumerationen från ett Azure-konto till en annan. För närvarande stöds detta?**
-
-Om du vill migrera din Azure-prenumeration, Marketplace virtuella datorer och tjänster som du behöver ta bort eller säga upp dem innan du kan koppla din Azure-prenumeration till det nya Azure-kontot. När migreringen av dina Azure-prenumerationer är klar kan förbrukningsavgifterna du Azure Marketplace-tjänster. De resulterande Användningsavgift faktureras med ditt konto registrerade betalningsmetoden. 
-
-**Jag vill migrera en prenumeration på Azure Marketplace virtuell dator (VM) till mitt Enterprise Agreement. För närvarande stöds detta?**
-
-Om du vill migrera virtuella datorer med BYOL till EA-prenumeration, behöver du inte återskapa dem. MOSP - Microsoft Online Subscription Program (d.v.s. web-direct)-prenumeration kan konverteras till EA direkt.
+Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, Won, NOK, NZD, RUB, SEK, TWD och USD.
 
 ### <a name="pricing-and-payment"></a>Priser och betalning
 
-**Hur prissätts Azure Marketplace-prenumerationer?**
+**Vad är skillnaden mellan kostnads fri nivå och kostnads fri utvärdering av program vara?**
 
-Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration. Exempel på prissättningsmodeller:
-
-* **BYOL-modell**: Bring-your-own-license. När du har fått en programvarulicens för användning på Azure Marketplace direkt från utgivaren eller en återförsäljare debiteras inte någon ytterligare programvara-avgifter för användning.
-
-* **Kostnadsfria**: Kostnadsfri SKU. Du debiteras inte programvarulicensavgifter för användning av erbjudandet.
-
-* **Kostnadsfri utvärdering av programvara**: Ett erbjudande som är kostnadsfri under en begränsad tidsperiod. Du debiteras inte för utgivarens programvarulicensavgifter för användning av erbjudandet under en utvärderingsperiod. När utvärderingsperioden är slut debiteras du automatiskt standardavgifter för användning av erbjudandet.
-
-* **Användningsbaserad**: Du debiteras eller faktureras baserat på din användning av erbjudandet. För avbildningar av virtuella datorer debiteras du en timvis Azure Marketplace-avgift. För Utvecklartjänster och API debiteras du per mätenhet som definieras av erbjudandet.
-
-* **Månadsavgift**: Du debiteras eller faktureras en fast månadsavgift för en prenumeration på erbjudandet, från början av den specifika prenumerationen. Månadsavgiften kan beräknas prorata för uppsägningar mitt i månaden eller outnyttjade tjänster.
-
-Prisinformation finns på lösningens detaljsida på [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/), eller i Microsoft Azure-hanteringsportalen.
-
->[!Note]
->Undantag för månatliga avgifter debiteras Azure-användning alla prismodellerna om inte annat anges.
-
-**Vad är skillnaden mellan kostnadsfri nivå och kostnadsfri utvärderingsversion av programvara?**
-
-En kostnadsfri nivå prenumeration är alltid gratis.  En kostnadsfri utvärderingsversion av programvara (Prova nu) är en betald prenumeration endast kostnadsfritt under en begränsad tidsperiod.
-
-**Måste jag ha ett betalningsinstrument (till exempel kreditkort) registrerat för att distribuera kostnadsfria nivån eller ta med din egen (BYOL)-licenserbjudanden?**
-
-Nej. Informationen om betalningsalternativet som är inte krävs för att distribuera erbjudanden på den kostnadsfria nivån eller BYOL. Men erbjudanden för kostnadsfria utvärderingsversioner kräver ett betalningsinstrument.
-
-Listor med ”nu GET IT” eller ”FREE SOFTWARE TRIAL” knappar distribueras i din Azure-prenumeration och debiteras med ditt konto registrerade betalningsmetoden. Avgifter för Azure-användning faktureras separat från programvarulicensavgifter.
-
-**Om de har frågor om priser för erbjudanden som säljs på Azure Marketplace som ett indirekt Enterprise Agreement (EA)-kund kontaktar?**
-
-Indirekta EA-kunder måste kontakta sin LSP (Licensing Solution Provider) för alla frågor om priser för Azure Marketplace.
-
-**Kan jag kontrollera Mina anställdas åtkomst till Azure Marketplace och köpbehörigheter?**
-
-För EA-kunder, Ja, stänga registreringsadministratören av köpbehörigheten för samtliga konton i registreringen och aktivera den igen tillräckligt länge göra ett inköp. Alla kunder kan dessutom använda [Azure Policy](https://azure.microsoft.com/services/azure-policy/) att förhindra distributionsalternativ för deras Azure-prenumerationer, inklusive hantering av Azure Marketplace-resurser.
-
-**Kan jag köpa från Azure Marketplace med mitt Microsoft Volume Licensing / Enterprise Agreement?**
-
-Ja. EA-kunder (Enterprise Agreement) kan köpa program och tjänster från Azure Marketplace. Oberoende programvaruleverantörer (ISV) som äger de program och tjänster ange sina egna priser. Därför gäller inte vanliga Microsoft-volymlicensieringsrabatter för Azure Marketplace-erbjudanden.
-
-**Kan jag använda Azure-prenumerationskrediter eller åtagandesaldo på mitt konto för Azure Marketplace-erbjudanden?**
-
-För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. Se [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) en fullständig lista över produkter som medverkar i det här programmet. Dessa erbjudanden inkluderar inte BYOL eller BYOS alternativ. Alla andra Azure Marketplace-erbjudanden inte kan använda Azure-prenumerationskrediter eller betalningsåtaganden: till exempel den kostnadsfria krediten för en månads utvärdering, månatliga MSDN-krediter, krediter från Azure proms åtagandesaldo och alla andra kostnadsfria krediter som tillhandahålls till dig från Azure.
-
-**Gäller volymlicensieringsrabatter för köp på Azure Marketplace?**
-
-Nej. ISV: er som egna lösningar på Azure Marketplace kan ange priser. Vanliga Microsoft-volymlicensieringsrabatter gäller inte för Azure Marketplace-köp.
-
-**Hur betalar jag för dessa prenumerationer? Syns Mina Azure Marketplace-köp på Azure-faktura, eller om det finns en separat faktura?**
-
-Azure Marketplace-köp ärver samma betalningssätt som din Azure-prenumeration. De faktureras separat från Azure-användning, såvida inte de är aktiverade för att använda betalningsåtagande.
-
-MOSP - kunder för Microsoft Online Subscription Program (d.v.s. web-direct) debiteras via samma kreditkort som finns på profilen för deras Azure-prenumeration. Om du inte har något kreditkort på fil, kan du köpa från Azure Marketplace. I detta fall använder fått du beviljats ett särskilt tillstånd om du vill att dina Azure-avgifter fakturerade i stället.
-
-Kunder med Enterprise Agreement (EA) debiteras mot deras EA. Specifika Azure Marketplace-erbjudanden som beskrivs här är först dras av från eventuellt tillgängligt betalningsåtagande sedan faktureras som överförbrukning på en gemensam kvartalsfaktura. Indirekta EA-kunder, utbildningskunder och myndighetskunder faktureras av deras providern LSP (Licensing Solution).
-
-**Var kan jag se på min Azure Marketplace-prenumeration och faktureringsinformation?**
-
-MOSP, Microsoft Online Subscription Program (d.v.s. web-direct) kunder kan se information om Marketplace prenumeration under menyn ”Marketplace” i den [Azures faktureringsportal](https://azure.microsoft.com/). Kunder som har köpt virtuella datorer från Marketplace kan se sina uppskattade, upplupna kostnader i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/).
-
-EA-kunder (Enterprise Agreement) kan se information om en Marketplace-prenumeration på fliken ”Azure Marketplace” i fakturerings- och kontohanteringsvyn på Enterprise-portalen. Obs! Indirekta EA-kunder ser bara erbjudande- och användningsinformation information. Prisinformation om är inte tillgängliga i Enterprise portal.
-
-**Hur avbryter jag ett Azure Marketplace-tillägg till en Azure-dator?**
-
-Eftersom tillägg är associerad Azure-datorn, om du vill avbryta köpet från Azure Marketplace måste du stoppa köra den virtuella datorn genom att ta bort den virtuella datorn. Detta stoppar all användning och debiteringar på Azure Marketplace-köp.
-
-**Hur ofta faktureras jag för Mina Azure Marketplace-köp?**
-
-Enterprise Agreement-kunder för den [specifika tjänster som beskrivs](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), först ha tillgängliga betalningsåtaganden reducerade med de totala kostnaderna för tjänsterna på förbrukning. Kunderna faktureras varje månad för alla Azure Marketplace-erbjudanden som inte dras av från åtagandebeloppet i efterhand.
-
-MOSP (d.v.s. web-direct)-kunder debiteras varje månad, via samma kreditkort som finns på profilen för deras Azure-prenumeration.
-
-**Hur kan jag flytta mina Azure Marketplace-köp från min MOSP-prenumeration till min direkta Enterprise Agreement (EA)-prenumeration?**
-
-Även om de flesta Microsoft-prenumerationerna enkelt kan omvandlas till ditt Enterprise Agreement, gäller detta inte för Azure Marketplace-köp inom dessa prenumerationer.
-
-Om du vill migrera andra tjänster som köpts från Azure Marketplace till en EA-prenumeration du först avbryta från andra program i den befintliga MOSP-prenumerationen.  Förbrukningsavgifterna sedan dessa program i EA-prenumeration.  Därefter kan du skicka in en kreditbegäran för den potentiella överlappningen mellan Marketplace-tjänstprenumerationerna – skapa en [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-**Vad är skillnaden mellan ”pris”, ”programvarupris” och ”totalt pris” i kostnadsstrukturen för den virtuella datorn erbjuder på Azure Marketplace?**
-
-Med ”pris” avses den virtuella Azure-datorns kostnad för att köra programvaran. Med "programvarupris" avses kostnaden för att köra Marketplace-utgivarens programvara på den virtuella Azure-datorn. Med ”totalt pris” avses den totala kostnaden för den virtuella Azure-datorn och Marketplace-utgivarens programvara på en virtuell Azure-dator.
-
-**Kan jag använda Azure-prenumerationskrediter eller åtagandesaldon på mitt konto för Azures produkter och tjänster som krävs för att köra Azure Marketplace-erbjudanden?**
-
-Ja. Du kan använda Azure-prenumerationskrediter eller betalningsåtaganden på ditt konto för Azures produkter och Azure Marketplace-erbjudanden. Du kan exempelvis använda Azure-betalningsåtaganden medel med priskomponenten för ett virtuell dator-erbjudande på Azure Marketplace. Azure-prenumerationskrediter eller betalningsåtaganden kan dock endast tillämpas gentemot vissa programvarupris som körs på en Azure-dator.
-
-**Hur kan jag se hur mycket av Mina Azure Marketplace-köp jag har använt?**
-
-Informationen kan hittas när du visar instrumentpanelen för dina köp på Microsoft Azure-hanteringsportalen. Sådan användningsinformation omfattar inte senaste aktiviteter och baseras på beräkningar från tidigare förbrukning. Den här funktionen i offentlig förhandsversion, kanske inte tillgänglig för alla köp och kan variera beroende på produkttyp.
-
-### <a name="customer-support"></a>Kundsupport
-
-**Vem kontaktar jag för allmänna supportärenden gällande Azure Marketplace?**
-
-Kontakta programutgivaren direkt för allmän programsupport om användning eller felsökning.
-
-Fakturerings- och problem med ditt Azure Marketplace-köp, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-**Vem kontaktar jag om jag behöver teknisk support för en lösning som jag har köpt på Azure Marketplace?**
-
-Kontakta din Azure Marketplace-utgivare för all teknisk produktsupport. Du kan hitta utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats på lösningens detaljsida.
-
-**Vem kontaktar jag för faktureringsfrågor eller andra frågor rörande en tredjepartslösning som köpts från Marketplace?**
-
-Kontakta Microsoft Support vid [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-**Finns det ett Supportforum för Azure Marketplace?**
-
-Azure Marketplace-forumet hittar [här](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket).
-
-**Vem kontaktar jag om jag har frågor om prissättning eller villkor för partnerlösningar som säljs på Azure Marketplace?**
-
-Kunder måste kontakta lösningens utgivare direkt. Kontaktuppgifter finns på lösningens detaljsida på Azure Marketplace eller tillhandahålls en supportlänk till utgivarens webbplats.
-
-**Om jag inte är nöjd kan jag lämna tillbaka det?**
-
-Köp på Azure Marketplace kan inte returneras, men de kan avbrytas/tas bort. När en prenumeration har avbrutits/tagits bort kommer debiteras du inte för efterföljande månader.
-
-Kunder måste kontakta utgivaren direkt gällande alla tekniska problem med en Marketplace-tjänst. På Azure Marketplace, du kan hitta utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats på den **informationen om** sidan.
+En prenumeration på kostnads fri nivå är permanent kostnads fri.  En kostnads fri utvärderings version av program vara (prova nu) är en betald prenumeration som bara är kostnads fri under en begränsad tids period.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå till den [Azure Marketplace och AppSource Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sidan.
+Besök [Azure Marketplace-och AppSource Publisher-guide](/azure/marketplace/marketplace-publishers-guide) sidan.
 
----
+
+[Azure Portal]: https://portal.azure.com

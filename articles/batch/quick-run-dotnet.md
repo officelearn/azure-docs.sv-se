@@ -3,21 +3,21 @@ title: Azure Snabbstart – Köra Batch-jobb – .NET
 description: Kör snabbt Batch-jobb och aktiviteter med Batch .NET-klientbibliotek.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595341"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322329"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET API
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API: et
 
 Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på Azure Batch .NET API. Appen överför flera indatafiler till Azure-lagring och skapar sedan en *pool* med Batch-beräkningsnoder (virtuella datorer). Sedan skapar den ett *exempeljobb* som kör *aktiviteter* för att bearbeta varje indatafil på poolen med ett grundläggande kommando. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
@@ -25,9 +25,9 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS och Windows. 
+* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows. 
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 

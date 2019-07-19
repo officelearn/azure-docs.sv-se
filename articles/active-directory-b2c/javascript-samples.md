@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e19df7c50ca9d2c57ab385a567f4911b200c5e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510895"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227137"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Om du vill aktivera JavaScript för dina program, måste du lägga till ett element till din [anpassad princip](active-directory-b2c-overview-custom.md)väljer en [sidan kontrakt](page-contract.md), och använda [b2clogin.com](b2clogin.md) i dina önskemål. Den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera körning av skript.
+Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en [sidlayout](page-layout.md)och använda [b2clogin.com](b2clogin.md) i dina begär Anden. I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
 
 > [!NOTE]
-> Om du vill aktivera JavaScript för användarflöden [JavaScript och sidan kontrakt-versioner i Azure Active Directory B2C](user-flow-javascript-overview.md).
+> Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Markera ett sida-kontrakt för användargränssnittets delar av ditt program. Om du tänker använda JavaScript måste du definiera en sida kontrakt-version för alla dina innehållsdefinitioner i en egen princip.
+Välj en sidlayout för användar gränssnitts elementen i programmet. Om du tänker använda Java Script måste du definiera en version för sidlayouten för alla dina innehålls definitioner i den anpassade principen.
 
 ## <a name="add-the-scriptexecution-element"></a>Lägg till elementet ScriptExecution
 
@@ -143,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. Skapa ett nytt användarattribut som kallas för din katalog **termsOfUse** och inkludera **termsOfUse** som ett användarattribut.
+I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. Skapa ett nytt användarattribut med namnet **termsofuse** i din katalog och ta sedan med **termsofuse** som användar-attribut.
 
 ## <a name="next-steps"></a>Nästa steg
 

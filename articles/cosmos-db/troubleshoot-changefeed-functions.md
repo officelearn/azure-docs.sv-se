@@ -1,101 +1,101 @@
 ---
-title: Diagnostisera och felsöka problem när du använder Azure Cosmos DB-utlösare i Azure Functions
-description: Vanliga problem och lösningar diagnos, när du använder Azure Cosmos DB-utlösare med Azure Functions
+title: Diagnostisera och Felsök problem när du använder Azure Cosmos DB utlösare i Azure Functions
+description: Vanliga problem, lösningar och diagnostiska steg när du använder Azure Cosmos DB utlösare med Azure Functions
 author: ealsur
 ms.service: cosmos-db
 ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734523"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250019"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och felsöka problem när du använder Azure Cosmos DB-utlösare i Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och Felsök problem när du använder Azure Cosmos DB utlösare i Azure Functions
 
-Den här artikeln beskriver vanliga problem och lösningar diagnos, när du använder den [Azure Cosmos DB-utlösare](change-feed-functions.md) med Azure Functions.
+Den här artikeln beskriver vanliga problem, lösningar och diagnostiska steg när du använder [Azure Cosmos DB](change-feed-functions.md) utlösare med Azure Functions.
 
 ## <a name="dependencies"></a>Beroenden
 
-Azure Cosmos DB-utlösare och bindningar beror på tilläggspaket över den grundläggande Azure Functions-körningen. Alltid ha dessa paket uppdateras, eftersom de kan innehålla korrigeringar och nya funktioner som kan lösa alla potentiella problem som kan uppstå:
+Azure Cosmos DB utlösare och bindningar är beroende av tilläggs paketen via bas Azure Functions Runtime. Behåll alltid dessa paket uppdaterade eftersom de kan innehålla korrigeringar och nya funktioner som kan åtgärda eventuella problem som kan uppstå:
 
-* Azure Functions V2 finns [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* Azure Functions V1 finns [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+* Azure Functions v2 finns i [Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+* Azure Functions v1 finns i [Microsoft. Azure. WebJobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-Den här artikeln kommer alltid att referera till Azure Functions V2 när körningen har vi redan nämnt om inget anges uttryckligen.
+Den här artikeln kommer alltid att referera till Azure Functions v2 När körnings miljön anges, såvida det inte uttryckligen anges.
 
-## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Använda Azure Cosmos DB SDK oberoende av varandra
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Använda Azure Cosmos DB SDK oberoende
 
-Viktiga funktioner för tillägget paketet är att ge stöd för Azure Cosmos DB-utlösare och bindningar. Den innehåller också de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB programmässigt utan att använda utlösare och bindningar.
+De viktigaste funktionerna i tilläggs paketet är att tillhandahålla stöd för Azure Cosmos DB utlösare och bindningar. Den innehåller också [Azure Cosmos dB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB program mässigt utan att använda utlösare och bindningar.
 
-Om vill använda Azure Cosmos DB SDK, se till att du inte lägger till ditt projekt en annan referens för NuGet-paketet. I stället **låta SDK-referens lösa via Azure Functions-tilläggspaket**. Använda Azure Cosmos DB SDK separat från utlösare och bindningar
+Om du vill använda Azure Cosmos DB SDK ser du till att du inte lägger till ett annat NuGet-paket referens i projektet. I stället kan **SDK-referensen lösas via Azure Functions tilläggs paketet**. Använda Azure Cosmos DB SDK separat från utlösaren och bindningarna
 
-Även om du manuellt skapar en egen instans av den [Azure Cosmos DB SDK-klienten](./sql-api-sdk-dotnet-core.md), bör du följa mönstret för att ha endast en instans av klienten [med hjälp av en metod för Singleton-mönster](../azure-functions/manage-connections.md#documentclient-code-example-c) . Den här processen undviker de potentiella socket problemen i din verksamhet.
+Om du dessutom skapar en egen instans av [Azure Cosmos DB SDK-klienten](./sql-api-sdk-dotnet-core.md)manuellt bör du följa mönstret för att bara ha en instans av klienten [med hjälp av en metod för singleton-mönster](../azure-functions/manage-connections.md#documentclient-code-example-c). Den här processen kommer att undvika potentiella problem med socketen i dina åtgärder.
 
 ## <a name="common-scenarios-and-workarounds"></a>Vanliga scenarier och lösningar
 
-### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure Function misslyckas med fel meddelande samlingen finns inte
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure Function Miss lyckas med fel meddelande samlingen finns inte
 
-Azure-funktion misslyckas med felmeddelandet ”antingen källsamlingen 'samlingsnamn” (i databasen ”databas-name”) eller lånsamling ”samling2-name” (i databasen ”Databas2-name”) finns inte. Båda samlingarna måste finnas innan lyssnaren startar. Ange 'CreateLeaseCollectionIfNotExists' till 'true' för att automatiskt skapa samlingen lån ”
+Azure Function Miss lyckas med fel meddelandet "det finns ingen käll samlings samling, namn (i databasens databas namn) eller collection2-namnet (i databasen Databas2-Name). Båda samlingarna måste finnas innan lyssnaren startar. Ange "CreateLeaseCollectionIfNotExists" till "true" om du vill skapa en låne samling automatiskt
 
-Detta innebär att en eller båda av Azure Cosmos-behållare som krävs för utlösaren ska fungera finns inte eller kan inte nås för Azure-funktionen. **Felet själva ange vilken Azure-Cosmos-databas och behållare är utlösaren söker** utifrån din konfiguration.
+Det innebär att antingen en eller båda av de Azure Cosmos-behållare som krävs för att utlösaren ska fungera, inte finns eller inte kan komma åt Azure-funktionen. **Själva felet anger vilken Azure Cosmos-databas och behållare som är den Utlös Ande som du behöver** utifrån din konfiguration.
 
-1. Kontrollera den `ConnectionStringSetting` attribut och att den **refererar till en inställning som finns i din Azure-Funktionsapp**. Värdet på det här attributet får inte vara anslutningssträngen själva, men namnet på Konfigurationsinställningen.
-2. Kontrollera att den `databaseName` och `collectionName` finns i ditt Azure Cosmos-konto. Om du använder automatisk värdet ersättning (med hjälp av `%settingName%` mönster), kontrollera att namnet på inställningen finns i din Azure-Funktionsapp.
-3. Om du inte anger en `LeaseCollectionName/leaseCollectionName`, standardvärdet är ”lån”. Kontrollera att sådana behållaren finns. Om du vill kan du ange den `CreateLeaseCollectionIfNotExists` attribut i utlösaren till `true` automatiskt skapa den.
-4. Kontrollera din [brandväggskonfiguration för Azure Cosmos-konto](how-to-configure-firewall.md) för att visas för att visa att det inte är den inte blockerar Azure Function.
+1. Kontrol lera attributet och att det **refererar till en inställning som finns i din Azure-Funktionsapp.** `ConnectionStringSetting` Värdet för det här attributet får inte vara själva anslutnings strängen, utan namnet på konfigurations inställningen.
+2. Kontrol lera att `databaseName` och `collectionName` finns i ditt Azure Cosmos-konto. Om du använder automatisk ersättning (med `%settingName%` mönster) ser du till att namnet på inställningen finns i Azure-Funktionsapp.
+3. Om du inte anger någon `LeaseCollectionName/leaseCollectionName`är standardvärdet "lån". Kontrol lera att behållaren finns. Du kan också ställa in `CreateLeaseCollectionIfNotExists` attributet i utlösaren så `true` att det skapas automatiskt.
+4. Verifiera ditt [Azure Cosmos-kontos brand Väggs konfiguration](how-to-configure-firewall.md) för att se att den inte blockerar Azure-funktionen.
 
-### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Azure-funktion misslyckas att börja med ”delade dataflöde samling ska ha en partitionsnyckel”
+### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Azure Function kan inte starta med "delad data flödes samling ska ha en partitionsnyckel"
 
-Tidigare versioner av tillägget Azure Cosmos DB inte stöd för att använda en lån-behållare som skapades i en [delade dataflöde databasen](./set-throughput.md#set-throughput-on-a-database). Lös problemet genom att uppdatera den [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) tillägg för att hämta den senaste versionen.
+Föregående versioner av Azure Cosmos DB-tillägget har inte stöd för användning av en behållare för lån som skapades i en [delad data flödes databas](./set-throughput.md#set-throughput-on-a-database). Lös problemet genom att uppdatera tillägget [Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) för att hämta den senaste versionen.
 
-### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Azure-funktion misslyckas att börja med ”lånsamling, om partitionerad måste ha partitionsnyckel som är lika med ID: t”.
+### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Azure Function kan inte starta med "Lease-samlingen, om partitionerad", måste ha en partitionsnyckel som är lika med ID. "
 
-Det här felet innebär att din aktuella lån behållare är partitionerad, men partitionen som Nyckelsökväg är inte `/id`. För att lösa problemet behöver du skapa behållaren lån med `/id` som partitionsnyckel.
+Det här felet innebär att din aktuella Lease container är partitionerad, men att sökvägen till partitionsnyckel inte `/id`är det. För att lösa det här problemet måste du återskapa behållaren för lån med `/id` som partitionsnyckel.
 
-### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Du ser en ”värdet får inte vara null. Parameternamn: o ”i Azure Functions loggarna vid försök att köra utlösaren
+### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Du ser ett "värde får inte vara null. Parameter namn: o "i Azure Functions loggar när du försöker köra utlösaren
 
-Det här problemet visas om du använder Azure-portalen och du försöker att välja den **kör** knappen på skärmen vid kontroll av en Azure-funktion som använder sig av utlösaren. Utlösaren kräver inte att markera kör för att starta, startar automatiskt när Azure Function har distribuerats. Om du vill kontrollera loggström för Azure-funktion på Azure portal, bara gå till din övervakade behållare och infoga några nya objekt visas automatiskt utlösaren körs.
+Det här problemet uppstår om du använder Azure Portal och du försöker välja knappen **Kör** på skärmen när du inspekterar en Azure-funktion som använder utlösaren. Utlösaren kräver inte att du väljer Kör för att starta. den startas automatiskt när Azure-funktionen distribueras. Om du vill kontrol lera logg strömmen i Azure-funktionen på Azure Portal, går du bara till den övervakade behållaren och infogar nya objekt. då visas automatiskt den utlösare som körs.
 
-### <a name="my-changes-take-too-long-be-received"></a>Mina ändringar tar för lång tid ska tas emot
+### <a name="my-changes-take-too-long-be-received"></a>Mina ändringar tar för lång tid att tas emot
 
-Det här scenariot kan ha flera orsaker och alla bör kontrolleras:
+Det här scenariot kan ha flera orsaker och alla bör kontrol leras:
 
-1. Har din Azure-funktion som distribuerats i samma region som ditt Azure Cosmos-konto? För optimala Nätverksfördröjningen samplaceras både Azure-funktion och ditt Azure Cosmos-konto i samma Azure-region.
-2. Ändringarna som sker i din Azure Cosmos-behållare kontinuerlig eller sporadiska?
-Om det är det senare kan uppstå det en fördröjning mellan ändringarna lagras och Azure-funktion som jobbar med dem. Det beror på att internt när utlösaren söker efter ändringar i din Azure Cosmos-behållare och hittar ingen väntar på att läsas, den kommer viloläge under en inställbar tidsperiod (5 sekunder, som standard) innan du söker efter nya ändringar (att undvika hög RU-förbrukning). Du kan konfigurera strömsparläge nu via den `FeedPollDelay/feedPollDelay` i den [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) av utlösaren (värdet förväntas vara i millisekunder).
-3. Din Azure Cosmos-behållare kan vara [rate-limited](./request-units.md).
-4. Du kan använda den `PreferredLocations` attribut i utlösaren att ange en kommaavgränsad lista över Azure-regioner att definiera en anpassad anslutning för önskad ordning.
+1. Distribueras Azure-funktionen i samma region som ditt Azure Cosmos-konto? För optimal nätverks fördröjning bör både Azure-funktionen och ditt Azure Cosmos-konto befinna sig i samma Azure-region.
+2. Sker ändringarna i din Azure Cosmos-behållare kontinuerligt eller sporadiskt?
+Om det är den senare kan det uppstå en fördröjning mellan ändringarna som lagras och Azure-funktionen plockar dem. Detta beror på att internt när utlösaren söker efter ändringar i din Azure Cosmos-behållare och inte hittar något som väntar på att läsas, den försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög RU-förbrukning). Du kan konfigurera den här vilo tiden genom `FeedPollDelay/feedPollDelay` inställningen i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) av utlösaren (värdet förväntas vara i millisekunder).
+3. Din Azure Cosmos-behållare kan vara [begränsad till hastighet](./request-units.md).
+4. Du kan använda `PreferredLocations` attributet i utlösaren för att ange en kommaavgränsad lista över Azure-regioner för att definiera en anpassad prioriterad anslutnings ordning.
 
-### <a name="some-changes-are-missing-in-my-trigger"></a>Det saknas några ändringar i min utlösare
+### <a name="some-changes-are-missing-in-my-trigger"></a>Vissa ändringar saknas i min utlösare
 
-Om du upptäcker att vissa ändringar som har inträffat i din Azure Cosmos-behållare som inte plockas upp av Azure-funktion, finns det en inledande undersökning steg som måste äga rum.
+Om du upptäcker att några av ändringarna som hände i din Azure Cosmos-behållare inte hämtas av Azure-funktionen, finns det ett första undersöknings steg som måste utföras.
 
-När din Azure-funktion får ändringarna, den ofta bearbetar dem och kan eventuellt kan skicka resultatet till en annan plats. När du undersöker saknas ändringar, se till att du **mått som vilken ändringar tas emot på inläsningspunkten** (när Azure Function startar) inte på målet.
+När din Azure-funktion tar emot ändringarna, bearbetar den ofta dem och kan också skicka resultatet till ett annat mål. När du undersöker saknade ändringar, se till att du **mäter vilka ändringar som tas emot vid** inmatnings punkten (när Azure-funktionen startar), inte på målet.
 
-Om några ändringar saknas på målet, innebär det är något fel uppstod under aktivering av Azure-funktion-körning när ändringarna har tagits emot.
+Om vissa ändringar saknas på målet kan detta betyda att vissa fel inträffar under Azure Function-körningen när ändringarna har tagits emot.
 
-I det här scenariot är bästa åtgärden att lägga till `try/catch blocks` i din kod och inuti loopar som kanske kan behandla ändringar för att upptäcka eventuella fel för en delmängd av objekt och hantera dem enlighet med detta (skicka dem till en annan lagring för ytterligare analys eller försök igen). 
+I det här scenariot är den bästa åtgärden att lägga till `try/catch blocks` i din kod och inom de slingor som kan bearbeta ändringarna, för att upptäcka eventuella problem med en viss delmängd av objekt och hantera dem efter behov (skicka dem till en annan lagrings plats för ytterligare analys eller försök igen). 
 
 > [!NOTE]
-> Azure Cosmos DB-utlösare gör som standard inte en batch med ändringar om det uppstod ett ohanterat undantag vid körning av din kod. Det innebär att anledningen till att ändringarna inte når målet är att du inte kan bearbeta dem på.
+> Azure Cosmos DB-utlösaren försöker som standard inte att göra om en grupp ändringar om ett ohanterat undantag uppstod under kod körningen. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
 
-Om du upptäcker att vissa ändringar inte har tagits emot alls av utlösaren, det vanligaste scenariot är att det finns **ett annat Azure-funktion körs**. Det kan vara en annan Azure-funktion som distribueras i Azure eller en Azure-funktion som körs lokalt på en utvecklare dator som har **exakt samma konfiguration** (samma övervakas och låna ut behållare), och denna Azure Function stjäla en delmängd av de ändringar som du förväntar dig din Azure-funktion för att bearbeta.
+Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren, är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en delmängd av de ändringar du förväntar dig att Azure-funktionen ska bearbeta.
 
-Dessutom kan du kontrollera scenariot, om du vet hur många instanser i Azure Function-App som du har som körs. Om du vill inspektera behållaren lån och räkna antalet lån objekt inom de distinkta värdena för den `Owner` -egenskapen i dem vara lika med antalet instanser av din Funktionsapp. Om det finns fler ägare än kända instanserna i Azure Function-App, innebär det att följande extra ägare är en ”stjäla” ändringarna.
+Scenariot kan också verifieras om du vet hur många Azure Funktionsapp-instanser som du kör. Om du inspekterar din lån behållare och räknar antalet låne objekt i, ska de distinkta värdena för `Owner` egenskapen i dem vara lika med antalet instanser av Funktionsapp. Om det finns fler ägare än de kända Azure Funktionsapp-instanserna, innebär det att dessa extra ägare är den som "stjäl" ändringarna.
 
-Ett enkelt sätt att lösa den här situationen är att tillämpa en `LeaseCollectionPrefix/leaseCollectionPrefix` till din funktion med en ny/annan värde eller du kan också testa med en ny lån-behållare.
+Ett enkelt sätt att lösa den här situationen är att använda en `LeaseCollectionPrefix/leaseCollectionPrefix` i din funktion med ett nytt/annat värde eller, även testa med en ny container container.
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan endast göras med IReadOnlyList<Document> eller JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan bara göras med IReadOnlyList\<-dokument > eller JArray
 
-Felet kan inträffa om Azure Functions-projekt (eller alla refererade projekt) innehåller en manuell NuGet referens till Azure Cosmos DB SDK med en annan version än den som tillhandahålls av den [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+Det här felet uppstår om ditt Azure Functions-projekt (eller ett refererat projekt) innehåller en manuell NuGet-referens till Azure Cosmos DB SDK med en annan version än den som anges av [Azure Functions Cosmos DB-tillägget](./troubleshoot-changefeed-functions.md#dependencies).
 
-Lösa den här situationen, ta bort den manuella NuGet-referens som har lagts till och låt Azure Cosmos DB SDK-referensen lösa via Azure Functions Cosmos DB Extension-paketet.
+Lös problemet genom att ta bort den manuella NuGet-referensen som lades till och låt Azure Cosmos DB SDK-referensen matcha genom Azure Functions Cosmos DB tilläggs paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Aktivera övervakning för Azure Functions](../azure-functions/functions-monitoring.md)
-* [Azure Cosmos DB .NET SDK-felsökning](./troubleshoot-dot-net-sdk.md)
+* [Azure Cosmos DB fel sökning av .NET SDK](./troubleshoot-dot-net-sdk.md)

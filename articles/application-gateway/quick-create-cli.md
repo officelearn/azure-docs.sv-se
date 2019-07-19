@@ -1,35 +1,35 @@
 ---
 title: 'Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI | Microsoft Docs'
-description: Lär dig hur använder Azure CLI för att skapa en Azure Application Gateway som leder webbtrafik till virtuella datorer i en serverdelspool.
+description: Lär dig hur du använder Azure CLI för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd68f4a565c28f1dbac7e94442a8f8231af01328
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66133957"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314902"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
-Den här snabbstarten visar hur du använder Azure CLI för att skapa en Programgateway.  Efter att application gateway kan testa du den och kontrollera att de fungerar korrekt. Med Azure Application Gateway dirigera application Internet-trafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och lägga till resurser till en serverdelspool. För enkelhetens skull använder den här artikeln en enkel installation med en offentlig frontend IP-adress, en grundläggande lyssnare till en plats på den här application gateway-värd, två virtuella datorer som används för serverdelspoolen och en regel för vidarebefordran av grundläggande begäran.
+Den här snabb starten visar hur du använder Azure CLI för att skapa en Programgateway.  När du har skapat programgatewayen testar du den för att kontrol lera att den fungerar som den ska. Med Azure Application Gateway dirigerar du din program webb trafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och lägga till resurser i en backend-pool. Den här artikeln använder en enkel installation med en offentlig IP-adress, en grundläggande lyssnare som är värd för en enda plats på programgatewayen, två virtuella datorer som används för backend-poolen och en grundläggande regel för routning av förfrågningar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-cli"></a>Azure CLI
 
 Om du väljer att installera och använda CLI lokalt kör du Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra **az --version**. Information om att installera eller uppgradera finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-### <a name="resource-group"></a>Resursgrupp
+### <a name="resource-group"></a>Resource group
 
 I Azure allokerar du relaterade resurser till en resursgrupp. Skapa en resursgrupp med hjälp av [az group create](/cli/azure/group#az-group-create). 
 
@@ -39,9 +39,9 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på pla
 az group create --name myResourceGroupAG --location eastus
 ```
 
-### <a name="required-network-resources"></a>Resurser som krävs 
+### <a name="required-network-resources"></a>Nödvändiga nätverks resurser 
 
-För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk.  Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.  Du kan skapa ett nytt undernät för Application Gateway, eller så kan du använda en befintlig. I det här exemplet skapar du två undernät i det här exemplet: en för application gateway och en för backend-servrarna. Du kan konfigurera Frontend IP för Programgatewayen ska vara offentlig eller privat enligt ditt användningsområde. I det här exemplet väljer vi en offentlig Klientdels-IP.
+För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk.  Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.  Du kan antingen skapa ett nytt undernät för Application Gateway eller använda ett befintligt. I det här exemplet skapar du två undernät i det här exemplet: ett för programgatewayen och en annan för backend-servrarna. Du kan konfigurera klient delens IP för Application Gateway att vara offentlig eller privat enligt ditt användnings fall. I det här exemplet väljer du en offentlig IP-adress för klient delen.
 
 Du skapar det virtuella nätverket och undernätet med hjälp av [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Kör [az network public-ip create](/cli/azure/network/public-ip) för att skapa den offentliga IP-adressen.
 
@@ -60,12 +60,14 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ### <a name="backend-servers"></a>Backend-servrar
 
-Serverdel kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure App Service. I det här exemplet skapar du två virtuella datorer för Azure som ska användas som serverdelsservrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att Azure har skapat programgatewayen.
+En server del kan ha nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att testa programgatewayen.
 
 #### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
 
@@ -147,7 +149,7 @@ az network application-gateway create \
   --location eastus \
   --resource-group myResourceGroupAG \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Enabled \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
@@ -179,7 +181,7 @@ Kopiera och klistra in den offentliga IP-adressen i webbläsarens adressfält.
     
 ![Testa programgatewayen](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-När du uppdaterar webbläsaren bör du se namnet på den andra virtuella datorn. Ett giltigt svar verifierar att application gateway har skapats och är det kunna ansluta med serverdelen.
+När du uppdaterar webbläsaren bör du se namnet på den andra virtuella datorn. Detta anger att Application Gateway har skapats och kan ansluta till Server delen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

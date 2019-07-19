@@ -4,7 +4,7 @@ description: Lär dig mer om hur du använder Azure Batch-tjänsten för storska
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: 1dbd31b3c666857765b8b20a11d4d0c7ea8ea37b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c55b831903ed8dad124156013c8379536f676efa
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704766"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322789"
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -30,7 +30,7 @@ Utvecklare kan använda Batch som en plattformstjänst för att skapa SaaS-progr
 
 Det kostar inget extra att använda Batch. Du betalar bara för de underliggande resurserna som används, till exempel virtuella datorer, lagring och nätverk.
 
-En jämförelse mellan Batch och andra HPC-lösningsalternativ i Azure finns i [HPC High Performance Computing () på Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+En jämförelse mellan batch och andra alternativ för HPC-lösningar i Azure finns i [HPC (data behandling med höga prestanda) i Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Köra parallella arbetsbelastningar
 Batch fungerar bra med parallella arbetsbelastningar. Filsystem med parallella arbetsbelastningar är sådana där programmen kan köras oberoende av varandra och varje instans slutför en del av arbetet. När programmen körs kan de komma åt vissa gemensamma data, men de kommunicerar inte med andra instanser av programmet. Parallella arbetsbelastningar kan därför köras i stor skala, vilket avgörs av hur stor del av beräkningsresurserna som är tillgängliga för att köra program samtidigt.

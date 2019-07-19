@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: 9e9472fbcd01cf40204063174b159638369d7429
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304306"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326659"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
 
@@ -91,10 +91,10 @@ Följande Azure PowerShell-cmdlet exkluderar användar parametern från utvärde
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -MatchVariable "RequestArgNames" `
-   -SelectorMatchOperator "Equals" `
+   -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Så om URL: **http://www.contoso.com/?user=fdafdasfda** en skickas till WAF utvärderas inte strängen **fdafdasfda**.
+Så om URL: **http://www.contoso.com/?user%281%29=fdafdasfda** en skickas till WAF utvärderas inte strängen **fdafdasfda**, men den kommer fortfarande att utvärdera parameter namn **användaren% 281% 29**. 
 
 ## <a name="next-steps"></a>Nästa steg
 

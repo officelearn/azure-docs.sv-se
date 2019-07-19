@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519021"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325467"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med SDK Java och Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en Cassandra API-app fr
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). Alla kodavsnitt kommer från filen `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java`.  
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). De här kodfragmenten hämtas från filen *src/main/Java/com/Azure/cosmosdb/Cassandra/util/CassandraUtils. java* .  
 
 * Värd, port, användarnamn, lösenord och SSL-alternativ är inställda för Cassandra. Information om anslutningssträngen kommer från sidan med anslutningssträngen i Azure-portalen.
 
@@ -85,7 +85,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
     return cluster.connect();
     ```
 
-Följande kodavsnitt är från filen `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java`.
+Följande kodfragment är från filen *src/main/Java/com/Azure/cosmosdb/Cassandra/lagringsplats/UserRepository. java* .
 
 * Skapa ett nytt keyspace.
 
@@ -153,7 +153,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
 
-2. Använd ![Kopieringsknapp](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
+2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
 3. Öppna filen `config.properties` i mappen `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources`. 
 

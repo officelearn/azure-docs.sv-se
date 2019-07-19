@@ -1,18 +1,19 @@
 ---
-title: Självstudie – distribuera en grupp med flera behållare i Azure Container Instances - YAML
-description: I de här självstudierna lär du dig att distribuera en behållargrupp med flera behållare i Azure Container Instances med hjälp av en YAML-fil med Azure CLI.
+title: Självstudie – distribuera en grupp med flera behållare i Azure Container Instances-YAML
+description: I den här självstudien får du lära dig hur du distribuerar en behållar grupp med flera behållare i Azure Container Instances genom att använda en YAML-fil med Azure CLI.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149085"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325819"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudier: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
@@ -21,13 +22,13 @@ ms.locfileid: "66149085"
 > * [Resource Manager](container-instances-multi-container-group.md)
 >
 
-Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållargruppen](container-instances-container-groups.md). En behållargrupp är användbart när du skapar ett program sidovagn för loggning, övervakning eller en annan konfiguration där en tjänst behöver en andra anslutna process.
+Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en behållar [grupp](container-instances-container-groups.md). En behållar grupp är användbar när du skapar en program-sidvagn för loggning, övervakning eller andra konfigurationer där en tjänst behöver en andra ansluten process.
 
-I de här självstudierna gör du för att köra en enkel två behållare sidovagn konfiguration genom att distribuera en YAML-fil med hjälp av Azure CLI. En YAML-fil innehåller en koncis format för att ange inställningar för instansen. Lär dig att:
+I den här självstudien följer du steg för steg hur du kör en enkel sidvagn-konfiguration med två behållare genom att distribuera en YAML-fil med hjälp av Azure CLI. En YAML-fil ger ett koncist format för att ange instans inställningarna. Lär dig att:
 
 > [!div class="checklist"]
 > * Konfigurera en YAML-fil
-> * Distribuera behållargruppen
+> * Distribuera behållar gruppen
 > * Visa loggarna för behållarna
 
 > [!NOTE]
@@ -39,15 +40,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="configure-a-yaml-file"></a>Konfigurera en YAML-fil
 
-Distribuera en grupp med flera behållare med den [az container skapa] [ az-container-create] kommandot i Azure CLI, måste du ange konfigurationen av behållaren grupp i en YAML-fil. Skicka sedan YAML-fil som en parameter i kommandot.
+Om du vill distribuera en grupp med flera behållare med kommandot [AZ container Create][az-container-create] i Azure CLI måste du ange behållar grupps konfigurationen i en yaml-fil. Skicka sedan YAML-filen som en parameter till kommandot.
 
-Starta genom att kopiera följande YAML till en ny fil med namnet **distribuera aci.yaml**. Du kan använda Visual Studio Code i Azure Cloud Shell för att skapa filen i arbetskatalogen:
+Börja med att kopiera följande YAML till en ny fil med namnet **Deploy-ACI. yaml**. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
 
 ```
 code deploy-aci.yaml
 ```
 
-Den här YAML-filen definierar en behållargrupp med namnet ”myContainerGroup” med två behållare, en offentlig IP-adress och två portar. Behållarna distribueras från offentliga Microsoft-avbildningar. Den första behållaren i gruppen kör ett webbprogram för webbservergrupper på internet. Behållaren andra sidovagnen, skickar regelbundet HTTP-begäranden till webbprogrammet som körs i den första behållaren via det behållargruppen lokala nätverk.
+Den här YAML-filen definierar en behållar grupp med namnet "myContainerGroup" med två behållare, en offentlig IP-adress och två exponerade portar. Behållarna distribueras från offentliga Microsoft-avbildningar. Den första behållaren i gruppen kör ett webb program som riktar sig mot Internet. Den andra behållaren, sidvagn gör regelbundet HTTP-förfrågningar till webb programmet som körs i den första behållaren via behållar gruppens lokala nätverk.
 
 ```YAML
 apiVersion: 2018-10-01
@@ -84,7 +85,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Om du vill använda ett privat behållarregister bild, lägger du till den `imageRegistryCredentials` egenskapen för behållargruppen med värden som har ändrats för din miljö:
+Om du vill använda ett privat behållar avbildnings register lägger du till `imageRegistryCredentials` egenskapen i behållar gruppen med värden som har ändrats för din miljö:
 
 ```YAML
   imageRegistryCredentials:
@@ -93,15 +94,15 @@ Om du vill använda ett privat behållarregister bild, lägger du till den `imag
     password: imageRegistryPassword
 ```
 
-## <a name="deploy-the-container-group"></a>Distribuera behållargruppen
+## <a name="deploy-the-container-group"></a>Distribuera behållar gruppen
 
-Skapa en resursgrupp med det [az gruppen skapa] [ az-group-create] kommando:
+Skapa en resurs grupp med kommandot [AZ Group Create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera behållargrupp med den [az container skapa] [ az-container-create] kommando, skicka YAML-fil som ett argument:
+Distribuera behållar gruppen med kommandot [AZ container Create][az-container-create] , och skicka yaml-filen som ett argument:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
@@ -109,15 +110,15 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Inom några sekunder bör du få ett första svar från Azure.
 
-## <a name="view-deployment-state"></a>Visa status för distribution
+## <a name="view-deployment-state"></a>Visa distributions status
 
-Om du vill visa statusen för distributionen, använder du följande [az container show] [ az-container-show] kommando:
+Om du vill visa status för distributionen använder du följande [AZ container show][az-container-show] -kommando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Om du vill visa programmet som körs, navigerar du till dess IP-adress i webbläsaren. IP-Adressen är till exempel `52.168.26.124` i följande Exempelutdata:
+Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. IP-adressen är `52.168.26.124` till exempel utdata i följande exempel:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -127,13 +128,13 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Visa containerloggar
 
-Visa loggutdata för behållaren med den [az behållarloggarna] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som du vill hämta loggar från. I det här exemplet på `aci-tutorial-app` behållare har angetts.
+Visa logg resultatet för en behållare med hjälp av kommandot [AZ container logs][az-container-logs] . `--container-name` Argumentet anger den behållare från vilken du vill hämta loggar. I det här exemplet `aci-tutorial-app` anges containern.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Utdata:
+Resultat:
 
 ```console
 listening on port 80
@@ -142,13 +143,13 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Om du vill se loggar för behållaren sidovagn, kör du en liknande kommando för att ange den `aci-tutorial-sidecar` behållare.
+Om du vill se loggarna för den sidvagn behållaren kör du ett liknande kommando `aci-tutorial-sidecar` som anger behållaren.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Utdata:
+Resultat:
 
 ```console
 Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
@@ -168,7 +169,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Som du ser är sidovagnen regelbundet att en HTTP-förfrågan till det huvudsakliga webbprogrammet via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan utökas för att utlösa en avisering om den har fått en HTTP-svarskoden än `200 OK`.
+Som du kan se gör den sidvagn regelbundet en HTTP-begäran till huvud webb programmet via gruppens lokala nätverk för att säkerställa att det körs. Detta sidvagn-exempel kan utökas för att utlösa en avisering om den fick en HTTP-svarskod `200 OK`än.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -176,10 +177,10 @@ I den här självstudien använde du en YAML-fil för att distribuera en grupp m
 
 > [!div class="checklist"]
 > * Konfigurera en YAML-fil för en grupp med flera behållare
-> * Distribuera behållargruppen
+> * Distribuera behållar gruppen
 > * Visa loggarna för behållarna
 
-Du kan också ange en grupp med flera behållare med hjälp av en [Resource Manager-mall](container-instances-multi-container-group.md). Resource Manager-mall kan lätt anpassas för scenarier när du behöver distribuera ytterligare Azure-tjänstresurser med behållargruppen.
+Du kan också ange en grupp med flera behållare med hjälp av en [Resource Manager-mall](container-instances-multi-container-group.md). En Resource Manager-mall kan enkelt anpassas för scenarier när du behöver distribuera ytterligare Azure-tjänst resurser med behållar gruppen.
 
 <!-- LINKS - External -->
 

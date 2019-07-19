@@ -1,9 +1,9 @@
 ---
-title: Azure Batch Analytics | Microsoft Docs
-description: Referens för Azure batchanalys.
+title: Azure Batch analys | Microsoft Docs
+description: Referens för Azure Batch analys.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 999c3037196044250b8a12d6b6b380553e58c6ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f8233846f3835a2bbccf9a7072f223d435b90af
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721563"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323835"
 ---
 # <a name="batch-analytics"></a>Batchanalys
-Batchanalys innehåller referensinformation för händelser och varningar som är tillgängliga för Batch-tjänstresurser.
+Ämnena i batch Analytics innehåller referensinformation om de händelser och aviseringar som är tillgängliga för batch-tjänstens resurser.
 
-Se [Diagnostisk loggning för Azure Batch](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) mer information om att aktivera och använda Batch-diagnostikloggar.
+Mer information om hur du aktiverar och använder batch-diagnostikloggar finns i [Azure Batch diagnostisk loggning](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) .
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Azure Batch-tjänsten genererar följande diagnostiklogg händelser under livslängden för vissa Batch-resurser.
+Azure Batchs tjänsten genererar följande diagnostiska logg händelser under livstiden för vissa batch-resurser.
 
 **Tjänsten logghändelser**
 * [Skapande av pool](batch-pool-create-event.md)

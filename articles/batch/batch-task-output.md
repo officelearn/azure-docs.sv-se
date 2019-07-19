@@ -1,9 +1,9 @@
 ---
-title: Spara resultatet eller loggar från slutförda jobb och aktiviteter till ett datalager – Azure Batch | Microsoft Docs
-description: Läs mer om olika alternativ för att spara utdata från Batch-aktiviteter och jobb. Du kan spara data till Azure Storage eller till ett annat datalager.
+title: Spara resultat eller loggar från slutförda jobb och aktiviteter till ett data lager – Azure Batch | Microsoft Docs
+description: Lär dig mer om olika alternativ för att spara utdata från batch-uppgifter och-jobb. Du kan spara data till Azure Storage eller till ett annat data lager.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -14,82 +14,82 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5fe15b36913106692377c483110cce2c0418a3f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549956"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322850"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Några vanliga exempel på uppgiftsutdata är:
+Några vanliga exempel på Uppgiftsutdata är:
 
-- Filer som skapas när indata för aktiviteten-processer.
-- Loggfiler som associeras med körning av aktiviteten.
+- Filer som skapas när aktiviteten bearbetar indata.
+- Loggfiler som är associerade med uppgifts körning.
 
-Den här artikeln beskrivs olika alternativ för att bevara uppgiftsutdata.
+I den här artikeln beskrivs olika alternativ för att spara Uppgiftsutdata.
 
 ## <a name="options-for-persisting-output"></a>Alternativ för att spara utdata
 
-Det finns några olika metoder som du kan använda för att bevara uppgiftsutdata beroende på ditt scenario:
+Beroende på ditt scenario finns det några olika metoder som du kan vidta för att spara Uppgiftsutdata:
 
-- [Använda API: et för Batch-tjänsten](batch-task-output-files.md).  
-- [Använd Batch File Conventions-bibliotek för .NET](batch-task-output-file-conventions.md).  
-- Implementera Batch File Conventions-standard i ditt program.
-- Implementera en lösning för flytt av anpassad fil.
+- [Använd batch-tjänstens API](batch-task-output-files.md).  
+- [Använd biblioteket med kommando fils konventioner för .net](batch-task-output-file-conventions.md).  
+- Implementera standard konventionerna för batch-filen i ditt program.
+- Implementera en anpassad lösning för fil förflyttning.
 
-I följande avsnitt beskrivs kortfattat varje metod samt allmänna designöverväganden för bestående utdata.
+I följande avsnitt beskrivs varje metod och allmänna design överväganden för att spara utdata.
 
-### <a name="use-the-batch-service-api"></a>Använda API: et för Batch-tjänsten
+### <a name="use-the-batch-service-api"></a>Använda batch-tjänstens API
 
-Batch-tjänsten har stöd för att ange utdatafilerna i Azure Storage för uppgiftsdata när du [lägger till ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) eller [lägga till en samling aktiviteter i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+Batch-tjänsten har stöd för att ange utdatafiler i Azure Storage för uppgifts data när du [lägger till en aktivitet i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) eller [lägger till en samling aktiviteter i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-Mer information om bestående uppgiftsutdata med API: et för Batch-tjänsten finns i [spara uppgiftsdata till Azure Storage med Batch service API](batch-task-output-files.md).
+Mer information om att spara Uppgiftsutdata med batch-tjänstens API finns i [Spara uppgifts data till Azure Storage med batch-tjänstens API](batch-task-output-files.md).
 
-### <a name="use-the-batch-file-conventions-library-for-net"></a>Använd Batch File Conventions-bibliotek för .NET
+### <a name="use-the-batch-file-conventions-library-for-net"></a>Använd biblioteket med kommando fils konventioner för .NET
 
-Batch definierar en valfri uppsättning namnkonventionerna för uppgiften utdatafilerna i Azure Storage. Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) beskriver dessa konventioner. File Conventions-standard anger namnen på behållare och blobnamn målsökvägen i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och.
+Batch definierar en valfri uppsättning konventioner för namngivning av Uppgiftsutdata i Azure Storage. Standard konventionerna för [batch-filen](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) beskriver dessa konventioner. Standard för fil konventioner bestämmer namnen på mål behållaren och blob-sökvägen i Azure Storage för en specifik utdatafil baserat på namnet på jobbet och uppgiften.
 
-Det är upp till dig om du vill använda den File Conventions-standarden för namngivning av datafilerna utdata. Du kan också namnge till Målbehållaren och blob men du vill. Om du använder den File Conventions-standarden för namngivning av utdatafilerna så din utdatafilerna är tillgängliga för visning i den [Azure-portalen][portal].
+Det är upp till dig om du bestämmer dig för att använda fil konventions standarden för att namnge dina utdatafiler. Du kan också namnge mål behållaren och bloben som du vill. Om du använder fil konventions standarden för namngivning av utdatafiler är utdatafilerna tillgängliga för visning i [Azure Portal][portal].
 
-Att skapa Batch-lösningar med C# och .NET-utvecklare kan använda den [File Conventions-bibliotek för .NET] [ nuget_package] till spara uppgiftsdata till Azure Storage-konto, bl.a till den [batchfil Konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-bibliotek hanterar glidande utdatafilerna till Azure Storage och namnge mål behållare och blobbar i ett välkänt sätt.
+Utvecklare som skapar batch- C# lösningar med och .net kan använda [fil konventions biblioteket för .net][nuget_package] för att spara uppgifts data till ett Azure Storage-konto, enligt satserna i satsen för [fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Biblioteket fil konventioner hanterar flyttning av utdatafiler till Azure Storage och namngivning av mål behållare och blobbar på ett välkänt sätt.
 
-Mer information om bestående uppgiftens utdata med File Conventions-bibliotek för .NET finns i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET](batch-task-output-file-conventions.md).
+Mer information om att spara Uppgiftsutdata med fil konventions biblioteket för .NET finns i [Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-Filkonventioner för .net](batch-task-output-file-conventions.md).
 
-### <a name="implement-the-batch-file-conventions-standard"></a>Implementera Batch File Conventions-standard
+### <a name="implement-the-batch-file-conventions-standard"></a>Implementera standard konventionerna för batch-filen
 
-Om du använder ett annat språk än .NET kan du implementera den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) i ditt eget program.
+Om du använder ett annat språk än .NET kan du implementera [standard konventionerna för batch-filen](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) i ditt eget program.
 
-Du kanske vill implementera File Conventions namnstandarden själv när du vill att en beprövad namngivningsschemat, eller när du vill visa uppgiftens utdata i Azure-portalen.
+Du kanske vill implementera namngivnings standarden för fil konventioner själv när du vill ha ett beskrivande namn schema, eller när du vill visa Uppgiftsutdata i Azure Portal.
 
-### <a name="implement-a-custom-file-movement-solution"></a>Implementera en lösning för flytt av anpassad fil
+### <a name="implement-a-custom-file-movement-solution"></a>Implementera en lösning för anpassad fil förflyttning
 
-Du kan också implementera en egen lösning för flytt av fullständig fil. Använd detta metod, när:
+Du kan också implementera din egen fullständiga lösning för fil förflyttning. Använd den här metoden när:
 
-- Du kan bevara uppgiftsdata till ett datalager än Azure Storage. Om du vill ladda upp filer till ett dataarkiv som Azure SQL och Azure-DataLake kan du skapa ett anpassat skript eller en körbar fil att ladda upp till den platsen. Du kan sedan anropa det på kommandoraden när du har kört ditt primära körbar fil. Du kan till exempel anropa följande två kommandon på en Windows-nod: `doMyWork.exe && uploadMyFilesToSql.exe`
-- Du vill utföra kontrollpunkter eller tidig överföring av första resultaten.
-- Du vill ha kvar detaljerad kontroll över felhantering. Du kanske exempelvis vill implementera en egen lösning om du vill använda beroende Uppgiftsåtgärder vidtar särskilda åtgärder för överföringen baserat på specifika slutkoder för aktiviteter. Läs mer på beroende Uppgiftsåtgärder [skapa aktivitetssamband för att köra uppgifter som är beroende av andra aktiviteter](batch-task-dependencies.md).
+- Du vill spara uppgifts data till ett annat data lager än Azure Storage. Om du vill ladda upp filer till ett data lager som Azure SQL eller Azure DataLake kan du skapa ett anpassat skript eller en körbar fil som du kan överföra till den platsen. Sedan kan du anropa det på kommando raden när du har kört den primära körbara filen. På en Windows-nod kan du till exempel anropa följande två kommandon:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Du vill utföra en kontroll punkt eller tidig uppladdning av de första resultaten.
+- Du vill ha detaljerad kontroll över fel hanteringen. Du kanske till exempel vill implementera din egen lösning om du vill använda aktivitets beroende åtgärder för att utföra vissa uppladdnings åtgärder baserat på specifika slut koder för aktiviteter. Mer information om aktivitets beroende åtgärder finns i [skapa aktivitets beroenden för att köra uppgifter som är beroende av andra uppgifter](batch-task-dependencies.md).
 
-## <a name="design-considerations-for-persisting-output"></a>Designöverväganden för bestående utdata
+## <a name="design-considerations-for-persisting-output"></a>Design överväganden för att spara utdata
 
-När du skapar Batch-lösning bör du beakta följande faktorer rör jobb- och utdata.
+När du designar din batch-lösning bör du tänka på följande faktorer som rör jobb-och Uppgiftsutdata.
 
-- **Compute livslängd för**: Compute-noder är ofta tillfälligt, särskilt i pooler för automatisk skalning aktiverat. Utdata från en aktivitet som körs på en nod är bara tillgänglig när noden finns, och endast inom kvarhållningsperioden för filen som har angetts för aktiviteten. Om en aktivitet producerar utdata som kan behövas när aktiviteten har slutförts, uppgiften måste ladda upp sina utdatafiler till robust lagring som Azure Storage.
+- **Livs längd för beräknings nod**: Compute-noder är ofta tillfälliga, särskilt i autoskalning-aktiverade pooler. Utdata från en aktivitet som körs på en nod är bara tillgänglig när noden finns och endast inom den kvarhållna filloggning som du har angett för aktiviteten. Om en aktivitet producerar utdata som kan behövas när uppgiften har slutförts, måste aktiviteten Ladda upp utdatafilerna till ett varaktigt lager, till exempel Azure Storage.
 
-- **Utgående lagring**: Azure Storage rekommenderas som ett datalager för uppgiftens utdata, men du kan använda någon beständig lagring. Skriva uppgiftens utdata till Azure Storage är integrerad i API: et för Batch-tjänsten. Om du använder en annan form av beständig lagring, måste du skriva programlogiken för att bevara uppgiften utdata själv.
+- **Utgående lagring**: Azure Storage rekommenderas som ett data lager för Uppgiftsutdata, men du kan använda alla varaktiga lagrings enheter. Skrivning av Uppgiftsutdata till Azure Storage integreras i batch-tjänstens API. Om du använder en annan typ av varaktig lagring måste du skriva program logiken för att spara Uppgiftsutdata.
 
-- **Utdata hämtning**: Du kan hämta aktivitetsutdata direkt från beräkningsnoderna i din pool eller från Azure Storage eller ett annat datalager, om du har gjorts beständiga uppgiftsutdata. Om du vill hämta en aktivitets utdata direkt från en beräkningsnod, behöver du filnamnet och dess utdata plats på noden. Om du bevara uppgiftens utdata till Azure Storage, måste den fullständiga sökvägen till filen i Azure Storage för att ladda ned utdatafiler med Azure Storage SDK.
+- **Hämtning av utdata**: Du kan hämta Uppgiftsutdata direkt från Compute-noderna i poolen, eller från Azure Storage eller ett annat data lager om du har sparat Uppgiftsutdata. Om du vill hämta en aktivitets utdata direkt från en Compute-nod behöver du fil namnet och dess utmatnings plats på noden. Om du sparar Uppgiftsutdata till Azure Storage måste du använda den fullständiga sökvägen till filen i Azure Storage för att ladda ned utdatafilerna med Azure Storage SDK.
 
-- **Visa utdata**: När du navigerar till en Batch-aktiviteter i Azure-portalen och välj **filer på noden**, visas alla filer som är associerade med aktiviteten, inte bara utdatafilerna som du är intresserad av. Igen, filer på compute-noder är tillgängliga när noden finns och att endast inom kvarhållningstid för filer som har angetts för aktiviteten. Om du vill visa uppgiftsutdata som du har gjorts beständiga i Azure Storage, du kan använda Azure-portalen eller ett Azure Storage-klientprogram som den [Azure Storage Explorer][storage_explorer]. Om du vill visa utdata i Azure Storage med portalen eller något annat verktyg, måste du känner till filens plats och navigera till den direkt.
+- **Visa utdata**: När du navigerar till en batch-aktivitet i Azure Portal och väljer **filer på noden**visas alla filer som är associerade med uppgiften, inte bara de utdatafiler som du är intresse rad av. Filerna på Compute-noder är bara tillgängliga medan noden finns och endast inom den kvarhållna fil lagrings tid som du har angett för aktiviteten. Om du vill visa Uppgiftsutdata som du har sparat för att Azure Storage kan du använda Azure Portal eller ett Azure Storage-klient program som [Azure Storage Explorer][storage_explorer]. Om du vill visa utdata i Azure Storage med portalen eller något annat verktyg måste du känna till filens plats och navigera till den direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska med de nya funktionerna i API: et för Batch-tjänsten för att spara uppgiftsdata i [spara uppgiftsdata till Azure Storage med Batch service API](batch-task-output-files.md).
-- Läs om hur du använder Batch File Conventions-bibliotek för .NET i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET](batch-task-output-file-conventions.md).
-- Se den [PersistOutputs] [ github_persistoutputs] exempelprojektet på GitHub, som visar hur du använder både av Batch-klientbiblioteket för .NET och File Conventions-bibliotek för .NET för att bevara uppgiftens utdata till beständig lagring .
+- Utforska genom att använda de nya funktionerna i batch-tjänstens API för att spara uppgifts data i [Spara uppgifts data till Azure Storage med batch-tjänstens API](batch-task-output-files.md).
+- Lär dig mer om att använda bibliotek för batch-filkonventioner för .NET i [beständiga jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .net](batch-task-output-file-conventions.md).
+- Se [PersistOutputs][github_persistoutputs] -exempelprojektet på GitHub, som visar hur du använder både batch-klientprogrammet för .net och fil konventions biblioteket för .net för att spara Uppgiftsutdata till varaktig lagring.
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com

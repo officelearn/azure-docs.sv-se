@@ -1,31 +1,32 @@
 ---
 title: Montera en hemlig volym i Azure Container Instances
-description: Lär dig hur du monterar en hemlig volym för att lagra känslig information för åtkomst genom att dina behållarinstanser
+description: Lär dig hur du monterar en hemlig volym för att lagra känslig information för åtkomst av dina behållar instanser
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 2be640c8c7773ebd1fb5c83e67e3f0762d011e85
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657582"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325431"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montera en hemlig volym i Azure Container Instances
 
-Använd en *hemlighet* volymen för att ange känslig information till behållarna i en behållargrupp. Den *hemlighet* volym lagrar dina hemligheter i filer på volymen, som är tillgängliga för behållare i behållargruppen. Genom att lagra hemligheter i ett *hemlighet* volym, kan du undvika känsliga data som SSH-nycklar eller Databasautentiseringsuppgifter läggs till i din programkod.
+Använd en *hemlig* volym för att tillhandahålla känslig information till behållarna i en behållar grupp. Den *hemliga* volymen lagrar hemligheterna i filer på volymen, som är tillgängliga för behållarna i behållar gruppen. Genom att lagra hemligheter i en *hemlig* volym kan du undvika att lägga till känsliga data som SSH-nycklar eller autentiseringsuppgifter till din program kod.
 
-Alla *hemlighet* volymer backas upp av [tmpfs][tmpfs], ett RAM-baserade filsystem; deras innehåll skrivs aldrig till beständig lagring.
+Alla *hemliga* volymer backas upp av [TMPFS][tmpfs], ett RAM-baserat fil system. deras innehåll skrivs aldrig till icke-flyktig lagring.
 
 > [!NOTE]
-> *Hemlighet* volymerna är för närvarande begränsade till Linux-behållare. Lär dig hur du skickar säker miljövariabler för både Windows och Linux-behållare i [miljövariabler](container-instances-environment-variables.md). Medan vi arbetar för att göra alla funktioner till Windows-behållare, du kan hitta nuvarande skillnaderna i den [översikt](container-instances-overview.md#linux-and-windows-containers).
+> *Hemliga* volymer är för närvarande begränsade till Linux-behållare. Lär dig hur du skickar säkra miljövariabler för både Windows-och Linux-behållare i [Ange miljövariabler](container-instances-environment-variables.md). Medan vi arbetar för att hämta alla funktioner till Windows-behållare kan du hitta aktuella plattforms skillnader i [översikten](container-instances-overview.md#linux-and-windows-containers).
 
-## <a name="mount-secret-volume---azure-cli"></a>Montera hemlighetsvolymen – Azure CLI
+## <a name="mount-secret-volume---azure-cli"></a>Montera hemlig volym – Azure CLI
 
-Om du vill distribuera en behållare med en eller flera hemligheter med hjälp av Azure CLI, innehåller den `--secrets` och `--secrets-mount-path` parametrar i den [az container skapa][az-container-create] kommando. Det här exemplet monterar en *hemlighet* volym som består av två hemligheter, ”mysecret1” och ”mysecret2” på `/mnt/secrets`:
+Om du vill distribuera en behållare med en eller flera hemligheter med hjälp av Azure CLI inkluderar `--secrets` du `--secrets-mount-path` parametrarna och i kommandot [AZ container Create][az-container-create] . I det här exemplet monteras en *hemlig* volym som består av två hemligheter, "mysecret1" och "mysecret2 `/mnt/secrets`", på:
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +37,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-Följande [az container exec][az-container-exec] utdata visar att öppna ett gränssnitt i behållaren som körs, lista över filer i den hemliga volymen och sedan visa deras innehåll:
+Följande [AZ container exec][az-container-exec] -utdata visar hur du öppnar ett gränssnitt i behållaren som körs, listar filerna i den hemliga volymen och visar deras innehåll:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -51,13 +52,13 @@ My second secret BAR
 Bye.
 ```
 
-## <a name="mount-secret-volume---yaml"></a>Montera hemlighetsvolymen - YAML
+## <a name="mount-secret-volume---yaml"></a>Montera hemlig volym – YAML
 
-Du kan också distribuera grupper av behållare med Azure CLI och en [YAML mallen](container-instances-multi-container-yaml.md). Distribution av YAML-mallen är den bästa metoden när du distribuerar behållargrupper som består av flera behållare.
+Du kan också distribuera behållar grupper med Azure CLI och en [yaml-mall](container-instances-multi-container-yaml.md). Att distribuera med YAML-mall är den bästa metoden när du distribuerar behållar grupper som består av flera behållare.
 
-När du distribuerar med en YAML-mall hemliga värden måste vara **Base64-kodad** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
+När du distribuerar med en YAML-mall måste de hemliga värdena vara **base64-kodade** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
 
-Följande YAML-mall definierar en behållargrupp med en behållare som monterar en *hemlighet* volymen vid `/mnt/secrets`. Hemlighetsvolymen har två hemligheter, ”mysecret1” och ”mysecret2”.
+Följande YAML-mall definierar en behållar grupp med en behållare som monterar en *hemlig* volym på `/mnt/secrets`. Den hemliga volymen har två hemligheter, "mysecret1" och "mysecret2".
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -88,27 +89,27 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-För att distribuera med mallen YAML, spara den föregående YAML till en fil med namnet `deploy-aci.yaml`, kör du den [az container skapa][az-container-create] med den `--file` parameter:
+Om du vill distribuera med yaml-mallen sparar du föregående yaml till en fil `deploy-aci.yaml`med namnet och kör sedan kommandot [AZ container Create][az-container-create] med `--file` parametern:
 
 ```azurecli-interactive
 # Deploy with YAML template
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
-## <a name="mount-secret-volume---resource-manager"></a>Montera hemlighetsvolymen - Resource Manager
+## <a name="mount-secret-volume---resource-manager"></a>Montera hemlig volym – Resource Manager
 
-Förutom CLI och YAML-distributionen kan du distribuera en behållargrupp med en Azure [Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
+Förutom CLI-och YAML-distribution kan du distribuera en behållar grupp med hjälp av en Azure [Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
 
-Först fylla i `volumes` matris i behållargruppen `properties` avsnitt i mallen. När du distribuerar med en Resource Manager-mall hemliga värden måste vara **Base64-kodad** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
+Fyll `volumes` först i matrisen i avsnittet behållar grupp `properties` i mallen. När du distribuerar med en Resource Manager-mall måste de hemliga värdena vara **base64-kodade** i mallen. De hemliga värdena visas dock i klartext i filerna i behållaren.
 
-För varje behållare i behållargruppen där du vill montera den *hemlighet* volym, Fyll i den `volumeMounts` matrisen i den `properties` avsnitt i behållardefinitionen.
+Sedan, för varje behållare i den behållar grupp där du vill montera den *hemliga* volymen, fyller `volumeMounts` du i matrisen i `properties` avsnittet i behållar definitionen.
 
-Följande Resource Manager-mall definierar en behållargrupp med en behållare som monterar en *hemlighet* volymen vid `/mnt/secrets`. Hemlighetsvolymen har två hemligheter, ”mysecret1” och ”mysecret2”.
+Följande Resource Manager-mall definierar en behållar grupp med en behållare som monterar en *hemlig* volym på `/mnt/secrets`. Den hemliga volymen har två hemligheter, "mysecret1" och "mysecret2".
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-För att distribuera med Resource Manager-mallen, spara ovanstående JSON till en fil med namnet `deploy-aci.json`, kör du den [az group deployment skapa][az-group-deployment-create] med den `--template-file` parameter:
+Om du vill distribuera med Resource Manager-mallen sparar du föregående JSON till en fil `deploy-aci.json`med namnet och kör sedan kommandot [AZ Group Deployment Create][az-group-deployment-create] med `--template-file` parametern:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
@@ -119,15 +120,15 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ### <a name="volumes"></a>Volymer
 
-Lär dig hur du monterar andra volymtyper i Azure Container Instances:
+Lär dig hur du monterar andra volym typer i Azure Container Instances:
 
 * [Montera en Azure-filresursen i Azure Container instanser](container-instances-volume-azure-files.md)
 * [Montera en emptyDir volymen i Azure Container instanser](container-instances-volume-emptydir.md)
 * [Montera en gitRepo volym i Azure Container instanser](container-instances-volume-gitrepo.md)
 
-### <a name="secure-environment-variables"></a>Säker miljövariabler
+### <a name="secure-environment-variables"></a>Säkra miljövariabler
 
-En annan metod för att tillhandahålla känslig information till behållare (inklusive Windows-behållare) är med [skydda miljövariabler](container-instances-environment-variables.md#secure-values).
+En annan metod för att tillhandahålla känslig information till behållare (inklusive Windows-behållare) är att använda [säkra miljövariabler](container-instances-environment-variables.md#secure-values).
 
 <!-- LINKS - External -->
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs

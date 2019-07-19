@@ -3,18 +3,18 @@ title: Vad är Azure Container Instances?
 description: Tjänsten Azure Container Instances är det snabbaste och enklaste sättet att köra isolerade behållare i Azure, utan att behöva hantera virtuella datorer och utan att behöva använda en initierare på högre nivå.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073294"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325749"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -51,15 +51,15 @@ Azure Container Instances kan schemalägga både Windows- och Linux-behållare m
 Vissa funktioner är för närvarande begränsade till Linux-behållare:
 
 * Flera containrar per containergrupp
-* Montera volymen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [hemlighet](container-instances-volume-secret.md))
-* [Användningsstatistik för resursen](container-instances-monitor.md) med Azure Monitor
-* [Virtual network-distributionen](container-instances-vnet.md) (förhandsversion)
-* [GPU-resurser](container-instances-gpu.md) (förhandsversion)
+* Volym montering ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [Secret](container-instances-volume-secret.md))
+* [Användnings statistik för resursanvändningen](container-instances-monitor.md) med Azure Monitor
+* [Distribution av virtuellt nätverk](container-instances-vnet.md) förhandsgranskningsvyn
+* [GPU-resurser](container-instances-gpu.md) förhandsgranskningsvyn
 
-För Windows-behållardistributioner, använda bilder baserat på gemensamma [Windows basera avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported).
+För distributioner av Windows-behållare använder du avbildningar baserade på vanliga [Windows Base](container-instances-faq.md#what-windows-base-os-images-are-supported)-avbildningar.
 
 > [!NOTE]
-> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är i förhandsversion.
+> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 
@@ -70,7 +70,7 @@ Azure Container Instances stöder schemaläggning av [grupper med flera behålla
 Den här funktionen i Azure Container Instances, som för närvarande är en förhandsversion, möjliggör [distribution av containerinstanser i ett virtuellt Azure-nätverk](container-instances-vnet.md). Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Vissa funktioner i Azure Container Instances är i förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionerna kan ändras innan de är allmänt tillgängliga (GA).
+> Vissa funktioner i Azure Container Instances är i förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionerna kan ändras innan de är allmänt tillgängliga (GA).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure statusövervakaren v2 API-referens: Aktivera instrumentation motorn | Microsoft Docs'
-description: Status Monitor v2 API-referens. Aktivera InstrumentationEngine. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Azure Statusövervakare v2 API-referens: Aktivera Instrumentation-motor | Microsoft Docs'
+description: API-referens för Statusövervakare v2. Enable-InstrumentationEngine. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,40 +12,35 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 79446e6676a35a1b51e5e0839eb539d730b499da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807118"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326378"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v040-alpha"></a>Status Monitor v2 API: Aktivera InstrumentationEngine (v0.4.0-alfa)
+# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API för Statusövervakare v2: Aktivera – InstrumentationEngine
 
-Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Beskrivning
 
-Kan instrumentation motorn genom att ange vissa registernycklar.
+Aktiverar Instrumentation-motorn genom att ange vissa register nycklar.
 Starta om IIS för att ändringarna ska börja gälla.
 
-Motorn för instrumentation komplettera data som samlas in av .NET-SDK: er.
-Den samlar in händelser och meddelanden som beskriver körningen av en hanterad process. Dessa händelser och meddelanden innehåller beroende resultatkoder, HTTP-verb och SQL-Kommandotext.
+Instrumentation-motorn kan komplettera data som samlas in av .NET SDK: er.
+Den samlar in händelser och meddelanden som beskriver körningen av en hanterad process. Dessa händelser och meddelanden innehåller beroende resultat koder, HTTP-verb och SQL- [kommando text](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
-Aktivera instrumentation motorn om:
-- Du har redan aktiverat övervakning med cmdleten Enable men aktivera inte instrumentation motorn.
-- Du har instrumenterat din app med .NET-SDK: er manuellt och vill samla in ytterligare telemetri.
+Aktivera Instrumentation Engine om:
+- Du har redan aktiverat övervakning med cmdleten Enable men inte aktiverat Instrumentation-motorn.
+- Du har manuellt instrumenterat din app med .NET-SDK: er och vill samla in ytterligare telemetri.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-session med administratörsbehörigheter.
+> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
 
 > [!NOTE] 
-> - Denna cmdlet kräver att du granskar och accepterar du våra licens och sekretess-instruktion.
-> - Motorn för instrumentation lägger till ytterligare kostnader och är inaktiverat som standard.
+> - Denna cmdlet kräver att du granskar och godkänner vår licens-och sekretess policy.
+> - Instrumentation-motorn lägger till ytterligare kostnader och är inaktive rad som standard.
 
 ## <a name="examples"></a>Exempel
 
@@ -56,15 +51,15 @@ PS C:\> Enable-InstrumentationEngine
 ## <a name="parameters"></a>Parametrar
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Valfritt.** Använd den här växeln om du vill acceptera instruktionen licens och sekretess i fjärradministrerad installationer.
+**Valfritt.** Använd den här växeln för att godkänna licens-och sekretess policyn i konsolbaserade installationer.
 
-### <a name="-verbose"></a>-Verbose
-**Vanliga parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från har aktiverat instrumentation motorn
+#### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från har aktiverat Instrumentation Engine
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -74,17 +69,17 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Nästa steg
 
   Visa telemetrin:
- - [Utforska mått](../../azure-monitor/app/metrics-explorer.md) att övervaka prestanda och användning.
-- [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem.
-- Använd [analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
-- [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).
+ - [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+- [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+- Använd [Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
+- [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
- - [Skapa webbtester](monitor-web-app-availability.md) att kontrollera att webbplatsen är aktiv.
-- [Lägg till telemetri för webbklienten](../../azure-monitor/app/javascript.md) vill visa undantag från webbsidans kod och för att aktivera spårning av anrop.
-- [Lägg till Application Insights SDK i koden](../../azure-monitor/app/asp-net.md) så att du kan lägga till spårnings- och logganrop.
+ - [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+- [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
+- [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
  
- Gör mer med Status Monitor v2:
- - Använd vår guide om hur du [felsöka](status-monitor-v2-troubleshoot.md) statusövervakaren v2.
- - [Hämta konfig](status-monitor-v2-api-get-config.md) att bekräfta att inställningarna har registrerats korrekt.
- - [Hämta status](status-monitor-v2-api-get-status.md) att inspektera övervakning.
+ Gör mer med Statusövervakare v2:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ - [Hämta konfigurationen](status-monitor-v2-api-get-config.md) för att bekräfta att inställningarna har registrerats korrekt.
+ - [Hämta status](status-monitor-v2-api-get-status.md) för att inspektera övervakning.

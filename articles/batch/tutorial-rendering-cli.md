@@ -3,18 +3,18 @@ title: Rendera en scen i molnet – Azure Batch
 description: Självstudie – Så renderar du en Autodesk 3ds Max-scen med Arnold med hjälp av Batch Rendering Service och kommandoradsgränssnittet i Azure
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c87a6968e5c6fd0e587c240b0a5df0a73f9909b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127312"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321644"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -29,7 +29,7 @@ Azure Batch har renderingsfunktioner i molnskala där du betalar per användning
 
 I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-renderaren [Arnold](https://www.autodesk.com/products/arnold/overview). Batch-poolen använder en Azure Marketplace-avbildning med förinstallerade grafik- och renderingsprogram som tillhandahåller licensiering med betalning per användning.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 

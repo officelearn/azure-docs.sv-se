@@ -1,6 +1,6 @@
 ---
-title: Threat Modeling Tool släpper - Microsoft Threat Modeling Tool – Azure | Microsoft Docs
-description: Dokumentera viktig information om threat modeling tool
+title: Threat Modeling Tool-versioner – Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+description: Dokumentera viktig information för verktyget Threat Modeling
 services: security
 documentationcenter: na
 author: jegeib
@@ -14,33 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cf9ecca59b60f93749133c98cc23c6d6815c41e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586075"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849762"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool versioner
 
-Microsoft Threat Modeling Tool för närvarande har lanserats som en kostnadsfri [klickar du på att hämta](https://aka.ms/threatmodelingtool) för Windows. Den här leveransmekanismen gör att vi kan skicka de senaste förbättringar och felkorrigeringar till kunder varje gång de öppnar verktyget.
+Microsoft Threat Modeling Tool är för närvarande lanserat som ett kostnads fritt [klick för att ladda ned](https://aka.ms/threatmodelingtool) program för Windows. Med den här leverans metoden kan vi skicka de senaste förbättringarna och fel korrigeringarna till kunderna varje gången de öppnar verktyget.
 
 ## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
-  - Microsoft Windows 10 Anniversary Update eller senare
-- .NET-version som krävs
-  - .NET 4.7.1 eller senare
+  - Uppdatering av Microsoft Windows 10-årsdag eller senare
+- .NET-version krävs
+  - .NET-4.7.1 eller senare
 - Ytterligare krav
-  - Internetanslutning krävs för att ta emot uppdateringar till verktyget och mallar.
+  - Det krävs en Internet anslutning för att ta emot uppdateringar av verktyget och mallarna.
 
 ## <a name="release-notes"></a>Viktig information
 
-- [Microsoft Threat modellering verktyget GA-versionen 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) – April 9 2019
-- [Microsoft Threat modellering verktyget GA-versionen 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) – januari 29 2019
-- [Microsoft Threat modellering verktyget GA-versionen 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) – November 1 2018
-- [Microsoft Threat modellering verktyget GA-versionen 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) – September 12 2018
+- [Microsoft Threat Modeling Tool GA Release version 7.1.60702.1](./azure-security-threat-modeling-tool-releases-71607021.md) – juli 2 2019
+- [Microsoft Threat Modeling Tool GA Release version 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) – april 9 2019
+- [Microsoft Threat Modeling Tool GA Release version 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) – januari 29 2019
+- [Microsoft Threat Modeling Tool GA Release version 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) – november 1 2018
+- [Microsoft Threat Modeling Tool GA Release version 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) – september 12 2018
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ladda ned den senaste versionen av den [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Ladda ned den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

@@ -1,10 +1,10 @@
 ---
-title: Azure HANA stora instanser styra via Azure-portalen | Microsoft Docs
-description: Hur sätt du kan identifiera och interagera med Azure HANA stora instanser via portalen
+title: Azure HANA – stora instanser-kontroll via Azure Portal | Microsoft Docs
+description: Beskriver hur du kan identifiera och interagera med Azure HANA stora instanser via portalen
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,142 +13,151 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/02/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d64fe6c244ffcb6da2926dfea6efaa6da315727
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482303"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234461"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Kontroll av Azure HANA – stora instanser med Azure Portal
-Det här dokumentet beskriver hur sätt [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) presenteras i [Azure-portalen](https://portal.azure.com) och vilka aktiviteter kan utföras via Azure-portalen med enheter för stora HANA-instansen som är distribuerade åt dig. Synlighet för stora HANA-instanser i Azure-portalen är tillgängligt via en Azure resource provider för HANA stora instanser, som för närvarande är i offentlig förhandsversion
+Det här dokumentet beskriver hur [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) presenteras i [Azure Portal](https://portal.azure.com) och vilka aktiviteter som kan utföras med hjälp av Azure Portal med Hana-stora instans enheter som distribueras åt dig. Visning av HANA-stora instanser i Azure Portal tillhandahålls via en Azure Resource Provider för HANA-stora instanser, som för närvarande finns i en offentlig för hands version
 
-## <a name="register-hana-large-instance-resource-provider"></a>Registrera Resursprovidern för HANA stora instanser
-Vanligtvis är din Azure-prenumeration du använde för distributioner av stora HANA-instansen registrerad för Resursprovidern HANA stor instans. Om du inte ser du distribuerat stora HANA-instansen enheter, bör du registrera Resursprovidern i Azure-prenumerationen. Det finns två sätt i när du registrerar resursprovidern HANA stora instans
+## <a name="register-hana-large-instance-resource-provider"></a>Registrera HANA-resurs leverantör med hög instans
+Vanligt vis har din Azure-prenumeration som du använde för HANA-stor instans distribution registrerats för resurs leverantören HANA stor instans. Men om du inte kan se distribuerade HANA stora instans enheter bör du registrera resurs leverantören i din Azure-prenumeration. Det finns två sätt att registrera resurs leverantören HANA-stor instans
 
-### <a name="register-through-cli-interface"></a>Registrera dig via CLI-gränssnittet
-Du måste vara inloggad i din Azure-prenumeration som används för stora HANA-instansen distributionen via Azure CLI-gränssnittet. (Re) registrera HANA stora instansprovidern med det här kommandot kan du:
+### <a name="register-through-cli-interface"></a>Registrera via CLI-gränssnitt
+Du måste vara inloggad på din Azure-prenumeration som används för distributionen HANA-stor instans via Azure CLI-gränssnittet. Du kan (re) registrera den HANA-stora instans leverantören med det här kommandot:
     
     az provider register --namespace Microsoft.HanaOnAzure
 
-Mer information finns i artikeln [Azure resursproviders och resurstyper](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+Mer information finns i artikeln Azure- [resurs leverantörer och typer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 
 
-### <a name="register-through-azure-portal"></a>Registrera dig via Azure-portalen
-Du kan (re) registrera HANA-Resursprovidern för stor instans via Azure-portalen. Du måste lista din prenumeration på Azure-portalen och dubbelklicka på den prenumeration som användes för att distribuera din enhet(er) stora HANA-instansen. Något du är i översiktssidan för din prenumeration, Välj ”resursprovidrar” enligt nedan och ange ”HANA” i sökfönstret. 
+### <a name="register-through-azure-portal"></a>Registrera dig via Azure Portal
+Du kan (re) registrera resurs leverantören för HANA-stor instans via Azure Portal. Du måste ange din prenumeration i Azure Portal och dubbelklicka på prenumerationen som användes för att distribuera dina HANA-stora instans enheter. På sidan Översikt i din prenumeration väljer du "Resource providers" som visas nedan och skriver "HANA" i sökfönstret. 
 
-![Registrera HLI RP via Azure-portalen](./media/hana-li-portal/portal-register-hli-rp.png)
+![Registrera HLI RP via Azure Portal](./media/hana-li-portal/portal-register-hli-rp.png)
 
-Resursprovidern har redan registrerats i skärmbilden som visas. Om resursprovidern inte har registrerats, trycker du på ”registrera” eller ”registrera”.
+I skärm bilden som visas har resurs leverantören redan registrerats. Om resurs leverantören ännu inte har registrerats trycker du på omregistrera eller registrera.
 
-Mer information finns i artikeln [Azure resursproviders och resurstyper](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
-
-
-## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Visning av enheter för stora HANA-instansen i Azure portal
-När du skickar en begäran om distribution av stora HANA-instansen uppmanas du att ange den prenumeration som du ansluter till HANA stora instanser samt. Det rekommenderas att använda samma prenumeration som du använder för att distribuera SAP-programnivån som fungerar mot stora HANA-instansen-enheter.
-Som din första HANA stora instanser komma distribueras, en ny [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) har skapats i Azure-prenumeration du skickat in i distributionsbegäran för dina stora HANA-instanser.  Den nya resursgruppen visas en lista över alla dina stora HANA-instansen enheter du har distribuerat i den specifika prenumerationen.
-
-För att hitta den nya Azure-resursgruppen kan visa du resursgruppen i din prenumeration genom att gå igenom det vänstra navigeringsfönstret i Azure Portal
-
-![Navigeringsfönstret i Azure-portalen](./media/hana-li-portal/portal-resource-group.png)
-
-I listan över resursgrupper du komma visas, måste du kanske filtrerar i prenumerationen som du använde för att ha HANA stora instanser som distribuerats
-
-![Filtrera resursgrupper i Azure portal](./media/hana-li-portal/portal-filtering-subscription.png)
-
-Efter filtrering att korrekt prenumeration kan du fortfarande ha en lång lista över resursgrupper. Leta efter en med en efter korrigering av **- Txxx** där ”xxx” finns tre siffror, som **-T050**. 
-
-När du har hittat resursgruppens namn, en lista över information om den. I listan som du har fått gick ut:
-
-![HLI lista i Azure-portalen](./media/hana-li-portal/portal-hli-units-list.png)
-
-Alla enheter som visas är som representerar en enda HANA stora instanser-enhet som har distribuerats i din prenumeration. I det här fallet titta på åtta olika stora HANA-instansen enheter, som har distribuerats i din prenumeration.
-
-Om du har distribuerat flera stora HANA-instansen klienter under samma Azure-prenumeration hittar du flera Azure-resursgrupper 
+Mer information finns i artikeln Azure- [resurs leverantörer och typer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
 
 
-## <a name="look-at-attributes-of-single-hli-unit"></a>Titta på attribut för HLI enhet
-I listan med enheter för stora HANA-instansen du klicka på en enhet och få till information om den enda stora HANA-instansen-enheten. 
+## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Visning av HANA-stora instans enheter i Azure Portal
+När du skickar en begäran om storskalig stor instans distribution uppmanas du att ange den Azure-prenumeration som du ansluter till de stora och HANA-instanserna. Vi rekommenderar att du använder samma prenumeration som du använder för att distribuera SAP-program skiktet som fungerar mot de stora instans enheterna i HANA.
+När de första HANA-stora instanserna distribueras skapas en ny [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) i Azure-prenumerationen som du skickade i distributions förfrågan för dina Hana-instanser.  Den nya resurs gruppen visar en lista över alla dina HANA stora instanser som du har distribuerat i den aktuella prenumerationen.
 
-På skärmen får du en presentation av den enhet som ser ut som:
+För att hitta den nya Azure-resurs gruppen visar du resurs gruppen i din prenumeration genom att navigera i det vänstra navigerings fönstret i Azure Portal
 
-![Översikt över en HLI-enhet](./media/hana-li-portal/portal-show-overview.png)
+![Navigerings fönster i Azure Portal](./media/hana-li-portal/portal-resource-group.png)
 
-Titta på olika attribut visas, dessa attribut knappt ser annorlunda ut än Azure VM-attribut. Den visar resursgruppen, Azure-region, prenumerationsnamn och ID: T samt vissa taggar som du har lagt till på rubriken till vänster. Som standard har ingen tagg som tilldelats i stora HANA-instansen-enheter. Till höger i rubriken visas namnet på enheten som har tilldelats när distributionen har utförts. Operativsystemet visas samt IP-adressen. Som med virtuella datorer skriver du stora HANA-instans-enheten med antalet visas trådar och minne också. Mer information om de olika enheterna i stora HANA-instansen visas här:
+I listan över resurs grupper visas, kan du behöva filtrera på den prenumeration som du använde för att ha HANA-stora instanser distribuerade
+
+![Filtrera resurs grupper i Azure Portal](./media/hana-li-portal/portal-filtering-subscription.png)
+
+När du har filtrerat efter rätt prenumeration kan du fortfarande ha en lång lista över resurs grupper. Leta efter en med post-Fix of **-TXXX** där "XXX" är tre siffror, t. ex. **-T050**. 
+
+När du hittat resurs gruppen kan du ange information om den. Listan som du fick kan se ut så här:
+
+![HLI-lista i Azure Portal](./media/hana-li-portal/portal-hli-units-list.png)
+
+Alla enheter i listan motsvarar en enda HANA-stor instans enhet som har distribuerats i din prenumeration. I det här fallet kan du titta på åtta olika HANA-enheter som har distribuerats i din prenumeration.
+
+Om du har distribuerat flera HANA-klienter med stora instanser under samma Azure-prenumeration hittar du flera Azure-resurs grupper 
+
+
+## <a name="look-at-attributes-of-single-hli-unit"></a>Titta på attribut för enskild HLI enhet
+I listan med de stora instans enheterna i HANA kan du klicka på en enskild enhet och få information om den enskilda HANA-stora instans enheten. 
+
+När du klickar på "Visa fler" på översikts skärmen får du en presentation av enheten, som ser ut så här:
+
+![Visa översikt över en HLI-enhet](./media/hana-li-portal/portal-show-overview.png)
+
+De olika attribut som visas ser till att attributen inte ser annorlunda ut än för Azure VM-attribut. På sidans vänstra rubrik visas resurs gruppen, Azure-regionen, prenumerations namnet och ID: t samt vissa taggar som du har lagt till. Som standard har HANAs stora instans enheter ingen tagg tilldelad. På den högra sidan i sidhuvudet visas namnet på enheten som tilldelad när distributionen genomfördes. Operativ systemet visas samt IP-adressen. Som med virtuella datorer visas även enhets typen HANA stor instans med antalet CPU-trådar och minne. Mer information om de olika HANA-stora instans enheterna som visas här:
 
 - [Tillgängliga SKU:er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Storage-arkitektur för SAP HANA (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Lagrings arkitektur för SAP HANA (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
-Ett ytterligare fält i den högra kolumnen av rubriken informerar om energinivån för stora HANA-instans-enheten.
+Ytterligare data på den högra nedre sidan är en revidering av den stora, HANA-instansens stämpel. Möjliga värden är:
+
+- Revision 3
+- Revision 4
+
+Revision 4 är den senaste arkitekturen som lanseras av HANA-stora instanser med större förbättringar av nätverks fördröjningen mellan virtuella Azure-datorer och HANA stora instans enheter som distribueras i revision 4-stämplar eller rader.
+En annan viktig information finns i det nedre högra hörnet i översikten med namnet på den Azure närhets placerings grupp som skapas automatiskt för varje distribuerad HANA-stor instans enhet. Den här närhets placerings gruppen måste refereras när du distribuerar de virtuella Azure-datorer som är värdar för SAP-Programskiktet. Genom att använda [Azures närhets placering](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) som är associerad med den stora instans enheten i Hana, ser du till att de virtuella Azure-datorerna distribueras i nära närhet till den stora instans enheten i Hana. Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program ](sap-proximity-placement-scenarios.md).
+
+Ett extra fält i den högra kolumnen i rubriken informerar om energispar läget för den stora instans enheten i HANA.
 
 > [!NOTE]
-> Energinivån beskriver den maskinvara enheten har startats eller inaktivera. Det ger inte information om operativsystem som upp och köra. När du startar om en enhet för stora HANA-instansen, uppstår en liten tid där ändras tillståndet för enheten till **startar** att flytta till tillståndet för **startad**. Är i tillståndet för **startad** innebär att Operativsystemet startas eller att Operativsystemet har startats helt. Därför efter en omstart av enheten som inte förväntas omedelbart logga in på enheten när tillståndet växlar till **startad**.
+> Energi statusen beskriver om maskin varu enheten är påslagen eller inte. Det ger inte information om operativ systemet som körs. När du startar om en HANA-stor instans enhet kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till det **startade**stadiet. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats**.
 > 
 
+Om du trycker på "se mer" visas ytterligare information. En ytterligare information visar revideringen av den stora superinstansen i HANA, enheten har distribuerats i. Se artikeln [Vad är SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) för olika revisioner av Hana-stora instans stämplingar
 
-## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Kontrollera aktiviteter för en enda HANA stora instanser-enhet 
-Du kan kontrollera aktiviteter för den specifika enheten utöver ger en översikt över stora HANA-instansen-enheter. En aktivitetslogg gick ut:
+## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Kontrol lera aktiviteter för en enskild HANA-stor instans enhet 
+Utöver att ge en översikt av de stora instans enheterna i HANA kan du kontrol lera aktiviteter för en viss enhet. En aktivitets logg kan se ut så här:
 
-![Navigeringsfönstret i Azure-portalen](./media/hana-li-portal/portal-activity-list.png)
+![Navigerings fönster i Azure Portal](./media/hana-li-portal/portal-activity-list.png)
 
-En av de viktigaste aktiviteterna registreras är omstarter av en enhet. Innehåller information som visas status för aktivitet, tidsstämpeln som aktiviteten har utlösts av prenumerations-ID som aktiviteten har utlösts och Azure-användare som utlöste aktiviteten. 
+En av de viktigaste aktiviteterna som registreras är omstarter av en enhet. De data som visas i listan innehåller status för aktiviteten, tidsstämpeln som aktiviteten fick utlöstes, det prenumerations-ID som aktiviteten fick utlöstes till och den Azure-användare som utlöste aktiviteten. 
 
-En annan aktivitet som komma registreras är ändringar till enheten i Azure meta-data. Förutom den omstart har initierats, ser du aktiviteten hos **skriva HANAInstances**. Den här typen av aktivitet utför inga ändringar på enheten stora HANA-instansen själv, men dokumentera ändringar av metadata för enheten i Azure. I de fall, vi har lagt till och ta bort en tagg (se nästa avsnitt).
+En annan aktivitet som registreras är ändringar i enheten i Azure metadata-data. Förutom att starta om startas kan du se aktiviteten **Skriv HANAInstances**. Den här typen av aktivitet utför inga ändringar i själva volymen i HANA-stor instans, men dokumenterar ändringar i enhetens metadata i Azure. I det fall som anges lade vi till och tog bort en tagg (se nästa avsnitt).
 
-## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Lägga till och ta bort en Azure-tagg till en enhet för stora HANA-instansen
-En annan möjlighet som du har är att lägga till en [taggen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) till en enhet för stora HANA-instansen. Hur taggar komma tilldelas skiljer sig inte från att tilldela taggar till virtuella datorer. Med virtuella datorer taggar finns i Azure metadata och, för stora HANA-instanser som har samma begränsningar som taggar för virtuella datorer.
+## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Lägga till och ta bort en Azure-tagg i en stor HANA-instans enhet
+En annan möjlighet är att lägga till en [tagg](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) i en stor Hana-instans enhet. Hur Taggar tilldelas skiljer sig inte från tilldelning av taggar till virtuella datorer. Precis som med virtuella datorer finns taggarna i Azure meta data och har samma begränsningar som taggar för virtuella datorer för HANA-stora instanser.
 
-Ta bort taggar fungerar på samma sätt som med virtuella datorer. Båda verksamheterna, använder och tar bort en tagg visas i aktivitetsloggen för den specifika enheten stora HANA-instansen.
+Borttagning av Taggar fungerar på samma sätt som med virtuella datorer. Både aktiviteter, att tillämpa och ta bort en tagg listas i aktivitets loggen för den specifika HANA-stora instans enheten.
 
-## <a name="check-properties-of-a-hana-large-instance-unit"></a>Kontrollera egenskaperna för en enhet för stora HANA-instansen
-Avsnittet **egenskaper** innehåller viktig information som du får när instanser ska lämnas till dig. Det är ett avsnitt där du får den information som du kan kräva support fall eller som du behöver när du konfigurerar ögonblicksbild lagringskonfiguration. Det här avsnittet är därför en samling data om din instans, anslutning av instans till Azure och storage-serverdelen. Längst upp i avsnittet ser ut som:
+## <a name="check-properties-of-a-hana-large-instance-unit"></a>Kontrol lera egenskaperna för en HANA-stor instans enhet
+Avsnitts **egenskaperna** innehåller viktig information som du får när instanserna överlämnas till dig. Det är ett avsnitt där du får all information som du kan behöva i support ärenden eller som du behöver när du konfigurerar lagrings ögonblicks bilds konfigurationen. Det här avsnittet är en samling data runt din instans, anslutningens instans till Azure och lagrings Server delen. Överst i avsnittet ser ut så här:
 
 
-![övre delen av HLI egenskaper i Azure-portalen](./media/hana-li-portal/portal-properties-top.png)
+![övre delen av HLI-egenskaperna i Azure Portal](./media/hana-li-portal/portal-properties-top.png)
 
-De första några dataobjekt du såg i översiktsskärmen redan. Men en viktig del av data är ExpressRoute Circuit ID som du fick när de första distribuerade enheterna har överlämnas. I vissa fall stöd kan hämta du tillfrågad om dessa data. En post för viktiga data visas längst ned på skärmbilden. Informationen som visas är den IP-adressen för huvudet för NFS-lagring som isolerar lagringen din **klient** i stacken stora HANA-instansen. Den här IP-adress krävs även när du redigerar den [konfigurationsfilen för lagring ögonblicksbild säkerhetskopior](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+De första data elementen, som du såg i översikts skärmen redan. Men en viktig del av data är ExpressRoute krets-ID: t, som du fick när de första distribuerade enheterna överlämnades. I vissa support fall kan du bli ombedd att ange dessa data. En viktig data inmatning visas längst ned på skärm bilden. De data som visas är IP-adressen till NFS-lagrings huvudet som isolerar lagringen till **klienten** i den stora instans stacken i Hana. Den här IP-adressen behövs också när du redigerar [konfigurations filen för säkerhets kopior av lagrings ögonblicks bilder](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
 
-När du rullar ned i egenskapsrutan, hämta ytterligare data som en unik resurs-ID för din enhet för stora HANA-instansen eller prenumerations-ID som har tilldelats till distributionen.
+När du bläddrar nedåt i egenskaps fönstret får du ytterligare data, till exempel ett unikt resurs-ID för din HANA stor instans enhet eller det prenumerations-ID som har tilldelats till distributionen.
 
-## <a name="restart-a-hana-large-instance-unit-through-azure-portal"></a>Starta om en enhet för stora HANA-instansen via Azure-portalen
-Initierar en omstart av Linux-operativsystem har olika situationer där Operativsystemet inte kunde slutförs startas om. För att tvinga fram en omstart, som du behöver öppna en tjänstbegäran har Microsoft operations utföra power omstart av enheten stora HANA-instansen. Funktionerna i power måste starta om en enhet för stora HANA-instansen är nu integrerade i Azure-portalen. När du använder översikt över en del av den stora HANA-instansen-enheten kan visas knappen för omstart av ovanpå dataavsnittet
+## <a name="restart-a-hana-large-instance-unit-through-azure-portal"></a>Starta om en HANA-stor instans enhet via Azure Portal
+Att starta en omstart av Linux-operativsystemet, det finns olika situationer där det inte gick att slutföra en omstart av operativ systemet. Om du vill framtvinga en omstart måste du öppna en tjänstbegäran för att Microsoft-åtgärder ska kunna utföra en omstart av den stora instans enheten i HANA. Funktionerna i en omstart av en HANA stor instans enhet är nu integrerade i Azure Portal. Som du befinner dig i översikts delen av den stora instans enheten HANA visas knappen för omstart överst i data avsnittet
 
-![Starta om steg #1 i Azure-portalen](./media/hana-li-portal/portal-restart-first-step.png)
+![Starta om steg #1 i Azure Portal](./media/hana-li-portal/portal-restart-first-step.png)
 
-När du att trycka på knappen Starta om, tillfrågas du om du verkligen vill starta om enheten. Enheten kommer att startas om eftersom du bekräftar genom att trycka på knappen ”Yes”.
+När du trycker på knappen starta om får du frågan om du verkligen vill starta om enheten. När du bekräftar genom att trycka på knappen "Ja" startas enheten om.
 
 > [!NOTE]
-> Omstarten får en liten tid där ändras tillståndet för enheten till **startar** att flytta till tillståndet för **startad**. Är i tillståndet för **startad** innebär att Operativsystemet startas eller att Operativsystemet har startats helt. Därför efter en omstart av enheten som inte förväntas omedelbart logga in på enheten när tillståndet växlar till **startad**.
+> Under omstarten kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till läget för **Start**. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats**.
 
 > [!IMPORTANT]
-> Beroende på mängden minne i stora HANA-instansen-enhet, en omstart och omstart av maskinvaran och operativsystemet kan ta upp till en timme
+> Beroende av mängden minne i den stora volymen av HANA-stor instans, kan en omstart och omstart av maskin varan och operativ systemet ta upp till en timme
 
 
-## <a name="open-a-support-request-for-hana-large-instances"></a>Öppna en supportbegäran för HANA stora instanser
-Du kan skapa supportärenden specifikt för en HANA stora instans enhet samt från Azure portal visningen av stora HANA-instansen enheter. Du följer länken **ny supportbegäran** 
+## <a name="open-a-support-request-for-hana-large-instances"></a>Öppna en supportbegäran för stora instanser av HANA
+Från Azure Portal visning av HANA-stora instans enheter kan du också skapa support förfrågningar specifikt för en HANA stor instans enhet. När du följer länken **ny support förfrågan** 
 
-![Starta tjänsten begäran steg #1 i Azure-portalen](./media/hana-li-portal/portal-initiate-support-request.png)
+![åtgärds steg för att starta service förfrågan #1 i Azure Portal](./media/hana-li-portal/portal-initiate-support-request.png)
 
-För att få tjänsten av SAP HANA stora instanser visas på nästa skärm kanske du måste välja ”alla tjänster” enligt nedan
+För att kunna hämta tjänsten för SAP HANA – stora instanser som visas på nästa skärm, kan du behöva välja alla tjänster som visas nedan
 
-![Välj alla tjänster i Azure-portalen](./media/hana-li-portal/portal-create-service-request.png)
+![Välj alla tjänster i Azure Portal](./media/hana-li-portal/portal-create-service-request.png)
 
-I listan över tjänster, hittar du tjänsten **stora SAP HANA-instansen**. När du väljer den tjänsten, kan du välja specifika problemtyper enligt:
+I listan över tjänster kan du hitta tjänsten **SAP HANA stor instans**. När du väljer tjänsten kan du välja vissa problem typer som visas:
 
 
-![Välj problem klass i Azure-portalen](./media/hana-li-portal/portal-select-problem-class.png)
+![Välj problem klass i Azure Portal](./media/hana-li-portal/portal-select-problem-class.png)
 
-Under var och en av typerna av olika problem erbjuds ett urval av problemet undertyper som du måste välja för att beskriva problemet ytterligare. När du har valt undertypen namnge du nu ämne. När du är klar med urvalsprocessen kan flytta du till nästa steg i att skapa. I den **lösningar** avsnittet, som pekar till dokumentation runt HANA stora instanser, som kan ge en pekare till en lösning till problemet. Om du inte hittar en lösning för ditt problem i dokumentationen som föreslås, gå till nästa steg. I nästa steg ska kommer du att bli ombedd om problemet är med virtuella datorer eller med enheter för stora HANA-instansen. Den här informationen hjälper till att dirigera supportbegäran till rätt specialister. 
+Under var och en av de olika problem typerna erbjuder du ett urval av problem under typer som du måste välja för att beskriva ditt problem ytterligare. När du har valt under typen kan du nu ge ämnet ett namn. När du är färdig med urvals processen kan du gå vidare till nästa steg i skapandet. I avsnittet **lösningar** pekar du på dokumentation om Hana-stora instanser, vilket kan ge en pekare till en lösning på problemet. Om du inte hittar någon lösning för ditt problem i den föreslagna dokumentationen går du till nästa steg. I nästa steg kommer du att bli tillfrågad om problemet är med virtuella datorer eller med HANA stora instans enheter. Den här informationen hjälper till att dirigera support förfrågan till rätt specialister. 
 
-![Information om supportärende i Azure-portalen](./media/hana-li-portal/portal-support-request-details.png)
+![Information om support ärende i Azure Portal](./media/hana-li-portal/portal-support-request-details.png)
 
-När du har besvarat frågor och tillhandahålls ytterligare information, går du nästa steg för att kunna granska supportbegäran och överföringswebbadressen den.
+När du svarade på frågorna och tillhandahöll ytterligare information kan du gå vidare till nästa steg för att granska support förfrågan och skicka den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här övervakar du SAP HANA (stora instanser) på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Övervaka SAP HANA (stora instanser) i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [Övervaka och felsöka från HANA-sida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

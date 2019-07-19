@@ -115,9 +115,9 @@ Begäran kräver följande fält:
 |----------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId            | Klienten angivna GUID |
 | userChainIdentifier  | Adress för den användare som har skapats i blockchain-nätverket. I Ethereum, är den här adressen användarens **på kedjan** adress. |
-| ApplicationName      | Namnet på programmet |
+| applicationName      | Namnet på programmet |
 | version              | Versionen av programmet. Obligatoriskt om du har flera versioner av programmet aktiverat. Annars är version valfritt. Läs mer om programmet versionshantering [Azure Blockchain Workbench programmet versionshantering](version-app.md). |
-| WorkflowName         | Namnet på arbetsflödet |
+| workflowName         | Namnet på arbetsflödet |
 | parameters           | Parametrar som har angetts för skapande av kontrakt |
 | connectionId         | Unik identifierare för blockchain-anslutning |
 | messageSchemaVersion | Meddelanden schemaversion |

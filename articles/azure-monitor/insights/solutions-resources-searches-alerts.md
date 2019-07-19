@@ -179,7 +179,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | description | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde

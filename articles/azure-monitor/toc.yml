@@ -5,7 +5,7 @@
     - name: Vad är Azure Monitor?
       href: overview.md
     - name: Ändringar i terminologi
-      href: azure-monitor-rebrand.md
+      href: terminology.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -55,7 +55,6 @@
           href: learn/tutorial-users.md
         - name: Skapa anpassade instrumentpaneler
           href: learn/tutorial-app-dashboards.md
-        - name: Application Insights
     - name: Arkivera plattformsmått och loggdata
       href: learn/tutorial-archive-data.md
     - name: Skala automatiskt enligt prestanda och schema
@@ -83,6 +82,7 @@
         - name: Loggar
           href: platform/data-platform-logs.md
         - name: Inmatningstid för loggdata
+          displayname: latency
           href: platform/data-ingestion-time.md
     - name: Insikter
       href: insights/insights-overview.md
@@ -125,34 +125,20 @@
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
         - name: Log Analytics
+          displayName: FAQ
           href: platform/log-faq.md
         - name: Application Insights
+          displayName: FAQ
           href: app/troubleshoot-faq.md
 - name: Instruktionsguider
   items:
-    - name: Planera och förbereda
+    - name: Hantera Azure Monitor
       items:
-        - name: Hantera åtkomst
-          items:
-            - name: Rollbehörigheter och säkerhet
-              href: platform/roles-permissions-security.md
-            - name: Arbetsytor
-              href: platform/manage-access.md
-            - name: Program
-              href: app/resources-roles-access-control.md
-            - name: IP-adresser
-              href: app/ip-addresses.md
-        - name: Övervakning av program
-          items:
-            - name: Djup diagnostik för webbappar och tjänster
-              href: app/devops.md
-            - name: Övervaka prestanda i webbprogram
-              href: app/web-monitor-performance.md
-            - name: 'Avgränsa utveckling, testning och produktion'
-              href: app/separate-resources.md
-            - name: Hur kan jag ... i Application Insights?
-              href: app/how-do-i.md
-        - name: Hantera arbetsytor
+        - name: Rollbehörigheter och säkerhet
+          href: platform/roles-permissions-security.md
+        - name: IP-adresser
+          href: app/ip-addresses.md
+        - name: Log Analytics-arbetsytor
           items:
             - name: Skapa en arbetsyta
               items:
@@ -166,8 +152,494 @@
               href: platform/delete-workspace.md
             - name: Design för tjänstleverantörer
               href: platform/service-providers.md
-    - name: Samla in data
+            - name: Hantera åtkomst
+              href: platform/manage-access.md
+            - name: Integrera med Configuration Manager
+              href: platform/collect-sccm.md
+        - name: Användning och kostnad
+          items:
+            - name: Användning och uppskattade kostnader
+              href: platform/usage-estimated-costs.md
+            - name: Programanvändning och -kostnader
+              href: app/pricing.md
+            - name: Logga dataanvändning och -kostnader
+              href: platform/manage-cost-storage.md
+    - name: Övervaka resurser
       items:
+        - name: Program
+          items:
+            - name: Översikt över Application Insights
+              href: app/app-insights-overview.md
+            - name: Kodbaserad övervakning
+              items:
+                - name: ASP.NET Core
+                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                  href: app/asp-net-core.md
+                - name: ASP.NET
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: .NET-konsol
+                  displayname: 'console, .NET, dotnet console, dotenet, c#, csharp, NET'
+                  href: app/console.md
+                - name: ILogger
+                  displayname: 'ilogger, logging, log'
+                  href: app/ilogger.md
+                - name: Java
+                  items:
+                    - name: Webbappar
+                      displayname: java
+                      href: app/java-get-started.md
+                    - name: Webbappar (2.5.0-BETA)
+                      href: app/java-get-started-25-beta.md
+                    - name: Docker-appar
+                      href: app/docker.md
+                    - name: Loggspårningar
+                      href: app/java-trace-logs.md
+                    - name: Loggspårningar (2.5.0-BETA)
+                      href: app/java-trace-logs-25-beta.md
+                    - name: Unix-mått
+                      href: app/java-collectd.md
+                    - name: Beroenden
+                      href: app/java-agent.md
+                    - name: Beroenden (2.5.0-BETA)
+                      href: app/java-agent-25-beta.md
+                    - name: Filtrera telemetri
+                      href: app/java-filter-telemetry.md
+                    - name: Mått för Micrometer
+                      displayname: java
+                      href: app/micrometer-java.md
+                    - name: Mått för Micrometer (2.5.0-BETA)
+                      href: app/micrometer-java-25-beta.md
+                    - name: Spring Boot-app
+                      displayname: java
+                      href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+                    - name: Felsöka
+                      href: app/java-troubleshoot.md
+                - name: Node.js-appar
+                  items:
+                    - name: Node.js
+                      href: app/nodejs.md
+                - name: Webbsidor
+                  items:
+                    - name: JavaScript för klientsidan
+                      href: app/javascript.md
+                - name: Sammanfattning av Application Insights-API
+                  displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
+                  href: app/api-custom-events-metrics.md
+                - name: Felsöka ASP.NET
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: Övervakning utan kod
+              items:
+                - name: Virtuella Azure-datorer och VM-skalningsuppsättningar i Azure
+                  href: app/azure-vm-vmss-apps.md
+                - name: Azure App Service
+                  displayname: 'App Service, web app, PaaS, Azure web app'
+                  href: app/azure-web-apps.md
+                - name: Azure Cloud Services
+                  displayname: 'cloud, cloud services, PaaS'
+                  href: app/cloudservices.md
+                - name: Azure Functions
+                  displayname: 'functions, monitor functions, automation'
+                  href: ../azure-functions/functions-monitoring.md
+                - name: Kubernetes-program
+                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
+                  href: app/kubernetes.md
+                - name: Statusövervakare
+                  displayname: 'IIS monitoring, on premises monitoring, on prem,'
+                  href: app/monitor-performance-live-website-now.md
+                - name: Statusövervakare v2
+                  items:
+                    - name: Översikt
+                      displayname: 'IIS monitoring, on premises monitoring, on prem,'
+                      href: app/status-monitor-v2-overview.md
+                    - name: Komma igång
+                      href: app/status-monitor-v2-get-started.md
+                    - name: Detaljerade anvisningar
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: Felsökning och kända problem
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
+                    - name: API för Start-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-start-trace.md
+            - name: Skapa en resurs
+              href: app/create-new-resource.md
+            - name: Instrumentpanel för program
+              displayname: 'dashboard, Application Insights dashboard'
+              href: app/overview-dashboard.md
+            - name: Programkarta
+              href: app/app-map.md
+            - name: Tillgänglighet
+              items:
+                - name: URL-tester
+                  displayname: 'ping, ping tests, availability, GSM, up/down'
+                  href: app/monitor-web-app-availability.md
+                - name: Tester i flera steg
+                  displayname: 'availability, GSM, visual studio web test, web test'
+                  href: app/availability-multistep.md
+                - name: Tillgänglighetsaviseringar
+                  displayname: 'alerts, global, alerting'
+                  href: app/availability-alerts.md
+                - name: Prestandatestning
+                  href: app/performance-testing.md
+                - name: Felsökning
+                  displayname: 'availability, troublshoot, troubleshoot availability'
+                  href: app/troubleshoot-availability.md
+            - name: Distribuerad spårning
+              items:
+                - name: Översikt
+                  href: app/distributed-tracing.md
+                - name: Lokal vidarebefordrare
+                  href: app/opencensus-local-forwarder.md
+                - name: Python
+                  href: app/opencensus-python.md
+                - name: Go
+                  href: app/opencensus-go.md
+            - name: Live Metric Stream
+              displayname: 'live, quickpulse, quick pulse, live metrics'
+              href: app/live-stream.md
+            - name: Mått
+              href: app/metrics-explorer.md
+            - name: Search
+              href: app/diagnostic-search.md
+            - name: Profilerare
+              items:
+                - name: Översikt
+                  displayname: 'profiling, debugging, code performance, perf'
+                  href: app/profiler-overview.md
+                - name: Aktivera Profiler för en apptjänst
+                  href: app/profiler.md
+                - name: Aktivera Profiler för en molntjänst
+                  href: app/profiler-cloudservice.md
+                - name: Aktivera Profiler för ett Service Fabric-program
+                  href: app/profiler-servicefabric.md
+                - name: Aktivera Profiler för en virtuell Azure-dator
+                  href: app/profiler-vm.md
+                - name: Profiler för Linux App Services (förhandsversion)
+                  href: app/profiler-aspnetcore-linux.md
+                - name: Profiler-inställningar
+                  href: app/profiler-settings.md
+                - name: Spåra begäranden för profilering
+                  href: app/profiler-trackrequests.md
+                - name: Profiler-felsökning
+                  href: app/profiler-troubleshooting.md
+            - name: Felsökning av ögonblicksbild
+              items:
+                - name: Översikt
+                  displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
+                  href: app/snapshot-debugger.md
+                - name: Aktivera Snapshot Debugger en App Service
+                  href: app/snapshot-debugger-appservice.md
+                - name: Aktivera Snapshot Debugger för andra miljöer
+                  href: app/snapshot-debugger-vm.md
+                - name: Uppgradera Snapshot Debugger
+                  href: app/snapshot-debugger-upgrade.md
+                - name: Felsökning för Snapshot Debugger
+                  displayname: 'troubleshoot, troubleshooting'
+                  href: app/snapshot-debugger-troubleshoot.md
+            - name: Smart identifiering
+              href: app/proactive-diagnostics.md
+              items:
+                - name: Felavvikelser
+                  href: app/proactive-failure-diagnostics.md
+                - name: Prestandaavvikelser
+                  href: app/proactive-performance-diagnostics.md
+                - name: Spårningsförsämring
+                  href: app/proactive-trace-severity.md
+                - name: Undantagsvolym
+                  href: app/proactive-exception-volume.md
+                - name: Minnesläcka
+                  href: app/proactive-potential-memory-leak.md
+                - name: Säkerhetsidentifiering
+                  href: app/proactive-application-security-detection-pack.md
+                - name: Azure Cloud Services
+                  href: app/proactive-cloud-services.md
+                - name: Hantera regler för smart identifiering
+                  href: app/proactive-arm-config.md
+                - name: E-postmeddelande
+                  href: app/proactive-email-notification.md
+            - name: Användning (användarbeteendeanalys)
+              items:
+                - name: Översikt
+                  displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
+                  href: app/usage-overview.md
+                - name: Skicka användarkontext
+                  href: app/usage-send-user-context.md
+                - name: 'Användare, sessioner, händelser'
+                  href: app/usage-segmentation.md
+                - name: Trattar
+                  href: app/usage-funnels.md
+                - name: Kohorter
+                  href: app/usage-cohorts.md
+                - name: Påverkan
+                  href: app/usage-impact.md
+                - name: Kvarhållning
+                  href: app/usage-retention.md
+                - name: Användarflöden
+                  href: app/usage-flows.md
+                - name: Användningsanalys
+                  href: app/usage-troubleshoot.md
+            - name: Azure DevOps
+              items:
+                - name: Versionsanteckningar
+                  href: app/annotations.md
+                - name: Kontinuerlig övervakning
+                  href: app/continuous-monitoring.md
+            - name: Avancerad konfiguration
+              items:
+                - name: Åtkomstkontroll
+                  href: app/resources-roles-access-control.md
+                - name: Samling
+                  displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
+                  href: app/sampling.md
+                - name: TelemetryChannels
+                  dispayname: 'in memory, server telemetry channel, channel, inmemory, servertelemetry'
+                  href: app/telemetry-channels.md
+                - name: TelemetryProcessors
+                  displayname: 'processors, filtering, telemetry filtering, telemetry processor'
+                - name: Telemetrikorrelation
+                  href: app/api-filtering-sampling.md
+                - name: Spåra anpassade åtgärder i .NET SDK
+                  href: app/custom-operations-tracking.md
+                - name: Anpassade e-postrapporter
+                  href: app/automate-custom-reports.md
+                - name: Undantag
+                  href: app/asp-net-exceptions.md
+                - name: Loggspårningar
+                  href: app/asp-net-trace-logs.md
+                - name: Prestandaräknare
+                  href: app/performance-counters.md
+                - name: Beroenden
+                  href: app/asp-net-dependencies.md
+                - name: ApplicationInsights.config
+                  href: app/configuration-with-applicationinsights-config.md
+                - name: Loggbaserade och föraggregerade mått
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: Transaktionsdiagnostik
+                  href: app/transaction-diagnostics.md
+                - name: Korrelera anpassade datakällor
+                  href: app/custom-data-correlation.md
+                - name: Särskilda ämnen
+                  items:
+                    - name: Djup diagnostik för webbappar och tjänster
+                      href: app/devops.md
+                    - name: Övervaka prestanda i webbprogram
+                      href: app/web-monitor-performance.md
+                    - name: 'Avgränsa utveckling, testning och produktion'
+                      href: app/separate-resources.md
+                    - name: Hur kan jag ... i Application Insights?
+                      href: app/how-do-i.md
+            - name: Exportera
+              items:
+                - name: Löpande export
+                  href: app/export-telemetry.md
+                - name: Exportera till Stream Analytics
+                  href: app/export-stream-analytics.md
+                - name: Exportera till SQL med Stream Analytics
+                  href: app/code-sample-export-sql-stream-analytics.md
+                - name: Exportera datamodell
+                  href: app/export-data-model.md
+            - name: Visual Studio
+              items:
+                - name: F5-insikter
+                  href: app/visual-studio.md
+                - name: Trends
+                  href: app/visual-studio-trends.md
+                - name: CodeLens
+                  href: app/visual-studio-codelens.md
+            - name: Andra plattformar
+              items:
+                - name: SharePoint-webbplatser
+                  href: app/sharepoint.md
+                - name: Dynamics CRM
+                  href: app/sample-mscrm.md
+                - name: Windows-skrivbordet
+                  href: app/windows-desktop.md
+        - name: Containrar
+          items:
+            - name: Azure Monitor för containrar
+              items:
+                - name: Översikt
+                  href: insights/container-insights-overview.md
+                - name: VANLIGA FRÅGOR OCH SVAR
+                  href: insights/container-insights-faq.md
+                - name: Aktivera övervakning
+                  items:
+                    - name: Aktivera övervakningsöversikt
+                      href: insights/container-insights-onboard.md
+                    - name: Aktivera för nytt kluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Aktivera för befintligt kluster
+                      href: insights/container-insights-enable-existing-clusters.md
+                    - name: Regionsmappningar
+                      href: insights/container-insights-region-mapping.md
+                - name: Analysera
+                  href: insights/container-insights-analyze.md
+                - name: Inaktivera övervakning
+                  href: insights/container-insights-optout.md
+                - name: Visa live-loggar
+                  href: insights/container-insights-live-logs.md
+                - name: Analysera data med loggfrågor
+                  href: insights/container-insights-log-search.md
+                - name: Aviseringar
+                  href: insights/container-insights-alerts.md
+                - name: Agenthantering
+                  href: insights/container-insights-manage-agent.md
+                - name: Uppdatera för att aktivera mått
+                  href: insights/container-insights-update-metrics.md
+                - name: Felsökning
+                  href: insights/container-insights-troubleshoot.md
+            - name: Övervakning av Docker- och Windows-containrar
+              href: insights/containers.md
+        - name: Virtuella datorer
+          items:
+            - name: Agenter
+              items:
+                - name: Översikt över agenter
+                  href: platform/agents-overview.md
+                - name: Azure Diagnostics-tillägg
+                  items:
+                    - name: Översikt
+                      href: platform/diagnostics-extension-overview.md
+                    - name: Skicka till Azure Storage
+                      href: platform/diagnostics-extension-to-storage.md
+                    - name: Skicka till Application Insights
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: Skicka till Event Hubs
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: Felsökning
+                      href: platform/diagnostics-extension-troubleshooting.md
+                    - name: Förbered för JSON Lines-format för diagnostikloggar
+                      href: platform/diagnostic-logs-append-blobs.md
+                    - name: VM-gäst till mått
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                    - name: GuestOS till mått – virtuell Linux-dator (Telegraf)
+                      href: platform/collect-custom-metrics-linux-telegraf.md
+                    - name: VM-skalningsuppsättningsgäst till mått
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                    - name: Klassisk VM-gäst till mått
+                      href: platform/collect-custom-metrics-guestos-vm-classic.md
+                    - name: Molntjänstgäst till mått
+                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                - name: Log Analytics-agenter
+                  items:
+                    - name: Översikt
+                      href: platform/log-analytics-agent.md
+                    - name: Windows-agenter
+                      href: platform/agent-windows.md
+                    - name: VM-tillägg för Windows
+                      href: ../virtual-machines/windows/extensions-oms.md
+                    - name: VM-tillägg för Linux
+                      href: ../virtual-machines/linux/extensions-oms.md
+                    - name: Log Analytics-gatewayen
+                      href: platform/gateway.md
+                    - name: Agenthantering
+                      href: platform/agent-manage.md
+                    - name: Agenthälsa
+                      href: insights/solution-agenthealth.md
+                - name: Felsöka
+                  items:
+                    - name: Log Analytics-tillägg för virtuella datorer
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/vmext-troubleshoot.md
+                    - name: Windows-agenten för Log Analytics
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/agent-windows-troubleshoot.md
+                    - name: Log Analytics-agent för Linux
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/agent-linux-troubleshoot.md
+            - name: Agentdatakällor
+              items:
+                - name: Översikt
+                  href: platform/agent-data-sources.md
+                - name: Windows-händelser
+                  href: platform/data-sources-windows-events.md
+                - name: Anpassade JSON-data
+                  href: platform/data-sources-json.md
+                - name: CollectD-prestandadata
+                  href: platform/data-sources-collectd.md
+                - name: Syslog
+                  href: platform/data-sources-syslog.md
+                - name: Prestandaräknare
+                  href: platform/data-sources-performance-counters.md
+                - name: Programprestanda på Linux
+                  href: platform/data-sources-linux-applications.md
+                - name: IIS-loggar
+                  href: platform/data-sources-iis-logs.md
+                - name: Anpassade loggar
+                  href: platform/data-sources-custom-logs.md
+                - name: Anpassade fält
+                  href: platform/custom-fields.md
+            - name: Azure Monitor för virtuella datorer
+              items:
+                - name: Översikt
+                  href: insights/vminsights-overview.md
+                - name: Kända problem
+                  href: insights/vminsights-known-issues.md
+                - name: VANLIGA FRÅGOR OCH SVAR
+                  href: insights/vminsights-faq.md
+                - name: Aktivera övervakning
+                  items:
+                    - name: Aktivera övervakningsöversikt
+                      href: insights/vminsights-enable-overview.md
+                    - name: Aktivera för enskild virtuell Azure-dator
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Aktivera med hjälp av Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Aktivera med hjälp av Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Aktivera för hybridmiljö
+                      href: insights/vminsights-enable-hybrid-cloud.md
+                - name: Övervaka hälsa
+                  href: insights/vminsights-health.md
+                - name: Mappa beroenden
+                  href: insights/vminsights-maps.md
+                - name: Övervaka prestanda
+                  href: insights/vminsights-performance.md
+                - name: Använda arbetsböcker
+                  href: insights/vminsights-workbooks.md
+                - name: Analysera data med loggfrågor
+                  href: insights/vminsights-log-search.md
+                - name: Konfigurera inställningar för agentsamlingar
+                  href: insights/container-insights-agent-config.md
+                - name: Inaktivera övervakning
+                  href: insights/vminsights-optout.md
+            - name: Kapacitet och prestandalösning
+              href: insights/capacity-performance.md
+            - name: VMware Analytics-lösning
+              href: insights/vmware.md
+            - name: Wire Data-lösning
+              href: insights/wire-data.md
+            - name: Tjänstkarta
+              items:
+                - name: Användning
+                  href: insights/service-map.md
+                - name: Konfigurera
+                  href: insights/service-map-configure.md
+                - name: Integration med Operations Manager
+                  href: insights/service-map-scom.md
+            - name: Datorgrupper
+              href: platform/computer-groups.md
+            - name: Configuration Manager
+              href: platform/collect-sccm.md
+        - name: Databaser
+          items:
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
         - name: Azure-resurser
           items:
             - name: Aktivitetslogg
@@ -200,427 +672,20 @@
                   href: platform/diagnostic-logs-stream-template.md
                 - name: Tjänstloggar och mått
                   href: platform/azure-storage-iis-table.md
-            - name: Strömma till Event Hubs
+            - name: Strömma data till Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
-            - name: Korrelera anpassade datakällor
-              href: app/custom-data-correlation.md
-            - name: Visa tjänstmeddelanden
-              href: platform/service-notifications.md
-        - name: Installera och konfigurera agenter
-          items:
-            - name: Översikt över övervakningsagenter
-              href: platform/agents-overview.md
-            - name: Log Analytics-agenter
-              items:
-                - name: Översikt
-                  href: platform/log-analytics-agent.md
-                - name: Windows-agenter
-                  href: platform/agent-windows.md
-                - name: VM-tillägg för Windows
-                  href: ../virtual-machines/windows/extensions-oms.md
-                - name: VM-tillägg för Linux
-                  href: ../virtual-machines/linux/extensions-oms.md
-                - name: Operations Manager
-                  href: platform/om-agents.md
-                - name: Log Analytics-gatewayen
-                  href: platform/gateway.md
-                - name: Agenthantering
-                  href: platform/agent-manage.md
-            - name: Azure Diagnostics-tillägg
-              items:
-                - name: Översikt
-                  href: platform/diagnostics-extension-overview.md
-                - name: Skicka till Azure Storage
-                  href: platform/diagnostics-extension-to-storage.md
-                - name: Skicka till Application Insights
-                  href: platform/diagnostics-extension-to-application-insights.md
-                - name: Skicka till Event Hubs
-                  href: platform/diagnostics-extension-stream-event-hubs.md
-                - name: Felsökning
-                  href: platform/diagnostics-extension-troubleshooting.md
-                - name: Förbered för JSON Lines-format för diagnostikloggar
-                  href: platform/diagnostic-logs-append-blobs.md
-                - name: VM-gäst till mått
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: VM-skalningsuppsättningsgäst till mått
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Klassisk VM-gäst till mått
-                  href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Molntjänstgäst till mått
-                  href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-            - name: Felsöka
-              items:
-                - name: Log Analytics-tillägg för virtuella datorer
-                  href: platform/vmext-troubleshoot.md
-                - name: Windows-agenten för Log Analytics
-                  href: platform/agent-windows-troubleshoot.md
-                - name: Log Analytics-agent för Linux
-                  href: platform/agent-linux-troubleshoot.md
-        - name: Agentdatakällor
-          items:
-            - name: Översikt
-              href: platform/agent-data-sources.md
-            - name: Windows-händelser
-              href: platform/data-sources-windows-events.md
-            - name: Anpassade JSON-data
-              href: platform/data-sources-json.md
-            - name: CollectD-prestandadata
-              href: platform/data-sources-collectd.md
-            - name: Syslog
-              href: platform/data-sources-syslog.md
-            - name: Prestandaräknare
-              href: platform/data-sources-performance-counters.md
-            - name: Programprestanda på Linux
-              href: platform/data-sources-linux-applications.md
-            - name: IIS-loggar
-              href: platform/data-sources-iis-logs.md
-            - name: Anpassade loggar
-              href: platform/data-sources-custom-logs.md
-            - name: Anpassade fält
-              href: platform/custom-fields.md
-        - name: Konfigurera program
-          items:
-            - name: Appar med Azure som värd
-              items:
-                - name: Virtuella Azure-datorer och VM-skalningsuppsättningar i Azure
-                  href: app/azure-vm-vmss-apps.md
-                - name: Azure App Service
-                  href: app/azure-web-apps.md
-                - name: Azure Cloud Services
-                  href: app/cloudservices.md
-                - name: Lägga till kontinuerlig övervakning
-                  href: app/continuous-monitoring.md
-                - name: Profilerare
-                  items:
-                    - name: Översikt
-                      href: app/profiler-overview.md
-                    - name: Aktivera Profiler för en apptjänst
-                      href: app/profiler.md
-                    - name: Aktivera Profiler för en molntjänst
-                      href: app/profiler-cloudservice.md
-                    - name: Aktivera Profiler för ett Service Fabric-program
-                      href: app/profiler-servicefabric.md
-                    - name: Aktivera Profiler för en virtuell Azure-dator
-                      href: app/profiler-vm.md
-                    - name: Profiler för Linux App Services (förhandsversion)
-                      href: app/profiler-aspnetcore-linux.md
-                    - name: Profiler-inställningar
-                      href: app/profiler-settings.md
-                    - name: Spåra begäranden för profilering
-                      href: app/profiler-trackrequests.md
-                    - name: Profiler-felsökning
-                      href: app/profiler-troubleshooting.md
-                - name: Felsökning av ögonblicksbild
-                  items:
-                    - name: Översikt
-                      href: app/snapshot-debugger.md
-                    - name: Aktivera Snapshot Debugger en App Service
-                      href: app/snapshot-debugger-appservice.md
-                    - name: Aktivera Snapshot Debugger för andra miljöer
-                      href: app/snapshot-debugger-vm.md
-                    - name: Uppgradera Snapshot Debugger
-                      href: app/snapshot-debugger-upgrade.md
-                    - name: Felsökning för Snapshot Debugger
-                      href: app/snapshot-debugger-troubleshoot.md
-                - name: Diagnostik
-                  href: ../application-insights/app-insights-azure-diagnostics.md
-            - name: ASP.NET Core
-              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-              href: app/asp-net-core.md
-              items:
-                - name: ILogger
-                  href: app/ilogger.md
-            - name: ASP.NET-appar
-              items:
-                - name: Webbappar
-                  href: app/asp-net.md
-                - name: Statusövervakare
-                  href: app/monitor-performance-live-website-now.md
-                - name: Statusövervakare v2
-                  items:
-                    - name: Översikt
-                      href: app/status-monitor-v2-overview.md
-                    - name: Komma igång
-                      href: app/status-monitor-v2-get-started.md
-                    - name: Detaljerade anvisningar
-                      href: app/status-monitor-v2-detailed-instructions.md
-                    - name: Felsökning och kända problem
-                      href: app/status-monitor-v2-troubleshoot.md
-                    - name: API Disable-InstrumentationEngine
-                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
-                    - name: API Disable-ApplicationInsightsMonitoring
-                      href: app/status-monitor-v2-api-disable-monitoring.md
-                    - name: API Enable-InstrumentationEngine
-                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
-                    - name: API Enable-ApplicationInsightsMonitoring
-                      href: app/status-monitor-v2-api-enable-monitoring.md
-                    - name: API Get-ApplicationInsightsMonitoringConfig
-                      href: app/status-monitor-v2-api-get-config.md
-                    - name: API Get-ApplicationInsightsMonitoringStatus
-                      href: app/status-monitor-v2-api-get-status.md
-                    - name: API Set-ApplicationInsightsMonitoringConfig
-                      href: app/status-monitor-v2-api-set-config.md
-                    - name: API Start-ApplicationInsightsMonitoringTrace
-                      href: app/status-monitor-v2-api-start-trace.md
-                - name: Windows-skrivbordet
-                  href: app/windows-desktop.md
-                - name: Konsolen
-                  href: app/console.md
-                - name: Instrumentpanel för program
-                  href: app/overview-dashboard.md
-                - name: Hämta mer telemetri
-                  href: app/asp-net-more.md
-                - name: Undantag
-                  href: app/asp-net-exceptions.md
-                - name: Loggspårningar
-                  href: app/asp-net-trace-logs.md
-                - name: Prestandaräknare
-                  href: app/performance-counters.md
-                - name: Beroenden
-                  href: app/asp-net-dependencies.md
-                - name: Versionsanteckningar
-                  href: app/annotations.md
-                - name: ApplicationInsights.config
-                  href: app/configuration-with-applicationinsights-config.md
-                - name: Felsökning av ögonblicksbild
-                  href: app/snapshot-debugger.md
-            - name: Java-appar
-              items:
-                - name: Webbappar
-                  href: app/java-get-started.md
-                - name: Webbappar (2.5.0-BETA)
-                  href: app/java-get-started-25-beta.md
-                - name: Docker-appar
-                  href: app/docker.md
-                - name: Loggspårningar
-                  href: app/java-trace-logs.md
-                - name: Loggspårningar (2.5.0-BETA)
-                  href: app/java-trace-logs-25-beta.md
-                - name: Unix-mått
-                  href: app/java-collectd.md
-                - name: Beroenden
-                  href: app/java-agent.md
-                - name: Beroenden (2.5.0-BETA)
-                  href: app/java-agent-25-beta.md
-                - name: Filtrera telemetri
-                  href: app/java-filter-telemetry.md
-                - name: Mått för Micrometer
-                  href: app/micrometer-java.md
-                - name: Mått för Micrometer (2.5.0-BETA)
-                  href: app/micrometer-java-25-beta.md
-                - name: Använda en Spring Boot-initieringsapp
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-            - name: Node.js-appar
-              items:
-                - name: Node.js
-                  href: app/nodejs.md
-            - name: Webbsidor
-              items:
-                - name: JavaScript
-                  href: app/javascript.md
-            - name: Övervaka Azure Functions
-              href: ../azure-functions/functions-monitoring.md
-            - name: Distribuerad spårning
-              items:
-                - name: Lokal vidarebefordrare
-                  href: app/opencensus-local-forwarder.md
-                - name: Python
-                  href: app/opencensus-python.md
-                - name: Go
-                  href: app/opencensus-go.md
-            - name: Andra plattformar
-              items:
-                - name: SharePoint-webbplatser
-                  href: app/sharepoint.md
-                - name: Dynamics CRM
-                  href: app/sample-mscrm.md
-            - name: Smart identifiering
-              href: app/proactive-diagnostics.md
-              items:
-                - name: Felavvikelser
-                  href: app/proactive-failure-diagnostics.md
-                - name: Prestandaavvikelser
-                  href: app/proactive-performance-diagnostics.md
-                - name: Spårningsförsämring
-                  href: app/proactive-trace-severity.md
-                - name: Undantagsvolym
-                  href: app/proactive-exception-volume.md
-                - name: Minnesläcka
-                  href: app/proactive-potential-memory-leak.md
-                - name: Säkerhetsidentifiering
-                  href: app/proactive-application-security-detection-pack.md
-                - name: Azure Cloud Services
-                  href: app/proactive-cloud-services.md
-                - name: Hantera regler för smart identifiering
-                  href: app/proactive-arm-config.md
-                - name: E-postmeddelande
-                  href: app/proactive-email-notification.md
-            - name: Tillgänglighet
-              items:
-                - name: URL-tester
-                  href: app/monitor-web-app-availability.md
-                - name: Tester i flera steg
-                  href: app/availability-multistep.md
-                - name: Tillgänglighetsaviseringar
-                  href: app/availability-alerts.md
-                - name: Felsökning
-                  href: app/troubleshoot-availability.md
-            - name: Prestandatestning
-              href: app/performance-testing.md
-            - name: Skapa en resurs
-              href: app/create-new-resource.md
-            - name: Programdata till Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Exportera programdata
-              items:
-                - name: Löpande export
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Kodexempel
-                      items:
-                        - name: Exportera till SQL med Stream Analytics
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Exportera till Stream Analytics
-                          href: app/export-stream-analytics.md
-                - name: Exportera datamodell
-                  href: app/export-data-model.md
-            - name: Felsöka
-              items:
-                - name: Inga data för .NET
-                  href: app/asp-net-troubleshoot-no-data.md
-                - name: Felsökningsprogram för ögonblicksbilder
-                  href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Java
-                  href: app/java-troubleshoot.md
-                - name: Användningsanalys
-                  href: app/usage-troubleshoot.md
-        - name: Samla anpassade data
-          items:
-            - name: Anpassade mått
-              href: platform/metrics-custom-overview.md
-            - name: API för Log Analytics-datainsamlare
-              href: platform/data-collector-api.md
-            - name: Pipelineexempel för API för Log Analytics-datainsamlare
-              href: platform/create-pipeline-datacollector-api.md
-            - name: REST-API för mått
-              href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS till mått – virtuell Linux-dator (Telegraf)
-              href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: System Center
-          items:
-            - name: Configuration Manager
-              href: platform/collect-sccm.md
-    - name: Få insikter
-      items:
-        - name: Övervakning av program
-          items:
-            - name: Översikt över Application Insights
-              items:
-                - name: Översikt
-                  href: app/app-insights-overview.md
-                - name: Distribuerad spårning
-                  href: app/distributed-tracing.md
-                - name: Loggbaserade och föraggregerade mått
-                  href: app/pre-aggregated-metrics-log-metrics.md
-            - name: Application Insights-portalen
-              items:
-                - name: Search
-                  href: app/diagnostic-search.md
-                - name: Mått
-                  href: app/metrics-explorer.md
-                - name: Direktsänd ström
-                  href: app/live-stream.md
-                - name: Programkarta
-                  href: app/app-map.md
-                - name: Transaktionsdiagnostik
-                  href: app/transaction-diagnostics.md
-                - name: HockeyApp-data
-                  href: app/hockeyapp-bridge-app.md
-            - name: Visual Studio
-              items:
-                - name: F5-insikter
-                  href: app/visual-studio.md
-                - name: Trends
-                  href: app/visual-studio-trends.md
-                - name: CodeLens
-                  href: app/visual-studio-codelens.md
-            - name: Användning
-              items:
-                - name: Översikt
-                  href: app/usage-overview.md
-                - name: Skicka användarkontext
-                  href: app/usage-send-user-context.md
-                - name: 'Användare, sessioner, händelser'
-                  href: app/usage-segmentation.md
-                - name: Trattar
-                  href: app/usage-funnels.md
-                - name: Kohorter
-                  href: app/usage-cohorts.md
-                - name: Påverkan
-                  href: app/usage-impact.md
-                - name: Kvarhållning
-                  href: app/usage-retention.md
-                - name: Användarflöden
-                  href: app/usage-flows.md
-                - name: Arbetsböcker
-                  href: app/usage-workbooks.md
-            - name: Lösning för webbappsanalys
-              href: insights/azure-web-apps-analytics.md
-            - name: Övervaka Kubernetes-program
-              displayname: 'aks, microservice, istio, service mesh, application monitoring'
-              href: app/kubernetes.md
-        - name: Övervaka containrar
-          items:
-            - name: Azure Monitor för containrar
-              items:
-                - name: Översikt
-                  href: insights/container-insights-overview.md
-                - name: VANLIGA FRÅGOR OCH SVAR
-                  href: insights/container-insights-faq.md
-                - name: Aktivera övervakning
-                  items:
-                    - name: Aktivera övervakningsöversikt
-                      href: insights/container-insights-onboard.md
-                    - name: Aktivera för nytt kluster
-                      href: insights/container-insights-enable-new-cluster.md
-                    - name: Aktivera för befintligt kluster
-                      href: insights/container-insights-enable-existing-clusters.md
-                    - name: Regionsmappningar
-                      href: insights/container-insights-region-mapping.md
-                - name: Analysera
-                  href: insights/container-insights-analyze.md
-                - name: Konfigurera inställningar för agentsamlingar
-                  href: insights/container-insights-agent-config.md
-                - name: Inaktivera övervakning
-                  href: insights/container-insights-optout.md
-                - name: Visa live-loggar
-                  href: insights/container-insights-live-logs.md
-                - name: Analysera data med loggfrågor
-                  href: insights/container-insights-log-search.md
-                - name: Aviseringar
-                  href: insights/container-insights-alerts.md
-                - name: Agenthantering
-                  href: insights/container-insights-manage-agent.md
-                - name: Uppdatera för att aktivera mått
-                  href: insights/container-insights-update-metrics.md
-                - name: Felsökning
-                  href: insights/container-insights-troubleshoot.md
-            - name: Övervakning av Docker- och Windows-containrar
-              href: insights/containers.md
-            - name: Övervaka Docker-program
-              href: app/docker.md
-        - name: Övervaka resursgrupper
-          href: insights/resource-group-insights.md
-        - name: Övervaka databaser
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-        - name: Övervaka nätverk
+            - name: Key Vault-analys
+              href: insights/azure-key-vault.md
+            - name: Service Fabric-analys
+              href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
+            - name: Övervaka resursgrupper
+              href: insights/resource-group-insights.md
+        - name: Nätverk
           items:
             - name: Nätverksanalys
               href: insights/azure-networking-analytics.md
+            - name: DNS
+              href: insights/dns-analytics.md
             - name: Övervakning av nätverksprestanda
               items:
                 - name: Lösningsöversikt
@@ -635,74 +700,14 @@
                   href: insights/network-performance-monitor-pricing-faq.md
                 - name: VANLIGA FRÅGOR OCH SVAR
                   href: insights/network-performance-monitor-faq.md
-        - name: Övervakning av virtuella datorer
-          items:
-            - name: Azure Monitor för virtuella datorer
-              items:
-                - name: Översikt
-                  href: insights/vminsights-overview.md
-                - name: Kända problem
-                  href: insights/vminsights-known-issues.md
-                - name: VANLIGA FRÅGOR OCH SVAR
-                  href: insights/vminsights-faq.md
-                - name: Aktivera övervakning
-                  items:
-                    - name: Aktivera övervakningsöversikt
-                      href: insights/vminsights-enable-overview.md
-                    - name: Aktivera för enskild virtuell Azure-dator
-                      href: insights/vminsights-enable-single-vm.md
-                    - name: Aktivera med hjälp av Azure Policy
-                      href: insights/vminsights-enable-at-scale-policy.md
-                    - name: Aktivera med hjälp av Azure PowerShell
-                      href: insights/vminsights-enable-at-scale-powershell.md
-                    - name: Aktivera för hybridmiljö
-                      href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Övervaka hälsa
-                  href: insights/vminsights-health.md
-                - name: Mappa beroenden
-                  href: insights/vminsights-maps.md
-                - name: Övervaka prestanda
-                  href: insights/vminsights-performance.md
-                - name: Använda arbetsböcker
-                  href: insights/vminsights-workbooks.md
-                - name: Analysera data med loggfrågor
-                  href: insights/vminsights-log-search.md
-                - name: Inaktivera övervakning
-                  href: insights/vminsights-optout.md
-            - name: Agenthälsa
-              href: insights/solution-agenthealth.md
-            - name: Kapacitet och prestanda
-              href: insights/capacity-performance.md
-            - name: VMware AnalyticsVMware Analytics
-              href: insights/vmware.md
-            - name: Wire Data
-              href: insights/wire-data.md
-            - name: Tjänstkarta
-              items:
-                - name: Användning
-                  href: insights/service-map.md
-                - name: Konfigurera
-                  href: insights/service-map-configure.md
-                - name: Integration med Operations Manager
-                  href: insights/service-map-scom.md
-        - name: Övervaka Azure-resurser
-          items:
-            - name: Key Vault-analys
-              href: insights/azure-key-vault.md
-            - name: Service Fabric-analys
-              href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
-        - name: Övervaka andra resurser
+        - name: Andra resurser
           items:
             - name: Utvärdera AD-hälsa
               href: insights/ad-assessment.md
             - name: AD-replikeringsstatus
               href: insights/ad-replication-status.md
-            - name: DNS
-              href: insights/dns-analytics.md
             - name: Office 365
               href: insights/solution-office-365.md
-            - name: Utvärdera Operations Manager
-              href: insights/scom-assessment.md
             - name: Surface Hub
               href: insights/surface-hubs.md
         - name: Använda övervakningslösningar
@@ -711,6 +716,22 @@
               href: insights/solutions.md
             - name: Mållösningar
               href: insights/solution-targeting.md
+        - name: Samla anpassade data
+          items:
+            - name: Anpassade mått
+              href: platform/metrics-custom-overview.md
+            - name: API för Log Analytics-datainsamlare
+              href: platform/data-collector-api.md
+            - name: Pipelineexempel för API för Log Analytics-datainsamlare
+              href: platform/create-pipeline-datacollector-api.md
+            - name: REST-API för mått
+              href: platform/metrics-store-custom-rest-api.md
+        - name: Använda System Center
+          items:
+            - name: Ansluta Operations Manager
+              href: platform/om-agents.md
+            - name: Utvärdera Operations Manager
+              href: insights/scom-assessment.md
     - name: Analysera data
       items:
         - name: Mått
@@ -800,10 +821,17 @@
                   href: log-query/log-query-performance.md
                 - name: Parsa textdata
                   href: log-query/parse-text.md
-            - name: Datorgrupper
-              href: platform/computer-groups.md
-            - name: Flödesanslutning
+        - name: Flow/Logic Apps
+          items:
+            - name: Flow Connector med loggar
               href: platform/flow-tutorial.md
+            - name: Flow Connector med program
+              href: app/automate-with-flow.md
+            - name: Logic Apps med program
+              href: app/automate-with-logic-apps.md
+        - name: REST-API
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: Visualisera data
       items:
         - name: Vyer
@@ -822,92 +850,108 @@
               href: platform/powerbi.md
             - name: Exportera programdata
               href: app/export-power-bi.md
+        - name: Arbetsböcker
+          href: app/usage-workbooks.md
         - name: Instrumentpaneler
           href: app/app-insights-dashboards.md
         - name: Skicka data till Grafana
           href: platform/grafana-plugin.md
-    - name: Svara på incidenter
+    - name: Aviseringar
       items:
-        - name: Aviseringar
+        - name: Aviseringsregler för program
           items:
-            - name: Aviseringsregler för program
-              items:
-                - name: Måttaviseringar
-                  href: app/alerts.md
-            - name: Aviseringsregler för plattformsmått
-              items:
-                - name: Hantera måttaviseringar
-                  href: platform/alerts-metric.md
-                - name: Använda dynamiska tröskelvärden
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Måttaviseringar på loggar
-                  href: platform/alerts-metric-logs.md
-                - name: Använda Resource Manager-mallen
-                  href: platform/alerts-metric-create-templates.md
-            - name: Logga aviseringsregler
-              items:
-                - name: Konfigurera aviseringar för analysfråga
-                  href: platform/alerts-log.md
-                - name: Frågor
-                  href: platform/alerts-log-query.md
-                - name: Webhook-åtgärder
-                  href: platform/alerts-log-webhook.md
-                - name: Felsökning
-                  href: platform/alert-log-troubleshoot.md
-            - name: Aviseringsregler för aktivitetsloggar
-              items:
-                - name: Avisera om en händelse i aktivitetsloggen
-                  href: platform/alerts-activity-log.md
-            - name: Service Health-aviseringar i aktivitetsloggen
-              items:
-                - name: Visa Service Health-aviseringar
-                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-                - name: Konfigurera en Service Health-aviseringsregel
-                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-            - name: Använda åtgärdsgrupper
-              items:
-                - name: Skapa åtgärdsgrupp
-                  href: platform/action-groups.md
-                - name: Webhook-schema
-                  href: platform/activity-log-alerts-webhook.md
-                - name: Vanliga definitioner för aviseringsscheman
-                  href: platform/alerts-common-schema-definitions.md
-                - name: Beteende för SMS-aviseringar
-                  href: platform/alerts-sms-behavior.md
-                - name: Begränsningar för aviseringsfrekvensen
-                  href: platform/alerts-rate-limiting.md
-                - name: Skapa åtgärdsgrupper med Resource Manager
-                  href: platform/action-groups-create-resource-manager-template.md
-                - name: Implementera en Logikapp-åtgärd
-                  href: platform/action-groups-logic-app.md
-                - name: Integrera det gemensamma aviseringsschemat med Logic Apps
-                  href: platform/alerts-common-schema-integrations.md
-            - name: Lösning för aviseringshantering
-              href: platform/alert-management-solution.md
-            - name: Avisera i användargränssnitt
-              items:
-                - name: Hantera aviseringsinstanser
-                  href: platform/alerts-managing-alert-instances.md
-                - name: Hantera smarta grupper
-                  href: platform/alerts-managing-smart-groups.md
-                - name: Hantera tillstånd för aviseringar och smarta grupper
-                  href: platform/alerts-managing-alert-states.md
-                - name: Hantera aviseringar från andra övervakningstjänster
-                  href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Migrera klassiska aviseringsregler
-              items:
-                - name: Förbereda för migrering
-                  href: platform/alerts-prepare-migration.md
-                - name: Lär dig migreringsverktyget
-                  href: platform/alerts-understand-migration.md
-                - name: Använda migreringsverktyget
-                  href: platform/alerts-using-migration-tool.md
-                - name: Hantera klassiska måttaviseringar
-                  href: platform/alerts-classic-portal.md
-                - name: Klassisk måttavisering med en Resource Manager-mall
-                  href: platform/alerts-enable-template.md
-                - name: Anropa en webhook med en klassisk måttavisering
-                  href: platform/alerts-webhooks.md
+            - name: Tillgänglighet
+              href: app/monitor-web-app-availability.md
+            - name: Måttaviseringar
+              href: app/alerts.md
+        - name: Aviseringsregler för plattformsmått
+          items:
+            - name: Hantera måttaviseringar
+              href: platform/alerts-metric.md
+            - name: Använda dynamiska tröskelvärden
+              href: platform/alerts-dynamic-thresholds.md
+            - name: Måttaviseringar på loggar
+              href: platform/alerts-metric-logs.md
+            - name: Använda Resource Manager-mallen
+              href: platform/alerts-metric-create-templates.md
+        - name: Logga aviseringsregler
+          items:
+            - name: Konfigurera aviseringar för analysfråga
+              href: platform/alerts-log.md
+            - name: Frågor
+              href: platform/alerts-log-query.md
+            - name: Webhook-åtgärder
+              href: platform/alerts-log-webhook.md
+            - name: Felsökning
+              href: platform/alert-log-troubleshoot.md
+        - name: Aviseringsregler för aktivitetsloggar
+          items:
+            - name: Avisera om en händelse i aktivitetsloggen
+              href: platform/alerts-activity-log.md
+            - name: Migrera hanteringshändelser till aktivitetsloggaviseringar
+              href: platform/migrate-management-alerts.md
+        - name: Åtgärdsgrupper
+          items:
+            - name: Skapa åtgärdsgrupp
+              href: platform/action-groups.md
+            - name: Webhook-schema
+              href: platform/activity-log-alerts-webhook.md
+            - name: Vanliga definitioner för aviseringsscheman
+              href: platform/alerts-common-schema-definitions.md
+            - name: Beteende för SMS-aviseringar
+              href: platform/alerts-sms-behavior.md
+            - name: Begränsningar för aviseringsfrekvensen
+              href: platform/alerts-rate-limiting.md
+            - name: Skapa åtgärdsgrupper med Resource Manager
+              href: platform/action-groups-create-resource-manager-template.md
+            - name: Implementera en Logikapp-åtgärd
+              href: platform/action-groups-logic-app.md
+            - name: Integrera det gemensamma aviseringsschemat med Logic Apps
+              href: platform/alerts-common-schema-integrations.md
+        - name: Lösning för aviseringshantering
+          href: platform/alert-management-solution.md
+        - name: Avisera i användargränssnitt
+          items:
+            - name: Hantera aviseringsinstanser
+              href: platform/alerts-managing-alert-instances.md
+            - name: Hantera smarta grupper
+              href: platform/alerts-managing-smart-groups.md
+            - name: Hantera tillstånd för aviseringar och smarta grupper
+              href: platform/alerts-managing-alert-states.md
+            - name: Hantera aviseringar från andra övervakningstjänster
+              href: platform/alerts-managing-nagios-zabbix-scom.md
+        - name: Migrera klassiska aviseringsregler
+          items:
+            - name: Förbereda för migrering
+              href: platform/alerts-prepare-migration.md
+            - name: Lär dig migreringsverktyget
+              href: platform/alerts-understand-migration.md
+            - name: Använda migreringsverktyget
+              href: platform/alerts-using-migration-tool.md
+            - name: Hantera klassiska måttaviseringar
+              href: platform/alerts-classic-portal.md
+            - name: Klassisk måttavisering med en Resource Manager-mall
+              href: platform/alerts-enable-template.md
+            - name: Anropa en webhook med en klassisk måttavisering
+              href: platform/alerts-webhooks.md
+        - name: Service Health-aviseringar i aktivitetsloggen
+          items:
+            - name: Visa aviseringar
+              href: platform/service-notifications.md
+            - name: Konfigurera aviseringar i aviseringshändelser
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: Aviserings-API
+          href: platform/api-alerts.md
+        - name: IT Service Management
+          items:
+            - name: IT Service Management Connector
+              href: platform/itsmc-overview.md
+            - name: IT Service Management-anslutningar
+              href: platform/itsmc-connections.md
+            - name: Skapa Service Manager-webbapp
+              href: platform/itsmc-service-manager-script.md
+    - name: Automatisera
+      items:
         - name: Automatisk skalning
           items:
             - name: Genomgång
@@ -928,24 +972,6 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Använda webhook-konfigurationer och e-postaviseringar
               href: platform/autoscale-webhook-email.md
-        - name: IT Service Management
-          items:
-            - name: IT Service Management Connector
-              href: platform/itsmc-overview.md
-            - name: IT Service Management-anslutningar
-              href: platform/itsmc-connections.md
-            - name: Skapa Service Manager-webbapp
-              href: platform/itsmc-service-manager-script.md
-    - name: Hantera användning och kostnad
-      items:
-        - name: Användning och uppskattade kostnader
-          href: platform/usage-estimated-costs.md
-        - name: Programanvändning och -kostnader
-          href: app/pricing.md
-        - name: Logga dataanvändning och -kostnader
-          href: platform/manage-cost-storage.md
-    - name: Automatisera
-      items:
         - name: PowerShell
           items:
             - name: Azure PowerShell-exempel
@@ -966,36 +992,8 @@
           href: platform/cli-samples.md
         - name: Mallar för Resurshanteraren
           href: platform/template-workspace-configuration.md
-        - name: API
-          items:
-            - name: Genomgång med REST API
-              href: platform/rest-api-walkthrough.md
-            - name: Loggsöknings-API
-              href: 'https://dev.loganalytics.io/'
-            - name: Aviserings-API
-              href: platform/api-alerts.md
-        - name: Program
-          items:
-            - name: Automatisera med Microsoft Flow
-              href: app/automate-with-flow.md
-            - name: Automatisera med Azure Logic App
-              href: app/automate-with-logic-apps.md
-            - name: Anpassade e-postrapporter
-              href: app/automate-custom-reports.md
     - name: Utöka
       items:
-        - name: Program
-          items:
-            - name: API för anpassade händelser och mått
-              href: app/api-custom-events-metrics.md
-            - name: Spåra anpassade åtgärder i .NET SDK
-              href: app/custom-operations-tracking.md
-            - name: Filtrera och förbearbeta telemetri
-              href: app/api-filtering-sampling.md
-            - name: Samling
-              href: app/sampling.md
-            - name: TelemetryChannels
-              href: app/telemetry-channels.md
         - name: Övervakningslösningar
           items:
             - name: Utforma och skapa
@@ -1028,31 +1026,31 @@
           href: app/platforms.md
         - name: Åsidosättning av slutpunkter
           href: app/custom-endpoints.md
-    - name: Application Insights-datamodell
-      items:
-        - name: Översikt
-          href: app/data-model.md
-        - name: Förfrågan
-          href: app/data-model-request-telemetry.md
-        - name: Beroende
-          href: app/data-model-dependency-telemetry.md
-        - name: Undantag
-          href: app/data-model-exception-telemetry.md
-        - name: Spårning
-          href: app/data-model-trace-telemetry.md
-        - name: Händelse
-          href: app/data-model-event-telemetry.md
-        - name: Mått
-          href: app/data-model-metric-telemetry.md
-        - name: Kontext
-          href: app/data-model-context.md
+        - name: Datamodell
+          items:
+            - name: Översikt
+              href: app/data-model.md
+            - name: Förfrågan
+              href: app/data-model-request-telemetry.md
+            - name: Beroende
+              href: app/data-model-dependency-telemetry.md
+            - name: Undantag
+              href: app/data-model-exception-telemetry.md
+            - name: Spårning
+              href: app/data-model-trace-telemetry.md
+            - name: Händelse
+              href: app/data-model-event-telemetry.md
+            - name: Mått
+              href: app/data-model-metric-telemetry.md
+            - name: Kontext
+              href: app/data-model-context.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure Functions
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
-        - name: Övervaka
+        - name: Application Insights
           href: /powershell/module/az.applicationinsights
         - name: Loggar
           href: /powershell/module/az.operationalinsights
@@ -1074,7 +1072,7 @@
           href: platform/metrics-supported.md
         - name: Mått som stöds för nyare aviseringar
           href: platform/alerts-metric-near-real-time.md
-    - name: Scheman
+    - name: Diagnostikloggar
       items:
         - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
           href: platform/diagnostic-logs-schema.md
@@ -1095,6 +1093,14 @@
           href: platform/monitoring-classic-retirement.md
         - name: Växla API-inställning för loggaviseringar
           href: platform/alerts-log-api-switch.md
+        - name: HockeyApp-data
+          href: app/hockeyapp-bridge-app.md
+        - name: Lösning för webbappsanalys
+          href: insights/azure-web-apps-analytics.md
+        - name: Application Insights-anslutningsprogram
+          href: platform/app-insights-connector.md
+        - name: Övervaka Docker-program
+          href: app/docker.md
         - name: Utfasning av OMS-portalen
           href: platform/oms-portal-transition.md
 - name: Resurser

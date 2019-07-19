@@ -4,27 +4,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: ad1527a5e7f1cb2ff1beb9ddace5460f41bb8a87
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 674dd30ff3e493ec4c4036f032f82624a6ca5749
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461522"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334250"
 ---
-## <a name="azure-cognitive-service-subscription-types"></a>Typer av Azure Cognitive Service-prenumerationer
+## <a name="azure-cognitive-service-resource-types"></a>Resurs typer för Azure kognitiva tjänster
 
 > [!NOTE]
-> Prenumerationsägare kan inaktivera skapandet av Cognitive Services-konton för resursgrupper och prenumerationer genom att använda [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), att tilldela en principdefinition för ”tillåts inte resurstyper” och ange **Microsoft.CognitiveServices/accounts** som resource måltypen.
+> Prenumerations ägare kan inaktivera skapande av Cognitive Services resurser för resurs grupper och prenumerationer genom att använda [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), tilldela en princip definition som inte är tillåtna resurs typer och ange  **Microsoft. CognitiveServices/Accounts** som mål resurs typ.
 
-Du kan komma åt Azure Cognitive Services via två olika prenumerationer: En prenumeration som flera tjänster eller en enskild tjänst en. Dessa prenumerationer kan du ansluta till en enskild tjänst eller flera tjänster på samma gång.
+Du kan komma åt Azure Cognitive Services via två olika resurser: En resurs med flera tjänster eller en enskild tjänst. Med dessa prenumerationer kan du ansluta till antingen en enskild tjänst eller flera tjänster samtidigt.
 
-### <a name="multi-service-subscription"></a>Flera tjänster prenumeration
+### <a name="multi-service-resource"></a>Resurs för flera tjänster
 
 >[!WARNING]
-> De här tjänsterna för närvarande **inte** stöd för flera tjänster nycklar: QnA Maker Speech Services, Custom Vision och Avvikelseidentifiering detektor.
+> För tillfället stöder dessa tjänster **inte** nycklar med flera tjänster: QnA Maker, tal tjänster, Custom Vision och avvikelse detektor.
 
-En prenumeration som har flera tjänster för Azure Cognitive Services kan du använda en enda prenumeration och Azure-resurs för de flesta av Azure Cognitive Services och konsoliderar fakturering från de tjänster du använder. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) för ytterligare information.
+Prenumererar på en Cognitive Services-resurs med flera tjänster:
+* Gör att du kan använda en enda Azure-resurs för de flesta Azure-Cognitive Services.
+* Konsoliderar faktureringen från de tjänster som du använder. Mer information finns i [Cognitive Services prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/) .
 
-### <a name="single-service-subscription"></a>En tjänst-prenumeration
+### <a name="single-service-resource"></a>Resurs för enskild tjänst
 
-En prenumeration på en enda tjänst, till exempel visuellt innehåll eller Speech Services. En prenumeration för en tjänst är begränsad till den här resursen. 
+Resurser med en tjänst (till exempel Visuellt innehåll eller tal tjänster) är begränsade till den angivna tjänsten.

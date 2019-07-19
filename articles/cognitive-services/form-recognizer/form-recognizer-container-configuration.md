@@ -1,7 +1,7 @@
 ---
-title: Så här konfigurerar du en behållare för formuläret Igenkännande
+title: Så här konfigurerar du en behållare för formulär igenkänning
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du konfigurerar formuläret Igenkännande behållaren för att analysera form-och tabelldata.
+description: Lär dig hur du konfigurerar formulärets tolknings behållare för att tolka formulär-och tabell data.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
@@ -9,31 +9,31 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718449"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348704"
 ---
-# <a name="configure-form-recognizer-containers"></a>Konfigurera formuläret Igenkännande behållare
+# <a name="configure-form-recognizer-containers"></a>Konfigurera formulär igenkännings behållare
 
-Genom att använda Azure formuläret Igenkännande behållare kan skapa du en programarkitektur som är optimerad för att dra nytta av både robusta funktioner och edge ort.
+Med hjälp av Azure formulär igenkännings behållare kan du skapa en program arkitektur som är optimerad för att dra nytta av både robusta moln funktioner och Edge-plats.
 
-Du konfigurerar formuläret Igenkännande-körningsmiljön för behållaren med hjälp av den `docker run` kommandot argument. Den här behållaren har flera krävs inställningar och några valfria inställningar. Några exempel finns i den [”exempel docker-kommandon”](#example-docker-run-commands) avsnittet. Behållare-specifika inställningar är de fakturering inställningarna.
+Du konfigurerar körnings miljön för formulär igenkännings behållare med hjälp `docker run` av kommando argumenten. Den här behållaren har flera nödvändiga inställningar och några valfria inställningar. Några exempel finns i avsnittet ["exempel på Docker körnings kommandon"](#example-docker-run-commands) . De behållar-/regionsspecifika inställningarna är fakturerings inställningarna.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-setting) inställningarna används tillsammans. Du måste ange giltiga värden för alla tre inställningar. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](form-recognizer-container-howto.md#billing).
+> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) [och`Eula`](#eula-setting) används tillsammans. Du måste ange giltiga värden för alla tre inställningarna. annars startar inte behållaren. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](form-recognizer-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckel som används för att spåra faktureringsinformation för behållaren. Värdet för ApiKey måste vara en giltig nyckel för den _formuläret Igenkännande_ resurs som har angetts för `Billing` i avsnittet ”fakturering konfigurationsinställning”.
+`ApiKey` Inställningen anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Värdet för ApiKey måste vara en giltig nyckel för _formulär igenkännings_ resursen som anges i avsnittet "konfigurations `Billing` inställning för fakturering".
 
-Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande resurshantering**under **nycklar**.
+Du hittar den här inställningen i Azure Portal i **formulär igenkännings resurs hantering**under **nycklar**.
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -41,9 +41,9 @@ Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _formuläret Igenkännande_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Värdet för den här inställningen måste vara en giltig URI-slutpunkt för en _formuläret Igenkännande_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Inställningen anger slut punkts-URI för _formulär igenkännings_ resursen på Azure som används för att mäta fakturerings information för behållaren. `Billing` Värdet för den här konfigurations inställningen måste vara en giltig slut punkts-URI för en _formulär igenkännings_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
-Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande översikt**under **Endpoint**.
+Du hittar den här inställningen i rutan Azure Portal, i **formulär igenkännings översikt**, under **slut punkt**.
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
@@ -57,7 +57,7 @@ Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för HTTP-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -68,11 +68,11 @@ Du hittar den här inställningen i Azure-portalen i **formuläret Igenkännande
 
 ## <a name="mount-settings"></a>Monteringsinställningar
 
-Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en inkommande montera eller en utdata mount genom att ange den `--mount` alternativet i den [ `docker run` kommandot](https://docs.docker.com/engine/reference/commandline/run/).
+Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller en utmatnings `--mount` montering genom att ange alternativet [ `docker run` i kommandot](https://docs.docker.com/engine/reference/commandline/run/).
 
-Behållaren formuläret Igenkännande kräver en inkommande montera och en utdata mount. Inkommande monterings kan vara skrivskyddade och det krävs för åtkomst till data som används för träning och bedömning. Utdata mount måste vara skrivbar och du kan använda den för att lagra modeller och tillfälliga data.
+Formulär identifierarens behållare kräver en indata montering och en utgående data montering. Monteringen av indata kan vara skrivskyddad och krävs för åtkomst till de data som används för utbildning och bedömning. Monteringen av utdata måste vara skrivbar och du kan använda den för att lagra modeller och temporära data.
 
-Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan montera platsen för den [värddatorn](form-recognizer-container-howto.md#the-host-computer) kan inte nås på grund av en konflikt mellan behörigheterna för Docker-tjänsten och behörigheterna som värd montera plats.
+Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](form-recognizer-container-howto.md#the-host-computer) monterings plats inte är tillgänglig på grund av en konflikt mellan Docker-tjänstens konto behörigheter och värd monterings platsens behörigheter.
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
@@ -81,31 +81,31 @@ Den exakta syntaxen hos montera värdplats varierar beroende på värdens operat
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
 
-I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon. När den körs behållaren fortsätter att köras tills du [stoppa den](form-recognizer-container-howto.md#stop-the-container).
+I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon. När den körs fortsätter behållaren att köras tills du [stoppar den](form-recognizer-container-howto.md#stop-the-container).
 
-* **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder ett omvänt snedstreck (\\) som en fortsättning tecknet. Ersätta eller ta bort det här tecknet, beroende på din värdoperativsystemet krav.
-* **Argumentet order**: Inte ändra ordningen på argumenten om du inte är bekant med Docker-behållare.
+* **Rad fortsättnings avstånd**: Docker-kommandona i följande avsnitt använder ett omvänt snedstreck\\() som ett fortsättnings streck. Ersätt eller ta bort det här tecknen, beroende på värd operativ systemets krav.
+* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
-Ersätt {_argument_name_} i tabellen nedan med dina egna värden:
+Ersätt {_argument_name_} i följande tabell med dina egna värden:
 
 | Platshållare | Value |
 |-------------|-------|
-|{BILLING_KEY} | Den nyckel som används för att starta behållaren. Det är tillgängligt på Azure portal sidan formuläret Igenkännande nycklar.  |
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet är tillgänglig på Azure portal formuläret Igenkännande översiktssidan.|
-|{COMPUTER_VISION_API_KEY}| Nyckeln är tillgänglig på Azure portal datornycklar Vision API-sidan.|
-|{COMPUTER_VISION_ENDPOINT_URI}|Fakturering slutpunkten. URI-värdet är tillgängligt på Azure portal översiktssidan för datorn Vision API om du använder en molnbaserad visuellt resurs. Om du använder en *cognitive services-identifiera – fulltext* behållare, använda fakturering slutpunkts-URL som skickades till behållaren i den `docker run` kommando.|
+|{FORM_RECOGNIZER_API_KEY} | Den nyckel som används för att starta behållaren. Den finns på sidan Azure Portal formulär igenkännings nycklar.  |
+|{FORM_RECOGNIZER_ENDPOINT_URI} | URI-värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure Portal formulär igenkänning.|
+|{COMPUTER_VISION_API_KEY}| Nyckeln finns på sidan Azure Portal API för visuellt innehåll nycklar.|
+|{COMPUTER_VISION_ENDPOINT_URI}|Fakturerings slut punkten. Om du använder en molnbaserad Visuellt innehåll resurs finns URI-värdet på översikts sidan för Azure Portal API för visuellt innehåll. Om du använder en *kognitivt-tjänster-identifiera-text* behållare använder du URL: en för fakturerings slut punkt som skickas till behållaren i `docker run` kommandot.|
 
 > [!IMPORTANT]
-> Kör behållaren genom att ange den `Eula`, `Billing`, och `ApiKey` alternativ; i annat fall startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
+> Om du vill köra behållaren anger `Eula`du alternativen, `Billing`och `ApiKey` . annars startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
 
 > [!NOTE] 
-> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure formuläret Igenkännande resurs.
+> ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure Forms igenkänning.
 
-## <a name="form-recognizer-container-docker-examples"></a>Formuläret Igenkännande behållare Docker-exempel
+## <a name="form-recognizer-container-docker-examples"></a>Formulär identifierarens Docker-exempel
 
-I följande exempel Docker är för formuläret Igenkännande behållaren.
+Följande Docker-exempel är för formulär igenkännings behållaren.
 
-### <a name="basic-example-for-form-recognizer"></a>Grundläggande exempel för formuläret Igenkännande
+### <a name="basic-example-for-form-recognizer"></a>Basic-exempel för formulär igenkänning
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
@@ -113,13 +113,13 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
-### <a name="logging-example-for-form-recognizer"></a>Loggning exempel för formuläret Igenkännande
+### <a name="logging-example-for-form-recognizer"></a>Exempel på loggning av formulär tolken
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
@@ -127,14 +127,13 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [installera och kör behållare](form-recognizer-container-howto.md).
+* Granska [installations-och körnings behållare](form-recognizer-container-howto.md).

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 609e7bc4104a445c5d77109c9470fb487b2f1336
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: cbea29320c896637190766d1b2b60c09f7db5163
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507751"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347160"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och kraven i [självstudien: Aktivera autentisering för en ensidesapp med konton med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 
@@ -103,14 +103,14 @@ Om du vill tillåta ensidesappen att anropa ASP.NET Core webb-API:et måste du a
 
 1. Lägg till CORS till metoden `ConfigureServices()` i **Startup.cs**.
 
-    ```C#
+    ```csharp
     public void ConfigureServices(IServiceCollection services) {
       services.AddCors();
     ```
 
 2. Konfigurera CORS i metoden `Configure()` i **Startup.cs**.
 
-    ```C#
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
       app.UseCors(builder =>
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
@@ -180,4 +180,4 @@ I den här självstudiekursen lärde du dig att:
 > * Konfigurera exemplet för att använda programmet
 
 > [!div class="nextstepaction"]
-> [Självstudie: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudier: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

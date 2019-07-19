@@ -1,84 +1,84 @@
 ---
-title: Skapa ett Cognitive Services-konto i Azure portal
+title: Skapa en Cognitive Services resurs i Azure Portal
 titlesuffix: Azure Cognitive Services
-description: 'Så här skapar du ett konto för Azure Cognitive Services API: er i Azure-portalen.'
+description: Kom igång med Azure Cognitive Services genom att skapa och prenumerera på en resurs i Azure Portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: b857ee0395c447c8699b8f6a812853528812a7bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445858"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334243"
 ---
-# <a name="create-a-cognitive-services-account-using-the-azure-portal"></a>Skapa ett Cognitive Services-konto med Azure portal
+# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
-I den här snabbstarten lär du dig att registrera dig för Azure Cognitive Services och skapa ett konto som har en prenumeration för en tjänst eller flera tjänster. De här tjänsterna representeras av Azure [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör det möjligt att ansluta till en eller fler av Azure-API: er för Cognitive Services.
+Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av Azure Portal. Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En giltig Azure-prenumeration. [Skapa ett konto](https://azure.microsoft.com/free/) utan kostnad.
+* En giltig Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Skapa en ny Azure Cognitive Services-resurs
 
-Du måste ha en Azure-resursgrupp innan du skapar en resurs. Varje Cognitive Services-konto (och dess associerade Azure-resurs) måste tillhöra en Azure-resursgrupp. När du skapar ett konto har du möjlighet att antingen skapa en ny resursgrupp eller Använd en befintlig. Den här artikeln visar hur du skapar en ny resursgrupp.
+Innan du skapar en Cognitive Services resurs måste du ha en Azure-resurs grupp som innehåller resursen. När du skapar en ny resurs har du möjlighet att antingen skapa en ny resurs grupp eller använda en befintlig. Den här artikeln visar hur du skapar en ny resurs grupp.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **+ skapa en resurs**.
+1. Logga in på [Azure Portal](https://portal.azure.com)och klicka på **+ skapa en resurs**.
 
-    ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
+    ![Välj API:er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. Du kan hitta tillgängliga kognitiva tjänster med på följande sätt:
-    * Använda sökfältet och ange namnet på den tjänst du vill prenumerera på.
-        * Om du vill skapa en resurs för en prenumeration som flera tjänster, ange **Cognitive Services** i sökningen och väljer den **Cognitive Services** resurs.
+2. Du kan hitta tillgängliga Cognitive Services med på följande sätt:
+    * Använd Sök fältet och ange namnet på den tjänst som du vill prenumerera på.
+        * Om du vill skapa en resurs för flera tjänster anger du **Cognitive Services** i Sök fältet och väljer **Cognitive Services** resursen.
 
         ![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
-    * Om du vill se alla tillgängliga kognitiva tjänster, **AI + Maskininlärning**under **Azure Marketplace**. Om du inte ser den tjänst som du är intresserad av, klickar du på **se alla** och bläddra till **Cognitive Services**. Klicka på **mer** att visa hela katalogen med Cognitive Services API: er.
+    * Om du vill se alla tillgängliga kognitiva tjänster väljer du **AI + Machine Learning**under **Azure Marketplace**. Om du inte ser den tjänst som du är intresse rad av, klickar du på **Visa alla** och bläddrar till **Cognitive Services**. Klicka på **mer** om du vill visa hela katalogen med API:er för Cognitive Services.
     
-        ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
+        ![Välj API:er för Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-3. På den **skapa** anger du följande information:
+3. Ange följande information på sidan **skapa** :
 
     > [!IMPORTANT]
-    > Kom ihåg dina Azure-plats som du kan behöva den när du anropar Azure Cognitive Services.
+    > Kom ihåg din Azure-plats, som du kan behöva när du anropar Azure-Cognitive Services.
 
     |    |    |
     |--|--|
-    | **Namn** | Ett beskrivande namn för din resurs för cognitive services. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyCognitiveServicesAccount*. |
+    | **Namn** | Ett beskrivande namn för din resurs för kognitiva tjänster. Till exempel *MyCognitiveServicesAccount*. |
     | **Prenumeration** | Välj en av dina tillgängliga Azure-prenumerationer. |
-    | **Location** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
-    | **prisnivå** | Kostnaden för Cognitive Services-kontot beror på de alternativ du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
+    | **Location** | Platsen för din kognitiva tjänst instans. Olika platser kan orsaka svars tid, men har ingen inverkan på resursens tillgänglighet för körning. |
+    | **prisnivå** | Kostnaden för ditt Cognitive Services-konto beror på vilka alternativ du väljer och din användning. Mer information finns i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/)för API.
+    | **Resursgrupp** | Den [Azure-resurs grupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) som ska innehålla din Cognitive Services-resurs. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
 
-    ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![Skärmen skapa resurs](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 
-## <a name="get-the-keys-for-your-subscription"></a>Hämta nycklar för din prenumeration
+## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
 
-När du har skapat din resurs kommer du åt den från instrumentpanelen för Azure om du har Fäst. I annat fall hittar du den i **resursgrupper**. När du har valt din resurs, kan du hämta nycklar genom att välja **nycklar** under **resurshantering**.
+När du har skapat din resurs kan du komma åt den från Azure-instrumentpanelen om du har fäst den. Annars kan du hitta den i **resurs grupper**. När du har valt din resurs kan du hämta nycklarna genom att välja **nycklar** under **resurs hantering**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Ta bort resursgruppen raderas även andra resurser som är associerade med resursgruppen.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen tas även andra resurser som ingår i gruppen bort.
 
 Ta bort en resursgrupp med Azure-portalen:
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
-2. Leta upp resursgruppen som ska ta bort och högerklicka på knappen Mer (...) till höger om listan.
+2. Leta upp resurs gruppen som du vill ta bort och högerklicka på knappen mer (...) på höger sida av listan.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 
 ## <a name="see-also"></a>Se också
 
-* [Autentisera begäranden till Azure Cognitive Services](authentication.md)
+* [Autentisera begär anden till Azure Cognitive Services](authentication.md)
 * [Vad är Azure Cognitive Services?](Welcome.md)
 * [Stöd för naturligt språk](language-support.md)
-* [Stöd för docker-behållare](cognitive-services-container-support.md)
+* [Stöd för Docker-behållare](cognitive-services-container-support.md)

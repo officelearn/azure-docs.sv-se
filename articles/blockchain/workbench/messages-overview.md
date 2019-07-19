@@ -644,7 +644,7 @@ Innehåller information när ett program har överförts till Workbench, t.ex. n
 |------|-------------|
 | EventName | **ApplicationIngestion** |
 | ApplicationId | Unik identifierare för programmet i Azure Blockchain Workbench |
-| ApplicationName | Programnamn |
+| applicationName | Programnamn |
 | applicationDisplayName | Programmets visningsnamn |
 | applicationVersion | Programversion |
 | applicationDefinitionLocation | URL: en där programmets konfigurationsfil finns |
@@ -838,7 +838,7 @@ Innehåller information om en användare har tilldelats en roll i Workbench, til
 |------|-------------|
 | EventName | **RoleAssignment** |
 | ApplicationId | Unik identifierare för programmet i Azure Blockchain Workbench |
-| ApplicationName | Programnamn |
+| applicationName | Programnamn |
 | applicationDisplayName | Programmets visningsnamn |
 | applicationVersion | Programversion |
 | applicationRole        | Information om den [programroll](#roleassignment-application-role) |

@@ -1,7 +1,7 @@
 ---
 title: Tal till text med Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: Tal till text från Azure Speech Services, även kallat tal till text, aktiverar i realtid transkription av ljudströmmar till text som dina program, verktyg eller enheter kan använda, visa och vidta åtgärder för som kommandoindata. Den här tjänsten drivs av samma taligenkänningsteknik som Microsoft använder för Cortana och Office-produkter, och fungerar sömlöst med översättning och text till tal.
+description: Tal-till-text från Azure Speech Services, även kallat tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,103 +10,89 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606253"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333565"
 ---
-# <a name="what-is-speech-to-text"></a>Vad är tal till text?
+# <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
-Tal till text från Azure Speech Services, även kallat tal till text, aktiverar i realtid transkription av ljudströmmar till text som dina program, verktyg eller enheter kan använda, visa och vidta åtgärder för som kommandoindata. Den här tjänsten drivs av samma taligenkänningsteknik som Microsoft använder för Cortana och Office-produkter, och fungerar sömlöst med översättning och text till tal.  En fullständig lista över tillgängliga språk för tal till text, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Tal-till-text från Azure Speech Services, även kallat tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal.  En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Som standard använder tjänsten tal till text Universal språkmodellen. Den här modellen har lärt sig med hjälp av data som ägs av Microsoft och har distribuerats i molnet. Det är optimala för konversationsanpassad och diktering scenarier. Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd.
+Som standard använder tal-till-text-tjänsten den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär.
 
-Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller få åtkomst till ljud filer från storage med tal SDK och REST API: er. Tal SDK stöder WAV PCM/16-bitars, 16 kHz/8 kHz, kanal-ljud för taligenkänning. Ytterligare ljudformat stöds med hjälp av den [tal till text REST-slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-tjänsten för taltranskription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller komma åt ljudfiler från lagring med API: er för tal-SDK och REST-API: er. Tal-SDK: n stöder WAV/PCM 16-bit, 16 kHz/8 kHz, ett ljud med en kanal för tal igenkänning. Ytterligare ljud format stöds med hjälp av [slut punkten tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller batch-avskrifts [tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
-## <a name="core-features"></a>Kärnfunktioner
+## <a name="core-features"></a>Kärn funktioner
 
-Här är funktionerna som är tillgängliga via tal SDK och REST API: er:
+Här är de funktioner som är tillgängliga via API: er för tal-SDK och REST:
 
 | Användningsfall | SDK | REST |
 |----------|-----|------|
-| Transkribera kort yttranden (< 15 sekunder). Stöder endast slutlig avskrift resultatet. | Ja | Ja |
-| Kontinuerlig avskrift långa yttranden och strömmande ljud (> 15 sekunder). Har stöd för tillfälliga och slutlig avskrift resultat. | Ja | Nej |
-| Härledd avsikter från igenkänningsresultat med [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Ja | Nej\* |
+| Korta yttranden (< 15 sekunder). Har endast stöd för slutlig avskrifts resultat. | Ja | Ja |
+| Kontinuerlig avskrift av långt yttranden och strömmande ljud (> 15 sekunder). Har stöd för mellanliggande och slutliga avskrifts resultat. | Ja | Nej |
+| Härleda avsikter från igenkännings resultat med [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Ja | Nej\* |
 | Batch-avskrift av ljudfiler asynkront. | Nej | Ja\** |
-| Skapa och hantera talmodeller. | Nej | Ja\** |
-| Skapa och hantera distributioner av anpassade modeller. | Nej | Ja\** |
-| Skapa precisionstester för att mäta riktighet baslinje modellen jämfört med anpassade modeller. | Nej | Ja\** |
+| Skapa och hantera tal modeller. | Nej | Ja\** |
+| Skapa och hantera anpassade modell distributioner. | Nej | Ja\** |
+| Skapa precisions test för att mäta precisionen för bas linje modellen jämfört med anpassade modeller. | Nej | Ja\** |
 | Hantera prenumerationer. | Nej | Ja\** |
 
-\* *LUIS avsikter och entiteter kan erhållas med hjälp av en separat LUIS-prenumeration. Med den här prenumerationen SDK anropa LUIS för dig och ge entiteten och avsikt resultat. Med REST-API kan du anropa LUIS själv för att härleda avsikter och entiteter med LUIS-prenumeration.*
+\* *LUIS avsikter och entiteter kan erhållas med hjälp av en separat LUIS-prenumeration. Med den här prenumerationen kan SDK anropa LUIS för dig och tillhandahålla entiteter och avsikts resultat. Med REST-API kan du anropa LUIS själv för att härleda avsikter och entiteter med LUIS-prenumeration.*
 
-\** *De här tjänsterna är tillgängliga med hjälp av cris.ai-slutpunkt. Se [Swagger referens](https://westus.cris.ai/swagger/ui/index).*
+\** *Dessa tjänster är tillgängliga med cris.ai-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index).*
 
 ## <a name="get-started-with-speech-to-text"></a>Kom igång med tal till text
 
-Vi erbjuder snabbstarterna i mest populära programmeringsspråk, alla har utformats för att se dig köra kod i mindre än 10 minuter. Den här tabellen innehåller en fullständig lista över tal SDK snabbstarter ordnade efter språk.
+Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var utformade för att du ska kunna köra kod på mindre än 10 minuter. [Den här tabellen](https://aka.ms/csspeech#5-minute-quickstarts) innehåller en fullständig lista över tal SDK-snabb starter som organiseras av platfrom och språk.  API-referensen kan också hittas [här](https://aka.ms/csspeech#reference).
 
-| Snabbstart | Plattform | API-referens |
-|------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Bläddra](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Bläddra](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Bläddra](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Bläddra](https://aka.ms/csspeech/javaref) |
-| [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Bläddra](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tr)  |
+Om du föredrar att använda funktionen för att använda tal-till-text-REST går du till [REST-API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Om du föredrar att använda REST-tjänst tal till text, se [REST API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+## <a name="tutorials-and-sample-code"></a>Självstudier och exempel kod
 
-## <a name="tutorials-and-sample-code"></a>Självstudier och exempelkod
+När du har haft möjlighet att använda tal tjänsterna kan du prova vår självstudie som lär dig hur du kan identifiera avsikter från tal med hjälp av talet SDK och LUIS.
 
-När du har haft möjlighet att använda Speech Services, prova vår självstudie som Lär dig hur du identifierar intentioner från tal med hjälp av tal SDK och LUIS.
+* [Självstudier: Identifiera avsikter från tal med talet SDK och LUIS.C#](how-to-recognize-intents-from-speech-csharp.md)
 
-* [Självstudie: Identifiera avsikter från tal med tal SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
-
-Exempelkoden för tal SDK finns på GitHub. De här exemplen omfattar vanliga scenarier som läsa ljud från en fil eller dataström, kontinuerliga och inleveransen erkännande och arbeta med anpassade modeller.
+Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanliga scenarier som att läsa ljud från en fil eller ström, kontinuerlig och enkel igenkänning och arbeta med anpassade modeller.
 
 * [Tal till text-exempel (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Batch avskrift exempel (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Batch-avskrifts exempel (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>Anpassning
 
-Förutom den universella modellen som används av Speech Services, kan du skapa anpassade akustiska, språk och uttal av modeller specifika till din upplevelse. Här är en lista med anpassningsalternativ:
+Förutom den universella modellen som används av tal tjänsterna kan du skapa anpassade ljud-, språk-och uttals modeller som är specifika för din upplevelse. Här är en lista över anpassnings alternativ:
 
 | Modell | Beskrivning |
 |-------|-------------|
-| [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell är användbar om ditt program, verktyg eller enheter används i en viss miljö, som i en bil eller en fabrik med specifika inspelning villkor. Exempel innefattar tal med brytning, vissa bakgrundsljud eller användning av en särskild mikrofon för inspelning. |
-| [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språkmodell för att förbättra transkription av branschspecifika ordförråd och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-| [Uttalsmodell](how-to-customize-pronunciation.md) | Du kan definiera fonetiska, formulär och visning av ett ord eller en term med en anpassad uttal-modell. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
+| [Akustisk modell](how-to-customize-acoustic-models.md) | Att skapa en anpassad akustisk modell är användbart om ditt program, verktyg eller enheter används i en viss miljö, t. ex. i en bil eller fabrik med specifika registrerings villkor. Exempel innefattar tal med brytning, vissa bakgrundsljud eller användning av en särskild mikrofon för inspelning. |
+| [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
+| [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera fonetisk form och visa ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
 
 > [!NOTE]
-> Anpassningsalternativ varierar beroende på språk och nationella (se [språk som stöds](supported-languages.md)).
+> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
 
-## <a name="migration-guides"></a>Migreringsguider
+## <a name="migration-guides"></a>Stöd linjer för migrering
 
 > [!WARNING]
-> Bing-taligenkänning tas ur drift den 15 oktober 2019.
+> Taligenkänning i Bing tas ur bruk den 15 oktober 2019.
 
-Om ditt program, verktyg eller produkter använder API: er för Bing-tal eller anpassat tal, har vi skapat guider som hjälper dig att migrera till Speech Services.
+Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänster.
 
-* [Migrera från Bing-tal till Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-* [Migrera från anpassad tal till Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+* [Migrera från Taligenkänning i Bing till tal tjänsterna](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+* [Migrera från Custom Speech till tal tjänsterna](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>Referensdokument
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](https://aka.ms/csspeech)
 * [Tal enheter SDK](speech-devices-sdk.md)
-* [REST-API: Speech-to-text](rest-speech-to-text.md)
-* [REST-API: Text till tal](rest-text-to-speech.md)
-* [REST-API: Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Tal till text](rest-speech-to-text.md)
+* [REST API: Text till tal](rest-text-to-speech.md)
+* [REST API: Batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
-* [Hämta tal SDK](speech-sdk.md)
+* [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+* [Hämta tal-SDK](speech-sdk.md)

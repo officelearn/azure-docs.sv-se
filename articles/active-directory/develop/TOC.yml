@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: Begrepp
       items:
+        - name: Grundläggande om autentisering
+          href: authentication-scenarios.md
         - name: Autentiseringsflöden och appscenarier
           href: authentication-flows-app-scenarios.md
         - name: Programscenarier
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: Autentiseringsprotokoll
           items:
-            - name: Grundläggande om autentisering
-              href: authentication-scenarios.md
             - name: Programtyper och OAuth2.0
               href: v2-app-types.md
             - name: OAuth 2.0- och OpenID Connect-protokoll

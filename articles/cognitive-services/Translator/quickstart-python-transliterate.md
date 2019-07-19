@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704362"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348731"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snabbstart: Använda Translator Text API till att transkribera text med hjälp av Python
 
@@ -24,7 +24,7 @@ I den här snabbstarten lär du dig hur du transkriberar (konverterar) text frå
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 >[!TIP]
-> Om du vill att all kod på samma gång källkoden för det här exemplet är tillgänglig i [GitHub]().
+> Om du vill se all kod samtidigt är käll koden för det här exemplet tillgängligt på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +35,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt projekt med hjälp av din favorit-IDE eller redigerare eller en ny mapp med en fil med namnet `transliterate-text.py` på skrivbordet. Kopiera sedan det här kodfragmentet till din projektfilen:
+Skapa ett nytt projekt med hjälp av din favorit-IDE eller-redigerare eller en ny mapp med `transliterate-text.py` en fil med namnet på Skriv bordet. Kopiera sedan kodfragmentet till projektet/filen:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -98,7 +98,7 @@ headers = {
 }
 ```
 
-Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
 
 ## <a name="create-a-request-to-transliterate-text"></a>Skapa en begäran för att transkribera text
 
@@ -155,7 +155,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referens för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

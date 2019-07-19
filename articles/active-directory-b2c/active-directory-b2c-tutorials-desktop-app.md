@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835703"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347149"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.NET-skrivbordsutveckling** och **ASP.NET och webbutveckling** arbetsbelastningar.
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.net Desktop development** **-och ASP.net-och webb utvecklings** arbets belastningar.
 
 ## <a name="add-the-native-client-application"></a>Lägga till det interna klientprogrammet
 
@@ -65,14 +65,14 @@ Du ändrar appinställningarna genom att byta ut `<your-tenant-name>` mot namnet
 1. Öppna därefter `active-directory-b2c-wpf`-lösningen i Visual Studio.
 2. I projektet `active-directory-b2c-wpf` öppnar du filen **App.xaml.cs** filen och gör följande uppdateringar:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. Uppdatera variabeln **PolicySignUpSignIn** med namnet på användarflödet du skapade.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
@@ -88,7 +88,7 @@ Tryck på **F5** för att skapa och köra exemplet.
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Registreringssidan visas som en del av sign-in/registrering arbetsflöde](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-klientorganisationen.
 

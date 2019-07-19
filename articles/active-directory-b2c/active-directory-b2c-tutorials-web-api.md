@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507755"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347124"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och kraven i [Självstudie: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
@@ -91,13 +91,13 @@ Följande två projekt finns i exempellösningen:
 2. Öppna **Web.config** i projektet **TaskWebApp**.
 3. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande: 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. Konfigurera en URI för API:et. Det här är den URI som webbappen använder för att göra API-begäran. Ställ även in de behörigheter som krävs.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -108,25 +108,25 @@ Följande två projekt finns i exempellösningen:
 1. Öppna **Web.config** i projektet **TaskService**.
 2. Ställ in API:t så det använder din klientorganisation.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. Ställ in klient-ID till det registrerade program-ID:t för ditt API.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. Uppdatera inställningarna för användarflöde namnet för användarflödet för registrering och inloggning.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Konfigurera inställningen för omfång så den överensstämmer med det du skapade i portalen.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -158,4 +158,4 @@ I den här självstudiekursen lärde du dig att:
 > * Konfigurera exemplet för att använda programmet
 
 > [!div class="nextstepaction"]
-> [Självstudie: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudier: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

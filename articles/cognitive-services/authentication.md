@@ -1,7 +1,7 @@
 ---
-title: Autentisering
+title: Authentication
 titleSuffix: Azure Cognitive Services
-description: 'Det finns tre sätt att autentisera en begäran till en Azure Cognitive Services-resurs: en prenumerationsnyckel, en ägartoken eller en prenumeration för flera tjänster. I den här artikeln får du lära dig om varje metod och hur du gör en begäran.'
+description: 'Det finns tre sätt att autentisera en begäran till en Azure Cognitive Services-resurs: en prenumerations nyckel, en Bearer-token eller en prenumeration på flera tjänster. I den här artikeln får du lära dig om varje metod och hur du skapar en begäran.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,50 +9,50 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0499b2ef25cc93615a72269bd64af689ebced01d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435938"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333595"
 ---
-# <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
+# <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
 
-Varje begäran till en Azure Cognitive Service måste innehålla en rubrik för autentisering. Den här rubriken skickar med en prenumerationsnyckel eller åtkomst-token som används för att verifiera din prenumeration för en tjänst eller en grupp med tjänster. I den här artikeln lär du om tre sätt att autentisera en begäran och kraven för var och en.
+Varje begäran till en Azure-kognitiv tjänst måste innehålla ett Authentication-huvud. Den här rubriken skickas längs en prenumerations nyckel eller åtkomsttoken som används för att verifiera prenumerationen för en tjänst eller grupp av tjänster. I den här artikeln får du lära dig mer om tre sätt att autentisera en begäran och kraven för var och en.
 
-* [Autentisera med en prenumerationsnyckel som en tjänst](#authenticate-with-a-single-service-subscription-key)
-* [Autentisera med en flera tjänster prenumerationsnyckel](#authenticate-with-a-multi-service-subscription-key)
+* [Autentisera med en prenumerations nyckel för en enskild tjänst](#authenticate-with-a-single-service-subscription-key)
+* [Autentisera med en prenumerations nyckel för flera tjänster](#authenticate-with-a-multi-service-subscription-key)
 * [Autentisera med en token](#authenticate-with-an-authentication-token)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du gör en begäran om behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto, har vi en guide som hjälper dig att konfigurera på några minuter: [Skapa ett Cognitive Services-konto för Azure](cognitive-services-apis-create-account.md).
+Innan du gör en förfrågan behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto har vi en guide som hjälper dig att konfigurera på några minuter: [Skapa ett Cognitive Services-konto för Azure](cognitive-services-apis-create-account.md).
 
-Du kan hämta din prenumerationsnyckel från den [Azure-portalen](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) när du har skapat ditt konto eller aktivera en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Du kan hämta prenumerations nyckeln från [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) när du har skapat ditt konto eller aktivera en [kostnads fri utvärderings version](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
-## <a name="authentication-headers"></a>Autentiseringshuvuden
+## <a name="authentication-headers"></a>Autentiseringsscheman
 
-Nu ska vi se snabbt autentiseringshuvuden som är tillgängliga för användning med Azure Cognitive Services.
+Vi går snabbt igenom de autentiseringsscheman som är tillgängliga för användning med Azure Cognitive Services.
 
 | Huvud | Beskrivning |
 |--------|-------------|
-| OCP-Apim-Subscription-Key | Använd den här rubriken om du vill autentisera med en prenumerationsnyckel för en specifik tjänst eller en prenumerationsnyckel som flera tjänster. |
-| Ocp-Apim-Subscription-Region | Den här rubriken är endast krävs när du använder en prenumerationsnyckel som flera tjänster med den [Translator Text API](./Translator/reference/v3-0-reference.md). Använd den här rubriken anger prenumeration region. |
-| Authorization | Använd den här rubriken om du använder en autentiseringstoken. I följande avsnitt beskrivs stegen för att utföra en tokenutbytet. Det angivna värdet följer det här formatet: `Bearer <TOKEN>`. |
+| OCP-Apim-Subscription-Key | Använd den här rubriken för att autentisera med en prenumerations nyckel för en enskild tjänst eller en prenumerations nyckel för flera tjänster. |
+| Ocp-Apim-Subscription-Region | Den här rubriken krävs bara när du använder en prenumerations nyckel för flera tjänster med [Translator text API](./Translator/reference/v3-0-reference.md). Använd den här rubriken för att ange prenumerations region. |
+| Authorization | Använd det här huvudet om du använder en autentiseringstoken. Stegen för att utföra ett token-utbyte beskrivs i följande avsnitt. Det tillhandahållna värdet följer det här `Bearer <TOKEN>`formatet:. |
 
-## <a name="authenticate-with-a-single-service-subscription-key"></a>Autentisera med en prenumerationsnyckel som en tjänst
+## <a name="authenticate-with-a-single-service-subscription-key"></a>Autentisera med en prenumerations nyckel för en enskild tjänst
 
-Det första alternativet är att autentisera en begäran med en prenumerationsnyckel för en viss tjänst, till exempel textöversättning. Nycklarna är tillgängliga i Azure-portalen för varje resurs som du har skapat. För att använda en prenumeration för att autentisera en begäran, den måste skickas vidare som de `Ocp-Apim-Subscription-Key` rubrik.
+Det första alternativet är att autentisera en begäran med en prenumerations nyckel för en speciell tjänst, t. ex. Translator Text. Nycklarna är tillgängliga i Azure Portal för varje resurs som du har skapat. Om du vill använda en prenumerations nyckel för att autentisera en begäran måste den skickas tillsammans `Ocp-Apim-Subscription-Key` med rubriken.
 
-Begärandena exemplet visar hur du använder den `Ocp-Apim-Subscription-Key` rubrik. Kom ihåg när du använder det här exemplet måste du innehåller en giltig prenumeration-nyckel.
+Dessa exempel förfrågningar visar hur du använder `Ocp-Apim-Subscription-Key` sidhuvudet. Tänk på att när du använder det här exemplet måste du inkludera en giltig prenumerations nyckel.
 
-Det här är ett exempel anrop till Bing Web Search API:
+Detta är ett exempel anrop till API för webbsökning i Bing:
 ```cURL
 curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Det här är ett exempel anrop till Translator Text API:
+Detta är ett exempel anrop till Translator Text API:
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
@@ -60,26 +60,26 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-Följande videoklipp visar hur du använder en Cognitive Services-nyckel.
+Följande videoklipp visar hur du använder en Cognitive Services nyckel.
 
-## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autentisera med en flera tjänster prenumerationsnyckel
+## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autentisera med en prenumerations nyckel för flera tjänster
 
 >[!WARNING]
-> De här tjänsterna för närvarande **inte** stöd för flera tjänster nycklar: QnA Maker Taltjänster och Custom Vision.
+> För tillfället stöder dessa tjänster **inte** nycklar med flera tjänster: QnA Maker, tal tjänster och Custom Vision.
 
-Det här alternativet använder också en prenumeration för att autentisera begäranden. Den största skillnaden är att en prenumerationsnyckel inte är kopplat till en specifik tjänst, i stället en enda nyckel kan användas för att autentisera begäranden för flera Cognitive Services. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) för information om regional tillgänglighet, funktioner som stöds och priser.
+Det här alternativet använder också en prenumerations nyckel för att autentisera begär Anden. Den största skillnaden är att en prenumerations nyckel inte är kopplad till en viss tjänst, i stället kan du använda en enskild nyckel för att autentisera begär Anden för flera Cognitive Services. Se [Cognitive Services priser](https://azure.microsoft.com/pricing/details/cognitive-services/) för information om regional tillgänglighet, funktioner som stöds och priser.
 
-Prenumerationsnyckeln har angetts i varje begäran som den `Ocp-Apim-Subscription-Key` rubrik.
+Prenumerations nyckeln anges i varje begäran som `Ocp-Apim-Subscription-Key` rubrik.
 
-[![Flera tjänster prenumeration viktiga demonstration för Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Demonstrations nyckel för flera tjänste prenumerationer för Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-När du använder flera tjänster prenumerationsnyckeln för att begära att `api.cognitive.microsoft.com`, måste du inkludera regionen i URL: en. Till exempel: `westus.api.cognitive.microsoft.com`.
+När du använder prenumerations nyckeln för flera tjänster för att göra en `api.cognitive.microsoft.com`begäran till måste du inkludera regionen i URL: en. Till exempel: `westus.api.cognitive.microsoft.com`.
 
-När du använder flera tjänster prenumerationsnyckel med Translator Text API kan du ange prenumeration region med de `Ocp-Apim-Subscription-Region` rubrik.
+När du använder en prenumerations nyckel för flera tjänster med Translator text API måste du ange prenumerations region med `Ocp-Apim-Subscription-Region` rubriken.
 
-Flera tjänster autentisering stöds i dessa regioner:
+Autentisering med flera tjänster stöds i följande regioner:
 
 | | | |
 |-|-|-|
@@ -90,16 +90,16 @@ Flera tjänster autentisering stöds i dessa regioner:
 | `westeurope` | `westus` | `westus2` |
 
 
-### <a name="sample-requests"></a>Exempelförfrågan
+### <a name="sample-requests"></a>Exempel förfrågningar
 
-Det här är ett exempel anrop till Bing Web Search API:
+Detta är ett exempel anrop till API för webbsökning i Bing:
 
 ```cURL
 curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Det här är ett exempel anrop till Translator Text API:
+Detta är ett exempel anrop till Translator Text API:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -111,25 +111,25 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## <a name="authenticate-with-an-authentication-token"></a>Autentisera med en autentiseringstoken
 
-Vissa Azure Cognitive Services Godkänn och i vissa fall kräver, en autentiseringstoken. För närvarande stöder de här tjänsterna autentiseringstoken:
+Vissa Azure-Cognitive Services accepterar, och i vissa fall kräver detta en autentiseringstoken. Dessa tjänster har för närvarande stöd för autentiseringstoken:
 
-* API för textöversättning
-* Taltjänster: Tal till text REST-API
-* Taltjänster: Text till tal REST-API
+* API för text översättning
+* Tal tjänster: Tal till text-REST API
+* Tal tjänster: Text till tal-REST API
 
 >[!NOTE]
-> QnA Maker kan du även använder auktoriseringsrubriken, men kräver en slutpunktsnyckeln. Mer information finns i [QnA Maker: Få svar från knowledge base](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md).
+> QnA Maker använder också Authorization-huvudet, men kräver en slut punkts nyckel. Mer information finns i [QNA Maker: Få svar från kunskaps](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md)basen.
 
 >[!WARNING]
-> Tjänster som stöder autentiseringstoken kan ändras över tid,. Kontrollera API-referens för en tjänst innan du använder den här autentiseringsmetoden.
+> De tjänster som stöder autentiseringstoken kan ändras med tiden, kontrol lera API-referensen för en tjänst innan du använder den här autentiseringsmetoden.
 
-Både enkel service och flera tjänster prenumerationsnycklar kan utbyta för autentiseringstoken. Autentiseringstoken är giltiga i 10 minuter.
+Både prenumerations nycklar för enskilda tjänster och flera tjänster kan bytas ut mot autentiseringstoken. Autentiseringstoken är giltiga i 10 minuter.
 
-Autentiseringstoken som ingår i en begäran som den `Authorization` rubrik. Token värdet som angetts måste föregås av `Bearer`, till exempel: `Bearer YOUR_AUTH_TOKEN`.
+Autentiseringstoken ingår i en begäran som `Authorization` rubrik. Det angivna värdet för token måste föregås `Bearer`av, till exempel `Bearer YOUR_AUTH_TOKEN`:.
 
-### <a name="sample-requests"></a>Exempelförfrågan
+### <a name="sample-requests"></a>Exempel förfrågningar
 
-Använda den här URL: en för att skicka en prenumerationsnyckel för en autentiseringstoken: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Använd den här URL: en för att byta ut en prenumerations `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`nyckel för en autentiseringstoken:.
 
 ```cURL
 curl -v -X POST \
@@ -139,7 +139,7 @@ curl -v -X POST \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-Dessa flera tjänster regioner har stöd för token exchange:
+Dessa multi-service-regioner stöder token Exchange:
 
 | | | |
 |-|-|-|
@@ -149,7 +149,7 @@ Dessa flera tjänster regioner har stöd för token exchange:
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
 
-När du får en autentiseringstoken, måste du skicka den i varje begäran som den `Authorization` rubrik. Det här är ett exempel anrop till Translator Text API:
+När du har skaffat en autentiseringstoken måste du skicka den i varje begäran som `Authorization` rubrik. Detta är ett exempel anrop till Translator Text API:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \

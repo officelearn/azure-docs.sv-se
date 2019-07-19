@@ -209,7 +209,7 @@ Definierar funktioner som kan köras i arbetsflödet.
 
 | Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
-| Namn | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja | 50 |
+| Name | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja | 50 |
 | DisplayName | Eget namn för funktionen. | Ja | 255 |
 | Description | Beskrivning av funktionen | Nej | 255 |
 | Parametrar | Insamling av [identifierare](#identifiers) motsvarar parametrarna för funktionen. | Ja | |
@@ -257,7 +257,7 @@ En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett 
 
 | Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
-| Namn | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja | 50 |
+| Name | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja | 50 |
 | DisplayName | Eget namn för tillståndet. | Ja | 255 |
 | Description | Beskrivning av tillstånd. | Nej | 255 |
 | Värdet för procent färdigt | Ett heltalsvärde som visas i användargränssnittet för Blockchain Workbench för att visa förloppet i kontrollflödet för business logic. | Ja | |
@@ -371,7 +371,7 @@ Programroller definierar en uppsättning roller som kan tilldelas till användar
 
 | Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
-| Namn | Det unika namnet för programrollen. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga rollen. Bastypen namn är reserverade. Du kan kalla en programroll med samma namn som [typ](#type)| Ja | 50 |
+| Name | Det unika namnet för programrollen. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga rollen. Bastypen namn är reserverade. Du kan kalla en programroll med samma namn som [typ](#type)| Ja | 50 |
 | Description | Beskrivning av programrollen. | Nej | 255 |
 
 ### <a name="application-roles-example"></a>Exempel på roller
@@ -394,7 +394,7 @@ Identifierare som representerar en mängd information som används för att besk
 
 | Fält | Description | Obligatoriskt | Maxlängd |
 |-------|-------------|:--------:|-----------:|
-| Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja | 50 |
+| Name | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja | 50 |
 | DisplayName | Eget visningsnamn för egenskap eller parametern. | Ja | 255 |
 | Description | Beskrivning av den egenskapen eller parametern. | Nej | 255 |
 

@@ -1,7 +1,7 @@
 ---
-title: Hur och var du vill distribuera modeller
+title: Hur och var modeller ska distribueras
 titleSuffix: Azure Machine Learning service
-description: 'Lär dig hur och var att distribuera dina modeller för Azure Machine Learning-tjänsten som bland annat: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge och Field-programmable gate-matriser.'
+description: 'Lär dig hur och var du distribuerar dina Azure Machine Learning tjänst modeller, inklusive: Azure Container Instances, Azure Kubernetes service, Azure IoT Edge och fält programmerings bara grindar.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,69 +11,69 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706284"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260351"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
-Lär dig hur du distribuerar din machine learning-modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter. 
+Lär dig hur du distribuerar din Machine Learning-modell som en webb tjänst i Azure-molnet, eller för att IoT Edge enheter. 
 
-Arbetsflödet är liknande oavsett [där du distribuerar](#target) din modell:
+Arbets flödet liknar oavsett [var du distribuerar](#target) din modell:
 
 1. Registrera modellen.
-1. Förbereda för distribution av (Ange tillgångar, användning, beräkningsmål)
-1. Distribuera modellen till beräkningsmål.
-1. Testa den distribuerade modellen, även kallat webbtjänsten.
+1. Förbered för distribution (ange till gångar, användning, beräknings mål)
+1. Distribuera modellen till Compute-målet.
+1. Testa den distribuerade modellen, även kallad webb tjänst.
 
-Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten](concept-model-management-and-deployment.md).
+Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En modell. Om du inte har en tränad modell, du kan använda modellen och beroendefiler som anges i [den här självstudien](https://aka.ms/azml-deploy-cloud).
+- En modell. Om du inte har en tränad modell kan du använda modell & beroende filer som finns i [den här](https://aka.ms/azml-deploy-cloud)självstudien.
 
-- Den [Azure CLI-tillägg för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), eller [Azure Machine Learning Visual Studio Code-tillägg](how-to-vscode-tools.md).
+- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk)eller [Azure Machine Learning Visual Studio Code-tillägget](how-to-vscode-tools.md).
 
-## <a id="registermodel"></a> Registrera din modell
+## <a id="registermodel"></a>Registrera din modell
 
-En logisk behållare registrerade modellen för en eller flera filer som utgör din modell. Om du har en modell som lagras i flera filer, kan du exempelvis registrera dem som en enda modell på arbetsytan. Efter registreringen, kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som registrerades.
+En logisk behållare för en registrerad modell för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
 
-Machine learning-modeller är registrerade i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från en annan plats. Följande exempel visar hur du registrerar en modell från filen:
+Machine Learning-modeller registreras i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från någon annan stans. Följande exempel visar hur du registrerar en modell från en fil:
 
-### <a name="register-a-model-from-an-experiment-run"></a>Registrera en modell från ett Experiment som kör
+### <a name="register-a-model-from-an-experiment-run"></a>Registrera en modell från en experiment körning
 
-+ **Scikit-Läs exempel med hjälp av SDK**
++ **Scikit – lär dig hur du använder SDK: n**
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
 
   > [!TIP]
-  > Om du vill ta med flera filer i modellen registreringen, ange `model_path` till den katalog som innehåller filerna.
+  > Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
 
-+ **Med hjälp av CLI**
++ **Använda CLI**
 
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
   > [!TIP]
-  > Om du vill ta med flera filer i modellen registreringen, ange `--asset-path` till den katalog som innehåller filerna.
+  > Om du vill inkludera flera filer i modell registreringen anger `--asset-path` du den katalog som innehåller filerna.
 
-+ **Använder VS Code**
++ **Använda VS Code**
 
-  Registrera modeller med modellfiler eller mappar med den [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) tillägget.
+  Registrera modeller med hjälp av modell filer eller mappar med [vs Code](how-to-vscode-tools.md#deploy-and-manage-models) -tillägget.
 
-### <a name="register-an-externally-created-model"></a>Registrera ett externt skapade modellen
+### <a name="register-an-externally-created-model"></a>Registrera en externt skapad modell
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-Du kan registrera ett externt skapade modellen genom att tillhandahålla en **lokal sökväg** i modellen. Du kan ange en mapp eller en enskild fil.
+Du kan registrera en externt skapad modell genom att ange en **lokal sökväg** till modellen. Du kan antingen ange en mapp eller en enskild fil.
 
-+ **Exempel på ONNX med Python-SDK:**
++ **ONNX-exempel med python SDK:**
   ```python
   onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
   urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
@@ -87,72 +87,72 @@ Du kan registrera ett externt skapade modellen genom att tillhandahålla en **lo
   ```
 
   > [!TIP]
-  > Om du vill ta med flera filer i modellen registreringen, ange `model_path` till den katalog som innehåller filerna.
+  > Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
 
-+ **Med hjälp av CLI**
++ **Använda CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
   > [!TIP]
-  > Om du vill ta med flera filer i modellen registreringen, ange `-p` till den katalog som innehåller filerna.
+  > Om du vill inkludera flera filer i modell registreringen anger `-p` du den katalog som innehåller filerna.
 
-**Uppskattad tidsåtgång**: Cirka 10 sekunder.
+**Tids uppskattning**: Cirka 10 sekunder.
 
 Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-Mer information om hur du arbetar med modeller tränas utanför Azure Machine Learning-tjänsten, finns i [så här distribuerar du en befintlig modell](how-to-deploy-existing-model.md).
+Mer information om hur du arbetar med modeller som har tränats utanför Azure Machine Learning-tjänsten finns i [distribuera en befintlig modell](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Välj ett beräkningsmål
+## <a name="choose-a-compute-target"></a>Välj ett beräknings mål
 
-Följande beräkningsmål, eller beräkna resurser, kan användas som värd för din distribution av webbtjänster. 
+Följande beräknings mål, eller beräknings resurser, kan användas som värd för din webb tjänst distribution. 
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Förbered distributionen
 
-Om du vill distribuera som en webbtjänst, måste du skapa en konfiguration för inferens (`InferenceConfig`) och en distributionskonfiguration. Inferens eller modell bedömning är fasen där distribuerade modellen används för förutsägelse oftast på produktionsdata. I inferens-config anger du de skript och beroenden som behövs för att hantera din modell. I distributionskonfiguration anger du information om hur du hantera modellen på beräkningsmål.
+Om du vill distribuera som en webb tjänst måste du skapa en konfiguration för`InferenceConfig`konfigurations härledning () och distribution. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data. I konfigurations filen för konfigurations filen anger du de skript och beroenden som behövs för att hantera din modell. I distributions konfigurationen anger du information om hur du hanterar modellen på beräknings målet.
 
 
-### <a id="script"></a> 1. Definiera din post skript och beroenden
+### <a id="script"></a> 1. Definiera ditt Entry-skript & beroenden
 
-Posten skriptet tar emot data som skickas till en distribuerad webbtjänst och skickar dem till modellen. Sedan tar svaret som returnerades av modellen och returnerar som till klienten. **Skriptet är specifik för din modell**; den måste förstå de data som modellen förväntas och returnerar.
+Inmatnings skriptet tar emot data som skickats till en distribuerad webb tjänst och skickar dem till modellen. Det tar sedan svaret som returneras av modellen och returnerar klienten. **Skriptet är bara för din modell**. den måste förstå de data som modellen förväntar sig och returnerar.
 
-Skriptet innehåller två funktioner som att läsa in och kör modellen:
+Skriptet innehåller två funktioner som läser in och kör modellen:
 
-* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs en gång när Docker-behållare för webbtjänsten har startats.
+* `init()`: Den här funktionen laddar normalt modellen till ett globalt objekt. Den här funktionen körs bara en gång när Docker-behållaren för webb tjänsten startas.
 
-* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten.
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata till körningen använder vanligt vis JSON för serialisering och avserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du återgår till-klienten.
 
 #### <a name="what-is-getmodelpath"></a>Vad är get_model_path?
 
-När du registrerar en modell kan ange du ett modellnamn som används för att hantera modellen i registret. Du använder det här namnet med den [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) att hämta sökvägen till filen modellen på det lokala filsystemet. Den här API returnerar sökvägen till den katalog som innehåller de filerna om du registrerar en mapp eller en uppsättning filer.
+När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du kan använda det här namnet med [modellen. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen (erna) i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
 
-När du registrerar en modell kan ge du den ett namn som motsvarar där modellen är placerad, antingen lokalt eller under distributionen av tjänster.
+När du registrerar en modell ger du den ett namn som motsvarar var modellen placeras, antingen lokalt eller under tjänst distributionen.
 
-I exemplet nedan returnerar en sökväg till en enskild fil kallad `sklearn_mnist_model.pkl` (som har registrerats med namnet `sklearn_mnist`):
+I exemplet nedan returneras en sökväg till en enskild fil som heter `sklearn_mnist_model.pkl` (som har registrerats med namnet `sklearn_mnist`):
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>(Valfritt) Automatisk generering av Swagger-schemat
+#### <a name="optional-automatic-swagger-schema-generation"></a>Valfritt Automatisk generering av Swagger-schema
 
-För att automatiskt genererar ett schema för webbtjänsten, anger ett exempel på indata och utdata i konstruktorn för en definierad typ.-objekt, typ och exempel för att automatiskt skapa schemat. Azure Machine Learning-tjänsten skapar sedan en [OpenAPI](https://swagger.io/docs/specification/about/) -specifikationen (Swagger) för webbtjänsten under distributionen.
+För att automatiskt generera ett schema för webb tjänsten, ange ett exempel på indata och/eller utdata i konstruktorn för en av de definierade typ objekten och typen och exemplet används för att automatiskt skapa schemat. Azure Machine Learning-tjänsten skapar sedan en [openapi](https://swagger.io/docs/specification/about/) -specifikation (Swagger) för webb tjänsten under distributionen.
 
 Följande typer stöds för närvarande:
 
 * `pandas`
 * `numpy`
 * `pyspark`
-* standard Python-objekt
+* standard python-objekt
 
-Om du vill använda scheman innehåller den `inference-schema` paketet i filen conda-miljö. I följande exempel används `[numpy-support]` eftersom posten skriptet använder en numpy parametertyp: 
+Om du vill använda schema generering inkluderar `inference-schema` du paketet i din Conda-miljö fil. Följande exempel används `[numpy-support]` eftersom Entry-skriptet använder en numpy-parameter typ: 
 
-#### <a name="example-dependencies-file"></a>Exempelfil för beroenden
-Följande YAML är ett exempel på en fil med Conda-beroenden för inferens.
+#### <a name="example-dependencies-file"></a>Exempel beroende fil
+Följande YAML är ett exempel på en fil för Conda-beroenden.
 
 ```YAML
 name: project_environment
@@ -164,16 +164,16 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Om du vill använda automatiska schemat generering, post skriptet **måste** importera den `inference-schema` paket. 
+Om du vill använda automatisk schema generering **måste** ditt Entry-skript importera `inference-schema` paketen. 
 
-Definiera indata och utdataformat exemplet i den `input_sample` och `output_sample` variabler, som representerar format för begäran och svar för webbtjänsten. Använd de här exemplen i indata och utdata funktionen dekoratörer på den `run()` funktion. Scikit-Läs exemplet nedan används scheman.
+Definiera exempel formaten indata och utdata i `input_sample` variablerna och `output_sample` som representerar formatet för begäran och svar för webb tjänsten. Använd de här exemplen i funktionen indata och utdata dekoratörer `run()` i funktionen. I scikit – läras exemplet nedan används schema generering.
 
 > [!TIP]
-> När du distribuerar tjänsten kan använda den `swagger_uri` egenskap för att hämta JSON-dokument schématu.
+> När du har distribuerat tjänsten använder `swagger_uri` du egenskapen för att hämta schema-JSON-dokumentet.
 
-#### <a name="example-entry-script"></a>Exempel på post-skript
+#### <a name="example-entry-script"></a>Exempel på post skript
 
-I följande exempel visar hur du godkänner och returnerar JSON-data:
+Följande exempel visar hur du accepterar och returnerar JSON-data:
 
 ```python
 #example: scikit-learn and Swagger
@@ -209,9 +209,9 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exempelskript med ordlistan indata (stöd för förbrukning från Power BI)
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exempel skript med indatamängds ineffekt (support förbrukning från Power BI)
 
-Följande exempel visar hur du definierar indata som < nyckel: värde > ordlista, med hjälp av dataramar. Den här metoden stöds för användning av den distribuerade webbtjänsten från Power BI ([Läs mer om hur du förbrukar webbtjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+Följande exempel visar hur du definierar indata som < nyckel: värde > ord lista med Dataframe. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -251,17 +251,17 @@ def run(data):
         error = str(e)
         return error
 ```
-Fler exempelskript finns i följande exempel:
+Fler exempel skript finns i följande exempel:
 
-* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
-* Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Bedömning mot binära data: [Hur du använder en webbtjänst](how-to-consume-web-service.md)
+* Pytorch[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
+* TensorFlow[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* Keras[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* ONNX[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
+* Poäng mot binära data: [Använda en webb tjänst](how-to-consume-web-service.md)
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definiera din InferenceConfig
 
-Konfigurationen av inferens beskriver hur du konfigurerar modellen för att göra förutsägelser. I följande exempel visar hur du skapar en inferens konfiguration. Den här konfigurationen anger körningen, post-skript och (valfritt) filen conda-miljö:
+Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Följande exempel visar hur du skapar en konfigurations konfiguration. Den här konfigurationen anger körnings miljön, start skriptet och (valfritt) Conda-miljöfilen:
 
 ```python
 inference_config = InferenceConfig(runtime= "python",
@@ -269,13 +269,13 @@ inference_config = InferenceConfig(runtime= "python",
                                    conda_file="env/myenv.yml")
 ```
 
-Mer information finns i den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klassen referens.
+Mer information finns i klass referens för [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
 
-Information om hur du använder en anpassad Docker-avbildning med inferens konfiguration finns i [hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md).
+Information om hur du använder en anpassad Docker-avbildning med konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
 ### <a name="cli-example-of-inferenceconfig"></a>CLI-exempel på InferenceConfig
 
-Följande JSON-dokumentet är en exempelkonfiguration inferens för användning med de machine learning CLI:
+Följande JSON-dokument är ett exempel på en konfiguration som kan användas med Machine Learning CLI:
 
 ```JSON
 {
@@ -288,19 +288,19 @@ Följande JSON-dokumentet är en exempelkonfiguration inferens för användning 
 
 Följande entiteter är giltiga i den här filen:
 
-* __entryScript__: Sökväg till en lokal fil som innehåller koden för att köra för avbildningen.
-* __Runtime__: Vilka runtime för avbildningen. Aktuella körningar som stöds är spark-py och ”python”.
-* __condaFile__ (valfritt): Sökväg till en lokal fil som innehåller en definition av conda miljö som ska användas för bilden.
-* __extraDockerFileSteps__ (valfritt): Sökväg till en lokal fil som innehåller ytterligare Docker-åtgärder för att köra när du konfigurerar avbildningen.
+* __entryScript__: Sökväg till lokal fil som innehåller koden som ska köras för avbildningen.
+* __körning__: Vilken körnings miljö som ska användas för avbildningen. Aktuella körningar som stöds är "Spark-py" och "python".
+* __condaFile__ (valfritt): Sökväg till en lokal fil som innehåller en Conda-miljö definition som ska användas för avbildningen.
+* __extraDockerFileSteps__ (valfritt): Sökväg till lokal fil som innehåller ytterligare Docker-steg att köra när avbildningen konfigureras.
 * __sourceDirectory__ (valfritt): Sökväg till mappar som innehåller alla filer för att skapa avbildningen.
-* __enableGpu__ (valfritt): Om du ska aktivera GPU eller inte har stöd i avbildningen. GPU-avbildningen måste användas på Microsoft Azure-tjänster som Azure Container Instances, beräkning av Azure Machine Learning, Azure virtuella datorer och Azure Kubernetes Service. Standardvärdet är FALSKT.
-* __baseImage__ (valfritt): En anpassad avbildning som ska användas som basavbildning. Om inga basavbildningen anges används basavbildningen baserat ut från de angivna runtime-parametern.
-* __baseImageRegistry__ (valfritt): Avbildningsregister som innehåller basavbildningen.
-* __cudaVersion__ (valfritt): Version av CUDA du installerar för avbildningar som måste GPU-stöd. GPU-avbildningen måste användas på Microsoft Azure-tjänster som Azure Container Instances, beräkning av Azure Machine Learning, Azure virtuella datorer och Azure Kubernetes Service. Versioner som stöds är 9.0, 9.1 och 10.0. Om ”enable_gpu” anges som standard ”9.1'.
+* __enableGpu__ (valfritt): Huruvida GPU-stöd ska aktive ras i avbildningen. GPU-avbildningen måste användas på Microsoft Azure tjänster som Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines och Azure Kubernetes-tjänsten. Standardvärdet är false.
+* __baseImage__ (valfritt): En anpassad bild som ska användas som bas avbildning. Om ingen bas avbildning anges används bas avbildningen baserat på den aktuella körnings parametern.
+* __baseImageRegistry__ (valfritt): Avbildnings register som innehåller bas avbildningen.
+* __cudaVersion__ (valfritt): Version av CUDA som ska installeras för avbildningar som behöver GPU-stöd. GPU-avbildningen måste användas på Microsoft Azure tjänster som Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines och Azure Kubernetes-tjänsten. Versioner som stöds är 9,0, 9,1 och 10,0. Om ' enable_gpu ' är inställt, är standardvärdet ' 9,1 '.
 
-Dessa entiteter mappar till parametrarna för den [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) klass.
+Dessa entiteter mappas till parametrarna för klassen [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
 
-Dig följande kommando visar hur du distribuerar en modell med hjälp av CLI:
+Thee följande kommando visar hur du distribuerar en modell med hjälp av CLI:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
@@ -308,41 +308,44 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 I det här exemplet innehåller konfigurationen följande objekt:
 
-* En katalog som innehåller resurser som behövs för att inferens
-* Att den här modellen kräver Python
-* Den [post skriptet](#script), som används för att hantera begäranden skickas till den distribuerade tjänsten
-* Conda-fil som beskriver Python-paket som behövs för att inferens
+* En katalog som innehåller till gångar som behövs för att kunna översättas
+* Den här modellen kräver python
+* [Entry-skriptet](#script), som används för att hantera webb förfrågningar som skickas till den distribuerade tjänsten
+* Den Conda-fil som beskriver de python-paket som behövs för att kunna utföra en härledning
 
-Information om hur du använder en anpassad Docker-avbildning med inferens konfiguration finns i [hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md).
+Information om hur du använder en anpassad Docker-avbildning med konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. Definiera din distributionskonfiguration
+### <a name="3-define-your-deployment-configuration"></a>3. Definiera distributions konfigurationen
 
-Innan du distribuerar, måste du definiera distributionskonfigurationen. Distributionskonfigurationen är specifik för beräkningsmål som är värd för webbtjänsten. När du distribuerar lokalt måste du ange den port där tjänsten tar emot förfrågningar.
+Innan du distribuerar måste du definiera distributions konfigurationen. Distributions konfigurationen är specifika för det beräknings mål som ska vara värd för webb tjänsten. När du distribuerar lokalt måste du till exempel ange den port där tjänsten accepterar begär Anden.
 
-Du kan även behöva skapa beräkningsresursen. Till exempel om du gör inte redan har ett Azure Kubernetes Service som är associerade med din arbetsyta.
+Du kan också behöva skapa beräknings resursen. Till exempel, om du inte redan har en Azure Kubernetes-tjänst som är kopplad till din arbets yta.
 
-I följande tabell innehåller ett exempel på hur du skapar en distributionskonfiguration för varje beräkningsmål:
+Följande tabell innehåller ett exempel på hur du skapar en distributions konfiguration för varje beräknings mål:
 
-| Beräkningsmål | Konfigurationsexempel för distribution |
+| Beräkningsmål | Exempel på distributions konfiguration |
 | ----- | ----- |
 | Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container-instans | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-I följande avsnitt visar hur du skapar distributionskonfigurationen och sedan använda den för att distribuera webbtjänsten.
+Följande avsnitt visar hur du skapar distributions konfigurationen och använder den för att distribuera webb tjänsten.
 
 ### <a name="optional-profile-your-model"></a>Valfritt: Profilera din modell
-Innan du distribuerar modellen som en tjänst, kan du profilera den för att fastställa optimal processor och minneskrav med SDK eller CLI.  Modeller profilering resultat genereras som en `Run` objekt. Fullständig information om [modellen profil-schemat finns i API-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-Läs mer på [hur du profilera din modell med hjälp av SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
+Innan du distribuerar din modell som en tjänst kan du profilera den för att fastställa optimala processor-och minnes krav med antingen SDK eller CLI.  Modell profilerings resultaten genereras som ett `Run` -objekt. Du hittar fullständig information om [modell profil schemat i API-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+
+Läs mer om [hur du profilerar din modell med SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-).
+
+Använd [AZ ml modell profil](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)för att profilera modellen med hjälp av cli.
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
-### <a id="local"></a> Lokal distribution
+### <a id="local"></a>Lokal distribution
 
-Om du vill distribuera lokalt, måste du ha **Docker installerat** på den lokala datorn.
+Om du vill distribuera lokalt måste du ha **Docker installerat** på den lokala datorn.
 
-+ **Med hjälp av SDK**
++ **Använda SDK: n**
 
   ```python
   deployment_config = LocalWebservice.deploy_configuration(port=8890)
@@ -351,22 +354,22 @@ Om du vill distribuera lokalt, måste du ha **Docker installerat** på den lokal
   print(service.state)
   ```
 
-+ **Med hjälp av CLI**
++ **Använda CLI**
 
-    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen:
+    Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `mymodel:1` med namnet och versionen för den registrerade modellen:
 
   ```azurecli-interactive
   az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+    Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
-    | JSON-entitet | Metodparameter | Beskrivning |
+    | JSON-entitet | Metod parameter | Beskrivning |
     | ----- | ----- | ----- |
-    | `computeType` | Ej tillämpligt | Beräkningsmålet. För lokal, värdet måste vara `local`. |
-    | `port` | `port` | Den lokala porten som du vill exponera tjänstens HTTP-slutpunkt. |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. För lokal måste värdet vara `local`. |
+    | `port` | `port` | Den lokala porten där tjänstens HTTP-slutpunkt ska exponeras. |
 
-    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+    Följande JSON är ett exempel på en distributions konfiguration för användning med CLI:
 
     ```json
     {
@@ -375,15 +378,15 @@ Om du vill distribuera lokalt, måste du ha **Docker installerat** på den lokal
     }
     ```
 
-### <a id="aci"></a> Azure Container Instances (DEVTEST)
+### <a id="aci"></a>Azure Container Instances (DEVTEST)
 
 Använd Azure Container Instances för att distribuera dina modeller som en webbtjänst om en eller flera av följande villkor är uppfyllt:
 - Du behöver att snabbt distribuera och verifiera din modell.
 - Du testar en modell som är under utveckling. 
 
-Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillgänglighet för Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artikeln.
+Information om kvot-och regions tillgänglighet för ACI finns i avsnittet [kvoter och region tillgänglighet för Azure Container instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artikel.
 
-+ **Med hjälp av SDK**
++ **Använda SDK: n**
 
   ```python
   deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
@@ -392,32 +395,32 @@ Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillg
   print(service.state)
   ```
 
-+ **Med hjälp av CLI**
++ **Använda CLI**
 
-    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen. Ersätt `myservice` med namnet att ge den här tjänsten:
+    Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `mymodel:1` med namnet och versionen för den registrerade modellen. Ersätt `myservice` med namnet för att ge den här tjänsten:
 
     ```azurecli-interactive
     az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
     ```
 
-    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+    Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
-    | JSON-entitet | Metodparameter | Beskrivning |
+    | JSON-entitet | Metod parameter | Beskrivning |
     | ----- | ----- | ----- |
-    | `computeType` | Ej tillämpligt | Beräkningsmålet. Värdet måste vara för ACI, `ACI`. |
-    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurationselement för CPU och minne som allokerats för behållaren. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | Antal processorkärnor att allokera för den här webbtjänsten. Som standard, `0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) att allokera för den här webbtjänsten. Standard `0.5` |
-    | `location` | `location` | Azure-regionen att distribuera den här webbtjänsten till. Om inget anges arbetsytan plats kommer att användas. Mer information om tillgängliga regioner hittar du här: [ACI-regioner](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-    | `authEnabled` | `auth_enabled` | Om eller inte att aktivera autentisering för den här webbtjänsten. Standardvärdet är FALSKT |
-    | `sslEnabled` | `ssl_enabled` | Om eller inte att aktivera SSL för den här webbtjänsten. Standardvärdet är FALSKT. |
-    | `appInsightsEnabled` | `enable_app_insights` | Om eller inte att aktivera AppInsights för den här webbtjänsten. Standardvärdet är FALSKT |
-    | `sslCertificate` | `ssl_cert_pem_file` | Certifikatfilen behövs om SSL är aktiverat |
-    | `sslKey` | `ssl_key_pem_file` | Nyckelfilen behövs om SSL är aktiverat |
-    | `cname` | `ssl_cname` | Cname för om SSL är aktiverat |
-    | `dnsNameLabel` | `dns_name_label` | Dns-Namnetiketten för bedömnings-slutpunkten. Om inte anges kommer att genereras ett unikt dns-Namnetiketten för bedömnings-slutpunkten. |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. För ACI måste värdet vara `ACI`. |
+    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurations element för processor och minne som allokerats för behållaren. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar`0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |
+    | `location` | `location` | Azure-regionen som den här webservicen ska distribueras till. Om den inte anges kommer arbets ytans plats användas. Du hittar mer information om tillgängliga regioner här: [ACI regioner](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Huruvida autentisering ska aktive ras för den här webbtjänsten. Standardvärdet är false |
+    | `sslEnabled` | `ssl_enabled` | Huruvida SSL ska aktive ras för den här webbtjänsten. Standardvärdet är false. |
+    | `appInsightsEnabled` | `enable_app_insights` | Huruvida AppInsights ska aktive ras för den här webbtjänsten. Standardvärdet är false |
+    | `sslCertificate` | `ssl_cert_pem_file` | Certifikat filen som behövs om SSL är aktiverat |
+    | `sslKey` | `ssl_key_pem_file` | Nyckel filen som behövs om SSL är aktiverat |
+    | `cname` | `ssl_cname` | CNAME för om SSL är aktiverat |
+    | `dnsNameLabel` | `dns_name_label` | DNS-namnets etikett för bedömnings slut punkten. Om du inte anger en unik DNS-benämning kommer att genereras för bedömnings slut punkten. |
 
-    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+    Följande JSON är ett exempel på en distributions konfiguration för användning med CLI:
 
     ```json
     {
@@ -433,21 +436,21 @@ Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillg
     }
     ```
 
-+ **Använder VS Code**
++ **Använda VS Code**
 
-  Att [distribuera dina modeller med VS Code](how-to-vscode-tools.md#deploy-and-manage-models) du behöver inte skapa en ACI-behållare för att testa i förväg, eftersom ACI behållare skapas i farten.
+  Om du vill [Distribuera modeller med vs Code](how-to-vscode-tools.md#deploy-and-manage-models) behöver du inte skapa en ACI-behållare för att testa i förväg, eftersom ACI-behållare skapas i farten.
 
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
-### <a id="aks"></a>Azure Kubernetes Service (DEVTEST och produktion)
+### <a id="aks"></a>Azure Kubernetes service (DEVTEST & produktion)
 
 Du kan använda ett befintligt AKS-kluster eller skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
 <a id="deploy-aks"></a>
 
-Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om du inte har skapat eller kopplat ett AKS-kluster, följer du processen att <a href="#create-attach-aks">skapar ett nytt kluster i AKS</a>.
+Om du redan har ett AKS-kluster anslutet kan du distribuera det till det. Om du inte har skapat eller kopplat ett AKS-kluster följer du processen för att <a href="#create-attach-aks">skapa ett nytt AKS-kluster</a>.
 
-+ **Med hjälp av SDK**
++ **Använda SDK: n**
 
   ```python
   aks_target = AksCompute(ws,"myaks")
@@ -461,49 +464,49 @@ Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om
   print(service.get_logs())
   ```
 
-+ **Med hjälp av CLI**
++ **Använda CLI**
 
-    Om du vill distribuera med hjälp av CLI, använder du följande kommando. Ersätt `myaks` med namnet på AKS beräkningsmålet. Ersätt `mymodel:1` med namnet och versionen på den registrerade modellen. Ersätt `myservice` med namnet att ge den här tjänsten:
+    Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `myaks` med namnet på AKS Compute Target. Ersätt `mymodel:1` med namnet och versionen för den registrerade modellen. Ersätt `myservice` med namnet för att ge den här tjänsten:
 
   ```azurecli-interactive
   az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    Posterna i den `deploymentconfig.json` dokumentöversikten till parametrarna för [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrar för metoden:
+    Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
-    | JSON-entitet | Metodparameter | Beskrivning |
+    | JSON-entitet | Metod parameter | Beskrivning |
     | ----- | ----- | ----- |
-    | `computeType` | Ej tillämpligt | Beräkningsmålet. Värdet måste vara för AKS, `aks`. |
-    | `autoScaler` | Ej tillämpligt | Innehåller konfigurationselement för autoskalning. Se tabellen autoskalningen. |
-    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om du ska aktiveras eller inte automatisk skalning för webbtjänsten. Om `numReplicas`  =  `0`, `True`, annars `False`. |
-    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antalet behållare ska användas när automatisk skalning den här webbtjänsten. Som standard, `1`. |
-    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antalet behållare ska användas när automatisk skalning den här webbtjänsten. Som standard, `10`. |
-    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta autoskalningen försöker skala den här webbtjänsten. Som standard, `1`. |
-    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Den målanvändning (i procent av 100) som autoskalningen ska försöka att underhålla för den här webbtjänsten. Som standard, `70`. |
-    | `dataCollection` | Ej tillämpligt | Innehåller konfigurationselement för insamling av data. |
-    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Om du ska aktiveras eller inte insamling av modelldata för webbtjänsten. Som standard, `False`. |
-    | `authEnabled` | `auth_enabled` | Om eller inte vill aktivera autentisering för webbtjänsten. Som standard, `True`. |
-    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurationselement för CPU och minne som allokerats för behållaren. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | Antal processorkärnor att allokera för den här webbtjänsten. Som standard, `0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) att allokera för den här webbtjänsten. Standard `0.5` |
-    | `appInsightsEnabled` | `enable_app_insights` | Om du ska aktiveras eller inte Application Insights-loggning för webbtjänsten. Som standard, `False`. |
-    | `scoringTimeoutMs` | `scoring_timeout_ms` | En tidsgräns för att upprätthålla för bedömning anrop till webbtjänsten. Som standard, `60000`. |
-    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Högsta antal samtidiga begäranden per nod för den här webbtjänsten. Som standard, `1`. |
-    | `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran att stanna kvar i dig kön (i millisekunder) innan en 503 fel returneras. Som standard, `500`. |
-    | `numReplicas` | `num_replicas` | Antal behållare för att allokera för den här webbtjänsten. Inget standardvärde. Om den här parametern inte har angetts är autoskalningen aktiverad som standard. |
-    | `keys` | Ej tillämpligt | Innehåller konfigurationselement för nycklar. |
-    | &emsp;&emsp;`primaryKey` | `primary_key` | En primär auth-nyckel som ska användas för den här webbtjänsten |
-    | &emsp;&emsp;`secondaryKey` | `secondary_key` | En sekundär auth-nyckel som ska användas för den här webbtjänsten |
-    | `gpuCores` | `gpu_cores` | Antal GPU-kärnor för att allokera för den här webbtjänsten. Standardvärdet är 1. |
-    | `livenessProbeRequirements` | Ej tillämpligt | Innehåller konfigurationselement för liveness avsökningen krav. |
-    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Hur ofta (i sekunder) att utföra hälsoavsökningen. Som standard 10 sekunder. Lägsta värdet är 1. |
-    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Antal sekunder efter att behållaren har startat innan liveness avsökningar initieras. Standardvärdet är 310 |
-    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Antal sekunder efter hälsoavsökningen når sin tidsgräns. Standardvärdet är 2 sekunder. Lägsta värde är 1 |
-    | &emsp;&emsp;`successThreshold` | `success_threshold` | Minsta på varandra följande lyckade för hälsoavsökningen ska anses lyckat efter att ha misslyckades. Standardvärdet är 1. Lägsta värdet är 1. |
-    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | När en Pod startas och hälsoavsökningen misslyckas, försöker failureThreshold gånger innan den ger upp med Kubernetes. Standardvärdet är 3. Lägsta värdet är 1. |
-    | `namespace` | `namespace` | Kubernetes-namnområde som webbtjänsten distribueras till. Upp till 63 gemena alfanumeriska (”a”-”z”, ”0”-”9”) och bindestreck (”-”) tecken. De första och sista tecknet får inte vara bindestreck. |
+    | `computeType` | Ej tillämpligt | Beräkningsmålet. För AKS måste värdet vara `aks`. |
+    | `autoScaler` | Ej tillämpligt | Innehåller konfigurations element för autoskalning. Se tabellen för autoskalning. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Huruvida autoskalning ska aktive ras för webb tjänsten. Om `numReplicas` , = i annat fall`False`. `0` `True` |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antal behållare som ska användas när den här webb tjänsten autoskalas. Standard, `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antal behållare som ska användas när den här webb tjänsten autoskalas. Standard, `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta den automatiska skalnings tjänsten försöker skala den här webb tjänsten. Standard, `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Mål användningen (i procent av 100) som autoskalning ska försöka underhålla för den här webb tjänsten. Standard, `70`. |
+    | `dataCollection` | Ej tillämpligt | Innehåller konfigurations element för data insamling. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Huruvida modell data insamling ska aktive ras för webb tjänsten. Standard, `False`. |
+    | `authEnabled` | `auth_enabled` | Huruvida autentisering ska aktive ras för webb tjänsten. Standard, `True`. |
+    | `containerResourceRequirements` | Ej tillämpligt | Innehåller konfigurations element för processor och minne som allokerats för behållaren. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar`0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Huruvida Application Insights loggning ska aktive ras för webb tjänsten. Standard, `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | En tids gräns för att genomdriva för Poäng anrop till webb tjänsten. Standard, `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maximalt antal samtidiga förfrågningar per nod för den här webb tjänsten. Standard, `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran kommer att finnas kvar i Thee-kön (i millisekunder) innan ett 503-fel returneras. Standard, `500`. |
+    | `numReplicas` | `num_replicas` | Antalet behållare som ska allokeras för den här webb tjänsten. Inget standardvärde. Om den här parametern inte anges är autoskalning aktive rad som standard. |
+    | `keys` | Ej tillämpligt | Innehåller konfigurations element för nycklar. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | En primär autentiserings nyckel som ska användas för den här webbtjänsten |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | En sekundär autentiserings nyckel som ska användas för den här webbtjänsten |
+    | `gpuCores` | `gpu_cores` | Antalet GPU-kärnor som ska allokeras för den här webbtjänsten. Standardvärdet är 1. |
+    | `livenessProbeRequirements` | Ej tillämpligt | Innehåller konfigurations element för Live-avsöknings krav. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Hur ofta (i sekunder) som utsökningen av Direktmigrering ska utföras. Standardvärdet är 10 sekunder. Minimalt värde är 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Antal sekunder efter att containern har startats innan direktmigreringen avsökningar initieras. Standardvärdet är 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Antal sekunder efter vilket tids gränsen för direktmigreringen avsökningen uppnåddes. Standardvärdet är 2 sekunder. Minimalt värde är 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Minimi kraven på efterföljande lyckade försök för att avsökningen av Direktmigrering ska anses vara lyckad efter att ha misslyckats. Standardvärdet är 1. Minimalt värde är 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | När en POD startar och Live-avsökningen Miss lyckas, kommer Kubernetes att försöka failureThreshold gånger innan den ger upp. Standardvärdet är 3. Minimalt värde är 1. |
+    | `namespace` | `namespace` | Kubernetes-namnområdet som webservicen distribueras till. Upp till 63 gemena alfanumeriska tecken ("a-z", "0"-' 9 ') och bindestreck (-). Det första och sista tecknet får inte vara bindestreck. |
 
-    Följande JSON är en exempelkonfiguration distribution för användning med CLI:
+    Följande JSON är ett exempel på en distributions konfiguration för användning med CLI:
 
     ```json
     {
@@ -529,25 +532,25 @@ Om du redan har ett AKS-kluster som är ansluten kan du distribuera till den. Om
     }
     ```
 
-+ **Använder VS Code**
++ **Använda VS Code**
 
-  Du kan också [distribuera till AKS via VS Code-tillägg](how-to-vscode-tools.md#deploy-and-manage-models), men du måste konfigurera AKS-kluster i förväg.
+  Du kan också [distribuera till AKS via vs Code-tillägget](how-to-vscode-tools.md#deploy-and-manage-models), men du måste konfigurera AKS-kluster i förväg.
 
-Läs mer om AKS-distributionen och skala automatiskt i den [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) referens.
+Läs mer om AKS-distribution och autoskalning i referensen [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) .
 
 #### Skapa ett nytt AKS-kluster<a id="create-attach-aks"></a>
-**Uppskattad tidsåtgång**: Ungefär 20 minuter.
+**Tids uppskattning**: Ungefär 20 minuter.
 
-Skapa eller koppla ett AKS-kluster är en gång bearbetar för din arbetsyta. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera. Du kan ha flera AKS-kluster som är kopplat till din arbetsyta.
+Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
 
-Om du vill skapa ett AKS-kluster för utveckling, verifieringen och testningen kan du ställa in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` när du använder [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Ett kluster som skapats med den här inställningen har endast en nod.
+Om du vill skapa ett AKS-kluster för utveckling, verifiering och testning ställer du in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` när du använder. [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py) Ett kluster som skapas med den här inställningen kommer bara att ha en nod.
 
 > [!IMPORTANT]
-> Ange `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` skapar ett AKS-kluster som inte passar för hantering av produktionstrafik. Inferens tider kan vara längre än i ett kluster som skapats för produktion. Feltolerans garanteras inte också för utveckling/testning-kluster.
+> Inställningen `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` skapar ett AKS-kluster som inte är lämpligt för hantering av produktions trafik. En härlednings tid kan vara längre än på ett kluster som skapats för produktion. Fel tolerans garanterar inte heller för utvecklings-och test kluster.
 >
-> Vi rekommenderar att kluster som skapas för utveckling och testning använder minst två virtuella processorer.
+> Vi rekommenderar att kluster som skapats för utveckling/testning använder minst två virtuella processorer.
 
-I följande exempel visar hur du skapar ett nytt Azure Kubernetes Service-kluster:
+Följande exempel visar hur du skapar ett nytt Azure Kubernetes service-kluster:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -571,26 +574,26 @@ Mer information om hur du skapar ett AKS-kluster utanför Azure Machine Learning
 * [Skapa ett AKS-kluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Skapa ett AKS-kluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-Mer information om den `cluster_purpose` parameter, finns i den [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) referens.
+Mer information om `cluster_purpose` parametern finns i referensen [AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) .
 
 > [!IMPORTANT]
-> För [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer Anpassad värden för agent_count och vm_size, måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Till exempel om du använder en vm_size av ”Standard_D3_v2” som har 4 virtuella processorer, bör sedan du välja en agent_count 3 eller högre.
+> [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)Om du väljer anpassade värden för agent_count och vm_size måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Om du till exempel använder en vm_size av "Standard_D3_v2", som har 4 virtuella processorer, bör du välja en agent_count på 3 eller senare.
 >
-> SDK: N för Azure Machine Learning ger inte stöd för skalning ett AKS-kluster. Om du vill skala noderna i klustret, använder du Användargränssnittet för AKS-kluster i Azure-portalen. Du kan bara ändra antalet noder, inte VM-storleken för klustret.
+> Azure Machine Learning SDK ger inte stöd för skalning av ett AKS-kluster. Om du vill skala noderna i klustret använder du användar gränssnittet för ditt AKS-kluster i Azure Portal. Du kan bara ändra antalet noder, inte klustrets virtuella dator storlek.
 
 #### <a name="attach-an-existing-aks-cluster"></a>Koppla ett befintligt AKS-kluster
-**Uppskattad tidsåtgång:** Cirka 5 minuter.
+**Tids uppskattning:** Cirka 5 minuter.
 
-Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.12. ##, du kan använda den för att distribuera din avbildning.
+Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1.12. # # kan du använda det för att distribuera avbildningen.
 
 > [!WARNING]
-> När du ansluter ett AKS-kluster till en arbetsyta, kan du definiera hur du använder klustret genom att ange den `cluster_purpose` parametern.
+> När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange `cluster_purpose` parametern.
 >
-> Om du inte anger den `cluster_purpose` parametern eller ange `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, klustret måste ha minst 12 virtuella processorer som är tillgängliga.
+> Om du inte anger `cluster_purpose` parametern eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`så måste klustret ha minst 12 virtuella processorer tillgängliga.
 >
-> Om du ställer in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, och sedan klustret inte behöver ha 12 virtuella processorer. Men ett kluster som har konfigurerats för utveckling och testning kan inte lämplig för trafiken på nätverksnivå för produktion och kan öka inferens gånger.
+> Om du ställer `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`in behöver klustret inte ha 12 virtuella processorer. Ett kluster som har kon figurer ATS för utveckling/testning är dock inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider.
 
-Följande kod visar hur du ansluter en befintlig AKS 1.12. ## klustret till din arbetsyta:
+Följande kod visar hur du kopplar en befintlig AKS-1.12. # #-kluster till din arbets yta:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -607,17 +610,17 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
-Mer information om `attack_configuration()`, finns i den [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) referens.
+Mer information `attack_configuration()`finns i referensen [AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) .
 
-Mer information om den `cluster_purpose` parameter, finns i den [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) referens.
+Mer information om `cluster_purpose` parametern finns i referensen [AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) .
 
 ## <a name="consume-web-services"></a>Konsumera webbtjänster
 
-Varje distribuerad webbtjänst har en REST-API så du kan skapa klientprogram på flera olika programmeringsspråk. Om du har aktiverat autentisering för din tjänst, måste du ange en nyckel som en token i förfrågans sidhuvud.
+Varje distribuerad webb tjänst tillhandahåller en REST API, så att du kan skapa klient program på flera olika programmeringsspråk. Om du har aktiverat autentisering för tjänsten måste du ange en tjänst nyckel som en token i ditt begär ande huvud.
 
-### <a name="request-response-consumption"></a>Begäran / svar-förbrukning
+### <a name="request-response-consumption"></a>Användning av begäran-svar
 
-Här är ett exempel på hur du anropar din tjänst i Python:
+Här är ett exempel på hur du anropar din tjänst i python:
 ```python
 import requests
 import json
@@ -640,21 +643,21 @@ print(response.elapsed)
 print(response.json())
 ```
 
-Mer information finns i [skapa klient program kan använda webservices](how-to-consume-web-service.md).
+Mer information finns i [skapa klient program för att använda](how-to-consume-web-service.md)WebServices.
 
 
-### <a id="azuremlcompute"></a> Batch inferens
-Azure Machine Learning Compute mål skapas och hanteras av Azure Machine Learning-tjänsten. De kan användas för batch-förutsägelse från Azure Machine Learning Pipelines.
+### <a id="azuremlcompute"></a>Batch-härledning
+Azure Machine Learning beräknings mål skapas och hanteras av Azure Machine Learnings tjänsten. De kan användas för batch förutsägelse från Azure Machine Learning pipeliner.
 
-En genomgång av batch inferens med beräkning av Azure Machine Learning finns det [hur du kör Batch-förutsägelser](how-to-run-batch-predictions.md) artikeln.
+En genom gång av batch-härledning med Azure Machine Learning Compute finns i artikeln [köra batch](how-to-run-batch-predictions.md) -förutsägelser.
 
-### <a id="iotedge"></a> IoT Edge inferens
-Stöd för att distribuera till edge genomgår förhandsgranskning. Mer information finns i den [distribuera Azure Machine Learning som en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) artikeln.
+### <a id="iotedge"></a>IoT Edge-härledning
+Stöd för att distribuera till Edge är i för hands version. Mer information finns i artikeln [distribuera Azure Machine Learning som en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) .
 
 
-## <a id="update"></a> Uppdatera webbtjänster
+## <a id="update"></a>Uppdatera webb tjänster
 
-När du skapar en ny modell, måste du manuellt uppdatera varje tjänst som du vill använda den nya modellen. Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webbtjänsten för att använda en ny modell:
+När du skapar en ny modell måste du manuellt uppdatera varje tjänst som du vill använda den nya modellen för. Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webb tjänsten för att använda en ny modell:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -677,45 +680,45 @@ print(service.state)
 print(service.get_logs())
 ```
 
-## <a name="continuous-model-deployment"></a>Kontinuerlig modelldistribution 
+## <a name="continuous-model-deployment"></a>Kontinuerlig modell distribution 
 
-Du kan distribuera modeller med Machine Learning-tillägget för kontinuerligt [Azure DevOps](https://azure.microsoft.com/services/devops/). Med Machine Learning-tillägget för Azure DevOps kan utlösa du en pipeline för distribution när en ny maskininlärningsmodell är registrerad i Azure Machine Learning-tjänstens arbetsyta. 
+Du kan distribuera modeller kontinuerligt med Machine Learning-tillägget för [Azure-DevOps](https://azure.microsoft.com/services/devops/). Genom att använda Machine Learning-tillägget för Azure-DevOps kan du utlösa en distributions pipeline när en ny maskin inlärnings modell registreras i Azure Machine Learning service Workspace. 
 
-1. Registrera dig för [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), vilket möjliggör kontinuerlig integrering och leverans av ditt program till valfri plattform och alla moln. Azure Pipelines [skiljer sig från ML pipelines](concept-ml-pipelines.md#compare). 
+1. Registrera dig för [Azure](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)-pipelines, som möjliggör kontinuerlig integrering och leverans av ditt program till alla plattformar/moln som är möjliga. Azure-pipeliner [skiljer sig från ml](concept-ml-pipelines.md#compare)-pipeliner. 
 
 1. [Skapa ett Azure DevOps-projekt.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
-1. Installera den [Machine Learning-tillägg för Azure-Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+1. Installera [Machine Learning-tillägget för Azure](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) -pipeliner 
 
-1. Använd __anslutningar__ att ställa in en service principal anslutning till din arbetsyta för Azure Machine Learning-tjänsten för att få åtkomst till alla artefakter. Gå till inställningar, klicka på Tjänstanslutningar och välj Azure Resource Manager.
+1. Använd __tjänst anslutningar__ för att konfigurera en tjänstens huvud namns anslutning till din Azure Machine Learning tjänst arbets yta för att få åtkomst till alla dina artefakter. Gå till projekt inställningar, klicka på tjänst anslutningar och välj Azure Resource Manager.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    ![Visa-tjänst-anslutning](media/how-to-deploy-and-where/view-service-connection.png) 
 
-1. Definiera AzureMLWorkspace som den __omfång nivå__ och Fyll i efterföljande parametrar.
+1. Definiera AzureMLWorkspace som omfångs __nivå__ och fyll i de efterföljande parametrarna.
 
     ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. För att kontinuerligt distribuera din modell för maskininlärning med hjälp av Azure-Pipelines, under pipelines Välj __viktig__. Lägg till en ny artefakt, Välj modell för AzureML-artefakt och tjänst-anslutningen som har skapats i det tidigare steget. Välj modell och version som ska utlösa en distribution. 
+1. För att kontinuerligt distribuera din Machine Learning-modell med Azure-pipelines väljer du __släpp__i pipelines. Lägg till en ny artefakt, Välj AzureML modell artefakt och den tjänst anslutning som skapades i föregående steg. Välj modell och version för att utlösa en distribution. 
 
     ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
 
-1. Aktivera utlösaren modellen på modell-artefakt. Genom att aktivera utlösaren och varje gång den angivna versionen (dvs.) den senaste versionen) för den modellen bara registrera dig på din arbetsyta, en Azure DevOps-releasepipeline utlöses. 
+1. Aktivera modell utlösaren i modell artefakten. Genom att aktivera utlösaren, varje gång den angivna versionen (dvs. den senaste versionen) av modellen registreras i din arbets yta, en Azure DevOps release-pipeline utlöses. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    ![Aktivera-modell-utlösare](media/how-to-deploy-and-where/set-modeltrigger.png)
 
--Exempelprojekt och exempel finns i [MLOps-databasen](https://github.com/Microsoft/MLOps)
+För exempel projekt och exempel kan du ta [en titt på MLOps](https://github.com/Microsoft/MLOps) -lagringsplatsen
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
 Ta bort registrerade modellen genom att använda `model.delete()`.
 
-Mer information finns i referensdokumentationen för [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), och [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+Mer information finns i referens dokumentationen för WebService [. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hur du distribuerar en modell med en anpassad dockeravbildning](how-to-deploy-custom-docker-image.md)
-* [Felsökning av distribution](how-to-troubleshoot-deployment.md)
+* [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
+* [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
-* [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
+* [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 

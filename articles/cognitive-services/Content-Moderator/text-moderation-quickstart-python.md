@@ -10,13 +10,15 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 01c153f2f8836b7d99de57af60b8623e54c6d6fe
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606996"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311928"
 ---
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i Python
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator SDK för Python. Du kommer lära dig att köra termbaserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material.
@@ -38,39 +40,34 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="import-modules"></a>Importera moduler
 
-Skapa ett nytt Python-skript som heter _ContentModeratorQS.py_ och lägg till följande kod för att importera de nödvändiga delarna av SDK.
+Skapa ett nytt Python-skript som heter _ContentModeratorQS.py_ och lägg till följande kod för att importera de nödvändiga delarna av SDK. Den kodformatering-modulen ingår för en enklare läsning av JSON-svar.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-Importera även funktionen kodformatering för att hantera det slutgiltiga resultatet.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## <a name="initialize-variables"></a>Initiera variabler
 
-Lägg sedan till variabler för din prenumerationsnyckel till Content Moderator och slutpunktens webbadress. Du måste ersätta `<your subscription key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `endpoint_url` för att använda den regionsidentifierare som motsvarar din prenumerationsnyckel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra).
+Lägg sedan till variabler för din prenumerationsnyckel till Content Moderator och slutpunktens webbadress. Du måste lägga till namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` i miljövariablerna och lägga till din prenumerations nyckel som värde. För URL: en för bas slut `CONTENT_MODERATOR_ENDPOINT` punkten lägger du till till miljövariablerna med din landsspecifika URL som värde, till `https://westus.api.cognitive.microsoft.com`exempel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra).
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+En sträng med flerradig text från en fil kommer att bli kontrollerad. Inkludera filen [content_moderator_text_moderation. txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) i den lokala rotmappen och Lägg till dess fil namn i dina variabler:
 
-För enkelhetens skull analyserar du text direkt från skriptet. Definiera en ny sträng med textinnehåll att ändra:
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## <a name="query-the-moderator-service"></a>Fråga Moderator-tjänsten
 
-Skapa instansen **ContentModeratorClient** med din prenumerationsnyckel och slutpunktens webbadress. Använd sedan dess medlemsinstans **TextModerationOperations** för att anropa API för moderering. Se referensdokumentationen **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** för mer information om hur du anropar den.
+Skapa instansen **ContentModeratorClient** med din prenumerationsnyckel och slutpunktens webbadress. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## <a name="print-the-response"></a>Skriva ut svaret
+Använd sedan klienten med dess medlems **TextModerationOperations** -instans för att anropa redigerings-API: t med funktionen `screen_text`. Se referensdokumentationen **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** för mer information om hur du anropar den.
 
-Kontrollera slutligen att anropet har slutförts och att en **Skärm**-instans returnerades. Skriv sedan ut data som returnerades till konsolen.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## <a name="check-the-printed-response"></a>Kontrol lera det utskrivna svaret
 
+Kör exemplet och bekräfta svaret. Den bör ha slutförts och returnerade en **skärm** instans. Ett lyckat resultat skrivs ut nedan:
 
 Exempeltexten som används i den här snabbstarten resulterar i följande utdata:
 

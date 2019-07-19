@@ -1,6 +1,6 @@
 ---
-title: Artikel om kända felsökning av vanliga problem/fel som är associerade med Azure Database Migration Service | Microsoft Docs
-description: Läs mer om hur du felsöker vanliga kända problem/fel som är associerade med Azure Database Migration Service.
+title: Artikel om kända fel sökning av vanliga problem/fel som är associerade med att använda Azure Database Migration Service | Microsoft Docs
+description: Läs om hur du felsöker vanliga kända problem/fel som är associerade med att använda Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -11,122 +11,122 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190946"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249983"
 ---
-# <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsöka vanliga Azure Database Migration Service problem och fel
+# <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsök vanliga Azure Database Migration Service problem och fel
 
-Den här artikeln beskriver några vanliga problem och fel som Azure Database Migration Service-användare kan stöta på. Artikeln innehåller även information om hur du löser dessa problem och fel.
+I den här artikeln beskrivs några vanliga problem och fel som Azure Database Migration Service användare kan komma över. Artikeln innehåller också information om hur du löser problemen och felen.
 
-## <a name="migration-activity-in-queued-state"></a>Migreringsaktivitet i kö
+## <a name="migration-activity-in-queued-state"></a>Migrering i kö-tillstånd
 
-När du skapar nya aktiviteter i ett projekt med Azure Database Migration Service förblir aktiviteter i en kö.
-
-| Orsak         | Lösning |
-| ------------- | ------------- |
-| Det här problemet inträffar när Azure Database Migration Service-instansen har nått maximal kapacitet för pågående aktiviteter som körs samtidigt. Alla nya aktiviteten placeras i kö tills kapaciteten blir tillgänglig. | Verifiera Data Migration Service som instansen har köra om aktiviteter i projekt. Du kan fortsätta att skapa nya aktiviteter som automatiskt läggs till i kön för körning. När någon av de befintliga körs aktiviteterna Slutför nästa köade aktivitet börjar köras och status ändras till körs automatiskt. Du behöver inte vidta några ytterligare åtgärder för att starta migreringen av köade aktiviteter.<br><br> |
-
-## <a name="max-number-of-databases-selected-for-migration"></a>Maximalt antal databaser som valts för migrering
-
-Följande fel inträffar när du skapar en aktivitet för en database migration-projekt för att flytta till Azure SQL Database eller en Azure SQL Database-hanterad instans:
-
-* **Fel**: Verifieringsfel för migreringsinställningar ”,” errorDetail ”:” mer än max antal ”4” objekt ”databaser” har valts för migrering ”.
+När du skapar nya aktiviteter i ett Azure Database Migration Service-projekt behålls aktiviteterna i ett köat tillstånd.
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet visas när du har valt fler än fyra databaser för en enda migreringsaktivitet. För närvarande är varje migreringsaktiviteten begränsad till fyra databaser. | Välj fyra eller färre databaser per migreringsaktivitet. Om du vill migrera fler än fyra databaser parallellt kan tillhandahålla en annan instans av Azure Database Migration Service. Varje prenumeration stöder för närvarande upp till två instanser av Azure Database Migration Service.<br><br> |
+| Det här problemet uppstår när Azure Database Migration Service-instansen har nått maximal kapacitet för pågående aktiviteter som körs samtidigt. Alla nya aktiviteter placeras i kö tills kapaciteten blir tillgänglig. | Verifiera att instansen för datamigrering har aktiviteter som körs mellan projekt. Du kan fortsätta att skapa nya aktiviteter som automatiskt läggs till i kön för körning. När någon av de pågående aktiviteterna är slutförd börjar nästa köade aktivitet att köras och statusen ändras till kör tillstånd automatiskt. Du behöver inte vidta några ytterligare åtgärder för att starta migreringen av köade aktiviteter.<br><br> |
 
-## <a name="errors-for-mysql-migration-to-azure-mysql-with-recovery-failures"></a>Fel för MySQL-migrering till Azure MySQL med Återställningsfel
+## <a name="max-number-of-databases-selected-for-migration"></a>Högsta antal databaser som valts för migrering
 
-När du migrerar från MySQL till Azure Database for MySQL med Azure Database Migration Service misslyckas migreringsaktiviteten med följande fel:
+Följande fel inträffar när du skapar en aktivitet för ett databas migreringsjobb för att flytta till Azure SQL Database eller en Azure SQL Database Hanterad instans:
 
-* **Fel**: Databasmigreringsfel - uppgiften ”TaskID' pausades på grund av [n] efterföljande Återställningsfel.
+* **Fel**: Verifierings fel för migreringsjobb "," errorDetail ":" fler än Max antal objekt i "databaser" har marker ATS för migrering. "
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet kan uppstå när du migrerar användaren saknar ReplicationAdmin-rollen och/eller behörighet av REPLIKERINGSKLIENT och REPLIKERINGSREPLIK SUPER (tidigare versioner än MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Kontrollera att den [krävs behörighet](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) användarens konto har konfigurerats korrekt på Azure Database for MySQL-instans. Till exempel kan följande steg följas för att skapa en användare med namnet 'migrateuser' med de behörigheter som krävs:<br>1. Skapa användare migrateuser@'%' identifieras av hemlighet; <br>2. Ge alla behörigheter på db_name.* till 'migrateuser'@'%' identifieras av hemlighet; Upprepa det här steget för att bevilja åtkomst på fler databaser <br>3. Bevilja replikering underordnad på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>4. Bevilja replikeringsklient på *.* att 'migrateuser'@'%' identifieras av hemlighet;<br>5. Tömma rättigheter. |
+| Det här felet visas när du har valt fler än fyra databaser för en enda migrerings aktivitet. Vid tillfället är varje migreringsjobb begränsad till fyra databaser. | Välj fyra eller färre databaser per migrerings aktivitet. Om du behöver migrera fler än fyra databaser parallellt etablerar du en annan instans av Azure Database Migration Service. För närvarande stöder varje prenumeration upp till två Azure Database Migration Service instanser.<br><br> |
+
+## <a name="errors-for-mysql-migration-to-azure-mysql-with-recovery-failures"></a>Fel för MySQL-migrering till Azure MySQL med återställnings fel
+
+När du migrerar från MySQL till Azure Database for MySQL med Azure Database Migration Service, Miss lyckas migreringen med följande fel:
+
+* **Fel**: Fel i databasreplikering-aktiviteten ' TaskID ' pausades på grund av [n] fel vid misslyckad återställning.
+
+| Orsak         | Lösning |
+| ------------- | ------------- |
+| Det här felet kan inträffa när användaren som utför migreringen saknar ReplicationAdmin-roll och/eller behörighet för REPLIKERINGSTJÄNSTEN, replikering och SUPER (versioner som är äldre än MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Se till att de [nödvändiga behörigheterna](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) för användar kontot har kon figurer ATS korrekt på Azure Database for MySQL-instansen. Följande steg kan till exempel följas för att skapa en användare med namnet "MigrateUser" med de behörigheter som krävs:<br>1. Skapa ANVÄNDAREns MigrateUser @ '% ' som identifieras av ' Secret '; <br>2. Bevilja alla behörigheter för DB_NAME. * till ' MigrateUser ' @ '% ' som identifieras av ' Secret '; Upprepa det här steget om du vill bevilja åtkomst för fler databaser <br>3. Bevilja replikering slaven på *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>4. Bevilja replikerings klient på *.* till ' MigrateUser ' @ '% ' identifieras av ' Secret ';<br>5. Rensa privilegier; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Fel vid försök att stoppa Azure Database Migration Service
 
-Du får följande fel när stoppar Azure Database Migration Service-instans:
+Du får följande fel meddelande när du stoppar Azure Database Migration Service-instansen:
 
-* **Fel**: Det gick inte att stoppa tjänsten. Fel: {”fel”: {”code”: InvalidRequest, ”message” ”: en eller flera aktiviteter körs just nu. Om du vill stoppa tjänsten, vänta tills aktiviteterna har slutförts eller stoppa dem manuellt och försök igen ”.}}
+* **Fel**: Det gick inte att stoppa tjänsten. Fel: {' error ': {' kod ': ' InvalidRequest ', ' Message ': ' en eller flera aktiviteter körs för närvarande. Stoppa tjänsten genom att vänta tills aktiviteterna har slutförts eller stoppa aktiviteterna manuellt och försök igen.}}
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet visas när den tjänstinstans som du försöker att stoppa innehåller aktiviteter som körs fortfarande eller finns i migreringsprojekt. <br><br><br><br><br><br> | Se till att det finns inga aktiviteter som körs i instansen av Azure Database Migration Service som du försöker att stoppa. Du kan också ta bort aktiviteter eller projekt innan du försöker att stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt att rensa tjänstinstansen migreringen genom att ta bort alla aktiviteter som körs:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+| Det här felet visas när tjänst instansen som du försöker stoppa innehåller aktiviteter som fortfarande körs eller finns i migreringsjobb. <br><br><br><br><br><br> | Se till att det inte finns några aktiviteter som körs i instansen av Azure Database Migration Service som du försöker stoppa. Du kan också ta bort aktiviteterna eller projekten innan du försöker stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt för att rensa migreringsprocessen genom att ta bort alla aktiviteter som körs:<br>1. Installera-Modulnamn-Name AzureRM. data migration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName "\<undernamn >" <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName >-ResourceGroupName \<rgName >-ServiceName \<ServiceName >-DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Fel vid försök att starta Azure Database Migration Service
 
-Du får följande fel när du startar Azure Database Migration Service-instans:
+Du får följande fel meddelande när du startar Azure Database Migration Service-instansen:
 
-* **Fel**: Det inte går att starta tjänsten. Fel: {”errorDetail”: ”tjänsten misslyckades kontakta Microsoft support om du vill starta”}
+* **Fel**: Det går inte att starta tjänsten. Fel: {' errorDetail ': ' tjänsten kunde inte starta, kontakta Microsoft-supporten '}
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet visas när den föregående instansen misslyckades internt. Det här felet inträffar sällan och det tekniska teamet är medveten om den. <br> | Ta bort instansen av tjänsten som du inte kan starta och sedan etablerar ny katalog för att ersätta den. |
+| Det här felet visar när den föregående instansen misslyckades internt. Det här felet uppstår sällan och teknik teamet är medveten om det. <br> | Ta bort instansen av tjänsten som du inte kan starta och etablera sedan en ny för att ersätta den. |
 
-## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Ett fel uppstod när databasen medan migrera SQL till Azure SQL DB-hanterad instans
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Fel vid återställning av databas vid migrering av SQL till Azure SQL DB-hanterad instans
 
-När du utför en online-migrering från SQL Server till en Azure SQL Database managed instance misslyckas den startpunkt med följande fel:
+När du utför en online-migrering från SQL Server till en Azure SQL Database Hanterad instans, Miss lyckas start punkt med följande fel:
 
-* **Fel**: Återställningsåtgärden misslyckades för åtgärds-ID: ”åtgärds-ID”. Kod AuthorizationFailed, meddelandet ”klienten 'clientId' med objekt-id” objectId ”har inte behörighet att utföra åtgärden” Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' omfånget ”/subscriptions/ prenumerations-ID '.'.
-
-| Orsak         | Lösning    |
-| ------------- | ------------- |
-| Det här felet indikerar att programmet-huvudnamn som används för onlinemigrering från SQLServer till en Azure SQL Database managed instance inte bidrar behörighet i prenumerationen. Vissa API-anrop med hanterad instans för närvarande kräver den här behörigheten för prenumerationen för återställningen. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd den `Get-AzureADServicePrincipal` PowerShell-cmdlet med `-ObjectId` tillgängliga från felmeddelandet att lista visningsnamnet på det program-ID som används.<br><br> Verifiera behörigheter till det här programmet och se till att den har den [deltagarrollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) på prenumerationsnivån. <br><br> Azure Database Migration Service teknikerna arbetar för att begränsa de nödvändiga åtkomst från aktuella bidra rollen på prenumerationen. Om du har ett behov i verksamheten som inte tillåter användning av bidra roll, kontakta Azure-supporten om du behöver ytterligare hjälp. |
-
-## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Ett fel inträffade när du tar bort nätverkskort som är associerade med Azure Database Migration Service
-
-När du försöker ta bort ett nätverkskort som är associerade med Azure Database Migration Service misslyckas borttagning försöket med felet:
-
-* **Fel**: Det går inte att ta bort nätverkskortet som är kopplad till Azure Database Migration Service på grund av DMS-tjänsten använder nätverkskortet
+* **Fel**: Det gick inte att återställa åtgärds-ID: t ' operationId '. Kod ' AuthorizationFailed ', meddelande ' klienten ' clientId ' med objekt-ID ' objectId ' har inte behörighet att utföra åtgärden ' Microsoft. SQL/locations/managedDatabaseRestoreAzureAsyncOperation/Read ' över omfattning '/subscriptions/ subscriptionId ".".
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| Det här problemet inträffar när Azure Database Migration Service-instans kan fortfarande finnas och förbrukar nätverkskortet. <br><br><br><br><br><br><br><br> | Ta bort den DMS-tjänstinstansen som tar automatiskt bort det nätverkskort som används av tjänsten för att ta bort det här nätverkskortet.<br><br> **Viktiga**: Kontrollera att Azure Database Migration Service-instans som tas bort har inga pågående aktiviteter.<br><br> Efter att alla projekt och aktiviteter som är associerade till Azure Database Migration Service-instansen tas bort, kan du ta bort tjänstinstansen. Det nätverkskort som används av tjänstinstansen rensas automatiskt som en del av borttagning av. |
+| Det här felet anger att det program objekt som används för online-migrering från SQL Server till en Azure SQL Database Hanterad instans inte har behörigheten delta i prenumerationen. Vissa API-anrop med hanterade instanser kräver den här behörigheten för prenumerationen för återställnings åtgärden. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Använd PowerShell-cmdleten `-ObjectId` som är tillgänglig i fel meddelandet för att Visa visnings namnet för det program-ID som används. `Get-AzureADServicePrincipal`<br><br> Verifiera behörigheterna för det här programmet och se till att det har [rollen deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) på prenumerations nivån. <br><br> Azure Database Migration Service teknik teamet arbetar för att begränsa den nödvändiga åtkomsten från den aktuella Contribute-rollen för prenumerationen. Om du har ett affärs krav som inte tillåter användning av Contribute-rollen kan du kontakta Azure-supporten om du vill ha mer hjälp. |
 
-## <a name="connection-error-when-using-expressroute"></a>Anslutningsfel när du använder ExpressRoute
+## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Fel vid borttagning av NIC som är associerat med Azure Database Migration Service
 
-När du försöker ansluta till datakällan i guiden Azure Database Migration service-projekt, upprättas inte anslutningen när tidsgränsen för långvarig om källa använder ExpressRoute för anslutning.
+När du försöker ta bort ett nätverkskort som är kopplat till Azure Database Migration Service, Miss lyckas borttagnings försöket med det här felet:
 
-| Orsak         | Lösning    |
-| ------------- | ------------- |
-| När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) etablering tre tjänstslutpunkter i virtuella nätverkets undernät som är kopplade till tjänsten:<br> --Service Bus-slutpunkt<br> --Slutpunkt för lagring av<br> --Rikta database-slutpunkten (t.ex. SQL-slutpunkt, Cosmos DB-slutpunkt)<br><br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) krävs Tjänsteslutpunkter för ExpressRoute-anslutning mellan käll- och Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
-
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Tidsgränsfel när du migrerar en MySQL-databas till Azure MySQL
-
-När du migrerar en MySQL-databas till en Azure Database for MySQL-instans via Azure Database Migration Service, misslyckas migreringen med följande fel:
-
-* **Fel**: Det gick inte att starta inläsningen för filen databasmigreringsfel - det gick inte att läsa in filen - n RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 meddelande: [MySQL] [ODBC-drivrutinen] [mysqld] Lås vänta tidsgräns har överskridits; Försök att starta om transaktionen
+* **Fel**: Det går inte att ta bort NÄTVERKSKORTet som är kopplat till Azure Database Migration Service på grund av den DMS-tjänst som använder NÄTVERKSKORTet
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| Det här felet uppstår när migreringen misslyckas på grund av timeout för lås vänta under migreringen. | Överväg att öka värdet för Serverparametern **'innodb_lock_wait_timeout'** . Det högsta tillåtna värdet är 1073741824. |
+| Det här problemet uppstår när Azure Database Migration Service-instansen kanske fortfarande finns och utnyttjar NÄTVERKSKORTet. <br><br><br><br><br><br><br><br> | Ta bort det här NÄTVERKSKORTet genom att ta bort DMS-tjänstinstansen som automatiskt tar bort NÄTVERKSKORTet som används av tjänsten.<br><br> **Viktigt**: Kontrol lera att Azure Database Migration Service-instansen som tas bort inte innehåller några aktiviteter som körs.<br><br> När alla projekt och aktiviteter som är kopplade till Azure Database Migration Service-instansen har tagits bort kan du ta bort tjänst instansen. NÄTVERKSKORTet som används av tjänst instansen rensas automatiskt som en del av borttagningen av tjänsten. |
 
-## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Fel vid anslutning till SQL Server-källans när du använder dynamisk port eller namngiven instans
+## <a name="connection-error-when-using-expressroute"></a>Anslutnings fel vid användning av ExpressRoute
 
-När du försöker ansluta Azure Database Migration Service till källan till SQL Server som körs på namngiven instans eller en dynamisk port misslyckas om anslutningen med felet:
-
-* **Fel**: -1 - SQL-anslutningen misslyckades. Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning upprättades till SQL Server. Servern hittades inte eller var inte tillgänglig. Kontrollera att instansnamnet är korrekt och att SQL Server är konfigurerad för att tillåta fjärranslutningar. (providern: SQL-nätverksgränssnitt, fel: 26 - det gick inte att hitta Server/instans anges)
+När du försöker ansluta till källan i guiden Azure Database Migration Service-projekt misslyckas anslutningen efter en lång timeout om källan använder ExpressRoute för anslutning.
 
 | Orsak         | Lösning    |
 | ------------- | ------------- |
-| Det här problemet inträffar när den SQL Server-instans som Azure Database Migration Service försöker ansluta till en dynamisk port eller också använder en namngiven instans. SQL Server Browser-tjänsten lyssnar på UDP-port 1434 för inkommande anslutningar till en namngiven instans eller när du använder en dynamisk port. Dynamisk port kan ändras varje gång SQL Server-tjänsten startas om. Du kan kontrollera dynamisk port som tilldelats till en instans via nätverkskonfiguration i Konfigurationshanteraren för SQL Server.<br><br><br> |Kontrollera att Azure Database Migration Service kan ansluta till SQL Server Browser-tjänsten på UDP-port 1434 käll- och SQL Server-instansen genom dynamiskt tilldelade TCP-porten som är tillämpligt. |
+| När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database migration service etablering av tre tjänst slut punkter i det Virtual Network undernät som är associerat med tjänsten:<br> --Service Bus slut punkt<br> --Lagrings slut punkt<br> --Slut punkt för mål databas (t. ex. SQL-slutpunkt, Cosmos DB slut punkt)<br><br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de tjänst slut punkter som krävs för ExpressRoute-anslutning mellan källa och Azure Database migration service. <br><br><br><br><br><br><br><br> |
+
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Tids gräns fel vid migrering av en MySQL-databas till Azure MySQL
+
+När du migrerar en MySQL-databas till en Azure Database for MySQL instans via Azure Database Migration Service, Miss lyckas migreringen med följande tids gräns fel:
+
+* **Fel**: Fel vid databas migrering – det gick inte att läsa in filen – det gick inte att starta inläsnings processen för filen ' n ' RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 meddelande: [MySQL] [ODBC-drivrutin] [mysqld] lås vänte tid har överskridits; försök att starta om transaktionen
+
+| Orsak         | Lösning    |
+| ------------- | ------------- |
+| Det här felet uppstår när migreringen Miss lyckas på grund av timeout vid lås väntan under migreringen. | Överväg att öka värdet för Server parametern **"innodb_lock_wait_timeout"** . Det högsta tillåtna värdet är 1073741824. |
+
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Fel vid anslutning till käll SQL Server när dynamisk port eller namngiven instans används
+
+När du försöker ansluta Azure Database Migration Service till SQL Server källa som körs på antingen namngiven instans eller en dynamisk port, Miss lyckas anslutningen med det här felet:
+
+* **Fel**:-1-SQL-anslutning misslyckades. Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning upprättades till SQL Server. Servern hittades inte eller var inte tillgänglig. Kontrol lera att instans namnet är rätt och att SQL Server har kon figurer ATS för att tillåta fjärr anslutningar. CSP SQL-nätverks gränssnitt, fel: 26-fel vid sökning efter angiven Server/instans)
+
+| Orsak         | Lösning    |
+| ------------- | ------------- |
+| Det här problemet uppstår när käll SQL Servers instansen som Azure Database Migration Service försöker ansluta till antingen har en dynamisk port eller använder en namngiven instans. Tjänsten SQL Server Browser lyssnar på UDP-port 1434 för inkommande anslutningar till en namngiven instans eller när du använder en dynamisk port. Den dynamiska porten kan ändras varje gången SQL Server tjänsten startas om. Du kan kontrol lera den dynamiska port som tilldelats till en instans via nätverks konfiguration i Konfigurationshanteraren för SQL Server.<br><br><br> |Kontrol lera att Azure Database Migration Service kan ansluta till käll SQL Server Browsers tjänsten på UDP-port 1434 och SQL Server-instansen via den dynamiskt tilldelade TCP-porten enligt vad som är tillämpligt. |
 
 ## <a name="additional-known-issues"></a>Ytterligare kända problem
 
-* [Begränsningar för kända problem/migrering med online migrering till Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Begränsningar för kända problem/migrering med online migrering till Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Begränsningar för kända problem/migrering med online migrering till Azure Database för PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [Kända problem/migrerings begränsningar med online-migreringar till Azure Database for PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa artikeln [Azure Database Migration Service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Visa artikeln [hur du konfigurerar serverparametrar i Azure Database för MySQL med hjälp av Azure portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Visa artikeln [översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Se den [vanliga frågor och svar om hur du använder Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).
+* Visa artikeln [Azure Database migration service PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Se artikeln [så här konfigurerar du Server parametrar i Azure Database for MySQL med hjälp av Azure Portal](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Se artikeln [Översikt över krav för att använda Azure Database migration service](https://docs.microsoft.com/azure/dms/pre-reqs).
+* Se [vanliga frågor och svar om hur du använder Azure Database migration service](https://docs.microsoft.com/azure/dms/faq).

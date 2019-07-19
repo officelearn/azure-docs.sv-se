@@ -1,46 +1,47 @@
 ---
-title: Använd beroendeinmatning i .NET Azure Functions
-description: Lär dig hur du använder beroendeinmatning för att registrera och använda tjänster i .NET-funktioner
+title: Använd beroende inmatning i .NET Azure Functions
+description: Lär dig hur du använder beroende inmatning för att registrera och använda tjänster i .NET Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure functions, funktioner, serverlös arkitektur
+keywords: Azure Functions, functions, arkitektur utan Server
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, cshoe
-ms.openlocfilehash: 781bcdc158cb362b7c46e1ba9771b6a92ebc56a8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.author: cshoe
+ms.reviewer: jehollan
+ms.openlocfilehash: 1ebb2fd77830074648a580dddad98e05e10c9c75
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479624"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850027"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroendeinmatning i .NET Azure Functions
+# <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroende inmatning i .NET Azure Functions
 
-Azure Functions har stöd för beroende inmatning (DI) programvara designmönstret, vilket är en teknik för att uppnå [invertering-kontroll (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
+Azure Functions stöder design mönstret för program beroende insprutning (DI), vilket är en teknik för att uppnå [inversion av kontrollen (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
 
-Azure Functions bygger på Beroendeinmatning för ASP.NET Core-funktioner. Är medvetna om olika tjänster, livslängd och designmönster för [ASP.NET Core beroendeinmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) innan du använder DI funktioner i en Azure-funktioner appen rekommenderas.
+Azure Functions versioner ovanpå ASP.NET Core beroende inmatnings funktioner. Vi rekommenderar att du är medveten om tjänster, livs längd och design mönster för [ASP.net Core beroende insprutning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) innan du använder di-funktioner i en Azure Functions app.
 
-Stöd för beroendeinmatning börjar med Azure Functions 2.x.
+Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan använda beroendeinmatning, måste du installera följande NuGet-paket:
+Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft.NET.Sdk.Functions-paketet](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
+- [Microsoft. net. SDK. Functions-paket](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
 
-- Valfritt: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) krävs endast för att registrera HttpClient vid start
+- Valfritt: [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) krävs endast för registrering av httpclient vid start
 
 ## <a name="register-services"></a>Registrera tjänster
 
-Du kan skapa en metod för att konfigurera och lägga till komponenter för att registrera tjänster genom en `IFunctionsHostBuilder` instans.  Värden för Azure Functions skapar en instans av `IFunctionsHostBuilder` och skickar dem direkt i din metod.
+För att registrera tjänster kan du skapa en metod för att konfigurera och lägga till komponenter `IFunctionsHostBuilder` i en instans.  Azure Functions-värden skapar en instans av `IFunctionsHostBuilder` och skickar den direkt till din metod.
 
-Om du vill registrera metoden lägger du till den `FunctionsStartup` sammansättningen attribut som anger namnet på används under starten. Även kod refererar till en förhandsversion av [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) på Nuget.
+Registrera-metoden genom att lägga till `FunctionsStartup` attributet Assembly som anger typ namnet som används vid start. Kod refererar också till en för hands version av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) på NuGet.
 
 ```csharp
 using System;
@@ -70,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>Använda inmatade beroenden
 
-ASP.NET Core använder konstruktorn inmatning för att tillgängliggöra dina beroenden till din funktion. I följande exempel visas hur `IMyService` och `HttpClient` beroenden är införs i en HTTP-utlöst funktion.
+ASP.NET Core använder konstruktorn för att göra dina beroende tillgängliga för din funktion. Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion.
 
 ```csharp
 using System;
@@ -111,43 +112,43 @@ namespace MyNamespace
 }
 ```
 
-Användning av konstruktor inmatning innebär att du inte ska använda statiska funktioner om du vill dra nytta av beroendeinmatning.
+Användningen av konstruktorn för konstruktorn innebär att du inte bör använda statiska funktioner om du vill dra nytta av beroende inmatning.
 
-## <a name="service-lifetimes"></a>Tjänstens livslängd
+## <a name="service-lifetimes"></a>Livs längd för tjänsten
 
-Azure Functions-appar tillhandahåller samma service-livslängd som [ASP.NET Beroendeinmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): tillfälliga, begränsade, och singleton.
+Azure Functions appar ger samma tjänste livstid som ASP.NET- [beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): tillfällig, omfattning och singleton.
 
-I functions-app matchar en livslängd för begränsade tjänsten en livslängd för körning av funktionen. Begränsade tjänster skapas en gång per körning. Senare begäranden för tjänsten under körningen återanvända den befintliga tjänstinstansen. En singleton-tjänsten livslängd matchar värden livslängd och återanvändas i funktionskörningar på instansen.
+I en Functions-app matchar en omfattning för Omfattningens livs längd en funktions körnings livs längd. Omfångs tjänster skapas en gång per körning. Senare begär Anden för tjänsten under körningen återanvänder den befintliga tjänst instansen. En singleton-tjänstelivs längd motsvarar värdens livstid och återanvänds över funktions körningar på den instansen.
 
-Singleton-tjänsterna livslängd rekommenderas för anslutningar och klienter, till exempel `SqlConnection`, `CloudBlobClient`, eller `HttpClient` instanser.
+Singleton livstids tjänster rekommenderas för anslutningar och klienter, till exempel `SqlConnection` `CloudBlobClient`, eller `HttpClient` instanser.
 
-Visa eller ladda ned en [prov på olika service livslängd](https://aka.ms/functions/di-sample) på GitHub.
+Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://aka.ms/functions/di-sample) på GitHub.
 
-## <a name="logging-services"></a>Loggningstjänster
+## <a name="logging-services"></a>Loggnings tjänster
 
-Om du behöver en egen loggningsprovider det rekommenderade sättet är att registrera en `ILoggerProvider` instans. Application Insights läggs till automatiskt av Azure Functions.
+Om du behöver en egen Logging-Provider är det rekommenderade sättet att registrera en `ILoggerProvider` instans. Application Insights läggs till av Azure Functions automatiskt.
 
 > [!WARNING]
-> Lägg inte till `AddApplicationInsightsTelemetry()` till samlingen tjänster som det registrerar tjänster som konflikt med tjänster som tillhandahålls av miljön.
+> Lägg `AddApplicationInsightsTelemetry()` inte till i samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
 
-## <a name="function-app-provided-services"></a>Funktionen tillhandahålls apptjänster
+## <a name="function-app-provided-services"></a>Function-appen tillhandahåller tjänster
 
-Funktionen värden registrerar många tjänster. Följande tjänster är säkert att ta som ett beroende i ditt program:
+Funktions värden registrerar många tjänster. Följande tjänster är säkra att ta med i ditt program:
 
-|Typ av tjänst|Livslängd|Beskrivning|
+|Typ av tjänst|Giltighet|Beskrivning|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton-instans|Runtime-konfiguration|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton-instans|Ansvarar för att tillhandahålla ID för värdinstans|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Körnings konfiguration|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarar för att tillhandahålla ID för värd instansen|
 
-Om det finns andra tjänster som du vill skapa ett beroende på, [skapa ett ärende och föreslå dem på GitHub](https://github.com/azure/azure-functions-host).
+Om det finns andra tjänster som du vill ta ett beroende på, [skapar du ett ärende och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
 
-### <a name="overriding-host-services"></a>Åsidosätta tjänster
+### <a name="overriding-host-services"></a>Åsidosätta värd tjänster
 
-Åsidosätta tjänster som tillhandahålls av värden stöds för närvarande inte.  Om det finns tjänster som du vill åsidosätta, [skapa ett ärende och föreslå dem på GitHub](https://github.com/azure/azure-functions-host).
+Det finns för närvarande inte stöd för att åsidosätta tjänster som tillhandahålls av värden.  Om det finns tjänster som du vill åsidosätta [skapar du ett ärende och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande resurser:
 
-- [Så här övervakar du din funktionsapp](functions-monitoring.md)
-- [Metodtips för functions](functions-best-practices.md)
+- [Så här övervakar du din Function-app](functions-monitoring.md)
+- [Metod tips för functions](functions-best-practices.md)

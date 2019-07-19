@@ -1,6 +1,6 @@
 ---
-title: Exempel - Storbritannien officiella och Storbritannien NHS skisser - kontroll mappning
-description: Kontrollen mappning av Storbritannien officiella och Storbritannien NHS skissen exempel.
+title: Exempel på officiella och UK NHS-ritningar – kontroll mappning
+description: Kontroll mappning av NHS i Storbritannien och Storbritannien.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,163 +8,163 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 01a8e104f6d590113784db28e4bfde849d78b15f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491919"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226011"
 ---
-# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontrollen mappning av Storbritannien officiella och Storbritannien NHS skissen exempel
+# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
-I följande artikel beskriver hur Storbritannien officiella och Storbritannien NHS skissen exempel mappas till den officiella Storbritannien och Storbritannien NHS kontroller. Läs mer om kontrollerna, [Storbritannien officiella](https://www.gov.uk/government/publications/government-security-classifications).
+I följande artikel beskrivs hur NHS i Storbritannien och Storbritannien i Storbritannien mappas till de officiella NHS-kontrollerna i Storbritannien och Storbritannien. Mer information om kontrollerna finns i [Storbritannien officiellt](https://www.gov.uk/government/publications/government-security-classifications).
 
-Följande mappningar avser den **Storbritannien officiella** och **Storbritannien NHS** kontroller. Använd navigeringen till höger för att gå direkt till en viss kontroll-mappning. Många av de mappade kontrollerna implementeras med en [Azure Policy](../../../policy/overview.md) initiativ. Om du vill granska fullständig initiativet öppna **princip** i Azure-portalen och välj den **definitioner** sidan. Hitta och välj sedan den  **[förhandsversion] gransknings-och Storbritannien officiella och Storbritannien NHS styr och distribuera specifika VM-tillägg för att stödja granskningskrav** inbyggd princip initiativ.
+Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj  **\[\] förhands granskningen i Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
 
-## <a name="1-data-in-transit-protection"></a>1 data i rörelse skydd
+## <a name="1-data-in-transit-protection"></a>1 data i överförings skydd
 
-Skissen hjälper dig att säkerställa informationsöverföring med Azure-tjänster är säker genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner som granska osäkert anslutningar till storage-konton och Redis Cache.
+Skissen hjälper dig att se till att informations överföring med Azure-tjänster är säker genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar oskyddade anslutningar till lagrings konton och Redis cache.
 
-- Endast säkra anslutningar till Redis-cachen ska aktiveras
-- Säker överföring till storage-konton måste vara aktiverat
+- Endast säkra anslutningar till din Redis Cache ska vara aktiverade
+- Säker överföring till lagrings konton ska vara aktiverat
 
-## <a name="23-data-at-rest-protection"></a>2.3-data med rest-skydd
+## <a name="23-data-at-rest-protection"></a>2,3 data vid rest-skydd
 
-Den här skissen kan du tillämpa principen på användningen av cryptograph kontroller genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner som tillämpa specifika cryptograph kontroller och granska användning av svaga kryptografiska inställningar.
-Förstå där dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan du vidta åtgärder för att se till att resurser som är konfigurerade i enlighet med din säkerhetsprincip för information. Mer specifikt Kräv de principer som tilldelats av den här skissen kryptering för data lake storage-konton; Kräv transparent datakryptering på SQL-databaser Granska saknas kryptering på storage-konton, SQL-databaser, virtuella diskar och variabler för automation-konto. Granska osäkert anslutningar till storage-konton och Redis Cache Granska kryptering av svaga VM lösenord; och granska dekrypterade Service Fabric-kommunikation.
+Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som upprätthåller vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar.
+Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; granska saknad kryptering på lagrings konton, SQL-databaser, virtuella dator diskar och variabler för Automation-konton. granska oskyddade anslutningar till lagrings konton och Redis Cache. granska svag kryptering av lösen ord för virtuella datorer; och granska okrypterad Service Fabric kommunikation.
 
 - Övervaka okrypterade SQL-databaser i Azure Security Center
-- Diskkryptering ska tillämpas på virtuella datorer
-- Automation-konto variabler ska krypteras
-- Säker överföring till storage-konton måste vara aktiverat
+- Disk kryptering bör tillämpas på virtuella datorer
+- Variabler för Automation-konton ska vara krypterade
+- Säker överföring till lagrings konton ska vara aktiverat
 - Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign
-- Transparent datakryptering på SQL-databaser ska aktiveras
-- Distribuera transparent datakryptering för SQL DB
-- Kräv kryptering på Data Lake Store-konton
-- Tillåtna platser (har kodat ”Storbritannien, SÖDRA” och ”Storbritannien, västra”)
-- Tillåtna platser för resursgrupper (har kodat ”Storbritannien, SÖDRA” och ”Storbritannien, västra”)
+- transparent datakryptering på SQL-databaser ska aktive ras
+- Distribuera transparent data kryptering för SQL DB
+- Kräv kryptering för Data Lake Store-konton
+- Tillåtna platser (har hårdkodats till "Storbritannien, södra" och "Storbritannien väst")
+- Tillåtna platser för resurs grupper (har hårdkodats till "Storbritannien, södra" och "Storbritannien väst")
 
-## <a name="52-vulnerability-management"></a>5.2 Sårbarhetshantering
+## <a name="52-vulnerability-management"></a>5,2 sårbarhets hantering
 
-Den här skissen hjälper dig att hantera information system sårbarheter genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner som övervaka saknad endpoint protection, systemuppdateringar, driva system sårbarheter, SQL säkerhetsproblem och säkerhetsrisker i virtuell dator. Dessa insikter i realtid informera om säkerhetsläget för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärder.
+Den här skissen hjälper dig att hantera sårbarheter i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade slut punkts skydd, system uppdateringar som saknas, sårbarheter för operativ system, SQL-sårbarheter och virtuella dator sårbarheter. Dessa insikter ger real tids information om säkerhets statusen för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärds åtgärder.
 
-- Övervaka saknad Endpoint Protection i Azure Security Center
-- Systemuppdateringar bör vara installerad på dina datorer
-- Säkerhetsproblem i Säkerhetskonfiguration på dina datorer bör åtgärdas
-- Säkerhetsproblem på SQL-databaser bör åtgärdas
-- Sårbarheter som bör åtgärdas av en lösning för Sårbarhetsbedömning
+- Övervaka saknade Endpoint Protection i Azure Security Center
+- System uppdateringar bör installeras på dina datorer
+- Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
+- Säkerhets risker i SQL-databaser bör åtgärdas
+- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 
-## <a name="53-protective-monitoring"></a>5.3 skyddande övervakning
+## <a name="53-protective-monitoring"></a>5,3 skydds övervakning
 
-Den här skissen hjälper dig att skydda system informationstillgångar genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner som ger skyddande övervakning på obegränsad åtkomst, godkända aktivitet och hot.
+Den här skissen hjälper dig att skydda informations systemets till gångar genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som ger skydds övervakning av obegränsad åtkomst, vitlista-aktivitet och hot.
 
-- Granska obegränsad nätverksåtkomst till storage-konton
-- Anpassningsbara programkontroller måste vara aktiverad på virtuella datorer
-- Distribuera Hotidentifiering på SQL-servrar
-- Distribuera Microsoft IaaS Anti-malware-Standardtillägg för Windows Server
+- Granska obegränsad nätverks åtkomst till lagrings konton
+- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Distribuera hot identifiering på SQL-servrar
+- Distribuera standard tillägget Microsoft IaaS-program mot skadlig kod för Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 säker hantering av användare / 10 enhetsidentitet samt autentisering
+## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 säker användar hantering/10 identitet och autentisering
 
-Azure implementerar rollbaserad åtkomstkontroll (RBAC) till hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med Azure-portalen kan granska du vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrollera behörighet genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner för att granska externa konton med behörighet för ägare och/eller Läs/Skriv- och konton med ägare kan läsa och/eller skrivbehörighet som gör inte har aktiverat multifaktorautentisering.
+Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor autentisering aktive rad.
 
-- MFA måste vara aktiverad på konton med ägarbehörigheter för din prenumeration
-- MFA ska vara aktiverad konton med skrivbehörigheter för din prenumeration
-- MFA måste vara aktiverad på konton med läsbehörigheter för din prenumeration
-- Externa konton med ägarbehörigheter som ska tas bort från prenumerationen
+- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
+- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
+- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
-- Bör ta bort externa konton med läsbehörigheter från prenumerationen
+- Externa konton med Läs behörighet bör tas bort från din prenumeration
 
-Den här skissen tilldelar Azure Policy-definitioner för att granska användning av Azure Active Directory-autentisering för SQL-servrar och Service Fabric. Autentisering möjliggör med Azure Active Directory förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.
+Den här skissen tilldelar Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.
 
-- En Azure Active Directory-administratör ska etableras för SQL-servrar
-- Service Fabric-kluster bör endast använda Azure Active Directory för klientautentisering
+- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
+- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
 
-Den här skissen tilldelar också Azure principdefinitioner granska konton som ska prioriteras för granskning, inklusive avskriven konton och externa konton. När de behövs kan konton blockeras från att logga in (eller tas bort), som direkt tar bort åtkomsträttigheter till Azure-resurser. Denna skiss tilldelar två Azure principdefinitioner audit avskriven-konto som du bör överväga att tas bort.
+Den här skissen tilldelar också Azure Policy definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två Azure Policy definitioner för att granska avskrivet konto som bör tas bort.
 
-- Bör ta bort inaktuella konton från prenumerationen
-- Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen
-- Externa konton med ägarbehörigheter som ska tas bort från prenumerationen
+- Föråldrade konton bör tas bort från din prenumeration
+- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
+- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
 
-Den här skissen tilldelar också en Azure Policy definition som granskar Linux VM lösenord filbehörigheter att varna om de har angetts felaktigt. Den här designen kan du vidta åtgärder för att se till autentiserare inte komprometteras.
+Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- [Förhandsversion]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[För\]hands version: Granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
-Den här skissen hjälper dig att genomdriva starka lösenord genom att tilldela Azure principdefinitioner som granskar Windows virtuella datorer som inte framtvingar minsta styrka och andra lösenordskrav. Feltolerans för virtuella datorer i överträdelse av styrka lösenordsprincip kan du vidta åtgärder för att säkerställa att lösenord för användarkonton för alla virtuella datorer är kompatibla med principen.
+Den här skissen hjälper dig att använda starka lösen ord genom att tilldela Azure Policy definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- [Förhandsversion]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Förhandsversion]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Förhandsversion]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Förhandsversion]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Förhandsversion]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Förhandsversion]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Förhandsversion]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Förhandsversion]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Förhandsversion]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Förhandsversion]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
+- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För\]hands version: Granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[För\]hands version: Granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För\]hands version: Granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
+- \[För\]hands version: Granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För\]hands version: Granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
-Detta skiss hjälper dig att styra åtkomst till Azure-resurser genom att tilldela principdefinitioner i Azure. Dessa principer granska användning av resurstyper och konfigurationer som kan tillåta mer Tillåtande åtkomst till resurser. Förstå resurser som bryter mot dessa principer kan du vidta åtgärder för att kontrollera åtkomst till Azure-resurser hjälp är begränsad till behöriga användare.
+Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser genom att tilldela Azure Policy definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser. Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- [Förhandsversion]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Förhandsversion]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- [Förhandsversion]: Audit Linux VMs that have accounts without passwords
-- [Förhandsversion]: Audit Linux VMs that allow remote connections from accounts without passwords
-- Storage-konton som ska migreras till nya Azure Resource Manager-resurser
-- Virtuella datorer som ska migreras till nya Azure Resource Manager-resurser
+- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
+- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För\]hands version: Granska virtuella Linux-datorer som har konton utan lösen ord
+- \[För\]hands version: Granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- Lagrings konton ska migreras till nya Azure Resource Manager resurser
+- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 - Granska virtuella datorer som inte använder hanterade diskar
 
-## <a name="11-external-interface-protection"></a>11 externa gränssnittet skydd
+## <a name="11-external-interface-protection"></a>11 externt gränssnitts skydd
 
-Än med hjälp av fler än 25 principer för hantering av lämplig säker användare skissen hjälper dig att skydda tjänstgränssnitt från obehörig åtkomst genom att tilldela en [Azure Policy](../../../policy/overview.md) definition som Övervakare obegränsad Storage-konton. Storage-konton med obegränsad åtkomst kan oavsiktlig tillgång till informationen i systemet. Den här skissen tilldelar också en princip som gör det möjligt för adaptiva programkontroller på virtuella datorer.
+Förutom att använda fler än 25 principer för lämplig säker användar hantering hjälper den här skissen dig att skydda tjänst gränssnitt från obehörig åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar obegränsade lagrings konton. Lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet. Den här skissen tilldelar också en princip som aktiverar anpassningsbara program kontroller på virtuella datorer.
 
-- Granska obegränsad nätverksåtkomst till storage-konton
-- Anpassningsbara programkontroller måste vara aktiverad på virtuella datorer
+- Granska obegränsad nätverks åtkomst till lagrings konton
+- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
-## <a name="12-secure-service-administration"></a>12 säker Tjänstadministration
+## <a name="12-secure-service-administration"></a>12 säker tjänst administration
 
-Azure implementerar rollbaserad åtkomstkontroll (RBAC) till hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med Azure-portalen kan granska du vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrollera rättigheter för privilegierad åtkomst genom att tilldela fem [Azure Policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller skriva behörigheter och konton med ägare och/eller skrivbehörighet som inte har aktiverat multifaktorautentisering.
+Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fem [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare, och/eller Skriv behörigheter som inte har Multi-Factor Authentication har Aktiver ATS.
 
-System som används för administration av en molnbaserad tjänst kommer mycket har privilegierad åtkomst till tjänsten. Deras kompromettering skulle ha stor inverkan, inklusive sätt att kringgå säkerhetskontroller och stjäla eller ändra stora mängder data. De metoder som används av tjänstleverantörens administratörer för att hantera tjänsten operational bör utformas för att minimera risk för utnyttjande som kunde underminera säkerheten i tjänsten. Om denna princip inte är implementerat kan en angripare ha möjlighet att kringgå säkerhetskontroller och stjäla eller ändra stora mängder data.
+System som används för administration av en moln tjänst har hög privilegie rad åtkomst till tjänsten. Deras kompromisser skulle ha betydande påverkan, inklusive metoder för att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data. De metoder som används av tjänst leverantörens administratörer för att hantera drifts tjänsten bör utformas för att minska risken för utnyttjande som kan undergräva säkerheten för tjänsten. Om den här principen inte har implementerats kan en angripare ha möjlighet att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data.
 
-- MFA måste vara aktiverad på konton med ägarbehörigheter för din prenumeration
-- MFA ska vara aktiverad konton med skrivbehörigheter för din prenumeration
-- Externa konton med ägarbehörigheter som ska tas bort från prenumerationen
+- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
+- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
 
-Den här skissen tilldelar Azure Policy-definitioner för att granska användning av Azure Active Directory-autentisering för SQL-servrar och Service Fabric. Autentisering möjliggör med Azure Active Directory förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.
+Den här skissen tilldelar Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.
 
-- En Azure Active Directory-administratör ska etableras för SQL-servrar
-- Service Fabric-kluster bör endast använda Azure Active Directory för klientautentisering
+- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
+- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
 
-Den här skissen tilldelar också Azure principdefinitioner granska konton som ska prioriteras för granskning, inklusive avskriven konton och externa konton med förhöjd behörighet. När de behövs kan konton blockeras från att logga in (eller tas bort), som direkt tar bort åtkomsträttigheter till Azure-resurser. Denna skiss tilldelar två Azure principdefinitioner audit avskriven-konto som du bör överväga att tas bort.
+Den här skissen tilldelar också Azure Policy definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två Azure Policy definitioner för att granska avskrivet konto som bör tas bort.
 
-- Bör ta bort inaktuella konton från prenumerationen
-- Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen
-- Externa konton med ägarbehörigheter som ska tas bort från prenumerationen
+- Föråldrade konton bör tas bort från din prenumeration
+- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
+- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
 
-Den här skissen tilldelar också en Azure Policy definition som granskar Linux VM lösenord filbehörigheter att varna om de har angetts felaktigt. Den här designen kan du vidta åtgärder för att se till autentiserare inte komprometteras.
+Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- [Förhandsversion]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[För\]hands version: Granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
-## <a name="13-audit-information-for-users"></a>13 granskningsinformation för användare
+## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
-Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela [Azure Policy](../../../policy/overview.md) definitioner som gransknings-och inställningar på Azure-resurser. En tilldelad princip granskar även om virtuella datorer inte skickar loggar till en angiven log analytics-arbetsyta.
+Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. En tilldelad princip granskar också om virtuella datorer inte skickar loggar till en angiven Log Analytics-arbetsyta.
 
-- Övervaka Ej granskad SQL-servrar i Azure Security Center
+- Övervaka SQL-servrar som inte har granskats i Azure Security Center
 - Granska diagnostikinställning
-- Granska nivå granskningsinställningarna för SQL server
-- [Förhandsversion]: Deploy Log Analytics Agent for Linux VMs
-- [Förhandsversion]: Deploy Log Analytics Agent for Windows VMs
-- Distribuera nätverksbevakare när virtuella nätverk skapas
+- Granska gransknings inställningar för SQL Server-nivå
+- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- Distribuera nätverks övervakare när virtuella nätverk skapas
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontroll mappningen av Storbritannien officiella och Storbritannien NHS skisser, finns i följande artiklar för att lära dig om översikten och hur du distribuerar det här exemplet:
+Nu när du har granskat kontroll mappningen av NHS-ritningar från Storbritannien och Storbritannien kan du gå till följande artiklar och läsa mer om översikten och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [Storbritannien officiella och Storbritannien NHS skisser - översikt](./index.md)
-> [Storbritannien officiella och Storbritannien NHS skisser - distributionsstegen](./deploy.md)
+> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
+> [Storbritannien och Storbritannien NHS ritningar – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

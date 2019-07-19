@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart för PowerShell: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
-description: Beskriver hur du skapar ett index, läsa in data och kör frågor med hjälp av PowerShell-Invoke-RestMethod och Azure Search REST API.
+title: 'PowerShell-snabb start: Skapa, läsa in och fråga index med Azure Search REST-API: er – Azure Search'
+description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med PowerShell: s Invoke-RestMethod och Azure Search REST API.'
 ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6bff2c84a4bfd81b94054b85744c17a1cd217756
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840176"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847070"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i PowerShell med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -26,33 +26,33 @@ ms.locfileid: "67840176"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga en Azure Search-index med hjälp av PowerShell och [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln beskriver hur du kör PowerShell-kommandon interaktivt. Du kan också [ladda ned och köra ett PowerShell.skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som kan utföra samma åtgärder.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor till ett Azure Search-index med hjälp av PowerShell och [Azure Search REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande tjänster och verktyg som används i den här snabbstarten. 
+Följande tjänster och verktyg krävs för den här snabb starten. 
 
-+ [PowerShell 5.1 eller senare](https://github.com/PowerShell/PowerShell)med hjälp av [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sekventiella och interaktiva anvisningar.
++ [PowerShell 5,1 eller senare](https://github.com/PowerShell/PowerShell), med [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) för sekventiella och interaktiva steg.
 
-+ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
++ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
 För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
-Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="connect-to-azure-search"></a>Anslut till Azure Search
 
-1. I PowerShell, skapar en **$headers** objekt för att lagra innehållstyp och API-nyckel. Ersätt administrations-API-nyckeln (din-ADMIN-API-nyckel) med en nyckel som är giltig för din söktjänst. Du behöver bara ange den här rubriken en gång för hela sessionen, men du ska lägga till varje begäran. 
+1. I PowerShell skapar du ett **$headers** -objekt för att lagra innehålls typen och API-nyckeln. Ersätt administrations-API-nyckeln (din-ADMIN-API-nyckel) med en nyckel som är giltig för din Sök tjänst. Du behöver bara ange sidhuvudet en gång under sessionen, men du lägger till den i varje begäran. 
 
     ```powershell
     $headers = @{
@@ -61,19 +61,19 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
     'Accept' = 'application/json' }
     ```
 
-2. Skapa en **$url** objekt som anger tjänstens indexerar samling. Ersätt namnet på tjänsten (din-SEARCH-SERVICE-NAME) med en giltig söktjänst.
+2. Skapa ett **$URL** -objekt som anger tjänstens index samling. Ersätt tjänst namnet (din-SEARCH-SERVICE-NAME) med en giltig Sök tjänst.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
-3. Kör **Invoke-RestMethod** att skicka en GET-begäran till tjänsten och kontrollera anslutningen. Lägg till **ConvertTo-Json** så att du kan se de svar som skickas tillbaka från tjänsten.
+3. Kör **Invoke-RestMethod** för att skicka en get-begäran till tjänsten och kontrol lera anslutningen. Lägg till **ConvertTo-JSON** så att du kan visa svaren som skickas tillbaka från tjänsten.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-   Om tjänsten är tom och har inga index, liknar resultat följande exempel. Annars ser du en JSON-representation av indexet.
+   Om tjänsten är tom och saknar index, liknar resultatet följande exempel. Annars visas en JSON-representation av index definitioner.
 
     ```
     {
@@ -86,13 +86,13 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget definierar indexet och skickas till tjänsten. Den [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
+Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. Det här steget definierar indexet och pushar det till tjänsten. [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
 
-Obligatoriska elementen för ett index är ett namn och en samling fält. Fältsamlingen definierar strukturen för en *dokumentet*. Varje fält har ett namn, typ och attribut som avgör hur den används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
+Obligatoriska element i ett index innehåller ett namn och en fält samling. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur det används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen `Edm.String` anges som *nyckel* för dokument identitet.
 
-Det här indexet har namnet ”hotels-quickstart” och fältdefinitioner som du ser nedan. Det är en del av ett större [Hotels indexet](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) används i andra genomgångar. Vi tas bort den i den här snabbstarten av utrymmesskäl.
+Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna som visas nedan. Det är en del av ett större [hotell index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) som används i andra genom gångar. Vi trimmade det i den här snabb starten för det kortfattat.
 
-1. Klistra in det här exemplet i PowerShell för att skapa en **$body** objekt som innehåller indexschemat.
+1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller index schemat.
 
     ```powershell
     $body = @"
@@ -121,19 +121,19 @@ Det här indexet har namnet ”hotels-quickstart” och fältdefinitioner som du
     "@
     ```
 
-2. Ange URI: N till samlingen index på din tjänst och *hotels-quickstart* index.
+2. Ange URI: n till index samlingen på din tjänst och ditt *hotell-snabb start* index.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
     ```
 
-3. Kör kommandot med **$url**, **$headers**, och **$body** att skapa indexet på tjänsten. 
+3. Kör kommandot med **$URL**, **$headers**och **$Body** för att skapa indexet för tjänsten. 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
     ```
 
-    Resultatet bör se ut ungefär så här (trunkeras till de två första fälten kortfattat):
+    Resultaten bör se ut ungefär så här (trunkerade till de första två fälten för det kortfattat):
 
     ```
     {
@@ -174,17 +174,17 @@ Det här indexet har namnet ”hotels-quickstart” och fältdefinitioner som du
     ```
 
 > [!Tip]
-> För verifiering, kan du också kontrollera listan index i portalen.
+> För verifiering kan du också kontrol lera listan index i portalen.
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 – läsa in dokument
+## <a name="2---load-documents"></a>2 Läs in dokument
 
-Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka dokument. REST-API: et för den här uppgiften är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API för den här aktiviteten är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-1. Klistra in det här exemplet i PowerShell för att skapa en **$body** objekt som innehåller de dokument som du vill ladda upp. 
+1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller de dokument som du vill ladda upp. 
 
-    Denna begäran innehåller två fullständig och en partiell post. Partiell posten visar att du kan ladda upp ofullständig dokument. Den `@search.action` parametern anger hur indexering görs. Giltiga värden är ladda upp, sammanfoga, mergeOrUpload och ta bort. Beteendet mergeOrUpload antingen skapar ett nytt dokument för hotelId = 3 eller uppdaterar innehållet om det redan finns.
+    Denna begäran innehåller två fullständiga och en partiell post. Den partiella posten visar att du kan ladda upp ofullständiga dokument. `@search.action` Parametern anger hur indexeringen utförs. Giltiga värden är Ladda upp, sammanfoga, mergeOrUpload och ta bort. MergeOrUpload-beteendet skapar antingen ett nytt dokument för hotelId = 3, eller uppdaterar innehållet om det redan finns.
 
     ```powershell
     $body = @"
@@ -271,18 +271,18 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
     "@
     ```
 
-1. Ange slutpunkten den *hotels-quickstart* docs-samling och inkludera indexåtgärden (index/hotels-quickstart/docs/index).
+1. Ange slut punkten till samlingen *hotell-starter* -samling och inkludera index åtgärden (index/hotell-snabb start/dokument/index).
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
     ```
 
-1. Kör kommandot med **$url**, **$headers**, och **$body** att läsa in dokument i indexet hotels-quickstart.
+1. Kör kommandot med **$URL**, **$headers**och **$Body** för att läsa in dokument till hotell-snabb starts indexet.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Resultatet bör likna följande exempel. Du bör se en [statuskod 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Resultatet bör se ut som i följande exempel. Du bör se [status koden 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -318,25 +318,25 @@ Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka doku
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Det här steget visar hur man frågar ett index med hjälp av den [API för webbsökning dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Det här steget visar hur du frågar ett index med hjälp av [API: et search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Var noga med att använda enkla citattecken på Sök $urls. Frågesträngar inkluderar **$** tecken, och du kan utelämna behöva föregås om hela strängen omges av enkla citattecken...
+Se till att använda enkla citat tecken vid sökning $urls. Frågesträngar innehåller **$** tecken och du kan utelämna dem om hela strängen omges av enkla citat tecken.
 
-1. In den *hotels-quickstart* docs-samling och lägga till en **search** parametern för att skicka in en frågesträng. 
+1. Ange slut punkten till samlingen *hotell-starter-* samling och Lägg till en **Sök** parameter för att skicka i en frågesträng. 
   
-   Den här strängen kör en tom sökning (search = *), returnerar en unranked lista (Sök poäng = 1.0) av godtycklig dokument. Som standard returnerar Azure Search 50 träffar i taget. Den här frågan returnerar en struktur för hela dokumentet och värden som strukturerade. Lägg till **$count = true** att hämta en uppräkning av alla dokument i resultaten.
+   Den här strängen kör en tom sökning (search = *) och returnerar en lista med en lista (Sök poäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Search 50-matchningar i taget. Som strukturerad returnerar den här frågan en hel dokument struktur och-värden. Lägg till **$Count = sant** för att få ett antal dokument i resultaten.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
-1. Kör kommando för att skicka den **$url** till tjänsten.
+1. Kör kommandot för att skicka **$URL** till tjänsten.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-    Resultatet bör likna följande utdata.
+    Resultaten bör likna följande utdata.
 
     ```
     {
@@ -370,7 +370,7 @@ Var noga med att använda enkla citattecken på Sök $urls. Frågesträngar inkl
                 . . . 
     ```
 
-Testa några andra fråga exempel för att få en bild av syntaxen. Du kan göra en sträng-sökning, ordagrant $filter frågor, begränsa resultatmängd, omfång sökningen till specifika fält och mycket mer.
+Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan göra en strängs ökning, orda Grant $filter frågor, begränsa resultat uppsättningen, begränsa sökningen till vissa fält med mera.
 
 ```powershell
 # Query example 1
@@ -394,15 +394,15 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Rensa 
 
-När du arbetar i din egen prenumeration är det en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver resurserna som du skapade. Resurser vänstra som körs kan kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen för att ta bort hela uppsättningen resurser.
+När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
 
-Du kan hitta och hantera resurser i portalen med hjälp av den **alla resurser** eller **resursgrupper** länken i det vänstra navigeringsfönstret.
+Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
-Om du använder en kostnadsfri tjänst kan du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla oss under gränsen. 
+Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du PowerShell för att gå igenom det grundläggande arbetsflödet för att skapa och åtkomst till innehåll i Azure Search. Koncept i åtanke rekommenderar vi går vidare till mer avancerade scenarier, till exempel indexera från Azure-datakällor;
+I den här snabb starten använde du PowerShell för att gå igenom det grundläggande arbets flödet för att skapa och få åtkomst till innehåll i Azure Search. Med koncepten i åtanke rekommenderar vi att du går vidare till mer avancerade scenarier, t. ex. indexering från Azure Data källor.
 
 > [!div class="nextstepaction"]
-> [REST-självstudiekurs: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search](search-semi-structured-data.md)
+> [REST-självstudie: Indexera och Sök i semikolonavgränsade data (JSON-blobbar) i Azure Search](search-semi-structured-data.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Table storage-bindningar för Azure Functions
-description: Förstå hur du använder Azure Table storage-bindningar i Azure Functions.
+title: Azure Table Storage-bindningar för Azure Functions
+description: Lär dig hur du använder Azure Table Storage-bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5c3049b5f9f7607b9b75f3bee48b6ccd44601b15
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654243"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254759"
 ---
-# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med Azure Table storage-bindningar i Azure Functions. Azure Functions stöder indata och utdata bindningar för Azure Table storage.
+Den här artikeln förklarar hur du arbetar med lagrings bindningar i Azure Table i Azure Functions. Azure Functions stöder indata och utgående bindningar för Azure Table Storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Table storage-bindningar finns i den [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
+Tabellerna Storage-bindningar finns i [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -34,33 +34,33 @@ Table storage-bindningar finns i den [Microsoft.Azure.WebJobs](https://www.nuget
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Table storage-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub-lagringsplatsen.
+Tabellerna Storage-bindningar finns i [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Indata
 
-Använda Azure Table storage indatabindningen för att läsa en tabell i ett Azure Storage-konto.
+Använd data bindningen för Azure Table Storage för att läsa en tabell i ett Azure Storage-konto.
 
-## <a name="input---example"></a>Indata - exempel
+## <a name="input---example"></a>Indatamängds exempel
 
 Se exempel språkspecifika:
 
-* [C#-läsa en entitet](#input---c-example---one-entity)
-* [C#-bindningar till IQueryable](#input---c-example---iqueryable)
-* [C#-bindningar till CloudTable](#input---c-example---cloudtable)
-* [C#-skript som läser en entitet](#input---c-script-example---one-entity)
-* [C#-skript-bindningar till IQueryable](#input---c-script-example---iqueryable)
-* [C#-skript-bindningar till CloudTable](#input---c-script-example---cloudtable)
+* [C#Läs en entitet](#input---c-example---one-entity)
+* [C#bind till IQueryable](#input---c-example---iqueryable)
+* [C#bind till CloudTable](#input---c-example---cloudtable)
+* [C#skript läsning en entitet](#input---c-script-example---one-entity)
+* [C#skript bindning till IQueryable](#input---c-script-example---iqueryable)
+* [C#skript bindning till CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
 
-### <a name="input---c-example---one-entity"></a>Indata - C#-exempel – en entitet
+### <a name="input---c-example---one-entity"></a>In- C# exempel – en entitet
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som läser en tabellrad. 
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som läser en enskild tabell rad. 
 
-Rad nyckelvärdet ”{queueTrigger}” visar att Radnyckeln kommer från kön meddelande sträng.
+Rad nyckel svärdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```csharp
 public class TableStorage
@@ -83,9 +83,9 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example---iqueryable"></a>Indata - C#-exempel – IQueryable
+### <a name="input---c-example---iqueryable"></a>Ingångs C# exempel – IQueryable
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som läser flera tabellrader. Observera att den `MyPoco` klassen härleds från `TableEntity`.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som läser flera tabell rader. Observera att `MyPoco` klassen härleds från `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -109,9 +109,9 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example---cloudtable"></a>Indata - C#-exempel – CloudTable
+### <a name="input---c-example---cloudtable"></a>In- C# exempel – CloudTable
 
-`IQueryable` stöds inte i den [v2 funktionskörningen](functions-versions.md). Ett alternativ är att använda en `CloudTable` Metodparametern för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en 2.x-funktion som frågar en Azure Functions log-tabell:
+`IQueryable`stöds inte i [Functions v2](functions-versions.md)-körningen. Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en 2. x-funktion som skickar en fråga till en Azure Functions logg tabell:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -157,15 +157,15 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Läs mer om hur du använder CloudTable [komma igång med Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Mer information om hur du använder CloudTable finns i [komma igång med Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
 
-Om du försöker binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---c-script-example---one-entity"></a>Indata - C#-skript-exempel – en entitet
+### <a name="input---c-script-example---one-entity"></a>Exempel på C# inmatade skript – en entitet
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
+I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [ C# skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
 
-Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
+Filen *Function. JSON* anger en `partitionKey` och en `rowKey`. `rowKey` Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```json
 {
@@ -210,9 +210,9 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example---iqueryable"></a>Indata - C#-Skriptexemplet - IQueryable
+### <a name="input---c-script-example---iqueryable"></a>Exempel på C# inmatat skript-IQueryable
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen läser entiteter för en partitionsnyckel som anges i ett kömeddelande.
+I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [ C# skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen läser entiteter för en partitionsnyckel som anges i ett Queue-meddelande.
 
 Här är den *function.json* fil:
 
@@ -240,7 +240,7 @@ Här är den *function.json* fil:
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-C#-skriptkoden läggs en referens till Azure Storage SDK så att entitetstypen kan härledas från `TableEntity`:
+C# Skript koden lägger till en referens till Azure Storage SDK så att entitetstypen kan härledas från `TableEntity`:
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -262,9 +262,9 @@ public class Person : TableEntity
 }
 ```
 
-### <a name="input---c-script-example---cloudtable"></a>Indata - C#-Skriptexemplet - CloudTable
+### <a name="input---c-script-example---cloudtable"></a>Exempel på C# inmatade skript – CloudTable
 
-`IQueryable` stöds inte i den [v2 funktionskörningen](functions-versions.md). Ett alternativ är att använda en `CloudTable` Metodparametern för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en 2.x-funktion som frågar en Azure Functions log-tabell:
+`IQueryable`stöds inte i [Functions v2](functions-versions.md)-körningen. Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en 2. x-funktion som skickar en fråga till en Azure Functions logg tabell:
 
 ```json
 {
@@ -321,15 +321,15 @@ public class LogEntity : TableEntity
 }
 ```
 
-Läs mer om hur du använder CloudTable [komma igång med Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Mer information om hur du använder CloudTable finns i [komma igång med Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
 
-Om du försöker binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---f-example"></a>Indata - F# exempel
+### <a name="input---f-example"></a>Indatamängds F# exempel
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil och [ F# skriptet](functions-reference-fsharp.md) kod som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
+I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [ F# skript](functions-reference-fsharp.md) kod som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
 
-Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
+Filen *Function. JSON* anger en `partitionKey` och en `rowKey`. `rowKey` Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```json
 {
@@ -372,11 +372,11 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-### <a name="input---javascript-example"></a>Indata - JavaScript-exempel
+### <a name="input---javascript-example"></a>Exempel på inmatade JavaScript-skript
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
+I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
 
-Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
+Filen *Function. JSON* anger en `partitionKey` och en `rowKey`. `rowKey` Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```json
 {
@@ -414,9 +414,9 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-### <a name="input---java-example"></a>Indata - Java-exemplet
+### <a name="input---java-example"></a>In-Java-exempel
 
-I följande exempel visas en HTTP-utlöst funktion som returnerar det totala antalet objekt i en angiven partition i Table storage.
+I följande exempel visas en HTTP-utlöst funktion som returnerar det totala antalet objekt i en angiven partition i Table Storage.
 
 ```java
 @FunctionName("getallcount")
@@ -435,11 +435,11 @@ public int run(
 
 ## <a name="input---attributes"></a>Indata - attribut
  
-I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en indatabindning för tabellen:
+I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande attribut för att konfigurera en tabell indatatyps bindning:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
-  Attributets konstruktorn tar det tabellnamn, partitionsnyckel och radnyckel. Den kan användas på en out-parameter eller på det returnera värdet till funktionen, som visas i följande exempel:
+  Attributets konstruktor tar tabellens namn, partitionsnyckel och rad nyckel. Den kan användas för en out-parameter eller i funktionens retur värde, som visas i följande exempel:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -452,7 +452,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   }
   ```
 
-  Du kan ange den `Connection` egenskapen att ange storage-konto du använder, enligt följande exempel:
+  Du kan ställa `Connection` in egenskapen för att ange det lagrings konto som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -465,11 +465,11 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   }
   ```
 
-  Ett komplett exempel finns i indata - C# exempel.
+  Ett fullständigt exempel finns i indatamängds C# -exempel.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Innehåller ett annat sätt att ange konto för att använda. Konstruktorn tar namnet på en appinställning som innehåller en anslutningssträng för lagring. Attributet kan användas på parametern, metoden eller klassnivå. I följande exempel visas klassen och metoden:
+  Ger ett annat sätt att ange det lagrings konto som ska användas. Konstruktorn tar namnet på en app-inställning som innehåller en lagrings anslutnings sträng. Attributet kan användas på parametern, metoden eller klassnivå. I följande exempel visas klassen och metoden:
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -483,17 +483,17 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   }
   ```
 
-Storage-konto du använder bestäms i följande ordning:
+Lagrings kontot som ska användas fastställs i följande ordning:
 
 * Den `Table` attributets `Connection` egenskapen.
 * Den `StorageAccount` attribut som används i samma parameter som den `Table` attribut.
 * Den `StorageAccount` attribut som används i funktionen.
 * Den `StorageAccount` attribut som tillämpas på klassen.
-* Standardkontot för lagring för funktionsappen (”AzureWebJobsStorage” app-inställning).
+* Standard lagrings kontot för app-inställningen ("AzureWebJobsStorage").
 
-## <a name="input---java-annotations"></a>Indata - Java-anteckningar
+## <a name="input---java-annotations"></a>Inmatade Java-anteckningar
 
-I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@TableInput` anteckning om parametrar vars värde skulle hämtas från Table storage.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av valfritt<T>. 
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@TableInput` anteckningen för parametrar vars värde kommer från Table Storage.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med\<valfria T >. 
 
 ## <a name="input---configuration"></a>Indata - konfiguration
 
@@ -501,43 +501,43 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**type** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**direction** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
-|**name** | Saknas | Namnet på variabeln som representerar tabell eller entitet i funktionskoden. | 
+|**type** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
+|**direction** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
+|**name** | Saknas | Namnet på variabeln som representerar tabellen eller entiteten i funktions koden. | 
 |**tableName** | **TableName** | Namnet på tabellen.| 
-|**partitionKey** | **partitionKey** |Valfri. Partitionsnyckeln för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
-|**RowKey** |**RowKey** | Valfri. Radnyckel för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
-|**take** |**ta** | Valfri. Det maximala antalet enheter för att läsa i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
-|**filter** |**Filter** | Valfri. En OData-filteruttryck för tabellen som indata i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
-|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**partitionKey** | **partitionKey** |Valfri. Partitionsnyckel för den tabell entitet som ska läsas. I avsnittet [användning](#input---usage) finns information om hur du använder den här egenskapen.| 
+|**rowKey** |**RowKey** | Valfri. Rad nyckeln för den tabell entitet som ska läsas. I avsnittet [användning](#input---usage) finns information om hur du använder den här egenskapen.| 
+|**take** |**Gå** | Valfri. Det maximala antalet entiteter som ska läsas i Java Script. I avsnittet [användning](#input---usage) finns information om hur du använder den här egenskapen.| 
+|**Synkroniseringsfilter** |**Synkroniseringsfilter** | Valfri. Ett OData filter-uttryck för tabell indatatyp i Java Script. I avsnittet [användning](#input---usage) finns information om hur du använder den här egenskapen.| 
+|**anslutning** |**anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Indata - användning
 
-Indatabindningen för Table storage har stöd för följande scenarier:
+Bindningen för tabell lagrings data har stöd för följande scenarier:
 
-* **Läsa en rad i C# eller C#-skript**
+* **Läsa en rad i C# eller C# ett skript**
 
-  Ange `partitionKey` och `rowKey`. Komma åt informationen med hjälp av en metodparameter `T <paramName>`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. `T` Vanligtvis är en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Den `filter` och `take` egenskaper används inte i det här scenariot. 
+  Ange `partitionKey` och `rowKey`. Få åtkomst till tabell data med hjälp av en `T <paramName>`metod parameter. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från. `TableEntity` Egenskaperna `filter` och`take` används inte i det här scenariot. 
 
-* **Läsa en eller flera rader i C# eller C#-skript**
+* **Läs en eller flera rader i C# eller C# skriptet**
 
-  Komma åt informationen med hjälp av en metodparameter `IQueryable<T> <paramName>`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. `T` måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att göra någon filtrering krävs. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper används inte i det här scenariot.  
+  Få åtkomst till tabell data med hjälp av en `IQueryable<T> <paramName>`metod parameter. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. Egenskaperna `partitionKey` ,`rowKey`, och`take` används inte i det här scenariot. `filter`  
 
   > [!NOTE]
-  > `IQueryable` stöds inte i den [v2 funktionskörningen](functions-versions.md). Ett alternativ är att [använder en metodparameter för CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable`stöds inte i [Functions v2](functions-versions.md)-körningen. Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-* **Läsa en eller flera rader i JavaScript**
+* **Läs en eller flera rader i Java Script**
 
-  Ange den `filter` och `take` egenskaper. Konfigurerar inte `partitionKey` eller `rowKey`. Få åtkomst till den inkommande tabell (eller de entiteter) med hjälp av `context.bindings.<name>`. De avserialiserade objekt har `RowKey` och `PartitionKey` egenskaper.
+  Ange egenskaperna `take`och. `filter` Ange `partitionKey` inte eller `rowKey`. Få åtkomst till entiteten för indatakälla (eller `context.bindings.<name>`entiteter) med hjälp av. De avserialiserade objekten har `RowKey` och `PartitionKey` egenskaper.
 
 ## <a name="output"></a>Output
 
-Använda en Azure Table storage-utdatabindning för att skriva entiteter till en tabell i ett Azure Storage-konto.
+Använd en Azure Table Storage utgående bindning för att skriva entiteter till en tabell i ett Azure Storage konto.
 
 > [!NOTE]
-> Den här utdatabindning har inte stöd för att uppdatera befintliga entiteter. Använd den `TableOperation.Replace` åtgärden [från Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) att uppdatera en befintlig entitet.   
+> Den här utgående bindningen stöder inte uppdatering av befintliga entiteter. Använd åtgärden [från Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) för att uppdatera en befintlig entitet. `TableOperation.Replace`   
 
 ## <a name="output---example"></a>Utdata - exempel
 
@@ -550,7 +550,7 @@ Se exempel språkspecifika:
 
 ### <a name="output---c-example"></a>Resultat – C#-exempel
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som använder en HTTP-utlösare för att skriva en enda tabellrad. 
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som använder en http-utlösare för att skriva en enskild tabell rad. 
 
 ```csharp
 public class TableStorage
@@ -574,7 +574,7 @@ public class TableStorage
 
 ### <a name="output---c-script-example"></a>Resultat – exempel på C#-skript
 
-I följande exempel visas en tabell-utdatabindning i en *function.json* fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver flera tabellenheter.
+I följande exempel visas en tabell utgående bindning i en *Function. JSON* -fil och [ C# skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver flera tabell enheter.
 
 Här är den *function.json* fil:
 
@@ -629,7 +629,7 @@ public class Person
 
 ### <a name="output---f-example"></a>Utdata - F# exempel
 
-I följande exempel visas en tabell-utdatabindning i en *function.json* fil och [ F# skriptet](functions-reference-fsharp.md) kod som använder bindningen. Funktionen skriver flera tabellenheter.
+I följande exempel visas en tabell utgående bindning i en *Function. JSON* -fil och [ F# skript](functions-reference-fsharp.md) kod som använder bindningen. Funktionen skriver flera tabell enheter.
 
 Här är den *function.json* fil:
 
@@ -676,7 +676,7 @@ let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
 
 ### <a name="output---javascript-example"></a>Resultat – JavaScript-exempel
 
-I följande exempel visas en tabell-utdatabindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabellenheter.
+I följande exempel visas en tabell utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabell enheter.
 
 Här är den *function.json* fil:
 
@@ -723,9 +723,9 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
+Använd [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktorn tar tabellnamnet. Den kan användas på en `out` parametern eller returvärdet för funktionen som du ser i följande exempel:
+Attributets konstruktor tar tabellens namn. Den kan användas för en `out` parameter eller i funktionens retur värde, som visas i följande exempel:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -738,7 +738,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-Du kan ange den `Connection` egenskapen att ange storage-konto du använder, enligt följande exempel:
+Du kan ställa `Connection` in egenskapen för att ange det lagrings konto som ska användas, som du ser i följande exempel:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -753,7 +753,7 @@ public static MyPoco TableOutput(
 
 Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
 
-Du kan använda den `StorageAccount` attribut för att ange storage-konto på klass, metod eller parametern-nivå. Mer information finns i [indata - attribut](#input---attributes).
+Du kan använda `StorageAccount` attributet för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i [indata-attribut](#input---attributes).
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -761,41 +761,41 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**type** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**direction** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
-|**name** | Saknas | Variabelnamnet som används i Funktionskoden som representerar tabell eller enhet. Ange `$return` att referera till returvärde för funktion.| 
+|**type** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
+|**direction** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
+|**name** | Saknas | Variabel namnet som används i funktions koden som representerar tabellen eller entiteten. Ange till `$return` att referera till funktionens retur värde.| 
 |**tableName** |**TableName** | Namnet på tabellen.| 
-|**partitionKey** |**partitionKey** | Partitionsnyckeln för entiteten tabell att skriva. Se den [användning](#output---usage) anvisningar om hur du använder den här egenskapen.| 
-|**RowKey** |**RowKey** | Radnyckel för entiteten tabell att skriva. Se den [användning](#output---usage) anvisningar om hur du använder den här egenskapen.| 
-|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**partitionKey** |**partitionKey** | Partitionsnyckel för den tabell entitet som ska skrivas. I [avsnittet användning](#output---usage) finns information om hur du använder den här egenskapen.| 
+|**rowKey** |**RowKey** | Rad nyckeln för den tabell entitet som ska skrivas. I [avsnittet användning](#output---usage) finns information om hur du använder den här egenskapen.| 
+|**anslutning** |**anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 
-Table storage utdata bindningen har stöd för följande scenarier:
+Bindningen för tabell lagrings utdata stöder följande scenarier:
 
-* **Skriv en rad på alla språk**
+* **Skriv en rad på valfritt språk**
 
-  Få åtkomst till utdata-tabellentiteten i C# och C#-skript, genom att använda en metodparameter som `out T paramName` eller funktionen returvärde. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. `T` kan vara valfri typ av serialiserbara om partitionsnyckel och radnyckel tillhandahålls av den *function.json* fil eller `Table` attribut. I annat fall `T` måste vara en typ som inkluderar `PartitionKey` och `RowKey` egenskaper. I det här scenariot `T` implementerar normalt `ITableEntity` eller härleds från `TableEntity`, men det behöver inte.
+  I C# och C# skript, kan du komma åt entiteten för utdata-tabellen med hjälp `out T paramName` av en metod parameter, till exempel eller funktionens retur värde. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. `T`kan vara en serialiserbar typ om partitionsnyckel och rad nyckel anges av *Function. JSON* -filen eller `Table` -attributet. Annars måste vara en typ som innehåller `PartitionKey` och `RowKey` egenskaper. `T` I det här scenariot `T` `ITableEntity` implementeras eller härleds vanligt `TableEntity`vis från, men det behöver inte.
 
-* **Skriv en eller flera rader i C# eller C# skript**
+* **Skriv en eller flera rader i C# eller C# skriptet**
 
-  Få åtkomst till utdata-tabellentiteten i C# och C#-skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `IAsyncCollector<T> paramName`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. `T` Anger schemat för de entiteter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Den partitionsnyckel och en rad viktiga värden i *function.json* eller `Table` attributkonstruktör används inte i det här scenariot.
+  I C# och C# skript, kan du komma åt entiteten för utdata-tabellen `ICollector<T> paramName` med `IAsyncCollector<T> paramName`hjälp av en metod parameter eller. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. `T`Anger schemat för de entiteter som du vill lägga till. Är `T` vanligt vis härledda `TableEntity` från eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckel och rad nyckel värden i *Function. JSON* eller `Table` attributhierarkin används inte i det här scenariot.
 
-  Ett alternativ är att använda en `CloudTable` Metodparametern för att skriva till tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK version](#azure-storage-sdk-version-in-functions-1x). Ett exempel på kod som binder till `CloudTable`, finns i exemplen indatabindning för [C#](#input---c-example---cloudtable) eller [C#-skript](#input---c-script-example---cloudtable) tidigare i den här artikeln.
+  Ett alternativ är att använda en `CloudTable` metod parameter för att skriva till tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x). Ett exempel på kod som binder till `CloudTable`finns i exemplen för inbindningar för [C#](#input---c-example---cloudtable) eller [ C# skript](#input---c-script-example---cloudtable) tidigare i den här artikeln.
 
-* **Skriv en eller flera rader i JavaScript**
+* **Skriv en eller flera rader i Java Script**
 
-  Komma åt tabellen utdata med i JavaScript-funktioner, `context.bindings.<name>`.
+  I JavaScript-funktioner får du åtkomst till tabellens utdata med hjälp av `context.bindings.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 
 | Bindning | Referens |
 |---|---|
-| Tabell | [Felkoder för tabell](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Blob, Table, Queue | [Felkoder för lagring](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue | [Felsökning](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Tabell | [Tabell fel koder](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| BLOB, tabell, kö | [Lagrings fel koder](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tabell, kö | [Felsökning](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Nästa steg
 

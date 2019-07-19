@@ -1,10 +1,10 @@
 ---
-title: Vad är Azure AD rättigheten management? (Förhandsversion) – Azure Active Directory
-description: Få en översikt över Azure Active Directory rättigheten hantering och hur du kan använda den för att hantera åtkomst till grupper, program och SharePoint Online-platser för interna och externa användare.
+title: Vad är hantering av Azure AD-rättigheter? (För hands version) – Azure Active Directory
+description: Få en översikt över Azure Active Directory hantering av rättigheter och hur du kan använda den för att hantera åtkomst till grupper, program och SharePoint Online-webbplatser för interna och externa användare.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,131 +12,131 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204541"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234628"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är Azure AD rättigheten management? (Förhandsversion)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är hantering av Azure AD-rättigheter? (Förhandsversion)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättigheten management är för närvarande i offentlig förhandsversion.
+> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Anställda i organisationer behöver åtkomst till olika grupper, program och webbplatser att utföra sitt arbete. Det är svårt att hantera den här åtkomsten. I de flesta fall finns ingen ordnad lista över alla resurser som en användare behöver för ett projekt. Projektledaren har en god förståelse för de resurser som behövs, personer som ingår och hur länge varar i projektet. Dock har projektledaren vanligtvis inte behörighet att godkänna eller bevilja åtkomst till andra. Det här scenariot hämtar mer komplicerad vid försök att arbeta med externa enskilda personer eller företag.
+Anställda i organisationer behöver åtkomst till olika grupper, program och webbplatser för att utföra sitt arbete. Det är svårt att hantera den här åtkomsten. I de flesta fall finns det ingen ordnad lista över alla resurser som en användare behöver för ett projekt. Projektledaren har en god förståelse för de resurser som behövs, vilka individer som är inblandade och hur länge projektet kommer att vara sist. Men Project Manager har normalt inte behörighet att godkänna eller bevilja åtkomst till andra. Det här scenariot blir mer komplicerat när du försöker arbeta med externa användare eller företag.
 
-Azure Active Directory (Azure AD) rättigheten management kan hjälpa dig att hantera åtkomst till grupper, program och SharePoint Online-platser för interna användare och användare utanför organisationen.
+Azure Active Directory (Azure AD) hantering av rättigheter kan hjälpa dig att hantera åtkomst till grupper, program och SharePoint Online-webbplatser för interna användare och även användare utanför organisationen.
 
-## <a name="why-use-entitlement-management"></a>Varför använda rätt management?
+## <a name="why-use-entitlement-management"></a>Varför ska jag använda hantering av rättigheter?
 
-Företag kan du ofta står inför när de har åtkomst till resurser som:
+Företags organisationer är ofta riktade mot utmaningar när de hanterar åtkomst till resurser som:
 
-- Användare kanske inte vet vad de ska ha åtkomst
+- Användare kanske inte vet vilken åtkomst de ska ha
 - Användare kan ha svårt att hitta rätt personer eller rätt resurser
-- När användare hitta och få åtkomst till en resurs, kan de håller att få åtkomst till längre än vad som krävs för företag
+- När användarna hittar och får åtkomst till en resurs, kan de vänta på att få åtkomst längre än vad som krävs i affärs syfte
 
-Dessa problem är beredda för användare som behöver åtkomst från andra kataloger, till exempel externa användare från strömförsörjning kedja organisationer eller andra affärspartner. Exempel:
+Dessa problem är sammansatta för användare som behöver åtkomst från en annan katalog, t. ex. externa användare som är från att tillhandahålla kedje organisationer eller andra affärs partner. Exempel:
 
-- Organisationer kan inte känner till alla enskilda användare i andra kataloger att bjuda in dem
-- Även om organisationer har bjuda in dessa användare organisationer inte kommer ihåg att hantera alla användarens åtkomst konsekvent
+- Organisationer kanske inte vet att alla enskilda personer i andra kataloger kan bjuda in dem
+- Även om organisationer kunde bjuda in dessa användare, kanske organisationer inte kommer ihåg att hantera all användares åtkomst konsekvent
 
-Azure AD rättigheten management kan hjälpa dig att lösa dessa problem.
+Hantering av Azure AD-berättigande kan hjälpa dig att lösa dessa utmaningar.
 
-## <a name="what-can-i-do-with-entitlement-management"></a>Vad kan jag göra med rätt management?
+## <a name="what-can-i-do-with-entitlement-management"></a>Vad kan jag göra med hantering av rättigheter?
 
-Här följer några av funktionerna för hantering av behörighet:
+Här följer några funktioner för hantering av rättigheter:
 
-- Skapa paket av relaterade resurser som användarna kan begära
-- Definiera regler för hur du begär resurser och när åtkomst upphör att gälla
-- Styr livscykeln för både interna och externa användare
-- Delegera hanteringen av resurser
-- Ange godkännare att godkänna begäranden
-- Skapa rapporter för att spåra historiken
+- Skapa paket med relaterade resurser som användarna kan begära
+- Definiera regler för hur du begär resurser och när åtkomsten upphör att gälla
+- Styr livs cykeln för åtkomst för både interna och externa användare
+- Delegera hantering av resurser
+- Ange god kännare för att godkänna begär Anden
+- Skapa rapporter för att spåra historik
 
-Titta på följande videoklipp från 2018 Ignite-konferensen för en översikt över Identitetsstyrning och rättigheten hantering:
+För en översikt över identitets styrning och hantering av rättigheter kan du titta på följande video från antändnings 2018-konferensen:
 
 >[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 
-## <a name="what-resources-can-i-manage"></a>Vilka resurser kan hantera?
+## <a name="what-resources-can-i-manage"></a>Vilka resurser kan jag hantera?
 
-Här är typerna av resurser som du kan hantera åtkomst till med hantering av behörighet:
+Här följer de typer av resurser som du kan hantera åtkomst till med hantering av rättigheter:
 
 - Azure AD-säkerhetsgrupper
 - Office 365-grupper
-- Azure AD företagsprogram, inklusive SaaS-program och anpassade-integrerade program som stöder federation eller etablering
-- SharePoint Online-webbplatssamlingar och platser
+- Azure AD Enterprise-program, inklusive SaaS-program och anpassade integrerade program som stöder Federation eller etablering
+- Webbplats samlingar och platser i SharePoint Online
 
-Du kan också styra åtkomst till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Office 365-grupper.  Exempel:
+Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Office 365-grupper.  Exempel:
 
-- Du kan ge användarlicenser för Microsoft Office 365 använder en Azure AD-säkerhetsgrupp i ett paket för åtkomst och konfigurerar [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
-- Du kan ge användare åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett paket för åtkomst och skapa en [Azure rolltilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
+- Du kan ge användarna licenser för Microsoft Office 365 med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
+- Du kan ge användarna åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och skapa en [Azure-roll tilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
 
-## <a name="what-are-access-packages-and-policies"></a>Vad är access paket och principer?
+## <a name="what-are-access-packages-and-policies"></a>Vad är åtkomst paket och principer?
 
-Berättigande management introduceras konceptet med en *åtkomst paketet*. Ett åtkomst-paket är ett paket med alla resurser som en användare behöver för att arbeta med ett projekt eller utföra sitt arbete. Resurser omfattar tillgång till grupper, program eller webbplatser. Åtkomst paket används för att styra åtkomst för internt anställda och även användare utanför organisationen. Åtkomst-paket har definierats i behållare som kallas *kataloger*.
+Rättighets hantering introducerar konceptet med ett *Access-paket*. Ett Access-paket är ett paket med alla resurser som en användare behöver för att arbeta med ett projekt eller utföra sitt arbete. Resurserna innehåller åtkomst till grupper, program eller platser. Åtkomst paket används för att styra åtkomsten till dina interna anställda och även användare utanför organisationen. Åtkomst paket definieras i behållare som kallas *kataloger*.
 
-Åtkomst paket även innehålla en eller flera *principer*. En princip definierar regler eller guardrails att komma åt ett åtkomst-paket. När en principen framtvingar att endast rätt användare har beviljats åtkomst till rätt resurser med rätt mängd tid.
+Åtkomst paket innehåller också en eller flera *principer*. En princip definierar regler eller guardrails för åtkomst till ett Access-paket. Att aktivera en princip kräver att endast rätt användare beviljas åtkomst, till rätt resurser och för rätt tid.
 
-![Paket för åtkomst och principer](./media/entitlement-management-overview/elm-overview-access-package.png)
+![Komma åt paket och principer](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-Med en åtkomst-paketet och dess principer definierar åtkomsten package manager:
+Med ett Access-paket och dess principer definierar Access Package Manager:
 
 - Resurser
-- Roller användarna behöver för resurser
+- Roller som användarna behöver för resurserna
 - Interna användare och externa användare som är berättigade att begära åtkomst
-- Godkännandeprocessen och de användare som kan godkänna eller neka åtkomst
-- Varaktigheten för användarens åtkomst
+- Godkännande process och användare som kan godkänna eller neka åtkomst
+- Varaktighet för användarens åtkomst
 
-Följande diagram visar ett exempel på de olika elementen i rätt management. Den visar två exempel åtkomst paket.
+I följande diagram visas ett exempel på de olika elementen i hantering av rättigheter. Det visar två exempel på åtkomst paket.
 
-- **Åtkomst till paketet 1** innehåller en grupp som en resurs. Åtkomst har definierats med en princip som gör att en uppsättning användare i katalogen för att begära åtkomst.
-- **Åtkomst till paketet 2** innehåller en grupp, ett program och en SharePoint Online-webbplats som resurser. Åtkomst har definierats med två olika principer. Den första principen gör det möjligt för en uppsättning användare i katalogen för att begära åtkomst. Den andra principen gör det möjligt för användare i en extern katalog att begära åtkomst.
+- **Access paket 1** innehåller en enda grupp som en resurs. Åtkomst definieras med en princip som gör det möjligt för en uppsättning användare i katalogen att begära åtkomst.
+- **Access paket 2** innehåller en grupp, ett program och en SharePoint Online-webbplats som resurser. Åtkomst definieras med två olika principer. Den första principen gör det möjligt för en uppsättning användare i katalogen att begära åtkomst. Den andra principen gör det möjligt för användare i en extern katalog att begära åtkomst.
 
-![Översikt över berättigande](./media/entitlement-management-overview/elm-overview.png)
+![Översikt över rättighets hantering](./media/entitlement-management-overview/elm-overview.png)
 
 ## <a name="external-users"></a>Externa användare
 
-När du använder den [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) bjuda in upplevelse, måste du redan kan e-postadresserna för de externa gästanvändare som du vill sätta i din katalog i resursen och arbeta med. Det här fungerar bra när du arbetar med ett mindre eller kortsiktiga projekt och du redan vet alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Exempel: du kan arbeta med en annan organisation och har en kontaktpunkt med organisationen, men med tiden måste ytterligare användare från organisationen också ha tillgång.
+När du använder [Azure AD-inbjudan för Business-to-Business (B2B)](../b2b/what-is-b2b.md) måste du redan känna till e-postadresserna till de externa gäst användare som du vill ta med i resurs katalogen och arbeta med. Detta fungerar bra när du arbetar med ett mindre eller kortsiktigt projekt och du redan känner till alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Till exempel kanske du arbetar med en annan organisation och har en kontakt punkt med den organisationen, men över tiden kommer ytterligare användare från organisationen också att ha åtkomst.
 
-Med rätt management kan definiera du en princip som tillåter användare från organisationer som du anger, och som också använder Azure AD för att kunna begära ett åtkomst-paket. Du kan ange om godkännande krävs och ett förfallodatum för åtkomst. Om godkännande krävs, kan du också ange som godkännare en eller flera användare från den externa organisation som du tidigare inbjuden - eftersom det är troligt att veta vilka externa användare från organisationen behöver åtkomst. När du har konfigurerat paketet åtkomst kan skicka du en länk till paketet åtkomst till kontaktpersonen hos extern organisation. Kontakten kan dela med andra användare i externa organisationen och de kan använda den här länken för att begära åtkomst till paketet.  Användare från organisationen som har redan bjudits in till din katalog kan också använda länken.
+Med rättighets hantering kan du definiera en princip som tillåter användare från organisationer som du anger, som också använder Azure AD, för att kunna begära ett Access-paket. Du kan ange om godkännande krävs och ett förfallo datum för åtkomsten. Om godkännande krävs kan du också ange som god kännare för en eller flera användare från den externa organisation som du tidigare bjudit in – eftersom de sannolikt vet vilka externa användare från deras organisation som behöver åtkomst. När du har konfigurerat åtkomst paketet kan du skicka en länk till Access-paketet till din kontakt person i den externa organisationen. Den kontakten kan dela med andra användare i den externa organisationen, och de kan använda den här länken för att begära åtkomst paketet.  Användare från den organisationen som redan har bjudits in till din katalog kan också använda den länken.
 
-När en begäran har godkänts, kommer rättigheten management etablera användare med den åtkomst som krävs, som kan innehålla bjuda in användaren om de inte redan är i din katalog. Azure AD skapar automatiskt en B2B-konto för dem.  Observera att en administratör kan ha tidigare begränsade vilka organisationer är tillåtna för samarbete, genom att ange en [B2B tillåter eller nekar lista](../b2b/allow-deny-list.md) att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera och sedan de inte kommer att bjuda in.
+När en begäran godkänns, etablerar rättighets hantering användaren med nödvändig åtkomst, vilket kan inkludera inbjudan till användaren om de inte redan finns i katalogen. Azure AD skapar automatiskt ett B2B-konto för dem.  Observera att en administratör kan ha tidigare begränsat vilka organisationer som tillåts för samarbete genom att ställa in en [B2B-lista med eller neka](../b2b/allow-deny-list.md) för att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera kommer de inte att bjudas in.
 
-Eftersom du inte vill att den externa användaren åtkomst till att alltid ange ett förfallodatum i principen, till exempel 180 dagar. Efter 180 dagar, om deras åtkomst inte förnyas tar rättigheten management bort all åtkomst som är associerade med paketet åtkomst.  Om den användare som har bjudits in via rättighet hantering inte använder andra åtkomst paketet, kommer sedan när de förlorar sin senaste tilldelningen sitt B2B-konto att blockeras från att logga in i 30 dagar och därefter bort.  Detta förhindrar att en ökning av onödiga konton.  
+Eftersom du inte vill att den externa användarens åtkomst till senaste oändligt, anger du ett förfallo datum i principen, till exempel 180 dagar. Om åtkomsten inte förnyas efter 180 dagar tar rättighets hanteringen bort all åtkomst som är kopplad till det Access-paketet.  Om användaren som har bjudits in via rättighets hantering inte har några andra åtkomst paket tilldelningar, kommer deras B2B-konto att blockeras från att logga in i 30 dagar och därefter tas bort när de förlorar sin senaste tilldelning.  Detta förhindrar spridning av onödiga konton.  
 
 ## <a name="terminology"></a>Terminologi
 
-För att bättre förstå rättigheten hanterings- och dess dokumentation, bör du granska följande villkor.
+För att bättre förstå hantering av rättigheter och dess dokumentation bör du läsa följande villkor.
 
 | Term eller begrepp | Beskrivning |
 | --- | --- |
-| hantering av behörighet | En tjänst som tilldelar återkallar och administrerar åtkomst paket. |
-| åtkomst-paketet | En uppsättning behörigheter och principer till resurser som användarna kan begära. En åtkomst-paketet finns alltid i en katalog. |
-| åtkomstbegäran | En begäran om åtkomst till en åtkomst-paketet. En begäran går vanligtvis igenom ett arbetsflöde. |
-| policy | En uppsättning regler som definierar åtkomst livscykel, till exempel hur användare får åtkomst, som kan godkänna och hur länge användarna har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
-| catalog | En behållare för relaterade resurser och åtkomst-paket. |
-| Allmän catalog | En inbyggd katalog som alltid är tillgänglig. Lägg till resurser i den allmänna katalogen måste du ha vissa behörigheter. |
-| resource | En tillgång eller en tjänst (till exempel en grupp, program eller en webbplats) som en användare kan beviljas behörigheter till. |
-| Resurstyp | Typ av resurs som innehåller grupper, program och SharePoint Online-platser. |
-| resurs-roll | En uppsättning behörigheter som är associerade med en resurs. |
-| resursbiblioteket | En katalog som har en eller flera resurser för att dela. |
-| tilldelade användare | En tilldelning av ett paket för åtkomst till en användare eller grupp. |
-| Aktivera | Processen att göra ett åtkomst-paket tillgängliga för användare att begära. |
+| hantering av rättigheter | En tjänst som tilldelar, återkallar och administrerar åtkomst paket. |
+| åtkomst paket | En samling behörigheter och principer till resurser som användare kan begära. Ett Access-paket finns alltid i en katalog. |
+| åtkomstbegäran | En begäran om åtkomst till ett Access-paket. En begäran skickas vanligt vis genom ett arbets flöde. |
+| policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
+| catalog | En behållare för relaterade resurser och åtkomst paket. |
+| Allmän katalog | En inbyggd katalog som alltid är tillgänglig. För att lägga till resurser i den allmänna katalogen krävs vissa behörigheter. |
+| resource | En till gång eller tjänst (till exempel en grupp, ett program eller en webbplats) som en användare kan beviljas behörighet till. |
+| Resurs typ | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
+| resurs roll | En samling behörigheter som är kopplade till en resurs. |
+| resurs katalog | En katalog som har en eller flera resurser som ska delas. |
+| tilldelade användare | En tilldelning av ett Access-paket till en användare eller grupp. |
+| Använd | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
 
 ## <a name="license-requirements"></a>Licenskrav
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialiserad moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet, är inte för närvarande tillgängliga för användning i den här förhandsversionen.
+Specialiserade moln, till exempel Azure Government, Azure Germany och Azure Kina 21Vianet, är inte tillgängliga för användning i den här för hands versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Skapa ditt första åtkomst-paket](entitlement-management-access-package-first.md)
+- [Självstudier: Skapa ditt första Access-paket](entitlement-management-access-package-first.md)
 - [Vanliga scenarier](entitlement-management-scenarios.md)

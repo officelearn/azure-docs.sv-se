@@ -1,105 +1,112 @@
 ---
-title: Skala ut ett kluster i Azure Data Explorer
-description: Den här artikeln beskriver steg för att skala ut och skala i ett Azure Data Explorer-kluster utifrån ändrade begäran.
+title: Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
+description: I den här artikeln beskrivs hur du skalar ut och skalar i ett Azure Datautforskaren-kluster baserat på ändring efter frågan.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: 29bfcc42462a667850f0b2e1bbda3d29cd1597ab
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.date: 07/14/2019
+ms.openlocfilehash: 70e6bdfcf9718244632ad02e09d3ddadee71a617
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571522"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311560"
 ---
-# <a name="manage-cluster-horizontal-scaling-to-accommodate-changing-demand"></a>Hantera kluster horisontell skalning för att hantera ändrade behov
+# <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 
-Ändra storlek på ett kluster på rätt sätt är det viktigt att prestandan för Azure Data Explorer. Men det går inte att förutse efterfrågan på ett kluster med absolut noggrannhet. En statisk klusterstorlek kan leda till underutnyttjande eller overutilization, inte är idealiskt.
+Att ändra storlek på ett kluster är på lämpligt sätt avgörande för Azure Datautforskarens prestanda. En statisk kluster storlek kan leda till användning eller över-användning, men ingen av dem är idealisk.
 
-En bättre metod är att *skala* ett kluster, att lägga till och ta bort kapaciteten med ändringen av begäran. Det finns två arbetsflöden för att skala: 
-* Horisontell skalning, kallas även skala ut och in.
-* Vertikal skalning, kallas även skala upp och ned.
+Eftersom efter frågan på ett kluster inte kan förutsägas med absolut noggrannhet är det bättre att *skala* ett kluster, lägga till och ta bort kapacitets-och CPU-resurser med justerbar efter frågan. 
 
-Den här artikeln förklarar horisontell skalning arbetsflödet.
+Det finns två arbets flöden för skalning av ett Azure Datautforskaren-kluster: 
 
-Horisontell skalning kan du skala instansantalet automatiskt baserat på fördefinierade regler och scheman. Ange inställningarna för automatisk skalning för ditt kluster i Azure-portalen, enligt beskrivningen i den här artikeln.
+* Horisontell skalning, även kallat skalning in och ut.
+* [Vertikal skalning](manage-cluster-vertical-scaling.md), även kallat skalning upp och ned.
 
-## <a name="steps-to-configure-horizontal-scaling"></a>Steg för att konfigurera horisontell skalning
+I den här artikeln beskrivs arbets flödet för horisontell skalning.
 
-Gå till din Data Explorer-klusterresursen i Azure-portalen. Under den **inställningar** väljer **skala ut**. 
+## <a name="configure-horizontal-scaling"></a>Konfigurera vågrät skalning
 
-Välj önskad Autoskala metod: **Manuell skala**, **optimerade Autoskala** eller **anpassad Autoskala**.
+Genom att använda vågrät skalning kan du skala antalet instanser automatiskt, baserat på fördefinierade regler och scheman. Ange inställningarna för autoskalning för klustret:
 
-### <a name="manual-scale"></a>Manuell skala
+1. I Azure Portal går du till Azure Datautforskaren kluster resursen. Under **Inställningar**väljer du **skala ut**. 
 
-Manuell skalning är standardinställningen med Skapa kluster. Det innebär att klustret har en statisk klusterkapacitet som inte ändras automatiskt. Du kan välja den statiska kapacitet med hjälp av fältet och ändras inte förrän nästa gång du ändrar klustrets skala ut inställningen.
+2. I fönstret **skala ut** väljer du den metod för autoskalning som du vill använda: **Manuell skalning**, **optimerad**autoskalning eller **anpassad**autoskalning.
 
-   ![Manuell fördelningsmetoden](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
+### <a name="manual-scale"></a>Manuell skalning
 
-### <a name="optimized-autoscale"></a>Optimerad automatisk skalning
+Manuell skalning är standardinställningen när klustret skapas. Klustret har en statisk kapacitet som inte ändras automatiskt. Du väljer den statiska kapaciteten med hjälp av **antalet instans antal** . Klustrets skalning förblir i den inställningen tills du gör en ny ändring.
 
-Optimerad automatisk skalning är den rekommendera Autoskala-metoden. Steg för att konfigurera optimerad automatisk skalning:
+   ![Metod för manuell skalning](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-1. Valt alternativ för automatisk skalning av optimerad och välj en nedre gräns och en övre gräns för mängden instanser av klustret, autoskalning kommer att ske mellan de här gränserna.
-2. Klicka på Spara.
+### <a name="optimized-autoscale"></a>Optimerad autoskalning
 
-   ![Optimerad automatisk skalning, metod](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
+Optimerad autoskalning är den rekommenderade automatiska skalnings metoden. Med den här metoden optimeras kluster prestanda och-kostnader. Om klustret närmar sig ett tillstånd med under användning skalas det i. Den här åtgärden sänker kostnaderna men behåller prestanda nivån. Om klustret närmar sig ett tillstånd för överförbrukning kommer det att skalas ut för att upprätthålla optimala prestanda. Så här konfigurerar du optimerad autoskalning:
 
-Efter att klicka på Spara optimerad mekanismen för automatisk skalning kan börja fungera och det är kommer åtgärder som att visas i aktivitetsloggen för klustret. Den här metoden för automatisk skalning är optimera klusterprestanda och kostnader: om klustret kommer att börja hämta tillståndet underutnyttjande av den kommer att skalas in som lämnar prestanda samma och lägre kostnader och klustret kommer att börja hämta tillståndet overutilization, blir den utskalade att kontrollera att det presterar bra
+1. Välj **optimerad**autoskalning. 
 
-### <a name="custom-autoscale"></a>Anpassade automatisk skalning
+1. Välj ett minsta antal instanser och maximalt antal instanser. Intervallet för automatisk skalning av klustret mellan de två talen, baserat på belastning.
 
-Anpassade Autoskala metoden kan du skala ditt kluster dynamiskt baserat på mått som du anger. Följande bild visar flödet och hur du konfigurerar anpassade automatisk skalning. Mer information följer på bilden.
+1. Välj **Spara**.
 
-1. I den **namn på Autoskalningsinställning** ange ett namn, till exempel *skalbar: cachelagra användning*. 
+   ![Optimerad autoskalning-metod](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
-   ![Skalningsregeln](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
+Optimerad autoskalning börjar fungera. Dess åtgärder visas nu i Azures aktivitets logg i klustret.
 
-2. För **Skalningsläge**väljer **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett specifikt instansantal**.
+### <a name="custom-autoscale"></a>Anpassad autoskalning
+
+Med hjälp av anpassad autoskalning kan du skala klustret dynamiskt baserat på mått som du anger. Följande bild visar flödet och stegen för att konfigurera anpassad autoskalning. Mer information finns i bilden.
+
+1. I rutan **namn på inställning** för autoskalning anger du ett namn, till exempel utskalning *: cache-användning*. 
+
+   ![Skalnings regel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
+
+2. I **skalnings läge**väljer du **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett angivet instans antal**.
 
 3. Välj **+ Lägg till en regel**.
 
-4. I den **skalningsregeln** till höger och ange värden för varje inställning.
+4. I avsnittet **skalnings regel** till höger anger du värden för varje inställning.
 
     **Kriterie**
 
     | Inställning | Beskrivning och värde |
     | --- | --- |
-    | **Tidsmängd** | Välj en aggregering villkor, till exempel **genomsnittlig**. |
-    | **Måttnamn** | Välj det mått som du vill att åtgärden ska baseras på, till exempel **Cache användning**. |
-    | **Tidsintervallstatistik** | Välj mellan **genomsnittliga**, **minsta**, **maximala**, och **summan**. |
-    | **Operator** | Välj lämpligt alternativ, till exempel **större än eller lika med**. |
-    | **Tröskelvärde** | Välj ett lämpligt värde. Till exempel är 80 procent för användning av cache, en bra utgångspunkt. |
-    | **Varaktighet (i minuter)** | Välj en lämplig mängd tid för systemet att söka igen vid beräkning av mått. Börja med standardvärdet 10 minuter. |
+    | **Tids mängd** | Välj ett agg regerings kriterium, till exempel **Average**. |
+    | **Mått namn** | Välj det mått som du vill att skalnings åtgärden ska baseras på, till exempel **användningen**av cachen. |
+    | **Statistik för tids kornig het** | Välj mellan **genomsnitt**, **lägsta**, **högsta**och **Sum**. |
+    | **Operator** | Välj lämpligt alternativ, till exempel **större än eller lika**med. |
+    | **Fastställd** | Välj ett lämpligt värde. Till exempel för cachelagring är 80 procent en lämplig start punkt. |
+    | **Varaktighet (i minuter)** | Välj en lämplig tid för systemet att se tillbaka när du beräknar mått. Börja med standard 10 minuter. |
     |  |  |
 
     **Åtgärd**
 
     | Inställning | Beskrivning och värde |
     | --- | --- |
-    | **Åtgärd** | Välj rätt alternativ för att skala in eller skala ut. |
-    | **Instansantal** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
-    | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
+    | **Åtgärd** | Välj lämpligt alternativ för att skala in eller skala ut. |
+    | **Antal instanser** | Välj det antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor uppfylls. |
+    | **Låg frekvent (minuter)** | Välj ett lämpligt tidsintervall för att vänta mellan skalnings åtgärder. Börja med standardvärdet på fem minuter. |
     |  |  |
 
 5. Välj **Lägg till**.
 
-6. I den **Instansgränser** till vänster och ange värden för varje inställning.
+6. Ange värden för varje inställning i avsnittet **instans gränser** till vänster.
 
     | Inställning | Beskrivning och värde |
     | --- | --- |
-    | **Minimum** | Antalet instanser som klustret inte skalas nedan, oavsett användning. |
-    | **Maximalt** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
-    | **Standard** | Standardantalet instanser. Den här inställningen används om det är problem med att läsa. |
+    | **Lägst** | Antalet instanser som klustret inte skalar nedan, oavsett användning. |
+    | **Maximihalter** | Antalet instanser som klustret inte skalar över, oavsett användning. |
+    | **Standard** | Standard antalet instanser. Den här inställningen används om det är problem med att läsa resurs måtten. |
     |  |  |
 
 7. Välj **Spara**.
 
-Du har nu konfigurerat utskalningen för ditt Azure Data Explorer-kluster. Lägg till en annan regel för att skala in. Om du behöver hjälp med skalning av klustret problem [öppna en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) i Azure-portalen.
+Du har nu konfigurerat horisontell skalning för ditt Azure Datautforskaren-kluster. Lägg till en annan regel för vertikal skalning. Om du behöver hjälp med problem med kluster skalning [öppnar du en support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer](using-metrics.md)
-* [Hantera kluster vertikal skalning](manage-cluster-vertical-scaling.md) för lämplig storlek i ett kluster.
+* [Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått](using-metrics.md)
+
+* [Hantera vertikal kluster skalning](manage-cluster-vertical-scaling.md) för lämplig storlek på ett kluster.

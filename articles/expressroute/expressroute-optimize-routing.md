@@ -1,22 +1,53 @@
 ---
-title: 'Optimera routning - ExpressRoute-kretsar: Azure | Microsoft Docs'
+title: 'Optimera ExpressRoute-kretsar: Azure | Microsoft Docs'
 description: Den här sidan innehåller information om hur du optimerar routning när du har mer än en ExpressRoute-krets för att ansluta till Microsoft från ditt företagsnätverk.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883575"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854336"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
+
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Val av Sök vägar för Microsoft och offentliga peer-datorer
+Det är viktigt att se till att när du använder Microsoft eller offentlig peering som trafik flödar över den önskade sökvägen om du har en eller flera ExpressRoute-kretsar, samt sökvägar till Internet via en Internet Exchange (IX) eller Internet leverantör (ISP). BGP använder en algoritm för bästa val av sökvägar baserat på ett antal faktorer inklusive den längsta prefix matchningen (LPM). För att säkerställa att trafik som är avsedd för Azure via Microsoft eller offentlig peering passerar ExpressRoute-sökvägen, måste kunderna implementera attributet *lokal inställning* för att säkerställa att sökvägen alltid föredras på ExpressRoute. 
+
+> [!NOTE]
+> Den lokala standard inställningen är normalt 100. Högre lokala inställningar är mer önskade. 
+>
+>
+
+Tänk på följande exempel scenario:
+
+![ExpressRoute fall 1 – Problem: Icke-optimal routning från kund till Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+I ovanstående exempel för att föredra ExpressRoute sökvägar konfigurerar du lokal preferens enligt följande. 
+
+**Cisco IOS – XE-konfiguration från R1-perspektiv:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**Junos konfiguration från R1-perspektiv:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Icke-optimal routning från kund till Microsoft
 Låt oss titta närmare på routningsproblemet med ett exempel. Anta att du har två kontor i USA, ett i Los Angeles och ett i New York. Ditt kontor ansluts i ett WAN (Wide Area Network), som kan vara antingen ditt eget stamnät eller leverantörens IP VPN. Du har två ExpressRoute-kretsar, en i USA, västra och en i USA, östra som även är anslutna i WAN-nätverket. Naturligtvis har du två sökvägar för att ansluta till Microsoft-nätverket. Anta nu att du har Azure-distribution (t.ex. Azure App Service) i både ”USA, västra” och ”USA, östra”. Din avsikt är att ansluta dina användare i Los Angeles till Azure i USA, västra och användarna i New York till Azure i USA, östra eftersom tjänstadministratören vill att varje kontorsanvändare ska ha åtkomst till närliggande Azure-tjänster för en optimal upplevelse. Planen fungerar bra för ostkustanvändarna, men inte för västkustanvändarna. Orsaken till problemet är följande. På varje ExpressRoute-krets annonserar vi både prefixet i Azure för USA, östra (23.100.0.0/16) och prefixet i Azure för USA, västra (13.100.0.0/16). Om du inte vet vilket prefix som är från vilken region, kan du inte behandla dem olika. WAN-nätverket kan tro att båda prefixen är närmare USA, östra än USA, västra och därför dirigera båda kontorens användare till ExpressRoute-kretsen i USA, östra. Till slut har du många missnöjda användare på Los Angeles-kontoret.

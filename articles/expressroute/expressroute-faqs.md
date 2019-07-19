@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488490"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854348"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -27,7 +27,7 @@ ExpressRoute-anslutningar går inte via offentligt Internet. De ger högre säke
 
 ### <a name="where-is-the-service-available"></a>Där är tjänsten?
 
-Se den här sidan för tjänstlokalisering och tillgänglighet: [ExpressRoute-partner och platser](expressroute-locations.md).
+Se den här sidan för tjänst lokalisering och tillgänglighet: [ExpressRoute-partner och-platser](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Hur kan jag använda ExpressRoute för att ansluta till Microsoft om jag inte har partnerskap med en ExpressRoute-operatör-partner?
 
@@ -43,7 +43,7 @@ Nej. Du kan köpa en VPN-anslutning av alla från din tjänstprovider. Anslutnin
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Om jag betala för en ExpressRoute-krets för en viss bandbredd finns möjlighet att utöka upp till högre hastigheter vid behov?
 
-Ja. ExpressRoute-kretsar har konfigurerats så att du kan tillhandahålla upp till två gånger den Bandbreddsgräns du skaffat utan ytterligare kostnad. Kontrollera med din tjänstleverantör för att se om de stöder denna funktion. Detta gäller inte för en längre period och är inte säkert. 
+Ja. ExpressRoute-kretsar har konfigurerats så att du kan tillhandahålla upp till två gånger den Bandbreddsgräns du skaffat utan ytterligare kostnad. Kontrollera med din tjänstleverantör för att se om de stöder denna funktion. Detta är inte en längre tids period och är inte garanterad. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privat nätverksanslutning med virtuellt nätverk och andra Azure-tjänster samtidigt?
 
@@ -72,7 +72,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>
   **Följande tjänster stöds inte**:
     * CDN
-    * Azure Front Door
+    * Azure-front dörr
     * Multifaktorautentisering
     * Traffic Manager
 
@@ -80,12 +80,12 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI – tillgängligt via ett regionalt Azure-communityn finns i [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) att ta reda på regionen för din Power BI-klient. 
+* Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
     * CDN
-    * Azure Front Door
+    * Azure-front dörr
     * Multifaktorautentisering
     * Traffic Manager
 
@@ -119,21 +119,27 @@ Ja. Varje ExpressRoute-krets har ett redundant par med mellan anslutningar som k
 
 Du kommer inte att förlora anslutningen om en av flera anslutningar misslyckas. En redundant anslutning är tillgänglig för att stödja belastningen på nätverket och ge hög tillgänglighet för ExpressRoute-kretsen. Du kan också skapa en krets i en annan peering plats att uppnå återhämtning krets på servernivå.
 
-### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur jag för att implementera redundans på privat peering?
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur gör jag för att implementera redundans på privat peering?
 
-Flera ExpressRoute-kretsar från olika peeringplatser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om att en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen till prioriterar föredrar du en specifik krets. Vi rekommenderar starkt att kunder konfigurera minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
+Flera ExpressRoute-kretsar från olika peering-platser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen för att kunna prioritera en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
-Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för design för hög tillgänglighet och [här](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) för utformning för katastrofåterställning.  
+Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet [och för](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) att utforma för haveri beredskap.  
 
-### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur jag implementera redundans på Microsoft-peering?
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur implementerar jag redundans på Microsoft-peering?
 
-Vi rekommenderar starkt när kunder använder Microsoft-peering för att komma åt offentliga Azure-tjänster som Azure Storage eller Azure SQL samt kunder som använder Microsoft-peering för Office 365 att implementera flera-kretsar i olika peering platser för att undvika felkritiska faiure. Kunder kan antingen annonsera prefixet samma på både kretsar och använda [AS PATH-prepending](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökvägen från en lokal plats.
+Vi rekommenderar starkt att du använder Microsoft-peering för att få åtkomst till Azures offentliga tjänster som Azure Storage eller Azure SQL, samt kunder som använder Microsoft-peering för Office 365 som de implementerar flera kretsar i olika peering platser för att undvika enskilda felpunkter. Kunder kan antingen annonsera samma prefix på båda kretsarna och använda [som sökväg](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) förväntat eller annonsera olika prefix för att fastställa sökväg lokalt.
 
-Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för design för hög tillgänglighet.
+Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutet till ExpressRoute?
 
 Du kan uppnå hög tillgänglighet genom att ansluta ExpressRoute-kretsar i olika peering-platser (till exempel Singapore, Singapore2) till ditt virtuella nätverk. Om en ExpressRoute-krets kraschar, misslyckas anslutningen över till en annan ExpressRoute-krets. Som standard dirigeras trafik som lämnar det virtuella nätverket baserat på lika med kostnaden Multipath routning (ECMP). Du kan använda Anslutningsvikten för att föredra en kanal till en annan. Mer information finns i [optimera ExpressRoute-routning](expressroute-optimize-routing.md).
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Hur gör jag för att se till att min trafik som är avsedd för Azures offentliga tjänster som Azure Storage och Azure SQL på Microsoft eller offentlig peering är prioriterade på ExpressRoute-sökvägen?
+
+Du måste implementera attributet *lokal inställning* på din router (er) för att säkerställa att sökvägen från lokal till Azure alltid prioriteras på dina ExpressRoute-kretsar.
+
+Se ytterligare information [här](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) om val av BGP-sökvägar och vanliga konfigurationer av routrar. 
 
 ### <a name="onep2plink"></a>Om jag inte är samordnad i ett molnutbyte och Min-leverantör erbjuder Point-to-point-anslutning, måste jag beställa två fysiska anslutningar mellan min lokala nätverk och Microsoft?
 
@@ -158,7 +164,7 @@ Om din tjänstleverantör erbjuder ExpressRoute på båda platserna, du samarbet
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag har flera ExpressRoute-kretsar i samma metro? Kan jag koppla dem till samma virtuella nätverk?
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera ExpressRoute-peeringplatser och kretsarna som skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka upp till 4 kretsar till samma virtuella nätverk.
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera ExpressRoute-peeringplatser och kretsarna som skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna skapas på samma peering-plats kan du länka upp till 4 kretsar till samma virtuella nätverk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur ansluter jag mitt virtuella nätverk till en ExpressRoute-krets
 
@@ -180,7 +186,7 @@ Ja. Du kan ha upp till 10 virtuella nätverk-anslutningar på en standard Expres
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Jag har flera Azure-prenumerationer som innehåller virtuella nätverk. Kan jag ansluta virtuella nätverk som finns i olika prenumerationer till en enda ExpressRoute-krets?
 
-Ja. Du kan länka upp till 10 virtuella nätverk i samma prenumeration som kretsen eller olika prenumerationer med hjälp av en enda ExpressRoute-krets. Den här gränsen kan ökas genom att aktivera ExpressRoute premium-funktion.
+Ja. Du kan länka upp till 10 virtuella nätverk i samma prenumeration som kretsen eller olika prenumerationer med en enda ExpressRoute-krets. Den här gränsen kan ökas genom att aktivera ExpressRoute premium-funktion.
 
 Mer information finns i [delar en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
 
@@ -196,7 +202,7 @@ Nej. Från en routning perspektiv alla virtuella nätverk som är länkade till 
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan jag ha ett virtuellt nätverk som är anslutna till flera ExpressRoute-krets?
 
-Ja. Du kan länka ett enda virtuellt nätverk med upp till fyra ExpressRoute-kretsar i antingen i samma eller en annan peering-platser. 
+Ja. Du kan länka ett enda virtuellt nätverk med upp till fyra ExpressRoute-kretsar i antingen samma eller olika peering-platser. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag ansluta till Internet från mitt virtuella nätverk som är anslutna till ExpressRoute-kretsar?
 
@@ -226,7 +232,7 @@ Ja. Vi kan acceptera upp till 4 000 prefix som vägen för privat peering och 20
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Finns det några begränsningar för IP-adressintervall som jag kan annonsera i BGP-sessionen?
 
-Vi accepterar inte privata-prefix (RFC1918) för Microsoft-peering BGP-sessionen. Vi kan godkänna alla prefixstorlek (upp till /32) på både Microsoft och privat peering.
+Vi accepterar inte privata-prefix (RFC1918) för Microsoft-peering BGP-sessionen. Vi accepterar alla prefixlängd (upp till/32) på både Microsoft och den privata peeringen.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Vad händer om jag överskrider BGP begränsar?
 
@@ -290,25 +296,25 @@ Referera till [prisinformation](https://azure.microsoft.com/pricing/details/expr
 
 Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-krets och avgifter som krävs av anslutningsprovidern.
 
-## <a name="expressroute-local"></a>ExpressRoute lokal
-### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute lokal?
-ExpressRoute lokala är en SKU för ExpressRoute-krets som är tillgängliga på [ExpressRoute Direct](expressroute-erdirect-about.md). En viktig funktion i lokala är att en lokal krets på en ExpressRoute peeringplats ger dig åtkomst till endast till en eller två Azure-regioner i eller nästan samma metro. Däremot får en standardkrets du tillgång till alla Azure-regioner i ett geopolitiska område och en Premium-krets till alla Azure-regioner globalt. 
+## <a name="expressroute-local"></a>ExpressRoute-lokal
+### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute Local?
+ExpressRoute Local är en SKU av ExpressRoute-kretsen som är tillgänglig på [ExpressRoute Direct](expressroute-erdirect-about.md). En viktig funktion i lokal är att en lokal krets på en ExpressRoute-peering-plats ger dig åtkomst endast till en eller två Azure-regioner i eller nära samma tunnelbane linje. En standard-krets ger däremot till gång till alla Azure-regioner i ett politiskt område och en Premium-krets till alla Azure-regioner globalt. 
 
-### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med lokala ExpressRoute?
-När du behöver betala för utgående dataöverföring för Standard eller Premium ExpressRoute-krets kan betalar du inte utgående dataöverföring separat för din lokala ExpressRoute-krets. Med andra ord innehåller priset för ExpressRoute lokal dataöverföring. Lokal ExpressRoute är en mer prisvärt lösning om du har omfattande mängd data du överför och du kan hämta data via en privat anslutning till en ExpressRoute-peering plats nära dina önskade Azure-regioner. 
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med ExpressRoute Local?
+Du måste betala utgående data överföring för din standard-eller Premium ExpressRoute-krets, men du betalar inte utgående data överföring separat för din ExpressRoute-lokala krets. Priset för ExpressRoute Local inkluderar med andra ord avgifter för data överföring. ExpressRoute Local är en mer ekonomisk lösning om du har en enorm mängd data som ska överföras och du kan ta med dina data över en privat anslutning till en ExpressRoute-peering-plats nära önskade Azure-regioner. 
 
-### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Vilka funktioner är tillgängliga och vilka inte på lokala ExpressRoute?
-Jämfört med en Standard ExpressRoute-krets, har en lokal krets samma uppsättning funktioner utom:
-* Omfånget för åtkomst till Azure-regioner som beskrivs ovan
-* ExpressRoute Global räckvidd är inte tillgänglig på lokala
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Vilka funktioner är tillgängliga och vilka som inte finns på ExpressRoute lokala?
+Jämfört med en vanlig ExpressRoute-krets har en lokal krets samma uppsättning funktioner, förutom:
+* Omfattning av åtkomst till Azure-regioner enligt beskrivningen ovan
+* ExpressRoute-Global Reach finns inte på den lokala datorn
 
-ExpressRoute lokal också har samma begränsningar på resurser (t.ex. antalet virtuella nätverk per krets) som Standard. 
+ExpressRoute Local har också samma begränsningar för resurser (t. ex. antalet virtuella nätverk per krets) som standard. 
 
-### <a name="how-to-configure-expressroute-local"></a>Så här konfigurerar du lokala ExpressRoute? 
-ExpressRoute lokal är endast tillgängligt på ExpressRoute direkt. Så först måste du konfigurera din ExpressRoute Direct-port. När din direkt port har skapats kan du skapa en lokal krets följa anvisningarna [här](expressroute-howto-erdirect.md).
+### <a name="how-to-configure-expressroute-local"></a>Hur konfigurerar jag ExpressRoute lokalt? 
+ExpressRoute Local är bara tillgängligt på ExpressRoute Direct. Först måste du konfigurera din ExpressRoute Direct-port. När din direkt Port har skapats kan du skapa en lokal krets genom att följa anvisningarna [här](expressroute-howto-erdirect.md).
 
-### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Där är lokala för ExpressRoute och vilka Azure-regioner varje peeringplats mappas till?
-ExpressRoute lokal är tillgänglig på peering-platser där en eller två Azure-regioner är stängs av. Det är inte tillgängligt på en peering plats där det finns inga Azure-regioner i den stat eller provins eller ditt land. Finns de exakta mappningarna om [sidan platser](expressroute-locations-providers.md).  
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Var finns ExpressRoute lokalt och vilka Azure-regioner är varje peering-plats mappad till?
+ExpressRoute Local är tillgängligt på peering-platserna där en eller två Azure-regioner stängs av. Den är inte tillgänglig på en peering-plats där det inte finns någon Azure-region i detta tillstånd eller region eller land. Se exakta mappningar på [sidan platser](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute för Office 365
 

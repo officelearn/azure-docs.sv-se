@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
-ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yaya
+ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411579"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873884"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Ladda ner Azure SDK för PHP
 
 ## <a name="overview"></a>Översikt
 
-Azure SDK för PHP innehåller komponenter som gör att du kan utveckla, distribuera och hantera PHP-program för Azure. Mer specifikt omfattar Azure SDK för PHP följande:
+Azure SDK för PHP innehåller komponenter som gör att du kan utveckla, distribuera och hantera PHP-program för Azure. Mer specifikt innehåller Azure SDK för PHP följande:
 
-* **PHP-klientbiblioteken för Azure**. Dessa klassbibliotek tillhandahåller ett gränssnitt för åtkomst till Azure-funktioner, till exempel datahanteringstjänster och molntjänster.
-* **Azure kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)** . Det här är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Azure CLI-arbete på alla plattformar, inklusive Mac, Linux och Windows.
-* **Azure PowerShell (endast Windows)** . Det här är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster, till exempel molntjänster och virtuella datorer.
-* **Azure-emulatorer (endast Windows)** . Beräknings- och emulatorer är lokala emulatorer molntjänster och datahanteringstjänster så att du kan testa ett program lokalt. Azure-emulatorer Kör endast på Windows.
+* **Php-klientens bibliotek för Azure**. Dessa klass bibliotek tillhandahåller ett gränssnitt för åtkomst till Azure-funktioner, till exempel data hanterings tjänster och moln tjänster.
+* **Azures kommando rads gränssnitt för Mac, Linux och Windows (Azure CLI)** . Detta är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Azure CLI fungerar på alla plattformar, inklusive Mac, Linux och Windows.
+* **Azure PowerShell (endast Windows)** . Detta är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster, till exempel Cloud Services och Virtual Machines.
+* **Azure-emulatorer (endast Windows)** . Beräknings-och lagrings emulatorn är lokala emulatorer för moln tjänster och data hanterings tjänster som gör att du kan testa ett program lokalt. Azure-emulatorer körs endast på Windows.
 
 I avsnitten nedan beskrivs hur du hämtar och installerar de komponenter som beskrivs ovan.
 
-Anvisningarna i det här avsnittet förutsätter att du har [PHP] [ install-php] installerad.
+Anvisningarna i det här avsnittet förutsätter att du har installerat [php][install-php] .
 
 > [!NOTE]
-> Du måste ha PHP 5.5 eller senare för att använda PHP-klientbiblioteken för Azure.
+> Du måste ha PHP 5,5 eller högre för att kunna använda PHP-klientprogrammet för Azure.
 >
 >
 
 ## <a name="php-client-libraries-for-azure"></a>PHP-klientbibliotek för Azure
 
-PHP-Klientbiblioteken för Azure tillhandahåller ett gränssnitt för åtkomst till Azure-funktioner, till exempel datahanteringstjänster och molntjänster från alla operativsystem. Biblioteken kan installeras via Composer.
+PHP-klientprogrammet för Azure tillhandahåller ett gränssnitt för åtkomst till Azure-funktioner, till exempel data hanterings tjänster och moln tjänster, från alla operativ system. Dessa bibliotek kan installeras via Composer.
 
-Information om hur du använder PHP-Klientbiblioteken för Azure finns i [hur du använder Blob-tjänsten][blob-service], [hur du använder Tabelltjänsten] [ table-service]och [hur du använder kötjänsten][queue-service].
+Information om hur du använder php-klientcertifikat för Azure finns i [så här använder du Blob-tjänsten][blob-service] , [How to Use the Table Service][table-service] och [hur du använder Queue Service][Queue-Service].
 
 ### <a name="install-via-composer"></a>Installera via Composer
 
-1. [Installera Git][install-git]. På Windows måste du även att lägga till Git körbara i miljövariabeln PATH.
+1. [Installera Git][install-git]. I Windows måste du också lägga till den git-körbara filen i din PATH-miljö variabel.
 
-2. Skapa en fil med namnet **composer.json** i roten av projektet och Lägg till följande kod:
+2. Skapa en fil med namnet **Compose. JSON** i roten i projektet och Lägg till följande kod i den:
 
         {
             "require": {
@@ -59,27 +59,27 @@ Information om hur du använder PHP-Klientbiblioteken för Azure finns i [hur du
             }
         }
 
-3. Ladda ned **[composer.phar] [ composer-phar]** i projektroten.
+3. Hämta **[Composer. Phar][composer-phar]** i projekt roten.
 
-4. Öppna en kommandotolk och kör det i projektroten
+4. Öppna en kommando tolk och kör det i projekt roten
 
         php composer.phar install
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell och Azure-emulatorer
 
-Azure PowerShell är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster (till exempel molntjänster och virtuella datorer). Azure-emulatorer är emulatorer molntjänster och datahanteringstjänster så att du kan testa ett program lokalt. De här komponenterna stöds bara Windows.
+Azure PowerShell är en uppsättning PowerShell-cmdletar för att distribuera och hantera Azure-tjänster (till exempel Cloud Services och Virtual Machines). Azure-emulatorer är emulatorer för moln tjänster och data hanterings tjänster som gör att du kan testa ett program lokalt. Dessa komponenter stöds endast i Windows.
 
-Det rekommenderade sättet att installera Azure PowerShell och Azure-emulatorer är att använda den [Microsoft Web Platform Installer][download-wpi]. Observera att du kan också välja att installera andra utvecklingskomponenter, till exempel PHP, SQL Server, Microsoft-Drivers för SQL Server för PHP och WebMatrix.
+Det rekommenderade sättet att installera Azure PowerShell och Azure-emulatorer är att använda [installations programmet för Microsoft Web Platform][download-wpi]. Observera att du även kan välja att installera andra utvecklings komponenter, till exempel PHP, SQL Server, Microsoft-drivrutinerna för SQL Server för PHP och WebMatrix.
 
-Information om hur du använder Azure PowerShell finns i [hur du använder Azure PowerShell][powershell-tools].
+Information om hur du använder Azure PowerShell finns i [så här använder du Azure PowerShell][powershell-tools].
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Information om hur du installerar Azure CLI finns i [installera Azure CLI](cli-install-nodejs.md).
+Azure CLI är en uppsättning kommandon för att distribuera och hantera Azure-tjänster, till exempel Azure Websites och Azure Virtual Machines. Information om hur du installerar Azure CLI finns i [Installera Azure CLI](cli-install-nodejs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i den [PHP Developer Center](https://azure.microsoft.com/develop/php/).
+Mer information finns i [php Developer Center](https://azure.microsoft.com/develop/php/).
 
 [install-php]: https://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

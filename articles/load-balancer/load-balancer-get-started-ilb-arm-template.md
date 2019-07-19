@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en intern lastbalanserare med hjälp av en mall i Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 339183dabf67abb43d6fc99bbe5258a39f12b14a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: f05c90948fe95f204f268d84c01e1e8773bec468
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122281"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275389"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Skapa en intern lastbalanserare med hjälp av en mall
 
@@ -45,7 +45,7 @@ Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av Po
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 2. Hämta parameterfilen till din lokala disk.
 3. Redigera filen och spara den.
-4. Kör den **New AzResourceGroupDeployment** cmdlet för att skapa en resursgrupp med hjälp av mallen.
+4. Kör cmdleten **New-AzResourceGroupDeployment** för att skapa en resurs grupp med hjälp av mallen.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -81,4 +81,4 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)
 
-JSON-syntax och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).
+JSON-syntaxen och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft. Network/belastningsutjämnare](/azure/templates/microsoft.network/loadbalancers).

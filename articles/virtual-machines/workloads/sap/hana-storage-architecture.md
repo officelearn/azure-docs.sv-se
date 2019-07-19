@@ -1,6 +1,6 @@
 ---
-title: Storage-arkitektur för SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Storage-arkitektur att distribuera SAP HANA på Azure (stora instanser).
+title: Lagrings arkitektur för SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Lagrings arkitektur för hur du distribuerar SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -11,102 +11,102 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2019
-ms.author: rclaus
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2cfe9dc02e69f3b47c99e01bc70bffc942338fd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707261"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869187"
 ---
-# <a name="sap-hana-large-instances-storage-architecture"></a>Storage-arkitektur för SAP HANA (stora instanser)
+# <a name="sap-hana-large-instances-storage-architecture"></a>Lagrings arkitektur för SAP HANA (stora instanser)
 
-Lagringslayout för SAP HANA på Azure (stora instanser) har konfigurerats av SAP HANA på den klassiska distributionsmodellen per SAP rekommenderade riktlinjer. Riktlinjerna finns dokumenterade i den [lagringskrav för SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper om.
+Storage-layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA på den klassiska distributions modellen per SAP rekommenderade rikt linjer. Rikt linjerna beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper.
 
-Den stora HANA-instansen av typen jag klassen har fyra gånger minne volymen lagringsvolym. Lagringen inte fyra gånger mer för Type II-klassen för stora HANA-instansen enheter. Enheterna levereras med en volym som är avsedd för att lagra HANA säkerhetskopieringar av transaktionsloggen. Mer information finns i [installera och konfigurera SAP HANA (stora instanser) på Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Den stora HANA-instansen av typen I-klassen levereras med fyra gånger minnes volymen som lagrings volym. För typ II-klassen av HANA stor instans enheter är lagringen inte fyra gånger mer. Enheterna levereras med en volym som är avsedd för att lagra HANA-säkerhetskopieringar i transaktions loggen. Mer information finns i [Installera och konfigurera SAP HANA (stora instanser) i Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Se tabellen nedan när det gäller lagringsallokering. I tabell visas ungefärlig kapacitet för olika volymer som ingår i de olika enheterna för stora HANA-instansen.
+Se följande tabell vad gäller lagrings tilldelning. Tabellen visar den grova kapaciteten för de olika volymerna som tillhandahålls med de olika volymerna i HANA-stor instans.
 
-| Stora HANA-instansen SKU | Hana-data | Hana/log | Hana/delat | Hana/logbackups |
+| HANA stor instans-SKU | Hana/data | Hana/logg | Hana/delad | Hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 GB | 512 GB | 768 GB | 512 GB |
-| S72m | 3,328 GB | 768 GB |1 280 GB | 768 GB |
+| S72m | 3 328 GB | 768 GB |1 280 GB | 768 GB |
 | S96 | 1 280 GB | 512 GB | 768 GB | 512 GB |
-| S192 | 4 608 GB | 1 024 GB | 1,536 GB | 1 024 GB |
-| S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
-| S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
-| S384m | 12 000 GB | 2,050 GB | 2,050 GB | 2 040 GB |
-| S384xm | 16 000 GB | 2,050 GB | 2,050 GB | 2 040 GB |
-| S384xxm |  20 000 GB | 3 100 GB | 2,050 GB | 3 100 GB |
-| S576m | 20 000 GB | 3 100 GB | 2,050 GB | 3 100 GB |
-| S576xm | 31,744 GB | 4 096 GB | 2 048 GB | 4 096 GB |
-| S768m | 28 000 GB | 3 100 GB | 2,050 GB | 3 100 GB |
+| S192 | 4 608 GB | 1 024 GB | 1 536 GB | 1 024 GB |
+| S192m | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
+| S192xm |  11 520 GB |  1 536 GB |  1 792 GB |  1 536 GB |
+| S384 | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
+| S384m | 12 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
+| S384xm | 16 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
+| S384xxm |  20 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
+| S576m | 20 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
+| S576xm | 31 744 GB | 4 096 GB | 2 048 GB | 4 096 GB |
+| S768m | 28 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
 | S768xm | 40 960 GB | 6 144 GB | 4 096 GB | 6 144 GB |
-| S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S960m | 36 000 GB | 4 100 GB | 2 050 GB | 4 100 GB |
 
 
-Faktiska distribuerade volymer kan variera beroende på distributionen och verktyg som används för att visa volymer större.
+Faktiska distribuerade volymer kan variera beroende på distribution och det verktyg som används för att visa volym storlekarna.
 
-Om du dela upp en HANA SKU med stor instans kan några exempel på möjliga division delar se ut:
+Om du delar upp ett stort antal HANA-instanser av typen HANA kan några exempel på möjliga divisioner se ut så här:
 
-| Minnespartition i GB | Hana-data | Hana/log | Hana/delat | Hana/log/säkerhetskopiering |
+| Minnes partition i GB | Hana/data | Hana/logg | Hana/delad | Hana/logg/säkerhets kopiering |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
 | 768 | 1 280 GB | 512 GB | 768 GB | 512 GB |
-| 1,024 | 1,792 GB | 640 GB | 1 024 GB | 640 GB |
-| 1,536 | 3,328 GB | 768 GB | 1 280 GB | 768 GB |
+| 1,024 | 1 792 GB | 640 GB | 1 024 GB | 640 GB |
+| 1,536 | 3 328 GB | 768 GB | 1 280 GB | 768 GB |
 
 
-Dessa storlekar är grov volym-värden som kan variera något beroende på distributionen och de verktyg som används för att titta på volymerna. Det finns även andra partitionsstorlekarna, till exempel 2,5 TB. Dessa lagringsstorlekar beräknas med en formel som liknar den som används för de föregående partitionerna. Termen ”partitioner” betyder att det operativsystem, minne eller CPU-resurser på något sätt partitioneras. Den anger partitioner för lagring för de olika HANA-instanser som du vill distribuera i en enskild enhet för stora HANA-instansen. 
+De här storlekarna är grova volym siffror som kan variera något beroende på distribution och verktyg som används för att titta på volymerna. Det finns också andra partitionstyper, till exempel 2,5 TB. Dessa lagrings storlekar beräknas med en formel som liknar den som används för föregående partitioner. Termen "partitioner" innebär inte att operativ system, minne eller processor resurser är på något sätt partitionerade. Den anger diskpartitioner för de olika HANA-instanserna som du kanske vill distribuera i en enda HANA-stor instans enhet. 
 
-Du kanske behöver mer lagringsutrymme. Du kan lägga till lagring genom att köpa ytterligare lagringsutrymme i enheter om 1 TB. Den här ytterligare lagringsutrymme kan läggas till som ytterligare volym. Det kan också användas till att utöka en eller flera av de befintliga volymerna. Det är inte möjligt att minska storleken på volymerna som ursprungligen distribueras och huvudsakligen dokumenterats i föregående tabell. Det är inte heller går att ändra namnen på volymerna eller montera namn. Lagringsvolymer som beskrivs ovan är kopplade till stora HANA-instansen-enheter som NFS4 volymer.
+Du kan behöva mer lagrings utrymme. Du kan lägga till lagring genom att köpa ytterligare lagrings utrymme i enheter om 1 TB. Detta ytterligare lagrings utrymme kan läggas till som ytterligare volym. Det kan också användas för att utöka en eller flera av de befintliga volymerna. Det går inte att minska storlek på volymerna som ursprungligen distribuerade och mest dokumenterade av föregående tabeller. Det går inte heller att ändra namnen på volymerna eller monterings namnen. Lagrings volymerna som beskrivs ovan är anslutna till de stora HANA-instans enheterna som NFS4-volymer.
 
-Du kan använda ögonblicksbilder av lagring för säkerhetskopiering, återställning och haveriberedskap återställningen. Mer information finns i [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Du kan använda lagrings ögonblicks bilder för säkerhets kopierings-och återställnings-och haveri beredskap. Mer information finns i [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Se [HLI stöds scenarier](hana-supported-scenario.md) för layout av lagringsinformation för ditt scenario.
+Se [HLI-scenarier som stöds](hana-supported-scenario.md) för information om lagrings layout för ditt scenario.
 
-## <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Köra flera SAP HANA-instanser på en enhet för stora HANA-instansen
+## <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Kör flera SAP HANA instanser på en HANA stor instans enhet
 
-Det är möjligt att vara värd för flera aktiva SAP HANA-instansen på stora HANA-instansen enheter. För att tillhandahålla funktioner för ögonblicksbilder av lagring och katastrofåterställning, kräver en sådan konfiguration en volym som angetts per instans. För närvarande kan stora HANA-instansen enheter delas upp på följande sätt:
+Det är möjligt att vara värd för fler än en aktiv SAP HANA instans på HANA stora instans enheter. För att tillhandahålla funktioner för lagrings ögonblicks bilder och haveri beredskap, kräver en sådan konfiguration en volym uppsättning per instans. För närvarande kan HANA stora instans enheter delas upp på följande sätt:
 
-- **S72, S72m, S96, S144, S192**: I steg om 256 GB, 256 GB är den minsta från enheten. Olika steg, till exempel 256 GB och 512 GB kan kombineras till maximalt minne på enheten.
-- **S144m och S192m**: I steg om 256 GB, 512 GB är den minsta enheten. Olika steg som 512 GB och 768 GB kan kombineras till maximalt minne på enheten.
-- **Skriv II klass**: I steg om 512 GB med den minsta från enheten på 2 TB. Olika steg som 512 GB, 1 TB och 1,5 TB kan kombineras till maximalt minne på enheten.
+- **S72, S72m, S96, S144, S192**: I steg om 256 GB, med 256 GB den minsta start enheten. Olika steg som 256 GB och 512 GB kan kombineras till det maximala minnet för enheten.
+- **S144m och S192m**: I steg om 256 GB, med 512 GB den minsta enheten. Olika steg som 512 GB och 768 GB kan kombineras till det maximala minnet för enheten.
+- **Typ II-klass**: I steg om 512 GB, med den minsta start enheten på 2 TB. Olika steg som 512 GB, 1 TB och 1,5 TB kan kombineras till det maximala minnet för enheten.
 
-Några exempel på att köra flera SAP HANA-instanser kan se ut så här.
+Några exempel på att köra flera SAP HANA instanser kan se ut så här.
 
-| SKU | Minnesstorlek | Lagringsstorlek | Storlekar med flera databaser |
+| SKU | Minnesstorlek | Lagrings storlek | Storlekar med flera databaser |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1 x 768 GB HANA-instans<br /> eller 1 x 512 GB instans + 1 x 256 GB-instans<br /> eller 3 x 256 GB instanser | 
-| S72m | 1,5 TB | 6 TB | 3x512GB HANA-instanser<br />eller 1 x 512 GB instans + 1 x 1 TB-instans<br />eller 6 x 256 GB instanser<br />eller 1x1.5 TB-instans | 
-| S192m | 4 TB | 16 TB | 8 x 512 GB instanser<br />eller 4 x 1 TB-instanser<br />eller 4 x 512 GB instanser + 2 x 1 TB-instanser<br />eller 4 x 768 GB instanser + 2 x 512 GB instanser<br />eller 1 × 4 TB-instans |
-| S384xm | 8 TB | 22 TB | 4 × 2 TB-instanser<br />eller 2 × 4 TB-instanser<br />eller 2 x 3 TB-instanser + 1 x 2 TB-instanser<br />eller 2x2.5 TB-instanser + 1 x 3 TB-instanser<br />eller 1 x 8 TB-instans |
+| S72 | 768 GB | 3 TB | 1x768-GB HANA-instans<br /> eller 1x512-GB instans + 1x256-GB-instans<br /> eller 3x256-GB-instanser | 
+| S72m | 1,5 TB | 6 TB | 3x512GB HANA-instanser<br />eller 1x512-GB instans + 1x1-TB instans<br />eller 6x256-GB-instanser<br />eller 1x 1,5 – TB instans | 
+| S192m | 4 TB | 16 TB | 8x512 GB-instanser<br />eller 4x1 – TB instanser<br />eller 4x512-GB-instanser + 2x1-TB-instanser<br />eller 4x768-GB-instanser + 2x512-GB-instanser<br />eller 1x4-TB-instans |
+| S384xm | 8 TB | 22 TB | 4x2 – TB-instanser<br />eller 2x4 – TB instanser<br />eller 2x3-TB-instanser + 1x2-TB-instanser<br />eller 2x 2.5-TB-instanser + 1x3 – TB-instanser<br />eller 1x8-TB-instans |
 
 
 Det finns även andra varianter. 
 
 ## <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
-Lagring för stora HANA-instansen kan en transparent kryptering av data som lagras på diskarna. När en enhet för stora HANA-instansen har distribuerats kan aktivera du den här typen av kryptering. Du kan också ändra till krypterade volymer efter distributionen äger rum. Övergången från icke-krypterade till krypterade volymer är transparent och kräver driftstopp. 
+Den lagring som används för HANA stor instans använder transparent kryptering för data som lagras på diskarna sedan årets slut 2018. I tidigare distributioner kan du välja att hämta de krypterade volymerna. Om du har bestämt dig för det alternativet kan du begära att få de volymer som är krypterade online. Flyttningen från icke-krypterade till krypterade volymer är transparent och kräver ingen stillestånds tid. 
 
-Med typen jag klassen av SKU: er, volym Start LUN som är lagrad på, är krypterad. Du måste kryptera Start LUN med OS-metoder för Type II-klassen för SKU: er för stora HANA-instansen. Mer information kontaktar du Microsoft Service Management-teamet.
+Med typ I-klassen för SKU: er lagras volymen som start-LUN på, krypteras. I revision 3 HANA stora instans stämplar använder du typ II-klassen för SKU: er av HANA stor instans, måste du kryptera omstarts-LUN med OS-metoder. I revision 4 HANA stora instans stämplar, använder Type II-enheter volymen. start-LUN lagras och krypteras även i vila som standard. 
 
-## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Inställningar som krävs för stora HANA-instanser på stora HANA-instanser
-Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. Den [högsta tillåtna storleken är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från i filstorleksbegränsningar i filsystem EXT3 är HANA inte medveten om implicit storage-begränsning som tillämpas av storage för stora HANA-instanser. Därmed skapas HANA inte automatiskt en ny datafil när gränsen för filstorlek på 16TB har uppnåtts. Eftersom HANA försöker öka filen utöver 16 TB, rapporterar HANA fel och indexservern kraschar i slutet.
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Nödvändiga inställningar för större HANA-instanser på HANA stora instanser
+Lagringen som används i HANA stora instanser har en begränsning för fil storlek. [Storleks begränsningen är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från fil storleks begränsningar i EXT3-filsystemen är HANA inte medveten om den lagrings begränsning som tillämpas av lagrings utrymmet för stora instanser av HANA. Det innebär att HANA inte automatiskt skapar en ny datafil när fil storleks gränsen på 16TB nås. När HANA försöker växa till filen bortom 16 TB rapporterar HANA fel och index servern kommer att krascha i slutet.
 
 > [!IMPORTANT]
-> För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen global.ini Hana
+> För att förhindra att HANA försöker öka datafilerna utöver 16 TB fil storleks gränsen på HANA stor instans lagring, måste du ange följande parametrar i global. ini konfigurations fil för HANA
 > 
 > - datavolume_striping=true
 > - datavolume_striping_size_gb = 15000
-> - Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-> - Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - Se även SAP Obs [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tänk på SAP not [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 
 
 **Nästa steg**
-- Se [scenarier som stöds för stora HANA-instanser](hana-supported-scenario.md)
+- Referera [till scenarier som stöds för Hana-stora instanser](hana-supported-scenario.md)

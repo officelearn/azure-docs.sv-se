@@ -1,10 +1,10 @@
 ---
-title: Skapa en belastningsutjämnare med zonredundant frontend - Azure CLI
+title: Skapa en Load Balancer med Zone-redundant klient del – Azure CLI
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en offentlig Standard Load Balancer med zonredundant offentlig IP-adress klientdel med Azure CLI
+description: Lär dig hur du skapar en offentlig Standard Load Balancer med zon-redundant offentlig IP-adresspool med Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
-ms.author: kumud
-ms.openlocfilehash: 40396a8ef62553dd3ec721e97fe08bf8aa51c731
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 2dcd7d2cffa567307e1d6eb4326a379bc2d409be
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122122"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275175"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>Skapa en Standardbelastningsutjämnare med zonredundant klientdel med Azure CLI
 

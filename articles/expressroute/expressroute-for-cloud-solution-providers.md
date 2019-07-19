@@ -6,14 +6,14 @@ author: richcar
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: richcar
+ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367599"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849253"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en privat kommunikationslänk med hög hastighet till tjänster i Azure. 
@@ -31,7 +31,7 @@ Microsoft Azure tillhandahåller ett växande antal tjänster som du kan erbjuda
 Microsoft erbjuder API:er till CSP:er för att de ska kunna hantera kundprenumerationer på Azure, genom att tillåta att programmässig integrering sker med dina egna tjänsthanteringssystem. Hanteringsfunktioner som stöds finns [här](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure-resurshantering
-Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunderna hanterar skapandet av resurser i sin Microsoft Azure-prenumeration, använder de en av två modeller: ”*Anslut via*” modell, eller ”*direkt till*” modellen. Dessa modeller beskrivs i detalj i följande avsnitt.  
+Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunden hanterar skapandet av resurser i sin Microsoft Azure-prenumeration kommer de att använda en av två modeller: "*Anslut via*"-modellen eller "*direkt till"-* modellen. Dessa modeller beskrivs i detalj i följande avsnitt.  
 
 ### <a name="connect-through-model"></a>Anslut via-modellen
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -88,7 +88,7 @@ Du kan hjälpa till med att konfigurera anslutningen och vägarna så att resurs
 ## <a name="expressroute-routing-domains"></a>ExpressRoute-routningsdomäner
 ExpressRoute erbjuder tre routningsdomäner: offentliga, privata och Microsoft-peering. Var och en av routningsdomänerna är konfigurerade med identiska routrar i en aktiv-aktiv konfiguration för hög tillgänglighet. Mer information om ExpressRoute-routningsdomänerna finns [här](expressroute-circuit-peerings.md).
 
-Du kan definiera anpassade vägfilter för att endast tillåta de vägar som du vill tillåta eller som du behöver. Mer information eller för att se hur du gör dessa ändringar finns i artikeln: [Skapa och ändra routning för en ExpressRoute-krets med PowerShell](expressroute-howto-routing-classic.md) för mer information om routningsfilter.
+Du kan definiera anpassade vägfilter för att endast tillåta de vägar som du vill tillåta eller som du behöver. Mer information eller se hur du gör dessa ändringar finns i artikeln: [Skapa och ändra routning för en ExpressRoute-krets med hjälp av PowerShell](expressroute-howto-routing-classic.md) för mer information om vägvals filter.
 
 > [!NOTE]
 > Anslutningar med Microsoft-peering och offentlig peering måste ske via en offentlig IP-adress som ägs av kunden eller CSP:n och som följer alla definierade regler. Mer information finns på sidan [ExpressRoute-förutsättningar](expressroute-prerequisites.md).  
@@ -120,7 +120,7 @@ Beroende på vilken modell som används, Anslut till eller Anslut via, definiera
 1. **Kundisolering** – Azure-plattformen ger kundisolering genom att lagra information om kund-ID och vNet i en skyddad databas, som används för att kapsla in varje kunds trafik i en GRE-tunnel.
 2. Regler i **nätverkssäkerhetsgruppen (NSG)** används för att definiera tillåten trafik till och från undernät i vNets i Azure. Som standard innehåller NSG blockeringsregler som blockerar trafiken från Internet till vNet och tillåter regler för trafik i ett vNet. Mer information om nätverkssäkerhetsgrupper finns [här](https://azure.microsoft.com/blog/network-security-groups/)
 3. **Tvingad tunneltrafik** – Det här är ett alternativ för att omdirigera Internetbunden trafik med ursprung i Azure över ExpressRoute-anslutningen till ett lokalt datacenter. Mer information om tvingad tunneltrafik finns [här](expressroute-routing.md#advertising-default-routes).  
-4. **Kryptering** – Även om ExpressRoute-kretsar har reserverats för en viss kund finns möjligheten att nätverksprovidern kan angripas, vilket innebär att en inkräktare kan få åtkomst till pakettrafiken. Om du vill lösa det här potentiella problemet har en kund eller CSP kryptera trafik via anslutningen genom att definiera principer för IPSec-tunnelläge för all trafik som passerar mellan det lokala resurser och Azure resurser (se informationen om den valfria-tunnelläge för kund 1 i figur 5: ExpressRoute-säkerhet ovan). Det andra alternativet är att använda en brandväggsenhet på varje slutpunkt i ExpressRoute-kretsen. Detta kräver att ytterligare en tredjepartsbrandväggs VM/utrustning installeras i bägge ändar för att kryptera trafiken över ExpressRoute-kretsen.
+4. **Kryptering** – Även om ExpressRoute-kretsar har reserverats för en viss kund finns möjligheten att nätverksprovidern kan angripas, vilket innebär att en inkräktare kan få åtkomst till pakettrafiken. För att kunna hantera den här potentialen kan en kund eller CSP kryptera trafik via anslutningen genom att definiera IPSec tunnel läges principer för all trafik som flödar mellan lokala resurser och Azure-resurser (se det valfria tunnel läget IPSec för kund 1 i bild 5 ExpressRoute-säkerhet, ovan). Det andra alternativet är att använda en brandväggsenhet på varje slutpunkt i ExpressRoute-kretsen. Detta kräver att ytterligare en tredjepartsbrandväggs VM/utrustning installeras i bägge ändar för att kryptera trafiken över ExpressRoute-kretsen.
 
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

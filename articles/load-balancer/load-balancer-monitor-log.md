@@ -1,10 +1,10 @@
 ---
-title: Övervaka åtgärder, händelser och prestandaräknare för offentlig grundläggande belastningsutjämnare
+title: Övervaka åtgärder, händelser och räknare för offentliga Basic-Load Balancer
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du aktiverar händelser och avsökning hälsotillstånd status loggning för offentlig grundläggande belastningsutjämnare
+description: Lär dig hur du aktiverar aviserings händelser och loggning av avsöknings hälso status för offentliga Basic-Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,63 +12,63 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
-ms.author: kumud
-ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861190"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274804"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-loggar för offentlig grundläggande belastningsutjämnare
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
 
 >[!IMPORTANT] 
->Azure Load Balancer stöder två typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
+>Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
 
-Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastningsutjämnare. Några av de här loggarna kan nås via portalen. Alla loggar kan extraheras från Azure blob storage och visas i olika verktyg som Excel och Power BI. Du kan lära dig mer om de olika typerna av loggar i listan nedan.
+Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och PowerBI. Du kan lära dig mer om de olika typerna av loggar i listan nedan.
 
-* **Granskningsloggar:** Du kan använda [Azure-granskningsloggarna](../monitoring-and-diagnostics/insights-debugging-with-events.md) (kallades tidigare Driftloggar) att visa alla åtgärder som skickas till dina Azure-prenumerationer och deras status. Granskningsloggarna är aktiverade som standard och kan ses i Azure-portalen.
-* **Händelseloggar för avisering:** Du kan använda den här loggfilen för att visa aviseringar som genererats av belastningsutjämnaren. Status för belastningsutjämnaren som samlas in var femte minut. Den här loggfilen skrivs endast om en load balancer varning avisering har genererats.
-* **Hälsoavsökningsloggar:** Du kan använda den här loggfilen för att visa problem som identifieras av din hälsoavsökning, till exempel hur många instanser i din serverdelspool som inte tar emot begäranden från belastningsutjämnaren på grund av hälsokontrollfel. Den här loggfilen skrivs till när det finns en ändring i avsökningen hälsostatus.
+* **Gransknings loggar:** Du kan använda [Azures gransknings loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade drift loggar) om du vill visa alla åtgärder som skickas till din Azure-prenumeration (er) och deras status. Gransknings loggar är aktiverade som standard och kan visas i Azure Portal.
+* **Aviserings händelse loggar:** Du kan använda den här loggen för att visa aviseringar som aktive ras av belastningsutjämnaren. Status för belastningsutjämnaren samlas in var femte minut. Den här loggen skrivs bara om en belastnings Utjämnings aviserings händelse höjs.
+* **Hälso avsöknings loggar:** Du kan använda den här loggen för att visa problem som upptäckts av din hälso avsökning, till exempel antalet instanser i din backend-pool som inte tar emot begär Anden från belastningsutjämnaren på grund av hälso avsöknings fel. Loggen skrivs till när statusen för hälso avsökningen ändras.
 
 > [!IMPORTANT]
-> Azure Monitor loggar för närvarande fungerar endast för offentlig grundläggande belastningsutjämnare. Loggar är bara tillgängliga för resurser som distribueras i Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. Mer information om distributionsmodellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor loggar för närvarande endast fungerar för offentliga Basic Load Balancer. Loggar är bara tillgängliga för resurser som distribueras i distributions modellen för Resource Manager. Du kan inte använda loggar för resurser i den klassiska distributions modellen. Mer information om distributions modellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Granskningsloggning aktiveras automatiskt för alla Resource Manager-resurser. Du måste aktivera händelse och hälsotillstånd avsökningen loggning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
+Gransknings loggning aktive ras automatiskt för varje Resource Manager-resurs. Du måste aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
 
-Logga in på den [Azure-portalen](https://portal.azure.com). Om du inte redan har en belastningsutjämnare [skapar en belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md) innan du fortsätter.
+Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md) innan du fortsätter.
 
 1. I portalen klickar du på **Bläddra**.
-2. Välj **belastningsutjämnare**.
+2. Välj **belastnings utjämning**.
 
-    ![Portal - belastningsutjämnare](./media/load-balancer-monitor-log/load-balancer-browse.png)
+    ![Portal – belastnings utjämning](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-3. Välj en befintlig belastningsutjämnare >> **alla inställningar**.
-4. Bläddra till höger på dialogrutan under namnet på belastningsutjämnaren **övervakning**, klickar du på **diagnostik**.
+3. Välj en befintlig belastnings Utjämnings > > **alla inställningar**.
+4. Gå till den högra sidan i dialog rutan under namnet på belastningsutjämnaren, bläddra till **övervakning**och klicka på **diagnostik**.
 
-    ![Portal –--inställningar för belastningsutjämnare](./media/load-balancer-monitor-log/load-balancer-settings.png)
+    ![Portal – belastnings utjämning – inställningar](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. I den **diagnostik** fönstret under **Status**väljer **på**.
-6. Klicka på **Lagringskonto**.
-7. Under **loggar**, Välj ett befintligt lagringskonto eller skapa en ny. Använd skjutreglaget för att avgöra hur många dagar med händelsedata kommer att lagras i händelseloggarna. 
+5. I fönstret **diagnostik** under **status**väljer du **på**.
+6. Klicka på **lagrings konto**.
+7. Under **loggar**väljer du ett befintligt lagrings konto eller skapar ett nytt. Använd skjutreglaget för att avgöra hur många dagars händelse data som ska lagras i händelse loggarna. 
 8. Klicka på **Spara**.
 
-Diagnostik kommer att sparas i Table Storage i det angivna lagringskontot. Om loggar inte sparas, beror det på att inga relevanta loggar produceras.
+Diagnostiken kommer att sparas i Table Storage i det angivna lagrings kontot. Om loggarna inte sparas beror det på att inga relevanta loggar skapas.
 
-![Portal - diagnostikloggar](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+![Portal – diagnostikloggar](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Granskningsloggar kräver inte ett separat lagringskonto. Användningen för händelse- och hälsotillstånd avsökningen loggning tillkommer kostnader för tjänsten.
+> Gransknings loggar kräver inget separat lagrings konto. Användningen av lagring för loggning av händelse-och hälso avsökning debiteras service avgifter.
 
-## <a name="audit-log"></a>Granskningslogg
+## <a name="audit-log"></a>Gransknings logg
 
-Granskningsloggen skapas som standard. Loggarna bevaras i 90 dagar i Azures händelseloggar store. Läs mer om de här loggarna genom att läsa den [visar händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) artikeln.
+Gransknings loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa händelser och gransknings loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) .
 
-## <a name="alert-event-log"></a>Aviseringen händelseloggen
+## <a name="alert-event-log"></a>Aviserings händelse logg
 
-Den här loggen genereras bara om du har aktiverat det på en per load balancer basis. Händelser loggas i JSON-format och lagras i lagringskontot som du angav när du har aktiverat loggning. Följande är ett exempel på en händelse.
+Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare. Händelserna är inloggade i JSON-format och lagras i det lagrings konto du angav när du aktiverade loggningen. Följande är ett exempel på en händelse.
 
 ```json
 {
@@ -87,11 +87,11 @@ Den här loggen genereras bara om du har aktiverat det på en per load balancer 
 }
 ```
 
-JSON-utdata visar den *eventname* egenskap som beskriver orsaken till belastningsutjämnaren skapas en avisering. I det här fallet har den avisering som genererats på grund av TCP-portöverbelastning som orsakats av källan IP NAT gränser (SNAT).
+JSON-utdata visar egenskapen *EventName* som beskriver orsaken till att belastningsutjämnaren skapade en avisering. I det här fallet orsakade den genererade aviseringen på grund av att TCP-portens överbelastning orsakade av NAT-gränser (käll-IP NAT).
 
-## <a name="health-probe-log"></a>Hälsotillstånd avsökningen log
+## <a name="health-probe-log"></a>Hälso avsöknings logg
 
-Den här loggen genereras bara om du har aktiverat det på en per load balancer grund som beskrivs ovan. Data lagras i lagringskontot som du angav när du har aktiverat loggning. En behållare med namnet ”insights-logs-loadbalancerprobehealthstatus' har skapats och följande data loggas:
+Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare enligt beskrivningen ovan. Data lagras i det lagrings konto du angav när du aktiverade loggningen. En behållare med namnet Insights-logs-loadbalancerprobehealthstatus skapas och följande data loggas:
 
 ```json
 {
@@ -127,26 +127,26 @@ Den här loggen genereras bara om du har aktiverat det på en per load balancer 
 }
 ```
 
-JSON-utdata som visas i egenskapsfältet grundläggande information för avsökningen hälsostatus. Den *dipDownCount* egenskapen visar det totala antalet instanser på backend-server som inte tar emot nätverkstrafik på grund av misslyckade avsökningssvar.
+JSON-utdata visas i fältet egenskaper grundläggande information om avsökningens hälso status. Egenskapen *dipDownCount* visar det totala antalet instanser på backend-sidan som inte tar emot nätverks trafik på grund av misslyckade avsöknings svar.
 
-## <a name="view-and-analyze-the-audit-log"></a>Visa och analysera granskningsloggen
+## <a name="view-and-analyze-the-audit-log"></a>Visa och analysera gransknings loggen
 
-Du kan visa och analysera granskningsdata med hjälp av någon av följande metoder:
+Du kan visa och analysera Gransknings logg data med någon av följande metoder:
 
-* **Azure-verktyg:** Hämta information från granskningsloggar via Azure PowerShell, Azure-kommandoradsgränssnitt (CLI), Azure REST-API eller Azure preview portal. Stegvisa instruktioner för varje metod finns beskrivna i den [granskningsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) artikeln.
-* **Power BI:** Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med hjälp av den [Azure-granskningsloggarna innehållspaket för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), du kan analysera dina data med förkonfigurerade instrumentpaneler och du kan anpassa vyer så att den passar dina behov.
+* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, Azure Command Line Interface (CLI), Azure-REST API eller Azure Preview Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Power BI:** Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing) konto kan du prova det kostnads fritt. Med [innehålls paketet för Azure audit-loggar för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälsoavsökning och händelseloggen
+## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen
 
-Du måste ansluta till ditt storage-konto och hämta JSON-loggposter för händelse- och hälsotillstånd avsökningen loggar. När du har hämtat JSON-filerna kan konvertera du dem till CSV och view i Excel, PowerBI eller andra datavisualiseringsverktyg.
+Du måste ansluta till ditt lagrings konto och hämta JSON-logg poster för händelse-och hälso avsöknings loggar. När du har hämtat JSON-filerna kan du konvertera dem till CSV och Visa i Excel, PowerBI eller något annat verktyg för data visualisering.
 
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Visualisera dina Azure-granskningsloggar med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogginlägg.
-* [Visa och analysera Azure-granskningsloggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogginlägg.
+* [Visualisera dina Azure audit-loggar med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogg inlägg.
+* [Visa och analysera Azure audit-loggar i Power BI och fler](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogg inlägg.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,112 +1,112 @@
 ---
 title: Exportera data till Azure Blob Storage | Microsoft Docs
-description: Exportera data från Azure IoT Central programmet till Azure Blob Storage
+description: Så här exporterar du data från ditt Azure IoT Central-program till Azure Blob Storage
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464631"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849075"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportera data till Azure Blob Storage
 
 *Det här avsnittet gäller för administratörer.*
 
-Den här artikeln beskriver hur du använder funktionen löpande export i Azure IoT Central regelbundet exportera data till din **Azure Blob storage-konto**. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till filer i Apache Avro-format. Exporterade data kan användas för analys av kalla sökvägen som utbildning modeller i Azure Machine Learning eller långsiktig trendanalys i Microsoft Power BI.
+Den här artikeln beskriver hur du använder funktionen för kontinuerlig data export i Azure IoT Central för att regelbundet exportera data till ditt **Azure Blob Storage-konto**. Du kan exportera **mått**, **enheter**och **enhetsspecifika mallar** till filer i Apache Avro-format. Exporterade data kan användas för kall Sök vägs analys som utbildnings modeller i Azure Machine Learning eller långsiktig trend analys i Microsoft Power BI.
 
 > [!Note]
-> Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
+> När du sedan aktiverar kontinuerlig data export får du bara data från det tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara administratör i din IoT Central-App
+- Du måste vara administratör i IoT Centrals programmet
 
 
-## <a name="set-up-export-destination"></a>Konfigurera exportera
+## <a name="set-up-export-destination"></a>Konfigurera export mål
 
-Följ dessa steg om du inte har ett befintligt lagringsutrymme för att exportera till:
+Om du inte har en befintlig lagrings enhet att exportera till följer du dessa steg:
 
-## <a name="create-storage-account"></a>Skapa lagringskonto
+## <a name="create-storage-account"></a>Skapa lagrings konto
 
-1. Skapa en [nytt lagringskonto i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer i [Azure Storage-docs](https://aka.ms/blobdocscreatestorageaccount).
-2. Kontotyp, Välj **generella** eller **Blob-lagring**.
+1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer i [Azure Storage dokument](https://aka.ms/blobdocscreatestorageaccount).
+2. För konto typen väljer du **generell användning** eller **blob-lagring**.
 3. Välj en prenumeration. 
 
     > [!Note] 
-    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+    > Nu kan du exportera data till andra prenumerationer som **inte är samma** som den som du betalar per användning för IoT Central programmet. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
 
-4. Skapa en behållare i ditt storage-konto. Gå till ditt lagringskonto. Under **Blobtjänsten**väljer **Bläddra efter Blobar**. Välj **+ behållare** överst för att skapa en ny behållare
+4. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare
 
 
-## <a name="set-up-continuous-data-export"></a>Konfigurera löpande dataexport
+## <a name="set-up-continuous-data-export"></a>Konfigurera kontinuerlig data export
 
-Nu när du har en lagringsplats för att exportera data till följer du dessa steg för att konfigurera löpande dataexport. 
+Nu när du har ett lagrings mål att exportera data till, följer du dessa steg för att konfigurera kontinuerlig data export. 
 
 1. Logga in på ditt IoT Central-program.
 
-2. I den vänstra menyn väljer du **löpande Export av Data**.
+2. På den vänstra menyn väljer du **kontinuerlig data export**.
 
     > [!Note]
-    > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
+    > Om du inte ser kontinuerliga data export på den vänstra menyn är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu1.png)
+    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_menu1.png)
 
-3. Välj den **+ ny** knappen uppe till höger. Välj **Azure Blob Storage** som mål för exporten. 
+3. Välj knappen **+ ny** längst upp till höger. Välj **Azure Blob Storage** som mål för exporten. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
 
-    ![Skapa ny löpande dataexport](media/howto-export-data/export_new1.png)
+    ![Skapa ny kontinuerlig data export](media/howto-export-data/export_new1.png)
 
-4. I den nedrullningsbara listrutan väljer du din **Lagringskonto namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
-
-    > [!NOTE] 
-    > Du ser bara Lagringskonton namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
+4. I list rutan väljer du ditt **lagrings konto namn område**. Du kan också välja det sista alternativet i listan som **anger en anslutnings sträng**. 
 
     > [!NOTE] 
-    > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
+    > Du ser bara lagrings konto namn områden i **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 5.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data/export-create-blob.png)
+    > [!NOTE] 
+    > För 7 dagars test av appar är det enda sättet att konfigurera kontinuerlig data export genom en anslutnings sträng. Detta beror på att sju dagars prov versioner inte har någon tillhör ande Azure-prenumeration.
 
-5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
-    - Storage-konto, gå till lagringskontot i Azure-portalen.
-        - Under **inställningar**väljer **åtkomstnycklar**
-        - Kopiera anslutningssträngen key1 och key2-anslutningssträng
+    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export-create-blob.png)
+
+5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
+    - Lagrings konto går du till lagrings kontot i Azure Portal.
+        - Under **Inställningar**väljer du **åtkomst nycklar**
+        - Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
  
-6. Välj en behållare i nedrullningsbara listrutan.
+6. Välj en behållare i list rutan.
 
-7. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
+7. Under **data som ska exporteras**anger du varje typ av data som ska exporteras genom att ange typen till **på**.
 
-6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
+6. Om du vill aktivera kontinuerlig data export kontrollerar du att **data exporten** är **på**. Välj **Spara**.
 
-   ![Konfigurera löpande dataexport](media/howto-export-data/export-list-blob.png)
+   ![Konfigurera kontinuerlig data export](media/howto-export-data/export-list-blob.png)
 
-7. Efter ett par minuter visas dina data i ditt valda mål.
+7. Efter några minuter visas dina data i det valda målet.
 
 
 ## <a name="export-to-azure-blob-storage"></a>Exportera till Azure Blob Storage
 
-Mått, enheter och mallar enhetsdata exporteras till ditt storage-konto en gång per minut, med varje fil som innehåller batch med ändringar sedan senast exporterade filen. Exporterade data är i [Apache Avro](https://avro.apache.org/docs/current/index.html) formatera och kommer att exporteras i till tre mappar. Standardsökvägarna i ditt storage-konto är:
+Data för mått, enheter och enhets information exporteras till ditt lagrings konto en gång per minut, med varje fil som innehåller grupp ändringar sedan den senaste exporterade filen. Exporterade data är i [Apache Avro](https://avro.apache.org/docs/current/index.html) -format och kommer att exporteras i till tre mappar. Standard Sök vägarna i ditt lagrings konto är:
 - Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Mallar för enheten: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Enhets mallar: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Mått
 
-Exporterade mätning av faktisk användning har alla nya meddelanden som tas emot av IoT Central från alla enheter under den tiden. De exporterade filerna använder samma format som meddelandefiler som exporteras av [IoT Hub meddelanderoutning](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) till Blob storage.
+Exporterade mätnings data har alla nya meddelanden som tagits emot av IoT Central från alla enheter under den tiden. De exporterade filerna använder samma format som de meddelandefiler som exporteras av [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) meddelanderoutning till Blob Storage.
 
 > [!NOTE]
-> De enheter som skickar mått som representeras av enhets-ID (se nedan). Exportera ögonblicksbilder för enheten för att hämta namnen på enheterna. Korrelera varje meddelande-post med hjälp av den **connectionDeviceId** som matchar den **deviceId** av enheten.
+> De enheter som skickar måtten representeras av enhets-ID: n (se följande avsnitt). Exportera enhetens ögonblicks bilder för att hämta namnen på enheterna. Korrelera varje meddelande post med hjälp av **connectionDeviceId** som matchar enhets Postens **deviceId** .
 
-I följande exempel visas en post i en avkodade Avro-fil:
+I följande exempel visas en post i en avkodad avro-fil:
 
 ```json
 {
@@ -124,25 +124,25 @@ I följande exempel visas en post i en avkodade Avro-fil:
 
 ### <a name="devices"></a>Enheter
 
-När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla enheter. Varje enhet innehåller:
-- `id` för enheten i IoT Central
-- `name` enhetens
-- `deviceId` från [Device Provisioning-tjänst](https://aka.ms/iotcentraldocsdps)
-- Mallen enhetsinformation
+När kontinuerlig data export först aktive ras, exporteras en enda ögonblicks bild med alla enheter. Varje enhet innehåller:
+- `id`av enheten i IoT Central
+- `name`av enheten
+- `deviceId`från [enhets etablerings tjänst](https://aka.ms/iotcentraldocsdps)
+- Information om enhets mal len
 - Egenskapsvärden
-- Inställningsvärden
+- Inställnings värden
 
-En ny ögonblicksbild skrivs en gång per minut. Ögonblicksbilden innehåller:
+En ny ögonblicks bild skrivs en gång per minut. Ögonblicks bilden innehåller:
 
-- Nya enheter som har lagts till sedan den senaste ögonblicksbilden.
-- Enheter med ändrade egenskapen och ange värden för sedan den senaste ögonblicksbilden.
+- Nya enheter har lagts till sedan den senaste ögonblicks bilden.
+- Enheter med ändrad egenskap och inställnings värden sedan den senaste ögonblicks bilden.
 
 > [!NOTE]
-> Enheter som har tagits bort sedan den senaste ögonblicksbilden inte exporteras. Ögonblicksbilder har för närvarande inte indikatorer för enheter som har tagits bort.
+> Enheter som har tagits bort sedan den senaste ögonblicks bilden exporteras inte. Ögonblicks bilderna har för närvarande inga indikatorer för borttagna enheter.
 >
-> Mallen enhet som varje enhet som tillhör representeras av en enhet mall-ID. Exportera mall-ögonblicksbilder enheten för att hämta namnet på mallen för enheten.
+> Enhets mal len som varje enhet tillhör representeras av ett mall-ID för enhet. Exportera enhets mal len ögonblicks bilder för att hämta namnet på enhets mal len.
 
-En post i filen avkodade Avro kan se ut:
+En post i den avkodade Avro-filen kan se ut så här:
 
 ```json
 {
@@ -172,25 +172,25 @@ En post i filen avkodade Avro kan se ut:
 }
 ```
 
-### <a name="device-templates"></a>Enheten mallar
+### <a name="device-templates"></a>Enhets mallar
 
-När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla mallar för enheten. Varje enhet-mall innehåller:
-- `id` för mall för enhet
-- `name` för mall för enhet
-- `version` för mall för enhet
-- Datatyper för mätning och min/max-värden.
-- Egenskapen datatyper och standardvärden.
-- Ställa in datatyper och standardvärden.
+När kontinuerlig data export har Aktiver ATS, exporteras en enda ögonblicks bild med alla enhets mallar. Varje enhets mall innehåller:
+- `id`av enhets mal len
+- `name`av enhets mal len
+- `version`av enhets mal len
+- Mät data typer och minsta/högsta värden.
+- Egenskaps data typer och standardvärden.
+- Ange data typer och standardvärden.
 
-En ny ögonblicksbild skrivs en gång per minut. Ögonblicksbilden innehåller:
+En ny ögonblicks bild skrivs en gång per minut. Ögonblicks bilden innehåller:
 
-- Ny enhet mallar har lagts till sedan den senaste ögonblicksbilden.
-- Enheten mallar med ändrade mått, egenskap och inställningen definitioner eftersom den senaste ögonblicksbilden.
+- Nya enhetsspecifika mallar har lagts till sedan den senaste ögonblicks bilden.
+- Enhets mallar med ändrade mått, egenskaper och inställnings definitioner sedan den senaste ögonblicks bilden.
 
 > [!NOTE]
-> Enhet-mallar som har tagits bort sedan den senaste ögonblicksbilden exporteras inte. Ögonblicksbilder har för närvarande inte indikatorer för borttagna mallar.
+> Enhetsspecifika har tagits bort sedan den senaste ögonblicks bilden inte har exporter ATS. Ögonblicks bilderna har för närvarande inga indikatorer för borttagna enhetsspecifika mallar.
 
-En post i filen avkodade Avro kan se ut så här:
+En post i den avkodade Avro-filen kan se ut så här:
 
 ```json
 {
@@ -266,20 +266,20 @@ En post i filen avkodade Avro kan se ut så här:
 }
 ```
 
-## <a name="read-exported-avro-files"></a>Läs exporterade Avro-filer
+## <a name="read-exported-avro-files"></a>Läsa exporterade Avro-filer
 
-Avro är ett binärt format, så inte går att läsa filerna i raw-tillståndet. Filerna kan avkodas till JSON-format. I följande exempel visas hur du Parsar den mått, enheter och enheten mallar Avro-filer. Exemplen motsvarar de exempel som beskrivs i föregående avsnitt.
+Avro är ett binärt format, så filerna kan inte läsas i sitt RAW-tillstånd. Filerna kan avkodas till JSON-format. I följande exempel visas hur du kan parsa Avro-filer för mått, enheter och Device templates. Exemplen motsvarar exemplen som beskrivs i föregående avsnitt.
 
-### <a name="read-avro-files-by-using-python"></a>Läsa Avro-filer med hjälp av Python
+### <a name="read-avro-files-by-using-python"></a>Läsa Avro-filer med hjälp av python
 
-#### <a name="install-pandas-and-the-pandavro-package"></a>Installera pandas och pandavro-paketet
+#### <a name="install-pandas-and-the-pandavro-package"></a>Installera Pandas och pandavro-paketet
 
 ```python
 pip install pandas
 pip install pandavro
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Tolka en mätningar av Avro-fil
+#### <a name="parse-a-measurements-avro-file"></a>Parsa en mått avro-fil
 
 ```python
 import json
@@ -309,7 +309,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Tolka en enheter Avro-fil
+#### <a name="parse-a-devices-avro-file"></a>Parsa en enhet avro-fil
 
 ```python
 import json
@@ -343,7 +343,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Tolka en enhet mallar Avro-fil
+#### <a name="parse-a-device-templates-avro-file"></a>Parsa en Avro-fil för Device templates
 
 ```python
 import json
@@ -372,15 +372,15 @@ def parse(filePath):
     print(transformed)
 ```
 
-### <a name="read-avro-files-by-using-c"></a>Läs Avro-filer med hjälp avC#
+### <a name="read-avro-files-by-using-c"></a>Läsa Avro-filer med hjälp avC#
 
-#### <a name="install-the-microsofthadoopavro-package"></a>Installera paketet Microsoft.Hadoop.Avro
+#### <a name="install-the-microsofthadoopavro-package"></a>Installera paketet Microsoft. Hadoop. avro
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Tolka en mätningar av Avro-fil
+#### <a name="parse-a-measurements-avro-file"></a>Parsa en mått avro-fil
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -420,7 +420,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Tolka en enheter Avro-fil
+#### <a name="parse-a-devices-avro-file"></a>Parsa en enhet avro-fil
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -471,7 +471,7 @@ public static async Task Run(string filePath)
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Tolka en enhet mallar Avro-fil
+#### <a name="parse-a-device-templates-avro-file"></a>Parsa en Avro-fil för Device templates
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -515,15 +515,15 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="read-avro-files-by-using-javascript"></a>Läsa Avro-filer med hjälp av Javascript
+### <a name="read-avro-files-by-using-javascript"></a>Läsa Avro-filer med hjälp av Java Script
 
-#### <a name="install-the-avsc-package"></a>Installera paketet avsc
+#### <a name="install-the-avsc-package"></a>Installera AVSC-paketet
 
 ```javascript
 npm install avsc
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Tolka en mätningar av Avro-fil
+#### <a name="parse-a-measurements-avro-file"></a>Parsa en mått avro-fil
 
 ```javascript
 const avro = require('avsc');
@@ -560,7 +560,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Tolka en enheter Avro-fil
+#### <a name="parse-a-devices-avro-file"></a>Parsa en enhet avro-fil
 
 ```javascript
 const avro = require('avsc');
@@ -598,7 +598,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Tolka en enhet mallar Avro-fil
+#### <a name="parse-a-device-templates-avro-file"></a>Parsa en Avro-fil för Device templates
 
 ```javascript
 const avro = require('avsc');
@@ -638,4 +638,4 @@ function load(filePath) {
 Nu när du vet hur du exporterar dina data kan du fortsätta till nästa steg:
 
 > [!div class="nextstepaction"]
-> [Så här att visualisera dina data i Power BI](howto-connect-powerbi.md)
+> [Visualisera dina data i Power BI](howto-connect-powerbi.md)

@@ -1,25 +1,25 @@
 ---
-title: Azure Container Registry - roller och behörigheter
-description: Använda Azure rollbaserad åtkomstkontroll (RBAC) och identitets- och åtkomsthantering (IAM) för att tillhandahålla detaljerade behörigheter till resurser i ett Azure container registry.
+title: Azure Container Registry-roller och behörigheter
+description: Använd rollbaserad åtkomst kontroll i Azure (RBAC) och identitets-och åtkomst hantering (IAM) för att ge detaljerade behörigheter till resurser i ett Azure Container Registry.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068006"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310606"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
-Azure Container Registry-tjänsten stöder en uppsättning Azure-roller som kan ger olika nivåer av behörigheter till ett Azure container registry. Använd Azure [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att tilldela specifika behörigheter till användare eller tjänsthuvudnamn som måste interagera med ett register.
+Tjänsten Azure Container Registry stöder en uppsättning Azure-roller som ger olika behörighets nivåer till ett Azure Container Registry. Använd [rollbaserad åtkomst kontroll](../role-based-access-control/index.yml) (RBAC) i Azure för att tilldela särskilda behörigheter till användare eller tjänst huvud namn som behöver interagera med ett register.
 
-| Rollbehörighet /       | [Access Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | [Ta bort avbildningsdata](#delete-image-data) | [Ändra principer](#change-policies) |   [Logga avbildningar](#sign-images)  |
+| Roll/behörighet       | [Access Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-avbildning](#push-image) | [Hämta bild](#pull-image) | [Ta bort avbildnings data](#delete-image-data) | [Ändra principer](#change-policies) |   [Signera bilder](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Ägare | X | X | X | X | X | X |  |  
 | Deltagare | X | X | X |  X | X | X |  |  
@@ -29,52 +29,52 @@ Azure Container Registry-tjänsten stöder en uppsättning Azure-roller som kan 
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
-## <a name="differentiate-users-and-services"></a>Skilja mellan användare och tjänster
+## <a name="differentiate-users-and-services"></a>Särskilja användare och tjänster
 
-Alla time-behörigheter tillämpas, bästa praxis är att tillhandahålla den mest begränsad uppsättningen behörigheter för en person eller tjänst, att utföra en uppgift. Följande behörighetsuppsättningar representerar en uppsättning funktioner som kan användas av människor och fjärradministrerad tjänster.
+När du använder en viss tids period är det en bra idé att tillhandahålla den mest begränsade uppsättningen behörigheter för en person, eller tjänst, för att utföra en uppgift. Följande behörighets uppsättningar representerar en uppsättning funktioner som kan användas av människor och konsol lösa tjänster.
 
 ### <a name="cicd-solutions"></a>CI/CD-lösningar
 
-Vid automatisering av `docker build` kommandon från CI/CD-lösningar, du behöver `docker push` funktioner. Dessa scenarier med fjärradministrering service föreslår vi att tilldela den **AcrPush** roll. Den här rollen, till skillnad från den bredare **deltagare** roll, förhindrar kontot från utför andra åtgärder i registret eller åtkomst till Azure Resource Manager.
+När du automatiserar `docker build` kommandon från CI/CD-lösningar behöver `docker push` du funktioner. Vi föreslår att du tilldelar **AcrPush** -rollen för dessa scenarier för konsol lös tjänst. Den här rollen, till skillnad från rollen bredare **deltagare** , förhindrar att kontot utför andra register åtgärder eller använder Azure Resource Manager.
 
-### <a name="container-host-nodes"></a>Behållarnoder för värd
+### <a name="container-host-nodes"></a>Noder i container värden
 
-På samma sätt noder som kör dina behållare måste den **AcrPull** roll, men får inte kräva **läsare** funktioner.
+Noder som kör dina behållare behöver inte heller **AcrPull** -rollen, men behöver inte **läsa** in funktioner.
 
-### <a name="visual-studio-code-docker-extension"></a>Visual Studio Code Docker-tillägg
+### <a name="visual-studio-code-docker-extension"></a>Tillägg för Visual Studio Code Docker
 
-För verktyg som Visual Studio Code [Docker-tillägg](https://code.visualstudio.com/docs/azure/docker), ytterligare resource provider åtkomst krävs för att visa de tillgängliga Azure-behållarregister. I det här fallet ger användarna åtkomst till den **läsare** eller **deltagare** roll. Dessa roller Tillåt `docker pull`, `docker push`, `az acr list`, `az acr build`, och andra funktioner. 
+För verktyg som Visual Studio Code Docker- [tillägget](https://code.visualstudio.com/docs/azure/docker)krävs ytterligare resurs leverantörs åtkomst för att lista tillgängliga Azure Container register. I det här fallet ger du användarna åtkomst till **läsaren** eller **deltagar** rollen. De här rollerna `docker push`tillåter `az acr list` `docker pull`, `az acr build`,, och andra funktioner. 
 
-## <a name="access-resource-manager"></a>Access Resource Manager
+## <a name="access-resource-manager"></a>Åtkomst till Resource Manager
 
-Azure Resource Manager-åtkomst krävs för den Azure-portalen och registret med den [Azure CLI](/cli/azure/). Till exempel för att hämta en lista över register med hjälp av den `az acr list` kommandot, du behöver den här behörigheten ange. 
+Azure Resource Manager åtkomst krävs för Azure Portal-och register hantering med [Azure CLI](/cli/azure/). Om du till exempel vill hämta en lista över register med hjälp `az acr list` av kommandot behöver du den här behörighets uppsättningen. 
 
 ## <a name="create-and-delete-registry"></a>Skapa och ta bort registret
 
-Möjligheten att skapa och ta bort Azure-behållarregister.
+Möjlighet att skapa och ta bort Azure-behållar register.
 
-## <a name="push-image"></a>Push-överför avbildningen
+## <a name="push-image"></a>Push-avbildning
 
-Möjligheten att `docker push` en avbildning, eller skicka en annan [stöds artefakt](container-registry-image-formats.md) , till exempel ett Helm-diagram till ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet. 
+Möjligheten till `docker push` en bild, eller skicka en annan [artefakt som stöds](container-registry-image-formats.md) , till exempel ett Helm-diagram, till ett register. Kräver [autentisering](container-registry-authentication.md) med registret med den auktoriserade identiteten. 
 
-## <a name="pull-image"></a>Hämta avbildning
+## <a name="pull-image"></a>Hämta bild
 
-Möjligheten att `docker pull` en icke-i karantän bild eller för att hämta en annan [stöds artefakt](container-registry-image-formats.md) , till exempel ett Helm-diagram från ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet.
+Möjligheten till `docker pull` en icke-karantän avbildning, eller hämta en annan [artefakt som stöds](container-registry-image-formats.md) , till exempel ett Helm-diagram, från ett register. Kräver [autentisering](container-registry-authentication.md) med registret med den auktoriserade identiteten.
 
-## <a name="delete-image-data"></a>Ta bort avbildningsdata
+## <a name="delete-image-data"></a>Ta bort avbildnings data
 
-Möjligheten att [ta bort behållaravbildningar](container-registry-delete.md), eller ta bort andra [stöds artefakter](container-registry-image-formats.md) , till exempel Helm-diagram från ett register.
+Möjligheten att [ta bort](container-registry-delete.md)behållar avbildningar eller ta bort andra artefakter som [stöds](container-registry-image-formats.md) , till exempel Helm-diagram, från ett register.
 
 ## <a name="change-policies"></a>Ändra principer
 
-Möjligheten att konfigurera principer på ett register. Principer omfattar rensning av avbildningen, aktivera karantän och avbildning signering.
+Möjlighet att konfigurera principer i ett register. Principerna omfattar avbildnings rensning, aktivering av karantän och avbildnings signering.
 
-## <a name="sign-images"></a>Logga avbildningar
+## <a name="sign-images"></a>Signera bilder
 
-Möjligheten att logga avbildningar, oftast i en automatiserad process som använder ett huvudnamn för tjänsten. Den här behörigheten vanligtvis kombineras med [push bild](#push-image) att tillåta push-överföra en avbildning av en betrodd till ett register. Mer information finns i [innehåll förtroende i Azure Container Registry](container-registry-content-trust.md).
+Möjlighet att signera bilder, som vanligt vis tilldelas till en automatiserad process, som använder ett huvud namn för tjänsten. Den här behörigheten kombineras vanligt vis med [push-avbildning](#push-image) för att tillåta att en betrodd avbildning överförs till ett register. Mer information finns [i innehålls förtroende i Azure Container Registry](container-registry-content-trust.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att tilldela RBAC-roller till en Azure-identitet med hjälp av den [Azure-portalen](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md), eller andra Azure-verktyg.
+* Lär dig mer om att tilldela RBAC-roller till en Azure-identitet med hjälp av [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)eller andra Azure-verktyg.
 
 * Lär dig mer om [autentiseringsalternativ](container-registry-authentication.md) för Azure Container Registry.

@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: sdgilley
-ms.author: sgilleye
+ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d38a5066304a11ff2cd53a0168e51a0d74fda555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d9475b49b3ef8a2e672e1ce505a7d94d19cb14f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751491"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875324"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
-## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare-serien
+## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Data vetenskap för nybörjare-serien
 Lär dig att utvärdera dina data så att den uppfyller grundläggande kriterier för att vara klara för datavetenskap.
 
 Titta på alla för att få ut det mesta av serien. [Gå till listan över videor](#other-videos-in-this-series)
@@ -31,13 +31,13 @@ Titta på alla för att få ut det mesta av serien. [Gå till listan över video
 ## <a name="other-videos-in-this-series"></a>Andra videor i den här serien
 *Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
-* Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
+* Video 1: [Svar på 5 frågor om data vetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 SEK)*
 * Video 2: Är dina data klara för datavetenskap?
-* Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: [Förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
-* Video 5: [Kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
+* Video 3: [Ställ en fråga som du kan besvara med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 SEK)*
+* Video 4: [Förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 SEK)*
+* Video 5: [Kopiera andras arbete för att göra data vetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 SEK)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Avskriften: Är dina data klara för datavetenskap?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Avskrifts Är dina data klara för datavetenskap?
 Välkommen till ”är dina data klara för datavetenskap”? andra videon i serien *datavetenskap för nybörjare*.  
 
 Innan datavetenskap kan ge dig de svar som du vill ha så att det vissa högkvalitativa råmaterial att arbeta med. Precis som gör en platt, desto bättre ingredienser du börjar med, desto bättre slutliga produkt. 
@@ -100,7 +100,7 @@ När du lägger till mer data bilden blir tydligare och du kan fatta mer detalje
 
 Med data som är relevant, ansluten, korrekt och tillräckligt, du har alla komponenter krävs för att göra vissa datavetenskap med hög kvalitet.
 
-Se till att Kolla in andra fyra videor i *datavetenskap för nybörjare* från Microsoft Azure Machine Learning Studio.
+Se till att ta en titt på de andra fyra videor i *data vetenskap för nybörjare* från Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)

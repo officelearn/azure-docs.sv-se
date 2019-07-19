@@ -1,106 +1,107 @@
 ---
-title: Error reference for health check - Azure Container Registry
-description: Felkoder och möjliga lösningar på problem som hittas genom att köra az acr-hälsostatus diagnostiska kommando i Azure Container Registry
+title: Fel referens för hälso kontroll-Azure Container Registry
+description: Felkoder och möjliga lösningar på problem som hittas genom att köra kommandot AZ ACR check-Health Diagnostic i Azure Container Registry
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: fc29b27cbb7eea983140c59529d981ad95c27ae8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555116"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309381"
 ---
-# <a name="health-check-error-reference"></a>Hälsotillstånd Kontrollera felreferens
+# <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
 
-Nedan visas information om felkoder som returneras av den [az acr-hälsostatus][az-acr-check-health] kommando. Möjliga lösningar visas för varje fel.
+Nedan visas information om felkoder som returneras av kommandot [AZ ACR check-Health][az-acr-check-health] . För varje fel visas möjliga lösningar.
 
 ## <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
 
-Detta fel innebär att Docker-klienten för CLI inte kunde hittas. Därför kan följande ytterligare kontroller körs inte: söka efter Docker-version, utvärderar Docker daemon status och kör en Docker pull-kommando.
+Det här felet innebär att Docker-klienten för CLI inte kunde hittas. Därför körs inte följande ytterligare kontroller: hitta Docker-version, utvärdera status för Docker daemon och köra ett Docker pull-kommando.
 
-*Möjliga lösningar*: Installera Docker-klienten. Lägg till Docker-sökvägen i systemvariablerna.
+*Möjliga lösningar*: Installera Docker-klienten; Lägg till Docker-sökvägen till systemvariablerna.
 
 ## <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
 
-Detta fel innebär att Docker-daemon status är otillgänglig eller att det inte gick att nå med hjälp av CLI. Resultatet blir Docker-åtgärder (till exempel `docker login` och `docker pull`) är inte tillgängliga via CLI.
+Det här felet innebär att status för Docker daemon inte är tillgänglig eller att den inte kan nås med hjälp av CLI. Därför är Docker-åtgärder (till exempel `docker login` och `docker pull`) inte tillgängliga via cli.
 
-*Möjliga lösningar*: Starta om Docker-daemon eller verifiera att den är korrekt installerat.
+*Möjliga lösningar*: Starta om Docker daemon eller kontrol lera att den är korrekt installerad.
 
 ## <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
 
-Detta fel innebär att CLI går inte att köra kommandot `docker --version`.
+Det här felet innebär att CLI inte kunde köra kommandot `docker --version`.
 
-*Möjliga lösningar*: Försök köra kommandot manuellt, kontrollera att du har den senaste versionen av CLI och undersök felmeddelandet.
+*Möjliga lösningar*: Prova att köra kommandot manuellt, kontrol lera att du har den senaste CLI-versionen och undersök fel meddelandet.
 
 ## <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
 
-Detta fel innebär att CLI inte kunde hämta en exempelbild för din miljö.
+Det här felet innebär att CLI inte kunde hämta en exempel bild till din miljö.
 
-*Möjliga lösningar*: Verifiera att alla komponenter som behövs för att hämta en avbildning körs korrekt.
+*Möjliga lösningar*: Kontrol lera att alla komponenter som krävs för att hämta en avbildning körs på rätt sätt.
 
 ## <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
 
-Detta fel innebär att Helm-klienten inte kunde hittas av CLI, vilket utesluter andra Helm-åtgärder.
+Det här felet innebär att Helm-klienten inte kunde hittas av CLI, vilket förhindrar andra Helm-åtgärder.
 
-*Möjliga lösningar*: Kontrollera att Helm-klienten är installerad och att sökvägen har lagts till systemets miljövariabler.
+*Möjliga lösningar*: Kontrol lera att Helm-klienten är installerad och att dess sökväg läggs till i systemmiljövariabler.
 
 ## <a name="helmversionerror"></a>HELM_VERSION_ERROR
 
-Detta fel innebär att CLI inte gick att fastställa Helm-version som installeras. Detta kan inträffa om Azure CLI-version (eller om Helm-version) som används är föråldrad.
+Det här felet innebär att CLI inte kunde fastställa Helm-versionen som är installerad. Detta kan inträffa om Azure CLI-versionen (eller om Helm-versionen) används är föråldrad.
 
-*Möjliga lösningar*: Uppdatera till den senaste versionen av Azure CLI eller till den rekommenderade Helm-versionen. Kör kommandot manuellt och undersök felmeddelandet.
+*Möjliga lösningar*: Uppdatera till den senaste versionen av Azure CLI eller till den rekommenderade Helm-versionen; Kör kommandot manuellt och undersök fel meddelandet.
 
 ## <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
 
-Det här felet innebär att DNS för angivna behållarregistrets inloggningsserver har en men inte svarade, vilket innebär att den inte är tillgänglig. Detta kan tyda på vissa problem med nätverksanslutningen. Du kan också registret finns inte, användaren kanske inte har behörighet för registret (för att hämta dess inloggningsserver korrekt) eller målregistret är i ett annat moln än den som används i Azure CLI.
+Det här felet innebär att DNS för den registrerade inloggnings servern för registret skickades ping, men inte svarade, vilket innebär att den inte är tillgänglig. Detta kan tyda på problem med anslutningen. Det kan också hända att registret inte finns, användaren kanske inte har behörighet för registret (för att hämta sin inloggnings Server korrekt) eller också är mål registret i ett annat moln än det som används i Azure CLI.
 
-*Möjliga lösningar*: Kontrollera anslutning; Kontrollera stavningen av registret och att registret finns. Kontrollera att användaren har rätt behörigheter på den och att registrets molnet är samma som används i Azure CLI.
+*Möjliga lösningar*: Verifiera anslutning; kontrol lera stavningen av registret och att registret finns. kontrol lera att användaren har rätt behörigheter och att registrets moln är detsamma som används i Azure CLI.
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Detta fel innebär att utmaning slutpunkten för den angivna registernyckeln svarade med en 403 tillåts inte HTTP-status. Detta fel innebär att användare inte har åtkomst till registret, troligen på grund av en konfiguration av virtuellt nätverk.
+Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en konfiguration av virtuellt nätverk.
 
-*Möjliga lösningar*: Ta bort virtuella Nätverksregler eller lägga till den aktuella klientens IP-adressen i listan över tillåtna.
+*Möjliga lösningar*: Ta bort de virtuella nätverks reglerna eller Lägg till den aktuella klientens IP-adress i listan över tillåtna.
 
 ## <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
 
-Detta fel innebär att utmaning slutpunkten för målregistret inte har utfärdat en utmaning.
+Det här felet innebär att anrops slut punkten för mål registret inte utfärdade någon utmaning.
 
-*Möjliga lösningar*: Försök igen om en stund. Om felet kvarstår, öppna ett ärende i https://aka.ms/acr/issues.
+*Möjliga lösningar*: Försök igen om en stund. Om felet kvarstår öppnar du ett ärende på https://aka.ms/acr/issues.
 
 ## <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
-Detta fel innebär att utmaning slutpunkten för målregistret utfärdat en utmaning, men registret har inte stöd för Azure Active Directory-autentisering.
+Det här felet innebär att anrops slut punkten för mål registret utfärdade en utmaning, men registret stöder inte Azure Active Directory autentisering.
 
-*Möjliga lösningar*: Prova ett annat sätt att autentisera, till exempel med autentiseringsuppgifter som administratör. Om användare måste autentisera med Azure Active Directory, öppna ett ärende i https://aka.ms/acr/issues.
+*Möjliga lösningar*: Försök med ett annat sätt att autentisera, till exempel med administratörs behörighet. Om användarna behöver autentisera med hjälp av Azure Active Directory öppnar du ett problem https://aka.ms/acr/issues på.
 
 ## <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
-Detta fel innebär att behållarregistrets inloggningsserver inte svarade med en uppdateringstoken så nekas åtkomst till målregistret. Det här felet kan inträffa om användaren inte har rätt behörigheter på registret eller om användarens autentiseringsuppgifter för Azure CLI är inaktuella.
+Det här felet innebär att inloggnings servern för registret inte svarade med en uppdateringstoken, så åtkomst till mål registret nekades. Det här felet kan inträffa om användaren inte har rätt behörighet för registret eller om autentiseringsuppgifterna för Azure CLI är inaktuella.
 
-*Möjliga lösningar*: Kontrollera om användaren har rätt behörigheter för registret. kör `az login` att uppdatera behörigheter, token och autentiseringsuppgifter.
+*Möjliga lösningar*: Kontrol lera om användaren har rätt behörigheter för registret. kör `az login` för att uppdatera behörigheter, tokens och autentiseringsuppgifter.
 
 ## <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
 
-Detta fel innebär att behållarregistrets inloggningsserver inte svarade med en åtkomst-token så att åtkomsten till målregistret nekades. Det här felet kan inträffa om användaren inte har rätt behörigheter på registret eller om användarens autentiseringsuppgifter för Azure CLI är inaktuella.
+Det här felet innebär att inloggnings servern för registret inte svarade med en åtkomsttoken, så att åtkomsten till mål registret nekades. Det här felet kan inträffa om användaren inte har rätt behörighet för registret eller om autentiseringsuppgifterna för Azure CLI är inaktuella.
 
-*Möjliga lösningar*: Kontrollera om användaren har rätt behörigheter för registret. kör `az login` att uppdatera behörigheter, token och autentiseringsuppgifter.
+*Möjliga lösningar*: Kontrol lera om användaren har rätt behörigheter för registret. kör `az login` för att uppdatera behörigheter, tokens och autentiseringsuppgifter.
 
 ## <a name="loginservererror"></a>LOGIN_SERVER_ERROR
 
-Det här felet innebär att CLI inte gick att hitta inloggningsserver på det angivna registret och inga standardsuffixet hittades för det aktuella molnet. Det här felet kan inträffa om registret inte finns, om användaren inte har rätt behörigheter på registret om registrets molnet och det aktuella Azure CLI-molnet inte matchar, eller om Azure CLI version är föråldrad.
+Det här felet innebär att CLI inte kunde hitta inloggnings servern för det aktuella registret, och inget standard-suffix hittades för det aktuella molnet. Det här felet kan uppstå om registret inte finns, om användaren inte har rätt behörighet för registret, om registrets moln och det aktuella Azure CLI-molnet inte matchar, eller om Azure CLI-versionen är föråldrad.
 
-*Möjliga lösningar*: Kontrollera att stavningen är korrekt och att registret finns; Kontrollera som användaren har rätt behörigheter för registret och som matchar moln på registret och CLI-miljö; Uppdatera Azure CLI till den senaste versionen.
+*Möjliga lösningar*: Kontrol lera att stavningen är korrekt och att registret finns. kontrol lera att användaren har rätt behörigheter i registret och att molnen i registret och CLI-miljön matchar. Uppdatera Azure CLI till den senaste versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Alternativ för att kontrollera hälsotillståndet för ett register, se [kontrollerar hälsotillståndet för ett Azure container registry](container-registry-check-health.md).
+Information om alternativ för att kontrol lera hälso tillståndet för ett register finns i [kontrol lera hälso tillståndet för ett Azure Container Registry](container-registry-check-health.md).
 
-Se den [vanliga frågor och svar](container-registry-faq.md) för vanliga frågor och svar och andra kända problem med Azure Container Registry.
+Se vanliga frågor och [svar](container-registry-faq.md) om vanliga frågor och andra kända problem med Azure Container Registry.
 
 
 

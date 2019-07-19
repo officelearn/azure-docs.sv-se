@@ -1,106 +1,104 @@
 ---
-title: Azure per VM vCPU-kvoten öka begäranden | Microsoft Docs
-description: öka begäranden per vCPU-kvoten för virtuell dator
+title: Kvot öknings begär Anden för Azure per VM-vCPU | Microsoft Docs
+description: per VM-vCPU kvot öknings begär Anden
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 79879cd7f5ea5af1b794735f32e6e1367458e124
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9caf82d2fa4683e845d23b5496f9e7b8f9682ec7
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310729"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234823"
 ---
 # <a name="vm-series-vcpu-limit-increase"></a>Utökad vCPU-gräns för VM-serie
 
-Resource Manager vCPU-kvoter för virtuella datorer och VM-skalningsuppsättningar tillämpas på två nivåer för varje prenumeration i varje region. 
+Resource Manager-vCPU kvoter för virtuella datorer och skalnings uppsättningar för virtuella datorer tillämpas på två nivåer för varje prenumeration i varje region. 
 
-Den första nivån är den **gränsen för totalt antal regionala virtuella processorer** (över alla VM-serien), och det andra lagret är den **per VM-serie virtuella processorer begränsa** (till exempel D-serien virtuella processorer). Varje gång en ny virtuell dator är att distribueras, får summan av nya och befintliga virtuella processorer användning för VM serien inte överskrida vCPU-kvoten som godkänts för den specifika VM-serie. Dessutom kan får den antal för totalt antal nya och befintliga virtuella processorer som distribueras över alla VM-serier inte överstiga Totalt antal regionala kvoten för virtuella processorer som godkänts för prenumerationen. Om något av dessa kvoter överskrids får inte VM-distributionen.
-Du kan begära en ökning av virtuella processorer kvotgränsen för VM-serierna från Azure-portalen. En ökning av kvoten för VM-serie ökar automatiskt gränsen för totalt antal regionala virtuella processorer med samma belopp. 
+Den första nivån är den **totala regionala virtuella processorer-gränsen** (i alla VM-serien) och den andra nivån är **virtuella processorer-gränsen för VM** -serien (till exempel D-serien virtuella processorer). När du vill distribuera en ny virtuell dator måste summan av den nya och befintliga virtuella processorer-användningen för den virtuella dator serien inte överskrida vCPU-kvoten som har godkänts för den aktuella VM-serien. Dessutom bör det totala antalet nya och befintliga vCPU som distribueras över alla VM-serien inte överskrida den totala regionala virtuella processorer-kvoten som har godkänts för prenumerationen. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas.
+Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien från Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala virtuella processorer-gränsen med samma belopp. 
 
-När en ny prenumeration skapas, kanske Totalt antal regionala virtuella processorer standard inte lika med summan av standard vCPU-kvoter för alla enskilda VM-serier. Detta kan resultera i en prenumeration med tillräckligt stor kvot för varje enskild VM-serie som du vill distribuera, men inte tillräcklig kvot för totalt antal regionala virtuella processorer för alla distributioner. I det här fallet behöver du ansöka om att öka gränsen för totalt antal regionala virtuella processorer uttryckligen. Totalt antal regionala virtuella processorer gränsen får inte överskrida summan av godkända kvot för alla VM-serier för regionen.
+Läs mer om kvoter på sidan för [vCPU kvoter för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) . 
 
-Läs mer om kvoter på den [VM vCPU-kvoter sidan](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och [Azure-prenumeration och tjänstbegränsningar](https://aka.ms/quotalimits) sidan. 
+Nu kan du begära en ökning via bladet **Hjälp + Support** eller bladet användnings-och **kvot** i portalen. 
 
-Du kan nu begära en ökning via **hjälp + Support** bladet eller **användningar + kvot** -bladet i portalen. 
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Begäran per VM-serien vCPU kvot ökning på prenumerations nivå med **Hjälp + Support** -bladet
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Begär per vCPU-kvot för VM-serie på prenumerationen på objektnivå med den **hjälp + Support** bladet
+Följ instruktionerna nedan för att skapa en support förfrågan via Azures hjälp + support-bladet som är tillgängligt i Azure Portal. 
 
-Följ anvisningarna nedan för att skapa en supportbegäran via Azures 'hjälp + Support-bladet i Azure-portalen. 
+1. Från https://portal.azure.com väljer du **Hjälp + Support**.
 
-1. Från https://portal.azure.com väljer **hjälp + Support**.
-
-![Hjälp + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Hjälp + support](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Välj **Ny supportbegäran**. 
 
-![Ny supportbegäran](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+     ![Ny supportbegäran](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. Välj i listrutan Typ av problem **begränsningar för tjänsten och -prenumeration (kvoter)** .
+3. I list rutan typ av ärende väljer du **tjänst-och prenumerations gränser (kvoter)** .
 
-![Utfärda typ listrutan](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Listruta för ärende typ](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
 4. Välj den prenumeration som behöver en ökad kvot.
 
-![Välj en prenumeration newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![Välj prenumerations nyheter](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Välj **Compute - VM (kärnor-virtuella processorer) prenumerationsgränsen ökar** i **kvottypen** listrutan. 
+5. Välj **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar** i list rutan med **kvot typer** . 
 
-![Välj typ av kvot](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Välj typ av kvot](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. I **Probleminformation**, ger ytterligare information för att bearbeta din begäran genom att klicka på **ger information om**.
+6. I **problem information**anger du ytterligare information som hjälper dig att bearbeta din begäran genom att klicka på **Ange information**.
 
-![Ange information](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Ange information](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. I den **kvotinformation** panelen, Välj distributionsmodell och välj en plats.
+7. Välj distributions modell på panelen **kvot information** och välj en plats.
 
-![Kvotinformation DM](./media/resource-manager-core-quotas-request/quota-details.png)
+   ![Kvot information DM](./media/resource-manager-core-quotas-request/quota-details.png)
 
-8. Välj den **SKU-familjerna** som kräver en ökning. 
+8. Välj de **SKU-familjer** som kräver en ökning. 
 
-![SKU-familj](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![SKU-familj](./media/resource-manager-core-quotas-request/sku-family.png)
 
-9. Ange de nya gränserna som du vill ha för prenumerationen. Avmarkera SKU: N i familjen SKU-listrutan för att ta bort en rad eller klicka på ikonen borttagna objekt ”x”. När du har angett önskad kvot för varje SKU-familj, klickar du på **spara och fortsätt** på panelen kvot information om du vill fortsätta skapa stöd för begäran.
+9. Ange de nya gränser som du vill ha i prenumerationen. Om du vill ta bort en rad avmarkerar du SKU: n från List rutan för SKU-serien eller klickar på ikonen ignorera x. När du har angett den önskade kvoten för varje SKU-familj klickar du på **Spara och fortsätter** med att skapa support förfrågan.
 
-![Nya gränserna](./media/resource-manager-core-quotas-request/new-limits.png)
+   ![Nya gränser](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Begäran per vCPU-kvot för VM-serie på prenumerationen på med **användningar + kvot** bladet
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Begäran per VM-serien vCPU kvot ökning på prenumerations nivå med **användnings områden och kvot** blad
 
-Följ anvisningarna nedan använder för att skapa en supportbegäran via Azures ”användning + kvoter” bladet som är tillgängliga i Azure-portalen. 
+Följ instruktionerna nedan för att skapa en support förfrågan via Azures blad "användning + kvot" som är tillgängligt i Azure Portal. 
 
-1. Från https://portal.azure.com väljer **prenumerationer**.
+1. Från https://portal.azure.com väljer du **prenumerationer**.
 
-![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Prenumerationer](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Välj den prenumeration som behöver en ökad kvot.
 
-![Välj en prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Välj en prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Välj **användning + kvoter**
 
-![Välj användning och kvoter](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Välj användning och kvoter](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-4. I det övre högra hörnet väljer **öka**.
+4. I det övre högra hörnet väljer du **begär ökning**.
 
-![Begär ökning](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Begär ökning](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Välj **beräknings-VM (kärnor-virtuella processorer) prenumerationsgränsen ökar** som typ av citattecken. 
+5. Välj **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar** som offert typ. 
 
-![Fyll i formuläret](./media/resource-manager-core-quotas-request/forms.png)
+   ![Fyll i formulär](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
-6. I den **kvotinformation** panelen, Välj distributionsmodell och välj en plats.
+6. Välj distributions modell på panelen **kvot information** och välj en plats.
 
-![Bladet för kvot-Problem](./media/resource-manager-core-quotas-request/problemstep.png)
+   ![Bladet kvot problem](./media/resource-manager-core-quotas-request/quota-details.png)
 
-7. Välj den **SKU-familjerna** som kräver en ökning.
+7. Välj de **SKU-familjer** som kräver en ökning.
 
-![SKU-serier som valts](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![SKU-serien har valts](./media/resource-manager-core-quotas-request/sku-family.png)
 
-8. Ange de nya gränserna som du vill ha för prenumerationen. Avmarkera SKU: N i familjen SKU-listrutan för att ta bort en rad eller klicka på ikonen borttagna objekt ”x”. När du har angett önskad kvot för varje SKU-familj, klickar du på **spara och fortsätt** på sidan problemet steg om du vill fortsätta skapa stöd för begäran.
+8. Ange de nya gränser som du vill ha i prenumerationen. Om du vill ta bort en rad avmarkerar du SKU: n från List rutan för SKU-serien eller klickar på ikonen ignorera x. När du har angett den önskade kvoten för varje SKU-familj klickar du på **Spara och fortsätter** på sidan problem steg och fortsätter med att skapa support förfrågan.
 
-![Ny kvotförfrågan-SKU](./media/resource-manager-core-quotas-request/new-limits.png)
-
+   ![SKU ny kvot förfrågan](./media/resource-manager-core-quotas-request/new-limits.png)
+ 

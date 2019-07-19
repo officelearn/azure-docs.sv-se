@@ -1,7 +1,7 @@
 ---
-title: Vad är nytt i version?
+title: Vad är nytt i versionen?
 titleSuffix: Azure Machine Learning service
-description: 'Läs om de senaste uppdateringarna för Azure Machine Learning-tjänsten och den machine learning och data Förbered Python SDK: er.'
+description: 'Lär dig mer om de senaste uppdateringarna för Azure Machine Learning service och Machine Learning och data prepare SDK: er.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,562 +10,565 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 2568d2213d15faf66ecf606e56ea6b82bacafc3e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786260"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233673"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
-I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
-+ Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
-+ Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
+I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referens dokument för:
++ Azure Machine Learning huvud- [ **SDK för python**](https://aka.ms/aml-sdk)
++ Azure Machine Learning [ **data prep SDK**](https://aka.ms/data-prep-sdk)
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
 ## <a name="2019-07-09"></a>2019-07-09
 
-### <a name="visual-interface"></a>Visuella gränssnittet
-+ **Förhandsversionsfunktioner**
-  + Har lagts till ”kör R-skript”-modul i visuella gränssnittet.
+### <a name="visual-interface"></a>Visuellt gränssnitt
++ **För hands versions funktioner**
+  + Modulen "kör R-skript" har lagts till i Visual Interface.
 
-### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning-SDK för Python v1.0.48
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning SDK för python v-1.0.48
 
 + **Nya funktioner**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** är nu tillgänglig som **azureml-opendatasets**. Det gamla paketet fungerar fortfarande, men vi rekommenderar att du använder **azureml-opendatasets** framöver för Förbättrade funktioner och förbättringar.
-    + Den här nya paketet kan du registrera öppna datauppsättningar som datauppsättningen i AML-arbetsytan och använda de funktioner som erbjuder datauppsättning.
-    + Den innehåller också befintliga funktioner, till exempel använder öppna datauppsättningar som Pandas/SPARK dataramar och plats kopplar för vissa datauppsättningen som väder.
+    + **azureml-contrib-OpenData uppsättningar** är nu tillgängliga som **azureml-opendataset**. Det gamla paketet kan fortfarande fungera, men vi rekommenderar att du använder **azureml-OpenData uppsättningar** för att flytta framåt för bättre funktioner och förbättringar.
+    + Med det nya paketet kan du registrera öppna data uppsättningar som data uppsättning i AML-arbetsytan och utnyttja de funktioner som data uppsättningen erbjuder.
+    + Den innehåller också befintliga funktioner som att använda öppna data uppsättningar som Pandas/SPARK-dataframes och plats anslutningar för en viss data uppsättning som väder.
 
-+ **Förhandsversionsfunktioner**
-    + HyperDriveConfig kan nu accepterar pipeline-objektet som en parameter för finjustering av hyperparametrar med hjälp av en pipeline.
++ **För hands versions funktioner**
+    + HyperDriveConfig kan nu acceptera pipeline-objekt som en parameter för att stöda en inställning för hel parameter med en pipeline.
 
-+ **Felkorrigeringar och förbättringar**
++ **Fel korrigeringar och förbättringar**
   + **azureml-train-automl**
-    + Åtgärdat felet om att förlora typer av kolumner efter omvandlingen.
-    + Åtgärdat felet för att tillåta y_query ska vara en objekttyp som innehåller ingen (s) i början. 
-    + Fast problemet i Ensemble förfarandet som onödigt växande resulterande ensemble även om poängen befann sig konstant.
-    + Åtgärdat problemet med inställningarna för whitelist_models och blacklist_models i AutoMLStep.
-    + Åtgärdat problem som gjorde att användningen av Förbearbeta när AutoML skulle ha använts i samband med Azure ML-Pipelines.
+    + Korrigerade felet om att förlora kolumn typer efter omvandlingen.
+    + Korrigerade felet för att tillåta att y_query är en objekt typ som inte innehåller några (n) i början. 
+    + Har åtgärdat problemet i urvals proceduren för Ensemble som inte nödvändigt vis har lett till den resulterande ensemblen även om poängen var konstant.
+    + Korrigerade problemet med inställningarna för whitelist_models och blacklist_models i AutoMLStep.
+    + Ett problem har åtgärd ATS som förhindrade användningen av för bearbetning när AutoML skulle ha använts i samband med Azure ML-pipelines.
   + **azureml-opendatasets**
-    + Flyttade azureml-contrib-opendatasets till azureml-opendatasets.
-    + Tillåtna öppna datauppsättningen klasser som ska registreras till AML-arbetsytan och utnyttja funktioner för AML-datauppsättning sömlöst.
-    + Förbättrad NoaaIsdWeather berika prestanda i icke-SPARK-version avsevärt.
+    + Flyttade azureml-contrib-opendataset till azureml-opendataset.
+    + Tillåtna öppna data uppsättnings klasser kan registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst.
+    + Förbättrad NoaaIsdWeather-prestanda i en icke-SPARK-version nämnvärt.
   + **azureml-explain-model**
-    + Uppdaterade onlinedokumentationen för interpretability objekt.
-    + Lagt till batch_size att efterlikna förklaring när include_local = False för direktuppspelning globala förklaringar i batchar att förbättra körningstid för DecisionTreeExplainableModel.
-    + Åtgärdats där `explanation.expected_values` kommer ibland att returnera ett flyttal i stället för en lista med ett flyttal i den.
-    + Har lagts till förväntade värden till automl utdata för mimic förklaring i förklarar modell-biblioteket.
-    + Fast permutation funktionen vikten när transformationer argumentet som angetts för få raw funktionen prioritet.
-    + Lagt till batch_size att efterlikna förklaring när include_local = False för direktuppspelning globala förklaringar i batchar att förbättra körningstid för DecisionTreeExplainableModel för modellen explainability bibliotek.
+    + Uppdaterad online-dokumentation för tolknings objekt.
+    + Har lagt till batch_size till härmar förklaring när include_local = false för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel.
+    + Vi har åtgärdat `explanation.expected_values` problemet där skulle ibland returnera ett flyttal i stället för en lista med ett flyttal.
+    + Förväntade värden har lagts till för automl-utdata för härma-förklaringen i förklara modell biblioteket.
+    + Fast permutation-funktions prioritet när omvandlings argument har angetts för att få till gång till funktioner för RAW-funktioner.
+    + Har lagt till batch_size till härmar förklaring när include_local = false för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel för bibliotek med modell förklaringar.
   + **azureml-core**
-    + Lagt till möjligheten att ansluta DBFS datalager i AzureML-CLI.
-    + Löst problemet med datalagret överföringen där en tom mapp skapas om `target_path` igång med `/`.
-    + Aktiverade jämförelse av två datauppsättningar.
-    + Ta bort modell- och bildfiler innehåller nu mer information om hur du hämtar överordnade objekt som är beroende av dem om att ta bort misslyckas på grund av en överordnad beroende.
-    + Föråldrad oanvända RunConfiguration inställningen i auto_prepare_environment.
+    + Möjligheten att bifoga DBFS-datalager har lagts till i AzureML CLI.
+    + Åtgärdade problemet med data lager uppladdning där en tom mapp skapas om `target_path` den startas `/`med.
+    + Jämförelse av två data uppsättningar har Aktiver ATS.
+    + Modell och avbildning ta bort nu innehåller mer information om hur du hämtar överordnade objekt som är beroende av dem om borttagningen Miss lyckas på grund av ett överordnat beroende.
+    + Den oanvända RunConfiguration-inställningen har föråldrats i auto_prepare_environment.
   + **azureml-mlflow**
-    + Bättre resursutnyttjande remote körningar som använder azureml.mlflow.
-    + Förbättrat i dokumentationen för azureml-mlflow-paketet.
-    + På ett problem har åtgärdats där mlflow.log_artifacts("my_dir") skulle spara artefakter under ”my_dir/artefakt-sökvägar” i stället för ”sökvägar för artefakt”.
-  + **azureml-dataprep**
-    + Dataflöde objekt kan nu upprepas producera en sekvens med poster.
-    + Åtgärdats där `Dataflow.read_pandas_dataframe` skulle misslyckas när den `in_memory` argument har angetts till True.
-    + Förbättrad hantering av pandas dataramar med icke-sträng kolumnindex.
-    + Exponeras `set_diagnostics_collection()` för programmässig aktivering/inaktivering av samlingen telemetri.
-    + Har lagts till antal värden och bottomValues sammanfatta.
+    + Förbättrad resursutnyttjande för fjärrkörningar som använder azureml. mlflow.
+    + Förbättrad dokumentation av azureml-mlflow-paketet.
+    + Ett problem har åtgärd ATS där mlflow. log _artifacts ("my_dir") skulle spara artefakter under "my_dir/artefakt-sökvägar" i stället för "artefakt sökvägar".
   + **azureml-pipeline-core**
-    + Parametern hash_paths för alla steg i pipeline är inaktuell och kommer att tas bort i framtiden. Som standardinnehållet i källkatalog hashas (förutom filer som anges i .amlignore eller .gitignore)
-    + Fortsatta förbättras modulen och ModuleStep för att stödja compute-typen enhetsspecifika moduler inför RunConfiguration integrering och ytterligare ändringar för att låsa upp deras användning i pipelines.
+    + Parametern hash_paths för alla pipeline-steg är föråldrad och kommer att tas bort i framtiden. Som standard är innehållet i source_directory hashed (förutom filer som anges i. amlignore eller. gitignore)
+    + Fortsätta att förbättra modul-och ModuleStep för att stödja beräknings typer för vissa moduler, inför RunConfiguration-integrering och ytterligare ändringar för att låsa upp deras användning i pipelines.
   + **azureml-pipeline-steps**
-    + AzureBatchStep: Förbättrad dokumentation för indata/utdata.
-    + AzureBatchStep: Ändra standardvärdet för delete_batch_job_after_finish till true.
+    + AzureBatchStep: Förbättrad dokumentation med avseende på indata/utdata.
+    + AzureBatchStep: Ändrade delete_batch_job_after_finish-standardvärdet till true.
   + **azureml-train-core**
-    + Strängar är nu möjligt som beräkningsmål för automatiserad finjustering av Hyperparametrar.
-    + Föråldrad oanvända RunConfiguration inställningen i auto_prepare_environment.
-    + Föråldrade parametrar `conda_dependencies_file_path` och `pip_requirements_file_path` för `conda_dependencies_file` och `pip_requirements_file` respektive.
+    + Strängar accepteras nu som beräknings mål för automatisk justering av den automatiska inställningen.
+    + Den oanvända RunConfiguration-inställningen har föråldrats i auto_prepare_environment.
+    + Föråldrade `conda_dependencies_file_path` parametrar `pip_requirements_file_path` och deras prioriterade `pip_requirements_file` `conda_dependencies_file` respektive.
   + **azureml-opendatasets**
-    + Förbättra NoaaIsdWeather avsevärt förbättra prestanda i icke-SPARK-version.
-    
+    + Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
+
+### <a name="azure-machine-learning-data-prep-sdk-v118"></a>Azure Machine Learning data prep SDK v 1.1.8
+
++ **Nya funktioner**
+ + Data Ströms objekt kan nu itereras över, vilket genererar en sekvens med poster. Se dokumentationen för `Dataflow.to_record_iterator`.
+
++ **Fel korrigeringar och förbättringar**
+ + Ökad robusthet för nu SDK.
+ + Förbättrad hantering av Pandas-DataFrames med kolumn index som inte är strängar.
+ + Bättre prestanda för `to_pandas_dataframe` i data uppsättningar.
+ + Ett fel har åtgärd ATS där Spark-körningen av data uppsättningar misslyckades vid körning i en miljö med flera noder.
+
 ## <a name="2019-07-01"></a>2019-07-01
 
-### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning Data Förbered SDK v1.1.7
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning data prep SDK v 1.1.7
 
-Vi har återställts en ändring som förbättrad prestanda, eftersom den orsakar problem för vissa kunder som använder Azure Databricks. Om du har haft problemet finns på Azure Databricks kan du uppgradera till version 1.1.7 med någon av metoderna nedan:
-1. Kör det här skriptet för att uppgradera: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
-2. Återskapa klustret, som installerar den senaste Data Prep SDK-versionen.
+Vi har återställt en ändring som förbättrade prestanda, eftersom det orsakade problem för vissa kunder som använder Azure Databricks. Om du har drabbats av ett problem på Azure Databricks kan du uppgradera till version 1.1.7 med någon av metoderna nedan:
+1. Kör det här skriptet för att uppgradera:`%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Återskapa klustret, som kommer att installera den senaste data förberedelse SDK-versionen.
 
 ## <a name="2019-06-25"></a>2019-06-25
 
-### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning-SDK för Python v1.0.45
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning SDK för python v-1.0.45
 
 + **Nya funktioner**
-  + Lägg till beslut trädet surrogate modell för att efterlikna förklaring i paketet för azureml-förklara-modell
-  + Möjlighet att ange en CUDA-version som ska installeras på Inferensjobb avbildningar. Stöd för CUDA 9.0, 9.1 och 10.0.
-  + Information om Azure ML-utbildning Källavbildningen är nu tillgängliga med [GitHub-lagringsplatsen för Azure ML-behållare](https://github.com/Azure/AzureML-Containers) och [DockerHub](https://hub.docker.com/_/microsoft-azureml)
-  + Har lagts till CLI har stöd för pipeline-schema. Kör ”az ml pipeline -h” om du vill veta mer
-  + Anpassade Kubernetes namnområde parametern har lagts till distributionskonfiguration för AKS-webbtjänsten och CLI.
-  + Föråldrad hash_paths parametern för alla steg i pipeline
-  + Model.register stöder nu registrera flera enskilda filer som en enda modell med användning av den `child_paths` parametern.
+  + Lägg till besluts trädets surrogat modell för att efterlikna en förklaring i azureml-förklarar-modell-paket
+  + Möjlighet att ange en CUDA-version som ska installeras på Inferencing-avbildningar. Stöd för CUDA 9,0, 9,1 och 10,0.
+  + Information om Azure ML-inlärnings bas avbildningar är nu tillgängliga i [Azure ml-behållare GitHub-lagringsplats](https://github.com/Azure/AzureML-Containers) och [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + CLI-stöd har lagts till för pipeline-schema. Kör "AZ ml pipeline-h" för att lära dig mer
+  + Den anpassade Kubernetes namespace parameter har lagts till i distributions konfiguration och CLI av AKS-webbtjänst.
+  + Föråldrad hash_paths-parameter för alla steg i pipeline
+  + Model. register stöder nu registrering av `child_paths` flera enskilda filer som en enskild modell där parametern används.
   
-+ **Förhandsversionsfunktioner**
-    + Bedömnings explainers kan nu om du vill spara conda och pip information för mer tillförlitlig serialisering och deserialisering.
-    + Buggfix för automatisk funktionen väljare.
-    + Uppdaterade mlflow.azureml.build_image till den nya API: et korrigerade buggar som exponeras av den nya implementeringen.
++ **För hands versions funktioner**
+    + Nu kan du välja att spara Conda-och pip-information för mer tillförlitlig serialisering och deserialisering.
+    + Fel korrigering för automatisk funktions väljare.
+    + Uppdaterade mlflow. azureml. build_image till det nya API: t, korrigerade buggar som exponerats av den nya implementeringen.
 
-+ **Större ändringar**
-
-+ **Felkorrigeringar och förbättringar**
-  + Borttagna paramiko beroende från azureml kärnor. Varningar om utfasning har lagts till för äldre beräkningsmål koppla metoder.
-  + Förbättra prestanda för run.create_children
-  + Åtgärda ordningen på sannolikhet i mimic förklaring med binär klassificerare när lärare sannolikheten används för att skala formdata värden
-  + Förbättrad felhantering och ett meddelande för automatisk machine learning. 
-  + Iteration timeout-problem för automatisk machine learning har åtgärdats.
-  + Bättre prestanda för time series-transformering för automatisk machine learning.
++ **Fel korrigeringar och förbättringar**
+  + Tog bort paramiko beroende från azureml-Core. De utfasnings varningar som har lagts till i Legacy Compute Target Attach-metoder.
+  + Förbättra prestanda för kör. create_children
+  + I härma-förklaringar med binära klassificerare, korrigerar du den sannolika ordningen när sannolikheten för lärare används för skalning av Shap-värden
+  + Förbättrad fel hantering och meddelande för automatisk maskin inlärning. 
+  + Korrigerade problemet med upprepnings tids gränsen för automatisk maskin inlärning.
+  + Förbättrade omvandlings prestanda för Time-serien för automatisk maskin inlärning.
 
 ## <a name="2019-06-24"></a>2019-06-24
 
-### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning Data Förbered SDK v1.1.6
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning data prep SDK v 1.1.6
 
 + **Nya funktioner**
-  + Lagt till funktioner för antal värden att sammanfatta (`SummaryFunction.TOPVALUES`) och lägsta värdena (`SummaryFunction.BOTTOMVALUES`).
+  + Summerings funktioner har lagts till för`SummaryFunction.TOPVALUES`Top Values ()`SummaryFunction.BOTTOMVALUES`och de lägsta värdena ().
 
-+ **Felkorrigeringar och förbättringar**
-  + Avsevärt bättre prestanda hos `read_pandas_dataframe`.
-  + En bugg som skulle orsaka `get_profile()` på dataflöde, som pekar på binära filer som misslyckas.
-  + Exponeras `set_diagnostics_collection()` för programmässig aktivering/inaktivering av samlingen telemetri.
-  + Ändra beteendet för `get_profile()`. NaN nu ignoreras i Min, medelvärde, standard och Summa, som överensstämmer med Pandas beteende.
++ **Fel korrigeringar och förbättringar**
+  + Avsevärt bättre prestanda för `read_pandas_dataframe`.
+  + En bugg har åtgärd ATS som `get_profile()` skulle leda till att ett data flöde som pekar på binärfiler slutar fungera.
+  + Exponeras `set_diagnostics_collection()` för att tillåta programmerings aktivering/inaktive ring av telemetri-samlingen.
+  + Ändrade beteendet för `get_profile()`. NaN-värden ignoreras nu för min, medelvärde, STD och sum, som justeras med beteendet för Pandas.
 
 
 ## <a name="2019-06-10"></a>2019-06-10
 
-### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning-SDK för Python v1.0.43
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning SDK för python v-1.0.43
 
 + **Nya funktioner**
-  + Azure Machine Learning nu erbjuder förstklassig support för populära machine learning och data analysis framework Scikit-Läs. Med hjälp av [ `SKLearn` kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), användare enkelt kan träna och distribuera modeller som lär du dig Scikit.
-    + Lär dig hur du [kör finjustering av hyperparametrar med Scikit Lär dig använda HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
-  + Stöd har lagts till för att skapa ModuleStep i pipelines tillsammans med modulen och ModuleVersion klasser för att hantera återanvändbara beräkningsenheter.
-  + ACI webservices har nu stöd för beständiga scoring_uri via uppdateringar. Scoring_uri ändras från IP-adresser till FQDN. Dns-Namnetiketten för FQDN kan konfigureras genom att ange dns_name_label på deploy_configuration. 
-  + Automatiserad machine learning-nya funktioner:
-    + STL upplärda för prognostisering
-    + KMeans klustring har aktiverats för funktionen oinskränkt
-  + AmlCompute kvot godkännanden blev just snabbare! Vi har nu automatiserat processen för att godkänna din kvot förfrågningar inom ett tröskelvärde. Mer information om hur kvoter fungerar lär du dig [hantera kvoter](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+  + Azure Machine Learning erbjuder nu förstklassig support för populära Machine Learning-och Data Analysis Framework-Scikit – lär dig. Med [ `SKLearn` hjälp](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)av uppskattare kan användare enkelt träna och distribuera Scikit – lära sig modeller.
+    + Lär dig hur du [kör en inställning för Scikit med hjälp av HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + Stöd har lagts till för att skapa ModuleStep i pipelines tillsammans med modul-och ModuleVersion-klasser för att hantera återanvändbara beräknings enheter.
+  + ACI-webbtjänster stöder nu permanent scoring_uri via uppdateringar. Scoring_uri kommer att ändras från IP till fullständigt domän namn. DNS-namnets etikett för FQDN kan konfigureras genom att ange dns_name_label på deploy_configuration. 
+  + Nya funktioner för automatisk maskin inlärning:
+    + STL-upplärda för Prognosticering
+    + KMeans-klustring är aktiverat för funktions rensning
+  + AmlCompute kvot godkännanden blev bara snabbare! Vi har nu automatiserat processen att godkänna dina kvot begär Anden inom ett tröskelvärde. För ytterligare information om hur kvoter fungerar, lär [du dig hur du hanterar kvoter](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
 
-+ **Förhandsversionsfunktioner**
-    + Integrering med [MLflow](https://mlflow.org) 1.0.0 spåra via azureml-mlflow paketet ([exempel anteckningsböcker](https://aka.ms/azureml-mlflow-examples)).
-    + Skicka Jupyter-anteckningsbok som en körning. [API-referensdokumentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Offentlig förhandsversion av [Data Drift detektor](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) via azureml-contrib-datadrift paketet ([exempel anteckningsböcker](https://aka.ms/azureml-datadrift-example)). Data Drift är en av de främsta skälen där modellens Precision försämras med tiden. Det händer när data betjänas skiljer sig från de data som modellen har tränats på att skapa modeller i produktion. AML Data Drift detektor hjälper kunder att övervaka data drift och skickar en avisering när drift har identifierats. 
++ **För hands versions funktioner**
+    + Integrering med [MLflow](https://mlflow.org) 1.0.0-spårning via azureml-MLflow-paket ([exempel på bärbara datorer](https://aka.ms/azureml-mlflow-examples)).
+    + Skicka Jupyter Notebook som en körning. [API-referens dokumentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Offentlig för hands version av [data](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) genom att använda azureml-contrib-datadrift-paketet ([exempel på bärbara datorer](https://aka.ms/azureml-datadrift-example)). Data drift är en av de främsta orsakerna till att modell precisionen försämras med tiden. Det inträffar när data som betjänas på modell i produktion skiljer sig från de data som modellen tränades på. AML data drifts detektor hjälper kunden att övervaka data driften och skickar en avisering när driften har identifierats. 
 
 + **Större ändringar**
 
-+ **Felkorrigeringar och förbättringar**
-  + RunConfiguration läsa in och spara har stöd för att ange en fullständig sökväg med fullständig säkerhetskopiering-compat för beteende för tidigare.
-  + Lägga till cachelagring i ServicePrincipalAuthentication, inaktiverad som standard.
-  + Aktivera loggning av samma måttnamnet flera områden.
-  + Onlineorder nu korrekt kan importeras från azureml.core (`from azureml.core import Model`).
-  + I pipeline steg `hash_path` parametern är nu föråldrad. Nytt beteende är att hash-fullständig källkatalog, utom filer som finns angivna i .amlignore eller .gitignore.
-  + I pipeline-paket, olika `get_all` och `get_all_*` metoder har ersatts med `list` och `list_*`respektive.
-  + azureml.Core.get_run kräver inte längre klasser som ska importeras innan det returneras den ursprungliga kör typen.
-  + Ett problem har åtgärdats där vissa anrop till webbtjänsten Update inte utlösa en uppdatering.
-  + Bedömning tidsgräns på AKS webservices ska vara mellan 5 MS och 300000ms. Högsta tillåtna scoring_timeout_ms för bedömnings begäranden har tagits stötar från 1 min till 5 minuter.
-  + LocalWebservice objekt har nu `scoring_uri` och `swagger_uri` egenskaper.
-  + Flytta utdata katalogskapandet och utdata directory uppladdning utanför processen för användare. Aktivera körningshistoriken SDK kan köras i användarprocessen för varje. Detta ska matcha vissa synkroniseringsproblem för distribuerad utbildning andra körs.
-  + Namnet på azureml-logg som skrivs från processen användarnamnet innehåller nu processnamn (för distribuerade utbilda endast) och PID.
++ **Fel korrigeringar och förbättringar**
+  + RunConfiguration load och Save har stöd för att ange en fullständig fil Sök väg med fullständig backend-kompatibilitet för föregående beteende.
+  + Cachelagring har lagts till i ServicePrincipalAuthentication, inaktiverat som standard.
+  + Aktivera loggning av flera ritytor under samma mått namn.
+  + Modell klassen har nu kunnat importeras från azureml. Core (`from azureml.core import Model`).
+  + I pipeline- `hash_path` steg är parametern nu föråldrad. Det nya beteendet är att hash fullständig source_directory, förutom filer som anges i. amlignore eller. gitignore.
+  + I pipeline-paket har olika `get_all` och `get_all_*` metoder föråldrats till förmån för `list` respektive `list_*`.
+  + azureml. Core. Hämta _run kräver inte längre klasser som ska importeras innan den ursprungliga körnings typen returneras.
+  + Ett problem har åtgärd ATS där vissa anrop till WebService Update inte utlöser en uppdatering.
+  + Tids gränsen för AKS-webbtjänster ska vara mellan 5ms och 300000ms. Maximalt antal tillåtna scoring_timeout_ms för Poäng begär Anden har dragits från 1 min till 5 min.
+  + LocalWebservice-objekt har `scoring_uri` nu `swagger_uri` och egenskaper.
+  + Flyttade utdata katalog skapar och matar ut katalog uppladdning från användar processen. Körnings historik SDK har Aktiver ATS för körning i alla användar processer. Detta bör lösa vissa synkroniseringsproblem som uppstår i distribuerade utbildnings körningar.
+  + Namnet på azureml-loggen som skrivs från användar processens namn kommer nu att innehålla process namn (endast för distribuerad utbildning) och PID.
 
-### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning Data Förbered SDK v1.1.5
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning data prep SDK v 1.1.5
 
-+ **Felkorrigeringar och förbättringar**
-  + Intervallet för giltiga år har uppdaterats så att den matchar versionen av Windows kan tolkad datum/tid-värden som har 2 årtal formatet. Intervallet har ändrats från 1930 2029 till 1950 2049.
-  + När du läser i en fil- och inställningen `handleQuotedLineBreaks=True`, `\r` behandlas som en ny rad.
-  + Ett fel har åtgärdats som orsakade `read_pandas_dataframe` misslyckas i vissa fall.
-  + Förbättrad prestanda för `get_profile`.
-  + Förbättrade felmeddelanden.
++ **Fel korrigeringar och förbättringar**
+  + För tolkade datetime-värden som har ett tvåsiffrigt årtals format har intervallet för giltiga år uppdaterats för att matcha Windows-versionen. Intervallet har ändrats från 1930-2029 till 1950-2049.
+  + När du `handleQuotedLineBreaks=True` `\r` läser i en fil och anger kommer att behandlas som en ny rad.
+  + En bugg har åtgärd ATS `read_pandas_dataframe` som orsakade fel i vissa fall.
+  + Bättre prestanda för `get_profile`.
+  + Förbättrade fel meddelanden.
 
 ## <a name="2019-05-28"></a>2019-05-28
 
-### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning Data Prep SDK v1.1.4
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning data prep SDK v 1.1.4
 
 + **Nya funktioner**
-  + Du kan nu använda följande uttryck språk funktioner för att extrahera och parsa datetime-värden till nya kolumner.
-    + `RegEx.extract_record()` Extraherar datetime element till en ny kolumn.
-    + `create_datetime()` skapar datetime objekt från separata datetime-element.
-  + När du anropar `get_profile()`, kan du nu se att quantile kolumner är märkta som (beräknat) att tydligt visa att värdena inte med ungefärliga datum.
-  + Du kan nu använda ** globbing vid läsning från Azure Blob Storage.
-    + T.ex. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+  + Du kan nu använda följande funktioner för uttrycks språk för att extrahera och parsa datetime-värden i nya kolumner.
+    + `RegEx.extract_record()`extraherar datetime-element till en ny kolumn.
+    + `create_datetime()`skapar DateTime-objekt från separata datetime-element.
+  + När du `get_profile()`anropar kan du nu se att quantile-kolumner är märkta som (EST.) för att tydligt indikera att värdena är ungefärliga.
+  + Du kan nu använda * * globbing när du läser från Azure Blob Storage.
+    + otillräcklig.`dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
 
 + **Felkorrigeringar**
-  + En bugg som rör läsa en Parquet-fil från en fjärrkälla (Azure Blob).
+  + Åtgärdade en bugg som är relaterad till läsning av en Parquet-fil från en fjärran sluten källa (Azure Blob).
 
 ## <a name="2019-05-14"></a>2019-05-14
 
-### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning-SDK för Python v1.0.39
-+ **Ändringar**
-  + Kör auto_prepare_environment konfigurationsalternativet är inaktuell, med automatisk förbereder blir standard.
+### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning SDK för python v-1.0.39
++ **Något**
+  + Alternativet Kör konfigurations auto_prepare_environment är föråldrat, där automatisk förberedelse blir standard.
 
 ## <a name="2019-05-08"></a>2019-05-08
 
-### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning Data Förbered SDK v1.1.3
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning data prep SDK v 1.1.3
 
 + **Nya funktioner**
-  + Stöd har lagts till för att läsa från en PostgresSQL-databas, antingen genom att anropa read_postgresql eller använda ett datalager.
-    + Se exemplen i instruktionsguider:
-      + [Anteckningsboken för inmatning av data](https://aka.ms/aml-data-prep-ingestion-nb)
-      + [DataStore-anteckningsbok](https://aka.ms/aml-data-prep-datastore-nb)
+  + Stöd har lagts till för läsning från en PostgresSQL-databas, antingen genom att anropa read_postgresql eller använda ett data lager.
+    + Se exempel i instruktions guider:
+      + [Data inmatnings antecknings bok](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Data lager Notebook](https://aka.ms/aml-data-prep-datastore-nb)
 
-+ **Felkorrigeringar och förbättringar**
-  + Åtgärdade problem med kolumnen typkonvertering:
-  + Nu korrekt konverterar en boolesk eller numerisk kolumn till en boolesk kolumn.
-  + Nu misslyckas inte vid försök att ställa in en datumkolumn ska vara av typen date.
-  + Förbättrad JoinType typer och tillhörande referensdokumentation. När du ansluter två dataflöden, kan du nu ange någon av följande typer av koppling:
-    + INGEN, MATCHAR, INRE, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULLSTÄNDIG.
-  + Förbättrad datatyp inferensjobb ska kunna identifiera fler datumformat.
++ **Fel korrigeringar och förbättringar**
+  + Korrigerade problem med kolumn typs konvertering:
+  + Konverterar nu en boolesk eller numerisk kolumn till en boolesk kolumn.
+  + Fungerar inte nu när du försöker ange en datum kolumn som datum typ.
+  + Förbättrade JoinType-typer och tillhör ande referens dokumentation. När du ansluter till två data flöden kan du nu ange en av följande typer av koppling:
+    + INGEN, MATCH, INNER, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULL.
+  + Förbättrad data typs inferencing för att identifiera fler datum format.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I Azure-portalen kan du nu:
-+ Skapa och köra automatiserade ML-experiment 
-+ Skapa en anteckningsbok virtuell dator för att testa exempel Jupyter-anteckningsböcker eller dina egna.
-+ Helt nya redigering avsnittet (förhandsversion) på arbetsytan Machine Learning-tjänsten, som omfattar automatiserad Machine Learning, visuella gränssnittet och värdbaserade Notebook virtuella datorer
-    + Automatiskt skapa en modell som använder automatisk machine learning 
-    + Använda en dra och släpp visuella gränssnittet för att köra experiment
-    + Skapa en anteckningsbok virtuell dator för att utforska data, skapa modeller och distribuera tjänster.
-+ Live-diagram och mått som uppdaterar i kör rapporter och kör sidor med appinformation
-+ Uppdaterade filen visningsprogram för loggar, utdata och ögonblicksbilder för sidor med appinformation kör.
-+ Skapa en ny och förbättrad rapporten användarupplevelsen i fliken experiment. 
-+ Möjlighet att hämta config.json-filen från sidan Översikt över arbetsytan Azure Machine Learning-tjänsten har lagts till.
-+ Stöd för Machine Learning-tjänsten arbetsytan skapas från Azure Databricks-arbetsyta 
+I Azure Portal kan du nu:
++ Skapa och kör automatiserade ML-experiment 
++ Skapa en Notebook VM för att testa Jupyter-anteckningsböcker eller dina egna.
++ Anpassa avsnittet nytt redigering (förhands granskning) på arbets ytan Machine Learning tjänst, som innehåller automatiserade Machine Learning, visuellt gränssnitt och virtuella datorer som är värdar för bärbara datorer
+    + Skapa automatiskt en modell med automatisk maskin inlärning 
+    + Använd ett dra och släpp-visuellt gränssnitt för att köra experiment
+    + Skapa en Notebook VM för att utforska data, skapa modeller och distribuera tjänster.
++ Real tids diagram och mått uppdatering i kör rapporter och kör informations sidor
++ Uppdaterad fil visare för loggar, utdata och ögonblicks bilder på sidan körnings information.
++ Ny och förbättrad upplevelse för att skapa rapporter på fliken experiment. 
++ Möjlighet att ladda ned config. JSON-filen från sidan Översikt i arbets ytan Azure Machine Learning service har lagts till.
++ Stöd Machine Learning tjänst arbets yta skapas från Azure Databricks arbets yta 
 
 ## <a name="2019-04-26"></a>2019-04-26
 
-### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning-SDK för Python v1.0.33
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning SDK för python v-1.0.33
 + **Nya funktioner**
-  + Den _Workspace.create_ metoden godkänner nu standard klusterkonfigurationer för CPU- och GPU-kluster.
-  + Om det inte går att skapa arbetsyta, finns beroende resurser tillgängliga.
-  + Standard Azure Container Registry SKU: N har ändrats till basic.
-  + Azure Container Registry skapas lazily, när det behövs för att skapa en körs eller avbildning.
-  + Stöd för miljöer för träningskörningar.
+  + _Arbets ytan. Create_ -metoden accepterar nu standardkonfigurationer för kluster för processor-och GPU-kluster.
+  + Om det inte går att skapa arbets ytan rensas beroende resurser.
+  + Standard Azure Container Registry SKU växlades till Basic.
+  + Azure Container Registry skapas Lazy, när det behövs för att skapa eller skapa bilder.
+  + Stöd för miljöer för utbildnings körningar.
 
-### <a name="notebook-virtual-machine"></a>Anteckningsboken virtuell dator 
+### <a name="notebook-virtual-machine"></a>Virtuell dator för Notebook 
 
-Använda en Notebook virtuell dator som en säker, företagsfärdig värdmiljö för Jupyter-anteckningsböcker som du kan programmera machine learning-experiment, distribuera modeller som webb-slutpunkter och utföra andra åtgärder som stöds av Azure Machine Learning-SDK med hjälp av Python. Den tillhandahåller flera funktioner:
-+ [Skapa snabbt en förkonfigurerade VM-anteckningsbok](quickstart-run-cloud-notebook.md) som har den senaste versionen av Azure Machine Learning SDK och relaterade paket.
-+ Åtkomst skyddas via beprövade tekniker, till exempel HTTPS, Azure Active Directory-autentisering och auktorisering.
-+ Pålitlig och kostnadseffektiv molnlagring i anteckningsböcker och koden i Azure Machine Learning-arbetsyta blob storage-kontot. Du kan ta bort anteckningsboken VM utan att förlora ditt arbete.
-+ Förinstallerad exempelanteckningsböcker att utforska och experimentera med funktioner för Azure Machine Learning-tjänsten.
-+ Funktioner för fullständig anpassning av virtuella Azure-datorer, alla VM-typer, eventuella paket, alla drivrutiner. 
+Använd en Notebook VM som en säker, företags färdig värd miljö för Jupyter-anteckningsböcker där du kan köra maskin inlärnings experiment, distribuera modeller som webb slut punkter och utföra alla andra åtgärder som stöds av Azure Machine Learning SDK med python. Det ger flera funktioner:
++ [Skapa snabbt en förkonfigurerad virtuell](quickstart-run-cloud-notebook.md) dator med den senaste versionen av Azure Machine Learning SDK och relaterade paket.
++ Åtkomst skyddas via beprövad teknik, till exempel HTTPS, Azure Active Directory autentisering och auktorisering.
++ Tillförlitlig moln lagring med antecknings böcker och kod i ditt Azure Machine Learning-arbetsyta Blob Storage-konto. Du kan på ett säkert sätt ta bort den virtuella Notebook-datorn utan att förlora ditt arbete.
++ Förinstallerade exempel antecknings böcker för att utforska och experimentera med Azure Machine Learning service-funktioner.
++ Fullständiga anpassnings funktioner för virtuella Azure-datorer, valfri VM-typ, alla paket och eventuella driv rutiner. 
 
 ## <a name="2019-04-26"></a>2019-04-26
 
-### <a name="azure-machine-learning-sdk-for-python-v1033-released"></a>Azure Machine Learning SDK för Python v1.0.33 släpps.
+### <a name="azure-machine-learning-sdk-for-python-v1033-released"></a>Azure Machine Learning SDK för python v-1.0.33 har släppts.
 
-+ Azure ML maskinvara Accelerated modeller på [FPGA](concept-accelerate-with-fpgas.md) är allmänt tillgänglig.
-  + Du kan nu [använder azureml-acceleration-modeller paketet](how-to-deploy-fpga-web-service.md) till:
-    + Träna vikten av ett stöds djupa neurala nätverk (ResNet-50, ResNet 152, DenseNet 121, VGG-16- och SSD-VGG)
-    + Använda induktiv inlärning med stöds DNN
-    + Registrera modellen med Modellhanteringstjänsten och behållaranpassa modellen
-    + Distribuera modellen till en Azure-dator med en FPGA i ett kluster i Azure Kubernetes Service (AKS)
++ Azure ML Maskinvaruaccelererade modeller på [FPGAs](concept-accelerate-with-fpgas.md) är allmänt tillgängligt.
+  + Nu kan du [använda paketet azureml-acceleration-Models](how-to-deploy-fpga-web-service.md) för att:
+    + Träna vikterna för ett djup neurala-nätverk som stöds (ResNet 50, ResNet 152, DenseNet-121, VGG-16 och SSD-VGG)
+    + Använda transfer Learning med de DNN som stöds
+    + Registrera modellen med Modellhantering tjänst och Använd modellen
+    + Distribuera modellen till en virtuell Azure-dator med en FPGA i ett Azure Kubernetes service-kluster (AKS)
   + Distribuera behållaren till en [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview) server enhet
-  + Bedöma dina data med gRPC slutpunkten med den här [exempel](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
+  + Betygs ätt dina data med gRPC-slutpunkten med det här [exemplet](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
 
 ### <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-+ Funktionen omfattande för att aktivera dynamiskt lägga till featurizers för prestandaoptimering. Ny featurizers: fungerar inbäddningar vikten för bevis, mål-kodning, textkodning mål, kluster avstånd
-+ Smart KA att hantera träna/giltig delar upp i automatiserade ML
-+ Några ändringar i minnet optimering och prestandaförbättringar för körning
-+ Förbättring av prestanda i modellen förklaring
-+ Konvertering av ONNX-modellen för lokal körning
-+ Stöd har lagts till Subsampling
-+ Intelligent stoppas när inga avsluta kriterier har definierats
-+ Stående ensembler
++ Funktion som sveper för att aktivera dynamiskt tillägg av featurizers för prestanda optimering. Ny featurizers: arbets inbäddningar, vikt för bevis, mål kodning, kodning av text mål, kluster avstånd
++ Smart CV för hantering av träna/giltig Split i automatiserad ML
++ Få minnes optimerings ändringar och förbättringar av körnings prestanda
++ Prestanda förbättring i modell förklaring
++ ONNX modell konvertering för lokal körning
++ Stöd för under sampling har lagts till
++ Intelligent stopp när inga avslutnings kriterier har definierats
++ Staplade ensembler
 
-+ Time Series prognoser
-  + Ny förutsäga prognoser funktion   
-  + Du kan nu använda löpande ursprung mellan verifiering på time series-data
-  + Nya funktioner som lagts till att konfigurera time series ligger 
-  + Nya funktioner har lagts till för rullande fönster aggregerade funktioner
-  + Ny helgdag identifiering och upplärda när standardlandskod har definierats i experimentera inställningar
++ Prognosticering för tids serier
+  + Ny predict prediktion-funktion   
+  + Nu kan du använda kors validering av rullande ursprung i Time Series-data
+  + Nya funktioner som har lagts till för att konfigurera Time Series-lags 
+  + Nya funktioner som har lagts till för att stödja löpande fönster mängd funktioner
+  + Ny helgdags identifiering och upplärda när lands koden definieras i experiment inställningarna
 
 + Azure Databricks
-  + Aktiverat med tidsserier och modellera explainabilty/interpretability funktion
-  + Nu kan du avbryta och återuppta (Fortsätt) automatiserad ML-experimenten
-  + Stöd har lagts till för flerkärniga bearbetning
+  + Aktive rad tids serie prognoser och modell explainabilty/tolknings kapacitet
+  + Du kan nu avbryta och återuppta (fortsätta) automatiserade ML-experiment
+  + Stöd har lagts till för multicore-bearbetning
 
 ### <a name="mlops"></a>MLOps
-+ **Lokal distribution och felsökning för bedömning behållare**<br/> Du kan nu distribuera en ML-modellen lokalt och iterera snabbt på bedömnings-fil och beroenden för att se till att de fungerar som förväntat.
++ **Lokal distribution & fel sökning för Poäng behållare**<br/> Nu kan du distribuera en ML-modell lokalt och iterera snabbt på bedömnings filen och beroenden för att se till att de fungerar som förväntat.
 
-+ **Introduced InferenceConfig & Model.deploy()**<br/> Nu modeller distributionen har stöd för att ange en målmapp med en post-skript, samma som en RunConfig.  Dessutom har modelldistribution förenklats till ett enda kommando.
++ **Introducerade InferenceConfig & Model. Deploy ()**<br/> Modell distribution har nu stöd för att ange en källmapp med ett Entry-skript, samma som en RunConfig.  Dessutom har modell distributionen förenklats till ett enda kommando.
 
-+ **Spåra Git-referens**<br/> Kunder har begär grundläggande funktioner för Git-integrering för en stund eftersom det hjälper till att upprätthålla granskningsspårning slutpunkt till slutpunkt. Vi har implementerat spårning i större enheter i Azure ML för Git-relaterade metadata (lagringsplatsen, commit, rent tillstånd). Den här informationen samlas in automatiskt av SDK och CLI.
++ **Git-referens spårning**<br/> Kunder har begärt grundläggande funktioner för git-integrering under en viss tid eftersom det hjälper till att upprätthålla en gransknings historik från slut punkt till slut punkt. Vi har implementerat spårning över större entiteter i Azure ML för git-relaterade metadata (lagrings platsen, commit, Clean State). Den här informationen samlas in automatiskt av SDK och CLI.
 
-+ **Modeller profilering och verifiering service**<br/> Kunder ofta börjar klaga för svårt att korrekt storleksanpassa beräkningarna som är associerad med deras inferens-tjänst. Med vår modell som Profileringen service kunden kan ge Exempelindata och vi kommer profilen på 16 olika CPU / minneskonfigurationer för att fastställa optimal storlek för distribution.
++ **Modell profilering & validerings tjänst**<br/> Kunderna har ofta svårt att på rätt sätt anpassa den beräkning som är associerad med deras härlednings tjänst. Med vår modell profilerings tjänst kan kunden tillhandahålla exempel indata och vi ska profilera över 16 olika processor-/minnes konfigurationer för att fastställa optimal storlek för distribution.
 
-+ **Ta med din egen basavbildning för inferens**<br/> Ett annat vanligt klagomål var svårigheterna med att flytta från experimentering till inferens RE delningsapplikationen beroenden. Med vår nya basavbildningen delning funktionen återanvända du nu dina experimentering Källavbildningen, beroenden och alla för inferens. Detta bör snabbare distributioner och minska mellanrummet från inre till den yttersta slingan.
++ **Ta med din egen bas avbildning för att få en härledning**<br/> En annan vanlig klagomål var svårt att flytta från experimentering till att dela om beroenden. Med vår nya bas avbildnings delnings funktion kan du nu återanvända dina bas avbildningar, beroenden och alla, för att kunna hantera störningar. Detta bör påskynda distributionen och minska mellanrummet från insidan till den yttre slingan.
 
-+ **Förbättrad upplevelse för generering av Swagger-schemat**<br/> Våra tidigare swagger-generationen metoden inträffade felbenägna och omöjligt att automatisera. Vi har ett nytt infogade sätt att generera swagger scheman från en Python-funktion via dekoratörer. Vi har öppen källkod den här koden och våra protokoll för generering av schemat kopplas inte för Azure ML-plattformen.
++ **Förbättrad generering av Swagger-scheman**<br/> Vår tidigare generations Swagger-metod var fel känslig och omöjlig att automatisera. Vi har ett nytt infogat sätt att generera Swagger-scheman från valfri python-funktion via dekoratörer. Vi har öppen källkod för den här koden och vårt schema generations protokoll är inte kopplat till Azure ML-plattformen.
 
-+ **Azure ML CLI är allmänt tillgänglig (GA)**<br/> Modeller kan nu distribueras med ett enda CLI-kommando. Vi fick vanliga kundfeedback som ingen distribuerar en ML-modell från en Jupyter-anteckningsbok. Den [ **CLI referensdokumentation** ](https://aka.ms/azmlcli) har uppdaterats.
++ **Azure ML CLI är allmänt tillgänglig (GA)**<br/> Modeller kan nu distribueras med ett enda CLI-kommando. Vi har en gemensam feedback från kunden att ingen distribuerar en ML-modell från en Jupyter Notebook. [**Referens dokumentationen för cli**](https://aka.ms/azmlcli) har uppdaterats.
 
 
 ## <a name="2019-04-22"></a>2019-04-22
 
-Azure Machine Learning SDK för Python v1.0.30 släpps.
+Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
-Den [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) har introducera för att lägga till en ny version av en publicerad pipeline samtidigt som du behåller samma slutpunkt.
+[`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) Introducerades för att lägga till en ny version av en publicerad pipeline samtidigt som du behåller samma slut punkt.
 
 ## <a name="2019-04-17"></a>2019-04-17
 
-### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Förbered SDK v1.1.2
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning data prep SDK v 1.1.2
 
-Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
+Obs! Data prepare för prepare installation och `numpy` `pandas` paket kommer inte längre att installeras. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
 
 + **Nya funktioner**
-  + Du kan nu använda Pivot-transformeringen.
-    + Här guiden: [Pivot-anteckningsbok](https://aka.ms/aml-data-prep-pivot-nb)
-  + Du kan nu använda reguljära uttryck i ursprungliga funktioner.
+  + Nu kan du använda Pivot-transformeringen.
+    + Instruktions guide: [Pivot-anteckningsbok](https://aka.ms/aml-data-prep-pivot-nb)
+  + Du kan nu använda reguljära uttryck i inbyggda funktioner.
     + Exempel:
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + Du kan nu använda `to_upper`  och `to_lower`  funktioner i Uttrycksspråk.
-  + Du kan nu se antalet unika värden för varje kolumn i en dataprofil.
-  + För några av de vanliga läsare steg, kan du nu skicka den `infer_column_types` argumentet. Om den är inställd på `True`, Dataförberedelser kommer att försöka identifiera och automatiskt konvertera kolumntyper.
-    + `inference_arguments` är nu föråldrad.
+  + Nu kan du använda `to_upper`  och `to_lower` Functionsiuttrycksspråk. 
+  + Nu kan du se antalet unika värden för varje kolumn i en data profil.
+  + För några av de ofta använda läsar stegen kan du nu skicka `infer_column_types` argumentet. Om den är inställd på `True`försöker data prepare att identifiera och automatiskt konvertera kolumn typer.
+    + `inference_arguments`är nu föråldrad.
   + Nu kan du anropa `Dataflow.shape`.
 
-+ **Felkorrigeringar och förbättringar**
-  + `keep_columns` accepterar nu ett valfritt argument `validate_column_exists`, som kontrollerar om resultatet av `keep_columns` innehåller några kolumner.
-  + Alla läsare steg (som läses från en fil) accepterar nu ett valfritt argument `verify_exists`.
-  + Förbättrad prestanda för att läsa från pandas-dataframe och hämta data profiler.
-  + Ett fel har åtgärdats där uppdelning av ett enda steg från ett dataflöde misslyckades med ett enda index.
++ **Fel korrigeringar och förbättringar**
+  + `keep_columns` accepterar nu ett ytterligare valfritt argument `validate_column_exists`som kontrollerar om resultatet av `keep_columns` ska innehålla kolumner.
+  + Alla läsar steg (som läses från en fil) accepterar nu ytterligare ett valfritt `verify_exists`argument.
+  + Bättre prestanda vid läsning från Pandas dataframe och hämtning av data profiler.
+  + Ett fel har åtgärd ATS där segmentering av ett enskilt steg från ett data flöde misslyckades med ett enda index.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure Portal
-  + Du kan nu skicka ett befintligt skript som körs på en befintlig remote beräkningskluster. 
-  + Du kan nu köra en publicerade pipeline med nya parametrar på fliken Pipelines. 
-  + Körningsinformation har nu stöd för en ny ögonblicksbild-granskaren. Du kan visa en ögonblicksbild av katalogen när du har skickat in en specifik körning. Du kan också hämta anteckningsboken som skickades för att starta körningen.
-  + Nu kan du avbryta överordnade körs från Azure-portalen.
+  + Nu kan du skicka om ett befintligt skript som körs på ett befintligt fjärrberäknings kluster. 
+  + Nu kan du köra en publicerad pipeline med nya parametrar på fliken pipeliner. 
+  + Körnings informationen stöder nu ett nytt visnings program för Snapshot-filen. Du kan visa en ögonblicks bild av katalogen när du skickade en speciell körning. Du kan också hämta den antecknings bok som har skickats för att starta körningen.
+  + Du kan nu avbryta överordnade körningar från Azure Portal.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
-### <a name="azure-machine-learning-sdk-for-python-v1023"></a>Azure Machine Learning-SDK för Python v1.0.23
+### <a name="azure-machine-learning-sdk-for-python-v1023"></a>Azure Machine Learning SDK för python v-1.0.23
 
 + **Nya funktioner**
-  + Azure Machine Learning SDK har nu stöd för Python 3.7.
-  + Azure Machine Learning DNN Estimators ger nu inbyggt stöd för flera versioner. Till exempel `TensorFlow`  kostnadsuppskattning accepterar nu ett `framework_version` parameter och användarna kan ange version ”1.10' eller '1.12'. En lista över de versioner som stöds av din aktuella SDK-version, anropa `get_supported_versions()` på den önskade framework-klassen (till exempel `TensorFlow.get_supported_versions()`).
-  En lista över versioner som stöds av den senaste versionen av SDK finns i den [DNN kostnadsuppskattning dokumentation](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  + Azure Machine Learning SDK stöder nu python 3,7.
+  + Azure Machine Learning DNN-uppskattningar har nu inbyggt stöd för flera versioner. Till exempel `TensorFlow`  kan en uppskattning nu acceptera en `framework_version` parameter och användarna kan ange version 1,10 eller 1,12. Om du vill ha en lista över de versioner som stöds av din aktuella `get_supported_versions()` SDK-version, kan du anropa den önskade `TensorFlow.get_supported_versions()`Ramverks klassen (till exempel).
+  En lista över de versioner som stöds av den senaste SDK-versionen finns i [dokumentationen för DNN-uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
-### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning Data Förbered SDK v1.1.1
+### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning data prep SDK v 1.1.1
 
 + **Nya funktioner**
-  + Du kan läsa flera datalager/DataPath/DataReference källor med read_ * transformeringar.
-  + Du kan utföra följande åtgärder på kolumner för att skapa en ny kolumn: division, våning modulo kraft, längd.
-  + Dataförberedelser är nu en del av paketet för Azure ML-diagnostik och loggar diagnostikinformation som standard.
-    + Ange variabeln till true om du vill inaktivera detta: DISABLE_DPREP_LOGGER
+  + Du kan läsa flera data lager-/DataPath/DataReference-källor med read_ * transformationer.
+  + Du kan utföra följande åtgärder för kolumner för att skapa en ny kolumn: Division, våning, modulo, ström, längd.
+  + Data prep är nu en del av Azure ML Diagnostics Suite och loggar diagnostikinformation som standard.
+    + Om du vill inaktivera detta ställer du in miljövariabeln på sant: DISABLE_DPREP_LOGGER
 
-+ **Felkorrigeringar och förbättringar**
-  + Förbättrad code-dokumentation för vanliga klasser och -funktioner.
-  + Ett fel har åtgärdats i auto_read_file som inte gick att läsa Excel-filer.
-  + Har lagts till med alternativet för att skriva över mappen i read_pandas_dataframe.
-  + Förbättrad prestanda för dotnetcore2 beroendeinstallation och extra support för Fedora 27/28 och Ubuntu 1804.
-  + Förbättrad prestanda för läsning från Azure Blobs.
-  + Kolumnen typidentifiering nu stöder kolumner av typen Long.
-  + Ett fel har åtgärdats där vissa datumvärden visades som tidsstämplar i stället för Python datetime-objekt.
-  + Ett fel har åtgärdats där vissa typ antal visades som Double-värden i stället för heltal.
++ **Fel korrigeringar och förbättringar**
+  + Förbättrad kod dokumentation för ofta använda klasser och funktioner.
+  + Ett fel har åtgärd ATS i auto_read_file som inte kunde läsa Excel-filer.
+  + Alternativet har lagts till för att skriva över mappen i read_pandas_dataframe.
+  + Förbättrad prestanda för dotnetcore2-beroende installation och ytterligare stöd för Fedora 27/28 och Ubuntu 1804.
+  + Bättre prestanda vid läsning från Azure-blobbar.
+  + Kolumn typs identifiering stöder nu kolumner av typen Long.
+  + Ett fel har åtgärd ATS där vissa datum värden visades som tidsstämplar i stället för python DateTime-objekt.
+  + Ett fel har åtgärd ATS där vissa antal typer visas som dubbla i stället för heltal.
 
   
 ## <a name="2019-03-25"></a>2019-03-25
 
-### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning-SDK för Python v1.0.21
+### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning SDK för python v-1.0.21
 
 + **Nya funktioner**
-  + Den *azureml.core.Run.create_children* metoden kan låg latens skapandet av flera underordnade körs med ett enda anrop.
+  + Metoden *azureml. Core. Run. create_children* gör det möjligt att skapa flera underordnade körningar under låg latens med ett enda anrop.
 
-### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning data prep SDK v 1.1.0
 
 + **Större ändringar**
-  + Begreppet Prep datapaketet är inaktuell och längre stöds inte. I stället för att spara flera dataflöden i ett paket kan du behålla dataflöden individuellt.
-    + Här guiden: [Anteckningsboken för att öppna och spara dataflöden](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+  + Konceptet för data förberedelse paketet är inaktuell och stöds inte längre. I stället för att spara flera data flöden i ett paket kan du behålla data flöden individuellt.
+    + Instruktions guide: [Öppnar och sparar data flöden Notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
 
 + **Nya funktioner**
-  + Dataförberedelser kan nu identifiera kolumner som matchar en viss semantiska typ och dela i enlighet med detta. Inkludera STypes som stöds för närvarande: e-postadressen, geografiska koordinater (latitud och longitud), IPv4 och IPv6-adresser, Amerikanskt telefonnummer och postnummer.
-    + Här guiden: [Den semantiska typer notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
-  + Dataförberedelser har nu stöd för följande åtgärder för att generera en gällande kolumn från två numeriska kolumner: subtrahera, multiplicera och dividera, och modulo.
-  + Du kan anropa `verify_has_data()` på en dataflöde för att kontrollera om dataflödet skulle skapa poster om körs.
+  + I förberedelse av data kan du nu identifiera kolumner som matchar en viss semantisk typ och dela detta. Den STypes som stöds för närvarande är: e-postadress, geografiska koordinater (latitud & longitud), IPv4-och IPv6-adresser, telefonnummer och AMERIKANSKt post nummer.
+    + Instruktions guide: [Bärbar typ av semantisk typ](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Data prepare stöder nu följande åtgärder för att generera en resulterande kolumn från två numeriska kolumner: subtrahera, multiplicera, dividera och modulo.
+  + Du kan anropa `verify_has_data()` ett data flöde för att kontrol lera om data flödet skulle producera poster om det körts.
 
-+ **Felkorrigeringar och förbättringar**
-  + Du kan nu ange hur många lagerplatser ska användas i ett histogram för numerisk kolumn profiler.
-  + Den `read_pandas_dataframe` transformeringen kräver nu DataFrame ha sträng - eller byte typifierade kolumnnamn.
-  + En bugg i den `fill_nulls` transformering, där värdena inte har korrekt fylls i om kolumnen saknades.
++ **Fel korrigeringar och förbättringar**
+  + Nu kan du ange antalet lager platser som ska användas i ett histogram för numeriska kolumn profiler.
+  + `read_pandas_dataframe` Transformeringen kräver nu att DataFrame har namn som är sträng-eller byte-typ.
+  + Ett fel har åtgärd ATS `fill_nulls` i transformeringen, där värdena inte fylldes i korrekt om kolumnen saknades.
 
 ## <a name="2019-03-11"></a>2019-03-11
 
-### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning-SDK för Python v1.0.18
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning SDK för python v-1.0.18
 
- + **Ändringar**
-   + Azureml-tensorboard paketet ersätter azureml-contrib-tensorboard.
-   + Den här versionen kan ställa du in ett användarkonto på ditt hanterade beräkningskluster (amlcompute) när du skapar den. Detta kan göras genom att skicka de här egenskaperna i konfigurationen för etablering. Du hittar mer information finns i den [SDK referensdokumentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+ + **Något**
+   + Azureml-tensorboard-paketet ersätter azureml-contrib-tensorboard.
+   + I den här versionen kan du konfigurera ett användar konto på ditt hanterade beräknings kluster (amlcompute) medan du skapar det. Detta kan göras genom att de här egenskaperna skickas i konfigurationen. Du hittar mer information i [referens dokumentationen för SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
-### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning data prep SDK v 1.0.17
 
 + **Nya funktioner**
-  + Nu har stöd för att lägga till två numeriska kolumner för att generera en gällande kolumn med hjälp av uttryck som språket.
+  + Har nu stöd för att lägga till två numeriska kolumner för att generera en resulterande kolumn med uttrycks språket.
 
-+ **Felkorrigeringar och förbättringar**
-  + Förbättrat dokumentationen och söker efter random_split-parametern.
++ **Fel korrigeringar och förbättringar**
+  + Förbättrad dokumentation och parameter kontroll för random_split.
   
 ## <a name="2019-02-27"></a>2019-02-27
 
-### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning Data Förbered SDK v1.0.16
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning data prep SDK v 1.0.16
 
-+ **Felkorrigering**
-  + Problem har åtgärdats ett huvudnamn för tjänsten autentisering som orsakades av en ändring av API: et.
++ **Fel korrigering**
+  + Åtgärdat problem med tjänstens huvud namn som orsakades av en API-ändring.
 
 ## <a name="2019-02-25"></a>2019-02-25
 
-### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning-SDK för Python v1.0.17
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK för python v-1.0.17
 
 + **Nya funktioner**
 
-  + Azure Machine Learning har nu förstklassigt stöd för populära DNN-ramverk Chainer. Med hjälp av [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klassen användare enkelt kan träna och distribuera Chainer modeller.
-    + Lär dig hur du [kör distribuerad utbildning med ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
-    + Lär dig hur du [kör finjustering av hyperparametrar med Chainer med HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
-  + Azure Machine Learning Pipelines lagt till möjligheten utlösare som en Pipeline som körs baserat på ändringar av datalager. Pipelinen [schema notebook](https://aka.ms/pl-schedule) har uppdaterats för att demonstrera den här funktionen.
+  + Azure Machine Learning har nu det första klass stödet för populär DNN Framework-kedja. Användning [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) av klass användare kan enkelt träna och distribuera kedje modeller.
+    + Lär dig hur du [Kör distribuerad utbildning med ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Lär dig hur du kör en inställning för min [parameter med en kedja med HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+  + Azure Machine Learning pipelines har lagt till möjlighet att utlösa en pipeline-körning baserat på data lager ändringar. Antecknings [boken](https://aka.ms/pl-schedule) för pipeline-schemat uppdateras för att visa den här funktionen.
 
-+ **Felkorrigeringar och förbättringar**
-  + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopiering datalager, vilket stöta begränsning problem när ett stort antal steg körs samtidigt.
++ **Fel korrigeringar och förbättringar**
+  + Vi har lagt till stöd Azure Machine Learning pipelines för att ställa in egenskapen source_directory_data_store på ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som anges för [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 + **Nya funktioner**
-  + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
-  + Granskaren nya loggar
-  + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
+  + Ny dra och släpp tabell redigerings miljö för rapporter. Användare kan dra en kolumn från en källa till tabell området där en förhands granskning av tabellen kommer att visas. Kolumnerna kan ordnas om.
+  + Nya loggar fil visare
+  + Länkar till experiment körningar, Compute, modeller, avbildningar och distributioner från fliken aktiviteter
 
-### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning Data Förbered SDK v1.0.15
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning data prep SDK v 1.0.15
 
 + **Nya funktioner**
-  + Data Prep stöder nu skriva filen dataströmmar från ett dataflöde. Ger också möjlighet att ändra stream filnamn för att skapa nya filnamn.
-    + Här guiden: [Arbeta med filen strömmar notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+  + Data prepare stöder nu att du skriver fil strömmar från ett data flöde. Ger också möjlighet att ändra fil Ströms namnen för att skapa nya fil namn.
+    + Instruktions guide: [Arbeta med fil Ströms Notebook](https://aka.ms/aml-data-prep-file-stream-nb)
 
-+ **Felkorrigeringar och förbättringar**
-  + Förbättrad prestanda för t-Digest på stora datamängder.
-  + Dataförberedelser har nu stöd för läsning av data från en DataPath.
-  + En frekvent kodning fungerar nu på booleskt och numeriska kolumner.
-  + Andra diverse felkorrigeringar.
++ **Fel korrigeringar och förbättringar**
+  + Förbättrad prestanda för t-Digest på stora data mängder.
+  + Data prepare stöder nu läsning av data från en DataPath.
+  + En snabb kodning fungerar nu på booleska och numeriska kolumner.
+  + Andra fel korrigeringar för övriga fel.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
-### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning-SDK för Python v1.0.15
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning SDK för python v-1.0.15
 
 + **Nya funktioner**
-  + Azure Machine Learning Pipelines har lagts till AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (bärbar dator), och tidsbaserade schemaläggning funktioner ([notebook](https://aka.ms/pl-schedule)).
-  +  DataTranferStep uppdateras för att arbeta med Azure SQL Server och Azure database för PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+  + Azure Machine Learning pipelines har lagt till AzureBatchStep ([Notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (Notebook) och tidsbaserad schemaläggnings funktion ([Notebook](https://aka.ms/pl-schedule)).
+  +  DataTranferStep har uppdaterats för att fungera med Azure SQL Server och Azure Database för PostgreSQL ([Notebook](https://aka.ms/pl-data-trans)).
 
-+ **Ändringar**
-  + Inaktuell `PublishedPipeline.get_published_pipeline` för `PublishedPipeline.get`.
-  + Inaktuell `Schedule.get_schedule` för `Schedule.get`.
++ **Något**
+  + Föråldrad till förmån `PublishedPipeline.get`för. `PublishedPipeline.get_published_pipeline`
+  + Föråldrad till förmån `Schedule.get`för. `Schedule.get_schedule`
 
-### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning Data Prep SDK v1.0.12
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning data prep SDK v 1.0.12
 
 + **Nya funktioner**
-  + Data Prep stöder nu läsa från en Azure SQL-databas med datalagret.
+  + Data prepare stöder nu läsning från en Azure SQL-databas med hjälp av data lager.
  
-+ **Ändringar**
-  + Förbättrade minnesprestanda för vissa åtgärder på stora mängder data.
-  + `read_pandas_dataframe()` kräver nu att `temp_folder` anges.
-  + Den `name` egenskapen `ColumnProfile` har föråldrat – Använd `column_name` i stället.
++ **Något**
+  + Bättre minnes prestanda för vissa åtgärder på stora data.
+  + `read_pandas_dataframe()`måste `temp_folder` nu anges.
+  + Egenskapen är inaktuell, används `column_name` i stället. `ColumnProfile` `name`
 
 ## <a name="2019-01-28"></a>2019-01-28
 
-### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning-SDK för Python v1.0.10
+### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning SDK för python v-1.0.10
 
 + **Ändringar**: 
-  + Azure ML-SDK har inte längre azure cli-paket som beroende. Mer specifikt har beroenden för azure-cli-core och azure-cli-profil tagits bort från azureml-kärna. Det här är den användare som påverkas av ändringar:
-    + Om du utför ”az login” och sedan använda azureml-sdk, gör SDK: N koden loggen webbläsare eller enhet i en gång till. Den använder inte några autentiseringsuppgifter tillstånd som skapats av ”az login”.
-    + Azure CLI-autentisering, till exempel med hjälp av ”az login” använda _azureml.core.authentication.AzureCliAuthentication_ klass. Azure CLI-autentisering, göra _pip installerar azure cli-_ i Python-miljön där du har installerat azureml-sdk.
-    + Om du gör ”az login” med ett huvudnamn för tjänsten för automation, bör du använda _azureml.core.authentication.ServicePrincipalAuthentication_ klassen som azureml-sdk inte använder autentiseringsuppgifter tillstånd som skapats av azure CLI. 
+  + Azure ML SDK har inte längre Azure-CLI-paket som beroende. Mer specifikt har Azure-CLI-Core-och Azure-CLI-profil beroenden tagits bort från azureml-Core. Detta är ändringar som påverkar användaren:
+    + Om du utför "AZ-inloggning" och sedan använder azureml-SDK, kommer SDK att göra webbläsaren eller enhets kod loggen en längre tid. Det använder inte några autentiseringsuppgifter som skapats av "AZ login".
+    + För Azure CLI-autentisering, t. ex. med "AZ login", använder du klassen _azureml. Core. Authentication. AzureCliAuthentication_ . För Azure CLI-autentisering _installerar du pip Azure-CLI_ i python-miljön där du har installerat azureml-SDK.
+    + Om du gör "AZ-inloggning" med ett huvud namn för tjänsten för Automation rekommenderar vi att du använder _azureml. Core. Authentication. ServicePrincipalAuthentication_ -klassen, som azureml-SDK använder inte autentiseringsuppgifter som skapats av Azure CLI. 
 
-+ **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
++ **Fel korrigeringar**: Den här versionen innehåller oftast mindre fel korrigeringar
 
-### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Förbered SDK v1.0.8
+### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning data prep SDK v 1.0.8
 
 + **Felkorrigeringar**
-  + Förbättrad prestanda för att få data profiler.
-  + Mindre buggar rör felrapportering.
+  + Bättre prestanda för att hämta data profiler.
+  + Fasta mindre buggar som rör fel rapportering.
   
 ### <a name="azure-portal-new-features"></a>Azure-portalen: nya funktioner
-+ Ny dra och släpp kartläggning upplevelse för rapporter. Användare kan dra en kolumn eller ett attribut från brunnen i diagramområdet där systemet automatiskt välja en lämplig diagramtyp för användaren baserat på vilken typ av data. Användare kan ändra typ till andra tillämpliga typer eller lägga till ytterligare attribut.
++ Ny dra och släpp diagram upplevelse för rapporter. Användare kan dra en kolumn eller ett attribut från det till diagram området där systemet automatiskt väljer en lämplig diagram typ för användaren baserat på typen av data. Användare kan ändra diagram typ till andra tillämpliga typer eller lägga till ytterligare attribut.
 
-    Diagramtyper som stöds:
-    - Linjediagram
+    Diagram typer som stöds:
+    - Linje diagram
     - Histogram
     - Liggande stapeldiagram
     - Låddiagram
-    - Punktdiagram
-    - Bubbeldiagram diagram
-+ Portalen skapar nu dynamiskt rapporter för experiment. När en användare skickar en körning till ett experiment, genereras automatiskt en rapport med loggade mått och diagram för att tillåta jämförelse från olika körningarna. 
+    - Punkt diagram
+    - Bubbeldiagram
++ Portalen genererar nu dynamiskt rapporter för experiment. När en användare skickar en körning till ett experiment genereras en rapport automatiskt med de inloggade måtten och graferna för att tillåta jämförelse mellan olika körningar. 
 
 ## <a name="2019-01-14"></a>2019-01-14
 
-### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning-SDK för Python v1.0.8
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning SDK för python v-1.0.8
 
-+ **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
++ **Fel korrigeringar**: Den här versionen innehåller oftast mindre fel korrigeringar
 
-### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Förbered SDK v1.0.7
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning data prep SDK v 1.0.7
 
 + **Nya funktioner**
-  + Förbättringar av datalager (beskrivs i [How-to-till-guide-datalager](https://aka.ms/aml-data-prep-datastore-nb))
-    + Möjlighet att läsa från och skriva till Azure-filresurser och ADLS-datalager i skala upp har lagts till.
-    + När du använder datalager, stöder Dataförberedelser nu med autentisering av tjänstens huvudnamn i stället för interaktiv autentisering.
-    + Stöd har lagts till för wasb och wasbs URL: er.
+  + Data lager förbättringar (dokumenterade i [data lagret instruktions](https://aka.ms/aml-data-prep-datastore-nb)instruktioner)
+    + Ytterligare möjlighet att läsa från och skriva till Azure-filresursen och ADLS-datalager i skalar.
+    + När du använder data lager, stöder nu data förberedelse med tjänstens huvud namns autentisering i stället för interaktiv autentisering.
+    + Stöd har lagts till för wasb-och wasbs-URL: er.
 
 ## <a name="2019-01-09"></a>2019-01-09
 
-### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Förbered SDK v1.0.6
+### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning data prep SDK v 1.0.6
 
 + **Felkorrigeringar**
-  + En bugg har åtgärdats med läsning från offentliga läsbara Azure Blob-behållare på Spark
+  + Åtgärdat fel vid läsning från offentliga läsbara Azure Blob-behållare i Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
-### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning-SDK för Python v1.0.6
-+ **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
+### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning SDK för python v-1.0.6
++ **Fel korrigeringar**: Den här versionen innehåller oftast mindre fel korrigeringar
 
-### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
+### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning data prep SDK v 1.0.4
 
 + **Nya funktioner**
-  + `to_bool` funktionen kan nu Felmatchade värden som ska konverteras till felvärden. Det här är den nya matchningsfel för standardfunktionen för `to_bool` och `set_column_types`, medan tidigare standardbeteendet var att konvertera Felmatchade värden till False.
-  + När du anropar `to_pandas_dataframe`, det finns en ny möjlighet att tolka null/saknat värdena i numeriska kolumner som NaN.
-  + Möjlighet att kontrollera Returtypen för vissa uttryck för att säkerställa konsekvens typ och misslyckas tidigt har lagts till.
-  + Nu kan du anropa `parse_json` att parsa värdena i en kolumn som JSON-objekt och expandera dem i flera kolumner.
+  + `to_bool`funktionen tillåter nu att felmatchade värden konverteras till fel värden. Detta är den nya standard avvikelsen för `to_bool` och `set_column_types`, medan det tidigare standard beteendet var att konvertera felmatchade värden till false.
+  + Vid anrop `to_pandas_dataframe`finns det ett nytt alternativ för att tolka null/saknade värden i numeriska kolumner som Nan.
+  + Möjlighet att kontrol lera retur typen för vissa uttryck har lagts till för att säkerställa typ konsekvens och misslyckade tidiga.
+  + Nu kan du anropa `parse_json` att parsa värden i en kolumn som JSON-objekt och expandera dem till flera kolumner.
 
 + **Felkorrigeringar**
-  + En bugg kraschat `set_column_types` i Python 3.5.2.
-  + Åtgärdat en bugg kraschat när du ansluter till datalagret med hjälp av en AML-avbildning.
+  + En bugg har åtgärd ATS som `set_column_types` kraschade i python-3.5.2.
+  + En bugg har åtgärd ATS som kraschade vid anslutning till data lagret med en AML-avbildning.
 
 + **Uppdateringar**
-  * [Exempel anteckningsböcker](https://aka.ms/aml-data-prep-notebooks) för att komma igång-självstudier, fallstudier och instruktionsguider.
+  * [Exempel på bärbara datorer](https://aka.ms/aml-data-prep-notebooks) för att komma igång med självstudier, fallstudier och instruktions guider.
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04: Allmän tillgänglighet
 
 Azure Machine Learning-tjänsten är nu allmänt tillgänglig.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
-Med den här versionen har Vi presenterar en ny hanterad beräkningsmiljö via den [beräkning av Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Den här beräkningsmål ersätter Azure Batch AI-databearbetning för Azure Machine Learning. 
+I den här versionen får vi presentera en ny hanterad beräknings upplevelse genom [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). Detta beräknings mål ersätter Azure Batch AI beräkning för Azure Machine Learning. 
 
-Den här beräkningsmål:
-+ Används för modellen utbildnings- och batch inferens/bedömning
-+ Är en - till Multi-Factor - node beräkning
-+ Utför klusterhanteringen och jobbschemaläggning för användaren
-+ Skalar som standard
-+ Stöd för både CPU- och GPU-resurser 
-+ Möjliggör användning av lågprioriterade virtuella datorer för lägre kostnad
+Detta Compute-mål:
++ Används för modell utbildning och batch-härledning/Poängsättning
++ Är en engångs beräkning med flera noder
++ Hanterar kluster hantering och jobb schemaläggning för användaren
++ Autoskalning som standard
++ Stöd för både CPU-och GPU-resurser 
++ Möjliggör användning av virtuella datorer med låg prioritet för minskad kostnad
 
-Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-portalen eller CLI. Den måste skapas i regionen för din arbetsyta och går inte att ansluta till en annan arbetsyta. Den här beräkningsmål använder en Docker-behållare för din körning och paketerar dina beroenden för att replikera samma miljö på alla noder.
+Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-portalen eller CLI. Den måste skapas i regionen för din arbetsyta och går inte att ansluta till en annan arbetsyta. Detta beräknings mål använder en Docker-behållare för din körning och paketerar dina beroenden för att replikera samma miljö över alla noder.
 
 > [!Warning]
 > Vi rekommenderar att du skapar en ny arbetsyta om du vill använda beräkning av Azure Machine Learning. Det finns en fjärransluten risk att användare som försöker skapa beräkning av Azure Machine Learning från en befintlig arbetsyta kan se ett fel. Befintliga beräkning i din arbetsyta bör fortsätta att fungera påverkas inte.
@@ -597,7 +600,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 + **Felkorrigeringar**
   * Använd senaste AML kör Token vid läsning från och skriva till datalager på fjärranslutna körs. Tidigare, om den AML kör Token uppdateras i Python, Data Prep-runtime kommer inte att uppdateras med den uppdaterade AML kör Token.
   * Ytterligare tydligare felmeddelanden
-  * to_spark_dataframe() kommer inte längre krascha när de använder Spark `Kryo` serialisering
+  * to_spark_dataframe () kommer inte längre att krascha när `Kryo` Spark använder serialisering
   * Antal värden Inspector kan nu visa fler än 1000 unika värden
   * Slumpmässig dela misslyckas inte längre om det ursprungliga dataflödet saknar ett namn  
 
@@ -609,16 +612,16 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
   + Nya och uppdaterade anteckningsböcker för att komma igång med pipelines, batch omfång och format överföra exempel: https://aka.ms/aml-pipeline-notebooks
   + Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md)
   + Lär dig hur du [kör batch förutsägelser med pipelines](how-to-run-batch-predictions.md)
-+ Azure Machine Learning-beräkningsmål
-  + [Exempel på bärbara datorer](https://aka.ms/aml-notebooks) uppdateras nu om du vill använda den nya hantera databearbetning.
++ Azure Machine Learning Compute Target
+  + Nu har [exempel antecknings böcker](https://aka.ms/aml-notebooks) uppdaterats för att använda den nya hanterade beräkningen.
   + [Lär dig mer om den här beräkning](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure-portalen: nya funktioner
 + Skapa och hantera [beräkning av Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) typer i portalen.
 + Övervaka kvotanvändning och [begär kvot](how-to-manage-quotas.md) för beräkning av Azure Machine Learning.
-+ Visa status för beräkning av Azure Machine Learning-kluster i realtid.
++ Visa Azure Machine Learning beräknings kluster status i real tid.
 + Virtual network-stöd har lagts till för att skapa en beräkning av Azure Machine Learning och Azure Kubernetes Service.
-+ Kör dina publicerade pipelines med befintliga parametrar.
++ Kör de publicerade pipelinerna igen med befintliga parametrar.
 + Ny [automatiserad machine learning diagram](how-to-track-experiments.md#auto) för klassificering modeller (lift, vinster, kalibrering, funktionen vikten diagram med modellen explainability) och regressionsmodeller (restbelopp och vikten funktionsdiagram med modellen explainability). 
 + Pipelines kan ses i Azure-portalen
 
@@ -631,7 +634,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 
 + **Större ändringar** 
   * *azureml.Train.widgets* namnområde har flyttats till *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* gör blir föråldrat följande klasser - *azureml.core.compute.BatchAICompute* och *azureml.core.compute.DSVMCompute*. Klassen senare tas bort i kommande versioner. Klassen AmlCompute har nu en enklare definition bara behöver en vm_size och max_nodes och skalar automatiskt ditt kluster från 0 till max_nodes när ett jobb skickas. Vår [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) har uppdaterats med den här informationen och bör ge dig användningsexempel. Vi hoppas att du som den här förenkling av distribution och mycket mer spännande funktioner kommer i en senare version!
+  * *azureml.core.compute.AmlCompute* gör blir föråldrat följande klasser - *azureml.core.compute.BatchAICompute* och *azureml.core.compute.DSVMCompute*. Klassen senare tas bort i kommande versioner. Klassen AmlCompute har nu en enklare definition bara behöver en vm_size och max_nodes och skalar automatiskt ditt kluster från 0 till max_nodes när ett jobb skickas. Våra [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) har uppdaterats med den här informationen och ska ge dig exempel på användning. Vi hoppas att du som den här förenkling av distribution och mycket mer spännande funktioner kommer i en senare version!
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Förbered SDK v0.5.1 
 
@@ -643,16 +646,16 @@ Läs mer om Data Prep SDK genom att läsa [referera till docs](https://aka.ms/da
    * Innehåller nu skeva och datamängds i profilen för Data
    * Kan ta prov med stratified sampling
    * Kan läsa från zip-filer som innehåller CSV-filer
-   * Dela upp datauppsättningar efter rader med slumpmässiga Split (till exempel till test-train-uppsättningar)
-   * Kan hämta kolumnen datatyper från en dataflöde eller en dataprofil för genom att anropa `.dtypes`
-   * Kan få antalet rader som ett dataflöde eller en dataprofil för genom att anropa `.row_count`
+   * Kan dela data uppsättnings rader med slumpmässig delning (till exempel i test-träna-uppsättningar)
+   * Kan hämta alla kolumn data typer från ett data flöde eller en data profil genom att anropa`.dtypes`
+   * Kan hämta rad antalet från ett data flöde eller en data profil genom att anropa`.row_count`
 
 + **Felkorrigeringar**
    * Fast länge till dubbla konvertering 
    * Fast assert när någon Lägg till kolumn 
    * Ett problem har åtgärdats med FuzzyGrouping, där den inte kan identifiera grupper i vissa fall
    * Fast sorteringsfunktionen respekterar sorteringsordning för flera kolumner
-   * Fast och/eller uttryck liknar hur `pandas` hanterar dem
+   * Fasta och/eller uttryck liknar hur `pandas` hanterar dem
    * Fast läsning från antingen path
    * Gjort det lättare att förstå felmeddelanden 
    * Nu inte längre misslyckas vid läsning på fjärranslutna beräkningsmål med AML-token
@@ -671,7 +674,7 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK för Python v0.1.74
 
 + **Större ändringar** 
-  * \* Workspace.compute_targets, datalager, experiment, bilder, modeller och *webservices* egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
+  * \* Arbets yta. compute_targets, data lager, experiment, bilder, modeller och *WebService* är egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
   * *Run.get_context* gör blir föråldrat *Run.get_submitted_run*. Den andra metoden tas bort i kommande versioner.
   * *PipelineData* klass nu förväntar sig ett datalager-objekt som en parameter i stället för datastore_name. På samma sätt *Pipeline* accepterar default_datastore snarare än default_datastore_name.
 
@@ -691,7 +694,7 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
   * Nu finns stöd för skrivning till datalagret 
         
 + **Bugg har åtgärdats**
-  * 64-bitars heltal utan tecken egenskapslängd hanteras nu korrekt på Linux
+  * 64-bit positiva heltals spill hanteras nu korrekt i Linux
   * Fast felaktig textetikett för filer med oformaterad text i smart_read
   * Sträng kolumntyp nu visas i måttvyn
   * Antal löses nu att visa ValueKinds som mappats till enkel FieldType i stället för enskilda finns
@@ -703,10 +706,10 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning-SDK för Python v0.1.68
 
 + **Nya funktioner**
-  * Stöd för flera klienter när du skapar en ny arbetsyta.
+  * Stöd för flera innehavare när du skapar en ny arbets yta.
 
 + **Korrigerade buggar**
-  * Du behöver inte längre att fästa pynacl library version när du distribuerar webbtjänsten.
+  * Du behöver inte längre fästa pynacl-bibliotekets version när du distribuerar webb tjänsten.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning Data Förbered SDK v0.3.0
 
@@ -729,7 +732,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
   * Olika HyperDrive felkorrigeringar för Bayesian, prestandaförbättringar för hämta mått-anrop. 
   * Tensorflow 1.10 uppgradering från 1.9 
   * Docker-avbildning optimering för kallstart. 
-  * Jobb rapportera nu rätt status, även om de avslutas med felkod än 0. 
+  * Jobben rapporterar nu rätt status även om de avslutas med en annan felkod än 0. 
   * RunConfig attributet validering i SDK. 
   * HyperDrive kör objektet stöder Avbryt liknar en vanlig körning: du behöver inte vidarebefordra alla parametrar. 
   * Widget förbättringar för att underhålla tillståndet för listrutan värden för distribuerade körningar och HyperDrive körs. 
@@ -740,7 +743,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 + **Azure-portalen**
   * log_table() och log_row() stöds i informationen om körningen. 
-  * Automatiskt skapa diagram för tabeller och rader med 1, 2 eller 3 numeriska kolumner och en valfri kategoriska kolumn.
+  * Skapa automatiskt diagram för tabeller och rader med 1, 2 eller 3 numeriska kolumner och en valfri kategoriska-kolumn.
 
 + **Automatiserad Machine Learning**
   * Förbättrad felhantering och dokumentation 
@@ -754,13 +757,13 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 + **Pipelines**
   * Lägga till en metod Pipeline.publish() att publicera en pipeline direkt, utan att kräva en körning köras först.   
-  * Lägga till en metod PipelineRun.get_pipeline_runs() att hämta pipeline-körningar som har genererats från en publicerade pipeline.
+  * En metod PipelineRun. get _pipeline_runs () har lagts till för att hämta pipeline-körningar som har genererats från en publicerad pipeline.
 
 + **Project Brainwave**
   * Uppdaterade stöd för nya AI-modeller som finns på FPGA.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning Data Förbered SDK v0.2.0
-[Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) innehåller följande funktioner och felkorrigeringar:
+[Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) innehåller följande funktioner och fel korrigeringar:
 
 + **Nya funktioner**
   * Stöd för en frekvent kodning
@@ -772,7 +775,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (offentlig förhandsversion uppdatera)
 
-En ny uppdaterad version av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+En ny, uppdaterad version av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
 ## <a name="next-steps"></a>Nästa steg

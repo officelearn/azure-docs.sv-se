@@ -1,6 +1,6 @@
 ---
-title: Hur du använder e-posttjänsten SendGrid (PHP) | Microsoft Docs
-description: Lär dig hur skicka e-postmeddelande med e-posttjänsten SendGrid på Azure. Kodexempel som är skrivet i PHP.
+title: Använda SendGrid email service (PHP) | Microsoft Docs
+description: Lär dig hur du skickar e-post med e-posttjänsten SendGrid i Azure. Kod exempel skrivna i PHP.
 documentationcenter: php
 services: ''
 manager: sendgrid
@@ -13,46 +13,47 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: erikre
+ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
+ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60931236"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870915"
 ---
-# <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Hur du använder den e-posttjänsten SendGrid från PHP
+# <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Så här använder du e-posttjänsten SendGrid från PHP
 
-Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med e-posttjänsten SendGrid på Azure. Exemplen är skrivna i PHP.
-Scenarier som omfattas är **konstruera e-post**, **skicka e-postmeddelande**, och **att lägga till bilagor**. Mer information om SendGrid och skicka e-post finns i den [nästa steg](#next-steps) avsnittet.
+Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs i PHP.
+Scenarierna som beskrivs är att **Skapa e-post**, **skicka e-post**och **lägga till bifogade filer**. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten SendGrid?
-SendGrid är en [molnbaserade e-posttjänsten] som ger tillförlitliga [transaktionsbaserad e-postleverans], skalbarhet och realtidsanalys tillsammans med flexibla API: er som gör anpassad integration enkel. Vanliga Användningsscenarier för SendGrid är:
+## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten för SendGrid?
+SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig [e]-postleverans, skalbarhet och real tids analys tillsammans med flexibla API: er som underlättar anpassad integrering. Vanliga scenarier för SendGrid-användning är:
 
-* Skicka automatiskt kvitton till kunder
-* Administrera distribution visas för att skicka kunder månatliga e-flygblad och specialerbjudanden
-* Samla in i realtid mått för saker som blockerade e-post och kundsvarstid
-* Generera rapporter för att identifiera trender
-* Vidarebefordran av kundfrågor
+* Skicka kvitton automatiskt till kunder
+* Administrera distributions listor för att skicka kunders månatliga e-Fliers och Special erbjudanden
+* Samla in real tids mått för saker som blockerad e-post och kundens svars tid
+* Generera rapporter för att hjälpa till att identifiera trender
+* Vidarebefordra kund förfrågningar
 * E-postmeddelanden från ditt program
 
-Mer information finns i [https://sendgrid.com][https://sendgrid.com].
+Mer information finns på [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="using-sendgrid-from-your-php-application"></a>Med SendGrid från PHP-program
+## <a name="using-sendgrid-from-your-php-application"></a>Använda SendGrid från ditt PHP-program
 
-Med SendGrid i ett Azure PHP-program kräver ingen särskild konfiguration eller kodning. Eftersom SendGrid är en tjänst, kan den nås på exakt samma sätt från ett molnprogram som möjligt från ett lokalt program.
+Användning av SendGrid i ett Azure PHP-program kräver ingen särskild konfiguration eller kodning. Eftersom SendGrid är en tjänst kan den nås på exakt samma sätt från ett moln program som kan från ett lokalt program.
 
 ## <a name="how-to-send-an-email"></a>Anvisningar: Skicka ett e-postmeddelande
 
-Du kan skicka e-postmeddelande med SMTP- eller webb-API från SendGrid.
+Du kan skicka e-post med antingen SMTP eller webb-API: t från SendGrid.
 
 ### <a name="smtp-api"></a>SMTP-API
 
-Använda för att skicka e-post med SendGrid SMTP-API: et *Swift avsändarens*, ett komponentbaserade bibliotek för att skicka e-postmeddelanden från PHP-program. Du kan ladda ned den [Swift avsändarens biblioteket](https://swiftmailer.symfony.com/) v5.3.0 (Använd [Composer] installera Swift avsändarens). Skicka e-postmeddelande med biblioteket innebär att du skapar instanser av den `Swift\_SmtpTransport`, `Swift\_Mailer`, och `Swift\_Message` klasser, ställa in lämpliga egenskaper och anropa den `Swift\_Mailer::send` metoden.
+Om du vill skicka e-post med SendGrid SMTP API använder du *Swift Mailer*, ett komponentbaserade bibliotek för att skicka e-post från php-program. Du kan ladda ned [Swift Mailer Library](https://swiftmailer.symfony.com/) v 5.3.0 (Använd [Composer] för att installera Swift-Mailer). Om du skickar e-post med biblioteket måste du `Swift\_SmtpTransport`skapa `Swift\_Mailer`instanser av `Swift\_Message` klasserna, och, `Swift\_Mailer::send` ange lämpliga egenskaper och anropa-metoden.
 
 ```php
 <?php
@@ -117,7 +118,7 @@ Använda för att skicka e-post med SendGrid SMTP-API: et *Swift avsändarens*, 
 ```
 
 ### <a name="web-api"></a>Webb-API
-Användning av PHP'S [curl funktionen] [ curl function] att skicka e-post med SendGrid webb-API.
+Använd PHP- [funktionen vändning][curl function] för att skicka e-post med hjälp av SendGrid-webb-API.
 
 ```php
 <?php
@@ -159,13 +160,13 @@ Användning av PHP'S [curl funktionen] [ curl function] att skicka e-post med Se
  print_r($response);
 ```
 
-SendGrid-webb-API är mycket lik en REST-API om det inte verkligen ett RESTful-API eftersom i de flesta anrop både hämta och INLÄGG verb är utbytbara.
+SendGrid för webb-API: et liknar ett REST API, men det är inte ett RESTful-API, eftersom både GET-och POST-verb kan användas interstort i de flesta anrop.
 
-## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bifogad fil
+## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bilaga
 
 ### <a name="smtp-api"></a>SMTP-API
 
-En ytterligare kodrad till exempelskript för att skicka ett e-postmeddelande med Swift avsändarens innebär att skicka en bifogad fil med hjälp av SMTP-API.
+Sändning av en bifogad fil med SMTP-API: et omfattar en extra kodrad till exempel skriptet för att skicka ett e-postmeddelande med Swift-e-post.
 
 ```php
 <?php
@@ -232,17 +233,17 @@ En ytterligare kodrad till exempelskript för att skicka ett e-postmeddelande me
  }
 ```
 
-Ytterligare kodrad är följande:
+Den extra kodraden är följande:
 
 ```php
  $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 ```
 
-Kod anropar metoden bifoga på den `Swift\_Message` objekt och använder statisk metod `fromPath` på den `Swift\_Attachment` klassen för att hämta och bifoga en fil till ett meddelande.
+Den här kodraden anropar metoden Attach på `Swift\_Message` objektet och använder statisk metod `fromPath` i `Swift\_Attachment` klassen för att hämta och bifoga en fil i ett meddelande.
 
 ### <a name="web-api"></a>Webb-API
 
-Skicka en bifogad fil via webb-API är mycket lika e-post med hjälp av webb-API. Observera dock att parametern-matrisen i följande exempel måste innehålla det här elementet:
+Att skicka en bifogad fil med webb-API: et liknar att skicka ett e-postmeddelande med webb-API: et. Observera dock att i exemplet nedan måste parameter mat ris innehålla följande element:
 
 ```php
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
@@ -296,13 +297,13 @@ Skicka en bifogad fil via webb-API är mycket lika e-post med hjälp av webb-API
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd filter för att aktivera sidfötter, spårning och analys
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd filter för att aktivera sid fötter, spårning och analys
 
-SendGrid ger ytterligare e-funktioner med *filter*. Det här är inställningar som kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner, till exempel aktivera klickspårning, Google analytics, prenumeration, spårnings- och så vidare.
+SendGrid tillhandahåller ytterligare e-postfunktioner genom att använda *filter*. Detta är inställningar som kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner som att aktivera Klicka på spårning, Google Analytics, prenumerations spårning och så vidare.
 
-Filter kan tillämpas på ett meddelande med hjälp av egenskapen filter. Varje filter anges av ett hash-värde som innehåller filter-specifika inställningar. I följande exempel aktiverar filtret sidfot och anger ett textmeddelande som läggs till längst ned i e-postmeddelandet. I det här exemplet ska vi använda [sendgrid-php-bibliotek].
+Filter kan tillämpas på ett meddelande med hjälp av filter egenskapen. Varje filter anges av en hash som innehåller filter specifika inställningar. Följande exempel aktiverar sid fots filtret och anger ett textmeddelande som ska läggas till längst ned i e-postmeddelandet. I det här exemplet ska vi använda [SendGrid – php-bibliotek].
 
-Använd [Composer] installera biblioteket:
+Använd [Composer] för att installera bibliotek:
 
 ```bash
 php composer.phar require sendgrid/sendgrid 2.1.1
@@ -407,13 +408,13 @@ php composer.phar require sendgrid/sendgrid 2.1.1
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig grunderna för den e-posttjänsten SendGrid kan du följa dessa länkar om du vill veta mer.
+Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
-* SendGrid-dokumentation: <https://sendgrid.com/docs>
-* SendGrid PHP-bibliotek: <https://github.com/sendgrid/sendgrid-php>
-* SendGrid specialerbjudande för Azure-kunder: <https://sendgrid.com/windowsazure.html>
+* SendGrid-dokumentation:<https://sendgrid.com/docs>
+* SendGrid PHP-bibliotek:<https://github.com/sendgrid/sendgrid-php>
+* SendGrid Special erbjudande för Azure-kunder:<https://sendgrid.com/windowsazure.html>
 
-Mer information finns också i [PHP Developer Center](https://azure.microsoft.com/develop/php/).
+Mer information finns även i [php Developer Center](https://azure.microsoft.com/develop/php/).
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
@@ -421,7 +422,7 @@ Mer information finns också i [PHP Developer Center](https://azure.microsoft.co
 [Packaging and Deploying PHP Applications for Azure]: https://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
 [curl function]: https://php.net/curl
-[molnbaserade e-posttjänsten]: https://sendgrid.com/email-solutions
-[transaktionsbaserad e-postleverans]: https://sendgrid.com/transactional-email
-[sendgrid-php-bibliotek]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+[molnbaserad e-posttjänst]: https://sendgrid.com/email-solutions
+[e]: https://sendgrid.com/transactional-email
+[SendGrid – php-bibliotek]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Composer]: https://getcomposer.org/download/

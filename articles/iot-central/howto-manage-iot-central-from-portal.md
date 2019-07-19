@@ -1,76 +1,76 @@
 ---
-title: Hantera IoT Central från Azure portal | Microsoft Docs
-description: Hantera IoT Central från Azure-portalen.
+title: Hantera IoT Central från Azure Portal | Microsoft Docs
+description: Hantera IoT Central från Azure Portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464120"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850253"
 ---
-# <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure portal
+# <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure Portal
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-I stället för att skapa och hantera IoT Central-program från IoT Central [Programhanterare](https://aka.ms/iotcentral) kan du använda den [Azure-portalen](https://portal.azure.com) att hantera dina program.
+I stället för att skapa och hantera IoT Central-program från sidan IoT Central [program hanteraren](https://aka.ms/iotcentral) kan du använda [Azure Portal](https://portal.azure.com) för att hantera dina program.
 
-## <a name="create-iot-central-applications"></a>Skapa IoT Central-program
+## <a name="create-iot-central-applications"></a>Skapa IoT Central program
 
-Skapa ett program, gå till den [Azure-portalen](https://ms.portal.azure.com) och välj **skapa en resurs** i den huvudsakliga navigeringsmenyn till vänster.
+Om du vill skapa ett program går du till [Azure Portal](https://ms.portal.azure.com) och väljer **skapa en resurs** i huvud navigerings menyn till vänster.
 
-![Hanteringsportalen: nav-menyn](media/howto-manage-iot-central-from-portal/image0.png)
+![Hanterings Portal: navigerings meny](media/howto-manage-iot-central-from-portal/image0.png)
 
-I sökfältet skriver **IoT Central**.
+I Sök fältet skriver du **IoT Central**.
 
-![Hanteringsportalen: sökning](media/howto-manage-iot-central-from-portal/image0a1.png)
+![Hanterings Portal: Sök](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Välj den **IoT centralt program** radobjekt i sökresultatet.
+Välj raden för **IoT Central programmet** -objektet i Sök resultaten.
 
-![Hanteringsportalen: sökresultat](media/howto-manage-iot-central-from-portal/image0b1.png)
+![Hanteringsportal: Sök Resultat](media/howto-manage-iot-central-from-portal/image0b1.png)
 
 Välj nu **Skapa**.
 
-![Hanteringsportalen: IoT Central-resurs](media/howto-manage-iot-central-from-portal/image0c1.png)
+![Hanterings Portal: IoT Central resurs](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-Fyll i alla fält i formuläret. Det här formuläret liknar formuläret du fyller i att skapa program på IoT Central [Programhanterare](https://aka.ms/iotcentral) sidan. Mer information finns i den [skapa ett program med IoT Central](quick-deploy-iot-central.md) Snabbstart.
+Fyll i alla fält i formuläret. Det här formuläret liknar det formulär som du fyller i för att skapa program på sidan IoT Central [Application Manager](https://aka.ms/iotcentral) . Mer information finns i snabb starten för att [skapa ett IoT Central-program](quick-deploy-iot-central.md) .
 
-![Management-portalen: skapa IoT Central-resurs](media/howto-manage-iot-central-from-portal/image1a.png)  
+![Hanterings Portal: skapa IoT Central resurs](media/howto-manage-iot-central-from-portal/image1a.png)  
 
-När du har fyllt i alla fält, Välj **skapa**.
+När du har fyllt i alla fält väljer du **skapa**.
 
 ## <a name="manage-existing-iot-central-applications"></a>Hantera befintliga IoT Central-program
 
-Om du redan har ett Azure IoT Central program som du kan ta bort den eller flytta den till en annan prenumeration eller resursgrupp grupp i Azure-portalen.
+Om du redan har ett Azure IoT Central-program kan du ta bort det eller flytta det till en annan prenumeration eller resurs grupp i Azure Portal.
 
 > [!NOTE]
-> Du kan inte se utvärderingsversion program i Azure-portalen eftersom de inte är associerade med prenumerationen.
+> Du kan inte se test program i Azure Portal eftersom de inte är associerade med din prenumeration.
 
-För att komma igång, Välj **alla resurser** i den huvudsakliga navigeringsmenyn till vänster. Använd sökrutan för att ange namnet på ditt program för att hitta det i din lista över resurser. Välj sedan IoT Central-programmet som du vill hantera.
+Kom igång genom att välja **alla resurser** i huvud navigerings menyn till vänster. Använd sökrutan för att ange namnet på programmet för att hitta det i listan över resurser. Välj sedan det IoT Central program som du vill hantera.
 
-![Hanteringsportalen: resurshantering](media/howto-manage-iot-central-from-portal/image2a.png)
+![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image2a.png)
 
-Gå till programmet genom att välja IoT Central programmets URL.
+Välj IoT Central programmets URL för att navigera till programmet.
 
-![Hanteringsportalen: resurshantering](media/howto-manage-iot-central-from-portal/image3.png)
+![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image3.png)
 
-För att flytta programmet till en annan resursgrupp, Välj **ändra** bredvid resursgruppen. På den **flytta resurser** sidan, Välj den resursgrupp som du vill flytta över det här programmet.
+Om du vill flytta programmet till en annan resurs grupp väljer du **ändra** bredvid resurs gruppen. På sidan **Flytta resurser** väljer du den resurs grupp som du vill migrera programmet till.
 
-![Hanteringsportalen: resurshantering](media/howto-manage-iot-central-from-portal/image4a.png)
+![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Om du vill flytta program till en annan prenumeration, Välj den **ändra** länken bredvid prenumerationen. Välj den prenumeration som du vill migrera det här programmet i dialogrutan som visas.
+Om du vill flytta programmet till en annan prenumeration väljer du länken **ändra** bredvid prenumerationen. Välj den prenumeration som du vill migrera det här programmet till i dialog rutan som visas.
 
-![Hanteringsportalen: resurshantering](media/howto-manage-iot-central-from-portal/image5a.png)
+![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image5a.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du hanterar Azure IoT Central program från Azure-portalen, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du hanterar Azure IoT Central-program från Azure Portal, är det här det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
 > [Administrera ditt program](howto-administer.md)

@@ -1,5 +1,5 @@
 ---
-title: Uppdatera med Logic Apps för Azure Analysis Services-modeller | Microsoft Docs
+title: Uppdatera med Logic Apps för Azure Analysis Servicess modeller | Microsoft Docs
 description: Lär dig hur du kodar asynkron uppdatering med hjälp av Azure Logic Apps.
 author: chrislound
 manager: kfile
@@ -7,112 +7,112 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142492"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311739"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
-Du kan utföra automatiserade datauppdateringar på din Azure Analysis-tabellmodeller, inklusive synkronisering av skrivskyddade repliker för frågeutskalning genom att använda Logic Apps och REST-anrop.
+Genom att använda Logic Apps-och REST-anrop kan du utföra automatiserade data uppdaterings åtgärder på dina tabell modeller i Azure Analysis, inklusive synkronisering av skrivskyddade repliker för frågans skalbarhet.
 
-Mer information om hur du använder REST API: er med Azure Analysis Services finns [asynkron uppdatering med REST API](analysis-services-async-refresh.md).
+Mer information om hur du använder REST-API: er med Azure Analysis Services finns i [asynkron uppdatering med REST API](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-Alla anrop måste autentiseras med en giltig token för Azure Active Directory (OAuth 2).  Exemplen i den här artikeln använder tjänstens huvudnamn (SPN) för att autentisera till Azure Analysis Services. Mer information finns i [skapa ett huvudnamn för tjänsten med hjälp av Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md).
+Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  I exemplen i den här artikeln används ett tjänst huvud namn (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="design-the-logic-app"></a>Utforma Logic App
+## <a name="design-the-logic-app"></a>Utforma Logic app
 
 > [!IMPORTANT]
-> I följande exempel förutsätter att Azure Analysis Services-brandväggen är inaktiverad.  Om en brandvägg har aktiverats, måste offentliga IP-adressen för begäran-initierare bli godkänd i Azure Analysis Services-brandväggen. Läs mer om Logic App IP-adressintervall per region i [begränsningar och konfigurationsinformation för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad.  Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Om du vill veta mer om Logic app IP-intervall per region, se [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-#### <a name="create-a-service-principal-spn"></a>Skapa tjänstens huvudnamn (SPN)
+#### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
-Läs om hur du skapar ett huvudnamn för tjänsten i [skapa ett huvudnamn för tjänsten med hjälp av Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md).
+Information om hur du skapar ett huvud namn för tjänsten finns i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="configure-permissions-in-azure-analysis-services"></a>Konfigurera behörigheter i Azure Analysis Services
  
-Tjänstens huvudnamn som du skapar måste ha administratörsbehörighet för servern på servern. Mer information finns i [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md).
+Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet på servern. Mer information finns i [lägga till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md).
 
-### <a name="configure-the-logic-app"></a>Konfigurera Logikappen
+### <a name="configure-the-logic-app"></a>Konfigurera Logic-appen
 
-I det här exemplet är Logikappen utformad för att utlösa när en HTTP-begäran tas emot. Detta aktiverar användningen av en orchestration-verktyg, till exempel Azure Data Factory att utlösa modelluppdatering Azure Analysis Services.
+I det här exemplet är Logic app utformad för att utlösa när en HTTP-begäran tas emot. Detta gör att du kan använda ett Orchestration-verktyg, till exempel Azure Data Factory, för att utlösa uppdatering av Azure Analysis Servicess modellen.
 
-När du har skapat en Logikapp:
+När du har skapat en Logic app:
 
-1. I Logic App designer, väljer du den första åtgärden som **när en HTTP-begäran tas emot**.
+1. I Logic App Designer väljer du den första åtgärden som **när en HTTP-begäran tas emot**.
 
-   ![Lägg till tog emot HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/1.png)
+   ![Lägg till HTTP-mottagen aktivitet](./media/analysis-services-async-refresh-logic-app/1.png)
 
-Det här steget fylls med HTTP post-URL när Logikappen har sparats.
+Det här steget fylls i med HTTP POST-URL: en när Logic-appen har sparats.
 
-2. Lägg till ett nytt steg och Sök efter **HTTP**.  
+2. Lägg till ett nytt steg och Sök efter **http**.  
 
    ![Lägg till HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/9.png)
 
    ![Lägg till HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/10.png)
 
-3. Välj **HTTP** att lägga till den här åtgärden.
+3. Välj **http** för att lägga till den här åtgärden.
 
    ![Lägg till HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/2.png)
 
-Konfigurera HTTP-aktivitet på följande sätt:
+Konfigurera HTTP-aktiviteten enligt följande:
 
 |Egenskap  |Värde  |
 |---------|---------|
 |**Metod**     |POST         |
-|**URI**     | https://*din server region*/servers/*aas servernamn*/models/*databasnamnet*/ <br /> <br /> Till exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Headers**     |   Content-Type application/json <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**Brödtext**     |   Läs mer om som utgör begärandetexten i [asynkron uppdatering med REST API - INLÄGGET /refreshes](analysis-services-async-refresh.md#post-refreshes). |
+|**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https:\//westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/refreshes|
+|**Headers**     |   Innehålls typ, Application/JSON <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Brödtext**     |   Mer information om hur du skapar begär ande texten finns i [asynkron uppdatering med REST API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autentisering**     |Active Directory OAuth         |
-|**klient**     |Fyll i din Azure Active Directory-Tenantd         |
-|**Målgrupp**     |https://*.asazure.windows.net         |
-|**Klient-ID**     |Ange din Service Principal Name ClientID         |
-|**Typ av autentiseringsuppgift**     |Secret         |
-|**Hemlighet**     |Ange ditt namn hemlighet för tjänstens huvudnamn         |
+|**Innehav**     |Fyll i din Azure Active Directory TenantId         |
+|**Filmen**     |https://*.asazure.windows.net         |
+|**Klient-ID**     |Ange tjänstens huvud namn ClientID         |
+|**Autentiseringstyp**     |Secret         |
+|**Hemlighet**     |Ange hemligheten för tjänstens huvud namn         |
 
 Exempel:
 
-![Slutförda HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/7.png)
+![Slutförd HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/7.png)
 
-Nu ska du testa Logikappen.  I Logic App designer klickar du på **kör**.
+Testa nu Logic app.  I Logic App Designer klickar du på **Kör**.
 
-![Testa Logikappen](./media/analysis-services-async-refresh-logic-app/8.png)
+![Testa Logic-appen](./media/analysis-services-async-refresh-logic-app/8.png)
 
-## <a name="consume-the-logic-app-with-azure-data-factory"></a>Använda Logic App med Azure Data Factory
+## <a name="consume-the-logic-app-with-azure-data-factory"></a>Använda Logic-appen med Azure Data Factory
 
-När Logikappen har sparats kan du granska den **när en HTTP-begäran tas emot** aktivitet och kopiera sedan den **HTTP post-URL** som genereras nu.  Det här är den URL som kan användas av Azure Data Factory för att göra asynkrona anrop att utlösa Logikappen.
+När Logic-appen har sparats granskar du aktiviteten **när en HTTP-begäran tas emot** och kopierar sedan **http post-URL: en** som nu har genererats.  Detta är den URL som kan användas av Azure Data Factory för att göra det asynkrona anropet att utlösa Logic-appen.
 
-Här är ett exempel Azure Data Factory Web-aktivitet som utför den här åtgärden.
+Här är ett exempel Azure Data Factory webb aktivitet som utför den här åtgärden.
 
-![Webbaktivitet för data Factory](./media/analysis-services-async-refresh-logic-app/11.png)
+![Data Factory webb aktivitet](./media/analysis-services-async-refresh-logic-app/11.png)
 
-## <a name="use-a-self-contained-logic-app"></a>Använda en självständig Logikapp
+## <a name="use-a-self-contained-logic-app"></a>Använda en självständig logisk app
 
-Om du inte tänker använda ett Orchestration-verktyg som Data Factory för att utlösa modelluppdatering, kan du ange logikappen som ska utlösa den uppdatering som enligt ett schema.
+Om du inte planerar att använda ett Orchestration-verktyg, till exempel Data Factory för att utlösa uppdatering av modellen, kan du ställa in Logic app så att uppdateringen utlöses baserat på ett schema.
 
-Använd exemplet ovan och ta bort den första aktiviteten och Ersätt den med en **schema** aktivitet.
+Använd exemplet ovan och ta bort den första aktiviteten och ersätt den med en **schemalagd** aktivitet.
 
-![Schema-aktivitet](./media/analysis-services-async-refresh-logic-app/12.png)
+![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Schema-aktivitet](./media/analysis-services-async-refresh-logic-app/13.png)
+![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/13.png)
 
-Det här exemplet används **upprepning**.
+I det här exemplet används **upprepning**.
 
-När aktiviteten har lagts till, konfigurera intervall och frekvens, och sedan lägga till en ny parameter och välj **vid dessa timmar**.
+När aktiviteten har lagts till konfigurerar du intervallet och frekvensen och lägger sedan till en ny parameter och väljer **vid dessa timmar**.
 
-![Schema-aktivitet](./media/analysis-services-async-refresh-logic-app/16.png)
+![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/16.png)
 
-Välj önskad timmar.
+Välj önskade timmar.
 
-![Schema-aktivitet](./media/analysis-services-async-refresh-logic-app/15.png)
+![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/15.png)
 
-Spara Logikappen.
+Spara Logic-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

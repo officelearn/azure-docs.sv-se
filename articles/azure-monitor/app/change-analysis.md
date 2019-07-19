@@ -1,6 +1,6 @@
 ---
-title: Använd analys av programmets ändringen i Azure Monitor för att hitta web app-problemen | Microsoft Docs
-description: Använd analys av programmets ändringen i Azure Monitor för att felsöka programfel på live-webbplatser i Azure App Service.
+title: Använd program ändrings analys i Azure Monitor för att hitta problem med webb program | Microsoft Docs
+description: Använd program ändrings analys i Azure Monitor för att felsöka program problem på Live-webbplatser på Azure App Service.
 services: application-insights
 author: cawams
 manager: carmonm
@@ -10,91 +10,91 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3efa26a1eaea8f522d9717efb0de0ec8e1682e0e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443351"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875117"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda programmet ändringen analys (förhandsversion) i Azure Monitor
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
-När ett problem med live eller avbrott inträffar, är det viktigt att snabbt avgöra den bakomliggande orsaken. Standard övervakningslösningar kan varna dig om ett problem. De kan även tyda komponent som misslyckas. Men den här aviseringen alltid omedelbart beskriver inte orsaken till felet. Du vet att din webbplats arbetat fem minuter sedan, och nu är den bruten. Vad som ändrats under de senaste fem minuterna? Det här är frågan som analys av programmets ändringen har utformats för att besvara i Azure Monitor.
+När ett problem med en aktiv webbplats eller ett avbrott inträffar kan du snabbt avgöra rotor saken är kritiskt. Vanliga övervaknings lösningar kan varna dig för problem. De kan till och med Visa vilken komponent som Miss fungerar. Men aviseringen kan inte alltid direkt förklara orsaken till felet. Du vet att webbplatsen arbetade fem minuter sedan och att den nu är bruten. Vad har ändrats under de senaste fem minuterna? Detta är den fråga som program ändrings analysen har utformats för att svara i Azure Monitor.
 
-Att skapa på kraften hos [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), ändra analys ger insikter om dina ändringar för Azure-program att öka observability och minska MTTR (medelvärde tid att reparera).
+Genom att bygga vidare på kraften i [Azures resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du insikter om dina Azure-programändringar för att öka den observerade och minska MTTR (genomsnittlig tid för reparation).
 
 > [!IMPORTANT]
-> Ändra Analysis förhandsvisas just nu. Den här förhandsversionen tillhandahålls utan ett servicenivåavtal. Den här versionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd eller kan ha begränsad funktionalitet. Mer information finns i [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ändrings analys är för närvarande en för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Den här versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsade funktioner. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ## <a name="overview"></a>Översikt
 
-Ändra Analysis identifierar olika typer av ändringar från lager för hanteringsinfrastruktur hela vägen till programdistributionen. Det är en prenumerationsnivå Azure-resursprovidern som kontrollerar resursändringar i prenumerationen. Ändra analys ger data för olika diagnostiska verktyg för att hjälpa användarna att förstå vad ändras kan ha orsakat problem.
+Ändrings analysen identifierar olika typer av ändringar, från infrastruktur skiktet hela vägen till program distributionen. Det är en Azure-adressresurs på prenumerations nivå som kontrollerar resurs ändringar i prenumerationen. Med ändrings analys får du data för olika diagnostiska verktyg som hjälper användarna att förstå vilka ändringar som kan ha orsakat problem.
 
-Följande diagram illustrerar arkitekturen i ändra analys:
+Följande diagram illustrerar arkitekturen för ändrings analys:
 
-![Arkitekturdiagram över hur ändra Analysis hämtar sammanställning och gör det tillgängligt för klientverktyg](./media/change-analysis/overview.png)
+![Arkitektur diagram över hur ändrings analys får ändra data och ger den till klient verktyg](./media/change-analysis/overview.png)
 
-För närvarande ändra Analysis är integrerad i den **diagnostisera och lösa problem** användarupplevelsen i App Service-webbapp. Om du vill aktivera identifiering av ändring av och visa ändringar i webbapp, finns det *ändra analys för Web Apps-funktionen* senare i den här artikeln.
+För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service-webbappen. Om du vill aktivera ändrings identifiering och Visa ändringar i webbappen läser du avsnittet *om ändrings analyser för Web Apps funktion* längre fram i den här artikeln.
 
-### <a name="azure-resource-manager-deployment-changes"></a>Distributionsändringar av Azure Resource Manager
+### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager distributions ändringar
 
-Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), ändra analys ger en historisk post av hur Azure-resurser som är värdar för ditt program har ändrats över tid. Ändra analys kan identifiera, till exempel ändringar i IP-konfigurationsregler, hanterade identiteter och SSL-inställningar. Så om en tagg läggs till i en webbapp, ändra analys återspeglar ändringen. Den här informationen är tillgänglig så länge som den `Microsoft.ChangeAnalysis` resursprovidern är aktiverat i Azure-prenumeration.
+Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du en historisk förteckning över hur Azure-resurser som är värdar för ditt program har ändrats över tid. Ändrings analys kan identifiera exempelvis ändringar i IP-konfigurationsinställningar, hanterade identiteter och SSL-inställningar. Så om en tagg läggs till i en webbapp, visar ändrings analysen ändringen. Den här informationen är tillgänglig så länge `Microsoft.ChangeAnalysis` resurs leverantören är aktive rad i Azure-prenumerationen.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Ändringar i web app-distribution och konfiguration
+### <a name="changes-in-web-app-deployment-and-configuration"></a>Ändringar i distribution och konfiguration av webbapp
 
-Ändra Analysis samlar in tillståndet för distribution och konfiguration för ett program var fjärde timme. Det kan till exempel identifiera ändringar i miljövariablerna som programmet. Verktyget beräknar skillnaderna och visar vad som har ändrats. Till skillnad från Resource Manager-ändringar kanske inte kod ändra distributionsinformation tillgängligt direkt i verktyget. Om du vill visa de senaste ändringarna i ändra analys, Välj **genomsökning ändras nu**.
+Med ändrings analys samlas distributions-och konfigurations status för ett program var fjärde timme. Den kan till exempel identifiera ändringar i program miljöns variabler. Verktyget beräknar skillnaderna och visar vad som har ändrats. Till skillnad från i Resource Manager-ändringar kanske kod distributionens ändrings information inte är tillgänglig direkt i verktyget. Om du vill visa de senaste ändringarna i ändrings analysen väljer du **Genomsök ändringar nu**.
 
-![Skärmbild av knappen ”genomsökning ändras nu”](./media/change-analysis/scan-changes.png)
+![Skärm bild av knappen "Skanna ändringar nu"](./media/change-analysis/scan-changes.png)
 
 ### <a name="dependency-changes"></a>Beroende ändringar
 
-Ändringar av resursberoenden kan också orsaka problem i en webbapp. Till exempel om anrop till en webbapp i en Redis-cache kan påverka Redis-cache SKU web app prestanda. För att identifiera ändringar i beroenden kontrollerar ändra Analysis webbappens DNS-post. På så sätt kan identifierar den ändringar i alla appkomponenter som kan orsaka problem.
+Ändringar i resurs beroenden kan också orsaka problem i en webbapp. Om en webbapp till exempel anropar en Redis cache kan Redis cache-SKU: n påverka webbappens prestanda. Om du vill identifiera ändringar i beroenden kontrollerar ändrings analysen webbappens DNS-post. På så sätt identifieras ändringar i alla app-komponenter som kan orsaka problem.
 
-## <a name="change-analysis-for-the-web-apps-feature"></a>Ändra analys för funktionen Web Apps
+## <a name="change-analysis-for-the-web-apps-feature"></a>Ändrings analys för funktionen Web Apps
 
-I Azure Monitor kan ändra analys för närvarande är inbyggd i självbetjäningen **diagnostisera och lösa problem** upplevelse. Få åtkomst till den här funktionen från den **översikt** för App Service-programmet.
+I Azure Monitor är ändrings analys för närvarande inbyggd i självbetjänings **diagnos och lösa problem** . Få åtkomst till den här upplevelsen från sidan **Översikt** i ditt App Service-program.
 
-![Skärmbild av knappen ”översikt” och ”diagnostisera och lösa problem” knappen](./media/change-analysis/change-analysis.png)
+![Skärm bild av knappen "Översikt" och "diagnosticera och lösa problem"](./media/change-analysis/change-analysis.png)
 
-### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Aktivera ändring analyser i diagnostisera och lösa problem som verktyget
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Aktivera ändrings analys i verktyget diagnostisera och lösa problem
 
 1. Välj **tillgänglighet och prestanda**.
 
-    ![Skärmbild av ”tillgänglighet och prestanda” felsökningsalternativ](./media/change-analysis/availability-and-performance.png)
+    ![Skärm bild av fel söknings alternativen "tillgänglighet och prestanda"](./media/change-analysis/availability-and-performance.png)
 
-1. Välj **programändringar**. Inte som funktionen finns också i **programmet kraschar**.
+1. Välj **program ändringar**. Inte att funktionen också är tillgänglig i **program krascher**.
 
-   ![Skärmbild av knappen ”programmet kraschar”](./media/change-analysis/application-changes.png)
+   ![Skärm bild av knappen "program krascher"](./media/change-analysis/application-changes.png)
 
-1. Välj för att aktivera ändringen Analysis **aktivera nu**.
+1. Om du vill aktivera ändrings analys väljer du **Aktivera nu**.
 
-   ![Skärmbild av ”programmet kraschar” alternativ](./media/change-analysis/enable-changeanalysis.png)
+   ![Skärm bild av alternativen för "program krascher"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Aktivera **ändra Analysis** och välj **spara**.
+1. Aktivera **ändrings analys** och välj **Spara**.
 
-    ![Skärmbild av användargränssnittet ”aktivera ändringen Analysis”](./media/change-analysis/change-analysis-on.png)
-
-
-1. För att komma åt ändringen analys, Välj **diagnostisera och lösa problem** > **tillgänglighet och prestanda** > **programmet kraschar**. Ett diagram som sammanfattar typer av ändringar över tid tillsammans med information om dessa ändringar visas:
-
-     ![Skärmbild av ändringen diff-vy](./media/change-analysis/change-view.png)
+    ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 
 
-### <a name="enable-change-analysis-at-scale"></a>Aktivera ändring analyser i stor skala
+1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och lösa problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om ändringarna:
 
-Om din prenumeration innehåller ett stort antal webbappar, är aktivera tjänsten på nivån för webbappen ineffektiv. I det här fallet, följ instruktionerna för alternativ.
+     ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrera resursprovidern ändra analys för din prenumeration
 
-1. Registrera funktionsflagga ändringen analys (förhandsversion). Eftersom funktionsflagga är i förhandsversion, måste du registrera den så att den visas i din prenumeration:
+### <a name="enable-change-analysis-at-scale"></a>Aktivera ändrings analys i skala
+
+Om din prenumeration innehåller flera webbappar är det inte effektivt att aktivera tjänsten på nivån för webbappen. I det här fallet följer du de här alternativa anvisningarna.
+
+### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrera resurs leverantören för ändrings analys för din prenumeration
+
+1. Registrera funktions flaggan för ändrings analys (för hands version). Eftersom funktions flaggan är i för hands version måste du registrera den så att den blir synlig för din prenumeration:
 
    1. Öppna [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
 
-      ![Skärmbild av ändringen Cloud Shell](./media/change-analysis/cloud-shell.png)
+      ![Skärm bild av ändrings Cloud Shell](./media/change-analysis/cloud-shell.png)
 
-   1. Ändra typen till shell **PowerShell**.
+   1. Ändra Shell-typen till **PowerShell**.
 
-      ![Skärmbild av ändringen Cloud Shell](./media/change-analysis/choose-powershell.png)
+      ![Skärm bild av ändrings Cloud Shell](./media/change-analysis/choose-powershell.png)
 
    1. Kör följande PowerShell-kommando:
 
@@ -104,17 +104,17 @@ Om din prenumeration innehåller ett stort antal webbappar, är aktivera tjänst
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
 
-1. Registrera resursprovidern ändra analys för prenumerationen.
+1. Registrera resurs leverantören för ändrings analys för prenumerationen.
 
-   - Gå till **prenumerationer**, och välj den prenumeration som du vill aktivera i tjänsten ändras. Välj sedan resursprovidrar:
+   - Gå till **prenumerationer**och välj den prenumeration som du vill aktivera i ändrings tjänsten. Välj sedan resurs leverantörer:
 
-        ![Skärmbild som visar hur du registrerar resursprovidern ändra analys](./media/change-analysis/register-rp.png)
+        ![Skärm bild som visar hur du registrerar resurs leverantören för ändrings analys](./media/change-analysis/register-rp.png)
 
-       - Välj **Microsoft.ChangeAnalysis**. Välj sedan längst ned på sidan **registrera**.
+       - Välj **Microsoft. ChangeAnalysis**. Välj **Registrera**längst upp på sidan.
 
-       - När resursprovidern har aktiverats kan ange du en dold tagg på web-app för att identifiera ändringar på nivån för distributionen. Om du vill ange en tagg för dolda, följer du instruktionerna under **det gick inte att hämta ändringen analysinformation**.
+       - När resurs leverantören har Aktiver ATS kan du ange en dold tagg i webbappen för att identifiera ändringar på distributions nivån. Om du vill ange en dold tagg följer du anvisningarna under **det går inte att hämta information om ändrings analys**.
 
-   - Du kan också använda ett PowerShell-skript för att registrera resursprovidern:
+   - Du kan också använda ett PowerShell-skript för att registrera resurs leverantören:
 
         ```PowerShell
         Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
@@ -122,7 +122,7 @@ Om din prenumeration innehåller ett stort antal webbappar, är aktivera tjänst
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
-        Om du vill använda PowerShell för att ange en dold tagg för en webbapp, kör du följande kommando:
+        Om du vill använda PowerShell för att ange en dold tagg i en webbapp kör du följande kommando:
 
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
@@ -132,9 +132,10 @@ Om din prenumeration innehåller ett stort antal webbappar, är aktivera tjänst
         ```
 
      > [!NOTE]
-     > När du har lagt till dolda taggen kan du fortfarande behöva vänta upp till fyra timmar innan du börjar ändringar. Resultaten fördröjs eftersom ändringen Analysis söker igenom din webbapp bara var fjärde timme. 4 timmars schemat begränsar genomsökningens prestanda påverkas.
+     > När du har lagt till den dolda taggen kan du fortfarande vänta i upp till fyra timmar innan du börjar se ändringarna. Resultatet är försenat eftersom ändrings analys bara söker igenom din webbapp var fjärde timme. Schemat på 4 timmar begränsar genomsökningens prestanda påverkan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Övervaka App Service effektivare genom [att aktivera Application Insights-funktioner](azure-web-apps.md) i Azure Monitor.
-- Läs mer om [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), vilket hjälper till att power ändringen analys.
+- Aktivera Application Insights för [Azure App Services-appar](azure-web-apps.md).
+- Aktivera Application Insights för [virtuella Azure-datorer och skalnings uppsättningar för IIS-värdbaserade appar i Azure](azure-vm-vmss-apps.md).
+- Lär dig mer om [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), som hjälper dig att analysera energi ändringar.

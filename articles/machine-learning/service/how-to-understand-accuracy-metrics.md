@@ -1,37 +1,47 @@
 ---
-title: Utbildning Precision mått i automatiserade ML
+title: Utbildnings precisions mått i automatiserad ML
 titleSuffix: Azure Machine Learning service
-description: Läs mer om automatisk machine learning-mått för Precision för var och en av dina körningar.
+description: Lär dig mer om automatiserade precisions mått för maskin inlärning för var och en av dina körningar.
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313309"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297902"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Utvärdera utbildning noggrannhet i automatiserade ML med mått
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Utvärdera inlärnings precisionen i automatiserad ML med mått
 
-Det finns flera sätt att visa utbildning Precision mått för varje körning iteration.
+I den här artikeln får du lära dig mer om de olika mått som är tillgängliga för automatiserade ml-modeller i Azure Machine Learning. 
 
-* Använd [en Jupyter-widget](how-to-track-experiments.md#view-run-details)
-* Använd [den `get_metrics()` funktionen](how-to-track-experiments.md#query-run-metrics) på någon `Run` objekt
-* Visa [mått för experiment i Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+Det finns flera sätt att Visa inlärnings precisions mått för varje körnings iteration.
+* Använda [en Jupyter-widget](how-to-track-experiments.md#view-run-details)
+* Använda funktionen på valfritt `Run` objekt [ `get_metrics()` ](how-to-track-experiments.md#query-run-metrics)
+* Visa [experiment måtten i Azure Portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>Förutsättningar
+ 
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+ 
+* Skapa ett automatiskt maskin inlärnings experiment, antingen med SDK eller i Azure Portal.
+ 
+    * Använd SDK: n för att bygga en [klassificerings modell](how-to-auto-train-remote.md) eller [Regressions modell](tutorial-auto-train-models.md)
+    * Använd [Azure Portal](how-to-create-portal-experiments.md) för att skapa en klassificerings-eller Regressions modell genom att överföra relevanta data.
 
 ## <a name="classification-metrics"></a>Klassificering mått
 
-Följande mått har sparats i varje körning iteration för en klassificering.
+Följande mått sparas i varje körnings upprepning för en klassificerings uppgift.
 
 |Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|
 AUC_Macro| AUC är området under mottagare fungerar egenskap kurvan. Makrot är det aritmetiska medelvärdet av AUC för varje klass.  | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”makrot”|
-AUC_Micro| AUC är området under mottagare fungerar egenskap kurvan. Micro beräknas globalt genom att kombinera positiva och falska positiva identifieringar från varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”micro”|
+AUC_Micro| AUC är området under mottagare fungerar egenskap kurvan. Micro beräknas globalt genom att kombinera de sanna positiva positiva och falska positiva identifieringar från varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”micro”|
 AUC_Weighted  | AUC är området under mottagare fungerar egenskap kurvan. Viktat är det aritmetiska medelvärdet av poängen för varje klass, viktat av antalet instanser som true i varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Genomsnittlig = ”viktat”
 accuracy|Procent av förväntade etiketter som exakt matchar SANT etiketter är. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Ingen|
 average_precision_score_macro|Genomsnittlig precision sammanfattas en precisionsåterkallningsdiagram kurva som viktad medelvärdet av Precision-datorerna som kan uppnås på varje tröskelvärde ökade återkallande från föregående tröskelvärdet används som vikten. Makrot är det aritmetiska medelvärdet av den genomsnittliga precision poängen för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Genomsnittlig = ”makrot”|
@@ -53,7 +63,7 @@ weighted_accuracy|Viktad Precision är Precision där vikten för varje exempel 
 
 ## <a name="regression-and-forecasting-metrics"></a>Regression och prognostisering mått
 
-Följande mått har sparats i varje körning iteration för en regression eller prognosmodellen uppgift.
+Följande mått sparas i varje körnings upprepning för en Regressions-eller prognos uppgift.
 
 |Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|
@@ -67,4 +77,8 @@ normalized_median_absolute_error|Normaliserade median absoluta fel är median ab
 root_mean_squared_error|Rot innebära kvadratfel är kvadratroten ur den förväntade kvadratskillnaden mellan mål och förutsägelser|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Ingen|
 normalized_root_mean_squared_error|Normaliserade rot innebära kvadratfel är roten mean kvadratfel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dela med mängd data|
 root_mean_squared_log_error|Rot innebära kvadraten logga fel är kvadratroten ur den förväntade logaritmisk kvadratfel|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Ingen|
-normalized_root_mean_squared_log_error|Normaliserade rot mean kvadraten log fel är roten mean kvadraten logga fel dividerat med en uppsättning data|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dela med mängd data|
+normalized_root_mean_squared_log_error|Normaliserat rot genomsnitts fel i kvadratroten är ett rot genomsnitts logg fel som delas av data intervallet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dela med mängd data|
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [automatiserad ml](concept-automated-ml.md) i Azure Machine Learning.

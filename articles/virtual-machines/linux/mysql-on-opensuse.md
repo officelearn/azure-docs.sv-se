@@ -1,6 +1,6 @@
 ---
-title: Installera MySQL på en OpenSUSE-VM i Azure | Microsoft Docs
-description: Lär dig att installera MySQL på en OpenSUSE Linux virtuell dator i Azure.
+title: Installera MySQL på en virtuell OpenSUSE-dator i Azure | Microsoft Docs
+description: Lär dig att installera MySQL på en virtuell OpenSUSE Linux-dator i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: za-rhoads
-ms.openlocfilehash: 9f5ead43fb2d516697f7bbca5367cb02620152f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: cynthn
+ms.openlocfilehash: baa52f4a17b06b6927013c88f37d4f2bc24744f3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667505"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876025"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
-[MySQL](https://www.mysql.com) är en populär, open source-SQL-databas. Den här självstudien visar hur du skapar en virtuell dator som kör OpenSUSE Linux och sedan installera MySQL.
+[MySQL](https://www.mysql.com) är en populär SQL-databas med öppen källkod. Den här självstudien visar hur du skapar en virtuell dator som kör OpenSUSE Linux och sedan installerar MySQL.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -33,13 +33,13 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Skapa en virtuell dator som kör OpenSUSE Linux
 
-Skapa först en resursgrupp. I det här exemplet heter resursgruppen *mySQSUSEResourceGroup* och den har skapats i den *USA, östra* region.
+Skapa först en resurs grupp. I det här exemplet heter resurs gruppen *mySQSUSEResourceGroup* och skapas i regionen *USA, östra* .
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och VM-storleken är *Standard_D2s_v3*, men du bör välja den [VM-storlek](sizes.md) du tycker passar bäst för din arbetsbelastning.
+Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och den virtuella datorns storlek är *Standard_D2s_v3*, men du bör välja den [virtuella dator storlek](sizes.md) som du tror är mest lämplig för din arbets belastning.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -49,7 +49,7 @@ az vm create --resource-group mySQLSUSEResourceGroup \
    --generate-ssh-keys
 ```
 
-Du måste också lägga till en regel för nätverkssäkerhetsgrupp som tillåter trafik via port 3306 för MySQL.
+Du måste också lägga till en regel i nätverks säkerhets gruppen för att tillåta trafik över Port 3306 för MySQL.
 
 ```azurecli-interactive
 az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
@@ -57,7 +57,7 @@ az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Du använder SSH för att ansluta till den virtuella datorn. I det här exemplet, offentliga IP-adressen för den virtuella datorn är *10.111.112.113*. Du kan se IP-adressen i utdata när du skapade den virtuella datorn.
+Du använder SSH för att ansluta till den virtuella datorn. I det här exemplet är den offentliga IP-adressen för den virtuella datorn *10.111.112.113*. Du kan se IP-adressen i utdata när du skapade den virtuella datorn.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -66,7 +66,7 @@ ssh 10.111.112.113
  
 ## <a name="update-the-vm"></a>Uppdatera den virtuella datorn
  
-När du är ansluten till den virtuella datorn, installera uppdateringar och korrigeringar. 
+När du är ansluten till den virtuella datorn installerar du system uppdateringar och uppdateringar. 
    
 ```bash
 sudo zypper update
@@ -77,18 +77,18 @@ Följ anvisningarna för att uppdatera den virtuella datorn.
 ## <a name="install-mysql"></a>Installera MySQL 
 
 
-Installera MySQL på den virtuella datorn via SSH. Svara på frågor efter behov.
+Installera MySQL på den virtuella datorn via SSH. Svara på begär Ande vid behov.
 
 ```bash
 sudo zypper install mysql
 ```
  
-Ange MySQL att starta när systemet startas. 
+Ange att MySQL ska starta när systemet startas. 
 
 ```bash
 sudo systemctl enable mysql
 ```
-Kontrollera att MySQL är aktiverad.
+Kontrol lera att MySQL är aktiverat.
 
 ```bash
 systemctl is-enabled mysql
@@ -103,11 +103,11 @@ sudo reboot
 ```
 
 
-## <a name="mysql-password"></a>Lösenordet för MySQL
+## <a name="mysql-password"></a>MySQL-lösenord
 
-Rotlösenord för MySQL är tomt som standard efter installationen. Kör den **mysql\_säker\_installation** skript för att skydda MySQL. Skriptet uppmanas du att ändra rotlösenord för MySQL, ta bort anonym användarkonton, inaktivera fjärråtkomst rot logga in, ta bort test databaser och läsa in tabellen privilegier. 
+Efter installationen är MySQL-rot lösen ordet tomt som standard. Kör skriptet **MySQL\_Secure\_installation** för att skydda MySQL. Skriptet gör att du kan ändra MySQL-rot lösen ordet, ta bort anonyma användar konton, inaktivera fjärrinloggning, ta bort test databaser och läsa in behörighets tabellen igen. 
 
-När servern startas om, ssh till den virtuella datorn igen.
+När servern har startats om, SSH till den virtuella datorn igen.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -119,43 +119,43 @@ ssh 10.111.112.113
 mysql_secure_installation
 ```
 
-## <a name="sign-in-to-mysql"></a>Logga in till MySQL
+## <a name="sign-in-to-mysql"></a>Logga in på MySQL
 
 Nu kan du logga in och ange MySQL-prompten.
 
 ```bash  
 mysql -u root -p
 ```
-Det här växlar du till MySQL-prompten där du kan skicka SQL-uttryck för att interagera med databasen.
+Detta växlar till MySQL-prompten där du kan utfärda SQL-uttryck för att interagera med databasen.
 
-Nu skapa en ny MySQL-användare.
+Skapa nu en ny MySQL-användare.
 
 ```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-Semikolon (;) i slutet av raden är avgörande för att avsluta kommandot.
+Semikolon (;) i slutet av raden är det viktigt att du avslutar kommandot.
 
 
 ## <a name="create-a-database"></a>Skapa en databas
 
 
-Skapa en databas och ge den `mysqluser` användarbehörigheter.
+Skapa en databas och bevilja `mysqluser` användar behörigheterna.
 
 ```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-Databas-användarnamn och lösenord som endast används av skript som ansluter till databasen.  Databasen användarkontonamn utgör inte nödvändigtvis faktiska användarkonton på systemet.
+Användar namn och lösen ord för databasen används endast av skript som ansluter till databasen.  Databasens användar konto namn representerar inte nödvändigt vis faktiska användar konton i systemet.
 
-Aktivera inloggning från en annan dator. I det här exemplet är IP-adressen för datorn att logga in från *10.112.113.114*.
+Aktivera inloggning från en annan dator. I det här exemplet är IP-adressen till datorn som tillåter inloggning från *10.112.113.114*.
 
 ```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    
-Om du vill avsluta verktyget för administration av MySQL-databas, skriver du:
+Om du vill avsluta administrations verktyget för MySQL-databasen skriver du:
 
 ```    
 quit
@@ -163,7 +163,7 @@ quit
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om MySQL finns den [MySQL-dokumentation](https://dev.mysql.com/doc).
+Mer information om MySQL finns i [MySQL-dokumentationen](https://dev.mysql.com/doc).
 
 
 

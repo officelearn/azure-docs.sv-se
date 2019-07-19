@@ -4,14 +4,14 @@ description: 'Beskriver hur du använder länkade mallar i en Azure Resource Man
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206435"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311708"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -24,7 +24,7 @@ När du använder länkade mallar kan skapa du en Huvudmall som tar emot paramet
 En självstudiekurs finns i [självstudie: Skapa länkade Azure Resource Manager-mallar](./resource-manager-tutorial-create-linked-templates.md).
 
 > [!NOTE]
-> För länkade eller kapslade mallar, kan du bara använda [stegvis](deployment-modes.md) distributionsläget.
+> För länkade eller kapslade mallar kan du bara använda [stegvis](deployment-modes.md) distributions läge.
 >
 
 ## <a name="link-or-nest-a-template"></a>Länka eller kapsla en mall
@@ -83,14 +83,14 @@ Om du vill kapsla mallen inom den huvudsakliga mallen använder den **mall** ege
 > [!NOTE]
 > Du kan inte använda parametrar eller variabler som definieras i den kapslade mallen för kapslade mallar. Du kan använda parametrar och variabler från den huvudsakliga mallen. I föregående exempel `[variables('storageName')]` hämtar ett värde från den huvudsakliga mallen, inte den kapslade mallen. Den här begränsningen gäller inte för externa mallar.
 >
-> För två resurser som definierats i en kapslad mall och en resurs som beror på den andra, värdet för beroendet är helt enkelt namnet på den beroende resursen:
+> För två resurser som definieras i en kapslad mall och en resurs är beroende av den andra är värdet för beroendet bara namnet på den beroende resursen:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> Du kan inte använda den `reference` funktion i avsnittet utdata i en kapslad mall. Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
+> Du kan inte använda `reference` funktionen i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
 
 Den kapslade mallen kräver den [samma egenskaper](resource-group-authoring-templates.md) som en standardmall.
 
@@ -147,11 +147,11 @@ Om du vill skicka ett värde från den huvudsakliga mallen till länkad mall, an
 ]
 ```
 
-## <a name="using-copy"></a>Med hjälp av kopiering
+## <a name="using-copy"></a>Använda kopiera
 
-Om du vill skapa flera instanser av en resurs med en kapslad mall, lägger du till kopieringselement på nivån för den **Microsoft.Resources/deployments** resurs.
+Om du vill skapa flera instanser av en resurs med en kapslad mall lägger du till kopiera-elementet på nivån i resursen **Microsoft. Resources/distributions** .
 
-Följande exempelmall visar hur du använder kopiera med en kapslad mall.
+I följande exempel mall visas hur du använder kopiera med en kapslad mall.
 
 ```json
 "resources": [
@@ -508,7 +508,7 @@ I följande exempel visas hur du skickar en SAS-token när du länkar till en ma
 }
 ```
 
-I PowerShell kan du hämta en token för behållaren och distribuera mallar med följande kommandon. Observera att den **containerSasToken** parametern har definierats i mallen. Det är inte en parameter i den **New AzResourceGroupDeployment** kommando.
+I PowerShell kan du hämta en token för behållaren och distribuera mallar med följande kommandon. Observera att den **containerSasToken** parametern har definierats i mallen. Det är inte en parameter i kommandot **New-AzResourceGroupDeployment** .
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

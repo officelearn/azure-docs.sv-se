@@ -1,5 +1,5 @@
 ---
-title: Översikt över serverdelar för flera innehavare, till exempel Azure App service med Azure Application Gateway
+title: Översikt över Server delar för flera klient organisationer, till exempel Azure App-tjänst, med Azure Application Gateway
 description: Den här sidan beskriver hur du kan använda serverdelar för flera klientorganisationer med Application Gateway.
 services: application-gateway
 author: vhorne
@@ -7,59 +7,59 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e4a578e3f443f4cbc3f6e5467cf9a86adf05fe
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807176"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297052"
 ---
-# <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway stöd för flera klientorganisationer slutar som App service
+# <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway stöd för Server delar för flera klient organisationer, till exempel App Service
 
-I flera innehavare arkitekturritningar för servrar körs flera webbplatser på samma web server-instansen. Värdnamn används för att skilja mellan olika program som finns. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det här fungerar bra för medlemmar i serverdelspoolen, t.ex nätverkskort VM skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser och FQDN eftersom dessa inte förlita dig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt. Men finns det många tjänster, till exempel Azure App service web apps och Azure API management som flera klientorganisationer och förlitar sig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt. Vanligtvis är skiljer DNS-namnet på programmet, vilket i sin tur är DNS-namnet som är associerade med application gateway, sig från domännamnet för backend-tjänsten. Därför är värdhuvudet i den ursprungliga begäran tas emot av application gateway inte samma som namnet på backend-tjänsten. På grund av detta, såvida inte värdhuvudet i begäran från programgatewayen till serverdelen ändras till värdnamnet för backend-tjänsten är serverdelar för flera innehavare inte kan matcha begäran till rätt slutpunkt. 
+I arkitektur design för flera innehavare på webb servrar körs flera webbplatser på samma webb Server instans. Värdnamn används för att skilja mellan olika program som finns. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Detta fungerar bra för medlemmar i Server delen, till exempel nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser och FQDN eftersom dessa inte förlitar sig på ett särskilt värd huvud eller SNI-tillägg för att matcha rätt slut punkt. Det finns dock många tjänster som Azure App Service Web Apps och Azure API Management som är flera klient organisationer och som förlitar sig på ett särskilt värd huvud eller SNI-tillägg för att lösas till rätt slut punkt. DNS-namnet på programmet, som i sin tur är det DNS-namn som är associerat med programgatewayen, skiljer sig vanligt vis från Server dels tjänstens domän namn. Därför är värd rubriken i den ursprungliga begäran som togs emot av Application Gateway inte samma som värd namnet för backend-tjänsten. På grund av detta, om inte värd huvudet i begäran från programgatewayen till Server delen ändras till Server dels tjänstens värdnamn, kan inte Server delen för flera klient organisationer lösa begäran till rätt slut punkt. 
 
 Application Gateway erbjuder en funktion där användarna kan åsidosätta HTTP-värdrubriken i begäran baserat på namnet på serverdelen. Detta gör det möjligt att använda serverdelar med flera klientorganisationer som Azure App Service-webbappar och API-hantering. Den här funktionen är tillgänglig för både v1-, v2-, standard- och WAF-SKU:er. 
 
-![Vara värd för åsidosättning](./media/application-gateway-web-app-overview/host-override.png)
+![åsidosättning av värd](./media/application-gateway-web-app-overview/host-override.png)
 
 > [!NOTE]
-> Detta gäller inte för Azure App service-miljö (ASE) eftersom ASE är en resurs som är dedikerad till skillnad från Azure App service som är en resurs för flera innehavare.
+> Detta gäller inte för Azure App Service Environment (ASE) eftersom ASE är en dedikerad resurs till skillnad från Azure App tjänst som är en resurs för flera innehavare.
 
-## <a name="override-host-header-in-the-request"></a>Åsidosätt värdhuvudet i begäran
+## <a name="override-host-header-in-the-request"></a>Åsidosätt värd rubriken i begäran
 
-Möjligheten att värdåsidosättningar definieras i den [HTTP-inställningar](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) och kan tillämpas på valfri serverdelspool samband med regelgenereringen. Följande två sätt för att åsidosätta värdrubrik eller ett SNI-tillägg för serverdelar för flera innehavare stöds:
+Möjligheten att ange en åsidosättning av värden definieras i [http-inställningarna](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) och kan tillämpas på alla backend-pooler när regeln skapas. Följande två sätt att åsidosätta värd huvud-och SNI-tillägget för Server delar med flera innehavare stöds:
 
-- Möjligheten att ange värdnamnet till ett fast värde som anges i HTTP-inställningarna. Den här funktionen ser till att värdhuvudet åsidosätts till det här värdet för all trafik till backend-poolen där de specifika HTTP-inställningarna används. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-poolen servergrupp förväntar sig en värdrubrik som skiljer sig från den inkommande klientvärdrubriken.
+- Möjligheten att ange värd namnet till ett fast värde som uttryckligen anges i HTTP-inställningarna. Den här funktionen säkerställer att värd huvudet åsidosätts till det här värdet för all trafik till backend-poolen där de specifika HTTP-inställningarna tillämpas. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en Server grupp för Server delen förväntar sig en värd rubrik som inte är samma som för den inkommande kund värd rubriken.
 
-- Möjligheten att härleda värdnamnet från IP-Adressen eller FQDN för backend-poolmedlemmar. HTTP-inställningarna innehåller också ett alternativ för att dynamiskt hämta värdnamnet från medlem backend-poolen FQDN om har konfigurerats med alternativet för att härleda värdnamnet från en medlem i den enskilda backend-poolen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en serverdelspool kan ha två eller flera flera innehavare PaaS-tjänster som Azure-webbappar och varje medlem i begäran värdhuvudet innehåller värdnamn som härletts från dess FQDN. För att genomföra det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamnet från serverdelsadressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som åsidosätter dynamiskt värdhuvudet i den ursprungliga begäran till den som nämns i serverdelspoolen.  Till exempel om backend-pool FQDN innehåller ”contoso11.azurewebsites.net” och ”contoso22.azurewebsites.net”, kommer värdhuvud för den ursprungliga begäran som är contoso.com att åsidosättas contoso11.azurewebsites.net eller contoso22.azurewebsites.net När begäran skickas till lämplig backend-servern. 
+- Möjlighet att härleda värd namnet från IP eller FQDN för backend-poolens medlemmar. HTTP-inställningar innehåller också ett alternativ för att dynamiskt välja värd namnet från en medlem i Server delens FQDN om det kon figurer ATS med alternativet att härleda värd namnet från en enskild medlem i Server delen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-pool kan ha två eller flera PaaS-tjänster för flera innehavare, t. ex. Azure Web Apps och begärans värd rubrik till varje medlem, innehåller värd namnet som härleds från dess FQDN. För att implementera det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamn från Server dels adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som dynamiskt åsidosätter värd rubriken i den ursprungliga begäran till den som anges i backend-poolen.  Om FQDN-adresspoolen till exempel innehåller "contoso11.azurewebsites.net" och "contoso22.azurewebsites.net", kommer den ursprungliga begär ande värd rubriken som contoso.com att åsidosättas till contoso11.azurewebsites.net eller contoso22.azurewebsites.net När begäran skickas till en lämplig backend-server. 
 
   ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 
-Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigurera alternativen i HTTP-inställningarna och de anpassade avsökningarna. Den här inställningen kopplas sedan till en lyssnare och en backend-poolen med hjälp av en regel.
+Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigurera alternativen i HTTP-inställningarna och de anpassade avsökningarna. Den här inställningen är sedan knuten till en lyssnare och en backend-pool med hjälp av en regel.
 
 ## <a name="special-considerations"></a>Att tänka på
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>SSL-avslutning och SSL för slutpunkt till slutpunkt med tjänster med flera innehavare
+### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>SSL-terminering och slut punkt till slut punkt för SSL med tjänster för flera innehavare
 
-Både SSL-avslutning och slutpunkt till slutpunkt SSL-kryptering stöds med tjänster med flera innehavare. För SSL-avslutning på application gateway fortsätter SSL-certifikatet att krävas som ska läggas till i application gateway-lyssnaren. Men när det gäller från slutpunkt till slutpunkt SSL, betrodda Azure-tjänster som Azure App service-webbappar inte kräver listan över tillåtna program serverdelar i application gateway. Det är därför behöver inte lägga till några autentiseringscertifikat. 
+SSL-kryptering med både SSL-avslutning och slut punkt till slut punkt stöds med tjänster för flera innehavare. SSL-certifikatet fortsätter att läggas till i Application Gateway-lyssnaren för SSL-avslutning vid Application Gateway. Men i händelse av SSL, kräver betrodda Azure-tjänster som Azure App tjänst webbappar inte vit listning Server delar i programgatewayen. Därför behöver du inte lägga till några autentiseringscertifikat. 
 
-![slutpunkt till slutpunkt SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![slut punkt till slut punkt-SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
-Observera att i bilden ovan finns det några krav på att lägga till certifikat för autentisering när App service är markerad som serverdel.
+Observera att det inte finns något krav för att lägga till certifikat för autentisering när App Service har valts som Server del i bilden ovan.
 
 ### <a name="health-probe"></a>Hälsoavsökning
 
-Åsidosätta värdhuvudet i den **HTTP-inställningar** påverkar endast begäran och dess routning. det påverkar inte beteendet vid hälsoavsökningar. För att funktionen för slutpunkt till slutpunkt ska fungera måste både avsöknings- och HTTP-inställningarna ändras så att de återspeglar korrekt konfiguration. Anpassade avsökningar stöder också möjligheten att härleda värdhuvudet från de konfigurerade HTTP-inställningarna förutom att tillhandahålla möjligheten att ange en värdrubrik i avsökningskonfigurationen. Den här konfigurationen kan anges med hjälp av `PickHostNameFromBackendHttpSettings`-parametern i avsökningskonfigurationen.
+Att åsidosätta värd rubriken i **http-inställningarna** påverkar bara begäran och dess routning. det påverkar inte hälso avsöknings beteendet. För att funktionen för slutpunkt till slutpunkt ska fungera måste både avsöknings- och HTTP-inställningarna ändras så att de återspeglar korrekt konfiguration. Förutom att tillhandahålla möjligheten att ange en värd rubrik i avsöknings konfigurationen, stöder anpassade avsökningar även möjligheten att härleda värd rubriken från de konfigurerade HTTP-inställningarna. Den här konfigurationen kan anges med hjälp av `PickHostNameFromBackendHttpSettings`-parametern i avsökningskonfigurationen.
 
-### <a name="redirection-to-app-services-url-scenario"></a>Omdirigering till scenariot för App Service-URL
+### <a name="redirection-to-app-services-url-scenario"></a>Omdirigering till App Serviceens URL-scenario
 
-Det kan finnas scenarier där värdnamnet i svaret från App service kan dirigera slutanvändare webbläsaren till den *. azurewebsites.net värdnamnet i stället för den domän som är associerad med Application Gateway. Det här problemet kan inträffa när:
+Det kan finnas scenarier där värd namnet i svaret från App Service kan dirigera slut användar webbläsaren till *. azurewebsites.net-värdnamnet i stället för den domän som är kopplad till Application Gateway. Det här problemet kan inträffa när:
 
-- Du har omdirigering som konfigurerats i App Service. Omdirigering kan vara lika enkelt som att lägga till ett avslutande snedstreck i begäran.
-- Du har Azure AD-autentisering vilket gör att omdirigeringen.
+- Du har konfigurerat omdirigeringen på App Service. Omdirigering kan vara lika enkelt som att lägga till ett avslutande snedstreck i begäran.
+- Du har Azure AD-autentisering som gör omdirigeringen.
 
-För att lösa sådana fall kan se [felsöka omdirigering till App service-URL problemet](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Information om hur du löser sådana fall finns i [Felsöka omdirigering till URL-problem i App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar en Programgateway med en app för flera klienter, till exempel Azure App service-webbapp som en medlem i serverdelspoolen genom att besöka [konfigurera App Service web apps med Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-web-app)
+Lär dig hur du konfigurerar en Programgateway med en app för flera klienter, till exempel Azure App tjänstens webbapp som en medlem i en server del genom att gå [till konfigurera App Service webbappar med Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)

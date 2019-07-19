@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Azure storage och Visual Studio-anslutna tjänster (WebJob-projekt)
-description: Hur du kommer igång med Azure Table storage i ett Azure WebJobs-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio-anslutna tjänster
+title: Komma igång med Azure Storage och Visual Studio Connected Services (webbjobb-projekt)
+description: Komma igång med Azure Table Storage i ett Azure WebJobs-projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
 manager: douge
@@ -12,27 +12,27 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390832"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260751"
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Komma igång med Azure Storage (Azure WebJob-projekt)
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Komma igång med Azure Storage (Azure webbjobb-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln innehåller C#-kodexempel som visar hur du använder Azure WebJobs SDK-version 1.x med Azure table storage-tjänsten. Använd kodexempel i [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x.
+Den här artikeln C# innehåller kod exempel som visar hur du använder Azure WebJobs SDK version 1. x med Azure Table Storage-tjänsten. I kod exemplen används [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1. x.
 
-Azure Table storage-tjänsten kan du lagra stora mängder strukturerade data. Tjänsten är en NoSQL-datalager som tar emot autentiserade anrop inuti och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.  Se [komma igång med Azure Table storage med hjälp av .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) för mer information.
+Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.  Mer information finns i [komma igång med Azure Table Storage med hjälp av .net](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) .
 
-Några av kod kodfragment show den **tabell** attribut som används i funktioner som kallas manuellt, det vill säga inte genom att använda ett av attributen för utlösaren.
+Några av kodfragmenten visar det **tabellattribut** som används i funktioner som anropas manuellt, det vill säga inte genom att använda ett av utlösarens attribut.
 
-## <a name="how-to-add-entities-to-a-table"></a>Lägg till entiteter i en tabell
-Lägg till entiteter i en tabell genom att använda den **tabell** attribut med ett **ICollector<T>**  eller **IAsyncCollector<T>**  parametern där **T** anger schemat för de entiteter som du vill lägga till. Attributkonstruktorn använder en strängparameter som anger namnet på tabellen.
+## <a name="how-to-add-entities-to-a-table"></a>Så här lägger du till entiteter i en tabell
+Om du vill lägga till entiteter i en tabell använder du **Table** -attributet med en **ICollector\<t >** eller **IAsyncCollector\<t >** parameter där **t** anger schemat för de entiteter som du vill lägga till. Attributet konstruktorn använder en sträng parameter som anger namnet på tabellen.
 
-Följande kodexempel lägger till **Person** entiteter i en tabell med namnet *ingående*.
+Följande kod exempel lägger till **person** entiteter i en tabell med namnet *ingress*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -49,7 +49,7 @@ Följande kodexempel lägger till **Person** entiteter i en tabell med namnet *i
             }
         }
 
-Typ du använder vanligtvis med **ICollector** härleds från **TableEntity** eller implementerar **ITableEntity**, men det behöver inte. Något av följande **Person** klasserna arbete med koden som visas i det föregående **Ingångshändelser** metod.
+Vanligt vis är den typ som du använder med **ICollector** härledd från **TableEntity** eller implementerar **ITableEntity**, men det behöver inte. Någon **av följande klasser** fungerar med koden som visas i föregående **ingress** -metod.
 
         public class Person : TableEntity
         {
@@ -63,25 +63,25 @@ Typ du använder vanligtvis med **ICollector** härleds från **TableEntity** el
             public string Name { get; set; }
         }
 
-Om du vill arbeta direkt med API: et för Azure storage kan du lägga till en **CloudStorageAccount** parameter till Metodsignaturen.
+Om du vill arbeta direkt med Azure Storage-API: et kan du lägga till en **CloudStorageAccount** -parameter till Metodsignaturen.
 
-## <a name="real-time-monitoring"></a>Övervakning i realtid
-Eftersom dataåtkomstfunktioner bearbetar ofta stora mängder data, ger WebJobs SDK-instrumentpanelen övervakningsdata i realtid. Den **Anropslogg** avsnittet berättar om funktionen fortfarande körs.
+## <a name="real-time-monitoring"></a>Real tids övervakning
+Eftersom data ingångs funktioner ofta bearbetar stora data mängder innehåller WebJobs SDK-instrumentpanelen real tids övervaknings data. I avsnittet **anrops logg** får du information om funktionen fortfarande körs.
 
-![Ingress-funktion som körs](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
+![Ingress-funktion körs](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-Den **Anropsinformation** sidan rapporterar funktionens status (antal entiteter som har skrivits) medan den körs och ger dig en möjlighet att avbryta den.
+Sidan med **information om anrops** sidan rapporterar funktionens förlopp (antal enheter som skrivits) medan den körs och ger dig möjlighet att avbryta den.
 
-![Ingress-funktion som körs](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
+![Ingress-funktion körs](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-När funktionen är klar i **Anropsinformation** sidan rapporterar antalet rader som har skrivits.
+När funktionen slutförs rapporterar sidan med **anrops information** antalet rader som skrivs.
 
-![Ingress-funktion som är klar](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
+![Ingångs funktion avslutad](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Läsa flera entiteter från en tabell
-Om du vill läsa en tabell, använder den **tabell** attribut med ett **IQueryable<T>**  parametern skriver **T** härleds från **TableEntity**eller implementerar **ITableEntity**.
+Om du vill läsa en tabell använder du **Table** -attributet med en **\<IQueryable-T >** parameter där typ **T** härleds från **TableEntity** eller implementerar **ITableEntity**.
 
-Följande kodexempel läser och loggar alla rader från den **ingående** tabell:
+Följande kod exempel läser och loggar alla rader från **ingress** -tabellen:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -95,10 +95,10 @@ Följande kodexempel läser och loggar alla rader från den **ingående** tabell
             }
         }
 
-### <a name="how-to-read-a-single-entity-from-a-table"></a>Läsa en enda entitet från en tabell
-Det finns en **tabell** attributkonstruktör med två ytterligare parametrar som kan du ange partitionsnyckel och radnyckel när du vill binda till en enskild tabellentitet.
+### <a name="how-to-read-a-single-entity-from-a-table"></a>Läsa en enskild entitet från en tabell
+Det finns en konstruktor för **Table** -attribut med två ytterligare parametrar som låter dig ange partitionsnyckel och rad nyckel när du vill binda till en enskild tabell enhet.
 
-Följande kodexempel läser en tabellrad för en **Person** entitet baserat på partition och radnyckel nyckelvärden tas emot i ett kömeddelande:  
+Följande kod exempel läser en tabell rad för **en entitet som** baseras på partitionsnyckel och rad nyckel värden som tas emot i ett köat meddelande:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -118,12 +118,12 @@ Följande kodexempel läser en tabellrad för en **Person** entitet baserat på 
         }
 
 
-Den **Person** klassen i det här exemplet behöver inte implementera **ITableEntity**.
+**Person** klassen i det här exemplet behöver inte implementera **ITableEntity**.
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Hur du använder .NET-API för Storage direkt för att arbeta med en tabell
-Du kan också använda den **tabell** attributet med en **CloudTable** objekt för mer flexibilitet i att arbeta med en tabell.
+## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Så här använder du .NET Storage-API: et direkt för att arbeta med en tabell
+Du kan också använda **Table** -attributet med ett **CloudTable** -objekt för mer flexibilitet när du arbetar med en tabell.
 
-I följande kod exemplet används en **CloudTable** objekt att lägga till en enda entitet till den *ingående* tabell.
+I följande kod exempel används ett **CloudTable** -objekt för att lägga till en enskild entitet i *ingress* -tabellen.
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -139,11 +139,11 @@ I följande kod exemplet används en **CloudTable** objekt att lägga till en en
             tableBinding.Execute(insertOperation);
         }
 
-Mer information om hur du använder den **CloudTable** objekt, se [komma igång med Azure Table storage med hjälp av .NET](../storage/storage-dotnet-how-to-use-tables.md).
+Mer information om hur du använder **CloudTable** -objektet finns i [komma igång med Azure Table Storage med hjälp av .net](../storage/storage-dotnet-how-to-use-tables.md).
 
-## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Närliggande ämnen som täcks av köer instruktionsartikeln
-Information om hur du hanterar tabell bearbetning som utlöses av ett kömeddelande eller för WebJobs-SDK-scenarier som inte är specifika för bearbetning av tabellen finns [komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt) ](../storage/vs-storage-webjobs-getting-started-queues.md).
+## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Närliggande ämnen som omfattas av artikeln om köer
+Information om hur du hanterar tabell bearbetning som utlöses av ett Queue meddelande, eller för WebJobs SDK-scenarier som inte är särskilt för tabell bearbetning, finns i [komma igång med Azure Queue Storage och Visual Studio Connected Services (webb jobb projekt)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln har tillhandahållit exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-tabeller. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns i [Azure WebJobs dokumentationsresurser](https://go.microsoft.com/fwlink/?linkid=390226).
+I den här artikeln finns kod exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-tabeller. Mer information om hur du använder Azure WebJobs och WebJobs SDK finns i [Azure WebJobs dokumentations resurser](https://go.microsoft.com/fwlink/?linkid=390226).
 

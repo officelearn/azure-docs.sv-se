@@ -1,10 +1,10 @@
 ---
-title: Läsa in belastningsutjämnare TCP återställning vid inaktivitet i Azure
+title: Load Balancer TCP-återställning vid inaktivitet i Azure
 titlesuffix: Azure Load Balancer
-description: Belastningsutjämnare med dubbelriktad TCP RSTA paket på timeout för inaktivitet
+description: Load Balancer med dubbelriktade TCP-paket vid inaktivitet
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,36 +12,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413863"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274160"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer med TCP-återställning vid inaktivitet (offentlig för hands version)
 
-Du kan använda [Standardbelastningsutjämnare](load-balancer-standard-overview.md) att skapa en mer förutsägbar programmets beteende för dina scenarier genom att aktivera TCP nollställs inaktiv för en viss regel. Standardbeteendet för Load Balancer är att släppa tyst flöden när tidsgränsen för inaktivitet i ett flöde har uppnåtts.  Den här funktionen aktiveras medför Load Balancer för att skicka dubbelriktad TCP återställer (TCP RSTA paketet) vid tidsgränsen för inaktivitet.  Detta informerar slutpunkterna för din att anslutningen har nått sin tidsgräns och kan inte användas längre.  Slutpunkter kan omedelbart att införa en ny anslutning om det behövs.
+Du kan använda [standard Load Balancer](load-balancer-standard-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
 
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Belastningsutjämnare med TCP nollställs timeout för inaktivitet funktioner finns som offentlig förhandsversion just nu. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Load Balancer med funktionen TCP-återställning vid inaktivitet är tillgänglig som offentlig för hands version för tillfället. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-Du kan ändra det här standardbeteendet och aktivera skicka TCP återställer på timeout för inaktivitet på inkommande NAT-regler, belastningsutjämningsregler, och [utgående regler](https://aka.ms/lboutboundrules).  När aktiverat per regel belastningsutjämnaren skickar dubbelriktad TCP-återställning (TCP RSTA paket) till både klienten och servern slutpunkter vid tidpunkten för timeout för inaktivitet för alla matchande flöden.
+Du ändrar det här standard beteendet och aktiverar sändning av TCP-återställning vid inaktivitet på inkommande NAT-regler, belastnings Utjämnings regler och [utgående regler](https://aka.ms/lboutboundrules).  När den aktive ras per regel kommer Load Balancer att skicka dubbelriktad TCP-återställning (TCP-paket) till både klient-och Server slut punkter vid tidpunkten för tids gränsen för inaktivitet för alla matchande flöden.
 
-Slutpunkter tar emot TCP RSTA paket Stäng motsvarande socket omedelbart. Detta ger en omedelbar avisering till de slutpunkter som versionen av anslutningen har inträffat och eventuella framtida kommunikation på samma TCP-anslutningen misslyckas.  Program kan rensa anslutningar när socket stängs och återupprätta anslutningarna efter behov utan att behöva vänta TCP-anslutningen så småningom uppnår en tidsgräns.
+Slut punkter som tar emot TCP-och-paket stänger motsvarande socket direkt. Detta ger en omedelbar avisering till slut punkterna som lanseringen av anslutningen har inträffat och eventuell framtida kommunikation på samma TCP-anslutning.  Program kan rensa anslutningar när socketen stängs och återupprätta anslutningar vid behov utan att vänta på att TCP-anslutningen ska ta slut på timeout.
 
-Detta kan minska keepalive-överföringar för behovet av att skicka TCP (eller application layer) för att uppdatera tidsgränsen för inaktivitet i ett flöde för många scenarier. 
+I många fall kan detta minska behovet av att skicka TCP (eller program lagret) keepalive för att uppdatera tids gränsen för inaktivitet i ett flöde. 
 
-Om din inaktiva varaktigheter överskrider de tillåts av konfigurationen eller ditt program visar ett oönskat beteende med TCP återställer aktiverad, kan du fortfarande behöva använda TCP keepalive-överföringar (eller application layer keepalive-överföringar) för att övervaka liveness för TCP-anslutningar.  Keepalive-överföringar kan dessutom också är användbara för när anslutningen är via proxy någonstans i sökvägen, särskilt program layer keepalive-överföringar.  
+Om dina inaktiva varaktigheter överstiger de som tillåts av konfigurationen eller om programmet visar att TCP-återställningar har Aktiver ATS, kan du fortfarande behöva använda TCP keepalive (eller program lagrets keepalive) för att övervaka Live-anslutningarna för TCP-anslutningarna.  Dessutom kan keepalive-objekt även vara användbara för när anslutningen är via proxy någonstans i sökvägen, särskilt program lagrets keepalive.  
 
-Granska noggrant hela slutpunkt till slutpunkt-scenariot för att bestämma om du dra nytta av att aktivera TCP återställer justera tidsgränsen för inaktivitet, och om ytterligare steg kan krävas för att kontrollera att önskad programmets beteende.
+Undersök noggrant hela slut punkt till slut punkt för att avgöra om du har nytta av att aktivera TCP-återställningar, justera tids gränsen för inaktivitet och om ytterligare steg kan krävas för att säkerställa att det önskade programmet fungerar.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Att aktivera TCP-återställning på timeout för inaktivitet
+## <a name="enabling-tcp-reset-on-idle-timeout"></a>Aktiverar timeout för TCP-återställning vid inaktivitet
 
-Med API-versionen 2018-07-01 kan aktivera du utskick av dubbelriktad TCP återställer på timeout för inaktivitet på basis av per regel:
+Med hjälp av API-version 2018-07-01 kan du aktivera sändning av dubbelriktad TCP-återställning vid inaktivitet per regel:
 
 ```json
       "loadBalancingRules": [
@@ -67,16 +67,16 @@ Med API-versionen 2018-07-01 kan aktivera du utskick av dubbelriktad TCP återst
       ]
 ```
 
-## <a name="regions"></a> Regiontillgänglighet
+## <a name="regions"></a>Tillgänglighet för regioner
 
-Tillgänglig i alla regioner.
+Tillgängligt i alla regioner.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Portalen kan inte användas för att konfigurera eller visa TCP-återställning.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
-- TCP RSTA skickas endast när TCP-anslutning i ESTABLISHED tillstånd.
+- Det går inte att använda portalen för att konfigurera eller Visa TCP-återställning.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
+- TCP-endast skickade under TCP-anslutning i upprättat läge.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
-- Lär dig mer om [utgående regler](load-balancer-outbound-rules-overview.md).
+- Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).

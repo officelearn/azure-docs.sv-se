@@ -1,57 +1,57 @@
 ---
-title: Distribuera resurser med Azure CLI och en mall | Microsoft Docs
-description: Använda Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
+title: Distribuera resurser med Azure CLI och mall | Microsoft Docs
+description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206530"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853838"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
-Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar finns i [översikt över Azure Resource Manager](resource-group-overview.md).  
+Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa [Azure Resource Manager översikt](resource-group-overview.md).  
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-Om du inte har Azure CLI installerat kan du använda den [Cloud Shell](#deploy-template-from-cloud-shell).
+Om du inte har Azure CLI installerat kan du använda [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deployment-scope"></a>Distributionsomfattningen
+## <a name="deployment-scope"></a>Distributions omfång
 
-Du kan begränsa distributionen till en Azure-prenumeration eller resursgrupp inom en prenumeration. I de flesta fall kommer du rikta distribution till en resursgrupp. Använda prenumerationsdistributioner för att tillämpa principer och rolltilldelningar i prenumerationen. Du kan också använda prenumerationsdistributioner för att skapa en resursgrupp och distribuera resurser till den. Beroende på omfattningen av distributionen, kan du använda olika kommandon.
+Du kan rikta din distribution till antingen en Azure-prenumeration eller en resurs grupp i en prenumeration. I de flesta fall riktar du distribution till en resurs grupp. Använd prenumerations distributioner för att tillämpa principer och roll tilldelningar i prenumerationen. Du kan också använda prenumerations distributioner för att skapa en resurs grupp och distribuera resurser till den. Beroende på distributionens omfattning använder du olika kommandon.
 
-Distribuera till en **resursgrupp**, använda [az group deployment skapa](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Om du vill distribuera till en **resurs grupp**använder du [AZ Group Deployment Create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Distribuera till en **prenumeration**, använda [az distributionen skapa](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Om du vill distribuera till en **prenumeration**använder du [AZ Deployment Create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Distributioner av hanteringsgrupper stöds för närvarande endast via REST API. Se [distribuera resurser med Resource Manager-mallar och Resource Manager REST API](resource-group-template-deploy-rest.md).
+För närvarande stöds endast distributioner av hanterings grupper via REST API. Se [distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](resource-group-template-deploy-rest.md).
 
-I exemplen i den här artikeln används distribution av resursgrupper. Mer information om prenumerationsdistributioner finns i [skapa resursgrupper och resurser på prenumerationsnivå](deploy-to-subscription.md).
+I exemplen i den här artikeln används resurs grupps distributioner. Mer information om distribution av prenumerationer finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-## <a name="deploy-local-template"></a>Distribuera lokala mall
+## <a name="deploy-local-template"></a>Distribuera lokal mall
 
-När du distribuerar resurser till Azure måste du:
+När du distribuerar resurser till Azure:
 
 1. Logga in på ditt Azure-konto
-2. Skapa en resursgrupp som fungerar som behållare för distribuerade resurser. Namnet på resursgruppen får bara innehålla alfanumeriska tecken, punkter, understreck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte avslutas med en punkt.
-3. Distribuera till resursgrupp mallen som definierar resurser för att skapa
+2. Skapa en resurs grupp som fungerar som behållare för de distribuerade resurserna. Namnet på resurs gruppen får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte sluta med en punkt.
+3. Distribuera till resurs gruppen med mallen som definierar vilka resurser som ska skapas
 
-En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Exempelmallen definierar en parameter för SKU för lagringskontot. 
+En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är anpassade för en viss miljö (till exempel utveckling, testning och produktion). Exempel mal len definierar en parameter för lagrings kontots SKU. 
 
-I följande exempel skapas en resursgrupp och distribuerar en mall från den lokala datorn:
+I följande exempel skapas en resurs grupp och en mall distribueras från den lokala datorn:
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -62,17 +62,17 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Det kan ta några minuter att slutföra distributionen. När den är klar visas ett meddelande som innehåller resultatet:
+Det kan ta några minuter att slutföra distributionen. När det är klart visas ett meddelande som innehåller resultatet:
 
 ```azurecli
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Distribuera fjärråtkomst mall
+## <a name="deploy-remote-template"></a>Distribuera fjärran sluten mall
 
-Istället för att lagra Resource Manager-mallar på den lokala datorn, kanske du föredrar att lagra dem i en extern plats. Du kan lagra mallar i ett källkontrollscentrallager (till exempel GitHub). Eller du kan lagra dem i ett Azure storage-konto för delad åtkomst i din organisation.
+I stället för att lagra Resource Manager-mallar på den lokala datorn kanske du föredrar att lagra dem på en extern plats. Du kan lagra mallar i ett lager för käll kontroll (till exempel GitHub). Du kan också lagra dem i ett Azure Storage-konto för delad åtkomst i din organisation.
 
-Om du vill distribuera en mall för externa, använda den **mall-uri** parametern. Använd URI: N i det här exemplet för att distribuera exempelmallen från GitHub.
+Om du vill distribuera en extern mall använder du parametern **mall-URI** . Använd URI i exemplet för att distribuera exempel mal len från GitHub.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -83,11 +83,11 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-I föregående exempel kräver en offentligt tillgänglig URI för den mall som passar de flesta fall eftersom mallen inte ska innehålla känsliga data. Om du vill ange känsliga data (till exempel ett administratörslösenord) kan du skicka det värdet som en säker parameter. Om du inte vill att mallen för att vara allmänt tillgänglig, kan du dock skydda den genom att lagra det i en privat lagringsbehållare. Information om hur du distribuerar en mall som kräver en signatur (SAS) token för delad åtkomst finns i [distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md).
+I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS](resource-manager-cli-sas-token.md)-token.
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-I Cloud Shell använder du följande kommandon:
+Använd följande kommandon i Cloud Shell:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
@@ -96,18 +96,18 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen misslyckas
+## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen Miss lyckas
 
-Den här funktionen kallas även *återställning vid fel*. När en distribution misslyckas, kan du automatiskt distribuera om en tidigare lyckad distribution från distributionshistoriken. Om du vill ange omdistribution, använda den `--rollback-on-error` parameter i distributionskommandot. Den här funktionen är användbart om du har ett fungerande tillstånd för din distribution av infrastruktur och vill återgå till det här tillståndet. Det finns ett antal varningar och begränsningar:
+Den här funktionen kallas även *återgång vid fel*. När en distribution Miss lyckas kan du automatiskt distribuera om en tidigare distribuerad distribution från din distributions historik. Om du vill ange omdistribution använder `--rollback-on-error` du parametern i distributions kommandot. Den här funktionen är användbar om du har ett känt bra tillstånd för distribution av infrastrukturen och vill återställa till det här läget. Det finns ett antal varningar och begränsningar:
 
-- Omdistributionen körs exakt som den kördes tidigare med samma parametrar. Du kan inte ändra parametrarna.
-- Föregående distributionen körs med hjälp av den [fullständig läge](./deployment-modes.md#complete-mode). Alla resurser som inte ingår i den föregående distributionen tas bort och alla resurskonfigurationer ställs till sina tidigare tillstånd. Kontrollera att du förstår de [distributionslägen](./deployment-modes.md).
-- Omdistributionen påverkar endast resurserna, dataändringar påverkas inte.
-- Den här funktionen stöds bara på resursgrupp distributioner, inte prenumerationen på distributioner. Mer information om prenumerationen på distribution finns i [skapa resursgrupper och resurser på prenumerationsnivå](./deploy-to-subscription.md).
+- Omdistributionen körs exakt eftersom den kördes tidigare med samma parametrar. Du kan inte ändra parametrarna.
+- Den tidigare distributionen körs med slutfört [läge](./deployment-modes.md#complete-mode). Alla resurser som inte ingår i den tidigare distributionen tas bort och alla resurspooler anges till sitt tidigare tillstånd. Se till att du förstår [distributions lägena](./deployment-modes.md)fullständigt.
+- Omdistributionen påverkar endast resurserna, alla data ändringar påverkas inte.
+- Den här funktionen stöds bara för distributioner av resurs grupper, inte på prenumerations nivå distributioner. Mer information om distribution av prenumerations nivåer finns i [skapa resurs grupper och resurser på prenumerations nivå](./deploy-to-subscription.md).
 
-Om du vill använda det här alternativet för måste dina distributioner ha unika namn så att de kan identifieras i historiken. Om du inte har unika namn, kan den aktuella misslyckad distributionen skriva över tidigare distributionen i historiken. Du kan bara använda det här alternativet med rot på distributioner. Distributioner från en kapslad mall är inte tillgängliga för omdistribution.
+Om du vill använda det här alternativet måste distributionerna ha unika namn så att de kan identifieras i historiken. Om du inte har unika namn kan den aktuella misslyckade distributionen skriva över den tidigare lyckade distributionen i historiken. Du kan bara använda det här alternativet med distributioner på rotnivå. Distributioner från en kapslad mall är inte tillgängliga för omdistribution.
 
-Om du vill distribuera om den senaste distributionen, lägger du till den `--rollback-on-error` parametern som en flagga.
+Om du vill distribuera om den senaste lyckade distributionen lägger `--rollback-on-error` du till parametern som en flagga.
 
 ```azurecli-interactive
 az group deployment create \
@@ -118,7 +118,7 @@ az group deployment create \
   --rollback-on-error
 ```
 
-Om du vill distribuera om en specifik distribution, använda den `--rollback-on-error` parametern och ange namnet på distributionen.
+Om du vill distribuera om en speciell distribution använder `--rollback-on-error` du parametern och anger namnet på distributionen.
 
 ```azurecli-interactive
 az group deployment create \
@@ -129,15 +129,15 @@ az group deployment create \
   --rollback-on-error ExampleDeployment01
 ```
 
-Den angivna distributionen måste ha lyckats.
+Den angivna distributionen måste ha slutförts.
 
 ## <a name="parameters"></a>Parametrar
 
-Du kan använda infogade parametrar eller en parameterfil för att ange parametervärden. I föregående exempel i den här artikeln visas infogade parametrar.
+Om du vill skicka parameter värden kan du använda antingen infogade parametrar eller en parameter fil. I föregående exempel i den här artikeln visas infogade parametrar.
 
-### <a name="inline-parameters"></a>Infogad parametrar
+### <a name="inline-parameters"></a>Infogade parametrar
 
-Om du vill skicka infogade parametrar, anger du värden i `parameters`. Till exempel är ett Bash-gränssnitt för att skicka en sträng och en matris till en mall, använda:
+Ange värdena i `parameters`om du vill skicka in infogade parametrar. Om du till exempel vill skicka en sträng och matris till en mall är ett bash-gränssnitt använder du:
 
 ```azurecli
 az group deployment create \
@@ -146,7 +146,9 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Du kan också hämta innehållet i filen och ge innehållet som en infogad-parameter.
+Om du använder Azure CLI med kommando tolken i Windows (CMD) eller PowerShell skickar du matrisen i formatet: `exampleArray="['value1','value2']"`.
+
+Du kan också hämta innehållet i filen och ange innehållet som en infogad parameter.
 
 ```azurecli
 az group deployment create \
@@ -155,9 +157,9 @@ az group deployment create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Hämta ett parametervärde från en fil är användbart när du behöver ange konfigurationsvärden. Du kan till exempel ange [cloud-init värden för en Linux-dator](../virtual-machines/linux/using-cloud-init.md).
+Att hämta ett parameter värde från en fil är användbart när du behöver ange konfigurations värden. Du kan till exempel ange [värden för Cloud-Init för en virtuell Linux-dator](../virtual-machines/linux/using-cloud-init.md).
 
-ArrayContent.json formatet är:
+Formatet arrayContent. JSON är:
 
 ```json
 [
@@ -166,11 +168,11 @@ ArrayContent.json formatet är:
 ]
 ```
 
-### <a name="parameter-files"></a>Parameterfiler
+### <a name="parameter-files"></a>Parameter-filer
 
-I stället för att skicka parametrar som infogade värden i skriptet, kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Parameterfilen måste vara en lokal fil. Externa parameterfiler stöds inte med Azure CLI.
+I stället för att skicka parametrar som infogade värden i skriptet, kan det vara lättare att använda en JSON-fil som innehåller parameter värden. Parameter filen måste vara en lokal fil. Externa parameter-filer stöds inte med Azure CLI.
 
-Parameterfilen måste vara i följande format:
+Parameter filen måste ha följande format:
 
 ```json
 {
@@ -184,11 +186,11 @@ Parameterfilen måste vara i följande format:
 }
 ```
 
-Observera att parameters-avsnittet innehåller ett parameternamn som matchar den parameter som definierats i mallen (storageAccountType). Parameterfilen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa fler än en parameterfil och sedan skicka in lämpliga parameterfilen för scenariot. 
+Observera att avsnittet Parameters innehåller ett parameter namn som matchar den parameter som definierats i din mall (storageAccountType). Parameter filen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa mer än en parameter fil och sedan skicka in rätt parameter fil för scenariot. 
 
-Kopiera i föregående exempel och spara det som en fil med namnet `storage.parameters.json`.
+Kopiera föregående exempel och spara den som en fil med namnet `storage.parameters.json`.
 
-Om du vill skicka en lokal parameterfil använda `@` att ange en lokal fil med namnet storage.parameters.json.
+Om du vill skicka en lokal parameter fil `@` använder du för att ange en lokal fil med namnet Storage. Parameters. JSON.
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,9 +200,9 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
-### <a name="parameter-precedence"></a>Parametern prioritet
+### <a name="parameter-precedence"></a>Parameter prioritet
 
-Du kan använda infogade parametrar och en lokal parameterfil på samma gång för distribution. Du kan till exempel ange vissa värden i den lokala parameterfilen och lägga till andra värden infogad under distributionen. Om du anger värden för en parameter i både lokala parameterfilen och infogade måste företräde det infogade värdet.
+Du kan använda infogade parametrar och en lokal parameter fil i samma distributions åtgärd. Du kan till exempel ange vissa värden i den lokala parameter filen och lägga till andra värden i den under distributionen. Om du anger värden för en parameter i både den lokala parameter filen och den infogade värdet, prioriteras det infogade värdet.
 
 ```azurecli
 az group deployment create \
@@ -210,9 +212,9 @@ az group deployment create \
   --parameters exampleArray=@arrtest.json
 ```
 
-## <a name="test-a-template-deployment"></a>Testa en för malldistribution
+## <a name="test-a-template-deployment"></a>Testa en mall distribution
 
-Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [az group deployment Validera](/cli/azure/group/deployment#az-group-deployment-validate). 
+Om du vill testa mallen och parameter värden utan att behöva distribuera några resurser använder du [AZ Group Deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
 
 ```azurecli-interactive
 az group deployment validate \
@@ -221,7 +223,7 @@ az group deployment validate \
   --parameters @storage.parameters.json
 ```
 
-Om inga fel identifieras måste returnerar kommandot information om test-distribution. Observera att särskilt den **fel** värdet är null.
+Om inga fel upptäcks returnerar kommandot information om test distributionen. Observera särskilt att **felvärdet** är null.
 
 ```azurecli
 {
@@ -230,7 +232,7 @@ Om inga fel identifieras måste returnerar kommandot information om test-distrib
       ...
 ```
 
-Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Skicka ett felaktigt värde för lagringskontots SKU, returnerar exempelvis följande fel:
+Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel skickar ett felaktigt värde för lagrings kontots SKU returneras följande fel:
 
 ```azurecli
 {
@@ -246,7 +248,7 @@ Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Skicka ett fela
 }
 ```
 
-Om mallen innehåller ett syntaxfel, returnerar kommandot ett felmeddelande om att det gick inte att parsa mallen. Meddelandet Anger radnumret och positionen för parsningsfel.
+Om din mall har ett syntaxfel returnerar kommandot ett fel som anger att mallen inte kunde parsas. Meddelandet anger rad numret och positionen för tolknings felet.
 
 ```azurecli
 {
@@ -263,9 +265,9 @@ Om mallen innehåller ett syntaxfel, returnerar kommandot ett felmeddelande om a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Exemplen i den här artikeln distribuera resurser till en resursgrupp i din Standardprenumeration. Om du vill använda en annan prenumeration, se [hantera flera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli).
-- Om du vill ange hur du hanterar resurser som finns i resursgruppen men inte har definierats i mallen, se [distributionslägen i Azure Resource Manager](deployment-modes.md).
-- Information om hur du definierar parametrar i mallen finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-- Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md).
-- Om du vill distribuera på ett säkert sätt din tjänst till flera regioner, se [Azure Deployment Manager](deployment-manager-overview.md).
+- I exemplen i den här artikeln distribueras resurser till en resurs grupp i din standard prenumeration. Om du vill använda en annan prenumeration läser du [Hantera flera Azure](/cli/azure/manage-azure-subscriptions-azure-cli)-prenumerationer.
+- Information om hur du hanterar resurser som finns i resurs gruppen men som inte har definierats i mallen finns i [Azure Resource Manager distributions lägen](deployment-modes.md).
+- Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
+- Tips om hur du löser vanliga distributions fel finns i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS](resource-manager-cli-sas-token.md)-token.
+- För att på ett säkert sätt distribuera tjänsten till mer än en region, se [Azure Deployment Manager](deployment-manager-overview.md).

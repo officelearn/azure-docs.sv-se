@@ -1,6 +1,6 @@
 ---
 title: Hantera inaktuella enheter i Azure AD | Microsoft Docs
-description: Lär dig ta bort inaktuella enheter från databasen för registrerade enheter i Azure Active Directory.
+description: Lär dig hur du tar bort inaktuella enheter från din databas med registrerade enheter i Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481659"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867260"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
 
@@ -43,7 +43,7 @@ Eftersom en inaktuell enhet definieras som en registrerad enhet som inte har anv
 
 Utvärderingen av aktivitetsstämpeln utlöses av ett autentiseringsförsök för en enhet. Azure AD utvärderar aktivitetsstämpeln när:
 
-- En principer för villkorlig åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klientappar](../conditional-access/app-based-conditional-access.md) har utlösts.
+- En princip för villkorlig åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klient program](../conditional-access/app-based-conditional-access.md) har utlösts.
 - Windows 10-enheter som är Azure AD-anslutna eller Hybrid Azure AD-anslutna är aktiva i nätverket. 
 - Intune-hanterade enheter har checkats in i tjänsten.
 
@@ -129,7 +129,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Om du har ett stort antal enheter i din katalog kan begränsa antalet returnerade enheter med filtret tidsstämpel. Hämta alla enheter med en äldre tidsstämpel än ett visst datum och lagra returnerade data i en CSV-fil: 
+Om du har ett stort antal enheter i katalogen använder du filtret tidsstämpel för att begränsa antalet returnerade enheter. Hämta alla enheter med en äldre tidsstämpel än ett visst datum och lagra returnerade data i en CSV-fil: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -145,6 +145,13 @@ Tidsstämpeln uppdateras för att stödja enhetslivscykelscenarier. Det här är
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>Varför bör jag bekymra mig om mina BitLocker-nycklar?
 
 När BitLocker-nycklar för Windows 10-enheter har konfigurerats lagras de på enhetsobjektet i Azure AD. Om du tar bort en inaktuell enhet tar du även bort de BitLocker-nycklar som lagras på enheten. Du bör fastställa om din rensningsprincip överensstämmer med den faktiska livscykeln för din enhet innan du tar bort en inaktuell enhet. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Varför ska jag oroa mig för Windows autopilot-enheter?
+
+När en Azure AD-enhet är kopplad till ett Windows autopilot-objekt kan följande tre scenarier uppstå om enheten kommer att omanvändas i framtiden:
+- Med Windows autopilot-baserade distributioner utan att använda White assisterad, skapas en ny Azure AD-enhet, men den märks inte med ZTDID.
+- Med distribution i Windows autopilot-distribution med automatisk distribution kan de Miss förfalla eftersom det inte går att hitta en associerad Azure AD-enhet.  (Det här är en säkerhetsmekanism för att se till att ingen "inposts"-enheter försöker ansluta till Azure AD utan autentiseringsuppgifter.) Felet indikerar att en ZTDID matchar inte.
+- Med Windows autopilot White assisterad-distributioner fungerar de inte eftersom det inte går att hitta en tillhör ande Azure AD-enhet. (I bakgrunden använder vita assisterad-distributioner samma process för självdistribuerande läge, så att de tvingar samma säkerhetsmekanismer.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Hur tar jag reda på alla typer av anslutna enheter?
 

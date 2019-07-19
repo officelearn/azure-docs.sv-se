@@ -1,6 +1,6 @@
 ---
 title: Migrera från Azure Scheduler till Azure Logic Apps
-description: Lär dig hur du kan ersätta jobb i Azure Scheduler, som dras, med Azure Logic Apps
+description: Lär dig hur du kan ersätta jobb i Azure Scheduler, som dras tillbaka, med Azure Logic Apps
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
@@ -9,230 +9,230 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531776"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302075"
 ---
-# <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb med Azure Logic Apps
+# <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
 > [!IMPORTANT]
-> Med Azure Logic Apps ersätter Azure Scheduler, som dras. Följ den här artikeln för att flytta till Azure Logic Apps i stället för att schemalägga jobb.
+> Azure Logic Apps ersätter Azure Scheduler, som dras tillbaka. Följ den här artikeln för att flytta till Azure Logic Apps i stället för att schemalägga jobb.
 
-Den här artikeln visar hur du kan schemalägga enstaka och återkommande jobb genom att skapa automatiserade arbetsflöden med Azure Logic Apps, i stället för med Azure Scheduler. När du skapar schemalagda jobb med Logic Apps kan få du följande fördelar:
+Den här artikeln visar hur du kan schemalägga engångs-och återkommande jobb genom att skapa automatiserade arbets flöden med Azure Logic Apps, i stället för med Azure Scheduler. När du skapar schemalagda jobb med Logic Apps får du följande fördelar:
 
-* Du inte behöver bekymra dig om konceptet med en *jobbsamling* eftersom varje logic app är en separat Azure-resurs.
+* Du behöver inte oroa dig för begreppet *jobb samling* eftersom varje Logic app är en separat Azure-resurs.
 
-* Du kan köra flera enstaka jobb med hjälp av en enkel logikapp.
+* Du kan köra flera engångs jobb genom att använda en enda Logic-app.
 
-* Azure Logic Apps-tjänsten stöder tidszon och sommartid (DST).
+* Tjänsten Azure Logic Apps stöder Time Zone och sommar tid (sommar tid).
 
-Mer information finns i [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller försök att skapa din första logikapp i den här snabbstarten: [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Mer information finns i [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller prova att skapa din första Logic-app i den här snabb starten: [Skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
-* Om du vill starta logikappen genom att skicka HTTP-begäranden, Använd ett verktyg som de [skrivbordsappen Postman](https://www.getpostman.com/apps).
+* Om du vill utlösa din Logi Kap par genom att skicka HTTP-begäranden använder du ett verktyg som t. ex. [Postman Desktop-appen](https://www.getpostman.com/apps).
 
-## <a name="schedule-one-time-jobs"></a>Schemalägga engångsjobb
+## <a name="schedule-one-time-jobs"></a>Schemalägga engångs jobb
 
-Du kan köra flera engångsjobb genom att skapa bara en enkel logikapp. 
+Du kan köra flera engångs jobb genom att skapa bara en enda Logic-app. 
 
 ### <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp i Logic App Designer. 
+1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app i Logic App Designer. 
 
-   De grundläggande stegen följer [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   De grundläggande stegen följer [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
 
-1. Ange ”när en http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **När en HTTP-begäran tas emot** 
+1. I rutan Sök anger du "när en http-begäran" som filter. Välj den här utlösaren i listan utlösare: **När en HTTP-begäran tas emot** 
 
-   ![Lägg till ”begär” utlösare](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
+   ![Lägg till utlösare för "begäran"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
-1. Du kan också bifoga en JSON-schema, som hjälper dig att förstå strukturen för indata från den inkommande begäranden Logic App Designer och gör det enklare för dig att välja senare i arbetsflödet utdata för begäran-utlösaren.
+1. För begär ande utlösare kan du välja att ange ett JSON-schema som hjälper Logic App Designer att förstå strukturen för indatan från den inkommande begäran och gör utmatningarna enklare att välja senare i arbets flödet.
 
-   Ange om du vill ange ett schema, schemat i den **begär JSON-Brödtextsschema** rutan, till exempel: 
+   Om du vill ange ett schema anger du schemat i rutan **JSON-schema för begär ande text** , till exempel: 
 
-   ![Schemat för begäran](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
+   ![Begär schema](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
-   Om du inte har ett schema, men du har en exempelnyttolast i JSON-format, kan du generera ett schema från den nyttolasten.
+   Om du inte har ett schema, men du har ett exempel på en nytto Last i JSON-format, kan du generera ett schema från den nytto lasten.
 
-   1. I begäran-utlösaren väljer **Använd exempel för att generera schemat**.
+   1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.
 
-   1. Under **Skriv eller klistra in en JSON-exempelnyttolast**, ange din exempelnyttolast och välj sedan **klar**, till exempel:
+   1. Under **Ange eller klistra in en exempel-JSON-nyttolast**, anger du exempel nytto lasten och väljer sedan **färdig**, till exempel:
 
-      ![Exempel på en nyttolast](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
+      ![Exempel på nytto Last](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. Under utlösaren väljer **nästa steg**. 
+1. Under utlösaren väljer du **Nästa steg**. 
 
-1. I sökrutan anger du ”Fördröj tills” som filter. Välj den här åtgärden under åtgärder: **Fördröj tills**
+1. Skriv "fördröjning till" som filter i sökrutan. Under listan åtgärder väljer du den här åtgärden: **Fördröjning till**
 
-   Den här åtgärden pausar logikapparbetsflödet fram till ett angivet datum och tid.
+   Den här åtgärden pausar ditt Logic app-arbetsflöde fram till angivet datum och tid.
 
-   ![Lägg till ”Fördröj tills” åtgärd](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
+   ![Lägg till åtgärden fördröj tills](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
 
-1. Ange tidsstämpeln för när du vill starta den logikappens arbetsflöde. 
+1. Ange tidsstämpeln för när du vill starta arbets flödet för Logic Apps. 
 
-   När du klickar i den **tidsstämpel** den dynamiska innehållslistan visas rutan, så att du kan också välja utdata från utlösaren.
+   När du klickar i rutan **tidsstämpel** visas den dynamiska innehålls listan så att du kan välja att välja utdata från utlösaren.
 
-   ![Ange ”Fördröj tills” information](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
+   ![Ange information om fördröjning till](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Lägga till andra åtgärder som du vill köra genom att välja från [~ 200 + anslutningsappar](../connectors/apis-list.md). 
+1. Lägg till andra åtgärder som du vill köra genom att välja mellan [hundratals färdiga kopplingar som är färdiga att använda](../connectors/apis-list.md). 
 
-   Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med Storage-köer, Service Bus-köer och Service Bus-ämnen: 
+   Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med lagrings köer, Service Bus köer eller Service Bus ämnen: 
 
    ![HTTP-åtgärd](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
-1. När du är klar sparar du din logikapp.
+1. När du är klar sparar du din Logic app.
 
    ![Spara din logikapp](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   När du sparar logikappen för första gången slutpunkten URL: en för din logikapp-begäran-utlösaren visas i den **HTTP post-URL** box. 
-   Om du vill att anropa logikappen och skicka indata till din logikapp för bearbetning kan använda den här URL: en som mål för anropet.
+   När du sparar din Logic app för första gången visas slut punkts-URL: en för din Logic Apps-utlösare i rutan **http post-URL** . 
+   När du vill anropa din Logi Kap par och skicka indata till din Logic app för bearbetning använder du denna URL som anrops mål.
 
-   ![Spara begäran utlösaren slutpunkts-URL](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
+   ![Spara slut punkts-URL för begäran](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
 
-1. Kopiera och spara den här slutpunkts-URL så att du kan skicka en manuell begäran som utlöser logikappen. 
+1. Kopiera och spara slut punkts-URL: en så att du senare kan skicka en manuell begäran som utlöser din Logic app. 
 
-## <a name="start-a-one-time-job"></a>Starta ett engångsjobb
+## <a name="start-a-one-time-job"></a>Starta ett engångs jobb
 
-Skicka ett anrop till slutpunkts-URL för din logikapp begäransutlösare för att manuellt köra eller utlösa ett engångsjobb. Ange indata eller för att skicka, som du kanske har beskrivit tidigare genom att ange ett schema i det här anropet. 
+Om du vill köra eller utlösa ett engångs jobb manuellt skickar du ett anrop till slut punkts-URL: en för din Logic Apps begär ande utlösare. I det här anropet anger du indata eller nytto last att skicka, som du kan ha beskrivit tidigare genom att ange ett schema. 
 
-Till exempel med hjälp av Postman-appen, du kan skapa en POST-begäran med inställningarna som liknar det här exemplet och välj sedan **skicka** att utföra begäran.
+Med Postman-appen kan du till exempel skapa en POST-begäran med inställningarna som liknar det här exemplet och sedan välja **Skicka** för att göra begäran.
 
-| Begärandemetod | URL | Innehåll | Rubriker |
+| Metod för begäran | URL | Innehåll | Rubriker |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **rådata** <p>**JSON(application/json)** <p>I den **raw** anger nyttolasten som du vill skicka i begäran. <p>**Obs!** Den här inställningen automatiskt konfigurerar den **rubriker** värden. | **nyckeln**: Content-Type <br>**Värdet**: application/json
+| **POST** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** Den här inställningen konfigurerar automatiskt **rubrik** värden. | **Nyckel**: Content-Type <br>**Värde**: Application/JSON
  |||| 
 
-![Skicka begäran för att utlösa logikappen manuellt](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
+![Skicka begäran om att utlösa din Logic app manuellt](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
-När du har skickat anropet svaret från din logikapp visas under den **raw** rutan på den **brödtext** fliken. 
+När du har skickat samtalet visas svaret från din Logi Kap par under rutan **RAW** på fliken **brödtext** . 
 
 <a name="workflow-run-id"></a>
 
 > [!IMPORTANT]
 >
-> Om du vill avbryta jobbet senare väljer du den **rubriker** fliken. Hitta och kopiera den **x-ms-arbetsflöde-körning-id** huvudvärde i svaret. 
+> Om du vill avbryta jobbet senare väljer du fliken **sidhuvud** . Hitta och kopiera huvudet **x-MS-Workflow-Run-ID** i svaret. 
 >
 > ![Svar](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
-## <a name="cancel-a-one-time-job"></a>Avbryt ett engångsjobb
+## <a name="cancel-a-one-time-job"></a>Avbryta ett engångs jobb
 
-I Logic Apps, varje gång jobb som körs som en enkel logikapp som kör instans. Om du vill avbryta ett engångsjobb, kan du använda [Arbetsflödeskörningar - Avbryt](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) i Logic Apps REST API. När du skickar ett anrop till utlösaren, ange den [arbetsflöde körnings-ID](#workflow-run-id).
+I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic app. Om du vill avbryta ett engångs jobb kan du använda [arbets flödes körning – Avbryt](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) i Logic Apps REST API. Ange [arbets flödets körnings-ID](#workflow-run-id)när du skickar ett anrop till utlösaren.
 
 ## <a name="schedule-recurring-jobs"></a>Schemalägg återkommande jobb
 
 ### <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp i Logic App Designer. 
+1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app i Logic App Designer. 
 
-   De grundläggande stegen följer [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   De grundläggande stegen följer [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
 
-1. I sökrutan anger du ”återkommande” som filter. Välj den här utlösaren från listan över utlösare: **Frekvens** 
+1. I rutan Sök anger du "upprepning" som filter. Välj den här utlösaren i listan utlösare: **Frekvens** 
 
-   ![Lägg till ”återkommande” utlösare](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
+   ![Lägg till utlösare för upprepning](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
-1. Skapa en mer avancerad schema, om du vill.
+1. Konfigurera ett mer avancerat schema, om du vill.
 
    ![Avancerat schema](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   Mer information om avancerade alternativ för schemaläggning finns [skapa och kör återkommande uppgifter och arbetsflöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+   Mer information om avancerade alternativ för schemaläggning finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 
-1. Lägga till andra åtgärder som du vill genom att välja från [över 200 anslutningsappar](../connectors/apis-list.md). Under utlösaren väljer **nästa steg**. Hitta och välja vilka åtgärder du vill.
+1. Lägg till andra åtgärder genom att välja bland [hundratals färdiga att använda](../connectors/apis-list.md). Under utlösaren väljer du **Nästa steg**. Sök efter och välj de åtgärder som du vill använda.
 
-   Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med Storage-köer, Service Bus-köer och Service Bus-ämnen: 
+   Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med lagrings köer, Service Bus köer eller Service Bus ämnen: 
 
    ![HTTP-åtgärd](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
-1. När du är klar sparar du din logikapp.
+1. När du är klar sparar du din Logic app.
 
    ![Spara din logikapp](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-## <a name="advanced-setup"></a>Avancerade inställningar
+## <a name="advanced-setup"></a>Avancerad installation
 
-Här finns andra sätt som du kan anpassa dina jobb.
+Här följer andra sätt att anpassa dina jobb.
 
 ### <a name="retry-policy"></a>Återförsöksprincip
 
-Om du vill styra hur en åtgärd som försöker igen i din logikapp när återkommande fel inträffa, kan du ange den [återförsöksprincip](../logic-apps/logic-apps-exception-handling.md#retry-policies) i inställningarna för varje åtgärd, till exempel:
+Om du vill styra hur en åtgärd försöker köra igen i din Logic-app när tillfälliga fel inträffar kan du ange principen för [återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies) i varje åtgärds inställningar, till exempel:
 
-1. Öppna åtgärdens ( **...** ) menyn och välj **inställningar**.
+1. Öppna åtgärdens ( **...** ) meny och välj **Inställningar**.
 
-   ![Öppna åtgärdsinställningar](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
+   ![Öppna åtgärds inställningar](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
-1. Välj den återförsöksprincip som du vill. Mer information om varje princip finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies).
+1. Välj den princip för återförsök som du vill använda. Mer information om varje princip finns i [principer](../logic-apps/logic-apps-exception-handling.md#retry-policies)för återförsök.
 
-   ![Välj återförsöksprincip](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
+   ![Välj princip för återförsök](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
 
 ## <a name="handle-exceptions-and-errors"></a>Hantera undantag och fel
 
-Om standardåtgärden som inte kan köras, i Azure Scheduler kan du köra en alternativt åtgärd som åtgärdar felet. Du kan också utföra samma uppgift i Azure Logic Apps.
+Om standard åtgärden inte kan köras i Azure Scheduler kan du köra en alterative-åtgärd som åtgärdar fel tillståndet. I Azure Logic Apps kan du också utföra samma uppgift.
 
-1. I Logic App Designer ovanför åtgärden du vill hantera, flyttar du pekaren över pilen mellan steg och välj och **lägga till en parallell gren**. 
+1. I Logic App Designer, ovanför den åtgärd som du vill hantera, flyttar du pekaren över pilen mellan stegen och väljer och **lägger till en parallell gren**. 
 
    ![Lägg till parallell gren](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
-1. Hitta och välj den åtgärd som du vill köra i stället som alternativ åtgärd.
+1. Sök efter och välj den åtgärd som du vill köra i stället för den alternativa åtgärden.
 
    ![Lägg till parallell åtgärd](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. På den alternativa åtgärden, öppna den ( **...** ) menyn och välj **konfigurera körning efter**.
+1. Öppna menyn ( **...** ) på den alternativa åtgärden och välj **Konfigurera kör efter**.
 
-   ![Konfigurera körningen efter](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
+   ![Konfigurera kör efter](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
-1. Avmarkera kryssrutan för de **lyckas** egenskapen. Välj de här egenskaperna: **misslyckades**, **hoppas över**, och **har nått sin tidsgräns**
+1. Avmarkera kryss rutan för egenskapen **har slutförts** . Välj följande egenskaper: **har misslyckats**, **hoppas över**och **har nått tids gränsen**
 
-   ![Konfigurera egenskaper för ”körning efter”](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
+   ![Konfigurera egenskaper för kör efter](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
 1. När du är klar väljer du **Klar**.
 
-Läs mer om undantagshantering i [hantera fel och undantag - egenskapen för RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Mer information om undantags hantering finns i avsnittet [hantera fel och undantag-RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 <a name="retire-date"></a> 
 
-**FRÅGOR OCH**: När är Azure Scheduler tas ur bruk? <br>
-**S**: Azure Scheduler är schemalagd att dra tillbaka den 30 September 2019.
+**F**: När tas Azure Scheduler ur bruk? <br>
+**S**: Azure Scheduler har schemalagts att ta ur bruk den 30 september 2019.
 
-**FRÅGOR OCH**: Vad händer med Mina Scheduler-jobbsamlingar och jobben när tjänsten drar tillbaka? <br>
-**S**: Alla Scheduler-jobbsamlingar och jobben tas bort från systemet.
+**F**: Vad händer med mina jobb samlingar och jobb i Schemaläggaren när tjänsten dras tillbaka? <br>
+**S**: Alla jobb samlingar och jobb i Scheduler tas bort från systemet.
 
-**FRÅGOR OCH**: Måste jag säkerhetskopiera eller utföra andra uppgifter innan du migrerar min Scheduler-jobb till Logic Apps? <br>
-**S**: Du bör alltid säkerhetskopiera ditt arbete. Kontrollera att logikappar som du skapade körs som förväntat innan du tar bort eller inaktivera Scheduler-jobb. 
+**F**: Måste jag säkerhetskopiera eller utföra andra uppgifter innan du migrerar mina jobb i Schemaläggaren till Logic Apps? <br>
+**S**: Vi rekommenderar att du alltid säkerhetskopierar ditt arbete. Kontrol lera att de Logic Apps som du har skapat körs som förväntat innan du tar bort eller inaktiverar dina jobb i Schemaläggaren. 
 
-**FRÅGOR OCH**: Finns det ett verktyg som kan hjälpa mig att migrera Mina jobb från Scheduler till Logic Apps? <br>
-**S**: Varje Scheduler-jobb är unikt, så ett verktyg för enkel inte finns. Men kan olika skript som du kan ändra för dina behov. För skriptet tillgänglighet Kom tillbaka senare.
+**F**: Finns det ett verktyg som kan hjälpa mig att migrera mina jobb från Scheduler till Logic Apps? <br>
+**S**: Varje Scheduler-jobb är unikt, vilket innebär att det inte finns något verktyg med en storlek som passar alla. Men olika skript är tillgängliga så att du kan ändra dem efter dina behov. För skript tillgänglighet, kom tillbaka senare.
 
-**FRÅGOR OCH**: Var kan jag få support för att migrera min Scheduler-jobb? <br>
-**S**: Här följer några metoder för att få support: 
+**F**: Var kan jag få support för att migrera mina jobb I Schemaläggaren? <br>
+**S**: Här följer några exempel på hur du kan få support: 
 
 **Azure Portal**
 
-Om din Azure-prenumeration har en plan för betald support, kan du skapa en förfrågan om teknisk support i Azure-portalen. Annars väljer du ett olika supportalternativ.
+Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en teknisk supportbegäran i Azure Portal. Annars kan du välja ett annat support alternativ.
 
-1. På den [Azure-portalen](https://portal.azure.com) Huvudmeny väljer **hjälp + support**.
+1. På [Azure Portal](https://portal.azure.com) huvud menyn väljer du **Hjälp + Support**.
 
-1. Under **stöder**väljer **ny supportbegäran**. Ge den här informationen för din förfrågan:
+1. Under **support**väljer du **ny supportbegäran**. Ange den här informationen för din begäran:
 
-   | Inställning | Värde |
+   | Inställning | Value |
    |---------|-------|
-   | **Typ av problem** | **Teknisk** | 
+   | **Typ av problem** | **Produkt** | 
    | **Prenumeration** | <*your-Azure-subscription*> | 
-   | **Tjänst** | Under **övervakning och hantering**väljer **Scheduler**. | 
+   | **Tjänst** | Välj **Scheduler**Under **övervakning & hantering**. | 
    ||| 
 
-1. Välj önskat supportalternativ. Om du har ett betalt supportavtal väljer **nästa**.
+1. Välj det support alternativ som du vill använda. Om du har en avgiftsbelagd Support plan väljer du **Nästa**.
 
 **Community**
 
-* [Azure Logic Apps-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
+* [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa regelbundet pågående aktiviteter och arbetsflöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md)
-* [Självstudie: Kontrollera trafik med en schemabaserad logikapp](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+* [Skapa regelbundet aktiva uppgifter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+* [Självstudier: Kontrol lera trafiken med en schema-baserad Logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

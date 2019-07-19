@@ -3,17 +3,18 @@ title: Självstudie – Push-överför en uppdaterad containeravbildning till re
 description: Push-överför en ändrad Docker-avbildning till ditt geo-replikerade Azure-containerregister och se sedan ändringarna automatiskt distribueras till webbprogram som körs i flera regioner. Del tre av en serie i tre delar.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e01fdc41d0cc2e65951bd92378eb59f0fd35816a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333425"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310436"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Självstudie: Push-överför en uppdaterad containeravbildning till ett geo-replikerat containerregister för regionala webbprogramdistributioner
 

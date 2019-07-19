@@ -1,7 +1,7 @@
 ---
-title: Översikt över IPv6 för Azure-nätverk (förhandsversion)
+title: Översikt över IPv6 för Azure Virtual Network (för hands version)
 titlesuffix: Azure Virtual Network
-description: IPv6-beskrivning av sökvägar för IPv6-slutpunkter och data i Azure-nätverk.
+description: IPv6-Beskrivning av IPv6-slutpunkter och data Sök vägar i ett virtuellt Azure-nätverk.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,64 +10,72 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 0ec650880a45f6383b24b5ac810fc2ee745806b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62131038"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249837"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Vad är IPv6 för Azure Virtual Network? (Förhandsversion)
 
-IPv6 för Azure Virtual Network (VNET) kan du hantera program i Azure med IPv6 och IPv4-anslutningen både inom ett virtuellt nätverk och till och från Internet. På grund av överbelastning av offentliga IPv4-adresser skapas ofta nya nätverk för mobilitet och Internet of Things (IoT) på IPv6. Även långa upprätta ISP- och mobila nätverk som omvandlas till IPv6. Endast IPv4-tjänster hittar sig på en verklig nackdel på både befintliga och nya marknader. Dual stack IPv4/IPv6-anslutningar kan Azure-baserade tjänster att bläddra bland luckan teknik med globalt tillgängliga, dual-liggande tjänster som lätt ansluter med både befintliga IPv4 och dessa nya IPv6-enheter och nätverk.
+Med IPv6 för Azure Virtual Network (VNet) kan du vara värd för program i Azure med IPv6-och IPv4-anslutning både i ett virtuellt nätverk och till och från Internet. På grund av belastningen på offentliga IPv4-adresser bygger nya nätverk för mobilitet och Sakernas Internet (IoT) ofta på IPv6. Även lång upprättade ISP och mobila nätverk omvandlas till IPv6. Endast IPv4-tjänster kan få en riktig nackdel på både befintliga och nya marknader. Med IPv4/IPv6-anslutning med dubbla stackar kan Azure-värdbaserade tjänster förflytta sig i den här tekniken med globalt tillgängliga, dubbla tjänster som enkelt kan ansluta till både befintliga IPv4 och dessa nya IPv6-enheter och-nätverk.
 
-Azures ursprungliga IPv6-anslutning gör det enkelt att tillhandahålla dual stack (IPv4/IPv6) Internetanslutning för program på Azure. Det möjliggör enkel distribution av virtuella datorer med belastningsutjämnade IPv6-anslutningar för både inkommande och utgående anslutningar. Den här funktionen är fortfarande tillgängliga och mer information finns [här](../load-balancer/load-balancer-ipv6-overview.md).
-IPv6 för Azure-nätverket är mycket mer fullständig aktuella-aktivera fullständig lösningsarkitekturer för IPv6 distribueras i Azure.
+Azures ursprungliga IPv6-anslutning gör det enkelt att tillhandahålla en Internet anslutning med dubbla stackar (IPv4/IPv6) för program som finns i Azure. Det möjliggör enkel distribution av virtuella datorer med belastningsutjämnad IPv6-anslutning för både inkommande och utgående initierade anslutningar. Den här funktionen är fortfarande tillgänglig och mer information finns [här](../load-balancer/load-balancer-ipv6-overview.md).
+IPv6 för Azure Virtual Network är mycket mer komplett – så att fullständiga IPv6-lösnings arkitekturer kan distribueras i Azure.
 
 > [!Important]
-> IPv6 för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> IPv6 för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Följande diagram visar en enkel dual stack (IPv4/IPv6)-distribution i Azure:
+Följande diagram visar en enkel distribution med dubbla stackar (IPv4/IPv6) i Azure:
 
-![IPv6-nätverksdiagram för distribution](./media/ipv6-support-overview/ipv6-sample-diagram.png)
+![Diagram över IPv6-nätverks distribution](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
 ## <a name="benefits"></a>Fördelar
 
-Fördelarna med Azure virtuella nätverk IPv6:
+Fördelar med Azure Virtual Network IPv6:
 
-- Hjälper dig att utöka räckvidden för dina Azure-baserade program till den växande mobila och IOT-marknader.
-- Dubbel stående IPv4/IPv6-virtuella datorer ger flexibilitet för distribution av högsta service. En enda tjänstinstans kan ansluta med både IPv4 och IPv6-kompatibelt Internet-klienter.
-- Bygger på lång tid, stabil Azure VM-till-Internet IPv6-anslutningar.
-- Säker som standard eftersom upprättas endast IPv6-anslutning till Internet när du uttryckligen begär det i din distribution.
+- Hjälper till att utöka räckvidden för dina Azure-värdbaserade program till de växande mobila och Sakernas Internet marknaderna.
+- Dubbla stackade IPv4/IPv6-datorer ger maximal flexibilitet för tjänst distribution. En enskild tjänst instans kan ansluta till både IPv4-och IPv6-kompatibla Internet klienter.
+- Bygger på lång upprättade, stabila Azure VM-till-Internet IPv6-anslutning.
+- Skydda som standard eftersom IPv6-anslutning till Internet endast upprättas när du uttryckligen begär det i distributionen.
 
 ## <a name="capabilities"></a>Funktioner
 
-IPv6-stöd för virtuella datorer innehåller följande funktioner:
+IPv6 för VNet innehåller följande funktioner:
 
-- Azure-kunder kan definiera sina egna adressutrymmen för IPv6-nätverk för att uppfylla behoven i deras program, kunder, eller integrera fullständigt i sina lokala IP-adressutrymme.
-- Dual stack (IPv4 och IPv6) virtuella nätverk med dual stack-undernät kan programmen kan ansluta till resurser för både IPv4 och IPv6 i det virtuella nätverket eller -Internet.
-- Skydda dina resurser med IPv6-regler för Nätverkssäkerhetsgrupper
-- Anpassa routning av IPv6-trafik i ditt virtuella nätverk med användardefinierade vägar – särskilt när möjligheterna med virtuella nätverksinstallationer för att utöka ditt program.
-- IPv6-belastningsutjämnare stöd för att skapa flexibla, skalbara program med Azure DNS-stöd för AAAA-poster för IPv6 offentliga IP-adresser.
-- Lägg enkelt till IPv6-anslutningar till befintliga endast IPv4-distributioner med uppgradering på plats.
-- Skapa dual stack-program som skalas automatiskt till inläsningen med VM-skalningsuppsättningar.
+- Azure-kunder kan definiera sina egna adress utrymmen för det virtuella IPv6-nätverket för att möta behoven hos sina program, kunder eller sömlöst integrera dem i det lokala IP-utrymmet.
+- Virtuella nätverk med dubbla stackar (IPv4 och IPv6) med dubbla stack-undernät gör det möjligt för program att ansluta till både IPv4-och IPv6-resurser i sitt virtuella nätverk eller Internet.
+- Skydda dina resurser med IPv6-regler för nätverks säkerhets grupper
+- Anpassa routningen av IPv6-trafik i det virtuella nätverket med användardefinierade vägar – särskilt när du använder virtuella nätverks installationer för att förstärka ditt program.
+- Låt Internet klienter sömlöst få åtkomst till ditt program med dubbla stackar med hjälp av det protokoll du väljer med Azure DNS stöd för IPv6-poster (AAAA). 
+- Standard IPv6 offentlig Load Balancer stöd för att skapa elastiska, skalbara program som innehåller:
+    - Valfri IPv6-hälso avsökning för att avgöra vilka instanser av backend-poolen som är hälso tillstånd och kan därmed ta emot nya flöden. .  
+    - Valfria utgående regler som ger fullständig deklarativ kontroll över utgående anslutning för skalning och justering av den här funktionen för dina speciella behov.
+    - Valfria flera klient konfigurations inställningar som gör att en enkel belastningsutjämnare kan använda flera offentliga IPv6-IP-adresser, samma klient dels protokoll och port kan återanvändas över klient dels adresser.
+- Offentlig IP-adress på instans nivå tillhandahåller IPv6-Internet anslutning direkt till enskilda virtuella datorer.
+- Lägg enkelt till IPv6-anslutning till befintliga IPv4-distributioner med uppgradering på plats.
+- Skapa dubbla stack-program som automatiskt skalar till din belastning med skalnings uppsättningar för virtuella datorer.
+- Portal stöd för förhands granskningen innehåller interaktiva skapa/redigera/ta bort virtuella nätverk (IPv4 + IPv6) och undernät, IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierade vägar och offentliga IPv6-IP-adresser.  
 
 ## <a name="limitations"></a>Begränsningar
-Förhandsversionen av IPv6 för Azure-nätverket har följande begränsningar:
-- IPv6 för Azure-nätverk (förhandsversion) är tillgänglig i alla Azure-regioner globalt, men endast i globala Azure - inte government-moln.   
-- Portal-support för förhandsversionen är begränsad till att visa endast för mycket men inte alla IPv6-konfigurationen, men IPv6 för virtuella nätverk har fullständigt stöd och dokumentation (med exempel) för IPv6-distribution med Azure Powershell och kommandoradsgränssnittet (CLI).
-- Network Watcher-stöd för förhandsversionen är begränsat till NSG-flödesloggar och nätverkspaket.
-- Belastningen belastningsutjämning support för förhandsversionen är inledningsvis begränsad till Basic Load Balancer.
-- Offentliga IP-adresser på instansnivå (offentliga IP-adresser direkt på en virtuell dator) stöds inte i en förhandsversion.  
-- Virtuell nätverkspeering stöds (regionalt eller globalt) inte i en förhandsversion. 
+För hands versionen av IPv6 för Azure Virtual Network har följande begränsningar:
+- IPv6 för Azure Virtual Network (för hands version) är tillgängligt i alla globala Azure-regioner, men endast i globala Azure – inte i de offentliga molnen.
+- Portal stöd för Standard Load Balancer-komponenter är endast skrivskyddad.  Fullständig support och dokumentation (med exempel) är tillgänglig för Standard Load Balancer-distributioner med hjälp av Azure PowerShell och kommando rads gränssnittet (CLI).   
+- Network Watcher stöd för förhands granskningen är begränsat till NSG flödes loggar och infångade nätverks paket.
+- Peering för virtuella nätverk (regionalt eller globalt) stöds inte i för hands versionen.
+- När du använder standard för externa IPv6-Load Balancer gäller följande begränsningar: 
+  - Utgående regler kan referera till flera offentliga IP-adresser på klient sidan, men kan **inte** referera till ett offentligt IPv6-prefix. IP-publikt prefix stöder endast IPv4-prefix.
+  - Belastnings Utjämnings regler för IPv6 får **inte** använda den *flytande IP-* funktionen. Åter användning av portar på Server dels instanser stöds bara med IPv4.
+- Reservering av ett block med IPv6-adresser som riktas mot Internet stöds inte av funktionen för Azures offentliga IP-adressprefix.
 
 ## <a name="pricing"></a>Prissättning
 
-IPv6-Azure-resurser och bandbredd debiteras enligt samma avgifter som för IPv4. Det finns inga ytterligare eller andra avgifter för IPv6. Du hittar information om priser för [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/), [nätverkets bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/), eller [belastningsutjämnaren](https://azure.microsoft.com/pricing/details/load-balancer/).
+IPv6 Azure-resurser och bandbredd debiteras enligt samma taxa som IPv4. Det finns inga ytterligare eller andra avgifter för IPv6. Du kan hitta information om priser för [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/), [nätverks bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)eller [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [distribuera ett IPv6-dual stack-program med Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
-- Lär dig hur du [distribuera ett IPv6-dual stack-program med Azure CLI](virtual-network-ipv4-ipv6-dual-stack-cli.md).
+- Lär dig hur du [distribuerar ett IPv6-program med dubbla stackar med Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
+- Lär dig hur du [distribuerar ett IPv6-program med dubbla stackar med hjälp av Azure CLI](virtual-network-ipv4-ipv6-dual-stack-cli.md).

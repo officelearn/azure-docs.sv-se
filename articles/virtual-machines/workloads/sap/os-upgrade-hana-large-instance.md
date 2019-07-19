@@ -1,6 +1,6 @@
 ---
-title: Uppgraderingen av operativsystemet för SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Uppgradera operativsystemet för SAP HANA på Azure (stora instanser)
+title: Uppgradering av operativ system för SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Utför uppgradering av operativ system för SAP HANA på Azure (stora instanser)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -11,45 +11,45 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2018
-ms.author: saghorpa
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710019"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869156"
 ---
-# <a name="operating-system-upgrade"></a>Uppgradering av operativsystemet
-Det här dokumentet beskriver vad på uppgradering av operativsystemet på den stora HANA-instanser.
+# <a name="operating-system-upgrade"></a>Uppgradering av operativ system
+I det här dokumentet beskrivs information om uppgraderingar av operativ system på de stora och HANA-instanserna.
 
 >[!NOTE]
->OS-uppgradering är kunder ansvar, stöd för Microsoft hjälper dig att viktiga områden att se upp under uppgraderingen. Du bör kontakta leverantören operativsystemet innan du planerar en uppgradering.
+>Uppgraderingen av operativ systemet är ett kundansvar, men Microsoft Operations support kan hjälpa dig med viktiga områden att titta på under uppgraderingen. Du bör kontakta operativ system leverantören och innan du planerar att uppgradera.
 
-Vid tidpunkten för etablering HLI-enheter, installera Microsoft driftsteamet operativsystemet. Framöver kommer du måste bibehålla operativsystemet (exempel: Korrigeringar, justering, uppgradera osv.) på den HLI-enheten.
+Vid tidpunkten för HLI enhets etablering installerar Microsoft Operations-teamet operativ systemet. Under tiden måste du underhålla operativ systemet (exempel: Korrigeringar, justering, uppgradering osv.) på HLI-enheten.
 
-Innan du större ändringar för operativsystemet (till exempel uppgradera SP1 till SP2), måste du kontakta Microsoft Operations-teamet genom att öppna ett supportärende läsa.
+Innan du gör större ändringar i operativ systemet (till exempel uppgradera SP1 till SP2) måste du kontakta Microsoft Operations team genom att öppna ett support ärende för att konsultera.
 
-Ange följande på din biljett:
+Ta med i din biljett:
 
-* Ditt HLI prenumerations-ID.
-* Namnet på servern.
-* Korrigeringsnivå som du planerar att använda.
-* Det datum som du planerar den här ändringen. 
+* Ditt HLI-prenumerations-ID.
+* Ditt Server namn.
+* Korrigerings nivån som du planerar att tillämpa.
+* Det datum då du planerar den här ändringen. 
 
-Vi rekommenderar du öppnar den här biljett minst en vecka före önskvärt uppgradera datum på grund av att ha driftsteamet som kontrollerar om en uppgradering av inbyggd programvara kommer att vara på din serverbladet.
+Vi rekommenderar att du öppnar den här biljetten minst en vecka före det önskvärda uppgraderings datumet på grund av att drifts teamet kontrollerar om en uppgradering av inbyggd program vara kommer att vara nödvändig på Server bladet.
 
 
-Stödmatris för de olika versionerna för SAP HANA med olika Linux-versioner, se [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+En support mat ris för olika SAP HANA versioner med olika Linux-versioner finns i [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 
 ## <a name="known-issues"></a>Kända problem
 
-Här följer några vanliga kända problem under uppgraderingen:
-- Foundation-programvara (Sök Standardplatser) tas bort när Operativsystemet har uppgraderat SKU typ II klassen SKU. Du måste installera om den kompatibel Sök Standardplatser när OS-uppgradering.
-- Drivrutiner för Ethernet-kort (ENIC och FNIC) återställdes till den äldre versionen. Du måste installera om en kompatibel version av drivrutinerna efter uppgraderingen.
+Följande är några vanliga kända problem under uppgraderingen:
+- I SKU Type II klass-SKU: n för program varu Foundation (SFS) tas den bort efter uppgraderingen av operativ systemet. Du måste installera om den kompatibla SFS efter uppgraderingen av operativ systemet.
+- Ethernet-kort driv rutiner (ENIC och FNIC) återställdes till en äldre version. Du måste installera om den kompatibla versionen av driv rutinerna efter uppgraderingen.
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [säkerhetskopiering och återställning](hana-overview-high-availability-disaster-recovery.md) för OS säkerhetskopiera typ I SKU-klass.
-- Se [säkerhetskopiering av operativsystem för typ II-SKU: er](os-backup-type-ii-skus.md) för typ II-SKU-klassen.
+- Hänvisa till [säkerhets kopiering och återställning](hana-overview-high-availability-disaster-recovery.md) av säkerhets kopierings typ I SKU-klass.
+- Se [säkerhets kopiering av OS för typ II SKU: er av revision 3](os-backup-type-ii-skus.md) -stämplar för typ II SKU-klass.

@@ -1,105 +1,102 @@
 ---
-title: Utvärdera stort antal virtuella VMware-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
-description: Beskriver hur du avgör stort antal virtuella VMware-datorer för migrering till Azure med tjänsten Azure Migrate.
+title: Utvärdera ett stort antal virtuella VMware-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
+description: Beskriver hur du bedömer ett stort antal virtuella VMware-datorer för migrering till Azure med hjälp av tjänsten Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: 6102a1c59be3627b95dc1e0cb1d1d712d5832d2f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811341"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868687"
 ---
-# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Utvärdera stort antal virtuella VMware-datorer för migrering till Azure
+# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella VMware-datorer för migrering till Azure
 
 
-Den här artikeln beskrivs hur du avgör stort (1000-35 000) för lokala virtuella VMware-datorer för migrering till Azure med verktyget Azure Migrate Server-utvärdering
+Den här artikeln beskriver hur du bedömer stora tal (1000-35000) för lokala virtuella VMware-datorer för migrering till Azure med hjälp av verktyget för Azure Migrate Server bedömning
 
-[Azure Migrate](migrate-services-overview.md) tillhandahåller en hubb för verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbetsbelastningar till Microsoft Azure. Hubben innehåller Azure Migrate verktyg och erbjudanden för programvara från tredje part för oberoende programvaruleverantörer (ISV). 
+[Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
-> * Planera för utvärdering i stor skala.
-> * Konfigurera Azure-behörigheter och förbereda VMware för utvärdering.
-> * Skapa ett Azure Migrate-projekt och skapa en utvärdering.
+> * Planera för bedömning i stor skala.
+> * Konfigurera Azure-behörigheter och Förbered VMware för utvärdering.
+> * Skapa ett Azure Migrate projekt och skapa en utvärdering.
 > * Granska utvärderingen när du planerar för migrering.
 
 
 > [!NOTE]
-> Om du vill prova att använda en proof of concept att utvärdera ett par med virtuella datorer innan du utvärdera i stor skala, följa våra [självstudieserien](tutorial-prepare-vmware.md)
+> Om du vill testa ett koncept koncept för att utvärdera ett antal virtuella datorer innan du bedömer i skala följer du våra [själv studie kurser](tutorial-prepare-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planera för utvärdering
 
-När du planerar för utvärdering av stort antal virtuella VMware-datorer, finns det några saker att tänka på:
+När du planerar för utvärdering av ett stort antal virtuella VMware-datorer finns det några saker att tänka på:
 
-- **Planera Azure Migrate-projekt**: Ta reda på hur du distribuerar Azure Migrate-projekt. Till exempel om ditt datacenter finns i olika geografiska områden eller du behöver lagra identifiering, utvärdering eller migreringsrelaterade metadata i ett annat geografiskt område, behöva flera projekt. 
-- **Planera installationer**: Azure Migrate använder en lokal Azure Migrate-installation, som distribueras som en VMware VM att kontinuerligt identifiera virtuella datorer. Installationen övervakar ändringar i miljön, till exempel att lägga till virtuella datorer, diskar och nätverkskort. Den skickar även metadata och prestanda data om dem till Azure. Du måste ta reda på hur många enheter som du behöver distribuera.
-- **Planera konton för identifiering av**: Azure Migrate-installationen använder ett konto med åtkomst till vCenter-servern för att kunna identifiera virtuella datorer för bedömning och migrering. Om du identifiering av över 10 000 virtuella datorer, skapa flera konton.
+- **Planera Azure Migrate projekt**: Ta reda på hur du distribuerar Azure Migrate projekt. Om dina data Center till exempel finns i olika geografiska områden, eller om du behöver lagra identifierings-, utvärderings-eller migrerings-relaterade metadata i en annan geografi, kan du behöva flera projekt. 
+- **Planera utrustning**: Azure Migrate använder en lokal Azure Migrate-installation som distribueras som en virtuell VMware-dator för att kontinuerligt identifiera virtuella datorer. Enheten övervakar miljö ändringar, till exempel att lägga till virtuella datorer, diskar eller nätverkskort. Den skickar även metadata-och prestanda information om dem till Azure. Du måste ta reda på hur många apparater du behöver distribuera.
+- **Planera konton för identifiering**: Azure Migrate-enheten använder ett konto med åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering och migrering. Om du upptäcker fler än 10 000 virtuella datorer konfigurerar du flera konton.
 
 
-## <a name="planning-limits"></a>Planera för gränser
+## <a name="planning-limits"></a>Planerings gränser
  
-Använd de gränser som sammanfattas i den här tabellen för att planera.
+Använd de gränser som sammanfattas i den här tabellen för planering.
 
 **Planering** | **Begränsningar**
 --- | --- 
-**Azure Migrate-projekt** | Utvärdera upp till 35 000 virtuella datorer i ett projekt.
-**Azure Migrate-installation** | En apparat kan bara ansluta till en enda vCenter-Server.<br/><br/> En apparat kan bara associeras med en enda Azure Migrate-projekt.<br/> En apparat kan identifiera upp till 10 000 virtuella datorer på en vCenter-Server.
-**Azure Migrate-utvärdering** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
+**Azure Migrate projekt** | Utvärdera upp till 35 000 virtuella datorer i ett projekt.
+**Azure Migrate-apparat** | En installation kan bara ansluta till en enda vCenter Server.<br/><br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/> En apparat kan identifiera upp till 10 000 virtuella datorer på en vCenter Server.
+**Azure Migrate utvärdering** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
-Här följer vissa exempeldistributioner med dessa gränser i åtanke:
+Här är några exempel på distributioner med dessa begränsningar:
 
 
 **vCenter-server** | **Virtuella datorer på servern** | **Rekommendationen** | **Åtgärd**
 ---|---|---
-En | < 10,000 | Ett Azure Migrate-projekt.<br/> En installation.<br/> En vCenter-konto för identifiering. | Konfigurera enheten, ansluta till vCenter-servern med ett konto.
-En | > 10,000 | Ett Azure Migrate-projekt.<br/> Flera installationer.<br/> Flera vCenter-konton. | Konfigurera enheten för varje 10 000 virtuella datorer.<br/><br/> Ställ in vCenter och dela in inventering för att begränsa åtkomsten för ett konto på mindre än 10 000 virtuella datorer.<br/> Ansluta varje enhet till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som identifieras med olika enheter.
-Flera | < 10,000 |  Ett Azure Migrate-projekt.<br/> Flera installationer.<br/> En vCenter-konto för identifiering. | Konfigurera enheter, ansluta till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som identifieras med olika enheter.
-Flera | > 10,000 | Ett Azure Migrate-projekt.<br/> Flera installationer.<br/> Flera vCenter-konton. | Om identifiering av vCenter Server < 10 000 virtuella datorer, ställa in en tillämpning för varje vCenter-servern.<br/><br/> Om identifiering av vCenter Server > 10 000 virtuella datorer, konfigurera en installation för varje 10 000 virtuella datorer.<br/> Ställ in vCenter och dela in inventering för att begränsa åtkomsten för ett konto på mindre än 10 000 virtuella datorer.<br/> Ansluta varje enhet till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som identifieras med olika enheter.
+Samtidigt | < 10 000 | Ett Azure Migrate projekt.<br/> En-apparat.<br/> Ett vCenter-konto för identifiering. | Konfigurera installationen, Anslut till vCenter Server med ett konto.
+Samtidigt | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Konfigurera installations programmet för varje 10 000-VM.<br/><br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
+Flera | < 10 000 |  Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Ett vCenter-konto för identifiering. | Konfigurera enheter, Anslut till vCenter Server med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
+Flera | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Om vCenter Server identifiering < 10 000 virtuella datorer måste du konfigurera en installation för varje vCenter Server.<br/><br/> Om vCenter Server identifiering > 10 000 virtuella datorer måste du konfigurera en installation för varje 10 000-dator.<br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
 
 
-## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planera identifiering i en miljö med flera innehavare
+## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planera identifiering i en miljö med flera klienter
 
-Om du planerar för en miljö med flera organisationer, kan du begränsa identifiering på vCenter-servern.
+Om du planerar för en miljö med flera klienter kan du begränsa identifieringen på vCenter Server.
 
-- Du kan ange identifieringsomfånget installation till en vCenter Server datacenter, kluster eller mapp för kluster, värd eller mappen för värdar eller enskilda virtuella datorer.
-- Om miljön delas mellan klienter och du inte vill identifiera varje klient separat, kan du begränsa åtkomst till vCenter-kontot som installationen använder för identifiering. 
-    - Om klienterna delar värdar kan du skapa autentiseringsuppgifter med skrivskyddad åtkomst för de virtuella datorerna som hör till specifik klient. 
-    - Använd dessa autentiseringsuppgifter för identifiering av Azure Migrate installation.
-    - Azure Migrate-utvärdering kan inte identifiera virtuella datorer om vCenter-konto har åtkomst beviljas på mappnivå vCenter VM. Mappar av värdar och kluster stöds. 
+- Du kan ställa in identifierings omfånget för enheten på ett vCenter Server Data Center, kluster eller en mapp med kluster, värdar eller en mapp med värdar eller enskilda virtuella datorer.
+- Om din miljö delas mellan klienter och du vill identifiera varje klient separat, kan du begränsa åtkomsten till det vCenter-konto som installeras av enheten. 
+    - Du kanske vill omfånget med VM-mappar om klienterna delar värdar. Azure Migrate kan inte identifiera virtuella datorer om vCenter-kontot har åtkomst beviljad på den virtuella vCenter-mappens nivå. Om du vill begränsa identifieringen av VM-mappar kan du göra det genom att se till att vCenter-kontot har skrivskyddad åtkomst som tilldelats på en VM-nivå. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
 
-## <a name="prepare-for-assessment"></a>Förbereda för utvärdering
+## <a name="prepare-for-assessment"></a>Förbered för utvärdering
 
-Förbered Azure och VMware för server-utvärdering. 
+Förbered Azure och VMware för Server utvärdering. 
 
-1. Kontrollera [VMware stöd för krav och begränsningar](migrate-support-matrix-vmware.md).
-2. Ställ in behörigheter för ditt Azure-konto och interagera med Azure Migrate.
-3. Förbereda VMware för utvärdering.
+1. Kontrol lera [krav och begränsningar för VMware-support](migrate-support-matrix-vmware.md).
+2. Konfigurera behörigheter för ditt Azure-konto för att interagera med Azure Migrate.
+3. Förbered VMware för utvärdering.
 
-
-Följ instruktionerna i [den här självstudien](tutorial-prepare-vmware.md) att konfigurera dessa inställningar.
+Följ anvisningarna i [den här](tutorial-prepare-vmware.md) självstudien för att konfigurera de här inställningarna.
 
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-I enlighet med dina planering krav, gör du följande:
+I enlighet med dina planerings krav gör du följande:
 
-1. Skapa ett Azure Migrate-projekt.
-2. Lägg till verktyget Azure Migrate Server-utvärdering i projekt.
+1. Skapa ett Azure Migrate projekt.
+2. Lägg till verktyget Azure Migrate Server Assessment i projekten.
 
 [Läs mer](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Skapa och granska en utvärdering
 
 1. Skapa utvärderingar för virtuella VMware-datorer.
-1. Granska utvärderingar inför planering av migreringsaktiviteter.
+1. Granska utvärderingarna i förberedelser inför planering av migrering.
 
 
-Följ instruktionerna i [den här självstudien](tutorial-assess-vmware.md) att konfigurera dessa inställningar.
+Följ anvisningarna i [den här](tutorial-assess-vmware.md) självstudien för att konfigurera de här inställningarna.
     
 
 ## <a name="next-steps"></a>Nästa steg
@@ -107,9 +104,9 @@ Följ instruktionerna i [den här självstudien](tutorial-assess-vmware.md) att 
 Den här artikeln innehåller följande avsnitt:
  
 > [!div class="checklist"] 
-> * Planerat att skala Azure Migrate-utvärderingar för virtuella VMware-datorer
-> * Förberedd Azure och VMware för utvärdering
-> * Skapat ett Azure Migrate-projekt och kört utvärderingar
-> * Granskat utvärderingar som förberedelse inför migreringen.
+> * Planerad för att skala Azure Migrate bedömningar för virtuella VMware-datorer
+> * Förbereda Azure och VMware för utvärdering
+> * Skapat ett Azure Migrate-projekt och körde utvärderingar
+> * Granskade utvärderingar inför migrering.
 
-Nu kan [Lär dig hur](concepts-assessment-calculation.md) utvärderingar beräknas och hur du [ändra utvärderingar](how-to-modify-assessment.md).
+Nu kan du [lära dig hur](concepts-assessment-calculation.md) utvärderingar beräknas och hur du [ändrar utvärderingen](how-to-modify-assessment.md).

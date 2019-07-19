@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera handskriven text – REST, Python'
+title: 'Snabbstart: Extrahera utskrift och handskriven text – vila, python'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du extrahera handskriven text från en bild med hjälp av API för visuellt innehåll med Python.
+description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ec58617556ff54bd2273160bb4af80e473ac1693
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 729228b224bdf708fbcf9caf4742f9bb7ad5cff3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603567"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311968"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Extrahera handskriven text med hjälp av REST API för visuellt innehåll och Python
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och python
 
-I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API och [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kan du identifiera handskriven text i en bild och sedan extrahera identifieras tecken till en teckenström som kan användas av datorn.
+I den här snabb starten extraherar du tryckt och/eller handskriven text från en bild genom att använda Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
 > [!IMPORTANT]
-> Till skillnad från den [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) metoden den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) metoden körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället till Batch-Read-metoden returnerar en URI i värdet för den `Operation-Content` svarsfältet för rubriken. Du kan sedan anropa denna URI som representerar den [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API för att både kontrollera status och returnerar resultatet av Batch-Läs-metodanrop.
+> Till skillnad från [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -metoden körs [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -metoden asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Content` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
-[![Starta Binder knappen](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Knappen starta binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -43,11 +43,11 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kod till en textredigerare.
 1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
-    1. Ersätt värdet för `vision_base_url` med slutpunktens API för visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
-    1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild från vilken du vill extrahera handskriven text.
-1. Spara koden som en fil med tillägget `.py`. Till exempel `get-handwritten-text.py`.
+    1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
+    1. Du kan också ersätta värdet för `image_url` med URL: en för en annan bild som du vill extrahera text från.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-text.py`.
 1. Öppna ett kommandotolksfönster.
-1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python get-handwritten-text.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python get-text.py`.
 
 ```python
 import requests
@@ -83,7 +83,7 @@ response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
-# Extracting handwritten text requires two API calls: One call to submit the
+# Extracting text requires two API calls: One call to submit the
 # image for processing, the other to retrieve the text found in the image.
 
 # Holds the URI used to retrieve the recognized text.

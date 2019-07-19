@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en princip för web application firewall (WAF) med anpassade regler och standard Ruse för ytterdörren – Azure PowerShell
-description: Lär dig hur du konfigurerar en WAF princip består av både anpassade och hanterade regler för en befintlig ytterdörren slutpunkt.
+title: Konfigurera en princip för brand vägg för webbaserade program (WAF) med anpassade regler och standard-Ruse som är inställda för front dörren – Azure PowerShell
+description: Lär dig hur du konfigurerar en WAF-princip består av både anpassade och hanterade regler för en befintlig front dörrs slut punkt.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,26 +10,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: ff8330ab8aec7f0e9aa92409ce1eafd5be5ceeaf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: e9509172ac96a601235cc16e0d6d83c9b2f51902
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605757"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849126"
 ---
-# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en web application-brandväggsprincip med Azure PowerShell
-Princip för Azure web application firewall (WAF) definierar inspektioner krävs när en begäran kommer till ytterdörren.
-Den här artikeln visar hur du konfigurerar en WAF-princip som består av vissa anpassade regler och med Azure-hanterade standard Ruse ange aktiverat.
+# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en brand Väggs princip för webb program med hjälp av Azure PowerShell
+En princip för Azure Web Application-brandvägg (WAF) definierar kontroller som krävs när en begäran anländer till en front dörr.
+Den här artikeln visar hur du konfigurerar en WAF-princip som består av vissa anpassade regler och med Azure-hanterad standard Ruse-uppsättning aktive rad.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar ställa in en princip för hastighetsbegränsning ställer in din PowerShell-miljö och skapa en profil för åtkomsten.
+Innan du börjar konfigurera en princip för hastighets begränsning ställer du in din PowerShell-miljö och skapar en profil för en front dörr.
 ### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
 Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan, för att logga in med dina autentiseringsuppgifter för Azure, och installerar Az PowerShell-modulen.
+Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
 
 #### <a name="sign-in-to-azure"></a>Logga in på Azure
 ```
@@ -42,17 +43,17 @@ Se till att du har installerat den senaste versionen av PowerShellGet, innan du 
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
 
-#### <a name="install-azfrontdoor-module"></a>Installera Az.FrontDoor-modulen 
+#### <a name="install-azfrontdoor-module"></a>Installera AZ. ytterdörr-modulen 
 
 ```
 Install-Module -Name Az.FrontDoor
 ```
-### <a name="create-a-front-door-profile"></a>Skapa en ytterdörren-profil
-Skapa en profil för åtkomsten genom att följa anvisningarna som beskrivs i [snabbstarten: Skapa en ytterdörren-profil](quickstart-create-front-door.md)
+### <a name="create-a-front-door-profile"></a>Skapa en profil för en front dörr
+Skapa en profil för en frontend-dörr genom att följa [anvisningarna i snabb start: Skapa en profil för en front dörr](quickstart-create-front-door.md)
 
 ## <a name="custom-rule-based-on-http-parameters"></a>Anpassad regel baserat på http-parametrar
 
-I följande exempel visas hur du konfigurerar en anpassad regel med två matchningsvillkor med [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject). Begäranden som kommer från en angiven plats som definieras av referent och frågesträngen innehåller inte ”lösenord”. 
+I följande exempel visas hur du konfigurerar en anpassad regel med två matchnings villkor med hjälp av [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject). Begär Anden kommer från en angiven plats som definieras av referent, och frågesträngen innehåller inte "Password". 
 
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
@@ -60,40 +61,40 @@ $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -O
 $AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
-## <a name="custom-rule-based-on-http-request-method"></a>Anpassad regel baserat på http-frågemetoden
-Skapa en regel som blockerar ”PLACERA” metod använda [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) på följande sätt:
+## <a name="custom-rule-based-on-http-request-method"></a>Anpassad regel baserat på http-metod för begäran
+Skapa en regel för att blockera "sätt" [-metoden med New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) enligt följande:
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
 $BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
-## <a name="create-a-custom-rule-based-on-size-constraint"></a>Skapa en anpassad regel som baseras på storleken begränsning
+## <a name="create-a-custom-rule-based-on-size-constraint"></a>Skapa en anpassad regel baserat på storleks begränsning
 
-I följande exempel skapas en regel som blockerar begäranden med URL: en som är längre än 100 tecken med Azure PowerShell:
+I följande exempel skapas en blockerande regel för att blockera begär Anden med en URL som är längre än 100 tecken med Azure PowerShell:
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
 $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
-## <a name="add-managed-default-rule-set"></a>Lägg till hanterade standard regeluppsättning
+## <a name="add-managed-default-rule-set"></a>Lägg till hanterad standard regel uppsättning
 
-I följande exempel skapas en hanterad standard regeluppsättning med Azure PowerShell:
+I följande exempel skapas en hanterad standard regel uppsättning med hjälp av Azure PowerShell:
 ```powershell-interactive
 $managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
-## <a name="configure-a-security-policy"></a>Konfigurera en säkerhetsprincip
+## <a name="configure-a-security-policy"></a>Konfigurera en säkerhets princip
 
-Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Konfigurera en säkerhetsprincip med regler som skapats i föregående steg med [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resursgruppen som innehåller ytterdörren profilen.
+Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp `Get-AzResourceGroup`av. Konfigurera sedan en säkerhets princip med skapade regler i föregående steg med [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren.
 
 ```powershell-interactive
 $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
-## <a name="link-policy-to-a-front-door-front-end-host"></a>Länk-princip till en ytterdörren frontend-värd
-Länka säkerhetsobjekt för principen till en befintlig klient ytterdörren-värd och uppdatera ytterdörren egenskaper. Först hämta det ytterdörren objekt genom att använda [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
-Nu ska vi Konfigurera klient *WebApplicationFirewallPolicyLink* egenskap enligt den *resourceId* för ”$myWAFPolicy$” skapade i föregående steg med [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
+## <a name="link-policy-to-a-front-door-front-end-host"></a>Länka princip till en frontend-slutpunkt
+Länka objektet säkerhets princip till en befintlig frontend-slutpunkt på klient sidan och uppdatera egenskaperna för front dörren. Börja med att hämta det främre dörr objektet med [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
+Sedan ställer du in egenskapen frontend- *WebApplicationFirewallPolicyLink* till *resourceId* för "$myWAFPolicy $" som skapades i föregående steg med [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
 
-I exemplet nedan använder Resursgruppnamnet *myResourceGroupFD1* profilen med antagandet att du har skapat åtkomsten med hjälp av instruktionerna i den [snabbstarten: Skapa en ytterdörren](quickstart-create-front-door.md) artikeln. I det exemplet nedan ersätter $frontDoorName med namnet på din ytterdörren-profil. 
+I exemplet nedan används resurs grupps namnet *myResourceGroupFD1* med antagandet att du har skapat en profil för front dörren med instruktioner som finns i [snabb starten: Skapa en artikel i](quickstart-create-front-door.md) front dörren. I exemplet nedan ersätter du $frontDoorName med namnet på din profil för din front dörr. 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -104,9 +105,9 @@ I exemplet nedan använder Resursgruppnamnet *myResourceGroupFD1* profilen med a
  ```
 
 > [!NOTE]
-> Du behöver bara ange *WebApplicationFirewallPolicyLink* egenskap en gång för att länka en säkerhetsprincip för till en frontend ytterdörren. Efterföljande uppdateringar tillämpas automatiskt på klientdelen.
+> Du behöver bara ange egenskapen *WebApplicationFirewallPolicyLink* en gång för att länka en säkerhets princip till en front dörrs klient del. Efterföljande princip uppdateringar tillämpas automatiskt på klient delen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [ytterdörren](front-door-overview.md) 
-- Läs mer om [WAF för ytterdörren](waf-overview.md)
+- Läs mer om [front dörren](front-door-overview.md) 
+- Läs mer om [WAF för front dörren](waf-overview.md)

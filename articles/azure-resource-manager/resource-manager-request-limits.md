@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705124"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302834"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsningsbegäranden Resource Manager
 
-För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till säkerhetsobjekt (användare eller program) gör begäranden och prenumerations-ID eller klient-ID. Om din begäran kommer från mer än säkerhetsobjekt, är din gräns i en prenumeration eller -klient större än 12 000 och 1 200 per timme.
+För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till säkerhetsobjektet (användare eller program) som gör begär Anden och prenumerations-ID eller klient-ID. Om dina begär Anden kommer från fler än ett säkerhets objekt är gränsen för din prenumeration eller klient större än 12 000 och 1 200 per timme.
 
-Begäranden som tillämpas på din prenumeration eller din klient. Prenumerationsbegäranden är sådana som rör skicka ditt prenumerations-ID, till exempel hämtar resursgrupper i prenumerationen. Klient-begäranden inkluderar inte ditt prenumerations-ID, till exempel hämta giltiga Azure-platser.
+Begäranden som tillämpas på din prenumeration eller din klient. Prenumerations förfrågningar är sådana som innebär att du skickar ditt prenumerations-ID, till exempel att hämta resurs grupperna i din prenumeration. Klient-begäranden inkluderar inte ditt prenumerations-ID, till exempel hämta giltiga Azure-platser.
 
 Dessa begränsningar gäller för varje Azure Resource Manager-instans. Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  Så i praktiken gränserna är effektivt mycket högre än de här gränserna, som användare är begäranden vanligtvis underhålls av många olika instanser.
 
-Om ditt program eller skript når gränserna kan behöva du begränsa dina önskemål. Den här artikeln visar hur du fastställer de återstående begäranden som du har innan du når gränsen och hur du svarar när du har nått gränsen.
+Om ditt program eller skript når gränserna kan behöva du begränsa dina önskemål. Den här artikeln visar hur du avgör de återstående förfrågningar som du har innan du når gränsen och hur du svarar när du har nått gränsen.
 
 När du når gränsen kan du få HTTP-statuskoden **429 för många begäranden**.
 
-Azure Resource Graph begränsar antalet begäranden till dess åtgärder. Stegen i den här artikeln för att fastställa återstående begärandena och hur du svarar när gränsen har nåtts gäller även för resursen Graph. Men anger resursen Graph sin egen gränsen och återställning. Mer information finns i [begränsa i Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+Azure Resource Graph begränsar antalet begär anden till åtgärder. Stegen i den här artikeln för att fastställa de återstående förfrågningarna och hur du svarar när gränsen nås gäller även för resurs diagram. Resurs diagram anger dock sin egen gräns och återställnings takt. Mer information finns i avsnittet [om begränsning i Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Återstående begäranden
-Du kan bestämma antalet återstående begäranden genom att undersöka svarshuvuden. Läsbegäranden returnera ett värde i rubriken för antalet återstående läsbegäranden. Skriva förfrågningar innehålla ett värde för antalet återstående skrivbegäranden. I följande tabell beskrivs de svarshuvuden som du kan undersöka för dessa värden:
+Du kan bestämma antalet återstående begäranden genom att undersöka svarshuvuden. Läs begär Anden returnerar ett värde i rubriken för antalet återstående Läs begär Anden. Skriv förfrågningar innehåller ett värde för antalet återstående Skriv förfrågningar. I följande tabell beskrivs de svarshuvuden som du kan undersöka för dessa värden:
 
 | Svarshuvud | Beskrivning |
 | --- | --- |

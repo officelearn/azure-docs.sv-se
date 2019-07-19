@@ -1,32 +1,33 @@
 ---
-title: Självstudie – flera steg behållare uppgifter - Azure Container Registry uppgifter
-description: I den här självstudien får du lära dig hur du konfigurerar en Azure Container Registry-uppgift för att automatiskt utlösa ett arbetsflöde för flera steg att skapa, köra, och push-överför avbildningar i molnet när du har checkat källkoden till en Git-lagringsplats.
+title: Självstudie – aktiviteter i flera steg med behållare – Azure Container Registry uppgifter
+description: I den här självstudien får du lära dig hur du konfigurerar en Azure Container Registry aktivitet för att automatiskt utlösa ett arbets flöde för flera steg för att skapa, köra och push-behållar avbildningar i molnet när du allokerar käll koden till en git-lagringsplats.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 09b8e5d31bc6a4ec24633889920e2768bb7ce538
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546575"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310417"
 ---
-# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Självstudier: Köra ett arbetsflöde med flera steg behållare i molnet när du har checkat källkoden
+# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Självstudier: Kör ett arbets flöde för flera steg i molnet när du allokerar käll koden
 
-Förutom en [snabb uppgiften](container-registry-tutorial-quick-task.md), ACR-aktiviteter har stöd för flera steg, flera container-baserade arbetsflöden som automatiskt kan utlösa du källkoden till en Git-lagringsplats. 
+Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)stöder ACR-aktiviteter multi-Step-baserade arbets flöden med flera behållare som automatiskt kan utlösas när du allokerar käll koden till en git-lagringsplats. 
 
-Lär dig hur du använder exemplet YAML filer för att definiera aktiviteter med flera steg som skapar, köra, och push-överför en eller flera avbildningar till ett register när du har checkat källkoden i de här självstudierna. Om du vill skapa en uppgift som automatiserar bara en enda avbildning version på kodgenomförande [självstudien: Automatisera avbildningar för behållare i molnet när du har checkat källkoden](container-registry-tutorial-build-task.md). En översikt över ACR uppgifter finns i [framework uppdatering med ACR uppgifter och automatisera OS](container-registry-tasks-overview.md),
+I den här självstudien får du lära dig att använda exempel YAML-filer för att definiera aktiviteter med flera steg som skapar, kör och pushar en eller flera behållar avbildningar till ett register när du allokerar käll koden. Information om hur du skapar en uppgift som bara automatiserar en enda avbildnings version vid kod [genomförande finns i Självstudier: Automatisera behållar avbildningen bygger i molnet när du](container-registry-tutorial-build-task.md)genomför käll koden. En översikt över ACR-aktiviteter finns i [Automatisera OS-och Framework-korrigering med ACR-aktiviteter](container-registry-tasks-overview.md),
 
 I den här självstudien:
 
 > [!div class="checklist"]
-> * Definiera en uppgift för flera steg med hjälp av en YAML-fil
+> * Definiera en multi-Step-aktivitet med en YAML-fil
 > * Skapa en uppgift
-> * Du kan också lägga till autentiseringsuppgifter i uppgiften för att aktivera åtkomst till ett annat register
+> * Du kan också lägga till autentiseringsuppgifter till uppgiften för att ge åtkomst till ett annat register
 > * Testa uppgiften
 > * Visa status för aktivitet
 > * Utlösa uppgiften med en kodincheckning
@@ -35,17 +36,17 @@ Självstudien förutsätter att du redan har slutfört stegen i den [föregåend
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.62** eller senare installerat och loggat in med [az-inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
+Om du vill använda Azure CLI lokalt måste du ha Azure CLI-version **2.0.62** eller senare installerat och loggat in med AZ- [inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-## <a name="create-a-multi-step-task"></a>Skapa en uppgift i flera steg
+## <a name="create-a-multi-step-task"></a>Skapa en aktivitet med flera steg
 
-Nu när du har slutfört stegen som krävs för att aktivera ACR uppgifter att läsa utförandestatus för och skapa webhooks i en databas, kan du skapa en uppgift i flera steg som utlöser att skapa, köra och överföra en behållaravbildning.
+Nu när du har slutfört stegen som krävs för att aktivera ACR-aktiviteter för att läsa inchecknings status och skapa Webhooks i en lagrings plats, skapar du en aktivitet med flera steg som utlöser skapandet, körning och push-överföring av en behållar avbildning
 
 ### <a name="yaml-file"></a>YAML-fil
 
-Du definierar stegen för att en uppgift för flera steg i en [YAML-fil](container-registry-tasks-reference-yaml.md). Den första aktiviteten som exempel flera steg för den här självstudiekursen definieras i filen `taskmulti.yaml`, vilket är i roten av GitHub-lagringsplats som du klonade:
+Du definierar stegen för en aktivitet med flera steg i en [yaml-fil](container-registry-tasks-reference-yaml.md). Det första exemplet på flera steg i den här självstudien definieras i filen `taskmulti.yaml`, som finns i roten av GitHub-lagrings platsen som du har klonat:
 
 ```yml
 version: v1.0.0
@@ -63,15 +64,15 @@ steps:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
 ```
 
-Den här uppgiften med flera steg gör följande:
+Den här aktiviteten i flera steg gör följande:
 
-1. Kör en `build` steg för att skapa en avbildning från Dockerfile som finns i arbetskatalogen. Bild-mål i `Run.Registry`, registret där aktiviteten körs och är märkta med en unik ACR-uppgifter kör ID. 
-1. Kör en `cmd` steg för att köra avbildningen i en tillfällig behållare. Det här exemplet startar en tidskrävande-behållaren i bakgrunden och returnerar behållar-ID, innan den stoppar behållaren. I ett verkligt scenario kan du inkludera steg för att testa behållaren som körs för att säkerställa att det körs korrekt.
-1. I en `push` steg, skickar avbildningen som skapades i kör registret.
+1. Kör ett `build` steg för att bygga en avbildning från Dockerfile i arbets katalogen. Bilden är riktad `Run.Registry`mot, registret där aktiviteten körs och är Taggad med ett unikt ACR-ID för aktiviteter. 
+1. Kör ett `cmd` steg för att köra avbildningen i en tillfällig behållare. Det här exemplet startar en långvarig behållare i bakgrunden och returnerar container-ID: t och stoppar sedan behållaren. I ett verkligt scenario kan du inkludera steg för att testa den behållare som körs för att säkerställa att den fungerar som den ska.
+1. I ett `push` steg skickar den avbildning som har skapats i körnings registret.
 
-### <a name="task-command"></a>Aktivitetskommandot
+### <a name="task-command"></a>Uppgifts kommando
 
-Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller dessa miljövariabler, måste du manuellt ersätta alla värden där det visas i exempelkommandon.
+Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller i de här miljövariablerna måste du ersätta varje värde manuellt var det visas i exempel kommandona.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -79,7 +80,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Nu ska du skapa uppgiften genom att köra följande [az acr uppgift skapa] [ az-acr-task-create] kommando:
+Skapa nu uppgiften genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando:
 
 ```azurecli-interactive
 az acr task create \
@@ -91,9 +92,9 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Den här aktiviteten anger att alla tidskod strävar efter att den *master* gren i databasen som anges av `--context`, ACR aktiviteter ska köra aktiviteten flera steg från kod på det kontoret. YAML-filen som anges av `--file` från databasen definierar roten stegen. 
+Den här uppgiften anger att en viss tids kod allokeras till *huvud* grenen i den databas `--context`som anges av, ACR-aktiviteter kommer att köra multi-Step-aktiviteten från koden i den grenen. YAML-filen som anges `--file` av från lagrings platsens rot definierar stegen. 
 
-Utdata från kommandot [az acr task create][az-acr-task-create] liknar följande:
+Utdata från ett lyckat [AZ ACR uppgift][az-acr-task-create] för att skapa-kommando liknar följande:
 
 ```console
 {
@@ -150,15 +151,15 @@ Utdata från kommandot [az acr task create][az-acr-task-create] liknar följande
 }
 ```
 
-## <a name="test-the-multi-step-workflow"></a>Testa arbetsflödet flera steg
+## <a name="test-the-multi-step-workflow"></a>Testa arbets flödet för flera steg
 
-Om du vill testa aktiviteten flera steg, utlöser den manuellt genom att köra den [az acr-uppgiftskörning] [ az-acr-task-run] kommando:
+Om du vill testa aktiviteten i flera steg aktiverar du den manuellt genom att köra kommandot [AZ ACR Task Run][az-acr-task-run] :
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example1
 ```
 
-Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Utdata visar förloppet för att köra varje uppgift steg. Utdata nedan ryms för att visa viktiga steg.
+Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Utdata visar förloppet för att köra varje aktivitets steg. Utdata nedan komprimeras för att Visa viktiga steg.
 
 ```console
 Queued a run with ID: cf19
@@ -220,7 +221,7 @@ Run ID: cf19 was successful after 18s
 
 Nu när du har testat denna uppgift genom att köra den manuellt utlöser du den automatiskt med en ändring i källkoden.
 
-Kontrollera först att du är i den katalog som innehåller din lokala klon av [lagringsplatsen][sample-repo]:
+Se först till att du befinner dig i katalogen som innehåller din lokala klon av [databasen][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -243,7 +244,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-När du har push-överfört en incheckning till lagringsplatsen, utlöses webhooken som skapats av ACR uppgifter och inleder aktiviteten i Azure Container Registry. Visa loggarna för den uppgift som körs för att kontrollera och övervaka versionsförloppet:
+När du har skickat en incheckning till din lagrings plats, utlöses webhooken som skapats av ACR-aktiviteter och startar uppgiften i Azure Container Registry. Visa loggarna för den uppgift som körs för att kontrollera och övervaka versionsförloppet:
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME
@@ -263,7 +264,7 @@ Run ID: cf1d was successful after 37s
 
 ## <a name="list-builds"></a>Versionslista
 
-Om du vill se en lista över de uppgiftskörningar som ACR Tasks har slutfört för ditt register kör du kommandot [az acr task list-runs][az-acr-task-list-runs]:
+Om du vill se en lista över de aktiviteter som ACR aktiviteter har slutförts för registret, kör du [uppgifts listan AZ ACR-Run (kör][az-acr-task-list-runs] kommando):
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -283,17 +284,17 @@ cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:
 cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
 ```
 
-## <a name="create-a-multi-registry-multi-step-task"></a>Skapa en uppgift för flera registret flera steg
+## <a name="create-a-multi-registry-multi-step-task"></a>Skapa en aktivitet med flera register flera steg
 
-ACR-uppgifter som standard har behörighet att skicka eller hämta avbildningar från registret där aktiviteten körs. Du kanske vill köra en aktivitet i flera steg som riktar sig mot en eller flera register förutom kör registret. Du kan behöva skapa bilder i ett register och lagra bilder med olika taggar i ett andra register som används av ett produktionssystem. Det här exemplet visar hur du skapar en sådan uppgift och ange autentiseringsuppgifter för ett annat register.
+ACR-uppgifter som standard har behörighet att skicka eller hämta bilder från registret där aktiviteten körs. Du kanske vill köra en aktivitet med flera steg som är riktad mot en eller flera register utöver körnings registret. Du kan till exempel behöva skapa avbildningar i ett register och lagra bilder med olika Taggar i ett andra register som används av ett produktions system. Det här exemplet visar hur du skapar en sådan uppgift och anger autentiseringsuppgifter för ett annat register.
 
-Om du inte redan har ett andra register, skapa en för det här exemplet. Om du behöver ett register kan du titta på en [tidigare självstudie](container-registry-tutorial-quick-task.md) eller på [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
+Om du inte redan har ett andra register skapar du ett för det här exemplet. Om du behöver ett register kan du titta på en [tidigare självstudie](container-registry-tutorial-quick-task.md) eller på [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
-Om du vill skapa uppgiften måste namnet på behållarregistrets inloggningsserver som är i formatet *mycontainerregistrydate.azurecr.io* (endast gemener). I det här exemplet använder du andra registret för att lagra bilder som taggats med build datum.
+Om du vill skapa uppgiften behöver du namnet på registrerings servern för registret, som har formatet *mycontainerregistrydate.azurecr.io* (alla gemener). I det här exemplet använder du det andra registret för att lagra bilder som taggats efter build-datum.
 
 ### <a name="yaml-file"></a>YAML-fil
 
-Andra exempel flerstegstest aktiviteten för den här självstudiekursen definieras i filen `taskmulti-multiregistry.yaml`, vilket är i roten av GitHub-lagringsplats som du klonade:
+Det andra exemplet på flera steg i den här självstudien definieras i filen `taskmulti-multiregistry.yaml`, som finns i roten av GitHub-lagrings platsen som du har klonat:
 
 ```yml
 version: v1.0.0
@@ -313,17 +314,17 @@ steps:
   - {{.Values.regDate}}/hello-world:{{.Run.Date}}
 ```
 
-Den här uppgiften med flera steg gör följande:
+Den här aktiviteten i flera steg gör följande:
 
-1. Kör två `build` stegen för att skapa avbildningar från Dockerfile som finns i arbetskatalogen:
-    * Den första är riktad mot den `Run.Registry`, registret där aktiviteten körs och är märkta med ACR-uppgifter kör ID. 
-    * Andra mål i registret som identifieras av värdet för `regDate`, som du angav när du skapar aktiviteten (eller ange via en extern `values.yaml` filen skickas till `az acr task create`). Den här avbildningen är taggad med kör datum.
-1. Kör en `cmd` steg för att köra något av de inbyggda behållarna. Det här exemplet startar en tidskrävande-behållaren i bakgrunden och returnerar behållar-ID, innan den stoppar behållaren. I ett verkligt scenario kan du testa en behållare som körs för att säkerställa att det körs korrekt.
-1. I en `push` steg, skickar bilder som har skapats, först med att köra registret, andra i registret som identifieras av `regDate`.
+1. Kör två `build` steg för att bygga avbildningar från Dockerfile i arbets katalogen:
+    * Det första målet `Run.Registry`är, registret där aktiviteten körs och är märkt med körnings-ID: t för ACR Tasks. 
+    * Den andra är målet för registret som identifieras av värdet `regDate`för, som du anger när du skapar aktiviteten (eller genom att ange en `values.yaml` extern fil som `az acr task create`skickas till). Den här bilden är märkt med körnings datumet.
+1. Kör ett `cmd` steg för att köra en av de inbyggda behållarna. Det här exemplet startar en långvarig behållare i bakgrunden och returnerar container-ID: t och stoppar sedan behållaren. I ett verkligt scenario kan du testa en behållare som körs för att säkerställa att den fungerar som den ska.
+1. I ett `push` steg skickar de avbildningar som har skapats, först till körnings registret, den andra till registret som identifieras av `regDate`.
 
-### <a name="task-command"></a>Aktivitetskommandot
+### <a name="task-command"></a>Uppgifts kommando
 
-Med shell miljövariabler som definierats tidigare, skapa uppgiften genom att köra följande [az acr uppgift skapa] [ az-acr-task-create] kommando. Ersätt namnet på registret för *mycontainerregistrydate*.
+Använd de variabler som definierats ovan för att skapa uppgiften genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando. Ersätt namnet på registret för *mycontainerregistrydate*.
 
 ```azurecli-interactive
 az acr task create \
@@ -336,13 +337,13 @@ az acr task create \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
 
-### <a name="add-task-credential"></a>Lägg till autentiseringsuppgift för uppgift
+### <a name="add-task-credential"></a>Lägg till autentiseringsuppgifter för aktivitet
 
-För push-avbildningar i registret som identifieras av värdet för `regDate`, använda den [az acr uppgift autentiseringsuppgifter lägger du till] [ az-acr-task-credential-add] kommando för att lägga till inloggningsuppgifterna för det registret i uppgiften.
+Om du vill skicka avbildningar till registret som identifieras med `regDate`värdet för använder du kommandot [AZ ACR Task Credential Add][az-acr-task-credential-add] för att lägga till inloggnings uppgifter för det registret till aktiviteten.
 
-I det här exemplet rekommenderar vi att du skapar en [tjänstens huvudnamn](container-registry-auth-service-principal.md) med åtkomst till registret tillhöra den *AcrPush* roll. Om du vill skapa tjänstens huvudnamn finns i den här [Azure CLI-skript](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+I det här exemplet rekommenderar vi att du skapar ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) med åtkomst till registret som omfattas av *AcrPush* -rollen. Information om hur du skapar tjänstens huvud namn finns i det här [Azure CLI-skriptet](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Skicka service principal program-ID och lösenord i följande `az acr task credential add` kommando:
+Överför program-ID och lösen ord för tjänstens huvud `az acr task credential add` namn i följande kommando:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \
@@ -352,19 +353,19 @@ az acr task credential add --name example2 \
     --password <service-principal-password>
 ```
 
-CLI Returnerar namnet på behållarregistrets inloggningsserver som du har lagt till.
+CLI returnerar namnet på den registrerings Server för registret som du har lagt till.
 
-### <a name="test-the-multi-step-workflow"></a>Testa arbetsflödet flera steg
+### <a name="test-the-multi-step-workflow"></a>Testa arbets flödet för flera steg
 
-Som i föregående exempel, om du vill testa aktiviteten flera steg, utlöser den manuellt genom att köra den [az acr-uppgiftskörning] [ az-acr-task-run] kommando. Om du vill starta uppgiften med ett åtagande på Git-lagringsplatsen, finns i avsnittet [utlösa en build med ett åtagande](#trigger-a-build-with-a-commit).
+Som i föregående exempel för att testa multi-Step-aktiviteten utlöser du den manuellt genom att köra kommandot [AZ ACR Task Run][az-acr-task-run] . Information om hur du utlöser uppgiften med en incheckning av Git-lagringsplatsen finns i avsnittet [utlösa en version med incheckning](#trigger-a-build-with-a-commit).
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Som visar tidigare, utdata förloppet för att köra varje uppgift steg. Utdata är ryms för att visa viktiga steg
+Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Som tidigare visar utdata förloppet för att köra varje aktivitets steg. Utdata komprimeras för att Visa viktiga steg
 
-Utdata:
+Resultat:
 
 ```console
 Queued a run with ID: cf1g
@@ -462,7 +463,7 @@ Run ID: cf1g was successful after 46s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa flera steg, flera container-baserad uppgifter som sätts automatiskt när du har checkat källkoden till en Git-lagringsplats. Mer avancerade funktionerna i flera steg aktiviteter, inklusive körning av parallella program och beroende steg, finns i den [ACR uppgifter YAML referens](container-registry-tasks-reference-yaml.md). Gå vidare till nästa självstudie för att lära dig att skapa uppgifter som utlöser versioner när en containeravbildnings basavbildning uppdateras.
+I den här självstudien har du lärt dig hur du skapar multi-Step, multi-container-baserade uppgifter som automatiskt utlöses när du allokerar käll koden till en git-lagringsplats. Avancerade funktioner i aktiviteter i flera steg, inklusive parallell-och beroende steg körning, finns i [ACR tasks yaml Reference](container-registry-tasks-reference-yaml.md). Gå vidare till nästa självstudie för att lära dig att skapa uppgifter som utlöser versioner när en containeravbildnings basavbildning uppdateras.
 
 > [!div class="nextstepaction"]
 > [Automatisera versioner i basavbildningsuppdateringar](container-registry-tutorial-base-image-update.md)

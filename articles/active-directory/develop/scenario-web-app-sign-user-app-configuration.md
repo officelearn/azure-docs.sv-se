@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (kod-konfiguration) – Microsoft identity-plattformen
-description: Lär dig att skapa en webbapp som loggar in användare (konfiguration av kod)
+title: Webbapp som loggar in användare (kod konfiguration) – Microsoft Identity Platform
+description: Lär dig hur du skapar en webbapp som loggar in användare (kod konfiguration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,37 +15,37 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: c962e95b3d213c4089b51f58139cab17a3332cbd
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785487"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853073"
 ---
-# <a name="web-app-that-signs-in-users---code-configuration"></a>Webbapp som loggar in användare - kod-konfiguration
+# <a name="web-app-that-signs-in-users---code-configuration"></a>Webbapp som loggar in användare – kod konfiguration
 
 Lär dig hur du konfigurerar koden för din webbapp som loggar in användare.
 
 ## <a name="libraries-used-to-protect-web-apps"></a>Bibliotek som används för att skydda Web Apps
 
 <!-- This section can be in an include for Web App and Web APIs -->
-De bibliotek som används för att skydda en Webbapp (och ett webb-API) är:
+De bibliotek som används för att skydda en webbapp (och ett webb-API) är:
 
 | Plattform | Bibliotek | Beskrivning |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Identitet modelltillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity-tillägg för .NET föreslår används direkt av ASP.NET och ASP.NET Core, en uppsättning DLL: er som kör både .NET Framework och .NET Core. Från en ASP.NET/ASP.NET Core webb-app kan du styra tokenvalidering med hjälp av den **TokenValidationParameters** klass (särskilt i vissa situationer ISV) |
+| ![.NET](media/sample-v2-code/logo_net.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity Extensions för .NET används direkt av ASP.NET och ASP.NET Core och avser en uppsättning dll: er som kör både på .NET Framework och .NET Core. Från en ASP.NET/ASP.NET Core-webbapp kan du kontrol lera token-verifiering med **TokenValidationParameters** -klassen (särskilt i vissa ISV-scenarier) |
 
-## <a name="aspnet-core-configuration"></a>ASP.NET Core-konfiguration
+## <a name="aspnet-core-configuration"></a>ASP.NET Core konfiguration
 
-Kodfragment i den här artikeln och följande extraheras från den [stegvisa självstudier, kapitel för ASP.NET Core Web app 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Du kanske vill referera till självstudien för information om fullständig implementering.
+Kodfragment i den här artikeln och följande extraheras från den stegvisa självstudien för [ASP.net Core Web App, kapitel 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Du kanske vill referera till den här självstudien för fullständig implementerings information.
 
-### <a name="application-configuration-files"></a>Konfigurationsfiler för programmet
+### <a name="application-configuration-files"></a>Konfigurationsfiler för program
 
-I ASP.NET Core, en Web application logga in användare med Microsoft identity-plattformen konfigureras via den `appsettings.json` filen. De inställningar som du måste fylla är:
+I ASP.net Core konfigureras inloggnings användare för webb program med Microsoft Identity Platform via `appsettings.json` filen. De inställningar som du behöver fylla i är:
 
 - molnet `Instance` om du vill att din app ska köras i nationella moln
-- målgruppen i `tenantId`
-- den `clientId` för ditt program, som kopieras från Azure-portalen.
+- mål gruppen i`tenantId`
+- `clientId` för ditt program, som kopieras från Azure Portal.
 
 ```JSon
 {
@@ -58,7 +58,7 @@ I ASP.NET Core, en Web application logga in användare med Microsoft identity-pl
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -72,7 +72,7 @@ I ASP.NET Core, en Web application logga in användare med Microsoft identity-pl
 }
 ```
 
-Det finns en annan fil som innehåller URL: en i ASP.NET Core (`applicationUrl`) och SSL-porten (`sslPort`) för ditt program, samt olika profiler.
+I ASP.net Core finns det en annan fil som innehåller URL: en`applicationUrl`() och SSL-porten`sslPort`() för ditt program samt olika profiler.
 
 ```JSon
 {
@@ -104,16 +104,16 @@ Det finns en annan fil som innehåller URL: en i ASP.NET Core (`applicationUrl`)
 }
 ```
 
-I Azure-portalen, svars-URI: er som du behöver registrera i den **autentisering** sidan för ditt program måste matcha dessa URL: er, det vill säga för två konfigurationsfilerna ovan kan vara de `https://localhost:44321/signin-oidc` som applicationUrl är `http://localhost:3110` men `sslPort` är angivna (44321), och `CallbackPath` är `/signin-oidc` enligt definitionen i den `appsettings.json`.
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. det vill säga för de två konfigurationsfilerna ovan skulle de vara `https://localhost:44321/signin-oidc` som `http://localhost:3110` applicationUrl, `sslPort` men `CallbackPath` har angetts (44321) och är `/signin-oidc` enligt definitionen i `appsettings.json`.
   
-På samma sätt kan logga ut URI skulle anges till `https://localhost:44321/signout-callback-oidc`.
+På samma sätt skulle utloggnings-URI: n vara inställd `https://localhost:44321/signout-callback-oidc`på.
 
-### <a name="initialization-code"></a>Initieringskod
+### <a name="initialization-code"></a>Initierings kod
 
-I ASP.NET Core-Webbappar och webb-API: er, kod gör initieringen av finns i den `Startup.cs` filen, och om du vill lägga till autentisering med v2.0 för Microsoft Identity-plattformen (tidigare Azure AD), måste du lägga till följande kod. Kommentarerna i koden ska vara självförklarande.
+I ASP.net Core Web Apps (och webb-API: er) finns koden som gör att programmet initieras `Startup.cs` i filen och, för att lägga till autentisering med Microsoft Identity Platform (tidigare Azure AD) v 2.0, måste du lägga till följande kod. Kommentarerna i koden bör vara själv för klar Ande.
 
   > [!NOTE]
-  > Om du startar ditt projekt med standard ASP.NET core web-projekt i Visual studio eller med hjälp av `dotnet new mvc` metoden `AddAzureAD` är tillgängligt som standard eftersom de relaterade paket läses in automatiskt. Men om du skapar ett projekt från grunden och försöker använda den under föreslår vi att du för att lägga till NuGet-paketet **”Microsoft.AspNetCore.Authentication.AzureAD.UI”** till projektet att göra den `AddAzureAD` metod som är tillgänglig.
+  > Om du startar ditt projekt med standard ASP.net Core-webbprojektet i Visual Studio `dotnet new mvc` eller använder `AddAzureAD` -metoden är tillgänglig som standard eftersom de relaterade paketen läses in automatiskt. Men om du skapar ett projekt från grunden och försöker använda koden nedan rekommenderar vi att du lägger till NuGet-paketet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** i projektet för att göra `AddAzureAD` metoden tillgängligt.
   
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -142,7 +142,7 @@ I ASP.NET Core-Webbappar och webb-API: er, kod gör initieringen av finns i den 
 
 ## <a name="aspnet-configuration"></a>ASP.NET-konfiguration
 
-ASP.NET-programmet är konfigurerat via den `Web.Config` fil
+I ASP.net konfigureras programmet via `Web.Config` filen
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -164,7 +164,7 @@ ASP.NET-programmet är konfigurerat via den `Web.Config` fil
   </appSettings>
 ```
 
-Koden som är relaterad till autentisering i ASP.NET-webbapp / webb-API: er finns i den `App_Start/Startup.Auth.cs` filen.
+Koden som är relaterad till autentisering i ASP.net webb program/webb-API: er `App_Start/Startup.Auth.cs` finns i filen.
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)

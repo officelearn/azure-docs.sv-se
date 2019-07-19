@@ -1,6 +1,6 @@
 ---
-title: Ansluta Syslog-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Lär dig hur du ansluter Syslog-data till Azure Sentinel.
+title: Ansluta syslog-data till Azure Sentinel Preview | Microsoft Docs
+description: Lär dig hur du ansluter syslog-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,47 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee7b31a57bc9627776b9ca5445132a4662506134
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611338"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881073"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Ansluta din externa lösning med hjälp av Syslog
+# <a name="connect-your-external-solution-using-syslog"></a>Anslut din externa lösning med syslog
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan ansluta alla lokala installation som stöder Syslog till Sentinel-Azure. Detta görs med hjälp av en agent som baseras på en Linux-dator mellan enheten och Azure Sentinel. Om din Linux-dator i Azure kan strömma du loggar från din enheten eller programmet till en dedikerad arbetsyta som du skapar i Azure och ansluter den. Om din Linux-dator inte finns i Azure kan du strömma loggar från din installation till en dedikerad i lokala virtuella datorn eller datorn där du installerar agenten för Linux. 
+Du kan ansluta alla lokala installationer som stöder Syslog till Azure Sentinel. Detta görs med hjälp av en agent som baseras på en Linux-dator mellan enheten och Azure Sentinel. Om Linux-datorn finns i Azure kan du strömma loggarna från din enhet eller ditt program till en dedikerad arbets yta som du skapar i Azure och ansluter den. Om Linux-datorn inte finns i Azure kan du strömma loggarna från din installation till en dedikerad lokal VM eller dator där du installerar agenten för Linux. 
 
 > [!NOTE]
-> Om din installation stöder Syslog CEF, anslutningen är fullständig och du bör välja det här alternativet och följ instruktionerna i [ansluter data från CEF](connect-common-event-format.md).
+> Om din installation stöder Syslog-CEF är anslutningen mer fullständig och du bör välja det här alternativet och följa anvisningarna i att [ansluta data från CEF](connect-common-event-format.md).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Syslog-anslutningen görs med en agent för Linux. Som standard av agenten för Linux tar emot händelser från Syslog-daemon över UDP, men i fall där en Linux-dator förväntas samla in en stor mängd Syslog-händelser, t.ex. när en Linux-agenten tar emot händelser från andra enheter, konfigurationen har ändrats till Använd TCP-transport mellan Syslog-daemon och agenten.
+Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.
 
-## <a name="connect-your-syslog-appliance"></a>Ansluta din Syslog-installation
+Mer information finns [i syslog-datakällor i Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
-1. I Sentinel-Azure-portalen väljer **datakopplingar** och välj den **Syslog** panelen.
-2. Om din Linux-dator inte är i Azure, hämta och installera Azure Sentinel **agenten för Linux** på din installation. 
-1. Om du arbetar i Azure, Välj eller skapa en virtuell dator som i Azure Sentinel arbetsyta som är dedikerad för att ta emot Syslog-meddelanden. Välj den virtuella datorn i Azure Sentinel-arbetsytor och klicka på **Connect** överst i den vänstra rutan.
-3. Klicka på **konfigurera loggarna som ska anslutas** tillbaka i den Syslog connector-konfigurationen. 
-4. Klicka på **Tryck här för att öppna bladet**.
-1. Välj **Data** och sedan **Syslog**.
-   - Kontrollera att varje resurs som du skickar av Syslog finns i tabellen. För varje funktion ska du övervaka, ange en allvarlighetsgrad. Klicka på **Verkställ**.
-1. Kontrollera att du skickar dem i din Syslog-dator. 
+> [!NOTE]
+> Agenten kan samla in loggar från flera källor, men måste installeras på en dedikerad proxyserver.
 
-3. Om du vill använda relevanta schemat i Log Analytics för Syslog-loggar, Sök efter **Syslog**.
+## <a name="connect-your-syslog-appliance"></a>Anslut syslog-enheten
+
+1. I Azure Sentinel-portalen väljer du **data anslutningar** och väljer **syslog** -raden i tabellen och i fönstret syslog till höger klickar du på **Öppna kopplings sida**.
+2. Om Linux-datorn finns i Azure väljer du **Hämta och installera agent på virtuell Azure Linux-dator**. I fönstret virtuella datorer väljer du de datorer som du vill installera agenten på och klickar på **Anslut** högst upp.
+1. Om Linux-datorn inte är i Azure väljer du **Ladda ned och installera agent på Linux-datorer som inte är Azure-datorer**. I fönstret **Direct agent** kopierar du kommandot under **Ladda ned och onboarding agent for Linux** och kör det på datorn. 
+1. Följ instruktionerna under **Konfigurera loggarna som ska anslutas** i installations fönstret för syslog Connector:
+    1. Klicka på länken för att **Öppna konfigurationen av avancerade inställningar för arbets ytan**. 
+    1. Välj **data**följt av **syslog**.
+    1. I tabellen anger du sedan vilka funktioner du vill att syslog ska samla in. Du bör antingen lägga till eller välja de anläggningar som syslog-apparaten innehåller i sina logg rubriker. Du kan se den här konfigurationen i syslog-enheten i syslog-d i mappen:/etc/rsyslog.d/Security-config-omsagent.conf och i r-syslog under/etc/syslog-ng/Security-config-omsagent.conf. 
+       > [!NOTE]
+       > Om du markerar kryss rutan för att **använda konfigurationen nedan för mina datorer**, kommer den här konfigurationen att gälla för alla Linux-datorer som är anslutna till den här arbets ytan. Du kan se den här konfigurationen i syslog-datorn under 
+1. Klicka på **Tryck här för att öppna konfigurations bladet**.
+1. Välj **data** och sedan **syslog**.
+   - Se till att varje funktion som du skickar av syslog finns i tabellen. Ange en allvarlighets grad för varje funktion som du ska övervaka. Klicka på **Verkställ**.
+1. Kontrol lera att du har skickat dessa anläggningar på syslog-datorn. 
+
+1. Om du vill använda det relevanta schemat i Log Analytics för syslog-loggarna söker du efter **syslog**.
+1. Du kan använda funktionen Kusto som beskrivs i [använda funktioner i Azure Monitor logg frågor](../azure-monitor/log-query/functions.md) för att parsa syslog-meddelanden och sedan spara dem som en ny Log Analytics funktion och sedan använda funktionen som en ny datatyp.
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Syslog lokala installationer till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter syslog-lokala enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).

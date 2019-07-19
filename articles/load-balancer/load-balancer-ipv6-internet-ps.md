@@ -1,10 +1,10 @@
 ---
-title: Skapa en internetuppkopplad belastningsutjämnare med IPv6 - PowerShell
+title: Skapa en belastningsutjämnare mot Internet med IPv6 – PowerShell
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare med IPv6 med hjälp av PowerShell för Resource Manager
+description: Lär dig hur du skapar en belastningsutjämnare mot Internet med IPv6 med hjälp av PowerShell för Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149294"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274973"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Kom igång med att skapa en Internetuppkopplad belastningsutjämnare med IPv6 med hjälp av PowerShell för Resource Manager
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Kom igång med att skapa en belastningsutjämnare mot Internet med IPv6 med hjälp av PowerShell för Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -35,23 +35,23 @@ En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Lastbalanserar
 
 ## <a name="example-deployment-scenario"></a>Exempelscenario för distribution
 
-Följande diagram illustrerar belastningsutjämningslösning som distribueras i den här artikeln.
+Följande diagram illustrerar belastnings Utjämnings lösningen som distribueras i den här artikeln.
 
 ![Lastbalanseringsscenario](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-I det här scenariot skapar du följande Azure-resurser:
+I det här scenariot kommer du att skapa följande Azure-resurser:
 
-* en internetuppkopplad belastningsutjämnare med en IPv4 och en offentlig IPv6-IP-adress
-* Två belastningsutjämningsregler för att mappa de offentliga virtuella IP-adresserna till de privata slutpunkterna
-* en Tillgänglighetsuppsättning som innehåller två virtuella datorer
-* Två virtuella datorer (VM)
-* Ett virtuellt nätverksgränssnitt för varje virtuell dator med både IPv4 och IPv6-adresserna som tilldelats
+* en Internetbaserad Load Balancer med en IPv4-och en offentlig IP-adress för IPv6
+* två belastnings Utjämnings regler för att mappa offentliga VIP-adresser till privata slut punkter
+* en tillgänglighets uppsättning som innehåller de två virtuella datorerna
+* två virtuella datorer (VM)
+* ett virtuellt nätverks gränssnitt för varje virtuell dator med både IPv4-och IPv6-adresser tilldelade
 
 ## <a name="deploying-the-solution-using-the-azure-powershell"></a>Distribuera lösningen med hjälp av Azure PowerShell
 
-Följande steg visar hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager med PowerShell. Med Azure Resource Manager varje resurs skapas och konfigureras individuellt, och läggs sedan ihop för att skapa en resurs.
+Följande steg visar hur du skapar en belastningsutjämnare mot Internet med hjälp av Azure Resource Manager med PowerShell. Med Azure Resource Manager skapas och konfigureras varje resurs individuellt för att skapa en resurs.
 
-För att distribuera en belastningsutjämnare kan du skapa och konfigurera följande objekt:
+Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följande objekt:
 
 * IP-konfiguration på klientsidan – innehåller offentliga IP-adresser för inkommande nätverkstrafik.
 * Backend-adresspool (serverdelspool) – innehåller nätverksgränssnitten (NIC) som de virtuella datorerna använder för att ta emot nätverkstrafik från lastbalanseraren.
@@ -63,7 +63,7 @@ Mer information finns i [Azure Resource Manager-stöd för lastbalanserare](load
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Konfigurera PowerShell för användning med Resource Manager
 
-Kontrollera att du har den senaste produktionsversionen av Azure Resource Manager-modulen för PowerShell.
+Kontrol lera att du har den senaste produktions versionen av Azure Resource Manager-modulen för PowerShell.
 
 1. Logga in på Azure
 
@@ -85,7 +85,7 @@ Kontrollera att du har den senaste produktionsversionen av Azure Resource Manage
     Select-AzSubscription -SubscriptionId 'GUID of subscription'
     ```
 
-4. Skapa en resursgrupp (hoppa över detta steg om du använder en befintlig resursgrupp)
+4. Skapa en resurs grupp (hoppa över det här steget om du använder en befintlig resurs grupp)
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NRP-RG -location "West US"
@@ -100,7 +100,7 @@ Kontrollera att du har den senaste produktionsversionen av Azure Resource Manage
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Skapa Azure offentlig IP-adress (PIP) resurser för frontend IP-adresspoolen. Kom ihåg att ändra värdet för `-DomainNameLabel` innan du kör följande kommandon. Värdet måste vara unikt inom Azure-region.
+2. Skapa resurser för den offentliga IP-adressen (PIP) för klient delens IP-adresspool. Se till att ändra värdet för `-DomainNameLabel` innan du kör följande kommandon. Värdet måste vara unikt inom Azure-regionen.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -108,11 +108,11 @@ Kontrollera att du har den senaste produktionsversionen av Azure Resource Manage
     ```
 
     > [!IMPORTANT]
-    > Belastningsutjämnaren använder domänetiketten för den offentliga IP-Adressen som prefix för dess FQDN. I det här exemplet FQDN: er är *lbnrpipv4.westus.cloudapp.azure.com* och *lbnrpipv6.westus.cloudapp.azure.com*.
+    > Belastningsutjämnaren använder domän etiketten för den offentliga IP-adressen som prefix för dess fullständiga domän namn. I det här exemplet är FQDN-namnen *lbnrpipv4.westus.cloudapp.Azure.com* och *lbnrpipv6.westus.cloudapp.Azure.com*.
 
-## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Skapa en frontend-IP-konfigurationer och en backend-adresspool
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Skapa en IP-konfiguration på klient sidan och en backend-adresspool
 
-1. Skapa frontend-adresskonfiguration som använder de offentliga IP-adresser som du skapade.
+1. Skapa klient dels adress konfiguration som använder de offentliga IP-adresser som du har skapat.
 
     ```azurepowershell-interactive
     $FEIPConfigv4 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
@@ -132,8 +132,8 @@ I det här exemplet skapas följande objekt:
 
 * en NAT-regel som översätter all inkommande trafik på port 443 till port 4443
 * En lastbalanseringsregel som balanserar all inkommande trafik på port 80 till port 80 för adresserna i backend-poolen.
-* en belastningsutjämningsregel som tillåter RDP-anslutning till de virtuella datorerna på port 3389.
-* en avsökningsregel som kontrollerar hälsostatusen på en sida med namnet *HealthProbe.aspx* eller en tjänst på port 8080
+* en belastnings Utjämnings regel som tillåter RDP-anslutning till de virtuella datorerna på port 3389.
+* en avsöknings regel för att kontrol lera hälso statusen på en sida med namnet *HealthProbe. aspx* eller en tjänst på Port 8080
 * en belastningsutjämnare som använder alla dessa objekt
 
 1. Skapa NAT-reglerna.
@@ -158,7 +158,7 @@ I det här exemplet skapas följande objekt:
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    I det här exemplet vi använder TCP-avsökningar.
+    I det här exemplet ska vi använda TCP-avsökningar.
 
 3. Skapa en lastbalanseringsregel.
 
@@ -168,22 +168,22 @@ I det här exemplet skapas följande objekt:
     $RDPrule = New-AzLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
     ```
 
-4. Skapa belastningsutjämnaren med hjälp av objekten som skapats tidigare.
+4. Skapa belastningsutjämnaren med hjälp av de tidigare skapade objekten.
 
     ```azurepowershell-interactive
     $NRPLB = New-AzLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## <a name="create-nics-for-the-back-end-vms"></a>Skapa nätverkskort för backend-virtuella datorer
+## <a name="create-nics-for-the-back-end-vms"></a>Skapa nätverkskort för backend-VM: ar
 
-1. Hämta det virtuella nätverket och virtuellt nätverk, undernät, där nätverkskorten ska skapas.
+1. Hämta Virtual Network-och Virtual Network-undernätet där nätverkskorten måste skapas.
 
     ```azurepowershell-interactive
     $vnet = Get-AzVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
     ```
 
-2. Skapa IP-konfigurationer och nätverkskort för virtuella datorer.
+2. Skapa IP-konfigurationer och nätverkskort för de virtuella datorerna.
 
     ```azurepowershell-interactive
     $nic1IPv4 = New-AzNetworkInterfaceIpConfig -Name "IPv4IPConfig" -PrivateIpAddressVersion "IPv4" -Subnet $backendSubnet -LoadBalancerBackendAddressPool $backendpoolipv4 -LoadBalancerInboundNatRule $inboundNATRule1v4
@@ -195,11 +195,11 @@ I det här exemplet skapas följande objekt:
     $nic2 = New-AzNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Skapa virtuella datorer och tilldela de nyligen skapade nätverkskort
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Skapa virtuella datorer och tilldela de nyligen skapade nätverkskorten
 
-Mer information om hur du skapar en virtuell dator finns i [skapa och förkonfigurera en Windows-dator med Resource Manager och Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Mer information om hur du skapar en virtuell dator finns i [skapa och förkonfigurera en virtuell Windows-dator med Resource Manager och Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
-1. Skapa en Tillgänglighetsuppsättning och lagring
+1. Skapa en tillgänglighets uppsättning och ett lagrings konto
 
     ```azurepowershell-interactive
     New-AzAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
@@ -208,7 +208,7 @@ Mer information om hur du skapar en virtuell dator finns i [skapa och förkonfig
     $CreatedStorageAccount = Get-AzStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
-2. Skapa varje virtuell dator och tilldela den tidigare skapade nätverkskort
+2. Skapa varje virtuell dator och tilldela de tidigare skapade nätverkskorten
 
     ```azurepowershell-interactive
     $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."

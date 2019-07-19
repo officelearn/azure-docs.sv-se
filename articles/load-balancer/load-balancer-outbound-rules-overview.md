@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: Använd utgående regler för att definiera adressöversättningar för utgående nätverkstrafik
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698436"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305582"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -34,7 +34,7 @@ Utgående regler kan du styra:
 - vilka virtuella datorer ska översättas till som offentliga IP-adresser. 
 - hur [utgående SNAT portar](load-balancer-outbound-connections.md#snat) ska allokeras.
 - vilka protokoll som används för att ge utgående översättning för.
-- vilka varaktighet för utgående anslutningstimeout för inaktivitet (4-120 minuter).
+- vilken varaktighet som ska användas för utgående timeout för utgående anslutning (4-120 minuter).
 - Om du vill skicka en TCP-återställning för timeout för inaktivitet (i allmänt tillgänglig förhandsversion). 
 
 Utgående regler Expandera [scenario 2](load-balancer-outbound-connections.md#lb) i beskrivs i den [utgående anslutningar](load-balancer-outbound-connections.md) artikeln och scenario-prioritet förblir som – är.
@@ -84,13 +84,13 @@ Du kan använda följande parameter för att allokera 10 000 SNAT portar per vir
 
           "allocatedOutboundPorts": 10000
 
-Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 51,200 tillfälliga portar för användning som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Till exempel om du allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdel skulle pool delar en enda offentlig IP-adress, konfigurationen är nekade (7 x 10 000 SNAT portar > 51,200 SNAT portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
+Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 51,200 tillfälliga portar för användning som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Om du till exempel allokerar 10 000-portar per virtuell dator och 7 virtuella datorer i en backend-pool delar en enskild offentlig IP-adress, så avvisas konfigurationen (7 x 10 000/SNAT-portar > 51 200/SNAT-portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
 
 Du kan återgå till [automatisk SNAT-porttilldelning baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar.
 
 ### <a name="idletimeout"></a> Timeout för inaktivitet kontroll utgående flöde
 
-Utgående regler ger en konfigurationsparameter för kontroll av tidsgränsen för inaktivitet utgående flödet och matcha den mot programmets behov.  Utgående inaktiv tidsgränser som standard 4 minuter.  Parametern accepterar ett värde mellan 4 och 120 till specifikt antalet minuter innan tidsgränsen för inaktivitet för flöden som matchar den här viss regel.
+Utgående regler ger en konfigurationsparameter för kontroll av tidsgränsen för inaktivitet utgående flödet och matcha den mot programmets behov.  Utgående inaktiv tidsgränser som standard 4 minuter.  Parametern accepterar ett värde från 4 till 120 till ett specifikt antal minuter för tids gränsen för inaktivitet för flöden som matchar den här regeln.
 
 Använd följande parameter och ange utgående tidsgränsen för inaktivitet till 1 timme:
 
@@ -193,22 +193,22 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
    1. Inaktivera utgående SNAT på regeln för belastningsutjämning.
    2. Konfigurera en utgående regel på samma belastningsutjämnare.
    3. Återanvända serverdelspoolen som redan används av dina virtuella datorer.
-   4. Ange ”protokoll”: ”Alla” som en del av regel för utgående trafik.
+   4. Ange "protokoll": "Alla" som en del av regeln för utgående trafik.
 
 - Ingen utgående NAT tillhandahålls när endast inkommande NAT-regler används.
 
    1. Placera virtuella datorer i en serverdelspool.
    2. Definiera en eller flera frontend IP-konfigurationer med offentliga IP-adresser eller offentliga IP-prefix.
    3. Konfigurera en utgående regel på samma belastningsutjämnare.
-   4. Ange ”protokoll”: ”Alla” som en del av utgående regel
+   4. Ange "protokoll": "Alla" som en del av regeln för utgående trafik
 
 ## <a name="limitations"></a>Begränsningar
 
 - Det maximala antalet användbara tillfälliga portar per frontend IP-adress är 51,200.
-- En uppsättning konfigurerbara utgående tidsgränsen för inaktivitet är 4 till 120 minuter (240 7200 sekunder).
+- Intervallet för den konfigurerbara tids gränsen för utgående inaktivitet är 4 till 120 minuter (240 till 7200 sekunder).
 - Belastningsutjämnaren har inte stöd för ICMP för utgående NAT.
 - Portalen kan inte användas för att konfigurera eller visa utgående regler.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
-- Utgående regler kan endast tillämpas på den primära nätverkskortet och den primära IP-konfigurationen.
+- Utgående regler kan bara tillämpas på en primär IP-konfiguration för ett nätverkskort.  Det finns stöd för flera nätverkskort.
 
 ## <a name="next-steps"></a>Nästa steg
 

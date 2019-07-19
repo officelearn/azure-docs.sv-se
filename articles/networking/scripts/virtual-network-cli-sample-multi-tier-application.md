@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: jdial
-ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: timlt
+ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60624457"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295561"
 ---
-# <a name="create-a-network-for-multi-tier-applications"></a>Skapa ett nätverk för flernivåprogram
+# <a name="create-a-network-for-multi-tier-applications"></a>Skapa ett nätverk för program på flera nivåer
 
 Det här skriptexemplet skapar ett virtuellt nätverk med klient- och serverdelsundernät. Trafik till klientdelsundernätet är begränsad till HTTP och SSH, medan trafik till serverdelsundernätet är begränsad till MySQL, port 3306. När du kört skriptet har du två virtuella datorer, en i varje undernät, som du kan distribuera webbservern och MySQL-programvaran till.
 
@@ -53,7 +53,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |
 | [az network subnet create](/cli/azure/network/vnet/subnet) | Skapar ett serverdelsundernät. |
-| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att få åtkomst till den virtuella datorn från Internet. |
 | [az network nic create](/cli/azure/network/nic) | Skapar virtuella nätverksgränssnitt och kopplar dem till det virtuella nätverkets klient- och serverdelsundernät. |
 | [az network nsg create](/cli/azure/network/nsg) | Skapar nätverkssäkerhetsgrupper (NSG) som är kopplade till klient- och serverdelsundernäten. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) |Skapar NSG-regler som tillåter eller blockerar specifika portar till specifika undernät. |
@@ -64,4 +64,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare nätverk CLI-skriptexempel finns i den [Nätverksöversikt för Azure-dokumentation](../cli-samples.md)
+Ytterligare Network CLI-skript exempel finns i översikts [dokumentationen för Azure-nätverk](../cli-samples.md)

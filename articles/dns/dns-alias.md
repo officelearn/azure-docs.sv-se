@@ -1,80 +1,82 @@
 ---
-title: Azure DNS alias poster översikt
-description: Översikt över stöd för alias-poster i Microsoft Azure DNS.
+title: Översikt över Azure DNS Ali Aset-poster
+description: Översikt över stöd för Ali Asets poster i Microsoft Azure DNS.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275735"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314472"
 ---
-# <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
+# <a name="azure-dns-alias-records-overview"></a>Översikt över Azure DNS Ali Aset-poster
 
-Azure DNS alias poster är kvalifikationerna på en DNS-postuppsättning. De kan referera till andra Azure-resurser från DNS-zonen. Du kan till exempel skapa en postuppsättning för alias som refererar till en Azure offentlig IP-adress i stället för en A-post. Ditt alias set pekar på en Azure offentlig IP-adress tjänstinstans dynamiskt. Därför uppdateras alias postuppsättningen sömlöst under DNS-matchning.
+Azure DNS Ali Aset-poster är kvalifikationer i en DNS-postuppsättning. De kan referera till andra Azure-resurser inifrån din DNS-zon. Du kan till exempel skapa en post uppsättning för Ali Aset som refererar till en offentlig Azure-IP-adress i stället för en A-post. Ali Asets post uppsättningen pekar på en Azure offentlig IP-tjänstinstans som är dynamiskt. Detta innebär att Ali Aset kan uppdateras sömlöst under DNS-matchning.
 
-En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-zon: 
+En post uppsättning för Ali Aset stöds för följande post typer i en Azure DNS zon: 
 
 - A
 - AAAA
 - CNAME
 
 > [!NOTE]
-> Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domännamn (FQDN) i slutpunkter. Vi rekommenderar använda statiska IP-adresser.
+> Om du tänker använda en aliasresurspost för post typerna A eller AAAA för att peka på en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du kontrol lera att Traffic Managers profilen bara har [externa slut punkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4-eller IPv6-adressen för externa slut punkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domän namn (FQDN) i slut punkter. Vi rekommenderar att du använder statiska IP-adresser.
 
 ## <a name="capabilities"></a>Funktioner
 
-- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-posten set ändringar automatiskt om den offentliga IP-adressen ändras eller tas bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
+- **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och göra den till en angiven aliasresurspost som pekar på en offentlig IP-resurs. DNS-postuppsättningen ändras automatiskt om den offentliga IP-adressen ändras eller tas bort. Dangling DNS-poster som pekar på felaktiga IP-adresser undviks.
 
-- **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA eller CNAME-post och använda alias poster för att peka på en Traffic Manager-profil. Det är särskilt användbart när du vill dirigera trafik på en basdomänen som traditionella CNAME-poster inte stöds för en zonens apex. Anta exempelvis att Traffic Manager-profilen är myprofile.trafficmanager.net och företag DNS-zonen contoso.com. Du kan skapa ett alias postuppsättningen av typen A/AAAA för contoso.com (basdomänen) och pekar på myprofile.trafficmanager.net.
-- **Peka på en Azure Content Delivery Network (CDN) slutpunkt**. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN.
-- **Peka på en annan DNS-postuppsättning i samma zon.** Aliasposter kan referera till andra postuppsättningar av samma typ. En DNS CNAME-postuppsättning kan till exempel vara ett alias till en annan CNAME-postuppsättning. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
+   Det finns en aktuell gräns på 20 alias post uppsättningar per resurs.
+
+- **Peka på en Traffic Manager profil från en post uppsättning för DNS A/AAAA/CNAME.** Du kan skapa en A/AAAA-eller CNAME-postuppsättning och använda Ali Aset för att peka den på en Traffic Manager profil. Det är särskilt användbart när du behöver dirigera trafik i en zon spets eftersom traditionella CNAME-poster inte stöds för en zon Apex. Anta till exempel att din Traffic Manager-profil är myprofile.trafficmanager.net och att företagets DNS-zon är contoso.com. Du kan skapa en post uppsättning av typen A/AAAA för contoso.com (zon Apex) och peka på myprofile.trafficmanager.net.
+- **Peka på en Azure Content Delivery Network-slutpunkt (CDN)** . Detta är användbart när du skapar statiska webbplatser med hjälp av Azure Storage och Azure CDN.
+- **Peka på en annan DNS-post uppsättning inom samma zon.** Aliasposter kan referera till andra postuppsättningar av samma typ. En DNS CNAME-post uppsättning kan till exempel vara ett alias till en annan CNAME-postuppsättning. Den här ordningen är användbar om du vill att vissa post uppsättningar ska vara alias och vissa icke-alias.
 
 ## <a name="scenarios"></a>Scenarier
 
-Det finns några vanliga scenarier för Alias poster.
+Det finns några vanliga scenarier för Alian tals poster.
 
-### <a name="prevent-dangling-dns-records"></a>Förhindra överflödiga DNS-poster
+### <a name="prevent-dangling-dns-records"></a>Förhindra Dangling DNS-poster
 
-Ett vanligt problem med traditionella DNS-poster överflödiga poster. Till exempel DNS-poster som inte har uppdaterats för att återspegla ändringar till IP-adresser. Problemet uppstår särskilt med A/AAAA- eller CNAME posttyper.
+Ett vanligt problem med traditionella DNS-poster är Dangling-poster. Till exempel DNS-poster som inte har uppdaterats för att återspegla ändringar av IP-adresser. Problemet inträffar särskilt med poster av typen/AAAA eller CNAME.
 
-Med en traditionell DNS-zon post, om det finns inte längre mål-IP- eller CNAME-post, måste DNS-posten som associeras med den uppdateras manuellt. I vissa organisationer kan en manuell uppdatering inte ske i tid på grund av processproblem eller åtskillnad av roller och associerade behörighetsnivåer. En roll kan till exempel ha behörighet att ta bort en CNAME-post eller IP-adress som hör till ett program. Men som har inte tillräcklig behörighet att uppdatera DNS-post som pekar på dessa mål. En fördröjning vid uppdatering av DNS-posten kan eventuellt medföra ett avbrott för användare.
+Om mål-IP eller CNAME inte längre finns med en traditionell DNS-zon post, måste DNS-posten som är kopplad till den uppdateras manuellt. I vissa organisationer kanske en manuell uppdatering inte sker i tid på grund av process problem eller separering av roller och associerade behörighets nivåer. En roll kan till exempel ha behörighet att ta bort en CNAME-eller IP-adress som tillhör ett program. Men det finns inte tillräckligt med behörighet för att uppdatera DNS-posten som pekar på dessa mål. En fördröjning vid uppdatering av DNS-posten kan eventuellt orsaka ett avbrott för användarna.
 
-Alias-poster förhindrar överflödiga referenser nära att koppla livscykeln för en DNS-post med en Azure-resurs. Anta exempelvis att en DNS-post som är kvalificerad som ett aliaspost så att den pekar till en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-aliaspost en tom postuppsättning. Den inte längre refererar till borttagna resursen.
+Ali Asets förhindrar Dangling-referenser genom tätt koppling av livs cykeln för en DNS-post med en Azure-resurs. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den.
 
-### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Uppdatera DNS-postuppsättning automatiskt när programmet IP-adresser ändras
+### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Uppdatera DNS-post – Ställ in automatiskt när program-IP-adresser ändras
 
-Det här scenariot liknar föregående. Kanske ett program har flyttats, eller den underliggande virtuella datorn har startats om. En aliaspost uppdaterar sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-adressresursen. På så sätt undviker potentiella säkerhetsriskerna med att dirigera användarna till ett annat program som har tilldelats den gamla offentliga IP-adressen.
+Det här scenariot liknar det föregående. Kanske ett program flyttas eller den underliggande virtuella datorn startas om. En aliasresurspost uppdateras sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-resursen. På så sätt undviker du potentiella säkerhets risker för att dirigera användarna till ett annat program som har tilldelats den gamla offentliga IP-adressen.
 
-### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Värdprogram för Utjämning av nätverksbelastning i basdomänen
+### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Belastnings Utjämnings program för värd i zonen Apex
 
-Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Till exempel om domänen är contoso.com; Du kan skapa CNAME-poster för somelabel.contoso.com; men du kan inte skapa CNAME-post för contoso.com själva.
-Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom du använder en Traffic Manager-profil kräver skapandet av en CNAME-post, är det inte går att den pekar på Traffic Manager-profilen från zonens apex.
+DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Till exempel om din domän är contoso.com; Du kan skapa CNAME-poster för somelabel.contoso.com; men du kan inte skapa CNAME för contoso.com.
+Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom användning av en Traffic Manager profil kräver att en CNAME-post skapas går det inte att peka på Traffic Manager profilen från zonens Apex.
 
-Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster skapas alias poster i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.
+Det här problemet kan lösas med hjälp av Ali Aset-poster. Till skillnad från CNAME-poster skapas Alian slut poster i zonens Apex och program ägare kan använda den för att peka sin zon spetsig post till en Traffic Manager profil som har externa slut punkter. Program ägare pekar på samma Traffic Manager profil som används för alla andra domäner inom sin DNS-zon.
 
-Till exempel contoso.com och www\.contoso.com kan peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
+Till exempel kan contoso.com och www\.-contoso.com peka på samma Traffic Manager profil. Mer information om hur du använder Ali Asets poster med Azure Traffic Manager-profiler finns i avsnittet Nästa steg.
 
-### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Peka zonens apex på Azure CDN-slutpunkter
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Punkt zon spetsigt till Azure CDN slut punkter
 
-Precis som en Traffic Manager-profil kan du också använda alias poster för att peka DNS-basdomänen på Azure CDN-slutpunkter. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN. Du kan sedan komma åt webbplatsen utan prepending ”www” till din DNS-namnet.
+Precis som en Traffic Manager-profil kan du också använda Ali Aset för att peka din DNS-zon spets till att Azure CDN slut punkter. Detta är användbart när du skapar statiska webbplatser med hjälp av Azure Storage och Azure CDN. Du kan sedan komma åt webbplatsen utan att vänta "www" till ditt DNS-namn.
 
-Till exempel om din statiska webbplats har namnet www.contoso.com, dina användare kan komma åt din webbplats med hjälp av contoso.com utan att behöva lägga till åtkomstgruppen för www till DNS-namn.
+Om din statiska webbplats till exempel heter www.contoso.com kan användarna komma åt din webbplats med hjälp av contoso.com utan att behöva lägga www till DNS-namnet.
 
-Som tidigare nämnts, stöds inte CNAME-poster i basdomänen. Så det går inte att du använder en CNAME-post för att peka contoso.com till CDN-slutpunkten. Använd istället en aliaspost för att peka zonens apex direkt på en CDN-slutpunkt.
+Som tidigare beskrivits stöds inte CNAME-poster i zonens Apex. Därför kan du inte använda en CNAME-post för att peka contoso.com till CDN-slutpunkten. I stället kan du använda en aliasresurspost för att peka zon spetsen mot en CDN-slutpunkt direkt.
 
 > [!NOTE]
-> Pekar en basdomänen till CDN-slutpunkter för Azure CDN från Akamai stöds för närvarande inte.
+> Det finns för närvarande inte stöd för att peka en zon spets till CDN-slutpunkter för Azure CDN från Akamai.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om alias poster, finns i följande artiklar:
+Mer information om aliin poster finns i följande artiklar:
 
-- [Självstudie: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress](tutorial-alias-pip.md)
-- [Självstudie: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](tutorial-alias-tm.md)
+- [Självstudier: Konfigurera en aliasresurspost för att referera till en offentlig Azure-IP-adress](tutorial-alias-pip.md)
+- [Självstudier: Konfigurera en aliasresurspost som stöder spetsiga domän namn med Traffic Manager](tutorial-alias-tm.md)
 - [Vanliga frågor och svar om DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

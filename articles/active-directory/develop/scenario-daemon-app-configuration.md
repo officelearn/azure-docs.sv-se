@@ -1,6 +1,6 @@
 ---
-title: 'Daemon för app anropande webb API: er (konfiguration) - Microsoft identity-plattformen'
-description: 'Lär dig hur du skapar en daemon-app att anrop webb-API: er (konfiguration)'
+title: 'Daemon-app som anropar webb-API: er (app-konfiguration) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er (app-konfiguration)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,63 +12,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 705545fd5167087be1a001c45f58907d6ff225e8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055764"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277829"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon för appen att anrop webb-API: er – kod konfiguration
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
-Lär dig hur du konfigurerar koden för daemon för programmet att anrop webb-API: er.
+Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: er.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>MSAL bibliotek stödjande daemon-appar
+## <a name="msal-libraries-supporting-daemon-apps"></a>MSAL-bibliotek med stöd för daemon-appar
 
-Microsoft-bibliotek som stöd för daemon-appar är:
+Microsoft-bibliotek som stöder daemon-appar är:
 
-  MSAL bibliotek | Beskrivning
+  MSAL-bibliotek | Beskrivning
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds kan skapa en daemon-program är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin.iOS och Xamarin.Android som dessa plattformar används för att skapa offentliga klientprogram)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Utveckling i förlopp – förhandsversion
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Utveckling i förlopp – förhandsversion
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds för att bygga ett daemon-program är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin. iOS och Xamarin. Android som dessa plattformar används för att bygga offentliga klient program)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Utveckling pågår – i offentlig för hands version
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Utveckling pågår – i offentlig för hands version
 
-## <a name="configuration-of-the-authority"></a>Konfiguration av behörighet
+## <a name="configuration-of-the-authority"></a>Behörighets konfiguration
 
-Tanke på att programmen daemon inte använda delegerade behörigheter men programbehörigheter, deras *stöds kontotyp* får inte vara *konton i en organisations katalog och personliga Microsoft-konton () till exempel Skype, Xbox, Outlook.com)* . Det finns faktiskt inga klientadministratör för att ge medgivande till daemon-program för personliga Microsoft-konton. Du måste välja *konton i min organisation* eller *konton i en organisation*.
+Med tanke på att daemon-programmen inte använder delegerade behörigheter, men program behörigheter, kan deras *konto typ som stöds* inte vara *konton i någon organisations katalog och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com)* . Det finns ingen innehavaradministratör för att ge ett medgivande till daemon-programmet för Microsoft-personliga konton. Du måste välja *konton i min organisation* eller *konton i alla organisationer*.
 
-Behörighet som anges i programkonfigurationen bör därför klient-ed (att ange ett klient-ID eller ett domännamn som är associerade med din organisation).
+Den auktoritet som anges i program konfigurationen ska därför vara klient-Ed (ange ett klient-ID eller ett domän namn som är kopplat till din organisation).
 
-Om du är en ISV och vill ge ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du måste också att förklara hur du ger administratörens godkännande till dina kunder. Se [begär godkännande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) mer information. Även det finns för närvarande en begränsning i MSAL som `organizations` tillåts endast när med klientens autentiseringsuppgifter är en programhemlighet (inte ett certifikat). Se [MSAL.NET bugg #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) . Det finns även en begränsning i MSAL som `organizations` endast tillåts när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat). Se [MSAL.net-bugg #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
-## <a name="application-configuration-and-instantiation"></a>Programkonfiguration och instansiering
+## <a name="application-configuration-and-instantiation"></a>Program konfiguration och instansiering
 
-I MSAL bibliotek skickas med klientens autentiseringsuppgifter (hemlighet eller certifikat) som en parameter för program-konstruktion konfidentiell klient.
+I MSAL-bibliotek skickas klientens autentiseringsuppgifter (hemlighet eller certifikat) som en parameter för den konfidentiella klient program konstruktionen.
 
 > [!IMPORTANT]
-> Även om ditt program är ett konsolprogram måste som körs som en tjänst, om det är ett daemonprogram det vara ett konfidentiellt klientprogram.
+> Även om ditt program är ett konsol program som körs som en tjänst, om det är ett daemon-program måste det vara ett konfidentiellt klient program.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-Lägg till den [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paket i ditt program.
+Lägg till [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i ditt program.
 
-Användning av MSAL.NET namnområdet
+Använd MSAL.NET-namnrymd
 
 ```CSharp
 using Microsoft.Identity.Client;
 ```
 
-Daemon för programmet ska visas en `IConfidentialClientApplication`
+Daemon-appen visas av en`IConfidentialClientApplication`
 
 ```CSharp
 IConfidentialClientApplication app;
 ```
 
-Här är koden för att skapa ett program med en programhemlighet:
+Här är koden för att bygga ett program med en program hemlighet:
 
 ```CSharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
@@ -77,7 +77,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-Här är koden för att skapa ett program med ett certifikat:
+Här är koden för att bygga ett program med ett certifikat:
 
 ```CSharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
@@ -86,6 +86,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
+I stället för en klient hemlighet eller ett certifikat kan det konfidentiella klient programmet också bevisa sin identitet med hjälp av klientens intyg. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
+
 
 ### <a name="msalpython"></a>MSAL.Python
 
@@ -120,4 +123,4 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Daemon för app - hämta token för appen](./scenario-daemon-acquire-token.md)
+> [Daemon-app – hämtar token för appen](./scenario-daemon-acquire-token.md)

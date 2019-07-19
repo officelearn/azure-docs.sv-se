@@ -1,6 +1,6 @@
 ---
-title: Anslutningsarkitektur för en hanterad instans i Azure SQL Database | Microsoft Docs
-description: Läs mer om Azure SQL Database-hanterad instans kommunikation och anslutningsarkitektur samt hur komponenterna dirigera trafik till den hanterade instansen.
+title: Anslutnings arkitektur för en hanterad instans i Azure SQL Database | Microsoft Docs
+description: Lär dig mer om Azure SQL Database Hanterad instans-och anslutnings arkitektur samt hur komponenterna dirigerar trafik till den hanterade instansen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,119 +12,119 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522320"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309965"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
-Den här artikeln förklarar kommunikation i en hanterad Azure SQL Database-instans. Här beskrivs också anslutningsarkitektur och hur komponenterna dirigera trafik till den hanterade instansen.  
+I den här artikeln beskrivs kommunikation i en Azure SQL Database Hanterad instans. Den beskriver också anslutnings arkitekturen och hur komponenterna dirigerar trafiken till den hanterade instansen.  
 
-Den hanterade instansen för SQL-databas är placerad i Azure-nätverk och undernät som är dedikerad för hanterade instanser. Den här distributionen innehåller:
+Den SQL Database hanterade instansen placeras inuti det virtuella Azure-nätverket och under nätet som är dedikerat till hanterade instanser. Den här distributionen ger:
 
-- En säker privata IP-adress.
-- Möjligheten att ansluta ett lokalt nätverk till en hanterad instans.
-- Möjligheten att ansluta en hanterad instans till en länkad server eller en annan lokala datalager.
-- Möjlighet att ansluta en hanterad instans till Azure-resurser.
+- En säker privat IP-adress.
+- Möjlighet att ansluta ett lokalt nätverk till en hanterad instans.
+- Möjligheten att ansluta en hanterad instans till en länkad server eller till ett annat lokalt data lager.
+- Möjligheten att ansluta en hanterad instans till Azure-resurser.
 
-## <a name="communication-overview"></a>Översikt över tjänstkommunikation
+## <a name="communication-overview"></a>Översikt över kommunikation
 
-Följande diagram visar de enheter som ansluter till en hanterad instans. Den visar även de resurser som behöver kommunicera med den hanterade instansen. Kommunikationsprocessen längst ned i diagrammet representerar kundprogram och verktyg som ansluter till den hanterade instansen som datakällor.  
+Följande diagram visar entiteter som ansluter till en hanterad instans. Den visar även de resurser som måste kommunicera med den hanterade instansen. Kommunikations processen längst ned i diagrammet representerar kund program och verktyg som ansluter till den hanterade instansen som data källor.  
 
-![Entiteter i anslutningsarkitektur](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entiteter i anslutnings arkitektur](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-En hanterad instans är en plattform-tjänst (PaaS). Microsoft använder automatiska agenter (hantering, distribution och underhåll) för att hantera den här tjänsten baserat på data telemetriströmmar. Eftersom Microsoft ansvarar för hantering, kunder inte åtkomst till de hanterade instansen virtuellt kluster datorerna via Remote Desktop Protocol (RDP).
+En hanterad instans är ett PaaS-erbjudande (Platform as a Service). Microsoft använder automatiserade agenter (hantering, distribution och underhåll) för att hantera den här tjänsten baserat på telemetridata data strömmar. Eftersom Microsoft ansvarar för hantering kan kunder inte komma åt virtuella kluster för hanterade instanser via Remote Desktop Protocol (RDP).
 
-Vissa SQL-Server som är åtgärder som startas av användare eller program kan kräva hanterade instanser för att interagera med plattformen. Ett enda fall är att skapa en hanterad instans-databas. Den här resursen är tillgängliga via Azure portal, PowerShell, Azure CLI och REST-API.
+Vissa SQL Server åtgärder som startas av slutanvändare eller program kan behöva hanterade instanser för att interagera med plattformen. Ett fall är att skapa en hanterad instans databas. Den här resursen exponeras via Azure Portal, PowerShell, Azure CLI och REST API.
 
-Hanterade instanser beror på Azure-tjänster som Azure Storage för säkerhetskopiering, Azure Event Hubs för telemetri, Azure Active Directory för autentisering, Azure Key Vault för Transparent datakryptering (TDE) och ett par Azure plattformstjänster som tillhandahåller funktioner för säkerhet och support. Hanterade instanser är anslutningar till dessa tjänster.
+Hanterade instanser är beroende av Azure-tjänster som Azure Storage för säkerhets kopiering, Azure Event Hubs for telemetri, Azure Active Directory för autentisering, Azure Key Vault för transparent datakryptering (TDE) och ett par Azure Platform-tjänster som tillhandahåller funktioner för säkerhet och support. De hanterade instanserna gör anslutningar till de här tjänsterna.
 
-All kommunikation är krypterat och signerat med certifikat. Om du vill kontrollera trovärdigheten för kommunicerande enheterna som hanteras Kontrollera instanser ständigt dessa certifikat via listor över återkallade certifikat. Om certifikaten har återkallats, stängs den hanterade instansen anslutningar för att skydda data.
+All kommunikation krypteras och signeras med hjälp av certifikat. För att kontrol lera trovärdigheten för kommunicerande parter, verifierar hanterade instanser ständigt dessa certifikat via listor över återkallade certifikat. Om certifikaten återkallas stänger den hanterade instansen anslutningarna för att skydda data.
 
-## <a name="high-level-connectivity-architecture"></a>Övergripande anslutningsarkitektur
+## <a name="high-level-connectivity-architecture"></a>Arkitektur med hög nivå anslutning
 
-På en hög nivå är en uppsättning tjänstkomponenter i en hanterad instans. Dessa komponenter finns på en dedikerad uppsättning isolerade virtuella datorer som körs i kundens virtuella nätverkets undernät. De här datorerna utgör ett virtuellt kluster.
+På hög nivå är en hanterad instans en uppsättning tjänst komponenter. Dessa komponenter finns på en dedikerad uppsättning isolerade virtuella datorer som körs i kundens virtuella nätverks undernät. De här datorerna utgör ett virtuellt kluster.
 
-Ett virtuellt kluster kan ha flera hanterade instanser. Om det behövs kan klustret automatiskt att visas eller döljs när kunden ändras antalet instanser som etablerats i undernätet.
+Ett virtuellt kluster kan vara värd för flera hanterade instanser. Vid behov expanderar klustret automatiskt eller kontrakt när kunden ändrar antalet etablerade instanser i under nätet.
 
-Kundprogram kan ansluta till hanterade instanser, och kan fråga efter och uppdatera databaserna på det virtuella nätverket, peer-kopplade virtuella nätverket, eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slutpunkt och en privat IP-adress.  
+Kund program kan ansluta till hanterade instanser och kan fråga efter och uppdatera databaser inuti det virtuella nätverket, peer-kopplade virtuella nätverk eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slut punkt och en privat IP-adress.  
 
-![Arkitekturdiagram för anslutning](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagram över anslutnings arkitektur](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Microsoft-tjänster för hantering och distribution kör utanför det virtuella nätverket. En hanterad instans och Microsoft-tjänster ansluta via slutpunkter som har offentliga IP-adresser. När en hanterad instans skapar en utgående anslutning på mottagande sidan Network Address Translation (NAT) gör anslutningen ser ut som den kommer från den här offentliga IP-adressen.
+Microsofts hanterings-och distributions tjänster körs utanför det virtuella nätverket. En hanterad instans och Microsoft-tjänster ansluter över de slut punkter som har offentliga IP-adresser. När en hanterad instans skapar en utgående anslutning kommer anslutningen att se ut som om den kommer från den här offentliga IP-adressen när NAT (Network Address Translation) tas emot.
 
-Hantering av trafik flödar genom kundens virtuella nätverk. Det innebär att element i det virtuella nätverkets infrastruktur kan skada hanteringstrafik genom att göra instansen misslyckas och blir otillgänglig.
+Hanterings trafik flödar genom kundens virtuella nätverk. Det innebär att element i det virtuella nätverkets infrastruktur kan skada hanterings trafiken genom att göra instansen misslyckad och bli otillgänglig.
 
 > [!IMPORTANT]
-> För att förbättra kundupplevelsen och tjänsttillgänglighet, tillämpar Microsoft en avsiktlig nätverksprincip på infrastrukturelement för Azure-nätverk. Principen kan påverka hur den hanterade instansen fungerar. Den här plattformen mekanismen kommunicerar transparent nätverkskraven för användare. Principens huvudsakliga målet är att förhindra Nätverkskonfigurationsfel och säkerställa normala hanterad instans-åtgärder. När du tar bort en hanterad instans tas nätverk avsikt principen också bort.
+> För att förbättra kund upplevelsen och tjänstens tillgänglighet tillämpar Microsoft en princip för nätverks avsikt på infrastruktur element för virtuella Azure-nätverk. Principen kan påverka hur den hanterade instansen fungerar. Den här plattforms mekanismen kommunicerar transparent nätverks krav till användare. Principens huvud mål är att förhindra felaktig nätverks konfiguration och se till att vanliga hanterade instans åtgärder säkerställs. När du tar bort en hanterad instans tas även principen för nätverks avsikt bort.
 
-## <a name="virtual-cluster-connectivity-architecture"></a>Virtuellt kluster anslutningsarkitektur
+## <a name="virtual-cluster-connectivity-architecture"></a>Arkitektur för virtuella kluster anslutningar
 
-Låt oss ta en djupdykning i anslutningsarkitektur för hanterade instanser. Följande diagram visar begreppsmässig layouten för det virtuella klustret.
+Låt oss ta en djupare titt på anslutnings arkitekturen för hanterade instanser. Följande diagram visar den konceptuella layouten för det virtuella klustret.
 
-![Anslutningsarkitektur för det virtuella klustret](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Anslutnings arkitektur för det virtuella klustret](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienterna ansluter till en hanterad instans med hjälp av ett värdnamn som har formatet `<mi_name>.<dns_zone>.database.windows.net`. Värddatorns namn matchas till en privat IP-adress, även om den är registrerad i en zon som offentliga Domain Name System (DNS) och är offentligt matchat. Den `zone-id` genereras automatiskt när du skapar klustret. Om ett nyskapat kluster är värd för en sekundär hanterad instans, delar dess zons-ID med det primära klustret. Mer information finns i [använda automatisk växling vid fel grupper för att aktivera transparent och samordnad redundans för flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienter ansluter till en hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net`. Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. `zone-id` Skapas automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Den här privata IP-adressen tillhör den hanterade instansen intern belastningsutjämnare. Belastningsutjämnaren dirigerar trafik till den hanterade instansen gateway. Eftersom flera hanterade instanser kan köras i samma kluster, använder gatewayen värdnamnet för den hanterade instansen för att omdirigera trafik till rätt tjänst för SQL-motor.
+Den här privata IP-adressen tillhör den hanterade instansens interna belastningsutjämnare. Belastningsutjämnaren dirigerar trafiken till den hanterade instansens Gateway. Eftersom flera hanterade instanser kan köras i samma kluster använder gatewayen den hanterade instansens värdnamn för att dirigera om trafik till rätt SQL-motortjänster.
 
-Hantera och distribuera tjänster ansluta till en hanterad instans med hjälp av en [hanteringsslutpunkten](#management-endpoint) att mappas till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som använder bara den hanterade instansen komponenterna. En inbyggd brandvägg på noderna har ställts in så att endast trafik från Microsoft IP-intervall. Certifikat autentisera ömsesidigt all kommunikation mellan komponenterna och Hanteringsplanet.
+Hanterings-och distributions tjänster ansluter till en hanterad instans med hjälp av en [hanterings slut punkt](#management-endpoint) som mappar till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som endast används av hanterings komponenter för den hanterade instansen. En inbyggd brand vägg på noderna har kon figurer ATS för att tillåta trafik enbart från Microsoft IP-intervall. Certifikat autentiserar all kommunikation mellan hanterings komponenter och hanterings planet gemensamt.
 
 ## <a name="management-endpoint"></a>Hanteringsslutpunkt
 
-Microsoft hanterar den hanterade instansen med hjälp av en hanteringsslutpunkt. Den här slutpunkten som finns i den instansen virtuellt kluster. Hanteringsslutpunkten skyddas av en inbyggd brandvägg på nätverksnivå. Den är skyddad med ömsesidig certifikatverifiering på applikationsnivå. Du hittar slutpunkten IP-adress [fastställa IP-adressen för den hanteringsslutpunkten](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft hanterar den hanterade instansen med hjälp av en hanterings slut punkt. Den här slut punkten finns inuti instansens virtuella kluster. Hanterings slut punkten skyddas av en inbyggd brand vägg på nätverks nivå. På program nivå skyddas den av ömsesidig certifikat verifiering. Information om hur du hittar slut punktens IP-adress finns i [bestämma hanterings slut punktens IP-adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-När anslutningar starta i den hanterade instansen (precis som med säkerhetskopior och granskningsloggar), visas trafik för att starta från den hanteringsslutpunkten offentlig IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från en hanterad instans genom att ställa in brandväggsregler som tillåter bara den hanterade instansen IP-adress. Mer information finns i [verifiera den hanterade instansen inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+När anslutningar börjar inuti den hanterade instansen (som med säkerhets kopiering och gransknings loggar), verkar trafiken starta från hanterings slut punktens offentliga IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från en hanterad instans genom att ställa in brand Väggs regler så att endast den hanterade instansens IP-adress anges. Mer information finns i [verifiera den inbyggda brand väggen för den hanterade](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)instansen.
 
 > [!NOTE]
-> Trafik som går till Azure-tjänster som är i regionen för den hanterade instansen är optimerad och därför inte NATed till hanterad instans-hantering endpoint offentlig IP-adress. Därför om du vill använda IP-baserade brandväggsregler, oftast för lagring, service måste vara i en annan region från hanterad instans.
+> Trafik som går till Azure-tjänster som finns i den hanterade instansen är optimerad och därför inte NATed till en offentlig IP-adress för hanterad instans hantering. Av den anledningen, om du behöver använda IP-baserade brand Väggs regler, som oftast finns för lagring, måste tjänsten finnas i en annan region än den hanterade instansen.
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
-Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. Undernätet måste ha följande egenskaper:
+Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** Undernät för den hanterade instansen får inte innehålla andra molntjänst som är associerat med det och den kan inte vara ett gateway-undernät. Undernätet får inte innehålla någon resurs men den hanterade instansen och du senare lägga till inte andra typer av resurser i undernätet.
-- **Nätverkssäkerhetsgrupp (NSG):** En NSG som är associerat med det virtuella nätverket måste definiera [ingående säkerhetsregler](#mandatory-inbound-security-rules) och [utgående säkerhetsregler](#mandatory-outbound-security-rules) innan andra regler. Du kan använda en NSG för att styra åtkomsten till slutpunkten för den hanterade instansen data genom att filtrera trafik på port 1433 och portar 11000 11999 när hanterade instansen har konfigurerats för omdirigera anslutningar.
-- **Användartabell användardefinierad väg (UDR):** En UDR-tabell som är associerat med det virtuella nätverket måste innehålla specifika [poster](#user-defined-routes).
-- **Tjänsten har inga slutpunkter:** Ingen tjänstslutpunkt ska vara associerat med den hanterade instansen undernät. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
-- **Tillräckligt med IP-adresser:** Hanterad instans-undernätet måste ha minst 16 IP-adresser. Rekommenderad minsta är 32 IP-adresser. Mer information finns i [avgör storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat den för att uppfylla [nätverkskrav för hanterade instanser](#network-requirements). Annars skapar du en [nya nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
+- **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
+- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för
+- **Användardefinierad routningstabell (UDR):** En UDR-tabell som är associerad med det virtuella nätverket måste innehålla vissa [poster](#user-defined-routes).
+- **Inga tjänst slut punkter:** Ingen tjänst slut punkt måste vara kopplad till under nätet för den hanterade instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
+- **Tillräckligt med IP-adresser:** Under nätet för hanterade instanser måste ha minst 16 IP-adresser. Det rekommenderade minimivärdet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Du kan inte distribuera en ny hanterad instans om målundernätet saknar följande egenskaper. När du skapar en hanterad instans, har en avsiktlig princip tillämpats på undernätet för att förhindra att nätverksinställningarna för icke-kompatibla ändras. När den senaste instansen tas bort från undernätet, tas avsiktlig nätverksprincipen också bort.
+> Du kan inte distribuera en ny hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
-### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler
+### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Namn       |Port                        |Protocol|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protocol|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|Hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI – UNDERNÄT  |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI – UNDERNÄT  |Tillåt |
+|Hanterings  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-UNDERNÄT  |Allow |
+|mi_subnet   |Any                         |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI-UNDERNÄT  |Allow |
 
-### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler
+### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Namn       |Port          |Protocol|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protocol|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|Hantering  |80, 443, 12000|TCP     |MI – UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Alla           |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
+|Hanterings  |80, 443, 12000|TCP     |MI-UNDERNÄT        |AzureCloud |Allow |
+|mi_subnet   |Any           |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
 
 > [!IMPORTANT]
-> Se till att det finns bara en inkommande regel för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterade instans etablering via Azure Resource Manager distributioner kommer att misslyckas om inkommande och utgående regler konfigureras separat för varje port. Om dessa portar finns i separata regler kan misslyckas distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
+> Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 80, 443, 12000. Hantering av hanterade instanser via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler Miss fungerar distributionen med felkod`VnetSubnetConflictWithIntendedPolicy`
 
-\* MI – UNDERNÄT refererar till IP-adressintervall för undernätet i formuläret 10.x.x.x/y. Du hittar den här informationen i Azure-portalen i undernätsegenskaperna för.
+\*MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 > [!IMPORTANT]
-> Även om nödvändiga inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440 och 1452, portarna skyddas av en inbyggd brandvägg. Mer information finns i [fastställa slutpunktsadress management](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 > [!NOTE]
-> Om du vill använda Transaktionsreplikering i en hanterad instans, och om du använder en instans-databas som en utgivare eller distributör, kan du öppna port 445 (TCP utgående) i undernätets säkerhetsregler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
+> Om du använder Transaktionsreplikering i en hanterad instans och om du använder en instans databas som utgivare eller en distributör öppnar du Port 445 (TCP utgående) i under nätets säkerhets regler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
 |Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
-|subnet_to_vnetlocal|MI – UNDERNÄT|Virtuellt nätverk|
+|subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
 |mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
 |mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
@@ -215,7 +215,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 |mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
 |mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
 |mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-46-16-nexthop-internet|adress blocket 207.46.0.0/16|Internet|
 |mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
 |mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
 |mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
@@ -226,17 +226,17 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-Dessutom kan du lägga till poster till i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål i vnet-gateway eller en virtuell nätverksinstallation (NVA).
+Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
 
-Om det virtuella nätverket innehåller en anpassad DNS, anpassad DNS-server måste kunna matcha värdnamn i \*. core.windows.net zon. Med hjälp av ytterligare funktioner som Azure AD-autentisering kan behöva lösa ytterligare FQDN-namn. Mer information finns i [ställa in en anpassad DNS](sql-database-managed-instance-custom-dns.md).
+Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpassade DNS-servern kunna matcha offentliga DNS-poster. Om du använder fler funktioner som Azure AD-autentisering kan det krävas att ytterligare FQDN-namn matchas. Mer information finns i [Konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [SQL-databas som avancerade datasäkerhet](sql-database-managed-instance.md).
-- Lär dig hur du [ställa in ett nytt Azure virtuellt nätverk](sql-database-managed-instance-create-vnet-subnet.md) eller en [befintliga Azure-nätverk](sql-database-managed-instance-configure-vnet-subnet.md) där du kan distribuera hanterade instanser.
-- [Beräkna storleken på undernätet](sql-database-managed-instance-determine-size-vnet-subnet.md) där du vill distribuera de hanterade instanserna.
+- En översikt finns i [SQL Database avancerad data säkerhet](sql-database-managed-instance.md).
+- Lär dig hur du [konfigurerar ett nytt virtuellt Azure-nätverk](sql-database-managed-instance-create-vnet-subnet.md) eller ett [befintligt virtuellt Azure-nätverk](sql-database-managed-instance-configure-vnet-subnet.md) där du kan distribuera hanterade instanser.
+- [Beräkna storleken på det undernät](sql-database-managed-instance-determine-size-vnet-subnet.md) där du vill distribuera de hanterade instanserna.
 - Lär dig hur du skapar en hanterad instans:
-  - Från den [Azure-portalen](sql-database-managed-instance-get-started.md).
+  - Från [Azure Portal](sql-database-managed-instance-get-started.md).
   - Med hjälp av [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Med hjälp av [en Azure Resource Manager-mall (med JumpBox, med SSMS som ingår)](https://portal.azure.com/). 
+  - Genom att använda [en Azure Resource Manager mall (med hjälp av hopp, med SSMS ingår)](https://portal.azure.com/). 

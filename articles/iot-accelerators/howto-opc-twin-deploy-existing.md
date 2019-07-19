@@ -1,6 +1,6 @@
 ---
-title: Hur du distribuerar en OPC-Twin-modul till en befintlig Azure-projekt | Microsoft Docs
-description: Så här distribuerar OPC-Twin till ett befintligt projekt.
+title: Så här distribuerar du en OPC-delad modul till ett befintligt Azure-projekt | Microsoft Docs
+description: Hur du distribuerar OPC till ett befintligt projekt.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 5e3be8f0c565f86ab5332730972e0ed960d22255
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: fc70d140479be100e6aa52cf8105d3e466342cd7
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603731"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302652"
 ---
-# <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-Twin till ett befintligt projekt
+# <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-dubbla till ett befintligt projekt
 
-OPC-Twin-modulen körs på IoT Edge och tillhandahåller flera edge-tjänster till OPC-Twin och register-tjänster.
+Den OPC dubbla modulen körs på IoT Edge och ger flera Edge-tjänster till OPC-dubbla och register tjänster.
 
-Tjänsten OPC-Twin micro underlättar kommunikationen mellan factory operatorer och OPC UA-serverenheter på fabriksgolvet via en OPC Twin IoT Edge-modul. Tjänsten micro exponerar OPC UA-tjänster (Bläddra, Läs, Skriv- och körningsbehörighet) via dess REST-API. 
+OPC med dubbla mikrotjänster underlättar kommunikationen mellan fabriks operatörer och OPC UA Server-enheter på fabriks golvet via en OPC-modul för dubbla IoT Edge. Mikrotjänsten exponerar OPC UA-tjänster (Bläddra, läsa, skriva och köra) via dess REST API. 
 
-OPC UA device registret mikrotjänst ger åtkomst till registrerade OPC UA-program och deras slutpunkter. Operatörer och administratörer kan registrera och avregistrera nya OPC UA-program och bläddra bland befintliga, inklusive slutpunkter. Förutom hantering av slutpunkten och programmet katalogiserar registry-tjänsten också registrerade OPC Twin IoT Edge-moduler. Tjänst-API ger dig kontroll över edge-modul-funktionerna, till exempel starta eller stoppa serveridentifiering (genomsökning services) eller aktivera nya endpoint twins som kan nås med hjälp av tjänsten OPC-Twin micro.
+OPC UA Device Registry-mikrotjänst ger åtkomst till registrerade OPC UA-program och deras slut punkter. Operatörer och administratörer kan registrera och avregistrera nya OPC UA-program och bläddra bland befintliga, inklusive deras slut punkter. Förutom hantering av program och slut punkter, katalogiserar register tjänsten även registrerade OPCs dubbla IoT Edge-moduler. Med tjänst-API: t får du kontroll över funktioner för Edge-modul, till exempel starta eller stoppa Server identifiering (genomsöknings tjänster) eller aktivera nya slut punkter som kan nås med hjälp av OPC-dubbla mikrotjänster.
 
-Kärnan i modulen är den överordnade identitet. Övervakaren hanterar endpoint twin, vilket motsvarar OPC UA-serverslutpunkter som aktiveras med hjälp av motsvarande OPC UA-registret API. Den här slutpunkten twins översätta OPC UA JSON som tagits emot från OPC-Twin micro tjänsten som körs i molnet till binära OPC UA-meddelanden, som skickas över en tillståndskänslig säker kanal till hanterade slutpunkten. Övervakaren tillhandahåller även av identifieringstjänster som skickar händelser för identifiering av enheten till OPC UA device onboarding-tjänsten för bearbetning, där de här händelserna resultera i att uppdateringar till OPC UA-registret.  Den här artikeln visar hur du distribuerar OPC-Twin-modulen till ett befintligt projekt.
+Kärnan i modulen är den överordnade identiteten. Administratören hanterar slut punkten, som motsvarar OPC UA Server-slutpunkter som aktive ras med motsvarande OPC UA Registry-API. Den här slut punkten är till för att dela OPC UA-JSON som tagits emot från OPCs dubbla mikrotjänster som körs i molnet till OPC UA Binary-meddelanden som skickas via en tillstånds känslig säker kanal till den hanterade slut punkten. Administratören tillhandahåller också identifierings tjänster som skickar enhets identifierings händelser till OPC UA Device onboarding-tjänsten för bearbetning, där dessa händelser leder till uppdateringar av OPC UA-registret.  I den här artikeln lär du dig hur du distribuerar den OPC dubbla modulen till ett befintligt projekt.
 
 > [!NOTE]
-> Mer information om distributionsinformation och instruktioner finns i GitHub [databasen](https://github.com/Azure/azure-iiot-opc-twin-module).
+> Mer information om distributions information och instruktioner finns i GitHub- [lagringsplatsen](https://github.com/Azure/azure-iiot-opc-twin-module).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kontrollera att du har PowerShell och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installerade tillägg. Om du inte redan har gjort det, klona GitHub-lagringsplatsen. Kör följande kommandon i PowerShell:
+Kontrol lera att PowerShell-och [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) -tillägg är installerade. Klona den här GitHub-lagringsplatsen om du inte redan har gjort det. Kör följande kommandon i PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git
@@ -39,55 +39,55 @@ cd azure-iiot-components
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>Distribuera industriella IoT-tjänster till Azure
 
-1. I PowerShell-session kör du:
+1. Kör följande i PowerShell-sessionen:
 
     ```powershell
     set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
     .\deploy.cmd
     ```
 
-2. Följ anvisningarna för att tilldela ett namn för resursgruppen för distributionen och ett namn till webbplatsen.   Skriptet distribuerar mikrotjänster och deras beroenden för Azure-plattformen i resursgrupp i Azure-prenumerationen.  Skriptet kan du även registrerar ett program i din Azure Active Directory (AAD)-klient för att stödja OAUTH-baserad autentisering.  Distributionen tar flera minuter.  Ett exempel på det alternativ som visas när lösningen har distribuerats:
+2. Följ anvisningarna för att tilldela distributions resurs gruppen ett namn och ett namn på webbplatsen.   Skriptet distribuerar mikrotjänster och deras Azure-plattforms beroenden till resurs gruppen i din Azure-prenumeration.  Skriptet registrerar också ett program i din Azure Active Directory-klient (AAD) som stöd för OAUTH-baserad autentisering.  Distributionen tar flera minuter.  Ett exempel på vad du ser när lösningen har distribuerats:
 
-   ![Industriella IoT OPC-Twin distribuera till befintligt projekt](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
+   ![Industriella IoT-OPC med dubbla distributioner till befintligt projekt](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
-   Utdata innehåller URL: en för den offentliga slutpunkten. 
+   Utdata inkluderar URL: en för den offentliga slut punkten. 
 
-3. När skriptet har slutförts, väljer du om du vill spara .env-fil.  Du behöver miljöfil .env om du vill ansluta till molnslutpunkten med verktyg som konsolen eller distribuera moduler för utveckling och felsökning.
+3. När skriptet har slutförts väljer du om du vill spara `.env` filen.  Du behöver `.env` miljö filen om du vill ansluta till moln slut punkten med verktyg som konsolen eller distribuera moduler för utveckling och fel sökning.
 
-## <a name="troubleshooting-deployment-failures"></a>Felsöka fel vid distribution
+## <a name="troubleshooting-deployment-failures"></a>Felsöka distributions fel
 
 ### <a name="resource-group-name"></a>Namn på resursgrupp
 
-Kontrollera att du använder ett kort och enkelt resursgruppens namn.  Namnet används också namn resurser så det måste vara kompatibel med resursen som krav för namngivning.  
+Se till att du använder ett kort och enkelt resurs grupp namn.  Namnet används också för att ge resurser samma namn som de måste uppfylla kraven på resurs namn.  
 
-### <a name="website-name-already-in-use"></a>Webbplatsnamnet används redan
+### <a name="website-name-already-in-use"></a>Webbplats namnet används redan
 
-Det är möjligt att namnet på webbplatsen används redan.  Om du får det här felet kan behöva du använda ett annat programnamn.
+Det är möjligt att namnet på webbplatsen redan används.  Om du stöter på det här felet måste du använda ett annat program namn.
 
-### <a name="azure-active-directory-aad-registration"></a>Azure Active Directory (AAD)-registrering
+### <a name="azure-active-directory-aad-registration"></a>Registrering av Azure Active Directory (AAD)
 
-Distributionsskriptet försöker registrera två AAD-program i Azure Active Directory.  Beroende på dina rättigheter till de valda AAD-klienten kan distributionen misslyckas. Det finns två alternativ:
+Distributions skriptet försöker registrera två AAD-program i Azure Active Directory.  Distributionen kan Miss förväntas, beroende på dina rättigheter till den valda AAD-klienten. Det finns två alternativ:
 
-1. Om du väljer en AAD-klient från en lista över klienter, starta om skriptet och välja ett annat i listan.
-2. Du kan också distribuera en privat AAD-klient i en annan prenumeration, startar du om och väljer för att använda den.
+1. Om du väljer en AAD-klient från en lista över klienter startar du om skriptet och väljer ett annat i listan.
+2. Du kan också distribuera en privat AAD-klient i en annan prenumeration, starta om skriptet och välja att använda det.
 
 > [!WARNING]
-> ALDRIG fortsätta utan autentisering.  Om du väljer att göra det, alla kan komma åt dina OPC-Twin-slutpunkter från Internet har inte autentiserats.   Du kan alltid välja den [”local” distributionsalternativ](howto-opc-twin-deploy-dependencies.md) bestämmer.
+> Fortsätt aldrig utan autentisering.  Om du väljer att göra det, kan vem som helst få åtkomst till dina OPC-dubbla slut punkter från Internet utan autentisering.   Du kan alltid välja ["lokalt" distributions alternativ](howto-opc-twin-deploy-dependencies.md) för att använda däcken.
 
-## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Distribuera en allt-i-ett industriella IoT-tjänster-demo
+## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Distribuera en allt-i-ett-tjänst för industriella IoT-tjänster
 
-Du kan även distribuera en allt-i-ett-demo i stället för bara de tjänster och beroenden.  Alla i en demo innehåller tre OPC UA-servrar, OPC-Twin-modulen, alla mikrotjänster och ett exempel webbprogram.  Den är avsedd för demonstration.
+I stället för bara de tjänster och beroenden kan du också distribuera en allt-i-ett-demo.  Alla i en demo innehåller tre OPC UA-servrar, OPC-modul, alla mikrotjänster och ett exempel webb program.  Den är avsedd för demonstrations ändamål.
 
-1. Kontrollera att du har en klon av lagringsplatsen (se ovan). Öppna en PowerShell-kommandotolk i roten av lagringsplatsen och kör:
+1. Kontrol lera att du har en klon av lagrings platsen (se ovan). Öppna en PowerShell-prompt i roten för lagrings platsen och kör:
 
     ```powershell
     set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
     .\deploy -type demo
     ```
 
-2. Följ anvisningarna för att tilldela ett nytt namn för resursgruppen och ett namn till webbplatsen.  När du har distribuerats visas skriptet URL till slutpunkten för web-program.
+2. Följ anvisningarna för att tilldela resurs gruppen ett nytt namn och ett namn på webbplatsen.  När den har distribuerats visar skriptet URL: en för webb programmets slut punkt.
 
-## <a name="deployment-script-options"></a>Distributionsalternativ för skript
+## <a name="deployment-script-options"></a>Distributions skript alternativ
 
 Skriptet använder följande parametrar:
 
@@ -95,13 +95,13 @@ Skriptet använder följande parametrar:
 -type
 ```
 
-Typ av distribution (virtuell dator, lokala, demonstration)
+Typ av distribution (VM, lokal, demo)
 
 ```powershell
 -resourceGroupName
 ```
 
-Kan vara namnet på en befintlig eller en ny resursgrupp.
+Kan vara namnet på en befintlig eller en ny resurs grupp.
 
 ```powershell
 -subscriptionId
@@ -113,25 +113,25 @@ Valfritt, prenumerations-ID där resurser ska distribueras.
 -subscriptionName
 ```
 
-Eller prenumerationens namn.
+Eller prenumerations namnet.
 
 ```powershell
 -resourceGroupLocation
 ```
 
-Valfritt, ett resursgruppsplats. Om du försöker skapa en ny resursgrupp i den här platsen.
+Valfritt, en resurs grupps plats. Om det här alternativet anges försöker att skapa en ny resurs grupp på den här platsen.
 
 ```powershell
 -aadApplicationName
 ```
 
-Ett namn för AAD-programmet att registrera.
+Ett namn på det AAD-program som ska registreras under.
 
 ```powershell
 -tenantId
 ```
 
-AAD-klient att använda.
+AAD-klient som ska användas.
 
 ```powershell
 -credentials
@@ -139,7 +139,7 @@ AAD-klient att använda.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du distribuerar OPC-Twin till ett befintligt projekt, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du distribuerar OPC till ett befintligt projekt, är här det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Säker kommunikation för OPC-klienten och OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Säker kommunikation av OPC-klienten och OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

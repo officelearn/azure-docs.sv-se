@@ -1,76 +1,79 @@
 ---
-title: Storleksgränser för Web application firewall begäran och undantagslistor i Azure Application Gateway – Azure-portalen
-description: Den här artikeln innehåller information om storleksgränser för web application firewall begäran och undantag visar konfigurationen i Application Gateway med Azure-portalen.
+title: Begär ande storleks gränser och undantags listor för WebApplication-brandvägg i Azure Application Gateway – Azure Portal
+description: Den här artikeln innehåller information om konfiguration av storleks gränser och undantags listor för WebApplication-brandvägg i Application Gateway med Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: MT
+ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275174"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304306"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Storleksgränser för Web application firewall begäran och undantagslistor
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
 
-Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Den här artikeln beskriver storleksgränser för WAF-begäran och undantag visar konfigurationen.
+Brand väggen för webbaserade program (WAF) i Azure Application Gateway tillhandahåller skydd för webb program. I den här artikeln beskrivs konfiguration av WAF storleks gränser och undantags listor.
 
-## <a name="waf-request-size-limits"></a>Storleksgränser för WAF-begäran
+## <a name="waf-request-size-limits"></a>Storleks gränser för WAF-begäran
 
-![Storleksgränser för begäran](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+![Storleks begränsningar för begäran](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-Brandvägg för webbaserade program kan du konfigurera storleksbegränsningar för begäran i lägre och övre gränser. Följande två storlek gränser konfigurationer finns:
+Med brand vägg för webbaserade program kan du konfigurera storleks gränser för förfrågningar inom nedre och övre gränser. Det finns följande två storleks gränser för konfigurationer:
 
-- Fältet tillåtna brödtext storleken anges i kilobyte och kontroller övergripande storleksgränsen för begäran exkludera en fil laddas upp. Det här fältet kan variera mellan 1 KB minst 128 KB maximala värdet. Standardvärdet för textstorleken för begäran är 128 KB.
-- Fältet Spara uppladdning gränsen anges i MB och styr den maximalt tillåtna storleken för filöverföring. Det här fältet kan ha ett minsta värde på 1 MB och högst 500 MB för stora SKU-instanser även medel SKU har högst 100 MB. Standardvärdet för överföring filgränsen är 100 MB.
+- Fältet Max storlek för begäran har angetts i kilobyte och kontrollerar den allmänna storleks gränsen för förfrågningar exklusive eventuella fil överföringar. Det här fältet kan vara mellan 1 och 1 KB minst 128-KB-högsta värde. Standardvärdet för brödtext i begär ande storlek är 128 KB.
+- Fältet för fil överförings gräns anges i MB och styr den högsta tillåtna storleken för fil uppladdning. Det här fältet kan ha ett minsta värde på 1 MB och högst 500 MB för stora SKU-instanser, men medelhög SKU har högst 100 MB. Standardvärdet för fil överförings gränsen är 100 MB.
 
-WAF erbjuder även en konfigurerbar ratten om du vill aktivera begäran brödtext inspektion eller inaktivera. Begäran brödtext granskning är aktiverat som standard. Om begäran brödtext inspektion är avstängd, utvärdera inte WAF innehållet i meddelandetexten för HTTP. I sådana fall kan fortsätter WAF WAF-regler på rubriker, cookies och URI: N. Om begäran brödtext-kontroll är inaktiverad fältet för tillåtna brödtext storlek som inte är tillämplig och kan inte anges. Stänga av begäran brödtext inspektion större än 128 KB skickas till WAF gör för meddelanden, men meddelandetexten kontrolleras inte sårbarheter.
+WAF erbjuder också en konfigurerbar ratt för att aktivera eller inaktivera kontroll av begär ande brödtext. Som standard har granskning av begär ande texten Aktiver ATS. Om granskning av begär ande texten är inaktive rad utvärderas inte WAF innehåll i HTTP-meddelandets brödtext. I sådana fall fortsätter WAF att använda WAF-regler på huvuden, cookies och URI. Om granskningen av begär ande texten är inaktive rad är Max storleks fältet för begäran inte tillämpligt och kan inte anges. Om du inaktiverar granskning av begär ande brödtext kan meddelanden som är större än 128 KB skickas till WAF, men meddelande texten inspekteras inte för sårbarheter.
 
-## <a name="waf-exclusion-lists"></a>WAF-undantagslistor
+## <a name="waf-exclusion-lists"></a>Undantags listor för WAF
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-WAF-undantagslistor kan du utelämna vissa begärandeattribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogas token som används för autentisering eller lösenorden. Attribut är felbenägna innehåller specialtecken som kan utlösa en falsk positiv identifiering från WAF-regler. När ett attribut har lagts till i undantagslistan för WAF, anses det är inte av någon konfigurerad och aktiv WAF-regel. Undantagslistor är globala omfång.
+Med undantags listor för WAF kan du utelämna vissa begär ande attribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogade token som används för autentiserings-eller lösen ords fält. Sådana attribut är känsliga att innehålla specialtecken som kan utlösa ett falskt positivt värde från WAF-reglerna. När ett attribut har lagts till i undantags listan för WAF beaktas det inte av någon konfigurerad och aktiv WAF-regel. Undantags listor är globala i definitions området.
 
-Följande attribut kan läggas till undantagslistor. Värdena för din valda fält utvärderas inte mot WAF-regler. Undantaget visas remove granskning av fältets värde.
+Följande attribut kan läggas till i undantags listor efter namn. Värdena för det valda fältet utvärderas inte mot WAF-regler, men deras namn är fortfarande (se exempel 1 nedan) värdet för användar agentens huvud undantas från WAF-utvärderingen). Undantags listorna tar bort kontrollen av fältets värde.
 
 * Begärandehuvuden
-* Begäran om Cookies
-* Begäran attributnamn (argument) kan läggas till som ett undantag-element som:
+* Begär cookies
+* Attribut för begäran (argument) kan läggas till som ett undantags element, till exempel:
 
-   * Formulärfältnamn
+   * Formulär fält namn
    * XML-entitet
    * JSON-entitet
-   * URL: en fråga sträng argument
+   * Argument för URL-frågesträng
 
-Du kan ange en exakt begärandehuvudet, brödtext, cookie eller fråga strängmatchning för attributet.  Eller alternativt kan du ange delmatchningar. Undantaget är alltid på ett fält med rubriken, aldrig på dess värde. Undantagsregler är globala omfång och gäller för alla sidor och alla regler.
+Du kan ange en exakt matchning av rubrik, brödtext, cookie eller frågesträng för begäran.  Du kan också ange partiella matchningar om du vill. Undantags regler är globala inom räckvidd och gäller för alla sidor och alla regler.
 
-Här följer stöds matchning kriterier operatorer:
+Följande är de matchnings villkor som stöds:
 
-- **Är lika med**:  Den här operatorn används efter en exakt matchning. Till exempel för att välja en rubrik med namnet **bearerToken**, använda equals-operatorn med väljaren som **bearerToken**.
-- **Börjar med**: Den här operatorn matchar alla fält som börjar med det angivna väljarvärdet.
-- **Slutar med**:  Den här operatorn matchar alla fält i begäran som slutar med det angivna väljarvärdet.
-- **Innehåller**: Den här operatorn matchar alla fält i begäran som innehåller det angivna väljarvärdet.
-- **Lika med valfritt**: Den här operatorn matchar alla fält i begäran. * kommer att väljarvärdet för.
+- **Är lika med**:  Den här operatorn används för en exakt matchning. För att välja ett sidhuvud med namnet **bearerToken**använder du till exempel operatorn Equals med Selector Set as **bearerToken**.
+- **Börjar med**: Den här operatorn matchar alla fält som börjar med det angivna väljar värdet.
+- **Slutar med**:  Den här operatorn matchar alla begär ande fält som slutar med angivet väljar värde.
+- **Innehåller**: Den här operatorn matchar alla begär ande fält som innehåller det angivna värdet för väljaren.
+- **Lika med alla**: Den här operatorn matchar alla begär ande fält. * är väljar värde.
 
-I samtliga fall matchar är skiftlägeskänsligt och reguljära uttryck tillåts inte som väljare.
+I samtliga fall är Skift läges okänsligt och reguljärt uttryck tillåts inte som väljare.
+
+> [!NOTE]
+> Mer information och fel söknings hjälp finns i [fel sökning av WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Exempel
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-I följande exempel demonstrerar användningen av undantag.
+I följande exempel demonstreras användningen av undantag.
 
 ### <a name="example-1"></a>Exempel 1
 
-I det här exemplet som du vill undanta användar-agent-huvudet. Användaragent rubriken innehåller en karakteristisk sträng som gör att nätverket protokollet peer-datorer att identifiera programtyp, operativsystem, programvaruleverantör eller programvaruversion av den begärande användaren programvaruagenten. Mer information finns i [användaragent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+I det här exemplet vill du undanta huvudet för användar agenten. Rubriken för begäran om användar Agent innehåller en egenskaps sträng som tillåter att nätverks protokollets peer-datorer kan identifiera program typ, operativ system, program varu leverantör eller program varu version för den begärda program varans användar agent. Mer information finns i [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 
-Det kan finnas en mängd skäl att inaktivera utvärdering av den här rubriken. Det kan vara en sträng som WAF ser och antas den vara skadlig. Till exempel klassiska SQL-angrepp ”x = x” i en sträng. I vissa fall kan vara detta legitima trafik. Så kan du behöva undanta den här rubriken från WAF utvärdering.
+Det kan finnas flera skäl att inaktivera utvärderingen av rubriken. Det kan finnas en sträng som WAF ser och antar att den är skadlig. Till exempel den klassiska SQL-attacken "x = x" i en sträng. I vissa fall kan detta vara legitim trafik. Du kan behöva undanta den här rubriken från WAF-utvärderingen.
 
-Följande Azure PowerShell-cmdlet utesluter Användaragent-rubriken från utvärdering:
+Följande Azure PowerShell-cmdlet exkluderar användar agentens huvud från utvärderingen:
 
 ```azurepowershell
 $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -81,9 +84,9 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 
 ### <a name="example-2"></a>Exempel 2
 
-Det här exemplet omfattar inte värdet i den *användaren* parameter som anges i begäran via URL: en. Anta exempelvis att det är vanligt i din miljö för användarfältet ska innehålla en sträng som WAF-vyer som skadligt, så att den blockerar den.  Du kan utesluta användarparametern i det här fallet så att WAF inte utvärdera vad som helst i fältet.
+I det här exemplet exkluderas värdet i den *användar* parameter som skickas i begäran via URL: en. Anta till exempel att det är vanligt i din miljö för fältet användare att innehålla en sträng som WAF visar som skadligt innehåll, så att den blockerar den.  Du kan undanta användar parametern i det här fallet så att WAF inte utvärderar något i fältet.
 
-Följande Azure PowerShell-cmdlet utesluter user-parameter från utvärdering:
+Följande Azure PowerShell-cmdlet exkluderar användar parametern från utvärderingen:
 
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -91,8 +94,8 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "user"
 ```
-Om URL: en **http://www.contoso.com/?user=fdafdasfda** skickas till WAF, inte den utvärdera strängen **fdafdasfda**.
+Så om URL: **http://www.contoso.com/?user=fdafdasfda** en skickas till WAF utvärderas inte strängen **fdafdasfda**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat inställningarna WAF du lära dig hur du visar dina WAF-loggar. Mer information finns i [Application Gateway-diagnostik](application-gateway-diagnostics.md#diagnostic-logging).
+När du har konfigurerat dina WAF-inställningar kan du lära dig hur du visar dina WAF-loggar. Mer information finns i [Application Gateway Diagnostics](application-gateway-diagnostics.md#diagnostic-logging).

@@ -1,10 +1,10 @@
 ---
-title: Konfigurera belastningsutjämning och utgående regler med hjälp av Azure CLI
+title: Konfigurera belastnings utjämning och utgående regler med hjälp av Azure CLI
 titlesuffix: Azure Load Balancer
 description: Den här artikeln visar hur du konfigurerar load belastningsutjämning och utgående regler i en Standardbelastningsutjämnare med Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,19 +12,19 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
-ms.author: kumud
-ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 837df78ea76451c7dc5e16efde0e90b780b6ee50
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122433"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275708"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Konfigurera belastningsutjämning och utgående regler i Standardbelastningsutjämnare med Azure CLI
 
 Den här snabbstarten visar hur du konfigurerar regler för utgående trafik i Standardbelastningsutjämnare med Azure CLI.  
 
-När du är klar belastningsutjämnaren resursen innehåller två klientdelar och regler som är associerade med dem: en för inkommande och en annan för utgående.  Varje klientdel innehåller en referens till en offentlig IP-adress och det här scenariot använder en annan offentlig IP-adress för inkommande och utgående.   Belastningsutjämningsregeln ger endast belastningsutjämning inkommande och utgående regel styr utgående NAT för den virtuella datorn.  Den här snabbstarten använder två separata serverdelspooler, en för inkommande och en för utgående, för att illustrera kapaciteten och tillåta flexibilitet för det här scenariot.
+När du är klar belastningsutjämnaren resursen innehåller två klientdelar och regler som är associerade med dem: en för inkommande och en annan för utgående.  Varje klientdel innehåller en referens till en offentlig IP-adress och det här scenariot använder en annan offentlig IP-adress för inkommande och utgående.   Belastningsutjämningsregeln ger endast belastningsutjämning inkommande och utgående regel styr utgående NAT för den virtuella datorn.  I den här snabb starten används två separata backend-pooler, en för inkommande och en för utgående, för att illustrera kapacitet och tillåta flexibilitet för det här scenariot.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -73,15 +73,15 @@ Skapa en-IP-standardadress för Belastningsutjämnarens klientdel en utgående k
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - En frontend-IP som tar emot den inkommande nätverkstrafiken på belastningsutjämnaren.
-  - En backend-adresspool där frontend-IP skickar den belastningsutjämnade nätverkstrafiken.
-  - En serverdelspool för utgående anslutningar. 
+  - En backend-pool där klient delens IP-adress skickar den belastningsutjämnade nätverks trafiken.
+  - En backend-pool för utgående anslutning. 
   - en hälsoavsökning som fastställer hälsan för serverdelens Virtuella datorinstanser.
   - En inkommande regel för belastningsutjämnaren som definierar hur trafiken ska distribueras till de virtuella datorerna.
   - En utgående regel för belastningsutjämnaren som definierar hur trafiken ska distribueras från de virtuella datorerna.
 
 ### <a name="create-load-balancer"></a>Skapa belastningsutjämnare
 
-Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az network lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *lb* som innehåller en inkommande klientdelens IP-konfiguration och en serverdelspool *bepoolinbound*som är associerad med den offentliga IP-adressen *mypublicipinbound* som du skapade i föregående steg.
+Skapa en Load Balancer med den inkommande IP-adressen med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *lb* som innehåller en inkommande IP-konfiguration för klient delen och en *bepoolinbound* som är associerad med den offentliga IP-adressen  *mypublicipinbound* som du skapade i föregående steg.
 
 ```azurecli-interactive
   az network lb create \
@@ -96,7 +96,7 @@ Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az ne
 
 ### <a name="create-outbound-pool"></a>Skapa utgående pool
 
-Skapa en ytterligare backend-adresspool för att definiera utgående anslutning för en pool med virtuella datorer med [az network lb adresspool skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *bepooloutbound*.  Skapa en separat utgående pool ger maximal flexibilitet, men du kan utelämna det här steget och bara använda det inkommande *bepoolinbound* samt.
+Skapa ytterligare en backend-adresspool för att definiera utgående anslutning för en pool med virtuella datorer med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *bepooloutbound*.  Att skapa en separat utgående pool ger maximal flexibilitet, men du kan utelämna det här steget och endast använda inkommande *bepoolinbound* .
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-Om du inte vill använda en separat utgående pool kan du ändra argumentet adresspool i det föregående kommandot för att ange *bepoolinbound* i stället.  Vi rekommenderar att du använder olika pooler för flexibilitet och läsbarhet av den resulterande konfigurationen.
+Om du inte vill använda en separat utgående pool kan du ändra argumentet för adresspoolen i föregående kommando för att ange *bepoolinbound* i stället.  Vi rekommenderar att du använder separata pooler för flexibilitet och läsbarhet för den resulterande konfigurationen.
 
-Nu kan du fortsätta med att lägga till den virtuella datorn till i serverdelspoolen *bepoolinbound* __och__ *bepooloutbound* genom att uppdatera IP-adresskonfigurationen för respektive nätverkskort resurser med hjälp av [az network nic ip-config adresspool lägga till](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+Nu kan du fortsätta med att lägga till den virtuella datorn till backend-poolens *bepoolinbound* __och__ *bepooloutbound* genom att uppdatera IP-konfigurationen för respektive NIC-resurser med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

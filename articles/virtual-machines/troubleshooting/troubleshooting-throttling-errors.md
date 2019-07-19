@@ -1,6 +1,6 @@
 ---
-title: Felsökning begränsningsfel i Azure | Microsoft Docs
-description: Begränsning fel, försök och backoff i Azure Compute.
+title: Felsöka begränsnings fel i Azure | Microsoft Docs
+description: Begränsnings fel, återförsök och backoff i Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
@@ -12,35 +12,36 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: vashan, rajraj, changov
-ms.openlocfilehash: a9e0f2620bf6ff163207fc16ee24a327936ec4bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: changov
+ms.reviewer: vashan, rajraj
+ms.openlocfilehash: 6ae14edb7fa6b44f7c3bb961ffbcceb26eb9dee3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709202"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875464"
 ---
-# <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
+# <a name="troubleshooting-api-throttling-errors"></a>Fel sökning av API-begränsningar 
 
-Azure Compute-begäranden kan att begränsas på en prenumeration och på basis av per region för att den övergripande prestanda för tjänsten. Vi garanterar att alla anrop till den Azure Compute-Resursprovidern (CRP), som hanterar resurser under Microsoft.Compute namnområdet inte överskrider högsta tillåtna API-begäran överföringshastighet. Det här dokumentet beskriver API begränsningar, information om hur du felsöker begränsning problem och bästa praxis för att undvika begränsas.  
+Azure Compute-begäranden kan begränsas till en prenumeration och per region för att hjälpa till med den övergripande prestandan för tjänsten. Vi ser till att alla anrop till Azure Compute Resource Provider (CRP), som hanterar resurser under Microsoft. Compute-namnrymden, inte överskrider den högsta tillåtna frekvensen för API-begäranden. I det här dokumentet beskrivs API-begränsning, information om hur du felsöker problem med begränsning och metod tips för att undvika begränsning.  
 
-## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Begränsning av Azure Resource Manager vs Resursprovidrar  
+## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Begränsning av Azure Resource Manager vs-resurs leverantörer  
 
-Azure Resource Manager sker valideringen av autentisering och första ordningen och begränsningar för all inkommande API-begäranden som åtkomsten till Azure. Hastighetsbegränsningar för anrop till Azure Resource Manager och relaterade diagnostiska HTTP-svarshuvuden beskrivs [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+Som första dörren till Azure är Azure Resource Manager autentisering och första sortering och begränsning av alla inkommande API-begäranden. Azure Resource Manager samtals frekvens gränser och relaterade diagnostiska svars-HTTP-huvuden beskrivs [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
-När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för många förfrågningar. Information om den begärandebegränsning utförs av Azure Resource Manager eller en underliggande resursprovider som CRP och inspektera de `x-ms-ratelimit-remaining-subscription-reads` för GET-begäranden och `x-ms-ratelimit-remaining-subscription-writes` svarshuvuden för icke-GET-begäranden. Om det återstående antalet anrop närmar sig 0, har prenumerationens Allmänt anrop gränsen som definierats av Azure Resource Manager nåtts. Aktiviteter med hjälp av alla prenumerationsklienter räknas samman. Begränsningen i annat fall kommer från resursprovidern mål (det som beskrivs i den `/providers/<RP>` begäran-URL-segmentet). 
+När en Azure API-klient får ett begränsnings fel är HTTP-statusen 429 för många begär Anden. Om du vill ta reda på om begäran begränsas av Azure Resource Manager eller en underliggande resurs leverantör som CRP, kontrollerar `x-ms-ratelimit-remaining-subscription-reads` du för get- `x-ms-ratelimit-remaining-subscription-writes` begäranden och-svarshuvuden för förfrågningar som inte hämtats. Om det återstående antalet anrop närmar sig 0, har prenumerationens allmänna anrops gräns som definieras av Azure Resource Manager nåtts. Aktiviteter av alla prenumerations klienter räknas tillsammans. Annars kommer begränsningen från mål resurs leverantören (den som anges av `/providers/<RP>` segmentet i URL: en för begäran). 
 
-## <a name="call-rate-informational-response-headers"></a>Anropa rate informationsmeddelande svarshuvuden 
+## <a name="call-rate-informational-response-headers"></a>Svars rubriker för information om samtals frekvens 
 
-| Huvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
+| Huvud                            | Värde format                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Återstående antalet för API-anrop för begränsningsprincipen som täcker bucket eller åtgärden resursgruppen, inklusive mål för den här begäran                                                                   |
-| x-ms-request-charge               | ```<count>```                             | 1                                     | Antalet antal ”debiteras” för den här HTTP-begäran mot principen gäller gränsen. Detta är normalt 1. Batch-begäranden, till exempel för att skala en skalningsuppsättning för virtuella datorer kan debitera flera antal. |
+| x-MS-ratelimit-återstående-resurs |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Återstående API-anrop för begränsnings principen som täcker resurs Bucket eller åtgärds gruppen, inklusive målet för denna begäran                                                                   |
+| x-MS-Request-avgift               | ```<count>```                             | 1                                     | Antalet anrops antal "debiteras" för denna HTTP-begäran mot gällande princip gräns. Detta är oftast 1. Batch-begäranden, till exempel för skalning av en virtuell dators skalnings uppsättning, kan debitera flera antal. |
 
 
-Observera att en API-begäran kan utsättas för flera principer för begränsning. Det blir en separat `x-ms-ratelimit-remaining-resource` rubrik för varje princip. 
+Observera att en API-begäran kan utsättas för flera begränsnings principer. Det kommer att finnas en `x-ms-ratelimit-remaining-resource` separat rubrik för varje princip. 
 
-Här är ett exempelsvar för att ta bort VM scale set-begäran.
+Här är ett exempel svar på borttagning av begäran om skalnings uppsättning för virtuell dator.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -49,9 +50,9 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-## <a name="throttling-error-details"></a>Begränsning felinformation
+## <a name="throttling-error-details"></a>Fel information om begränsning
 
-429 HTTP-status används ofta för att avvisa en begäran eftersom en anropsgränsen har nåtts. En typisk begränsning felsvar från Compute-Resursprovidern ser ut i exemplet nedan (endast relevant rubriker visas):
+HTTP-statusen 429 används ofta för att avvisa en begäran eftersom gränsen för anrops frekvensen uppnås. Ett typiskt begränsnings fel svar från Compute Resource providern ser ut som exemplet nedan (endast relevanta rubriker visas):
 
 ```
 HTTP/1.1 429 Too Many Requests
@@ -73,31 +74,31 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-Principen med återstående antalet anrop 0 är den på grund av som begränsning felet returneras. I det här fallet är `HighCostGet30Min`. Övergripande formatet för svarstexten är allmänna Azure Resource Manager API fel format (kompatibel med OData). Den huvudsakliga felkoden `OperationNotAllowed`, är det Compute-Resursprovidern använder för att rapportera begränsningsfel (bland andra typer av klientfel). Den `message` egenskapen för den inre fel innehåller en serialiserade JSON-struktur med information om bandbreddsbegränsning överträdelsen.
+Principen med det återstående anrop svärdet 0 är den som beror på att begränsnings felet returneras. I det här fallet `HighCostGet30Min`. Det övergripande formatet för svars texten är allmänt Azure Resource Manager API-felmeddelande (följer OData). Huvud fel koden, `OperationNotAllowed`, är den enda Compute Resource providern som använder för att rapportera begränsnings fel (bland andra typer av klient fel). `message` Egenskapen för de inre fel meddelandena innehåller en serialiserad JSON-struktur med information om begränsnings felet.
 
-Enligt beskrivningen ovan, varje begränsning fel innehåller den `Retry-After` rubriken, som innehåller det minsta antalet sekunder som klienten ska vänta innan en ny begäran. 
+Som illustreras ovan innehåller `Retry-After` varje begränsnings fel sidhuvudet, vilket ger det minsta antal sekunder som klienten ska vänta innan den försöker utföra begäran igen. 
 
-## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-anrop pris och begränsning fel analyzer
-Det finns en förhandsversion av en felsökningsfunktion för Compute-resursprovidern API. Dessa PowerShell-cmdletar tillhandahåller statistik om API-begäran-pris per tidsintervall per åtgärd och begränsning överträdelser per åtgärd-grupp (principen):
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-anrops frekvens och begränsning av fel analys
+En för hands version av en fel söknings funktion är tillgänglig för Compute Resource providerns API. Dessa PowerShell-cmdletar ger statistik om frekvensen för API-begäranden per tidsintervall per åtgärd och begränsnings överträdelser per åtgärds grupp (princip):
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
 -   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
-Statistik för API-anrop kan ge bra insikter om beteendet för en prenumeration klienterna och aktivera enkel identifiering av anropet mönster som kan orsakar att begränsningar.
+API-anropets statistik kan ge fantastiska insikter om beteendet för en prenumerations klient (er) och möjliggör enkel identifiering av anrops mönster som orsakar begränsning.
 
-En begränsning av analyzer för tillfället är att inte räknas begäranden för disk- och ögonblicksbild resurstyper (stöd för hanterade diskar). Eftersom den samlar in data från CRPS telemetri den också inte hjälpa dig att identifiera begränsningsfel från ARM. Men de kan identifieras enkelt baserat på de olika ARM-svarshuvuden som beskrivits tidigare.
+En begränsning av analys tiden är att det inte räknas begär Anden för disk-och ögonblicks bilds resurs typer (stöd för hanterade diskar). Eftersom det samlar in data från CRP ' s telemetri, kan det inte heller hjälpa till att identifiera begränsnings fel från ARM. Men de kan identifieras enkelt baserat på de olika svars rubrikerna på ARM, enligt beskrivningen ovan.
 
-PowerShell-cmdletar använder ett REST-API, som enkelt kan anropas direkt av klienter (även om med inga formella stöd för ännu). Om du vill se format för HTTP-förfrågan, kör du cmdlets med - felsökning eller snoop på sina körning med Fiddler.
+PowerShell-cmdlets använder ett REST-tjänst-API, som enkelt kan anropas direkt av klienter (trots att det inte finns något formellt stöd ännu). Om du vill se HTTP-förfrågningens format kör du cmdletarna med-debug-växeln eller snooping vid körning med Fiddler.
 
 
 ## <a name="best-practices"></a>Bästa praxis 
 
-- Försök inte Azure-tjänst-API-fel ovillkorligt och/eller omedelbart. Vanligt förekommande avser klientkod att få in i en snabb omförsöksslinga när den påträffar ett fel som inte kan och försök igen. Återförsök kommer så småningom få slut tillåtna anrop gränsen för mål-åtgärden grupp och påverka andra klienter för prenumerationen. 
-- Överväg att implementera proaktiv klientsidan automatisk begränsning när antalet tillgängliga anrop för en målgrupp för åtgärden sjunker under vissa lågtröskelövervakare i omfattande API automation fall. 
-- När du kartlägger asynkrona åtgärder, respektera sidhuvudet Retry-After-tips. 
-- Om klientkoden behöver information om en viss virtuell dator kan du fråga den virtuella datorn direkt i stället för att visa en lista över alla virtuella datorer i den aktuella resursgruppen eller hela prenumerationen och väljer sedan den nödvändiga virtuella datorn på klientsidan. 
-- Om klientkoden måste virtuella datorer, diskar och ögonblicksbilder från en specifik Azure-plats, använder du platsbaserad form av frågan i stället för att fråga alla prenumeration virtuella datorer och sedan filtrera efter plats på klientsidan: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` frågan till Compute-Resursprovidern nationella inställningar slutpunkter. 
--   När du skapar eller uppdaterar API-resurserna i synnerhet, virtuella datorer och VM-skalningsuppsättningar, är det mycket mer effektivt att spåra returnerade async-åtgärden för slutförande än avsökning på resurs-URL (baserat på den `provisioningState`).
+- Försök inte igen Azure Service API-fel utan villkor och/eller direkt. En vanlig förekomst är att klient koden kommer till en snabb återförsöks slinga när ett fel påträffas. Nya försök kommer att ta slut på den tillåtna anrops gränsen för mål åtgärdens grupp och påverka andra klienter i prenumerationen. 
+- I API Automation-scenarier med hög volym bör du överväga att implementera proaktiv begränsning på klient sidan när antalet tillgängliga anrop för en mål åtgärds grupp sjunker under en viss låg tröskel. 
+- När du spårar asynkrona åtgärder bör du följa tipsen för återförsök efter huvud. 
+- Om klient koden behöver information om en viss virtuell dator, fråga den virtuella datorn direkt i stället för att visa alla virtuella datorer i resurs gruppen som innehåller resurs gruppen eller hela prenumerationen och sedan välja den virtuella datorn som behövs på klient sidan. 
+- Om klient koden behöver virtuella datorer, diskar och ögonblicks bilder från en annan Azure-plats, använder du platsbaserade formulär för frågan i stället för att fråga alla virtuella prenumerationer och sedan filtrera efter plats på `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` klient sidan: fråga till Compute Resource Provider regional slut punkter. 
+-   När du skapar eller uppdaterar API-resurser i synnerhet virtuella datorer och skalnings uppsättningar för virtuella datorer är det mycket mer effektivt att spåra den returnerade asynkrona åtgärden till slut för ande än att avsöka på resurs `provisioningState`-URL: en (baserat på).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om riktlinjer för återförsök för andra tjänster i Azure finns i [vägledningen om återförsök för specifika tjänster](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Mer information om hur du gör nya försök för andra tjänster i Azure finns i [vägledning för att försöka igen för vissa tjänster](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

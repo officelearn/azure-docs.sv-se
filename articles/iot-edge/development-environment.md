@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge-utvecklingsmiljö | Microsoft Docs
-description: Lär dig mer om de system som stöds och från första part utvecklingsverktyg som hjälper dig att skapa i IoT Edge-moduler
+title: Azure IoT Edge utvecklings miljö | Microsoft Docs
+description: Lär dig mer om de system och utvecklings verktyg från första part som hjälper dig att skapa IoT Edge moduler
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,117 +8,117 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302672"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848954"
 ---
-# <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbereda utvecklings- och testmiljö för IoT Edge
+# <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbered din utvecklings-och test miljö för IoT Edge
 
-Azure IoT Edge flyttar din befintliga affärslogik till enheter som fungerar på gränsen. Förbereda dina program och arbetsbelastningar som ska köras som [IoT Edge-moduler](iot-edge-modules.md), måste du skapa dem som behållare. Den här artikeln innehåller vägledning för hur du konfigurerar utvecklingsmiljön så att du kan skapa en IoT Edge-lösning. När du har utvecklingsmiljön och konfigurera sedan du kan lära dig hur du [utveckla dina egna IoT Edge-moduler](module-development.md).
+Azure IoT Edge flyttar din befintliga affärs logik till enheter som arbetar i gränsen. För att förbereda program och arbets belastningar att köras som [IoT Edge moduler](iot-edge-modules.md)måste du skapa dem som behållare. Den här artikeln innehåller rikt linjer för hur du konfigurerar utvecklings miljön så att du kan skapa en IoT Edge-lösning. När du har konfigurerat utvecklings miljön kan du lära dig hur du [utvecklar dina egna IoT Edge moduler](module-development.md).
 
-Det finns minst två datorer att tänka på i någon IoT Edge-lösning. En är IoT Edge-enhet (eller enheter) själva, som kör IoT Edge-modul. Den andra är utvecklingsdator som används för att skapa, testa och distribuera moduler. Den här artikeln fokuserar främst på utvecklingsdator. I testsyfte kan de två datorerna vara detsamma. Du kan köra IoT Edge på en utvecklingsdator och distribuera moduler till den.
+I en IoT Edge lösning finns det minst två datorer att tänka på. En är den IoT Edge enheten (eller enheterna), som kör modulen IoT Edge. Den andra är den utvecklings dator som du använder för att bygga, testa och distribuera moduler. Den här artikeln fokuserar främst på utvecklings datorn. De två datorerna kan vara identiska i test syfte. Du kan köra IoT Edge på utvecklings datorn och distribuera moduler till den.
 
 ## <a name="operating-system"></a>Operativsystem
 
-Azure IoT Edge som körs på en specifik uppsättning [operativsystem som stöds](support.md). För att utveckla IoT Edge, kan du använda de flesta operativsystem som kan köra en motor för behållaren. Behållare-motorn är ett krav på utvecklingsdator för att bygga dina moduler som behållare och överföra dem till ett behållarregister. 
+Azure IoT Edge körs på en angiven uppsättning [operativ system som stöds](support.md). För att utveckla för IoT Edge kan du använda de flesta operativ system som kan köra en behållar motor. Behållar motorn är ett krav på utvecklings datorn för att bygga dina moduler som behållare och skicka dem till ett behållar register. 
 
-Om din utvecklingsdator inte kan köra Azure IoT Edge, fortsätta i den här artikeln om du vill veta mer om [testverktyg](#testing-tools) som hjälper dig att testa och felsöka lokalt. 
+Om din utvecklings dator inte kan köra Azure IoT Edge fortsätter du i den här artikeln om du vill veta mer om [testnings verktyg](#testing-tools) som hjälper dig att testa och felsöka lokalt. 
 
-Operativsystemet på utvecklingsdatorn behöver inte matcha operativsystemet på din IoT Edge-enhet. Operativsystemet behållare måste dock vara konsekvent mellan utvecklingssystemet och IoT Edge-enhet. Du kan till exempel utveckla moduler på en Windows-dator och distribuera dem till en Linux-enhet. Windows-datorn måste köra Linux-behållare för att skapa modulerna för Linux-enheten. 
+Utvecklings datorns operativ system behöver inte matcha operativ systemet på din IoT Edge-enhet. Behållar operativ systemet måste dock vara konsekvent mellan utvecklings datorn och IoT Edge enheten. Du kan till exempel utveckla moduler på en Windows-dator och distribuera dem till en Linux-enhet. Windows-datorn måste köra Linux-behållare för att skapa modulerna för Linux-enheten. 
 
-## <a name="container-engine"></a>Motorn för behållare
+## <a name="container-engine"></a>Container motor
 
-Central begreppet IoT Edge är att du via fjärranslutning kan distribuera logik affärs- och molnet till enheter genom att paketera den i behållare. För att skapa behållare, behöver du en motor för behållaren på din utvecklingsdator. 
+Det centrala konceptet IoT Edge är att du kan fjärrdistribuera din affärs-och moln logik till enheter genom att paketera den i behållare. Om du vill bygga behållare behöver du en behållar motor på din utvecklings dator. 
 
-Endast stöds container-motor som IoT Edge-enheter i produktion är Moby. Dock kan en motor för behållare som är kompatibel med öppna Container-initiativet, som Docker, för att skapa IoT Edge-modul-avbildningar. 
+Den enda behållar motor som stöds för IoT Edge enheter i produktion är Moby. En behållar motor som är kompatibel med det öppna container initiativet, som Docker, kan skapa IoT Edge module-avbildningar. 
 
 ## <a name="development-tools"></a>Utvecklingsverktyg
 
-Både Visual Studio och Visual Studio Code har tillägget tillägg för att utveckla IoT Edge-lösningar. Dessa tillägg ger språkspecifika mallar för att skapa och distribuera nya IoT Edge-scenarier. Azure IoT Edge-tillägg för Visual Studio och Visual Studio Code hjälp du code, bygga, distribuera och felsöka dina IoT Edge-lösningar. Du kan skapa en hel IoT Edge-lösning som innehåller flera moduler och tillägg som uppdateras automatiskt en Distributionsmall för manifest med varje ny modul-tillägg. Med tillägg, kan du också hantera dina IoT-enheter i Visual Studio eller Visual Studio Code. Distribuerar moduler på en enhet, övervaka status och visa meddelanden när de anländer till IoT Hub. Båda tilläggen använder de [IoT EdgeHub utvecklingsverktyg](#iot-edgehub-dev-tool) att aktivera lokal körning och felsökning av moduler på din utvecklingsdator. 
+Både Visual Studio och Visual Studio Code har tillägg för tillägg som hjälper dig att utveckla IoT Edge lösningar. Dessa tillägg innehåller språkspecifika mallar som hjälper dig att skapa och distribuera nya IoT Edge scenarier. Azure IoT Edge tillägg för Visual Studio och Visual Studio Code hjälper dig att koda, bygga, distribuera och felsöka dina IoT Edge-lösningar. Du kan skapa en hel IoT Edge-lösning som innehåller flera moduler och tilläggen uppdaterar automatiskt en mall för distributions manifestet med varje ny modul. Med tilläggen kan du också hantera dina IoT-enheter från Visual Studio eller Visual Studio Code. Distribuera moduler till en enhet, övervaka status och Visa meddelanden när de anländer till IoT Hub. Båda tilläggen använder [IoT EdgeHub dev-verktyget](#iot-edgehub-dev-tool) för att aktivera lokal körning och fel sökning av moduler på utvecklings datorn också. 
 
-Om du föredrar att utveckla med andra redigerare eller från CLI tillhandahåller Azure IoT Edge-utvecklingsverktyg kommandon så att du kan utveckla och testa från kommandoraden. Du kan skapa nya IoT-Edge scenarier, skapa modulen avbildningar, kör moduler i en simulator och övervaka meddelanden som skickas till IoT Hub. 
+Om du föredrar att utveckla med andra redigerare eller från CLI innehåller verktyget Azure IoT Edge dev kommandon så att du kan utveckla och testa från kommando raden. Du kan skapa nya IoT Edge scenarier, skapa modulblad, köra moduler i en simulator och övervaka meddelanden som skickas till IoT Hub. 
 
 ### <a name="visual-studio-code-extension"></a>Visual Studio Code-tillägg
 
-Azure IoT Edge-tillägget för Visual Studio Code ger IoT Edge-modulen mallar som bygger på programmeringsspråk inklusive C, C#, Java, Node.js och Python, samt Azure functions i C#. 
+Azure IoT Edge-tillägget för Visual Studio Code innehåller IoT Edge modulblad som bygger på programmeringsspråk, inklusive C, C#Java, Node. js och python samt Azure Functions i C#. 
 
-Mer information och för att hämta Se [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+Mer information och hämtning finns i [Azure IoT Tools för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
-Förutom IoT Edge-tillägg, kan det vara bra att installera ytterligare tillägg för att utveckla. Du kan till exempel använda [Docker-stöd för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) att hantera dina bilder, behållare och register. Dessutom har alla större språk tillägg för Visual Studio Code som kan vara till hjälp när du utvecklar moduler. 
+Förutom IoT Edge tillägg kan det vara bra att installera ytterligare tillägg för utveckling. Du kan till exempel använda Docker- [stöd för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) för att hantera dina avbildningar, behållare och register. Alla språk som stöds har dessutom tillägg för Visual Studio-kod som kan hjälpa dig när du utvecklar moduler. 
 
-#### <a name="prerequisites"></a>Nödvändiga komponenter
+#### <a name="prerequisites"></a>Förutsättningar
 
-Modul-mallar för vissa språk och tjänster har förutsättningar som krävs för att bygga projektet mappar på en utvecklingsdator med Visual Studio Code.
+Mallarna för vissa språk och tjänster har förutsättningar som krävs för att bygga projektmappen på din utvecklings dator med Visual Studio Code.
 
-| Modulen mall | Krav |
+| Mall för modul | Krav |
 | --------------- | ------------ |
-| Azure Functions | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
+| Azure Functions | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
-| Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ställa in miljövariabeln JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven 3.](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js-modulen generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| C# | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
+| Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ange miljövariabeln JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven 3.](https://maven.apache.org/)</ul> |
+| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node. js-modul Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [–](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-20172019-extension"></a>Tillägget för Visual Studio 2017/2019
+### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019-tillägg
 
-Azure IoT Edge-verktyg för Visual Studio tillhandahåller en IoT Edge modul-mall som bygger C# och C. 
+Azure IoT Edge Tools för Visual Studio tillhandahåller en mall för IoT Edge modul som skapats C# på och C. 
 
-Mer information och för att hämta Se [Azure IoT Edge-verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) eller [Azure IoT Edge-verktyg för Visual Studio-2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+Mer information och hämtning finns i [Azure IoT Edge Tools för Visual studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) eller [Azure IoT Edge Tools för Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
-### <a name="iot-edge-dev-tool"></a>IoT Edge-utvecklingsverktyg
+### <a name="iot-edge-dev-tool"></a>IoT Edge dev Tool
 
-Azure IoT Edge-utvecklingsverktyg förenklar utvecklingen av IoT Edge med kommandoradsverktyget funktioner. Det här verktyget förser CLI-kommandon för att utveckla, felsöka och testa moduler. IoT Edge-utvecklingsverktyg som fungerar med utvecklingssystemet, oavsett om du har installerat manuellt beroenden på din dator eller använder behållaren IoT Edge-utveckling. 
+Verktyget Azure IoT Edge dev fören klar IoT Edge utveckling med kommando rads förmågor. Det här verktyget innehåller CLI-kommandon för att utveckla, felsöka och testa moduler. Verktyget IoT Edge dev fungerar med ditt utvecklings system, oavsett om du har installerat beroenden manuellt på din dator eller använder IoT Edge dev-behållaren. 
 
-Mer information och du kommer igång finns i [IoT Edge dev verktyget wiki](https://github.com/Azure/iotedgedev/wiki).
+Mer information och kom igång finns i [IoT Edge dev-verktyget wiki](https://github.com/Azure/iotedgedev/wiki).
 
 ## <a name="testing-tools"></a>Testverktyg
 
-Det finns flera testverktyg för att hjälpa dig att simulera en IoT Edge-enheter eller felsöka moduler mer effektivt. I följande tabell visas en övergripande jämförelse mellan verktyg och sedan enskilda avsnitt beskrivs varje verktyg mer specifikt. 
+Det finns flera test verktyg som hjälper dig att simulera IoT Edge enheter eller felsöka moduler på ett mer effektivt sätt. I följande tabell visas en jämförelse mellan verktygen och enskilda avsnitt beskriver varje verktyg mer specifikt. 
 
-Endast IoT Edge-körningen stöds för distributioner av produktion, men följande verktyg kan du simulera eller enkelt skapa IoT Edge-enheter för utveckling och testning. Dessa verktyg är inte ömsesidigt uteslutande, men kan fungera tillsammans för en komplett utvecklings-upplevelse. 
+Endast IoT Edge runtime stöds för produktions distributioner, men med följande verktyg kan du simulera eller enkelt skapa IoT Edge enheter för utvecklings-och testnings ändamål. Dessa verktyg är inte ömsesidigt uteslutande, men kan användas tillsammans för att få en fullständig utvecklings upplevelse. 
 
-| Verktyget | Även känt som | Plattformar som stöds | Bäst för |
+| Verktyg | Kallas även | Plattformar som stöds | Bäst för |
 | ---- | ------------- | ------------------- | --------- |
-| IoT EdgeHub utvecklingsverktyg  | iotedgehubdev | Windows, Linux, MacOS | Simulera en enhet för att felsöka moduler. |
-| Behållare för IoT Edge-utveckling | Microsoft/iotedgedev | Windows, Linux, MacOS | Utveckla utan att installera beroenden. |
-| IoT Edge-körning i en behållare | iotedgec | Windows, Linux, MacOS, ARM | Tester på en enhet som inte stöder körningen. |
-| IoT Edge-enhetsbehållare | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Testa ett scenario med många IoT Edge-enheter i stor skala. |
+| Verktyget IoT EdgeHub dev  | iotedgehubdev | Windows, Linux, MacOS | Simulera en enhet för att felsöka moduler. |
+| IoT Edge dev-behållare | Microsoft/iotedgedev | Windows, Linux, MacOS | Utveckla utan att installera beroenden. |
+| IoT Edge körning i en behållare | iotedgec | Windows, Linux, MacOS, ARM | Testning på en enhet som kanske inte har stöd för körnings miljön. |
+| Behållare för IoT Edge enhet | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Testa ett scenario med många IoT Edge enheter i stor skala. |
 
-### <a name="iot-edgehub-dev-tool"></a>IoT EdgeHub utvecklingsverktyg
+### <a name="iot-edgehub-dev-tool"></a>Verktyget IoT EdgeHub dev
 
-Azure IoT EdgeHub utvecklingsverktyg är lokal utveckling och felsökning. Verktyget hjälper till att starta IoT Edge-moduler utan IoT Edge-körningen så att du kan skapa, utveckla, testa, köra och felsöka IoT Edge-moduler och lösningar lokalt. Du behöver skicka avbildningar till ett behållarregister och distribuera dem till en enhet för att testa.
+Verktyget Azure IoT EdgeHub dev tillhandahåller en lokal utvecklings-och fel söknings miljö. Verktyget hjälper dig att starta IoT Edge moduler utan IoT Edge runtime så att du kan skapa, utveckla, testa, köra och felsöka IoT Edge moduler och lösningar lokalt. Du behöver inte skicka avbildningar till ett behållar register och distribuera dem till en enhet för testning.
 
-Utvecklingsverktyg IoT EdgeHub har utformats för att fungera tillsammans med Visual Studio och Visual Studio Code, samt med IoT Edge-utvecklingsverktyg. Den stöder interna slingan utveckling samt yttre loop testning, så kan integreras med DevOps-verktyg för. 
+Verktyget IoT EdgeHub dev har utformats för att fungera tillsammans med kod tilläggen Visual Studio och Visual Studio, samt med verktyget IoT Edge dev. Den stöder inre loop-utveckling samt yttre sling-testning, så att de även integreras med DevOps-verktygen. 
 
-Mer information och för att installera, se [utvecklingsverktyg för Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/).
+Mer information och installera finns i [verktyget Azure IoT EdgeHub dev](https://pypi.org/project/iotedgehubdev/).
 
-### <a name="iot-edge-dev-container"></a>Behållare för IoT Edge-utveckling
+### <a name="iot-edge-dev-container"></a>IoT Edge dev-behållare
 
-Behållare för Azure IoT Edge-utveckling är en dockerbehållare som har alla beroenden som du behöver för utveckling av IoT Edge. Den här behållaren gör det enkelt att komma igång med oavsett vilket språk du vill utveckla i, inklusive C#, Python, Node.js och Java. Allt du behöver installera är en motor för behållaren, t.ex. Docker eller Moby, för att hämta behållaren till din utvecklingsdator. 
+Azure IoT Edge dev-behållaren är en Docker-behållare som har alla beroenden som du behöver för att IoT Edge utveckling. Den här behållaren gör det enkelt att komma igång med det språk som du vill utveckla i, C#inklusive, python, Node. js och Java. Allt du behöver installera är en behållar motor, som Docker eller Moby, för att hämta behållaren till din utvecklings dator. 
 
-Mer information finns i [behållare för Azure IoT Edge-utveckling](https://hub.docker.com/r/microsoft/iotedgedev/).
+Mer information finns i [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/).
 
-### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge-körning i en behållare
+### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge körning i en behållare
 
-IoT Edge-körning i en behållare ger en fullständig runtime som tar enhetens anslutningssträng som en miljövariabel. Den här behållaren kan du testa IoT Edge-moduler och scenarier som inte stöder körningen internt, t.ex. MacOS. Alla moduler som du distribuerar kommer att startas utanför runtime-behållare. Om du vill att körningen och eventuella distribuerade moduler finns inom samma behållare kan du överväga att behållaren IoT Edge-enhet i stället.
+IoT Edge runtime i en behållare ger en fullständig körning som tar din enhets anslutnings sträng som en miljö variabel. Med den här behållaren kan du testa IoT Edge moduler och scenarier på ett system som kanske inte stöder körning av program vara internt, till exempel MacOS. Alla moduler som du distribuerar startas utanför runtime-behållaren. Om du vill att körningen och alla distribuerade moduler ska finnas i samma behållare, bör du överväga IoT Edge enhets behållaren i stället.
 
-Mer information finns i [som kör Azure IoT Edge i en behållare](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
+Mer information finns i [köra Azure IoT Edge i en behållare](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
-### <a name="iot-edge-device-container"></a>IoT Edge-enhetsbehållare
+### <a name="iot-edge-device-container"></a>Behållare för IoT Edge enhet
 
-Enhetsbehållare IoT Edge är en fullständig IoT Edge-enhet, redo att köras på valfri dator med en motor för behållare. Behållaren enhet innehåller IoT Edge-körningen och en behållare-motorn. Varje instans av behållaren är en helt funktionella Automatisk etablering IoT Edge-enhet. Behållaren enhet har stöd för fjärrfelsökning av moduler, så länge det finns en nätverksväg i modulen. Behållaren enhet är bra för att snabbt skapa stora mängder IoT Edge enheter för att testa scenarier i skala eller Azure-Pipelines. Det har också stöd för distribution till kubernetes via helm. 
+Den IoT Edge enhets containern är en fullständig IoT Edge enhet som är redo att startas på en dator med en behållar motor. Enhets containern innehåller IoT Edge Runtime och en behållar motor själva. Varje instans av behållaren är en helt funktionell själv etablerings IoT Edge enhet. Enhets behållaren stöder fjärrfelsökning av moduler, så länge det finns en nätverks väg till modulen. Enhets containern är lämplig för att snabbt skapa ett stort antal IoT Edge enheter för att testa scenarier med stor skala eller Azure-pipelines. Det stöder också distribution till Kubernetes via Helm. 
 
-Mer information finns i [Azure IoT Edge-enhetsbehållare](https://github.com/toolboc/azure-iot-edge-device-container).
+Mer information finns i [Azure IoT Edge enhets behållare](https://github.com/toolboc/azure-iot-edge-device-container).
 
 ## <a name="devops-tools"></a>DevOps-verktyg
 
-När du är redo att utveckla i Skala lösningar för omfattande produktionsscenarion möjliga kan dra nytta av moderna DevOps-principer, inklusive automation, övervakning och effektiv programvaruutveckling processer. IoT Edge har tillägg för DevOps-verktyg som Azure DevOps, Azure DevOps-projekt och Jenkins. Om du vill anpassa en befintlig pipeline eller använda ett annat DevOps-verktyg som CircleCI eller TravisCI kan du göra det med CLI-funktioner som ingår i IoT Edge-utvecklingsverktyg.
+När du är redo att utveckla lösningar för omfattande produktions scenarier kan du dra nytta av moderna DevOps-principer, inklusive automatisering, övervakning och strömlinjeformade program teknik processer. IoT Edge har tillägg som stöder DevOps-verktyg, inklusive Azure DevOps, Azure DevOps Projects och Jenkins. Om du vill anpassa en befintlig pipeline eller använda ett annat DevOps-verktyg som CircleCI eller TravisCI, kan du göra det med CLI-funktionerna som ingår i IoT Edge dev-verktyget.
 
-Mer information, riktlinjer och exempel, finns på följande sidor:
+Mer information, vägledning och exempel finns i följande sidor:
 * [Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge](how-to-ci-cd.md)
-* [Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt](how-to-devops-project.md)
-* [Azure IoT Edge Jenkins-plugin-programmet](https://plugins.jenkins.io/azure-iot-edge)
-* [IoT Edge DevOps GitHub-lagringsplatsen](https://github.com/toolboc/IoTEdge-DevOps)
+* [Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps Projects](how-to-devops-project.md)
+* [Azure IoT Edge Jenkins-plugin](https://plugins.jenkins.io/azure-iot-edge)
+* [IoT Edge DevOps GitHub lagrings platsen](https://github.com/toolboc/IoTEdge-DevOps)

@@ -1,7 +1,7 @@
 ---
-title: Känner igen utskrivna/handskriven text för visuellt innehåll
+title: Identifiera skriven/handskriven text, Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp att känna igen utskrivna och handskriven text i bilder med den API för visuellt innehåll.
+description: Begrepp som rör igenkänning av utskrift och handskriven text i bilder med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,87 +11,87 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cfbbd0b353699c4b04ede07df0450e66bd59612f
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357185"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311953"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
-Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera utskrivna eller handskriven text som visas i bilder. Detta är användbart i en mängd olika scenarier, till exempel Anteckningar, medicinska journaler, säkerhet och banktjänster. I följande tre avsnitt detalj tre olika textigenkänning API: er, som var och en optimerad för olika användningsfall.
+Visuellt innehåll tillhandahåller ett antal tjänster som identifierar och extraherar tryckt text eller handskriven text som visas i bilder. Detta är användbart i många olika scenarier, till exempel anmärkningar, medicinska poster, säkerhet och bank tjänster. I följande tre avsnitt beskrivs tre olika API: er för text igenkänning, som är optimerade för olika användnings fall.
 
-## <a name="read-api"></a>Få tillgång till API
+## <a name="read-api"></a>Läs-API
 
-Läs API: et identifierar textinnehåll i en avbildning med hjälp av våra senaste modeller för taligenkänning och konverterar den identifierade texten till en maskinläsningsbar teckenström. Tjänsten är optimerad för textintensiv avbildningar (t.ex dokument som har genomsökts digitalt) och avbildningar med en massa visual bruset. Det avgör vilka igenkänningsfunktion för att använda för varje rad med text, stöd för avbildningar med både utskrivna och handskriven text. Läs API körs asynkront eftersom större dokument kan ta flera minuter att beräkna ett resultat.
+Read API identifierar text innehåll i en avbildning med hjälp av våra senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström. Den är optimerad för text intensiva avbildningar (till exempel dokument som har skannats digitalt) och för bilder med stor visuell brus. Den avgör vilken igenkännings modell som ska användas för varje textrad, stöd för bilder med både utskrift och handskriven text. Read API körs asynkront eftersom det kan ta flera minuter för större dokument att returnera ett resultat.
 
-Läs-åtgärden bevarar de ursprungliga rad grupperingarna av identifierade ord i dess utdata. Varje rad med avgränsar koordinater för avgränsningsfält, och varje ord i raden har också sin egen koordinater. Om ett ord identifieras med låg tryggt som informationen överförs även. Se den [Läs API-referensdokumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) vill veta mer.
+Läs åtgärden underhåller de ursprungliga rad grupperna av identifierade ord i dess utdata. Varje rad kommer med koordinater för markerings rutor, och varje ord på raden har också sina egna koordinater. Om ett ord identifierades med låg exakthet förmedlas även den informationen. Mer information finns i [referens dokumenten för Read API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) .
 
 > [!NOTE]
 > Den här funktionen är endast tillgänglig för engelsk text.
 
 ### <a name="image-requirements"></a>Avbildningskrav
 
-Läs API fungerar med avbildningar som uppfyller följande krav:
+Read API fungerar med avbildningar som uppfyller följande krav:
 
-- Bilden måste vara visas i JPEG, PNG, BMP, PDF eller TIFF-format.
-- Storleken för avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter. PDF-sidor måste vara 17 x 17 tum eller mindre.
-- Filstorleken för avbildningen måste vara mindre än 20 megabyte (MB).
+- Bilden måste visas i JPEG-, PNG-, BMP-, PDF-eller TIFF-format.
+- Bildens mått måste vara mellan 50 x 50 och 10000 x 10000 bild punkter. PDF-sidor måste vara 17 × 17 tum eller mindre.
+- Bildens fil storlek måste vara mindre än 20 megabyte (MB).
 
 ### <a name="limitations"></a>Begränsningar
 
-Om du använder en prenumeration på kostnadsfri nivå, bearbetar Läs API endast de första två sidorna i en PDF- eller TIFF-dokumentet. Med en betald prenumeration bearbetas upp till 200 sidor. Observera också att API: et identifierar högst 300 rader per sida.
+Om du använder en prenumeration på kostnads fri nivå bearbetar Read API endast de första två sidorna i ett PDF-eller TIFF-dokument. Med en betald prenumeration kommer den att bearbeta upp till 200 sidor. Observera också att API: et ska identifiera högst 300 rader per sida.
 
-## <a name="ocr-optical-character-recognition-api"></a>OCR (optisk teckenläsning) API
+## <a name="ocr-optical-character-recognition-api"></a>OCR-API (optisk tecken läsning)
 
-API för visuellt innehåll optisk teckenläsning (OCR) liknar Läs-API, men det körs synkront och inte har optimerats för stora dokument. Den använder en tidigare igenkänningsfunktion för men fungerar med flera språk. Se [språkstöd](language-support.md#text-recognition) för en fullständig lista över språk som stöds.
+Visuellt innehåll ' OCR-API: n (optisk tecken läsning) liknar Read API, men körs synkront och är inte optimerad för stora dokument. Den använder en tidigare igenkännings modell men fungerar med fler språk. Se [språk stöd](language-support.md#text-recognition) för en fullständig lista över de språk som stöds.
 
-Om det behövs, korrigerar OCR rotationen av den tolkade texten genom att returnera rotational förskjutningen i grader om axeln vågrät bild. OCR innehåller också ramens koordinaterna i varje ord som visas i följande bild.
+Vid behov korrigerar OCR rotationen av den tolkade texten genom att returnera rotations förskjutningen i grader om den vågräta bild axeln. OCR innehåller också koordinaterna för varje ord, som du ser i följande bild.
 
-![En bild roteras och texten som Läs- och avgränsad rader](./Images/vision-overview-ocr.png)
+![En bild som roteras och dess text läses och avgränsas](./Images/vision-overview-ocr.png)
 
-Se den [OCR referensdokument](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) vill veta mer.
+Mer information finns i [referens dokument för OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) .
 
 ### <a name="image-requirements"></a>Avbildningskrav
 
-OCR-API fungerar på avbildningar som uppfyller följande krav:
+OCR-API: et fungerar på avbildningar som uppfyller följande krav:
 
-* Bilden måste vara visas i JPEG, PNG-, GIF- eller BMP-format.
-* Storleken på den inkommande avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter.
-* Texten i bilden kan roteras dubbla av 90 grader plus en liten vinkeln för upp till 40 grader.
+* Bilden måste visas i formatet JPEG, PNG, GIF eller BMP.
+* Storleken på indata-bilden måste vara mellan 50 x 50 och 4200 x 4200 bild punkter.
+* Texten i bilden kan roteras med en multipel på 90 grader plus en liten vinkel på upp till 40 grader.
 
 ### <a name="limitations"></a>Begränsningar
 
-Falska positiva identifieringar kan komma från delvis identifierade ord på fotografier där texten är dominerande. Precisionen kan variera beroende på vilken typ av avbildning på vissa fotografier, särskilt foton någon text.
+I fotografier där texten är dominerande kan falska positiva identifieringar komma från delvis identifierade ord. I vissa fotografier, särskilt foton utan text, kan precisionen variera beroende på typen av bild.
 
-## <a name="recognize-text-api"></a>Identifiera Text API
+## <a name="recognize-text-api"></a>Identifiera text-API
 
 > [!NOTE]
-> Identifiera Text-API har ersatts av Läs-API. Läs API: et har liknande funktioner och uppdateras för att hantera PDF, TIFF och filer med flera sidor.
+> Identifiera text-API: et är inaktuellt med Läs-API: et. Read API har liknande funktioner och uppdateras för att hantera PDF-, TIFF-och flersidiga filer.
 
-Identifiera Text-API är liknande OCR, men den asynkront och använder uppdaterade igenkänning av modeller. Se den [identifiera Text-API-referensdokumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) vill veta mer.
+Identifiera text API liknar OCR, men körs asynkront och använder uppdaterade igenkännings modeller. Mer information finns i [referens dokumenten för identifiera text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) .
 
 ### <a name="image-requirements"></a>Avbildningskrav
 
-Identifiera Text-API fungerar med avbildningar som uppfyller följande krav:
+Identifiera text-API: et fungerar med avbildningar som uppfyller följande krav:
 
-- Bilden måste vara visas i JPEG, PNG eller BMP-format.
-- Storleken för avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter.
-- Filstorleken för avbildningen måste vara mindre än 4 MB (megabyte).
+- Bilden måste visas i formatet JPEG, PNG eller BMP.
+- Bildens mått måste vara mellan 50 x 50 och 4200 x 4200 bild punkter.
+- Bildens fil storlek måste vara mindre än 4 MB.
 
 ## <a name="limitations"></a>Begränsningar
 
-Hur korrekt referensdatorns text igenkänning av operations beror på kvaliteten på bilderna. Följande faktorer kan orsaka en felaktig läsning:
+Precisionen för text igenkännings åtgärder beror på bildens kvalitet. Följande faktorer kan orsaka en felaktig läsning:
 
 * Suddiga bilder.
 * Handskriven eller kursiv text.
 * Konstnärliga teckensnittsstilar.
 * Liten teckenstorlek.
 * Komplexa bakgrunder, skuggor eller motljus över text eller perspektivförvrängningar.
-* Stora eller saknas versaler i början av ord.
+* Stora bokstäver eller saknade versaler i början av ord.
 * Nedsänkt text, upphöjd eller genomstruken text.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ den [extrahera utskrivna text (OCR)](./quickstarts/csharp-print-text.md) Snabbstart för att implementera textigenkänning i en enkel C# app.
+Följ snabb starten för att [extrahera tryckt text (OCR)](./quickstarts/csharp-print-text.md) för att implementera text igenkänning C# i en enkel app.

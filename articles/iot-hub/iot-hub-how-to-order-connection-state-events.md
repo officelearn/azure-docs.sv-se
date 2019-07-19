@@ -1,44 +1,44 @@
 ---
-title: Ordna enhetshändelser anslutning från Azure IoT Hub med Azure Cosmos DB | Microsoft Docs
-description: Den här artikeln beskriver hur du ordna och registrera enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB för att upprätthålla senaste anslutningsstatus
+title: Beställ enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB | Microsoft Docs
+description: Den här artikeln beskriver hur du beställer och registrerar enhets anslutnings händelser från Azure IoT Hub att använda Azure Cosmos DB för att underhålla det senaste anslutnings läget
 services: iot-hub
 ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743295"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67988289"
 ---
-# <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
+# <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Beställ enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB
 
-Azure Event Grid kan du skapa händelse-baserade program och enkelt integrera IoT-händelser i dina affärslösningar. Den här artikeln beskriver hur du en konfiguration som kan användas för att spåra och lagra det senaste anslutningen enhetstillståndet i Cosmos DB. Vi använder sekvensnummer som är tillgängliga i händelserna enheten ansluten och enheten frånkopplad och lagra det senaste tillståndet i Cosmos DB. Vi ska använda en lagrad procedur är ett programlogik som körs mot en samling i Cosmos DB.
+Azure Event Grid hjälper dig att bygga händelsebaserade program och enkelt integrera IoT-händelser i dina affärs lösningar. Den här artikeln vägleder dig genom en installation som du kan använda för att spåra och lagra den senaste statusen för enhets anslutning i Cosmos DB. Vi kommer att använda sekvensnumret som är tillgängligt i enheten ansluten och enhets frånkopplade händelser och lagra det senaste läget i Cosmos DB. Vi ska använda en lagrad procedur, som är en program logik som körs mot en samling i Cosmos DB.
 
-Sekvensnumret är en strängrepresentation av ett hexadecimalt tal. Du kan använda jämför sträng för att identifiera det större antalet. Om du konverterar den hexadecimal strängen kommer antalet att en 256-bitars tal. Sekvensnumret strikt ökar och den senaste händelsen kommer att ha högre nummer än andra händelser. Detta är användbart om du har ofta enheten ansluter och kopplar från och se till att endast den senaste händelsen används för att utlösa en underordnad åtgärd som Azure Event Grid har inte stöd för sorteringen av händelser.
+Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan använda sträng jämförelse för att identifiera det större talet. Om du konverterar strängen till hex blir talet ett 256-bitars tal. Sekvensnumret är helt ökande och den senaste händelsen har en högre siffra än andra händelser. Detta är användbart om du ofta har en enhet som är ansluten och frånkopplad och vill se till att endast den senaste händelsen används för att utlösa en underordnad åtgärd, eftersom Azure Event Grid inte stöder sortering av händelser.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databaskonto](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) en genomgång.
+* Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databas konto](../cosmos-db/create-sql-api-java.md#create-a-database-account) för en genom gång.
 
-* En samling i din databas. Se [Lägg till en samling](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) en genomgång. När du skapar din samling, använda `/id` för Partitionsnyckeln.
+* En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder `/id` du för partitionsnyckel.
 
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](iot-hub-csharp-csharp-getstarted.md).
 
 ## <a name="create-a-stored-procedure"></a>Skapa en lagrad procedur
 
-Först skapar du en lagrad procedur och ställas in att köra en logik som jämför sekvensnummer inkommande och registrerar den senaste händelsen per enhet i databasen.
+Börja med att skapa en lagrad procedur och konfigurera den så att den kör en logik som jämför antalet inkommande händelser och registrerar den senaste händelsen per enhet i databasen.
 
-1. Välj i din Cosmos DB SQL API **Datautforskaren** > **objekt** > **ny lagringsprocedur**.
+1. I Cosmos DB SQL API väljer du **datautforskaren** > **objekt** > **ny lagrad procedur**.
 
    ![Skapa lagrad procedur](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Ange **LatestDeviceConnectionState** för lagrad procedur-ID och klistra in följande i den **lagringsprocedur brödtext**. Observera att den här koden bör ersätter eventuella befintliga koden i själva lagrad procedur. Den här koden har en rad per enhets-ID och registrerar senaste anslutningsstatus för enhets-ID genom att identifiera det högsta numret.
+2. Ange **LatestDeviceConnectionState** för det lagrade procedur-ID: t och klistra in följande i den **lagrade procedurens brödtext**. Observera att den här koden ska ersätta eventuell befintlig kod i den lagrade procedurens brödtext. Den här koden underhåller en rad per enhets-ID och registrerar det senaste anslutnings läget för enhets-ID: t genom att identifiera det högsta ordnings numret.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -137,28 +137,28 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
 
 ### <a name="create-a-logic-app-resource"></a>Skapa en resurs för en logikapp
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **+ skapa en resurs**väljer **integrering** och sedan **Logikapp**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **+ skapa en resurs**, väljer **integration** och sedan **Logic app**.
 
    ![Skapa en logikapp](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
 2. Ge logikappen ett namn som är unikt i din prenumeration och välj sedan samma prenumeration, resursgrupp och plats som din IoT-hubb.
 
-   ![Ny logikapp](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
+   ![Ny Logic-app](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
 
-3. Välj **skapa** att skapa logikappen.
+3. Välj **skapa** för att skapa Logic-appen.
 
    Du har nu skapat en Azure-resurs för din logikapp. När Azure distribuerar din logikapp visar Logic Apps Designer mallar för vanliga mönster så kan du sätta igång snabbare.
 
    > [!NOTE]
-   > För att hitta och öppna logikappen igen, Välj **resursgrupper** och välj den resursgrupp som du använder för den här anvisningen. Välj sedan den nya logikappen. Då öppnas Logic App Designer.
+   > Om du vill hitta och öppna din Logic app igen väljer du **resurs grupper** och väljer den resurs grupp som du använder för den här instruktionen. Välj sedan den nya Logic-appen. Då öppnas Logic Apps designer.
 
-4. I Logic App Designer, rulla åt höger tills du ser vanliga utlösare. Under **mallar**, Välj **tom Logikapp** så att du kan bygga din logikapp från början.
+4. I Logic Apps designer rullar du åt höger tills du ser vanliga utlösare. Under **mallar**väljer du **Tom Logic app** så att du kan bygga din Logic app från grunden.
 
 ### <a name="select-a-trigger"></a>Välj en utlösare
 
 En utlösare är en specifik händelse som startar din logikapp. I den här självstudien tar utlösaren som utlöser arbetsflödet emot en begäran via HTTP.
 
-1. I kopplingar och utlösare sökfältet skriver **HTTP** och tryck på RETUR.
+1. I Sök fältet kopplingar och utlösare skriver du **http** och trycker på RETUR.
 
 2. Välj **Begäran – När en HTTP-begäran tas emot** som utlösare.
 
@@ -166,7 +166,7 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
 3. Välj **Generera schemat genom att använda en exempelnyttolast**.
 
-   ![Använd exempel för att skapa ett schema](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
+   ![Använd exempel nytto last för att generera ett schema](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
 4. Klistra in följande JSON-exempelkod i textrutan och välj sedan **Klar**:
 
@@ -192,31 +192,31 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
    }]
    ```
 
-   ![Klistra in JSON-exempelnyttolast](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
+   ![Klistra in exempel-JSON-nyttolast](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
 
 5. Ett popup-meddelande med texten **Remember to include a Content-Type header set to application/json in your request** (Glöm inte att ta med ett Content-Type-huvud konfigurerat till application/json i din begäran). Du kan ignorera det här förslaget och gå vidare till nästa avsnitt.
 
 ### <a name="create-a-condition"></a>Skapa ett villkor
 
-I ditt logikapparbetsflöde att villkor köra specifika åtgärder efter skicka specifika villkoret. När villkoret är uppfyllt, kan du definiera en önskad åtgärd. Villkoret är att kontrollera om händelsetyp är enhet ansluten eller frånkopplad-enhet i den här självstudien. Åtgärden är att köra den lagrade proceduren i databasen.
+I ditt Logic app-arbetsflöde kan villkor hjälpa dig att köra vissa åtgärder när du har överfört det aktuella villkoret. När villkoret är uppfyllt kan en önskad åtgärd definieras. I den här självstudien är villkoret att kontrol lera om eventType är enhet ansluten eller om enheten är frånkopplad. Åtgärden kommer att utföra den lagrade proceduren i databasen.
 
-1. Välj **+ nytt steg** sedan **inbyggda**, hitta och välj **villkor**. Klicka på **Välj ett värde** och en ruta visas som visar dynamiskt innehåll – de fält som kan väljas. Fyll i fälten som visas nedan för att utföra detta endast för enheten ansluten och enheten frånkopplad händelser:
+1. Välj **+ nytt steg** sedan **inbyggd**och sedan Sök och välj **villkor**. Klicka på **Välj ett värde** så visas en ruta med det dynamiska innehållet – fälten som kan väljas. Fyll i fälten så som visas nedan för att endast köra detta för enhet anslutna och frånkopplade enhets händelser:
 
-   * Välj ett värde: **händelsetyp** – Välj det här alternativet från fälten i dynamiskt innehåll som visas när du klickar på det här fältet.
-   * Ändra ”är lika med” att **slutar med**.
+   * Välj ett värde: **eventType** --Välj detta från fälten i det dynamiska innehåll som visas när du klickar på det här fältet.
+   * Ändra "är lika med" som **slutar med**.
    * Välj ett värde: **nected**.
 
-     ![Fyll villkor](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fyllnings villkor](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-2. I den **om värdet är true** dialogrutan klickar du på **Lägg till en åtgärd**.
+2. I dialog rutan **om True** klickar du på **Lägg till en åtgärd**.
   
-   ![Lägg till åtgärd om värdet är true](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
+   ![Lägg till åtgärd om värdet är sant](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-3. Sök efter Cosmos DB och välj **Azure Cosmos DB – Kör lagrad procedur**
+3. Sök efter Cosmos DB och välj **Azure Cosmos DB-kör lagrad procedur**
 
    ![Sök efter CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. Fyll i **cosmosdb-connection** för den **anslutningsnamn** och markera posten i tabellen och välj sedan **skapa**. Du ser den **köra den lagrade proceduren** panelen. Ange värden för fälten:
+4. Fyll i **cosmosdb – anslutning** för **anslutnings namnet** och välj posten i tabellen och välj sedan **skapa**. Du ser panelen **Kör lagrad procedur** . Ange värdena för fälten:
 
    **Databas-ID**: ToDoList
 
@@ -224,23 +224,23 @@ I ditt logikapparbetsflöde att villkor köra specifika åtgärder efter skicka 
 
    **Sproc-ID**: LatestDeviceConnectionState
 
-5. Välj **Lägg till ny parameter**. I listrutan som visas markerar du kryssrutorna bredvid **partitionsnyckel** och **parametrar för den lagrade proceduren**, klicka på någon annanstans på skärmen, läggs ett fält för partitionsnyckelvärde och ett fält för parametrar för den lagrade proceduren.
+5. Välj **Lägg till ny parameter**. I list rutan som visas markerar du kryss rutorna bredvid **partitionsnyckel** och **Parametrar för den lagrade proceduren**. Klicka sedan på någon annan på skärmen. Det lägger till ett fält för partitionerings nyckel värde och ett fält för parametrar för den lagrade proceduren.
 
-   ![Fyll i logikappens](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Fyll i Logic app-åtgärd](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. Ange nu partitionsnyckelvärde och parametrar som visas nedan. Glöm inte att placera i hakparenteser och dubbla citattecken som visas. Du kanske måste klicka på **Lägg till dynamiskt innehåll** att hämta giltiga värden som du kan använda här.
+6. Ange värdet och parametrarna för partitionsnyckel som visas nedan. Se till att du anger hakparenteser och dubbla citat tecken enligt vad som visas. Du kanske måste klicka på **Lägg till dynamiskt innehåll** för att få giltiga värden som du kan använda här.
 
-   ![Fyll i logikappens](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Fyll i Logic app-åtgärd](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Överst i rutan där det står **för var och en**under **Välj utdata från föregående steg**, kontrollera att den **brödtext** har valts.
+7. Överst i fönstret där **det står,** under **Välj utdata från föregående steg**, kontrollerar du att **den är markerad** .
 
-   ![Fyll i logikapp för varje](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+   ![Fyll i Logic app för – varje](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
 8. Spara din logikapp.
 
 ### <a name="copy-the-http-url"></a>Kopiera HTTP-URL:en
 
-Kopiera den URL som din logikapp lyssnar på för en utlösare innan du lämnar Logic Apps Designer. Du använder den här URL:en för att konfigurera Event Grid.
+Innan du lämnar Logic Apps designer kopierar du den URL som din Logic app lyssnar på för en utlösare. Du använder den här URL:en för att konfigurera Event Grid.
 
 1. Expandera konfigurationsrutan för utlösaren **När en HTTP-begäran tas emot** genom att klicka på den.
 
@@ -260,29 +260,29 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
    ![Öppna Event Grid-informationen](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. Välj **+ händelseprenumeration**.
+3. Välj **+ händelse prenumeration**.
 
    ![Skapa ny händelseprenumeration](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Fyll i **händelse prenumerationsinformation**: Ange ett beskrivande namn och välj **Grid Händelseschema**.
+4. Fyll i **händelse prenumerations information**: Ange ett beskrivande namn och välj **Event Grid schema**.
 
-5. Fyll i den **händelsetyper** fält. I den nedrullningsbara listan väljer du endast **enheten ansluten** och **enheten frånkopplad** på menyn. Klicka på någon annanstans på skärmen för att Stäng listan och spara dina val.
+5. Fyll i fälten **händelse typer** . I list rutan väljer du endast **enhet ansluten** och **enheten frånkopplad** från menyn. Klicka på någon annan stans på skärmen för att stänga listan och spara dina val.
 
-   ![Ange händelsetyper efter](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
+   ![Ange händelse typer som ska sökas efter](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-6. För **slutpunktsinformation**, Välj typ av slutpunkt som **Webhook** och klicka på Välj slutpunkt och klistra in den URL som du kopierade från din logikapp och bekräfta valet.
+6. För **slut punkts information**väljer du slut punkts typ som **Web Hook** och klickar på Välj slut punkt och klistrar in den URL som du kopierade från din Logic app och bekräftar valet.
 
-   ![Välj slutpunkts-url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
+   ![Välj slut punkts-URL](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
-7. Formuläret bör nu se ut ungefär så här:
+7. Formuläret bör nu se ut ungefär som i följande exempel:
 
    ![Exempelformulär för händelseprenumeration](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
    Spara händelseprenumerationen genom att välja **Skapa**.
 
-## <a name="observe-events"></a>Se händelser
+## <a name="observe-events"></a>Observera händelser
 
-Nu när din händelseprenumeration är konfigurerat kan vi testa genom att ansluta en enhet.
+Nu när din händelse prenumeration har kon figurer ATS kan vi testa genom att ansluta en enhet.
 
 ### <a name="register-a-device-in-iot-hub"></a>Registrera en enhet i IoT Hub
 
@@ -294,63 +294,63 @@ Nu när din händelseprenumeration är konfigurerat kan vi testa genom att anslu
 
 4. Välj **Spara**.
 
-5. Du kan lägga till flera enheter med olika enhets-ID.
+5. Du kan lägga till flera enheter med olika enhets-ID: n.
 
-   ![Enheter som har lagts till hubben](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
+   ![Enheter som lagts till i hubben](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Klicka på enheten igen. nu fyllas anslutningssträngar och nycklar i. Kopiera den **anslutningssträng – primärnyckel** för senare användning.
+6. Klicka på enheten igen. nu kommer anslutnings strängarna och nycklarna att fyllas i. Kopiera **anslutnings strängen – primär nyckel** för senare användning.
 
    ![ConnectionString för enhet](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-### <a name="start-raspberry-pi-simulator"></a>Starta simulatorn Raspberry Pi
+### <a name="start-raspberry-pi-simulator"></a>Starta Raspberry Pi-Simulator
 
-Nu ska vi använda Raspberry Pi web simulatorn för att simulera enhetsanslutning.
+Vi använder Raspberry Pi Web Simulator för att simulera enhets anslutning.
 
-[Starta simulatorn Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
+[Starta Raspberry Pi-Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
-### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Kör ett exempelprogram på web-simulator Raspberry Pi
+### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Köra ett exempel program i Raspberry Pi Web Simulator
 
-Detta utlöser en ansluten enhet-händelse.
+Då utlöses en enhets ansluten händelse.
 
-1. I området för kodning, ersätter du platshållaren i rad 15 med Azure IoT Hub enhetens anslutningssträng som du sparade i föregående avsnitt.
+1. I kodnings området ersätter du plats hållaren på rad 15 med den Azure IoT Hub enhets anslutnings sträng som du sparade i slutet av föregående avsnitt.
 
-   ![Klistra in enhetens anslutningssträng](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![Klistra in i enhets anslutnings sträng](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. Kör programmet genom att välja **kör**.
+2. Kör programmet genom att välja **Kör**.
 
-Du ser något som liknar följande utdata som visar sensordata och meddelanden som skickas till din IoT hub.
+Du ser något som liknar följande utdata som visar sensor data och meddelanden som skickas till din IoT-hubb.
 
    ![Köra programmet](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   Klicka på **stoppa** att stoppa simulator och utlöser en **enheten frånkopplad** händelse.
+   Klicka på **stoppa** för att stoppa simulatorn och utlösa en **enhet** som är frånkopplad.
 
-Du har nu kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb.
+Du har nu kört ett exempel program för att samla in sensor data och skicka det till din IoT-hubb.
 
-### <a name="observe-events-in-cosmos-db"></a>Se händelser i Cosmos DB
+### <a name="observe-events-in-cosmos-db"></a>Observera händelser i Cosmos DB
 
-Du kan se resultatet av den lagrade proceduren som körs i ditt Cosmos DB-dokument. Här är hur det ser ut. Varje rad innehåller det senaste anslutningen för enhetstillståndet per enhet.
+Du kan se resultatet av den utförda lagrade proceduren i Cosmos DB dokumentet. Så här ser det ut. Varje rad innehåller det senaste status för enhets anslutning per enhet.
 
-   ![Så här resultatet](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
+   ![Hur man utfaller](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Istället för att använda den [Azure-portalen](https://portal.azure.com), du kan utföra följande steg för IoT Hub som använder Azure CLI. Mer information finns i Azure CLI-sidor för [skapa en händelseprenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapar en IoT-enhet](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+I stället för att använda [Azure Portal](https://portal.azure.com)kan du utföra IoT Hub stegen med Azure CLI. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. När du är klar prova självstudien och testa dina resultat kan inaktivera eller ta bort resurser som du inte vill behålla.
+I den här självstudiekursen användes resurser som medför kostnader för din Azure-prenumeration. När du är klar med att testa självstudien och testa dina resultat kan du inaktivera eller ta bort resurser som du inte vill behålla.
 
 Om du inte vill förlora det arbete du gjort i logikappen inaktiverar du den i stället för att ta bort den.
 
 1. Gå till logikappen.
 
-2. På den **översikt** bladet väljer **ta bort** eller **inaktivera**.
+2. På bladet **Översikt** väljer du **ta bort** eller **inaktivera**.
 
     Varje prenumeration kan ha en kostnadsfri IoT-hubb. Om du har skapat en kostnadsfri hubb för den här självstudiekursen behöver du inte ta bort den för att undvika kostnader.
 
 3. Gå till IoT-hubben.
 
-4. På den **översikt** bladet väljer **ta bort**.
+4. Välj **ta bort**på bladet **Översikt** .
 
     Även om du behåller din IoT-hubb kanske du vill ta bort händelseprenumerationen som du skapade.
 
@@ -360,12 +360,12 @@ Om du inte vill förlora det arbete du gjort i logikappen inaktiverar du den i s
 
 7. Välj **Ta bort**.
 
-Om du vill ta bort ett Azure Cosmos DB-konto från Azure-portalen, högerklickar du på namnet på kontot och klicka på **ta bort konto**. Se detaljerade anvisningar för hur [tar bort ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+Om du vill ta bort ett Azure Cosmos DB konto från Azure Portal högerklickar du på konto namnet och klickar på **ta bort konto**. Se detaljerade instruktioner för att [ta bort ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder](../iot-hub/iot-hub-event-grid.md)
+* Läs mer om hur [du reagerar på IoT Hub händelser med event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md)
 
-* [Prova guiden för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Prova själv studie kursen om IoT Hub händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
-* Läs om vad du kan göra med [Event Grid](../event-grid/overview.md)
+* Lär dig mer om vad du kan göra med [Event Grid](../event-grid/overview.md)

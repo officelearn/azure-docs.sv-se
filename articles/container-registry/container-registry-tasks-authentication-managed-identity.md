@@ -1,60 +1,61 @@
 ---
-title: Använda en hanterad identitet med Azure Container Registry uppgifter
-description: Ange ett Azure Container Registry uppgift åtkomst till Azure-resurser, inklusive andra privata behållarregister genom att tilldela en hanterad identitet för Azure-resurser.
+title: Använd en hanterad identitet med Azure Container Registry uppgifter
+description: Ge en Azure Container Registry uppgifts åtkomst till Azure-resurser, inklusive andra privata behållar register genom att tilldela en hanterad identitet för Azure-resurser.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 5b60727472a06aaac8ccd3dce8609461e8972311
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 46351af375ab4c6e59a3ddfba3c05c1e517fab0d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148032"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311536"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Använda en Azure-hanterad identitet i ACR-uppgifter 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Använd en Azure-hanterad identitet i ACR-uppgifter 
 
-Använd en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) att autentisera från ACR-uppgifter till ett Azure container registry eller andra Azure-resurser utan att du behöver ange eller hantera autentiseringsuppgifter i kod. Till exempel använda en hanterad identitet till pull- eller push-överför avbildningar till ett annat register som ett steg i en aktivitet.
+Använd en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) för att AUTENTISERA från ACR uppgifter till ett Azure Container Registry eller andra Azure-resurser, utan att behöva ange eller hantera autentiseringsuppgifter i kod. Du kan till exempel använda en hanterad identitet för att hämta eller skicka behållar avbildningar till ett annat register som ett steg i en aktivitet.
 
 I den här artikeln får du lära dig mer om hanterade identiteter och hur du:
 
 > [!div class="checklist"]
-> * Aktivera en systemtilldelad identitet eller en Användartilldelad identitet för en ACR-aktivitet
-> * Ge åtkomst till Azure-resurser, till exempel andra Azure-behållarregister identitet
-> * Använda den hanterade identitet för åtkomst till resurser från en aktivitet 
+> * Aktivera en tilldelad identitet eller en användardefinierad identitet på en ACR-uppgift
+> * Ge identitets åtkomst till Azure-resurser, till exempel andra Azure Container register
+> * Använd den hanterade identiteten för att komma åt resurserna från en aktivitet 
 
-Den här artikeln för att skapa Azure-resurser, kräver att du kör Azure CLI version 2.0.66 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+Den här artikeln kräver att du kör Azure CLI-version 2.0.66 eller senare för att skapa Azure-resurser. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 
-En hanterad identitet för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan konfigurera [vissa Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), inklusive ACR uppgifter med en hanterad identitet. Använd sedan identiteten för att få åtkomst till andra Azure-resurser utan att skicka autentiseringsuppgifter i kod eller skript.
+En hanterad identitet för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan konfigurera [vissa Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), inklusive ACR-aktiviteter, med en hanterad identitet. Använd sedan identiteten för att få åtkomst till andra Azure-resurser utan att skicka autentiseringsuppgifter i kod eller skript.
 
-Hanterade identiteter finns två typer av:
+Hanterade identiteter är av två typer:
 
-* *Användartilldelade identiteter*, som du kan tilldela flera resurser och bevara så länge som vill ha. Användartilldelade identiteter finns för närvarande i förhandsversion.
+* *Användarspecifika identiteter*, som du kan tilldela till flera resurser och bevara så länge du vill. Användarspecifika identiteter är för närvarande en för hands version.
 
-* En *system-hanterad identitet*, som är unik för en specifik resurs, till exempel en ACR-uppgift och varar i livslängden för den här resursen.
+* En *Systemhanterad identitet*, som är unik för en speciell resurs, till exempel en ACR-aktivitet och varar för den aktuella resursens livs längd.
 
-När du har konfigurerat en Azure-resurs med en hanterad identitet kan ge identitet åtkomst till en annan resurs, precis som alla säkerhetsobjekt. Till exempel tilldela en hanterad identitet en roll med pull, push och pull eller andra behörigheter till ett privat behållarregister i Azure. (En fullständig lista över registret roller finns [Azure Container Registry roller och behörigheter](container-registry-roles.md).) Du kan ge en identity-åtkomst till en eller flera resurser.
+När du har konfigurerat en Azure-resurs med en hanterad identitet ger du identitets åtkomst till en annan resurs, precis som alla säkerhets objekt. Du kan till exempel tilldela en hanterad identitet en roll med pull, push och pull eller andra behörigheter till ett privat behållar register i Azure. (En fullständig lista över register roller finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md).) Du kan ge en identitets åtkomst till en eller flera resurser.
 
-## <a name="create-container-registries"></a>Skapa behållarregister
+## <a name="create-container-registries"></a>Skapa behållar register
 
-Den här självstudien behöver du tre behållarregister:
+I den här självstudien behöver du tre behållar register:
 
-* Du kan använda första registret för att skapa och köra ACR uppgifter. I den här artikeln källa registrets heter *myregistry*. 
-* Andra och tredje register är target-register för den första exempel aktiviteten att skicka en avbildning som den bygger. I den här artikeln, mål-register namnges *customregistry1* och *customregistry2*.
+* Du använder det första registret för att skapa och köra ACR-uppgifter. I den här artikeln kallas det här käll registret för *register*. 
+* De andra och tredje registren är mål register för den första exempel uppgiften för att skicka en avbildning som den bygger. I den här artikeln heter mål registren för *customregistry1* och *customregistry2*.
 
-Ersätt med din egen registernamn i senare steg.
+Ersätt med dina egna register namn i senare steg.
 
-Om du inte redan har de nödvändiga Azure-behållarregister, se [snabbstarten: Skapa ett privat behållarregister med Azure CLI](container-registry-get-started-azure-cli.md). Du behöver inte skicka avbildningar till registret ännu.
+Om du inte redan har de nödvändiga Azure Container register, se [snabb start: Skapa ett privat behållar register med hjälp](container-registry-get-started-azure-cli.md)av Azure CLI. Du behöver inte skicka avbildningar till registret ännu.
 
-## <a name="example-task-with-a-system-assigned-identity"></a>Exempel: Uppgiften med en automatiskt genererad identitet
+## <a name="example-task-with-a-system-assigned-identity"></a>Exempel: Uppgift med en tilldelad identitet
 
-Det här exemplet visar hur du skapar en [flerstegstest uppgift](container-registry-tasks-multi-step.md) med en systemtilldelad identitet. Uppgiften skapas en avbildning och använder sedan identiteten för att autentisera med två mål-register för att överföra avbildningen.
+Det här exemplet visar hur du skapar en [aktivitet med flera steg](container-registry-tasks-multi-step.md) med en tilldelad identitet. Aktiviteten skapar en avbildning och använder sedan identiteten för att autentisera med två mål register för att skicka avbildningen.
 
-Stegen för det här exemplet definieras i en [YAML-fil](container-registry-tasks-reference-yaml.md) med namnet `testtask.yaml`. Filen finns i katalogen multipleRegistries på den [acr-uppgifter](https://github.com/Azure-Samples/acr-tasks) exempel lagringsplatsen. Filen återges här:
+Stegen för den här exempel uppgiften definieras i en [yaml-fil](container-registry-tasks-reference-yaml.md) med `testtask.yaml`namnet. Filen finns i katalogen multipleRegistries i exemplen [ACR-tasks](https://github.com/Azure-Samples/acr-tasks) lagrings platsen. Filen reproduceras här:
 
 ```yml
 version: v1.0.0
@@ -65,9 +66,9 @@ steps:
   - push: ["{{.Values.REGISTRY2}}/hello-world:{{.Run.ID}}"]
 ```
 
-### <a name="create-task-with-system-assigned-identity"></a>Skapa uppgift med systemtilldelade identiteter
+### <a name="create-task-with-system-assigned-identity"></a>Skapa uppgift med systemtilldelad identitet
 
-Skapa uppgiften *flera reg* genom att köra följande [az acr uppgift skapa] [ az-acr-task-create] kommando. Uppgift-kontexten är mappen multipleRegistries till exempel lagringsplatsen och kommandot refererar till filen `testtask.yaml` i lagringsplatsen. Den `--assign-identity` med inga ytterligare värde för parametern skapar en systemtilldelad identitet för aktiviteten. Den här aktiviteten har ställts in så att du behöver utlösa manuellt, men du kan konfigurera det ska köras när incheckningar skickas till lagringsplatsen eller en pullbegäran skickas. 
+Skapa aktiviteten med *flera register* genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando. Aktivitets kontexten är mappen multipleRegistries i exemplen lagrings platsen och kommandot refererar till filen `testtask.yaml` i lagrings platsen. `--assign-identity` Parametern utan ytterligare värde skapar en tilldelad identitet för aktiviteten. Den här aktiviteten har ställts in så att du måste aktivera den manuellt, men du kan ställa in den så att den körs när commit skickas till lagrings platsen eller om en pull-begäran görs. 
 
 ```azurecli
 az acr task create \
@@ -80,7 +81,7 @@ az acr task create \
   --assign-identity
 ```
 
-I utdata från kommandot den `identity` avsnittet visas en identitet av typen `SystemAssigned` har angetts i aktiviteten. Den `principalId` är ID för tjänstens huvudnamn identitetsinformationen:
+I kommandots utdata `identity` visar avsnittet en identitet av typen `SystemAssigned` som anges i uppgiften. `principalId` Är tjänstens huvud namn-ID för identiteten:
 
 ```console
 [...]
@@ -94,33 +95,33 @@ I utdata från kommandot den `identity` avsnittet visas en identitet av typen `S
 [...]
 ``` 
 
-Använd den [az acr uppgiften visa] [ az-acr-task-show] kommando för att lagra den `principalId` i en variabel, som ska användas i senare kommandon:
+Använd kommandot [AZ ACR Task show][az-acr-task-show] för att lagra `principalId` i en variabel som ska användas i senare kommandon:
 
 ```azurecli
 principalID=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
 ```
 
-### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Ge identitet push-behörighet till två mål-behållarregister
+### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Ge identitets-push-behörigheter till två mål behållar register
 
-I det här avsnittet, ge systemtilldelade identiteter behörighet att skicka till två mål register, med namnet *customregistry1* och *customregistry2*.
+I det här avsnittet ger du den systemtilldelade identiteten behörighet att skicka push till de två mål registren, med namnet *customregistry1* och *customregistry2*.
 
-Först använder den [az acr show] [ az-acr-show] kommando för att hämta resurs-ID för varje register och lagra de ID: N i variabler:
+Använd först kommandot [AZ ACR show][az-acr-show] för att hämta resurs-ID för varje register och lagra ID: n i variabler:
 
 ```azurecli
 reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Använd den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando för att tilldela identiteten den `acrpush` rollen till varje register. Den här rollen har behörighet att pull och push-avbildningar till ett behållarregister.
+Använd kommandot [AZ roll tilldelning skapa][az-role-assignment-create] för att tilldela identiteten `acrpush` rollen till varje register. Den här rollen har behörighet att hämta och push-överföra avbildningar till ett behållar register.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $reg1_id --role acrpush
 az role assignment create --assignee $principalID --scope $reg2_id --role acrpush
 ```
 
-### <a name="add-target-registry-credentials-to-task"></a>Lägg till mål-autentiseringsuppgifter för registret till aktivitet
+### <a name="add-target-registry-credentials-to-task"></a>Lägg till autentiseringsuppgifter för mål registret i uppgiften
 
-Nu använda den [az acr uppgift autentiseringsuppgifter lägger du till] [ az-acr-task-credential-add] att lägga till autentiseringsuppgifter för den identiteten aktiviteten så att den kan autentisera med både mål-register.
+Använd nu kommandot [AZ ACR Task Credential Add][az-acr-task-credential-add] för att lägga till identitetens autentiseringsuppgifter för aktiviteten så att den kan autentiseras med båda mål registren.
 
 ```azurecli
 az acr task credential add \
@@ -136,9 +137,9 @@ az acr task credential add \
   --use-identity [system]
 ```
 
-### <a name="manually-run-the-task"></a>Manuellt köra aktiviteten
+### <a name="manually-run-the-task"></a>Kör uppgiften manuellt
 
-Använd den [az acr-uppgiftskörning] [ az-acr-task-run] kommando för att utlösa manuellt uppgiften. Den `--set` används för att skicka in inloggningen servernamnen för två mål-register som värden för variablerna uppgift `REGISTRY1` och `REGISTRY2`.
+Använd kommandot [AZ ACR Task Run][az-acr-task-run] för att utlösa uppgiften manuellt. Parametern används för att skicka inloggnings Server namnen för de två mål registren som värden för variablerna `REGISTRY1` och `REGISTRY2`. `--set`
 
 ```azurecli
 az acr task run \
@@ -219,25 +220,25 @@ cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95
 Run ID: cf31 was successful after 35s
 ```
 
-## <a name="example-task-with-a-user-assigned-identity"></a>Exempel: Uppgiften med en Användartilldelad identitet
+## <a name="example-task-with-a-user-assigned-identity"></a>Exempel: Uppgift med en användardefinierad identitet
 
-I det här exemplet skapar du en Användartilldelad identitet med behörighet att läsa hemligheter från ett Azure key vault. Du kan tilldela den här identiteten för en långvariga aktivitet som läser hemligheten, skapas en avbildning och loggar in på Azure CLI för att läsa bildtaggen.
+I det här exemplet skapar du en användardefinierad identitet med behörighet att läsa hemligheter från ett Azure Key Vault. Du tilldelar den här identiteten till en aktivitet i multisteg som läser hemligheten, skapar en avbildning och loggar in på Azure CLI för att läsa avbildnings tag gen.
 
-### <a name="create-a-key-vault-and-store-a-secret"></a>Skapa ett nyckelvalv och lagra en hemlighet
+### <a name="create-a-key-vault-and-store-a-secret"></a>Skapa ett nyckel valv och lagra en hemlighet
 
-Om du vill skapa först en resursgrupp med namnet *myResourceGroup* i den *eastus* plats med följande [az gruppen skapa] [ az-group-create]kommando:
+Först, om du behöver, skapa en resurs grupp med namnet *myResourceGroup* på den *östra* platsen med följande [AZ Group Create][az-group-create] -kommando:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Använd den [az keyvault skapa] [ az-keyvault-create] kommando för att skapa ett nyckelvalv. Glöm inte att ange ett unikt key vault-namn. 
+Använd kommandot [AZ-valv][az-keyvault-create] för att skapa ett nyckel valv. Se till att ange ett unikt nyckel valvs namn. 
 
 ```azurecli-interactive
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Store en exempel-hemlighet i nyckelvalvet med den [az keyvault secret set] [ az-keyvault-secret-set] kommando:
+Lagra en exempel hemlighet i nyckel valvet med kommandot [AZ Key Vault Secret set][az-keyvault-secret-set] :
 
 ```azurecli
 az keyvault secret set \
@@ -247,17 +248,17 @@ az keyvault secret set \
   --vault-name mykeyvault
 ```
 
-Du kan till exempel vill lagra autentiseringsuppgifter för att autentisera med ett privat Docker-register så att du kan hämta en privat avbildning.
+Du kanske till exempel vill lagra autentiseringsuppgifter för att autentisera med ett privat Docker-register så att du kan hämta en privat avbildning.
 
 ### <a name="create-an-identity"></a>Skapa en identitet
 
-Skapa en identitet med namnet *myACRTasksId* i din prenumeration med hjälp av den [az identitet skapa] [ az-identity-create] kommando. Du kan använda samma resursgrupp som du använde tidigare för att skapa ett behållarregister eller nyckelvalvet eller ett annat namn.
+Skapa en identitet med namnet *myACRTasksId* i din prenumeration med kommandot [AZ Identity Create][az-identity-create] . Du kan använda samma resurs grupp som du använde tidigare för att skapa ett behållar register eller nyckel valv, eller ett annat.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Konfigurera identitet i följande steg med den [az identitet show] [ az-identity-show] kommando för att lagra Identitetens resurs-ID och ID för tjänstens huvudnamn i variabler.
+Om du vill konfigurera identiteten i följande steg använder du kommandot [AZ Identity show][az-identity-show] för att lagra identitetens resurs-ID och tjänstens huvud NAMNS-ID i variabler.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -267,25 +268,25 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasks
 principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
 ```
 
-### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Åtkomstbehörighet för keyvault för att läsa hemliga identitet
+### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Ge identitets åtkomst till nyckel valv för att läsa hemlighet
 
-Kör följande [az keyvault set-policy] [ az-keyvault-set-policy] kommandot för att definiera en åtkomstprincip för nyckelvalvet. I följande exempel kan Användartilldelad identitet att hämta hemligheter från nyckelvalvet. Den här åtkomsten behövs senare att kunna köras av en uppgift i flera steg.
+Kör följande [AZ-nyckel valv set-princip][az-keyvault-set-policy] kommando för att ange en åtkomst princip i nyckel valvet. I följande exempel tillåts den användare-tilldelade identiteten att hämta hemligheter från nyckel valvet. Den här åtkomsten krävs senare för att köra en aktivitet med flera steg.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
 ```
 
-### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Bevilja identitet läsåtkomst till resursgruppen för registret
+### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Bevilja identitets läsar åtkomst till resurs gruppen för registret
 
-Kör följande [az-rolltilldelning skapa] [ az-role-assignment-create] kommando för att tilldela identiteten läsarrollen i det här fallet till resursgruppen som innehåller käll-registret. Den här rollen krävs senare för att kunna köras av en uppgift i flera steg.
+Kör följande [AZ roll tilldelning skapa][az-role-assignment-create] -kommando för att tilldela identiteten en läsar roll, i det här fallet resurs gruppen som innehåller käll registret. Den här rollen krävs senare för att köra en multi-Step-aktivitet.
 
 ```azurecli
 az role assignment create --role reader --resource-group myResourceGroup --assignee $principalID
 ```
 
-### <a name="create-task-with-user-assigned-identity"></a>Skapa uppgift med Användartilldelad identitet
+### <a name="create-task-with-user-assigned-identity"></a>Skapa uppgift med användardefinierad identitet
 
-Skapa nu en [flerstegstest uppgift](container-registry-tasks-multi-step.md) och tilldela den Användartilldelad identitet. Detta exempel skapar en [YAML-fil](container-registry-tasks-reference-yaml.md) med namnet `managed-identities.yaml` i en lokal arbetskatalog och klistra in följande innehåll. Se till att ersätta namn på key vault i filen med namnet på ditt nyckelvalv
+Nu ska du skapa en [aktivitet med flera steg](container-registry-tasks-multi-step.md) och tilldela den användarens tilldelade identitet. I den här exempel aktiviteten skapar du en yaml- `managed-identities.yaml` [fil](container-registry-tasks-reference-yaml.md) med namnet i en lokal arbets katalog och klistrar in följande innehåll. Se till att ersätta Key Vault-namnet i filen med namnet på ditt nyckel valv
 
 ```yml
 version: v1.0.0
@@ -311,11 +312,11 @@ steps:
 
 Den här uppgiften gör följande:
 
-* Kontrollerar att den har åtkomst till en hemlighet i nyckelvalvet. Det här steget är i exempelsyfte. Du kanske behöver en uppgift steget för att hämta autentiseringsuppgifter för åtkomst till ett privat Docker Hub-lagringsplats i ett verkligt scenario.
-* Skapar och skickar den `mywebsite` avbildningen till registret källa.
-* Loggar in Azure CLI för att lista de `my-website` bild taggar i käll-registret.
+* Kontrollerar att den kan komma åt hemligheten i ditt nyckel valv. Det här steget är i demonstrations syfte. I ett verkligt scenario kan du behöva ett uppgifts steg för att få autentiseringsuppgifter för att få åtkomst till en privat Docker Hub-lagrings platsen.
+* Skapar och push `mywebsite` -överför avbildningen till käll registret.
+* Loggar in på Azure CLI för att visa `my-website` avbildnings taggarna i käll registret.
 
-Skapa en uppgift som kallas *msitask* och skickar den resurs-ID för Användartilldelad identitet som du skapade tidigare. Detta exempel har skapats från den `managed-identities.yaml` filen som du sparade i din lokala arbetskatalog så att du behöver att utlösa det manuellt.
+Skapa en aktivitet med namnet *msitask* och skicka den till resurs-ID: t för den användare-tilldelade identitet som du skapade tidigare. Den här exempel uppgiften skapas från `managed-identities.yaml` filen som du sparade i din lokala arbets katalog, så du måste aktivera den manuellt.
 
 ```azurecli
 az acr task create \
@@ -328,7 +329,7 @@ az acr task create \
   --assign-identity $resourceID
 ```
 
-I utdata från kommandot den `identity` avsnittet visas en identitet av typen `UserAssigned` har angetts i aktiviteten. Den `principalId` är ID för tjänstens huvudnamn identitetsinformationen:
+I kommandots utdata `identity` visar avsnittet en identitet av typen `UserAssigned` som anges i uppgiften. `principalId` Är tjänstens huvud namn-ID för identiteten:
 
 ```console
 [...]
@@ -344,15 +345,15 @@ I utdata från kommandot den `identity` avsnittet visas en identitet av typen `U
 [...]
 ```
 
-### <a name="manually-run-the-task"></a>Manuellt köra aktiviteten
+### <a name="manually-run-the-task"></a>Kör uppgiften manuellt
 
-Använd den [az acr-uppgiftskörning] [ az-acr-task-run] kommando för att utlösa manuellt uppgiften. Den `--set` parametern används för att skicka in registernamnet källa till aktivitet:
+Använd kommandot [AZ ACR Task Run][az-acr-task-run] för att utlösa uppgiften manuellt. `--set` Parametern används för att skicka käll register namnet till uppgiften:
 
 ```azurecli
 az acr task run --name msitask --registry myregistry --set registryName=myregistry  
 ```
 
-Utdata visar hemligheten har åtgärdats avbildningen har skapats och push-överfört och uppgiften loggar in på Azure CLI med identiteten för att läsa bildtaggen från käll-registret:
+Utdata visar att hemligheten har lösts, att avbildningen har skapats och skickats och att aktiviteten loggar in i Azure CLI med identiteten för att läsa avbildnings tag gen från käll registret:
 
 ```console
 Queued a run with ID: cf32
@@ -412,14 +413,14 @@ cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc9
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om hur du använder hanterade identiteter med Azure Container Registry åtgärder och hur du:
+I den här artikeln har du lärt dig hur du använder hanterade identiteter med Azure Container Registry uppgifter och hur du:
 
 > [!div class="checklist"]
-> * Aktivera en systemtilldelad identitet eller Användartilldelad på en ACR-uppgift
-> * Ge åtkomst till Azure-resurser, till exempel andra Azure-behållarregister identitet
-> * Använda den hanterade identitet för åtkomst till resurser från en aktivitet  
+> * Aktivera en tilldelad identitet eller användare som tilldelats till en ACR-uppgift
+> * Ge identitets åtkomst till Azure-resurser, till exempel andra Azure Container register
+> * Använd den hanterade identiteten för att komma åt resurserna från en aktivitet  
 
-* Läs mer om [hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/).
+* Lär dig mer om [hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/).
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login

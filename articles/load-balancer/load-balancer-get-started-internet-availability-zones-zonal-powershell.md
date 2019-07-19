@@ -1,10 +1,10 @@
 ---
-title: Skapa en belastningsutjämnare med zonindelad frontend - Azure PowerShell
+title: Skapa en Load Balancer med zonindelade-frontend-Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en Standardbelastningsutjämnare med en zonindelad klientdel med Azure PowerShell
+description: Lär dig hur du skapar Standard Load Balancer med en zonindelade-frontend med Azure PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
-ms.openlocfilehash: 8ede8df2f069681008175494cfd5937738ce5ea9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: a2c637ddbf5b7f5883016afe4a6d58ad9752cfc5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122143"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275122"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure PowerShell
 
-Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel som använder en offentlig IP-Standard-adress. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
+Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en zonindelade-frontend med en offentlig IP-standardadress. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -89,7 +89,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ```
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Skapa en Standardbelastningsutjämnare med följande kommando:
+Skapa en Standard Load Balancer med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/16/2019
+ms.openlocfilehash: bb1fda48119785f5173790246f8069d3e11b6dae
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839826"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297748"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: *stark* konsekvens och *slutlig* konsekvens. Den  [linjärbarhetsgaranti](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är data programmabilitys guld skyddsnivå. Men den lägger till en kostnad av högre svarstid (i stabilt tillstånd) och minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men gör det svårt att programmerar program. 
+Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Linearizability eller en stark konsekvens modell är guld standarden för data programmering. Men det lägger till ett pris med högre latens (i stabilt tillstånd) och minskad tillgänglighet (under haverier). I övrigt erbjuder eventuell konsekvens bättre tillgänglighet och bättre prestanda, men gör det svårt att program mera. 
 
-Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är i slutet av spektrumet, men det finns många konsekvensval längs spektrumet. Utvecklare kan använda dessa alternativ för att se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet och prestanda. 
+Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och eventuell konsekvens är i slutet av spektrumet, men det finns många konsekvens alternativ längs spektrumet. Utvecklare kan använda dessa alternativ för att göra exakta val och detaljerad kompromisser med avseende på hög tillgänglighet och prestanda. 
 
-Med Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller på konsekvensspektrumet. Från starkast till mer restriktiva modellerna inkluderar *stark*, *begränsad föråldring*, *session*, *konsekvent prefix*, och *slutlig* konsekvens. Modeller är väl definierade och intuitiv och kan användas för den specifika verkliga scenarier. Varje modellen ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av att serviceavtalen. Följande bild visar de olika konsekvensnivåerna som ett spektrum.
+Med Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller på konsekvensspektrumet. Från starkast till mer avslappnad, innehåller modellerna *stark*, *begränsad*föråldrad, *session*, *konsekvent prefix*och *eventuell* konsekvens. Modellerna är väl definierade och intuitiva och kan användas för vissa verkliga scenarier. Varje modell tillhandahåller [tillgänglighets-och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av service avtal. Följande bild visar olika konsekvens nivåer som ett spektrum.
 
 ![Konsekvens som ett spektrum](./media/consistency-levels/five-consistency-levels.png)
 
-Konsekvensnivåerna är regionsoberoende och garanterat för alla åtgärder oavsett den region där läsningar och skrivningar behandlas, antalet regioner som associeras med ditt Azure Cosmos-konto, eller om ditt konto har konfigurerats med en enda eller flera Skriv-regioner.
+Konsekvens nivåerna är regions oberoende och garanteras för alla åtgärder oavsett vilken region läsningen och skrivningen betjänas, antalet regioner som associeras med ditt Azure Cosmos-konto eller om ditt konto har kon figurer ATS med ett enda eller flera Skriv regioner.
 
 ## <a name="scope-of-the-read-consistency"></a>Omfånget för läsningskontinuitet
 
@@ -31,45 +31,45 @@ Läs konsekvens gäller för en enda Läsåtgärd begränsade inom en partitions
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurera standardkonsekvensnivån
 
-Du kan konfigurera standard-konsekvensnivå på ditt Azure Cosmos-konto när som helst. Standard-konsekvensnivå som konfigurerats på ditt konto gäller för alla Azure Cosmos-databaser och behållare med det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas kan du använda den angivna konsekvensnivån som standard. Mer information finns i så här [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Du kan konfigurera standard-konsekvensnivå på ditt Azure Cosmos-konto när som helst. Standard konsekvens nivån som kon figurer ATS för ditt konto gäller för alla Azure Cosmos-databaser och behållare under det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas kan du använda den angivna konsekvensnivån som standard. Mer information finns i så här [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantier som är associerade med konsekvensnivåer
 
-Omfattande serviceavtal som tillhandahålls av Azure Cosmos DB-garanti att 100% av läsbegäranden uppfyller konsekvens garanti för alla konsekvensnivå som du väljer. En läsbegäran uppfyller konsekvens serviceavtal om alla de konsekvensgarantier som är associerade med konsekvensnivån är uppfyllda. De exakta definitionerna av de fem konsekvensnivåerna i Azure Cosmos DB med hjälp av den [TLA + språket](https://lamport.azurewebsites.net/tla/tla.html) finns i den [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub-lagringsplatsen. 
+Omfattande serviceavtal som tillhandahålls av Azure Cosmos DB-garanti att 100% av läsbegäranden uppfyller konsekvens garanti för alla konsekvensnivå som du väljer. En läsbegäran uppfyller konsekvens serviceavtal om alla de konsekvensgarantier som är associerade med konsekvensnivån är uppfyllda. De exakta definitionerna av fem konsekvens nivåer i Azure Cosmos DB med språket TLA + Specification finns i [Azure-Cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub lagrings platsen.
 
 Här beskrivs semantiken för de fem konsekvensnivåerna:
 
-- **Stark**: Stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar. Läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient ser aldrig en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
+- **Stark**: Stark konsekvens erbjuder en linearizability-garanti. Linearizability refererar till att betjäna begär Anden samtidigt. Läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient ser aldrig en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
 
-- **Begränsad föråldring**: Läsningar garanterat respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst *”K”* versioner (t.ex. ”uppdateringar”) av ett objekt eller genom att *”T”* tidsintervall. När du väljer begränsad föråldring, alltså konfigureras ”föråldring” på två sätt: 
+- **Begränsad**föråldrad: Läsningarna garanteras för att respektera den konsekventa prefix-garantin. Läsningarna kan vara sena efter skrivningar med de flesta *"K"* -versioner (d.v.s. uppdateringar) av ett objekt eller med ett *"T"* -tidsintervall. Med andra ord kan "föråldrad" konfigureras på två sätt när du väljer begränsat inaktuellitet: 
 
-  * Antalet versioner (*K*) för objekt
-  * Tidsintervallet (*T*) av som läsningar kan ligga efter skrivningar 
+  * Antalet versioner (*KB*) av objektet
+  * Tidsintervallet (*T*) som läsningarna kan vara i vänte tiden bakom skrivningar 
 
-  Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. Stark konsekvens har samma semantik som erbjuds av begränsad föråldring. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de garantierna av stark konsekvens.
+  Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. En stark konsekvens har samma semantik som den som erbjuds av den begränsade inaktuellaheten. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför Läs åtgärder inom en region som godkänner skrivningar, är de garantier som tillhandahålls av den begränsade inkonsekventa konsekvensen identiska med dessa garantier med stark konsekvens.
 
-- **Sessionen**:  Läsningar är garanterade att respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning garantier inom en enskild klient-session. Klienter utanför sessionen utför skrivåtgärder visas som eventuell konsekvens.
+- **Session**:  Inom en enda klient session är läsningar garanterade att följa det konsekventa prefixet (under förutsättning att en enda "skribent"-session), enkel färgs läsningar, enkla Skriv åtgärder, skriv-och skriv åtgärder-Läs garantier. Klienter utanför sessionen som utför skrivningar kommer att se eventuell konsekvens.
 
-- **Konsekvent prefix**: Uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix konsekvensnivå garanterar att läsningar aldrig ser skrivningar out ordning.
+- **Konsekvent prefix**: Uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
 
-- **Slutlig**: Det finns ingen skrivordning garanti för läsningar. Om eventuella ytterligare skrivningar konvergerar replikerna så småningom.
+- **Eventuell**: Det finns ingen beställnings garanti för läsningar. Om eventuella ytterligare skrivningar konvergerar replikerna så småningom.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Konsekvensnivåer baseboll
 
-Låt oss ta ett spel baseboll-scenario som exempel. Föreställ dig en sekvens med skrivningar som representerar in resultatet från en baseboll-spel. Resultat för inning av inning beskrivs i den [replikerade datakonsekvens med basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) dokumentet. Den här hypotetiska basket spelet är för närvarande mitt sjunde inning. Är det sjunde--inning stretch. Besökare är bakom med ett värde av 2 till 5 som visas nedan:
+Låt oss ta ett spel baseboll-scenario som exempel. Föreställ dig en sekvens med skrivningar som representerar in resultatet från en baseboll-spel. Resultat för inning av inning beskrivs i den [replikerade datakonsekvens med basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) dokumentet. Den här hypotetiska basket spelet är för närvarande mitt sjunde inning. Är det sjunde--inning stretch. Besökarna har en poäng på mellan 2 och 5 som visas nedan:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Körningar** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Besökare** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Startsida** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-Ett Azure Cosmos-behållaren innehåller kör summor för besökare och home team. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökarnas och home poäng med var och en av de fem konsekvensgarantier. Den besökare poäng visas först. Olika möjliga returvärden avgränsas med kommatecken.
+En Azure Cosmos-behållare innehåller körnings summorna för besökare och hem team. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökarnas och home poäng med var och en av de fem konsekvensgarantier. Den besökare poäng visas först. Olika möjliga returvärden avgränsas med kommatecken.
 
-| **Konsekvensnivå** | **Poängsätter (besökare, hem)** |
+| **Konsekvensnivå** | **Poäng (besökare, hem)** |
 | - | - |
 | **Stark** | 2 – 5 |
-| **Begränsad föråldring** | Resultat som innehåller högst en inning inaktuell: 2-3, 2-4, 2-5 |
-| **Sessionen** | <ul><li>För writer: 2 – 5</li><li> För alla förutom skrivar: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>När du har läst 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
+| **Begränsad föråldring** | Poäng som är högst en inning inaktuell: 2-3, 2-4, 2-5 |
+| **Sessionen** | <ul><li>För skrivaren: 2 – 5</li><li> För någon annan än skrivaren: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>Efter läsning 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
 | **Konsekvent prefix** | 0-0, 0-1, 1-1, 1 – 2, 1 – 3, 2-3, 2 – 4, 2 – 5 |
 | **Slutlig** | 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5 |
 
@@ -81,7 +81,7 @@ Mer information om konsekvens begrepp att läsa följande artiklar:
 - [Replikerade Data konsekvens förklaras via basket (video) av Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replikerade Data konsekvens förklaras via basket (White Paper) av Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Sessionen garantier för svagt konsekvent replikerade data](https://dl.acm.org/citation.cfm?id=383631)
-- [Konsekvens kompromisser i Modern distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Design av konsekvens i moderna distribuerade databas system: CAP är bara en del av berättelsen](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Avsnittet om sannolikhetsbunden begränsad föråldring (PBS) för praktiska partiella beslutsförhet](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Så småningom konsekvent – Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

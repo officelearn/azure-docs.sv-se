@@ -1,32 +1,33 @@
 ---
-title: Autentisera med Azure Container Registry från Azure Kubernetes Service
-description: Lär dig hur du ger åtkomst till avbildningar i ditt privata behållarregister i Azure Kubernetes Service med hjälp av en Azure Active Directory-tjänstobjekt.
+title: Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
+description: Lär dig hur du ger åtkomst till avbildningar i ditt privata behållar register från Azure Kubernetes-tjänsten med hjälp av ett Azure Active Directory tjänstens huvud namn.
 services: container-service
 author: dlepow
+manager: gwallace
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754471"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310261"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
-När du använder Azure Container Registry (ACR) med Azure Kubernetes Service (AKS), måste en autentiseringsmetod upprättas. Den här artikeln beskriver de rekommenderade konfigurationerna för autentisering mellan dessa två Azure-tjänster.
+När du använder Azure Container Registry (ACR) med Azure Kubernetes service (AKS) måste du upprätta en autentiseringsmekanism. Den här artikeln beskriver de rekommenderade konfigurationerna för autentisering mellan dessa två Azure-tjänster.
 
-Du behöver bara konfigurera en av dessa autentiseringsmetoder. Det vanligaste sättet är att [bevilja åtkomst med AKS tjänstens huvudnamn](#grant-aks-access-to-acr). Om du har särskilda behov kan du eventuellt [bevilja åtkomst med hjälp av Kubernetes hemligheter](#access-with-kubernetes-secret).
+Du behöver bara konfigurera en av dessa autentiseringsmetoder. Det vanligaste tillvägagångs sättet är att [bevilja åtkomst med AKS-tjänstens huvud namn](#grant-aks-access-to-acr). Om du har speciella behov kan du välja att [bevilja åtkomst med Kubernetes hemligheter](#access-with-kubernetes-secret).
 
-Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och du kan få åtkomst till klustret med den `kubectl` kommandoradsklient.
+Den här artikeln förutsätter att du redan har skapat ett AKS-kluster och att du kan komma åt klustret `kubectl` med kommando rads klienten.
 
-## <a name="grant-aks-access-to-acr"></a>Grant AKS åtkomst till ACR.
+## <a name="grant-aks-access-to-acr"></a>Bevilja AKS åtkomst till ACR
 
-När du skapar ett AKS-kluster, skapar Azure även en tjänst huvudnamn för klustret funktionalitet med andra Azure-resurser. Du kan använda den här automatiskt genererade tjänstens huvudnamn för autentisering med en ACR-registret. Om du vill göra det måste du skapa en Azure AD [rolltilldelning](../role-based-access-control/overview.md#role-assignments) som beviljar klustrets tjänstens huvudnamn åtkomst till behållarregistret.
+När du skapar ett AKS-kluster skapar Azure också ett tjänst huvud namn för att stödja kluster Operability med andra Azure-resurser. Du kan använda den här automatiskt genererade tjänstens huvud namn för autentisering med ett ACR-register. För att göra det måste du skapa en [roll tilldelning](../role-based-access-control/overview.md#role-assignments) för Azure AD som ger klustrets huvud namn för tjänsten åtkomst till behållar registret.
 
-Använd följande skript för att ge AKS-genererade tjänstens huvudnamn pull åtkomst till ett Azure container registry. Ändra den `AKS_*` och `ACR_*` variabler för din miljö innan du kör skriptet.
+Använd följande skript för att ge AKS-genererade tjänstens huvud namn åtkomst till ett Azure Container Registry. Ändra- `ACR_*` och-variablerna för din miljö innan du kör skriptet. `AKS_*`
 
 ```bash
 #!/bin/bash
@@ -48,9 +49,9 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Åtkomst med Kubernetes-hemlighet
 
-I vissa fall kanske du inte att kunna tilldela rollen krävs att automatiskt genererade AKS tjänstens huvudnamn åtkomst till ACR beviljas. På grund av säkerhetsmodellen för din organisation, kan du exempelvis inte har tillräckliga behörigheter i din Azure Active Directory-klient för att tilldela en roll till AKS-genererade tjänstens huvudnamn. Tilldela en roll till tjänstens huvudnamn kräver Azure AD-konto har skrivbehörighet till din Azure AD-klient. Om du inte har behörighet, kan du skapa ett nytt huvudnamn för tjänsten och sedan ge det åtkomst till behållarregistret med en Kubernetes-hemlighet som bild pull.
+I vissa fall kanske du inte kan tilldela den nödvändiga rollen till den automatiskt genererade AKS-tjänstens huvud namn som beviljar åtkomst till ACR. På grund av din organisations säkerhets modell kanske du till exempel inte har tillräcklig behörighet i Azure Active Directory-klienten för att tilldela en roll till det AKS tjänstens huvud namn. Att tilldela en roll till ett huvud namn för tjänsten kräver att ditt Azure AD-konto har Skriv behörighet till din Azure AD-klient. Om du inte har behörighet kan du skapa ett nytt huvud namn för tjänsten och sedan ge det åtkomst till behållar registret med en Kubernetes avbildnings-och pull-hemlighet.
 
-Använd följande skript för att skapa ett nytt huvudnamn för tjänsten (du ska använda dess autentiseringsuppgifter för Kubernetes bild pull-hemlighet). Ändra den `ACR_NAME` variabeln för din miljö innan du kör skriptet.
+Använd följande skript för att skapa ett nytt huvud namn för tjänsten (du kommer att använda dess autentiseringsuppgifter för Kubernetes-bildens pull-hemlighet). `ACR_NAME` Ändra variabeln för din miljö innan du kör skriptet.
 
 ```bash
 #!/bin/bash
@@ -73,15 +74,15 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Nu kan du lagra autentiseringsuppgifter för tjänstens huvudnamn i ett Kubernetes [bild pull hemlighet][image-pull-secret], som sedan hänvisar till AKS-klustret när behållare som körs.
+Nu kan du lagra autentiseringsuppgifterna för tjänstens huvud namn i en Kubernetes [image][image-pull-secret]-filhemlighet, som ditt AKS-kluster kommer att referera till när behållare körs.
 
-Använd följande **kubectl** kommando för att skapa Kubernetes-hemlighet. Ersätt `<acr-login-server>` med fullständigt kvalificerade namnet på Azure container registry (det är i formatet ”acrname.azurecr.io”). Ersätt `<service-principal-ID>` och `<service-principal-password>` med de värden du erhöll genom att köra föregående skript. Ersätt `<email-address>` med valfri giltig e-postadress.
+Använd följande **kubectl** -kommando för att skapa Kubernetes-hemligheten. Ersätt `<acr-login-server>` med det fullständigt kvalificerade namnet för ditt Azure Container Registry (det har formatet "acrname.azurecr.io"). Ersätt `<service-principal-ID>` och`<service-principal-password>` med de värden du erhöll genom att köra föregående skript. Ersätt `<email-address>` med en korrekt formaterad e-postadress.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-Du kan nu använda Kubernetes-hemlighet i pod-distributioner genom att ange dess namn (i det här fallet ”acr-auth”) i den `imagePullSecrets` parameter:
+Du kan nu använda Kubernetes-hemligheten i pod-distributioner genom att ange dess namn (i det här fallet "ACR-auth" `imagePullSecrets` ) i parametern:
 
 ```yaml
 apiVersion: apps/v1beta1

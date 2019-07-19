@@ -1,38 +1,39 @@
 ---
 title: Autentisera med Azure Container Registry från Azure Container Instances
-description: Lär dig hur du ger tillgång till avbildningar i ditt privata behållarregister med hjälp av en Azure Active Directory-tjänstobjekt från Azure Container Instances.
+description: Lär dig hur du ger åtkomst till avbildningar i ditt privata behållar register från Azure Container Instances med hjälp av ett Azure Active Directory tjänstens huvud namn.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333586"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311643"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
 
-Du kan använda ett huvudnamn för tjänsten Azure Active Directory (Azure AD) för att ge åtkomst till din privata behållarregister i Azure Container Registry.
+Du kan använda ett Azure Active Directory (Azure AD) tjänstens huvud namn för att ge åtkomst till dina register för privata behållare i Azure Container Registry.
 
-I den här artikeln får du lära dig att skapa och konfigurera en Azure AD-tjänstobjekt med *pull* behörigheter till registret. Sedan kan starta du en behållare i Azure Container Instances (ACI) som hämtar dess avbildning från ditt privata register med tjänstens huvudnamn för autentisering.
+I den här artikeln lär du dig hur du skapar och konfigurerar ett Azure AD-tjänstens huvud namn med *pull* -behörighet till registret. Sedan startar du en behållare i Azure Container Instances (ACI) som hämtar avbildningen från ditt privata register med hjälp av tjänstens huvud namn för autentisering.
 
-## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvudnamn för tjänsten
+## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvud namn för tjänsten
 
-Du bör använda ett huvudnamn för tjänsten för autentisering från ACI i **fjärradministrerad scenarier**, till exempel program eller tjänster som skapar behållarinstanser i automatiserade eller på annat sätt oövervakat.
+Du bör använda ett huvud namn för tjänsten för autentisering från ACI i **konsolbaserade scenarier**, t. ex. i program eller tjänster som skapar behållar instanser på ett automatiserat eller på annat sätt obevakat sätt.
 
-Exempel: Om du har ett automatiserat skript som körs varje natt och skapar en [uppgiftsbaserade behållarinstans](../container-instances/container-instances-restart-policy.md) för att bearbeta vissa data kan användas för ett huvudnamn för tjänsten med envägsreplikering behörighet för att autentisera till registret. Du kan rotera autentiseringsuppgifter för tjänstens huvudnamn eller återkalla åtkomsten helt utan att påverka andra tjänster och program.
+Om du till exempel har ett automatiserat skript som körs natt och skapar en [uppgifts baserad behållar instans](../container-instances/container-instances-restart-policy.md) för att bearbeta vissa data, kan den använda ett huvud namn för tjänsten med endast pull-behörighet för att autentisera till registret. Du kan sedan rotera autentiseringsuppgifterna för tjänstens huvud namn eller återkalla åtkomsten helt utan att påverka andra tjänster och program.
 
-Tjänstens huvudnamn bör också vara används när registret [administratörsanvändare](container-registry-authentication.md#admin-account) är inaktiverad.
+Tjänstens huvud namn bör också användas när register [Administratörs användaren](container-registry-authentication.md#admin-account) är inaktive rad.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Autentisera med tjänstens huvudnamn
+## <a name="authenticate-using-the-service-principal"></a>Autentisera med hjälp av tjänstens huvud namn
 
-Om du vill starta en behållare i Azure Container Instances via ett huvudnamn för tjänsten, anger du dess ID för `--registry-username`, och dess lösenord för `--registry-password`.
+Om du vill starta en behållare i Azure Container instances med ett huvud namn för tjänsten anger `--registry-username`du dess ID för och `--registry-password`lösen ordet för.
 
 ```azurecli-interactive
 az container create \
@@ -46,17 +47,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Exempelskript
 
-Du hittar de föregående exempelskript för Azure CLI på GitHub som och versioner för Azure PowerShell:
+Du kan hitta de föregående exempel skripten för Azure CLI på GitHub, och även Azure PowerShell:
 
 * [Azure CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar innehåller ytterligare information om hur du arbetar med tjänstens huvudnamn och ACR:
+Följande artiklar innehåller ytterligare information om hur du arbetar med tjänstens huvud namn och ACR:
 
-* [Azure Container Registry-autentisering med tjänstens huvudnamn](container-registry-auth-service-principal.md)
-* [Autentisera med Azure Container Registry från Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
+* [Azure Container Registry autentisering med tjänstens huvud namn](container-registry-auth-service-principal.md)
+* [Autentisera med Azure Container Registry från Azure Kubernetes service (AKS)](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
 

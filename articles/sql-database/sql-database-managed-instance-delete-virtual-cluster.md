@@ -1,9 +1,8 @@
 ---
-title: Ta bort ett undernät när du tar bort en Azure SQL Database managed instance | Microsoft Docs
-description: Lär dig hur du tar bort ett Azure-nätverk när du tar bort en Azure SQL Database-hanterad instans.
+title: Ta bort ett undernät efter att ha tagit bort en Azure SQL Database Hanterad instans | Microsoft Docs
+description: Lär dig hur du tar bort ett virtuellt Azure-nätverk när du har tagit bort en Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
-ms.subservice: management
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,47 +11,47 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4679ecda210fa78aad4315bc6602b67dd1795ce9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ead7ea91e172f608c5364e4d5164d2a71dbf2f5f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427979"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297624"
 ---
-# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Ta bort ett undernät när du tar bort en Azure SQL Database-hanterad instans
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Ta bort ett undernät efter borttagning av en Azure SQL Database Hanterad instans
 
-Den här artikeln innehåller riktlinjer för hur du manuellt ta bort ett undernät när du tar bort den senaste Azure SQL Database-hanterad instans som finns i den.
+Den här artikeln innehåller rikt linjer för hur du manuellt tar bort ett undernät när du har tagit bort den senaste Azure SQL Database hanterade instansen i det.
 
-SQL Database använder en [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) som innehåller den hanterade instansen har tagits bort. Det virtuella klustret varar i 12 timmar efter borttagningen instans, så att du kan snabbt skapa hanterade instanser i samma undernät. Det är kostnadsfritt för att hålla ett tomt virtuellt kluster. Det undernät som är associerat med det virtuella klustret kan inte tas bort under denna period.
+SQL Database använder ett [virtuellt kluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) för att inkludera den borttagna hanterade instansen. Det virtuella klustret är kvar i 12 timmar efter att instansen har tagits bort, så att du snabbt kan skapa hanterade instanser i samma undernät. Det kostar inget att hålla ett tomt virtuellt kluster. Det undernät som är associerat med det virtuella klustret kan inte tas bort under denna period.
 
-Om du inte vill att vänta i 12 timmar och föredra att ta bort det virtuella klustret och dess undernät direkt, kan du göra det manuellt. Ta bort det virtuella klustret manuellt med hjälp av Azure-portalen eller virtuella kluster API.
+Om du inte vill vänta i 12 timmar och föredrar att ta bort det virtuella klustret och dess undernät omedelbart kan du göra det manuellt. Ta bort det virtuella klustret manuellt med hjälp av Azure Portal eller det virtuella kluster-API: et.
 
 > [!NOTE]
-> Det virtuella klustret bör innehålla några hanterade instanser för borttagning ska lyckas.
+> Det virtuella klustret ska inte innehålla några hanterade instanser för att borttagningen ska lyckas.
 
-## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Ta bort virtuellt kluster från Azure portal
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Ta bort virtuellt kluster från Azure Portal
 
-Sök efter virtuellt kluster-resurser för att ta bort ett virtuellt kluster med hjälp av Azure portal.
+Om du vill ta bort ett virtuellt kluster med hjälp av Azure Portal söker du efter de virtuella kluster resurserna.
 
-![Skärmbild av Azure-portalen med sökrutan markerat](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![Skärm bild av Azure Portal, där sökrutan är markerad](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-När du har hittat det virtuella klustret som du vill ta bort, Välj den här resursen och välj **ta bort**. Du uppmanas att bekräfta borttagningen virtuellt kluster.
+När du har hittat det virtuella kluster som du vill ta bort väljer du den här resursen och väljer **ta bort**. Du uppmanas att bekräfta borttagningen av det virtuella klustret.
 
-![Skärmbild av Azure portal virtuella kluster instrumentpanelen med alternativet Ta bort markerade](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![Skärm bild av instrument panelen för Azure Portal virtuella kluster med alternativet ta bort markerat](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Området meddelanden i Azure portal visar bekräftelse på att det virtuella klustret har tagits bort. Det virtuella klustret bort Frigör omedelbart undernätet för återanvändning.
+I det Azure Portal meddelande fältet visas en bekräftelse på att det virtuella klustret har tagits bort. Om du tar bort det virtuella klustret omedelbart frigörs under nätet för åter användning.
 
 > [!TIP]
-> Om inga hanterade instanser som visas i det virtuella klustret och du kan inte ta bort det virtuella klustret, kontrollerar du att du inte har en pågående distribution pågår. Detta inkluderar igång och avbrutna distributioner som fortfarande pågår. Granska distributioner fliken resursgruppen instansen har distribuerats till visar alla distributioner pågår. I det här fallet await för distributionen har slutförts, ta bort hanterad instans och sedan på det virtuella klustret.
+> Om det inte finns några hanterade instanser i det virtuella klustret, och du inte kan ta bort det virtuella klustret, kontrollerar du att du inte har en pågående instans distribution. Detta inkluderar startade och avbrutna distributioner som fortfarande pågår. Fliken för att granska distributioner i resurs gruppen som instansen distribuerades till anger att alla distributioner pågår. I det här fallet väntar du på att distributionen ska slutföras, tar bort den hanterade instansen och sedan det virtuella klustret.
 
-## <a name="delete-virtual-cluster-by-using-the-api"></a>Ta bort virtuellt kluster med hjälp av API
+## <a name="delete-virtual-cluster-by-using-the-api"></a>Ta bort virtuellt kluster med hjälp av API: et
 
-Ta bort ett virtuellt kluster via API: et genom att använda URI-parametrar som anges i den [virtuella kluster ta bort metoden](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Om du vill ta bort ett virtuellt kluster via API: et använder du URI-parametrarna som anges i [Delete-metoden för virtuella kluster](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [vad är en hanterad instans?](sql-database-managed-instance.md).
-- Lär dig mer om [anslutningsarkitektur i Managed Instance](sql-database-managed-instance-connectivity-architecture.md).
-- Lär dig hur du [ändra ett befintligt virtuellt nätverk för hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md).
-- Se en självstudie som visar hur du skapar ett virtuellt nätverk, skapar en hanterad instans och återställa en databas från en säkerhetskopia av databasen [skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
-- DNS-problem, se [konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md).
+- En översikt finns i [Vad är en hanterad instans?](sql-database-managed-instance.md).
+- Lär dig mer om [anslutnings arkitekturen i en hanterad instans](sql-database-managed-instance-connectivity-architecture.md).
+- Lär dig hur du [ändrar ett befintligt virtuellt nätverk för en hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md).
+- En själv studie kurs som visar hur du skapar ett virtuellt nätverk, skapar en hanterad instans och återställer en databas från en säkerhets kopia av databasen finns i [skapa en Azure SQL Database Hanterad instans](sql-database-managed-instance-get-started.md).
+- Information om DNS-problem finns i [Konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md).

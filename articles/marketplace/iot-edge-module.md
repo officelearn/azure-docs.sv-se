@@ -1,92 +1,92 @@
 ---
-title: Azure IoT Edge Modules
-description: IoT Edge-modulen erbjudandet om den på Azure Marketplace för appen och tjänsten utgivare.
+title: Azure IoT Edge moduler
+description: IoT Edge modul erbjuder Azure Marketplace för app-och tjänst utgivare.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
 manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
-ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964018"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874678"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
-Den [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) plattform backas upp av Azure-molnet.  Den här plattformen kan du distribuera molnarbetsbelastningar köra direkt i IoT-enheter.  En IoT Edge-modul kan köra offline arbetsbelastningar och analyserar lokalt. Den här erbjudandetypen kan spara bandbredd och skydda lokala och känsliga data och du får med låg latens svarstid.  Nu har du alternativ för att dra nytta av de här färdiga arbetsbelastningarna. Endast ett fåtal från första part lösningar från Microsoft fram till nu var tillgängliga.  När du var du tvungen att investera tid och resurser till att skapa anpassade IoT-lösningar.
+[Azure IoT Edges](https://azure.microsoft.com/services/iot-edge/) plattformen backas upp av Azure-molnet.  Den här plattformen gör det möjligt för användare att distribuera moln arbets belastningar för att köra direkt på IoT-enheter.  En IoT Edge-modul kan köra offline-arbetsbelastningar och utföra data analys lokalt. Med den här typen av erbjudande kan du spara bandbredd, skydda lokala och känsliga data och erbjuda svars tid med låg latens.  Nu har du möjlighet att dra nytta av dessa förbyggda arbets belastningar. Fram till nu var bara en fåtal av lösningar från första part från Microsoft tillgängliga.  Du var tvungen att investera tiden och resurserna för att skapa dina egna anpassade IoT-lösningar.
 
-Genom att introducera den [IoT Edge-moduler i Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), nu har vi ett enda mål för utgivare att exponera och sälja sina lösningar för IoT-målgrupp. IoT-utvecklare kan slutligen söka efter och köpa funktioner för att påskynda utvecklingen av sin lösning.  
+Genom att introducera [IoT Edge modulerna på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)har vi nu ett enda mål för utgivare att exponera och sälja sina lösningar till IoT-publiken. IoT-utvecklare kan i slut ända hitta och köpa funktioner för att påskynda utvecklingen av lösningen.  
 
-## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Viktiga fördelar med IoT Edge-moduler i Azure Marketplace:
+## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Viktiga fördelar med IoT Edge moduler på Azure Marketplace:
 
-| **För utgivare**    | **För kunder (IoT utvecklare)**  |
+| **För utgivare**    | **För kunder (IoT-utvecklare)**  |
 | :------------------- | :-------------------|
-| Nå miljontals utvecklare som vill skapa och distribuera IoT Edge-lösningar.  | Skapa en IoT Edge-lösning med hög exakthet för att använda säker och testade komponenter. |
-| Publicera en gång och kör över alla IoT Edge-maskinvara som stöder behållare. | Minska tiden till marknaden genom att söka efter och distribuera 1 och 3 part IoT Edge-moduler för specifika behov. |
-| Tjäna pengar med flexibla faktureringsalternativ <ul> <li> Kostnadsfria tjänster och Använd din egen licens (BYOL). </li> </ul> | Gör inköp med ditt val av faktureringsmodellerna. <ul> <li> Kostnadsfria tjänster och Använd din egen licens (BYOL). </li> </ul> |
+| Uppnå miljon tals utvecklare som vill bygga och distribuera IoT Edge lösningar.  | Skapa en IoT Edge-lösning med förtroende för att använda säkra och testade komponenter. |
+| Publicera en gång och kör på alla IoT Edge maskin vara som har stöd för behållare. | Minska tiden till marknaden genom att söka efter och distribuera 1 och tredje parts IoT Edge moduler för speciella behov. |
+| Betala med flexibla fakturerings alternativ <ul> <li> Gratis och ta med din egen licens (BYOL). </li> </ul> | Gör inköp med ditt val av fakturerings modeller. <ul> <li> Gratis och ta med din egen licens (BYOL). </li> </ul> |
 
-## <a name="what-is-an-iot-edge-module"></a>Vad är en IoT Edge-modul?
+## <a name="what-is-an-iot-edge-module"></a>Vad är en IoT Edge modul?
 
-Azure IoT Edge kan du distribuera och hantera affärslogik på gränsen i form av moduler. Azure IoT Edge-moduler är de minsta beräkning enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), 3 part services eller din egen Lösningsspecifika kod. Läs mer om IoT Edge-moduler i [förstå Azure IoT Edge-moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+Med Azure IoT Edge kan du distribuera och hantera affärs logik på kanten i form av moduler. Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. Mer information om IoT Edge moduler finns i [förstå Azure IoT Edge moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
 
-**Vad är skillnaden mellan en behållare erbjudandetypen och en IoT Edge-modulen avtalsform?**
+**Vad är skillnaden mellan en behållar erbjudande typ och en IoT Edge moduls erbjudande typ?**
 
-Erbjudandetypen för IoT Edge-modul är en viss typ av behållare som körs på en IoT Edge-enhet. Den levereras med standardinställningarna för konfigurationen att köra i IoT Edge-kontexten och du kan också använder IoT Edge-modul SDK kan integreras med IoT Edge-körningen.
+Typen IoT Edge module-erbjudande är en bestämd typ av behållare som körs på en IoT Edge enhet. Den innehåller standard konfigurations inställningar som ska köras i IoT Edge-kontexten, och kan också använda SDK för IoT Edge modul för att integreras med IoT Edge Runtime.
 
-## <a name="publishing-your-iot-edge-module"></a>Publicera din IoT Edge-modul
+## <a name="publishing-your-iot-edge-module"></a>Publicera IoT Edge-modulen
 
-**Att välja rätt storefront**
+**Välja rätt butik**
 
-IoT Edge-moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnader och målgrupp över butiker finns i [avgör publiceringsalternativ för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp för butiker finns i [fastställa publicerings alternativet för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
  
-**Betalningsalternativ**
+**Fakturerings alternativ**
 
-Marketplace har för närvarande stöd **kostnadsfri** och **Bring Your Own License (BYOL)** faktureringsalternativ för IoT Edge-moduler.
+Marketplace har för närvarande stöd för **kostnads fria** och **använder dina egna licens alternativ för BYOL-** fakturering för IoT Edge moduler.
  
-**Publiceringsalternativ**
+**Publicerings alternativ**
 
-I samtliga fall IoT Edge-moduler bör välja den **Transact** publicering av alternativet.  Se [väljer ett publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för mer information om hur du publicerar alternativ.  
+I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -publicering.  Se [Välj ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för mer information om publicerings alternativ.  
 
-## <a name="eligibility-criteria"></a>Kriterier för berättigande
+## <a name="eligibility-criteria"></a>Kvalifikationsvillkor
 
-Alla villkor i Microsoft Azure Marketplace-avtal och principer som gäller för IoT Edge-modulen erbjudanden.  Det finns dessutom krav och tekniska krav för IoT Edge-moduler.  
+Alla villkor för Microsoft Azure Marketplace-avtal och-principer gäller för IoT Edge modul-erbjudanden.  Dessutom finns det krav och tekniska krav för IoT Edge moduler.  
 
-**Förutsättningar**
+**Krav**
 
-Om du vill publicera en IoT Edge-modul i Azure Marketplace, måste du uppfylla följande krav:
+Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
-- Åtkomst till Cloud Partner Portal (CPP). Mer information finns i [publiceringsguide för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
-- Vara värd för din IoT Edge-modul i ett Azure Container Registry. 
-- Har din IoT Edge-modulen metadata redo, till exempel (ofullständig lista): 
+- Åtkomst till Cloud Partner Portal (CPP). Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Placera din IoT Edge-modul i en Azure Container Registry. 
+- Låt din IoT Edge modul metadata vara klara som (ej uttömmande lista): 
     - En rubrik
     - En beskrivning (i HTML-format)
-    - En logotyp (PNG-format och fast bildstorleken inklusive 40x40px, 90x90px, 115x115px, 255x115px)
-    - En period om och sekretesspolicyn princip
-    - Modulen standardkonfigurationen (route, enhetstvillingens egenskaper, createOptions, miljövariabler)
+    - En logo typ bild (PNG-format och fasta bild storlekar, inklusive 40x40px, 90x90px, 115x115px, 255x115px)
+    - Ett användnings villkor och en sekretess policy
+    - Standardkonfiguration av modul (Route, dubbla önskade egenskaper, createOptions, miljövariabler)
     - Dokumentation
-    - Supportkontakter
+    - Support kontakter
 
 **Tekniska krav**
 
-De primära tekniska kraven för en IoT Edge-modul, att hämta certifierade och publicerats i Azure Marketplace, beskrivs i den [och Förbered din IoT Edge-modul tekniska resurser](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
+De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifierat och publicerat på Azure Marketplace, beskrivs i [förbereda din IoT Edge-modul tekniska till gångar](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
 
 ## <a name="documentation-and-resources"></a>Dokumentation och resurser
 
-[Skapa ett erbjudande för IoT Edge-modulen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– steg för att publicera en ny IoT Edge-modul erbjuder med molnet Publiceringsportalen.
+[Skapa en IoT Edge modul-erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) – stegen för att publicera ett nytt IoT Edge modul-erbjudande med moln publicerings portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan gjort det,
+Om du inte redan har gjort det,
 
-- Registrera i den [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Skapa en [Account](https://account.microsoft.com/account/) (krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra).
-- Skicka den [Marketplace registreringsformuläret](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Se hur du [skapa ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information.
+- Registrera dig i [Microsoft Partner Network](https://partner.microsoft.com/membership).
+- Skapa ett [Microsoft-konto](https://account.microsoft.com/account/) (krävs för Azure Marketplace Transact-erbjudanden, rekommenderas för andra).
+- Skicka in [registrerings formuläret för Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Mer information finns i så här [skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
+Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 
-- Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/) att skapa eller slutföra ditt erbjudande.
-- Se [IoT Edge-modulen erbjudandet publicera översikt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) information om hur du publicerar ett erbjudande för IoT Edge-modulen.
+- Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/) för att skapa eller slutföra ditt erbjudande.
+- Mer information om hur du publicerar ett erbjudande för IoT Edge-modulen finns i avsnittet om [publicerings översikt för IoT Edge-modulen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) .

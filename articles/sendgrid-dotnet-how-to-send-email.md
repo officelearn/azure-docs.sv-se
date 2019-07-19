@@ -1,6 +1,6 @@
 ---
-title: Hur du använder e-posttjänsten SendGrid (.NET) | Microsoft Docs
-description: Lär dig hur skicka e-postmeddelande med e-posttjänsten SendGrid på Azure. Kodexempel som skrivits i C# och använder .NET API.
+title: Så här använder du e-posttjänsten för SendGrid (.NET) | Microsoft Docs
+description: 'Lär dig hur du skickar e-post med e-posttjänsten SendGrid i Azure. Kod exempel som skrivits C# i och använder .NET-API: et.'
 services: ''
 documentationcenter: .net
 author: thinkingserious
@@ -13,68 +13,69 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
-ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
+ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444916"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876385"
 ---
-# <a name="how-to-send-email-using-sendgrid-with-azure"></a>Hur du skickar e-post med SendGrid med Azure
+# <a name="how-to-send-email-using-sendgrid-with-azure"></a>Skicka e-post med hjälp av SendGrid med Azure
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med e-posttjänsten SendGrid på Azure. Exemplen är skrivna i C\# och har stöd för .NET Standard 1.3. Scenarier som omfattas är konstruera e-post, skicka e-post, lägga till bifogade filer, och aktiverar olika e-post och spåra inställningar. Mer information om SendGrid och skicka e-post finns i den [nästa steg] [ Next steps] avsnittet.
+Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs i C\# och stöder .net standard 1,3. Scenarierna som beskrivs är att skapa e-post, skicka e-post, lägga till bilagor och aktivera olika inställningar för e-post och spårning. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg][Next steps] .
 
-## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten SendGrid?
-SendGrid är en [molnbaserade e-posttjänsten] som ger tillförlitliga [transaktionsbaserad e-postleverans], skalbarhet och realtidsanalys tillsammans med flexibla API: er som gör anpassad integration enkel. Vanliga användningsområden för SendGrid är:
+## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten för SendGrid?
+SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig [e]-postleverans, skalbarhet och real tids analys tillsammans med flexibla API: er som underlättar anpassad integrering. Vanliga SendGrid-användnings fall är:
 
-* Automatiskt skicka kvitton eller köp bekräftelser för kunder.
-* Administrera distribution visas för att skicka kunder månatliga flygblad och kampanjer.
-* Insamling av realtidsstatistisk för saker som blockerade e-post och Kundengagemang.
-* Vidarebefordran av kundfrågor.
-* Bearbetning av inkommande e-postmeddelanden.
+* Skicka kvitton eller inköps bekräftelser automatiskt till kunder.
+* Administrera distributions listor för att skicka kunders månatliga Fliers och kampanjer.
+* Samla in real tids mått för saker som blockerad e-post och kund engagemang.
+* Vidarebefordrar kund förfrågningar.
+* Bearbetar inkommande e-post.
 
-För mer information, besök [ https://sendgrid.com ](https://sendgrid.com) eller Sendgrids [C#-biblioteket] [ sendgrid-csharp] GitHub-lagringsplatsen.
+Mer information finns på [https://sendgrid.com](https://sendgrid.com) eller SendGrid [ C# Library][sendgrid-csharp] GitHub lagrings platsen.
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="reference-the-sendgrid-net-class-library"></a>Referens för SendGrid .NET-klassbiblioteket
-Den [SendGrid NuGet-paketet](https://www.nuget.org/packages/Sendgrid) är det enklaste sättet att få SendGrid-API och konfigurera ditt program med alla beroenden. NuGet är en Visual Studio-tillägg som ingår i Microsoft Visual Studio 2015 och senare som gör det enkelt att installera och uppdatera bibliotek och verktyg.
+## <a name="reference-the-sendgrid-net-class-library"></a>Referera till SendGrid .NET-klass biblioteket
+[SendGrid NuGet-paketet](https://www.nuget.org/packages/Sendgrid) är det enklaste sättet att hämta SendGrid-API: et och att konfigurera ditt program med alla beroenden. NuGet är ett Visual Studio-tillägg som ingår i Microsoft Visual Studio 2015 och senare och som gör det enkelt att installera och uppdatera bibliotek och verktyg.
 
 > [!NOTE]
-> Om du vill installera NuGet om du kör en version av Visual Studio som är tidigare än Visual Studio 2015, besök [ https://www.nuget.org ](https://www.nuget.org), och klicka på den **installera NuGet** knappen.
+> Om du vill installera NuGet om du kör en tidigare version av Visual Studio än Visual Studio 2015 går [https://www.nuget.org](https://www.nuget.org)du till och klickar på knappen **Installera NuGet** .
 >
 >
 
-Om du vill installera SendGrid NuGet-paketet i ditt program, gör du följande:
+Så här installerar du SendGrid NuGet-paketet i ditt program:
 
-1. Klicka på **nytt projekt** och välj en **mallen**.
+1. Klicka på **nytt projekt** och välj en **mall**.
 
    ![Skapa ett nytt projekt][create-new-project]
-2. I **Solution Explorer**, högerklicka på **referenser**, klicka sedan på **hantera NuGet-paket**.
+2. Högerklicka på **referenser**i **Solution Explorer**och klicka sedan på **Hantera NuGet-paket**.
 
-   ![SendGrid-NuGet-paketet][SendGrid-NuGet-package]
-3. Sök efter **SendGrid** och välj den **SendGrid** objekt i resultatlistan.
-4. Välj den senaste stabila versionen av Nuget-paketet i listrutan version för att kunna arbeta med object model och API: er som visas i den här artikeln.
+   ![SendGrid NuGet-paket][SendGrid-NuGet-package]
+3. Sök efter **SendGrid** och välj **SendGrid** -objektet i resultat listan.
+4. Välj den senaste stabila versionen av NuGet-paketet i list rutan version för att kunna arbeta med objekt modellen och API: er som visas i den här artikeln.
 
    ![SendGrid-paket][sendgrid-package]
-5. Klicka på **installera** att slutföra installationen och stäng sedan dialogrutan.
+5. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialog rutan.
 
-SendGrid-.NET-klassbiblioteket kallas **SendGrid**. Det innehåller följande namnrymder:
+SendGrids .NET-klass bibliotek kallas **SendGrid**. Den innehåller följande namn rymder:
 
-* **SendGrid** för att kommunicera med SendGrid-API.
-* **SendGrid.Helpers.Mail** helper-metoder att enkelt skapa SendGridMessage-objekt som anger hur du skickar e-postmeddelanden.
+* **SendGrid** för att kommunicera med SendGrid-API: et.
+* **SendGrid. helpers. mail** för hjälp metoder för att enkelt skapa SendGridMessage-objekt som anger hur e-postmeddelanden ska skickas.
 
-Lägg till följande kod namnrymdsdeklarationer överst till en C#-fil som du vill komma åt e-posttjänsten SendGrid via programmering.
+Lägg till följande kod namns deklarationer högst upp i C# en fil där du vill ha åtkomst till SendGrid e-posttjänsten.
 
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
 ## <a name="how-to-create-an-email"></a>Anvisningar: Skapa ett e-postmeddelande
-Använd den **SendGridMessage** objektet för att skapa ett e-postmeddelande. När meddelandeobjektet har skapats kan ange du egenskaper och metoder, bland annat e-postavsändaren, e-postmottagare, ämne och brödtext.
+Använd **SendGridMessage** -objektet för att skapa ett e-postmeddelande. När meddelande-objektet har skapats kan du ange egenskaper och metoder, inklusive e-postsändare, e-postmottagare och ämne och brödtext i e-postmeddelandet.
 
-I följande exempel visar hur du skapar ett fullständigt fylls i automatiskt e-post-objekt:
+Följande exempel visar hur du skapar ett fullständigt ifyllt e-postobjekt:
 
     var msg = new SendGridMessage();
 
@@ -93,23 +94,23 @@ I följande exempel visar hur du skapar ett fullständigt fylls i automatiskt e-
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-Mer information om alla egenskaper och metoder som stöds av den **SendGrid** skriver, se [sendgrid-csharp] [ sendgrid-csharp] på GitHub.
+Mer information om alla egenskaper och metoder som stöds av **SendGrid** -typen finns i [SendGrid-csharp][sendgrid-csharp] på GitHub.
 
 ## <a name="how-to-send-an-email"></a>Anvisningar: Skicka ett e-postmeddelande
-När du har skapat ett e-postmeddelande, kan du skicka den med hjälp av SendGrid-API. Du kan också använda [. NETS inbyggda biblioteket][NET-library].
+När du har skapat ett e-postmeddelande kan du skicka det med SendGrid-API: et. Alternativt kan du använda [. NÄTVERKets inbyggda bibliotek][NET-library].
 
-Skicka e-post måste du ange din SendGrid API-nyckel. Om du behöver information om hur du konfigurerar API-nycklar kan du besöka SendGrid-API-nycklar [dokumentation][documentation].
+Att skicka e-post kräver att du anger din SendGrid API-nyckel. Om du behöver information om hur du konfigurerar API-nycklar kan du gå till SendGrid API Keys- [dokumentation][documentation].
 
-Du kan lagra dessa autentiseringsuppgifter via din Azure-portalen genom att klicka på inställningar för program och lägga till nyckel/värde-par under appinställningar.
+Du kan lagra dessa autentiseringsuppgifter via Azure Portal genom att klicka på program inställningar och lägga till nyckel/värde-par under appinställningar.
 
- ![Azure app-inställningar][azure_app_settings]
+ ![Inställningar för Azure-App][azure_app_settings]
 
- Sedan kan du kan komma åt dem på följande sätt:
+ Sedan kan du komma åt dem på följande sätt:
 
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-I följande exempel visas hur du skickar ett e-postmeddelande med SendGrid webb-API med ett konsolprogram.
+I följande exempel visas hur du skickar ett e-postmeddelande med hjälp av webb-API: t för SendGrid med ett konsol program.
 
     using System;
     using System.Threading.Tasks;
@@ -142,13 +143,13 @@ I följande exempel visas hur du skickar ett e-postmeddelande med SendGrid webb-
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Anvisningar: Skicka e-post från ASP .NET Core API med hjälp av MailHelper-klass
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Anvisningar: Skicka e-post från ASP .NET Core API med hjälp av mails-klassen
 
-I exemplet nedan kan användas för att skicka ett enda e-postmeddelande till flera personer från ASP .NET Core API med hjälp av den `MailHelper` klass av `SendGrid.Helpers.Mail` namnområde. I det här exemplet använder vi ASP .NET Core 1.0. 
+Exemplet nedan kan användas för att skicka ett enda e-postmeddelande till flera personer från ASP .net Core API med `MailHelper` klassen för `SendGrid.Helpers.Mail` namn område. I det här exemplet använder vi ASP .NET core 1,0. 
 
-I det här exemplet, API-nyckeln har lagrats i den `appsettings.json` -fil som kan åsidosättas från Azure-portalen som visas i ovanstående exempel.
+I det här exemplet har API-nyckeln lagrats i `appsettings.json` filen som kan åsidosättas från Azure Portal som visas i exemplen ovan.
 
-Innehållet i `appsettings.json` fil bör se ut som:
+Innehållet i `appsettings.json` filen bör se ut ungefär så här:
 
     {
        "Logging": {
@@ -162,7 +163,7 @@ Innehållet i `appsettings.json` fil bör se ut som:
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-Först måste vi lägga till den nedan koden i den `Startup.cs` i .NET Core API-projektet. Detta krävs så att vi kan komma åt den `SENDGRID_API_KEY` från den `appsettings.json` filen med hjälp av beroendeinmatning i API-kontroll. Den `IConfiguration` gränssnitt kan införas i konstruktorn för kontrollanten har lagt till i den `ConfigureServices` metod nedan. Innehållet i `Startup.cs` filen ser ut som följande när du lägger till kod som krävs:
+Först måste vi lägga till koden nedan i `Startup.cs` filen för .net Core API-projektet. Detta krävs för att vi ska kunna komma åt `SENDGRID_API_KEY` `appsettings.json` filen från filen genom att använda beroende inmatning i API-styrenheten. Gränssnittet kan matas in i konstruktorn för kontrollanten efter att det har lagts till `ConfigureServices` i metoden nedan. `IConfiguration` `Startup.cs` Filens innehåll ser ut ungefär så här när du har lagt till den kod som krävs:
 
         public IConfigurationRoot Configuration { get; }
 
@@ -173,7 +174,7 @@ Först måste vi lägga till den nedan koden i den `Startup.cs` i .NET Core API-
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-På domänkontrollanten efter att infoga den `IConfiguration` gränssnitt, som vi kan använda den `CreateSingleEmailToMultipleRecipients` -metoden för den `MailHelper` klassen för att skicka ett enda e-postmeddelande till flera mottagare. Metoden godkänner en ytterligare boolesk parameter som heter `showAllRecipients`. Den här parametern kan användas för att kontrollera om e-postmottagare kommer att kunna se varandras e-postadress i avsnittet till i e-postrubrik. Exempelkod för domänkontrollanter måste som ha färre än 
+När `IConfiguration` gränssnittet har matats in på styrenheten kan vi `CreateSingleEmailToMultipleRecipients` använda metoden i `MailHelper` klassen för att skicka ett enda e-postmeddelande till flera mottagare. Metoden accepterar en ytterligare boolesk parameter med namnet `showAllRecipients`. Den här parametern kan användas för att styra om e-postmottagare ska kunna se varje annan e-postadress i avsnittet till i e-posthuvudet. Exempel koden för Controller bör vara som följer nedan 
 
     using System;
     using System.Collections.Generic;
@@ -218,8 +219,8 @@ På domänkontrollanten efter att infoga den `IConfiguration` gränssnitt, som v
        }
     }
     
-## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bifogad fil
-Bifogade filer som kan läggas till ett meddelande genom att anropa den **AddAttachment** metod och minimalt ange filnamnet och Base64-kodat innehåll du vill bifoga. Du kan innehålla flera bifogade filer genom att anropa den här metoden när du vill bifoga för varje fil eller med hjälp av den **AddAttachments** metod. I följande exempel visar att lägga till en bifogad fil till ett meddelande:
+## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bilaga
+Bilagor kan läggas till i ett meddelande genom att anropa metoden **AddAttachment** och minimalt ange fil namnet och base64-kodat innehåll som du vill bifoga. Du kan inkludera flera bilagor genom att anropa den här metoden en gång för varje fil som du vill bifoga eller med hjälp av metoden **AddAttachments** . I följande exempel visas hur du lägger till en bifogad fil i ett meddelande:
 
     var banner2 = new Attachment()
     {
@@ -231,30 +232,30 @@ Bifogade filer som kan läggas till ett meddelande genom att anropa den **AddAtt
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd e-postinställningar för att aktivera sidfötter, spårning och analys
-SendGrid ger ytterligare e-funktioner genom att använda postinställningar för e-och spårning. De här inställningarna kan läggas till e-postmeddelandet att aktivera vissa funktioner, till exempel klickspårning, Google analytics, prenumeration, spårnings- och så vidare. En fullständig lista över appar, finns det [inställningar dokumentation][settings-documentation].
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd e-postinställningar för att aktivera sid fötter, spårning och analys
+SendGrid tillhandahåller ytterligare e-postfunktioner genom att använda e-postinställningar och spårnings inställningar. De här inställningarna kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner, till exempel att klicka på spårning, Google Analytics, prenumerations spårning och så vidare. En fullständig lista över appar finns i dokumentation om [Inställningar][settings-documentation].
 
-Appar kan tillämpas på **SendGrid** e-postmeddelanden med hjälp av metoder som införts som en del av den **SendGridMessage** klass. I följande exempel visar sidfoten och klickar på Spåra filter:
+Appar kan användas för **SendGrid** e-postmeddelanden med metoder som implementerats som en del av **SendGridMessage** -klassen. Följande exempel visar sidfoten och klickar på spårnings filter:
 
-I följande exempel visar sidfoten och klickar på Spåra filter:
+Följande exempel visar sidfoten och klickar på spårnings filter:
 
-### <a name="footer-settings"></a>Inställningar för sidfot
+### <a name="footer-settings"></a>Sid fots inställningar
     msg.SetFooterSetting(
                          true,
                          "Some Footer HTML",
                          "<strong>Some Footer Text</strong>");
 
-### <a name="click-tracking"></a>Klickspårning
+### <a name="click-tracking"></a>Klicka på spåra
     msg.SetClickTracking(true);
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Anvisningar: Använda ytterligare SendGrid-tjänster
-SendGrid erbjuder flera API: er och webhooks som du kan använda för att utnyttja ytterligare funktioner i ditt Azure-program. Mer information finns i den [SendGrid API-referens][SendGrid API documentation].
+## <a name="how-to-use-additional-sendgrid-services"></a>Anvisningar: Använd ytterligare SendGrid-tjänster
+SendGrid erbjuder flera API: er och Webhooks som du kan använda för att utnyttja ytterligare funktioner i ditt Azure-program. Mer information finns i [SENDGRID API][SendGrid API documentation]-referensen.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna för den e-posttjänsten SendGrid kan du följa dessa länkar om du vill veta mer.
+Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
-* SendGrid C\# biblioteket lagringsplats: [sendgrid-csharp][sendgrid-csharp]
-* SendGrid API-dokumentation: <https://sendgrid.com/docs>
+* SendGrid C\# -bibliotek lagrings platsen: [SendGrid-csharp][sendgrid-csharp]
+* SendGrid API-dokumentation:<https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis
@@ -278,6 +279,6 @@ Nu när du har lärt dig grunderna för den e-posttjänsten SendGrid kan du föl
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
-[molnbaserade e-posttjänsten]: https://sendgrid.com/solutions
-[transaktionsbaserad e-postleverans]: https://sendgrid.com/use-cases/transactional-email
+[molnbaserad e-posttjänst]: https://sendgrid.com/solutions
+[e]: https://sendgrid.com/use-cases/transactional-email
 

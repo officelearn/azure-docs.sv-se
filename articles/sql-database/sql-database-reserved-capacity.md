@@ -1,6 +1,6 @@
 ---
-title: Betala i förskott för Azure SQL Database virtuella kärnor att spara pengar | Microsoft Docs
-description: Lär dig hur du köper Azure SQL Database reserverad kapacitet för att spara dina beräkningskostnader.
+title: Förskotts betalning för Azure SQL Database virtuella kärnor för att spara pengar | Microsoft Docs
+description: Lär dig hur du köper Azure SQL Database reserverad kapacitet för att spara pengar på dina beräknings kostnader.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,70 +11,70 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/01/2019
-ms.openlocfilehash: 8c4fd3d49b4df3b3d18802e49d51aa54c0b58333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 07/15/2019
+ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566166"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233057"
 ---
-# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
+# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Förskotts betalning för SQL Database beräknings resurser med Azure SQL Database reserverad kapacitet
 
-Spara pengar med Azure SQL Database genom förskottsbetalar för beräkningsresurser jämfört med priserna för användningsbaserad betalning. Med Azure SQL Database reserverad kapacitet gör du en i förskott på SQL-databas under en period av ett eller tre år för att få bra rabatter på beräkningskostnaderna. Om du vill köpa SQL Database reserverad kapacitet, måste du ange Azure-region, typen av distribution, prestandanivån och period.
+Spara pengar med Azure SQL Database genom att betala för beräknings resurser jämfört med priser enligt principen betala per användning. Med Azure SQL Database reserverad kapacitet gör du ett åtagande på SQL Database under en period av en eller tre år för att få en betydande rabatt på beräknings kostnaderna. Om du vill köpa SQL Database reserverad kapacitet måste du ange Azure-region, distributions typ, prestanda nivå och period.
 
 
-Du behöver inte tilldela reservationen till specifika SQL Database-instanser (enskilda databaser, elastiska pooler eller hanterade instanser). Matchning av SQL Database-instanser som redan körs eller som nyligen har distribuerats, automatiskt får fördelen. Genom att köpa en reservation, är du förskott för beräkningskostnaderna under en period av ett eller tre år. När du köper en reservation går SQL-databasen beräkningsrelaterade avgifter som matchar reservationen attribut debiteras inte längre med betala per användning-som-du priser. En reservation omfattar inte programvara-, nätverks- eller kostnader som är associerade med SQL Database-instansen. I slutet av reservationsperioden faktureringsförmånen upphör att gälla och SQL-databaser debiteras enligt användningsbaserad-som-du gå priset. Reservationer inte den automatiska förnyelsen. Information om priser finns i den [SQL Database reserverad kapacitet erbjudande](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Du behöver inte tilldela reservationen till vissa SQL Database instanser (enstaka databaser, elastiska pooler eller hanterade instanser). Matchning av SQL Database instanser, som redan körs eller som nyligen distribueras, får automatiskt förmånen. Genom att köpa en reservation betalar du för beräknings kostnaderna för en period på en eller tre år. När du köper en reservation debiteras inte längre de SQL Database beräknings kostnader som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är associerade med SQL Database-instansen. I slutet av reservations perioden upphör fakturerings förmånen och SQL-databaserna debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [SQL Database reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-Du kan köpa Azure SQL Database reserverad kapacitet den [Azure-portalen](https://portal.azure.com). Reserverad kapacitet om du vill köpa SQL Database:
+Du kan köpa Azure SQL Database reserverad kapacitet i [Azure Portal](https://portal.azure.com). Köpa SQL Database reserverad kapacitet:
 
-- Du måste vara i rollen ägare för minst en Enterprise eller enskild prenumeration med användningsbaserad betalning.
-- För Enterprise-prenumerationer, **lägga till reserverade instanser** måste aktiveras i den [EA-portalen](https://ea.azure.com). Eller, om den här inställningen har inaktiverats kan du måste vara en EA-administratör för prenumerationen.
-- För Cloud Solution Provider (CSP)-programmet kan endast admin-agenter eller försäljning agents köpa SQL Database reserverad kapacitet.
+- Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.
+- För företags prenumerationer måste **Lägg till reserverade instanser** vara aktiverade i [EA-portalen](https://ea.azure.com). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
+- För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa SQL Database reserverad kapacitet.
 
-Information om hur företagskunder och kunder med användningsbaserad betalning debiteras för reservation inköp i [förstå användningen av Azure reservation för Enterprise-registreringen](../billing/billing-understand-reserved-instance-usage-ea.md) och [förstå Azure reservation användning för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md).
+Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp, se [förstå Azure reservation-användning för din företags registrering](../billing/billing-understand-reserved-instance-usage-ea.md) och [förstå Azure reservation-användning för ditt företag som du betalar per användning prenumeration](../billing/billing-understand-reserved-instance-usage.md).
 
-## <a name="determine-the-right-sql-size-before-purchase"></a>Fastställa lämplig storlek enligt SQL före köp
+## <a name="determine-the-right-sql-size-before-purchase"></a>Fastställ rätt SQL-storlek innan köpet
 
-Storleken på reservationen ska baseras på den totala mängden beräkning som används av den befintliga eller snart-till--distribueras enskilda databaser eller elastiska pooler hanterade instanser i en viss region och använda samma prestanda nivå och maskinvara generation.
+Reservations storleken bör baseras på den totala mängd data som används av befintliga eller närmast distribuerade enskilda databaser, elastiska pooler eller hanterade instanser inom en viss region och som använder samma prestanda nivå och maskin varu generation.
 
-Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk pool, och två affärskritisk, Gen5 – 4 vCore enskilda databaser. Dessutom kan anta vi att du planerar att distribuera under nästa månad en ytterligare generell användning, Gen5 – 16 vCore elastisk pool, och en affärskritisk, Gen5 – 32 vCore elastisk pool. Anta också att du vet att du behöver dessa resurser för minst 1 år. I det här fallet ska du köpa en 32 virtuella kärnor (2 x 16), 1 år reservation för enkel databas/elastisk pool generella - Gen5 och ett 40 (2 x 4 + 32) vCore 1 år reservation för enkel databas/elastisk pool affärskritisk - Gen5.
+Anta till exempel att du kör ett allmänt syfte, Gen5 – 16 vCore elastisk pool och två affärs kritiska Gen5 – 4 vCore-databaser. Vi vill också att du planerar att distribuera under nästa månad till ett ytterligare allmänt syfte, Gen5 – 16 vCore elastisk pool och en affärs kritisk Gen5 – 32 vCore elastisk pool. Vi antar också att du vet att du behöver dessa resurser i minst 1 år. I det här fallet bör du köpa en 32 (2x16) virtuella kärnor, 1 års reservation för en enskild databas/elastisk pool generell användning – Gen5 och en 40 (2x4 + 32) vCore 1 års reservation för en enskild databas/elastisk pool affärs kritiskt-Gen5.
 
-## <a name="buy-sql-database-reserved-capacity"></a>Köpa SQL Database reserverad kapacitet
+## <a name="buy-sql-database-reserved-capacity"></a>Köp SQL Database reserverad kapacitet
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster** > **reservationer**.
-3. Välj **Lägg till** och välj sedan i fönstret köp reservationer **SQL Database** att köpa en ny reservation för SQL-databas.
-4. Fyll i obligatoriska fält. Befintliga eller nya enskilda databaser, elastiska pooler eller hanterade instanser som matchar de attribut som du väljer är du berättigad att hämta rabatten för reserverad kapacitet. Det faktiska antalet dina SQL Database-instanser som får rabatten är beroende av omfång och kvantitet som väljs.
-    ![Skärmbild innan du skickar in SQL-databasen reserverad kapacitet köp](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+3. Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **SQL Database** för att köpa en ny reservation för SQL Database.
+4. Fyll i de obligatoriska fälten. Befintliga eller nya enskilda databaser, elastiska pooler eller hanterade instanser som matchar de attribut som du har valt kvalificera för att hämta rabatten för reserverad kapacitet. Det faktiska antalet SQL Database-instanser som erhåller rabatten beror på omfattning och kvantitet som valts.
+    ![Skärm bild innan du skickar SQL Database reserverat kapacitets köp](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
 I följande tabell beskrivs obligatoriska fält.
 
 | Fält      | Beskrivning|
 |------------|--------------|
-|Prenumeration|Den prenumeration som används för att betala för SQL Database reserverad kapacitetsreservationen. Betalningsmetoden för prenumerationen debiteras startavgifter reservationens SQL-databas som reserverad kapacitet. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller en enskild avtal med användningsbaserad betalning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med användningsbaserad prissättning faktureras avgifterna till betalningsmetod kreditkort eller faktura för prenumerationen.|
-|Scope       |VCore reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <br/><br/>**Delade**, vCore rabatten gäller för SQL Database-instanser som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.<br/><br/>**Enstaka prenumeration**, vCore rabatten gäller för SQL Database-instanser i den här prenumerationen. <br/><br/>**Enskild resursgrupp**, rabatten gäller för SQL Database-instanser i den valda prenumerationen och den valda resursgruppen inom den prenumerationen.|
-|Region      |Azure-regionen som omfattas av SQL-databasen reserverad kapacitet reservation.|
-|Distributionstyp|Den SQL-resurstyp som du vill köpa reservationer för.|
-|Prestandanivå|Tjänstnivå för SQL Database-instanser.
-|Term        |Ett eller tre år.|
-|Kvantitet    |Antalet instanser som köpts i SQL-databasen reserverad kapacitet reservation. Antalet är antalet körda SQL Database-instanser som kan få fakturering rabatt. Till exempel om du kör 10 SQL Database-instanser i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
+|Subscription|Prenumerationen som används för att betala för den SQL Database reserverade kapacitets reservationen. Betalnings metoden för prenumerationen debiteras mot startkostnader för den SQL Database reserverade kapacitets reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|
+|Omfång       |VCore-reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <br/><br/>**Delad**, reservations rabatten för vCore tillämpas på SQL Database instanser som körs i en prenumeration i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla prenumerationer enligt principen betala per användning som har skapats av konto administratören.<br/><br/>**Enskild prenumeration**tillämpas reservations rabatten för vCore på SQL Database instanser i den här prenumerationen. <br/><br/>**En enda resurs grupp**, reservations rabatten tillämpas på SQL Database instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.|
+|Region      |Den Azure-region som omfattas av reservationen SQL Database reserverad kapacitet.|
+|Distributions typ|Den SQL-resurs typ som du vill köpa reservationen för.|
+|Prestandanivå|Tjänst nivån för SQL Database instanser.
+|Term        |Ett år eller tre år.|
+|Kvantitet    |Mängden data bearbetnings resurser som köps i SQL Database reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra SQL Database instanser med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla instanser. |
 
-1. Granska kostnaden för SQL-databasen reserverad kapacitetsreservationen i den **kostnader** avsnittet.
+1. Granska kostnaden för den SQL Database reserverade kapacitets reservationen i avsnittet **kostnader** .
 1. Välj **Köp**.
-1. Välj **visa den här reservationen** att se status för ditt köp.
+1. Välj **Visa den här reservationen** för att se inköpets status.
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
+## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
 
-Om du behöver reserverad kapacitet reservation att avbryta din SQL-databas, det kan finnas 12% uppsägningsavgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
+Om du behöver avbryta din SQL Database reservation av reserverad kapacitet kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära en annullering går du till reservationen i Azure Portal och väljer **åter betalning** för att skapa en supportbegäran.
 
-Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
+Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära ett utbyte går du till reservationen i Azure Portal och väljer **Exchange** för att skapa en support förfrågan.
 
-Läs mer om hur du exchange- eller återbetalning reservationer [Reservation utbyte och återbetalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
-flexibilitet för vCore-storlek kan du skala upp eller ned inom en prestandanivå och region, utan att förlora fördelen reserverad kapacitet. SQL-databas som reserverad kapacitet ger dig flexibiliteten att tillfälligt flytta dina frekvent databaser mellan pooler och enskilda databaser som en del av din normal drift (inom samma region och prestanda nivå) utan att förlora reserverad kapacitet Dra. Du kan effektivt hantera prestanda toppar utan överskrider din budget genom att lagra en icke tillämpade buffert i din reservation.
+vCore storleks flexibilitet hjälper dig att skala upp eller ned i en prestanda nivå och region, utan att förlora den reserverade kapacitets förmånen. SQL Database reserverad kapacitet ger också flexibiliteten att tillfälligt flytta dina aktiva databaser mellan pooler och enkla databaser som en del av din normala verksamhet (inom samma region och prestanda nivå) utan att förlora den reserverade kapaciteten lönsamhet. Genom att behålla en icke-tillämpad buffert i din reservation kan du effektivt hantera prestanda toppar utan att överskrida budgeten.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
@@ -82,15 +82,15 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
 
 ## <a name="next-steps"></a>Nästa steg
 
-VCore-reservationsrabatten tillämpas automatiskt på hur många SQL Database-instanser som matchar reservationsomfånget för SQL Database reserverad kapacitet och attribut. Du kan uppdatera reservationens omfång i SQL Database reserverad kapacitet via [Azure-portalen](https://portal.azure.com), PowerShell, CLI eller via API: et.
+Reservations rabatten för vCore tillämpas automatiskt på antalet SQL Database instanser som SQL Database matchar omfånget och attributen för reserverade kapacitets reservationer. Du kan uppdatera omfånget för den SQL Database reserverade kapacitets reservationen via [Azure Portal](https://portal.azure.com), POWERSHELL, CLI eller via API: et.
 
-Lär dig hur du hanterar SQL-databas reserverad kapacitet reservation, se [hantera SQL-databas som reserverad kapacitet](../billing/billing-manage-reserved-vm-instance.md).
+Information om hur du hanterar reservationen för SQL Database reserverad kapacitet finns i [hantera SQL Database reserverad kapacitet](../billing/billing-manage-reserved-vm-instance.md).
 
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Mer information om Azure Reservations finns i följande artiklar:
 
-- [Vad är Azure reservationer?](../billing/billing-save-compute-costs-reservations.md)
+- [Vad är Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
 - [Hantera Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
-- [Förstå Azure reservationer rabatt](../billing/billing-understand-reservation-charges.md)
-- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Förstå Azure Reservations rabatt](../billing/billing-understand-reservation-charges.md)
+- [Förstå reservations användningen för din prenumeration enligt principen betala per användning](../billing/billing-understand-reserved-instance-usage.md)
+- [Förstå reservations användningen för företags registreringen](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Azure Reservations i programmet Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

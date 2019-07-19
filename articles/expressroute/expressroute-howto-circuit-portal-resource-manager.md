@@ -1,19 +1,20 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets - portalen: Azure | Microsoft Docs'
+title: 'Skapa och ändra en ExpressRoute-krets – Portal: Azure | Microsoft Docs'
 description: Skapa, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657214"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846587"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 
@@ -54,10 +55,10 @@ Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azu
    ![Konfigurera SKU-nivån och datamätning](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
    * **Nivån** bestämmer om en ExpressRoute-standard eller en ExpressRoute-premiumtillägget är aktiverat. Du kan ange **Standard** att hämta standard-SKU eller **Premium** premium-tillägg.
-   * **Datamätning** avgör vilken fakturering. Du kan ange **förbrukade** för ett abonnemang med förbrukade data och **obegränsad** för en obegränsad dataplan. Observera att du kan ändra typen fakturering från **förbrukade** till **obegränsad**.
+   * **Datamätning** avgör vilken fakturering. Du kan ange **förbrukade** för ett abonnemang med förbrukade data och **obegränsad** för en obegränsad dataplan. Observera att du kan ändra fakturerings typen från **avgiftsbelagd** till **obegränsad**.
 
      > [!IMPORTANT]
-     > Du kan inte ändra typen från **obegränsad** till **förbrukade**.
+     > Du kan inte ändra typen från **obegränsad** till **mätning**.
 
    * **Peeringplatsen** är den fysiska platsen där du peer med Microsoft.
 
@@ -84,20 +85,20 @@ På den här sidan **Providerstatus** innehåller information om det aktuella ti
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Providerstatus: Inte etablerats<BR>
-Kretsstatus: Aktiverad
+Leverantörs status: Inte etablerad<BR>
+Krets status: Aktiverad
 
 ![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Kretsen ändras till följande tillstånd när anslutningsleverantören håller på att aktivera den för du:
 
-Providerstatus: Etablering<BR>
-Kretsstatus: Aktiverad
+Leverantörs status: Etablering<BR>
+Krets status: Aktiverad
 
 Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
-Providerstatus: Etablerat<BR>
-Kretsstatus: Aktiverad
+Leverantörs status: Etablerat<BR>
+Krets status: Aktiverad
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Regelbundet kontrollera status och tillståndet för nyckeln krets
 

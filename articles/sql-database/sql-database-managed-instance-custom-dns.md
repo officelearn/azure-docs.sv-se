@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance anpassad DNS | Microsoft Docs
-description: Det här avsnittet beskriver konfigurationsalternativ för en anpassad DNS med en Azure SQL Database Managed Instance.
+title: Anpassad DNS för Azure SQL Database Hanterad instans Microsoft Docs
+description: I det här avsnittet beskrivs konfigurations alternativ för en anpassad DNS med en Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,41 +11,28 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.openlocfilehash: 674c5d48dad5d3cfd138853d7ea38ae4a216c93d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700437"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309867"
 ---
-# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Konfigurera en anpassad DNS för Azure SQL Database Managed Instance
+# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Konfigurera en anpassad DNS för Azure SQL Database Hanterad instans
 
-En Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Det finns ett par scenarier (till exempel db e-post, länkade servrar till andra SQL-instanser i miljön moln eller hybrid) som kräver privata värdnamn som matchas från den hanterade instansen. I så fall måste du konfigurera en anpassad DNS i Azure. Eftersom Managed Instance använder samma DNS för dess informationsresurser, måste DNS-konfiguration för virtuellt nätverk vara kompatibel med Managed Instance.
+En Azure SQL Database Hanterad instans måste distribueras i ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Det finns några scenarier (till exempel DB mail, länkade servrar till andra SQL-instanser i molnet eller i hybrid miljön) som kräver att privata värdnamn matchas från den hanterade instansen. I så fall måste du konfigurera en anpassad DNS i Azure. 
 
-   > [!IMPORTANT]
-   > Använd alltid fullständigt kvalificerade domännamn (FQDN) för e-postservrar, SQL-servrar och andra tjänster även om de är i privat DNS-zonen. Till exempel använda `smtp.contoso.com` för e-postserver eftersom enkel `smtp` löses inte korrekt.
-
-Om du vill göra en anpassad DNS-konfiguration är kompatibel med den hanterade instansen måste du:
-
-- Konfigurera anpassad DNS-server så att den är kan matcha offentliga domännamn
-- Placera Azures rekursiva matchare DNS-IP-adressen 168.63.129.16 i slutet av listan över DNS-virtuella nätverk
-
-## <a name="setting-up-custom-dns-servers-configuration"></a>Anpassad konfiguration av DNS-servrar
-
-1. Hitta den anpassade DNS-alternativet för ditt virtuella nätverk i Azure-portalen.
-
-   ![anpassad dns-alternativ](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
-
-2. Växla till anpassade och ange din anpassade DNS-server IP-adress som Azures rekursiva matchare IP-adressen 168.63.129.16.
-
-   ![anpassad dns-alternativ](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
+Eftersom den hanterade instansen använder samma DNS för sin inre verksamhet måste du konfigurera den anpassade DNS-servern så att den kan matcha offentliga domän namn.
 
    > [!IMPORTANT]
-   > Inte kan Azures rekursiva matchare i listan över DNS ge den hanterade instansen att ange ett felaktigt tillstånd där de anpassade DNS-servrarna inte kan användas av någon anledning. Återställa från att tillståndet kan kräva att du vill skapa en ny instans i ett virtuellt nätverk med efterlevnadsprinciperna för nätverk, skapa nivå instansdata och återställa databaserna. Ställa in Azures rekursiva matchare som säkerställer att den sista posten i listan över DNS, även om det misslyckas alla anpassade DNS-servrar, offentliga namn kan fortfarande matchas.
+   > Använd alltid fullständigt kvalificerade domän namn (FQDN) för e-postservrar, SQL-servrar och andra tjänster, även om de är i din privata DNS-zon. Använd `smtp.contoso.com` till exempel för e-postserver `smtp` eftersom enkla inte kommer att lösas korrekt.
+
+   > [!IMPORTANT]
+   > Uppdatering av virtuella nätverks-DNS-servrar påverkar inte den hanterade instansen omedelbart. Den hanterade instansens DNS-konfiguration kommer att uppdateras när DHCP-lånet upphör att gälla eller när plattformen upgarade, vad som kommer först. **Användarna uppmanas att ange sina DNS-konfigurationer för virtuellt nätverk innan de skapar sin första hanterade instans.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [vad är en hanterad instans](sql-database-managed-instance.md)
-- En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
-- Information om hur du konfigurerar ett virtuellt nätverk för en hanterad instans finns i [konfiguration av virtuellt nätverk för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md)
+- En översikt finns i [Vad är en hanterad instans](sql-database-managed-instance.md)
+- En själv studie kurs som visar hur du skapar en ny hanterad instans finns i [skapa en hanterad instans](sql-database-managed-instance-get-started.md).
+- Information om hur du konfigurerar ett VNet för en hanterad instans finns i [VNet-konfiguration för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md)

@@ -1,58 +1,58 @@
 ---
 title: Privata erbjudanden | Azure Marketplace
-description: Privata erbjudanden på Azure Marketplace för appen och tjänsten utgivare.
+description: Privata erbjudanden i Azure Marketplace för app-och tjänst utgivare.
 services: Azure, Marketplace, Compute
 author: qianw211
 manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: qianw211
-ms.openlocfilehash: 179775076382022b9a97e7d76bc1e0dc4fbf69db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: dcba2b40bdcf4558f7a06f7e14d0ce654a9c1ec1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937561"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876066"
 ---
 # <a name="private-offers"></a>Privata erbjudanden
 
-Privata erbjudanden på [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) aktivera utgivare kan skapa SKU: er som är bara synliga riktade kunder.
+Privata erbjudanden på [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) aktivera utgivare för att skapa SKU: er som endast är synliga för riktade kunder.
 
-## <a name="unlock-enterprise-deals-with-private-offers"></a>Låsa upp enterprise-avtal med privata erbjudanden
+## <a name="unlock-enterprise-deals-with-private-offers"></a>Lås upp företags erbjudanden med privata erbjudanden
 
-Enterprise-kunder använda allt online marknadsplatser för att hitta, prova och köpa molnlösningar. Med privata erbjudanden använda utgivare nu marketplace privat dela anpassade lösningar med riktade kunder med funktioner som företag kräver:
+Företags kunder kan använda marknads platser online för att hitta, prova och köpa moln lösningar. Nu med privata erbjudanden kan utgivare använda Marketplace för privat delning av anpassade lösningar med riktade kunder med funktioner som företag kräver:
 
-- *Förhandlas priser* kan utgivare utöka rabatter och listan priser från offentligt tillgängliga erbjudanden.
-- *Privata villkor* aktivera utgivare att skräddarsy allmänna villkor för en viss kund.
-- *Specialiserade konfigurationer* kan utgivare skräddarsy sina virtuella datorer, Azure-program och SaaS-appar erbjudande till en enskild kundernas behov. Det här alternativet kan också utgivare att tillhandahålla förhandsversion åtkomst till nya produktfunktioner innan du startar bredare för alla kunder.
+- Med förhandlad *prissättning* kan utgivare utöka rabatter och priser utanför listan från offentligt tillgängliga erbjudanden.
+- *Privata allmänna* villkor gör det möjligt för utgivare att skräddarsy villkor för en specifik kund.
+- *Specialiserade konfigurationer* gör att utgivare skräddarsyr sina Virtual Machines, Azure-program och SaaS-appar till en enskild kunds behov. Det här alternativet gör det också möjligt för utgivare att tillhandahålla för hands versions åtkomst till nya produkt funktioner innan de lanseras för alla kunder.
 
-Privata erbjudanden kan utgivare kan dra nytta av skalan och globala tillgängligheten hos en offentliga marknaden med flexibilitet och kontroll som behövs för att förhandla och leverera anpassade erbjudanden och konfigurationer. De här funktionerna öppna tillsammans dörren till stark enterprise antagit molnbaserade marknadsplatser.  Företag kan nu köpa och sälja på sätt som de förväntar sig och begäran.
+Privata erbjudanden gör att utgivare kan dra nytta av skalbarheten och den globala tillgängligheten för en offentlig marknads plats, med flexibilitet och kontroll som behövs för att förhandla fram och leverera anpassade erbjudanden och konfigurationer. Tillsammans öppnar dessa funktioner dörren till starkt företags införande av moln marknads platser.  Företag kan nu köpa och sälja på det sätt de förväntar sig och efter frågan.
 
-Privata erbjudanden är nu tillgängliga för den virtuella datorn, Azure-program (som lösningsmallar eller hanterade program) och SaaS-appar erbjuder. Som erbjuder offentliga, privata erbjudanden kan skapas och hanteras den [Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Kunder kan beviljas eller nekas åtkomst till privata erbjudanden på några minuter.
+Privata erbjudanden är nu tillgängliga för virtuell dator, Azure Application (implementeras som lösningsfiler eller hanterade program) och SaaS-appar erbjuder. Som offentliga erbjudanden kan privata erbjudanden skapas och hanteras via [Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Kunder kan beviljas eller återkalla åtkomst till privata erbjudanden på några minuter.
 
-## <a name="creating-private-offers-using-skus-and-plans"></a>Skapa privat erbjuder med hjälp av SKU: er och planer
+## <a name="creating-private-offers-using-skus-and-plans"></a>Skapa privata erbjudanden med SKU: er och planer
 
-För *nya eller befintliga erbjudanden med offentliga SKU: er eller planer*, utgivare kan enkelt skapa en ny privat variationer genom att skapa nya SKU: er eller planer och markera dem som privat.  [Privat SKU: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) och planer som ingår i ett erbjudande och är bara synliga och att köpa riktade kunders. Privat SKU: er och planer kan återanvända Källavbildningen och/eller erbjuda metadata som redan har publicerats för en offentlig SKU eller plan. Det här alternativet kan utgivare kan skapa flera privata varianter av ett erbjudande till allmänheten utan att behöva publicera flera versioner av samma basavbildningen och erbjuder metadata. För virtuella datorer och Azure-program erbjuder endast, när en privat SKU delar en grundläggande avbildning med en offentlig SKU ändringar i erbjudandet basavbildningen kommer att sprida över alla offentliga och privata SKU: er med grundläggande avbildningen.
+För *nya eller befintliga erbjudanden med offentliga SKU: er eller planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya SKU: er eller planer och markera dem som privata.  [Privata SKU: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) och planer är komponenter i ett erbjudande och är bara synliga och köpbara av de riktade kunderna. Privata SKU: er och planer kan återanvända bas avbildningar och/eller erbjudande-metadata som redan har publicerats för en offentlig SKU eller plan. Med det här alternativet kan utgivare skapa flera privata varianter av ett offentligt erbjudande utan att behöva publicera flera versioner av samma bas avbildning och erbjuda metadata. När en privat SKU delar en bas avbildning med en offentlig SKU för Virtual Machine och Azure-program, kommer eventuella ändringar i bas avbildningen av erbjudandet att spridas över alla offentliga och privata SKU: er som använder den bas avbildningen.
 
-För *nya erbjudanden som endast innehåller privata SKU: er eller planer*, utgivare kan skapa sina erbjudanden som ett annat erbjudande och sedan markera SKU: er eller planer som privat. Erbjudanden som endast har privata SKU: er eller planer kan inte upptäcka eller tillgängliga öppet via [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Azure-portalen](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är kopplad till erbjudandet.
+För *nya erbjudanden som bara innehåller privata SKU: er eller planer*kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera SKU: er eller planer som privata. Erbjudanden som bara har privata SKU: er eller planer kommer inte att kunna identifieras eller nås via [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
 
-## <a name="targeting-customers-with-private-offers"></a>Riktar in sig på kunder med privata erbjudanden
-Utgivare kan riktas mot kunder som använder prenumerations-ID: n för både nya och befintliga privata erbjudanden. Utgivare med hjälp av ett erbjudande för virtuell dator eller Azure-program kan begränsa tillgängligheten för en privat SKU till en enskild Azure-prenumeration-ID eller ladda upp en CSV-fil med ID: N med upp till 20 000 Azure-prenumeration. När du använder ett privat SaaS-App-erbjudande, kan utgivare associera ett Azure-prenumeration-ID eller ett klient-ID om du vill begränsa tillgängligheten för en privat plan med hjälp av antingen manuell eller CSV ladda upp metoden.
+## <a name="targeting-customers-with-private-offers"></a>Rikta kunder mot privata erbjudanden
+För både nya och befintliga privata erbjudanden kan utgivare rikta kunder med prenumerations-ID. Utgivare som använder en virtuell dator eller Azure Application erbjudande kan begränsa tillgängligheten för en privat SKU till ett individuellt Azure-prenumerations-ID eller ladda upp en CSV med upp till 20 000 Azure-prenumerations-ID. När du använder ett privat erbjudande i SaaS-appen kan utgivare associera antingen ett Azure-prenumerations-ID eller ett klient-ID för att begränsa tillgängligheten för en privat plan med hjälp av antingen manuell eller CSV-överföring.
 
-När ett erbjudande har certifierats och publiceras, kan kunder uppdateras eller tas bort från SKU eller Plan inom några minuter med hjälp av funktionen synkronisering privat prenumerationer. Den här funktionen gör det möjligt för utgivare att snabbt och enkelt uppdatera listan över kunder som privat SKU eller planerar visas utan recertifying eller publicera erbjudandet.
+När ett erbjudande har certifierats och publicerats kan kunder uppdateras eller tas bort från SKU: n eller planera inom några minuter med hjälp av funktionen synkronisera privata prenumerationer. Den här funktionen gör det möjligt för utgivare att snabbt och enkelt uppdatera listan över kunder som den privata SKU: n eller planen presenteras i utan att omcertifiera eller publicera om erbjudandet.
 
-## <a name="deploying-private-offers"></a>Distribuera privat erbjuder
+## <a name="deploying-private-offers"></a>Distribuera privata erbjudanden
 
-Privata erbjudanden är bara synliga via den [Azure-portalen](https://azure.microsoft.com/features/azure-portal/) och inte visas via [Azure Marketplace](https://azuremarketplace.microsoft.com). När du har loggat in på Azure portal, kan kunderna välja Marketplace navigeringselement att få åtkomst till sina privata erbjudanden. Privata erbjudanden kommer också att visas i sökresultaten och kan distribueras via kommandoraden och Azure Resource Manager-mallar som andra erbjudanden.
+Privata erbjudanden kan bara upptäckas via [Azure Portal](https://azure.microsoft.com/features/azure-portal/) och visas inte via [Azure Marketplace](https://azuremarketplace.microsoft.com). När du har loggat in på Azure Portal kan kunderna välja navigerings element för Marketplace för att få åtkomst till sina privata erbjudanden. Privata erbjudanden visas också i Sök Resultat och kan distribueras via kommando raden och Azure Resource Manager mallar som andra erbjudanden.
 
 ![[Privata erbjudanden]](./media/marketplace-publishers-guide/private-offer.png)
 
-Privata erbjudanden kommer också att visas i sökresultaten. Bara utkik efter ”privat” märket.
+Privata erbjudanden visas också i Sök resultaten. Titta bara efter "privat"-märket.
 
 > [!Note]
-> Privata erbjudanden kan inte användas med prenumerationer som upprättats via en återförsäljare i programmet för leverantörer av Molnlösningar (CSP).
+> Privata erbjudanden stöds inte med prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill dra nytta av de nya funktionerna kan du börja sälja på den [Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Om du vill dra nytta av de här nya funktionerna kan du komma igång med att sälja på [Azure Marketplace](https://azuremarketplace.microsoft.com/sell).

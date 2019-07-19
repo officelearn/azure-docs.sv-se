@@ -1,5 +1,5 @@
 ---
-title: Samla in data på dina modeller i produktion
+title: Samla in data på dina produktions modeller
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
 services: machine-learning
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443983"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227949"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
 I den här artikeln får du lära dig att samla in indatamodellen data från Azure Machine Learning-tjänster som du har distribuerat i Azure Kubernetes kluster (AKS) i Azure Blob storage. 
 
 När du har aktiverat, hjälper den här informationen som samlas in dig att:
-* [Övervaka data drifts](how-to-monitor-data-drift.md) som produktionsdata försätts i din modell
+* [Övervaka data](how-to-monitor-data-drift.md) drift som produktions data går in i din modell
 
 * Fatta bättre beslut om när du ska omtrimma eller optimera din modell
 

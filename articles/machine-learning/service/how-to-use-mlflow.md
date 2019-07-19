@@ -1,7 +1,7 @@
 ---
 title: Använda MLflow med Azure Machine Learning-tjänsten
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du loggar in mått och artefakter med MLflow-biblioteket till Azure Machine Learning-tjänsten
+description: Logga mått och artefakter och distribuera modeller till produktion med hjälp av MLflow med Azure Machine Learning-tjänsten.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,57 +9,68 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2030365cd78480c25e224edfea9e395aafa6661c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657970"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227920"
 ---
-# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Använda MLflow med Azure Machine Learning-tjänsten (förhandsversion)
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
 
-Den här artikeln visar hur du använder Mlflows spåra URI och loggning API, gemensamt kallas även MLflow spårning, med Azure Machine Learning-tjänsten för att spåra och logga dina experiment mätvärden och artefakter i din [Azure Machine Learning arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbetsytan en centraliserad, säker och skalbar plats att lagra dina modeller och utbildning mått.
+Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-API: n, gemensamt känt som [MLflow-spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), med Azure Machine Learning-tjänst. På så sätt kan du:
 
-[MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för att hantera livscykeln för din machine learning-experiment. [Spårning av MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) är en komponent i MLflow som loggar och spårar utbildning kör mått och modellen artefakter, oavsett om dina experiment körs lokalt, på en virtuell dator eller på en fjärransluten beräkningskluster.
-![mlflow med azure machine learning-diagram](media/how-to-use-mlflow/mlflow-diagram.png)
++ Spåra och logga dina experiment Mät värden och artefakter i din [Azure Machine Learning service-arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
 
-## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Jämför MLflow och Azure Machine Learning-klienter
++ Distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst. Genom att distribuera som en webb tjänst kan du använda funktionerna för att identifiera Azure Machine Learning övervakning och data avkänning i dina produktions modeller. 
 
- I tabellen nedan sammanfattas de olika klienterna som kan använda Azure Machine Learning-tjänsten och deras respektive funktion-funktioner.
+[MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för hantering av livs cykeln för maskin inlärnings experiment. MLFlow-spårning är en komponent i MLflow som loggar och spårar din utbildning kör mått och modell artefakter, oavsett experimentets miljö – lokalt, på en virtuell dator, fjärrberäknings kluster, även på Azure Databricks.
 
- Spårning av MLflow erbjuder mått loggning och artefakt storage-funktioner som annars bara är tillgängliga via den [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
-| | MLflow spårning | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure Portal|
-|-|-|-|-|-|
-| Hantera arbetsyta |   | ✓ |  ✓ | ✓  |
-| Använd datalager  |   | ✓ |  ✓ |    |
-| Log-mått      | ✓ | ✓ |    |    |
-| Ladda upp artefakter | ✓ | ✓ |    |    |
-| Visa mått     | ✓ | ✓ | ✓  | ✓ |
-| Hantera beräkning   |   | ✓ | ✓  | ✓ |
-| Distribuera modeller    |   | ✓ |   ✓ | ✓ |
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Jämför MLflow och Azure Machine Learning klienter
+
+ I tabellen nedan sammanfattas de olika klienter som kan använda Azure Machine Learning-tjänsten och deras respektive funktioner.
+
+ MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
+| | MLflow spårning & distribution | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure Portal|
+|-|-|-|-|-|-|
+| Hantera arbets yta |   | ✓ | ✓ | ✓ |
+| Använda data lager  |   | ✓ | ✓ | |
+| Logg mått      | ✓ | ✓ |   | |
+| Ladda upp artefakter | ✓ | ✓ |   | |
+| Visa mått     | ✓ | ✓ | ✓ | ✓ |
+| Hantera beräkning   |   | ✓ | ✓ | ✓ |
+| Distribuera modeller    | ✓ | ✓ | ✓ | ✓ |
+|Övervaka modell prestanda||✓|  |   |
+| Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Installera Azure Machine Learning Python SDK på den lokala datorn och skapa en Azure Machine Learning-arbetsyta](setup-create-workspace.md#sdk). SDK innehåller anslutning för MLflow att få åtkomst till din arbetsyta.
+* [Installera Azure Machine Learning python SDK på den lokala datorn och skapa ett Azure Machine Learning-arbetsyta](setup-create-workspace.md#sdk). SDK ger anslutningen till MLflow för att komma åt din arbets yta.
 
-## <a name="track-local-runs"></a>Spåra lokala körningar
+## <a name="track-experiment-runs"></a>Spåra experiment körningar
 
-Installera den `azureml-contrib-run` paket som ska användas MLflow spårning med Azure Machine Learning på dina experiment som körs lokalt i ett redigeringsprogram för Jupyter-anteckningsbok eller kod.
+Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från din lokala dator och fjärrkörningar i Azure Machine Learning arbets ytan.
+
+### <a name="local-runs"></a>Lokala körningar
+
+`azureml-contrib-run` Installera paketet om du vill använda MLflow spårning med Azure Machine Learning på dina experiment lokalt i en Jupyter Notebook eller kod redigerare.
 
 ```shell
 pip install azureml-contrib-run
 ```
 
 >[!NOTE]
->Namnområdet azureml.contrib ändras ofta, när vi arbetar för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion, och stöds inte fullt ut av Microsoft.
+>Namn rymden azureml. contrib ändras ofta, medan vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
 
-Importera den `mlflow` och [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) klasser för att komma åt MLflow spåra URI och konfigurera din arbetsyta.
+`mlflow` Importera och [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) -klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
 
-I följande kod i `get_mlflow_tracking_uri()` metoden tilldelar en unik spårning URI-adress till arbetsytan, `ws`, och `set_tracking_uri()` pekar MLflow spåra URI till adressen.
+I följande kod `get_mlflow_tracking_uri()` tilldelar metoden en unik spårnings-URI-adress till arbets ytan, `ws`och `set_tracking_uri()` pekar på MLflow spårnings-URI: n till den adressen.
 
 ```Python
 import mlflow
@@ -71,67 +82,272 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
 >[!NOTE]
->Spårnings-URI är giltigt upp till en timme eller mindre. Om du startar om skriptet efter en inaktiv tid kan du använda get_mlflow_tracking_uri API för att få en ny URI.
+>Spårnings-URI: n är giltig till en timme eller mindre. Om du startar om skriptet efter inaktivitet kan du använda get_mlflow_tracking_uri-API: et för att hämta en ny URI.
 
-Ange namnet på experimentet MLflow med `set_experiment()` och börja Utbilda dig köra med `start_run()`. Använd sedan `log_metric()` att aktivera loggning för MLflow API: et och börjar logga utbildning kör mått.
+Ange MLflow experiment namn med `set_experiment()` och starta din utbildning med. `start_run()` Använd `log_metric()` sedan för att aktivera loggnings-API: et för MLflow och börja logga dina utbildnings körnings mått.
 
 ```Python
-experiment_name = "experiment_with_mlflow"
+experiment_name = 'experiment_with_mlflow'
 mlflow.set_experiment(experiment_name)
 
 with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-## <a name="track-remote-runs"></a>Spåra remote körningar
+### <a name="remote-runs"></a>Fjärrkörningar
 
-Remote körs kan du träna modeller på mer kraftfulla beräkningar som grafikprocessoraktiverade virtuella datorer eller beräkning av Machine Learning-kluster. Se [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md) vill veta mer om olika beräkningsalternativ.
+Med fjärrkörningar kan du träna dina modeller på mer kraftfulla beräkningar, till exempel GPU-aktiverade virtuella datorer eller Machine Learning-beräkning kluster. Se [Konfigurera beräknings mål för modell utbildning](how-to-set-up-training-targets.md) för att lära dig mer om olika beräknings alternativ.
 
-Konfigurera din beräknings- och kör miljö med den [ `Environment` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) klass. Inkludera `mlflow` och `azure-contrib-run` pip-paketen i miljöns [ `CondaDependencies` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) avsnittet. Sedan skapar [ `ScriptRunConfig` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) med din fjärranslutna beräkning som beräkningsmål.
+Konfigurera din beräknings-och övnings körnings [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) miljö med-klassen. Ta `mlflow` med `azure-contrib-run` [och`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) pip-paket i miljö avsnittet. Skapa [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) sedan med fjärrberäkningen som beräknings mål.
 
 ```Python
-
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core import ScriptRunConfig
 
-exp = Experiment(workspace = "my_workspace",
-                 name = "my_experiment")
+exp = Experiment(workspace = 'my_workspace',
+                 name='my_experiment')
 
-mlflow_env = Environment(name="mlflow-env")
+mlflow_env = Environment(name='mlflow-env')
 
-cd = CondaDependencies.create(pip_packages = ["mlflow", "azureml-contrib-run"])
+cd = CondaDependencies.create(pip_packages=['mlflow', 'azureml-contrib-run'])
 
-mlflow_env.python.conda_dependencies=cd
+mlflow_env.python.conda_dependencies = cd
 
-src = ScriptRunConfig(source_directory="./my_script_location", script="my_training_script.py")
+src = ScriptRunConfig(source_directory='./my_script_location', script='my_training_script.py')
 
-src.run_config.target = "my-remote-compute-compute"
+src.run_config.target = 'my-remote-compute-compute'
 src.run_config.environment = mlflow_env
 ```
 
-I din utbildning-skriptet importerar `mlflow` att använda MLflow loggning API: er och börja logga dina kör mått.
+Importera `mlflow` med hjälp av MLflow Logging-API: er i ditt utbildnings skript och börja logga dina körnings mått.
 
 ```Python
 import mlflow
 
 with mlflow.start_run():
-    mlflow.log_metric("example", 1.23)
+    mlflow.log_metric('example', 1.23)
 ```
 
-Med den här beräknings- och utbildning som kör configuration, använda den `Experiment.submit("train.py")` metod för att skicka en körning. Detta anger MLflow spåra URI och automatiskt dirigerar loggning från MLflow till din arbetsyta.
+Med den här beräknings-och övnings körnings `Experiment.submit('train.py')` konfigurationen använder du metoden för att skicka in en körning. Detta ställer automatiskt in MLflow spårnings-URI och dirigerar loggningen från MLflow till din arbets yta.
 
 ```Python
 run = exp.submit(src)
 ```
 
-## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visa mått och artefakter i din arbetsyta
+### <a name="mlflow-with-azure-databricks-runs"></a>MLflow med Azure Databricks körningar
 
-Mått och artefakter från MLflow loggning sparas på din arbetsyta på den [Azure-portalen](https://portal.azure.com). Om du vill visa dem när som helst, navigera till din arbetsyta och hitta experimentet efter namn.
+Om du vill köra dina Mlflow-experiment med Azure Databricks måste du först skapa en [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). I klustret, se till att installera biblioteket *azureml-mlflow* från PyPi, för att säkerställa att klustret har åtkomst till de nödvändiga funktionerna och klasserna.
+
+#### <a name="install-libraries"></a>Installera bibliotek
+
+Om du vill installera bibliotek i klustret går du till fliken **bibliotek** och klickar på **installera ny**
+
+ ![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
+
+I fältet **paket** skriver du azureml-mlflow och klickar sedan på installera. Upprepa det här steget vid behov för att installera andra ytterligare paket till klustret för experimentet.
+
+ ![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/install-libraries.png)
+
+#### <a name="notebook-and-workspace-set-up"></a>Konfigurera bärbara och arbets ytor
+
+När klustret har kon figurer ATS importerar du din experiment-anteckningsbok, öppnar den och kopplar klustret till den.
+
+Följande kod ska finnas i din experiment antecknings bok. Detta hämtar information om din Azure-prenumeration för att skapa en instans av din arbets yta. Detta förutsätter att du har en befintlig resurs grupp och Azure Machine Learning arbets ytan, annars kan du [skapa dem](setup-create-workspace.md#portal). 
+
+```python
+import mlflow
+import mlflow.azureml
+import azureml.mlflow
+import azureml.core
+
+from azureml.core import Workspace
+from azureml.mlflow import get_portal_url
+
+subscription_id = 'subscription_id'
+
+# Azure Machine Learning resource group NOT the managed resource group
+resource_group = 'resource_group_name' 
+
+#Azure Machine Learning workspace name, NOT Azure Databricks workspace
+workspace_name = 'workspace_name'  
+
+# Instantiate Azure Machine Learning workspace
+ws = Workspace.get(name=workspace_name,
+                   subscription_id=subscription_id,
+                   resource_group=resource_group)
+
+```
+#### <a name="set-mlflow-tracking-uri"></a>Ange MLflow tracking URI
+När du har instansierat din arbets yta ställer du in MLflow tracking URI. Genom att göra detta länkar du MLflow-spårningen till Azure Machine Learning-arbetsyta. Därefter hamnar alla experiment i den hanterade Azure Machine Learning spårnings tjänsten.
+
+```python
+uri = ws.get_mlflow_tracking_uri()
+mlflow.set_tracking_uri(uri)
+```
+
+I ditt utbildnings skript importerar du mlflow för att använda API: er för loggning av MLflow och börjar logga dina körnings mått. I följande exempel loggas måttet för epoken. 
+
+```python
+import mlflow 
+mlflow.log_metric('epoch_loss', loss.item()) 
+```
+
+## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visa mått och artefakter i din arbets yta
+
+Måtten och artefakterna från MLflow-loggning behålls i din arbets yta. Om du vill visa dem när som helst, navigerar du till din arbets yta och hittar experimentet efter namn på [Azure Portal](https://portal.azure.com) eller genom att köra koden nedan. 
+
+```python
+run.get_metrics()
+ws.get_details()
+```
+
+## <a name="deploy-mlflow-models-as-a-web-service"></a>Distribuera MLflow-modeller som en webb tjänst
+
+Genom att distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst kan du använda funktionerna för hantering av Azure Machine Learning-modell och data avkänning och tillämpa dem i dina produktions modeller.
+
+![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
+
+### <a name="log-your-model"></a>Logga din modell
+Innan vi kan distribuera bör du se till att din modell sparas så att du kan referera till den och dess sökväg för distribution. I utbildnings skriptet bör det finnas en kod som liknar följande [mlflow. sklearn. log _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) -metod som sparar din modell i den angivna katalogen med utdata. 
+
+```python
+# change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
+import mlflow.sklearn
+
+# Save the model to the outputs directory for capture
+mlflow.sklearn.log_model(regression_model, model_save_path)
+```
+>[!NOTE]
+> `conda_env` Inkludera parametern för att skicka en ord lista över de beroenden och miljö som den här modellen ska köras i.
+
+### <a name="retrieve-model-from-previous-run"></a>Hämta modell från föregående körning
+
+För att hämta önskad körning behöver vi körnings-ID och sökvägen i körnings historiken för den plats där modellen sparades. 
+
+```python
+# gets the list of runs for your experiment as an array
+experiment_name = 'experiment-with-mlflow'
+exp = ws.experiments[experiment_name]
+runs = list(exp.get_runs())
+
+# get the run ID and the path in run history
+runid = runs[0].id
+model_save_path = 'model'
+```
+
+### <a name="create-docker-image"></a>Skapa Docker-avbildning
+
+`mlflow.azureml.build_image()` Funktionen skapar en Docker-avbildning från den sparade modellen i ett Ramverks medveten sätt. Det skapar automatiskt den Framework-/regionsspecifika inferencing omslutnings koden och anger paket beroenden för dig. Ange modell Sök vägen, din arbets yta, kör ID och andra parametrar.
+
+I följande kod skapar vi en Docker-avbildning med hjälp av *kör:/< kör. id >/Model* som model_uri-sökväg för ett Scikit-test.
+
+```python
+import mlflow.azureml
+
+azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(runid, model_save_path),
+                                                      workspace=ws,
+                                                      model_name='sklearn-model',
+                                                      image_name='sklearn-image',
+                                                      synchronous=True)
+```
+Det kan ta flera minuter att skapa Docker-avbildningen. 
+
+### <a name="deploy-the-docker-image"></a>Distribuera Docker-avbildningen 
+
+När avbildningen har skapats använder du Azure Machine Learning SDK för att distribuera avbildningen som en webb tjänst.
+
+Börja med att ange distributions konfigurationen. Azure Container Instance (ACI) är ett lämpligt alternativ för en snabb distribution av utveckling och testning, medan Azure Kubernetes service (AKS) är lämpligt för skalbara produktions distributioner.
+
+#### <a name="deploy-to-aci"></a>Distribuera till ACI
+
+Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
+
+```python
+from azureml.core.webservice import AciWebservice, Webservice
+
+# Configure 
+aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                                memory_gb=1, 
+                                                tags={'method' : 'sklearn'}, 
+                                                description='Diabetes model',
+                                                location='eastus2')
+```
+
+Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) -metod. 
+
+```python
+webservice = Webservice.deploy_from_image( image=azure_image, 
+                                           workspace=ws, 
+                                           name='diabetes-model-1', 
+                                           deployment_config=aci_config)
+
+webservice.wait_for_deployment(show_output=True)
+```
+#### <a name="deploy-to-aks"></a>Distribuera till AKS
+
+För att distribuera till AKS måste du skapa ett AKS-kluster och ta över Docker-avbildningen som du vill distribuera. I det här exemplet hämtar vi den tidigare skapade avbildningen från vår ACI-distribution.
+
+Vi använder klassen [image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) för att hämta avbildningen från den tidigare ACI-distributionen. 
+
+```python
+from azureml.core.image import Image
+
+# Get the image by name, you can change this based on the image you want to deploy
+myimage = Image(workspace=ws, name='sklearn-image') 
+```
+
+Skapa AKS Compute det kan ta 20-25 minuter att skapa ett nytt kluster
+
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Use the default configuration (can also provide parameters to customize)
+prov_config = AksCompute.provisioning_configuration()
+
+aks_name = 'aks-mlflow' 
+
+# Create the cluster
+aks_target = ComputeTarget.create(workspace=ws, 
+                                  name=aks_name, 
+                                  provisioning_configuration=prov_config)
+
+aks_target.wait_for_completion(show_output = True)
+
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
+Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+from azureml.core.image import ContainerImage
+
+# Set the web service configuration (using default here with app insights)
+aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
+
+# Unique service name
+service_name ='aks-service'
+```
+
+Distribuera sedan avbildningen med hjälp av Azure Machine Learning SDK: s [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) -metod. 
+
+```python
+# Webservice creation using single command
+aks_service = Webservice.deploy_from_image( workspace=ws, 
+                                            name=service_name,
+                                            deployment_config = aks_config
+                                            image = myimage,
+                                            deployment_target = aks_target)
+
+aks_service.wait_for_deployment(show_output=True)
+```
+
+Tjänste distributionen kan ta flera minuter.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att använda loggade mått och artefakter i din arbetsyta, är möjlighet att ta bort dem individuellt inte tillgänglig. I stället tar du bort resursgruppen som innehåller lagringskontot och arbetsytan så att du inte betala något:
+Om du inte planerar att använda de loggade måtten och artefakterna i din arbets yta är möjligheten att ta bort dem individuellt otillgänglig. Ta i stället bort resurs gruppen som innehåller lagrings kontot och arbets ytan, så du debiteras inte några avgifter:
 
 1. I Azure-portalen väljer du **Resursgrupper** längst till vänster.
 
@@ -143,10 +359,11 @@ Om du inte planerar att använda loggade mått och artefakter i din arbetsyta, �
 
 1. Ange resursgruppsnamnet. Välj sedan **Ta bort**.
 
+
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 
-Den [MLflow med Azure ML-anteckningsböcker](https://aka.ms/azureml-mlflow-examples) demonstrerar begreppen i den här artikeln.
+[MLflow med Azure ml-anteckningsböcker](https://aka.ms/azureml-mlflow-examples) demonstrerar och utökar begrepp som presenteras i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
-
-* [Hur du distribuerar en modell](how-to-deploy-and-where.md).
+* [Hantera dina modeller](concept-model-management-and-deployment.md).
+* Övervaka dina produktions modeller för [data avvikelser](how-to-monitor-data-drift.md).

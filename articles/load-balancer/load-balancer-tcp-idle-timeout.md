@@ -1,10 +1,10 @@
 ---
-title: Konfigurera timeout för inaktivitet för Load Balancer TCP i Azure
+title: Konfigurera Load Balancer TCP timeout för inaktivitet i Azure
 titlesuffix: Azure Load Balancer
-description: Konfigurera tidsgräns vid inaktivitet Load Balancer TCP
+description: Konfigurera Load Balancer timeout för TCP-inaktivitet
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,49 +12,49 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734616"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274169"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera inställningar för TCP-tidsgräns vid inaktivitet för Azure Load Balancer
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera timeout-inställningar för TCP-inaktivitet för Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Med standardkonfigurationen har Azure Load Balancer en timeout för inaktivitet på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet, finns det ingen garanti som hålls TCP eller HTTP-session mellan klienten och din molntjänst.
+I standard konfigurationen har Azure Load Balancer en timeout-inställning på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
 
-När anslutningen är stängd kan klientprogrammet få följande felmeddelande visas: ”Den underliggande anslutningen stängdes: En anslutning som förväntades hållas aktiv stängdes av servern ”.
+När anslutningen är stängd kan klient programmet få följande fel meddelande: "Den underliggande anslutningen stängdes: En anslutning som förväntades hållas aktiv stängdes av servern. "
 
-En vanlig metod är att använda en keep-alive TCP. Den här övningen håller anslutningen aktiv under en längre period. Mer information finns i dessa [.NET-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Med keep-alive aktiverat, paket skickas under perioder av inaktivitet på anslutningen. Paketen keep-alive Kontrollera att värdet för tidsgränsen för inaktivitet nås aldrig och anslutningen bevaras under lång tid.
+En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Dessa Keep-Alive-paket ser till att timeout-värdet för inaktivitet aldrig nås och att anslutningen upprätthålls under en längre period.
 
-Den här inställningen fungerar för inkommande anslutningar. För att undvika att förlora anslutningen kan du konfigurera TCP keep-alive med ett intervall som är mindre än inställningen för timeout för inaktivitet eller öka värdet för timeout för inaktivitet. Vi har lagt till stöd för en konfigurerbar timeout för inaktivitet för att stödja sådana scenarier. Du kan nu ange det under en period på 4 till 30 minuter.
+Den här inställningen fungerar endast för inkommande anslutningar. För att undvika att anslutningen bryts måste du konfigurera TCP Keep-Alive med ett intervall som är lägre än tids gränsen för inaktivitet eller öka tids gränsen för inaktivitet. För att stödja sådana scenarier har vi lagt till stöd för en konfigurerbar tids gräns för inaktivitet. Du kan nu ange den som en varaktighet på 4 till 30 minuter.
 
-TCP keep-alive fungerar bra för scenarier där batteritid inte är en begränsning. Det rekommenderas inte för mobila program. Med hjälp av en TCP keep-alive i en hanteringsprincip för mobilprogram kan förbrukar enhet snabbare.
+TCP Keep-Alive fungerar bra för scenarier där batteri tiden inte är en begränsning. Det rekommenderas inte för mobila program. Genom att använda en TCP Keep-Alive i ett mobilt program kan du tömma enhetens batteri snabbare.
 
-![Timeout för TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
+![TCP-tidsgräns](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-I följande avsnitt beskrivs hur du ändrar inställningarna för timeout för inaktivitet i virtuella datorer och molntjänster.
+I följande avsnitt beskrivs hur du ändrar inställningarna för tids gräns för inaktivitet i virtuella datorer och moln tjänster.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurera TCP-tidsgräns för din offentliga IP på instansnivå till 15 minuter
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurera TCP-tidsgräns för din offentliga IP-adress på instans nivå till 15 minuter
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` är valfritt. Om den inte är inställd är på standardvärdet för timeout 4 minuter. Godkända timeout-intervall är 4 till 30 minuter.
+`IdleTimeoutInMinutes` är valfritt. Om den inte har angetts är standard tids gränsen 4 minuter. Det acceptabla tids gräns intervallet är 4 till 30 minuter.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Ange tidsgränsen för inaktivitet när du skapar en Azure-slutpunkt på en virtuell dator
+## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Ange tids gräns för inaktivitet när du skapar en Azure-slutpunkt på en virtuell dator
 
-Om du vill ändra timeout-inställningen för en slutpunkt, använder du följande:
+Om du vill ändra timeout-inställningen för en slut punkt använder du följande:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Om du vill hämta din konfiguration för timeout för inaktivitet, använder du följande kommando:
+Använd följande kommando för att hämta timeout-konfigurationen för inaktivitet:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -74,19 +74,19 @@ Om du vill hämta din konfiguration för timeout för inaktivitet, använder du 
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Ange TCP-tidsgränsen på en belastningsutjämnad slutpunktsuppsättning
+## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Ange TCP-tidsgräns för en belastningsutjämnad slut punkts uppsättning
 
-Om slutpunkter är en del av en belastningsutjämnad slutpunktsuppsättning, måste TCP-tidsgräns anges för den belastningsutjämnade slutpunktsuppsättning. Exempel:
+Om slut punkter är en del av en belastningsutjämnad slut punkts uppsättning måste TCP-tidsgräns anges i den belastningsutjämnade slut punkts uppsättningen. Exempel:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 ```
 
-## <a name="change-timeout-settings-for-cloud-services"></a>Ändra inställningarna för timeout för cloud services
+## <a name="change-timeout-settings-for-cloud-services"></a>Ändra timeout-inställningar för moln tjänster
 
-Du kan använda Azure SDK för att uppdatera din molntjänst. Du kan göra slutpunktsinställningarna för molntjänster i .csdef-filen. Uppdatering av TCP-tidsgränsen för distribution av en molnbaserad tjänst kräver en distributionsuppgradering av. Ett undantag är om TCP-tidsgräns anges endast för en offentlig IP-adress. Offentliga IP-inställningar finns i .cscfg-filen. Du kan uppdatera dem via uppdatering av programdistribution och uppgradering.
+Du kan använda Azure SDK för att uppdatera din moln tjänst. Du gör slut punkts inställningarna för moln tjänster i. csdef-filen. Uppdatering av TCP-timeout för distribution av en moln tjänst kräver en distributions uppgradering. Ett undantag är om TCP-tidsgräns endast anges för en offentlig IP-adress. Offentliga IP-inställningar finns i. cscfg-filen och du kan uppdatera dem via distributions uppdatering och uppgradering.
 
-.Csdef ändringarna inställningarna för slutpunkten är:
+Ändringarna av. csdef för slut punkts inställningar är:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -96,7 +96,7 @@ Du kan använda Azure SDK för att uppdatera din molntjänst. Du kan göra slutp
 </WorkerRole>
 ```
 
-.Cscfg ändringarna för timeout-inställningen på offentliga IP-adresser är:
+Ändringarna i. cscfg-filen för timeout-inställningen på offentliga IP-adresser är:
 
 ```xml
 <NetworkConfiguration>
@@ -111,9 +111,9 @@ Du kan använda Azure SDK för att uppdatera din molntjänst. Du kan göra slutp
 </NetworkConfiguration>
 ```
 
-## <a name="rest-api-example"></a>REST API-exempel
+## <a name="rest-api-example"></a>REST API exempel
 
-Du kan konfigurera TCP-tidsgränsen för inaktivitet med hjälp av API för tjänsthantering. Se till att den `x-ms-version` huvud har angetts till version `2014-06-01` eller senare. Uppdatera konfigurationen av de angivna belastningsutjämnade slutpunkterna för indata på alla virtuella datorer i en distribution.
+Du kan konfigurera timeout för TCP-inaktivitet med hjälp av Service Management-API: et. Kontrol lera `x-ms-version` att sidhuvudet är inställt `2014-06-01` på version eller senare. Uppdatera konfigurationen av de angivna belastningsutjämnade slut punkterna för indatakälla på alla virtuella datorer i en distribution.
 
 ### <a name="request"></a>Förfrågan
 
@@ -154,8 +154,8 @@ Du kan konfigurera TCP-tidsgränsen för inaktivitet med hjälp av API för tjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt över intern belastningsutjämnare](load-balancer-internal-overview.md)
+[Översikt över intern belastnings utjämning](load-balancer-internal-overview.md)
 
-[Kom igång med att konfigurera en internetuppkopplad belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md)
+[Kom igång med att konfigurera en Internet-riktad belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md)
 
 [Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)

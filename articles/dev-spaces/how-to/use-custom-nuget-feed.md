@@ -1,69 +1,76 @@
 ---
-title: Hur du använder en anpassad NuGet flöde i Azure Dev blanksteg
+title: Använda en anpassad NuGet-feed i Azure dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: johnsta
-ms.author: johnsta
-ms.date: 05/11/2018
+author: zr-msft
+ms.author: zarhoads
+ms.date: 07/17/2019
 ms.topic: conceptual
-description: Använd en anpassad NuGet flödet för att komma åt och använda NuGet-paket i ett adressutrymme för utveckling av Azure.
+description: Använd en anpassad NuGet-feed för att få åtkomst till och använda NuGet-paket i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: gwallace
-ms.openlocfilehash: ca1fee76dfe280322a39fad56b9f85ebe1a92d3b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 44a87491d276e09e1fa8fed3f5e6803648c3e4a2
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704043"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305387"
 ---
-#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använd en anpassad NuGet flöde i ett adressutrymme för Azure-utveckling
+#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använda en anpassad NuGet-feed i ett Azure dev-utrymme
 
-En NuGet-feed är ett enkelt sätt att inkludera paketkällorna i ett projekt. Azure Dev blanksteg måste kunna komma åt den här feeden för beroenden måste vara korrekt installerat i Docker-behållare.
+En NuGet-feed är ett bekvämt sätt att inkludera paket källor i ett projekt. Azure dev Spaces måste ha åtkomst till denna feed för att beroenden ska kunna installeras korrekt i Docker-behållaren.
 
-## <a name="set-up-a-nuget-feed"></a>Konfigurera ett NuGet-flöde
+## <a name="set-up-a-nuget-feed"></a>Konfigurera en NuGet-feed
 
-Så här skapar ett NuGet feed:
-1. Lägg till en [paketera referens](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) i den `*.csproj` filen under den `PackageReference` noden.
+Lägg till en [paket referens](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) för ditt beroende i `*.csproj` filen under `PackageReference` noden. Exempel:
 
-   ```xml
-   <ItemGroup>
-       <!-- ... -->
-       <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
-       <!-- ... -->
-   </ItemGroup>
-   ```
+```xml
+<ItemGroup>
+    <!-- ... -->
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
+    <!-- ... -->
+</ItemGroup>
+```
 
-2. Skapa en [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) filen i projektmappen.
-     * Använd den `packageSources` avsnitt för att referera till din NuGet feed plats. Viktigt! NuGet-feed måste vara tillgänglig för allmänheten.
-     * Använd den `packageSourceCredentials` avsnitt för att konfigurera autentiseringsuppgifter för användarnamn och lösenord. 
+Skapa en [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) -fil i projektmappen och ange `packageSources` avsnitten och `packageSourceCredentials` för din NuGet-feed. `packageSources` Avsnittet innehåller din feed-URL, som måste vara offentligt tillgänglig. `packageSourceCredentials` Är autentiseringsuppgifterna för att komma åt feeden. Exempel:
 
-   ```xml
-   <packageSources>
-       <add key="Contoso" value="https://contoso.com/packages/" />
-   </packageSources>
+```xml
+<packageSources>
+    <add key="Contoso" value="https://contoso.com/packages/" />
+</packageSources>
 
-   <packageSourceCredentials>
-       <Contoso>
-           <add key="Username" value="user@contoso.com" />
-           <add key="ClearTextPassword" value="33f!!lloppa" />
-       </Contoso>
-   </packageSourceCredentials>
-   ```
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="ClearTextPassword" value="33f!!lloppa" />
+    </Contoso>
+</packageSourceCredentials>
+```
 
-3. Om du använder källkodskontroll:
-    - Referens `NuGet.Config` i din `.gitignore` -fil så att du inte av misstag sparar autentiseringsuppgifter till centrallagret.
-    - Öppna den `azds.yaml` i ditt projekt och leta upp den `build` avsnittet och infoga följande kodfragment för att säkerställa att den `NuGet.Config` filen kommer att synkroniseras till Azure så att den har använts under skapandeprocessen för behållaren bild. (Som standard Azure Dev blanksteg synkroniserar inte filer som matchar `.gitignore` och `.dockerignore` regler.)
+Uppdatera Dockerfiles för att kopiera `NuGet.Config` filen till avbildningen. Exempel:
 
-        ```yaml
-        build:
-        useGitIgnore: true
-        ignore:
-        - “!NuGet.Config”
-        ```
+```console
+COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
+```
 
+> [!TIP]
+> I Windows, `NuGet.Config`, `Nuget.Config`, och `nuget.config` alla fungerar som giltiga fil namn. I Linux är bara `NuGet.Config` ett giltigt fil namn för den här filen. Eftersom Azure dev Spaces använder Docker och Linux måste den här filen namnges `NuGet.Config`. Du kan åtgärda namngivningen manuellt eller genom att `dotnet restore --configfile nuget.config`köra.
+
+
+Om du använder git bör du inte ha autentiseringsuppgifterna för NuGet-flödet i versions kontrollen. Lägg `NuGet.Config`till i för`NuGet.Config`ditt projekt så att filen inte läggs till i versions kontrollen. `.gitignore` Azure dev Spaces behöver den här filen under build-processen för behållar avbildningen, men som standard uppfyller den `.gitignore` de `.dockerignore` regler som definierats i och under synkroniseringen. Om du vill ändra standard och låta Azure dev Spaces synkronisera `NuGet.Config` filen uppdaterar du `azds.yaml` filen:
+
+```yaml
+build:
+useGitIgnore: true
+ignore:
+- “!NuGet.Config”
+```
+
+Om du inte använder git kan du hoppa över det här steget.
+
+Nästa gången du kör `azds up` eller träffar `F5` i Visual Studio Code eller Visual Studio kommer Azure `NuGet.Config` dev Spaces att synkronisera filen Använd den för att installera paket beroenden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört stegen ovan, nästa gång du kör `azds up` (eller tryck på `F5` i VSCode eller Visual Studio), Azure Dev blanksteg ska synkronisera den `NuGet.Config` filen till Azure, som sedan används av `dotnet restore` att installera paketet beroenden i behållaren.
-
+Lär dig mer om [NuGet och hur det fungerar](https://docs.microsoft.com/nuget/what-is-nuget).

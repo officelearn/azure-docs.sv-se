@@ -1,73 +1,73 @@
 ---
-title: Azure Container Registry – vanliga frågor och svar
-description: Svar på vanliga frågor som rör Azure Container Registry-tjänsten
+title: Vanliga frågor och svar om Azure Container Registry
+description: Svar på vanliga frågor som rör Azure Container Registry tjänsten
 services: container-registry
 author: sajayantony
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551596"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309288"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
-Den här artikeln tar upp vanliga frågor och kända problem med Azure Container Registry.
+Den här artikeln handlar om vanliga frågor och kända problem med Azure Container Registry.
 
 ## <a name="resource-management"></a>Resurshantering
 
-- [Kan jag skapa ett Azure container registry med en Resource Manager-mallen?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
-- [Finns det säkerhetsproblem som söker efter bilder i ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
-- [Hur konfigurerar jag Kubernetes med Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
-- [Hur får jag administratörsautentiseringsuppgifter för ett container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
-- [Hur får jag administratörsautentiseringsuppgifter i en Resource Manager-mall](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
-- [Borttagning av replikering misslyckas med förbjuden status, även om replikeringen tas bort med hjälp av Azure CLI eller Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
-- [Brandväggsreglerna har uppdaterats, men de börjar inte gälla](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
+- [Kan jag skapa ett Azure Container Registry med hjälp av en Resource Manager-mall?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
+- [Finns det någon säkerhets risk som söker efter avbildningar i ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
+- [Hur gör jag för att konfigurera Kubernetes med Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
+- [Hur gör jag för att få administratörsautentiseringsuppgifter för ett behållar register?](#how-do-i-get-admin-credentials-for-a-container-registry)
+- [Hur gör jag för att hämta autentiseringsuppgifter för administratör i en Resource Manager-mall?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
+- [Det går inte att ta bort replikeringen med statusen tillåts även om replikeringen tas bort med hjälp av Azure CLI eller Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Brand Väggs reglerna har uppdaterats, men de börjar inte gälla](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
-### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan jag skapa ett Azure Container Registry med hjälp av en Resource Manager-mallen?
+### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan jag skapa en Azure Container Registry med hjälp av en Resource Manager-mall?
 
-Ja. Här är [en mall](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) att du kan använda för att skapa ett register.
+Ja. Här är [en mall](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) som du kan använda för att skapa ett register.
 
-### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det säkerhetsproblem som söker efter bilder i ACR?
+### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det någon säkerhets risk som söker efter avbildningar i ACR?
 
-Ja. Finns i dokumentationen från [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Ja. Se dokumentationen från [twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [turkos](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
-### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur konfigurerar jag Kubernetes med Azure Container Registry?
+### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur gör jag för att konfigurera Kubernetes med Azure Container Registry?
 
-Se dokumentationen för [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och stegen för [Azure Kubernetes Service](container-registry-auth-aks.md).
+Se dokumentationen för [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och steg för [Azure Kubernetes-tjänsten](container-registry-auth-aks.md).
 
-### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hur får jag administratörsautentiseringsuppgifter för ett container registry?
+### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hur gör jag för att få administratörsautentiseringsuppgifter för ett behållar register?
 
 > [!IMPORTANT]
-> Administratörsanvändarkontot har utformats för en enskild användare åtkomst till registret, främst i testsyfte. Vi rekommenderar inte att dela autentiseringsuppgifterna som administratör-konto med flera användare. Individuell identitet rekommenderas för användare och tjänsthuvudnamn för fjärradministrerad scenarier. Se [översikt över autentisering](container-registry-authentication.md).
+> Administratörs användar kontot har utformats för att en enskild användare ska kunna komma åt registret, främst i testnings syfte. Vi rekommenderar inte att du delar autentiseringsuppgifterna för administratörs kontot med flera användare. Individuell identitet rekommenderas för användare och tjänst huvud namn för konsol lösta scenarier. Se [Översikt över autentisering](container-registry-authentication.md).
 
-Kontrollera att registrets administratörsanvändaren har aktiverats innan du hämtar administratörsautentiseringsuppgifter.
+Innan du hämtar autentiseringsuppgifter för administratören kontrollerar du att registrets administratörs användare är aktive rad.
 
-Hämta autentiseringsuppgifter med hjälp av Azure CLI:
+Så här hämtar du autentiseringsuppgifter med Azure CLI:
 
 ```azurecli
 az acr credential show -n myRegistry
 ```
 
-Använda Azure Powershell:
+Använda Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
 ```
 
-### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>Hur får jag administratörsautentiseringsuppgifter i en Resource Manager-mall
+### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>Hur gör jag för att hämta autentiseringsuppgifter för administratör i en Resource Manager-mall?
 
 > [!IMPORTANT]
-> Administratörsanvändarkontot har utformats för en enskild användare åtkomst till registret, främst i testsyfte. Vi rekommenderar inte att dela autentiseringsuppgifterna som administratör-konto med flera användare. Individuell identitet rekommenderas för användare och tjänsthuvudnamn för fjärradministrerad scenarier. Se [översikt över autentisering](container-registry-authentication.md).
+> Administratörs användar kontot har utformats för att en enskild användare ska kunna komma åt registret, främst i testnings syfte. Vi rekommenderar inte att du delar autentiseringsuppgifterna för administratörs kontot med flera användare. Individuell identitet rekommenderas för användare och tjänst huvud namn för konsol lösta scenarier. Se [Översikt över autentisering](container-registry-authentication.md).
 
-Kontrollera att registrets administratörsanvändaren har aktiverats innan du hämtar administratörsautentiseringsuppgifter.
+Innan du hämtar autentiseringsuppgifter för administratören kontrollerar du att registrets administratörs användare är aktive rad.
 
-Hämta det första lösenordet:
+Så här hämtar du det första lösen ordet:
 
 ```json
 {
@@ -75,7 +75,7 @@ Hämta det första lösenordet:
 }
 ```
 
-Att hämta lösenordet för andra:
+Så här hämtar du det andra lösen ordet:
 
 ```json
 {
@@ -83,61 +83,61 @@ Att hämta lösenordet för andra:
 }
 ```
 
-### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>Borttagning av replikering misslyckas med förbjuden status, även om replikeringen tas bort med hjälp av Azure CLI eller Azure PowerShell
+### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>Det går inte att ta bort replikeringen med statusen tillåts även om replikeringen tas bort med hjälp av Azure CLI eller Azure PowerShell
 
-Felet visas när användaren har behörighet för ett register men har inte behörighet för läsare på servernivå för prenumerationen. Lös problemet genom att tilldela Läsarbehörigheter för prenumerationen för användaren:
+Felet visas när användaren har behörighet för ett register men inte har behörighet på läsar nivå för prenumerationen. Lös problemet genom att tilldela läsar behörighet för-prenumerationen till användaren:
 
 
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
 
-### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Brandväggsreglerna har uppdaterats, men de börjar inte gälla
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Brand Väggs reglerna har uppdaterats, men de börjar inte gälla
 
-Det tar lite tid att sprida brandväggsändringarna för regeln. När du har ändrat brandväggsinställningar, Vänta några minuter innan du verifierar den här ändringen.
+Det tar lite tid att sprida ändringar av brand Väggs regeln. När du har ändrat brand Väggs inställningarna väntar du några minuter innan du verifierar ändringen.
 
 
 ## <a name="registry-operations"></a>Registeråtgärder
 
-- [Hur kommer jag åt Docker Registry HTTP API V2?](#how-do-i-access-docker-registry-http-api-v2)
-- [Hur tar jag bort alla manifest som inte refererar till en tagg i en databas?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
-- [Varför minskar inte kvotanvändning för registret när du tar bort avbildningar?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
-- [Hur jag för att validera ändringar av storage kvoten?](#how-do-i-validate-storage-quota-changes)
-- [Hur autentiserar jag med min registret när du kör CLI i en behållare?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Erbjuder Azure Container Registry TLS version 1.2 endast konfiguration och hur du aktiverar TLS version 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
-- [Stöder Azure Container Registry lita på innehåll?](#does-azure-container-registry-support-content-trust)
-- [Hur jag för att bevilja åtkomst till pull eller push bilder utan behörighet att hantera Registerresurser?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [Hur aktiverar jag automatisk bild karantän för ett register](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Hur gör jag för att Access Docker Registry HTTP API v2?](#how-do-i-access-docker-registry-http-api-v2)
+- [Hur gör jag för att ta bort alla manifest som inte refereras till av någon tagg i en lagrings plats?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
+- [Varför minskar register kvot användningen inte när avbildningar tas bort?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
+- [Hur gör jag för att verifiera lagrings kvot ändringar?](#how-do-i-validate-storage-quota-changes)
+- [Hur gör jag för att autentisera med mitt register när du kör CLI i en behållare?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
+- [Erbjuder Azure Container Registry endast TLS v 1.2-konfiguration och hur du aktiverar TLS v 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Har Azure Container Registry stöd för innehålls förtroende?](#does-azure-container-registry-support-content-trust)
+- [Hur gör jag för att bevilja du åtkomst till pull-eller push-avbildningar utan behörighet att hantera register resursen?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
+- [Hur gör jag för att aktivera automatisk avbildnings karantän för ett register](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
-### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hur kommer jag åt Docker Registry HTTP API V2?
+### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hur gör jag för att Access Docker Registry HTTP API v2?
 
-ACR har stöd för Docker Registry HTTP API V2. API: erna kan nås på `https://<your registry login server>/v2/`. Exempel: `https://mycontainerregistry.azurecr.io/v2/`
+ACR stöder Docker Registry HTTP API v2. API: er kan nås på `https://<your registry login server>/v2/`. Exempel: `https://mycontainerregistry.azurecr.io/v2/`
 
-### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Hur tar jag bort alla manifest som inte refererar till en tagg i en databas?
+### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Hur gör jag för att ta bort alla manifest som inte refereras till av någon tagg i en lagrings plats?
 
-Om du är i bash:
+Om du använder Bash:
 
 ```bash
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-För Powershell:
+För PowerShell:
 
 ```powershell
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Obs! Du kan lägga till `-y` i kommandot delete för att hoppa över bekräftelse.
+Obs! Du kan lägga `-y` till i kommandot Ta bort för att hoppa över bekräftelsen.
 
-Mer information finns i [ta bort avbildningar i Azure Container Registry](container-registry-delete.md).
+Mer information finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
-### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>Varför minskar inte kvotanvändning för registret när du tar bort avbildningar?
+### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>Varför minskar register kvot användningen inte när avbildningar tas bort?
 
-Den här situationen kan inträffa om de underliggande lagren fortfarande som refereras av andra behållaravbildningar. Om du tar bort en avbildning med några referenser uppdaterar registret användningen på några få minuter.
+Den här situationen kan inträffa om underliggande lager fortfarande refereras till av andra behållar avbildningar. Om du tar bort en avbildning utan referenser uppdateras register användningen om några minuter.
 
-### <a name="how-do-i-validate-storage-quota-changes"></a>Hur jag för att validera ändringar av storage kvoten?
+### <a name="how-do-i-validate-storage-quota-changes"></a>Hur gör jag för att verifiera lagrings kvot ändringar?
 
-Skapa en avbildning med en 1GB-lagret med hjälp av följande docker-filen. Detta säkerställer att avbildningen har ett lager som inte delas med andra bilder i registret.
+Skapa en avbildning med ett 1 GB lager med hjälp av följande Docker-fil. Detta säkerställer att avbildningen har ett lager som inte delas av någon annan bild i registret.
 
 ```dockerfile
 FROM alpine
@@ -145,172 +145,172 @@ RUN dd if=/dev/urandom of=1GB.bin  bs=32M  count=32
 RUN ls -lh 1GB.bin
 ```
 
-Skapa och överför avbildningen till registret med hjälp av docker CLI.
+Bygg och skicka avbildningen till ditt register med hjälp av Docker CLI.
 
 ```bash
 docker build -t myregistry.azurecr.io/1gb:latest .
 docker push myregistry.azurecr.io/1gb:latest
 ```
 
-Du bör kunna se att lagringsanvändningen har ökat i Azure-portalen eller du kan fråga efter användning med hjälp av CLI.
+Du bör kunna se att lagrings användningen har ökat i Azure Portal, eller så kan du fråga användningen med hjälp av CLI.
 
 ```bash
 az acr show-usage -n myregistry
 ```
 
-Ta bort avbildningen med hjälp av Azure CLI eller portalen och kontrollera om uppdaterade på några få minuter.
+Ta bort avbildningen med hjälp av Azure CLI eller portalen och kontrol lera den uppdaterade användningen på några få minuter.
 
 ```bash
 az acr repository delete -n myregistry --image 1gb
 ```
 
-### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>Hur autentiserar jag med min registret när du kör CLI i en behållare?
+### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>Hur gör jag för att autentisera med mitt register när du kör CLI i en behållare?
 
-Måste du köra Azure CLI-behållare genom att montera Docker-socket:
+Du måste köra Azure CLI-behållaren genom att montera Docker-socketen:
 
 ```bash
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-I behållaren, installerar `docker`:
+I behållaren installerar `docker`du:
 
 ```bash
 apk --update add docker
 ```
 
-Sedan autentisera med ditt register:
+Autentisera sedan med ditt register:
 
 ```azurecli
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Erbjuder Azure Container Registry TLS version 1.2 endast konfiguration och hur du aktiverar TLS version 1.2?
+### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Erbjuder Azure Container Registry endast TLS v 1.2-konfiguration och hur du aktiverar TLS v 1.2?
 
-Ja. Aktivera TLS med hjälp av alla de senaste docker-klienten (version 18.03.0 och senare). 
+Ja. Aktivera TLS med hjälp av alla senaste docker-klienter (version 18.03.0 och senare). 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Stöder Azure Container Registry lita på innehåll?
+### <a name="does-azure-container-registry-support-content-trust"></a>Har Azure Container Registry stöd för innehålls förtroende?
 
-Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom den [Docker notarie](https://docs.docker.com/notary/getting_started/) har integrerats och kan aktiveras. Mer information finns i [innehåll förtroende i Azure Container Registry](container-registry-content-trust.md).
+Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [Docker-Notary](https://docs.docker.com/notary/getting_started/) har integrerats och kan aktive ras. Mer information finns [i innehålls förtroende i Azure Container Registry](container-registry-content-trust.md).
 
 
-####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Var finns filen för tumavtrycket finns?
+####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Var finns filen för tumavtrycket?
 
 Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
-* Offentliga nycklar och certifikat för alla roller (utom delegering roller) lagras i den `root.json`.
-* Offentliga nycklar och certifikat i rollen delegering lagras i JSON-fil med dess överordnade roll (till exempel `targets.json` för den `targets/releases` roll).
+* Offentliga nycklar och certifikat för alla roller (förutom Delegerings roller) lagras i `root.json`.
+* Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` `targets/releases` för rollen).
 
-Vi rekommenderar för att verifiera de offentliga nycklar och certifikat efter den övergripande TUF kontroll görs av Docker och notarie klienten.
+Vi rekommenderar att du verifierar dessa offentliga nycklar och certifikat efter den övergripande TUF-verifieringen som gjorts av Docker-och Notary-klienten.
 
-### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hur jag för att bevilja åtkomst till pull eller push bilder utan behörighet att hantera Registerresurser?
+### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hur gör jag för att bevilja du åtkomst till pull-eller push-avbildningar utan behörighet att hantera register resursen?
 
-Har stöd för ACR [anpassade roller](container-registry-roles.md) som ger olika behörighetsnivåer. Mer specifikt `AcrPull` och `AcrPush` roller Tillåt användare att pull och/eller push bilder utan behörighet att hantera Registerresurser i Azure.
+ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Specifikt, `AcrPull` och `AcrPush` roller gör det möjligt för användare att ta emot och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
 
-* Azure-portalen: Ditt register -> åtkomstkontroll (IAM) -> Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
-* Azure CLI: Hitta resurs-ID för registret genom att köra följande kommando:
+* Azure-portalen: Ditt register > Access Control (IAM) – > Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
+* Azure CLI: Hitta resurs-ID: t för registret genom att köra följande kommando:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  Du kan koppla den `AcrPull` eller `AcrPush` roll till en användare (i följande exempel används `AcrPull`):
+  Sedan kan du tilldela `AcrPull` rollen eller `AcrPush` till en användare (följande exempel använder `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
     ```
 
-  Alternativt kan du tilldela rollen till tjänstens huvudnamn identifieras av dess program-ID:
+  Eller tilldela rollen till en tjänst princip som identifieras av dess program-ID:
 
   ```
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
-Denna person är sedan kan autentisera och komma åt avbildningarna i registret.
+Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
 
-* Att autentisera till ett register:
+* För att autentisera till ett register:
     
   ```azurecli
   az acr login -n myRegistry 
   ```
 
-* Att lista databaser:
+* Så här listar du databaser:
 
   ```azurecli
   az acr repository list -n myRegistry
   ```
 
- Att hämta en avbildning:
+ Hämta en avbildning:
     
   ```azurecli
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Med hjälp av endast den `AcrPull` eller `AcrPush` rollen, de tilldelad personen har inte behörighet att hantera Registerresurser i Azure. Till exempel `az acr list` eller `az acr show -n myRegistry` visas inte i registret.
+Om du bara `AcrPull` använder rollen eller `AcrPush` , har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel `az acr list` eller `az acr show -n myRegistry` visar inte registret.
 
-### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hur aktiverar jag automatisk bild karantän för ett register?
+### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hur gör jag för att aktivera automatisk avbildnings karantän för ett register?
 
-Bild karantän är för närvarande en förhandsversion av funktionen för ACR. Du kan aktivera läget för ett register i karantän så att dessa avbildningar som har godkänts security sökning visas för normal användare. Mer information finns i [ACR GitHub-lagringsplatsen](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+Bild karantänen är för närvarande en förhands gransknings funktion i ACR. Du kan aktivera karantän läget i ett register så att endast de avbildningar som har klarat säkerhets genomsökningen visas för normala användare. Mer information finns i [ACR GitHub lagrings platsen](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics-and-health-checks"></a>Diagnostik- och hälsokontroller
+## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
 
-- [Kontrollera hälsa med `az acr check-health`](#check-health-with-az-acr-check-health)
-- [docker pull misslyckas med felkoden: net/http: begäran avbröts under väntan anslutning (Client.Timeout överskred medan du väntar på rubriker)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
-- [docker push lyckas men docker pull misslyckas med felkoden: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [Aktivera och hämta felsökningsloggar av docker-daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
-- [Nya användarbehörigheter kan inte gälla omedelbart när du har uppdaterat](#new-user-permissions-may-not-be-effective-immediately-after-updating)
-- [Autentiseringsinformation ges inte i rätt format på direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
-- [Varför Azure-portalen inte innehåller alla mina databaser eller taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
-- [Hur jag för att samla in spårningar http på Windows?](#how-do-i-collect-http-traces-on-windows)
+- [Kontrol lera hälsa med`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Docker-pull misslyckades med felet: net/http: begäran avbröts under väntan på anslutning (klienten. tids gränsen överskreds vid väntan på huvuden)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
+- [Docker-push lyckades men Docker pull Miss lyckas med felet: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [Aktivera och hämta fel söknings loggarna i Docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen](#new-user-permissions-may-not-be-effective-immediately-after-updating)
+- [Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
+- [Varför visar Azure Portal inte alla mina databaser eller Taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Hur gör jag för att samla in http-spårningar i Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Kontrollera hälsa med `az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med`az acr check-health`
 
-Felsökning av vanliga miljö och registret problem beskrivs [kontrollerar hälsotillståndet för ett Azure container registry](container-registry-check-health.md).
+Information om fel sökning av vanliga problem med miljö och register finns i [kontrol lera hälso tillståndet för ett Azure Container Registry](container-registry-check-health.md).
 
-### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull misslyckas med felkoden: net/http: begäran avbröts under väntan anslutning (Client.Timeout överskred medan du väntar på rubriker)
+### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>Docker-pull misslyckades med felet: net/http: begäran avbröts under väntan på anslutning (klienten. tids gränsen överskreds vid väntan på huvuden)
 
- - Om det här felet är ett tillfälligt fel, att försök lyckas.
- - Om `docker pull` kontinuerligt misslyckas kan det vara ett problem med Docker-daemon. Allmänt kan du minimera problemet genom att starta om Docker-daemon. 
- - Om du ser det här problemet efter omstart Docker-daemon, kan problemet vara vissa problem med nätverksanslutningen till datorn. Om du vill kontrollera om Allmänt nätverk på datorn är felfri, kör du följande kommando för att testa anslutningen för slutpunkten. Minst `az acr` versionen som innehåller det här kommandot för kontroll av anslutning är 2.2.9. Uppgradera din Azure-CLI om du använder en äldre version.
+ - Om det här felet är ett tillfälligt problem lyckas försök igen.
+ - Om `docker pull` det Miss lyckas kontinuerligt kan det uppstå problem med Docker daemon. Problemet kan vanligt vis minimeras genom att du startar om Docker daemon. 
+ - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr` version som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
  
    ```azurecli
     az acr check-health -n myRegistry
     ```
- - Du bör alltid ha en mekanism för återförsök på alla Docker-Klientåtgärder.
+ - Du bör alltid ha en mekanism för återförsök på alla Docker-klient åtgärder.
 
-### <a name="docker-pull-is-slow"></a>Docker pull är långsam
-Använd [detta](http://www.azurespeed.com/Azure/Download) verktyg för att testa din nedladdning nätverkshastigheten datorn. Om nätverket är långsam, Överväg att använda virtuella Azure-datorer i samma region som ditt register. Detta innebär normalt att du snabbare nätverkshastighet.
+### <a name="docker-pull-is-slow"></a>Docker pull är långsamt
+Använd [det här](http://www.azurespeed.com/Azure/Download) verktyget för att testa nedladdnings hastigheten för dator nätverk. Om dator nätverket är långsamt bör du överväga att använda Azure VM i samma region som ditt register. Detta ger vanligt vis bättre nätverks hastighet.
 
-### <a name="docker-push-is-slow"></a>Docker push är långsam
-Använd [detta](http://www.azurespeed.com/Azure/Upload) verktyg för att testa din uppladdning nätverkshastigheten datorn. Om nätverket är långsam, Överväg att använda virtuella Azure-datorer i samma region som ditt register. Detta innebär normalt att du snabbare nätverkshastighet.
+### <a name="docker-push-is-slow"></a>Docker-push är långsam
+Använd [det här](http://www.azurespeed.com/Azure/Upload) verktyget för att testa uppladdnings hastigheten för dator nätverk. Om dator nätverket är långsamt bör du överväga att använda Azure VM i samma region som ditt register. Detta ger vanligt vis bättre nätverks hastighet.
 
-### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker push lyckas men docker pull misslyckas med felkoden: obehörig: autentisering krävs
+### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Docker-push lyckades men Docker pull Miss lyckas med felet: obehörig: autentisering krävs
 
-Det här felet kan inträffa med Red Hat-version av Docker-daemon där `--signature-verification` är aktiverat som standard. Du kan kontrollera alternativ för Docker-daemon för Red Hat Enterprise Linux (RHEL) eller Fedora genom att köra följande kommando:
+Det här felet kan inträffa med Red Hat-versionen av Docker daemon, där `--signature-verification` är aktiverat som standard. Du kan kontrol lera Docker daemon-alternativen för Red Hat Enterprise Linux (RHEL) eller Fedora genom att köra följande kommando:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
 ```
 
-Exempel: Fedora 28-servern har följande alternativ för docker-daemon:
+Till exempel har Fedora 28-servern följande Docker daemon-alternativ:
 
 ```
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-Med `--signature-verification=false` saknas, `docker pull` misslyckas med ett fel som liknar:
+Som `--signature-verification=false` saknar, `docker pull` Miss lyckas med ett fel som liknar:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
-Att lösa problemet:
-1. Lägga till alternativet `--signature-verification=false` till konfigurationsfilen för Docker-daemon `/etc/sysconfig/docker`. Exempel:
+Så här löser du felet:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen `/etc/sysconfig/docker`för Docker daemon. Exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Starta om Docker-daemon-tjänst genom att köra följande kommando:
+2. Starta om tjänsten Docker daemon genom att köra följande kommando:
 
   ```bash
   sudo systemctl restart docker.service
@@ -318,9 +318,9 @@ Att lösa problemet:
 
 Information om `--signature-verification` kan hittas genom att köra `man dockerd`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta felsökningsloggar av Docker-daemon  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta fel söknings loggarna i Docker daemon  
 
-Starta `dockerd` med den `debug` alternativet. Börja med att skapa konfigurationsfil för Docker-daemon (`/etc/docker/daemon.json`) om det inte finns, och lägga till den `debug` alternativet:
+`dockerd` Börja`debug` med alternativet. Först skapar du konfigurations filen för Docker daemon`/etc/docker/daemon.json`() om den inte finns och `debug` lägger till alternativet:
 
 ```json
 {   
@@ -328,20 +328,20 @@ Starta `dockerd` med den `debug` alternativet. Börja med att skapa konfiguratio
 }
 ```
 
-Starta om daemon. Till exempel med Ubuntu 14.04:
+Starta sedan om daemon. Till exempel med Ubuntu 14,04:
 
 ```bash
 sudo service docker restart
 ```
 
-Information finns i den [Docker-dokumentation](https://docs.docker.com/engine/admin/#enable-debugging). 
+Information finns i Docker- [dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging). 
 
- * Loggarna kan skapas på olika platser, beroende på ditt system. Till exempel för Ubuntu 14.04 har `/var/log/upstart/docker.log`.   
-Se [Docker-dokumentation](https://docs.docker.com/engine/admin/#read-the-logs) mer information.    
+ * Loggarna kan genereras på olika platser, beroende på ditt system. För Ubuntu 14,04 är `/var/log/upstart/docker.log`det till exempel.   
+Mer information finns i Docker- [dokumentationen](https://docs.docker.com/engine/admin/#read-the-logs) .    
 
- * Loggarna genereras under % LOCALAPPDATA%/docker/ för Docker för Windows. Men det får inte innehålla alla felsökningsinformationen ännu.   
+ * För Docker för Windows genereras loggarna under% LOCALAPPDATA%/Docker/. Det kan dock innehålla all fel söknings information än.   
 
-   Du kan behöva några extra steg för att komma åt fullständig daemon-loggen:
+   För att få åtkomst till full daemon-loggen kan du behöva några extra steg:
 
     ```console
     docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/local/bin/docker:/usr/local/bin/docker alpine sh
@@ -349,21 +349,21 @@ Se [Docker-dokumentation](https://docs.docker.com/engine/admin/#read-the-logs) m
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Nu har du åtkomst till alla filer för virtuell dator som kör `dockerd`. Loggen är på `/var/log/docker.log`.
+    Nu har du åtkomst till alla filer på den virtuella datorn som `dockerd`kör. Loggen är på `/var/log/docker.log`.
 
-### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nya användarbehörigheter kan inte gälla omedelbart när du har uppdaterat
+### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen
 
-När du beviljar nya kanske behörigheter (nya roller) till tjänstens huvudnamn, ändringen inte träder i kraft omedelbart. Det finns två möjliga orsaker:
+När du tilldelar nya behörigheter (nya roller) till ett huvud namn för tjänsten kanske ändringen inte träder i kraft omedelbart. Det finns två möjliga orsaker:
 
-* Azure Active Directory rollen tilldelningens förskjutning. Det är normalt snabb, men det kan ta några minuter på grund av spridning fördröjning.
-* Behörigheten fördröjning på token ACR-servern. Det kan ta upp till 10 minuter. För att lösa, kan du `docker logout` och sedan autentisera igen med samma användare efter 1 minut:
+* Azure Active Directory roll tilldelnings fördröjning. Normalt är det snabbt, men det kan ta minuter på grund av spridnings fördröjning.
+* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan `docker logout` åtgärda problemet och sedan autentisera igen med samma användare efter 1 minut:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-ACR stöder för närvarande inte home replikering borttagning av användarna. Lösningen är att inkludera home replikeringen skapa i mallen, men hoppa över den har skapandet genom att lägga till `"condition": false` enligt nedan:
+ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga `"condition": false` till enligt nedan:
 
 ```json
 {
@@ -379,10 +379,10 @@ ACR stöder för närvarande inte home replikering borttagning av användarna. L
 },
 ```
 
-### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Autentiseringsinformation ges inte i rätt format på direkta REST API-anrop
+### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop
 
-Du kan stöta på ett `InvalidAuthenticationInfo` fel, särskilt med hjälp av den `curl` verktyget med alternativet `-L`, `--location` (för att följa omdirigeringar).
-Till exempel hämtar en blob med hjälp av `curl` med `-L` alternativet och grundläggande autentisering:
+Du kan stöta `InvalidAuthenticationInfo` på `curl` ett fel, särskilt med `--location` verktyget med alternativet `-L`(för att följa omdirigeringar).
+Till exempel hämtar bloben med `curl` alternativet with `-L` Basic Authentication:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -397,26 +397,26 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-Den grundläggande orsaken är att vissa `curl` implementeringar Följ omdirigeringar med rubriker från den ursprungliga begäran.
+Rotor saken är att vissa `curl` implementeringar följer omdirigeringar med huvuden från den ursprungliga begäran.
 
-Du måste följa omdirigeringar manuellt utan rubrikerna för att lösa problemet. Skriva ut svarshuvuden med den `-D -` möjlighet att `curl` och sedan extrahera: den `Location` rubrik:
+För att lösa problemet måste du följa omdirigeringar manuellt utan sidhuvuden. Skriv ut svarshuvuden med `-D -` `curl` alternativet `Location` och extrahera sedan:-rubriken:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
 curl $redirect_url
 ```
 
-### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Varför Azure-portalen inte innehåller alla mina databaser eller taggar? 
+### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Varför visar Azure Portal inte alla mina databaser eller Taggar? 
 
-Om du använder webbläsaren Microsoft Edge/IE kan du se högst 100 lagringsplatser eller taggar. Om ditt register har fler än 100 databaser eller taggar, rekommenderar vi att du använder antingen webbläsaren Firefox eller Chrome för att lista alla.
+Om du använder Microsoft Edge/IE-webbläsaren kan du se högst 100 databaser eller taggar. Om registret har fler än 100 databaser eller Taggar rekommenderar vi att du använder antingen Firefox-eller Chrome-webbläsaren för att lista dem alla.
 
-### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur jag för att samla in spårningar http på Windows?
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
 #### <a name="prerequisites"></a>Förutsättningar
 
-- Aktivera dekrypteringen https i fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Aktivera Docker för att använda en proxyserver via Docker-användargränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
-- Glöm inte att återställa när du är klar.  Docker fungerar inte med alternativet är aktiverat och fiddler körs inte.
+- Aktivera dekryptering av https i Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Aktivera Docker att använda en proxy via Docker-gränssnittet:<https://docs.docker.com/docker-for-windows/#proxies>
+- Var noga med att återställa när du är klar.  Docker fungerar inte med den här funktionen och Fiddler körs inte.
 
 #### <a name="windows-containers"></a>Windows-containrar
 
@@ -424,39 +424,39 @@ Konfigurera Docker-proxy till 127.0.0.1:8888
 
 #### <a name="linux-containers"></a>Linux-containrar
 
-Hitta IP-adressen för Docker vm virtuell växel:
+Hitta IP-adressen för den virtuella växeln Docker VM:
 
 ```powershell
 (Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
 ```
 
-Konfigurera Docker-proxyn till utdata för föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
+Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
 
 ## <a name="tasks"></a>Uppgifter
 
-- [Hur jag för att batch Avbryt körningar?](#how-do-i-batch-cancel-runs)
-- [Hur jag för att inkludera mappen .git i az acr build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
+- [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
 
-### <a name="how-do-i-batch-cancel-runs"></a>Hur jag för att batch Avbryt körningar?
+### <a name="how-do-i-batch-cancel-runs"></a>Vill du avbryta körningen av batch Hur gör jag för att batch?
 
-Följande kommandon avbryta alla aktiviteter som körs i det angivna registret.
+Följande kommandon avbryter alla aktiviteter som körs i det angivna registret.
 
 ```azurecli
 az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o tsv \
 | xargs -I% az acr task cancel-run -r $myregistry --run-id %
 ```
 
-### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hur jag för att inkludera mappen .git i az acr build-kommandot?
+### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?
 
-Om du skickar en lokal källa mapp till den `az acr build` kommandot, den `.git` mappen är exkluderad från det överförda paketet som standard. Du kan skapa en `.dockerignore` fil med följande inställning. Kommandot för att återställa alla filer under meddelar `.git` i det överförda paketet. 
+Om du skickar en lokal källmapp till `az acr build` kommandot `.git` undantas mappen från det överförda paketet som standard. Du kan skapa en `.dockerignore` fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
 
 ```
 !.git/**
 ```
 
-Den här inställningen gäller även för de `az acr run` kommando.
+Den här inställningen gäller även för `az acr run` kommandot.
 
-## <a name="cicd-integration"></a>Integration av CI/CD
+## <a name="cicd-integration"></a>CI/CD-integrering
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub-åtgärder](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)

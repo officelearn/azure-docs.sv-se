@@ -1,78 +1,96 @@
 ---
-title: Arbeta med ändringsflödet processor-biblioteket i Azure Cosmos DB
-description: Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket.
+title: Arbeta med biblioteket Change feed processor i Azure Cosmos DB
+description: Använda Azure Cosmos DB ändra flödes processor bibliotek.
 author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 42b7cd8a60e70ab75afc30910c46eb49f1f6d62a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342046"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000939"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processor-ändringsflödet i Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändra flödes processor i Azure Cosmos DB 
 
-Den [processor-biblioteket för Azure Cosmos DB-ändringsfeed](sql-api-sdk-dotnet-changefeed.md) hjälper dig att distribuera händelsebearbetning bland olika konsumenter. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
+Processorn för förändrings flödet är en del av [Azure Cosmos DB SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Det fören klar processen med att läsa ändrings flödet och att distribuera händelse bearbetningen över flera konsumenter på ett effektivt sätt.
 
-Den största fördelen med biblioteket change feed processor är att du inte behöver hantera varje partition och fortsättningstoken och du behöver inte avsöka varje behållare manuellt.
+Den största fördelen med att ändra flödes processor bibliotek är dess feltoleranta beteende som säkerställer en "minst en gång"-leverans av alla händelser i ändrings flödet.
 
-Biblioteket för change feed processor förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt. Den hanterar automatiskt läsning ändringar mellan partitioner som använder en mekanism för lånet. Som du ser i följande bild, om du startar två klienter som använder ändringsflödet processor-biblioteket kan de dela upp arbete sinsemellan. När du fortsätter att öka antalet klienter kan behålla de dividera arbete sinsemellan.
+## <a name="components-of-the-change-feed-processor"></a>Komponenter i processorn för Change-feed
 
-![Med hjälp av Azure Cosmos DB ändringen feed processor-biblioteket](./media/change-feed-processor/change-feed-output.png)
+Det finns fyra huvud komponenter i implementeringen av Change feed-processorn: 
 
-Vänstra klienten startades första och det igång med att övervaka alla partitionerna och andra klienten har startats och sedan först släpper några av lån till andra klienter. Det här är ett effektivt sätt att fördela arbetet mellan olika datorer och klienter.
+1. **Den övervakade behållaren:** Den övervakade behållaren har data som ändrings flödet genereras från. Eventuella infogningar och uppdateringar av den övervakade behållaren visas i behållarens ändrings flöde.
 
-Om du har två server utan Azure functions övervakning samma behållare och använder samma lånet kan kan de två funktionerna få olika dokument, beroende på hur processor-biblioteket bestämmer sig för att bearbeta partitioner.
+1. **Leasing container:** Lease-behållaren fungerar som en tillstånds lagring och samordnar bearbetning av ändrings flödet över flera arbetare. Lease-behållaren kan lagras i samma konto som den övervakade behållaren eller i ett separat konto. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Genomförs feed processor-biblioteket
+1. **Värden:** En värd är en program instans som använder en Change feed-processor för att lyssna efter ändringar. Flera instanser med samma låne konfiguration kan köras parallellt, men varje instans bör ha ett annat **instans namn**. 
 
-Det finns fyra huvudsakliga komponenter för att implementera ändringsflödet processor-biblioteket: 
+1. **Delegaten:** Delegaten är den kod som definierar vad du, utvecklaren vill göra med varje grupp ändringar som har lästs av Change feed-processorn. 
 
-1. **Övervakade behållaren:** Övervakade behållaren har data som genereras ändringsflöde. Alla infogningar och ändringar till behållaren för övervakade återspeglas i ändringsflödet på behållaren.
+För att bättre förstå hur dessa fyra delar av ändra flödes processor fungerar tillsammans, ska vi titta på ett exempel i följande diagram. Den övervakade behållaren lagrar dokument och använder "ort" som partitionsnyckel. Vi ser att värdena för partitionsnyckel distribueras i intervall som innehåller objekt. Det finns två värd instanser och processorn för ändrings flöden tilldelar olika intervall med nyckel värden till varje instans för att maximera beräknings distributionen. Varje intervall läses parallellt och förloppet bevaras separat från andra intervall i leasing behållaren.
 
-1. **Lån-behållaren:** Behållaren lånet samordnar bearbetning ändringsflöden över flera arbetare. En separat behållare används som omfattar lånen med ett lån per partition. Nu är det bra att lagra den här behållaren för lånet på ett annat konto med skrivningsregionen närmare till där ändringsflödet processor körs. Ett lån-objekt innehåller följande attribut:
+![Exempel på ändring av flödes processor](./media/change-feed-processor/changefeedprocessor.png)
 
-   * Ägare: Anger den värd som äger lånet.
+## <a name="implementing-the-change-feed-processor"></a>Implementera bearbetning av Change feeds-processorn
 
-   * Fortsättning: Anger placeringen (fortsättningstoken) i ändringsflödet för en viss partition.
+Posten är alltid den övervakade behållaren, från en `Container` instans som du anropar: `GetChangeFeedProcessorBuilder`
 
-   * Timestamp: Lånet senast uppdaterades; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla.
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-1. **Värd för händelsebearbetning:** Varje värd avgör hur många partitioner för att bearbeta baserat på hur många andra instanser av värdar har aktiva lån.
+Där den första parametern är ett distinkt namn som beskriver målet för den här processorn och det andra namnet är den ombuds implementering som ska hantera ändringarna. 
 
-   * När en värd startas, skaffar lån för att balansera arbetsbelastningen över alla värdar. En värd förnyas regelbundet lån, så lån är aktiva.
+Ett exempel på ett ombud skulle vara:
 
-   * En värd kontrollpunkter senaste fortsättningstoken att lånet för varje läsa. För att säkerställa säkerheten för samtidighet, kontrollerar en värd ETag för varje uppdatering för lånet. Andra strategier för kontrollpunkt stöds också.
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-   * Vid avstängning, en värd släpper alla lån men behålls fortsättning-information så att den kan återuppta läsning från den lagrade kontrollpunkten senare.
+Slutligen definierar du ett namn för processor instansen `WithInstanceName` med och som är behållaren för att underhålla låne status med `WithLeaseContainer`.
 
-   För närvarande, får inte antalet värdar vara större än antalet partitioner (lån).
+Genom `Build` att anropa får du den processor instans som du kan starta genom `StartAsync`att anropa.
 
-1. **Användare:** Konsumenter eller arbeten är trådar som utför bearbetningen ändringsflödet initieras av varje värd. Varje värd för händelsebearbetning kan ha flera konsumenter. Varje konsument läser ändringen flöde från den partition som den är tilldelad till och meddelar dess värden för ändringar och upphört att gälla lån.
+## <a name="processing-life-cycle"></a>Bearbetnings livs cykel
 
-För att bättre förstå hur dessa fyra element i ändringsfeed processor fungerar tillsammans, nu ska vi titta på ett exempel i följande diagram. Övervakade samlingen lagrar dokument och använder ”City” som partitionsnyckel. Vi kan se att den blå partitionen innehåller dokument med fältet ”City” från ”A-E” och så vidare. Det finns två värdar med två konsumenter att läsa från de fyra partitionerna parallellt. Pilarna visar konsumenterna läsning från en specifik plats i den ändringsflödet. I den första partitionen representerar mörkare blå olästa ändringar medan ljusblått representerar redan läsning ändringar på ändringsflöde. Värdarna använda lease-samlingen för att lagra ett värde för ”fortsättning” för att hålla reda på den aktuella läsning positionen för varje konsument.
+Den normala livs cykeln för en värd instans är:
 
-![Exempel för processor för ändringsfeed](./media/change-feed-processor/changefeedprocessor.png)
+1. Läs ändrings flödet.
+1. Om det inte finns några ändringar kan du försätta i vilo läge under en `WithPollInterval` fördefinierad tid (anpassningsbar med i-verktyget) och gå till #1.
+1. Om det finns ändringar skickar du dem till **ombudet**.
+1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar**du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 
-### <a name="change-feed-and-provisioned-throughput"></a>Ändringsfeed och dataflöde
+## <a name="error-handling"></a>Felhantering
 
-Du debiteras för RU: er som förbrukas, eftersom data flyttas till och från Cosmos-behållare använder alltid ru: er. Du debiteras för RU: er som används av behållaren lånet.
+Processorn för ändrings flöden är elastisk för användar kod fel. Det innebär att om din ombuds implementering har ett ohanterat undantag (steg #4), stoppas tråd bearbetningen av den aktuella batchen av ändringar och en ny tråd skapas. Den nya tråden kontrollerar vilken som är den senaste tidpunkten som leasing lagret har för intervallet av partitionsnyckel, och sedan startar om därifrån, skickar samma batch med ändringar i delegaten. Det här beteendet fortsätter tills ditt ombud bearbetar ändringarna korrekt och det är orsaken till att den ändrade feed-processorn har en "minst en gång"-garanti, eftersom om den delegerade koden throws, kommer den att försöka utföra batchen igen.
+
+## <a name="dynamic-scaling"></a>Dynamisk skalning
+
+Som vi nämnt under introduktionen kan bytet av byte-processorn distribuera data bearbetningen över flera instanser automatiskt. Du kan distribuera flera instanser av ditt program med hjälp av Change feed-processorn och dra nytta av det, de enda viktiga kraven är:
+
+1. Alla instanser bör ha samma konfiguration för låne behållare.
+1. Alla instanser ska ha samma arbets flödes namn.
+1. Varje instans måste ha ett annat instans namn (`WithInstanceName`).
+
+Om dessa tre villkor är uppfyllda, kommer byte av byte-processorn att använda en algoritm för samma distribution, distribuera alla lån i leasing behållaren över alla instanser som körs och parallellisera-beräkning. Ett lån kan bara ägas av en instans vid en specifik tidpunkt, så det maximala antalet instanser är lika med antalet lån.
+
+Instanserna kan växa och minska, och processorn för förändrings flödet justerar belastningen dynamiskt genom att distribuera om enligt detta.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Ändra feed och tillhandahållet data flöde
+
+Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut ur Cosmos-behållare använder alltid ru: er. Du debiteras för ru: er som används av leasing containern.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Azure biblioteket i Cosmos DB change feed processor](sql-api-sdk-dotnet-changefeed.md)
-* [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Ytterligare exempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Ytterligare exempel på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
 
-* [Översikt över ändringsfeed](change-feed.md)
-* [Sätt att läsa ändringsflödet](read-change-feed.md)
+* [Översikt över ändra feed](change-feed.md)
+* [Sätt att läsa ändrings flöde](read-change-feed.md)
 * [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)

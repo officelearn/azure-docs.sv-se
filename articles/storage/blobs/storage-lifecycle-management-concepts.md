@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Storage-livscykel
-description: Lär dig mer om att skapa livscykel principregler övergången föråldras data från frekvent till lågfrekvent nivå eller arkivnivå.
+title: Hantera Azure Storage livs cykeln
+description: Lär dig hur du skapar policy regler för livs cykeln för att överföra ålders data från frekvent till låg frekvent lagring och Arkiv lag ring.
 services: storage
 author: mhopkins-msft
 ms.service: storage
@@ -9,61 +9,89 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696082"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305712"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera livscykeln för Azure Blob-lagring
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
-Datauppsättningar har unika livscykler. Tidigt i livscykeln, personer åtkomst till vissa data ofta. Men behov av åtkomst sjunker drastiskt som data registrerar dig. Vissa data förblir inaktiva i molnet och används sällan lagras en gång. Vissa data upphör dagar eller månader när du har skapat, medan andra datauppsättningar läses aktivt och ändras under hela sin livslängd. Livscykelhantering för Azure Blob storage erbjuder en omfattande, regelbaserad princip för GPv2- och Blob storage-konton. Använda för att överföra data till lämpliga åtkomstnivåer eller upphör att gälla i slutet av den data livscykel.
+Data uppsättningar har unika livscykler. Tidigt i livs cykeln får människor ofta åtkomst till vissa data. Men behovet av åtkomst sjunker drastiskt när data åldras. Vissa data förblir inaktiva i molnet och används sällan när de lagras. Vissa data upphör att gälla dagar eller månader efter att de har skapats, medan andra data uppsättningar har lästs och ändrats under hela sin livs längd. Azure Blob Storage livs cykel hantering ger en omfattande, regel-baserad princip för GPv2-och Blob Storage-konton. Använd principen för att överföra data till lämpliga åtkomst nivåer eller förfaller i slutet av data livs cykeln.
 
-Principen för livscykelhantering kan du:
+Med policyn för livs cykel hantering kan du:
 
-- Överföra BLOB-och en mer lågfrekvent lagringsnivå (frekvent till lågfrekvent, frekvent för att arkivera eller lågfrekvent för att arkivera) att optimera för prestanda och kostnader
-- Ta bort blobar i slutet av deras livscykler
-- Definiera regler som ska köras en gång per dag på nivån för storage-konto
-- Tillämpa regler på behållare eller en delmängd av BLOB-objekt (med prefix som filter)
+- Över gångs blobbar till en låg frekvent lagrings nivå (frekvent till låg frekvent, frekvent till arkiv eller låg frekvent att arkivera) för att optimera prestanda och kostnad
+- Ta bort blobbar i slutet av deras livscykler
+- Definiera regler som ska köras en gång per dag på lagrings konto nivå
+- Tillämpa regler på behållare eller en delmängd av blobbar (med prefix som filter)
 
-Tänk dig ett scenario där data kommer frekvent åtkomst i början av livscykel, men bara ibland efter två veckor. Utöver den första månaden får datauppsättningen i sällan. I det här scenariot är lagring för frekvent / bäst under de tidiga stadierna. Lågfrekvent lagring är mest lämplig för tillfällig åtkomst. Archive storage är det bästa alternativet nivå när du registrerar dig data över en månad. Du kan utforma de billigaste lagringsalternativ för dina behov genom att justera lagringsnivåer i jämfört med åldern på data. Livscykeln för hantering av principregler är tillgängliga att flytta föråldras data till mer lågfrekvent nivå för att uppnå den här ändringen.
+Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna i livs cykeln, men bara ibland efter två veckor. Utöver den första månaden kommer data uppsättningen sällan att användas. I det här scenariot är frekvent lagring bäst i de tidiga faserna. Låg frekvent lagring är lämplig för tillfällig åtkomst. Arkiv lag ring är det bästa alternativet på nivån efter att data har funnits under en månad. Genom att justera lagrings nivåer avseende ålder på data kan du utforma de billigaste lagrings alternativen för dina behov. För att uppnå den här över gången är policy regler för livs cykel hantering tillgängliga för att flytta ålders data till låg frekventa nivåer.
 
-## <a name="storage-account-support"></a>Stöd för Storage-konton
+## <a name="storage-account-support"></a>Stöd för lagrings konto
 
-Principen för livscykelhantering är tillgänglig med generell användning v2 (GPv2) konton, Blob storage-konton och Premium Block Blob storage-konton. Du kan uppgradera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto i Azure-portalen. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
+Policyn för livs cykel hantering är tillgänglig med Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Prissättning
 
-Funktionen för hantering av livscykeln är kostnadsfri. Kunderna debiteras den vanliga åtgärd kostnaden för den [lista Blobar](https://docs.microsoft.com/rest/api/storageservices/list-blobs) och [ange Blobnivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop. Borttagningen är kostnadsfri. Mer information om priser finns i [blockblobpriserna](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för [list](https://docs.microsoft.com/rest/api/storageservices/list-blobs) -blobar och [ställer in](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Livscykeln för hantering av funktionen är tillgänglig i alla globala Azure och Azure Government-regioner.
+Funktionen för livs cykel hantering är tillgänglig i alla globala Azure-och Azure Government regioner.
 
-## <a name="add-or-remove-a-policy"></a>Lägg till eller ta bort en princip
+## <a name="add-or-remove-a-policy"></a>Lägga till eller ta bort en princip
 
-Du kan lägga till, redigera eller ta bort en princip genom att använda någon av följande metoder:
+Du kan lägga till, redigera eller ta bort en princip med någon av följande metoder:
 
 * [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST API:er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-Den här artikeln visar hur du hanterar princip med hjälp av portalen och PowerShell-metoder.  
+Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
 
 > [!NOTE]
-> Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Nödvändiga förbikopplingen är: `Logging,  Metrics,  AzureServices`. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag. Obligatoriskt kringgående är: `Logging,  Metrics,  AzureServices`. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Azure Portal
 
+Det finns två sätt att lägga till en princip via Azure Portal. 
+
+* [Azure Portal listvy](#azure-portal-list-view)
+* [Azure Portal kodvyn](#azure-portal-code-view)
+
+#### <a name="azure-portal-list-view"></a>Azure Portal listvy
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj **alla resurser** och välj sedan ditt lagringskonto.
+2. Välj **alla resurser** och välj sedan ditt lagrings konto.
 
-3. Under **Blobtjänsten**väljer **livscykelhantering** visa eller ändra din princip.
+3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra dina regler.
 
-4. Följande JSON är ett exempel på en regel som kan klistras in i den **livscykelhantering** portalsidan.
+4. Välj fliken **listvy** .
+
+5. Välj **Lägg till regel** och fyll sedan i formulär fälten för **Åtgärds uppsättning** . I följande exempel flyttas blobbar till låg frekvent lagring om de inte har ändrats i 30 dagar.
+
+   ![Sidan livs cykel hantering åtgärds uppsättning i Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+
+6. Välj **filter uppsättning** för att lägga till ett valfritt filter. Välj sedan **Bläddra** för att ange en behållare och mapp som du vill filtrera.
+
+   ![Sidan livs cykel hantering filter uppsättning i Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+
+8. Välj **Granska + Lägg** till för att granska princip inställningarna.
+
+9. Välj **Lägg** till för att lägga till den nya principen.
+
+#### <a name="azure-portal-code-view"></a>Azure Portal kodvyn
+1. Logga in på [Azure Portal](https://portal.azure.com).
+
+2. Välj **alla resurser** och välj sedan ditt lagrings konto.
+
+3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra principen.
+
+4. Följande JSON är ett exempel på en princip som kan klistras in på fliken **kodvy** .
 
    ```json
    {
@@ -93,11 +121,13 @@ Den här artikeln visar hur du hanterar princip med hjälp av portalen och Power
    }
    ```
 
-5. Mer information om det här JSON-exemplet finns det [princip](#policy) och [regler](#rules) avsnitt.
+5. Välj **Spara**.
+
+6. Mer information om det här JSON-exemplet finns i avsnittet [principer](#policy) och [regler](#rules) .
 
 ### <a name="powershell"></a>PowerShell
 
-Följande PowerShell-skript kan användas för att lägga till en princip till ditt lagringskonto. Den `$rgname` variabeln måste initieras med namn på resursgruppen. Den `$accountName` variabeln måste initieras med namnet på ditt lagringskonto.
+Du kan använda följande PowerShell-skript för att lägga till en princip i ditt lagrings konto. `$rgname` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn.
 
 ```powershell
 #Install the latest module
@@ -125,9 +155,9 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>Azure Resource Manager-mall med principen för livscykelhantering
+## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>Azure Resource Manager mall med princip för livs cykel hantering
 
-Du kan definiera livscykelhantering med hjälp av Azure Resource Manager-mallar. Här är en exempelmall för att distribuera ett RA-GRS GPv2-konto med en princip för livscykelhantering.
+Du kan definiera livs cykel hantering genom att använda Azure Resource Manager mallar. Här är en exempel-mall för att distribuera ett RA-GRS GPv2 lagrings konto med en princip för livs cykel hantering.
 
 ```json
 {
@@ -169,7 +199,7 @@ Du kan definiera livscykelhantering med hjälp av Azure Resource Manager-mallar.
 
 ## <a name="policy"></a>Princip
 
-En princip för livscykelhantering är en samling regler i ett JSON-dokument:
+En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 ```json
 {
@@ -191,31 +221,31 @@ En princip för livscykelhantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parametertyp | Anteckningar |
+| Parameternamn | Parameter typ | Anteckningar |
 |----------------|----------------|-------|
-| `rules`        | En matris med regelobjekt | Du måste minst en regel i en princip. Du kan ange upp till 100 regler i en princip.|
+| `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Krävs |
+| Parameternamn | Parameter typ | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
-| `name`         | Sträng |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | Sant |
-| `enabled`      | Boolesk | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
-| `type`         | Ett uppräkningsvärde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
-| `definition`   | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. | Sant |
+| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
+| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | False | 
+| `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
+| `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
 
 ## <a name="rules"></a>Regler
 
-Varje Regeldefinitionen innehåller en filteruppsättning och en uppsättning åtgärder. Den [filtrera set](#rule-filters) begränsar regelåtgärder till en viss uppsättning objekt i en behållare och objekt som namn. Den [åtgärd set](#rule-actions) gäller nivån eller ta bort åtgärder för att en filtrerad uppsättning objekt.
+Varje regel definition innehåller en filter uppsättning och en åtgärds uppsättning. [Filter uppsättningen](#rule-filters) begränsar regel åtgärder till en viss uppsättning objekt inom en behållare eller objekt namn. Den [angivna åtgärden](#rule-actions) tillämpar nivån eller tar bort åtgärder på den filtrerade uppsättningen objekt.
 
-### <a name="sample-rule"></a>Exempelregel
+### <a name="sample-rule"></a>Exempel regel
 
-Följande Exempelregel filtrerar konto för att köra åtgärder på objekt som finns inuti `container1` och börja med `foo`.  
+Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med. `foo`  
 
-- Nivå-blob till lågfrekvent nivå 30 dagar efter senaste ändring
-- Nivå-blob att arkivera nivån 90 dagar efter senaste ändringen
-- Ta bort blob 2,555 dagar (sju år) efter senaste ändring
-- Ta bort blobögonblicksbilderna 90 dagar efter ögonblicksbilder skapas
+- Nivå-blob till låg frekvent nivå 30 dagar efter senaste ändring
+- Nivå-blob till Arkiv lag ring 90 dagar efter senaste ändring
+- Ta bort BLOB 2 555 dagar (sju år) efter senaste ändring
+- Ta bort BLOB-ögonblicksbilder 90 dagar efter att ögonblicks bilden har skapats
 
 ```json
 {
@@ -245,46 +275,46 @@ Följande Exempelregel filtrerar konto för att köra åtgärder på objekt som 
 }
 ```
 
-### <a name="rule-filters"></a>Regeln filter
+### <a name="rule-filters"></a>Regel filter
 
-Filter begränsar regelåtgärder till en delmängd av blobbar i lagringskontot. Om mer än ett filter har definierats använder en logisk `AND` körs på alla filter.
+Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings kontot. Om fler än ett filter definieras körs ett logiskt `AND` i alla filter.
 
-Filtren är:
+Filtren inkluderar:
 
-| Filternamn | Filtertyp | Anteckningar | Krävs |
+| Filter namn | Filter typ | Anteckningar | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade enum-värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matcha. Varje regel kan definiera upp till 10 prefix. En sträng med prefixet måste börja med ett behållarnamn. Exempel: Om du vill matcha alla blobar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel i prefixMatch är `container1/foo`. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagringskontot.  | Nej |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är `container1/foo`prefixMatch. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Nej |
 
-### <a name="rule-actions"></a>Regelåtgärder
+### <a name="rule-actions"></a>Regel åtgärder
 
-Åtgärder som tillämpas på filtrerade blobbar när kör villkoret är uppfyllt.
+Åtgärder tillämpas på filtrerade blobbar när körnings villkoret är uppfyllt.
 
-Livscykelhantering stöder blobnivåindelning och borttagning av blobar och borttagning av blob-ögonblicksbilder. Ange minst en åtgärd för varje regel för blobar eller blobögonblicksbilder.
+Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagning av BLOB-ögonblicksbilder. Definiera minst en åtgärd för varje regel på blobbar eller BLOB-ögonblicksbilder.
 
-| Action        | Grundläggande Blob                                   | Ögonblicksbild      |
+| Action        | Bas-BLOB                                   | Ögonblicksbild      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Stöd för blobar för närvarande på frekvent nivå         | Stöds inte |
-| tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds inte |
+| tierToCool    | Stöd för blobbar på frekvent nivå         | Stöds inte |
+| tierToArchive | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
 | delete        | Stöds                                   | Stöds     |
 
 >[!NOTE]
->Om du definierar mer än en åtgärd på samma blob gäller livscykelhantering den billigaste åtgärden blob. Till exempel åtgärden `delete` är billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
+>Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd. `tierToArchive` Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
 
-Kör villkor baseras på ålder. Grundläggande blobbar använda det senaste ändringsdatum för att spåra ålder och blob-ögonblicksbilder används tiden för skapandet av ögonblicksbild för att spåra ålder.
+Körnings villkoren baseras på ålder. Bas-blobbar använder senaste ändrings tid för att spåra ålder och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
-| Åtgärden kör villkor             | Villkorsvärdet                          | Beskrivning                             |
+| Åtgärds körnings villkor             | Villkors värde                          | Beskrivning                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
-| daysAfterModificationGreaterThan | Heltalsvärde som anger ålder i dagar | Villkoret för grundläggande blob-åtgärder     |
-| daysAfterCreationGreaterThan     | Heltalsvärde som anger ålder i dagar | Villkoret för åtgärder för blob-ögonblicksbild |
+| daysAfterModificationGreaterThan | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder     |
+| daysAfterCreationGreaterThan     | Heltals värde som anger ålder i dagar | Villkoret för BLOB Snapshot-åtgärder |
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visar hur du hanterar vanliga scenarier med reglerna för livscykel.
+Följande exempel visar hur du kan adressera vanliga scenarier med policy regler för livs cykeln.
 
-### <a name="move-aging-data-to-a-cooler-tier"></a>Flytta föråldras data till en mer lågfrekvent nivå
+### <a name="move-aging-data-to-a-cooler-tier"></a>Flytta ålders data till en kylare-nivå
 
-Det här exemplet visar hur du övergår blockblob-objekt med prefixet `container1/foo` eller `container2/bar`. Principen övergår blobar som inte har ändrats i över 30 dagar till lågfrekvent lagring och BLOB-objekt som inte har ändrats i 90 dagar som arkivnivån:
+I det här exemplet visas hur du översätter block- `container1/foo` blobar som föregås av eller. `container2/bar` Principen över blobar som inte har ändrats på över 30 dagar till låg frekvent lagring, och blobar som inte har ändrats på 90 dagar till Arkiv nivån:
 
 ```json
 {
@@ -312,7 +342,7 @@ Det här exemplet visar hur du övergår blockblob-objekt med prefixet `containe
 
 ### <a name="archive-data-at-ingest"></a>Arkivera data vid inmatning
 
-Vissa data förblir inaktiva i molnet och är data som sällan, kanske aldrig, en gång lagras. Följande livscykelprincipen har konfigurerats för att arkivera data när det matas in. Det här exemplet övergångar blockblobbar i storage-konto i behållaren `archivecontainer` i en arkivnivån. Övergången görs genom att fungera för blobbar 0 dagar efter tid för senaste ändring:
+Vissa data är inaktiva i molnet och är sällan, om de någonsin, används när de har lagrats. Följande livs cykel princip är konfigurerad för att arkivera data när den har matats in. Det här exemplet översätter block-blobar i lagrings `archivecontainer` kontot i behållaren till en Arkiv nivå. Över gången görs genom att agera på blobbar 0 dagar efter senaste ändrings tid:
 
 ```json
 {
@@ -338,9 +368,9 @@ Vissa data förblir inaktiva i molnet och är data som sällan, kanske aldrig, e
 
 ```
 
-### <a name="expire-data-based-on-age"></a>Ta bort data utifrån ålder
+### <a name="expire-data-based-on-age"></a>Förfaller data baserat på ålder
 
-Vissa data förväntas upphör att gälla dagar eller månader när du har skapat. Du kan konfigurera en princip för livscykelhantering för att ta bort data genom att ta bort baserat på data ålder. I följande exempel visas en princip som tar bort alla blockblobar som är äldre än 365 dagar.
+Vissa data förväntas gå ut dagar eller månader efter att de har skapats. Du kan konfigurera en princip för livs cykel hantering så att data upphör att gälla genom att ta bort baserat på data ålder. I följande exempel visas en princip som tar bort alla block blobbar som är äldre än 365 dagar.
 
 ```json
 {
@@ -364,9 +394,9 @@ Vissa data förväntas upphör att gälla dagar eller månader när du har skapa
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Ta bort gamla ögonblicksbilder
+### <a name="delete-old-snapshots"></a>Ta bort gamla ögonblicks bilder
 
-För data som ändras och komma åt regelbundet under hela dess livslängd, används ögonblicksbilder ofta för att spåra äldre versioner av data. Du kan skapa en princip som tar bort gamla ögonblicksbilder utifrån ögonblicksbild ålder. Ögonblicksbild ålder bestäms genom att utvärdera tiden för skapandet av ögonblicksbild. Den här principregeln borttagningar blockera blob-ögonblicksbilder i behållaren `activedata` som är 90 dagar eller äldre när ögonblicksbilden har skapats.
+För data som ändras och används regelbundet under hela livs längden används ögonblicks bilder ofta för att spåra äldre versioner av data. Du kan skapa en princip som tar bort gamla ögonblicks bilder baserat på ögonblicks bildens ålder. Ögonblicks bildens ålder bestäms genom utvärdering av ögonblicks bildens skapande tid. Den här princip regeln tar bort block BLOB-ögonblicksbilder i behållare `activedata` som är 90 dagar eller äldre efter att ögonblicks bilden har skapats.
 
 ```json
 {
@@ -393,15 +423,15 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**Jag har skapat en ny princip, varför åtgärderna som inte kör direkt?**  
-Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du konfigurerar en princip, kan det ta upp till 24 timmar för vissa åtgärder körs för första gången.  
+**Jag skapade en ny princip, varför körs inte åtgärderna direkt?**  
+Plattformen kör livs cykel principen en gång om dagen. När du har konfigurerat en princip kan det ta upp till 24 timmar innan vissa åtgärder körs för första gången.  
 
-**Jag extraheras manuellt en arkiverad blob, hur kan jag förhindra den flyttas tillbaka till arkivnivån tillfälligt?**  
-När en blob flyttas från en åtkomstnivå till en annan åtkomstnivå, ändras inte dess senaste ändringstid. Om du manuellt rehydrate en arkiverad blob till frekvent nivå, skulle det flyttas tillbaka till Arkivera nivå av motorn för hantering av livscykeln. Du kan förhindra att den genom att inaktivera den regel som påverkar den här bloben tillfälligt. Du kan kopiera bloben till en annan plats om det behöver vara i frekvent nivå permanent. Du kan återaktivera regeln när blob kan på ett säkert sätt flyttas tillbaka till Arkivera nivå. 
+**Jag har manuellt dehydratiserat en arkiverad BLOB, hur gör jag för att förhindra att den flyttas tillbaka till Arkiv nivån tillfälligt?**  
+När en BLOB flyttas från en åtkomst nivå till en annan ändras inte den senaste ändrings tiden. Om du manuellt dehydratiserar en arkiverad blob till frekvent nivå flyttas den tillbaka till Arkiv nivå av motorn för livs cykel hantering. Inaktivera regeln som påverkar den här bloben tillfälligt för att förhindra att den arkiveras igen. Kopiera blobben till en annan plats om den behöver stanna i snabb nivå permanent. Återaktivera regeln när bloben kan flyttas tillbaka till Arkiv nivån på ett säkert sätt. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att återställa data efter oavsiktlig borttagning:
+Lär dig hur du återställer data efter en oavsiktlig borttagning:
 
-- [Mjuk borttagning för Azure Storage-blobbar](../blobs/storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage blobbar](../blobs/storage-blob-soft-delete.md)

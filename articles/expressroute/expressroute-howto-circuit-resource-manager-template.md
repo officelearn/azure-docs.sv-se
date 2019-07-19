@@ -1,20 +1,21 @@
 ---
-title: 'Skapa en ExpressRoute-krets - Resource Manager-mall: Azure | Microsoft Docs'
-description: Skapa, etablera, ta bort och Avetablerar en ExpressRoute-krets.
+title: 'Skapa en ExpressRoute-krets – Resource Manager-mall: Azure | Microsoft Docs'
+description: Skapa, etablera, ta bort och avetablera en ExpressRoute-krets.
 services: expressroute;azure-resource-manager
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: bf56145d0a8cd3b01d0d74fcaf3348c1916cee5a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: cherylmc
+ms.reviewer: ganesr
+ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659689"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849226"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager-mall
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -25,7 +26,7 @@ ms.locfileid: "67659689"
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-Lär dig hur du skapar en ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallreferensen](/azure/templates/microsoft.network/expressroutecircuits).
+Lär dig hur du skapar en ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -35,15 +36,15 @@ Lär dig hur du skapar en ExpressRoute-krets genom att distribuera en Azure Reso
 
 ## <a name="create"></a>Skapa och etablera en ExpressRoute-krets
 
-[Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/) har en bra uppsättning Resource Manager-mall. Du använder en av de [befintliga mallar](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) att skapa en ExpressRoute-krets.
+[Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) har en utmärkt samling Resource Manager-mall. Du kan använda en av de [befintliga mallarna](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) för att skapa en ExpressRoute-krets.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
-Om du vill se flera relaterade mallar, [här](https://azure.microsoft.com/resources/templates/?term=expressroute).
+Om du vill se fler relaterade mallar väljer du [här](https://azure.microsoft.com/resources/templates/?term=expressroute).
 
-Skapa en ExpressRoute-krets genom att distribuera en mall:
+Så här skapar du en ExpressRoute-krets genom att distribuera en mall:
 
-1. Välj **prova** från följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud shell.
+1. Välj **prova** med följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -70,18 +71,18 @@ Skapa en ExpressRoute-krets genom att distribuera en mall:
      > [!IMPORTANT]
      > Peering-platsen anger den [fysisk plats](expressroute-locations.md) där du peer med Microsoft. Det här är **inte** länkad till ”plats”-egenskap som refererar till geografiska plats där Azure-nätverkets Resursprovider finns. Även om de inte är relaterade är en bra idé att välja en Provider för nätverksresurser geografiskt nära platsen Peering för kretsen.
 
-    Resursgruppens namn är den service bus-namnrymden med **rg** sist.
+    Resurs gruppens namn är namnet på Service Bus-namnområdet med **RG** tillagt.
 
 2. Välj **Kopiera** för att kopiera PowerShell-skriptet.
-3. Högerklicka på shell-konsolen och välj sedan **klistra in**.
+3. Högerklicka på Shell-konsolen och välj sedan **Klistra in**.
 
-Det tar en stund att skapa en händelsehubb.
+Det tar en stund att skapa en Event Hub.
 
-Azure PowerShell används för att distribuera mallen i den här självstudien. Andra metoder för distribution av mallen, finns här:
+Azure PowerShell används för att distribuera mallen i den här självstudien. För andra metoder för mall distribution, se:
 
-* [Med hjälp av Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Med hjälp av Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Med hjälp av REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* Med [hjälp av Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* Med [hjälp av Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* Med [hjälp av REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 

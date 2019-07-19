@@ -1,32 +1,42 @@
 ---
-title: Azure Data Factory mappning datamönster Flow kolumn
-description: Lär dig hur du använder Azure Data Factory kolumnen mönster i mappning dataflöde för att skapa generaliserad mall mönster för omvandling av fälten i ett dataflöde utan hänsyn till underliggande schemametadata
+title: Azure Data Factory mappa data flödes kolumn mönster
+description: Skapa generaliserade data omvandlings mönster med Azure Data Factory kolumn mönster i data flödena för mappning
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d24988dfd5cbaf20e92c5afbbc39dc0c78e3ef6a
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430753"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314881"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory mappningsdata flödar kolumnen mönster
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Kolumn mönster för mappning av Azure Data Factory-data flöden
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Flera Azure Data Factory-dataflöde transformationer stöder uppfattning om ”kolumner mönster” så att du kan skapa mallen kolumner baserat på mönster i stället för hårdkodade kolumnnamn. Du kan använda den här funktionen i Uttrycksverktyget för att definiera mönster för att matcha kolumner för omvandling i stället för att exakt, specifika fältnamn. Mönster är användbara om inkommande källfält ändras ofta, särskilt om du ska ändra kolumner i textfiler eller NoSQL-databaser. Det här tillståndet kallas ibland för ”Schema Drift”.
+Flera Azure Data Factory data flödes transformationer stöder idén med "kolumn mönster" så att du kan skapa mallgrupper baserat på mönster i stället för hårdkodade kolumn namn. Du kan använda den här funktionen i uttrycks verktyget för att definiera mönster som matchar kolumner för omvandling i stället för att kräva exakta, specifika fält namn. Mönster är användbara om inkommande käll fält ändras ofta, särskilt när det gäller att ändra kolumner i textfiler eller NoSQL-databaser. Det här villkoret kallas ibland "schema avvikelse".
 
-![kolumnen mönster](media/data-flow/columnpattern2.png "kolumnen mönster")
+![kolumn mönster](media/data-flow/columnpattern2.png "Kolumn mönster")
 
-Kolumnen mönster är användbara för att hantera både Schema-Drift scenarier samt allmänna scenarier. Det är bra för villkor där du kan inte helt veta varje kolumnnamn. Du kan mönstret matchar på kolumnnamnet och datatypen för kolumnen och skapa ett uttryck för omvandling som utför åtgärden mot alla fält i dataströmmen som matchar din `name`  &  `type` mönster.
+Kolumn mönster är användbara för att hantera både schema drift scenarier och allmänna scenarier. Det är lämpligt för villkor där du inte kan se varje kolumn namn fullständigt. Du kan mönster matchning för kolumn namn och kolumn data typ och skapa ett uttryck för omvandling som utför åtgärden mot ett fält i data strömmen som matchar dina `name`  &  `type` mönster.
 
-När du lägger till ett uttryck en transformering som accepterar mönster, välj ”Lägg till kolumn mönstret”. Kolumnen mönster kan schemat drift kolumnen matchande mönster.
+När du lägger till ett uttryck i en transformering som accepterar mönster, väljer du Lägg till kolumn mönster. Med kolumn mönster kan du matcha matchnings mönster för schema riktnings kolumner.
 
-När du skapar mallen kolumnen mönster, använda `$$` i uttryck som representerar en referens till varje matchade fält från den inkommande dataströmmen.
+När du skapar mallens kolumn mönster `$$` använder du i uttrycket för att representera en referens till varje matchat fält från indata-dataströmmen.
 
-Om du väljer att använda en av de Uttrycksverktyget regex-funktionerna kan du sedan senare använda $1, $2, $3... att referera till de underordnade mönster som matchade från regex-uttrycket.
+Om du väljer att använda en av uttrycks Byggareets regex-funktioner kan du därefter använda $1, $2, $3... för att referera till de under mönster som matchas från ditt regex-uttryck.
 
-Ett exempel på kolumnen mönstret scenario använder SUMMAN med en serie inkommande fält. Sammanställd SUMMAN beräkningar finns i samlingen omvandling. Du kan sedan använda SUMMAN på varje matchning av fälttyper som matchar ”heltal” och sedan använda $ för att referera till varje matchning i uttrycket.
+Ett exempel på ett kolumn mönster scenario använder SUM med en serie inkommande fält. De aggregerade SUM-beräkningarna finns i den sammanställda omvandlingen. Du kan sedan använda SUM på varje matchande fält typ som matchar "Integer" och sedan använda $ $ för att referera till varje matchning i ditt uttryck.
+
+## <a name="match-columns"></a>Matcha kolumner
+![kolumn mönster typer](media/data-flow/pattern2.png "Mönster typer")
+
+Om du vill bygga mönster baserade på kolumner kan du matcha kolumn namn, typ, ström eller position och använda valfri kombination av dem med uttrycks funktioner och reguljära uttryck.
+
+![kolumn position](media/data-flow/position.png "Kolumn position")
+
+## <a name="next-steps"></a>Nästa steg
+Läs mer om data flödes uttrycks [språket](http://aka.ms/dataflowexpressions) för ADF-mappning för data transformationer

@@ -1,6 +1,6 @@
 ---
-title: Klustra SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk i Azure | Microsoft Docs
-description: Lär dig mer om att klustra SAP ASCS/SCS-instans i ett redundanskluster i Windows med hjälp av en delad klusterdisk.
+title: Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure | Microsoft Docs
+description: Lär dig att klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7c2b52a0dff08b7fe80d46f878a93d8d0741982c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709052"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249157"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -72,7 +72,7 @@ ms.locfileid: "67709052"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP – flera SÄKERHETSIDENTIFIERARE konfiguration med hög tillgänglighet)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID-konfiguration med hög tillgänglighet)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -183,99 +183,99 @@ ms.locfileid: "67709052"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustret ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk i Azure
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Windows Server failover-kluster är grunden för en hög tillgänglighet SAP ASCS/SCS installation och DBMS i Windows.
+Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/SCS-installation och DBMS i Windows.
 
-Ett redundanskluster är en grupp 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om det inträffar ett nodfel, beräknar antalet fel som kan uppstå och hålla ett felfritt kluster för att tillhandahålla program och tjänster i Windows Server failover-kluster. Du kan välja från olika kvorumlägen att uppnå failover-kluster.
+Ett redundanskluster är en grupp med 1 + n-oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar uppgifterna i den här artikeln finns i följande artikel:
+Läs följande artikel innan du påbörjar uppgifterna i den här artikeln:
 
-* [Arkitektur för hög tillgänglighet för Azure virtuella datorer och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
+* [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
 
-## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server failover-kluster i Azure
+## <a name="windows-server-failover-clustering-in-azure"></a>Kluster för växling vid fel i Windows Server i Azure
 
-Jämfört med distribution utan operativsystem eller privata moln, kräver Azure virtuella datorer ytterligare åtgärder för att konfigurera Windows Server-redundanskluster. När du skapar ett kluster kan behöva du ange flera IP-adresser och virtuella värdnamn för SAP ASCS/SCS-instans.
+Jämfört med distributioner av Bare Metal eller privata moln kräver Azure Virtual Machines ytterligare steg för att konfigurera Windows Server-redundanskluster. När du skapar ett kluster måste du ange flera IP-adresser och virtuella värdnamn för SAP ASCS/SCS-instansen.
 
-### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Namnmatchning i Azure och virtuell värd klusternamnet
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Namn matchning i Azure och klustrets virtuella värd namn
 
-Möjlighet att konfigurera virtuella IP-adresser, till exempel flytande IP-adresser omfattas inte av Azure-molnplattformen. Du behöver en alternativ lösning för att konfigurera en virtuell IP-adress att nå klusterresursen i molnet. 
+Azure Cloud Platform erbjuder inte alternativet att konfigurera virtuella IP-adresser, till exempel flytande IP-adresser. Du behöver en alternativ lösning för att skapa en virtuell IP-adress för att komma åt kluster resursen i molnet. 
 
-Azure Load Balancer-tjänsten tillhandahåller en *intern belastningsutjämnare* för Azure. Med den interna belastningsutjämnaren nå klienter klustret över klustrets virtuella IP-adress. 
+Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare* för Azure. Med den interna belastningsutjämnaren når klienterna klustret via klustrets virtuella IP-adress. 
 
-Distribuera den interna belastningsutjämnaren i resursgruppen som innehåller noder i klustret. Konfigurera sedan alla nödvändiga port vidarebefordra regler med hjälp av avsökningen portar för den interna belastningsutjämnaren. Klienter kan ansluta via virtuella värdnamnet. DNS-servern löser klustrets IP-adress och interna hanterar belastningsutjämnarporten vidarebefordran till den aktiva noden i klustret.
+Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienter kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress och den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
 
-![Bild 1: Konfigurationen i Azure utan en delad disk för Windows-redundanskluster][sap-ha-guide-figure-1001]
+![Bild 1: Konfiguration av Windows-redundanskluster i Azure utan en delad disk][sap-ha-guide-figure-1001]
 
-_**Bild 1:** Konfigurationen i Azure utan en delad disk för Windows Server-redundansklustring_
+_**Bild 1:** Konfiguration av redundanskluster för Windows Server i Azure utan en delad disk_
 
-### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS hög tillgänglighet med klusterdelade diskar
-I Windows innehåller en SAP ASCS/SCS-instans SAP central services, SAP-meddelandeservern, sätta serverprocesser och SAP globala värdfiler. Global värd för filer som SAP lagringsfiler central för hela SAP-system.
+### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS HA med klusterdelade diskar
+I Windows innehåller en SAP ASCS/SCS-instans SAP-centrala tjänster, SAP Message Server, köa Server processer och SAP global Host-filer. SAP global Host-filer lagrar centrala filer för hela SAP-systemet.
 
 En SAP ASCS/SCS-instans har följande komponenter:
 
-* SAP central services:
-    * Två processer, ett meddelande och sätta server och en < ASCS/SCS virtuellt värdnamn >, som används för att få åtkomst till dessa två processer.
-    * Filstruktur: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<antal instanser\>
+* SAP-centrala tjänster:
+    * Två processer, ett meddelande och en Queue server och ett \<ASCS-eller SCS-värdnamn >, som används för att få åtkomst till dessa två processer.
+    * Fil struktur: S:\usr\sap\\-&lt;\<sid\ASCS/SCSinstance&gt;Number\>
 
 
-* SAP globala värdfiler:
-  * Filstruktur: S:\usr\sap\\&lt;SID&gt;\SYS\...
-  * Filresurs sapmnt, vilket ger åtkomst till de här globala S:\usr\sap\\&lt;SID&gt;\SYS\... filer med hjälp av följande UNC-sökväg:
+* SAP global Hosts-filer:
+  * Fil struktur: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * Fil resursen sapmnt, som ger åtkomst\\till dessa globala S:\usr\sap&lt;&gt;-\SYS\...-filer med hjälp av följande UNC-sökväg:
 
-    \\\\< ASCS/SCS virtuellt värdnamn > \sapmnt\\&lt;SID&gt;\SYS\....
+    \\\\< ASCS/SCS Virtual Host Name\>\sapmnt\\&lt;sid&gt;\SYS\...
 
 
-![Bild 2: Processer, filstruktur och globala värden sapmnt filresurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
+![Bild 2: Processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
 
-_**Bild 2:** Processer, filstruktur och globala värden sapmnt filresurs för en SAP ASCS/SCS-instans_
+_**Bild 2:** Processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans_
 
-I en miljö med hög tillgänglighet klustra SAP ASCS/SCS-instanser. Vi använder *klustrade delade diskar* (enheten S, i vårt exempel), för att placera SAP ASCS/SCS och SAP globala vara värd för filer.
+I en hög tillgänglighets inställning kan du klustra SAP ASCS/SCS-instanser. Vi använder *klustrade delade diskar* (enhets, i vårt exempel) för att placera SAP-ASCS/SCS-och SAP global-värd-filerna.
 
-![Bild 3: SAP ASCS/SCS HA arkitektur med delad disk][sap-ha-guide-figure-8002]
+![Bild 3: SAP ASCS/SCS HA-arkitektur med delad disk][sap-ha-guide-figure-8002]
 
-_**Bild 3:** SAP ASCS/SCS HA arkitektur med delad disk_
+_**Bild 3:** SAP ASCS/SCS HA-arkitektur med delad disk_
 
 > [!IMPORTANT]
-> Dessa två komponenter som körs under samma SAP ASCS/SCS-instans:
->* Samma < ASCS/SCS virtuella värdnamn > används för att få åtkomst till meddelandet och sätta serverprocesser SAP och SAP globala värden filerna via sapmnt filresurs.
->* Samma klusterdelade diskenheten S delas mellan dem.
+> Dessa två komponenter körs under samma SAP ASCS/SCS-instans:
+>* Samma \<ASCS-/SCS-värdnamn > används för att få åtkomst till SAP-meddelandet och köa Server processer och SAP global Hosts-filer via fil resursen sapmnt.
+>* Samma klusterdelade disk enhet är delad mellan dem.
 >
 
 
-![Bild 4: SAP ASCS/SCS HA arkitektur med delad disk][sap-ha-guide-figure-8003]
+![Bild 4: SAP ASCS/SCS HA-arkitektur med delad disk][sap-ha-guide-figure-8003]
 
-_**Bild 4:** SAP ASCS/SCS HA arkitektur med delad disk_
+_**Bild 4:** SAP ASCS/SCS HA-arkitektur med delad disk_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Delade diskar i Azure med SIOS DataKeeper
 
-Du behöver klustret delad lagring för en SAP ASCS/SCS-instans med hög tillgänglighet.
+Du behöver klusterdelad lagring för en hög tillgänglig SAP ASCS/SCS-instans.
 
-Du kan använda programvara från tredje part SIOS DataKeeper Cluster Edition för att skapa ett speglat lagringsutrymme som simulerar klustrets delade lagring. SIOS-lösningen innehåller realtidsdata synkron replikering.
+Du kan använda program vara från tredje part SIOS DataKeeper Cluster Edition för att skapa en speglad lagring som simulerar delat kluster lagring. SIOS-lösningen tillhandahåller synkron data replikering i real tid.
 
-Skapa en delad diskresurs för ett kluster:
+Så här skapar du en delad disk resurs för ett kluster:
 
-1. Koppla ytterligare en disk till var och en av de virtuella datorerna i en Windows-klusterkonfiguration.
-2. Kör SIOS DataKeeper Cluster Edition på båda noderna för virtuell dator.
-3. Konfigurera SIOS DataKeeper Cluster Edition så att det speglar innehållet i ytterligare disk som är ansluten volymen från den virtuella källdatorn för att ytterligare anslutna diskvolymen för den virtuella måldatorn. SIOS DataKeeper avlägsnar käll- och lokala volymer och visar dem sedan till Windows Server-redundanskluster som en delad disk.
+1. Koppla ytterligare en disk till var och en av de virtuella datorerna i en Windows-kluster konfiguration.
+2. Kör SIOS DataKeeper Cluster Edition på båda noderna för virtuella datorer.
+3. Konfigurera SIOS DataKeeper Cluster Edition så att den speglar innehållet i den extra disk-anslutna volymen från den virtuella käll datorn till den ytterligare disk som är ansluten till den virtuella mål datorn. SIOS DataKeeper sammanfattar käll-och mål volymerna och visar dem sedan Windows Server-redundanskluster som en delad disk.
 
-Hämta mer information om [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
+Få mer information om [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
-![Bild 5: Konfigurationen i Azure med SIOS DataKeeper för Windows Server-redundansklustring][sap-ha-guide-figure-1002]
+![Figur 5: Konfiguration av redundanskluster för Windows Server i Azure med SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Bild 5:** Konfigurationen i Azure med SIOS DataKeeper för Windows-redundanskluster_
+_**Figur 5:** Konfiguration av Windows-redundanskluster i Azure med SIOS DataKeeper_
 
 > [!NOTE]
-> Du behöver inte delade diskar för hög tillgänglighet med vissa DBMS-produkter som SQL Server. SQL Server AlwaysOn replikerar DBMS data och loggfiler filer från den lokala disken på en klusternod till den lokala disken för en annan klusternod. I det här fallet behöver klusterkonfigurationen Windows inte en delad disk.
+> Du behöver inte delade diskar för hög tillgänglighet med vissa DBMS-produkter, t. ex. SQL Server. SQL Server AlwaysOn replikerar DBMS-data och loggfiler från den lokala disken på en klusternod till den lokala disken på en annan klusternod. I det här fallet behöver konfigurationen för Windows-klustret ingen delad disk.
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för en SAP ASCS/SCS-instans][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [Installera SAP NetWeaver hög tillgänglighet på en Windows-redundanskluster och delad disk för en SAP ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]
+* [Installera SAP NetWeaver HA på ett Windows-redundanskluster och en delad disk för en SAP-ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]

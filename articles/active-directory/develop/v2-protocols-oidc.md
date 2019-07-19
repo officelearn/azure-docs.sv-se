@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity-plattformen och OpenID Connect-protokollet | Azure
-description: Skapa webbprogram med hjälp av Microsoft identity-plattformen implementeringen av autentiseringsprotokollet OpenID Connect.
+title: Microsoft Identity Platform och OpenID Connect-protokollet | Azure
+description: Bygg webb program med hjälp av Microsoft Identity Platform-implementeringen av OpenID Connect Authentication Protocol.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,48 +18,48 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be7d4164bd1a412c69c3b5adfe20cf83d699d2b4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544799"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304792"
 ---
-# <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-plattformen och OpenID Connect-protokoll
+# <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform och OpenID Connect-protokoll
 
-OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du kan använda för att på ett säkert sätt logga in en användare till ett webbprogram. När du använder Microsoft identity-plattformen slutpunkten implementeringen av OpenID Connect kan du lägga till in- och API-åtkomst till dina webbaserade appar. Den här artikeln visar hur du gör den här oberoende av språk och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda alla Microsoft open source-bibliotek.
+OpenID Connect är ett autentiseringsprotokoll som skapats på OAuth 2,0 som du kan använda för att på ett säkert sätt logga in en användare i ett webb program. När du använder Microsoft Identity Platform-slutpunktens implementering av OpenID Connect kan du lägga till inloggnings-och API-åtkomst till dina webbaserade appar. Den här artikeln visar hur du gör detta oberoende av språk och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några Microsoft-bibliotek med öppen källkod.
 
 > [!NOTE]
-> Microsoft identity-plattformen slutpunkten har inte stöd för alla Azure Active Directory (Azure AD)-scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).
+> Microsoft Identity Platform-slutpunkten har inte stöd för alla Azure Active Directory (Azure AD)-scenarier och-funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll som ska användas som en *autentisering* protokoll, så att du kan göra med enkel inloggning med OAuth. OpenID Connect introducerar konceptet för en *ID-token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet. ID-token får du också grundläggande profilinformation om användaren. Eftersom OpenID Connect utökar OAuth 2.0, appar på ett säkert sätt kan hämta *åtkomsttoken*, som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-v2-protocols.md#the-basics). Microsoft identity-plattformen endpoint kan också appar från tredje part som är registrerade i Azure AD för att utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Läs mer om hur du konfigurerar ett program att utfärda åtkomsttoken [hur du registrerar en app med Microsoft identity-plattformen endpoint](quickstart-register-app.md). Vi rekommenderar att du använder att OpenID Connect om du skapar en [webbprogram](v2-app-types.md#web-apps) som är finns på en server och kan nås via en webbläsare.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar autentiseringsprotokollet *OAuth 2,0 som* ska användas som *autentiseringsprotokoll* , så att du kan utföra enkel inloggning med OAuth. OpenID Connect introducerar konceptet med en *ID-token*, vilket är en säkerhetstoken som gör att klienten kan verifiera användarens identitet. ID-token hämtar även grundläggande profil information om användaren. Eftersom OpenID Connect utökar OAuth 2,0 kan appar säkert Hämta *åtkomsttoken*, som kan användas för att få åtkomst till resurser som skyddas av en [Authorization Server](active-directory-v2-protocols.md#the-basics). Microsoft Identity Platform-slutpunkten tillåter också att appar från tredje part som är registrerade med Azure AD kan utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Mer information om hur du konfigurerar ett program för att utfärda åtkomsttoken finns i [så här registrerar du en app med slut punkten för Microsoft Identity Platform](quickstart-register-app.md). Vi rekommenderar att du använder OpenID Connect om du skapar ett [webb program](v2-app-types.md#web-apps) som finns på en server och har åtkomst till via en webbläsare.
 
-## <a name="protocol-diagram-sign-in"></a>Protokollet diagram: Logga in
+## <a name="protocol-diagram-sign-in"></a>Protokoll diagram: Logga in
 
-Mest grundläggande inloggning flödet har de steg som visas i nästa diagram. Varje steg beskrivs i detalj i den här artikeln.
+Det mest grundläggande inloggnings flödet har stegen som visas i nästa diagram. Varje steg beskrivs i detalj i den här artikeln.
 
 ![OpenID Connect-protokoll: Logga in](./media/v2-protocols-oidc/convergence-scenarios-webapp.svg)
 
-## <a name="fetch-the-openid-connect-metadata-document"></a>Hämta metadatadokument OpenID Connect
+## <a name="fetch-the-openid-connect-metadata-document"></a>Hämta dokumentet för OpenID Connect-metadata
 
-OpenID Connect beskriver ett metadatadokument som innehåller de flesta av information som krävs för en app för att logga in. Detta omfattar information, till exempel URL: er att använda och platsen för tjänstens offentliga Signeringsnycklar. För Microsoft identity-plattformen slutpunkten är det här metadatadokument OpenID Connect, bör du använda:
+OpenID Connect beskriver ett dokument med metadata som innehåller merparten av den information som krävs för att en app ska kunna logga in. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. För Microsoft Identity Platform-slutpunkten är detta OpenID Connect-Metadatadokumentet som du bör använda:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Prova! Klicka på [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) att se den `common` konfiguration för klienter.
+> Prova! Klicka [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om du vill `common` Visa klient organisations konfigurationen.
 
-Den `{tenant}` kan ha något av fyra värden:
+`{tenant}` Kan göra något av fyra värden:
 
 | Värde | Beskrivning |
 | --- | --- |
-| `common` |Användare med både ett personligt microsoftkonto och ett arbets- eller skolkonto konto från Azure AD kan logga in till programmet. |
-| `organizations` |Endast användare med arbets- eller skolkonton från Azure AD kan logga in till programmet. |
-| `consumers` |Endast användare med ett personligt microsoftkonto kan logga in till programmet. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Endast användare med ett arbets- eller skolkonto konto från en viss Azure AD klient kan logga in till programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens GUID-identifierare. Du kan också använda konsument-klient `9188040d-6c67-4c5b-b112-36a304b66dad`, i stället för den `consumers` klient.  |
+| `common` |Användare med både ett privat Microsoft-konto och ett arbets-eller skol konto från Azure AD kan logga in i programmet. |
+| `organizations` |Endast användare med arbets-eller skol konton från Azure AD kan logga in i programmet. |
+| `consumers` |Endast användare med en personlig Microsoft-konto kan logga in i programmet. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Endast användare från en specifik Azure AD-klient (oavsett om de är medlemmar i katalogen med ett arbets-eller skol konto eller om de är gäster i katalogen med en personlig Microsoft-konto) kan logga in i programmet. Antingen det egna domän namnet för Azure AD-klienten eller klient organisationens GUID-identifierare kan användas. Du kan också använda klient organisationen, `9188040d-6c67-4c5b-b112-36a304b66dad`i stället `consumers` för klient organisationen.  |
 
-Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följande kodavsnitt för ett exempel. Innehållet i kodfragment beskrivs ingående i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
+Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande kodfragment för ett exempel. Kodfragmentets innehåll beskrivs fullständigt i [OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2)-specifikationen.
 
 ```
 {
@@ -76,20 +76,20 @@ Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följand
 }
 ```
 
-Om din app har anpassade Signeringsnycklar användningen av den [mappning av anspråk](active-directory-claims-mapping.md) funktion, som du måste lägga till en `appid` frågeparameter som innehåller app-ID för att få en `jwks_uri` som pekar på din app signeringsnyckel information. Till exempel: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Om din app har anpassade signerings nycklar som ett resultat av funktionen för anspråks [mappning](active-directory-claims-mapping.md) måste du lägga till `appid` en frågeparameter som innehåller app-ID: t för att `jwks_uri` få en pekare till appens information om signerings nyckeln. Exempel: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Normalt använder du Metadatadokumentet för att konfigurera en OpenID Connect-biblioteket eller SDK; biblioteket använder metadata för att utföra sitt arbete. Om du inte använder ett färdiga OpenID Connect-bibliotek, kan du följa stegen i resten av den här artikeln att logga in i en webbapp med hjälp av Microsoft identity-plattformen slutpunkten.
+Normalt använder du det här Metadatadokumentet för att konfigurera ett OpenID Connect-bibliotek eller SDK. i biblioteket används metadata för att utföra sitt arbete. Men om du inte använder ett förbyggt OpenID Connect-bibliotek kan du följa stegen i resten av den här artikeln för att logga in i en webbapp med hjälp av Microsoft Identity Platform-slutpunkten.
 
-## <a name="send-the-sign-in-request"></a>Skicka begäran inloggning
+## <a name="send-the-sign-in-request"></a>Skicka inloggnings förfrågan
 
-När webbappen behöver autentisera användaren, den kan dirigera användare till den `/authorize` slutpunkt. Den här begäran liknar den första delen i den [OAuth 2.0-auktoriseringskodflödet](v2-oauth2-auth-code-flow.md), med dessa viktiga skillnader:
+När din webbapp behöver autentisera användaren kan den dirigera användaren till `/authorize` slut punkten. Den här begäran liknar det första benet i [OAuth 2,0-auktoriseringskod](v2-oauth2-auth-code-flow.md), med följande viktiga distinkta:
 
-* Begäran måste innehålla den `openid` omfång i den `scope` parametern.
-* Den `response_type` parameter måste innehålla `id_token`.
-* Begäran måste innehålla den `nonce` parametern.
+* Begäran måste innehålla `openid` omfånget `scope` i parametern.
+* Parametern måste innehålla `id_token`. `response_type`
+* Begäran måste innehålla `nonce` parametern.
 
 > [!IMPORTANT]
-> Om du vill begära har ett ID-token från slutpunkten /authorization, appregistreringen i den [registreringsportalen](https://portal.azure.com) måste ha implicit beviljande av id_tokens aktiverad på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow`flagga i den [programmanifestet](reference-app-manifest.md) till `true`). Om det inte är aktiverat en `unsupported_response` fel returneras: ”Det angivna värdet för Indataparametern 'response_type” är inte tillåten för den här klienten. Förväntat värde är ”code” ”
+> För att kunna begära en ID-token från/Authorization-slutpunkten, måste appens registrering på [registrerings portalen](https://portal.azure.com) ha implicit beviljande av id_tokens som är aktiverat på fliken autentisering (som `oauth2AllowIdTokenImplicitFlow` anger flaggan i [ applikations manifest](reference-app-manifest.md) till `true`). Om den inte är aktive `unsupported_response` rad returneras ett fel: "Det angivna värdet för Indataparametern response_type är inte tillåtet för den här klienten. Förväntat värde är ' Code '
 
 Exempel:
 
@@ -107,30 +107,30 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren kommer att omdirigeras till `https://localhost/myapp/`, med en ID-token i adressfältet. Observera att denna begäran använder `response_mode=fragment` (endast i demonstrationssyfte). Vi rekommenderar att du använder `response_mode=form_post`.
+> Klicka på följande länk för att utföra den här begäran. När du har loggat in omdirigeras webbläsaren till `https://localhost/myapp/`med en ID-token i adress fältet. Observera att denna begäran endast `response_mode=fragment` använder (endast för demonstrations ändamål). Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Obligatoriskt | Du kan använda den `{tenant}` värdet i sökvägen för begäran om att kontrollera vem som kan logga in till programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
-| `response_type` | Obligatoriskt | Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_type` värden, till exempel `code`. |
-| `redirect_uri` | Rekommenderas | Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodas. Om inte finns, slutpunkten ska välja en registrerad redirect_uri slumpmässigt för att skicka användaren tillbaka till. |
-| `scope` | Obligatoriskt | En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Du kan även innehålla andra scope i den här begäran för att begära godkännande. |
-| `nonce` | Obligatoriskt | Ett värde som ingår i den begäran som skapats av appen, som ska tas med i det resulterande id_token-värdet som ett anspråk. Appen kan kontrollera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |
-| `response_mode` | Rekommenderas | Anger den metod som ska användas för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `form_post` eller `fragment`. För webbprogram, bör du använda `response_mode=form_post`, för att kontrollera den säkraste överföringen av token för ditt program. |
-| `state` | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Ett slumpmässigt genererat unikt värde används normalt till [förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som användaren har på. |
-| `prompt` | Valfri | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`. Den `prompt=login` anspråk Tvingar användaren att ange sina autentiseringsuppgifter i begäran, vilket eliminerar enkel inloggning. Den `prompt=none` anspråk är motsatsen. Det här kravet garanterar att användaren inte visas den interaktiva prompten på. Om begäran inte kan slutföras tyst via enkel inloggning, returneras ett fel i Microsoft identity-plattformen slutpunkten. Den `prompt=consent` anspråk utlöser OAuth godkännande i dialogrutan när användaren loggar in. Dialogrutan ombeds användaren att bevilja behörigheter till appen. |
-| `login_hint` | Valfri | Du kan använda den här parametern förifylld i fälten användarnamn och e-post adressfältet i inloggningssidan för användaren, om du känner till användarnamnet förbereds i förväg. Ofta appar att använda den här parametern under omautentisering när du har redan extraherar användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
-| `domain_hint` | Valfri | Området för användaren i en federerad katalog.  Det här hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på sidan logga in för en något mer effektiv användarupplevelse. För klienter som är externa via en lokal katalog som AD FS kan resulterar det ofta i en sömlös inloggning på grund av befintliga inloggningssession. |
+| `tenant` | Krävs | Du kan använda `{tenant}` värdet i sökvägen till begäran för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common` `consumers`, `organizations`, och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `response_type` | Krävs | Måste inkludera `id_token` för OpenID Connect-inloggning. Det kan också innehålla andra `response_type` värden, `code`till exempel. |
+| `redirect_uri` | Rekommenderas | Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen, förutom att den måste vara URL-kodad. Om den inte finns, kommer slut punkten att välja en registrerad redirect_uri på slumpmässiga för att skicka tillbaka användaren till. |
+| `scope` | Krävs | En blankstegsavgränsad lista över omfång. För att OpenID ska kunna ansluta måste den innehålla `openid`omfånget, som översätts till "logga in dig"-behörighet i medgivande gränssnittet. Du kan också inkludera andra omfattningar i den här begäran för att begära medgivande. |
+| `nonce` | Krävs | Ett värde som ingår i begäran, som genereras av appen, som kommer att ingå i det resulterande id_token-värdet som ett anspråk. Appen kan verifiera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
+| `response_mode` | Rekommenderas | Anger den metod som ska användas för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `form_post` eller `fragment`. För webb program rekommenderar vi att du `response_mode=form_post`använder, för att säkerställa den säkraste överföringen av tokens till ditt program. |
+| `state` | Rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Ett slumpmässigt genererat unikt värde används vanligt vis för att [förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Stadiet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn där användaren var på. |
+| `prompt` | Valfri | Anger vilken typ av användar interaktion som krävs. De enda giltiga värdena för tillfället är `login`, `none`och `consent`. `prompt=login` Anspråket tvingar användaren att ange sina autentiseringsuppgifter för begäran, vilket innebär att enkel inloggning används. `prompt=none` Anspråket är det motsatta. Detta påstående garanterar att användaren inte visas med interaktiva prompter på. Om begäran inte kan slutföras i bakgrunden via enkel inloggning returnerar slut punkten för Microsoft Identity Platform ett fel. `prompt=consent` Anspråket utlöser dialog rutan OAuth-medgivande när användaren loggar in. Dialog rutan uppmanar användaren att bevilja behörighet till appen. |
+| `login_hint` | Valfri | Du kan använda den här parametern för att fylla i fältet användar namn och e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern vid omautentisering, när de redan har extraherat användar namnet från en tidigare inloggning med hjälp `preferred_username` av anspråket. |
+| `domain_hint` | Valfri | Användarens sfär i en federerad katalog.  Detta hoppar över den e-postbaserad identifierings process som användaren går igenom på inloggnings sidan för en något mer strömlinjeformad användar upplevelse. För klienter som är federerade via en lokal katalog som AD FS resulterar detta ofta i en sömlös inloggning på grund av den befintliga inloggningssessionen. |
 
-Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen. Microsoft identity-plattformen endpoint kontrollerar att användaren har samtyckt till behörigheterna som anges i den `scope` frågeparameter. Om användaren inte har samtyckt till någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs i Microsoft identity-plattformen slutpunkten. Du kan läsa mer om [behörigheter och samtycke appar för flera klienter](v2-permissions-and-consent.md).
+I det här läget uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen. Slut punkten för Microsoft Identity Platform kontrollerar att användaren har samtyckt till de behörigheter som anges i `scope` Frågeparametern. Om användaren inte har samtyckt till någon av dessa behörigheter uppmanas användaren av Microsoft Identity Platform-slutpunkten att godkänna de behörigheter som krävs. Du kan läsa mer om [behörigheter, medgivande och appar för flera klient organisationer](v2-permissions-and-consent.md).
 
-När användaren autentiserar och ger ditt medgivande, Microsoft identity-plattformen slutpunkten returnerar ett svar till din app på den angivna omdirigerings-URI genom att använda den metod som beskrivs i den `response_mode` parametern.
+När användaren autentiserar och godkänner godkännandet, returnerar Microsoft Identity Platform-slutpunkten ett svar till din app vid den angivna omdirigerings-URI: n `response_mode` med hjälp av metoden som anges i parametern.
 
 ### <a name="successful-response"></a>Lyckat svar
 
-Ett lyckat svar när du använder `response_mode=form_post` ser ut så här:
+Ett lyckat svar när du `response_mode=form_post` använder ser ut så här:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -142,12 +142,12 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `id_token` | ID-token som appen har begärt. Du kan använda den `id_token` parametern för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i den [ `id_tokens` referens](id-tokens.md). |
-| `state` | Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
+| `id_token` | Den ID-token som appen begärde. Du kan använda `id_token` parametern för att verifiera användarens identitet och påbörja en session med användaren. Mer information om ID-token och deras innehåll finns i [ `id_tokens` referensen](id-tokens.md). |
+| `state` | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Appen bör kontrol lera att tillstånds värden i begäran och svaret är identiska. |
 
-### <a name="error-response"></a>Felsvar
+### <a name="error-response"></a>Fel svar
 
-Felsvar kan även skickas till omdirigeringen-URI så att appen kan hanteras. Ett felsvar ser ut så här:
+Fel svar kan också skickas till omdirigerings-URI: n så att appen kan hantera dem. Ett fel svar ser ut så här:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -159,42 +159,42 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `error` | En felkodsträngen som du kan använda för att klassificera typer av fel som inträffar och reagera på fel. |
-| `error_description` | Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
+| `error` | En fel kods sträng som du kan använda för att klassificera typer av fel som inträffar och för att reagera på fel. |
+| `error_description` | Ett fel meddelande som kan hjälpa dig att identifiera rotor saken till ett autentiseringsfel. |
 
-### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slutpunkt-auktoriseringsfel
+### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slut punkts fel i tillstånd
 
-I följande tabell beskrivs felkoder som kan returneras i de `error` -parametern för felsvaret:
+I följande tabell beskrivs felkoder som kan returneras i `error` parametern för fel svaret:
 
-| Felkod | Beskrivning | Klientåtgärd |
+| Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- |
-| `invalid_request` | Protokollfel, till exempel en saknad obligatoriska parametern. |Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som normalt påträffades under första testningen. |
-| `unauthorized_client` | Klientprogrammet kan inte begära en auktoriseringskod. |Detta inträffar vanligtvis när klientprogrammet inte är registrerad i Azure AD eller inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktioner för att installera programmet och lägga till den till Azure AD. |
-| `access_denied` | Resursägaren nekas godkännande. |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
-| `unsupported_response_type` |Auktoriseringsservern stöder inte svarstypen i begäran. |Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som normalt påträffades under första testningen. |
-| `server_error` | Ett oväntat fel inträffade på servern. |Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt fel. |
-| `temporarily_unavailable` | Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
-| `invalid_resource` | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det är inte korrekt konfigurerad. |Detta anger att resursen, om det finns inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktioner för att installera programmet och lägga till den till Azure AD. |
+| `invalid_request` | Protokoll fel, till exempel en obligatorisk parameter som saknas. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
+| `unauthorized_client` | Klient programmet kan inte begära en auktoriseringskod. |Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan begära att användaren får instruktioner för att installera programmet och lägga till det i Azure AD. |
+| `access_denied` | Resurs ägaren nekade medgivande. |Klient programmet kan meddela användaren att den inte kan fortsätta om inte användaren samtycks. |
+| `unsupported_response_type` |Auktoriseringsservern stöder inte svars typen i begäran. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
+| `server_error` | Ett oväntat fel uppstod i servern. |Gör om begäran. Dessa fel kan orsakas av tillfälliga förhållanden. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt fel. |
+| `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. |Gör om begäran. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
+| `invalid_resource` | Mål resursen är ogiltig eftersom den inte finns, det går inte att hitta den i Azure AD, eller så är den inte korrekt konfigurerad. |Detta anger att resursen, om den finns, inte har kon figurer ATS i klienten. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
 
-## <a name="validate-the-id-token"></a>Verifiera ID-token
+## <a name="validate-the-id-token"></a>Validera ID-token
 
-Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste verifiera den id_token signatur och verifiera anspråken i token enligt krav för din app. Microsoft identity-plattformen slutpunkten använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och verifiera att de är giltiga.
+Det räcker bara att ta emot en id_token för att autentisera användaren. Du måste verifiera id_token's-signaturen och verifiera anspråk i token enligt appens krav. Slut punkten för Microsoft Identity Platform använder [JSON-Webbtoken (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentliga nycklar för att signera tokens och kontrol lera att de är giltiga.
 
-Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till en backend-servern och gör det verifieringen. När du har verifierat signaturen för id_token, finns det några anspråk som du kommer att behöva kontrollera. Se den [ `id_token` referens](id-tokens.md) mer information inklusive [verifierar token](id-tokens.md#validating-an-id_token) och [viktig Information om signering nyckel förnya](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
+Du kan välja att validera `id_token` i-klient koden, men en vanlig metod är att `id_token` skicka till en backend-server och göra valideringen där. När du har verifierat signaturen för id_token måste du kontrol lera några anspråk. Se referensen för mer information, inklusive [validera token](id-tokens.md#validating-an-id_token) och [viktig information om förnyelse av signerings nyckel](active-directory-signing-key-rollover.md). [ `id_token` ](id-tokens.md) Vi rekommenderar att du använder ett bibliotek för att parsa och validera token – det finns minst en tillgänglig för de flesta språk och plattformar.
 
-Du kan också välja att validera ytterligare anspråk beroende på ditt scenario. Vissa vanliga verifieringar är:
+Du kanske också vill verifiera ytterligare anspråk beroende på ditt scenario. Några vanliga valideringar är:
 
-* Att se till att användaren/organisationen har registrerat sig för appen.
-* Se till att användaren har rätt auktorisering/behörighet
-* Att se till att en viss styrkan hos autentisering har inträffat, till exempel multifaktorautentisering.
+* Se till att användaren/organisationen har registrerat sig för appen.
+* Se till att användaren har rätt behörighet/privilegier
+* Att se till att en viss styrka autentisering har skett, t. ex. Multi-Factor Authentication.
 
-När du har verifierat id_token du starta en session med användaren och använder anspråken i id_token för att hämta information om användare i din app. Den här informationen kan användas för visning, poster, anpassning, osv.
+När du har verifierat id_token kan du starta en-session med användaren och använda anspråken i id_token för att hämta information om användaren i din app. Den här informationen kan användas för visning, poster, anpassning osv.
 
-## <a name="send-a-sign-out-request"></a>Skicka en förfrågan om utloggning
+## <a name="send-a-sign-out-request"></a>Skicka en inloggningsbegäran
 
-Om du vill logga ut användaren från din app kan den inte är tillräckliga för att rensa cookies för din app eller på annat sätt avsluta användarens session. Du måste också omdirigera användaren till Microsoft identity-plattformen slutpunkt för att logga ut. Om du inte gör det, användaren autentiseras igen till din app utan att behöva ange sina autentiseringsuppgifter igen, eftersom de inte har en giltig inloggning session med Microsoft identity-plattformen slutpunkt.
+När du vill logga ut användaren från din app räcker det inte att rensa appens cookies eller på annat sätt avsluta användarens session. Du måste också omdirigera användaren till Microsoft Identity Platform-slutpunkten för att logga ut. Om du inte gör detta autentiserar användaren om din app utan att ange sina autentiseringsuppgifter igen, eftersom de kommer att ha en giltig enkel inloggnings-session med slut punkten för Microsoft Identity Platform.
 
-Du kan omdirigera användaren till den `end_session_endpoint` som beskrivs i dokumentet för OpenID Connect metadata:
+Du kan omdirigera användaren till `end_session_endpoint` listan i OpenID Connect metadata-dokumentet:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
@@ -203,22 +203,22 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter | Tillstånd | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Rekommenderas | Den URL som användaren omdirigeras till när du har loggat ut. Om parametern inte är inkluderat visas användaren ett allmänt meddelande som genereras av Microsoft identity-plattformen slutpunkten. Den här URL: en måste matcha en av omdirigerings-URI: er som har registrerats för ditt program i portalen för registrering av appen. |
+| `post_logout_redirect_uri` | Rekommenderas | URL: en som användaren omdirigeras till efter att den har loggat ut. Om parametern inte ingår visas ett allmänt meddelande som genereras av Microsoft Identity Platform-slutpunkten. URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen. |
 
 ## <a name="single-sign-out"></a>Enkel utloggning
 
-När du omdirigerar användaren till den `end_session_endpoint`, Microsoft identity-plattformen endpoint tar bort användarens session i webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Microsoft-konton för autentisering. Aktivera programmen för att logga in användaren ut samtidigt, Microsoft identity-plattformen slutpunkt skickar en HTTP GET-begäran till det registrerade `LogoutUrl` över alla program som användaren för närvarande är inloggad på. Program måste svara på den här begäran genom att avmarkera alla sessioner som identifierar användaren och returnera en `200` svar. Om du vill stödja enkel utloggning i ditt program måste du implementera, till exempel en `LogoutUrl` i programkoden. Du kan ange den `LogoutUrl` från portalen för registrering av appen.
+När du omdirigerar användaren till `end_session_endpoint`, rensar Microsoft Identity Platform-slutpunkten användarens session från webbläsaren. Användaren kan dock fortfarande vara inloggad i andra program som använder Microsoft-konton för autentisering. Om du vill att dessa program ska kunna signera användaren samtidigt skickar Microsoft Identity Platform-slutpunkten en HTTP GET-begäran `LogoutUrl` till registrerade för alla program som användaren är inloggad på. Program måste svara på den här begäran genom att rensa alla sessioner som identifierar användaren och returnera `200` ett svar. Om du vill stödja enkel utloggning i ditt program måste du implementera en `LogoutUrl` sådan i din program kod. Du kan ställa in `LogoutUrl` från registrerings portalen för appen.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Protokollet diagram: Åtkomst tokenförvärv
+## <a name="protocol-diagram-access-token-acquisition"></a>Protokoll diagram: Hämtning av åtkomst-token
 
-Många webbprogram måste du inte bara registrera användaren i, men också att få åtkomst till en webbtjänst för användarens räkning genom att använda OAuth. Det här scenariot kombinerar OpenID Connect för autentisering av användare vid hämtning av en auktoriseringskod som du kan använda för att få åtkomst-token om du använder OAuth-auktoriseringskodflöde samtidigt.
+Många webbappar behöver inte bara signera användaren i, utan även för att få åtkomst till en webb tjänst för användarens räkning genom att använda OAuth. I det här scenariot kombineras OpenID-anslutningar för användarautentisering samtidigt som du får en auktoriseringskod som du kan använda för att hämta åtkomsttoken om du använder OAuth Authorization Code Flow.
 
-Fullständig OpenID Connect-inloggningen och token förvärv flödet ser ut ungefär så i nästa diagram. Vi beskriver varje steg i detalj i nästa avsnitt av artikeln.
+Det fullständiga OpenID Connect-flödet för inloggning och hämtning av token ser ut ungefär som i nästa diagram. Vi beskriver varje steg i detalj i nästa avsnitt av artikeln.
 
-![OpenID Connect-protokoll: Tokenförvärv](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
+![OpenID Connect-protokoll: Hämtning av token](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
-## <a name="get-access-tokens"></a>Få åtkomst-token
-Ändra inloggning-begäran för att hämta åtkomsttoken:
+## <a name="get-access-tokens"></a>Hämta åtkomsttoken
+Om du vill hämta åtkomsttoken ändrar du inloggnings förfrågan:
 
 ```
 // Line breaks are for legibility only.
@@ -236,14 +236,14 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren omdirigeras till `https://localhost/myapp/`, med ett ID-token och koden i adressfältet. Observera att denna begäran använder `response_mode=fragment` endast i demonstrationssyfte. Vi rekommenderar att du använder `response_mode=form_post`.
+> Klicka på följande länk för att utföra den här begäran. När du har loggat in omdirigeras webbläsaren till `https://localhost/myapp/`med en ID-token och en kod i adress fältet. Observera att denna begäran endast `response_mode=fragment` använder i demonstrations syfte. Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-Genom att inkludera behörighetsomfattningar i begäran och med hjälp av `response_type=id_token code`, Microsoft identity-plattformen endpoint garanterar att användaren har samtyckt till behörigheterna som anges i den `scope` frågeparameter. Returnerar en auktoriseringskod till din app till exchange för en åtkomsttoken.
+Genom att inkludera behörighets omfång i begäran och genom att `response_type=id_token code`använda, säkerställer Microsoft Identity Platform-slutpunkten att användaren har godkänt de behörigheter som anges `scope` i Frågeparametern. Den returnerar en auktoriseringskod till din app för utbyte av en åtkomsttoken.
 
 ### <a name="successful-response"></a>Lyckat svar
 
-Ett lyckat svar från att använda `response_mode=form_post` ser ut så här:
+Ett lyckat svar från `response_mode=form_post` att använda ser ut så här:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -255,13 +255,13 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `id_token` | ID-token som appen har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. Du hittar mer information om ID-token och deras innehåll i den [ `id_tokens` referens](id-tokens.md). |
-| `code` | Auktoriseringskod som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. En auktoriseringskod är tillfällig. Vanligtvis en auktoriseringskod upphör att gälla om ungefär 10 minuter. |
-| `state` | Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
+| `id_token` | Den ID-token som appen begärde. Du kan använda ID-token för att verifiera användarens identitet och påbörja en session med användaren. Du hittar mer information om ID-tokens och deras innehåll i [ `id_tokens` referensen](id-tokens.md). |
+| `code` | Den auktoriseringskod som appen begärde. Appen kan använda auktoriseringskod för att begära en åtkomsttoken för mål resursen. En auktoriseringskod är kort livs längd. Normalt går en auktoriseringskod ut om 10 minuter. |
+| `state` | Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Appen bör kontrol lera att tillstånds värden i begäran och svaret är identiska. |
 
-### <a name="error-response"></a>Felsvar
+### <a name="error-response"></a>Fel svar
 
-Felsvar kan även skickas till omdirigeringen-URI så att appen kan hantera dem på rätt sätt. Ett felsvar ser ut så här:
+Fel svar kan också skickas till omdirigerings-URI: n så att appen kan hantera dem på rätt sätt. Ett fel svar ser ut så här:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -273,9 +273,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `error` | En felkodsträngen som du kan använda för att klassificera typer av fel som inträffar och reagera på fel. |
-| `error_description` | Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
+| `error` | En fel kods sträng som du kan använda för att klassificera typer av fel som inträffar och för att reagera på fel. |
+| `error_description` | Ett fel meddelande som kan hjälpa dig att identifiera rotor saken till ett autentiseringsfel. |
 
-En beskrivning av felkoder och rekommenderade klientens svar finns i [felkoder för slutpunkt-auktoriseringsfel](#error-codes-for-authorization-endpoint-errors).
+En beskrivning av möjliga fel koder och rekommenderade klient svar finns i [felkoder för slut punkts fel](#error-codes-for-authorization-endpoint-errors).
 
-När du har en auktoriseringskod och ett ID-token kan du logga in användaren och få åtkomst-token för deras räkning. Om du vill registrera användare i, måste du verifiera ID-token [exakt enligt](id-tokens.md#validating-an-id_token). Om du vill få åtkomst-token, följer du stegen som beskrivs i [OAuth code flow-dokumentation](v2-oauth2-auth-code-flow.md#request-an-access-token).
+När du har en auktoriseringskod och en ID-token kan du logga in användaren i och hämta åtkomsttoken för deras räkning. För att kunna signera användaren i måste du validera ID-token [exakt enligt beskrivningen](id-tokens.md#validating-an-id_token). Om du vill hämta åtkomsttoken följer du stegen som beskrivs i [dokumentationen för OAuth Code Flow](v2-oauth2-auth-code-flow.md#request-an-access-token).

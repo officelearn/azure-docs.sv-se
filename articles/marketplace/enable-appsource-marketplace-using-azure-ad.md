@@ -1,92 +1,92 @@
 ---
-title: Aktivera en Microsoft AppSource och Azure Marketplace lista med hjälp av Azure Active Directory | Azure
-description: Aktivera en lista typ med hjälp av Azure Active Directory i Azure Marketplace och AppSource för appen och tjänsten utgivare.
+title: Aktivera en Microsoft AppSource och Azure Marketplace-lista med Azure Active Directory | Azure
+description: Aktivera en listtyp genom att använda Azure Active Directory i Azure Marketplace och AppSource för app-och tjänst utgivare.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
-ms.openlocfilehash: 950371fd92d255ed01dfa89d5c2fcbded686a971
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443085"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876005"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource- och Marketplace-lista genom att använda Azure Active Directory
 
- Azure Active Directory (Azure AD) är en molnidentitetstjänst som möjliggör autentisering med ett Microsoft-konto. Azure AD använder vanliga ramverk. [Läs mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Azure Active Directory (Azure AD) är en moln identitets tjänst som möjliggör autentisering med en Microsoft-konto. Azure AD använder bransch standard ramverk. [Läs mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## <a name="azure-ad-benefits"></a>Fördelarna med Azure AD
+## <a name="azure-ad-benefits"></a>Fördelar med Azure AD
 
-Microsoft AppSource och Azure Marketplace-kunder använda i produkten upplevelser för att söka igenom listan kataloger. Dessa åtgärder kräver kunder att logga in på produkten. Azure AD-integrering ger följande fördelar:
+Microsoft AppSource-och Azure Marketplace-kunder använder produkt upplevelser i produkten för att söka i listan över kataloger. De här åtgärderna kräver att kunderna loggar in på produkten. Azure AD-integrering ger följande fördelar:
 
-- Snabbare engagemanget och en optimerad kundupplevelse
-- Enkel inloggning (SSO) för miljontals företagsanvändare
-- Enhetlig inloggning i program som publiceras av olika partners
-- Skalbar, plattformsöverskridande autentisering för mobila enheter och appar i molnet
+- Snabbare engagemang och en optimerad kund upplevelse
+- Enkel inloggning (SSO) för miljon tals företags användare
+- Konsekvent inloggnings upplevelse över program som publiceras av olika partners
+- Skalbar, plattforms oberoende autentisering för mobila appar och molnappar
 
 ## <a name="offers-that-require-azure-ad"></a>Erbjudanden som kräver Azure AD
 
-De olika [visa en lista över alternativ och erbjuder typer](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för AppSource och Azure Marketplace har olika krav för Azure AD-implementering. Se tabellen nedan för mer information:
+De olika [list alternativen och erbjudande typerna](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för AppSource och Azure Marketplace har olika krav för Azure AD-implementering. I följande tabell finns mer information:
 
-| **Erbjudandetyp**    | **Azure AD enkel inloggning krävs?**  |  |   |  |
+| **Erbjudande typ**    | **Krävs Azure AD SSO?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Kontakta mig | Utvärdering | Test Drive | Transaktion |
 | Virtuell dator | Gäller inte | Nej | Nej | Nej |
-| Azure-appar (mall)  | Gäller inte | Saknas | Saknas | Gäller inte |
+| Azure-appar (lösnings mal len)  | Gäller inte | Saknas | Saknas | Gäller inte |
 | Hanterade appar  | Gäller inte | Saknas | Gäller inte | Nej |
 | SaaS  | Nej | Ja | Ja | Ja |
 | Containrar  | Gäller inte | Saknas | Gäller inte | Nej |
-| Konsulttjänster  | Nej | Gäller inte | Saknas | Gäller inte |
+| Konsult tjänster  | Nej | Gäller inte | Saknas | Gäller inte |
 
-Läs mer om SaaS tekniska krav, [SaaS-program erbjuder publiceringsguide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+Mer information om tekniska krav för SaaS finns i [publicerings guiden för SaaS-program](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 ## <a name="azure-ad-integration"></a>Azure AD-integrering
 
-- Information om hur du aktiverar enkel inloggning genom att integrera Azure AD i din registrering finns i [Azure Active Directory för utvecklare]( https://aka.ms/aaddev).
-- Om du vill få information om Azure AD enkel inloggning, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Information om hur du aktiverar enkel inloggning genom att integrera Azure AD i din lista finns [Azure Active Directory för utvecklare]( https://aka.ms/aaddev).
+- Information om enkel inloggning med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="enable-a-trial-listing"></a>Aktivera en utvärderingsversion lista
+## <a name="enable-a-trial-listing"></a>Aktivera en utvärderings lista
 
-Automatiserad kundens inställningar kan öka sannolikheten för konvertering. När kunden väljer din utvärderingsversion registrering och omdirigeras till din utvärderingsmiljö kan konfigurera du kunden direkt utan att kräva ytterligare logga in-åtgärder.
+Automatiserad kund konfiguration kan öka sannolikheten för konvertering. När kunden väljer utvärderings listan och omdirigeras till din utvärderings miljö kan du ställa in kunden direkt utan att behöva ytterligare inloggnings steg.
 
-Under autentiseringen skickar en token till din app eller ett erbjudande i Azure AD. Användarinformation från token används för att skapa ett användarkonto i din app eller erbjudandet. Mer information finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Under autentiseringen skickar Azure AD en token till appen eller erbjudandet. Med hjälp av användar informationen från token kan du skapa ett användar konto i din app eller ett erbjudande. Läs mer i exempel- [token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-När du använder Azure AD för att aktivera ett klick i din app eller en utvärderingsversion lista du:
+När du använder Azure AD för att aktivera autentisering med ett klick i appen eller utvärderings listan kan du:
 
-- Effektivisera kundupplevelsen från Marketplace till din utvärderingsversion notering.
-- Underhålla känslan av en i produkten upplevelse även om användaren omdirigeras till din domän- eller utvärderingsversion från Marketplace.
-- Minska sannolikheten för nedläggning när användare omdirigeras eftersom det finns inga ytterligare åtgärder logga in.
-- Minska distribution hinder för stora befolkningen i Azure AD-användare.
+- Effektivisera kund upplevelsen från Marketplace till din utvärderings lista.
+- Upprätthålla en produkt upplevelse även när användaren omdirigeras från Marketplace till din domän eller utvärderings miljö.
+- Minska sannolikheten för att överges när användare omdirigeras eftersom det inte finns några ytterligare inloggnings steg.
+- Minska distributions barriärerna för den stora populationen av Azure AD-användare.
 
 ## <a name="verify-azure-ad-integration"></a>Verifiera Azure AD-integrering
 
 ### <a name="multitenant-solutions"></a>Lösningar för flera innehavare
 
-Använda Azure AD för att stödja följande åtgärder:
+Använd Azure AD för att stödja följande åtgärder:
 
-- Registrera din app i en av molnmarknadsplatsen. Visa [appregistrering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) eller [AppSource-certifiering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) för mer information.
-- Aktivera stöd för multitenancy-funktionen i Azure AD för att få en testperiod för ett klick.
+- Registrera din app på en av Marketplace-butiker. Visa [app-registrering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) eller [AppSource-certifiering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) för mer information.
+- Aktivera funktionen stöd för flera innehavare i Azure AD för att få en utvärderings version med ett klick.
 
-Om du är van vid att använda Azure AD-federerad enkel inloggning kan du göra följande:
+Gör så här om du inte har använt Azure AD federerad enkel inloggning:
 
-1. Registrera din app i Marketplace.
-1. Utveckla enkel inloggning med Azure AD med hjälp av [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) eller [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
-1. Aktivera stöd för multitenancy-funktionen i Azure AD för att tillhandahålla en utvärderingsmiljö med ett klick.
+1. Registrera din app på Marketplace.
+1. Utveckla SSO med Azure AD med hjälp av [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) eller [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Aktivera funktionen stöd för flera innehavare i Azure AD för att tillhandahålla en utvärderings version med ett klick.
 
-### <a name="single-tenant-solutions"></a>Lösningar för enstaka klientorganisationer
+### <a name="single-tenant-solutions"></a>Lösningar för enskild klient
 
-Använd Azure AD för att stöd för någon av följande åtgärder:
+Använd Azure AD för att stödja någon av följande åtgärder:
 
-- Lägga till gästanvändare i katalogen med hjälp av [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Manuellt konfigurera utvärderingar för kunder med hjälp av den **kontakta mig** publicering av alternativet.
-- Utveckla en testenhet per kund.
-- Skapa en app för flera innehavare exempel demo som använder enkel inloggning.
+- Lägg till gäst användare i din katalog med hjälp av [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Konfigurera utvärderings versioner manuellt för kunder med hjälp av publicerings alternativet **kontakta mig** .
+- Utveckla en test enhet per kund.
+- Bygg en app med flera klient exempel demonstrationer som använder SSO.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kontrollera att du har [registrerad i Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Se [så här skapar du ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) mer information om hur du skapar eller slutföra ditt erbjudande.
+- Kontrol lera att du har [registrerat dig på Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Mer information om hur du skapar eller Slutför ditt erbjudande finns i [så här skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .

@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
-ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3aa5310589101fa66fd70cc8d5449fbef80f02fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187954"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286151"
 ---
-GEO-redundant lagring (GRS) är utformad för att tillhandahålla minst 99,99999999999999% (16 9) objektshållbarhet under ett givet år genom att replikera dina data till en sekundär region som ligger hundratals mil bort från den primära regionen. Om ditt lagringskonto har GRS aktiverat, sedan dina data är beständiga även vid en fullständig regionalt strömavbrott eller en katastrof där den primära regionen inte återställas.
+Geo-redundant lagring (GRS) är utformat för att tillhandahålla minst 99.99999999999999% (16 9) objekt hållbarhet för objekt under ett år genom att replikera dina data till en sekundär region som är hundratals mil bort från den primära regionen. Om ditt lagrings konto har GRS aktiverat, är dina data varaktiga även vid ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte går att återvinna.
 
-Om du väljer för GRS har två relaterade alternativ att välja mellan:
+Om du väljer GRS har du två relaterade alternativ att välja mellan:
 
-* GRS replikerar dina data till ett annat datacenter i en sekundär region utan att data kan vara skrivskyddad om Microsoft initierar en växling från primär till sekundär region. 
-* Läsåtkomst till geografiskt redundant lagring (RA-GRS) är baserad på GRS. RA-GRS replikerar data till ett annat datacenter i en sekundär region och ger dig också möjlighet att läsa från den sekundära regionen. Du kan läsa från den sekundära regionen oavsett om Microsoft initierar en växling från primär till sekundär region med RA-GRS. 
+* GRS replikerar dina data till ett annat data Center i en sekundär region, men dessa data är tillgängliga för läsning endast om Microsoft initierar en redundansväxling från den primära till den sekundära regionen. 
+* Geo-redundant lagring med Läs behörighet (RA-GRS) baseras på GRS. RA-GRS replikerar dina data till ett annat data Center i en sekundär region och ger dig även möjlighet att läsa från den sekundära regionen. Med RA-GRS kan du läsa från den sekundära regionen oavsett om Microsoft initierar en redundansväxling från den primära till den sekundära regionen. 
 
-Alla data för ett lagringskonto med GRS eller RA-GRS aktiveras replikeras först med lokalt redundant lagring (LRS). En uppdatering först är allokerad till den primära platsen som replikeras med LRS. Uppdateringen replikeras sedan asynkront till den sekundära regionen som med GRS. När data skrivs till den sekundära platsen, replikeras det också på den platsen med hjälp av LRS. 
+För ett lagrings konto med GRS eller RA-GRS aktiverat replikeras alla data först med lokalt redundant lagring (LRS). En uppdatering allokeras först till den primära platsen och replikeras med hjälp av LRS. Uppdateringen replikeras sedan asynkront till den sekundära regionen med hjälp av GRS. När data skrivs till den sekundära platsen replikeras de också inom den platsen med hjälp av LRS. 
 
-Båda primära och sekundära regionerna hantera repliker i separata feldomäner och uppgraderingsdomäner i en lagringsskalningsenhet. Skala lagringsenheten är grundläggande kvarhållningsenheten inom datacentret. Replikering på den här nivån kommer från LRS; Mer information finns i [lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
+Både den primära och sekundära regionen hanterar repliker mellan olika fel domäner och uppgraderings domäner inom en lagrings skalnings enhet. Enhetens skalnings enhet är den grundläggande replikeringstjänsten i data centret. Replikering på den här nivån tillhandahålls av LRS; Mer information finns i [lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
 
-Ha de här punkterna i åtanke när du bestämmer vilket replikeringsalternativ du använder:
+Tänk på följande när du bestämmer vilket replikeringsalternativ som ska användas:
 
-* Zonredundant lagring (ZRS) ger hög tillgänglighet med synkron replikering och kan vara ett bättre alternativ för vissa scenarier än GRS eller RA-GRS. Mer information om ZRS finns i [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
-* Asynkron replikering innebär en fördröjning från den tidpunkt då data skrivs till den primära regionen till när de replikeras till den sekundära regionen. I händelse av ett regionalt haveri kan ändringar som ännu inte har replikerats till den sekundära regionen gå förlorade om dessa data inte kan återställas från den primära regionen.
-* Med GRS repliken är inte tillgängligt för Läs- eller skrivbehörighet om inte Microsoft initierar en växling till den sekundära regionen. När det gäller en redundans, du kommer har läs- och skrivåtkomst till dessa data efter växlingen har slutförts. Mer information finns i [vägledning om Haveriberedskap](../articles/storage/common/storage-disaster-recovery-guidance.md).
-* Om programmet behöver för att läsa från den sekundära regionen, aktivera RA-GRS.
+* Zone-redundant lagring (ZRS) ger hög tillgänglighet med synkron replikering och kan vara ett bättre alternativ för vissa scenarier än GRS eller RA-GRS. Mer information om ZRS finns i [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
+* Asynkron replikering innebär en fördröjning från den tid som data skrivs till den primära regionen till när den replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
+* Med GRS är repliken inte tillgänglig för Läs-eller skriv åtkomst om inte Microsoft initierar en redundansväxling till den sekundära regionen. Om det är en redundansväxling har du Läs-och skriv åtkomst till dessa data när redundansväxlingen har slutförts. Mer information finns i [rikt linjerna för haveri beredskap](../articles/storage/common/storage-disaster-recovery-guidance.md).
+* Om ditt program behöver läsa från den sekundära regionen aktiverar du RA-GRS.

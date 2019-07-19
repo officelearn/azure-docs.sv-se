@@ -1,6 +1,6 @@
 ---
-title: Enhetstestning tillståndskänsliga tjänster i Azure Service Fabric | Microsoft Docs
-description: Läs mer om de begreppen och teknikerna för Enhetstestning tillståndskänslig Service Fabric-tjänster.
+title: Enhets testning tillstånds känsliga tjänster i Azure Service Fabric | Microsoft Docs
+description: Lär dig mer om begreppen och metoderna för enhets testning Service Fabric tillstånds känsliga tjänster.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595497"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249269"
 ---
-# <a name="unit-testing-stateful-services-in-service-fabric"></a>Enhetstestning tillståndskänsliga tjänster i Service Fabric
+# <a name="unit-testing-stateful-services-in-service-fabric"></a>Enhets testning tillstånds känsliga tjänster i Service Fabric
 
-Den här artikeln beskriver de begreppen och teknikerna för Enhetstestning tillståndskänslig Service Fabric-tjänster. Enhetstestning i Service Fabric ska ha egna överväganden på att programkoden körs aktivt under flera olika kontexter. Den här artikeln beskrivs de metoder som används för att se till att programkoden är täcks av var och en av de olika kontexterna som den kan köras.
+Den här artikeln beskriver begreppen och metoderna för enhets testning Service Fabric tillstånds känsliga tjänster. Enhets testning inom Service Fabric förtjänar egna överväganden på grund av det faktum att program koden körs aktivt under flera olika kontexter. I den här artikeln beskrivs de metoder som används för att säkerställa att program koden omfattas av de olika kontexterna som den kan köra.
 
-## <a name="unit-testing-and-mocking"></a>Enhet testning och simulerade
-Enhetstestning i kontexten för den här artikeln är automatiserad testning som kan utföras inom ramen för en testaren, till exempel MSTest eller NUnit. Enhetstester i den här artikeln utför inte åtgärder mot en fjärransluten resurs, till exempel en databas eller en RESTFul-API. Vara bör mockade dessa fjärranslutna resurser. Simulerade i kontexten för den här artikeln falska, post, och styra för fjärranslutna resurser.
+## <a name="unit-testing-and-mocking"></a>Enhets testning och skisser
+Enhets testning i samband med den här artikeln är automatiserad testning som kan utföras inom ramen för en testlöpare, till exempel MSTest eller NUnit. Enhets testerna i den här artikeln utför inte åtgärder mot en fjär resurs, till exempel en databas eller RESTFul-API. Dessa fjär resurser bör vara fördelade. Att modellera i samband med den här artikeln kommer att falska, registrera och kontrol lera retur värden för fjär resurser.
 
-### <a name="service-fabric-considerations"></a>Service Fabric-överväganden
-En tillståndskänslig Service Fabric-tjänst för Enhetstestning har flera saker. Det första körs kod som på flera noder, men i olika roller. Enhetstester bör utvärdera koden under varje roll för att få fullständig täckning. De olika rollerna är primär, aktiva sekundära, inaktiv sekundär och okänd. Ingen roll vanligtvis behöver inte några särskilda täckning som Service Fabric tar hänsyn till den här rollen är ogiltigt eller null-tjänsten. Gå sedan ändras varje nod dess roll vid en given tidpunkt. För att uppnå fullständig täckning bör koden körning sökväg testas med rollen ändringar äger rum.
+### <a name="service-fabric-considerations"></a>Service Fabric överväganden
+Enhets testning av en Service Fabric tillstånds känslig tjänst har flera överväganden. För det första körs Service koden på flera noder, men under olika roller. Enhets tester bör utvärdera koden under varje roll för att uppnå fullständig täckning. De olika rollerna skulle vara primära, aktiva sekundär, inaktiv sekundär och okänd. Ingen av rollerna behöver vanligt vis någon speciell täckning eftersom Service Fabric anser att den här rollen inte är void-eller null-tjänst. För det andra kommer varje nod att ändra sin roll vid en viss tidpunkt. För att uppnå fullständig täckning ska kod körningens sökväg testas med roll ändringar som inträffar.
 
-## <a name="why-unit-test-stateful-services"></a>Varför enhetstestar tillståndskänsliga tjänster? 
-Enhetstestning tillståndskänsliga tjänster kan bidra till att avslöja vanliga misstag som görs som inte skulle nödvändigtvis fångas upp av konventionella program eller domänspecifika Enhetstestning. Till exempel om den tillståndskänsliga tjänsten har några InMemory-tillstånd, kan den här typen av testning Kontrollera att det här tillståndet i minnet hålls synkroniserade över varje replik. Den här typen av testning kan också kontrollera att en tillståndskänslig tjänst svarar på annulleringstoken som skickas av Service Fabric-orchestration på rätt sätt. När avbokningar utlöses ska tjänsten stoppa länge körs och/eller asynkrona åtgärder.  
+## <a name="why-unit-test-stateful-services"></a>Varför enhets test tillstånds känsliga tjänster? 
+Enhets testning tillstånds känsliga tjänster kan hjälpa dig att få en del vanliga misstag som inte behöver fångas upp av konventionell program-eller domänbaserad enhets testning. Om till exempel den tillstånds känsliga tjänsten har ett minnes intern tillstånd, kan den här typen av testning verifiera att det här InMemory-läget hålls synkroniserat över varje replik. Den här typen av testning kan också kontrol lera att en tillstånds känslig tjänst svarar på avbrutna token som skickas i Service Fabric Orchestration på lämpligt sätt. När annulleringar utlöses bör tjänsten stoppa alla tids krävande och/eller asynkrona åtgärder.  
 
 ## <a name="common-practices"></a>Vanliga metoder
 
-Följande avsnitt om de vanligaste metoderna för en tillståndskänslig tjänst för Enhetstestning. Även om vad ett simulerade lager måste ha för att justera nära till Service Fabric orchestration och tillståndshantering finns. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) från och med 3.3.0 eller senare är ett bibliotek som tillhandahåller simulerade funktionen rekommenderas och följer de metoder som beskrivs nedan.
+I följande avsnitt beskrivs de vanligaste metoderna för enhets testning av en tillstånds känslig tjänst. Den aviserar även vad ett modell lager måste ha för att anpassa sig till Service Fabric dirigering och tillstånds hantering. [ServiceFabric. skisser](https://www.nuget.org/packages/ServiceFabric.Mocks/) från och med 3.3.0 eller senare är ett bibliotek som tillhandahåller de skiss funktioner som rekommenderas och följer de metoder som beskrivs nedan.
 
-### <a name="arrangement"></a>Placering
+### <a name="arrangement"></a>Märke
 
-#### <a name="use-multiple-service-instances"></a>Använda flera instanser av tjänsten
-Enhetstester bör köra flera instanser av en tillståndskänslig tjänst. Det här simulerar vad som faktiskt händer på klustret där Service Fabric tillhandahåller flera repliker som kör tjänsten på olika noder. Var och en av dessa instanser ska köra under en annan kontext men. När du kör testet bör en förbereder sig av varje instans med rollkonfigurationen som förväntat på klustret. Om tjänsten förväntas ha Målstorlek replik 3, skulle Service Fabric etablera tre repliker på olika noder. Varav som den primära servern och de andra två som aktiv sekundär.
+#### <a name="use-multiple-service-instances"></a>Använd flera tjänst instanser
+Enhets test bör köra flera instanser av en tillstånds känslig tjänst. Detta simulerar vad som faktiskt händer i klustret där Service Fabric etablerar flera repliker som kör tjänsten på olika noder. Var och en av instanserna körs under en annan kontext. När du kör testet bör varje instans definieras med den roll konfiguration som förväntas i klustret. Om tjänsten till exempel förväntas ha mål replik storleken 3, etablerar Service Fabric tre repliker på olika noder. En som är primär och de andra två som är aktiva som sekundär.
 
-I de flesta fall kan varierar tjänsten körningssökvägen något för var och en av dessa roller. Om tjänsten inte ska acceptera begäranden från en aktiv sekundär, kan tjänsten ha en kontroll för det här ärendet utlöser tillbaka ett informativa undantag som anger att en begäran gjordes på en sekundär. Att ha flera instanser kan den här situationen som ska testas.
+I de flesta fall kan tjänstens körnings Sök väg variera något för var och en av dessa roller. Om tjänsten t. ex. inte accepterar begär Anden från en aktiv sekundär, kan tjänsten ha en kontroll för det här ärendet för att återställa ett informativt undantag som anger att en begäran har gjorts på en sekundär. Om du har flera instanser kan den här situationen testas.
 
-Dessutom kan har flera instanser testerna för att växla rollerna för var och en av dessa instanser för att verifiera svar är konsekvent trots rollen ändringarna.
+Om du dessutom har flera instanser kan testerna växla rollerna för var och en av dessa instanser för att kontrol lera att svaren är konsekventa trots att rollen ändras.
 
-#### <a name="mock-the-state-manager"></a>Simulera tillstånd manager
-State Manager ska behandlas som en fjärransluten resurs och därför mockade. När simulerade tillstånd manager, måste det finnas vissa underliggande InMemory-lagring för att spåra vad som sparas i hanteraren för tillstånd så att den kan läsas och verifierats. Ett enkelt sätt att uppnå detta är att skapa fingerad instanser för var och en av typerna av tillförlitliga samlingar. Använda en datatyp som stämmer överens med de åtgärder som utförs mot samlingen inom dessa mocks. Här följer några förslag datatyper för varje tillförlitlig samling
+#### <a name="mock-the-state-manager"></a>Modellera tillstånds chefen
+Tillstånds hanteraren bör behandlas som en fjär resurs och därför modelleras. När du modellerar tillstånds hanteraren måste det finnas en underliggande minnes lagring för att spåra vad som sparas i tillstånds hanteraren så att det kan läsas och verifieras. Ett enkelt sätt att åstadkomma detta är att skapa blå instanser av var och en av typerna av pålitliga samlingar. I dessa modeller använder du en datatyp som stämmer med de åtgärder som utförs mot den samlingen. Följande är några föreslagna data typer för varje tillförlitlig samling
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T >-> system. Collections. Generic\<. Queue t >
+- IReliableConcurrentQueue\<t >-> system. Collections. samtidig.\<ConcurrentQueue T >
 
-#### <a name="many-state-manager-instances-single-storage"></a>Många tillstånd Manager instanser, enskild lagring
-Som tidigare nämnts, ska State Manager och Reliable Collections behandlas som en fjärransluten resurs. Därför bör dessa resurser och kommer mockade inom enhetstesterna. När du kör flera instanser av en tillståndskänslig tjänst ska det vara en utmaning att synkronisera varje simulerat tillståndshanterare över olika tillståndskänslig tjänstinstanser. När den tillståndskänsliga tjänsten körs på klustret, hand Service Fabric tar om att hålla tillståndshanterare för varje sekundär replik konsekvent med den primära repliken. Därför bör testerna fungerar på samma sätt så att de kan simulera rollen ändringar.
+#### <a name="many-state-manager-instances-single-storage"></a>Många tillstånds hanterarens instanser, enkel lagring
+Som nämnts tidigare bör tillstånds hanteraren och pålitliga samlingar behandlas som en fjär resurs. Dessa resurser bör därför vara och de kommer att bli blå inom enhets testen. Men när du kör flera instanser av en tillstånds känslig tjänst är det en utmaning att hålla alla modellerade tillstånds hanterare synkroniserade över olika tillstånds känsliga tjänst instanser. När den tillstånds känsliga tjänsten körs på klustret tar Service Fabric hand om att hålla varje sekundär repliks tillstånds hanterare konsekvent med den primära repliken. Därför bör testerna beter sig på samma sätt så att de kan simulera roll ändringar.
 
-Ett enkelt sätt som den här synkroniseringen kan uppnås, är att använda ett singleton-mönster för det underliggande objektet som lagrar data som skrivs till varje tillförlitlig samling. Exempel: om en tillståndskänslig tjänst använder ett `IReliableDictionary<string, string>`. Fingerad tillståndshanterare ska returnera ett utkast av `IReliableDictionary<string, string>`. Den utkast kan använda en `ConcurrentDictionary<string, string>` att hålla reda på nyckel/värde-par som skrivits. Den `ConcurrentDictionary<string, string>` ska en Singleton-instans som används av alla instanser av tillstånd chefer skickas till tjänsten.
+Ett enkelt sätt att utföra den här synkroniseringen kan vara att använda ett singleton-mönster för det underliggande objektet som lagrar data som skrivits till varje tillförlitlig samling. Till exempel om en tillstånds känslig tjänst använder en `IReliableDictionary<string, string>`. Den modellerande tillstånds hanteraren ska returnera en `IReliableDictionary<string, string>`skiss av. Den här skissen kan `ConcurrentDictionary<string, string>` använda en för att hålla reda på nyckel/värde-par som skrivits. `ConcurrentDictionary<string, string>` Ska vara en singleton som används av alla instanser av tillstånds hanterare som skickas till tjänsten.
 
-#### <a name="keep-track-of-cancellation-tokens"></a>Håll koll på annulleringstoken
-Annulleringstoken är ett viktigt ännu ofta förbises aspekt av tillståndskänsliga tjänster. När Service Fabric startar en primär replik för en tillståndskänslig tjänst tillhandahålls en annullering-token. Den här annullering token är avsedd att skicka en signal till tjänsten när den tas bort eller nedgraderas till en annan roll. Den tillståndskänsliga tjänsten ska avbrytas långvarigt eller asynkrona åtgärder så att Service Fabric kan slutföra arbetsflödet för ändring av rollen.
+#### <a name="keep-track-of-cancellation-tokens"></a>Håll koll på inställda token
+Avbrutna token är en viktig men ofta överblickad aspekt av tillstånds känsliga tjänster. När Service Fabric startar en primär replik för en tillstånds känslig tjänst tillhandahålls en avbrotts-token. Denna uppsägnings-token är avsedd att signalera till tjänsten när den tas bort eller nedgraderas till en annan roll. Den tillstånds känsliga tjänsten bör stoppa eventuella tids krävande eller asynkrona åtgärder så att Service Fabric kan slutföra arbets flödet för roll ändringar.
 
-När du kör enheten testar alla annulleringstoken som angetts för RunAsync, bör ChangeRoleAsync och OpenAsync CloseAsync behållas när testet körs. Vägen till dessa token kan testa att simulera en avstängning av tjänst eller degradering och verifiera tjänsten svarar på rätt sätt.
+När du kör enhets testerna ska alla avbrutna token som anges för RunAsync, ChangeRoleAsync, openAsync och CloseAsync hållas kvar under test körningen. Om du använder dessa token kan testet simulera en tjänst avstängning eller degradering och kontrol lera att tjänsten svarar på rätt sätt.
 
-#### <a name="test-end-to-end-with-mocked-remote-resources"></a>Testa slutpunkt till slutpunkt med simulerat fjärranslutna resurser
-Enhetstester ska utföras så mycket av den programkod som kan ändra tillståndet för den tillståndskänsliga tjänsten som möjligt. Du rekommenderas att testerna ska vara mer-slutpunkt till sin natur. De enda mocks som finns är att registrera, simulera och/eller verifiera fjärresursen interaktioner. Detta inkluderar interaktion med State Manager och tillförlitliga samlingar. Följande fragment är ett exempel på gherkin för ett test som visar slutpunkt till slutpunkt testning:
+#### <a name="test-end-to-end-with-mocked-remote-resources"></a>Testa slut punkt till slut punkt med modellerade fjär resurser
+Enhets test bör köras så mycket som möjligt av program koden som kan ändra statusen för den tillstånds känsliga tjänsten som möjligt. Vi rekommenderar att testerna är mer heltäckande. De enda skisser som finns är att registrera, simulera och/eller verifiera Fjärran slutna resurs interaktioner. Detta inkluderar interaktioner med tillstånds hanteraren och pålitliga samlingar. Följande kodfragment är ett exempel på Gherkin för ett test som visar testning från slut punkt till slut punkt:
 
 ```
     Given stateful service named "fabric:/MyApp/MyService" is created
@@ -79,48 +79,48 @@ Enhetstester ska utföras så mycket av den programkod som kan ändra tillstånd
     Then the request should should return the "John Smith" employee
 ```
 
-Det här testet kontrollerar att de data som inhämtas på en replik är tillgänglig för en sekundär replik när det befordras till primär. Om vi antar att en tillförlitlig samling är lagringsenheten för data som anställda, är Aa potentiella fel som kan fångas upp med det här testet om programkoden inte kördes `CommitAsync` för transaktionen att spara den nya medarbetaren. I så fall returneras inte andra förfrågan om att hämta anställda medarbetare har lagts till av den första begäran.
+Det här testet kontrollerar att data som fångas på en replik är tillgängliga för en sekundär replik när de befordras till primär. Om vi antar att en tillförlitlig samling är lagrings platsen för de anställdas data, kan ett potentiellt fel som kan fångas upp med det här testet vara om program koden `CommitAsync` inte kördes på transaktionen för att spara den nya medarbetaren. I så fall skulle den andra begäran att hämta medarbetare inte returnera medarbetare som lagts till av den första begäran.
 
-### <a name="acting"></a>Fungerar
-#### <a name="mimic-service-fabric-replica-orchestration"></a>Efterlikna orchestration för Service Fabric-replik
-När du hanterar flera instanser av tjänsten, ska testerna initiera och plocka ner dessa tjänster på samma sätt som för Service Fabric-samordning. Till exempel anropa Service Fabric CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync och RunAsync när en tjänst har skapats på en ny primär replik. Livscykelhändelser finns dokumenterade i följande artiklar:
+### <a name="acting"></a>Reagera
+#### <a name="mimic-service-fabric-replica-orchestration"></a>Imitera Service Fabric replik dirigering
+Vid hantering av flera tjänst instanser bör testerna initiera och riva av dessa tjänster på samma sätt som Service Fabric-dirigering. När en tjänst till exempel skapas på en ny primär replik, kommer Service Fabric att anropa CreateServiceReplicaListener, openAsync, ChangeRoleAsync och RunAsync. Livs cykel händelser dokumenteras i följande artiklar:
 
-- [Tillståndskänsliga tjänsten startades](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Avstängning av tillståndskänslig tjänst](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Tillståndskänslig tjänst primära växlingar](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Start av tillstånds känslig tjänst](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Avstängning av tillstånds känslig tjänst](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Primär växlingar för tillstånds känslig tjänst](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
-#### <a name="run-replica-role-changes"></a>Kör repliken rollen ändringar
-Enhetstesterna bör ändra rollerna för tjänstinstanser på samma sätt som Service Fabric-orkestrering. Rollen tillståndsdator dokumenteras i följande artikel:
+#### <a name="run-replica-role-changes"></a>Kör ändringar av replik rollen
+Enhets testen bör ändra rollerna för tjänst instanserna på samma sätt som Service Fabric Orchestration. Roll tillstånds datorn dokumenteras i följande artikel:
 
-[Repliken rollen tillståndsdator](service-fabric-concepts-replica-lifecycle.md#replica-role)
+[Dator för replik roll tillstånd](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
-Simulera rollen ändringar är en av de mer kritiska aspekterna för testning och kan avslöja problem där den replikens tillstånd inte stämmer överens med varandra. Inkonsekvent replik tillstånd kan inträffa på grund av att lagra InMemory-tillstånd i statiska eller klass instans av servicenivå variabler. Exempel på detta kan vara annulleringstoken, uppräkningar och objekt/konfigurationsvärden. Detta säkerställer också att tjänsten är respekterar annulleringstoken som angavs under RunAsync att tillåta rolländringen ska ske. Simulera rollen ändringar kan också avslöja problem som kan uppstå om koden inte är skriven så att en körning av RunAsync flera gånger.
+Att simulera roll ändringar är en av de mer kritiska aspekterna av testning och kan få problem om replikens status inte stämmer överens med varandra. Inkonsekvent replik status kan uppstå på grund av lagrings tillstånd i minnet på statiska eller på klass nivå av instans-variabler. Exempel på detta kan vara avbrutna token, uppräkningar och konfigurations objekt/värden. Detta säkerställer också att tjänsten respekterar de token för uppsägning som anges under RunAsync så att roll ändringen kan utföras. Att simulera roll ändringar kan också få problem som kan uppstå om kod inte skrivs för att tillåta ett anrop av RunAsync flera gånger.
 
-#### <a name="cancel-cancellation-tokens"></a>Avbryt annulleringstoken
-Det ska finnas enhetstester där annullering token som angavs i RunAsync har avbrutits. Detta gör att test för att verifiera att tjänsten gradvis stängs av. Under den här Stäng långvarigt eller asynkrona åtgärder ska stoppas. Exempel på en tidskrävande process som kan finnas på en tjänst är en som lyssnar efter meddelanden i en tillförlitlig kö. Det kan finnas samtidigt direkt i RunAsync eller en bakgrundstråd. Implementeringen bör innehålla logik för att avsluta åtgärden om denna token för uppsägningen av prenumerationen har avbrutits.
+#### <a name="cancel-cancellation-tokens"></a>Avbryt token för annullering
+Det bör finnas enhets test där token för annullering som tillhandahölls till RunAsync avbryts. Detta gör att testet kan verifiera att tjänsten stängs av på ett smidigt sätt. Under den här avstängningen ska alla tids krävande eller asynkrona åtgärder stoppas. Exempel på en tids krävande process som kan finnas på en tjänst är en som lyssnar efter meddelanden i en tillförlitlig kö. Detta kan förekomma direkt i RunAsync eller en bakgrunds tråd. Implementeringen bör innehålla logik för att avsluta åtgärden om denna token för annullering avbryts.
 
-Om den tillståndskänsliga tjänster gör använder av alla cache eller InMemory-läge som endast ska finnas på primärt, bör tas bort just nu. Detta är att säkerställa att det här tillståndet är konsekvent om noden blir en primär igen senare. Annulleringen testning kan test för att verifiera det här tillståndet har tagits bort korrekt.
+Om tillstånds känsliga tjänster använder ett cacheminne eller minnes intern status som bara ska finnas på den primära, ska den tas bort för tillfället. Detta görs för att säkerställa att det här läget är konsekvent om noden blir primär igen senare. När du avbryter testet kan testet verifiera att det här läget har tagits bort korrekt.
 
-#### <a name="execute-requests-against-multiple-replicas"></a>Köra begäranden mot flera repliker
-Assert test bör köra samma begäran mot olika repliken. Tillsammans med rollen ändringar, kan problem vara utan åtgärd. Ett exempel test kan utföra följande steg:
-1. Köra en skrivbegäran mot den aktuella primärt
-2. Köra en läsbegäran som returnerar de data som skrivits i steg 1 mot aktuella primära
-3. Uppgradera en sekundär till primär. Det bör också degradera den aktuella primärt till sekundära
-4. Kör samma läsbegäran från steg 2 mot den nya sekundärt.
+#### <a name="execute-requests-against-multiple-replicas"></a>Köra förfrågningar mot flera repliker
+Assert-tester bör utföra samma begäran mot olika repliker. När de kombineras med roll ändringar kan konsekvens problem uppstå. Ett exempel test kan utföra följande steg:
+1. Kör en Skriv förfrågan mot den aktuella primära
+2. Kör en Read-begäran som returnerar de data som skrevs i steg 1 mot den aktuella primära
+3. Befordra en sekundär till primär. Detta bör också nedgradera den aktuella primära till den sekundära
+4. Kör samma läsbegäran från steg 2 mot den nya sekundära.
 
-I det sista steget, kan testet assert de data som returneras är konsekvent. Ett potentiellt problem som detta kan avslöja är att data som returneras av tjänsten kan vara i minne men slutligen uppbackat av en tillförlitlig samling. Dessa data i minnet kan inte hållas synkroniserade med vad finns i samlingen tillförlitlig.
+I det sista steget kan testet kontrol lera att de data som returneras är konsekventa. Ett potentiellt problem som detta kan medföra är att data som returneras av tjänsten kan finnas i minnet men som i slut ändas av en tillförlitlig samling. Att InMemory-data kanske inte synkroniseras korrekt med vad som finns i den tillförlitliga samlingen.
 
-Minnesinterna data används vanligtvis för att skapa sekundärindex eller sammanställning av data som finns i en tillförlitlig samling.
+Minnes intern data används vanligt vis för att skapa sekundära index eller agg regeringar av data som finns i en tillförlitlig samling.
 
-### <a name="asserting"></a>Bevisar
-#### <a name="ensure-responses-match-across-replicas"></a>Kontrollera svar matchar mellan repliker
-Enhetstester bör assert att ett svar för en viss begäran är konsekvent över flera kopior när de övergång till primär. Detta kan ge sämre där data i svaret inte är antingen backas upp av en tillförlitlig samling eller i minnet utan en mekanism för att synkronisera data mellan repliker. Se till att tjänsten skickar tillbaka konsekvent svar när Service Fabric balanserar eller växlar över till en ny primär replik.
+### <a name="asserting"></a>Garanterar
+#### <a name="ensure-responses-match-across-replicas"></a>Se till att svaren matchar alla repliker
+Enhets test bör kontrol lera att ett svar för en specifik begäran är konsekvent över flera repliker efter över gången till primär. Detta kan medföra potentiella problem där data som anges i svaret inte backas upp av en tillförlitlig samling eller hålls i minnet utan en mekanism för att synkronisera data mellan repliker. På så sätt kan du se till att tjänsten skickar tillbaka konsekventa svar när Service Fabric balanseringar eller växlar över till en ny primär replik.
 
-#### <a name="verify-service-respects-cancellation"></a>Kontrollera tjänsten värnar om annullering
-Långvariga eller asynkron processer som ska avbrytas när en token för uppsägningen av prenumerationen har avbrutits bör verifieras att de faktiskt avslutas efter att prenumerationen avslutas. Det säkerställer att trots repliken byter roll, processer som inte är avsedda att hålla igång på icke-primär replik avbrytas innan övergången är klar. Detta kan också avslöja problem där sådan process blockerar begäran om ändring eller stänga av en roll från Service Fabric från att slutföras.
+#### <a name="verify-service-respects-cancellation"></a>Kontrol lera att tjänsten respekterar uppsägning
+Långvariga eller asynkrona processer som ska avslutas när en token för annullering avbryts bör verifieras att de faktiskt avbröts efter annullering. Detta säkerställer att trots att replikerna byter roll, att processer som inte är avsedda att fortsätta att köras på icke-primära repliker stoppas innan över gången har slutförts. Detta kan också få problem om en sådan process blockerar en roll ändrings-eller avslutnings förfrågan från Service Fabric att slutföras.
 
-#### <a name="verify-which-replicas-should-serve-requests"></a>Kontrollera vilka repliker ska betjäna begäranden
-Testerna bör assert förväntat beteende om en begäran dirigeras till en icke-primär replik. Service Fabric ger möjlighet att ha sekundära repliker betjäna begäranden. Skrivningar till tillförlitliga samlingar kan endast uppstå från den primära repliken. Om ditt program har för avsikt för endast primära repliker att hantera begäranden eller endast en delmängd av begäranden kan hanteras av en sekundär, bör testerna assert förväntat beteende för både positiva och negativa fall. Negativt om att en begäran dirigeras till en replik som inte ska hantera begäran och vilka positiva som motsatsen.
+#### <a name="verify-which-replicas-should-serve-requests"></a>Verifiera vilka repliker som ska betjäna begär Anden
+Testerna bör försäkrar det förväntade beteendet om en begäran dirigeras till en icke-primär replik. Service Fabric ger möjlighet att använda sekundära repliker för att betjäna begär Anden. Skrivningar till pålitliga samlingar kan dock bara ske från den primära repliken. Om ditt program endast avser primära repliker för att hantera begär Anden eller, kan endast en delmängd av förfrågningar hanteras av en sekundär, och testerna bör påverka det förväntade beteendet för både positiva och negativa fall. Det negativa fallet dirigeras till en replik som inte ska hantera begäran och det positiva är tvärtom.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [enhet test tillståndskänsliga tjänster](service-fabric-how-to-unit-test-stateful-services.md).
+Lär dig hur du bevarar [test tillstånds känsliga tjänster](service-fabric-how-to-unit-test-stateful-services.md).

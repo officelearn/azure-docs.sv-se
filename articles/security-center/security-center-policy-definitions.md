@@ -1,6 +1,6 @@
 ---
-title: Azure principdefinitioner som övervakas i Azure Security Center | Microsoft Docs
-description: Azure principdefinitioner som övervakas i Azure Security Center.
+title: Azure policy definitionerna övervakas i Azure Security Center | Microsoft Docs
+description: Azure policy definitionerna övervakas i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,74 +13,74 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/19/2019
-ms.author: monhaber
-ms.openlocfilehash: 25ed9cb624474d5da56d385f4e9c155918ec8eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: db7811a925846337487801a63e0f0c4584179c06
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428331"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295509"
 ---
-# <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhetsprinciper som övervakas av Security Center
-Den här artikeln innehåller en lista över Azure Policy-definitioner som du kan övervaka i Azure Security Center. Mer information om säkerhetsprinciper finns [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
+# <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhets principer övervakas av Security Center
+Den här artikeln innehåller en lista över Azure Policy definitioner som du kan övervaka i Azure Security Center. Mer information om säkerhets principer finns i [arbeta med säkerhets principer](tutorial-security-policy.md).
 
-## <a name="available-security-policies"></a>Tillgängliga säkerhetsprinciper
+## <a name="available-security-policies"></a>Tillgängliga säkerhets principer
 
-Mer om de inbyggda principer som övervakas av Security Center finns i följande tabell:
+Mer information om de inbyggda principer som övervakas av Security Center finns i följande tabell:
 
 | Princip | Vad principen gör |
 | --- | --- |
-|Diagnostikloggar i Virtual Machine Scale Sets ska aktiveras|Vi rekommenderar att du aktiverar loggar så att en aktivitet spårning är tillgänglig för undersökning efter en incident eller kompromisser.|
-|Alla regler förutom RootManageSharedAccessKey ska tas bort från namnområdet för Händelsehubben|Azure Event Hubs-klienter bör inte använda en åtkomstprincip för namnområdesnivån som ger åtkomst till alla köer och ämnen i ett namnområde. Du bör skapa åtkomstprinciper på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten så att den överensstämmer med den lägsta behörighet säkerhetsmodellen.|
-|Auktoriseringsregler för Event Hub-entitet ska definieras|Granska förekomst av auktoriseringsregler på Händelsehubbar entiteter för att bevilja åtkomst med lägsta behörighet.|
-|Åtkomst till lagringskonton med brandvägg och konfigurationer av virtuella ska vara begränsad|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera regler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Bevilja åtkomst till trafik från specifika Azure-nätverk eller till offentliga internet, IP-adress-intervall för att tillåta anslutningar från specifika internet eller lokala klienter.|
-|Granska användning av anpassade RBAC-regler|Granska inbyggda roller, som ”ägare, deltagare, läsare” i stället för anpassade rollbaserad åtkomstkontroll (RBAC) roller, som är felbenägna. Användning av anpassade roller behandlas som ett undantag och kräver omfattande granskning och hotmodellering.|
-|Diagnostikloggar i Azure Stream Analytics ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Säker överföring till storage-konton måste vara aktiverat|Granska kraven för säker överföring i ditt lagringskonto. Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten. Det skyddar också data under överföring från nätverksattacker lager, till exempel man-in-the-middle, avlyssning och sessionskapning.|
-|Azure AD-administratör för SQLServer som ska etableras|Granska etablering av en administratör för Azure Active Directory (Azure AD) för SQL Server för att aktivera Azure AD-autentisering. Azure AD-autentisering har stöd för förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|
-|Alla regler förutom RootManageSharedAccessKey ska tas bort från Service Bus-namnområde|Azure Service Bus-klienter bör inte använda en åtkomstprincip för namnområdesnivån som ger åtkomst till alla köer och ämnen i ett namnområde. Skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten så att den överensstämmer med den lägsta behörighet säkerhetsmodellen.|
-|Diagnostikloggar i Service Bus ska aktiveras|Granska aktivering av loggar och låt dem dig för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric ska anges|Service Fabric tillhandahåller tre skyddsnivåer för nod-till-nod-kommunikation som använder ett klustercertifikat för primär: Ingen, logga in och EncryptAndSign. Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt.|
-|Klientautentisering bör använda Azure Active Directory|Granska användning av klientautentisering endast via Azure AD i Service Fabric.|
-|Diagnostics-loggar i Search services ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Endast säkra anslutningar till Redis-cachen ska aktiveras|Granska aktiverar endast anslutningar via SSL till Azure Cache för Redis. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten. Det skyddar också data under överföring från nätverksattacker lager, till exempel man-in-the-middle, avlyssning och sessionskapning.|
-|Diagnostikloggar i Logic Apps ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Diagnostikloggar i Key Vault ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Diagnostikloggar i Event Hub ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Diagnostikloggar i Azure Data Lake Store ska aktiveras|Granska aktivering av loggar och låt dem upp till ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Diagnostikloggar i Data Lake Analytics ska aktiveras|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Storage-konton som ska migreras till nya AzureRM-resurser|Använda Azure Resource Manager för storage-konton för att tillhandahålla förbättringar av säkerhet. Exempel på dessa är: <br>-Starkare åtkomstkontroll (RBAC)<br>– Granskning bättre<br>– Azure Resource Manager-baserade distribution och styrning<br>-Åtkomst till hanterade identiteter<br>-Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>-Stöd för taggar och resursgrupper för enklare säkerhetshantering|
-|Virtuella datorer som ska migreras till nya AzureRM-resurser|Använda Azure Resource Manager för dina virtuella datorer för att tillhandahålla förbättringar av säkerhet.  Exempel på dessa är: <br>-Starkare åtkomstkontroll (RBAC)<br>– Granskning bättre<br>– Azure Resource Manager-baserade distribution och styrning<br>-Åtkomst till hanterade identiteter<br>-Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>-Stöd för taggar och resursgrupper för enklare säkerhetshantering|
-|Måttvarningsregler som ska konfigureras på Batch-konton|Granska konfigurationen av måttaviseringsregler på Azure Batch-konton gör nödvändiga måttet.|
-|Diagnostikloggar i Batch-konton måste vara aktiverat|Granska aktivering av loggar och hålla dem för ett år. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Kryptering måste vara aktiverad på Automation-konto variabler|Det är viktigt att aktivera kryptering av Azure Automation-konto variabler för tillgångar när du lagrar känsliga data.|
-|Diagnostikloggar i App Services ska aktiveras|Granska aktiverar diagnostikloggar i appen. Detta skapar aktivitet spår för undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Transparent datakryptering på SQL-databaser ska aktiveras|Granska status för transparent datakryptering för SQL-databaser.|
-|SQL server-granskning ska aktiveras|Granska förekomst av SQL-granskning på servernivå.|
-|\[Förhandsversion]: Övervaka okrypterade SQL-databas i Azure Security Center|Azure Security Center övervakar okrypterade SQL-servrar eller databaser som rekommenderas.|
-|\[Förhandsversion]: Övervaka ogranskad SQL-databas i Azure Security Center|Azure Security Center övervakar SQL-servrar och databaser som inte har SQL-granskning aktiverat vilket rekommenderas.|
-|\[Förhandsversion]: Systemuppdateringar bör vara installerad på dina datorer|Azure Security Center övervakar system säkerhetsuppdateringar som saknas på dina servrar, vilket rekommenderas.|
-|\[Förhandsversion]: Granska blobbkryptering som saknas för lagringskonton|Granska lagringskonton som inte använder blobbkryptering. Detta gäller endast Microsoft storage resurstyper, inte storage från andra leverantörer. Azure Security Center övervakar möjlig just-in-time-nätverksåtkomst som rekommenderas.|
-|\[Förhandsversion]: Just-In-Time-nätverksåtkomstkontroll ska tillämpas på virtuella datorer|Azure Security Center övervakar möjlig just-in-time-nätverksåtkomst som rekommenderas.|
-|\[Förhandsversion]: Anpassningsbara programkontroller måste vara aktiverad på virtuella datorer|Azure Security Center övervakar möjliga godkända programkonfiguration.|
-|\[Förhandsversion]: Saknade Nätverkssäkerhetsgrupper för virtuella datorer ska konfigureras|Azure Security Center övervakar nätverkssäkerhetsgrupper med alltför Tillåtande regler som rekommenderas.|
-|\[Förhandsversion]: Säkerhetsproblem i Säkerhetskonfiguration på dina datorer bör åtgärdas|Azure Security Center övervakar servrar som inte uppfyller grundkonfigurationen enligt rekommendationer.| 
-|\[Förhandsversion]: Endpoint protection ska installeras på virtuella datorer|Azure Security Center övervakar servrar som inte har en installerad agent för Microsoft System Center Endpoint Protection, vilket rekommenderas.|
-|\[Förhandsversion]: Diskkryptering ska tillämpas på virtuella datorer|Azure Security Center övervakar virtuella datorer som inte har aktiverat enligt rekommendationer för diskkryptering.|
-|\[Förhandsversion]: Sårbarheter som bör åtgärdas av en lösning för Sårbarhetsbedömning|Övervaka sårbarheter som identifieras av lösning för sårbarhetsbedömning och virtuella datorer som inte har en lösning för sårbarhetsbedömning i Azure Security Center enligt rekommendationer.|
-|\[Förhandsversion]: Övervaka oskyddat webbprogram i Azure Security Center|Azure Security Center ska övervaka webbprogram som saknar Brandvägg för web application enligt rekommendationer.|
-|\[Förhandsversion]: Endpoint protection-lösning bör installeras på virtuella datorer|Azure Security Center övervakar nätverks-slutpunkter som saknar nästa generations brandväggsskydd enligt rekommendationer.|
-|\[Förhandsversion]: Säkerhetsproblem på SQL-databaser bör åtgärdas|Övervaka sårbarhetsbedömning skanningsresultat och rekommenderar så åtgärda sårbarheter i databasen.|
-|\[Förhandsversion]: Högst 3 ägare bör anges för din prenumeration|Vi rekommenderar att du anger upp till tre prenumerationsägare att minska risken för intrång genom en komprometterad ägare.|
-|\[Förhandsversion]: Det bör finnas fler än en ägare till prenumerationen|Vi rekommenderar att du anger mer än en prenumerationsägare så administratörsåtkomst redundans.|
-|\[Förhandsversion]: MFA måste vara aktiverad på konton med ägarbehörigheter för din prenumeration |Multifaktorautentisering (MFA) bör aktiveras för alla prenumerationskonton som har ägarbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: MFA måste vara aktiverad på din prenumerationskonton med skrivbehörighet|Multifaktorautentisering ska aktiveras för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: MFA måste vara aktiverad på din prenumerationskonton med läsbehörigheter|Multifaktorautentisering ska aktiveras för alla prenumerationskonton som har läsbehörighet till att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: Bör ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Inaktuella konton som har ägarbehörighet bör tas bort från prenumerationen. Inaktuella konton har blockerats från att logga in.|
-|\[Förhandsversion]: Bör ta bort inaktuella konton från prenumerationen|Inaktuella konton bör tas bort från dina prenumerationer. Inaktuella konton har blockerats från att logga in.|
-|\[Förhandsversion]: Externa konton med ägarbehörigheter som ska tas bort från prenumerationen|Externa konton som har ägarbehörighet ska tas bort från din prenumeration för att förhindra åtkomst av behörigheter.|
-|\[Förhandsversion]: Externa konton med skrivbehörigheter bör tas bort från prenumerationen|Externa konton som har Skriv behörigheter ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
-|\[Förhandsversion]: Bör ta bort externa konton med läsbehörigheter från prenumerationen|Externa konton som har läsbehörighet ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
+|Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad|Vi rekommenderar att du aktiverar loggar så att en aktivitets spårning är tillgänglig för undersökning efter en incident eller komprometterande.|
+|Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet|Azure Event Hubs-klienter bör inte använda en åtkomst princip på namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med säkerhets modellen med minst privilegium bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.|
+|Auktoriseringsregler i Event Hub-entiteten måste definieras|Granska förekomsten av auktoriseringsregler på Event Hubs entiteter för att bevilja åtkomst med lägsta behörighet.|
+|Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas|Granska obegränsad nätverks åtkomst i brand Väggs inställningarna för ditt lagrings konto. Konfigurera nätverks regler så att endast program från tillåtna nätverk kan komma åt lagrings kontot. Om du vill tillåta anslutningar från vissa Internet-eller lokala klienter ger du åtkomst till trafik från vissa virtuella Azure-nätverk eller offentliga IP-adressintervall för Internet.|
+|Granska användningen av anpassade RBAC-regler|Granska inbyggda roller, till exempel "ägare, deltagare, läsare" i stället för anpassade rollbaserade roller för rollbaserad åtkomst kontroll (RBAC) som är fel känsliga. Användning av anpassade roller behandlas som ett undantag och kräver rigorös granskning och hot modellering.|
+|Diagnostikloggar i Azure Stream Analytics ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Säker överföring till lagrings konton ska vara aktiverat|Granska kraven för säker överföring i ditt lagrings konto. Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). Användning av HTTPS garanterar autentisering mellan servern och tjänsten. Den skyddar också data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.|
+|Azure AD-administratören för SQL Server bör tillhandahållas|Granska etablering av en Azure Active Directory (Azure AD)-administratör för SQL Server för att aktivera Azure AD-autentisering. Azure AD-autentisering stöder förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.|
+|Alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från Service Bus namnrymd|Azure Service Bus-klienter bör inte använda en åtkomst princip på namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med säkerhets modellen med lägsta behörighet skapar du åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.|
+|Diagnostikloggar i Service Bus ska vara aktive rad|Granska aktivering av loggar och behåll dem i ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Egenskapen ClusterProtectionLevel för EncryptAndSign i Service Fabric ska anges|Service Fabric tillhandahåller tre skydds nivåer för nod-till-nod-kommunikation som använder ett primärt kluster certifikat: Ingen, sign och EncryptAndSign. Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt.|
+|Klientautentisering bör använda Azure Active Directory|Granska användningen av klientautentisering enbart via Azure AD i Service Fabric.|
+|Diagnostikloggar i search Services ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Endast säkra anslutningar till din Redis Cache ska vara aktiverade|Granskning aktiverar endast anslutningar via SSL till Azure cache för Redis. Användningen av säkra anslutningar säkerställer autentisering mellan servern och tjänsten. Den skyddar också data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.|
+|Diagnostikloggar i Logic Apps ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Diagnostikloggar i Key Vault ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Diagnostikloggar i Händelsehubben måste vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Diagnostikloggar i Azure Data Lake Store ska vara aktive rad|Granska aktivering av loggar och se till att de är upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Diagnostikloggar i Data Lake Analytics ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Lagrings konton ska migreras till nya AzureRM-resurser|Använd Azure Resource Manager för dina lagrings konton för att tillhandahålla säkerhets förbättringar. Exempel på dessa är: <br>– Starkare åtkomst kontroll (RBAC)<br>– Bättre granskning<br>– Azure Resource Manager-baserad distribution och styrning<br>-Åtkomst till hanterade identiteter<br>– Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>– Stöd för taggar och resurs grupper för enklare säkerhets hantering|
+|Virtuella datorer ska migreras till nya AzureRM-resurser|Använd Azure Resource Manager för dina virtuella datorer för att förbättra säkerheten.  Exempel på dessa är: <br>– Starkare åtkomst kontroll (RBAC)<br>– Bättre granskning<br>– Azure Resource Manager-baserad distribution och styrning<br>-Åtkomst till hanterade identiteter<br>– Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>– Stöd för taggar och resurs grupper för enklare säkerhets hantering|
+|Mått varnings regler ska konfigureras för batch-konton|Granska konfigurationen av mått varnings regler på Azure Batch konton för att aktivera det nödvändiga måttet.|
+|Diagnostikloggar i batch-konton måste vara aktiverade|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|Kryptering måste vara aktiverat på variabler för Automation-konto|Det är viktigt att aktivera kryptering av Azure Automation konto variabel till gångar när du lagrar känsliga data.|
+|Diagnostikloggar i App Services ska vara aktive rad|Granska aktivering av diagnostikloggar i appen. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
+|transparent datakryptering på SQL-databaser ska aktive ras|Granska transparent data krypterings status för SQL-databaser.|
+|SQL Server Auditing måste vara aktiverat|Granska förekomsten av SQL-granskning på server nivå.|
+|\[För hands version]: Övervaka okrypterad SQL Database i Azure Security Center|Azure Security Center övervakar okrypterade SQL-servrar eller databaser som rekommenderade.|
+|\[För hands version]: Övervaka en SQL-databas som inte har granskats i Azure Security Center|Azure Security Center övervakar SQL-servrar och databaser som inte har SQL-granskning aktiverat som rekommenderat.|
+|\[För hands version]: System uppdateringar bör installeras på dina datorer|Azure Security Center övervakar säkerhets system uppdateringar som saknas på dina servrar enligt rekommendationer.|
+|\[För hands version]: Granska saknad BLOB-kryptering för lagrings konton|Granska lagrings konton som inte använder BLOB-kryptering. Detta gäller endast för Microsofts lagrings resurs typer, inte lagring från andra leverantörer. Azure Security Center övervakar möjliga nätverks åtkomst för just-in-Time som rekommenderat.|
+|\[För hands version]: Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer|Azure Security Center övervakar möjliga nätverks åtkomst för just-in-Time som rekommenderat.|
+|\[För hands version]: Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer|Azure Security Center övervakar möjliga program vitlista-konfigurationer.|
+|\[För hands version]: Nätverks säkerhets grupper som saknas för virtuella datorer måste konfigureras|Azure Security Center övervakar nätverks säkerhets grupper som har för få regler, enligt rekommendationer.|
+|\[För hands version]: Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas|Azure Security Center övervakar servrar som inte uppfyller den konfigurerade bas linjen enligt rekommendationer.| 
+|\[För hands version]: Endpoint Protection bör installeras på virtuella datorer|Azure Security Center övervakar servrar som inte har installerat Microsoft System Center Endpoint Protection Agent som rekommenderat.|
+|\[För hands version]: Disk kryptering bör tillämpas på virtuella datorer|Azure Security Center övervakar virtuella datorer som inte har disk kryptering aktiverat som rekommenderat.|
+|\[För hands version]: Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning|Övervaka säkerhets risker som identifieras av lösningen för sårbarhets bedömning och virtuella datorer som inte har någon lösning för sårbarhets bedömning i Azure Security Center som rekommenderas.|
+|\[För hands version]: Övervaka oskyddat webb program i Azure Security Center|Azure Security Center övervakar webb program som saknar brand Väggs skydd för webb program som rekommenderat.|
+|\[För hands version]: Endpoint Protection-lösningen bör installeras på virtuella datorer|Azure Security Center övervakar nätverks slut punkter som inte har nästa generations brand Väggs skydd som rekommenderat.|
+|\[För hands version]: Säkerhets risker i SQL-databaser bör åtgärdas|Övervaka genomsöknings resultat för sårbarhets bedömning och rekommendera hur du åtgärdar databas sårbarheter.|
+|\[För hands version]: Högst 3 ägare bör anges för din prenumeration|Vi rekommenderar att du anger upp till tre prenumerations ägare för att minska risken för intrång av en komprometterad ägare.|
+|\[För hands version]: Det bör finnas fler än en ägare som tilldelats din prenumeration|Vi rekommenderar att du anger fler än en prenumerations ägare för att säkerställa att administratören har åtkomst till redundans.|
+|\[För hands version]: MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration |Multi-Factor Authentication (MFA) måste vara aktiverat för alla prenumerations konton som har ägar behörigheter för att förhindra överträdelser av konton eller resurser.|
+|\[För hands version]: MFA ska vara aktiverat på dina prenumerations konton med Skriv behörighet|Multi-Factor Authentication ska vara aktiverat för alla prenumerations konton som har Skriv behörighet för att förhindra överträdelser av konton eller resurser.|
+|\[För hands version]: MFA ska vara aktiverat på dina prenumerations konton med Läs behörighet|Multi-Factor Authentication ska vara aktiverat för alla prenumerations konton som har Läs behörighet för att förhindra överträdelser av konton eller resurser.|
+|\[För hands version]: Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration|Föråldrade konton som har ägar behörigheter bör tas bort från din prenumeration. Inaktuella konton har blockerats från att logga in.|
+|\[För hands version]: Föråldrade konton bör tas bort från din prenumeration|Föråldrade konton bör tas bort från dina prenumerationer. Inaktuella konton har blockerats från att logga in.|
+|\[För hands version]: Externa konton med ägar behörigheter bör tas bort från din prenumeration|Externa konton som har ägar behörigheter bör tas bort från din prenumeration för att förhindra åtkomst till behörigheter.|
+|\[För hands version]: Externa konton med skrivbehörigheter bör tas bort från prenumerationen|Externa konton som har Skriv behörighet bör tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
+|\[För hands version]: Externa konton med Läs behörighet bör tas bort från din prenumeration|Externa konton som har Läs behörighet bör tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
 
 
 
@@ -88,11 +88,11 @@ Mer om de inbyggda principer som övervakas av Security Center finns i följande
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har vi berättat hur du ställer in säkerhetsprinciper i Security Center. Mer information om Security Center finns i följande artiklar.
 
-* [Azure Security Center planerings- och bruksanvisning](security-center-planning-and-operations-guide.md): Lär dig hur du planerar och förstå designöverväganden i Azure Security Center.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
-* [Vanliga frågor om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
-* [Azures Säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azure Security Center planerings-och drift guide](security-center-planning-and-operations-guide.md): Lär dig att planera och förstå design överväganden i Azure Security Center.
+* [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
+* [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
+* [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
+* [Azure Security Center vanliga frågor och svar](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
+* [Azure-säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-Mer information om Azure Policy finns [vad är Azure Policy?](../governance/policy/overview.md).
+Mer information om Azure Policy finns i [Vad är Azure policy?](../governance/policy/overview.md).

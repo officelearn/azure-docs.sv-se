@@ -1,77 +1,86 @@
 ---
-title: Anslut Symantec AWS-data till Azure Sentinel-Preview | Microsoft Docs
+title: Anslut Symantec AWS-data till Azure Sentinel Preview | Microsoft Docs
 description: Lär dig hur du ansluter Symantec AWS-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 214269bc5c854aa4d3bfd508b0adb5a53ec096df
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673978"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295623"
 ---
-# <a name="connect-azure-sentinel-to-aws"></a>Ansluta Azure Sentinel till AWS
+# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ansluta Azure Sentinel till AWS CloudTrail
 
-Använda AWS-anslutningen för att strömma alla AWS CloudTrail-händelser till Azure Sentinel. Den här anslutningsprocessen delegerar åtkomst för Azure Sentinel till din AWS resurs-loggar en förtroenderelation mellan AWS CloudTrail och Azure Sentinel skapas. Detta åstadkoms på AWS genom att skapa en roll som ger behörighet till Azure Sentinel-åtkomst till dina AWS-loggar.
+Använd AWS-anslutningen för att strömma alla dina AWS CloudTrail-händelser till Azure Sentinel. Den här anslutnings processen delegerar åtkomst för Azure Sentinel till dina AWS-resurs loggar och skapar en förtroende relation mellan AWS CloudTrail och Azure Sentinel. Detta görs på AWS genom att skapa en roll som ger behörighet till Azure Sentinel för att få åtkomst till dina AWS-loggar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha behörighet att skriva i Azure Sentinel-arbetsytan.
+Du måste ha Skriv behörighet på Azure Sentinel-arbetsytan.
+
+> [!NOTE]
+> Azure Sentinel samlar in CloudTrail-händelser från alla regioner. Vi rekommenderar att du inte strömmar händelser från en region till en annan.
 
 ## <a name="connect-aws"></a>Ansluta AWS 
+
+
+1. I Azure Sentinel väljer du **data kopplingar** och väljer sedan den **Amazon Web Services** raden i tabellen och i fönstret AWS till höger klickar du på **Öppna kopplings sida**.
+
+1. Följ anvisningarna under **konfigurationen** med hjälp av följande steg.
  
-1.  I Amazon Web Services-konsolen under **säkerhet, identitet och efterlevnad**, klicka på **IAM**.
+1.  I Amazon Web Services-konsolen, under **säkerhet, identitet & efterlevnad**, väljer du **IAM**.
 
     ![AWS1](./media/connect-aws/aws-1.png)
 
-2.  Välj **roller** och klicka på **skapa roll**.
+1.  Välj **roller** och välj **skapa roll**.
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-3.  Välj **en annan AWS-konto.** I den **konto-ID** fältet, anger du den **Microsoft-kontos ID** (**123412341234**) som finns på sidan för AWS-anslutningen i Sentinel-Azure-portalen.
+1.  Välj **ett annat AWS-konto.** I fältet **konto-ID** anger du det **ID för Microsoft-konto** (**123412341234**) som finns på anslutnings sidan för AWS på Azure Sentinel-portalen.
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
-4.  Se till att **kräver externt ID** har valts och sedan och ange det externa ID (arbetsyte-ID) som finns på sidan för AWS-anslutningen i Sentinel-Azure-portalen.
+1.  Se till att **extern ID** är markerat och ange sedan det externa ID (arbetsyte-ID) som finns på anslutnings sidan för AWS på Azure Sentinel-portalen.
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-5.  Under **koppla behörigheter princip** Välj **AWSCloudTrailReadOnlyAccess**.
+1.  Under **bifoga behörighets princip** väljer du **AWSCloudTrailReadOnlyAccess**.
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
-6.  Ange en tagg (valfritt).
+1.  Ange en tagg (valfritt).
 
     ![AWS6](./media/connect-aws/aws-6.png)
 
-7.  Ange sedan en **rollnamn** och klicka på den **skapa roll** knappen.
+1.  Ange sedan ett **rollnamn** och välj knappen **skapa roll** .
 
     ![AWS7](./media/connect-aws/aws-7.png)
 
-8.  Välj den roll som du skapade i listan över roller.
+1.  I listan Roller väljer du den roll som du skapade.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-9.  Kopiera den **rollen ARN** och klistra in den i den **roll att lägga till** i Azure Sentinel-portalen.
+1.  Kopiera **rollens ARN**. I Azure Sentinel-portalen, i fönstret Amazon Web Services anslutning, klistrar du in det i fältet **roll som ska läggas** till och klickar på **Lägg till**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
-10. Om du vill använda relevanta schemat i Log Analytics för AWS-händelser, söka efter **AWSCloudTrail**.
+1. Om du vill använda det relevanta schemat i Log Analytics för AWS-händelser söker du efter **AWSCloudTrail**.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet lärde du dig att ansluta AWS CloudTrail till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter AWS-CloudTrail till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
 

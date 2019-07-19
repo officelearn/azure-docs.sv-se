@@ -3,17 +3,18 @@ title: Självstudie – Automatisera containeravbildningsversioner vid uppdateri
 description: I den här självstudien lär du dig hur du konfigurerar en Azure Container Registry-uppgift till att automatiskt utlösa containeravbildningsversioner i molnet när en basavbildning uppdateras.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7d7cba63060756bff786b9475275e5262627cae9
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295719"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310508"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: Automatisera containeravbildningsversioner när en basavbildning uppdateras i ett Azure-containerregister 
 
@@ -30,9 +31,9 @@ I den här självstudien, som är den avslutande delen i serien:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [installera Azure CLI][azure-cli].
+Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="complete-the-previous-tutorials"></a>Slutför de tidigare självstudierna
 
@@ -61,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Basavbildningar
 
-Docker-filer som definierar de flesta containeravbildningarna anger en överordnad avbildning som de är baserade på. Detta kallas ofta för en *basavbildning*. Källavbildningen innehåller vanligtvis operativsystemet, till exempel [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], på vilka resten av behållarens lager tillämpas. De kan även innehålla programramverk som [Node.js][base noder] eller [.NET Core][base-dotnet].
+Docker-filer som definierar de flesta containeravbildningarna anger en överordnad avbildning som de är baserade på. Detta kallas ofta för en *basavbildning*. Bas avbildningar innehåller vanligt vis operativ systemet, till exempel [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], där resten av behållarens lager används. De kan också innehålla ramverk för program som [Node. js][Base-Node] eller [.net Core][base-dotnet].
 
 ### <a name="base-image-updates"></a>Uppdateringar av basavbildningar
 
@@ -69,31 +70,31 @@ En basavbildning uppdateras ofta av avbildningens underhållare med nya funktion
 
 När en basavbildning har uppdaterats kan du behöva återskapa containeravbildningar i registret med de nya funktionerna och korrigeringarna. I ACR Tasks finns möjligheten att automatiskt skapa avbildningar när en containers basavbildning uppdateras.
 
-### <a name="tasks-triggered-by-a-base-image-update"></a>Uppgifter som utlöses av en grundläggande uppdateringar
+### <a name="tasks-triggered-by-a-base-image-update"></a>Aktiviteter som utlöses av en bas avbildnings uppdatering
 
-* För avbildningar från en Dockerfile identifierar en ACR-uppgift för närvarande beroenden på Källavbildningen i samma Azure container registry, en offentlig Docker Hub-repo eller en offentlig repo i Microsoft Container Registry. Om basavbildningen som anges i den `FROM` instruktionen finns på någon av dessa platser, ACR-uppgift lägger en hook för att säkerställa att avbildningen har återskapats bas uppdateras när som helst.
+* För närvarande identifierar en ACR-uppgift beroenden för bas avbildningar i samma Azure Container Registry, en offentlig Docker Hub-lagrings platsen eller en offentlig lagrings platsen i Microsoft Container Registry, för avbildnings versioner från en Dockerfile. Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa platser lägger ACR-aktiviteten till en Hook för att se till att avbildningen återskapas varje gång dess bas uppdateras.
 
-* När du skapar en ACR-uppgift med den [az acr uppgift skapa][az-acr-task-create] kommandot som standard aktiviteten är *aktiverat* för utlösare av en grundläggande uppdateringar. Det vill säga den `base-image-trigger-enabled` egenskapen har angetts till True. Om du vill inaktivera det här beteendet i en aktivitet kan du uppdatera egenskapen till False. Till exempel köra följande [az acr-aktivitetsuppdatering][az-acr-task-update] kommando:
+* När du skapar en ACR-uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] *aktive ras* uppgiften som standard för Utlös ande av en bas avbildnings uppdatering. Det vill säga egenskapen anges till sant. `base-image-trigger-enabled` Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till false. Kör till exempel följande [AZ ACR aktivitets uppdaterings][az-acr-task-update] kommando:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* Aktivera en ACR-aktivitet att avgöra och spåra en behållaravbildning beroenden – bland annat dess basavbildningen--måste du först utlöser aktiviteten **minst en gång**. Exempelvis kan utlösa uppgiften manuellt med hjälp av den [az acr-uppgiftskörning][az-acr-task-run] kommandot.
+* Om du vill aktivera en ACR-uppgift för att fastställa och spåra en behållar avbildnings beroenden – som inkluderar dess bas avbildning, måste du först utlösa uppgiften **minst en gång**. Utlös till exempel uppgiften manuellt med kommandot [AZ ACR Task Run][az-acr-task-run] .
 
-* För att utlösa en aktivitet på grundläggande uppdateringar basavbildningen måste ha en *stabil* tagg, till exempel `node:9-alpine`. Den här taggningen är typiskt för en basavbildning som uppdateras med OS- och framework korrigeringar till en senaste stabila versionen. Om basavbildningen har uppdaterats med en ny version tagg kan utlöser den inte en uppgift. Mer information om att tagga avbildningen finns i den [bästa praxis riktlinjer](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* För att utlösa en aktivitet på grund avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till `node:9-alpine`exempel. Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
 
 ### <a name="base-image-update-scenario"></a>Uppdateringsscenario för basavbildningar
 
-Den här självstudien vägleder dig genom ett uppdateringsscenario för basavbildningen. Den [kodexempel][code-sample] innehåller två Dockerfiles: en programavbildning och en bild som anger som bas. I följande avsnitt kan du skapa en ACR-aktivitet som utlöser ett bygge av programavbildningen automatiskt när en ny version av basavbildningen skickas till samma behållarregistret.
+Den här självstudien vägleder dig genom ett uppdateringsscenario för basavbildningen. [Kod exemplet][code-sample] innehåller två Dockerfiles: en program avbildning och en bild som anges som bas. I följande avsnitt skapar du en ACR-uppgift som automatiskt utlöser en version av program avbildningen när en ny version av bas avbildningen skickas till samma behållar register.
 
 [Dockerfile-app][dockerfile-app]: En liten Node.js-webbapp som återger en statisk webbplats som visar vilken Node.js-version den är baserad på. Versionssträngen är simulerad: den visar innehållet i miljövariabeln `NODE_VERSION`, som definieras i basavbildningen.
 
-[Dockerfile-base][dockerfile-base]: Den avbildning som `Dockerfile-app` anger som sin bas. Den är baserad på en [nod][base-node] avbildningen och innehåller de `NODE_VERSION` miljövariabeln.
+[Dockerfile-base][dockerfile-base]: Den avbildning som `Dockerfile-app` anger som sin bas. Den är i sig själv baserad på en [Node][base-node] -avbildning och `NODE_VERSION` innehåller miljövariabeln.
 
 I följande avsnitt skapar du en uppgift, uppdaterar värdet `NODE_VERSION` i basavbildningen Dockerfile och använder sedan ACR Tasks för att skapa basavbildningen. När ACR-uppgiften skickar den nya basavbildningen till registret utlöser den automatiskt en version av programavbildningen. Du kan också köra programmets containeravbildning lokalt om du vill se andra versionssträngar i versionsavbildningarna.
 
-I de här självstudierna din ACR-uppgift skapas som sedan skickas en behållaravbildning för program som anges i en Dockerfile. ACR-aktiviteter kan också köra [flerstegstest uppgifter](container-registry-tasks-multi-step.md), med en YAML-fil för att definiera stegen för att skapa, skicka och du kan också testa flera behållare.
+I den här självstudien skapar din ACR-uppgift och pushar en program behållar avbildning som anges i en Dockerfile. ACR-aktiviteter kan också köra [aktiviteter med flera steg](container-registry-tasks-multi-step.md), med hjälp av en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare.
 
 ## <a name="build-the-base-image"></a>Skapa basavbildningen
 
@@ -105,7 +106,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Docker
 
 ## <a name="create-a-task"></a>Skapa en uppgift
 
-Skapa sedan en aktivitet med [az acr uppgift skapa][az-acr-task-create]:
+Skapa sedan en uppgift med [AZ ACR Task Create][az-acr-task-create]:
 
 ```azurecli-interactive
 az acr task create \
@@ -120,19 +121,19 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Om du tidigare skapat uppgifter i förhandsversionen med de `az acr build-task` kommandot dessa aktiviteter måste skapas på nytt med hjälp av den [az acr uppgift][az-acr-task] kommando.
+> Om du tidigare har skapat uppgifter i för hands versionen `az acr build-task` med kommandot måste du skapa dem på nytt med hjälp av kommandot [AZ ACR Task][az-acr-task] .
 
-Uppgiften liknar den snabbuppgift som skapades i [föregående självstudie](container-registry-tutorial-build-task.md). Den instruerar ACR Tasks att utlösa en avbildningsversion när incheckningar skickas till den lagringsplats som anges i `--context`. Medan den Dockerfile som används för att skapa avbildningen i den tidigare självstudiekursen anger en offentlig grundläggande avbildning (`FROM node:9-alpine`), Dockerfile som finns i den här uppgiften [Dockerfile-app][dockerfile-app], anger en basavbildning i samma registret:
+Uppgiften liknar den snabbuppgift som skapades i [föregående självstudie](container-registry-tutorial-build-task.md). Den instruerar ACR Tasks att utlösa en avbildningsversion när incheckningar skickas till den lagringsplats som anges i `--context`. Dockerfile som används för att bygga avbildningen i föregående självstudie anger en offentlig bas avbildning (`FROM node:9-alpine`), Dockerfile i den här uppgiften, [Dockerfile-app][dockerfile-app], anger en bas avbildning i samma register:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Den här konfigurationen gör det enkelt att simulera en framework korrigeringsfil i basavbildningen senare i den här självstudien.
+Den här konfigurationen gör det enkelt att simulera en Ramverks korrigering i bas avbildningen senare i den här självstudien.
 
 ## <a name="build-the-application-container"></a>Skapa programcontainern
 
-Använd [az acr-uppgiftskörning][az-acr-task-run] att manuellt utlösa uppgiften och skapa programavbildningen. Det här steget säkerställer att aktiviteten spårar avbildningen programmet beroende på basavbildningen.
+Använd [AZ ACR Task Run][az-acr-task-run] för att utlösa aktiviteten manuellt och skapa program avbildningen. Det här steget ser till att aktiviteten spårar program bildens beroende av bas avbildningen.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -144,13 +145,13 @@ När uppgiften är klar antecknar du **Run ID** (till exempel ”da6”) om du v
 
 Om du arbetar lokalt (inte i Cloud Shell) och har installerat Docker, kör du containern för att se det program som återges i webbläsaren innan du återskapar dess basavbildning. Hoppa över det här avsnittet om du använder Cloud Shell (Cloud Shell stöder inte `az acr login` eller `docker run`).
 
-Först måste autentisera till behållarregistret med [docker login][az-acr-login]:
+Börja med att autentisera till behållar registret med [AZ ACR-inloggning][az-acr-login]:
 
 ```azurecli
 az acr login --name $ACR_NAME
 ```
 
-Kör nu containern lokalt med `docker run`. Ersätt **\<run-id\>** med det Run ID som finns i utdata från föregående steg (till exempel ”da6”). Det här exemplet namn behållaren `myapp` och innehåller de `--rm` parametern för att ta bort behållaren när du stoppa den.
+Kör nu containern lokalt med `docker run`. Ersätt **\<run-id\>** med det Run ID som finns i utdata från föregående steg (till exempel ”da6”). Det här exemplet namnger behållaren `myapp` och `--rm` innehåller parametern för att ta bort behållaren när den stoppas.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
@@ -160,7 +161,7 @@ Gå till `http://localhost:8080` i webbläsaren. Du bör nu se versionsnumret f�
 
 ![Skärmbild av ett exempelprogram som återges i en webbläsare][base-update-01]
 
-Stoppa och ta bort behållaren genom att köra följande kommando:
+Kör följande kommando för att stoppa och ta bort behållaren:
 
 ```bash
 docker stop myapp
@@ -168,7 +169,7 @@ docker stop myapp
 
 ## <a name="list-the-builds"></a>Lista versionerna
 
-Sedan listan uppgiften körs att ACR åtgärder har utförts för registret med hjälp av den [az acr list-körs][az-acr-task-list-runs] kommando:
+Sedan anger du den aktivitet som ska köras som ACR uppgifter har slutförts för registret med hjälp av [AZ ACR-aktivitets listan-kör][az-acr-task-list-runs] kommando:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -246,7 +247,7 @@ Gå till http://localhost:8081 i webbläsaren. Du bör nu se det uppdaterade ver
 
 Observera att du har uppdaterat din **basavbildning** med ett nytt versionsnummer, men den senaste skapade **programavbildningen** visar den nya versionen. ACR Tasks hämtade din ändring av basavbildningen och återskapade din programavbildning automatiskt.
 
-Stoppa och ta bort behållaren genom att köra följande kommando:
+Kör följande kommando för att stoppa och ta bort behållaren:
 
 ```bash
 docker stop updatedapp

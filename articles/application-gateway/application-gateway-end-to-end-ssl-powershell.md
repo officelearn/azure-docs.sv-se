@@ -1,56 +1,56 @@
 ---
-title: Konfigurera SSL för slutpunkt till slutpunkt med Azure Application Gateway
-description: Den här artikeln beskrivs hur du konfigurerar SSL för slutpunkt till slutpunkt med Azure Application Gateway med hjälp av PowerShell
+title: Konfigurera slutpunkt-till-slutpunkt-SSL med Azure Application Gateway
+description: Den här artikeln beskriver hur du konfigurerar SSL från slut punkt till slut punkt med Azure Application Gateway med hjälp av PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7b909bf88fde2277aa2a285bbf36916191db1f3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729681"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67973397"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
+# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera slutpunkt-till-slutpunkt-SSL med hjälp av Application Gateway med PowerShell
 
 ## <a name="overview"></a>Översikt
 
-Azure Application Gateway stöder slutpunkt till slutpunkt-kryptering av trafik. Application Gateway avbryter SSL-anslutningen vid application gateway. Gatewayen sedan tillämper routingregler till trafiken, återkrypterar paketet och vidarebefordrar paketet till rätt backend-server baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
+Azure Application Gateway stöder kryptering från slut punkt till slut punkt av trafik. Application Gateway avslutar SSL-anslutningen vid Application Gateway. Gatewayen tillämpar sedan routningsregler i trafiken, krypterar om paketet och vidarebefordrar paketet till lämplig backend-server baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
 
-Application Gateway stöder definiera anpassade SSL-alternativ. Det stöder också inaktivera följande protokollversioner: **TLSv1.0**, **TLSv1.1**, och **TLSv1.2**och definiera vilka krypteringssviter som du använder och i prioritetsordning efter. Om du vill veta mer om konfigurerbara alternativ som SSL kan se den [översikt över SSL-princip](application-gateway-SSL-policy-overview.md).
+Application Gateway har stöd för att definiera anpassade SSL-alternativ. Den stöder även inaktive ring av följande protokoll versioner: **Tlsv 1.0**, **Tlsv 1.1**och **tlsv 1.2**definierar också vilka chiffersviter som ska användas och prioritetsordningen. Mer information om konfigurerbara SSL-alternativ finns i [Översikt över SSL-principer](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 och SSL 3.0 är inaktiverade som standard och kan inte aktiveras. De anses vara osäkra och kan inte användas med Programgatewayen.
+> SSL 2,0 och SSL 3,0 är inaktiverat som standard och kan inte aktive ras. De betraktas som oskyddade och kan inte användas med Application Gateway.
 
-![scenario-bild][scenario]
+![scenario bild][scenario]
 
 ## <a name="scenario"></a>Scenario
 
-I det här scenariot kan du lära dig hur du skapar en Programgateway med hjälp av SSL för slutpunkt till slutpunkt med PowerShell.
+I det här scenariot får du lära dig hur du skapar en Programgateway med hjälp av slutpunkt-till-slutpunkt-SSL med PowerShell.
 
 Det här scenariot kommer att:
 
-* Skapa en resursgrupp med namnet **appgw-rg**.
-* Skapa ett virtuellt nätverk med namnet **appgwvnet** med ett adressutrymme för **10.0.0.0/16**.
+* Skapa en resurs grupp med namnet **appgw-RG**.
+* Skapa ett virtuellt nätverk med namnet **appgwvnet** med ett adress utrymme på **10.0.0.0/16**.
 * Skapa två undernät som kallas **appgwsubnet** och **appsubnet**.
-* Skapa ett litet program gateway stödjande slutpunkt till slutpunkt SSL-kryptering som gränser SSL-protokollsversioner och krypteringssviter.
+* Skapa en liten Programgateway som stöder SSL-kryptering från slut punkt till slut punkt som begränsar SSL-protokoll versioner och chiffersviter.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill konfigurera SSL för slutpunkt till slutpunkt med application gateway, krävs ett certifikat för gateway och certifikat krävs för backend servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik.
+Om du vill konfigurera en slutpunkt-till-slutpunkt-SSL med en Programgateway krävs ett certifikat för den gateway och de certifikat som krävs för backend-servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokoll. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste vara i PFX-format (personal information Exchange). Med det här fil formatet kan du exportera den privata nyckeln som krävs av programgatewayen för att utföra kryptering och dekryptering av trafik.
 
-För slutpunkt till slutpunkt SSL-kryptering måste på serversidan uttryckligen tillåts av application gateway. Ladda upp det offentliga certifikatet backend-servrar till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
+För SSL-kryptering från slut punkt till slut punkt måste Server delen uttryckligen tillåtas av programgatewayen. Överför Server dels certifikatets offentliga certifikat till programgatewayen. Genom att lägga till certifikatet ser du till att programgatewayen bara kommunicerar med kända backend-instanser. Detta skyddar all kommunikation från slut punkt till slut punkt.
 
-Konfigurationsprocessen beskrivs i följande avsnitt.
+Konfigurations processen beskrivs i följande avsnitt.
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller application gateway.
+Det här avsnittet vägleder dig genom att skapa en resurs grupp som innehåller programgatewayen.
 
 1. Logga in på ditt Azure-konto.
 
@@ -58,7 +58,7 @@ Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller applic
    Connect-AzAccount
    ```
 
-2. Välj prenumerationen som ska användas för det här scenariot.
+2. Välj den prenumeration som ska användas för det här scenariot.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
@@ -72,31 +72,31 @@ Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller applic
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa ett virtuellt nätverk och ett undernät för programgatewayen
 
-I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undernät används för application gateway. Andra undernätet används för de servrar som är värdar för webbprogrammet.
+I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undernät används för att hålla Application Gateway. Det andra under nätet används för Server delen som är värd för webb programmet.
 
-1. Tilldela ett adressintervall för undernätet som ska användas för application gateway.
+1. Tilldela ett adress intervall för det undernät som ska användas för Application Gateway.
 
    ```powershell
    $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
    ```
 
    > [!NOTE]
-   > Undernät som konfigurerats för en Programgateway bör ändras korrekt. En application gateway kan konfigureras för upp till 10 instanser. Varje instans använder en IP-adress från undernätet. För liten för ett undernät som kan påverkas negativt och skala ut en Programgateway.
+   > Undernät som har kon figurer ATS för en Programgateway bör vara rätt storlek. En Application Gateway kan konfigureras för upp till 10 instanser. Varje instans tar en IP-adress från under nätet. För litet av ett undernät kan påverka skalning av en Programgateway negativt.
    >
 
-2. Tilldela ett adressintervall som ska användas för backend-adresspoolen.
+2. Tilldela ett adress intervall som ska användas för backend-adresspoolen.
 
    ```powershell
    $nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
    ```
 
-3. Skapa ett virtuellt nätverk med undernät som definierats i föregående steg.
+3. Skapa ett virtuellt nätverk med de undernät som definierats i föregående steg.
 
    ```powershell
    $vnet = New-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
-4. Hämta resurs för virtuella nätverk och undernätverksresurser som ska användas i stegen nedan.
+4. Hämta de virtuella nätverks resurserna och under näts resurserna som ska användas i stegen som följer.
 
    ```powershell
    $vnet = Get-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -106,47 +106,47 @@ I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undern
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
-Skapa en offentlig IP-resurs som ska användas för application gateway. Den här offentliga IP-adressen används i någon av de steg som följer.
+Skapa en offentlig IP-resurs som ska användas för Application Gateway. Den här offentliga IP-adressen används i något av de steg som följer.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
-> Application Gateway stöder inte användning av en offentlig IP-adress som skapats med en definierad domänetiketten. Endast en offentlig IP-adress med en dynamiskt skapade domänetiketten stöds. Om du behöver ett eget DNS-namn för application gateway, rekommenderar vi du använder en CNAME-post som ett alias.
+> Application Gateway stöder inte användning av en offentlig IP-adress som skapats med en definierad domän etikett. Endast en offentlig IP-adress med en dynamiskt skapad domän etikett stöds. Om du behöver ett eget DNS-namn för Application Gateway rekommenderar vi att du använder en CNAME-post som ett alias.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Skapa ett konfigurationsobjekt för programgatewayen
 
-Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg skapar konfigurationsobjekten som behövs för en programgatewayresurs.
+Alla konfigurations objekt anges innan du skapar programgatewayen. Följande steg skapar konfigurationsobjekten som behövs för en programgatewayresurs.
 
-1. Skapa en IP-konfiguration för programgatewayen. Den här inställningen konfigurerar som undernät som application gateway använder. När application gateway startar hämtar den en IP-adress från det konfigurera undernätet och skickar nätverkstrafik till IP-adresserna i backend-IP-adresspool. Tänk på att varje instans använder en IP-adress.
+1. Skapa en IP-konfiguration för Application Gateway. Den här inställningen anger vilka av de undernät som Application Gateway använder. När Application Gateway startar hämtar den en IP-adress från det konfigurerade under nätet och dirigerar nätverks trafik till IP-adresserna i backend-IP-poolen. Tänk på att varje instans använder en IP-adress.
 
    ```powershell
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-2. Skapa en frontend-IP-konfigurationen. Den här inställningen motsvarar klientdelen för application gateway en privat eller offentlig IP-adress. Följande steg associerar offentliga IP-adress i föregående steg med IP-konfigurationen.
+2. Skapa en IP-konfiguration på klient sidan. Den här inställningen mappar en privat eller offentlig IP-adress till klient delen av programgatewayen. I följande steg associeras den offentliga IP-adressen i föregående steg med klient delens IP-konfiguration.
 
    ```powershell
    $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-3. Konfigurera backend-IP-adresspool med IP-adresserna i backend-webbservrar. De här IP-adreserna är de IP-adresser som tar emot den nätverkstrafik som kommer från frontend-IP-slutpunkten. Ersätt IP-adresserna i exemplet med ditt eget programs IP-adresslutpunkter.
+3. Konfigurera backend-IP-adresspoolen med IP-adresserna för backend-webbservrarna. De här IP-adreserna är de IP-adresser som tar emot den nätverkstrafik som kommer från frontend-IP-slutpunkten. Ersätt IP-adresserna i exemplet med dina egna program-IP-slutpunkter.
 
    ```powershell
    $pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
    ```
 
    > [!NOTE]
-   > Ett fullständigt kvalificerat domännamn (FQDN) är också ett giltigt värde ska användas i stället för en IP-adress för backend servrarna. Du aktiverar det genom att använda den **- BackendFqdns** växla. 
+   > Ett fullständigt kvalificerat domän namn (FQDN) är också ett giltigt värde som ska användas i stället för en IP-adress för backend-servrarna. Du aktiverar det genom att använda växeln **-BackendFqdns** . 
 
-4. Konfigurera frontend IP-porten för den offentliga IP-slutpunkten. Den här porten är den port som användarna ansluta till.
+4. Konfigurera klient delens IP-port för den offentliga IP-slutpunkten. Den här porten är den port som slutanvändarna ansluter till.
 
    ```powershell
    $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-5. Konfigurera certifikat för application gateway. Det här certifikatet används för att dekryptera och omkryptera trafik på application gateway.
+5. Konfigurera certifikatet för Application Gateway. Det här certifikatet används för att dekryptera och kryptera om trafiken på Application Gateway.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -154,70 +154,70 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
    ```
 
    > [!NOTE]
-   > Det här exemplet konfigureras certifikatet som används för SSL-anslutningen. Certifikatet måste vara i PFX-format och lösenordet måste innehålla 4 och 12 tecken.
+   > Det här exemplet konfigurerar certifikatet som används för SSL-anslutningen. Certifikatet måste vara i PFX-format och lösen ordet måste vara mellan 4 och 12 tecken.
 
-6. Skapa HTTP-lyssnare för programgatewayen. Tilldela den frontend IP-konfiguration, port och SSL-certifikat som ska användas.
+6. Skapa HTTP-lyssnaren för programgatewayen. Tilldela IP-konfigurationen, porten och SSL-certifikatet på klient sidan som ska användas.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Ladda upp certifikat som ska användas för de resurser som SSL-aktiverad backend-poolen.
+7. Ladda upp certifikatet som ska användas på de SSL-aktiverade backend-poolens resurser.
 
    > [!NOTE]
-   > Standard-avsökningen hämtar den offentliga nyckeln från den *standard* SSL-bindning på backend-server IP-adress och jämför offentliga nyckelvärde som den tar emot till värdet för offentliga nyckeln du anger här. 
+   > Standard avsökningen hämtar den offentliga nyckeln från *standard* -SSL-bindningen på backend-IP-adressen och jämför det offentliga nyckel värde som den tar emot till det offentliga nyckel värde som du anger här. 
    > 
-   > Om du använder värdhuvuden och (Servernamnindikator) på serverdelen, kanske inte platsen till vilken trafikflöden i den offentliga nyckeln hämtades. Om du är osäker, besök https://127.0.0.1/ på backend-servrarna och bekräfta vilket certifikat som används för den *standard* SSL-bindning. Använd den offentliga nyckeln från denna förfrågan i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får ett svar och certifikat från en manuell webbläsarbegäran till https://127.0.0.1/ på backend-servrar, måste du ställa in en standard-SSL-bindning med aktiviteterna. Om du inte gör det, avsökningar misslyckas och backend-servern är inte vitlistat.
+   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ backend-servrarna för att bekräfta vilket certifikat som används för *standard* -SSL-bindningen. Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på https-bindningar och du inte får något svar och certifikat från en manuell webb läsar förfrågan till https://127.0.0.1/ backend-servrarna måste du konfigurera en standard-SSL-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
-   > Certifikatet som angavs i föregående steg ska vara den offentliga nyckeln för .pfx-certifikat finns på serverdelen. Exportera certifikat (inte rotcertifikatet) installerat på backend-servern i anspråk, bevis och skäl till (CER)-format och använda den i det här steget. Det här steget vitlistor serverdelen med application gateway.
+   > Certifikatet i föregående steg bör vara den offentliga nyckeln för det. PFX-certifikat som finns på Server delen. Exportera certifikatet (inte rot certifikatet) som är installerat på backend-servern i formatet för anspråk, bevis och orsaker (CER) och Använd det i det här steget. Det här steget whitelists Server delen med programgatewayen.
 
-   Om du använder Application Gateway v2-SKU, skapar du ett betrott rotcertifikat i stället för ett certifikat för serverautentisering. Mer information finns i [översikt över slutpunkt till slutpunkt-SSL med Programgateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+   Om du använder Application Gateway v2-SKU: n skapar du ett betrott rot certifikat i stället för ett autentiseringscertifikat. Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
    ```
 
-8. Konfigurera HTTP-inställningar för application gateway för backend-servern. Tilldela certifikatet laddades upp i det föregående steget för att HTTP-inställningarna.
+8. Konfigurera HTTP-inställningarna för Programgateway Server del. Tilldela det certifikat som överfördes i föregående steg till HTTP-inställningarna.
 
    ```powershell
    $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
 
-   Använd följande kommando för SKU: N för Application Gateway v2:
+   För Application Gateway v2-SKU: n använder du följande kommando:
 
    ```powershell
    $poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
    ```
 
-9. Skapa en hanteringsregel för belastningsutjämnaren som konfigurerar belastningsutjämnarens beteende. I det här exemplet skapas en grundläggande resursallokeringsregel.
+9. Skapa en routningsregler för belastnings utjämning som konfigurerar belastnings Utjämnings beteendet. I det här exemplet skapas en grundläggande regel för resursallokering (Round-Robin).
 
    ```powershell
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Konfigurera programgatewayens instansstorlek. Tillgängliga storlekar är **Standard\_små**, **Standard\_medel**, och **Standard\_stor**.  För kapacitet, tillgängliga värden är **1** via **10**.
+10. Konfigurera programgatewayens instansstorlek. De tillgängliga storlekarna **är\_standard små**, **standard\_medium**och **standard\_stora**.  För kapacitet är de tillgängliga värdena **1** till och med **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
     ```
 
     > [!NOTE]
-    > Du kan välja ett instansantal på 1 för testning. Det är viktigt att veta att alla instansantalet under två instanser omfattas inte av serviceavtalet och rekommenderas därför inte. Det är små gateways som ska användas för utveckling, testning och inte för produktion.
+    > Du kan välja ett instans antal 1 i test syfte. Det är viktigt att veta att antalet instanser under två instanser inte omfattas av SLA och därför inte rekommenderas. Små gatewayer ska användas för dev-test och inte för produktions syfte.
 
-11. Konfigurera SSL-princip som ska användas på application gateway. Application Gateway stöder möjligheten att ange en lägsta version för SSL-protokollsversioner.
+11. Konfigurera den SSL-princip som ska användas på Application Gateway. Application Gateway stöder möjligheten att ange en lägsta version för SSL-protokoll versioner.
 
-    Följande värden är en lista över protokollversioner som kan definieras:
+    Följande värden är en lista över protokoll versioner som kan definieras:
 
     - **TLSV1_0**
     - **TLSV1_1**
     - **TLSV1_2**
     
-    I följande exempel anger den minsta Protokollversionen till **TLSv1_2** och möjliggör **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** endast.
+    I följande exempel anges den lägsta protokoll versionen till **TLSv1_2** och aktiverar **TLS\_ECDHE\_ECDSA\_med\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHEECDSAmed\_AES 256 GCMSHA384\_och TLS RSA med\_\_\_\_** **\_\_\_ AES\_128\_GCMSHA256\_** .
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -225,103 +225,109 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Med alla steg ovan kan skapa programgatewayen. Skapandet av gatewayen är en process som tar lång tid att köra.
+Skapa programgatewayen med hjälp av alla föregående steg. Att skapa gatewayen är en process som tar lång tid att köra.
 
+För v1 SKU använder du kommandot nedan
 ```powershell
-$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Tillämpa ett nytt certifikat om backend-certifikatet har upphört att gälla
+För v2-SKU: n använder du kommandot nedan
+```powershell
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -TrustedRootCertificate $trustedRootCert01 -Verbose
+```
 
-Använd den här proceduren för att tillämpa ett nytt certifikat om backend-certifikatet har upphört att gälla.
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Använd ett nytt certifikat om Server dels certifikatet har upphört att gälla
 
-1. Hämta application-gateway för att uppdatera.
+Använd den här proceduren om du vill använda ett nytt certifikat om Server dels certifikatet har upphört att gälla.
+
+1. Hämta programgatewayen som ska uppdateras.
 
    ```powershell
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Lägg till den nya certifikatresursen från den .cer-fil som innehåller den offentliga nyckeln för certifikatet och kan också vara samma certifikat läggs till lyssnaren för SSL-avslutning på application gateway.
+2. Lägg till den nya certifikat resursen från CER-filen som innehåller certifikatets offentliga nyckel och kan också vara samma certifikat som har lagts till i lyssnaren för SSL-avslutning på Application Gateway.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
    ```
     
-3. Hämta det nya certifikat-objektet för autentisering i en variabel (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+3. Hämta det nya objektet för autentisering av certifikat till en variabel (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
 
    ```powershell
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. Tilldela det nya certifikatet till den **BackendHttp** inställningen och referera till variabeln $AuthCert. (Ange namn för HTTP-inställning som du vill ändra.)
+ 4. Tilldela det nya certifikatet till **BackendHttp** -inställningen och referera det med variabeln $AuthCert. (Ange det HTTP-inställnings namn som du vill ändra.)
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
    ```
     
- 5. Spara ändringen i application gateway och skicka den nya konfigurationen som ingår i $out-variabel.
+ 5. Genomför ändringen i programgatewayen och överför den nya konfigurationen som finns i $out variabeln.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw  
    ```
 
-## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Ta bort ett oanvända utgånget certifikat från HTTP-inställningar
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Ta bort ett oanvänt utgånget certifikat från HTTP-inställningarna
 
-Ta bort ett oanvända utgånget certifikat från HTTP-inställningar med hjälp av den här proceduren.
+Använd den här proceduren för att ta bort ett oanvänt utgånget certifikat från HTTP-inställningarna.
 
-1. Hämta application-gateway för att uppdatera.
+1. Hämta programgatewayen som ska uppdateras.
 
    ```powershell
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Ange namnen på certifikat för serverautentisering som du vill ta bort.
+2. Ange namnet på det autentiseringscertifikat som du vill ta bort.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
    ```
     
-3. Ta bort certifikat för serverautentisering från en Programgateway.
+3. Ta bort Autentiseringscertifikatet från en Programgateway.
 
    ```powershell
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. Bekräfta ändringen.
+ 4. Genomför ändringen.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Begränsa SSL-protokollsversioner på en befintlig Programgateway
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Begränsa SSL-protokoll versioner på en befintlig Programgateway
 
-Föregående steg tog du skapar ett program med slutpunkt-till-slutpunkt SSL och inaktiverar vissa SSL-protokollsversioner. I följande exempel inaktiverar vissa SSL-principer på en befintlig application gateway.
+Föregående steg tog dig genom att skapa ett program med end-to-end-SSL och inaktivera vissa SSL-protokoll versioner. I följande exempel inaktive ras vissa SSL-principer på en befintlig Application Gateway.
 
-1. Hämta application-gateway för att uppdatera.
+1. Hämta programgatewayen som ska uppdateras.
 
    ```powershell
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definiera en SSL-princip. I följande exempel **TLSv1.0** och **TLSv1.1** är inaktiverad och de krypteringssviter som **TLS\_ECDHE\_ECDSA\_WITH\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** är den enda de som tillåts.
+2. Definiera en SSL-princip. I följande exempel inaktive ras **tlsv 1.0** och **tlsv 1.1** och **\_chiffersviter ECDHE\_ECDSA\_med\_\_AES 128 GCM\_ \_ SHA256**, **TLS\_ECDHE\_ECDSAmedAES\_256 GCMSHA384\_och TLS RSA\_\_\_** **\_ \_ Med\_AES128\_GCMSHA256\_är de enda tillåtna.\_**
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När den är klar konfigureras slutpunkt till slutpunkt SSL på application gateway.
+3. Uppdatera därefter gatewayen. Det sista steget är en tids krävande uppgift. När den är klar konfigureras slutpunkt-till-slutpunkt-SSL på Application Gateway.
 
    ```powershell
    $gw | Set-AzApplicationGateway
    ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Hämta ett application gateway DNS-namn
+## <a name="get-an-application-gateway-dns-name"></a>Hämta ett DNS-namn för Application Gateway
 
-När gatewayen har skapats är nästa steg att konfigurera klientprogrammet för kommunikation. Application Gateway kräver ett dynamiskt tilldelat DNS-namn när du använder en offentlig IP-adress som inte är användarvänligt. För att säkerställa att slutanvändare kan nå programgatewayen, kan du använda en CNAME-post så att den pekar på den offentliga slutpunkten för programgatewayen. Mer information finns i [konfigurera ett anpassat domännamn för i Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+När gatewayen har skapats är nästa steg att konfigurera klient delen för kommunikation. Application Gateway kräver ett dynamiskt tilldelat DNS-namn när du använder en offentlig IP-adress, vilket inte är vänligt. För att garantera att slutanvändare kan nå programgatewayen kan du använda en CNAME-post för att peka på den offentliga slut punkten för programgatewayen. Mer information finns i [Konfigurera ett anpassat domän namn för i Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Om du vill konfigurera ett alias, hämta information om programgatewayen och dess associerade IP/DNS-namn med hjälp av den **PublicIPAddress** elementet kopplat till programgatewayen. Använda DNS-namn för application gateway för att skapa en CNAME-post som pekar på två webbapparna till detta DNS-namn. Vi inte rekommenderar användning av A-poster, eftersom VIP kan ändra på omstart av programgatewayen.
+Om du vill konfigurera ett alias hämtar du information om programgatewayen och dess associerade IP/DNS-namn med hjälp av **PublicIPAddress** -elementet som är kopplat till Application Gateway. Använd programgatewayens DNS-namn för att skapa en CNAME-post som pekar på de två webb programmen till det här DNS-namnet. Vi rekommenderar inte att du använder A-poster eftersom VIP kan ändras vid omstart av programgatewayen.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -351,6 +357,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Härdning av säkerheten för dina webbprogram med Brandvägg för webbaserade program via Application Gateway finns i den [översikt över Web application firewall](application-gateway-webapplicationfirewall-overview.md).
+Mer information om hur du härdningr säkerheten för dina webb program med brand vägg för webbaserade program via Application Gateway finns i [Översikt över brand väggen för webb program](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

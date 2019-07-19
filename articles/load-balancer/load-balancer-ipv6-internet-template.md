@@ -1,10 +1,10 @@
 ---
-title: Distribuera en internetuppkopplad belastningsutjämnare med IPv6 - Azure-mall
+title: Distribuera en belastningsutjämnare mot Internet med IPv6-Azure-mall
 titlesuffix: Azure Load Balancer
-description: Så här distribuerar IPv6-stöd för Azure Load Balancer och belastningsutjämnade virtuella datorer.
+description: Så här distribuerar du IPv6-stöd för Azure Load Balancer och belastningsutjämnade virtuella datorer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,15 +13,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216854"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275002"
 ---
-# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en internetuppkopplad belastningsutjämnare-lösning med IPv6 med en mall
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetbaserad lösning för belastnings utjämning med IPv6 med hjälp av en mall
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -34,106 +34,106 @@ En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Lastbalanserar
 
 ## <a name="example-deployment-scenario"></a>Exempelscenario för distribution
 
-Följande diagram illustrerar de belastningsutjämningslösning som distribueras med hjälp av mallen för exemplet som beskrivs i den här artikeln.
+Följande diagram illustrerar belastnings Utjämnings lösningen som distribueras med hjälp av exempel mal len som beskrivs i den här artikeln.
 
 ![Lastbalanseringsscenario](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
-I det här scenariot skapar du följande Azure-resurser:
+I det här scenariot kommer du att skapa följande Azure-resurser:
 
-* Ett virtuellt nätverksgränssnitt för varje virtuell dator med både IPv4 och IPv6-adresserna som tilldelats
-* en internetuppkopplad belastningsutjämnare med en IPv4 och en offentlig IPv6-IP-adress
-* Två belastningsutjämningsregler för att mappa de offentliga virtuella IP-adresserna till de privata slutpunkterna
-* en Tillgänglighetsuppsättning som innehåller två virtuella datorer
-* Två virtuella datorer (VM)
+* ett virtuellt nätverks gränssnitt för varje virtuell dator med både IPv4-och IPv6-adresser tilldelade
+* en Internetbaserad Load Balancer med en IPv4-och en offentlig IP-adress för IPv6
+* två belastnings Utjämnings regler för att mappa offentliga VIP-adresser till privata slut punkter
+* en tillgänglighets uppsättning som innehåller de två virtuella datorerna
+* två virtuella datorer (VM)
 
-## <a name="deploying-the-template-using-the-azure-portal"></a>Distribuera mallen med hjälp av Azure portal
+## <a name="deploying-the-template-using-the-azure-portal"></a>Distribuera mallen med hjälp av Azure Portal
 
-Den här artikeln refererar till en mall som har publicerats i den [Azure-Snabbstartsmallar](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) galleriet. Du kan ladda ned mallen från galleriet eller starta distribution i Azure direkt från galleriet. Den här artikeln förutsätter att du har hämtat mallen till den lokala datorn.
+Den här artikeln hänvisar till en mall som publiceras i galleriet för [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) . Du kan hämta mallen från galleriet eller starta distributionen i Azure direkt från galleriet. Den här artikeln förutsätter att du har hämtat mallen till den lokala datorn.
 
-1. Öppna Azure-portalen och logga in med ett konto som har behörighet att skapa virtuella datorer och nätverksresurser i en Azure-prenumeration. Även om du inte använder befintliga resurser, kontot måste ha behörighet att skapa en resursgrupp och ett lagringskonto.
-2. Klicka på ”+ ny” från menyn och anger ”mall” i sökrutan. Välj ”malldistributionen” från sökresultaten.
+1. Öppna Azure Portal och logga in med ett konto som har behörighet att skapa virtuella datorer och nätverks resurser i en Azure-prenumeration. Även om du inte använder befintliga resurser måste kontot ha behörighet att skapa en resurs grupp och ett lagrings konto.
+2. Klicka på "+ nytt" på menyn och skriv sedan "mall" i sökrutan. Välj "Malldistribution" från Sök resultaten.
 
     ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
-3. Allt bladet klickar du på ”malldistribution”.
+3. Klicka på "Malldistribution" på bladet allt.
 
     ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
-4. Klicka på ”Skapa”.
+4. Klicka på "skapa".
 
     ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
-5. Klicka på ”Redigera mall”. Ta bort det befintliga innehållet och kopiera och klistra in i hela innehållet i mallfilen (för att innehålla början och sluta {}) och sedan klicka på ”Spara”.
+5. Klicka på Redigera mall. Ta bort det befintliga innehållet och kopiera/klistra in hela innehållet i mallfilen (om du vill ta med start och slut {}) klickar du på Spara.
 
     > [!NOTE]
-    > Om du använder Microsoft Internet Explorer när du klistrar in du ser en dialogruta som ber dig att tillåta åtkomst till Urklipp i Windows. Klicka på ”Tillåt åtkomst”.
+    > Om du använder Microsoft Internet Explorer när du klistrar in får du en dialog ruta där du uppmanas att tillåta åtkomst till Urklipp i Windows. Klicka på Tillåt åtkomst.
 
     ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Klicka på ”Redigera parametrar”. I bladet parametrar anger du värden enligt instruktionerna i avsnittet Parametrar för mallen och klicka på ”Spara” för att Stäng bladet parametrar. Välj din prenumeration, en befintlig resursgrupp eller skapa en på bladet anpassad distribution. Om du skapar en resursgrupp, välj sedan en plats för resursgruppen. Klicka sedan på **juridiska villkor**, klicka sedan på **köp** för de juridiska villkoren. Azure börjar distribuera resurserna. Det tar flera minuter att distribuera alla resurser.
+6. Klicka på Redigera parametrar. I bladet parametrar anger du värdena per vägledning i avsnittet mallparametrar och klickar sedan på Spara för att stänga bladet parametrar. På bladet anpassad distribution väljer du din prenumeration, en befintlig resurs grupp eller skapar en. Om du skapar en resurs grupp väljer du en plats för resurs gruppen. Klicka sedan på **juridiska villkor**och sedan på **köp** för de juridiska villkoren. Azure börjar distribuera resurserna. Det tar flera minuter att distribuera alla resurser.
 
     ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
-    Mer information om dessa parametrar finns i den [-mallens parametrar och variabler](#template-parameters-and-variables) senare i den här artikeln.
+    Mer information om dessa parametrar finns i avsnittet [mallparametrar och variabler](#template-parameters-and-variables) längre fram i den här artikeln.
 
-7. Om du vill se de resurser som skapas av mallen, klicka på Bläddra, rulla nedåt i listan tills du ser ”resursgrupper” och sedan klicka på den.
+7. Om du vill se resurserna som skapats av mallen klickar du på Bläddra, bläddrar nedåt i listan tills du ser "resurs grupper" och klickar sedan på den.
 
     ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
-8. Klicka på namnet på resursgruppen som du angav i steg 6 på resursbladet för grupper. Du kan se en lista över alla resurser som har distribuerats. Om allt gått bra ska det stå ”Succeeded” under ”senaste distribution”. Om inte, kan du kontrollera att det konto du använder har behörighet att skapa resurserna som krävs.
+8. På bladet resurs grupper klickar du på namnet på den resurs grupp som du angav i steg 6. Du ser en lista över alla resurser som har distribuerats. Om alla gick bra bör det stå "lyckades" under "senaste distribution". Om inte bör du kontrol lera att det konto som du använder har behörighet att skapa nödvändiga resurser.
 
     ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
-    > Om du bläddrar resursgrupper omedelbart när du har slutfört steg 6 visas status för ”distribuera” för ”senaste distribution” medan resurserna som distribueras.
+    > Om du bläddrar i resurs grupperna direkt efter att ha slutfört steg 6, visar "senaste distribution" statusen för "distribution" medan resurserna distribueras.
 
-9. Klicka på ”myIPv6PublicIP” i listan över resurser. Du ser att det finns en IPv6-adress under IP-adress och att dess DNS-namn är det värde du angav för parametern dnsNameforIPv6LbIP i steg 6. Den här resursen är det offentliga IPv6-adress och värddatornamn namn som är tillgänglig för Internet-klienter.
+9. Klicka på "myIPv6PublicIP" i listan över resurser. Du ser att den har en IPv6-adress under IP-adress och att dess DNS-namn är det värde som du angav för parametern dnsNameforIPv6LbIP i steg 6. Den här resursen är den offentliga IPv6-adressen och värd namnet som är tillgängligt för Internet-klienter.
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## <a name="validate-connectivity"></a>Verifiera anslutningen
+## <a name="validate-connectivity"></a>Verifiera anslutning
 
-När mallen har distribuerats, kan du verifiera anslutningen genom att slutföra följande uppgifter:
+När mallen har distribuerats kan du verifiera anslutningen genom att utföra följande uppgifter:
 
-1. Logga in på Azure Portal och ansluta till var och en av de virtuella datorerna som skapats av malldistributionen. Om du har distribuerat en virtuell Windows Server-dator, köra ipconfig/allt från en kommandotolk. Du ser att de virtuella datorerna har både IPv4 och IPv6-adresser. Om du har distribuerat virtuella Linux-datorer måste du konfigurera Linux-operativsystem för att ta emot dynamiska IPv6-adresser med hjälp av anvisningarna för din Linux-distribution.
-2. Initiera en anslutning till den offentliga IPv6-adressen för belastningsutjämnaren från en klient för IPv6-Internet-anslutna. För att bekräfta att belastningsutjämnaren balansering mellan två virtuella datorer, kan du installera en webbserver som Microsoft Internet Information Services (IIS) på varje virtuell dator. Standardwebbsidan på varje server kan innehålla texten ”Server0” eller ”Server1” för att identifiera den. Öppna en webbläsare på en IPv6-Internet-ansluten klient och bläddra till värdnamnet som du angav för parametern dnsNameforIPv6LbIP till belastningsutjämnaren för att bekräfta slutpunkt till slutpunkt IPv6-anslutning till varje virtuell dator. Om du bara ser sidan från endast en server kan du behöva rensa webbläsarens cache. Öppna flera privata webbläsarsessioner. Du bör se ett svar från varje server.
-3. Initiera en anslutning till den offentliga IPv4-adressen för belastningsutjämnaren i en IPv4-Internet-anslutna-klient. För att bekräfta att belastningsutjämnaren är de två virtuella datorerna för belastningsutjämning, kan du testa med hjälp av IIS, enligt beskrivningen i steg 2.
-4. Initiera en utgående anslutning till en IPv6- eller IPv4-anslutna Internet-enhet från varje virtuell dator. I båda fallen är käll-IP som setts av målenheten den offentliga IPv4- eller IPv6-adressen för belastningsutjämnaren.
+1. Logga in på Azure Portal och Anslut till var och en av de virtuella datorerna som skapats av mall distributionen. Om du har distribuerat en virtuell Windows Server-dator kör du ipconfig/all från en kommando tolk. Du ser att de virtuella datorerna har både IPv4-och IPv6-adresser. Om du har distribuerat virtuella Linux-datorer måste du konfigurera Linux-operativsystemet för att ta emot dynamiska IPv6-adresser med hjälp av anvisningarna för din Linux-distribution.
+2. Från en IPv6 Internet-ansluten klient initierar du en anslutning till belastningsutjämnaren för den offentliga IPv6-adressen. För att bekräfta att belastningsutjämnaren balanserar mellan de två virtuella datorerna kan du installera en webb server som Microsoft Internet Information Services (IIS) på varje virtuell dator. Standard webb sidan på varje server kan innehålla texten "Server0" eller "server1" för att unikt identifiera den. Öppna sedan en webbläsare på en IPv6-ansluten klient och bläddra till det värdnamn du angav för dnsNameforIPv6LbIP-parametern för att bekräfta IPv6-anslutningen från slut punkt till slut punkt för varje virtuell dator. Om du bara ser webb sidan från en enda server kan du behöva rensa webbläsarens cacheminne. Öppna flera privata webbläsarsessionen. Du bör se ett svar från varje server.
+3. Från en IPv4-ansluten klient initierar du en anslutning till belastningsutjämnaren för den offentliga IPv4-adressen. För att bekräfta att belastningsutjämnaren är belastnings utjämning på de två virtuella datorerna kan du testa att använda IIS, enligt beskrivningen i steg 2.
+4. Starta en utgående anslutning till en IPv6-eller IPv4-ansluten Internet-enhet från varje virtuell dator. I båda fallen är belastnings utjämningens offentliga IPv4-eller IPv6-adress den källa-IP-adress som visas av mål enheten.
 
 > [!NOTE]
-> ICMP för både IPv4 och IPv6 är blockerad i Azure-nätverket. Därför misslyckas ICMP-verktyg som pinga alltid. Använd ett TCP-alternativ, till exempel använda TCPing eller PowerShell Test-NetConnection cmdlet för att testa anslutningen. Observera att IP-adresser som visas i diagrammet är exempel på värden som kan visas. Eftersom IPv6-adresser tilldelas dynamiskt, varierar de adresser som du får och kan variera beroende på region. Dessutom är det vanligt för den offentliga IPv6-adressen på belastningsutjämnaren ska börja med ett annat prefix än privata IPv6-adresserna i backend-poolen.
+> ICMP för både IPv4 och IPv6 är blockerat i Azure-nätverket. Det innebär att ICMP-verktyg som ping alltid inte fungerar. Om du vill testa anslutningen använder du ett TCP-alternativ, till exempel TCPing eller PowerShell-testet-NetConnection-cmdleten. Observera att IP-adresserna som visas i diagrammet är exempel på värden som kan visas. Eftersom IPv6-adresserna tilldelas dynamiskt, kommer de adresser som du får skilja sig åt och kan variera beroende på region. Det är också vanligt att den offentliga IPv6-adressen på belastningsutjämnaren börjar med ett annat prefix än de privata IPv6-adresserna i backend-poolen.
 
-## <a name="template-parameters-and-variables"></a>Mallens parametrar och variabler
+## <a name="template-parameters-and-variables"></a>Mallparametrar och variabler
 
-En Azure Resource Manager-mall innehåller flera variabler och parametrar som du kan anpassa efter dina behov. Variabler används för fasta värden som du inte vill att en användare att ändra. Parametrar används för värden som du vill att en användare att ange när mallen distribueras. Exempel-mallen har konfigurerats för det scenario som beskrivs i den här artikeln. Du kan anpassa det efter behoven i din miljö.
+En Azure Resource Manager-mall innehåller flera variabler och parametrar som du kan anpassa efter dina behov. Variabler används för fasta värden som du inte vill att en användare ska ändra. Parametrar används för värden som du vill att en användare ska tillhandahålla när du distribuerar mallen. Exempel mal len är konfigurerad för det scenario som beskrivs i den här artikeln. Du kan anpassa den här miljön efter behov.
 
-Exempel-mallen som används i den här artikeln innehåller följande variabler och parametrar:
+Exempel mal len som används i den här artikeln innehåller följande variabler och parametrar:
 
-| Parametern / Variable | Anteckningar |
+| Parameter/variabel | Anteckningar |
 | --- | --- |
-| adminUsername |Ange namnet på det administratörskonto som används för att logga in på de virtuella datorerna med. |
-| adminPassword |Ange lösenord för administratörskonto som används för att logga in på de virtuella datorerna med. |
-| dnsNameforIPv4LbIP |Ange DNS-värdnamn som du vill tilldela som det offentliga namnet på belastningsutjämnaren. Det här namnet matchar belastningsutjämnarens offentliga IPv4-adress. Namnet måste vara i gemener och matcha regexet: ^ [a-z] [ett-z0 - 9 –]{1,61}[a-z0-9] $. |
-| dnsNameforIPv6LbIP |Ange DNS-värdnamn som du vill tilldela som det offentliga namnet på belastningsutjämnaren. Det här namnet matchar belastningsutjämnarens offentliga IPv6-adress. Namnet måste vara i gemener och matcha regexet: ^ [a-z] [ett-z0 - 9 –]{1,61}[a-z0-9] $. Detta kan vara samma namn som IPv4-adress. När en klient skickar en DNS-fråga för det här namnet som Azure kommer att returnera registrerar både A- och AAAA när namnet delas. |
-| vmNamePrefix |Ange prefix för VM-namn. Mallen till en siffra (0, 1, etc.) till namnet när de virtuella datorerna skapas. |
-| nicNamePrefix |Ange nätverksprefixet gränssnittet namn. Mallen till en siffra (0, 1, etc.) till namnet när nätverksgränssnitt som skapas. |
-| storageAccountName |Ange namnet på ett befintligt lagringskonto eller ange namnet på en ny som ska skapas av mallen. |
-| availabilitySetName |Ange sedan namnet på tillgänglighetsuppsättningen som ska användas med de virtuella datorerna |
-| addressPrefix |Adressprefixet används för att definiera adressintervallet för det virtuella nätverket |
-| subnetName |Namnet på undernätet i skapats för det virtuella nätverket |
-| subnetPrefix |Adressprefixet används för att definiera adressintervallet för undernätet |
-| vnetName |Ange ett namn för det virtuella nätverket som används av de virtuella datorerna. |
-| ipv4PrivateIPAddressType |Allokeringsmetoden används för den privata IP-adressen (statisk eller dynamisk) |
-| ipv6PrivateIPAddressType |Allokeringsmetoden som används för privat IP-adress (dynamisk). IPv6 har endast stöd för dynamisk allokering. |
-| numberOfInstances |Antalet belastningsutjämnade instanser som driftsattes av mallen |
-| ipv4PublicIPAddressName |Ange DNS-namn som du vill använda för att kommunicera med den offentliga IPv4-adressen för belastningsutjämnaren. |
-| ipv4PublicIPAddressType |Allokeringsmetoden används för den offentliga IP-adressen (statisk eller dynamisk) |
-| Ipv6PublicIPAddressName |Ange DNS-namn som du vill använda för att kommunicera med den offentliga IPv6-adressen för belastningsutjämnaren. |
-| ipv6PublicIPAddressType |Allokeringsmetoden som används för offentliga IP-adress (dynamisk). IPv6 har endast stöd för dynamisk allokering. |
-| lbName |Ange namnet på belastningsutjämnaren. Det här namnet visas i portalen eller används för att referera till den med ett CLI eller PowerShell-kommando. |
+| adminUsername |Ange namnet på det administratörs konto som används för att logga in på de virtuella datorerna med. |
+| adminPassword |Ange lösen ordet för det administratörs konto som används för att logga in på de virtuella datorerna med. |
+| dnsNameforIPv4LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv4-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-]{1,61}[a-Z0-9] $. |
+| dnsNameforIPv6LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv6-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-]{1,61}[a-Z0-9] $. Detta kan vara samma namn som IPv4-adressen. När en klient skickar en DNS-fråga för det här namnet kommer Azure att returnera både A-och AAAA-posterna när namnet delas. |
+| vmNamePrefix |Ange prefixet för den virtuella datorns namn. Mallen lägger till ett tal (0, 1 osv.) till namnet när de virtuella datorerna skapas. |
+| nicNamePrefix |Ange prefixet för nätverks gränssnittets namn. Mallen lägger till ett tal (0, 1 osv.) till namnet när nätverks gränssnitten skapas. |
+| storageAccountName |Ange namnet på ett befintligt lagrings konto eller ange namnet på ett nytt som ska skapas av mallen. |
+| availabilitySetName |Ange sedan namnet på den tillgänglighets uppsättning som ska användas med de virtuella datorerna |
+| addressPrefix |Adressprefixet som används för att definiera adress intervallet för Virtual Network |
+| subnetName |Namnet på under nätet som har skapats för VNet |
+| subnetPrefix |Adressprefixet som används för att definiera adress intervallet för under nätet |
+| vnetName |Ange namnet på det VNet som används av de virtuella datorerna. |
+| ipv4PrivateIPAddressType |Den allokeringsmetod som används för den privata IP-adressen (statisk eller dynamisk) |
+| ipv6PrivateIPAddressType |Den allokeringsmetod som används för den privata IP-adressen (dynamisk). IPv6 stöder endast dynamisk allokering. |
+| numberOfInstances |Antalet belastningsutjämnade instanser som distribuerats av mallen |
+| ipv4PublicIPAddressName |Ange det DNS-namn som du vill använda för att kommunicera med belastningsutjämnarens offentliga IPv4-adress. |
+| ipv4PublicIPAddressType |Den allokeringsmetod som används för den offentliga IP-adressen (statisk eller dynamisk) |
+| Ipv6PublicIPAddressName |Ange det DNS-namn som du vill använda för att kommunicera med belastnings utjämningens offentliga IPv6-adress. |
+| ipv6PublicIPAddressType |Den allokeringsmetod som används för den offentliga IP-adressen (dynamisk). IPv6 stöder endast dynamisk allokering. |
+| lbName |Ange namnet på belastningsutjämnaren. Det här namnet visas i portalen eller används för att referera till det med ett CLI-eller PowerShell-kommando. |
 
-De återstående variablerna i mallen innehåller härledda värdena som tilldelas när Azure skapar resurserna. Ändra inte de här variablerna.
+De återstående variablerna i mallen innehåller härledda värden som tilldelas när Azure skapar resurserna. Ändra inte dessa variabler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-JSON-syntax och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).
+JSON-syntaxen och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft. Network/belastningsutjämnare](/azure/templates/microsoft.network/loadbalancers).

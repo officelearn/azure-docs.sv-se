@@ -1,80 +1,80 @@
 ---
-title: Avancerade datasäkerhet – Azure SQL Database | Microsoft Docs
-description: Läs mer om funktioner för att identifiera och klassificera känsliga data, hantera din databas säkerhetsrisker och identifiera avvikande aktiviteter som kan tyda på ett hot mot din Azure SQL-databas.
+title: Avancerad data säkerhet – Azure SQL Database | Microsoft Docs
+description: Lär dig mer om funktioner för att identifiera och klassificera känsliga data, hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot din Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: conceptual
 author: monhaber
-ms.author: monhaber
+ms.author: v-mohabe
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
-ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce02fee31041222c48d62ef8410b97fedf74dfdb
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61419620"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297681"
 ---
-# <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad säkerhet för Azure SQL Database
+# <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad data säkerhet för Azure SQL Database
 
-Avancerad säkerhet är en enhetlig paketet för avancerade säkerhetsfunktioner i SQL. Den innehåller funktioner för att identifiera och klassificera känsliga data, lyfta upp och tjänstförvägransattacker databasen säkerhetsrisker, och identifiera avvikande aktiviteter som kan tyda på ett hot mot din databas. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
+Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den innehåller funktioner för att identifiera och klassificera känsliga data, Visa och minska eventuella säkerhets risker i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
 
 ## <a name="overview"></a>Översikt
 
-Avancerade datasäkerhet (AD) innehåller en uppsättning avancerade funktioner för SQL security, inklusive dataidentifiering och klassificering, sårbarhetsbedömning och Avancerat skydd.
+Avancerad data säkerhet (ADS) innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive data identifiering & klassificering, sårbarhets bedömning och Avancerat skydd.
 
-- [Dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md) (för närvarande i förhandsversion) ger funktioner i Azure SQL Database för identifiering, klassificering, märkning och skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
-- [Sårbarhetsbedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och hjälper dig att åtgärda säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
-- [Avancerat skydd](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Avancerat skydd aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot.
+- [Klassificering av data identifierings &](sql-database-data-discovery-and-classification.md) (för närvarande i för hands version) finns funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera och märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
+- [Sårbarhets bedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera en tjänst som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
+- [Avancerat skydd](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Aviseringar för avancerat skydd ger information om den misstänkta aktiviteten och rekommenderar åtgärder för att undersöka och minimera hotet.
 
-Aktivera SQL-ANNONSER när om du vill aktivera alla dessa funktioner som ingår. Med ett klick får du kan aktivera ANNONSER för alla databaser på din SQL Database-server eller hanterad instans. Aktivera eller hantera inställningar för ANNONSER kräver tillhör den [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rollen, administratörsroll för SQL database eller SQL server-administratörsroll. 
+Aktivera SQL-annonser en gång för att aktivera alla dessa inkluderade funktioner. Med ett klick kan du aktivera annonser för alla databaser på din SQL Database Server eller en hanterad instans. Aktivering eller hantering av ADS-inställningar kräver tillhöra rollen [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) , rollen administratör för SQL-databas eller rollen SQL Server-administratör. 
 
-ANNONSER priser överensstämmer med Azure Security Center standard-nivån, där varje skyddad SQL Database-server eller hanterad instans räknas som en nod. Nyligen skyddade resurser kvalificera dig för en kostnadsfri utvärderingsversion av Security Center standard-nivån. Mer information finns i den [sidan med priser för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Prissättningen för ANNONSERas med Azure Security Center standard nivå, där varje skyddad SQL Database-Server eller hanterad instans räknas som en nod. Nyligen skyddade resurser är berättigade till en kostnads fri utvärderings version av Security Center standard nivån. Mer information finns på sidan med [Azure Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="getting-started-with-ads"></a>Komma igång med Active Directory
+## <a name="getting-started-with-ads"></a>Komma igång med annonser
 
-Följande steg hjälper dig igång med Active Directory.
+Följande steg hjälper dig att komma igång med annonser.
 
-## <a name="1-enable-ads"></a>1. Aktivera ANNONSER
+## <a name="1-enable-ads"></a>1. Aktivera annonser
 
-Aktivera ANNONSER genom att gå till **avancerade datasäkerhet** under den **Security** för din SQL Database-server eller hanterade instans. Aktivera ANNONSER för alla databaser på databasservern eller hanterad instans, klicka på **aktivera avancerade datasäkerhet på servern**.
-
-> [!NOTE]
-> Ett lagringskonto skapas automatiskt och konfigurerats för att lagra dina **Sårbarhetsbedömning** skanningsresultat. Om du har redan aktiverat ANNONSER för en annan server i samma resursgrupp och region, används det befintliga lagringskontot.
-
-![Aktivera ANNONSER](./media/sql-advanced-protection/enable_ads.png) 
+Aktivera annonser genom att gå till **Avancerad data säkerhet** under **säkerhets** rubriken för SQL Database-servern eller hanterade-instansen. Om du vill aktivera annonser för alla databaser på databas servern eller en hanterad instans klickar du på **aktivera avancerad data säkerhet på servern**.
 
 > [!NOTE]
-> Kostnaden för ANNONSER justeras med Azure Security Center standard-nivån prissättning per nod, där en nod är hela SQL Database-server eller hanterad instans. Du därför betalar bara en gång för att skydda alla databaser på databasservern eller hanterad instans med ANNONSER. Du kan testa ANNONSER från början med en kostnadsfri utvärderingsversion.
+> Ett lagrings konto skapas och konfigureras automatiskt för att lagra dina genomsöknings resultat för **sårbarhets bedömning** . Om du redan har aktiverat annonser för en annan server i samma resurs grupp och region används det befintliga lagrings kontot.
 
-## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Börja klassificera data, spåra säkerhetsrisker och undersöka hotaviseringar
+![Aktivera annonser](./media/sql-advanced-protection/enable_ads.png) 
 
-Klicka på den **Dataidentifiering och klassificering** kort för att visa rekommenderade känsliga kolumner att klassificera och för att klassificera dina data med beständiga känslighet etiketter. Klicka på den **Sårbarhetsbedömning** kort att visa och hantera sårbarhetsgenomsökningar och rapporter och spåra din säkerhet datasekretesstandarder. Om säkerhetsaviseringar har tagits emot, klickar du på den **Advanced Threat Protection** kort att visa information om av aviseringarna och för att se en sammanfattande rapport med alla aviseringar i Azure-prenumerationen via sidan för security-aviseringar i Azure Security Center .
+> [!NOTE]
+> Kostnaden för annonser justeras med Azure Security Center standard pris per nod, där en nod är hela SQL Database servern eller en hanterad instans. Du betalar därför bara en gång för att skydda alla databaser på databas servern eller den hanterade instansen med annonser. Du kan prova att börja med att börja använda ADS med en kostnads fri utvärderings version.
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Hantera inställningar för ANNONSER på din SQL Database-server eller hanterad instans
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Börja klassificera data, spåra sårbarheter och undersöka hot varningar
 
-Om du vill visa och hantera inställningar för ANNONSER, gå till **avancerad säkerhet för Data** under den **Security** för din SQL Database-server eller hanterad instans. På den här sidan kan du aktivera eller inaktivera ANNONSER och ändra vulnerability assessment och inställningarna för avancerat skydd för hela SQL Database-server eller hanterad instans.
+Klicka på **klassificerings kortet data identifierings &** för att se rekommenderade känsliga kolumner för att klassificera och klassificera data med beständiga känslighets etiketter. Klicka på kortet för **sårbarhets bedömning** för att visa och hantera sårbarhets genomsökningar och rapporter och för att spåra din säkerhets datasekretesstandarder. Om säkerhets aviseringar har mottagits klickar du på kortet **Avancerat skydd** för att visa information om aviseringarna och visa en konsol IDE rad rapport om alla aviseringar i din Azure-prenumeration via sidan Azure Security Center säkerhets aviseringar.
 
-![serverinställningar](./media/sql-advanced-protection/server_settings.png) 
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Hantera ADS-inställningar på din SQL Database Server eller hanterad instans
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Hantera ANNONSER inställningar för en SQL-databas
+Om du vill visa och hantera ADS-inställningar går du till **Avancerad data säkerhet** under **säkerhets** rubriken för din SQL Database Server eller en hanterad instans. På den här sidan kan du aktivera eller inaktivera annonser och ändra inställningarna för sårbarhets bedömning och Avancerat skydd för hela SQL Database servern eller den hanterade instansen.
 
-Om du vill åsidosätta ADS-inställningar för en viss databas, kontrollera den **aktivera avancerad säkerhet för Data på databasnivå** kryssrutan. Använd det här alternativet bara om du har ett särskilt krav att ta emot separata aviseringar för avancerat skydd eller vulnerability assessment resultat för enskilda databasen, i stället för eller förutom aviseringar och resultaten som tagits emot för alla databaser på den databasservern eller hanterad instans.
+![Server inställningar](./media/sql-advanced-protection/server_settings.png) 
 
-Du kan sedan konfigurera de relevanta inställningarna för den här databasen när kryssrutan är markerad.
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Hantera ADS-inställningar för en SQL-databas
+
+Om du vill åsidosätta ADS-inställningarna för en viss databas markerar du kryss rutan **aktivera avancerad data säkerhet på databas nivå** . Använd bara det här alternativet om du har ett visst krav för att ta emot separata varningar om Avancerat skydd eller sårbarhets bedömning för den enskilda databasen, i stället för de aviseringar och resultat som tagits emot för alla databaser på databas server eller hanterad instans.
+
+När kryss rutan är markerad kan du konfigurera de relevanta inställningarna för den här databasen.
  
-![Inställningar för databasen och Avancerat skydd](./media/sql-advanced-protection/database_threat_detection_settings.png) 
+![Inställningar för databas-och Avancerat skydd](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-Avancerade säkerhetsinställningar för din databasserver eller hanterad instans kan även nås från fönstret ADS-databasen. Klicka på **inställningar** i huvudfönstret för ANNONSER och klicka sedan på **serverinställningar för Visa avancerad datasäkerhet**. 
+Avancerade data säkerhets inställningar för din databas server eller hanterad instans kan också nås från fönstret ADS Database. Klicka på **Inställningar** i rutan huvud annonser och klicka sedan på **Visa avancerade data säkerhets Server inställningar**. 
 
-![Databasinställningar](./media/sql-advanced-protection/database_settings.png) 
+![Databas inställningar](./media/sql-advanced-protection/database_settings.png) 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-- Läs mer om [dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md) 
-- Läs mer om [utvärdering av säkerhetsrisker](sql-vulnerability-assessment.md) 
+- Läs mer om [data identifiering & klassificering](sql-database-data-discovery-and-classification.md) 
+- Läs mer om [sårbarhets bedömning](sql-vulnerability-assessment.md) 
 - Läs mer om [Avancerat skydd](sql-database-threat-detection.md)
-- Läs mer om [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

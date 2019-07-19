@@ -1,6 +1,6 @@
 ---
-title: Dela galleriavbildningar över klienter i Azure | Microsoft Docs
-description: Lär dig mer om att dela VM-avbildningar i Azure-klienter med hjälp av delad Image Galleries.
+title: Dela Galleri bilder över klienter i Azure | Microsoft Docs
+description: Lär dig hur du delar VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -8,27 +8,27 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: c26abe948fa415c780d543c615c34af2091cfbc7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b921aabd8d71654d089c5f16aba27c286a1e91ec
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709166"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305030"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela galleriet VM-avbildningar i Azure-klienter
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela Galleri VM-avbildningar i Azure-klienter
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan azure-klient. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter, måste du använda den [Azure CLI](../linux/share-images-across-tenants.md) eller Powershell.
+> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan Azure-klient. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter, måste du använda [Azure CLI](../linux/share-images-across-tenants.md) eller PowerShell.
 
-## <a name="create-a-vm-using-powershell"></a>Skapa en virtuell dator med hjälp av PowerShell
+## <a name="create-a-vm-using-powershell"></a>Skapa en virtuell dator med PowerShell
 
 
-Logga in på båda klienter med hjälp av program-ID, hemlighet och klient-ID. 
+Logga in på båda klienterna med program-ID, hemlighet och klient-ID. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -41,23 +41,48 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Skapa den virtuella datorn i resursgruppen som har behörighet på appregistreringen. Ersätt informationen i det här exemplet med dina egna.
+Skapa den virtuella datorn i resurs gruppen som har behörighet för appens registrering. Ersätt informationen i det här exemplet med din egen.
+
+
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVMfromImage"
+
+# Set a variable for the image version in Tenant 1 using the full image ID of the shared image version
 $image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
-New-AzVm `
-   -ResourceGroupName "myResourceGroup" `
-   -Name "myVMfromImage" `
-   -Image $image `
-   -Location "South Central US" `
-   -VirtualNetworkName "myImageVnet" `
-   -SubnetName "myImageSubnet" `
-   -SecurityGroupName "myImageNSG" `
-   -PublicIpAddressName "myImagePIP" `
-   -OpenPorts 3389
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Networking pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using the $image variable to specify the shared image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $image | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa delade bild galleriresurser med hjälp av den [Azure-portalen](shared-images-portal.md).
+Du kan också skapa delade avbildnings Galleri resurser med hjälp av [Azure Portal](shared-images-portal.md).

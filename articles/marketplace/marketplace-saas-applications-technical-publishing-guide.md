@@ -1,151 +1,151 @@
 ---
-title: Azure Marketplace SaaS-program Technical publicera Guide
-description: Stegvis guide och publicera checklistor för publicering av SaaS-program på Azure Marketplace
+title: Teknisk publicerings guide för Azure Marketplace SaaS-program
+description: Steg-för-steg-guide och publicera check listor för publicering av SaaS-program till Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445733"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876524"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
+# <a name="saas-applications-offer-publishing-guide"></a>Publicerings guide för SaaS-program
 
-SaaS-program kan publiceras i marketplace med tre olika saker: ”Kontakta mig”, ”Prova nu” och ”hämta nu”. Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
+SaaS-program kan publiceras på Marketplace med tre olika anrop till åtgärden: "Kontakta mig", prova nu, "och" Hämta det nu. " Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
 
-## <a name="offer-overview"></a>Erbjudande-översikt  
+## <a name="offer-overview"></a>Erbjudande översikt  
 
-SaaS-program är tillgängliga i både Azure-butiker i följande tabell beskrivs de aktuella tillgängliga alternativen:
+SaaS-program finns i både Azure butiker i följande tabell beskrivs aktuella tillgängliga alternativ:
 
-| Storefront alternativet | Visa en lista över | Utvärdering/Transact |  
+| Alternativet butik | Listor | Utvärderings version/Transact |  
 | --- | --- | --- |  
 | AppSource | Ja (kontakta mig) | Ja (PowerBI/Dynamics) |
 | Azure Marketplace | Nej | Ja (SaaS-appar) |   
 
-**Lista:**  Lista publiceringsalternativ består av en kontakt mig erbjudandetyp och används när en utvärderingsversion - eller transaktionsnivå deltagande inte är möjlig. Fördelen med den här metoden är att den kan utgivare med en lösning på marknaden kan omedelbart börja ta emot leads som kan omvandlas till erbjudanden för att öka din verksamhet.  
-**Utvärdering/transaktion:**  Kunden har alternativet att köpa eller begär en utvärderingsversion för din lösning direkt. Att ge en utvärderingsversion ökar engagement erbjuds för kunder och ger kunderna möjlighet att utforska din lösning innan du köper. Du får bättre risken för befordran i butiker med en utvärderingsversion upplevelse, och du kan förvänta dig mer och mer omfattande leads i lika kundrelationer. Utvärderingsversioner måste innehålla kostnadsfri support minst för hela utvärderingsperioden är slut.  
+**Lista**  Publicerings alternativet för listan består av en kontakt mig erbjudande typ och används när det inte är möjligt att delta i en utvärderings-eller transaktions nivå. Fördelen med den här metoden är att den gör det möjligt för utgivare med en lösning på marknaden att omedelbart börja ta emot leads som kan inaktive ras i avtal för att öka din verksamhet.  
+**Utvärderings version/transaktion:**  Kunden har möjlighet att köpa eller begära en utvärdering av din lösning direkt. Att tillhandahålla en utvärderings version ökar den engagemang nivån som kunderna erbjuder och gör det möjligt för kunderna att utforska din lösning innan de köper. Med en utvärderings version får du bättre möjligheter till befordran i butiker, och du bör förvänta dig mer och rikare leads från kund engagemang. Test versioner måste innehålla kostnads fri support under minst under utvärderings periodens varaktighet.  
 
-| Erbjudandet för SaaS-appar | Affärskrav | Tekniska krav |  
+| Erbjudande för SaaS-appar | Affärskrav | Tekniska krav |  
 | --- | --- | --- |  
 | **Kontakta oss** | Ja | Nej |  
-| **PowerBI / Dynamics** | Ja | Ja (Azure AD-integrering) |  
+| **PowerBI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
 | **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
-## <a name="saas-list"></a>SaaS-lista
+## <a name="saas-list"></a>Lista över SaaS
 
-Din uppmaning till en SaaS-lista med inga utvärderingsversion och inga fakturering funktioner är ”kontakta mig”. 
+Anropet till åtgärden för en SaaS-lista utan utvärderings version och ingen fakturerings funktion är "kontakta mig". 
 
-Du behöver inte konfigurera Azure Active Directory om du vill visa ett SaaS-program. 
+Du behöver inte konfigurera Azure Active Directory för att visa en lista över ett SaaS-program. 
 
 |Krav  |Information  |
 |---------|---------|
-|Din app är en SaaS erbjudande  |   Din lösning är en SaaS erbjudande och du erbjuda en multitenant SaaS-produkt.      |
+|Din app är ett SaaS-erbjudande  |   Din lösning är ett SaaS erbjudande och du erbjuder en SaaS-produkt med flera innehavare.      |
 
 
 ## <a name="saas-trial"></a>SaaS-utvärdering
 
-Du anger en lösning eller en app med en kostnadsfri-till-försök, programvara som tjänst (SaaS)-baserade utvärderingsversion. Kostnadsfria utvärderingsversion erbjudanden kan ges som ett utvärderingskonto för begränsad användning eller begränsad varaktighet. 
+Du kan tillhandahålla en lösning eller app med hjälp av en SaaS-baserad (Software-as-a-Service)-baserad utvärderings version. Kostnads fria utvärderings versioner kan visas som ett svars konto med begränsad användning eller en begränsad tids period. 
 
 
 |Krav  |Information  |
 |---------|---------|
-|Din app är en SaaS erbjudande  |   Din lösning är en SaaS erbjudande och du erbjuda en multitenant SaaS-produkt.      |
-|Din app är AAD aktiverad     |   Kunden kommer att vara till din domän och du kommer transact hos kunden direkt       |
+|Din app är ett SaaS-erbjudande  |   Din lösning är ett SaaS erbjudande och du erbjuder en SaaS-produkt med flera innehavare.      |
+|Din app är AAD-aktiverad     |   Kunden kommer att omdirigeras till din domän och du kommer att använda det direkt med kunden       |
 
 
-## <a name="saas-trial-technical-requirements"></a>SaaS utvärderingsversion tekniska krav
+## <a name="saas-trial-technical-requirements"></a>Tekniska krav för SaaS-utvärdering
 
-De tekniska kraven för SaaS-program är enkel. Utgivare krävs endast för att att integreras med Azure Active Directory (Azure AD) som ska publiceras. Azure AD-integrering med program är väl dokumenterat och Microsoft tillhandahåller flera SDK: er och resurser för att åstadkomma detta.  
+De tekniska kraven för SaaS-program är enkla. Utgivare måste bara vara integrerade med Azure Active Directory (Azure AD) som ska publiceras. Azure AD-integrering med program dokumenteras väl och Microsoft tillhandahåller flera SDK: er och resurser för att åstadkomma detta.  
 
-För att starta, rekommenderar vi att du har en prenumeration för din Azure Marketplace-publicering, så att du kan isolera arbete från andra initiativ. När det är klart kan du börja distribuera din SaaS-program i den här prenumerationen att starta utvecklingsarbeten.  
+För att starta rekommenderar vi att du har en prenumeration som är dedikerad för din Azure Marketplace-publicering, så att du kan isolera arbetet från andra initiativ. När det är gjort kan du börja distribuera ditt SaaS-program i den här prenumerationen för att starta utvecklings arbetet.  
 
-Bästa Azure Active Directory-dokumentation, exempel och vägledning finns på följande platser: 
+Den bästa Azure Active Directory dokumentationen, exempel och rikt linjer finns på följande platser: 
 
-* [Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guide för Azure Active Directory utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
 * [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
 * [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-* [Azure-översikt - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
+* [Azure-översikt – säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
 
-Videokurser, kontrollerar du följande:
+För video kurser, se följande:
 
-* [Azure Active Directory-autentisering med Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+* [Azure Active Directory autentisering med Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
 
-* [Azure Active Directory Identity teknisk genomgång – del 1 av 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+* [Azure Active Directory Identity Technical pärmsida-del 1 av 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
 
-* [Azure Active Directory Identity teknisk genomgång – del 2 av 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+* [Azure Active Directory identitet teknisk pärmsida, del 2 av 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
 
 * [Skapa appar med Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
 
-* [Microsoft Azure-videor som fokuserar på Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+* [Microsoft Azure videor fokuserat på Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
-Kostnadsfri utbildning för Azure Active Directory finns på  
-* [Microsoft Azure för IT-proffs serien: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+Kostnads fri Azure Active Directory utbildning finns på  
+* [Innehålls serie för IT-proffs Microsoft Azure: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
-Azure Active Directory tillhandahåller dessutom en plats för att söka efter uppdateringar av tjänsten   
-* [Tjänstuppdateringar för Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
+Dessutom tillhandahåller Azure Active Directory en plats för att söka efter tjänst uppdateringar   
+* [Azure AD service-uppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
 
-## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera utvärderingar  
+## <a name="using-azure-active-directory-to-enable-trials"></a>Aktivera försök med hjälp av Azure Active Directory  
 
-Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar sig igenom dina utvärderingspubliceringar i Marketplace och omdirigeras till din utvärderingsmiljö kan du ge användaren en utvärderingsversion utan att kräva en ytterligare inloggning steg. Den token som appen tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app, så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar på din utvärderings lista på Marketplace och omdirigeras till din utvärderings miljö kan du etablera användaren direkt i en utvärderings version utan att behöva ytterligare inloggnings steg. Den token som din app tar emot från Azure AD under autentiseringen innehåller värdefull användar information som du kan använda för att skapa ett användar konto i din app, så att du kan automatisera etablerings upplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [exempel](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) -token.
 
-Aktivera 1 klick autentisering i din app eller en utvärderingsversion med hjälp av Azure AD gör följande:  
-* Förenklar kundupplevelsen från Marketplace-utvärderingsversionen.  
-* Underhåller känslan av en i produkten upplevelse även när användaren omdirigeras från Marketplace till din domän eller utvärderingsmiljö.  
-* Minskar sannolikheten för nedläggning på omdirigering eftersom det inte finns ytterligare logga in ett steg.  
-* Minskar hinder för distribution för stora befolkningen i Azure AD-användare.  
+Använd Azure AD för att aktivera 1-Klicka på autentisering till din app eller utvärdering gör följande:  
+* Effektiviserar kund upplevelsen från Marketplace till utvärderings version.  
+* Bibehåller känslan av en produkt upplevelse, även när användaren omdirigeras från Marketplace till din domän eller utvärderings miljö.  
+* Minskar sannolikheten för genom gång av omdirigering eftersom det inte finns något ytterligare inloggnings steg.  
+* Minskar distributions barriärerna för den stora populationen av Azure AD-användare.  
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certifiera din Azure AD-integrering för Marketplace  
 
-Certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt program är en enda klient eller flera innehavare och om du är nybörjare till Azure AD-federerad enkel inloggning (SSO), eller redan stöder den.  
+Certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt program är en enskild klient eller flera innehavare, och om du är nybörjare på Azure AD federerad enkel inloggning (SSO) eller redan stöder det.  
 
 **För program med flera klienter:**  
 
-Om du redan har stöd för Azure AD, gör du följande:
-1.  Registrera ditt program i Azure portal
-2.  Aktivera funktionen stöd för flera innehavare i Azure AD för att få en testperiod för en enda klickning. Mer specifik information kan hittas [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+Om du redan har stöd för Azure AD gör du följande:
+1.  Registrera ditt program i Azure Portal
+2.  Aktivera funktionen för stöd för flera innehavare i Azure AD för att få en utvärderings upplevelse med ett enda klick. Mer detaljerad information finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
-Om du är nybörjare på Azure AD federerad SSO, gör du följande: 
-1.  Registrera ditt program i Azure portal
-2.  Utveckla enkel inloggning med Azure AD via [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Aktivera stöd för flera innehavare funktionen i AAD för att hämta utvärderingsversionen för ”klick” mer specifikt finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+Om du är nybörjare på den federerade INLOGGNINGen i Azure AD gör du följande: 
+1.  Registrera ditt program i Azure Portal
+2.  Utveckla SSO med Azure AD med [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Aktivera stöd för flera innehavare i AAD för att få en utvärderings version med en mer detaljerad information som du hittar [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
-**För enstaka klientorganisationer program, använder du någon av följande alternativ:**  
-* Lägga till användare i din katalog som gästanvändare med [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-* Etablera manuellt utvärderingar för kunder med hjälp av kontakta mig
-* Utveckla en per-kund Test-enhet
-* Skapa en app med flera innehavare exempel demo med enkel inloggning
+**För program med en enda klient använder du något av följande alternativ:**  
+* Lägga till användare i din katalog som gäst användare med [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Manuellt etablera utvärderingar för kunder genom att använda "kontakta mig"
+* Utveckla en test enhet per kund
+* Bygg en app med flera klient exempel demonstrationer med SSO
 
 ## <a name="saas-subscriptions"></a>SaaS-prenumerationer
 
-Aktivera kunden att köpa din SaaS-baserade, teknisk lösning som en prenumeration med hjälp av erbjudandetypen för SaaS-app. Följande krav måste uppfyllas för SaaS-app:
-- Pris- och faktura tjänsten enligt ett fast, månatliga pris.
-- Ange en metod för att uppgradera eller säga upp tjänsten när som helst.
-Microsoft är värd för handel transaktionen. Microsoft fakturerar kunden å dina vägnar. Om du vill använda faktura en SaaS-App som en prenumeration, måste du aktivera du egen prenumeration management-tjänsten API. Din prenumeration management-tjänstens API måste kommunicera direkt med Azure Resource Manager API: er. Din prenumeration management-tjänstens API måste stödja Tjänstetablering, uppgradering och avbryta.
+Använd SaaS-appens erbjudande typ för att låta kunden köpa din SaaS-baserade, tekniska lösning som en prenumeration. Följande krav måste uppfyllas för din SaaS-app:
+- Pris och fakturera tjänsten med en fast månads taxa.
+- Ange en metod för att uppgradera eller avbryta tjänsten när som helst.
+Microsoft är värd för handels transaktionen. Microsoft fakturerar kunden å dina vägnar. Om du vill använda Billing a SaaS-appen som en prenumeration måste du aktivera prenumerations hanterings tjänstens API. Prenumerations hanterings tjänstens API måste kommunicera direkt med Azure Resource Manager-API: er. Prenumerations hanterings tjänstens API måste ha stöd för tjänst etablering, uppgradering och annullering.
 
 | Krav | Information |  
 |:--- |:--- |  
-|Fakturering och mätning | Ditt erbjudande debiteras med en månatlig fast pris. Användningsbaserade priser och användningsbaserad ”true up” funktioner stöds inte just nu. |  
-|Annulleringen | Erbjudandet är avbrytbar av kunden när som helst. |  
-|Landningssida för transaktion | Du vara värd för en landningssidan för Azure anpassade transaktion där användare kan skapa och hantera sina SaaS-tjänstkontot. |   
-| Prenumeration API | Du kan exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar släpps regelbundet. |  
+|Fakturering och mätning | Ditt erbjudande priss ätts till en månatlig fast taxa. Användnings priser och användnings "sanna" funktioner stöds inte för tillfället. |  
+|Annullering | Ditt erbjudande kan avbrytas av kunden när som helst. |  
+|Transaktions landnings sida | Du är värd för en Azure-anpassad transaktions landnings sida där användare kan skapa och hantera sitt SaaS-tjänstkonto. |   
+| Prenumerations-API | Du exponerar en tjänst som kan interagera med SaaS-prenumerationen för att skapa, uppdatera och ta bort ett användar konto och en tjänste plan. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar frigörs regelbundet. |  
 
 >[!Note]
->Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
+>Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](./cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan gjort det,
+Om du inte redan har gjort det,
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
+- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på Marketplace.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
+Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
-- Se [Azure SaaS-program erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) för mer information.
+- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
+- Mer information finns i [program erbjudandet för Azure SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) .

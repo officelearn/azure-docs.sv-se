@@ -1,26 +1,27 @@
 ---
-title: Log mått under träningskörningar
+title: Logga mått under utbildnings körningar
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning. Du kan spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen.
+description: Du kan spåra experiment och övervaka mått för att förbättra skapande processen för modeller. Lär dig hur du lägger till loggning i ditt utbildnings skript, hur du skickar experimentet, hur du kontrollerar förloppet för ett pågående jobb och hur du visar de loggade resultaten för en körning.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297483"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847425"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logga mått under inlärnings körningar i Azure Machine Learning
 
-I den här artikeln lär du dig hur du Lägg till loggning i dina utbildningsskript, skicka en körning av experiment, övervaka körningen och visa resultatet av en körning i Azure Machine Learning-tjänsten. Förbättra skapandeprocessen modellen genom att spåra dina experiment och övervakning av mått. 
+Förbättra skapande processen för modeller genom att spåra dina experiment och övervaknings mått. I den här artikeln lär du dig hur du lägger till loggning i ditt utbildnings skript, skickar en experiment körning, övervakar körningen och visar resultatet av en körning i Azure Machine Learning-tjänsten.
 
 ## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
 
@@ -48,18 +49,16 @@ Om du vill spåra och övervaka ditt experiment, måste du lägga till kod för 
 ## <a name="set-up-the-workspace"></a>Ställ in arbetsytan
 Innan du lägger till loggning och skicka ett experiment, måste du ställa in arbetsytan.
 
-1. Läs in arbetsytan. Om du vill veta mer om hur du arbetsytans konfiguration, följer du stegen i [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#sdk).
+1. Läs in arbetsytan. Om du vill veta mer om hur du anger konfigurationen för arbets ytan följer du stegen i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
   
-   ws = Workspace(workspace_name = <<workspace_name>>,
-               subscription_id = <<subscription_id>>,
-               resource_group = <<resource_group>>)
+   ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>Alternativ 1: Använda start_logging
+## <a name="option-1-use-startlogging"></a>Alternativ 1: Använd start_logging
 
 **start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
 
@@ -92,42 +91,44 @@ I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal
 2. Lägg till experimentet spårning med Azure Machine Learning-tjänst-SDK och ladda upp en bestående modell till experimentet körningsposten. Följande kod lägger till taggar, loggar, och laddar upp en modellfil till körningen av experimentet.
 
    ```python
-   # Get an experiment object from Azure Machine Learning
-   experiment = Experiment(workspace = ws, name = "train-within-notebook")
-  
-   # Create a run object in the experiment
-   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-   run.log('alpha', 0.03)
-
-   # Create, fit, and test the scikit-learn Ridge regression model
-   regression_model = Ridge(alpha=0.03)
-   regression_model.fit(data['train']['X'], data['train']['y'])
-   preds = regression_model.predict(data['test']['X'])
-
-   # Output the Mean Squared Error to the notebook and to the run
-   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-   run.log('mse', mean_squared_error(data['test']['y'], preds))
-
-   # Save the model to the outputs directory for capture
-   joblib.dump(value=regression_model, filename='outputs/model.pkl')
-
-   # Take a snapshot of the directory containing this notebook
-   run.take_snapshot('./')
-
-   # Complete the run
-   run.complete()
-  
+    # Get an experiment object from Azure Machine Learning
+    experiment = Experiment(workspace=ws, name="train-within-notebook")
+    
+    # Create a run object in the experiment
+    run =  experiment.start_logging()
+    # Log the algorithm parameter alpha to the run
+    run.log('alpha', 0.03)
+    
+    # Create, fit, and test the scikit-learn Ridge regression model
+    regression_model = Ridge(alpha=0.03)
+    regression_model.fit(data['train']['X'], data['train']['y'])
+    preds = regression_model.predict(data['test']['X'])
+    
+    # Output the Mean Squared Error to the notebook and to the run
+    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+    run.log('mse', mean_squared_error(data['test']['y'], preds))
+    
+    # Save the model to the outputs directory for capture
+    model_file_name = 'outputs/model.pkl'
+    
+    joblib.dump(value = regression_model, filename = model_file_name)
+    
+    # upload the model file explicitly into artifacts 
+    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+    
+    # Complete the run
+    run.complete()
    ```
 
-Skriptet slutar med ```run.complete()```, som markeras körningen som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
+    Skriptet slutar med ```run.complete()```, som markeras körningen som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
 
-## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använda ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använd ScriptRunConfig
 
-[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) är en klass för att konfigurera konfigurationer för skriptet körs. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) är en klass för att konfigurera konfigurationer för skript körningar. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
 
 Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ovan. Den gör en enkel parameter Svep svep över alfavärden av modellen för att hämta mått och tränade modeller i körs under experimentet. Exemplet körs lokalt mot en användarhanterade miljö. 
 
-1. Skapa ett inlärningsskript `train.py`.
+1. Skapa ett utbildnings skript `train.py`.
 
    ```python
    # train.py
@@ -181,7 +182,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
   
    ```
 
-2. Den `train.py` skript referenser `mylib.py` där du kan hämta listan över alfanumeriska värden som ska användas i modellen upphöjning.
+2. `train.py` Skript referenser`mylib.py` som gör att du kan hämta listan med alfa värden som ska användas i Ridge-modellen.
 
    ```python
    # mylib.py
@@ -196,30 +197,31 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
 3. Konfigurera en lokal miljö med användarhanterade.
 
    ```python
-   from azureml.core.runconfig import RunConfiguration
-
+   from azureml.core import Environment
+    
    # Editing a run configuration property on-fly.
-   run_config_user_managed = RunConfiguration()
-
-   run_config_user_managed.environment.python.user_managed_dependencies = True
-
+   user_managed_env = Environment("user-managed-env")
+    
+   user_managed_env.python.user_managed_dependencies = True
+    
    # You can choose a specific Python environment by pointing to a Python path 
-   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. Skicka den ```train.py``` skript som ska köras i användarhanterade-miljö. Den här mappen för hela skriptet har skickats för utbildning, inklusive den ```mylib.py``` filen.
 
    ```python
    from azureml.core import ScriptRunConfig
-  
-   experiment = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-   run = experiment.submit(src)
+    
+   exp = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory='./', script='train.py')
+   src.run_config.environment = user_managed_env
+   run = exp.submit(src)
    ```
 
 ## <a name="manage-a-run"></a>Hantera en körning
 
-Den [Start, övervaka och avbryta träningskörningar](how-to-manage-runs.md) artikeln lyfter fram specifika Azure Machine Learning-arbetsflöden för hur du hanterar dina experiment.
+I avsnittet [starta, övervaka och avbryta utbildnings körningar](how-to-manage-runs.md) finns mer information om hur du hanterar dina experiment genom att markera Azure Machine Learning arbets flöden.
 
 ## <a name="view-run-details"></a>Visa körningsinformation
 
@@ -233,9 +235,9 @@ När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se
    RunDetails(run).show()
    ```
 
-   ![Skärmbild av Jupyter notebook widget](./media/how-to-track-experiments/widgets.PNG)
+   ![Skärmbild av Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
-2. **[Automatiserad machine learning i körningar]**  Att komma åt diagrammen från en tidigare körning. Ersätt `<<experiment_name>>` med lämpliga experiment namn:
+2. **[Automatiserad machine learning i körningar]**  Att komma åt diagrammen från en tidigare körning. Ersätt `<<experiment_name>>` med lämpligt experiment namn:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -263,14 +265,14 @@ Du kan visa mått för en tränade modellen med hjälp av ```run.get_metrics()``
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Visa experiment i Azure portal
 
-När ett experiment har körts kan du bläddra till inspelade experimentet körningsposten. Du kan göra åtkomst till historiken på två sätt:
+När ett experiment har körts kan du bläddra till inspelade experimentet körningsposten. Du kan komma åt historiken på två sätt:
 
 * Hämta URL kör direkt ```print(run.get_portal_url())```
 * Visa körningsinformation genom att skicka in namnet på körningen (i det här fallet ```run```). Det här sättet pekar du på experimentnamnet, ID, typ, status, informationssidan, en länk till Azure-portalen och en länk till dokumentationen.
 
 Länk för körningen öppnar du direkt till sidan körningsinformation i Azure-portalen. Här kan du se alla egenskaper, spårade mått, bilder och diagram som loggas i experimentet. I det här fallet loggas vi MSE och alfanumeriska värden.
 
-  ![Information om körningen i Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Information om körningen i Azure portal](./media/how-to-track-experiments/run-details-page.png)
 
 Du kan också visa alla utdata och loggar för körningen eller ladda ned ögonblicksbild av experimentet som du har skickat in så att du kan dela mappen experiment med andra.
 
@@ -302,19 +304,19 @@ Läs mer om:
 
 1. Välj **experiment** på panelen längst till vänster i din arbetsyta.
 
-   ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+   ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
 
 1. Välj experiment som du är intresserad av.
 
-   ![Experiment lista](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+   ![Experiment lista](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
 
 1. I tabellen, väljer du hur många som kör.
 
-   ![Körningen av experimentet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Körningen av experimentet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
 
 1. Välj Iteration numret för den modell som du vill utforska vidare i tabellen.
 
-   ![Experiment modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Experiment modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
 
 
 
@@ -334,9 +336,9 @@ En felmatris används för att beskriva resultatet av en modell för klassificer
 
 För klassificering, problem ger Azure Machine Learning automatiskt en felmatris för varje modell som har skapats. För varje felmatris visas automatiserade ML korrekt klassificerade etiketterna som gröna och felaktigt klassificerad etiketter rött. Storleken på cirkeln representerar antalet prov i lagerplatsen. Dessutom finns frekvens antal förväntade etiketterna och varje SANT etikett i intilliggande stapeldiagram. 
 
-Exempel 1: En klassificeringsmodellen med dålig noggrannhet ![en klassificeringsmodellen med dålig noggrannhet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+Exempel 1: En klassificerings modell med dålig ![precision för en klassificerings modell med dålig precision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-Exempel 2: En klassificering modell med hög precision (perfekt) ![en klassificering modell med hög precision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Exempel 2: En klassificerings modell med hög noggrannhet (idealisk ![) en klassificerings modell med hög exakthet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 #### <a name="precision-recall-chart"></a>Precisionsåterkallningsdiagram diagram
@@ -345,17 +347,17 @@ Du kan jämföra precisionsåterkallningsdiagram kurvor för varje modell att av
 
 Termen Precision representerar den möjligheten för en klassificerare att märka alla instanser korrekt. Återkallande representerar möjligheten för en klassificerare att hitta alla instanser av en viss etikett. Precisionsåterkallningsdiagram kurvan visar relationen mellan dessa två begrepp. Vi rekommenderar skulle modellen ha 100% noggrannhet och 100% noggrannhet.
 
-Exempel 1: En klassificeringsmodellen med låg precision och låg återkallande ![en klassificeringsmodellen med låg precision och låg återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+Exempel 1: En klassificerings modell med låg precision och låg ![återkallning av en klassificerings modell med låg precision och låg återkallning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
 
-Exempel 2: En klassificering modell med ~ 100% noggrannhet och ~ 100% återkallande (perfekt) ![en klassificering modellen hög precision och återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Exempel 2: En klassificerings modell med ~ 100% precision och ~ 100% återkalla (idealisk ![) en klassificerings modell med hög precision och återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
 
 #### <a name="roc"></a>ROC
 
 Mottagare som fungerar egenskap (eller ROC) är en rityta för korrekt klassificerade etiketterna jämfört med felaktigt klassificerad etiketter för en viss modell. ROC-kurvan kan vara mindre informativa när modeller för utbildning på datauppsättningar med hög partiskt, som det inte visas falskt positivt etiketter.
 
-Exempel 1: En klassificeringsmodellen med låg SANT etiketter och hög FALSKT etiketter ![klassificeringsmodellen med låg SANT etiketter och hög FALSKT etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+Exempel 1: En klassificerings modell med låg sant etikett och etikett ![modell med hög falsk etikett med låg sant etiketter och höga Felaktiga etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
 
-Exempel 2: En klassificeringsmodellen med hög SANT etiketter och låg FALSKT etiketter ![en klassificeringsmodellen med hög SANT etiketter och låg FALSKT etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+Exempel 2: En klassificerings modell med High True Labels och low ![false etiketter en klassificerings modell med höga sanna etiketter och låg falskt etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
 
 #### <a name="lift-curve"></a>Flytta kurva
 
@@ -363,9 +365,9 @@ Du kan jämföra hissen av modellen som skapats automatiskt med Azure Machine Le
 
 Lift scheman används för att utvärdera prestanda för en modell för klassificering. Den visar hur mycket bättre du kan förvänta dig att göra med en modell som jämfört med utan en modell. 
 
-Exempel 1: Modellen presterar sämre resultat än en modell för slumpmässig val av ![en klassificeringsmodellen sämre resultat än ett slumpmässigt urval modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+Exempel 1: Modellen presterar sämre än en slumpmässig markerings modell ![som är en klassificerings modell som är sämre än en slumpmässig markerings modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
 
-Exempel 2: Modellen presterar bättre än en modell för slumpmässig val av ![en klassificering-modell som presterar bäst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+Exempel 2: Modellen fungerar bättre än en slumpmässig markerings ![modell som en klassificerings modell som fungerar bättre](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
 
 #### <a name="gains-curve"></a>Vinster kurva
 
@@ -373,9 +375,9 @@ Ett diagram får utvärderar prestanda för en modell för klassificering av var
 
 Använda ackumulerade vinster diagrammet för att hjälpa dig att välja den klassificering brytfrekvens med hjälp av en procentsats som motsvarar en önskad vinst från modellen. Den här informationen innehåller ett annat sätt att titta på resultaten i den medföljande ökningsdiagrammet.
 
-Exempel 1: En klassificering modell med minimal vinst ![en klassificering modell med minimal vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+Exempel 1: En klassificerings modell med minimal ![förstärkning av en klassificerings modell med minimal vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
 
-Exempel 2: En klassificering modell med betydande vinst ![en klassificering modell med betydande vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Exempel 2: En klassificerings modell med betydande ![förstärkning av en klassificerings modell med betydande vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
 
 #### <a name="calibration-plot"></a>Kalibreringskurva
 
@@ -383,9 +385,9 @@ Alla klassificering problem, kan du läsa kalibrering raden för micro medelvär
 
 En kalibreringskurva används för att visa förtroendet hos en förutsägelsemodell. Det gör du genom att som visar relationen mellan sannolikheten förväntade och faktiska sannolikheten, där ”sannolikhet” representerar sannolikheten att en viss instans hör under vissa etiketten. En bra justerat modell överensstämmer med y = x rad, där det är ganska säker på i dess förutsägelser. En modell för över confident överensstämmer med y = 0 rad, där den förväntade sannolikheten finns men det finns inga faktiska sannolikheten.
 
-Exempel 1: En mer väl justerat modell ![ mer väl justerat modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+Exempel 1: En mer välkalibrerad modell ![ som är mer bra kalibrerad modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
 
-Exempel 2: En modell för över confident ![en överdrivet confident-modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Exempel 2: En över-trygg modell ![för en över-säker modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ### <a name="regression"></a>Regression
 För varje regressionsmodell du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning kan du se följande diagram: 
@@ -400,9 +402,9 @@ Förväntade vs. SANT visar förhållandet mellan ett prognostiserat värde och 
 
 Efter varje körning visas en förväntad kontra SANT graph för varje regressionsmodell. För att skydda integriteten för värden är binned tillsammans och storleken på varje lagerplats visas som ett stapeldiagram på den nedre delen av diagramområdet. Du kan jämföra förutsägande modell med området ljusare nyans som visar fel marginaler mot perfekt värdet för där modellen ska vara.
 
-Exempel 1: En regressionsmodell med låg noggrannhet i förutsägelser ![en regressionsmodell med låg noggrannhet i förutsägelser](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+Exempel 1: En Regressions modell med låg noggrannhet i ![förutsägelser en Regressions modell med låg precision i förutsägelserna](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
 
-Exempel 2: En regressionsmodell med hög precision i dess förutsägelser ![en regressionsmodell med hög precision i dess förutsägelser](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+Exempel 2: En Regressions modell med hög noggrannhet i dess ![förutsägelser en Regressions modell med hög noggrannhet i dess förutsägelser](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a>
 
@@ -410,15 +412,15 @@ Exempel 2: En regressionsmodell med hög precision i dess förutsägelser ![en r
 
 En återstående representerar en observerade y – förväntade y. Om du vill visa en felmarginalen med låg bias bör histogram för restbelopp skapas som en klockformad kurva inriktade på 0. 
 
-Exempel 1: En regressionsmodell med bias i dess fel ![SA regressionsmodell med bias i dess fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+Exempel 1: En Regressions modell med bias i sina ![fel sa Regressions modell med en förskjutning i sina fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
 
-Exempel 2: En regressionsmodell med mer jämn fördelning av fel ![en regressionsmodell med mer jämn fördelning av fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+Exempel 2: En Regressions modell med mer jämn fördelning av ![fel en Regressions modell med mer jämna distributioner av fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>Modeller förklara möjligheten och funktionen prioritet
 
 Funktionen vikten ger ett värde som anger hur värdefull varje funktion befann sig i konstruktion av en modell. Du kan granska funktionen vikten poäng för modellen övergripande samt per klass på en förutsägelsemodell. Per funktion kan du se hur vikten jämförs mot varje klass och övergripande.
 
-![Funktionen förklara möjlighet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+![Funktionen förklara möjlighet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:

@@ -1,6 +1,6 @@
 ---
-title: Skapa en zonindelat Windows-VM med Azure-portalen | Microsoft Docs
-description: Skapa en virtuell Windows-dator i en tillgänglighetszon med Azure portal
+title: Skapa en virtuell Windows-VM med Azure Portal | Microsoft Docs
+description: Skapa en virtuell Windows-dator i en tillgänglighets zon med Azure Portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 15dd81b6d222c811fe26ec693927355ebdeb47ee
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: af2295643869ba8022fe15cf1e1cef3f2f20a428
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719045"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849832"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Skapa en Windows-dator i en tillgänglighetszon med Azure portal
+# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Skapa en virtuell Windows-dator i en tillgänglighets zon med Azure Portal
 
-Den här artikeln beskriver hur med Azure portal för att skapa en virtuell dator i en Azure-tillgänglighetszon. En [tillgänglighetszon](../../availability-zones/az-overview.md) är en fysiskt separat zon i en Azure-region. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
+Den här artikeln beskriver hur du använder Azure Portal för att skapa en virtuell dator i en Azure-tillgänglighets zon. En [tillgänglighetszon](../../availability-zones/az-overview.md) är en fysiskt separat zon i en Azure-region. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
 
 Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#services-support-by-region).
 
@@ -39,40 +39,40 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 
-3. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). Välj en plats, till exempel USA, östra 2 som har stöd för tillgänglighetszoner. När du är klar klickar du på **OK**.
+3. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). Välj en plats som USA, östra 2, som har stöd för tillgänglighets zoner. När du är klar klickar du på **OK**.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Välj en storlek för den virtuella datorn. Välj en rekommenderad storlek eller filter baserat på funktioner. Bekräfta storleken är tillgängligt i zonen som du vill använda.
+4. Välj en storlek för den virtuella datorn. Välj en rekommenderad storlek eller filtrera baserat på funktioner. Bekräfta att storleken är tillgänglig i den zon som du vill använda.
 
     ![Välj en VM-storlek](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. Under **inställningar** > **hög tillgänglighet**, Välj någon av de numrerade zonerna från den **tillgänglighetszon** listrutan Behåll standardinställningarna för återstående inställningar, och Klicka på **OK**.
+5. Under **Inställningar** > **hög tillgänglighet**väljer du en av de numrerade zonerna i list rutan **tillgänglighets zon** , behåller de återstående standardvärdena och klickar på **OK**.
 
-    ![Välj en tillgänglighetszon](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
+    ![Välj en tillgänglighets zon](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
-6. På sidan Sammanfattning klickar du på **skapa** att starta distributionen av virtuella datorn.
+6. På sidan Sammanfattning klickar du på **skapa** för att starta distributionen av virtuella datorer.
 
 7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Bekräfta zon för hanterad disk och IP-adress
 
-När den virtuella datorn har distribuerats i en tillgänglighetszon, skapas en hanterad disk för den virtuella datorn i samma tillgänglighetszon. Som standard skapas också en offentlig IP-adress i zonen.
+När den virtuella datorn distribueras i en tillgänglighets zon skapas en hanterad disk för den virtuella datorn i samma tillgänglighets zon. Som standard skapas även en offentlig IP-adress i den zonen.
 
-Du kan bekräfta Zoninställningar för dessa resurser i portalen.  
+Du kan bekräfta zon inställningarna för dessa resurser i portalen.  
 
-1. Klicka på **resursgrupper** och sedan namnet på resursen för den virtuella datorn, till exempel *myResourceGroup*.
+1. Klicka på **resurs grupper** och sedan på namnet på resurs gruppen för den virtuella datorn, till exempel *myResourceGroup*.
 
-2. Klicka på namnet på diskresursen. Den **översikt** sidan innehåller information om plats och tillgänglighetszonen för resursen.
+2. Klicka på namnet på disk resursen. **Översikts** sidan innehåller information om resursens plats och tillgänglighets zon.
 
-    ![Tillgänglighetszon för hanterad disk](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
+    ![Tillgänglighets zon för hanterad disk](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
 
-3. Klicka på namnet på den offentliga IP-adressresursen. Den **översikt** sidan innehåller information om plats och tillgänglighetszonen för resursen.
+3. Klicka på namnet på den offentliga IP-adressresursen. **Översikts** sidan innehåller information om resursens plats och tillgänglighets zon.
 
-    ![Tillgänglighetszon för IP-adress](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
+    ![Tillgänglighets zon för IP-adress](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar en virtuell dator i en tillgänglighetszon. Läs mer om [regioner och tillgänglighet](regions-and-availability.md) för virtuella Azure-datorer.
+I den här artikeln har du lärt dig hur du skapar en virtuell dator i en tillgänglighetszon. Lär dig mer om [tillgänglighet](availability.md) för virtuella Azure-datorer.

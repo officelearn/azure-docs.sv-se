@@ -1,6 +1,6 @@
 ---
-title: Skapa en Linux-VM med hjälp av Azure CLI för klassiska | Microsoft Docs
-description: Skapa en Linux-VM på Azure med hjälp av den klassiska Azure CLI
+title: Skapa en virtuell Linux-dator med hjälp av den klassiska Azure-CLI | Microsoft Docs
+description: Skapa en virtuell Linux-dator i Azure med hjälp av den klassiska Azure-CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
-ms.author: v-livech
-ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: gwallace
+ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671080"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875222"
 ---
-# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Skapa en Linux-VM med hjälp av den klassiska Azure CLI
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Skapa en virtuell Linux-dator med hjälp av den klassiska Azure-CLI
 
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept.
 
 > [!NOTE]
-> För att skapa en virtuell dator med Azure CLI, se [skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Information om hur du skapar en virtuell dator med hjälp av Azure CLI finns i [skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Artikeln kräver ett [SSH offentliga och privata nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Artikeln kräver en [offentlig och privat SSH-nyckel](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

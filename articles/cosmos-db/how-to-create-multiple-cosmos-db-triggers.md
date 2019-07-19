@@ -1,50 +1,50 @@
 ---
-title: Så här skapar du flera oberoende Azure Cosmos DB-utlösare
-description: Lär dig hur du konfigurerar flera oberoende Azure Cosmos DB-utlösare för att skapa en händelsedriven arkitektur för Azure Functions.
+title: Så här skapar du flera oberoende Azure Functions-utlösare för Cosmos DB
+description: Lär dig hur du konfigurerar flera oberoende Azure Functions-utlösare för Cosmos DB för att skapa händelse drivna arkitekturer.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241952"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335688"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>Skapa flera Azure Cosmos DB-utlösare
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Skapa flera Azure Functions utlösare för Cosmos DB
 
-Den här artikeln beskrivs hur du kan konfigurera flera Cosmos DB-utlösare för att arbeta parallellt och oberoende reagera på förändringar.
+I den här artikeln beskrivs hur du kan konfigurera flera Azure Functions utlösare för Cosmos DB att arbeta parallellt och samtidigt reagera på ändringar.
 
-![Funktioner utan Server händelsebaserad arbeta med Azure Cosmos DB-utlösare och dela en behållare för lån](./media/change-feed-functions/multi-trigger.png)
+![Server lösa händelsebaserade funktioner som fungerar med Azure Functions-utlösaren för Cosmos DB och delning av en behållare för lån](./media/change-feed-functions/multi-trigger.png)
 
-## <a name="event-based-architecture-requirements"></a>Händelsebaserad arkitektur krav
+## <a name="event-based-architecture-requirements"></a>Händelsebaserade arkitektur krav
 
-När du skapar arkitekturer utan server med [Azure Functions](../azure-functions/functions-overview.md), den har [rekommenderas](../azure-functions/functions-best-practices.md#avoid-long-running-functions) att skapa små funktionen uppsättningar som arbetar tillsammans i stället för stora tidskrävande funktioner.
+När du skapar Server lösa arkitekturer med [Azure Functions](../azure-functions/functions-overview.md) [rekommenderar](../azure-functions/functions-best-practices.md#avoid-long-running-functions) vi att du skapar små funktions uppsättningar som fungerar tillsammans i stället för stora tids krävande funktioner.
 
-När du skapar händelsebaserad serverlös flöden med hjälp av den [Azure Cosmos DB-utlösare](./change-feed-functions.md), kör i ett scenario där du vill göra flera saker, när det finns en ny händelse i en viss [Azure Cosmos-behållaren](./databases-containers-items.md#azure-cosmos-containers). Om åtgärder som du vill ska utlösa, oberoende av varandra, är den perfekta lösningen att **skapar en Cosmos DB-utlösare per åtgärd** du vill göra allt lyssna efter ändringar på samma Azure-Cosmos-behållare.
+När du skapar händelsebaserade Server lösa flöden med [Azure Functions utlösare för Cosmos DB](./change-feed-functions.md), kan du köra i scenariot där du vill göra flera saker när det finns en ny händelse i en viss [Azure Cosmos-behållare](./databases-containers-items.md#azure-cosmos-containers). Om åtgärder som du vill utlösa är oberoende av varandra, är den perfekta lösningen att **skapa en Azure Functions utlösare för Cosmos dB per åtgärd** som du vill göra, alla som lyssnar efter ändringar i samma Azure Cosmos-behållare.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimera behållare för flera utlösare
 
-Beroende på *krav* i Cosmos DB-utlösare, behöver vi en andra behållare för att lagra tillstånd, även kallat den *lån behållare*. Innebär det att du behöver en separat lån behållare för varje Azure-funktion?
+Med tanke på *kraven* i Azure Functions-utlösaren för Cosmos DB behöver vi en andra behållare för att lagra tillstånd, även kallade *leasing avtal*. Innebär det att du behöver en separat container för varje Azure-funktion?
 
 Här har du två alternativ:
 
-* Skapa **ett lån behållare per funktion**: Den här metoden kan översättas till ytterligare kostnader, om du inte använder en [delade dataflöde databasen](./set-throughput.md#set-throughput-on-a-database). Kom ihåg att det lägsta dataflöden på behållarenivån är 400 [programbegäran](./request-units.md), och när det gäller behållaren lån endast de används för att kontrollpunkten förloppet och upprätthålla tillstånd.
-* Har **en låna ut behållare och dela den** för alla funktioner: Det här alternativet om andra gör bättre användning av den etablerade begäranden för behållaren eftersom det ger flera Azure Functions för att dela och använda det etablerade dataflödet som samma.
+* Skapa **en behållare för lån per funktion**: Den här metoden kan översättas till ytterligare kostnader, om du inte använder en [delad data flödes databas](./set-throughput.md#set-throughput-on-a-database). Kom ihåg att det lägsta data flödet på behållar nivån är 400 [enheter](./request-units.md)för programbegäran, och när det gäller leasing behållaren, används den bara för att ange en kontroll punkt för status och underhåll.
+* Ha **en låne behållare och dela den** för alla dina funktioner: Det här andra alternativet ger bättre användning av de allokerade enheterna i behållaren, eftersom det gör det möjligt för flera Azure Functions att dela och använda samma allokerade data flöde.
 
-Målet med den här artikeln är att guida dig för att utföra det andra alternativet.
+Syftet med den här artikeln är att hjälpa dig att utföra det andra alternativet.
 
-## <a name="configuring-a-shared-leases-container"></a>Konfigurera en delad lån-behållare
+## <a name="configuring-a-shared-leases-container"></a>Konfigurera en behållare för delade lån
 
-Om du vill konfigurera delade lån behållaren endast extra konfigurationen måste du göra på din utlösare är att lägga till den `LeaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) om du använder C# eller `leaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example)om du använder JavaScript. Värdet för attributet ska vara en logisk beskrivning av den aktuella utlösaren.
+Om du vill konfigurera behållaren för delade lån, är den enda extra konfigurationen du behöver göra på utlösarna att lägga `LeaseCollectionPrefix` till [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) om du använder C# eller `leaseCollectionPrefix` - [attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
 
-Exempel: Om du har tre utlösare: en som skickar e-postmeddelanden, en som utför en aggregering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagringsplats för senare analys kan du tilldela den `LeaseCollectionPrefix` av ”e-postmeddelanden” till den första ”, materialiseras ”till den andra, och” analytics ”till den tredje.
+Om du till exempel har tre utlösare: en som skickar e-post, en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, för senare analys, kan du `LeaseCollectionPrefix` tilldela "e-post" till den första, " materialiserat "till den andra och" analys "till den tredje.
 
-Den viktiga delen är att alla tre utlöser **kan använda samma lån behållarkonfigurationen** (konto, databas och container-name).
+Den viktiga delen är att alla tre utlösare **kan använda samma konfiguration för leasing avtals behållare** (konto, databas och behållar namn).
 
-Ett enkelt kodexempel som använder den `LeaseCollectionPrefix` attributet i C#, skulle se ut så här:
+Ett enkelt kod exempel som använder `LeaseCollectionPrefix` attributet i C#, skulle se ut så här:
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-Och för JavaScript, kan du tillämpa konfigurationen på den `function.json` filen med den `leaseCollectionPrefix` attribut:
+Och för Java Script kan du tillämpa konfigurationen på `function.json` filen `leaseCollectionPrefix` med attributet:
 
 ```json
 {
@@ -104,10 +104,10 @@ Och för JavaScript, kan du tillämpa konfigurationen på den `function.json` fi
 ```
 
 > [!NOTE]
-> Övervaka alltid på programbegäran har etablerats på din delade lån-behållare. Varje utlösare som delar den, ökar dataflödet genomsnittlig förbrukning, så att du kan behöva öka det etablerade dataflödet som när du ökar antalet Azure-funktioner som använder den.
+> Övervaka alltid på de enheter för programbegäran som etablerades i behållaren för delade lån. Varje utlösare som delar den ökar data flödets genomsnittliga förbrukning, så du kan behöva öka det etablerade data flödet när du ökar antalet Azure Functions som använder den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se den fullständiga konfigurationen för den [Azure Cosmos DB-utlösare](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
-* Kontrollera den utökade [listan med exempel](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) för alla språk.
-* Besök med Azure Cosmos DB och Azure Functions utan Server recept [GitHub-lagringsplatsen](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) för fler exempel.
+* Se den fullständiga konfigurationen för [Azure Functions utlösare för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* Kontrol lera den utökade [listan över exempel](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) för alla språk.
+* Besök de serverbaserade recepten med Azure Cosmos DB och Azure Functions [GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) -lagringsplatsen för fler exempel.

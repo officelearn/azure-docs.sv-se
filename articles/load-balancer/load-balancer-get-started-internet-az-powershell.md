@@ -1,10 +1,10 @@
 ---
-title: Skapa en belastningsutjämnare med zonredundant frontend - Azure PowerShell
+title: Skapa en Load Balancer med zon-redundant frontend-Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar offentlig Standard Load Balancer med en zonredundant offentlig IP-adress klientdel med hjälp av PowerShell
+description: Lär dig hur du skapar offentliga Standard Load Balancer med en zon-redundant offentlig IP-adress-frontend med PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
-ms.openlocfilehash: 9cee3b68273fe98e70d558b5d01232bedf113224
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3ce14a0d9d5b9d5ef7ca7be34faad3fa60795ab9
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122140"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275096"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Skapa en Standardbelastningsutjämnare med zonredundant klientdel med Azure PowerShell
 
-Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel som använder en offentlig IP-Standard-adress.
+Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en zon-redundant klient del med en offentlig IP-standardadress.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -89,7 +89,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ```
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Skapa en Standardbelastningsutjämnare med följande kommando:
+Skapa en Standard Load Balancer med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

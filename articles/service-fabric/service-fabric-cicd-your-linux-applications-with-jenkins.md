@@ -1,6 +1,6 @@
 ---
-title: Skapa och kontinuerligt-integrering för dina Azure Service Fabric Linux-program med hjälp av Jenkins | Microsoft Docs
-description: Skapa och kontinuerligt för ditt Service Fabric Linux-program med hjälp av Jenkins-integrering
+title: Kontinuerlig build och integrering för dina Azure Service Fabric Linux-program med Jenkins | Microsoft Docs
+description: Kontinuerlig build och integrering för ditt Service Fabric Linux-program med Jenkins
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
-ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038842"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875089"
 ---
-# <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Skapa och distribuera ditt Linux-program med hjälp av Jenkins
+# <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Använd Jenkins för att bygga och distribuera Linux-program
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
 
-## <a name="topic-overview"></a>Avsnittet Översikt
-Den här artikeln beskriver flera möjliga sätt på hur du konfigurerar din Jenkins-miljö samt olika sätt att distribuera programmet till ett Service Fabric-kluster när det har skapats. Följ stegen för att konfigurera Jenkins, hämta ändringarna från GitHub, ett program i och distribuera den till ditt kluster har:
+## <a name="topic-overview"></a>Avsnitts översikt
+I den här artikeln beskrivs flera olika sätt att konfigurera din Jenkins-miljö samt olika sätt att distribuera programmet till ett Service Fabric kluster när det har skapats. Följ dessa allmänna steg för att konfigurera Jenkins, Hämta ändringar från GitHub, skapa ditt program och distribuera det till klustret:
 
-1. Se till att du installerar den [krav](#prerequisites).
-1. Följ anvisningarna i någon av dessa avsnitt för att konfigurera Jenkins:
-   * [Konfigurera Jenkins i ett Service Fabric-kluster](#set-up-jenkins-inside-a-service-fabric-cluster), 
-   * [Konfigurera Jenkins utanför ett Service Fabric-kluster](#set-up-jenkins-outside-a-service-fabric-cluster), eller
+1. Se till att du installerar [nödvändiga komponenter](#prerequisites).
+1. Följ sedan stegen i något av följande avsnitt för att konfigurera Jenkins:
+   * [Konfigurera Jenkins i ett Service Fabric kluster](#set-up-jenkins-inside-a-service-fabric-cluster), 
+   * [Konfigurera Jenkins utanför ett Service Fabric kluster](#set-up-jenkins-outside-a-service-fabric-cluster)eller
    * [Installera Service Fabric-plugin-programmet i en befintlig Jenkins-miljö](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-1. När du har konfigurerat Jenkins, följer du stegen i [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job) att konfigurera GitHub för att utlösa Jenkins när ändringar görs i ditt program och konfigurera din pipeline för Jenkins-jobb via ett byggsteg för att hämta den ändras från GitHub och skapa ditt program. 
-1. Slutligen kan konfigurera Jenkins-jobb efter skapandet steg om du vill distribuera programmet till Service Fabric-klustret. Det finns två sätt att konfigurera Jenkins för att distribuera programmet till ett kluster:    
-   * Använd för utvecklings- och testmiljöer [konfigurera distributionen med hjälp av slutpunkten för klusterhantering](#configure-deployment-using-cluster-management-endpoint). Det här är den enklaste distributionsmetoden att ställa in.
-   * För produktionsmiljöer, använda [konfigurera distributionen med hjälp av autentiseringsuppgifter för Azure](#configure-deployment-using-azure-credentials). Microsoft rekommenderar den här metoden för produktionsmiljöer eftersom med autentiseringsuppgifter för Azure kan du begränsa åtkomsten som ett Jenkins-jobb har till din Azure-resurser. 
+1. När du har konfigurerat Jenkins följer du stegen i [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job) för att ställa in GitHub för att utlösa Jenkins när ändringar görs i programmet och för att konfigurera din Jenkins jobb-pipeline genom build-steget för att hämta ändringarna från GitHub och utveckla ditt program. 
+1. Konfigurera slutligen Jenkins-jobbet efter build-steget för att distribuera programmet till ditt Service Fabric-kluster. Det finns två sätt att konfigurera Jenkins för att distribuera programmet till ett kluster:    
+   * För utvecklings-och test miljöer använder du [Konfigurera distribution med hjälp av kluster hanterings slut punkt](#configure-deployment-using-cluster-management-endpoint). Det här är den enklaste distributions metoden att konfigurera.
+   * För produktions miljöer använder du [Konfigurera distribution med Azure-autentiseringsuppgifter](#configure-deployment-using-azure-credentials). Microsoft rekommenderar den här metoden för produktions miljöer eftersom du kan begränsa åtkomsten som ett Jenkins-jobb har till dina Azure-resurser med Azure-autentiseringsuppgifter. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Kontrollera att Git har installerats lokalt. Du kan installera lämplig Git-version från [nedladdningssidan för Git](https://git-scm.com/downloads) baserat på ditt operativsystem. Om du inte har använt Git kan läsa mer om den från den [Git-dokumentationen](https://git-scm.com/docs).
-- Den här artikeln används den *Service Fabric komma igång exempel* på GitHub: [ https://github.com/Azure-Samples/service-fabric-java-getting-started ](https://github.com/Azure-Samples/service-fabric-java-getting-started) att skapa och distribuera programmet. Du kan duplicera den här lagringsplatsen att följa instruktionerna, eller, med vissa ändringar till anvisningarna kan använda ditt eget GitHub-projektet.
+- Kontrol lera att git är installerat lokalt. Du kan installera rätt git-version från [sidan git-nedladdningar](https://git-scm.com/downloads) baserat på operativ systemet. Om du inte har använt git igen kan du läsa mer om det i [git-dokumentationen](https://git-scm.com/docs).
+- Den här artikeln använder *Service Fabric komma igång-exemplet* på GitHub [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) : för programmet för att bygga och distribuera. Du kan använda ditt eget GitHub-projekt för att förgrena den här lagrings platsen eller, med vissa ändringar i anvisningarna.
 
 
 ## <a name="install-service-fabric-plugin-in-an-existing-jenkins-environment"></a>Installera Service Fabric-plugin-programmet i en befintlig Jenkins-miljö
-Om du lägger till Service Fabric-plugin-programmet till en befintlig Jenkins-miljö, behöver du följande:
+Om du lägger till Service Fabric-plugin-programmet i en befintlig Jenkins-miljö behöver du följande:
 
-- Den [Service Fabric CLI](service-fabric-cli.md) (sfctl).
+- [Service Fabric CLI](service-fabric-cli.md) (sfctl).
 
    > [!NOTE]
-   > Glöm inte att installera CLI på systemnivå i stället för att på användarnivå, så Jenkins kan köra CLI-kommandon. 
+   > Se till att installera CLI på system nivå i stället för på användar nivå, så att Jenkins kan köra CLI-kommandon. 
    >
 
-- För att distribuera Java-program, installera både [Gradle och öppna JDK 8.0](service-fabric-get-started-linux.md#set-up-java-development). 
-- Om du vill distribuera .NET Core 2.0-program, installera den [.NET Core 2.0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development). 
+- Installera både [Gradle och öppna JDK 8,0](service-fabric-get-started-linux.md#set-up-java-development)för att distribuera Java-program. 
+- Installera .net Core [2,0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development)för att distribuera .net Core 2,0-program. 
 
-När du har installerat kraven för din miljö kan du söka efter Azure Service Fabric-plugin-programmet Jenkins Marketplace och installera den.
+När du har installerat de nödvändiga förutsättningarna för din miljö kan du söka efter Azure Service Fabric-plugin-programmet i Jenkins Marketplace och installera det.
 
-När du har installerat plugin-programmet kan du gå vidare till [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).
+När du har installerat plugin-programmet går du vidare till [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).
 
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Konfigurera Jenkins i ett Service Fabric-kluster
 
-Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar jenkins i ett kluster när ett Azure storage-konto för att spara tillståndet för container-instans.
+Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar det i ett kluster när du använder ett Azure Storage-konto för att spara behållar instansens tillstånd.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
-- Har ett Service Fabric Linux-kluster med Docker installerat. Service Fabric-kluster som körs i Azure redan ha Docker installerat. Om du kör klustret lokalt (OneBox-utvecklingsmiljö), kontrollera om Docker är installerat på datorn med den `docker info` kommando. Om det inte är installerat installerar du det med hjälp av följande kommandon:
+### <a name="prerequisites"></a>Förutsättningar
+- Ha ett Service Fabric Linux-kluster med Docker installerat. Docker har redan Docker installerat på Service Fabric kluster som körs i Azure. Om du kör klustret lokalt (Onebox behållaravbildningen dev Environment) kontrollerar du om Docker är installerat på datorn med `docker info` kommandot. Om den inte är installerad installerar du den med hjälp av följande kommandon:
 
    ```sh
    sudo apt-get install wget
@@ -71,45 +71,45 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    ``` 
 
    > [!NOTE]
-   > Kontrollera att port 8081 anges som en anpassad slutpunkt i klustret. Om du använder ett lokalt kluster kan du kontrollera att port 8081 är öppen på värddatorn och att den har en offentlig IP-adress.
+   > Kontrol lera att 8081-porten har angetts som en anpassad slut punkt i klustret. Om du använder ett lokalt kluster ser du till att port 8081 är öppen på värddatorn och att den har en offentlig IP-adress.
    >
 
 ### <a name="steps"></a>Steg
-1. Klona programmet, med hjälp av följande kommandon:
+1. Klona programmet med hjälp av följande kommandon:
    ```sh
    git clone https://github.com/suhuruli/jenkins-container-application.git
    cd jenkins-container-application
    ```
 
-1. Bevara tillståndet för Jenkins-behållaren i en filresurs:
-   1. Skapa ett Azure storage-konto i den **samma region** som klustret med ett namn som `sfjenkinsstorage1`.
-   1. Skapa en **filresurs** under lagringen konto med ett namn som `sfjenkins`.
-   1. Klicka på **Connect** för fildelning och anteckna värdena visas **ansluter från Linux**, värdet bör likna följande:
+1. Behåll statusen för Jenkins-behållaren i en fil resurs:
+   1. Skapa ett Azure Storage-konto i **samma region** som klustret med ett namn `sfjenkinsstorage1`som.
+   1. Skapa en **fil resurs** under lagrings kontot med ett namn som `sfjenkins`.
+   1. Klicka på **Anslut** för fil resursen och anteckna värdena som visas under **anslutning från Linux**. värdet bör se ut ungefär så här:
 
       ```sh
       sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
       ```
 
    > [!NOTE]
-   > Du måste ha cifs-utils-paketet installeras på noderna i klustret för att montera cifs shares.      
+   > Om du vill montera CIFS-resurser måste du ha CIFS-utils-paketet installerat i klusternoderna.      
    >
 
-1. Uppdatera platshållarvärdena i den `setupentrypoint.sh` skript med azure-storage-information från steg 2.
+1. Uppdatera plats hållarnas värden i `setupentrypoint.sh` skriptet med informationen om Azure-lagring från steg 2.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
-   * Ersätt `[REMOTE_FILE_SHARE_LOCATION]` med värdet `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` från utdata från connect i steg 2 ovan.
+   * Ersätt `[REMOTE_FILE_SHARE_LOCATION]` med värdet `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` från utdata för Connect i steg 2 ovan.
    * Ersätt `[FILE_SHARE_CONNECT_OPTIONS_STRING]` med värdet `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` från steg 2 ovan.
 
-1. **Säkra klustret:** 
+1. **Endast säkra kluster:** 
    
-   Om du vill konfigurera distribution av program på ett säkert kluster från Jenkins måste klustercertifikatet vara tillgänglig i Jenkins-behållaren. I den *ApplicationManifest.xml* filen under den **ContainerHostPolicies** taggen lägger du till den här referensen för certifikatet och uppdatera värdet tumavtryck med klustercertifikatet.
+   Om du vill konfigurera distributionen av program i ett säkert kluster från Jenkins måste kluster certifikatet vara tillgängligt i Jenkins-behållaren. I filen *ApplicationManifest. XML* går du till **ContainerHostPolicies** -taggen och lägger till den här certifikat referensen och uppdaterar tumavtrycket med klustrets certifikats värde.
 
    ```xml
    <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
    ```
 
-   Dessutom lägger du till följande rader under den **ApplicationManifest** (rot)-tagg i den *ApplicationManifest.xml* filen och uppdatera tumavtrycksvärde med det för klustercertifikatet.
+   Lägg dessutom till följande rader under taggen **ApplicationManifest** (root) i filen *ApplicationManifest. XML* och uppdatera tumavtrycket med klustrets certifikats värde.
 
    ```xml
    <Certificates>
@@ -117,19 +117,19 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    </Certificates> 
    ```
 
-1. Anslut till klustret och installera behållarprogrammet.
+1. Anslut till klustret och installera behållar programmet.
 
-   **Secure Cluster**
+   **Säkert kluster**
    ```sh
    sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
    bash Scripts/install.sh
    ```
-   Föregående kommando tar certifikatet i PEM-format. Om ditt certifikat finns i PFX-format, kan du använda följande kommando för att konvertera den. Om din PFX-filen inte är lösenordsskyddad, ange den **passin** parametern som `-passin pass:`.
+   Föregående kommando tar certifikatet i PEM-format. Om ditt certifikat är i PFX-format kan du använda följande kommando för att konvertera det. Om PFX-filen inte är lösenordsskyddad anger du **Passin** -parametern `-passin pass:`som.
    ```sh
    openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:MyPassword1234!
    ``` 
    
-   **Oskyddade kluster**
+   **Oskyddat kluster**
    ```sh
    sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
    bash Scripts/install.sh
@@ -138,16 +138,16 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    Detta installerar en Jenkins-container på klustret och kan övervakas med Service Fabric Explorer.
 
    > [!NOTE]
-   > Det kan ta några minuter för Jenkins-avbildningen hämtas i klustret.
+   > Det kan ta några minuter innan Jenkins-avbildningen har laddats ned i klustret.
    >
 
 1. Gå till `http://PublicIPorFQDN:8081` i webbläsaren. På sidan visas sökvägen till det ursprungliga administratörslösenordet som krävs för att logga in. 
-1. Titta på Service Fabric Explorer för att avgöra vilken nod Jenkins-behållaren körs. Secure Shell (SSH) logga in på den här noden.
+1. Titta på Service Fabric Explorer för att avgöra vilken nod som behållaren Jenkins körs på. Secure Shell (SSH)-inloggning till den här noden.
    ```sh
    ssh user@PublicIPorFQDN -p [port]
    ``` 
 1. Hämta containerns instans-ID med `docker ps -a`.
-1. Secure Shell (SSH) som inloggning till behållaren och klistra in den sökväg som visades i Jenkins-portalen. Exempel: om portalen visas i sökvägen `PATH_TO_INITIAL_ADMIN_PASSWORD`, kör följande kommandon:
+1. Secure Shell (SSH)-inloggning till behållaren och klistra in den sökväg som visades i Jenkins-portalen. Om till exempel i portalen visar sökvägen `PATH_TO_INITIAL_ADMIN_PASSWORD`kör du följande kommandon:
 
    ```sh
    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
@@ -155,24 +155,24 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
-1. På sidan Jenkins komma igång väljer du väljer plugin-program om du vill installera alternativet väljer du den **ingen** kryssrutan och klicka på installera.
-1. Skapa en användare eller välja för att fortsätta som en administratör.
+1. På sidan Jenkins Komma igång väljer du alternativet Välj plugin-program att installera, markerar kryss rutan **ingen** och klickar på installera.
+1. Skapa en användare eller Välj att fortsätta som administratör.
 
-När du har konfigurerat Jenkins, gå vidare till [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).  
+När du har konfigurerat Jenkins går du vidare till [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).  
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Konfigurera Jenkins utanför ett Service Fabric-kluster
 
 Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar Jenkins utanför ett kluster.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
-- Se till att Docker är installerat på din dator. Följande kommandon kan användas för att installera Docker från terminalen:
+### <a name="prerequisites"></a>Förutsättningar
+- Se till att Docker är installerat på datorn. Följande kommandon kan användas för att installera Docker från terminalen:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
 
-  När du kör `docker info` i terminalen utdata ska visa att Docker-tjänsten körs.
+  När du kör `docker info` i terminalen bör utdata Visa att Docker-tjänsten körs.
 
 ### <a name="steps"></a>Steg
 1. Hämta containeravbildningen för Service Fabric Jenkins:`docker pull rapatchi/jenkins:latest`. Plugin-programmet för Service Fabric Jenkins är förinstallerat i avbildningen.
@@ -180,19 +180,19 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
 1. Hämta ID:t för containeravbildningsinstansen. Du kan visa en lista med alla Docker-containrar med hjälp av kommandot `docker ps –a`
 1. Logga in på Jenkins-portalen med följande steg:
 
-   1. Logga in på Jenkins-gränssnittet från värden. Använd de första fyra siffrorna i behållar-ID. Om behållar-ID är till exempel `2d24a73b5964`, använda `2d24`.
+   1. Logga in på ett Jenkins-gränssnitt från värden. Använd de första fyra siffrorna i container-ID: t. Om behållar-ID: t `2d24a73b5964`är använder `2d24`du till exempel.
 
       ```sh
       docker exec -it [first-four-digits-of-container-ID] /bin/bash
       ```
-   1. Hämta admin-lösenordet för din behållarinstans från Jenkins-gränssnittet:
+   1. Hämta administratörs lösen ordet för din behållar instans från Jenkins-gränssnittet:
 
       ```sh
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
-   1. Öppna följande URL i en webbläsare för att logga in på Jenkins-instrumentpanelen: `http://<HOST-IP>:8080`. Använd lösenordet från föregående steg för att låsa upp Jenkins.
-   1. (Valfritt.) När du har loggat in för första gången du kan skapa ditt eget användarkonto och använda det för följande steg, eller du kan fortsätta att använda administratörskontot. Om du skapar en användare, måste du fortsätta med den användaren.
-1. Konfigurera GitHub för Jenkins med hjälp av stegen i [skapar en ny SSH-nyckel och lägga till SSH-agenten](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+   1. Om du vill logga in på Jenkins-instrumentpanelen öppnar du följande URL i en webbläsare `http://<HOST-IP>:8080`:. Använd lösen ordet från föregående steg för att låsa upp Jenkins.
+   1. (Valfritt.) När du har loggat in för första gången kan du skapa ett eget användar konto och använda det för följande steg, eller så kan du fortsätta att använda administratörs kontot. Om du skapar en användare måste du fortsätta med den användaren.
+1. Konfigurera GitHub så att det fungerar med Jenkins genom att följa stegen i [skapa en ny SSH-nyckel och lägga till den i SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)-agenten.
    * Följ instruktionerna från GitHub för att skapa SSH-nyckeln och lägga till SSH-nyckeln på det GitHub-konto som är (blir) värd för databasen.
    * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
    * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommando:
@@ -201,24 +201,24 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-Kontrollera att klustret eller datorn där Jenkins-behållaravbildningen finns har en offentlig IP-adress. Detta gör att Jenkins-instansen kan ta emot meddelanden från GitHub.
+Kontrol lera att klustret eller datorn där Jenkins behållar avbildningen har en offentlig IP-adress. Detta gör att Jenkins-instansen kan ta emot meddelanden från GitHub.
 
-När du har konfigurerat Jenkins, Fortsätt till nästa avsnitt, [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).
+När du har konfigurerat Jenkins kan du fortsätta till nästa avsnitt, [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 
-Stegen i det här avsnittet visar hur du konfigurerar ett Jenkins-jobb för att svara på ändringar i en GitHub-lagringsplatsen, att hämta ändringarna och skapa dem. I slutet av det här avsnittet har du skickas till de avslutande stegen för att konfigurera jobbet för att distribuera ditt program baserat på om du distribuerar till en miljö för utveckling/testning eller till en produktionsmiljö. 
+Stegen i det här avsnittet visar hur du konfigurerar ett Jenkins-jobb som svarar på ändringar i en GitHub-lagrings platsen, hämtar ändringarna och skapar dem. I slutet av det här avsnittet dirigeras du till de sista stegen för att konfigurera jobbet för att distribuera programmet baserat på om du distribuerar till en utvecklings-/test miljö eller till en produktions miljö. 
 
-1. På Jenkins-instrumentpanelen klickar du på **nytt objekt**.
+1. Klicka på **nytt objekt**på Jenkins-instrumentpanelen.
 1. Ange ett namn (till exempel **MyJob**). Välj **free-style project** (freestyle-projekt) och klicka på **OK**.
-1. Konfigurationssidan för jobbet öppnas. (Klicka på jobbet för att hämta konfigurationen från Jenkins-instrumentpanelen, och klicka sedan på **konfigurera**).
+1. Sidan jobb konfiguration öppnas. (Du kommer till konfigurationen från Jenkins-instrumentpanelen genom att klicka på jobbet och sedan på **Konfigurera**).
 
-1. På den **Allmänt** fliken, markerar du kryssrutan för **GitHub-projektet**, och anger ditt GitHub-projekt-URL. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
+1. På fliken **Allmänt** markerar du kryss rutan för **GitHub-projekt**och anger URL: en för GitHub-projektet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
-1. På den **Source Code Management** fliken **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. `https://github.com/{your-github-account}/service-fabric-java-getting-started`). Du kan även ange vilken gren som ska byggas (till exempel `/master`).
-1. Konfigurera din *GitHub* databasen kommunicera Jenkins:
+1. Välj **git**på fliken **hantering av käll kods hantering** . Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. `https://github.com/{your-github-account}/service-fabric-java-getting-started`). Du kan också ange vilken gren som ska byggas (till `/master`exempel).
+1. Konfigurera din *GitHub* -lagringsplats för att prata med Jenkins:
 
-   a. På GitHub-lagringsplatssidan, går du till **inställningar** > **integreringar och tjänster**.
+   a. På sidan GitHub-lagringsplats går du till **Inställningar** > **integreringar och tjänster**.
 
    b. Välj **Lägg till tjänst**, skriv **Jenkins** och välj **Jenkins GitHub-plugin-programmet**.
 
@@ -226,110 +226,110 @@ Stegen i det här avsnittet visar hur du konfigurerar ett Jenkins-jobb för att 
 
    d. En testhändelse skickas till Jenkins-instansen. Du bör se en grön bock vid webhooken i GitHub och projektet skapas.
 
-1. På den **Build-utlösare** fliken i Jenkins, väljer du önskat alternativ. I det här exemplet som du vill utlösa en build när en skickas till databasen sker, så Välj **GitHub hook trigger för GITScm-avsökning**. (Tidigare hette det här alternativet **Build when a change is pushed to GitHub**) (Bygg när en ändring skickas till GitHub).
-1. På den **skapa** gör något av följande beroende på om du skapar ett Java-program eller en .NET Core-program:
+1. På fliken **build** -utlösare i Jenkins väljer du vilket build-alternativ du vill använda. I det här exemplet vill du aktivera en version när en push-överföring till databasen sker, så välj **GitHub Hook-utlösare för gitscm polling (** -avsökning. (Tidigare hette det här alternativet **Build when a change is pushed to GitHub**) (Bygg när en ändring skickas till GitHub).
+1. På fliken **skapa** gör du något av följande, beroende på om du skapar ett Java-program eller ett .net Core-program:
 
-   * **För Java-program:** Från den **Lägg till byggsteg** listrutan, väljer **anropa Gradle-skript**. Klicka på **Avancerat**. I menyn Avancerat anger sökvägen till **rotbuildskript** för ditt program. Då hämtas build.gradle från den angivna sökvägen och fungerar på motsvarande sätt. För den [ActorCounter programmet](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), detta är: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **För Java-program:** I list rutan **Lägg till build-steg** väljer du **anropa Gradle-skript**. Klicka på **Avancerat**. I menyn Avancerat anger du sökvägen till **rot versions skriptet** för ditt program. Då hämtas build.gradle från den angivna sökvägen och fungerar på motsvarande sätt. För [ActorCounter-programmet](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter)är detta: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Service Fabric Jenkins Build-åtgärd][build-step]
 
-   * **För .NET Core-program:** Från den **Lägg till byggsteg** listrutan, väljer **köra Shell**. I kommandorutan måste först katalogen ändras till den sökväg där filen build.sh finns. När katalogen har ändrats, kan du köra skriptet build.sh och skapar programmet.
+   * **För .NET Core-program:** I list rutan **Lägg till build-steg** väljer du **Kör gränssnitt**. I kommando rutan som visas måste katalogen först ändras till den sökväg där build.sh-filen finns. När katalogen har ändrats kan build.sh-skriptet köras och programmet skapas.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
       ./build.sh
       ```
 
-     Följande skärmbild visar ett exempel på de kommandon som används för att skapa den [tjänsten för prestandaräknare](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) exemplet med Jenkins-Jobbnamnet CounterServiceApplication.
+     Följande skärm bild visar ett exempel på de kommandon som används för att bygga [Counter service-](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) exemplet med ett Jenkins jobbnamn på CounterServiceApplication.
 
       ![Service Fabric Jenkins Build-åtgärd][build-step-dotnet]
 
-1. För att konfigurera Jenkins för att distribuera din app till ett Service Fabric-kluster i åtgärderna efter skapandet, måste du platsen för det klustercertifikat i din Jenkins-behållare. Välj något av följande beroende på om din Jenkins-behållare körs i eller utanför klustret och Anteckna platsen för klustercertifikatet:
+1. Om du vill konfigurera Jenkins för att distribuera din app till ett Service Fabric kluster i åtgärder efter skapande måste du ha platsen för klustrets certifikat i din Jenkins-behållare. Välj något av följande beroende på om din Jenkins-behållare körs i eller utanför klustret och notera platsen för kluster certifikatet:
 
-   * **För Jenkins som körs i klustret:** Sökvägen till certifikatet kan hittas genom eko värdet för den *Certificates_JenkinsOnSF_Code_MyCert_PEM* miljövariabeln i behållaren.
+   * **För Jenkins som körs i klustret:** Sökvägen till certifikatet kan hittas genom att värdet för *Certificates_JenkinsOnSF_Code_MyCert_PEM* -miljövariabeln anges i behållaren.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **För Jenkins som körs utanför klustret:** Följ dessa steg för att kopiera klustercertifikatet till behållaren:
-     1. Certifikatet måste vara i PEM-format. Om du inte har en PEM-fil kan skapa du en från certifikatets PFX-fil. Om din PFX-filen inte är lösenordsskyddad, kör du följande kommando från värden:
+   * **För Jenkins som körs utanför klustret:** Följ dessa steg om du vill kopiera kluster certifikatet till din behållare:
+     1. Ditt certifikat måste vara i PEM-format. Om du inte har en PEM-fil kan du skapa en från certifikatets PFX-fil. Om PFX-filen inte är lösenordsskyddad, kör du följande kommando från värden:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        Om PFX-filen är lösenordsskyddad, ta med lösenordet i den `-passin` parametern. Exempel:
+        Om PFX-filen är lösenordsskyddad tar du med lösen ordet i `-passin` parametern. Exempel:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
         ``` 
 
-     1. För att få behållar-ID för din Jenkins-behållare, köra `docker ps` från värden.
-     1. Kopiera PEM-filen till behållaren med kommandot Docker:
+     1. Kör `docker ps` från värden för att hämta behållar-ID: t för Jenkins-behållaren.
+     1. Kopiera PEM-filen till din behållare med följande Docker-kommando:
     
         ```sh
         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
         ``` 
 
-Du är nästan klar! Behåll Jenkins-jobbet öppen. Den enda kvarvarande aktiviteten är att konfigurera post-build stegen för att distribuera programmet till Service Fabric-klustret:
+Du är nästan klar! Låt Jenkins-jobbet vara öppet. Den enda återstående aktiviteten är att konfigurera de steg som krävs för att distribuera programmet till Service Fabric klustret:
 
-* Om du vill distribuera till en miljö för utveckling eller testning, följer du stegen i [konfigurera distributionen med hjälp av slutpunkten för klusterhantering](#configure-deployment-using-cluster-management-endpoint).
-* Om du vill distribuera till en produktionsmiljö, följer du stegen i [konfigurera distributionen med hjälp av autentiseringsuppgifter för Azure](#configure-deployment-using-azure-credentials).
+* Om du vill distribuera till en utvecklings-eller test miljö följer du stegen i [Konfigurera distribution med hjälp av kluster hanterings slut punkt](#configure-deployment-using-cluster-management-endpoint).
+* Om du vill distribuera till en produktions miljö följer du stegen i [Konfigurera distribution med Azure-autentiseringsuppgifter](#configure-deployment-using-azure-credentials).
 
-## <a name="configure-deployment-using-cluster-management-endpoint"></a>Konfigurera distributionen med hjälp av slutpunkten för klusterhantering
-Du kan använda slutpunkten för klusterhantering för utvecklings- och testmiljöer för att distribuera ditt program. Konfigurera efter byggåtgärden med slutpunkten för klusterhantering att distribuera ditt program kräver minst konfiguration. Om du distribuerar till en produktionsmiljö, gå vidare till [konfigurera distributionen med hjälp av autentiseringsuppgifter för Azure](#configure-deployment-using-azure-credentials) att konfigurera ett Azure Active Directory-tjänstobjekt som ska användas vid distributionen.    
+## <a name="configure-deployment-using-cluster-management-endpoint"></a>Konfigurera distribution med hjälp av kluster hanterings slut punkt
+För utvecklings-och test miljöer kan du använda slut punkten för kluster hantering för att distribuera programmet. Konfiguration av åtgärden efter build med slut punkten för kluster hantering för att distribuera programmet kräver minst mängd konfiguration. Om du distribuerar till en produktions miljö kan du gå vidare till [Konfigurera distribution med Azure-autentiseringsuppgifter](#configure-deployment-using-azure-credentials) för att konfigurera en Azure Active Directory tjänstens huvud namn som ska användas under distributionen.    
 
-1. I Jenkins-jobbet klickar du på den **post-build Actions** fliken. 
+1. Klicka på fliken **åtgärder efter version** i Jenkins-jobbet. 
 1. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). 
-1. Under **konfigurationen för Service Fabric-kluster**väljer den **Fyll Hanteringsslutpunkten Service Fabric** alternativknappen.
-1. För **Management värden**, ange anslutningsslutpunkten för klustret, till exempel `{your-cluster}.eastus.cloudapp.azure.com`.
-1. För **Klientnyckel** och **Client Cert**, ange platsen för PEM-filen i din Jenkins-behållare, till exempel `/var/jenkins_home/clustercert.pem`. (Du kopierade platsen för certifikatet till det sista steget i [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).)
-1. Under **programkonfiguration**, konfigurera den **programnamn**, **programtyp**, och (relativ) **sökvägen till programmets Manifest** fält.
+1. Under **Service Fabric kluster konfiguration**väljer du alternativ knappen **Fyll Service Fabric hanterings slut punkt** .
+1. För **hanterings värden**anger du anslutnings slut punkten för klustret. till exempel `{your-cluster}.eastus.cloudapp.azure.com`.
+1. För **klient nyckel** och **klient certifikat**anger du platsen för PEM-filen i Jenkins-behållaren. till exempel `/var/jenkins_home/clustercert.pem`. (Du har kopierat platsen för certifikatet till det sista steget i [skapa och konfigurera ett Jenkins-jobb](#create-and-configure-a-jenkins-job).)
+1. Under **program konfiguration**konfigurerar du **program namn**, **program typ**och (relativ) **sökvägen till program manifest** fält.
 
-   ![Byggåtgärden för Service Fabric Jenkins efter konfigurera hanteringsslutpunkten](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
+   ![Service Fabric Jenkins efter build-åtgärd konfigurera hanterings slut punkt](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
-1. Klicka på **verifiera konfigurationen**. På lyckad kontrollen är klar klickar du på **spara**. Konfigurationen av din pipeline för Jenkins-jobb är nu slutförd. Gå vidare till [nästa steg](#next-steps) att testa distributionen.
+1. Klicka på **Verifiera konfiguration**. När verifieringen är klar klickar du på **Spara**. Din pipeline för Jenkins-jobbet har nu kon figurer ATS helt. Gå vidare till [Nästa steg](#next-steps) för att testa distributionen.
 
-## <a name="configure-deployment-using-azure-credentials"></a>Konfigurera distributionen med hjälp av Azure-autentiseringsuppgifter
-För produktionsmiljöer rekommenderas konfigurera en Azure-inloggning för att distribuera ditt program starkt. Det här avsnittet visar hur du konfigurerar ett Azure Active Directory-tjänstobjekt som du använder för att distribuera programmet i instruktionen efter skapandet. Du kan tilldela roller tjänstens huvudnamn i din katalog för att begränsa behörigheterna för Jenkins-jobbet. 
+## <a name="configure-deployment-using-azure-credentials"></a>Konfigurera distribution med Azure-autentiseringsuppgifter
+För produktions miljöer rekommenderar vi att du konfigurerar en Azure-autentiseringsuppgift för att distribuera programmet. I det här avsnittet visas hur du konfigurerar ett Azure Active Directory tjänstens huvud namn som ska användas för att distribuera programmet i åtgärds åtgärden efter kompileringen. Du kan tilldela tjänstens huvud namn till roller i din katalog för att begränsa behörigheterna för Jenkins-jobbet. 
 
-Du kan konfigurera Azure-autentiseringsuppgifter eller slutpunkten för klusterhantering att distribuera ditt program för utvecklings- och testmiljöer. Mer information om hur du konfigurerar en slutpunkten för klusterhantering finns i [konfigurera distributionen med hjälp av slutpunkten för klusterhantering](#configure-deployment-using-cluster-management-endpoint).   
+I utvecklings-och test miljöer kan du konfigurera antingen Azure-autentiseringsuppgifter eller slut punkten för kluster hantering för att distribuera programmet. Mer information om hur du konfigurerar en slut punkt för kluster hantering finns i [Konfigurera distribution med slut punkt för kluster hantering](#configure-deployment-using-cluster-management-endpoint).   
 
-1. Om du vill skapa en Azure Active Directory-tjänstobjekt och tilldela den behörigheter i din Azure-prenumeration, följer du stegen i [använda portalen för att skapa en Azure Active Directory-program och tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Ta hänsyn till följande:
+1. Om du vill skapa en Azure Active Directory tjänstens huvud namn och tilldela IT-behörigheter i din Azure-prenumeration följer du stegen i [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observera följande:
 
-   * När du följa stegen i avsnittet måste du kopiera och spara följande värden: *Program-ID*, *programnyckel*, *katalog-ID (klient-ID)* , och *prenumerations-ID*. Du behöver dem för att konfigurera Azure-autentiseringsuppgifter i Jenkins.
-   * Om du inte har den [nödvändiga behörigheter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) på din katalog måste du be en administratör bevilja dig behörigheter eller skapa tjänstens huvudnamn för dig eller måste du konfigurera hanteringsslutpunkten för ditt kluster i den **post-build Actions** för ditt jobb i Jenkins.
-   * I den [skapar ett Azure Active Directory-program](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) avsnittet, som du kan ange valfri giltig URL för den **inloggnings-URL**.
-   * I den [tilldela program till en roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) avsnittet kan du tilldela programmet den *läsare* rollen på resursgruppen för klustret.
+   * När du följer stegen i avsnittet måste du kopiera och spara följande värden: *Program-ID*, *program nyckel*, *katalog-ID (klient-ID)* och *prenumerations-ID*. Du behöver dem för att konfigurera Azure-autentiseringsuppgifterna i Jenkins.
+   * Om du inte har de [behörigheter som krävs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) för din katalog måste du be en administratör antingen bevilja dig behörigheterna eller skapa tjänstens huvud namn för dig, eller så måste du konfigurera hanterings slut punkten för klustret i  **Åtgärder efter skapandet** för jobbet i Jenkins.
+   * I avsnittet [skapa ett Azure Active Directory program](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) kan du ange en korrekt formaterad URL för **inloggnings-URL: en**.
+   * I avsnittet [tilldela program till en roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) kan du tilldela programmet rollen *läsare* i resurs gruppen för klustret.
 
-1. Tillbaka i Jenkins-jobbet klickar du på den **post-build Actions** fliken.
+1. Gå tillbaka till Jenkins-jobbet och klicka på fliken **åtgärder efter version** .
 1. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). 
-1. Under **konfigurationen för Service Fabric-kluster**väljer den **väljer Service Fabric-kluster** alternativknappen. Klicka på **Lägg till** bredvid **Azure Credentials**. Klicka på **Jenkins** att välja Provider för Jenkins-autentiseringsuppgifter.
-1. I den Jenkins autentiseringsuppgifter väljer du **Microsoft Azure Service Principal** från den **typ** utskriftsjobb.
-1. Använd de värden du sparade när du ställer in tjänstens huvudnamn i steg 1 för att ange följande fält:
+1. Under **Service Fabric kluster konfiguration**väljer du alternativ knappen **välj kluster för Service Fabric** . Klicka på **Lägg till** bredvid **autentiseringsuppgifter för Azure**. Klicka på **Jenkins** för att välja providern för Jenkins-autentiseringsuppgifter.
+1. I Jenkins-providern för autentiseringsuppgifter väljer du **Microsoft Azure tjänstens huvud namn** från List rutan **typ** .
+1. Använd de värden som du sparade när du konfigurerade tjänstens huvud namn i steg 1 för att ange följande fält:
 
    * **Klient-ID**: *Program-ID*
-   * **Klienthemlighet**: *Programnyckel*
+   * **Klient hemlighet**: *Program nyckel*
    * **Klient-ID**: *Katalog-ID*
    * **Prenumerations-ID**: *Prenumerations-ID*
-1. Ange ett beskrivande **ID** att du använder för att markera autentiseringsuppgifterna i Jenkins och en kort **beskrivning**. Klicka sedan på **Kontrollera tjänstens huvudnamn**. Om verifieringen lyckas klickar du på **Lägg till**.
+1. Ange ett beskrivande **ID** som du använder för att välja autentiseringsuppgifter i Jenkins och en kort **Beskrivning**. Klicka sedan på **Verifiera tjänstens huvud namn**. Om verifieringen lyckas klickar du på **Lägg till**.
 
-   ![Service Fabric Jenkins ange autentiseringsuppgifter för Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
-1. Tillbaka under **konfigurationen för Service Fabric-kluster**, se till att dina nya autentiseringsuppgifter har valts för **Azure Credentials**. 
-1. Från den **resursgrupp** listrutan, väljer du resursgruppen för det kluster du vill distribuera programmet till.
-1. Från den **Service Fabric** listrutan, väljer du klustret som du vill distribuera programmet till.
-1. För **Klientnyckel** och **Client Cert**, ange platsen för PEM-filen i din Jenkins-behållare. Till exempel `/var/jenkins_home/clustercert.pem`. 
-1. Under **programkonfiguration**, konfigurera den **programnamn**, **programtyp**, och (relativ) **sökvägen till programmets Manifest** fält.
-    ![Byggåtgärden för Service Fabric Jenkins efter konfigurera autentiseringsuppgifter för Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
-1. Klicka på **verifiera konfigurationen**. På lyckad kontrollen är klar klickar du på **spara**. Konfigurationen av din pipeline för Jenkins-jobb är nu slutförd. Fortsätta till [nästa steg](#next-steps) att testa distributionen.
+   ![Service Fabric Jenkins ange Azure-autentiseringsuppgifter](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
+1. Se till att den nya autentiseringsuppgiften är vald för **Azure-autentiseringsuppgifter**under **Service Fabric kluster konfiguration**. 
+1. I list rutan **resurs grupp** väljer du resurs gruppen för det kluster som du vill distribuera programmet till.
+1. I list rutan **Service Fabric** väljer du det kluster som du vill distribuera programmet till.
+1. För **klient nyckel** och **klient certifikat**anger du platsen för PEM-filen i Jenkins-behållaren. Till exempel `/var/jenkins_home/clustercert.pem`. 
+1. Under **program konfiguration**konfigurerar du **program namn**, **program typ**och (relativ) **sökvägen till program manifest** fält.
+    ![Service Fabric Jenkins efter build-åtgärd konfigurera Azure-autentiseringsuppgifter](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
+1. Klicka på **Verifiera konfiguration**. När verifieringen är klar klickar du på **Spara**. Din pipeline för Jenkins-jobbet har nu kon figurer ATS helt. Fortsätt till [Nästa steg](#next-steps) för att testa distributionen.
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
 Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
-GitHub och Jenkins har nu konfigurerats. Överväg att göra ändringar i den `reliable-services-actor-sample/Actors/ActorCounter` projekt i din förgrening av lagringsplatsen https://github.com/Azure-Samples/service-fabric-java-getting-started. Skicka dina ändringar till en fjärransluten `master` fjärrgrenen (eller valfri gren som du har konfigurerat för att fungera med). Detta utlöser Jenkins-jobbet (`MyJob`) som du konfigurerade. Den hämtar ändringarna från GitHub, bygger dem och distribuerar programmet till klustret som du angav i åtgärderna efter Byggprocessen.  
+GitHub och Jenkins har nu konfigurerats. Överväg att göra några exempel ändringar i `reliable-services-actor-sample/Actors/ActorCounter` projektet i din förgrening av https://github.com/Azure-Samples/service-fabric-java-getting-started lagrings platsen. Skicka ändringarna till den fjärranslutna `master` grenen (eller en gren som du har konfigurerat för att arbeta med). Detta utlöser Jenkins-jobbet (`MyJob`) som du konfigurerade. Den hämtar ändringarna från GitHub, skapar dem och distribuerar programmet till det kluster som du angav i åtgärder efter skapandet.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png

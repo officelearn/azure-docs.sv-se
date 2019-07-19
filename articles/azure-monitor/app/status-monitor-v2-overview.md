@@ -1,6 +1,6 @@
 ---
-title: Azure statusövervakaren v2-översikt | Microsoft Docs
-description: En översikt över statusövervakaren v2. Övervaka prestanda på webbplatser utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Översikt över Azure Statusövervakare v2 | Microsoft Docs
+description: En översikt över Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,42 +12,40 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734161"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326233"
 ---
 # <a name="status-monitor-v2"></a>Statusövervakare v2
 
-Status Monitor v2 är en PowerShell module publiceras till den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-Det ersätter [statusövervakaren](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-Modulen innehåller kodlös instrumentering av .NET-webbappar som körs med IIS.
-Telemetri skickas till Azure-portalen, där du kan [övervakaren](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
-
-> [!IMPORTANT]
-> Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Statusövervakare v2 är en PowerShell-modul som publiceras på [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Den ersätter [statusövervakare](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
+Modulen tillhandahåller kod för kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS.
+Telemetri skickas till Azure Portal, där du kan [övervaka](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
 
 ## <a name="powershell-gallery"></a>PowerShell-galleriet
 
-PowerShell-galleriet finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Statusövervakare v2 finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+
+![PowerShell-galleriet](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>Instruktioner
-- Se den [komma igång instruktioner](status-monitor-v2-get-started.md) att hämta en start med kortfattade kodexempel.
-- Se den [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md) för djupgående information om hur du kommer igång.
+- Se [komma igång-instruktionerna](status-monitor-v2-get-started.md) för att få en start med kortfattade kod exempel.
+- Se de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md) för att få en djup introduktion till hur du kommer igång.
 
-## <a name="powershell-api-reference"></a>PowerShell-API-referens
+## <a name="powershell-api-reference"></a>PowerShell API-referens
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Inaktivera InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
+- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
 - [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Aktivera InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
+- [Aktivera – InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>Felsökning
 - [Felsökning](status-monitor-v2-troubleshoot.md)
@@ -56,18 +54,18 @@ PowerShell-galleriet finns här: https://www.powershellgallery.com/packages/Az.A
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-- Stöder statusövervakaren v2 proxy installationer?
+- Stöder Statusövervakare v2 proxy-installationer?
 
-  *Ja*. Det finns flera sätt att hämta Status Monitor v2. Om datorn är ansluten till internet, kan du publicera PowerShell-galleriet med hjälp av `-Proxy` parametrar.
-Du kan också manuellt hämta modulen och installera den på datorn eller använda det direkt.
-Var och en av dessa alternativ beskrivs i den [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md).
+  *Ja*. Det finns flera sätt att ladda ned Statusövervakare v2. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp `-Proxy` av parametrar.
+Du kan också hämta modulen manuellt och antingen installera den på datorn eller använda den direkt.
+Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md).
   
-- Hur bekräftar jag att operatörshanterad lyckades?
+- Hur gör jag för att verifiera att aktiveringen lyckades?
 
-   Det finns inga cmdlet för att kontrollera aktivering har utförts.
-Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) snabbt bedöma om din app skickar telemetri.
+   Det finns ingen cmdlet för att verifiera Aktiveringen lyckades.
+Vi rekommenderar att du använder [Live-mått](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
 
-   Du kan också använda [Log Analytics](../log-query/get-started-portal.md) att lista alla molnroller som skickar telemetri:
+   Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
    ```Kusto
    union * | summarize count() by cloud_RoleName, cloud_RoleInstance
    ```
@@ -76,14 +74,14 @@ Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azur
 
 Visa telemetrin:
 
-* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) att övervaka prestanda och användning.
-* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) att diagnostisera problem.
-* [Använda Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
-* [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).
+* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+* [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
+* [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
 
 Lägg till mer telemetri:
 
-* [Skapa webbtester](monitor-web-app-availability.md) att kontrollera att webbplatsen är aktiv.
-* [Lägg till telemetri för webbklienten](../../azure-monitor/app/javascript.md) vill visa undantag från webbsidans kod och för att aktivera spårning av anrop.
-* [Lägg till Application Insights SDK i koden](../../azure-monitor/app/asp-net.md) så att du kan lägga till spårnings- och logganrop.
+* [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+* [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
+* [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
 

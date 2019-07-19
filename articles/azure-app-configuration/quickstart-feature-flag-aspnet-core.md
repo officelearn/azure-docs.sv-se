@@ -1,6 +1,6 @@
 ---
-title: Snabbstart för att lägga till funktionen flaggor i ASP.NET Core | Microsoft Docs
-description: En Snabbstart för att lägga till funktionen flaggor i ASP.NET Core-appar och hantera dem i Azure-Appkonfiguration
+title: Snabb start för att lägga till funktions flaggor i ASP.NET Core | Microsoft Docs
+description: En snabb start för att lägga till funktions flaggor i ASP.NET Core appar och hantera dem i Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,32 +14,29 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 38cfabc703b7578d3b5fede9d6a99fe8a33c93a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798393"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326547"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktionen flaggor i en ASP.NET Core-app
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktions flaggor i en ASP.NET Core app
 
-Du kan aktivera funktionen för hantering i ASP.NET Core genom att ansluta ditt program till Azure-Appkonfiguration. Du kan använda den här hanterade tjänsten för att lagra alla dina flaggor för funktionen och kontrollera deras tillstånd centralt. Den här snabbstarten visar hur du införlivar Appkonfiguration i en ASP.NET Core webbapp för att skapa en slutpunkt till slutpunkt-implementering av hantering av funktionen.
+I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core webbapp för att skapa en slut punkt till slutpunkt-implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd. 
 
-Hanteringsbibliotek för .NET Core funktionen utöka framework med omfattande funktioner som stöds med flaggan. Dessa bibliotek är byggda på konfigurationssystemet för .NET Core. De integrera sömlöst med konfiguration via dess konfigurationsprovider för .NET Core.
-
-Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="create-an-app-configuration-store"></a>Skapa ett Arkiv för Appkonfiguration
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktionen Manager** >  **+ skapa** att lägga till följande funktion flaggor:
+6. Välj **funktions hanteraren** >  **+ skapa** för att lägga till följande funktions flaggor:
 
     | Nyckel | Tillstånd |
     |---|---|
@@ -47,11 +44,11 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
-Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/dotnet/core/tools/) att skapa ett nytt ASP.NET Core MVC web app-projekt. Fördelen med att använda .NET Core CLI istället för Visual Studio är att .NET Core CLI är tillgänglig i Windows, macOS och Linux-plattformar.
+Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.com/dotnet/core/tools/) för att skapa ett nytt ASP.net Core MVC-webbprogram. Fördelen med att använda .NET Core CLI i stället för Visual Studio är att .NET Core CLI är tillgängligt på Windows-, macOS-och Linux-plattformarna.
 
-1. Skapa en ny mapp för ditt projekt. Den här snabbstarten, ge den namnet *TestFeatureFlags*.
+1. Skapa en ny mapp för ditt projekt. I den här snabb starten ska du ge den namnet *TestFeatureFlags*.
 
-1. Kör följande kommando för att skapa ett nytt ASP.NET Core MVC web app-projekt i den nya mappen:
+1. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core MVC-webbprogram-projekt:
 
    ```    
    dotnet new mvc
@@ -59,10 +56,10 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
+Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
 
-1. Öppna den *.csproj* fil.
-1. Lägg till en `UserSecretsId` element som visas i följande exempel och Ersätt värdet med dina egna, vilket vanligtvis är ett GUID:
+1. Öppna *. CSPROJ* -filen.
+1. Lägg till `UserSecretsId` ett-element som det visas i följande exempel och Ersätt värdet med ditt eget, vilket vanligt vis är ett GUID:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -82,15 +79,15 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 1. Spara filen.
 
-## <a name="connect-to-an-app-configuration-store"></a>Anslut till en konfiguration av store
+## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till referens till den `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
+1. Lägg till en `Microsoft.Azure.AppConfiguration.AspNetCore` referens till NuGet-paketet genom att köra följande kommando:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
-1. Kör följande kommando för att återställa paketen för ditt projekt:
+1. Kör följande kommando för att återställa paket för ditt projekt:
 
     ```
     dotnet restore
@@ -98,7 +95,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 1. Lägg till en hemlighet med namnet **ConnectionStrings:AppConfig** i Secret Manager.
 
-    Den här hemligheten innehåller anslutningssträngen för att komma åt din Appkonfiguration store. Ersätt den `<your_connection_string>` värde i följande kommando med anslutningssträngen för din konfiguration av store.
+    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. `<your_connection_string>` Ersätt värdet i följande kommando med anslutnings strängen för appens konfigurations arkiv.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
@@ -106,17 +103,17 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
-    Du kan använda Secret Manager enbart för att testa webbappen lokalt. När du distribuerar appen till [Azure App Service](https://azure.microsoft.com/services/app-service), exempelvis kan du använda ett program som inställning med namnet **anslutningssträngar** i App Service i stället för med Secret Manager för att lagra anslutningssträngen.
+    Du använder bara Secret Manager för att testa webbappen lokalt. När du distribuerar appen till [Azure App Service](https://azure.microsoft.com/services/app-service)kan du till exempel använda en program inställning med namnet **anslutnings strängar** i App Service i stället för att använda Secret Manager för att lagra anslutnings strängen.
 
-    Du kan komma åt den här hemligheten med konfigurations-API-App. Ett kolon (:) fungerar i Konfigurationsnamnet med API: et för App-konfigurationen på alla plattformar som stöds. Se [konfigurationen av miljön](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
+    Du kan komma åt den här hemligheten med appens Konfigurations-API. Ett kolon (:) fungerar i konfigurations namnet med appens Konfigurations-API på alla plattformar som stöds. Se [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Öppna *Program.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern:
+1. Öppna *program.cs*och Lägg till en referens till .net Core app Configuration-providern:
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Uppdatera den `CreateWebHostBuilder` metod du använder Appkonfiguration genom att anropa den `config.AddAzureAppConfiguration()` metoden.
+1. Uppdatera metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration()` anropa-metoden. `CreateWebHostBuilder`
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -132,13 +129,13 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
             .UseStartup<Startup>();
     ```
 
-1. Öppna *Startup.cs*, och Lägg till referenser till .NET Core funktionen manager:
+1. Öppna *startup.cs*och Lägg till referenser till .net Core Feature Manager:
 
     ```csharp
     using Microsoft.FeatureManagement.AspNetCore;
     ```
 
-1. Uppdatera den `ConfigureServices` metod för att lägga till stöd för funktionsflagga genom att anropa den `services.AddFeatureManagement()` metoden. Du kan ta något filter som ska användas med funktionen flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
+1. Uppdatera metoden för att lägga till stöd för funktions flaggor genom `services.AddFeatureManagement()` att anropa metoden. `ConfigureServices` Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -147,7 +144,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     }
     ```
 
-1. Uppdatera den `Configure` metod för att lägga till ett mellanprogram för att tillåta funktionen flaggvärden som ska uppdateras med ett återkommande intervall när ASP.NET Core-webbapp fortsätter att ta emot begäranden.
+1. `Configure` Uppdatera metoden för att lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.net Core webbappen fortsätter att ta emot begär Anden.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -157,7 +154,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     }
     ```
 
-1. Lägg till en *MyFeatureFlags.cs* fil:
+1. Lägg till en *MyFeatureFlags.cs* -fil:
 
     ```csharp
     namespace TestFeatureFlags
@@ -169,7 +166,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     }
     ```
 
-1. Lägg till *BetaController.cs* till den *domänkontrollanter* directory:
+1. Lägg till *BetaController.cs* i katalogen *controllers* :
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -196,13 +193,13 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     }
     ```
 
-1. Öppna *_ViewImports.cshtml* i den *vyer* directory, och Lägg till tagg-helper funktionen manager:
+1. Öppna *_ViewImports. cshtml* i katalogen *vyer* och Lägg till Feature Manager-taggnings hjälpen:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Öppna *_Layout.cshtml* i den *vyer*\\*delad* directory och Ersätt den `<nav>` streckkod under `<body>`  >  `<header>` med följande kod:
+1. Öppna *_Layout. cshtml* i den*delade* `<nav>` katalogen för *vyer*\\och ersätt streckkoden `<header>` under `<body>`  >  med följande kod:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -231,7 +228,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     </nav>
     ```
 
-1. Skapa en *Beta* katalogen under *vyer* och Lägg till *Index.cshtml* till den:
+1. Skapa en *beta* katalog under *vyer* och Lägg till *index. cshtml* till den:
 
     ```html
     @{
@@ -245,25 +242,25 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i Kommandotolken:
+1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
     ```
     dotnet build
     ```
 
-1. När bygget har slutförts kör du följande kommando för att köra webbappen lokalt.
+1. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
     ```
     dotnet run
     ```
 
-1. Öppna ett webbläsarfönster och gå till `https://localhost:5001`, vilket är standard-URL för web-app som finns lokalt.
+1. Öppna ett webbläsarfönster och gå till `https://localhost:5001`, vilket är standard-URL: en för webbappen som finns lokalt.
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**, och välj den konfiguration av store-instans som du skapade i snabbstarten.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
-1. Välj **funktionen Manager**, och ändrar status för den **Beta** avgörande för att **på**:
+1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 
     | Nyckel | Tillstånd |
     |---|---|
@@ -279,8 +276,8 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en ny konfiguration av butik och använt det för att hantera funktioner i en ASP.NET Core-webbapp via den [funktionen hanteringsbibliotek](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via biblioteken för [funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Läs mer om [funktionen management](./concept-feature-management.md).
-- [Hantera flaggor för funktionen](./manage-feature-flags.md).
-- [Använder funktionen flaggor i en ASP.NET Core-app](./use-feature-flags-dotnet-core.md).
+- Läs mer om [funktions hantering](./concept-feature-management.md).
+- [Hantera funktions flaggor](./manage-feature-flags.md).
+- [Använd funktions flaggor i en ASP.net Core app](./use-feature-flags-dotnet-core.md).

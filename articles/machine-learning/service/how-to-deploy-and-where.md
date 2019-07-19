@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327043"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -115,6 +115,10 @@ Följande beräknings mål, eller beräknings resurser, kan användas som värd 
 
 Om du vill distribuera som en webb tjänst måste du skapa en konfiguration för`InferenceConfig`konfigurations härledning () och distribution. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data. I konfigurations filen för konfigurations filen anger du de skript och beroenden som behövs för att hantera din modell. I distributions konfigurationen anger du information om hur du hanterar modellen på beräknings målet.
 
+> [!IMPORTANT]
+> Azure Machine Learning SDK tillhandahåller inte ett sätt för webb tjänst-eller IoT Edge distributioner för åtkomst till dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
+>
+> Ett annat alternativ som kan fungera för ditt scenario är [batch](how-to-run-batch-predictions.md)-förutsägelser, vilket ger åtkomst till data lager när poäng.
 
 ### <a id="script"></a> 1. Definiera ditt Entry-skript & beroenden
 

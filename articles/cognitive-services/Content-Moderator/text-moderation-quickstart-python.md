@@ -10,15 +10,13 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 01c153f2f8836b7d99de57af60b8623e54c6d6fe
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311928"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333603"
 ---
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i Python
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator SDK för Python. Du kommer lära dig att köra termbaserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material.
@@ -47,7 +45,7 @@ Skapa ett nytt Python-skript som heter _ContentModeratorQS.py_ och lägg till f�
 
 ## <a name="initialize-variables"></a>Initiera variabler
 
-Lägg sedan till variabler för din prenumerationsnyckel till Content Moderator och slutpunktens webbadress. Du måste lägga till namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` i miljövariablerna och lägga till din prenumerations nyckel som värde. För URL: en för bas slut `CONTENT_MODERATOR_ENDPOINT` punkten lägger du till till miljövariablerna med din landsspecifika URL som värde, till `https://westus.api.cognitive.microsoft.com`exempel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra).
+Lägg sedan till variabler för din prenumerationsnyckel till Content Moderator och slutpunktens webbadress. Lägg till namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` i miljövariablerna med din prenumerations nyckel som värde. För URL: en för bas slut `CONTENT_MODERATOR_ENDPOINT` punkten lägger du till till miljövariablerna med din landsspecifika URL som värde, till `https://westus.api.cognitive.microsoft.com`exempel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra).
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
@@ -67,9 +65,7 @@ Använd sedan klienten med dess medlems **TextModerationOperations** -instans f�
 
 ## <a name="check-the-printed-response"></a>Kontrol lera det utskrivna svaret
 
-Kör exemplet och bekräfta svaret. Den bör ha slutförts och returnerade en **skärm** instans. Ett lyckat resultat skrivs ut nedan:
-
-Exempeltexten som används i den här snabbstarten resulterar i följande utdata:
+Kör exemplet och bekräfta svaret. När åtgärden har slutförts returneras en **skärm** instans. Ett lyckat resultat visas nedan:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

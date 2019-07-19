@@ -15,28 +15,21 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864825"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326502"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Snabbstart: Skapa en ASP.NET-webbapp 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabbstart: Använda Azure cache för Redis med en ASP.NET-webbapp 
 
-## <a name="introduction"></a>Introduktion
+I den här snabb starten använder du Visual Studio 2019 för att skapa ett ASP.NET-webbprogram som ansluter till Azure cache för Redis för att lagra och hämta data från cachen. Sedan distribuerar du appen till Azure App Service.
 
-Den här snabbstarten visar hur du skapar och distribuerar en ASP.NET-webbapp till Azure App Service med hjälp av Visual Studio 2019. Exempelprogrammet ansluter till Azure Cache for Redis när du ska lagra och hämta data från cachen. När du är klar med snabbstarten har du en fungerande webbapp, som finns i Azure och som läser och skriver till Azure Cache for Redis.
+## <a name="prerequisites"></a>Förutsättningar
 
-![Enkelt test slutfört – Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-För att du har slutfört snabbstarten kan du behöva installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande miljöer:
-* ASP.NET och webbutveckling
-* Azure Development
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningarna **ASP.net och webb utveckling** och **Azure-utveckling** .
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
@@ -116,7 +109,7 @@ Eftersom *CacheSecrets.config* inte har distribuerats till Azure med din app anv
 2. Leta reda på elementet `<appSetting>` i filen *web.config*. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
 
 * Innan: `<appSettings>`
-* När du har:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* När`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Vid körningen ignoreras filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure så distribueras inte filen *CacheSecrets.config*.
 
@@ -301,7 +294,7 @@ Lägg till en ny appinställning när den nya appen har publicerats. Den här in
 
 2. Lägg till en ny appinställning med namnet **CacheConnection** som appen ska använda för att ansluta till cachen. Använd samma värde som du har konfigurerat för `CacheConnection` i filen *CacheSecrets.config*. Värdet innehåller cachens värdnamn och åtkomstnyckel.
 
-    ![Lägg till appinställning](./media/cache-web-app-howto/cache-add-app-setting.png)
+    ![Lägga till appinställning](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### <a name="run-the-app-in-azure"></a>Köra appen i Azure
 
@@ -324,9 +317,9 @@ Om du är klar med exempelappen i snabbstarten kan du ta bort Azure-resurserna s
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
+2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
 
-    ![Radera](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och välj sedan **Ta bort**.
 

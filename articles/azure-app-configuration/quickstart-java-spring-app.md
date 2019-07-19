@@ -14,55 +14,53 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393553"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326471"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabbstart: Skapa en Java våren-app med Azure App konfiguration
 
-Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan använda den för att enkelt lagra och hantera alla programinställningarna på ett ställe som är avgränsade från din kod. Den här snabbstarten visar hur du införlivar tjänsten i en Java Spring-app.
+I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-app för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Om du vill göra den här snabbstarten, installera en stödd [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) med version 8 och [Apache Maven](https://maven.apache.org/) version 3.0 eller senare.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- En [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
+- [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** >  **+ skapa** att lägga till följande nyckel / värde-par:
+6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | /application/config.message | Hej |
 
-    Lämna **etikett** och **innehållstyp** tom för tillfället.
+    Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
 ## <a name="create-a-spring-boot-app"></a>Skapa en Spring Boot-app
 
-Du använder den [Spring Initializr](https://start.spring.io/) att skapa ett nytt Spring Boot-projekt.
+Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
 
 1. Bläddra till <https://start.spring.io/>.
 
 2. Ange följande alternativ:
 
    * Generera ett **Maven**-projekt med **Java**.
-   * Ange en **Spring Boot** version som är lika med eller större än 2,0.
+   * Ange en **våren Boot** -version som är lika med eller större än 2,0.
    * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.
    * Lägga till beroendet **Web**.
 
-3. När du har angett de föregående alternativen väljer **generera projekt**. När du uppmanas laddar du ned projektet till en sökväg på den lokala datorn.
+3. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas laddar du ned projektet till en sökväg på den lokala datorn.
 
-## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
+## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. När du har extraherat filerna på den lokala datorn är enkel Spring Boot programmet redo för redigering. Leta upp filen *pom.xml* i appens rotkatalog.
+1. När du har extraherat filerna i det lokala systemet är ditt vanliga start program redo för redigering. Leta upp filen *pom.xml* i appens rotkatalog.
 
 2. Öppna filen *pom.xml* i ett redigeringsprogram och lägg till Spring Cloud Azure Config-starter i listan över `<dependencies>`:
 
@@ -121,7 +119,7 @@ Du använder den [Spring Initializr](https://start.spring.io/) att skapa ett nyt
     }
     ```
 
-6. Skapa en ny fil med namnet `bootstrap.properties` under katalogen resurser för din app, och Lägg till följande rader i filen. Ersätt exempelvärdena med lämpliga egenskaper för konfiguration av lagra din app.
+6. Skapa en ny fil med `bootstrap.properties` namnet under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
@@ -129,18 +127,18 @@ Du använder den [Spring Initializr](https://start.spring.io/) att skapa ett nyt
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Skapa din Spring Boot-program med Maven och kör den, till exempel:
+1. Skapa ditt våren Boot-program med Maven och kör det, till exempel:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
-2. När programmet körs, använda *curl* att testa ditt program, till exempel:
+2. När programmet har körts använder du *sväng* för att testa programmet, till exempel:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    Du ser meddelandet som du angav i konfigurationen appbutiken.
+    Du ser meddelandet som du angav i appens konfigurations arkiv.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -148,9 +146,9 @@ Du använder den [Spring Initializr](https://start.spring.io/) att skapa ett nyt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapade en ny konfiguration appbutik och används med en Java Spring-app. Mer information finns i [Spring på Azure](https://docs.microsoft.com/java/azure/spring-framework/).
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/).
 
-Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
+Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

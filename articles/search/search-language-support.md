@@ -1,74 +1,57 @@
 ---
-title: Sökfrågor för flera språk indexering för icke-engelska – Azure Search
-description: Azure Search har stöd för 56 språk att utnyttja språkanalysverktyg från Lucene och naturlig Språkbearbetning teknik från Microsoft.
+title: Indexering med flera språk för icke-engelska Sök frågor – Azure Search
+description: Azure Search stöder 56-språk, med hjälp av språk analys verktyg från Lucene och natur bearbetnings teknik från Microsoft.
 author: yahnoosh
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/11/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025274"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854402"
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Skapa ett index för dokument på flera språk i Azure Search
-> [!div class="op_single_selector"]
->
-> * [Portal](search-language-support.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
->
->
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Så här skapar du ett index för flera språk i Azure Search
 
-Utnyttja kraften i språkanalysverktyg är lika enkelt som att inställningen för en egenskap på ett sökbart fält i indexdefinitionen. Nu kan du göra det här steget i portalen.
+Index kan innehålla fält som innehåller innehåll från flera språk, till exempel när enskilda fält skapas för språkspecifika strängar. För bästa resultat vid indexering och frågor, tilldelar du en språk analys som innehåller lämpliga språk regler. 
 
-Nedan visas skärmdumpar av Azure Portal-blad för Azure Search som tillåter användare att definiera ett indexschema. Användarna kan skapa alla fält och ange egenskapen analyzer för var och en av dem från det här bladet.
+Azure Search erbjuder ett stort urval av språk analys verktyg från både Lucene och Microsoft som kan tilldelas enskilda fält med hjälp av egenskapen Analyzer. Du kan också ange en språk analys i portalen, enligt beskrivningen i den här artikeln.
 
-> [!IMPORTANT]
-> Du kan endast ange ett språkanalysverktyg under fältdefinition, som i när du skapar ett nytt index från grunden upp eller när du lägger till ett nytt fält till ett befintligt index. Kontrollera att du anger fullständigt alla attribut, inklusive analyzer, när du skapar fältet. Du kan inte redigera attribut eller ändra typen av analyzer när du sparar dina ändringar.
->
->
+## <a name="add-analyzers-to-fields"></a>Lägg till analyser i fält
 
-## <a name="define-a-new-field-definition"></a>Definiera en ny fältdefinition
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och öppna bladet för tjänsten för search-tjänsten.
-2. Klicka på **Lägg till index** i kommandofältet överst på instrumentpanelen för tjänsten att starta ett nytt index, eller öppna ett befintligt index om du vill ange en analyzer på nya fält som du lägger till ett befintligt index.
-3. Bladet fält visas med alternativ för att definiera schemat för indexet, inklusive fliken Analyzer används för att välja ett språkanalysverktyg.
-4. Starta en fältdefinition i fält genom att ange ett namn, välja datatypen och attribut markerar fältet som fulltext sökbara, hämtningsbara i sökresultaten kan användas i aspekten navigeringsstrukturer, sorterbara och så vidare.
-5. Innan du fortsätter till nästa fält, öppna den **Analyzer** fliken.
+En språk analys anges när ett fält skapas. Att lägga till en analys i en befintlig fält definition kräver överskrivning (och laddar om) indexet, eller att skapa ett nytt fält som är identiskt med originalet, men med en Analyzer-tilldelning. Du kan sedan ta bort fältet som används när du vill.
 
-![][1]
-*För att välja en analyzer, klickar du på fliken Analyzer på bladet fält*
+1. Logga in på [Azure Portal](https://portal.azure.com) och hitta Sök tjänsten.
+1. Klicka på **Lägg till index** i kommando fältet längst upp på instrument panelen för att starta ett nytt index, eller öppna ett befintligt index om du vill ställa in en analys för nya fält som du lägger till i ett befintligt index.
+1. Starta en fält definition genom att ange ett namn.
+1. Välj data typen EDM. String. Endast sträng fält är full text sökbar.
+1. Ange det **sökbara** attributet som aktiverar Analyzer-egenskapen. Ett fält måste vara text-baserat för att du ska kunna använda en språk analys.
+1. Välj en av de tillgängliga analys verktyg. 
 
-## <a name="choose-an-analyzer"></a>Välj en analyzer
-1. Bläddra till fältet som du definierar.
-2. Om du inte har markerat fältet sökbart, klickar du på kryssrutan nu för att markera den som **sökbar**.
-3. Klicka på området Analyzer för att visa listan över tillgängliga analysverktyg.
-4. Välj det analysverktyg som du vill använda.
+![Tilldela språk analyser under fält definition](media/search-language-support/select-analyzer.png "Tilldela språk analyser under fält definition")
 
-![][2]
-*Välj en av analysverktyg som stöds för varje fält*
+Som standard använder alla sökbara fält [standard Lucene Analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , vilket är språk-oberoende. Om du vill visa en fullständig lista över analyser som stöds, se [lägga till språk analys verktyg i ett Azure Search index](index-add-language-analyzers.md).
 
-Som standard alla sökbara fält använder den [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som är språkoberoende. Om du vill visa en fullständig lista över stöds analysverktyg, se [språkstöd i Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+I portalen är analys verktyg avsedda att användas som de är. Om du behöver anpassning eller en speciell konfiguration av filter och tokenizers bör du [skapa en anpassad analys](index-add-custom-analyzers.md) i kod. Portalen stöder inte val eller konfiguration av anpassade analyser.
 
-När språkanalysverktyg har valts för ett fält, används det med varje begäran för indexering och sökning för det fältet. När en fråga utfärdas mot flera fält med hjälp av olika analysverktyg, bearbetas frågan oberoende av rätt analysverktyg för varje fält.
+## <a name="query-language-specific-fields"></a>Fråga språk – specifika fält
 
-Många webbprogram och mobilappar fungerar användare över hela världen med hjälp av olika språk. Det är möjligt att definiera ett index för ett scenario som detta genom att skapa ett fält för varje språk som stöds.
+När du har valt språk analys för ett fält används det med varje indexerings-och Sök förfrågan för det fältet. När en fråga utfärdas mot flera fält med olika analys verktyg, kommer frågan att bearbetas oberoende av de tilldelade analys verktyg för varje fält.
 
-![][3]
-*Definition av index med en beskrivningsfält för varje språk som stöds*
+Om språket för agenten som utfärdar en fråga är känt kan en sökbegäran begränsas till ett visst fält med hjälp av **searchFields** -Frågeparametern. Följande fråga kommer endast att utfärdas mot beskrivningen i polska:
 
-Om språket för agenten skickar en fråga kallas en sökbegäran kan vara begränsad till ett visst fält med hjälp av den **searchFields** frågeparameter. Följande fråga utfärdas endast mot beskrivningen i polska:
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2019-05-06`
+Du kan fråga ditt index från portalen med hjälp av [**Sök Utforskaren**](search-explorer.md) för att klistra in en fråga som liknar den som visas ovan.
 
-Du kan fråga ditt index i portalen med hjälp av **Sökutforskaren** att klistra in i en fråga som liknar den som visas ovan. Sökutforskaren är tillgänglig från kommandofältet på bladet för tjänsten. Se [fråga ditt Azure Search-index i portalen](search-explorer.md) mer information.
+## <a name="boost-language-specific-fields"></a>Förstärka språkspecifika fält
 
-Ibland är språket i agenten skickar en fråga inte känd, då frågan kan utfärdas mot alla fält samtidigt. Om det behövs, inställningar för resulterar i ett visst språk kan definieras med hjälp av [poängprofiler](https://msdn.microsoft.com/library/azure/dn798928.aspx). I exemplet nedan får matchningar hittades i beskrivningen på engelska resultatet högre i förhållande till matchar i polska och franska:
+Ibland är språket för den agent som utfärdar en fråga inte känt, och i så fall kan frågan utfärdas mot alla fält samtidigt. Om det behövs kan du definiera resultat för ett visst språk med hjälp av [bedömnings profiler](index-add-scoring-profiles.md). I exemplet nedan kommer matchningar som hittas i beskrivningen på engelska att bli högre jämfört med matchningar i polska och franska:
 
     "scoringProfiles": [
       {
@@ -81,9 +64,6 @@ Ibland är språket i agenten skickar en fråga inte känd, då frågan kan utf�
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
-Om du är en .NET-utvecklare, Observera att du kan konfigurera språkanalysverktyg med hjälp av den [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search). Den senaste versionen innehåller stöd för Microsoft språkanalysverktyg samt.
+## <a name="next-steps"></a>Nästa steg
 
-<!-- Image References -->
-[1]: ./media/search-language-support/AnalyzerTab.png
-[2]: ./media/search-language-support/SelectAnalyzer.png
-[3]: ./media/search-language-support/IndexDefinition.png
+Om du är en .NET-utvecklare kan du tänka på att du kan konfigurera språk analyser med hjälp av [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) och [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) -egenskapen. 

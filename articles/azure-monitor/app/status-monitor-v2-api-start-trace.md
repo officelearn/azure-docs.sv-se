@@ -1,6 +1,6 @@
 ---
-title: 'Azure statusövervakaren v2 API-referens: Starta spårning | Microsoft Docs'
-description: Status Monitor v2 API-referens. Start-spårning. Samla in ETW-loggar från Status Monitor och Application Insights SDK.
+title: 'Azure Statusövervakare v2 API-referens: Starta spårning | Microsoft Docs'
+description: API-referens för Statusövervakare v2. Starta spårning. Samla in ETW-loggar från Statusövervakare och Application Insights SDK.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,81 +12,76 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b6787134707273a76290adb723a9bc9012252ebd
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 3060a48e297082f5b70c8bd96030fe519f6e8b6f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807062"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326309"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v040-alpha"></a>Status Monitor v2 API: Start-ApplicationInsightsMonitoringTrace (v0.4.0-alfa)
+# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API för Statusövervakare v2: Start-ApplicationInsightsMonitoringTrace
 
-Den här artikeln beskrivs en cmdlet som ingår i den [Az.ApplicationMonitor PowerShell-modulen](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan ett serviceavtal och det rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd och vissa kan ha begränsad funktionalitet.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Beskrivning
 
-Samlar in [ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) koppla från den kodlös runtime. Denna cmdlet är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
+Samlar in [ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) från koden för kod bundna bilagor. Denna cmdlet är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
 
-Insamlade händelser skrivs till konsolen i realtid och sparas i en ETL-fil. ETL utdatafilen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för vidare studier.
+Insamlade händelser skrivs ut till konsolen i real tid och sparas i en ETL-fil. Den utgående ETL-filen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för ytterligare undersökning.
 
-Denna cmdlet kommer att köras tills den når tidsgränsen varaktighet (som standard 5 minuter) eller stoppas manuellt (`Ctrl + C`).
+Denna cmdlet körs tills den når timeout-tiden (standard 5 minuter) eller stoppas manuellt (`Ctrl + C`).
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-session med administratörsbehörigheter.
+> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="how-to-collect-events"></a>Hur du samlar in händelser
+### <a name="how-to-collect-events"></a>Samla in händelser
 
-Normalt skulle vi ber du samla in händelser för att undersöka varför ditt program inte att instrumenteras.
+Normalt skulle vi be dig att samla in händelser för att undersöka varför ditt program inte instrumenteras.
 
-Den kodlös bifoga runtime genererar ETW-händelser när IIS startas och när programmet startas.
+Koden för kod bundna bilagor genererar ETW-händelser när IIS startas och när programmet startas.
 
-Att samla in dessa händelser:
-1. I en cmd-konsol med administratörsbehörigheter, kör `iisreset /stop` att stänga av IIS och alla web apps.
+Så här samlar du in följande händelser:
+1. I en cmd-konsol med administratörs behörighet `iisreset /stop` kör du för att stänga av IIS och alla webbappar.
 2. Kör denna cmdlet
-3. I en cmd-konsol med administratörsbehörigheter, kör `iisreset /start` att starta IIS.
+3. I en cmd-konsol med administratörs behörighet `iisreset /start` kör du för att starta IIS.
 4. Försök att bläddra till din app.
-5. När din app är klar läses in, kan du manuellt stoppa (`Ctrl + C`) eller vänta tills tidsgränsen.
+5. När din app har slutfört inläsningen kan du stoppa den`Ctrl + C`manuellt () eller vänta tills tids gränsen uppnåddes.
 
-### <a name="what-events-to-collect"></a>Vilka händelser ska samlas in
+### <a name="what-events-to-collect"></a>Vilka händelser som ska samlas in
 
-Vid insamling av händelser har du tre alternativ:
-1. Växeln `-CollectSdkEvents` att samla in händelser som sänts ut från Application Insights SDK.
-2. Växeln `-CollectRedfieldEvents` att samla in händelser som genereras av Status Monitor och Redfield-Runtime. Dessa loggar är användbara vid diagnostisering av IIS och start av program.
-3. Använda båda växlar för att samla in båda händelsetyperna av.
-4. Som standard, om någon växel har angetts både händelsetyper kommer att samlas in.
+Du har tre alternativ när du samlar in händelser:
+1. Använd växeln `-CollectSdkEvents` för att samla in händelser som har avsänts från Application Insights SDK.
+2. Använd växeln `-CollectRedfieldEvents` för att samla in händelser som har avsänts av statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
+3. Använd båda växlar för att samla in båda händelse typerna.
+4. Som standard, om ingen växel har angetts, kommer båda händelse typerna att samlas in.
 
 
 ## <a name="parameters"></a>Parametrar
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Valfritt.** Använd den här parametern om du vill ange hur länge skriptet ska samla in händelser. Standardvärdet är 5 minuter.
+**Valfritt.** Använd den här parametern för att ange hur länge det här skriptet ska samla in händelser. Standardvärdet är 5 minuter.
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**Valfritt.** Använd den här växeln om du vill ange katalogen för ETL-fil. Den här filen kommer att skapas i katalogen PowerShell-moduler som standard. Den fullständiga sökvägen visas under skriptkörningen.
+**Valfritt.** Använd den här växeln för att ange den resulterande katalogen för ETL-filen. Som standard skapas den här filen i katalogen PowerShell-moduler. Den fullständiga sökvägen visas när skript körningen körs.
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Valfritt.** Använd den här växeln för att samla in händelser för Application Insights SDK.
+**Valfritt.** Använd den här växeln för att samla in Application Insights SDK-händelser.
 
 ### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Valfritt.** Använd den här växeln för att samla in händelser från Status Monitor och Redfield runtime.
+**Valfritt.** Använd den här växeln om du vill samla in händelser från Statusövervakare och Redfield-körningsmiljön.
 
-### <a name="-verbose"></a>-Verbose
-**Vanliga parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
 
 
 ## <a name="output"></a>Output
 
 
-### <a name="example-of-application-startup-logs"></a>Exempel på Start-programloggar
+### <a name="example-of-application-startup-logs"></a>Exempel på program start loggar
 ```
 PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -ColectRedfieldEvents
 Starting...
@@ -118,15 +113,15 @@ Timeout Reached. Stopping...
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare felsökning:
+Ytterligare fel sökning:
 
-- Granska ytterligare felsökningsstegen här: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
-- Granska den [API-referens](status-monitor-v2-overview.md#powershell-api-reference) vill veta mer om parametrar som du kan ha missat.
+- Granska ytterligare fel söknings steg här: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
+- Läs [API](status-monitor-v2-overview.md#powershell-api-reference) -referensen om du vill veta mer om parametrar som du kan ha missat.
 - Om du behöver ytterligare hjälp kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 
 
- Gör mer med Status Monitor v2:
- - Använd vår guide om hur du [felsöka](status-monitor-v2-troubleshoot.md) statusövervakaren v2.
- - [Hämta konfig](status-monitor-v2-api-get-config.md) att bekräfta att inställningarna har registrerats korrekt.
- - [Hämta status](status-monitor-v2-api-get-status.md) att inspektera övervakning.
+ Gör mer med Statusövervakare v2:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ - [Hämta konfigurationen](status-monitor-v2-api-get-config.md) för att bekräfta att inställningarna har registrerats korrekt.
+ - [Hämta status](status-monitor-v2-api-get-status.md) för att inspektera övervakning.

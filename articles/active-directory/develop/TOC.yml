@@ -408,7 +408,7 @@
         - name: Icke-bakåtkompatibla ändringar
           href: reference-breaking-changes.md
 - name: V1.0
-  expanded: true
+  expanded: false
   items:
     - name: Översikt
       href: v1-overview.md

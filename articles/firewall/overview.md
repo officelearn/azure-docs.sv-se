@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2894af5f253e20b32dde0ecc5f658edff4814149
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 1349e07662504564fdf48a53f24525c4a16aa477
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868430"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326906"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -80,7 +80,7 @@ Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts
 ## <a name="multiple-public-ip-addresses"></a>Flera offentliga IP-adresser
 
 > [!IMPORTANT]
-> Azure-brandväggen med flera offentliga IP-adresser är tillgänglig via Azure PowerShell, Azure CLI, REST och mallar. Portal användar gränssnittet läggs till i regioner stegvis och är tillgängligt i alla regioner när distributionen är klar.
+> Azure-brandväggen med flera offentliga IP-adresser är tillgänglig via Azure Portal, Azure PowerShell, Azure CLI, REST och mallar.
 
 
 Du kan associera flera offentliga IP-adresser (upp till 100) med brand väggen.

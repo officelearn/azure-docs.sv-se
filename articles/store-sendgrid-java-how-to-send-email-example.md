@@ -1,6 +1,6 @@
 ---
 title: store-sendgrid-java-how-to-send-email-example
-description: Hur du skickar e-post med SendGrid från Java i en Azure-distribution
+description: Skicka e-post med SendGrid från java i en Azure-distribution
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -13,35 +13,36 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 79cb9bb82862f5720d5ec2262ba30dbbcf3e3f66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: erikre
+ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
+ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60930171"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876486"
 ---
-# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hur du skickar e-post med SendGrid från Java i en Azure-distribution
-I följande exempel visas hur du kan använda SendGrid för att skicka e-post från en webbsida i Azure. Exempelprogrammet uppmanas användaren för e-värden, enligt följande skärmbild.
+# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Skicka e-post med SendGrid från java i en Azure-distribution
+I följande exempel visas hur du kan använda SendGrid för att skicka e-postmeddelanden från en webb sida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange e-postvärden, som visas i följande skärm bild.
 
-![E-formulär][emailform]
+![E-postformulär][emailform]
 
-Resulterande e-postmeddelandet ser ut ungefär som följande skärmbild.
+Det resulterande e-postmeddelandet ser ut ungefär som på följande skärm bild.
 
-![e-postmeddelande][emailsent]
+![E-postmeddelande][emailsent]
 
-Du behöver göra följande för att använda koden i det här avsnittet:
+Du måste göra följande för att använda koden i det här avsnittet:
 
-1. Hämta de javax.mail JAR-filer, till exempel från <https://www.oracle.com/technetwork/java/javamail/index.html>.
-2. Lägg till för att din Java build path.
-3. Om du använder Eclipse för att skapa den här Java-program, kan du inkludera SendGrid-bibliotek i din distribution programfilen (WAR) med hjälp av Eclipses distributionsfunktion sammansättningen. Om du inte använder Eclipse för att skapa den här Java-program, kontrollera biblioteken är inkluderade i samma Azure-roll som ditt Java-program och har lagts till i klassökvägen i ditt program.
+1. Hämta javax. e-jar v7, till exempel från <https://www.oracle.com/technetwork/java/javamail/index.html>.
+2. Lägg till jar v7 i din Java-build-sökväg.
+3. Om du använder Sol förmörkelse för att skapa Java-programmet kan du inkludera SendGrid-biblioteken i program distributions filen (WAR) med hjälp av funktionen för distributions sammansättning i Sol förmörkelse. Om du inte använder Sol förmörkelse för att skapa Java-programmet, se till att biblioteken ingår i samma Azure-roll som Java-programmet och läggs till i programmets klass Sök väg.
 
-Du måste också ha en egen SendGrid-användarnamn och lösenord, för att kunna skicka e-postmeddelandet. Kom igång med SendGrid, se [hur du skickar e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).
+Du måste också ha ditt eget SendGrid-användarnamn och-lösen ord för att kunna skicka e-postmeddelandet. Information om hur du kommer igång med SendGrid finns i [så här skickar du e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).
 
-Dessutom är bekant med informationen på [skapar ett Hello World-program för Azure i Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable), eller med andra tekniker som värd för Java-program i Azure om du inte använder Eclipse rekommenderas starkt.
+Dessutom rekommenderar vi att du [skapar ett Hello World-program för Azure i Sol förmörkelse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)eller med andra tekniker som är värdar för Java-program i Azure om du inte använder Sol förmörkelse.
 
-## <a name="create-a-web-form-for-sending-email"></a>Skapa ett webbformulär för att skicka e-post
-Följande kod visar hur du skapar ett webbformulär om du vill hämta användardata för att skicka e-post. För av det här innehållet, JSP-fil med namnet **emailform.jsp**.
+## <a name="create-a-web-form-for-sending-email"></a>Skapa ett webb formulär för att skicka e-post
+Följande kod visar hur du skapar ett webb formulär för att hämta användar data för att skicka e-post. För det här innehållet har JSP-filen namnet **emailform. jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -96,8 +97,8 @@ Följande kod visar hur du skapar ett webbformulär om du vill hämta användard
     </body>
     </html>
 
-## <a name="create-the-code-to-send-the-email"></a>Skapa kod för att skicka e-postmeddelandet
-Följande kod, som anropas när du har slutfört formuläret i emailform.jsp, skapar e-postmeddelande och skickar den. För av det här innehållet, JSP-fil med namnet **sendemail.jsp**.
+## <a name="create-the-code-to-send-the-email"></a>Skapa koden för att skicka e-postmeddelandet
+Följande kod, som anropas när du fyller i formuläret i emailform. jsp, skapar e-postmeddelandet och skickar det. För det här innehållet har JSP-filen namnet **sendemail. jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
@@ -204,17 +205,17 @@ Följande kod, som anropas när du har slutfört formuläret i emailform.jsp, sk
     </body>
     </html>
 
-Förutom att skicka e-postmeddelandet ger emailform.jsp ett resultat för användaren. ett exempel är följande skärmbild:
+Förutom att skicka e-postmeddelandet ger emailform. jsp ett resultat för användaren. ett exempel är följande skärm bild:
 
-![Skicka e-post-resultat][emailresult]
+![Skicka e-post resultat][emailresult]
 
 ## <a name="next-steps"></a>Nästa steg
-Distribuera ditt program till compute-emulatorn och kör emailform.jsp i en webbläsare, ange värden i formuläret, klicka på **skicka e-postmeddelandet**, och sedan visar resultatet i sendemail.jsp.
+Distribuera ditt program till Compute-emulatorn och i en webbläsare kör emailform. jsp, ange värden i formuläret, klicka på **skicka det här e-** postmeddelandet och se resultatet i sendemail. jsp.
 
-Den här koden har angetts för att visa dig hur du använder SendGrid i Java på Azure. Innan du distribuerar till Azure i produktion ska du lägga till fler felhantering eller andra funktioner. Exempel: 
+Den här koden angavs för att visa hur du använder SendGrid i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Exempel: 
 
-* Du kan använda Azure storage-blobbar eller SQL-databas för att lagra e-postadresser och e-postmeddelanden, istället för att använda ett webbformulär. Information om hur du använder Azure storage-blobbar i Java finns i [hur du använder Blob Storage-tjänsten från Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Information om hur du använder SQL Database i Java finns i [med hjälp av SQL Database i Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
-* Mer information om hur du använder SendGrid i Java finns i [hur du skickar e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).
+* Du kan använda Azure Storage-blobbar eller SQL Database för att lagra e-postadresser och e-postmeddelanden, i stället för att använda ett webb formulär. Information om hur du använder Azure Storage-blobar i Java finns i [så här använder du tjänsten Blob Storage från Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Information om hur du använder SQL Database i Java finns i [använda SQL Database i Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
+* Mer information om hur du använder SendGrid i Java finns i [så här skickar du e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg

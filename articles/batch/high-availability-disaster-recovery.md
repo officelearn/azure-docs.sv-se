@@ -1,10 +1,10 @@
 ---
-title: Hög tillgänglighet och disaster recovery - Azure Batch | Microsoft Docs
-description: Lär dig hur du utformar ditt Batch-program för ett regionalt strömavbrott
+title: Hög tillgänglighet och haveri beredskap – Azure Batch | Microsoft Docs
+description: Lär dig hur du utformar ditt batch-program för ett regionalt avbrott
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: lahugh
-ms.openlocfilehash: b863785575263fedd144b3d599962a8e1559e0a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c76a5100e6ac1db067ccdbd582ddf9adba946c1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549760"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322591"
 ---
 # <a name="design-your-application-for-high-availability"></a>Utforma ditt program för hög tillgänglighet
 
-Azure Batch är en regional tjänst. Batch är tillgänglig i alla Azure-regioner, men när ett Batch-konto har skapats måste det vara associerad med en region. Alla åtgärder för Batch-kontot gäller sedan för den regionen. Till exempel skapas pooler och associerade virtuella datorer (VM) i samma region som Batch-kontot.
+Azure Batch är en regional tjänst. Batch är tillgängligt i alla Azure-regioner, men när ett batch-konto skapas måste det kopplas till en region. Alla åtgärder för batch-kontot gäller sedan för den regionen. Till exempel skapas pooler och associerade virtuella datorer i samma region som batch-kontot.
 
-När du designar ett program som använder Batch, måste du överväga möjligheten att Batch som inte var tillgänglig i en region. Det är möjligt att hända att sällsynta där det finns ett problem med regionen som helhet, hela Batch-tjänsten i regionen eller ett problem med specifika Batch-kontot.
+När du skapar ett program som använder batch måste du fundera över möjligheten för batch som inte är tillgänglig i en region. Det går att stöta på en sällsynt situation där det är problem med regionen som helhet, hela batch-tjänsten i regionen eller ett problem med ditt specifika batch-konto.
 
-Om programmet eller lösningen med hjälp av Batch-alltid måste vara tillgänglig, kommer dess bör utformas för att växla över till en annan region eller alltid har den arbetsbelastning som delas upp mellan två eller fler regioner. Båda metoderna kräver minst två Batch-konton, med varje konto finns i en annan region.
+Om programmet eller lösningen som använder batch alltid måste vara tillgängliga, ska den vara utformad för att antingen redundansväxla till en annan region eller alltid ha arbets belastningen delad mellan två eller flera regioner. Båda metoderna kräver minst två batch-konton, där varje konto finns i en annan region.
 
-## <a name="multiple-batch-accounts-in-multiple-regions"></a>Flera Batch-konton i flera regioner
+## <a name="multiple-batch-accounts-in-multiple-regions"></a>Flera batch-konton i flera regioner
 
-Med flera Batch-konton i olika regioner gör möjligheten för dina program fortsätter köra om ett Batch-konto i en annan region blir otillgänglig. Använda flera konton är särskilt viktigt om ditt program måste ha hög tillgänglighet.
+Genom att använda flera batch-konton i olika regioner kan du fortsätta att köra programmet om ett batch-konto i en annan region blir otillgängligt. Att använda flera konton är särskilt viktigt om ditt program behöver hög tillgänglighet.
 
-I vissa fall kan utformas ett program för att alltid använda två eller fler regioner. Exempelvis när du behöver mycket kapacitet kan med hjälp av flera regioner behövas för att hantera ett storskaligt program eller tillgodose för framtida tillväxt.
+I vissa fall kan ett program vara utformat för att alltid använda två eller flera regioner. Om du till exempel behöver en stor mängd kapacitet kan du behöva använda flera regioner för att hantera antingen ett storskaligt program eller för framtida tillväxt.
 
-## <a name="design-considerations-for-providing-failover"></a>Designöverväganden för att tillhandahålla redundans
+## <a name="design-considerations-for-providing-failover"></a>Design överväganden för att tillhandahålla redundans
 
-En viktig aspekt att tänka på när ger möjligheten att redundansväxla till en annan region är att alla komponenter i en lösning måste beaktas. Det räcker inte att bara ha ett andra Batch-konto. I de flesta Batch-program är till exempel ett Azure storage-konto krävs, med storage-konto och Batch-konto behöver finnas i samma region för acceptabel prestanda.
+En viktig punkt att tänka på när du ger möjlighet att redundansväxla till en alternativ region är att alla komponenter i en lösning måste beaktas. Det räcker inte bara att ha ett andra batch-konto. I de flesta batch-program krävs till exempel ett Azure Storage-konto, där lagrings kontot och batch-kontot måste finnas i samma region för acceptabla prestanda.
 
-Tänk på följande när du utformar en lösning som kan redundansväxla:
+Tänk på följande när du skapar en lösning som kan redundansväxla:
 
-- Skapa alla nödvändiga konton i varje region som Batch-konto och storage-konto i förväg. Det finns ofta inte någon avgift för med konton som har skapats, endast om det finns data som lagras eller konton som används.
-- Kontrollera att kvoter är inställda på konton i tid, så du kan allokera det begärda antalet kärnor med hjälp av Batch-kontot.
+- Skapa alla nödvändiga konton i varje region, till exempel batch-kontot och lagrings kontot. Det finns ofta ingen avgift för att skapa konton, endast när det finns lagrade data eller om kontot används.
+- Se till att kvoterna är inställda på kontona i förväg, så att du kan allokera antalet kärnor som krävs med batch-kontot.
 - Använd mallar och/eller skript för att automatisera distributionen av programmet i en region.
-- Håll programmets binärfiler och referensdata uppdaterad i alla regioner. Uppdaterad säkerställer regionen kan anslutas snabbt utan att behöva vänta på att ladda upp och distribuera filer. Till exempel om ett program att installera på poolnoder lagras och refereras till med hjälp av Batch-programpaket sedan när en ny version av programmet tillverkas bör vara överförs till varje Batch-konto och refereras till av poolkonfigurationen (eller se den nya versionen standardversionen).
-- I programmet anropar Batch, lagring, och andra tjänster, enkelt övergången klienter eller belastningen till annan region.
-- En bra idé att kontrollera att redundans kommer att lyckas är att vanliga övergången till en alternativ region som en del av normal drift. Till exempel med två distributioner i olika områden, övergång till Alternativ region varje månad.
+- Se till att programmets binärfiler och referens data är aktuella i alla regioner. Om du är uppdaterad kommer regionen att bli online snabbt utan att behöva vänta på uppladdning och distribution av filer. Om till exempel ett anpassat program som ska installeras på pooler lagras och refereras till med batch-programpaket, och om en ny version av programmet skapas, ska den överföras till varje batch-konto och refereras till av konfigurationen för poolen (eller gör den nya versionen till standard versionen.
+- I det program som anropar batch, Storage och andra tjänster kan du enkelt överföra klienter eller belastningen till den andra regionen.
+- En bra idé att se till att redundansväxlingen lyckas är att ofta överföra till en alternativ region som en del av normal drift. Till exempel, med två distributioner i olika regioner, växlar du till den alternativa regionen varje månad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du skapar Batch-konton med den [Azure-portalen](batch-account-create-portal.md), [Azure CLI](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md), eller [Batch-API för hantering](batch-management-dotnet.md).
-- Standardkvoter som är associerade med ett Batch-konto; [i den här artikeln](batch-quota-limit.md) information standardkvoten standardvärden och beskriver hur kvoter kan ökas.
+- Lär dig mer om att skapa batch-konton med [Azure Portal](batch-account-create-portal.md), [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md)eller [batch Management-API: et](batch-management-dotnet.md).
+- Standard kvoter är associerade med ett batch-konto. [den här artikeln](batch-quota-limit.md) beskriver standardvärdena för kvot och beskriver hur kvoterna kan ökas.

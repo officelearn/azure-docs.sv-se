@@ -1,6 +1,6 @@
 ---
 title: 'Utveckla med v3 API: er – Azure | Microsoft Docs'
-description: 'Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.'
+description: 'I den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,61 +9,61 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612706"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311850"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
 Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
 
-Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.
+I den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.
 
 ## <a name="accessing-the-azure-media-services-api"></a>Åtkomst till Azure Media Services API
 
-Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. Media Services stöder [Azure Active Directory (Azure AD)-baserade](../../active-directory/fundamentals/active-directory-whatis.md) autentisering. Det finns två vanliga alternativ för autentisering:
+För att få åtkomst till Media Services resurser och Media Services-API: et måste du först autentiseras. Media Services stöder [Azure Active Directory (Azure AD)-baserad](../../active-directory/fundamentals/active-directory-whatis.md) autentisering. Två vanliga autentiseringsalternativ är:
  
-* **Autentisering av tjänstens huvudnamn** – används för att autentisera en tjänst (till exempel: web apps, funktionsappar, logic apps, API och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, mellannivå tjänster eller schemalagda jobb. För webben vara program det till exempel alltid ett medelnivån som ansluter till Media Services med ett huvudnamn för tjänsten.
-* **Användarautentisering** – används för att autentisera en person som använder appen för att interagera med Media Services-resurser. Interaktivt program bör först frågar användaren om användarens autentiseringsuppgifter. Ett exempel är en management-konsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning.
+* **Autentisering av tjänstens huvud namn** – används för att autentisera en tjänst (t. ex. webbappar, funktions program, Logic Apps, API och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. För webb program bör till exempel alltid vara en mellan nivå som ansluter till Media Services med ett huvud namn för tjänsten.
+* **Användarautentisering** – används för att autentisera en person som använder appen för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange användarens autentiseringsuppgifter. Ett exempel är en hanterings konsol app som används av behöriga användare för att övervaka kodnings jobb eller direktsänd strömning.
 
-Media Services-API kräver att användaren eller programmet att göra REST API-begäranden har åtkomst till resursen i Media Services-konto och använder en **deltagare** eller **ägare** roll. API: et kan användas med den **läsare** roll men endast **hämta** eller **lista**   operations blir tillgängliga. Mer information finns i [rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
+Media Services-API: n kräver att användaren eller programmet som gör REST API förfrågningar har åtkomst till Media Services konto resursen och använder en **deltagar** -eller **ägar** roll. API: et kan nås med rollen **läsare** men endast **Get** -eller **list**   -åtgärder är tillgängliga. Mer information finns i [rollbaserad åtkomst kontroll för Media Services-konton](rbac-overview.md).
 
-Överväg att använda hanterade identiteter för Azure-resurser för att få åtkomst till Media Services-API via Azure Resource Manager istället för att skapa ett huvudnamn för tjänsten. Läs mer om hanterade identiteter för Azure-resurser i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+I stället för att skapa ett huvud namn för tjänsten bör du överväga att använda hanterade identiteter för Azure-resurser för att komma åt Media Services-API Azure Resource Manager: et Mer information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="azure-ad-service-principal"></a>Azure AD-tjänstens huvudnamn 
+### <a name="azure-ad-service-principal"></a>Azure AD-tjänstens huvud namn 
 
-Om du skapar en Azure AD-program och tjänstens huvudnamn kan måste programmet vara i sin egen klient. När du har skapat programmet kan ge appen **deltagare** eller **ägare** platssystemrollens åtkomst till Media Services-kontot. 
+Om du skapar ett Azure AD-program och tjänstens huvud namn måste programmet finnas i en egen klient organisation. När du har skapat programmet ger du appen **deltagare** eller **ägar** rollen åtkomst till Media Services kontot. 
 
-Om du inte är säker på om du har behörighet att skapa ett Azure AD-program, se [behörigheter som krävs för](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Om du inte är säker på om du har behörighet att skapa ett Azure AD-program, se [nödvändiga behörigheter](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-I följande bild representerar talen flödet av begäranden i kronologisk ordning:
+I följande figur representerar talen flödet för förfrågningarna i kronologisk ordning:
 
-![Mellannivå appar](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Appar på mellan nivå](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. En mellannivå appen begär en åtkomsttoken för Azure AD som har följande parametrar:  
+1. En app på mellan nivå begär en Azure AD-åtkomsttoken som har följande parametrar:  
 
-   * Azure AD tenant-slutpunkten.
+   * Azure AD-klientens slut punkt.
    * Media Services resurs-URI.
-   * Resurs-URI för REST Media Services.
-   * Azure AD application värden: klient-ID och klienthemlighet.
+   * Resurs-URI för REST-Media Services.
+   * Azure AD-program värden: klient-ID och klient hemlighet.
    
-   Om du vill hämta värdena som behövs, se [åtkomst till Azure Media Services-API med Azure CLI](access-api-cli-how-to.md)
+   För att hämta alla nödvändiga värden, se [åtkomst Azure Media Services API med Azure CLI](access-api-cli-how-to.md)
 
-2. Azure AD-åtkomsttoken skickas till mellannivån.
-4. På mellannivå skickar begäran till Azure Media REST-API med Azure AD-token.
-5. Mellannivån får tillbaka data från Media Services.
+2. Azure AD-åtkomsttoken skickas till mellan nivån.
+4. Mellan nivån skickar begäran till Azure Media-REST API med Azure AD-token.
+5. Mellan nivån hämtar data från Media Services.
 
 ### <a name="samples"></a>Exempel
 
-Se följande exempel som visar hur du ansluter med Azure AD-tjänstens huvudnamn:
+Se följande exempel som visar hur du ansluter till Azure AD-tjänstens huvud namn:
 
-* [Ansluta med REST](media-rest-apis-with-postman.md)  
+* [Anslut med REST](media-rest-apis-with-postman.md)  
 * [Ansluta med Java](configure-connect-java-howto.md)
 * [Ansluta med .NET](configure-connect-dotnet-howto.md)
 * [Ansluta med .Node.js](configure-connect-nodejs-howto.md)
@@ -77,33 +77,39 @@ Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;'
 
 Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="long-running-operations"></a>Långvariga åtgärder
+## <a name="long-running-operations"></a>Tids krävande åtgärder
 
-Åtgärderna som markerats med `x-ms-long-running-operation` i Azure Media Services [swagger filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långa åtgärder. 
+Åtgärderna som marker ATS `x-ms-long-running-operation` med i Azure Media Services [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
 
-Mer information om hur du spårar asynkrona åtgärder i Azure finns [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Mer information om hur du spårar asynkrona Azure-åtgärder finns i [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
-Media Services har följande långvariga åtgärder:
+Media Services har följande tids krävande åtgärder:
 
-* Skapa LiveEvent
-* Uppdatera LiveEvent
-* Delete LiveEvent
-* Starta LiveEvent
-* Stoppa LiveEvent
-* Återställ LiveEvent
-* Skapa LiveOutput
-* Delete LiveOutput
-* Skapa StreamingEndpoint
-* Uppdatera StreamingEndpoint
-* Ta bort StreamingEndpoint
-* Starta StreamingEndpoint
-* Stoppa StreamingEndpoint
-* Skala StreamingEndpoint
+* [Skapa Live-händelser](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Uppdatera Live-händelser](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Ta bort Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Starta Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Stoppa LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  `removeOutputsOnStop` Använd parametern för att ta bort alla associerade Live-utdata när händelsen stoppas.  
+* [Återställ LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Skapa LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Ta bort LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Skapa StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Uppdatera StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Ta bort StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Starta StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Stoppa StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Skala StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+Vid lyckad sändning av en lång åtgärd får du "202 accepterad" och måste avsöka för att slutföra åtgärden med det returnerade åtgärds-ID: t.
+
+Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någon av dess associerade Live-utdata. En tids krävande åtgärd måste slutföras innan en efterföljande tids krävande åtgärd påbörjas på samma LiveEvent eller associerade Live-utdata. För Live-händelser med flera Live-utdata måste du vänta på att en långvarig åtgärd ska slutföras innan en tids krävande åtgärd aktive ras på en annan Live-utdata. 
 
 ## <a name="sdks"></a>SDK:er
 
 > [!NOTE]
-> SDK: er för Azure Media Services v3 garanteras vara trådsäkra. När du utvecklar ett flertrådiga program, bör du lägga till en egen logik för synkronisering av tråd för att skydda den eller använda ett nytt AzureMediaServicesClient objekt per tråd. Du bör också vara försiktig flertrådsteknik problem som introducerades av valfritt objekt som tillhandahålls av din kod till klienten (t.ex. en HttpClient-instans i .NET).
+> Azure Media Services v3 SDK: er är inte garanterat tråd säkra. När du utvecklar ett program med flera trådar bör du lägga till din egen tråd för trådens synkronisering för att skydda klienten eller använda ett nytt AzureMediaServicesClient-objekt per tråd. Du bör också vara försiktig med problem med flera trådar som introduceras av valfria objekt från din kod till klienten (t. ex. en HttpClient-instans i .NET).
 
 |SDK|Referens|
 |---|---|
@@ -116,8 +122,8 @@ Media Services har följande långvariga åtgärder:
 
 ### <a name="see-also"></a>Se också
 
-- [EventGrid .NET SDK, som innehåller Media Service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
-- [Definitioner av Media Services-händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [EventGrid .NET SDK som innehåller media service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitioner av Media Services händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 
 ## <a name="azure-media-services-explorer"></a>Azure Media Services Explorer
 
@@ -125,13 +131,13 @@ Media Services har följande långvariga åtgärder:
 
 AMSE är ett projekt med öppen källkod och får support från communityn (problem kan rapporteras till https://github.com/Azure/Azure-Media-Services-Explorer/issues). Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta opencode@microsoft.com om du har några andra frågor eller kommentarer.
 
-## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
+## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, sortering, sid indelning för Media Services entiteter
 
-Se [filtrering, sortering, växling av Azure Media Services-entiteter](entities-overview.md)
+Se [filtrering, sortering, sid indelning för Azure Media Services entiteter](entities-overview.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="see-also"></a>Se också
 
@@ -141,5 +147,5 @@ Kolla in den [Azure Media Services-community](media-services-community.md) artik
 
 * [Ansluta till Media Services med Java](configure-connect-java-howto.md)
 * [Ansluta till Media Services med .NET](configure-connect-dotnet-howto.md)
-* [Ansluta till Media Services med Node.js](configure-connect-nodejs-howto.md)
-* [Ansluta till Media Services med Python](configure-connect-python-howto.md)
+* [Anslut till Media Services med Node. js](configure-connect-nodejs-howto.md)
+* [Ansluta till Media Services med python](configure-connect-python-howto.md)

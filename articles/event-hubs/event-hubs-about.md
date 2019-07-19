@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275375"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314418"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
 Azure Event Hubs är en stordataströmningsplattform och händelseinmatningstjänst. Den kan ta emot och behandla miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar.
@@ -29,17 +29,19 @@ Här följer några exempel på hur du kan använda Event Hubs:
 - Dataarkivering
 - Transaktionsbearbetning
 - Bearbetning av användartelemetri
-- Strömning av enhetstelemetri 
+- Strömning av enhetstelemetri
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Varför ska jag använda Event Hubs?
 
 Data är bara värdefulla om det finns ett enkelt sätt att bearbeta och få snabba insikter från datakällor. Event Hubs är en distribuerad plattform för strömningsbearbetning med låg fördröjning och smidig integrering, som har data- och analystjänster inuti och utanför Azure för att skapa en fullständig stordatapipeline.
 
-Event Hubs utgör ”dörren” för en händelsepipeline, ofta kallad en *händelseinmatare* i lösningsarkitekturer. En händelseinmatare är en komponent eller tjänst som placeras mellan händelseutgivare och -konsumenter och frikopplar produktion av en händelseström från användningen av de händelserna. Event Hubs ger en enhetlig strömningsplattform med tidkvarhållningsbuffert vilket frikopplar händelseproducenter från händelsekonsumenter. 
+Event Hubs utgör ”dörren” för en händelsepipeline, ofta kallad en *händelseinmatare* i lösningsarkitekturer. En händelseinmatare är en komponent eller tjänst som placeras mellan händelseutgivare och -konsumenter och frikopplar produktion av en händelseström från användningen av de händelserna. Event Hubs ger en enhetlig strömningsplattform med tidkvarhållningsbuffert vilket frikopplar händelseproducenter från händelsekonsumenter.
 
-I följande avsnitt beskrivs viktiga funktioner i Azure Event Hubs-tjänsten: 
+I följande avsnitt beskrivs viktiga funktioner i Azure Event Hubs-tjänsten:
 
-## <a name="fully-managed-paas"></a>Fullständigt hanterad PaaS 
+## <a name="fully-managed-paas"></a>Fullständigt hanterad PaaS
 
 Event Hubs är en fullständigt hanterad PaaS-lösning (Platform-as-a-Service) med låga omkostnader för konfiguration och hantering så att du kan fokusera på affärslösningarna. Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) får du PaaS Kafka-funktionerna utan att behöva hantera, konfigurera eller köra dina kluster.
 
@@ -51,14 +53,14 @@ Mata in, buffra, lagra och bearbeta din dataström i realtid för att få använ
 
 Azure Event Hubs är även integrerat med [Azure Functions](/azure/azure-functions/) för att ge en serverlös arkitektur.
 
-## <a name="scalable"></a>Skalbar 
+## <a name="scalable"></a>Skalbar
 
-Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till gigabyte eller terabyte. Funktionen [Automatisk ökning](event-hubs-auto-inflate.md) är en av de många tillgängliga alternativ för att skala antalet dataflödesenheter som uppfyller dina användningsbehov. 
+Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till gigabyte eller terabyte. Funktionen [Automatisk ökning](event-hubs-auto-inflate.md) är en av de många tillgängliga alternativ för att skala antalet dataflödesenheter som uppfyller dina användningsbehov.
 
 ## <a name="rich-ecosystem"></a>Stort ekosystem
 
 Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) kan [Apache Kafka-klienter och -program (1.0 och senare)](https://kafka.apache.org/) kommunicera med Event Hubs. Du behöver inte installera, konfigurera eller hantera några Kafka-kluster.
- 
+
 Med ett brett ekosystem som är tillgängligt i olika [språk (.NET, Java, Python, Go och Node.js)](https://github.com/Azure/azure-event-hubs) kan du enkelt börjar bearbeta dataströmmarna från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
 
 ## <a name="key-architecture-components"></a>Nyckelkomponenter i arkitektur
@@ -77,7 +79,7 @@ Följande bild visar strömhanteringsarkitekturen för händelsehubbar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Event Hubs, se den **skicka och ta emot händelser** Självstudier: 
+Information om hur du kommer igång med Event Hubs finns i självstudierna **skicka och ta emot händelser** :
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -85,8 +87,8 @@ Kom igång med Event Hubs, se den **skicka och ta emot händelser** Självstudie
 - [Python](event-hubs-python-get-started-send.md)
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
-- [C (skicka)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (får endast)](event-hubs-storm-getstarted-receive.md)
+- [C (endast sändning)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
 
 
 Mer information om Event Hubs finns i följande artiklar:

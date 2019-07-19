@@ -3,7 +3,7 @@ title: Parallell R-simulering med Azure Batch
 description: Självstudie – Stegvisa instruktioner för hur du kör en finansiell Monte Carlo-simulering i Azure Batch med R-paketet doAzureParallel
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a3f760f31bcd27c5f3d3289aa799d6886df17e15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779977"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321910"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Köra en parallell R-simulering med Azure Batch 
 
@@ -30,7 +30,7 @@ I den här självstudien visas hur du distribuerar en Batch-pool och kör ett pa
 > * skapa en Batch-pool som en parallell serverdel för R-sessionen
 > * köra en parallell exempelsimulering på poolen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En installerad [R](https://www.r-project.org/)-distribution, som [Microsoft R Open](https://mran.microsoft.com/open). Använd version 3.3.1 eller senare av R.
 

@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99bf0c155a1cd211a9cdc41d4184be716244d035
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813614"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358904"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Snabbstart: SDK för entitetssökning i Bing med Python
 
 Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Python. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Python [2.x eller 3.x](https://www.python.org/)
 
 * [SDK för entitetssökning i Bing för Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-Vi rekommenderar att du använder en virtuell Python-miljö. Du kan installera och initiera den virtuella miljön med venv-modulen. Du måste installera virtualenv för Python 2.7 med:
+Vi rekommenderar att du använder en virtuell Python-miljö. Du kan installera och initiera den virtuella miljön med venv-modulen. Du kan installera virtuell miljö med:
 
 ```Console
 python -m venv mytestenv

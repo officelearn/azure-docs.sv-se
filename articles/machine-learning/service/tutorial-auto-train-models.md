@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: a49ee5720711bb23ec4770de38a408827c645b73
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622381"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360939"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -38,7 +38,7 @@ I den här självstudien kommer du att lära dig följande:
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.39.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.39.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -54,20 +54,20 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
 
 Hämta alla dessa förutsättningar från något av avsnitten nedan.
 
-* Använd en [molnet notebook-server i din arbetsyta](#azure) 
+* Använd en [molnbaserad Notebook-server i din arbets yta](#azure) 
 * Använd [din egen Notebook-server](#server)
 
-### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
+### <a name="azure"></a>Använd en molnbaserad Notebook-server i din arbets yta
 
-Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
+Det är enkelt att komma igång med din egen molnbaserade Notebook-Server. [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk) har redan installerats och kon figurer ATS åt dig när du har skapat den här moln resursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-* När du startar notebook-webbsidan, kör du den **självstudier/regression-part2-automated-ml.ipynb** anteckningsboken.
+* När du har startat Notebook-webbsidan kör du självstudierna **/regression-part2-Automated-ml. ipynb** Notebook.
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 
-Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  Se till att du installerar `matplotlib` och `automl` och `notebooks` tillägg i din miljö.
+Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  Se till att installera `matplotlib` `automl` och `notebooks` tillägg i din miljö.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
@@ -79,7 +79,7 @@ All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsb
 
 * Installera SDK:n
 * Importera Python-paket
-* Konfigurera din arbetsyta
+* Konfigurera din arbets yta
 
 ### <a name="install-and-import-packages"></a>Installera och importera paket
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbetsytan](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som accepterar dina Azure-prenumeration och resursgrupp information. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
 `Workspace.from_config()` läser filen **config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
 
@@ -144,7 +144,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
@@ -408,7 +408,7 @@ dflow_prepared.get_profile()
       <th>store_forward</th>
       <td>FieldType.STRING</td>
       <td>N</td>
-      <td>Y</td>
+      <td>J</td>
       <td>6148,0</td>
       <td>0.0</td>
       <td>6148,0</td>
@@ -587,7 +587,7 @@ dflow_prepared.get_profile()
       <td>4,99898</td>
     </tr>
     <tr>
-      <th>cost</th>
+      <th>kostnad</th>
       <td>FieldType.DECIMAL</td>
       <td>0,1</td>
       <td>88</td>
@@ -618,7 +618,8 @@ dflow_prepared.get_profile()
 Du förbereder data för experimentet genom att lägga till kolumner i `dflow_x` som funktioner för vårt modellskapande. Du definierar `dflow_y` som vårt förutsägelsevärde, **kostnad**:
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_X = dflow_prepared.keep_columns(
+    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -632,7 +633,8 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -655,7 +657,7 @@ Definiera experimentparametern och modellinställningarna för automatisk genere
 |**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
 |**iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
-|**preprocess**| True | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
+|**preprocess**| Sant | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 
@@ -663,11 +665,11 @@ Definiera experimentparametern och modellinställningarna för automatisk genere
 
 ```python
 automl_settings = {
-    "iteration_timeout_minutes" : 10,
-    "iterations" : 30,
-    "primary_metric" : 'spearman_correlation',
-    "preprocess" : True,
-    "verbosity" : logging.INFO,
+    "iteration_timeout_minutes": 10,
+    "iterations": 30,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
@@ -678,12 +680,12 @@ Använd dina definierade träningsinställningar som parameter till ett `AutoMLC
 from azureml.train.automl import AutoMLConfig
 
 # local compute
-automated_ml_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automated_ml_errors.log',
-                             path = project_folder,
-                             X = x_train.values,
-                             y = y_train.values.flatten(),
-                             **automl_settings)
+automated_ml_config = AutoMLConfig(task='regression',
+                                   debug_log='automated_ml_errors.log',
+                                   path=project_folder,
+                                   X=x_train.values,
+                                   y=y_train.values.flatten(),
+                                   **automl_settings)
 ```
 
 ### <a name="train-the-automatic-regression-model"></a>Träna den automatiska regressionsmodellen
@@ -693,7 +695,7 @@ Starta experimentet för körning lokalt. Skicka det definierade `automated_ml_c
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, experiment_name)
+experiment = Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
@@ -766,7 +768,8 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
+    metrics = {k: v for k, v in run.get_metrics().items()
+               if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -1137,8 +1140,10 @@ ax1 = fig.add_subplot(111)
 distance_vals = [x[4] for x in x_test.values]
 y_actual = y_test.values.flatten().tolist()
 
-ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+ax1.scatter(distance_vals[:100], y_predict[:100],
+            s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100],
+            s=18, c='r', marker="o", label='Actual')
 
 ax1.set_xlabel('distance (mi)')
 ax1.set_title('Predicted and Actual Cost/Distance')

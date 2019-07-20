@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: d8c32c0122243edc0d202306abe3e47e78090fad
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: e1215441b45e1fdba8d74c9149415f0da5c4c44a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551109"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360381"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
-SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL-API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md), eller [Python](sql-api-sdk-python.md) SDK: er för att registrera och anropa lagrade procedurer. När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure-portalen](https://portal.azure.com/) med hjälp av datautforskaren.
+SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL API [.net](sql-api-sdk-dotnet.md), [.net Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [Java Script](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)eller [python](sql-api-sdk-python.md) SDK: er för att registrera och anropa de lagrade procedurerna. När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure-portalen](https://portal.azure.com/) med hjälp av datautforskaren.
 
 ## <a id="stored-procedures"></a>Köra lagrade procedurer
 
-Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-behållare. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns i [hur du skriver lagrade procedurer i Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikeln.
+Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-behållare. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns i [så här skriver du lagrade procedurer i Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikeln.
 
 Följande exempel visar hur du registrerar och anropar en lagrad procedur med hjälp av Azure Cosmos DB SDK:er. Se [Skapa ett dokument](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) eftersom källan till denna lagrade procedur är sparad som `spCreateToDoItem.js`.
 
@@ -148,9 +148,9 @@ with open('../js/spCreateToDoItem.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 sproc_definition = {
-            'id': 'spCreateToDoItem',
-            'serverScript': file_contents,
-        }
+    'id': 'spCreateToDoItem',
+    'serverScript': file_contents,
+}
 sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 ```
 
@@ -279,11 +279,11 @@ with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPreValidateToDoItemTimestamp',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Pre,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPreValidateToDoItemTimestamp',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Pre,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -291,8 +291,10 @@ I följande kod visar hur du anropar en förutlösare med hjälp av Python-SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'category': 'Personal', 'name': 'Groceries', 'description':'Pick up strawberries', 'isComplete': False}
-client.CreateItem(container_link, item, { 'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
+item = {'category': 'Personal', 'name': 'Groceries',
+        'description': 'Pick up strawberries', 'isComplete': False}
+client.CreateItem(container_link, item, {
+                  'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a id="post-triggers"></a>Så här kör du efterutlösare
@@ -398,11 +400,11 @@ with open('../js/trgPostUpdateMetadata.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPostUpdateMetadata',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Post,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPostUpdateMetadata',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Post,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -410,8 +412,10 @@ I följande kod visar hur du anropar en efterutlösare med hjälp av Python-SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'name': 'artist_profile_1023', 'artist': 'The Band', 'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-client.CreateItem(container_link, item, { 'postTriggerInclude': 'trgPostUpdateMetadata'})
+item = {'name': 'artist_profile_1023', 'artist': 'The Band',
+        'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
+client.CreateItem(container_link, item, {
+                  'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
 ## <a id="udfs"></a>Arbeta med användardefinierade funktioner
@@ -514,9 +518,9 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'Tax',
-            'serverScript': file_contents,
-        }
+    'id': 'Tax',
+    'serverScript': file_contents,
+}
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
 ```
 
@@ -524,7 +528,8 @@ I följande kod visar hur du anropar en användardefinierad funktion med hjälp 
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
+results = list(client.QueryItems(
+    container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Nästa steg

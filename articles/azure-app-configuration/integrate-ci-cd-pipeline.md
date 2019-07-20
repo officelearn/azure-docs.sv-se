@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att integrera med en kontinuerlig integrering och leverans-pipeline med hjälp av Azure-Appkonfiguration | Microsoft Docs
-description: I den här självstudien får du lära dig hur du skapar en konfigurationsfil med hjälp av data i Azure-Appkonfiguration vid kontinuerlig integrering och leverans
+title: Självstudie för integrering med kontinuerlig integrering och leverans pipelines med hjälp av Azure App konfiguration | Microsoft Docs
+description: I den här självstudien får du lära dig hur du skapar en konfigurations fil med hjälp av data i Azure App konfiguration under kontinuerlig integrering och leverans
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,51 +12,51 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415955"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357027"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
 
-Den här artikeln beskrivs olika sätt att använda data från Azure-Appkonfiguration i en kontinuerlig integrering och kontinuerlig distribution.
+I den här artikeln beskrivs olika sätt att använda data från Azure App konfiguration i en kontinuerlig integrering och ett kontinuerligt distributions system.
 
-## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Om du Använd Appkonfiguration i din Azure DevOps-Pipeline
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Använd app-konfiguration i din Azure DevOps-pipeline
 
-Om du har en Azure DevOps-Pipeline kan du hämta nyckel-värden från Appkonfiguration och ange dem som uppgiften variabler. Den [Azure App Configuration DevOps tillägget](https://go.microsoft.com/fwlink/?linkid=2091063) är ett tilläggsmodul som tillhandahåller den här funktionen. Följ bara dess instruktionerna för att använda tillägget i en version eller frigöra aktivitetssekvensen.
+Om du har en Azure DevOps-pipeline kan du hämta nyckel värden från App-konfigurationen och ange dem som variabler för aktiviteter. [Tillägget Azure App Configuration DevOps](https://go.microsoft.com/fwlink/?linkid=2091063) är en modul för tillägg som tillhandahåller den här funktionen. Följ bara anvisningarna för att använda tillägget i en aktivitetssekvens för att bygga eller släppa.
 
-## <a name="deploy-app-configuration-data-with-your-application"></a>Distribuera App konfigurationsdata med ditt program
+## <a name="deploy-app-configuration-data-with-your-application"></a>Distribuera konfigurations data för appar med ditt program
 
-Programmet kanske inte körs om den är beroende av konfiguration av Azure och det går inte att nå den. Du kan förbättra återhämtning av ditt program behöver bry dig om sådan händelse, men inte troligt att inträffa. Du gör detta genom att paketera aktuella konfigurationsdata i en fil som har distribuerats med programmet och läsa in lokalt under start. Den här metoden garanterar att ditt program har inställningen standardvärden minst. De här värdena skrivs över av alla nyare ändringar i en appbutik konfiguration när den är tillgänglig.
+Programmet kanske inte kan köras om det är beroende av Azure App konfiguration och inte kan komma åt det. Du kan förbättra programmets återhämtning för att hantera en sådan händelse, men det är troligt att det inte sker. Det gör du genom att paketera de aktuella konfigurations data i en fil som distribueras med programmet och läsas in lokalt under starten. Den här metoden garanterar att ditt program har minst standardvärden. Dessa värden skrivs över av eventuella nyare ändringar i konfigurations arkivet för appar när det är tillgängligt.
 
-Med hjälp av den [exportera](./howto-import-export-data.md#export-data) funktionen för konfiguration av Azure, kan du automatisera processen för att hämta aktuella konfigurationsdata som en enda fil. Bädda in den här filen i ett bygge eller distribution steg i din kontinuerlig integrering och en pipeline för kontinuerlig distribution (CI/CD).
+Med hjälp av [export](./howto-import-export-data.md#export-data) funktionen i Azure App konfiguration kan du automatisera processen med att hämta aktuella konfigurations data som en enda fil. Bädda sedan in den här filen i ett build-eller distributions steg i en pipeline för kontinuerlig integrering och distribution (CI/CD).
 
-I följande exempel visas hur du inkluderar konfiguration av data som en version som steg för webbappen som introducerades i snabbstarter. Innan du fortsätter Slutför [skapa en ASP.NET Core-app med Appkonfiguration](./quickstart-aspnet-core-app.md) första.
+I följande exempel visas hur du inkluderar konfigurations data för appar som ett build-steg för webbappen som introduceras i snabb starterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
 
-Du kan använda valfri Kodredigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-Om du bygger lokalt kan ladda ned och installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan har gjort.
+Om du skapar lokalt kan du hämta och installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan gjort det.
 
-Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installeras i ditt system.
+Om du vill göra en moln version kan du till exempel se till att [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) är installerat i versions systemet med Azure DevOps.
 
-### <a name="export-an-app-configuration-store"></a>Exportera konfiguration appbutik
+### <a name="export-an-app-configuration-store"></a>Exportera ett konfigurations Arkiv för appen
 
-1. Öppna din *.csproj* filen och Lägg till följande skript:
+1. Öppna din *. CSPROJ* -fil och Lägg till följande skript:
 
     ```xml
     <Target Name="Export file" AfterTargets="Build">
         <Message Text="Export the configurations to a temp file. " />
-        <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -f $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
+        <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
 
-    Lägg till den *ConnectionString* som är associerade med din app konfiguration av lagring som en miljövariabel.
+    Lägg till *ConnectionString* som är associerad med appens konfigurations arkiv som en miljö variabel.
 
-2. Öppna *Program.cs*, och uppdatera den `CreateWebHostBuilder` metod för att använda den exporterade JSON-filen genom att anropa den `config.AddJsonFile()` metoden.
+2. Öppna *program.cs*och uppdatera `CreateWebHostBuilder` metoden för att använda den exporterade JSON- `config.AddJsonFile()` filen genom att anropa metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -74,7 +74,7 @@ Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att 
 
 ### <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljövariabel som heter **ConnectionString**, och ange att snabbtangent i din appbutik för konfiguration. Om du använder Windows-Kommandotolken kör du följande kommando och starta om Kommandotolken så att ändringen ska börja gälla:
+1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -82,25 +82,25 @@ Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att 
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Om du använder macOS eller Linux, kör du följande kommando:
+    Om du använder macOS eller Linux kör du följande kommando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i Kommandotolken:
+2. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
         dotnet build
 
-3. När bygget har slutförts kör du följande kommando för att köra webbappen lokalt.
+3. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
         dotnet run
 
-4. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL för web-app som finns lokalt.
+4. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL: en för webbappen som finns lokalt.
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får exporterade du konfiguration av Azure data som ska användas i en pipeline för distribution. Om du vill veta mer om hur du använder Appkonfiguration, fortsätter du att Azure CLI-exempel.
+I den här självstudien har du exporterat Azure App konfigurations data som ska användas i en distributions pipeline. Om du vill veta mer om hur du använder app-konfiguration kan du fortsätta till Azure CLI-exemplen.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/08/2019
 ms.author: mjbrown
-ms.openlocfilehash: 511a12cd7f1e88a95342cf5129142791c6d50b31
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2617aba0d790209d83f410ee632ffad43c952d55
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000889"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356420"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Den här artikeln förklarar hur du hanterar konsekvensnivåer i Azure Cosmos DB
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurera standardkonsekvensnivån
 
-Den [standard konsekvensnivå](consistency-levels.md) är konsekvensnivå som klienter använder som standard. Klienter kan alltid åsidosätta den.
+[Standard konsekvens nivån](consistency-levels.md) är den konsekvens nivå som klienter använder som standard. Klienter kan alltid åsidosätta den.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Det här exemplet skapar ett nytt Azure Cosmos-konto med flera Skriv-regioner som är aktiverad i östra USA och västra USA. Standard-konsekvensnivå är inställd på *Session* konsekvens.
+Det här exemplet skapar ett nytt Azure Cosmos-konto med flera Skriv regioner aktiverade, i regionerna östra USA och västra USA. Standard konsekvens nivån är inställd på konsekvens av *sessioner* .
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -61,13 +61,13 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Leta upp ditt Azure Cosmos-konto och öppna den **Standardkonsekvens** fönstret. Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure-portalen innehåller också en visualisering av olika konsekvensnivåer med musik anteckningar. 
+Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
 
 ![Konsekvensmeny på Azure-portalen](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Åsidosätta standardkonsekvensnivån
 
-Klienter kan åsidosätta standardkonsekvensnivån som anges av tjänsten. Konsekvensnivå kan ställas in på en per begäran, vilket åsidosätter standard-konsekvensnivå som anges på kontonivå.
+Klienter kan åsidosätta standardkonsekvensnivån som anges av tjänsten. Konsekvens nivå kan ställas in per begäran, vilket åsidosätter standard konsekvens nivån som angetts på konto nivå.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
@@ -134,12 +134,13 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## <a name="utilize-session-tokens"></a>Använda sessionstoken
 
-En av konsekvensnivåer i Azure Cosmos DB är *Session* konsekvens. Det här är standardskyddsnivån som tillämpas som standard på Cosmos-konton. När du arbetar med *Session* konsekvens, klienten kommer att använda en sessionstoken internt med varje Läs/fråga begäran för att säkerställa att set-konsekvensnivå upprätthålls.
+En av konsekvens nivåerna i Azure Cosmos DB är konsekvens på *sessionen* . Detta är standard nivån som tillämpas på Cosmos-konton som standard. När du arbetar med konsekvens för *sessioner* använder klienten en session-token internt med varje Läs/fråga-begäran för att säkerställa att ange konsekvens nivå.
 
 Om du vill hantera sessionstoken manuellt hämtar du sessionstoken från svaret och anger dem per begäran. Om du inte behöver hantera sessionstoken manuellt behöver du inte använda de här exemplen. SDK håller reda på sessionstoken automatiskt. Om du inte anger sessionstoken manuellt använder SDK som standard den senaste sessionstoken.
 
@@ -230,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Övervaka PBS-mått (probabilistiskt begränsad föråldring)
 
-Hur eventuell är eventuell konsekvens? För det genomsnittliga fallet kan vi erbjuda föråldring gränser med avseende på tidigare versioner och tid. Den [ **Probabilistically bunden föråldring (PBS)** ](https://pbs.cs.berkeley.edu/) mått försöker kvantifiera sannolikheten för föråldring och visar det som ett mått. Om du vill visa PBS-mått, går du till ditt Azure Cosmos-konto i Azure-portalen. Öppna fönsterrutan **Mått** och välj fliken **Konsekvens**. Titta på grafen med namnet **Probability of strongly consistent reads based on your workload (see PBS)** (Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS)).
+Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuella gränser med avseende på versions historik och-tid. Probabilistically-måttet för föråldrad [ **(PBS)** ](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för inaktuellhet och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure Portal. Öppna fönsterrutan **Mått** och välj fliken **Konsekvens**. Titta på grafen med namnet **Probability of strongly consistent reads based on your workload (see PBS)** (Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS)).
 
 ![PBS-graf i Azure-portalen](./media/how-to-manage-consistency/pbs-metric.png)
 
@@ -239,9 +240,9 @@ Hur eventuell är eventuell konsekvens? För det genomsnittliga fallet kan vi er
 
 Läs mer om hur du hanterar datakonflikter eller gå vidare till nästa viktiga begrepp i Azure Cosmos DB. Se följande artiklar:
 
-* [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
+* [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)
 * [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)
 * [Partitionering och datadistribution](partition-data.md)
-* [Konsekvens kompromisser i moderna distribuerad databas systemdesign](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Konsekvens i moderna distribuerade databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Hög tillgänglighet](high-availability.md)
-* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

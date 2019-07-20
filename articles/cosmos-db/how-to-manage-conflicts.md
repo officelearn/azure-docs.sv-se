@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: eedb52dc58c28ad3f10e91835e5dda36902f2c2c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986015"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360370"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
-Med flera regioner skrivningar när flera klienter skriver till samma enhet, kan det uppstå konflikter. När en konflikt uppstår kan kan du lösa konflikten genom att använda principer för olika konflikt lösning. Den här artikeln beskriver hur du hanterar principer för lösning av konflikt.
+Om flera regioner skrivs, när flera klienter skriver till samma objekt, kan det uppstå konflikter. När en konflikt uppstår kan du lösa konflikten genom att använda olika principer för konflikt lösning. Den här artikeln beskriver hur du hanterar principer för konflikt lösning.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standardsökvägen för senaste skrivare vinner är tidsstämpelfältet eller `_ts` egenskapen. Detta kan också anges till en användardefinierad sökväg för en numerisk typ. En konflikt uppstod det högsta värdet wins. Om sökvägen inte anges eller om det är ogiltigt, standard `_ts`. Konflikt löst med den här principen visas inte i konflikt feeden. Den här principen kan användas av alla API: er.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller `_ts` egenskapen. Detta kan också anges till en användardefinierad sökväg för en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig är den standard `_ts`. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -89,33 +89,34 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa principen för en anpassad konfliktlösning med hjälp av en lagrad procedur
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa en anpassad lösnings princip för konflikt med en lagrad procedur
 
-De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren kan behöva du skapa den lagrade proceduren. .NET SDK-exemplet nedan visar ett exempel. Den här principen stöds på Core (SQL) Api endast.
+De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren måste du skapa den lagrade proceduren. I .NET SDK-exemplet nedan visas ett exempel. Den här principen stöds endast i Core-API (SQL).
 
-### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Konfliktlösning för exemplet anpassade lagrade proceduren
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exempel på lagrad procedur för anpassad konflikt lösning
 
-Anpassade konflikt upplösning som lagrade procedurer måste implementeras med hjälp av funktionssignaturen visas nedan. Funktionsnamnet behöver inte matcha namnet när du registrerar den lagrade proceduren med behållaren men det förenkla naming. Här följer en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
+De lagrade procedurerna för anpassad konflikt lösning måste implementeras med hjälp av funktions under skriften som visas nedan. Funktions namnet behöver inte matcha namnet som används för att registrera den lagrade proceduren med behållaren, men det fören klar namngivningen. Här följer en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
 
-- **incomingItem**: Objekt som infogas eller uppdateras i commit som genererar det är i konflikt. Är null för ta borttagningsåtgärder.
-- **existingItem**: För närvarande allokerade objektet. Det här värdet är null i en uppdatering och null för en insert eller tar bort.
-- **isTombstone**: Booleskt värde som anger om incomingItem står i konflikt med ett tidigare borttagna objekt. Om värdet är true är också existingItem null.
-- **conflictingItems**: Matris med den dedicerade versionen av alla objekt i behållaren som står i konflikt med incomingItem-ID: t eller några andra egenskaper för unikt index.
+- **incomingItem**: Objektet som infogas eller uppdateras i commit som genererar konflikterna. Är null för Delete-åtgärder.
+- **existingItem**: Det för tillfället allokerade objektet. Det här värdet är inte null i en uppdatering och null för en infogning eller borttagning.
+- **isTombstone**: Booleskt värde som anger om incomingItem står i konflikt med ett borttaget objekt som redan har tagits bort. När värdet är True är existingItem också null.
+- **conflictingItems**: Matris för allokerad version av alla objekt i behållaren som står i konflikt med incomingItem på ID eller andra unika index egenskaper.
 
 > [!IMPORTANT]
-> Precis som med lagrade procedurer, kan en anpassad konflikt upplösning procedur åtkomst till data med samma partitionsnyckel och kan utföra alla infoga, uppdatera eller ta bort åtgärden för att lösa konflikter.
+> Precis som med alla lagrade procedurer kan en anpassad lösning för konflikt lösning komma åt alla data med samma partitionsnyckel och kan utföra alla åtgärder för att infoga, uppdatera eller ta bort för att lösa konflikter.
 
 
-Det här exemplet lagras proceduren löser konflikter genom att välja det lägsta värdet från den `/myCustomId` sökväg.
+Den här exempel lagrade proceduren löser konflikter genom att välja det lägsta värdet från `/myCustomId` sökvägen.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -260,13 +261,14 @@ När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 När containern har skapats måste du skapa den lagrade proceduren `resolver`.
@@ -342,17 +344,17 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
 ## <a name="read-from-conflict-feed"></a>Läsa från konfliktflödet
 
-De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas i konflikt feed endast om de inte lösas automatiskt eller om du använder en princip för anpassad konflikt.
+De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas bara i konflikten om de inte löstes automatiskt eller om du använder en anpassad konflikt princip.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
 
@@ -427,9 +429,9 @@ while conflict:
 Läs mer om följande Azure Cosmos DB-begrepp:
 
 * [Global distribution – under huven](global-dist-under-the-hood.md)
-* [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
+* [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
 * [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
 * [Partitionering och datadistribution](partition-data.md)
 * [Indexering i Azure Cosmos DB](indexing-policies.md)

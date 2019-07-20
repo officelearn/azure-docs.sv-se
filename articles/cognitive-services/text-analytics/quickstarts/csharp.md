@@ -1,50 +1,50 @@
 ---
-title: 'Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Azure SDK för .NET ochC#'
+title: 'Snabbstart: Anropa tjänsten Textanalys med hjälp av Azure SDK för .NET ochC#'
 titleSuffix: Azure Cognitive Services
-description: Information och exempel på kod för att börja använda tjänsten Text Analytics och C#.
+description: Information och kod exempel som hjälper dig att börja använda Textanalys-tjänsten C#och.
 services: cognitive-services
 author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 07/18/2019
 ms.author: assafi
-ms.openlocfilehash: 82297842a56930cec2b4de90998b4ffb904543bb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 09713528f51675f6e9d7f3073b6c81b095d23631
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446972"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356973"
 ---
-# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Snabbstart: Använda .NET SDK och C# att anropa Text Analytics-tjänsten
+# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Snabbstart: Använd .NET SDK och C# för att anropa tjänsten textanalys
 <a name="HOLTop"></a>
 
-Den här snabbstarten hjälper dig att komma igång med Azure SDK för .NET och C# att analysera språk. Även om den [textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibelt med de flesta programmeringsspråk, SDK innehåller ett enkelt sätt att integrera tjänsten i dina program.
+Den här snabb starten hjälper dig att börja använda Azure SDK för C# .net och att analysera språk. Även om [Textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibel med de flesta programmeringsspråk, är SDK ett enkelt sätt att integrera tjänsten i dina program.
 
 > [!NOTE]
 > Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
 
-Teknisk information finns i SDK för .NET [Text Analytics-referens](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
+Teknisk information finns i SDK för .NET [textanalys referens](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Alla versioner av [visual studio 2017 eller senare]
-* Text Analytics [SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+* Valfri utgåva av [Visual Studio 2017 eller senare]
+* Textanalys [SDK för .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste också den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig under registreringen.
+Du behöver också [slut punkten och åtkomst nyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig under registreringen.
 
-## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Skapa Visual Studio-lösningen och installera SDK
+## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Skapa Visual Studio-lösningen och installera SDK: n
 
-1. Skapa ett nytt projekt i konsolen app (.NET Core). [Access Visual Studio](https://visualstudio.microsoft.com/vs/).
-1. Högerklicka på lösningen och välj **hantera NuGet-paket för lösningen**.
-1. Välj fliken **Bläddra**. Sök efter **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**.
+1. Skapa ett nytt projekt för konsol program (.NET Core). [Få åtkomst till Visual Studio](https://visualstudio.microsoft.com/vs/).
+1. Högerklicka på lösningen och välj **Hantera NuGet-paket för lösningen**.
+1. Välj fliken **Bläddra**. Sök efter **Microsoft. Azure. CognitiveServices. language. TextAnalytics**.
 
 ## <a name="authenticate-your-credentials"></a>Autentisera dina autentiseringsuppgifter
 
-1. Lägg till följande `using` instruktioner i filen för main-klass (som standard är Program.cs).
+1. Lägg till följande `using` -instruktioner i huvud klass filen (som är program.cs som standard).
 
     ```csharp
     using System;
@@ -52,68 +52,55 @@ Du måste också den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-ho
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
     using Microsoft.Rest;
     ```
 
-2. Skapa en ny `ApiKeyServiceClientCredentials` klassen för att spara autentiseringsuppgifterna och lägga till dem för varje begäran.
+2. Skapa en ny `ApiKeyServiceClientCredentials` klass för att lagra autentiseringsuppgifterna och lägga till dem för varje begäran.
 
     ```csharp
-    /// <summary>
-    /// Allows authentication to the API by using a basic apiKey mechanism
-    /// </summary>
     class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
-        private readonly string subscriptionKey;
+        private readonly string apiKey;
 
-        /// <summary>
-        /// Creates a new instance of the ApiKeyServiceClientCredentails class
-        /// </summary>
-        /// <param name="subscriptionKey">The subscription key to authenticate and authorize as</param>
-        public ApiKeyServiceClientCredentials(string subscriptionKey)
+        public ApiKeyServiceClientCredentials(string apiKey)
         {
-            this.subscriptionKey = subscriptionKey;
+            this.apiKey = apiKey;
         }
 
-        /// <summary>
-        /// Add the Basic Authentication Header to each outgoing request
-        /// </summary>
-        /// <param name="request">The outgoing request</param>
-        /// <param name="cancellationToken">A token to cancel the operation</param>
         public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             if (request == null)
             {
                 throw new ArgumentNullException("request");
             }
-
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
             return base.ProcessHttpRequestAsync(request, cancellationToken);
         }
     }
     ```
 
-3. Uppdatera den `Program` klass. Lägg till medlem konstant för din prenumerationsnyckel för textanalys och en annan för tjänsteslutpunkt. Kom ihåg att använda rätt Azure-regionen för din Text Analytics-prenumeration.
+3. Uppdatera- `Program` klassen. Lägg till en konstant medlem för din API för textanalys nyckel och en annan för tjänst slut punkten. Kom ihåg att använda rätt Azure-plats för din Textanalys-resurs.
 
     ```csharp
-    private const string SubscriptionKey = "enter-your-key-here";
-
-    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
+    //Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
+    private const string ApiKey = "enter-your-textanalytics-api-key-here";
+    //You can get the resource location from Azure Portal -> your TA resource -> Overview
+    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://<your-location>.api.cognitive.microsoft.com";
     ```
 > [!Tip]
-> Vi rekommenderar att du använder för att höja säkerheten för hemligheter i produktionssystem [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> För att öka säkerheten för hemligheter i produktions system rekommenderar vi att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
 >
 
-## <a name="create-a-text-analytics-client"></a>Skapa en Text Analytics-klient
+## <a name="create-a-text-analytics-client"></a>Skapa en Textanalys-klient
 
-I den `Main` funktionen i ditt projekt, anropa metoden exemplet som du vill anropa. Skicka den `Endpoint` och `SubscriptionKey` parametrar som du har definierat.
+Anropa den exempel metod som du vill anropa i projektets funktion.`Main` Överför de `Endpoint` och `ApiKey` parametrarna som du har definierat.
 
 ```csharp
     public static void Main(string[] args)
     {
-        var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
+        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
         var client = new TextAnalyticsClient(credentials)
         {
             Endpoint = Endpoint
@@ -129,12 +116,12 @@ I den `Main` funktionen i ditt projekt, anropa metoden exemplet som du vill anro
     }
 ```
 
-I följande avsnitt beskrivs hur du anropar varje tjänst-funktion.
+I följande avsnitt beskrivs hur du anropar varje tjänst funktion.
 
-## <a name="perform-sentiment-analysis"></a>Utföra attitydanalys
+## <a name="perform-sentiment-analysis"></a>Utför sentiment-analys
 
 1. Skapa en ny funktion `SentimentAnalysisExample()` som tar klienten som du skapade tidigare.
-2. Generera en lista med `MultiLanguageInput` objekt som innehåller de dokument som du vill analysera.
+2. Generera en lista med `MultiLanguageInput` objekt som innehåller dokumenten som du vill analysera.
 
     ```csharp
     public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
@@ -143,16 +130,13 @@ I följande avsnitt beskrivs hur du anropar varje tjänst-funktion.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
             {
-                new MultiLanguageInput("en", "1", "I had the best day of my life."),
-                new MultiLanguageInput("en", "2", "This was a waste of my time. The speaker put me to sleep."),
-                new MultiLanguageInput("es", "3", "No tengo dinero ni nada que dar..."),
-                new MultiLanguageInput("it", "4", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
+                new MultiLanguageInput("en", "1", "I had the best day of my life.")
             });
         //...
     }
     ```
 
-3. I samma funktion, anropa `client.SentimentAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut poängen för varje dokument-ID och sentiment. Ett värde som ligger nära 0 indikerar negativ attityd, medan en poäng ligger närmare 1 anger positiv känsla.
+3. Anropa `client.SentimentAsync()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten. Skriv ut varje dokuments ID och sentiment poäng. En poäng som är nära 0 anger ett negativt sentiment, medan poängen är närmare 1 betyder en positiv sentiment.
 
     ```csharp
     var result = await client.SentimentAsync(false, inputDocuments);
@@ -168,12 +152,9 @@ I följande avsnitt beskrivs hur du anropar varje tjänst-funktion.
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
 ```
 
-## <a name="perform-language-detection"></a>Utför språkidentifiering
+## <a name="perform-language-detection"></a>Utför språk identifiering
 
 1. Skapa en ny funktion `DetectLanguageExample()` som tar klienten som du skapade tidigare.
 2. Generera en lista med `LanguageInput` objekt som innehåller dina dokument.
@@ -186,15 +167,13 @@ Document ID: 4 , Sentiment Score: 1.00
         var inputDocuments = new LanguageBatchInput(
                 new List<LanguageInput>
                     {
-                        new LanguageInput(id: "1", text: "This is a document written in English."),
-                        new LanguageInput(id: "2", text: "Este es un document escrito en Español."),
-                        new LanguageInput(id: "3", text: "这是一个用中文写的文件")
+                        new LanguageInput(id: "1", text: "This is a document written in English.")
                     });
         //...
     }
     ```
 
-3. I samma funktion, anropa `client.DetectLanguageAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID och det första språket som returneras.
+3. Anropa `client.DetectLanguageAsync()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten. Skriv ut varje dokuments ID och det första returnerade språket.
 
     ```csharp
     var langResults = await client.DetectLanguageAsync(false, inputDocuments);
@@ -211,11 +190,9 @@ Document ID: 4 , Sentiment Score: 1.00
 ```console
 ===== LANGUAGE EXTRACTION ======
 Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
-## <a name="perform-entity-recognition"></a>Utföra entitetsidentifiering
+## <a name="perform-entity-recognition"></a>Utför enhets igenkänning
 
 1. Skapa en ny funktion `RecognizeEntitiesExample()` som tar klienten som du skapade tidigare.
 2. Generera en lista med `MultiLanguageBatchInput` objekt som innehåller dina dokument.
@@ -223,19 +200,17 @@ Document ID: 3 , Language: Chinese_Simplified
     ```csharp
     public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
             {
-                new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-                new MultiLanguageInput("es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.")
+                new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.")
             });
         //...
     }
     ```
 
-3. I samma funktion, anropa `client.EntitiesAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID. För varje identifierad entitet ut dess Wikipedia-namn, typ och undertyper (om de finns) samt platser i den ursprungliga texten.
+3. Anropa `client.EntitiesAsync()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten. Skriv ut varje dokuments ID. För varje identifierad entitet skriver du ut dess Wikipedia-namn och typ och under typer (om de finns) samt platserna i den ursprungliga texten.
 
     ```csharp
     var entitiesResult = await client.EntitiesAsync(false, inputDocuments);
@@ -276,19 +251,9 @@ Document ID: 1
                         Offset: 89,     Length: 5,      Score: 0.800
                 Name: Altair 8800,      Type: Other,    Sub-Type: N/A
                         Offset: 116,    Length: 11,     Score: 0.800
-Document ID: 2
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 21,     Length: 9,      Score: 1.000
-                Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-                        Offset: 60,     Length: 7,      Score: 0.991
-                Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-                        Offset: 71,     Length: 13,     Score: 0.800
-                Name: Seattle,  Type: Location, Sub-Type: N/A
-                        Offset: 88,     Length: 7,      Score: 1.000
 ```
 
-## <a name="perform-key-phrase-extraction"></a>Utföra extrahering av diskussionsämne
+## <a name="perform-key-phrase-extraction"></a>Utför extrahering av nyckel fraser
 
 1. Skapa en ny funktion `KeyPhraseExtractionExample()` som tar klienten som du skapade tidigare.
 2. Generera en lista med `MultiLanguageBatchInput` objekt som innehåller dina dokument.
@@ -299,16 +264,13 @@ Document ID: 2
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {
-                        new MultiLanguageInput("ja", "1", "猫は幸せ"),
-                        new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-                        new MultiLanguageInput("en", "3", "My cat might need to see a veterinarian."),
-                        new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
+                        new MultiLanguageInput("en", "1", "My cat might need to see a veterinarian.")
                     });
         //...
     }
     ```
 
-3. I samma funktion, anropa `client.KeyPhrasesAsync()` och få resultatet. Gå sedan igenom resultat. Skriva ut varje dokument-ID och alla identifierade viktiga fraser.
+3. Anropa `client.KeyPhrasesAsync()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten. Skriv ut varje dokuments ID och identifierade nyckel fraser.
 
     ```csharp
     var kpResults = await client.KeyPhrasesAsync(false, inputDocuments);
@@ -332,20 +294,8 @@ Document ID: 2
 ```console
 Document ID: 1
          Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
                 cat
                 veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
 ```
 
 ## <a name="next-steps"></a>Nästa steg

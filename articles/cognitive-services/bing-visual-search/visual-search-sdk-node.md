@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6f7740ebd09a1fde564613c38ab12513ca51fece
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: f0dd0bb82f899146956b5671497d298c7ce076ef
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204897"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360514"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Snabbstart: Hämta bildinformation med SDK för visuell sökning i Bing för Node.js
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Node.js SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * [Node.js](https://www.nodejs.org/)
 * SDK för visuell sökning i Bing för Node.js
     * För att skapa ett konsolprogram med API för visuell sökning i Bing, kör följande kommando:

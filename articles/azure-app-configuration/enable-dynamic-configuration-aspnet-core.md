@@ -14,40 +14,40 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798459"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359851"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudier: Använda dynamisk konfiguration i en ASP.NET Core-app
 
-ASP.NET Core har en modulär konfigurationssystemet som kan läsa konfigurationsdata från olika källor. Den kan hantera ändringar i farten utan att orsaka ett program för att starta om. ASP.NET Core stöder bindning av konfigurationsinställningar till starkt typifierad .NET-klasser. Det lägger in dem i din kod med hjälp av de olika `IOptions<T>` mönster. En av dessa mönster specifikt `IOptionsSnapshot<T>`automatiskt hämtar programmets konfiguration när underliggande data ändras. Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration.
+ASP.NET Core har ett anslutnings Bart konfigurations system som kan läsa konfigurations data från en mängd olika källor. Den kan hantera ändringar i farten utan att göra det möjligt för ett program att starta om. ASP.NET Core stöder bindning av konfigurations inställningar till starkt skrivna .NET-klasser. Den infogar dem i koden med hjälp av de olika `IOptions<T>` mönstren. Ett av dessa mönster, i `IOptionsSnapshot<T>`synnerhet, laddar automatiskt om programmets konfiguration när underliggande data ändras. Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration.
 
-Du kan också ställa in App Configuration ASP.NET Core-klientbiblioteket att uppdatera en uppsättning inställningar för dynamiskt med en mellanprogram. Så länge webbappen fortsätter att ta emot begäranden, fortsätta konfigurationsinställningarna ska uppdateras med konfigurationslagringen.
+Du kan också konfigurera appens konfiguration ASP.NET Core klient bibliotek för att uppdatera en uppsättning konfigurations inställningar dynamiskt med hjälp av ett mellanprogram. Så länge webbappen fortsätter att ta emot begär Anden, fortsätter konfigurations inställningarna att uppdateras med konfigurations lagret.
 
-För att synkronisera de inställningar som uppdateras och undvika att för många anrop till konfigurationslagringen, används en cache för varje inställning. Tills det cachelagrade värdet för en inställning har upphört att gälla, uppdateras inte uppdateringsåtgärden värdet, även om värdet har ändrats i konfigurationslagringen. Standard förfallotid för varje begäran är 30 sekunder, men den kan åsidosättas om det behövs.
+För att hålla inställningarna uppdaterade och undvika för många anrop till konfigurations arkivet används ett cacheminne för varje inställning. Tills det cachelagrade värdet för en inställning har gått ut uppdateras inte värdet, även om värdet har ändrats i konfigurations arkivet. Standard förfallo tiden för varje begäran är 30 sekunder, men den kan åsidosättas om det behövs.
 
-Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter Slutför [skapa en ASP.NET Core-app med Appkonfiguration](./quickstart-aspnet-core-app.md) första.
+Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
 
-Du kan använda valfri Kodredigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgänglig på Windows, macOS och Linux-plattformar.
+Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera programmet till att uppdatera konfigurationen som svar på ändringar i en appbutik för konfigurationen.
-> * Mata in den senaste konfigurationen i ditt programs domänkontrollanter.
+> * Konfigurera ditt program för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
+> * Mata in den senaste konfigurationen i dina programs kontrollanter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill göra den här självstudien måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
+Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
-1. Öppna *Program.cs*, och uppdatera den `CreateWebHostBuilder` metod för att lägga till den `config.AddAzureAppConfiguration()` metoden.
+1. Öppna *program.cs*och uppdatera `CreateWebHostBuilder` `config.AddAzureAppConfiguration()` metoden för att lägga till-metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -70,7 +70,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
             .UseStartup<Startup>();
     ```
 
-    Den `ConfigureRefresh` metod för att ange inställningar som används för att uppdatera konfigurationsdata med konfigurationslagringen appen när en uppdatering har utlösts. För att faktiskt utlösa en uppdatering, måste en uppdatering mellanprogram konfigureras för att programmet ska uppdatera konfigurationsdata när ändringar sker.
+    `ConfigureRefresh` Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. För att en uppdatering ska kunna aktive ras måste ett uppdaterings program vara konfigureras för att programmet ska kunna uppdatera konfigurations data när en ändring sker.
 
 2. Lägg till en *Settings.cs*-fil som definierar och implementerar en ny `Settings`-klass.
 
@@ -87,7 +87,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
     }
     ```
 
-3. Öppna *Startup.cs*, och uppdatera den `ConfigureServices` metod för att binda konfigurationsdata till den `Settings` klass.
+3. Öppna *startup.cs*och uppdatera `ConfigureServices` metoden för att binda `Settings` konfigurations data till klassen.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,7 +104,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
     }
     ```
 
-4. Uppdatera den `Configure` metod för att lägga till ett mellanprogram för att tillåta konfigurationsinställningarna som har registrerats för uppdateringen som ska uppdateras när ASP.NET Core-webbapp fortsätter att ta emot begäranden.
+4. `Configure` Uppdatera metoden för att lägga till ett mellanprogram så att de konfigurations inställningar som registrerats för uppdatering uppdateras medan den ASP.net Core webbappen fortsätter att ta emot begär Anden.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -114,20 +114,20 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
     }
     ```
     
-    Mellanprogrammet använder uppdatering-konfiguration som angetts i den `AddAzureAppConfiguration` -metod i `Program.cs` att utlösa en uppdatering för varje begäran som tas emot av ASP.NET Core-webbapp. För varje begäran, utlöses en uppdateringsåtgärden och klientbiblioteket kontrollerar om det cachelagrade värdet för de registrerade konfigurationsinställningarna har upphört att gälla. Värdena för inställningarna uppdateras med konfigurationen appbutiken för cachelagrade värdena som har upphört att gälla, och det återstående värdena förblir oförändrade.
+    Mellanprogram använder den uppdaterings konfiguration som anges i `AddAzureAppConfiguration` -metoden `Program.cs` i för att utlösa en uppdatering för varje begäran som tas emot av ASP.net Core webbappen. För varje begäran utlöses en uppdaterings åtgärd och klient biblioteket kontrollerar om det cachelagrade värdet för de registrerade konfigurations inställningarna har upphört att gälla. För de cachelagrade värdena som har upphört att gälla uppdateras värdena för inställningarna med appens konfigurations Arkiv och de återstående värdena förblir oförändrade.
     
     > [!NOTE]
-    > Förfallotid för cache för en konfigurationsinställning är 30 sekunder, men kan åsidosättas genom att anropa den `SetCacheExpiration` metoden på initieraren alternativ skickas som ett argument till den `ConfigureRefresh` metoden.
+    > Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom att `SetCacheExpiration` anropa metoden på Options-initieraren som skickades som `ConfigureRefresh` ett argument till metoden.
 
 ## <a name="use-the-latest-configuration-data"></a>Använda senaste konfigurationsdata
 
-1. Öppna *HomeController.cs* i katalogen domänkontrollanter och Lägg till en referens till den `Microsoft.Extensions.Options` paketet.
+1. Öppna *HomeController.cs* i katalogen controllers och Lägg till en referens i `Microsoft.Extensions.Options` paketet.
 
     ```csharp
     using Microsoft.Extensions.Options;
     ```
 
-2. Uppdatera den `HomeController` klassen för att ta emot `Settings` via beroendeinmatning och kontrollera användning av dess värden.
+2. Uppdatera klassen som ska tas `Settings` emot via beroende insprutning och använd dess värden. `HomeController`
 
     ```csharp
     public class HomeController : Controller
@@ -150,7 +150,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
     }
     ```
 
-3. Öppna *Index.cshtml* i vyerna > Home directory och Ersätt innehållet med följande skript:
+3. Öppna *index. cshtml* i vyerna > Home Directory och ersätt innehållet med följande skript:
 
     ```html
     <!DOCTYPE html>
@@ -175,34 +175,34 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i Kommandotolken:
+1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
         dotnet build
 
-2. När bygget har slutförts kör du följande kommando för att köra webbappen lokalt.
+2. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
         dotnet run
 
-3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL för web-app som finns lokalt.
+3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL: en för webbappen som finns lokalt.
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**, och välj den app configuration store-instansen som du skapade i snabbstarten.
+4. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
-5. Välj **Configuration Explorer**, och uppdatera värdena för följande nycklar:
+5. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
-    | TestAppSettings:BackgroundColor | green |
-    | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | Data från Azure App Configuration – nu med live-uppdateringar! |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | lightGray |
+    | TestApp:Settings:Message | Data från Azure App Configuration – nu med live-uppdateringar! |
 
-6. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna. Mer än en uppdatering av webbläsaren kan krävas för att ändringarna visas.
+6. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna. Mer än en uppdatering av webb sidan kan krävas för att ändringarna ska visas.
 
     ![Snabbstart med uppdatering av lokal app](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > Eftersom konfigurationsinställningarna cachelagras med en standard-förfallotid på 30 sekunder, visas alla ändringar av inställningarna i konfigurationen appbutiken endast i webbapp när cachen har upphört att gälla.
+    > Eftersom konfigurations inställningarna cachelagras med en förfallo tid på 30 sekunder, kommer alla ändringar som görs i inställningarna i appens konfigurations Arkiv bara att avspeglas i webbappen när cachen har upphört att gälla.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -210,7 +210,7 @@ Om du vill göra den här självstudien måste du installera den [.NET Core SDK]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Om du vill veta mer om hur du använder Appkonfiguration, fortsätter du att Azure CLI-exempel.
+I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Om du vill veta mer om hur du använder app-konfiguration kan du fortsätta till Azure CLI-exemplen.
 
 > [!div class="nextstepaction"]
 > [CLI-exempel](./cli-samples.md)

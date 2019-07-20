@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: aafbef2c9a9328266a937d4c52c154a8b826c342
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312168"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359430"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Självstudier: Skapa en Regressions modell med automatisk maskin inlärning och öppna data uppsättningar
 
@@ -90,8 +90,8 @@ Börja med att skapa en dataframe som innehåller taxi data. När du arbetar i e
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -148,7 +148,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
       <td>– 73,916908</td>
@@ -171,7 +171,7 @@ green_taxi_df.head(10)
       <td>2016-01-02 00:00:00</td>
       <td>1</td>
       <td>3,08</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>– 73,979973</td>
       <td>40,677071</td>
@@ -196,7 +196,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2.44</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
       <td>-73.839836</td>
@@ -220,7 +220,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2,87</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
       <td>-73.931259</td>
@@ -244,7 +244,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,50</td>
       <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,942589</td>
       <td>40,841423</td>
       <td>– 73,943672</td>
@@ -315,7 +315,7 @@ green_taxi_df.head(10)
       <td>2016-01-09 14:32:48</td>
       <td>2</td>
       <td>0,80</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
@@ -339,8 +339,8 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1,04</td>
-      <td>Inga</td>
       <td>Ingen</td>
+      <td>Inga</td>
       <td>-73.954376</td>
       <td>40,805729</td>
       <td>– 73,939117</td>
@@ -401,7 +401,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -452,7 +454,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
       <td>– 73,916908</td>
@@ -476,7 +478,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>3,08</td>
       <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,979973</td>
       <td>40,677071</td>
       <td>– 73,934349</td>
@@ -499,7 +501,7 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
@@ -523,8 +525,8 @@ green_taxi_df.head(10)
       <td>2016-01-04 18:03:43</td>
       <td>1</td>
       <td>2,87</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
       <td>-73.931259</td>
@@ -548,7 +550,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,50</td>
       <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,942589</td>
       <td>40,841423</td>
       <td>– 73,943672</td>
@@ -571,8 +573,8 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>-73.830894</td>
       <td>40,759434</td>
       <td>-73.842422</td>
@@ -595,7 +597,7 @@ green_taxi_df.head(10)
       <td>2016-01-14 00:54:16</td>
       <td>1</td>
       <td>1,93</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Ingen</td>
       <td>– 73,927109</td>
       <td>40,762848</td>
@@ -619,7 +621,7 @@ green_taxi_df.head(10)
       <td>2016-01-09 14:32:48</td>
       <td>2</td>
       <td>0,80</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
@@ -643,7 +645,7 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1,04</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>-73.954376</td>
       <td>40,805729</td>
@@ -667,7 +669,7 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>– 73,845200</td>
       <td>40,722134</td>
@@ -695,11 +697,12 @@ Ta bort några av de kolumner som du inte behöver för modellering eller ytterl
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -871,7 +874,7 @@ holidays_df.head(5)
       <th>40688</th>
       <td>Albanien</td>
       <td>Nyårs dagen</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>AL</td>
       <td>Nyårs dagen</td>
       <td>2008-01-01</td>
@@ -921,12 +924,14 @@ holidays_df.head(5)
 Byt namn på `date` kolumnerna ochsåattdematcharrespektivefältnamnfråntaxidata,ochnormaliseratidensåattdenkananvändassomennyckel.`countryRegionCode` Gå sedan till helgdags data med taxi data genom att utföra en vänster-koppling med hjälp av `merge()` funktionen Pandas. Detta kommer att bevara alla poster `green_taxi_df`från, men lägga till i helgdags data där de finns `datetime` för `country_code`motsvarande och, vilket i det här `"US"`fallet alltid är. Förhandsgranska data för att kontrol lera att de sammanfogades korrekt.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -1071,8 +1076,8 @@ Nu ska du lägga till NOAA-ytans väder data till taxi-och helgdags data. Använ
 from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1254,7 +1259,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1370,7 +1376,8 @@ weather_df_grouped.head(10)
 Slå samman taxi-och helgdags data som du har för berett med nya väder data. Den här gången behöver `datetime` du bara nyckeln och gör om en koppling till vänster om data. `describe()` Kör funktionen på den nya dataframe för att se sammanfattnings statistik för varje fält.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1466,7 +1473,7 @@ taxi_holidays_weather_df.describe()
       <td>2815,592754</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>min</th>
       <td>1,000000</td>
       <td>– 60,000000</td>
       <td>– 1,000000</td>
@@ -1569,13 +1576,16 @@ Från sammanfattnings statistik ser du att det finns flera fält med avvikande v
 Filtrera bort dessa avvikelser med hjälp av fråge funktioner och ta sedan bort de senaste kolumnerna som behövs för utbildning.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1662,7 +1672,7 @@ final_df.describe()
       <td>1284,892832</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>min</th>
       <td>1,000000</td>
       <td>1,000000</td>
       <td>0,010000</td>
@@ -1755,7 +1765,8 @@ Nu delar du data till uppsättningar för träning och testning med funktionen `
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### <a name="load-workspace-and-configure-experiment"></a>Läs in arbets yta och konfigurera experiment
@@ -1767,7 +1778,8 @@ Läs in din Azure Machine Learning service-arbetsyta `get()` med hjälp av funkt
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1792,7 +1804,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### <a name="submit-experiment"></a>Skicka experiment

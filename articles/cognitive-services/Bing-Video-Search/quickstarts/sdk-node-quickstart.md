@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 07/18/2019
 ms.author: aahi
-ms.openlocfilehash: f00f4c90d529e95aa495f68802f4da9a097d3b2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 12eafca9c673d95813eefcd58d2b3f9ba7b54fd3
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798015"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358882"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>Snabbstart: Utföra en videosökning med SDK för videosökning i Bing för Node.js
 
 Använd den här snabbstarten till att börja söka efter nyheter med SDK för videosökning i Bing för Node.js. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Den innehåller fler kommentarer och funktioner.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js](https://www.nodejs.org/)
 
@@ -58,13 +58,6 @@ Så här skapar du ett konsolprogram med API för videosökning i Bing:
         throw err;
     });
     ```
-
-<!-- Remove until the response can be replace with a sanitized version.
-The code prints `result.value` items to the console without parsing any text. The results will be:
-- _type: 'VideoObjectElementType'
-
-![Video results](media/video-search-sdk-node-results.png)
--->
 
 ## <a name="next-steps"></a>Nästa steg
 

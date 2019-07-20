@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Python-SDK'
+title: 'Snabbstart: Anropa tjänsten Textanalys med python SDK'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: ctufts
 manager: assafi
@@ -10,33 +10,33 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c24979d9aef74b6cc840427a010b9ce70f2c0b8a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297788"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356947"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Python-SDK 
+# <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Snabbstart: Anropa tjänsten Textanalys med python SDK 
 <a name="HOLTop"></a>
 
-Använd den här snabbstarten om du vill analysera språk med Text Analytics SDK för Python. Den REST API för textanalys är kompatibla med de flesta programmeringsspråk, innehåller SDK ett enkelt sätt att integrera tjänsten i dina program utan serialisering och avserialisering av JSON. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
+Använd den här snabb starten för att börja analysera språk med Textanalys SDK för python. Även om Textanalys REST API är kompatibel med de flesta programmeringsspråk, ger SDK ett enkelt sätt att integrera tjänsten i dina program utan att serialisera och deserialisera JSON. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.x](https://www.python.org/)
 
-* Text Analytics [SDK för python](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) du kan installera paketet med:
+* Textanalys [SDK för python](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) du kan installera paketet med:
 
     `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste också ha den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som har skapats för dig under registreringen.
+Du måste också ha [slut punkten och åtkomst nyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig under registreringen.
 
 ## <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-Skapa ett nytt Python-program i din favoritredigerare eller IDE. Lägg sedan till följande importuttryck i filen.
+Skapa ett nytt python-program i din favorit redigerare eller IDE. Lägg sedan till följande import uttryck i filen.
 
 ```python
 from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
@@ -46,19 +46,19 @@ from msrest.authentication import CognitiveServicesCredentials
 ## <a name="authenticate-your-credentials"></a>Autentisera dina autentiseringsuppgifter
 
 > [!Tip]
-> För säker distribution av hemligheter i produktionssystem bör du använda [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> Vi rekommenderar att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)för säker distribution av hemligheter i produktions system.
 >
 
-När du har gjort en variabel för din prenumerationsnyckel för textanalys, skapa en instans av en `CognitiveServicesCredentials` objekt med den.
+När du har gjort en variabel för din textanalys prenumerations nyckel `CognitiveServicesCredentials` instansierar du ett objekt med det.
 
 ```python
 subscription_key = "enter-your-key-here"
 credentials = CognitiveServicesCredentials(subscription_key)
 ```
 
-## <a name="create-a-text-analytics-client"></a>Skapa en Text Analytics-klient
+## <a name="create-a-text-analytics-client"></a>Skapa en Textanalys-klient
 
-Skapa en ny `TextAnalyticsClient` objekt med `credentials` och `text_analytics_url` som en parameter. Använd rätt Azure-regionen för din Text Analytics-prenumeration (till exempel `westcentralus`).
+Skapa ett nytt `TextAnalyticsClient` objekt med `credentials` och `text_analytics_url` som en parameter. Använd rätt Azure-region för din Textanalys-prenumeration (till `westcentralus`exempel).
 
 ```
 text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
@@ -67,42 +67,43 @@ text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=cr
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Nyttolasten i API: n består av en lista över `documents`, vilket är ordlistor som innehåller en `id` och en `text` attribut. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde. 
+Nytto lasten till API: et består av en `documents`lista över, som är ord `id` listor som `text` innehåller ett och ett-attribut. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
 
 ```python
 documents = [
-  {
-    "id": "1", 
-    "language": "en", 
-    "text": "I had the best day of my life."
-  },
-  {
-    "id": "2", 
-    "language": "en", 
-    "text": "This was a waste of my time. The speaker put me to sleep."
-  },  
-  {
-    "id": "3", 
-    "language": "es", 
-    "text": "No tengo dinero ni nada que dar..."
-  },  
-  {
-    "id": "4", 
-    "language": "it", 
-    "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
-  }
+    {
+        "id": "1",
+        "language": "en",
+        "text": "I had the best day of my life."
+    },
+    {
+        "id": "2",
+        "language": "en",
+        "text": "This was a waste of my time. The speaker put me to sleep."
+    },
+    {
+        "id": "3",
+        "language": "es",
+        "text": "No tengo dinero ni nada que dar..."
+    },
+    {
+        "id": "4",
+        "language": "it",
+        "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+    }
 ]
 ```
 
-Anropa den `sentiment()` funktionen och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och attitydsresultatet. Ett värde närmare 0 anger negativ känsla, medan en poäng närmare 1 anger positiv känsla.
+`sentiment()` Anropa funktionen och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
 ```python
 response = text_analytics.sentiment(documents=documents)
 for document in response.documents:
-     print("Document Id: ", document.id, ", Sentiment Score: ", "{:.2f}".format(document.score))
+    print("Document Id: ", document.id, ", Sentiment Score: ",
+          "{:.2f}".format(document.score))
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1 , Sentiment Score:  0.87
@@ -111,36 +112,37 @@ Document Id:  3 , Sentiment Score:  0.44
 Document Id:  4 , Sentiment Score:  1.00
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en lista över ordlistor, som innehåller dokumentet som du vill analysera. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde. 
+Skapa en lista över ord listor som innehåller det dokument som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
 
 ```python
 documents = [
-    { 
-        'id': '1', 
-        'text': 'This is a document written in English.' 
+    {
+        'id': '1',
+        'text': 'This is a document written in English.'
     },
     {
-        'id': '2', 
-        'text': 'Este es un document escrito en Español.' 
+        'id': '2',
+        'text': 'Este es un document escrito en Español.'
     },
-    { 
-        'id': '3', 
-        'text': '这是一个用中文写的文件' 
+    {
+        'id': '3',
+        'text': '这是一个用中文写的文件'
     }
 ]
-``` 
+```
 
-Med hjälp av klienten som skapade tidigare, anropa `detect_language()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och det första språket som returneras.
+Anropa `detect_language()` och hämta resultatet med hjälp av klienten som skapades tidigare. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
 
 ```python
 response = text_analytics.detect_language(documents=documents)
 for document in response.documents:
-    print("Document Id: ", document.id , ", Language: ", document.detected_languages[0].name)
+    print("Document Id: ", document.id, ", Language: ",
+          document.detected_languages[0].name)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1 , Language:  English
@@ -148,27 +150,27 @@ Document Id:  2 , Language:  Spanish
 Document Id:  3 , Language:  Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="entity-recognition"></a>Enhets igenkänning
 
-Skapa en lista över ordlistor, som innehåller dokument som du vill analysera. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde. 
+Skapa en lista över ord listor som innehåller dokumenten som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
 
 
 ```python
 documents = [
     {
         "id": "1",
-        "language": "en", 
+        "language": "en",
         "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
     },
     {
         "id": "2",
-        "language": "es", 
+        "language": "es",
         "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
     }
 ]
 ```
 
-Med hjälp av klienten som skapade tidigare, anropa `entities()` fungerar och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och de entiteter som finns i den.
+Genom att använda klienten som skapades tidigare `entities()` anropar du funktionen och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och entiteterna i det.
 
 ```python
 response = text_analytics.entities(documents=documents)
@@ -177,14 +179,15 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Entities:")
     for entity in document.entities:
-        print("\t\t", "NAME: ",entity.name, "\tType: ", entity.type, "\tSub-type: ", entity.sub_type)
+        print("\t\t", "NAME: ", entity.name, "\tType: ",
+              entity.type, "\tSub-type: ", entity.sub_type)
         for match in entity.matches:
             print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
                   "{:.2f}".format(match.entity_type_score))
 ```
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1
@@ -217,35 +220,35 @@ Document Id:  2
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en lista över ordlistor, som innehåller dokument som du vill analysera. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde. 
+Skapa en lista över ord listor som innehåller dokumenten som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
 
 
 ```python
 documents = [
     {
-        "id": "1", 
-        "language": "ja", 
+        "id": "1",
+        "language": "ja",
         "text": "猫は幸せ"
     },
     {
-        "id": "2", 
-        "language": "de", 
+        "id": "2",
+        "language": "de",
         "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
     },
     {
-        "id": "3", 
+        "id": "3",
         "language": "en",
         "text": "My cat might need to see a veterinarian."
     },
     {
-        "id": "4", 
-        "language": "es", 
+        "id": "4",
+        "language": "es",
         "text": "A mi me encanta el fútbol!"
     }
 ]
 ```
 
-Med hjälp av klienten som skapade tidigare, anropa `key_phrases()` fungerar och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och nyckelfraser i den.
+Genom att använda klienten som skapades tidigare `key_phrases()` anropar du funktionen och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de viktigaste fraserna i det.
 
 ```python
 response = text_analytics.key_phrases(documents=documents)
@@ -254,10 +257,10 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Phrases:")
     for phrase in document.key_phrases:
-        print("\t\t",phrase)
+        print("\t\t", phrase)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1
@@ -286,5 +289,5 @@ Document Id:  4
 ## <a name="see-also"></a>Se också
 
 * [Vad är API för textanalys?](../overview.md)
-* [Exempelscenarier för användare](../text-analytics-user-scenarios.md)
+* [Exempel på användar scenarier](../text-analytics-user-scenarios.md)
 * [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

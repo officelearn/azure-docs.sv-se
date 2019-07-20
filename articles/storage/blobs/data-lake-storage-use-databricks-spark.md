@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark | Microsoft Docs'
-description: Den här självstudiekursen visar hur du kör Spark frågor på en Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2 storage-konto.
+description: Den här självstudien visar hur du kör Spark-frågor på ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2 lagrings konto.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a745ade33e5d9c493fed187bbd9a4309e1a2d0ff
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951395"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360114"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
@@ -29,11 +29,11 @@ I den här kursen ska du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
-  Se [skapa ett konto för Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+  Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
 
 * Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
@@ -48,7 +48,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
   > [!IMPORTANT]
   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
 
-  :heavy_check_mark: När du utför stegen i den [få värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) avsnittet av artikeln, klistra in klient-ID, app-ID och lösenord för värden i en textfil. Du kommer att behöva dem snart.
+  :heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du kommer att behöva dem snart.
 
 ### <a name="download-the-flight-data"></a>Ladda ned flygdata
 
@@ -72,7 +72,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
-    |Egenskap   |Beskrivning  |
+    |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.  |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
@@ -120,7 +120,7 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
    azcopy login
    ```
 
-   Följ anvisningarna som visas i kommandotolksfönstret för att autentisera ditt konto.
+   Följ anvisningarna som visas i kommando tolkens fönster för att autentisera ditt användar konto.
 
 2. Kopiera data från *.csv*-filen med följande kommando.
 
@@ -128,7 +128,7 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
 
-   * Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
+   * Ersätt placeholder-värdet med sökvägen till *. csv* -filen. `<csv-folder-path>`
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -164,9 +164,9 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
     extra_configs = configs)
     ```
 
-18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt den `file-system-name` platshållarvärdet med namnet som du gav till filsystemet ADLS i föregående steg.
+18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. `file-system-name` Ersätt placeholder-värdet med det namn som du gav till fil systemet ADLS i föregående steg.
 
-Du kan använda dessa värden för att ersätta nämnda platshållarna.
+Använd de här värdena för att ersätta de nämnda plats hållarna.
 
    * `appId` och `password` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
 
@@ -177,7 +177,7 @@ Du kan använda dessa värden för att ersätta nämnda platshållarna.
    * Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
 
    > [!NOTE]
-   > Överväg att lagra lösenordet i Azure Databricks i en Produktionsinställning. Sedan lägger du till en Leta upp nyckeln kodblocket i stället för lösenordet. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
+   > I en produktions inställning bör du överväga att lagra lösen ordet i Azure Databricks. Lägg sedan till en uppslags nyckel i kod blocket i stället för lösen ordet. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
 
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -191,7 +191,8 @@ Lägg till en ny cell i anteckningsboken du skapade tidigare och klistra in föl
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
+flightDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
 flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
@@ -224,60 +225,64 @@ Därefter kan du börja fråga efter de data du har laddat upp till ditt lagring
 
 Skapa dataramar för dina datakällor med följande skript:
 
-* Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
+* Ersätt placeholder-värdet med sökvägen till *. csv* -filen. `<csv-folder-path>`
 
 ```python
-#Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
+# Copy this into a Cmd cell in your notebook.
+acDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created earlier
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
+# read the existing parquet file for the flights database that was created earlier
+flightDF = spark.read.format('parquet').options(
+    header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
 
-#print the schema of the dataframes
+# print the schema of the dataframes
 acDF.printSchema()
 flightDF.printSchema()
 
-#print the flight database size
+# print the flight database size
 print("Number of flights in the database: ", flightDF.count())
 
-#show the first 20 rows (20 is the default)
-#to show the first n rows, run: df.show(n)
+# show the first 20 rows (20 is the default)
+# to show the first n rows, run: df.show(n)
 acDF.show(100, False)
 flightDF.show(20, False)
 
-#Display to run visualizations
-#preferably run this in a separate cmd cell
+# Display to run visualizations
+# preferably run this in a separate cmd cell
 display(flightDF)
 ```
 
 Med det här skriptet kör du några grundläggande analysfrågor mot data.
 
 ```python
-#Run each of these queries, preferably in a separate cmd cell for separate analysis
-#create a temporary sql view for querying flight information
+# Run each of these queries, preferably in a separate cmd cell for separate analysis
+# create a temporary sql view for querying flight information
 FlightTable = spark.read.parquet('/mnt/flightdata/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
-#create a temporary sql view for querying airline code information
+# create a temporary sql view for querying airline code information
 AirlineCodes = spark.read.parquet('/mnt/flightdata/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
-#using spark sql, query the parquet file to return total flights in January and February 2016
+# using spark sql, query the parquet file to return total flights in January and February 2016
 out1 = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2016")
 NumJan2016Flights = out1.count()
 out2 = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
-NumFeb2016Flights=out2.count()
-print("Jan 2016: ", NumJan2016Flights," Feb 2016: ",NumFeb2016Flights)
-Total= NumJan2016Flights+NumFeb2016Flights
+NumFeb2016Flights = out2.count()
+print("Jan 2016: ", NumJan2016Flights, " Feb 2016: ", NumFeb2016Flights)
+Total = NumJan2016Flights+NumFeb2016Flights
 print("Total flights combined: ", Total)
 
 # List out all the airports in Texas
-out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'") 
+out = spark.sql(
+    "SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'")
 print('Airports in Texas: ', out.show(100))
 
-#find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
+# find all airlines that fly from Texas
+out1 = spark.sql(
+    "SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
 

@@ -3,7 +3,7 @@ title: Skriptexempel för Azure CLI – Skapa en app och distribuera kontinuerli
 description: Skriptexempel för Azure CLI – Skapa en app med kontinuerlig distribution från Azure Repos
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: msangapu-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: jeconnoc
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 502b2fabfe1bb90862e673d6bd88a5397065d5d7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136785"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359937"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Skapa en App Service-app med kontinuerlig distribution med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en app i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en Azure DevOps-lagringsplats. För det här exemplet behöver du följande:
+Det här exempel skriptet skapar en app i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en Azure DevOps-lagringsplats. För det här exemplet behöver du följande:
 
-* En Azure DevOps-lagringsplats med programkod som du har administratörsbehörighet för.
+* En Azure DevOps-lagringsplats med program kod som du har administratörs behörighet för.
 * En [personlig åtkomsttoken (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) för din Azure DevOps-organisation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

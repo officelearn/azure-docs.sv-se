@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61083591"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360274"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudier: Komma åt ett labb i Azure DevTest Labs
 I den här självstudien använder du det labb som skapades i [Självstudie: Skapa ett labb i Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -58,8 +58,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     ![Ansluta till den virtuella datorn](./media/tutorial-use-custom-lab/connect-button.png)
 2. Spara den nedladdade **RDP**-filen på hårddisken och använd den för att ansluta till den virtuella datorn. Ange användarnamnet och lösenordet du angav när den virtuella datorn skapades i föregående avsnitt. 
 
-    > [!NOTE] 
-    > Om du vill ansluta till en virtuell Linux-dator måste SSH- och/eller RDP-åtkomst aktiveras för den virtuella datorn. Anvisningar för hur du ansluter till en virtuell Linux-dator via RDP finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en virtuell Linux-dator i Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    Om du vill ansluta till en virtuell Linux-dator måste SSH- och/eller RDP-åtkomst aktiveras för den virtuella datorn. Anvisningar för hur du ansluter till en virtuell Linux-dator via RDP finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en virtuell Linux-dator i Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > Det finns andra sätt att gå till sidan för den virtuella datorn för den virtuella datorn. Här är några av dem: 
+    > 
+    > 1. Sök efter alla virtuella datorer i din prenumeration. Välj den virtuella datorn i listan över virtuella datorer som ska visas på sidan för den **virtuella datorn** .
+    > 2. Gå till **resurs** grupp sidan för resurs gruppen. Välj sedan den virtuella datorn i listan över resurser i resurs gruppen för att komma till sidan för den **virtuella datorn** . 
+    >
+    > Använd inte knappen **Anslut** i verktygsfältet på sidan för den **virtuella datorn** som du kommer till genom att använda de här alternativen. I stället navigerar du till sidan för den **virtuella datorn** från **DevTest Labs** -sidan, som du ser i den här artikeln och använder sedan knappen **Anslut** i verktygsfältet.
 
 
 ## <a name="unclaim-the-vm"></a>Släppa anspråk på en virtuell dator

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515585"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359838"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -35,9 +35,9 @@ I den här delen av självstudien använder du Azure Machine Learning Service f�
 Container Instances är en bra lösning för testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.41.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.41.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Gå vidare till [Set the development environment](#start) (Ange utvecklingsmiljö) för att läsa igenom stegen för anteckningsboken.  
 
 Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).   Kör sedan anteckningsboken **tutorials/img-classification-part2-deploy.ipynb** med samma notebook-server.
@@ -72,9 +72,9 @@ Du registrerade en modell på din arbetsyta i föregående självstudie. Nu kan 
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-import os 
+import os
 ws = Workspace.from_config()
-model=Model(ws, 'sklearn_mnist')
+model = Model(ws, 'sklearn_mnist')
 
 model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -102,7 +102,8 @@ import os
 data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>Förutsäga testdata
@@ -113,7 +114,7 @@ För att få förutsägelser så matar du in testdatauppsättningen i modellen:
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
+clf = joblib.load(os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -152,7 +153,7 @@ row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize=(8,5))
+fig = plt.figure(figsize=(8, 5))
 ax = fig.add_subplot(111)
 cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
@@ -222,18 +223,18 @@ def run(raw_data):
 Därefter skapar du en miljöfil med namnet **myenv.yml**, som anger alla skriptets paketberoenden. Filen används för att säkerställa att alla dessa beroenden är installerade i Docker-avbildningen. Modellen behöver `scikit-learn` och `azureml-sdk`:
 
 ```python
-from azureml.core.conda_dependencies import CondaDependencies 
+from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = CondaDependencies()
 myenv.add_conda_package("scikit-learn")
 
-with open("myenv.yml","w") as f:
+with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
 ```
 Granska `myenv.yml`-filens innehåll:
 
 ```python
-with open("myenv.yml","r") as f:
+with open("myenv.yml", "r") as f:
     print(f.read())
 ```
 
@@ -244,9 +245,10 @@ Skapa en distributionskonfigurationsfil. Ange hur många processorer och gigabyt
 ```python
 from azureml.core.webservice import AciWebservice
 
-aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                               memory_gb=1, 
-                                               tags={"data": "MNIST",  "method" : "sklearn"}, 
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                               memory_gb=1,
+                                               tags={"data": "MNIST",
+                                                     "method": "sklearn"},
                                                description='Predict MNIST with sklearn')
 ```
 
@@ -319,20 +321,20 @@ result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
-plt.figure(figsize = (20, 1))
+plt.figure(figsize=(20, 1))
 
 for s in sample_indices:
     plt.subplot(1, n, i + 1)
     plt.axhline('')
     plt.axvline('')
-    
+
     # use different color for misclassified sample
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
-    
-    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
+
+    plt.text(x=10, y=-10, s=result[i], fontsize=18, color=font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
-    
+
     i = i + 1
 plt.show()
 ```
@@ -350,11 +352,11 @@ import requests
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 # for AKS deployment you'd need to the service key in the header as well
 # api_key = service.get_key()
-# headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ api_key)} 
+# headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ api_key)}
 
 resp = requests.post(service.scoring_uri, input_data, headers=headers)
 

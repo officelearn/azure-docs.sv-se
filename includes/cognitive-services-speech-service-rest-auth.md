@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333393"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362640"
 ---
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-Varje begäran kräver ingen auktoriseringsrubrik. Den här tabellen visar vilka rubriker stöds för varje tjänst:
+Varje begäran kräver ett Authorization-huvud. Den här tabellen visar vilka rubriker stöds för varje tjänst:
 
 | Stöds auktorisering rubriker | Tal-till-text | Text till tal |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Ja | Nej |
-| Auktorisering: Ägar | Ja | Ja |
+| Auktoriseringsregeln Ägar | Ja | Ja |
 
 När du använder den `Ocp-Apim-Subscription-Key` rubrik, måste du bara ange din prenumerationsnyckel. Exempel:
 
@@ -26,7 +26,7 @@ När du använder den `Ocp-Apim-Subscription-Key` rubrik, måste du bara ange di
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-När du använder den `Authorization: Bearer` rubrik, är du behöver göra en begäran om att den `issueToken` slutpunkt. I den här begäran, kan du byta din prenumerationsnyckel för en åtkomsttoken som är giltig i 10 minuter. I kommande avsnitt lär du dig att hämta en token och använda en token.
+När du använder den `Authorization: Bearer` rubrik, är du behöver göra en begäran om att den `issueToken` slutpunkt. I den här begäran, kan du byta din prenumerationsnyckel för en åtkomsttoken som är giltig i 10 minuter. I följande avsnitt får du lära dig hur du hämtar en token och använder en token.
 
 ### <a name="how-to-get-an-access-token"></a>Så här hämtar du en åtkomsttoken
 
@@ -50,7 +50,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Brödtexten i svaret innehåller åtkomsttoken i JSON Web Token (JWT)-format.
+Bröd texten i svaret innehåller åtkomst-token i JSON Web Token-formatet (JWT).
 
 #### <a name="powershell-sample"></a>PowerShell-exempel
 
@@ -129,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

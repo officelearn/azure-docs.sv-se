@@ -311,7 +311,7 @@ Klienter måste godkänna en aktivera är slut genom att skicka en `telemetry` m
 | `Path` | `telemetry` |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
 | Content-Type | `application/json` |
-| Innehåll | En JSON-struktur som innehåller klientens information om i sin tur |
+| Body | En JSON-struktur som innehåller klientens information om i sin tur |
 
 Schemat för innehållet i den `telemetry` meddelande definieras i den [telemetri schemat](#telemetry-schema) avsnittet.
 

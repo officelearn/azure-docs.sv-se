@@ -175,7 +175,7 @@ Klienter *måste* skicka en `speech.config` meddelandet omedelbart efter att de 
 | Fält | Beskrivning |
 |----|----|
 | Kodning av WebSocket-meddelande | Text |
-| Innehåll | Nyttolasten som en JSON-struktur |
+| Body | Nyttolasten som en JSON-struktur |
 
 #### <a name="required-message-headers"></a>Meddelandet krävs rubriker
 
@@ -244,7 +244,7 @@ Taltjänsten använder först `audio` meddelande som innehåller en om unika beg
 | Fält | Beskrivning |
 |-------------|----------------|
 | Kodning av WebSocket-meddelande | Binär |
-| Innehåll | Binära data för ljud segment. Maximal storlek är 8 192 byte. |
+| Body | Binära data för ljud segment. Maximal storlek är 8 192 byte. |
 
 #### <a name="required-message-headers"></a>Meddelandet krävs rubriker
 
@@ -332,7 +332,7 @@ Den `speech.startDetected` meddelandet anger att Speech Service påträffas tal 
 | Kodning av WebSocket-meddelande | Text |
 | `Path` | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| Innehåll | JSON-strukturen som innehåller information om villkor när början av tal har identifierats. Den *Offset* fält i den här strukturen anger förskjutningen (i 100 nanosekunder enheter) när tal har upptäckts i ljudström, i förhållande till början av strömmen. |
+| Body | JSON-strukturen som innehåller information om villkor när början av tal har identifierats. Den *Offset* fält i den här strukturen anger förskjutningen (i 100 nanosekunder enheter) när tal har upptäckts i ljudström, i förhållande till början av strömmen. |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -358,7 +358,7 @@ Taligenkänning genererar Speech Service regelbundet hypoteser om orden tjänste
 | `Path` | `speech.hypothesis` |
 | X-RequestId | UUID i ”no-dash”-format |
 | Content-Type | application/json |
-| Innehåll | Tal hypotesen JSON-struktur |
+| Body | Tal hypotesen JSON-struktur |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -389,7 +389,7 @@ När Speech Service anger att det finns tillräckligt med information för att p
 | Kodning av WebSocket-meddelande | Text |
 | `Path` | `speech.phrase` |
 | Content-Type | application/json |
-| Innehåll | Tal frasen JSON-struktur |
+| Body | Tal frasen JSON-struktur |
 
 Tal frasen JSON-schemat innehåller följande fält: `RecognitionStatus`, `DisplayText`, `Offset`, och `Duration`. Läs mer om de här fälten, [avskrift svar](../concepts.md#transcription-responses).
 
@@ -416,7 +416,7 @@ Den `speech.endDetected` meddelandet anger att klientprogrammet ska avbrytas str
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | `Path` | `speech.endDetected` |
-| Innehåll | JSON-strukturen som innehåller förskjutningen när slutet av tal har identifierats. Förskjutningen representeras i enheter om 100 nanosekunder förskjutning från början av ljud som används för taligenkänning. |
+| Body | JSON-strukturen som innehåller förskjutningen när slutet av tal har identifierats. Förskjutningen representeras i enheter om 100 nanosekunder förskjutning från början av ljud som används för taligenkänning. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Exempelmeddelande
@@ -442,7 +442,7 @@ Den `turn.start` följs av en aktivera perspektiv av tjänsten. Den `turn.start`
 | Kodning av WebSocket-meddelande | Text |
 | `Path` | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
-| Innehåll | JSON-struktur |
+| Body | JSON-struktur |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -468,7 +468,7 @@ Den `turn.end` signalerar till slutet av ett varv perspektiv av tjänsten. Den `
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | `Path` | `turn.end` |
-| Innehåll | Ingen |
+| Body | Ingen |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 

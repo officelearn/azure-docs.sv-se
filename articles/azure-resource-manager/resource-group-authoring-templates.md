@@ -44,8 +44,8 @@ I sin enklaste struktur har en mall följande element:
 | [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
 | [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| [Resurser](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
-| [utdata](#outputs) |Nej |Värden som returneras efter distributionen. |
+| [resources](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
+| [outputs](#outputs) |Nej |Värden som returneras efter distributionen. |
 
 Varje element har egenskaper som du kan ange. Den här artikeln beskriver avsnitt i mallen i större detalj.
 

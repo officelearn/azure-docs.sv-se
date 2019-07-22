@@ -56,9 +56,9 @@ Eller om anslutningen redan finns, ange nödvändig information för utlösaren.
    | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | Search Query | Ja | <*search-words*> | Ange sökord som du vill använda. |
-   | Market | Ja | <*Nationella inställningar*> | Sök nationella inställningar. Standardvärdet är ”en-US”, men du kan välja ett annat värde. |
-   | Safe Search | Ja | <*Sök på servernivå*> | Filternivå för att undanta vuxet innehåll. Standardvärdet är ”måttlig”, men du väljer en annan nivå. |
-   | Count | Nej | <*antal resultat*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultaten kan vara mindre än det angivna värdet. |
+   | Market | Ja | <*locale*> | Sök nationella inställningar. Standardvärdet är ”en-US”, men du kan välja ett annat värde. |
+   | Safe Search | Ja | <*search-level*> | Filternivå för att undanta vuxet innehåll. Standardvärdet är ”måttlig”, men du väljer en annan nivå. |
+   | Count | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultaten kan vara mindre än det angivna värdet. |
    | Offset | Nej | <*skip-value*> | Antalet resultat som hoppas över innan det returneras resultat |
    |||||
 

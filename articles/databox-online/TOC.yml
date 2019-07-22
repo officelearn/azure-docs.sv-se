@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: Felsöka
           href: data-box-gateway-troubleshoot.md
+        - name: Kontakta Microsoft Support
+          href: data-box-edge-contact-microsoft-support.md
     - name: Viktig information
       items:
         - name: 1905 – aktuell
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: Felsöka
           href: data-box-edge-troubleshoot.md
+        - name: Kontakta Microsoft Support
+          href: data-box-edge-contact-microsoft-support.md
         - name: Övervaka
           href: data-box-edge-monitor.md
-        - name: Returnera enheten
+        - name: Returnera eller byt ut enhet
           href: data-box-edge-return-device.md
     - name: Viktig information
       items:

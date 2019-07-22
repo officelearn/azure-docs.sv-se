@@ -61,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: Hantera Batch-konton med Batch Management .NET
           href: batch-management-dotnet.md
+        - name: Kostnadsanalys och budget
+          href: budget.md
     - name: Autentisera med Azure AD
       items:
         - name: Azure AD med Batch-tjänsten

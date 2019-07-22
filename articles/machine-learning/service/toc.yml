@@ -217,8 +217,8 @@
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: Visa noggrannhetsmått
-          href: how-to-understand-accuracy-metrics.md
+        - name: Förstå diagram och mått
+          href: how-to-understand-automated-ml.md
     - name: Distribuera och hantera modeller
       items:
         - name: Var och hur du distribuerar

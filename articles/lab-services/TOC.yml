@@ -56,8 +56,6 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Integrering med Azure DevOps
           href: devtest-lab-dev-ops.md
-        - name: Använda anspråksfunktioner
-          href: devtest-lab-use-claim-capabilities.md
         - name: Scenarier
           items:
             - name: Populära scenarier för användning av DevTest Labs
@@ -68,6 +66,8 @@
               href: devtest-lab-test-env.md
             - name: Använda labb för utbildning
               href: devtest-lab-training-lab.md
+            - name: Scenarier för att använda virtuella datorer som kan begäras
+              href: devtest-lab-use-claim-capabilities.md
 - name: Instruktionsguider
   items:
     - name: Klassrumslabb
@@ -158,11 +158,11 @@
           items:
             - name: Skapa en virtuell dator – Azure-portalen
               href: devtest-lab-add-vm.md
-            - name: Skapa en virtuell dator med Azure PowerShell
+            - name: Skapa en virtuell dator – Azure PowerShell
               href: devtest-lab-vm-powershell.md
-            - name: Skapa och hantera virtuella datorer med Azure CLI
+            - name: Skapa en virtuell dator – Azure CLI
               href: devtest-lab-vmcli.md
-            - name: Skapa en virtuell dator från en resurshanteringsmall
+            - name: Skapa en virtuell dator – Resource Manager-mall
               href: devtest-lab-use-resource-manager-template.md
             - name: Starta eller stoppa en virtuell dator med PowerShell eller CLI
               href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
               href: devtest-lab-resize-vm.md
             - name: Distribuera om en VM
               href: devtest-lab-redeploy-vm.md
+            - name: Konfigurera automatisk avstängning av en virtuell dator
+              href: devtest-lab-auto-shutdown-vm.md
             - name: Skapa och hantera tillgängliga virtuella datorer
               href: devtest-lab-add-claimable-vm.md
             - name: Konfigurera hemligheter
@@ -210,9 +212,9 @@
               items:
                 - name: Skapa en anpassad avbildning från en virtuell dator
                   href: devtest-lab-create-custom-image-from-vm-using-portal.md
-                - name: Skapa en anpassad avbildning från en virtuell hårddisk med Azure Portal
+                - name: Skapa en anpassad avbildning från en virtuell hårddisk – Azure Portal
                   href: devtest-lab-create-template.md
-                - name: Skapa en anpassad avbildning från en virtuell hårddisk med PowerShell
+                - name: Skapa en anpassad avbildning från en virtuell hårddisk – PowerShell
                   href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
                 - name: Överför VHD-filen med AzCopy
                   href: devtest-lab-upload-vhd-using-azcopy.md

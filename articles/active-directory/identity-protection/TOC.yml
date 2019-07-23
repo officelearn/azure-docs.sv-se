@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: Konfigurera riskprinciper
           href: howto-configure-risk-policies.md
-        - name: Förbättra noggrannheten för identifiering
-          href: howto-improve-detection-accuracy.md
         - name: Vanliga frågor och kända problem
           href: known-issues.md
 - name: Referens

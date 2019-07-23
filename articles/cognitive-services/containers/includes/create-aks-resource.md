@@ -1,7 +1,7 @@
 ---
-title: Skapa en resurs för Azure Kubernetes Service-kluster
+title: Skapa en Azure Kubernetes service-klusterresurs
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en resurs i Azure Kubernetes Service (AKS).
+description: Lär dig hur du skapar en Azure Kubernetes service-resurs (AKS).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,43 +9,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877450"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377425"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Skapa en resurs för Azure Kubernetes Service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Skapa en Azure Kubernetes service-klusterresurs
 
-1. Gå till [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) och välj **skapa**.
+1. Gå till [Azure Kubernetes-tjänsten](https://ms.portal.azure.com/#create/microsoft.aks)och välj **skapa**.
 
-1. På den **grunderna** ange följande information:
+1. På fliken **grundläggande** anger du följande information:
 
     |Inställning|Value|
     |--|--|
-    |Subscription|Välj en lämplig prenumeration|
-    |Resource group|Välj en tillgänglig resursgrupp|
-    |Kubernetes-klusternamn|Ange ett namn (små)|
-    |Region|Välj en närliggande plats|
-    |Kubernetes-version|1.12.8 (standard)|
-    |DNS-namnprefix|Skapas automatiskt, men du kan åsidosätta|
+    |Subscription|Välj en lämplig prenumeration.|
+    |Resource group|Välj en tillgänglig resurs grupp.|
+    |Kubernetes-klusternamn|Ange ett namn (gemener).|
+    |Region|Välj en närliggande plats.|
+    |Kubernetes-version|1.12.8 (standard).|
+    |DNS-namnprefix|Skapas automatiskt, men du kan åsidosätta.|
     |Nodstorlek|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Antal noder|Lämna skjutreglaget på standardvärdet|
+    |Nodantal|Lämna skjutreglaget till standardvärdet.|
 
-1. På den **skala** fliken, lämna **virtuella noder** och **skalningsuppsättningar för virtuella datorer (förhandsversion)** inställd på standardvärdena.
-1. På den **autentisering** fliken, lämna **tjänstens huvudnamn** och **aktivera RBAC** inställd på standardvärdena.
-1. På den **nätverk** ange följande val:
+1. På fliken **skala** lämnar du **virtuella noder** och **skalnings uppsättningar för virtuella datorer (för hands version)** inställda till standardvärdena.
+1. På fliken **autentisering** lämnar du **tjänstens huvud namn** och **aktiverar RBAC** -inställningen till standardvärdena.
+1. På fliken **nätverk** anger du följande alternativ:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |--|--|
-    |Routning av HTTP-program|Nej|
-    |Nätverkskonfigurationen|Basic|
+    |HTTP-programroutning|Nej|
+    |Nätverks konfiguration|Basic|
 
-1. På den **övervakning** fliken, se till att **aktivera behållarövervakning** är inställd på **Ja**, och lämna **Log Analytics-arbetsyta** som den standardvärde.
-1. På den **taggar** fliken, inget namn/värde-par för tillfället.
-1. Välj **granska och skapa**.
-1. När valideringen är godkänd väljer **skapa**.
+1. Kontrol lera att **Aktivera behållar övervakning** är inställt på **Ja**på fliken **övervakning** och lämna **Log Analytics arbets yta** som standardvärde.
+1. På fliken **taggar** lämnar du namn/värde-par tomma för tillfället.
+1. Välj **Granska och skapa**.
+1. När verifieringen har godkänts väljer du **skapa**.
 
 > [!NOTE]
-> Om valideringen misslyckas, kanske på grund av felet ”tjänstens huvudnamn”. Gå tillbaka till den **autentisering** fliken och sedan tillbaka till **granska + skapa**, där verifiering bör köra och sedan skicka.
+> Om verifieringen Miss lyckas kan det bero på ett "tjänstens huvud namn"-fel. Gå tillbaka till fliken **autentisering** och gå sedan tillbaka till **Granska + skapa**, där validering ska köras och skicka sedan.

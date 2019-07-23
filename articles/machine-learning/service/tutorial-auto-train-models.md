@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a49ee5720711bb23ec4770de38a408827c645b73
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360939"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371030"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -748,7 +748,7 @@ Utforska resultatet av automatisk träning med en Jupyter-widget eller genom att
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Alternativ 1: Lägga till en Jupyter-widget för att se resultat
 
-Om du använder en Jupyter-anteckningsbok kan du använda den här Jupyter Notebook-widgeten för att se ett diagram och en tabell med alla resultat:
+Om du använder en Jupyter Notebook använder du den här [Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) -widgeten för att se ett diagram och en tabell med alla resultat:
 
 
 ```python
@@ -758,6 +758,13 @@ RunDetails(local_run).show()
 
 ![Jupyter Widget-körningsinformation](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter Widget-diagram](./media/tutorial-auto-train-models/automl-chart-output.png)
+
+Samma resultat lagras i din arbets yta.  Du kan hämta en länk till resultaten från körningen:
+
+```
+local_run.get_portal_url()
+```
+  
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 

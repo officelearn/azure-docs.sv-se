@@ -1,7 +1,7 @@
 ---
-title: Kontrollera behållarinstansen Attitydanalys
+title: Verifiera sentiment Analysis container instance
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att verifiera sentiment analysis container-instans.
+description: Lär dig hur du kontrollerar sentiment Analysis container instance.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 1303d753b1cbfabe7ddd3442e0880b0bffe089b3
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229180"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377447"
 ---
-## <a name="verify-the-sentiment-analysis-container-instance"></a>Kontrollera behållarinstansen Attitydanalys
+## <a name="verify-the-sentiment-analysis-container-instance"></a>Verifiera sentiment Analysis container instance
 
-1. Välj den **översikt** fliken och kopiera den IP-adressen.
-1. Öppna en ny webbläsarflik och ange IP-adressen. Ange till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`). Startsida för behållarens visas, att behållaren körs.
+1. Välj fliken **Översikt** och kopiera IP-adressen.
+1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange `http://<IP-address>:5000 (http://55.55.55.55:5000`till exempel). Behållarens start sida visas, där du kan se att behållaren körs.
 
-    ![Visa behållaren startsidan för att kontrollera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png).
+    ![Visa start sidan för behållaren för att kontrol lera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Välj den **API tjänstbeskrivning** länk som leder till behållarsidan swagger.
+1. Välj länken **Service API-Beskrivning** för att gå till behållarens Swagger-sida.
 
-1. Välj någon av de **POST** API: er och välj **prova**.  Parametrarna är visas, inklusive det här exemplet indata:
+1. Välj någon av **post** -API: erna och välj **prova**. Parametrarna visas, vilket inkluderar följande inmatade exempel:
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "68229180"
     }
     ```
 
-1. Ersätt indata med följande JSON-innehåll:
+1. Ersätt indatamängden med följande JSON-innehåll:
 
     ```json
     {
@@ -65,11 +65,11 @@ ms.locfileid: "68229180"
 
 1. Ange **showStats** till true.
 
-1. Välj **kör** fastställa känslan i texten.
+1. Välj **Kör** för att fastställa sentiment för texten.
 
-    Den modell som är paketerat i behållaren genererar en poäng mellan 0 och 1, där 0 är negativt och 1 är positivt.
+    Modellen som är paketerad i behållaren genererar en poäng som sträcker sig från 0 till 1, där 0 är negativt och 1 är positivt.
 
-    JSON-svar som returneras innehåller sentiment för uppdaterade textinmatningen:
+    Det JSON-svar som returneras innehåller sentiment för den uppdaterade text ingången:
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "68229180"
     }
     ```
 
-Vi kan nu jämföra dokumentet `id` av svarets nyttolast JSON-data till det ursprungliga begäran nyttolast dokumentet `id`. Vi kan se ett resultat på mer än `.98`, som anger en starkt positiv attityd.
+Vi kan nu korrelera dokumentet `id` med JSON-data för svars nytto Last till det ursprungliga nytto Last dokumentet `id`för begäran. Poängen på mer än `.98` anger ett starkt positivt sentiment.

@@ -53,6 +53,8 @@
       href: functions-twitter-email.md
     - name: Skapa ett serverlöst API
       href: functions-create-serverless-api.md
+    - name: Utveckla Python-funktioner med VS Code
+      href: tutorial-vs-code-serverless-python.md
     - name: Skapa en OpenAPI-definition
       href: functions-openapi-definition.md
     - name: Ansluta till ett virtuellt nätverk

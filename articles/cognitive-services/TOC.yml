@@ -31,9 +31,9 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Snabbstarter
   items:
-    - name: Skapa ett konto med hjälp av Azure-portalen
+    - name: Skapa en ny resurs med Azure Portal
       href: cognitive-services-apis-create-account.md
-    - name: Skapa ett konto med hjälp av Azure CLI
+    - name: Skapa en ny resurs med Azure CLI
       href: cognitive-services-apis-create-account-cli.md
     - name: Autentisering
       href: authentication.md

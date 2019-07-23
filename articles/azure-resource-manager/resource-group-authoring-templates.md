@@ -43,7 +43,7 @@ I sin enklaste struktur har en mall följande element:
 | apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen för den resurstyp som definieras i profilen.<br><br>API-profilegenskapen är särskilt användbart när du distribuerar en mall till olika miljöer, till exempel Azure Stack och globala Azure. Använda profilversionen API för att kontrollera att mallen använder automatiskt de versioner som stöds i båda miljöerna. En lista över de aktuella versionerna av API-profilen och resurserna som API-versioner som anges i profilen för finns i [API profil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
-| [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
+| [functions](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
 | [resources](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
 | [outputs](#outputs) |Nej |Värden som returneras efter distributionen. |
 

@@ -334,8 +334,6 @@
           href: cognitive-search-skill-keyphrases.md
         - name: Språkidentifiering
           href: cognitive-search-skill-language-detection.md
-        - name: Igenkänning av namngiven enhet
-          href: cognitive-search-skill-named-entity-recognition.md
         - name: Igenkänning av enhet
           href: cognitive-search-skill-entity-recognition.md
         - name: Textsammanslagning
@@ -344,6 +342,8 @@
           href: cognitive-search-skill-textsplit.md
         - name: Sentiment
           href: cognitive-search-skill-sentiment.md
+        - name: Textöversättning (förhandsversion)
+          href: cognitive-search-skill-text-translation.md
         - name: Bildanalys
           href: cognitive-search-skill-image-analysis.md
         - name: OCR
@@ -352,12 +352,15 @@
           href: cognitive-search-skill-shaper.md
         - name: Villkorsstyrd
           href: cognitive-search-skill-conditional.md
-        - name: Inaktuella färdigheter
-          href: cognitive-search-skill-deprecated.md
     - name: Anpassade färdigheter
       items:
         - name: Anpassat webb-API
           href: cognitive-search-custom-skill-web-api.md
+    - name: Inaktuella färdigheter
+      href: cognitive-search-skill-deprecated.md
+      items:
+        - name: Igenkänning av namngiven enhet
+          href: cognitive-search-skill-named-entity-recognition.md
 - name: Resurser
   items:
     - name: Support av Azure-communityn

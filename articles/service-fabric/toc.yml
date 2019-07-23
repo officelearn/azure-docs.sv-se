@@ -274,7 +274,7 @@
           items:
             - name: Översikt över Azure-kluster
               href: service-fabric-azure-clusters-overview.md
-            - name: Nodtyper och VM Scale Sets
+            - name: Nodtyper och skaluppsättningar för virtuella datorer
               href: service-fabric-cluster-nodetypes.md
             - name: Uppgradera kluster i Azure
               href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Rekommenderade metoder
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Omstrukturera en migrerad app
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Modernisera din app
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Hantera programlivscykel
       items:
         - name: Paketera ett program

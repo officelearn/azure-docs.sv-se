@@ -29,6 +29,8 @@
       href: publish-service-catalog-app.md
     - name: Publicera marknadsplatsprogram
       href: publish-marketplace-app.md
+    - name: Skapa hanterat program med anpassad provider
+      href: tutorial-create-managed-app-with-custom-provider.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -83,6 +85,14 @@
           href: custom-providers-proxy-cache-resource-endpoint-reference.md
         - name: Referens för RESTful-slutpunkt för anpassade providrar
           href: reference-custom-providers-csharp-endpoint.md
+    - name: Programartefakter
+      items:
+        - name: Element för användargränssnitt
+          href: reference-createuidefinition-artifact.md
+        - name: Distributionsmall
+          href: reference-main-template-artifact.md
+        - name: Visa definition
+          href: reference-view-definition-artifact.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

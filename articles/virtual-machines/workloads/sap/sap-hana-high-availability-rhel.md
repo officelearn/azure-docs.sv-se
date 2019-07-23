@@ -4,7 +4,7 @@ description: Skapa hög tillgänglighet för SAP HANA på Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922135"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709106"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -101,7 +101,7 @@ Azure Marketplace innehåller en bild för Red Hat Enterprise Linux 7.4 för SAP
 Du kan använda en av de snabbstartsmallarna som finns på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighetsuppsättning och så vidare.
 Om du vill distribuera mallen genom att följa dessa steg:
 
-1. Öppna den [databasen mallen] [ template-multisid-db] på Azure portal.
+1. Öppna den [databasen mallen][template-multisid-db] på Azure portal.
 1. Ange följande parametrar:
     * **SAP-System-ID**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
     * **OS-typ**: Välj en av Linux-distributioner. Det här exemplet väljer **RHEL 7**.
@@ -335,7 +335,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[A]**  Uppgradera Värdagenten SAP.
 
-   Ladda ned det senaste Värdagenten för SAP-arkivet från den [SAP Software Center] [ sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du laddade ned:
+   Ladda ned det senaste Värdagenten för SAP-arkivet från den [SAP Software Center][sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du laddade ned:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>

@@ -4,7 +4,7 @@ description: Hög tillgänglighet för SAP HANA på Azure virtuella datorer på 
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922293"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709103"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 
@@ -71,9 +71,9 @@ Läs följande SAP Notes och papers först:
 * SAP-kommentar [401162] innehåller information om hur du undviker ”adressen används redan” när du konfigurerar HANA System Replication.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
 * [SAP HANA-certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Azure virtuella datorer, planering och implementering av SAP på Linux] [ planning-guide] guide.
-* [Azure Virtual Machines-distribution för SAP på Linux] [ deployment-guide] (den här artikeln).
-* [Azure Virtual Machines DBMS-distribution för SAP på Linux] [ dbms-guide] guide.
+* [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide] guide.
+* [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide] (den här artikeln).
+* [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide] guide.
 * [SUSE Linux Enterprise Server för SAP-program 12 SP3 bästa guider med metodtips][sles-for-sap-bp]
   * Hur du konfigurerar en SAP HANA SR prestanda optimerad infrastruktur (SLES för SAP-program 12 SP1). Guiden innehåller all informationen som krävs för att ställa in SAP HANA-Systemreplikering för lokal utveckling. Använd den här guiden som utgångspunkt.
   * Hur du konfigurerar en SAP HANA SR kostnaden optimerad infrastruktur (SLES för SAP-program 12 SP1)
@@ -101,8 +101,8 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 Du kan använda en av de snabbstartsmallarna som finns på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighetsuppsättning och så vidare.
 Om du vill distribuera mallen genom att följa dessa steg:
 
-1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure portal. 
-    Databasen skapas belastningsutjämningsregler för endast en databas. Konvergerade mallen skapar även regler för belastningsutjämning för en ASCS/SCS och ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver-baserat system och du vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [databasen mallen][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Ange följande parametrar:
     - **SAP-System-ID**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
@@ -347,7 +347,7 @@ Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prest
 
 1. **[A]**  Uppgradera Värdagenten SAP.
 
-   Ladda ned det senaste Värdagenten för SAP-arkivet från den [SAP Software Center] [ sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du laddade ned:
+   Ladda ned det senaste Värdagenten för SAP-arkivet från den [SAP Software Center][sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du laddade ned:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>

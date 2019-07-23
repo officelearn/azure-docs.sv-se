@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a3edac7638d8b63086482cdecf8d74bde426c35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865637"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385118"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudier: Visa misslyckas över och skalning av behållartjänster med Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudier: Demonstrera redundans och skalning av behållar tjänster med Service Fabric
 
 Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-containerprogram. Du får också lära dig att skala containrar. I den här kursen för du göra följande:
 
@@ -31,7 +31,7 @@ Den här självstudiekursen är den tredje delen i en serie. I den här självst
 > * Läs om att redundansväxla en container i ett Service Fabric-kluster
 > * Skala webbklientcontainrar i ett program
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Programmet från [Del 2](service-fabric-tutorial-package-containers.md) körs som ett aktivt Service Fabric-kluster.
 

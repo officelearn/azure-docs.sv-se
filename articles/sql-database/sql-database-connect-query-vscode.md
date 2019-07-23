@@ -106,7 +106,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta.
 
-   | Egenskap        | Föreslaget värde | Beskrivning |
+   | Egenskap       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |

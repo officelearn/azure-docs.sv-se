@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306769"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385224"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
@@ -41,7 +41,7 @@ I den här självstudieserien får du lära du dig att:
 > * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Kör först den **az-inloggning** kommando för att logga in på ditt Azure-konto.
+Kör först kommandot **AZ login** för att logga in på ditt Azure-konto.
 
 ```bash
 az login
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 I resten av den här självstudien använder vi acrName som platshållare för det containerregisternamn du väljer. Skriv ned det här värdet.
 
-## <a name="sign-in-to-your-container-registry"></a>Logga in på ditt behållarregister
+## <a name="sign-in-to-your-container-registry"></a>Logga in på ditt behållar register
 
-Logga in på din ACR-instans innan du push-överför avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
+Logga in på din ACR-instans innan du skickar avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```bash
 az acr login --name <acrName>

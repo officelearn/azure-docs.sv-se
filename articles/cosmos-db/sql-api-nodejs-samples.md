@@ -5,14 +5,14 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/24/2018
+ms.date: 07/23/2019
 ms.author: dech
-ms.openlocfilehash: d6d3de435537e5e55783f69dfd1dde0fbf8cb26e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 640f6a12f3df1bb8ded69c66eda3b307e6bdb74c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806443"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384872"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js-exempel
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ Du behöver även [JavaScript SDK](sql-api-sdk-node.md).
    > 
 
 ## <a name="database-examples"></a>Databasexempel
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) i projektet [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) visar hur du utför följande uppgifter. Läs mer om Azure Cosmos-databaserna innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
+Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) i projektet [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) visar hur du utför följande uppgifter. Information om Azure Cosmos-databaser innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel. 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en databas om den inte finns](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L35-L37) |[Databases.createIfNotExists](https://docs.microsoft.com/javascript/api/%40azure/cosmos/databases?view=azure-node-latest) |
 | [Lista databaser för ett konto](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L40-L42) |[Databases.readAll](https://docs.microsoft.com/javascript/api/%40azure/cosmos/databases?view=azure-node-latest) |
@@ -56,9 +56,9 @@ Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Data
 | [Ta bort en databas](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L57-L60) |[Database.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/database?view=azure-node-latest) |
 
 ## <a name="container-examples"></a>Containerexempel
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) i projektet [ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) visar hur du utför följande uppgifter. Läs om Azure Cosmos-samlingar innan du kör följande exempel i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
+Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) i projektet [ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) visar hur du utför följande uppgifter. Mer information om Azure Cosmos-samlingarna innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel. 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en container om den inte finns](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L36-L37) |[Containers.createIfNotExists](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest) |
 | [Lista containrar för ett konto](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L36-L37) |[Containers.readAll](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest) |
@@ -66,9 +66,9 @@ Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Cont
 | [Ta bort en container](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L54-L55) |[Container.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/container?view=azure-node-latest) |
 
 ## <a name="item-examples"></a>Objektexempel
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) i projektet [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) visar hur du utför följande uppgifter. Läs mer om Azure Cosmos-dokument innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
+Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) i projektet [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) visar hur du utför följande uppgifter. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel. 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa objekt](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L49-L56) |[Items.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest) |
 | [Läsa alla objekt i en container](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L59-L64) |[Items.readAll](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest) |
@@ -80,9 +80,9 @@ Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Item
 | [Ta bort ett objekt](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L162-L164) |[Item.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest) |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) i projektet [IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) visar hur du utför följande uppgifter.  Läs mer om indexering i Azure Cosmos DB innan du kör följande exempel, i [indexeringsprinciper](index-policy.md), [indexering typer](index-types.md), och [indexering sökvägar](index-paths.md) konceptuella artiklar. 
+Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) i projektet [IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) visar hur du utför följande uppgifter.  Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-types.md)och [indexerings Sök vägar](index-paths.md) konceptuella artiklar. 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Indexera ett visst dokument manuellt](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L135-L177) |[RequestOptions.indexingDirective: 'include'](https://docs.microsoft.com/javascript/api/%40azure/cosmos/requestoptions?view=azure-node-latest#indexingdirective) |
 | [Exkludera ett visst dokument från indexet manuellt](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L90-L131) |[RequestOptions.indexingDirective: 'exclude'](https://docs.microsoft.com/javascript/api/%40azure/cosmos/requestoptions?view=azure-node-latest#indexingdirective) |
@@ -93,9 +93,9 @@ Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Inde
 | [Skapa en container med standardindexpolicy och uppdatera den sedan online](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest)
 
 ## <a name="server-side-programming-examples"></a>Programmeringsexempel på serversidan
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) i projektet [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) visar hur du utför följande uppgifter. Läs mer om programmering av serversidan i Azure Cosmos DB innan du kör följande exempel, i [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md) konceptuella artikeln. 
+Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) i projektet [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) visar hur du utför följande uppgifter. Mer information om programmering på Server sidan i Azure Cosmos DB innan du kör följande exempel finns i avsnittet [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md) konceptuell artikel. 
 
-| Aktivitet | API-referens |
+| Uppgift | API-referens |
 | --- | --- |
 | [Skapa en lagrad procedur](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/JS/upsert.js#L12-L72) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
 | [Köra en lagrad procedur](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/app.js#L44) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest) |

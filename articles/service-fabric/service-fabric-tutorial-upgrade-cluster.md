@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 187b1f760ca1e37da55f4d41b62334830043e592
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306681"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384953"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudier: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
-Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric-körningen på ett Azure Service Fabric-kluster. Den här delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric kluster.
+Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric runtime på ett Azure Service Fabric-kluster. Den här själv studie kursen är skriven för Service Fabric kluster som körs på Azure och som inte gäller för fristående Service Fabric-kluster.
 
 > [!WARNING]
 > För den delen av kursen krävs PowerShell. Stöd för uppgradering av klusterkörning finns inte i Azure CLI-verktygen ännu. Ett kluster kan också uppgraderas på portalen. Mer information finns i [Uppgradera till ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md).
 
-Om klustret redan körs senaste Service Fabric-körningen, behöver du inte utför det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
+Om klustret redan kör den senaste Service Fabric körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
 I den här guiden får du lära dig att:
 
@@ -53,11 +53,11 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
-* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure development**, **ASP.NET och webbutveckling**, och **.NET Core plattformsoberoende utveckling**arbetsbelastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling**, **ASP.net och webb utveckling**, och **.net Core plattforms oberoende utvecklings** arbets belastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
-### <a name="sign-in-to-azure"></a>Logga in till Azure
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Hämta körningsversion
 
-När du har anslutit till Azure, har valt prenumerationen som innehåller Service Fabric-kluster, kan du hämta körningsversionen av klustret.
+När du har anslutit till Azure, valt den prenumeration som innehåller Service Fabric klustret, kan du hämta kör tids versionen av klustret.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Alternativt kan du bara hämta en lista över alla kluster i din prenumeration med följande exempel:
+Eller så får du bara en lista över alla kluster i din prenumeration med följande exempel:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion

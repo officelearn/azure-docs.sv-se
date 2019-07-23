@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a54ec7349317fdd8621fecec57cb06ad98f4660b
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306740"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385035"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudier: Paketera och distribuera containrar som ett Service Fabric-program med hjälp av Yeoman
 
@@ -35,7 +35,7 @@ Den här självstudien är del två i en serie. I den här självstudien använd
 > * Distribuera och köra programmet
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
 * [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.
@@ -122,7 +122,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Service Fabric behöver autentiseringsuppgifter för att hämta behållaravbildningar från Azure Container Registry. Dessa anges i **ApplicationManifest.xml**.
 
-Logga in på ACR-instansen. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
+Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```bash
 az acr login --name <acrName>
@@ -282,11 +282,11 @@ Använd installationsskriptet som medföljer i katalogen **TestContainer** för 
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer på http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
+Öppna en webbläsare och gå till Service Fabric Explorer vid http:\//containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
 
 ![Service Fabric Explorer][sfx]
 
-För att ansluta till programmet som körs, öppna en webbläsare och gå till klustrets webbadress – till exempel http:\//containertestcluster.eastus.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
+Öppna en webbläsare och gå till klustrets URL – till exempel http:\//containertestcluster.eastus.cloudapp.Azure.com:80 för att ansluta till det program som körs. Röstningsprogrammet ska visas i webbläsaren.
 
 ![röstningsapp][votingapp]
 

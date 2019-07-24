@@ -1,7 +1,7 @@
 ---
-title: Definiera anpassade automatiska förslag förslag – Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Beskriver hur du konfigurerar anpassade automatiska förslag med egna förslag
+title: Definiera anpassade förslag för automatiska förslag – Anpassad sökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Beskriver hur du konfigurerar anpassade automatiska förslag med anpassade förslag
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,68 +10,68 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128965"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405098"
 ---
-# <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslag
+# <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslags upplevelse
 
-Anpassade automatiska förslag returnerar en lista över föreslagna search frågesträngar som är relevanta för din sökupplevelse. Föreslagna frågesträngar baseras på en partiell frågesträng som användaren anger i sökrutan. Listan innehåller högst 10 förslag. 
+Anpassad automatiska förslag returnerar en lista med föreslagna Sök frågesträngar som är relevanta för din Sök funktion. De föreslagna frågesträngarna baseras på en partiell frågesträng som användaren anger i sökrutan. Listan får innehålla högst 10 förslag. 
 
-Du anger om du vill returnera endast anpassade förslag eller också ska omfatta Bing förslag. Om du inkluderar förslag i Bing, visas anpassade förslag innan förslag för Bing. Om du ger tillräckligt med relevanta förslag så är det möjligt att den returnerade listan med förslag som inte innehåller förslag för Bing. Förslag i Bing är alltid i samband med din anpassade Sökinstans. 
+Du anger om du bara vill returnera anpassade förslag eller om du även vill inkludera Bing-förslag. Om du inkluderar Bing-förslag visas anpassade förslag före Bing-förslagen. Om du tillhandahåller tillräckligt med förslag, är det möjligt att den returnerade listan över förslag inte innehåller Bing-förslag. Bing-förslag är alltid i kontexten för din anpassade Sök instans. 
 
-Om du vill konfigurera frågan sökförslag för din instans, klickar du på den **automatiska förslag** fliken.  
+Klicka på fliken **föreslå** automatiskt om du vill konfigurera Sök fråge förslag för din instans.  
 
 > [!NOTE]
-> Om du vill använda den här funktionen måste du prenumerera Custom Search på lämplig nivå (se [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
+> Om du vill använda den här funktionen måste du prenumerera på Anpassad sökning på rätt nivå (se [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
 
-Det kan ta upp till 24 timmar innan förslag återspeglas i betjänar slutpunkt (API: et eller värdbaserade UI).
+Det kan ta upp till 24 timmar innan förslag visas i den betjäna slut punkten (API eller värdbaserat gränssnitt).
 
-## <a name="enable-bing-suggestions"></a>Aktivera förslag för Bing
+## <a name="enable-bing-suggestions"></a>Aktivera Bing-förslag
 
-Om du vill aktivera förslag i Bing, växlar den **automatisk Bing förslag** skjutreglaget till aktivt läge. Skjutreglaget blir blå.
+Aktivera Bing-förslag genom att växla skjutreglaget för **Automatisk Bing-förslag** till på plats. Skjutreglaget blir blått.
 
-## <a name="add-your-own-suggestions"></a>Lägga till egna förslag
+## <a name="add-your-own-suggestions"></a>Lägg till egna förslag
 
-Om du vill lägga till en egen sträng frågeförslag, lägga till dem i listan under **användardefinierade förslag**. Tryck på RETUR-tangenten när du lägger till ett förslag i listan eller klicka på den **+** ikon. Du kan ange förslaget på valfritt språk. Du kan lägga till upp till 5 000 frågeförslag sträng.
+Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten **+** eller på ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
 
 ## <a name="upload-suggestions"></a>Ladda upp förslag
 
-Du kan också ladda upp en lista med förslag från en fil. Filen måste innehålla en frågesträng för sökning per rad. Om du vill ladda upp filen, klickar du på ikonen ladda upp och välj filen som ska överföras. Tjänsten extraherar förslagen från filen och lägger till dem i listan.
+Som ett alternativ kan du ladda upp en lista med förslag från en fil. Filen måste innehålla en Sök frågesträng per rad. Överför filen genom att klicka på ikonen Ladda upp och markera den fil som ska laddas upp. Tjänsten extraherar förslagen från filen och lägger till dem i listan.
 
 ## <a name="remove-suggestions"></a>Ta bort förslag
 
-Klicka på ikonen bredvid förslag som du vill ta bort för att ta bort en fråga sträng förslag.
+Om du vill ta bort ett fråge Strängs förslag klickar du på ikonen Ta bort bredvid förslaget som du vill ta bort.
 
 ## <a name="block-suggestions"></a>Blockera förslag
 
-Om du inkluderar förslag i Bing, kan du lägga till en lista över search frågesträngar som du inte vill att Bing ska returneras. Lägg till blockerade frågesträngar, klicka på **Show blockeras förslag**. Lägg till frågesträngen i listan och tryck på RETUR eller klicka på den **+** ikon. Du kan lägga till upp till 50 blockerade frågesträngar.
+Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strängar som du inte vill att Bing ska returnera. Om du vill lägga till blockerade frågesträngar klickar du på **Visa blockerade förslag**. Lägg till frågesträngen i listan och tryck på RETUR eller klicka på **+** ikonen. Du kan lägga till högst 50 blockerade frågesträngar.
 
 
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
->Det kan ta upp till 24 timmar för anpassade automatiska förslag konfigurationsändringarna ska börja gälla.
+>Det kan ta upp till 24 timmar innan anpassade automatiska förslag på konfigurations ändringar börjar gälla.
 
 
-## <a name="enabling-autosuggest-in-hosted-ui"></a>Aktivera automatiska förslag i Användargränssnittet för installation
+## <a name="enabling-autosuggest-in-hosted-ui"></a>Aktivera automatiska förslag i värdbaserade gränssnitt
 
-Om du vill aktivera frågeförslag sträng för värdbaserade Användargränssnittet, klickar du på **finns Användargränssnittet**. Rulla ned till den **ytterligare konfiguration** avsnittet. Under **webbsökning**väljer **på** för **aktivera automatiska förslag i**. Om du vill aktivera automatiska förslag, måste du välja en layout som innehåller en sökruta.
+Om du vill aktivera fråge Strängs förslag för ditt värdbaserade användar gränssnitt klickar du på **VÄRDBASERAD gränssnitt**. Rulla ned till avsnittet **ytterligare konfiguration** . Under **Webbs ökning**väljer du **på** för **Aktivera automatiska förslag**. Om du vill aktivera automatiska förslag måste du välja en layout som innehåller en sökruta.
 
 
-## <a name="calling-the-autosuggest-api"></a>Anropa de API: et för automatiska förslag
+## <a name="calling-the-autosuggest-api"></a>Anropar API: et för automatiska förslag
 
-För att få föreslagna frågesträngar med hjälp av API: et för Bing Custom Search kan skicka en `GET` begäran till följande slutpunkt.
+Skicka en `GET` begäran till följande slut punkt för att få förslag på frågesträngar med hjälp av API för anpassad Bing-sökning.
 
 ```
 GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions 
 ```
 
-Svaret innehåller en lista över `SearchAction` objekt som innehåller de föreslagna frågesträngarna.
+Svaret innehåller en lista med `SearchAction` objekt som innehåller de föreslagna frågesträngarna.
 
 ```
         {  
@@ -81,13 +81,13 @@ Svaret innehåller en lista över `SearchAction` objekt som innehåller de före
         },  
 ```
 
-Varje förslag innehåller en `displayText` och `query` fält. Den `displayText` fältet innehåller föreslagna frågesträngen som används för att fylla i listrutan för din Sök-rutan.
+Varje förslag innehåller `displayText` fältet och `query` . `displayText` Fältet innehåller den föreslagna frågesträngen som du använder för att fylla i Sök rutans listruta.
 
-Om användaren väljer en föreslagna frågesträng från den nedrullningsbara listan, använda frågesträngen i den `query` fältet när du anropar den [Bing Custom Search API](overview.md).
+Om användaren väljer en föreslagen frågesträng från List rutan använder du frågesträngen i `query` fältet när du anropar [API för anpassad Bing-sökning](overview.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Få anpassade förslag](./get-custom-suggestions.md)
-- [Sök efter din anpassade instans](./search-your-custom-view.md)
-- [Konfigurera och använda anpassade värdbaserade UI](./hosted-ui.md)
+- [Hämta anpassade förslag](./get-custom-suggestions.md)
+- [Sök i den anpassade instansen](./search-your-custom-view.md)
+- [Konfigurera och använda anpassat värdbaserade gränssnitt](./hosted-ui.md)

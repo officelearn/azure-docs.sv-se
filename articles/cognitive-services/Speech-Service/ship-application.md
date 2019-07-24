@@ -3,20 +3,20 @@ title: Utveckla appar med tal SDK – Speech Services
 titleSuffix: Azure Cognitive Services
 description: 'Lär dig skapa appar med SDK: N för tal.'
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8fc27002af4ebef0825b23c806cfedbe7adf9642
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604849"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404825"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 
@@ -28,7 +28,7 @@ Beroende på vilken plattform finns olika beroenden för att köra ditt program.
 
 Cognitive Services tal SDK har testats på Windows 10 och Windows Server 2016.
 
-Cognitive Services tal SDK kräver den [Microsoft Visual C++ Redistributable för Visual Studio-2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i systemet. Du kan hämta installationsprogram för den senaste versionen av den `Microsoft Visual C++ Redistributable for Visual Studio 2019` här:
+Cognitive Services Speech SDK kräver [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i systemet. Du kan hämta installationsprogram för den senaste versionen av den `Microsoft Visual C++ Redistributable for Visual Studio 2019` här:
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -45,29 +45,29 @@ De tal SDK-filerna som krävs kan distribueras i samma katalog som ditt program.
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | krävs för hanterad distribution
 
 >[!NOTE]
-> Från och med 1.3.0 filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levereras i tidigare versioner) behövs inte längre. Funktionerna är nu integrerat i core SDK.
+> Från och med versionen av 1.3.0 behövs `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` inte längre filen (levererades i tidigare versioner). Funktionerna är nu integrerade i Core SDK.
 
 >[!NOTE]
-> För Windows Forms-App (.NET Framework) C# projektet bör du kontrollera att bibliotek som ingår i ditt projekt distributionsinställningar. Du kan kontrollera detta under `Properties -> Publish Section`. Klicka på den `Application Files` knappen och hitta motsvarande bibliotek från Bläddra nedåt listan. Kontrollera att värdet anges till `Included`. Visual Studio innehåller filen när projektet är publicerade/distribuerade.
+> För .NET Framework-projektet (Windows Forms app C# ) ser du till att biblioteken ingår i projektets distributions inställningar. Du kan kontrol lera detta `Properties -> Publish Section`under. Klicka på `Application Files` knappen och hitta motsvarande bibliotek i listan rulla nedåt. Kontrol lera att värdet är inställt på `Included`. Visual Studio kommer att inkludera filen när projektet publiceras/distribueras.
 
 ## <a name="linux"></a>Linux
 
-Tal-SDK stöder för närvarande Ubuntu 16.04 och Ubuntu 18.04 Debian 9-distributioner.
+Talet SDK stöder för närvarande Ubuntu 16,04-, Ubuntu 18,04-och Debian 9-distributioner.
 För ett internt program, måste du skicka tal SDK-biblioteket `libMicrosoft.CognitiveServices.Speech.core.so`.
 Kontrollera att du väljer den versionen (x86, x64) som matchar ditt program. Beroende på Linux-version kan behöva du också omfattar följande beroenden:
 
 * Delade bibliotek av GNU C-bibliotek (inklusive POSIX trådar Programming-biblioteket `libpthreads`)
-* OpenSSL-bibliotek (`libssl.so.1.0.0` eller `libssl.so.1.0.2`)
+* OpenSSL-biblioteket (`libssl.so.1.0.0` eller `libssl.so.1.0.2`)
 * Det delade biblioteket för ALSA program (`libasound.so.2`)
 
-I Ubuntu bör GNU C-bibliotek vara installerad som standard. Tre senaste kan installeras med hjälp av följande kommandon:
+På Ubuntu bör GNU C-biblioteken redan installeras som standard. Tre senaste kan installeras med hjälp av följande kommandon:
 
 ```sh
 sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-Installera dessa paket på Debian 9:
+Installera följande paket på Debian 9:
 
 ```sh
 sudo apt-get update

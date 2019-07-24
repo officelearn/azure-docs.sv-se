@@ -1,7 +1,7 @@
 ---
-title: Bläddrar igenom tillgängliga webbsidor – Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Visar hur du bläddra igenom alla webbsidor som Bing Custom Search kan returnera.
+title: Sida via tillgängliga webb sidor – Anpassad sökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Visar hur du kan gå igenom alla webb sidor som Anpassad sökning i Bing kan returnera.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 3c1bf9c6f2c1b38b9cf9729b769c9198da56147a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13b4cef624c636b8935897338badf3349f27c7f5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388591"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405041"
 ---
-# <a name="paging-webpages"></a>Växling webbsidor 
+# <a name="paging-webpages"></a>Sid indelning för webb sidor 
 
-När du anropar API: et för anpassad sökning i Bing returnerar en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#totalestimatedmatches) fält.  
+När du anropar API för anpassad sökning returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#totalestimatedmatches) -fält.  
   
-I följande exempel visas den `totalEstimatedMatches` fält som innehåller en Web-svar.  
+I följande exempel visas `totalEstimatedMatches` fältet som ett webb svar innehåller.  
   
 ```  
 {
@@ -34,15 +34,15 @@ I följande exempel visas den `totalEstimatedMatches` fält som innehåller en W
 }  
 ```  
   
-Om du vill bläddra igenom tillgängliga webbsidor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#offset) Frågeparametrar.  
+Om du vill bläddra igenom de tillgängliga webb sidorna använder du parametrarna [Count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#offset) Query.  
   
-Den `count` parametern anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 50. Standardvärdet är 10. Det faktiska talet som levereras kan vara mindre än vad som begärts.
+`count` Parametern anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 50. Standardvärdet är 10. Det faktiska antalet som levereras kan vara mindre än begärt.
 
-Den `offset` parametern anger antalet resultat som hoppas över. Den `offset` är nollbaserat och måste vara mindre än (`totalEstimatedMatches` - `count`).  
+`offset` Parametern anger antalet resultat som ska hoppas över. Är noll-baserat och måste vara mindre än - (`count``totalEstimatedMatches`). `offset`  
   
-Om du vill visa 15 webbsidor per sida, skulle du ställa in `count` till 15 och `offset` på 0 för att hämta den första sidan i resultaten. För varje efterföljande sida du vill öka `offset` av 15 (till exempel 15, 30).  
+Om du vill visa 15 webb sidor per sida, anger `count` du till 15 och `offset` 0 för att få den första resultat sidan. För varje efterföljande sida ökar `offset` du med 15 (till exempel 15, 30).  
   
-Nedan visas ett exempel som begär 15 webbsidor som börjar vid förskjutningen 45.  
+Följande visar ett exempel som begär 15 webb sidor som börjar vid förskjutningen 45.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
@@ -50,7 +50,7 @@ Ocp-Apim-Subscription-Key: <subscription ID>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Om standard `count` värdet som passar din implementering, behöver du bara ange den `offset` frågeparameter.  
+Om standardvärdet fungerar för din implementering behöver du bara `offset` ange Frågeparametern. `count`  
   
 ```  
 GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
@@ -59,5 +59,5 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 
+> `TotalEstimatedAnswers` Fältet är en uppskattning av det totala antalet Sök resultat som du kan hämta för den aktuella frågan.  När du ställer `count` in `offset` och parametrar `TotalEstimatedAnswers` kan antalet ändras. 
 

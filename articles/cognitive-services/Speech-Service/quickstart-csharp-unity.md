@@ -3,23 +3,23 @@ title: 'Snabbstart: Taligenkänning, Unity – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden till att skapa ett tal till text-program med Unity och Speech SDK för Unity (betaversion). När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: b55c6535184a905790f575b98c1b5a60a83f5daf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 425cacb22865e64a996c653477120a5f7f410c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606391"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405932"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
 
-Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-csharp-unity.md).
+Snabb Starter är också tillgängliga för [text till tal](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,15 +29,15 @@ Om du inte är bekant med Unity rekommenderar vi att du läser [användarhandbok
 
 > [!NOTE]
 > Speech SDK för Unity är för närvarande i betaversion.
-> Den stöder Windows-skrivbordet (x86 och x64) eller Universal Windows Platform (x86, x64, ARM/ARM64) och Android (x86 ARM32/64).
+> Det stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64) och Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 
-* [Unity 2018.3 eller senare](https://store.unity.com/) med [Unity 2019.1 lägger till stöd för UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
+* [2018,3 eller senare](https://store.unity.com/) med [Unity 2019,1 lägga till stöd för UWP-arm64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * ARM64-support, installera den [valfria verktyg för ARM64 och SDK för Windows 10 för ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
+     * För ARM64-support installerar du de [valfria build-verktygen för arm64 och Windows 10 SDK för arm64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * En prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 * Åtkomst till datorns mikrofon.
 
@@ -66,12 +66,12 @@ För att slutföra det här projektet behöver du:
 Vi lägger till ett minimalt användargränssnitt i scenen som består av en knapp för att utlösa taligenkänning och ett textfält för att visa resultatet.
 
 * I [hierarkifönstret](https://docs.unity3d.com/Manual/Hierarchy.html) (som standard finns till vänster) visas en exempelscen som Unity skapade med det nya projektet.
-* Klicka på den **skapa** överst i fönstret hierarkin och välj **UI** > **knappen**.
+* Klicka på knappen **skapa** längst upp i fönstret hierarki och välj **UI** > -**knappen**.
 * Detta skapar tre spelobjekt som visas i hierarkifönstret: ett **knappobjekt** som är kapslat i ett **arbetsyteobjekt** samt ett **EventSystem**-objekt.
-* [Navigera-scen vyn](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en bra överblick över arbetsytan och knappen i den [scen visa](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* [Navigera i vyn scen](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en lämplig vy över arbets ytan och knappen i [vyn scen](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Klicka på **knappobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna **Pos X** och **Pos Y** till **0** så att knappen centreras i mitten av arbetsytan.
-* Klicka på den **skapa** överst i fönstret hierarki igen och välj **UI** > **Text** att skapa ett textfält.
+* Klicka på knappen **skapa** överst i hierarkifönstret igen och välj **UI** > -**text** för att skapa ett textfält.
 * Klicka på **textobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna **Pos X** och **Pos Y** till **0** respektive **120**, och ange egenskaperna **Bredd** och **Höjd** till **240** respektive **120** så att textfältet och knappen inte överlappar.
 
@@ -92,7 +92,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Leta upp och ersätta strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
+1. Leta upp och ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster.
 
 1. Leta upp och ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
@@ -100,7 +100,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 1. När du är tillbaka i Unity Editor måste skriptet läggas till som en komponent i ett av spelobjekten.
 
-   * Klicka på **arbetsyteobjektet** i hierarkifönstret. Detta öppnar inställningen i den [Inspector fönstret](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger).
+   * Klicka på **arbetsyteobjektet** i hierarkifönstret. Då öppnas inställningen i [fönstret kontrollant](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger).
    * Klicka på knappen **Lägg till komponent** i fönstret Inspector (Inspektör) och sök sedan efter det HelloWorld-skript som vi skapade ovan och lägg till det.
    * Observera att Hello World-komponenten har två oinitierade egenskaper, **Output Text** (Utdatatext) och **Start Reco Button** (Knappen Börja spela in), som matchar offentliga egenskaper i klassen `HelloWorld`.
      För att koppla dem klickar du på objektväljaren (den lilla cirkelikonen till höger om egenskapen) och väljer de textobjekt och knappobjekt som du skapade tidigare.
@@ -112,7 +112,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 * Tryck på knappen **Play** (Spela upp) i verktygsfältet i Unity Editor (under menyraden).
 
-* När appen har startats klickar du på knappen och talar in en fras eller mening på engelska i datorns mikrofon. Ditt tal överförs till Speech Services och transkriberas till text som visas i fönstret.
+* När appen har startats klickar du på knappen och talar in en fras eller mening på engelska i datorns mikrofon. Ditt tal överförs till tal tjänsterna och skrivs till text, som visas i fönstret.
 
   [![Skärmbild med den snabbstart som körs i Unity-spelfönstret](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

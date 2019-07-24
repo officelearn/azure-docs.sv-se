@@ -1,25 +1,25 @@
 ---
 title: Felsöka tal SDK – Speech Services
 titleSuffix: Azure Cognitive Services
-description: 'Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK: N för tal.'
+description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal-SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 8682cd8b91d17b16a56e401661856e141ac5f0c1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 99cb23afcdb40f74485a7dcec34435a46d0e7476
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606239"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405903"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Felsöka Speech SDK
 
-Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK: N för tal.
+Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal-SDK.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fel: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel (403)
 
@@ -27,7 +27,7 @@ Du kanske fel slutpunkten för din region eller tjänst. Kontrollera URI för at
 
 Dessutom det kan finnas ett problem med din prenumerationsnyckel eller auktorisering token. Mer information finns i nästa avsnitt.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 – förbjuden eller HTTP 401 Ej behörig
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 förbud eller HTTP 401 obehörig
 
 Det här felet orsakas ofta av problem med autentisering. Anslutningsförfrågningar utan ett giltigt `Ocp-Apim-Subscription-Key` eller `Authorization` rubrik avvisas med status 403 eller 401.
 
@@ -66,7 +66,7 @@ Du kan kontrollera att du har en giltig prenumerationsnyckel genom att köra ett
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-Om du har angett en giltig prenumerationsnyckel kommandot returnerar en autentiseringstoken, annars returneras ett fel.
+Om du har angett en giltig prenumerations nyckel returnerar kommandot en autentiseringstoken, annars returneras ett fel.
 
 ### <a name="validate-an-authorization-token"></a>Validera en autentiseringstoken
 
@@ -103,7 +103,7 @@ Om du använder en Autentiseringstoken för autentisering, kör du något av fö
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
-Om du har angett en giltig auktoriseringstoken returnerar kommandot avskrift ljud-filen, annars returneras ett fel.
+Om du har angett en giltig autentiseringstoken returnerar kommandot avskriften för ljud filen, annars returneras ett fel.
 
 ---
 
@@ -111,7 +111,7 @@ Om du har angett en giltig auktoriseringstoken returnerar kommandot avskrift lju
 
 Det här felet uppstår vanligen när begärandetexten innehåller ogiltigt ljuddata. Endast WAV formatet stöds. Kontrollera också begärandehuvuden för att se till att du kan ange lämpliga värden för `Content-Type` och `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fel: HTTP 408 Request Timeout
+## <a name="error-http-408-request-timeout"></a>Fel: Timeout för HTTP 408-begäran
 
 Felet sannolikt beror på att inga ljuddata som skickas till tjänsten. Det här felet kan också orsakas av nätverksproblem.
 

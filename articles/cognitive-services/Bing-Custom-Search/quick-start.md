@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa en första instans för anpassad sökning i Bing | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln för att skapa en anpassad Bing-instans som kan söka i domäner och webbplatser som du definierar.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 6949824f598194456837544526223b823dcfc3e5
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2806ca6f7079ffac3d2222363cd5b3839ef8f97d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273342"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405027"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Snabbstart: Skapa din första instans för anpassad sökning i Bing
 
@@ -25,7 +25,7 @@ Använd [portalen för anpassad sökning i Bing](https://customsearch.ai) för a
 
 ![En bild av portalen för anpassad sökning i Bing](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
@@ -46,7 +46,7 @@ Så här skapar du en instans för anpassad sökning i Bing:
 
 5. Klicka på **Publicera** för att publicera ändringarna till produktionsmiljön, och uppdatera instansens slutpunkter.
 
-6.  Klicka på den **produktion** fliken **slutpunkter**, och kopiera din **anpassad konfigurations-ID**. Du behöver detta ID för att anropa API:et för anpassad sökning genom att lägga till det till frågeparametern `customconfig=` i dina anrop.
+6.  Klicka på fliken **produktion** under **slut punkter**och kopiera ditt **anpassade konfigurations-ID**. Du behöver detta ID för att anropa API:et för anpassad sökning genom att lägga till det till frågeparametern `customconfig=` i dina anrop.
 
 
 ## <a name="next-steps"></a>Nästa steg

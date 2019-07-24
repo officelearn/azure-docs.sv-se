@@ -1,7 +1,7 @@
 ---
-title: Konfigurera en värdbaserad Användargränssnittet för anpassad sökning i Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: Använd den här artikeln för att konfigurera och integrera en värdbaserad Användargränssnittet för anpassad sökning i Bing.
+title: Konfigurera ett värdbaserat användar gränssnitt för Anpassad sökning i Bing | Microsoft Docs
+titleSuffix: Azure Cognitive Services
+description: Använd den här artikeln för att konfigurera och integrera ett värdbaserad gränssnitt för Anpassad sökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae073e10331f07d9863da1d4ed97533f95b87c86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386757"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405062"
 ---
-# <a name="configure-your-hosted-ui-experience"></a>Konfigurera din värdbaserade användargränssnitt
+# <a name="configure-your-hosted-ui-experience"></a>Konfigurera den värdbaserade GRÄNSSNITTs upplevelsen
 
-Anpassad sökning i Bing tillhandahåller en värdbaserad Användargränssnittet som du kan enkelt integrera i dina webbsidor och web program som ett JavaScript-kodfragment. Du kan med hjälp av Bing Custom Search-portalen för att konfigurera layouten, färg och alternativ för sökning av Användargränssnittet.
+Anpassad sökning i Bing tillhandahåller ett värdbaserad gränssnitt som du enkelt kan integrera med dina webb sidor och webb program som ett JavaScript-kodfragment. Med hjälp av Anpassad sökning i Bing Portal kan du konfigurera alternativ för layout, färg och sökning i användar gränssnittet.
 
 
 
-## <a name="configure-the-custom-hosted-ui"></a>Konfigurera anpassade värdbaserade Användargränssnittet
+## <a name="configure-the-custom-hosted-ui"></a>Konfigurera det anpassade värdbaserade gränssnittet
 
-Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet för dina webbprogram. När du gör ändringar ger till höger dig en förhandsgranskning av Användargränssnittet. Visade sökresultaten är inte faktiska resultat för din instans.
+Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt för dina webb program. När du gör ändringar får du en förhands granskning av ditt användar gränssnitt i rutan till höger. De visade Sök resultaten är inte faktiska resultat för din instans.
 
-1. Logga in på Bing Custom Search [portal](https://customsearch.ai).  
+1. Logga in på Anpassad sökning i Bing [Portal](https://customsearch.ai).  
   
-2. Välj din Bing Custom Search-instans.
+2. Välj din Anpassad sökning i Bing-instans.
 
 3. Klicka på fliken för **värdbaserat användargränssnitt**.  
   
@@ -37,30 +37,30 @@ Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet f
 
     |  |  |
     |---------|---------|
-    |Sökfältet och resultat (standard)    | Visar en sökruta med sökresultat under den.         |
-    |Endast resultat     | Visar sökresultat, utan en sökruta. När du använder den här layouten, måste du ange sökfrågan (`&q=<query string>`). Lägg till fråga-parametern i fråge-URL i JavaScript-kodavsnitt eller HTML-slutpunkt-länk.        |
-    |POP-over     | Innehåller en sökruta och visar sökresultatet i ett glidande överlägg.        |
+    |Sökfält och resultat (standard)    | Visar en sökruta med Sök Resultat nedanför.         |
+    |Endast resultat     | Visar endast Sök resultat, utan en sökruta. När du använder den här layouten måste du ange Sök frågan`&q=<query string>`(). Lägg till frågeparametern i fråge-URL: en i JavaScript-kodfragmentet eller på HTML-slutpunktens länk.        |
+    |Popup-över     | Innehåller en sökruta och visar Sök resultatet i ett glidande överlägg.        |
     
-5. Välj ett färgtema. Du kan anpassa färger för att passa ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg, antingen ange färgvärde RGB HEX (till exempel `#366eb8`), eller klicka på förhandsversionen av färg.
+5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg anger du antingen RGB Hex-värdet (till exempel `#366eb8`) som färg eller klickar på förhands visningen av färg.
 
-   Du kan förhandsgranska dina ändringar på höger sida av portalen. Klicka på **Återställ till standard** återgår ändringarna till sidan för det valda temat.
+   Du kan förhandsgranska dina ändringar på höger sida av portalen. Om du klickar på **Återställ till standard** återställs dina ändringar till standard färgerna för det valda temat.
 
    > [!NOTE]
-   > Överväg att hjälpmedel när du väljer färger.
+   > Överväg åtkomst när du väljer färger.
 
-6. Under **ytterligare konfigurationer**, ange värden för din app. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. Tillgängliga alternativ är:  
+6. Under **ytterligare konfigurationer**anger du värden efter behov för din app. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. Tillgängliga konfigurations alternativ:  
 
-7. Ange prenumerationsnyckeln search eller välj en från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Ange Sök prenumerations nyckeln eller Välj en i list rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Se [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-8. Om du har aktiverat Automatiska förslag, ange prenumerationsnyckel för automatiska förslag eller välj någon från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Anpassade automatiska förslag kräver en viss prenumeration-nivå, finns i den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+8. Om du har aktiverat automatiska förslag anger du den automatiska förslags prenumerations nyckeln eller väljer en från List rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Anpassad automatiska förslag kräver en speciell prenumerations nivå, se [prissättningen](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
-## <a name="consume-custom-ui"></a>Använd anpassat gränssnitt
+## <a name="consume-custom-ui"></a>Använda anpassat användar gränssnitt
 
-Använda värdbaserad användargränssnitt, antingen: 
+Om du vill använda det värdbaserade gränssnittet kan du antingen: 
 
-- Inkludera skriptet i din webbsida  
+- Inkludera skriptet på din webb sida  
   
   ```html
   <html>
@@ -73,95 +73,95 @@ Använda värdbaserad användargränssnitt, antingen:
   </html>
   ```
 
-- Kan också använda följande URL i en webbläsare.   
+- Du kan också använda följande URL i en webbläsare.   
   
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Lägg till följande Frågeparametrar i URL: en efter behov. Information om dessa parametrar finns i [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) referens.
+  > Lägg till följande frågeparametrar i URL: en efter behov. Information om dessa parametrar finns [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) referens.
   >
   > - frågor och
   > - mkt
-  > - säker sökning
+  > - SafeSearch
   > - setlang
 
   > [!IMPORTANT]
-  > Sidan kan inte visa din sekretesspolicy eller andra meddelanden och villkor. Din lämplighet kan variera.  
+  > Sidan kan inte Visa din sekretess policy eller andra meddelanden och villkor. Lämpligheten för din användning kan variera.  
 
-För ytterligare information, inklusive anpassade konfigurations-ID går du till **slutpunkter** under den **produktion** fliken.
+Om du vill ha mer information, inklusive ditt anpassade konfigurations-ID, går du till **slut punkter** på fliken **produktion** .
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-Du kan konfigurera beteendet för värdbaserade Användargränssnittet genom att klicka på **ytterligare konfigurationer**, och att tillhandahålla värden. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. 
+Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klicka på **ytterligare konfigurationer**och ange värden. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. 
 
-### <a name="web-search-configurations"></a>Web sökkonfigurationer
+### <a name="web-search-configurations"></a>Konfigurationer för Webbs ökning
 
 |  |  |
 |---------|---------|
-|Webbresultat aktiverat    | Anger om webbsökning är aktiverad (du kommer se en Web-flik längst ned på sidan)        |
-|Aktivera automatiska förslag     | Anger om anpassade automatiska förslag är aktiverad (se [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) ytterligare kostnad).        |
-|Webbresultat per sida    | Antal webbsökningar att visa i taget (det högsta antalet är 50 resultat per sida).        |
-|Bildtext   | Avgör om avbildningar visas med sökresultat.|
+|Webb resultat har Aktiver ATS    | Anger om Webbs ökning är aktiverat (en webbflik visas längst upp på sidan)        |
+|Aktivera automatiska förslag     | Anger om anpassad autoföreslå har Aktiver ATS (se [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) för ytterligare kostnad).        |
+|Webb resultat per sida    | Antal Webbs öknings resultat som ska visas i taget (det högsta är 50 resultat per sida).        |
+|Bild text   | Anger om bilder visas med Sök resultat.|
 
 
-Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**:
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**:
 
 
 |  | |
 |---------|---------|
-|Markera ord     | Avgör om resultatet visas med sökvillkoren visas med fet stil.         |
-|Länkmål    |  Anger om webbsidan öppnas i en ny webbläsarflik (tomt) eller samma webbläsarfliken (själv) när användaren klickar på ett sökresultat.        |
+|Markera ord     | Anger om resultat visas med Sök termer i fetstil.         |
+|Länka mål    |  Anger om webb sidan öppnas i en ny flik i webbläsaren (tom) eller samma flik i webbläsaren (Self) när användaren klickar på ett Sök resultat.        |
 
-### <a name="image-search-configurations"></a>Bild sökkonfigurationer
+### <a name="image-search-configurations"></a>Konfigurationer för avbildnings sökning
 
 | | |
 |---------|---------|
-|Bildresultat aktiverat     | Anger om bildsökning är aktiverad (en avbildningar fliken visas överst på sidan).            |
-|Bildresultat per sida     | Antal bildsökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).          |
+|Bild resultat har Aktiver ATS     | Anger om bilds ökning är aktiverat (fliken bilder visas överst på sidan).            |
+|Bild resultat per sida     | Antal bilds öknings resultat som ska visas i taget (det högsta är 150 resultat per sida).          |
 
-Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
 | | |
 |---------|---------|
-| Aktivera filter     | Lägger till filter som användaren kan använda för att filtrera bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten för endast animerade GIF-filer.|
+| Aktivera filter     | Lägger till filter som användaren kan använda för att filtrera de bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten enbart för animerade GIF-filer.|
 
-### <a name="video-search-configurations"></a>Videosökning konfigurationer
+### <a name="video-search-configurations"></a>Konfigurationer för videos ökning
 
 |  | |
 |---------|---------|
-|Videoresultat aktiverat     | Anger om videosökning är aktiverad (en videor fliken visas överst på sidan).           |
-|Video resultat per sida   | Antal videosökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).        |
+|Video resultat har Aktiver ATS     | Anger om Videos ökning är aktiverat (du ser fliken videor överst på sidan).           |
+|Video resultat per sida   | Antal video Sök resultat som ska visas i taget (det högsta är 150 resultat per sida).        |
 
-Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
 |  | |
 |---------|---------|
-|Aktivera filter    | Lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en viss upplösning eller videofilmer som har identifierats under de senaste 24 timmarna.          |
+|Aktivera filter    | Lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en bestämd upplösning eller videor som identifierats under de senaste 24 timmarna.          |
 
-### <a name="miscellaneous-configurations"></a>Övriga konfigurationer
+### <a name="miscellaneous-configurations"></a>Diverse konfigurationer
 
 
 | |  |
 |---------|---------|
-|Sidrubrik   | Text som visas i avsnittet rubriken på sidan med sökresultat (inte för pop över layout).        |
-|Verktygsfältet tema    | Anger bakgrundsfärgen för rubrikområdet på sökresultatsidan. |
+|Sidtitel   | Text som visas i rubrik ytan på sidan Sök resultat (inte för popup-överlayout).        |
+|Verktygsfälts tema    | Anger bakgrunds färgen för rubrik ytan på Sök Resultat sidan. |
 
-Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**.  
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**.  
 
 |Kolumn1  |Kolumn2  |
 |---------|---------|
-|Sök textplatshållare   | Text som visas i Sök-rutan innan du börjar indata.        |
-|Rubrik länka url    |Mål för länken rubrik.         |
-|URL: en logotyp     | Bild som visas bredvid rubriken.         |
-|Favicon    | Ikonen som visas i namnlisten i webbläsaren.          |
+|Text plats hållare för sökruta   | Text som visas i sökrutan innan indatamängden.        |
+|Rubrik länkens URL    |Mål för rubrik länken.         |
+|URL för logo typ     | Bild som visas bredvid rubriken.         |
+|Favicon    | Ikon som visas i webbläsarens namn List.          |
 
-Följande konfigurationer gäller bara om du använder Användargränssnittet finns via HTML-slutpunkt (de inte gäller om du använder JavaScript-kodavsnitt).
+Följande konfigurationer gäller bara om du använder det värdbaserade användar gränssnittet via HTML-slutpunkten (de gäller inte om du använder JavaScript-kodfragmentet).
 
-- Sidrubrik
-- Verktygsfältet tema
-- Rubrik-URL för länk
-- URL: en logotyp
-- Faviicon URL  
+- Sidtitel
+- Verktygsfälts tema
+- Rubrik länkens URL
+- URL för logo typ
+- Faviicon-URL  
 
 ## <a name="next-steps"></a>Nästa steg
 

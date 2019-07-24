@@ -7,7 +7,6 @@
     - name: Ändringar i terminologi
       href: terminology.md
 - name: Snabbstarter
-  expanded: true
   items:
     - name: Program
       items:
@@ -96,9 +95,9 @@
           href: platform/personal-data-mgmt.md
         - name: 'Insamling, kvarhållning och lagring av programdata'
           href: app/data-retention-privacy.md
-    - name: Svara på incidenter
+    - name: Aviseringar
       items:
-        - name: Aviseringar
+        - name: Översikt
           href: platform/alerts-overview.md
         - name: Klassiska aviseringar
           href: platform/alerts-classic.overview.md
@@ -114,8 +113,6 @@
           href: platform/alerts-action-rules.md
         - name: Smarta grupper
           href: platform/alerts-smartgroups-overview.md
-        - name: Automatisk skalning
-          href: platform/autoscale-overview.md
         - name: Ändra analys
           href: app/change-analysis.md
     - name: Visualisera data
@@ -954,6 +951,8 @@
       items:
         - name: Automatisk skalning
           items:
+            - name: Översikt
+              href: platform/autoscale-overview.md
             - name: Genomgång
               href: platform/autoscale-get-started.md
             - name: Inställningar

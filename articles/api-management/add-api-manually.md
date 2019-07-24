@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0094364ed2e5d6c024f75a88db90eb703792f9f3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798480"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405844"
 ---
 # <a name="add-an-api-manually"></a>Lägga till ett API manuellt
 
-Stegen i den här artikeln visar hur du använder Azure-portalen för att manuellt lägga till ett API till API Management (APIM)-instans. Ett vanligt scenario när du vill skapa ett tomt API och definiera det manuellt är när du vill testa API:et. Mer information om att testa API:er finns i [Testa API-svar](mock-api-responses.md).
+Stegen i den här artikeln visar hur du använder Azure Portal för att lägga till ett API manuellt till API Management-instansen (APIM). Ett vanligt scenario när du vill skapa ett tomt API och definiera det manuellt är när du vill testa API:et. Mer information om att testa API:er finns i [Testa API-svar](mock-api-responses.md).
 
 Om du vill importera ett befintligt API, se avsnittet [relaterade ämnen](#related-topics).
 
 I den här artikeln, skapar vi ett tomt API och anger [httpbin.org](https://httpbin.org) (en offentlig testtjänst) som serverdels-API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -43,15 +43,14 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     ![Tomt API](media/add-api-manually/blank-api.png)
 4. Ange inställningarna för API:et.
 
-    ![Inställningar](media/add-api-manually/settings.png)
-
     |**Namn**|**Värde**|**Beskrivning**|
     |---|---|---|
-    |**Visningsnamn**|"*Tomt API*" |Det här namnet visas i Developer-portalen.|
-    |**Webbtjänst-URL** (valfritt)| " *https://httpbin.org* "| Om du vill testa ett API, kanske du inte skriver in något. <br/>I så fall kan vi ange [https://httpbin.org](https://httpbin.org). Detta är en offentlig testtjänst. <br/>Om du vill importera ett API som mappas till en serverdel automatiskt, se något av ämnena i avsnittet [relaterade ämnen](#related-topics).|
-    |**URL-schema**|*HTTPS*|I det här fallet anger vi en säker HTTPS APIM-åtkomst till serverdelen även om serverdelen har icke-säker HTTP-åtkomst. <br/>Den här typen av scenario (HTTPS till HTTP) kallas HTTPS-avslutning. Du kan göra det om ditt API finns inom ett virtuellt nätverk (där du vet att åtkomsten är säker, även om inte HTTPS används). <br/>Du kanske vilja använda HTTPS-avslutning för att spara på CPU-cykler.|
+    |**Visningsnamn**|*Tomt API*|Det här namnet visas i Developer-portalen.|
+    |**Namn**|*tomt API*|Tillhandahåller ett unikt namn för API:et.|
+    |**Webbtjänst-URL** (valfritt)|*https://httpbin.org*| Om du vill testa ett API, kanske du inte skriver in något. <br/>I så fall kan vi ange [https://httpbin.org](https://httpbin.org). Detta är en offentlig testtjänst. <br/>Om du vill importera ett API som mappas till en serverdel automatiskt, se något av ämnena i avsnittet [relaterade ämnen](#related-topics).|
+    |**URL-schema**|*HTTPs*|I det här fallet anger vi en säker HTTPS APIM-åtkomst till serverdelen även om serverdelen har icke-säker HTTP-åtkomst. <br/>Den här typen av scenario (HTTPS till HTTP) kallas HTTPS-avslutning. Du kan göra det om ditt API finns inom ett virtuellt nätverk (där du vet att åtkomsten är säker, även om inte HTTPS används). <br/>Du kanske vilja använda HTTPS-avslutning för att spara på CPU-cykler.|
     |**URL-suffix**|*hbin*| Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.|
-    |**Produkter**|"*Obegränsat*" |Du kan publicera API:et genom att associera det med en produkt. Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.<br/><br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/>Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/><br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**.| 
+    |**Produkter|*Obegränsat*|Du kan publicera API:et genom att associera det med en produkt. Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.<br/><br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/>Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/><br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**.| 
 5. Välj **Skapa**.
 
 För tillfället har du inga åtgärder i APIM som mappar till åtgärderna i ditt serverdels-API. Om du anropar en åtgärd som exponeras via serverdelen men inte via APIM, får du en **404**.

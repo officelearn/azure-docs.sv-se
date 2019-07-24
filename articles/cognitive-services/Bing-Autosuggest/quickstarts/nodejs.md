@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Node.js'
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt börja föreslå söktermer i realtid med automatiska förslag i Bing.
+title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js'
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a8782951baccd63d3087ef0628a8fca31b9a4bc1
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 47c91b1e089c491eb94cd37c0ee9710deaa0e59a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390395"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405304"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Node.js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js
 
-Använd den här snabbstarten ska börja göra anrop till API för automatiska förslag i Bing och hämta JSON-svar. Det här enkla Node.js-programmet skickar en partiell sökfråga till API: et och returnerar förslag på sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 
@@ -37,7 +37,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunkt-värd och sökväg, din prenumerationsnyckel [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), och en sökterm.
+2. Skapa variabler för API-slutpunktens värd och sökväg, din prenumerations nyckel, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökterm.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -52,13 +52,13 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga.
 
-1. Skapa en parametrar sträng för din fråga genom att lägga till marknaden kod till den `mkt=` parameter och din fråga för att den `q=` parametern.
+1. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga `q=` till parametern.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
     ```
 
-2. Skapa en funktion som heter `get_suggestions()`. Använda variabler i de sista stegen för att formatera en URL för API-begäran. Söktermen måste URL-kodas innan det skickas till API:et.
+2. Skapa en funktion som heter `get_suggestions()`. Använd variablerna från de senaste stegen för att formatera en Sök-URL för API-begäran. Söktermen måste URL-kodas innan det skickas till API:et.
 
     ```javascript
     let get_suggestions = function () {
@@ -74,7 +74,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     }
     ```
 
-    1. I samma funktion, använder du begäran-biblioteket för att skicka din fråga-API: et. `response_handler` definieras i nästa avsnitt.
+    1. I samma funktion använder du biblioteket för begäran för att skicka din fråga till API: et. `response_handler` definieras i nästa avsnitt.
     
         ```javascript
         //...
@@ -82,7 +82,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
         req.end();
         ```
 
-## <a name="create-a-search-handler"></a>Skapa en sökning-hanterare
+## <a name="create-a-search-handler"></a>Skapa en Sök hanterare
 
 1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som en parameter. Utför följande steg inom den här funktionen:
     
@@ -102,7 +102,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
         });
         ```
 
-    3. När en **slutet** flaggan signaleras användaren `JSON.parse()` och `JSON.stringify()` ska skrivas ut.
+    3. När en **slut** flagga signaleras, användare `JSON.parse()` och `JSON.stringify()` för att skriva ut svaret.
     
         ```javascript
         response.on ('end', function () {
@@ -115,7 +115,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
         });
         ```
 
-2. Anropa `get_suggestions()` att skicka begäran till den automatiska förslag i Bing.
+2. Anropa `get_suggestions()` för att skicka begäran till API för automatiska förslag i Bing.
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 

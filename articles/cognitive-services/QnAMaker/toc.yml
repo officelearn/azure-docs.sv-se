@@ -156,8 +156,8 @@
         - name: Tränings-API
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: faqs.md
+    - name: Felsökning
+      href: troubleshooting.md
     - name: Begränsningar
       href: limits.md
     - name: Ordlista

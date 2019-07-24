@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445514"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406011"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -58,7 +58,7 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 > 
 > Dokumentet innehåller länkar till en mall som kan skapa alla nödvändiga Azure-resurser. 
 >
-> Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i dokumentet [Utöka HDInsight med hjälp av ett virtuellt nätverk](hdinsight-extend-hadoop-virtual-network.md).
+> Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [planen ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md) -dokument.
 
 ## <a name="storm-and-kafka"></a>Storm och Kafka
 
@@ -79,7 +79,7 @@ Apache Storm tillhandahåller flera komponenter för att arbeta med Apache Kafka
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Mappar från tuppeldatastrukturen som används inuti Storm-topologin till fält som lagras i Kafka.
 
 Dessa komponenter är tillgängliga i `org.apache.storm : storm-kafka`-paketet. Använd den paketversion som matchar Storm-versionen. För HDInsight 3.6 är Storm-versionen 1.1.0.
-Du måste också ha `org.apache.kafka : kafka_2.10`-paketet som innehåller ytterligare Kafka-komponenter. Använd den paketversion som matchar Kafka-versionen. För HDInsight 3.6 är Kafka-version 1.1.1.
+Du måste också ha `org.apache.kafka : kafka_2.10`-paketet som innehåller ytterligare Kafka-komponenter. Använd den paketversion som matchar Kafka-versionen. För HDInsight 3,6 är Kafka-versionen 1.1.1.
 
 Följande XML är beroendedeklarationen i `pom.xml` för ett [Apache Maven](https://maven.apache.org/)-projekt:
 
@@ -128,7 +128,7 @@ Två topologier medföljer den här självstudien:
     >
     > Om du inte använder mallen i det här dokumentet för att skapa Storm-kluster, måste du tillämpa skriptåtgärden i klustret manuellt.
     >
-    > Skriptåtgärd finns på [ https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh ](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och denna tillämpas på övervakaren och nimbus-noder för Storm-kluster. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+    > Skript åtgärden finns i [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och tillämpas på noderna ansvariga och Nimbus i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
 
@@ -406,10 +406,10 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
    1. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-      | Inställning | Värde |
+      | Inställning | Value |
       | --- | --- |
-      | Prenumeration | Din Azure-prenumeration |
-      | Resursgrupp | Resursgruppen som innehåller resurserna. |
+      | Subscription | Din Azure-prenumeration |
+      | Resource group | Resursgruppen som innehåller resurserna. |
       | Location | Azure-regionen som resurserna skapas i. |
       | Kafka-klusternamn | Namnet på Kafka-klustret. |
       | Namn på Storm-kluster | Namnet på Storm-klustret. |
@@ -634,4 +634,4 @@ Ta bort en resursgrupp med Azure Portal:
 I den här självstudien har du lärt dig att använda en [Apache Storm](https://storm.apache.org/)-topologi för att skriva till och läsa från [Apache Kafka](https://kafka.apache.org/) i HDInsight. Du har även lärt dig hur du lagrar data till den [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)-kompatibla lagring som används av HDInsight.
 
 > [!div class="nextstepaction"]
-> [Använda Apache Kafka-producent och konsument-API](kafka/apache-kafka-producer-consumer-api.md)
+> [Använd Apache Kafka tillverkare och konsument-API](kafka/apache-kafka-producer-consumer-api.md)

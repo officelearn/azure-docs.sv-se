@@ -1,7 +1,7 @@
 ---
-title: Sök efter en anpassad vy – Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Beskriver hur du söker efter en anpassad vy över webben.
+title: Sök i en anpassad vy – Anpassad sökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Beskriver hur du söker i en anpassad vy av webben.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,54 +10,54 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814f57d4011823da80e53cce41ffcb523fc0bf1b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388552"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404999"
 ---
-# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa anpassad sökning i Bing-instans från portalen
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa din Anpassad sökning i Bing instans från portalen
 
-När du har konfigurerat anpassade användningen kan du testa den från inom Bing Custom Search [portal](https://customsearch.ai). 
+När du har konfigurerat din anpassade Sök upplevelse kan du testa den från Anpassad sökning i Bing- [portalen](https://customsearch.ai). 
 
-![en skärmbild av Bing anpassad sökning i portalen](media/portal-search-screen.png)
-## <a name="create-a-search-query"></a>Skapa en sökfråga 
+![en skärm bild av den anpassade Bing search-portalen](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Skapa en Sök fråga 
 
-När du har loggat in Bing Custom Search [portal](https://customsearch.ai), Välj din Sökinstans och klicka på den **produktion** fliken. Under **slutpunkter**, Välj en API-slutpunkt (till exempel webb-API). Prenumerationen avgör vilka slutpunkter som ska visas.
+När du har loggat in på Anpassad sökning i Bing- [portalen](https://customsearch.ai)väljer du din Sök instans och klickar på fliken **produktion** . Under **slut punkter**väljer du en API-slutpunkt (till exempel webb-API). Din prenumeration avgör vilka slut punkter som visas.
 
-Ange parametervärden för din slutpunkt för att skapa en sökfråga. Observera att de parametrar som visas i portalen kan ändras beroende på den slutpunkt som du väljer. Se den [Custom Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) för mer information. Ändra prenumerationen på din Sökinstans använder, lägga till lämpliga prenumerationsnyckeln och uppdatera parametrarna för marknaden och/eller språk.
+Om du vill skapa en Sök fråga anger du parameter värden för slut punkten. Observera att parametrarna som visas i portalen kan ändras beroende på vilken slut punkt du väljer. Mer information finns i referensen för [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Om du vill ändra vilken prenumeration din Sök instans använder lägger du till rätt prenumerations nyckel och uppdaterar lämplig marknad och/eller språk parametrar.
 
-Vissa viktiga parametrar finns nedan:
+Några viktiga parametrar är nedan:
 
-
-|Parameter  |Beskrivning  |
-|---------|---------|
-|Fråga     | Den sökterm att söka efter. Endast tillgängligt för webb, bild, Video och automatiska förslag slutpunkter |
-|Anpassade konfigurations-ID | Konfigurations-ID för den valda Custom Search-instansen. Det här fältet är skrivskyddat. |
-|Market     | På marknaden som resulterar kommer kommer från. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
-|Prenumerationsnyckel | Prenumerationsnyckel att testa med. Du kan välja en nyckel i listrutan eller ange en manuellt.          |
-
-Klicka på **ytterligare parametrar** visar följande parametrar:  
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Safe Search     | Ett filter som används för att filtrera webbsidor för vuxet innehåll. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
-|Språk för användargränssnittet    | Språket som används för användaren gränssnittet strängar. Exempel: Om du aktiverar bilder och videor i Användargränssnittet för värd för den **bild** och **Video** flikarna använder det angivna språket.        |
-|Antal     | Antal resultat från att returnera i svaret. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.         |
-|Offset    | Antalet sökresultat ska hoppas över innan det returneras resultatet. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.        |
+|Söka i data     | Sök termen att söka efter. Endast tillgängligt för slut punkter för webb-, bild-, video-och automatiska förslag |
+|Anpassat konfigurations-ID | Konfigurations-ID för den valda anpassade Sök instansen. Det här fältet är skrivskyddat. |
+|Market     | Marknaden som resultatet kommer från. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt.        |
+|Prenumerationsnyckel | Den prenumerations nyckel som ska testas med. Du kan välja en nyckel i list rutan eller ange en manuellt.          |
+
+Om du klickar på **ytterligare parametrar upptäcks** följande parametrar:  
+
+|Parameter  |Beskrivning  |
+|---------|---------|
+|Safe Search     | Ett filter som används för att filtrera webb sidor för innehåll som är vuxna. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt.        |
+|Användar gränssnittets språk    | Språket som används för användar gränssnitts strängar. Om du t. ex. aktiverar bilder och videor i värdbaserade användar gränssnitt använder flikarna **bild** och **video** det angivna språket.        |
+|Count     | Det antal Sök resultat som ska returneras i svaret. Endast tillgängligt för slut punkter för webb, bild och video.         |
+|Offset    | Antalet Sök resultat som ska hoppas över innan resultat returneras. Endast tillgängligt för slut punkter för webb, bild och video.        |
     
-När du har angett alla obligatoriska alternativ, klickar du på **anropa** Se JSON-svar i den högra rutan. Om du väljer den värdbaserade UI-slutpunkten kan testa du sökupplevelsen längst ned i fönstret.
+När du har angett alla obligatoriska alternativ klickar du på **anropa** för att Visa JSON-svaret i den högra rutan. Om du väljer den värdbaserade användar gränssnitts slut punkten kan du testa Sök funktionen i det nedre fönstret.
 
-## <a name="change-your-bing-custom-search-subscription"></a>Ändra prenumerationen Bing Custom Search
+## <a name="change-your-bing-custom-search-subscription"></a>Ändra din Anpassad sökning i Bing prenumeration
 
-Du kan ändra den prenumeration som är associerade med din instans av Bing Custom Search utan att skapa en ny instans. Skapa en ny anpassad sökning i Bing-resurs i Azure portal om du vill att API-anrop som skickats och debiteras till en ny prenumeration. Använd den nya prenumerationsnyckeln i dina API-begäranden, tillsammans med din instans anpassad konfiguration-ID.
+Du kan ändra prenumerationen som är kopplad till din Anpassad sökning i Bing instans utan att skapa en ny instans. Om du vill att API-anrop ska skickas och debiteras till en ny prenumeration skapar du en ny Anpassad sökning i Bing resurs i Azure Portal. Använd den nya prenumerations nyckeln i API-begärandena, tillsammans med instansens anpassade konfigurations-ID.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anropa den anpassade vyn med C#](./call-endpoint-csharp.md)
-- [Anropa den anpassade vyn med Java](./call-endpoint-java.md)
-- [Anropa den anpassade vyn med NodeJs](./call-endpoint-nodejs.md)
-- [Anropa den anpassade vyn med Python](./call-endpoint-python.md)
+- [Anropa din anpassade vy medC#](./call-endpoint-csharp.md)
+- [Anropa din anpassade vy med Java](./call-endpoint-java.md)
+- [Anropa din anpassade vy med NodeJs](./call-endpoint-nodejs.md)
+- [Anropa din anpassade vy med python](./call-endpoint-python.md)
 
-- [Anropa den anpassade vyn med C#-SDK](./sdk-csharp-quick-start.md)
+- [Anropa din anpassade vy med C# SDK: n](./sdk-csharp-quick-start.md)

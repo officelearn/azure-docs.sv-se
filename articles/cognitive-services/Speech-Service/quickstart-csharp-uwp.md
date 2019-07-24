@@ -3,26 +3,26 @@ title: 'Snabbstart: Identifiera tal, C# (UWP) – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln ska du skapa ett C#-baserat UWP-program (Universal Windows Platform) med hjälp av Cognitive Services Speech SDK. Du transkriberar tal till text i realtid från enhetens mikrofon. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 30a12c504071cd178ed3e7563f9d7d967d8ba36d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606394"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405922"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 
-Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-csharp-uwp.md), [talöversättning](quickstart-translate-speech-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
+Snabb Starter är också tillgängliga för [text till tal](quickstart-text-to-speech-csharp-uwp.md), [tal översättning](quickstart-translate-speech-uwp.md) och röst för [första virtuella assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
-Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
+Om du vill kan du välja ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Windows Platform, Windows-version 1709 eller senare) med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Programmet transkriberar tal till text i realtid från enhetens mikrofon. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
@@ -71,7 +71,7 @@ För den här snabbstarten krävs:
 
     ![Skärmbild av behörighetsbegäran](media/sdk/qs-csharp-uwp-10-access-prompt.png "Starta appen i felsökningsläge")
 
-1. Välj **Speech recognition with microphone input** (Taligenkänning med mikrofonindata) och tala in en fras eller mening på engelska i enhetens mikrofon. Ditt tal överförs till Speech Services och transkriberas till text som visas i fönstret.
+1. Välj **Speech recognition with microphone input** (Taligenkänning med mikrofonindata) och tala in en fras eller mening på engelska i enhetens mikrofon. Ditt tal överförs till tal tjänsterna och skrivs till text, som visas i fönstret.
 
     ![Skärmbild av användargränssnittet för taligenkänning](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

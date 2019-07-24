@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Python'
-titlesuffix: Azure Cognitive Services
+title: 'Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och python'
+titleSuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för automatiska förslag i Bing.
 services: cognitive-services
 author: aahill
@@ -10,18 +10,18 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 38cc9440e3cb5492ef1f45b3907fd2c00867f350
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 733b3a943c0699d4a3af6771c917849b0b0eb528
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385017"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405259"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Python
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Snabbstart: Föreslå Sök frågor med Automatiska förslag i Bing REST API och python
 
-Använd den här snabbstarten ska börja göra anrop till API för automatiska förslag i Bing och hämta JSON-svar. Den här enkla Python-program skickar en partiell sökfråga till API: et och returnerar förslag på sökningar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
+Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla python-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.x](https://www.python.org/downloads/) 
 
@@ -29,13 +29,13 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. Skapa en ny Python-fil i din favorit-IDE eller redigerare. Lägg till följande importer:
+1. Skapa en ny python-fil i din favorit-IDE eller-redigerare. Lägg till följande importer:
 
     ```python
     import http.client, urllib.parse, json
     ```
 
-2. Skapa variabler för dina API-värden och sökväg, [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), och en partiell sökfråga.
+2. Skapa variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -45,7 +45,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     query = 'sail'
     ```
 
-3. Skapa en parametrar sträng genom att lägga till marknaden koden så att den `?mkt=` parametern och lägga till frågan i `&q=` parametern.
+3. Skapa en parameter sträng genom att lägga till din marknads kod i `?mkt=` parametern och Lägg till din fråga `&q=` till-parametern.
 
     ```python
     params = '?mkt=' + mkt + '&q=' + query
@@ -53,13 +53,13 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Lägg till din prenumerationsnyckel till en `Ocp-Apim-Subscription-Key` rubrik.
+1. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i en rubrik.
     
     ```python
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     ```
 
-2. Ansluta till API: et med `HTTPSConnection()`, och skicka den `GET` -begäran som innehåller dina begäranparametrar.
+2. Anslut till API: et `HTTPSConnection()`med och `GET` skicka begäran som innehåller parametrarna för begäran.
     
     ```python
     conn = http.client.HTTPSConnection(host)
@@ -68,7 +68,7 @@ Använd den här snabbstarten ska börja göra anrop till API för automatiska f
     return response.read ()
     ```
 
-3. Hämta och skriva ut JSON-svar.
+3. Hämta och skriv ut JSON-svaret.
 
     ```python
     result = get_suggestions ()

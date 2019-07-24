@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: e0e595f6bbc1ed241aefe48eb766c04a790a102e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e41d99b4ddee41778e97aac9b5b947c0aa0eac5a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384580"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404953"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av C#
 
@@ -24,17 +24,17 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+- En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 
-- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Installera NuGet-paketet i Visual Studio:
+- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du NuGet-paketet i Visual Studio:
 
-   1. Högerklicka på projektet i **Solution Explorer**.
-   2. Välj **hantera NuGet-paket**.
-   3. Sök efter *Newtonsoft.Json* och installera paketet.
+   1. Högerklicka på ditt projekt i **Solution Explorer**.
+   2. Välj **Hantera NuGet-paket**.
+   3. Sök efter *Newtonsoft. JSON* och installera paketet.
 
-- Om du använder Linux/Mac OS, det här programmet kan köras med hjälp av [Mono](https://www.mono-project.com/).
+- Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -77,7 +77,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
    1. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL-koda frågan.
    2. Vänta på `client.GetAsync()` för att få ett HTTP-svar och lagra sedan json-svaret genom att vänta på `ReadAsStringAsync()`.
-   3. Formatera JSON-sträng med `JsonConvert.DeserializeObject()` och skriva ut det till konsolen.
+   3. Formatera JSON-strängen med `JsonConvert.DeserializeObject()` och skriv ut den till-konsolen.
 
       ```csharp
       async static void Search()

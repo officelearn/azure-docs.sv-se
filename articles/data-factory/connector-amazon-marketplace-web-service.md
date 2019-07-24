@@ -46,7 +46,7 @@ Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjä
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **AmazonMWS** | Ja |
 | endpoint | Slutpunkten för Amazon MWS-servern (det vill säga mws.amazonservices.com)  | Ja |
-| marketplaceID | Marketplace Amazon ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsar du dem med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
+| marketplaceID | Amazon Marketplace ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsar du dem med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | Amazon försäljning-ID.  | Ja |
 | mwsAuthToken | Amazon MWS autentiseringstoken. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessKeyId | Åtkomst nyckel-ID som användes för att komma åt data.  | Ja |

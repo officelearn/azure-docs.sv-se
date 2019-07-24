@@ -1,7 +1,6 @@
 ---
 title: Säkerhetskopiera Windows Server till Azure
 description: Den här självstudiekursen förklarar hur du säkerhetskopierar lokala Windows-servrar till ett Recovery Services-valv.
-services: backup
 author: dcurwin
 manager: carmonm
 keywords: windows server back up; back up windows server; back up and disaster recovery
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a8a4795cf35402ebecbf6838aaeb5f17768aa06
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273956"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467040"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -26,7 +25,7 @@ Du kan använda Azure Backup för att skydda Windows Server från skador, attack
 > [!div class="checklist"]
 > * Ladda ned och installera MARS-agenten
 > * Konfigurera tidpunkter för säkerhetskopiering och kvarhållningsschema för serverns säkerhetskopior
-> * Utföra en ad hoc-säkerhetskopiering
+> * Utföra en ad hoc-återställning
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -128,7 +127,7 @@ Du använder Microsoft Azure Recovery Services-agenten för att schemalägga nä
 
 11. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Utföra en ad hoc-säkerhetskopiering
+## <a name="perform-an-ad-hoc-back-up"></a>Utföra en ad hoc-återställning
 
 Du har skapat schemat för när säkerhetskopieringsjobb ska köras. Men du har inte säkerhetskopierat servern. Det är bästa praxis för haveriberedskap att köra en säkerhetskopiering på begäran för att säkerställa dataåterhämtning för servern.
 

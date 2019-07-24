@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835654"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464767"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
@@ -64,8 +64,9 @@ Följande två projekt finns i exempellösningen:
 Du ändrar exemplet till att använda det program som är registrerat i din klientorganisation, vilket innefattar det program-ID och den nyckel som du tidigare registrerade. Du konfigurerar även de användarflöden som du skapade. Exemplet definierar konfigurationsvärdena som inställningar i Web.config-filen. Så här ändrar du inställningarna:
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
-2. I projektet **TaskWebApp** öppnar du **Web.config**-filen. Ersätt värdet för `ida:Tenant` med namnet på den klientorganisation som du skapade. Ersätt värdet för `ida:ClientId` med det program-ID som du registrerade. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade.
+2. I projektet **TaskWebApp** öppnar du **Web.config**-filen. Ersätt värdet för `ida:Tenant` med namnet på den klientorganisation som du skapade. Ersätt värdet för `ida:ClientId` med det program-ID som du registrerade. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Du måste använda XML-koda klient hemligheten innan du lägger till den i Web. config.
 3. I filen **Web.config** ersätter du värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1`. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_profileediting1`. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_passwordreset1`.
+
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -78,7 +79,7 @@ Du ändrar exemplet till att använda det program som är registrerat i din klie
 2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto än väljer du **Registrera dig nu**. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 3. Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Registreringssidan visas som en del av sign-in/registrering arbetsflöde](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
+    ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-klientorganisationen.
 

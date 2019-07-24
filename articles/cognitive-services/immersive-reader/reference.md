@@ -1,7 +1,7 @@
 ---
-title: Uppslukande läsare SDK-referens
+title: Avancerad läsare SDK-referens
 titleSuffix: Azure Cognitive Services
-description: Referens för uppslukande läsaren SDK
+description: Referens för SDK för avancerad läsare
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,51 +10,51 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 67da7d67a3165583a872c2b435c3cdca9763d4dd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718400"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443810"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Uppslukande läsare SDK-referens
+# <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
 
-Uppslukande läsare SDK är ett JavaScript-bibliotek som gör det möjligt att integrera uppslukande läsaren i ditt webbprogram.
+SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
-SDK: N Exponerar en enda funktion `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
+SDK: `ImmersiveReader.launchAsync(token, subdomain, content, options)`n visar en enskild funktion.
 
 ### <a name="launchasync"></a>launchAsync
 
-Startar uppslukande läsaren inom en `iframe` i ditt webbprogram.
+Startar den fördjupade läsaren `iframe` i en i ditt webb program.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### <a name="parameters"></a>Parametrar
 
 | Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
-| `token` | sträng | Åtkomsttoken som anskaffats vid anrop till den `issueToken` slutpunkt. |
-| `resourceName` | sträng | Reserverad. Måste anges till `null`. |
-| `content` | [Innehåll](#content) | Ett objekt som innehåller innehållet som ska visas i uppslukande läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden av uppslukande läsaren. Valfri. |
+| `token` | sträng | Azure AD-autentiseringstoken. Se [själv studie kursen om Azure AD-autentisering](./azure-active-directory-authentication.md). |
+| `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
+| `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
 
 #### <a name="returns"></a>Returnerar
 
-Returnerar en `Promise<HTMLDivElement>` som löser när uppslukande läsaren har lästs in. Den `Promise` motsvarar en `div` element vars endast underordnade är en `iframe` element som innehåller sidan uppslukande läsare.
+Returnerar en `Promise<HTMLDivElement>` som matchar när den fördjupade läsaren läses in. Matchar ett `div` element vars enda underordnade är ett `iframe` element som innehåller den fördjupade läsar sidan. `Promise`
 
 #### <a name="exceptions"></a>Undantag
 
-Den returnerade `Promise` avvisas med en [ `Error` ](#error) objekt om uppslukande läsaren inte kan läsas in. Mer information finns i den [felkoder](#error-codes).
+Den returnerade `Promise` filen avvisas [`Error`](#error) med ett objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
 
 ## <a name="types"></a>Typer
 
 ### <a name="content"></a>Innehåll
 
-Innehåller innehållet som ska visas i uppslukande läsaren.
+Innehåller det innehåll som ska visas i den fördjupade läsaren.
 
 ```typescript
 {
@@ -71,12 +71,12 @@ Innehåller innehållet som ska visas i uppslukande läsaren.
 
 | MIME-typ | Beskrivning |
 | --------- | ----------- |
-| text/plain | Oformaterad text. |
-| program/mathml + xml | Matematiska MathML (Markup Language). [Läs mer](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| text/ren | Oformaterad text. |
+| program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
 ### <a name="options"></a>Alternativ
 
-Innehåller egenskaper som konfigurerar beteendena hos den uppslukande läsaren.
+Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade läsaren.
 
 ```typescript
 {
@@ -102,13 +102,13 @@ Innehåller information om felet.
 
 | Kod | Beskrivning |
 | ---- | ----------- |
-| BadArgument | Angivna argumentet är ogiltigt, finns i `message` mer information. |
-| Timeout | Det gick inte att läsa in inom den angivna tidsgränsen uppslukande läsaren. |
-| TokenExpired| Den angivna token har upphört att gälla. |
+| BadArgument | Det angivna argumentet är ogiltigt. `message` mer information finns i. |
+| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| TokenExpired| Angiven token har upphört att gälla. |
 
-## <a name="launching-the-immersive-reader"></a>Starta uppslukande läsaren
+## <a name="launching-the-immersive-reader"></a>Starta den fördjupade läsaren
 
-SDK innehåller standard stilen för knappen för att starta uppslukande läsaren. Använd den `immersive-reader-button` klassattribut att aktivera den här formatering.
+SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. `immersive-reader-button` Använd Class-attributet för att aktivera det här formatet.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -116,17 +116,17 @@ SDK innehåller standard stilen för knappen för att starta uppslukande läsare
 
 ### <a name="optional-attributes"></a>Valfria attribut
 
-Använd följande attribut för att konfigurera utseendet och känslan av knappen.
+Använd följande attribut för att konfigurera utseendet och utseendet på knappen.
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`, eller `iconAndText`. Som standard `icon`. |
-| `data-locale` | Anger språk, t.ex. `en-US`, `fr-FR`. Standardvärdet är engelska. |
-| `data-icon-px-size` | Anger storleken på ikonen i bildpunkter. Standardvärdet är 20px. |
+| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller. `iconAndText` Som standard `icon`. |
+| `data-locale` | Anger språkvarianten, t `en-US`. `fr-FR`ex. Standardvärdet är engelska. |
+| `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
 
-## <a name="browser-support"></a>Webbläsarstöd
+## <a name="browser-support"></a>Webb läsar stöd
 
-Använd de senaste versionerna av följande webbläsare för bästa möjliga upplevelse med uppslukande läsaren.
+Använd de senaste versionerna av följande webbläsare för bästa möjliga upplevelse med avancerad läsare.
 
 * Microsoft Edge
 * Internet Explorer 11
@@ -136,5 +136,5 @@ Använd de senaste versionerna av följande webbläsare för bästa möjliga upp
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska den [uppslukande läsare SDK på GitHub](https://github.com/Microsoft/immersive-reader-sdk)
-* [Snabbstart: Skapa en webbapp som startar uppslukande läsaren (C#)](./quickstart.md)
+* Utforska [SDK för avancerad läsare på GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* [Snabbstart: Skapa en webbapp som startar den fördjupade läsarenC#()](./quickstart.md)

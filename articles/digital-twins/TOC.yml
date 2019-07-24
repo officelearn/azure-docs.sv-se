@@ -5,6 +5,7 @@
     - name: Om Azure Digital Twins
       href: about-digital-twins.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Hitta tillgängliga rum
       href: quickstart-view-occupancy-dotnet.md

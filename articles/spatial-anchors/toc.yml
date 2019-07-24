@@ -5,6 +5,7 @@
     - name: Om Spatial Anchors
       href: overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa en Unity-app
       href: unity-overview.yml

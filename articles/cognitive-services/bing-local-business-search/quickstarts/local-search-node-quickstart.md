@@ -1,7 +1,7 @@
 ---
-title: Snabbstart – skicka en fråga till den lokala företag i Bing med hjälp av Node.js | Microsoft Docs
+title: 'Snabb start – skicka en fråga till API: et för lokal sökning i Bing med Node. js'
 titleSuffix: Azure Cognitive Services
-description: Börja använda Bing-API för sökning av lokala företag i noden.
+description: Börja använda Bing-API för lokal affärs sökning i noden.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 07b238f900a7f0ba15ad7b37ba7e194567fa0f6a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 0c91a66539bc276fdf2e6e4056f3b67f770398b8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592712"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423330"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till Bing Local Business Search API med Node. js
 
-Använd den här snabbstarten för att börja skicka begäranden till den lokala företag i Bing, vilket är en Azure Cognitive Service. Medan detta enkla program är skriven i Node.js är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som HTTP-förfrågningar och JSON-parsning.
+Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i Node. js är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfrågan `hotel in Bellevue`.
+Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,16 +28,16 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 * [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckel som tillhandahållits av den kostnadsfria utvärderingsversionen.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Kodscenario
 
-Följande kod hämtar definierar och skickar en begäran. Den implementeras i följande steg:
+Följande kod definierar och skickar begäran. Den implementeras i följande steg:
 
 1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
 2. Ange frågan och Lägg till Frågeparametern.
 3. Skapa en hanterarfunktion för svaret.
-4. Definiera sökfunktionen som skapar begäran och lägger till Ocp-Apim-Subscription-Key-huvudet.
+4. Definiera Sök funktionen som skapar begäran och lägger till rubriken OCP-APIM-Subscription-Key.
 5. Köra sökfunktionen.
 
 Här följer den fullständiga koden för demon:
@@ -93,6 +93,6 @@ Search();
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lokala företag Search-Snabbstart](local-quickstart.md)
-* [Lokala företag Search-Java-Snabbstart](local-search-java-quickstart.md)
-* [Lokala företag Search Python-Snabbstart](local-search-python-quickstart.md)
+* [Snabb start för lokal affärs sökning](local-quickstart.md)
+* [Lokal affärs sökning Java snabb start](local-search-java-quickstart.md)
+* [Snabb start för att söka i lokalt företag](local-search-python-quickstart.md)

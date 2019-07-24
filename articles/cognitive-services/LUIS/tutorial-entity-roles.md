@@ -1,5 +1,5 @@
 ---
-title: Kontextuella data med roller - Språkförståelse
+title: Kontextuella data med roller – Language Understanding
 titleSuffix: Azure Cognitive Services
 description: Hitta relaterade data baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149252"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467640"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudier: Extrahera sammanhangsmässigt relaterade data från ett yttrande
 
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.  
 
-En roll kan användas med alla typer av fördefinierade eller anpassade entitet och används i både exempel yttranden och mönster. 
+En roll kan användas med en fördefinierad eller anpassad entitetstyp och används i båda exemplen yttranden och Patterns. 
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -32,19 +32,19 @@ En roll kan användas med alla typer av fördefinierade eller anpassade entitet 
 > * Hämta information om ursprung och mål med hjälp av roller
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteten roller från slutpunkten
+> * Hämta intentor och entitets roller från slut punkten
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="related-data"></a>Relaterade data
 
-Den här appen bestämmer var en medarbetare ska flyttas från ursprungsstaden till målstaden. Den använder en GeographyV2 fördefinierade entitet för att identifiera stadsnamn och den använder roller för att fastställa platstyper (original och beskrivning) inom uttryck.
+Den här appen bestämmer var en medarbetare ska flyttas från ursprungsstaden till målstaden. Den använder en GeographyV2-fördefinierad entitet för att identifiera Orts namnen och använder roller för att fastställa plats typerna (ursprung och mål) i uttryck.
 
-En roll ska användas när entitetsdata att extrahera:
+En roll ska användas när enhets data ska extraheras:
 
-* Är relaterade till varandra i samband med uttryck.
-* Använder specifika ordet om alternativ för att ange varje roll. Exempel på sådana ord: från/till, lämnar/ska till, bort från/till.
-* Båda rollerna är ofta i samma uttryck, vilket gör att LUIS för att lära sig från frekventa sammanhangsberoende användningen.
+* Är relaterad till varandra i kontexten för uttryck.
+* Använder ett särskilt Word-val för att ange varje roll. Exempel på sådana ord: från/till, lämnar/ska till, bort från/till.
+* Båda rollerna är ofta i samma uttryck, vilket gör det möjligt för LUIS att lära sig från denna frekventa kontext användning.
 * Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
@@ -65,10 +65,10 @@ En roll ska användas när entitetsdata att extrahera:
 
     |Exempel på yttranden|
     |--|
-    |Flytta John W. Smith lämnar Seattle på väg till Orlando|
+    |flytta John o. Svensson att lämna Seattle till Orlando|
     |överför Jill Jones från Seattle till Kairo|
     |Placera John Jackson bort från Tampa, ankommer till Atlanta |
-    |Flytta Debra Doughtery till Tulsa från Chicago|
+    |flytta Debra-Doughtery till Tulsa från Chicago|
     |mv Jill Jones lämnar Kairo och är på väg till Tampa|
     |byt plats för Alice Anderson till Oakland från Redmond|
     |Carl Chamerlin från San Francisco till Redmond|
@@ -77,23 +77,23 @@ En roll ska användas när entitetsdata att extrahera:
 
     [![Skärmbild på LUIS-appen med nya talindata i avsikten MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
 
-## <a name="add-prebuilt-entity-geographyv2"></a>Lägg till fördefinierade entitet geographyV2
+## <a name="add-prebuilt-entity-geographyv2"></a>Lägg till fördefinierad entitet geographyV2
 
-Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive stadsnamn. Eftersom talade har två stadsnamn, som är relaterade till varandra i sammanhanget kan du använda roller för att extrahera den kontexten.
+Den fördefinierade entiteten geographyV2, extraherar plats information, inklusive Orts namn. Eftersom yttranden har två Orts namn, relaterade till varandra i sammanhanget, använder du roller för att extrahera kontexten.
 
-1. Välj **entiteter** från navigeringen till vänster.
+1. Välj **entiteter** från den vänstra navigeringen.
 
-1. Välj **Lägg till fördefinierade entitet**och välj sedan `geo` i sökfältet för att filtrera förskapade entiteter. 
+1. Välj **Lägg till fördefinierad entitet**och `geo` Välj sedan i Sök fältet för att filtrera de förinställda entiteterna. 
 
-    ![Lägg till geographyV2 fördefinierade entitet till appen](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
-1. Markera kryssrutan och välj **klar**.
-1. I den **entiteter** väljer den **geographyV2** att öppna den nya entiteten. 
+    ![Lägg till geographyV2-fördefinierad entitet i appen](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+1. Markera kryss rutan och välj **färdig**.
+1. I listan **entiteter** väljer du **geographyV2** för att öppna den nya entiteten. 
 1. Lägg till två roller `Origin`, och `Destination`. 
 
-    ![Lägga till roller i fördefinierade entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Välj **avsikter** från vänster navigering, Välj den **MoveEmployeeToCity** avsikt. Observera stadsnamn är märkta med entitet som är färdiga **geogrpahyV2**.
-1. I den första uttryck i listan väljer du ursprungsplatsen. En nedrullningsbar meny. Välj **geographyV2** i listan och följ sedan menyn över för att välja **ursprung**.
-1. Använd metoden i föregående steg för att markera alla roller för platser i alla yttranden. 
+    ![Lägg till roller i fördefinierad entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
+1. Välj **avsikter** från navigeringen till vänster och välj sedan **MoveEmployeeToCity** avsikt. Lägg märke till att Orts namnen är märkta med den fördefinierade entiteten **geographyV2**.
+1. Välj ursprungs platsen i den första uttryck i listan. En nedrullningsbar meny visas. Välj **geographyV2** i listan och följ sedan menyn över för att välja **ursprung**.
+1. Använd-metoden från föregående steg för att markera alla roller för platser i alla yttranden. 
 
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen 
@@ -113,7 +113,7 @@ Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive st
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Gå till slutet av webbadressen i adressfältet och ange `Please move Carl Chamerlin from Tampa to Portland`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Den här uttryck är inte samma som helst av taggade talade så det är ett bra test och ska returnera den `MoveEmployee` avsikt med den entitet som extraheras.
+1. Gå till slutet av webbadressen i adressfältet och ange `Please move Carl Chamerlin from Tampa to Portland`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Den här uttryck är inte samma som någon av de märkta yttranden, så det är ett lyckat test och ska returnera `MoveEmployee` avsikten med den extraherade enheten.
 
     ```json
     {
@@ -151,7 +151,7 @@ Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive st
     }
     ```
     
-    Rätt avsikten förväntas och entiteter matrisen har både ursprung och mål roller i motsvarande **entiteter** egenskapen.
+    Rätt avsikt är förväntad och entiteter-matrisen har både ursprungs-och mål rollerna i motsvarande **entitets** -egenskap.
     
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -159,9 +159,9 @@ Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive st
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Koncept för entiteter](luis-concept-entity-types.md)
-* [Koncept för roller](luis-concept-roles.md)
-* [Lista med fördefinierade entiteter](luis-reference-prebuilt-entities.md)
+* [Entiteter-koncept](luis-concept-entity-types.md)
+* [Roll koncept](luis-concept-roles.md)
+* [Lista med färdiga entiteter](luis-reference-prebuilt-entities.md)
 * [Så här tränar du](luis-how-to-train.md)
 * [Så här publicerar du](luis-how-to-publish-app.md)
 * [Så här testar du i LUIS-portalen](luis-interactive-test.md)

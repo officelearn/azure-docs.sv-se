@@ -1,30 +1,30 @@
 ---
-title: Skapa Azure Functions i Linux med en anpassad avbildning
+title: Skapa Azure Functions på Linux med en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 02/25/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106873"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444142"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
-Med Azure Functions kan Linux användas som värd för funktionerna i en anpassad container. Du kan också använda [en standardcontainer i Azure App Service som värd](functions-create-first-azure-function-azure-cli-linux.md). Den här funktionen kräver [2.x funktionskörningen](functions-versions.md).
+Med Azure Functions kan Linux användas som värd för funktionerna i en anpassad container. Du kan också använda [en standardcontainer i Azure App Service som värd](functions-create-first-azure-function-azure-cli-linux.md). Den här funktionen kräver [funktionerna 2. x runtime](functions-versions.md).
 
-I den här självstudiekursen lär du dig hur du distribuerar funktioner i Azure som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda containeravbildningen i App Service. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen. Stöd för Källavbildningen för Azure Functions finns i den [Azure Functions basera avbildningar lagringsplatsen](https://hub.docker.com/_/microsoft-azure-functions-base). [Stöd för Python](functions-reference-python.md) förhandsvisas just nu.
+I den här självstudiekursen lär du dig hur du distribuerar funktioner i Azure som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda behållar avbildningen. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen. Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base). [Python](functions-reference-python.md) -supporten är i för hands version för tillfället.
 
-Den här kursen går igen hur du använder Azure Functions Core Tools för att skapa en funktion i en anpassad Linux-avbildning. Du publicerar den här avbildningen i en funktionsapp i Azure, som har skapats med hjälp av Azure CLI.
+Den här kursen går igen hur du använder Azure Functions Core Tools för att skapa en funktion i en anpassad Linux-avbildning. Du publicerar den här avbildningen i en funktionsapp i Azure, som har skapats med hjälp av Azure CLI. Senare kan du uppdatera din funktion för att ansluta till Azure Queue Storage. Du kan också aktivera.  
 
 I den här guiden får du lära dig att:
 
@@ -33,12 +33,13 @@ I den här guiden får du lära dig att:
 > * skapa en anpassad avbildning med Docker
 > * Publicera en anpassad avbildning till ett containerregister.
 > * skapa ett Azure Storage-konto
-> * skapa en Linux App Service-plan
+> * Skapa en Premium hosting-plan.
 > * distribuera en funktionsapp från Docker Hub
 > * lägga till programinställningar i funktionsappen.
-> * Aktivera kontinuerlig distribution
+> * Aktivera kontinuerlig distribution.
+> * Lägg till Application Insights övervakning.
 
-Följande steg kan användas på en Mac-, Windows- eller Linux-dator.  
+Följande steg kan användas på en Mac-, Windows- eller Linux-dator. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -65,7 +66,7 @@ När du inkluderar alternativet `--docker` skapas en Dockerfile för projektet. 
 
 Vid uppmaning väljer du en arbetskörning från följande språk:
 
-* `dotnet`: skapar ett .NET-klassbiblioteksprojekt (.csproj).
+* `dotnet`: skapar ett biblioteks projekt för .NET Core-klass (. CSPROJ).
 * `node`: skapar ett JavaScript-projekt.
 * `python`: skapar ett Python-projekt.
 
@@ -88,8 +89,6 @@ cd MyFunctionProj
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
-
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 ## <a name="build-the-image-from-the-docker-file"></a>Skapa avbildningen från Docker-filen
@@ -104,7 +103,7 @@ COPY . /home/site/wwwroot
 ```
 
 > [!NOTE]
-> Den fullständiga listan över stöds Källavbildningen för Azure Functions finns i den [Azure Functions basavbildningen sidan](https://hub.docker.com/_/microsoft-azure-functions-base).
+> Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ### <a name="run-the-build-command"></a>Kör kommandot `build`
 I rotmappen kör du kommandot [docker build](https://docs.docker.com/engine/reference/commandline/build/) och anger ett namn, `mydockerimage`, och en tagg, `v1.0.0`. Ersätt `<docker-id>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
@@ -189,44 +188,29 @@ Nu kan du använda avbildningen som distributionskälla för en ny funktionsapp 
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Skapa en Linux App Service-plan
+## <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-Linux-värd för funktioner stöds för närvarande inte i förbrukningsplaner. Du måste värdbasera Linux-containerapparna i en Linux App Service-plan. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner).
+Linux-värd för anpassade funktions behållare som stöds på [dedikerade (App Service) planer](functions-scale.md#app-service-plan) och [Premium-planer](functions-scale.md#premium-plan). I den här självstudien används en Premium-plan som kan skalas efter behov. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner).
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+I följande exempel skapas en Premium-plan `myPremiumPlan` med namnet i pris nivån **elastisk Premium 1** (`--sku EP1`) i regionen Västra USA (`-location WestUS`) och i en Linux-behållare (`--is-linux`).
+
+```azurecli-interactive
+az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan \
+--location WestUS --number-of-workers 1 --sku EP1 --is-linux
+```
 
 ## <a name="create-and-deploy-the-custom-image"></a>Skapa och distribuera den anpassade avbildningen
 
-Funktionsappen är värd för körningen av dina funktioner. Skapa en funktionsapp från en Docker Hub-avbildning med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
+Function-appen hanterar körningen av dina funktioner i värd planen. Skapa en funktionsapp från en Docker Hub-avbildning med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Precis som tidigare är `<docker-id>` ditt Docker-kontonamn.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
+--plan myPremiumPlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
 ```
 
-När funktionsappen har skapats visas information som liknar följande exempel i Azure CLI:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
-```
-
-Parametern _deployment-container-image-name_ anger vilken avbildning på Docker Hub som ska användas för att skapa funktionsappen. Använd den [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) kommando för att visa information om den avbildning som används för distribution. Använd den [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) kommando för att distribuera från en annan bild.
+Parametern _deployment-container-image-name_ anger vilken avbildning på Docker Hub som ska användas för att skapa funktionsappen. Använd kommandot [AZ functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) för att visa information om den avbildning som används för distribution. Använd kommandot [AZ functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) för att distribuera från en annan avbildning.
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
@@ -256,19 +240,9 @@ Nu kan du testa dina funktioner som körs på Linux i Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-## <a name="enable-application-insights"></a>Aktivera Application Insights
-
-Det är det rekommenderade sättet att övervaka körning av dina funktioner genom att integrera din funktionsapp med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar din funktionsapp med hjälp av Azure CLI.
-
-Aktivera Application Insights för din funktionsapp:
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
-
 ## <a name="enable-continuous-deployment"></a>Aktivera kontinuerlig distribution
 
-En av fördelarna med att använda behållare är att distribuera uppdateringar automatiskt när behållare uppdateras i registret. Aktivera kontinuerlig distribution med den [az functionapp deployment konfigurationen](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) kommando.
+En av fördelarna med att använda behållare kan automatiskt distribuera uppdateringar när behållare uppdateras i registret. Aktivera kontinuerlig distribution med kommandot [AZ functionapp Deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) .
 
 ```azurecli-interactive
 az functionapp deployment container config --enable-cd \
@@ -276,13 +250,23 @@ az functionapp deployment container config --enable-cd \
 --name <app_name> --resource-group myResourceGroup
 ```
 
-Det här kommandot returnerar Webhooksadressen distribution när kontinuerlig distribution har aktiverats. Du kan också använda den [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) kommando för att returnera denna URL. 
+Det här kommandot returnerar distributions-webhook-URL: en när kontinuerlig distribution har Aktiver ATS. Du kan också använda kommandot [AZ functionapp Deployment container show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) för att returnera denna URL. 
 
-Kopiera URL: en för distribution och bläddra till ditt DockerHub lager, väljer den **Webhooks** Skriv en **namn på Webhook** för webhook, klistrar du in din URL i **Webhooksadressen**, och välj sedan plus-tecknet (**+**).
+Kopiera distributions-URL: en och bläddra till din DockerHub-  lagrings platsen, Välj fliken Webhooks, ange ett webhook- **namn** för webhooken, klistra in URL: en i webhook- **URL**och **+** Välj plus tecknet ().
 
-![Lägga till webhooken i ditt lager DockerHub](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+![Lägg till webhooken i din DockerHub-lagrings platsen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
-Alla uppdateringar länkad bild på DockerHub leda till funktionsappen laddar ned och installerar den senaste avbildningen med webhook-uppsättningen.
+Med webhooken kan alla uppdateringar av den länkade avbildningen i DockerHub resultera i att appen hämtar och installerar den senaste avbildningen.
+
+## <a name="enable-application-insights"></a>Aktivera Application Insights
+
+Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera din Function-app med Azure Application insikter. När du skapar en Function-app i Azure Portal görs denna integrering som standard. Men när du skapar en Function-app med hjälp av Azure CLI, är integrationen i din Function-app i Azure inte färdig.
+
+Så här aktiverar du Application Insights för din Function-app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
@@ -295,11 +279,11 @@ I den här självstudiekursen lärde du dig att:
 > * skapa en anpassad avbildning med Docker
 > * Publicera en anpassad avbildning till ett containerregister.
 > * skapa ett Azure Storage-konto
-> * skapa en Linux App Service-plan
+> * Skapa en Linux Premium-plan.
 > * distribuera en funktionsapp från Docker Hub
 > * lägga till programinställningar i funktionsappen.
-
-Lär dig hur du aktiverar kontinuerliga integrationsfunktioner i Apptjänst-kärnplattformen. Du kan konfigurera din funktionsapp så att containern omdistribueras när du uppdaterar avbildningen i Docker-hubben.
+> * Aktivera kontinuerlig distribution.
+> * Lägg till Application Insights övervakning.
 
 > [!div class="nextstepaction"] 
-> [Kontinuerlig distribution med Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)
+> [Läs mer om alternativen för att distribuera funktioner till Azure](functions-deployment-technologies.md)

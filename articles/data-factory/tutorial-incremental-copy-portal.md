@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312645"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424292"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du göra följande:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen. 
-> * Granska resultatet
+> * Granska resultat
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen
@@ -150,7 +150,7 @@ END
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
+1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -238,7 +238,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         ![Den andra sökningsaktiviteten – ny datauppsättning](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **SourceDataset** är valt för fältet **Source Dataset** (Källdatauppsättning). 
-18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Kontrollera att du har markerat **Fist rad endast**.
+18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Kontrol lera att du också har markerat **enbart första raden**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -294,7 +294,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. 
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
     
-    ![Kopiera aktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+    ![Kopieringsaktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Välj **Lagrad proceduraktivitet** i pipelinedesignern och ändra dess namn till **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
@@ -306,10 +306,10 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**. 
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern: 
 
-        | Namn | Typ | Värde | 
+        | Namn | Typ | Value | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga fönstret med **verifieringsrapporten för pipeline** klickar du på >>.   
@@ -435,7 +435,7 @@ I den här självstudien har du fått:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen. 
-> * Granska resultatet
+> * Granska resultat
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen
@@ -444,7 +444,7 @@ I den här självstudien har du fått:
 I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas. 
 
 > [!div class="nextstepaction"]
->[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL-databas](tutorial-incremental-copy-multiple-tables-portal.md)
+>[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: aahill
-ms.openlocfilehash: ba56f6d68df34fc9249d02c8aba9155ed41b5be8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: c45e9e7743aca2d091b62caed6a7c5a724bacebf
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388448"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423498"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Den här enkla noden programmet skickar en begäran till API: et och returnerar en lista med ord som inte känner till, följt av föreslagna ändringar. Det här programmet är skriven i Node.js är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare.
 
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange Skyddstyperna och kräver `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange stränghet och Kräv `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Skapa variabler för sökparametrarna och den text som du vill kontrollera. Lägg till marknaden koden efter `mkt=`. Koden marknad är det land som du gör begäran från. Dessutom lägga till din stavningskontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta/stavning och grammatik-fel) eller `spell` (fångar de flesta stavning men inte så många grammatikfel).
+2. Skapa variabler för dina Sök parametrar och den text som du vill kontrol lera. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
 
     ```javascript
     let mkt = "en-US";

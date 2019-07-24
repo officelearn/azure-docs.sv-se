@@ -1,0 +1,100 @@
+---
+author: erhopf
+ms.author: erhopf
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 07/23/2019
+ms.openlocfilehash: f8d6e5de7f907ae78958b8c239649f55257bf7f2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467525"
+---
+## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
+
+> [!IMPORTANT]
+> För närvarande stöder **endast** API för visuellt innehåll, Ansikts-API, API för textanalys och avancerad läsare autentisering med hjälp av Azure Active Directory (AAD).
+
+I föregående avsnitt visade vi dig hur du autentiserar mot Azure Cognitive Services med en prenumerations nyckel för en enda tjänst eller flera tjänster. Även om dessa nycklar ger en snabb och enkel väg för att börja utveckla, är de korta i mer komplexa scenarier som kräver rollbaserade åtkomst kontroller. Låt oss ta en titt på vad som krävs för att autentisera med hjälp av Azure Active Directory (AAD).
+
+I följande avsnitt använder du antingen Azure Cloud Shells miljön eller Azure CLI för att skapa en under domän, tilldela roller och hämta en Bearer-token för att anropa Azure-Cognitive Services. Om du får fastnat finns länkar i varje avsnitt med alla tillgängliga alternativ för varje kommando i Azure Cloud Shell/Azure CLI.
+
+### <a name="create-a-resource-with-a-custom-subdomain"></a>Skapa en resurs med en anpassad under domän
+
+Det första steget är att skapa en anpassad under domän.
+
+1. Börja med att öppna Azure Cloud Shell. [Välj en prenumeration](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+
+   ```azurecli-interactive
+   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   ```
+
+2. Skapa sedan [en Cognitive Services-resurs](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) med en anpassad under domän. Under domän namnet måste vara globalt unikt och får inte innehålla specialtecken, till exempel: ".", "!", ",".
+
+   ```azurecli-interactive
+   New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
+   ```
+
+3. Om det lyckas bör **slut punkten** Visa det under domän namn som är unikt för din resurs.
+
+
+### <a name="assign-a-role-to-a-service-principal"></a>Tilldela en roll till ett huvud namn för tjänsten
+
+Nu när du har en anpassad under domän som är kopplad till din resurs, kommer du att behöva tilldela en roll till ett huvud namn för tjänsten.
+
+> [!NOTE]
+> Tänk på att AAD-roll tilldelningar kan ta upp till fem minuter innan de sprids.
+
+1. Först ska vi registrera ett [AAD-program](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+
+   ```azurecli-interactive
+   $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
+
+   New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
+   ```
+
+   Du kommer att behöva **ApplicationId** i nästa steg.
+
+2. Därefter måste du [skapa ett huvud namn för tjänsten](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) för AAD-programmet.
+
+   ```azurecli-interactive
+   New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
+   ```
+
+   >[!NOTE]
+   > Om du registrerar ett program i Azure Portal har det här steget slutförts.
+
+3. Det sista steget är att [tilldela rollen "Cognitive Services användare"](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) till tjänstens huvud namn (omfattas av resursen). Genom att tilldela en roll beviljar du tjänstens huvud namns åtkomst till den här resursen. Du kan ge samma tjänst huvud namn åtkomst till flera resurser i din prenumeration.
+   >[!NOTE]
+   > Objekt-ID: t för tjänstens huvud namn används, inte ObjectId för programmet.
+
+   ```azurecli-interactive
+   New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
+   ```
+
+### <a name="sample-request"></a>Exempelbegäran
+
+I det här exemplet används ett lösen ord för att autentisera tjänstens huvud namn. Den angivna token används sedan för att anropa API för visuellt innehåll.
+
+1. Hämta ditt **TenantId**:
+   ```azurecli-interactive
+   $context=Get-AzContext
+   $context.Tenant.Id
+   ```
+
+2. Hämta en token:
+   ```azurecli-interactive
+   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
+   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
+   $token
+   ```
+3. Anropa API för visuellt innehåll:
+   ```azurecli-interactive
+   $url = $account.Endpoint+"vision/v1.0/models"
+   $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
+   $result | ConvertTo-Json
+   ```
+
+Alternativt kan tjänstens huvud namn autentiseras med ett certifikat. Förutom tjänstens huvud namn stöds även användarens huvud konto genom att ha behörighet som delegerats via ett annat AAD-program. I det här fallet, i stället för lösen ord eller certifikat, uppmanas användarna att ange tvåfaktorautentisering när de hämtar token.

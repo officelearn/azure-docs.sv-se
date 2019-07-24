@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Utföra en API för nyhetssökning med Ruby och Bing News Search REST API'
-titlesuffix: Azure Cognitive Services
+title: 'Snabbstart: Utföra en nyhets sökning med ruby och Nyhetssökning i Bing REST API'
+titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för nyhetssökning i Bing med hjälp av Ruby och få ett JSON-svar.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5db8d9055ff973c3de1b995340d77004d889aa3d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ab16a54269c2afe820d9d17d1400152d078186ed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272728"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423674"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av Ruby och REST API för nyhetssökning i Bing
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ruby[ 2.4 eller senare](https://www.ruby-lang.org/en/downloads/)
 

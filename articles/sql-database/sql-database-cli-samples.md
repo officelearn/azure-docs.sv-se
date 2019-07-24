@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150244"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443338"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-exempel för Azure SQL Database
 
@@ -37,10 +37,12 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 |---|---|
 |**Skapa en databas och en elastisk pool**||
 | [Skapa en databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar en Azure SQL-databas och konfigurerar en brandväggsregel på servernivå. |
-| [Skapa elastiska pooler och flytta databaser i pooler](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar elastiska SQL-pooler, flyttar Azure SQL-pooldatabaser och ändrar beräkningsstorlekar.|
+| [Skapa elastiska pooler och flytta pooldatabaser](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar elastiska SQL-pooler, flyttar Azure SQL-pooldatabaser och ändrar beräkningsstorlekar.|
 |**Skala en databas och en elastisk pool**||
 | [Skala en databas](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en enda Azure SQL-databas till en annan beräkningsstorlek efter att ha kört en fråga om databasens storlek. |
 | [Skala en elastisk pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en elastisk SQL-pool till en annan beräkningsstorlek.  |
+|**Redundansgrupper**||
+| [Lägg till en enkel databas i gruppen redundans](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Det här CLI-skriptet skapar en databas och en failover-grupp, lägger till databasen i gruppen redundans och testar redundans till den sekundära servern.|
 |||
 
 Läs mer om [Azure CLI API för enkel databas](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

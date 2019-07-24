@@ -48,8 +48,6 @@
       items:
         - name: Skapa ett namnområde
           href: relay-create-namespace-portal.md
-        - name: Använda WCF Relay för att göra WCF-tjänster tillgängliga för externa klienter
-          href: relay-wcf-dotnet-get-started.md
         - name: 'Tillgängliga API:er'
           href: relay-api-overview.md
           items:

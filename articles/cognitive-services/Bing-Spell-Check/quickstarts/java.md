@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: eeec278a1c9e4888aa4a63af3d9c86e7a8c1615c
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502923"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423522"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Java
 
@@ -25,13 +25,13 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 * Java Development Kit (JDK) 7 eller senare.
 
-* Importera den [gson 2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) eller den senaste [Gson](https://github.com/google/gson) version. För körning av kommandoraden, lägger du till den `.jar` till mappen Java med huvudklass.
+* Importera [Gson--2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) -eller den mest aktuella [Gson](https://github.com/google/gson) -versionen. För kommando rads körning lägger du till `.jar` i din Java-mapp med huvud klassen.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-an-application"></a>Skapa och initiera ett program
 
-1. Skapa ett nytt Java-projekt i din favorit IDE eller redigerare med ett klassnamn valfritt och importera sedan följande paket.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare med ett klass namn som du väljer och importera sedan följande paket.
 
     ```java
     import java.io.*;
@@ -64,7 +64,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
    }
    ```
 
-2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Skapa en ny `HttpsURLConnection` objekt.
+2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Skapa ett nytt `HttpsURLConnection` objekt.
 
     ```java
     URL url = new URL(host + path + params);
@@ -89,9 +89,9 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
         wr.close();
     ```
 
-## <a name="format-and-read-the-api-response"></a>Formatera och läsa API-svar
+## <a name="format-and-read-the-api-response"></a>Formatera och Läs API-svar
 
-1. Lägg till den här metoden i klassen. JSON för en mer läsbara utdata formateras.
+1. Lägg till den här metoden i klassen. Den formaterar JSON för en mer läsbar utdata.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +117,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="call-the-api"></a>Anropa API
 
-I huvudfunktionen i ditt program, kan du anropa metoden check() skapade ovan.
+I programmets huvud funktion anropar du metoden check () som skapats ovan.
 
     ```java
     public static void main(String[] args) {
@@ -132,16 +132,16 @@ I huvudfunktionen i ditt program, kan du anropa metoden check() skapade ovan.
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Skapa och köra projektet.
+Skapa och kör ditt projekt.
 
-Om du använder från kommandoraden använder du följande kommandon för att skapa och köra programmet.
+Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
 
-**Skapa:**
+**Konstruktion**
 ```bash
 javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Kör:**
+**Fungerar**
 ```bash
 java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 ```

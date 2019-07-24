@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
@@ -10,23 +10,23 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: e7a1f2572296015aac2d05b36b9b659c85586ff9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390252"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423624"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och C#
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla C#-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
-* Installera `Newtonsoft.Json` som NuGet-paket i Visual studio:
-    1. I **Solution Explorer**, högerklicka på filen lösning.
-    1. Välj **hantera NuGet-paket för lösningen**.
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* Installera `Newtonsoft.Json` som ett NuGet-paket i Visual Studio:
+    1. I **Solution Explorer**högerklickar du på lösnings filen.
+    1. Välj **Hantera NuGet-paket för lösningen**.
     1. Sök efter `Newtonsoft.Json` och installera paketet.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
@@ -34,7 +34,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol-lösning med namnet `SpellCheckSample` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny konsol lösning som `SpellCheckSample` heter i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-3. Skapa en variabel för sökparametrarna. Lägg till marknaden koden efter `mkt=`. Koden marknad är det land som du gör begäran från. Dessutom lägga till din stavningskontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta/stavning och grammatik-fel) eller `spell` (fångar de flesta stavning men inte så många grammatikfel).
+3. Skapa en variabel för sökparametrarna. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -83,7 +83,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-2. Skapa URI för din begäran genom att lägga till din värd, sökväg och parametrar.
+2. Skapa URI: n för din begäran genom att lägga till din värd, sökväg och parametrar.
     
     ```csharp
     string uri = host + path + params_;

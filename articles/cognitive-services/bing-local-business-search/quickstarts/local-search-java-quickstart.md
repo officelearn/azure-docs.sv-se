@@ -1,7 +1,7 @@
 ---
-title: Snabbstart – skicka en fråga till den lokala företag i Bing med hjälp av Java | Microsoft Docs
+title: 'Snabb start – skicka en fråga till API: et för lokal sökning i Bing med Java'
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln för att börja använda den lokala företag i Bing i Java.
+description: Använd den här artikeln för att börja använda Bing API för lokal sökning i Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: eff7bbc8a7600667254bc9d49627e707b063bc41
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 47b4fac571feea6d5763735c22dcb5cf859f4d5f
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592748"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423346"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabbstart: Skicka en fråga till Bing Local Business Search API med Java
 
-Använd den här snabbstarten för att börja skicka begäranden till den lokala företag i Bing, vilket är en Azure Cognitive Service. Medan detta enkla program är skriven i Java, är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som HTTP-förfrågningar och JSON-parsning.
+Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfrågan `hotel in Bellevue`.
+Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,11 +28,11 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som tillhandahålls när du aktiverar din kostnadsfria utvärderingsversion.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Det här exempelprogrammet hämtar lokala svarsdata från frågan för en *hotell i Bellevue*.
+Det här exempel programmet hämtar lokala svars data från frågan för ett *hotell i Bellevue*.
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
-Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”hotell i Bellevue”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
+Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och lägger till en frågesträng för "hotell i Bellevue".  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ```
     // construct URL of search request (endpoint + query string)
@@ -48,9 +48,9 @@ Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ```
 
-## <a name="run-the-complete-application"></a>Kör hela appen
+## <a name="run-the-complete-application"></a>Kör hela programmet
 
-Den lokala företag i Bing returnerar resultat från Bing search-motorn.
+API: t för lokal sökning i Bing returnerar resultat från Bing Search-motorn.
 1. Hämta eller installera gson-biblioteket.
 2. Skapa ett nytt Java-projekt i den IDE eller redigerare du föredrar.
 3. Lägg till koden nedan.
@@ -164,6 +164,6 @@ public class LocalSearchCls {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lokala företag Search-Snabbstart](local-quickstart.md)
-- [Lokala företag Search-Node-quickstart](local-search-node-quickstart.md)
-- [Lokala företag Search Python-Snabbstart](local-search-python-quickstart.md)
+- [Snabb start för lokal affärs sökning](local-quickstart.md)
+- [Snabb start för lokal Business search-nod](local-search-node-quickstart.md)
+- [Snabb start för att söka i lokalt företag](local-search-python-quickstart.md)

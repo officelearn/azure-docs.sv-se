@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Starta uppslukande läsaren med hjälp av Node.js'
+title: 'Självstudier: Starta den fördjupade läsaren med Node. js'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du ett Node.js-program som startar uppslukande läsaren.
+description: I den här självstudien skapar du ett Node. js-program som startar den fördjupade läsaren.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7410240b0d8e6a63d39c90ead2875f315d995de0
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718373"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443800"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta Avancerad läsare (Node.js)
 
-I den [översikt](./overview.md), lär du dig om vad uppslukande läsaren är och hur den implementerar beprövade metoder för att förbättra läsbarheten för språk-inlärning, kommande läsare och studenter för att lära dig skillnaderna. Den här självstudien beskriver hur du skapar ett Node.js-webbprogram som startar uppslukande läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node. js-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en Node.js-webbapp med Express
+> * Skapa en Node. js-webbapp med Express
 > * Hämta en åtkomsttoken
-> * Starta uppslukande läsaren innehåll
+> * Starta den fördjupade läsaren med exempel innehåll
 > * Ange språket för ditt innehåll
-> * Ange språket för gränssnittet uppslukande läsare
-> * Starta uppslukande läsaren med matematiska innehåll
+> * Ange språket för gränssnittet för avancerad läsare
+> * Starta den fördjupade läsaren med matematik innehåll
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En prenumerationsnyckel för uppslukande läsare. Skaffa en genom att följa [instruktionerna](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-* [Node.js](https://nodejs.org/) och [Yarn](https://yarnpkg.com)
-* En IDE som [Visual Studio Code](https://code.visualstudio.com/)
+* En fördjupad läsar resurs som kon figurer ATS för autentisering med Azure Active Directory (Azure AD). Följ [dessa instruktioner](./azure-active-directory-authentication.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
+* [Node. js](https://nodejs.org/) och [garn](https://yarnpkg.com)
+* En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node.js-webbapp med Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node. js-webbapp med Express
 
-Skapa en Node.js-webbapp med den `express-generator` verktyget.
+Skapa en Node. js-webbapp med `express-generator` verktyget.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +47,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Installera yarn beroenden och lägga till beroenden `request` och `dotenv`, som används senare under kursen.
+Installera garn beroenden och Lägg till `request` beroenden och `dotenv`, som kommer att användas senare i självstudien.
 
 ```bash
 yarn
@@ -55,60 +55,85 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-access-token"></a>Hämta en åtkomsttoken
+## <a name="acquire-an-azure-ad-authentication-token"></a>Hämta en Azure AD-autentiseringstoken
 
-Skriv sedan ett serverdels-API för att hämta en åtkomsttoken med hjälp av din prenumerationsnyckel. Du behöver din prenumerationsnyckel och slutpunkt för nästa steg. Du hittar din prenumerationsnyckel på sidan nycklar i din uppslukande Reader-resurs i Azure-portalen. Du kan hitta din slutpunkt på sidan Översikt.
+Skriv sedan ett Server dels-API för att hämta en Azure AD-autentiseringstoken.
 
-När du har din prenumerationsnyckel och slutpunkt, skapa en ny fil med namnet _.env_, och klistra in följande kod i den genom att ersätta `{YOUR_SUBSCRIPTION_KEY}` och `{YOUR_ENDPOINT}` med din prenumerationsnyckel och slutpunkt, respektive.
+Du behöver vissa värden från det nödvändiga steget för Azure AD auth Configuration ovan för den här delen. Se tillbaka till text filen som du sparade i sessionen.
+
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+När du har dessa värden skapar du en ny fil med namnet _. kuvert_och klistrar in följande kod i den och anger dina egna egenskaps värden ovan.
 
 ```text
-SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
-ENDPOINT={YOUR_ENDPOINT}
+TENANT_ID={YOUR_TENANT_ID}
+CLIENT_ID={YOUR_CLIENT_ID}
+CLIENT_SECRET={YOUR_CLIENT_SECRET}
+SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Glöm inte att genomföra den här filen i källkontrollen eftersom den innehåller hemligheter som inte bör göras offentlig.
+Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
 
-Därefter öppnar _app.js_ och Lägg till följande överst i filen. Detta läser in prenumerationsnyckel och slutpunkten som miljövariabler i noden.
+Öppna sedan _app. js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
 
 ```javascript
 require('dotenv').config();
 ```
 
-Öppna den _routes\index.js_ fil- och följande importera överst i filen:
+Öppna filen _routes\index.js_ och följande import överst i filen:
 
 ```javascript
 var request = require('request');
 ```
 
-Lägg sedan till följande kod direkt under den raden. Den här koden skapar en API-slutpunkt som skaffar en åtkomsttoken med hjälp av din prenumerationsnyckel och returnerar sedan den token.
+Lägg sedan till följande kod direkt under raden. Den här koden skapar en API-slutpunkt som skaffar en Azure AD-autentiseringstoken med ditt huvud namn för tjänsten och returnerar sedan denna token. Det finns också en andra slut punkt för att hämta under domänen.
 
 ```javascript
-router.get('/token', function(req, res, next) {
-  request.post({
-    headers: {
-        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
-        'content-type': 'application/x-www-form-urlencoded'
-    },
-    url: process.env.ENDPOINT
-  },
-  function(err, resp, token) {
-    return res.send(token);
-  });
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
+          headers: {
+              'content-type': 'application/x-www-form-urlencoded'
+          },
+          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+          form: {
+              grant_type: 'client_credentials',
+              client_id: process.env.CLIENT_ID,
+              client_secret: process.env.CLIENT_SECRET,
+              resource: 'https://cognitiveservices.azure.com/'
+          }
+      },
+      function(err, resp, token) {
+          if (err) {
+              return res.status(500).send('CogSvcs IssueToken error');
+          }
+
+          return res.send(JSON.parse(token).access_token);
+      }
+  );
+});
+
+router.get('/subdomain', function (req, res) {
+    return res.send(process.env.SUBDOMAIN);
 });
 ```
 
-Den här API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)); att arbete är utanför omfattningen för den här självstudien.
+**Getimmersivereadertoken** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)) för att hindra obehöriga användare från att hämta token som ska användas mot tjänsten för avancerad läsare och fakturering. Detta arbete ligger utanför den här självstudiens omfattning.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta uppslukande läsaren innehåll
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _views\layout.pug_, och Lägg till följande kod under den `head` tagga innan den `body` tagg. Dessa `script` taggar läsa in den [uppslukande läsare SDK](https://github.com/Microsoft/immersive-reader-sdk) och jQuery.
+1. Öppna _views\layout.pug_och Lägg till följande kod under `head` `body` taggen innan taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/Microsoft/immersive-reader-sdk) .
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Öppna _views\index.pug_, och Ersätt innehållet med följande kod. Den här koden fylls sidan med exempel innehåll och lägger till en knapp som startar uppslukande läsaren.
+2. Öppna _views\index.pug_och ersätt innehållet med följande kod. Den här koden fyller sidan med visst exempel innehåll och lägger till en knapp som startar den fördjupade läsaren.
 
     ```pug
     extends layout
@@ -118,43 +143,69 @@ Den här API-slutpunkten bör skyddas bakom någon form av autentisering (till e
       p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
       div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
       script.
-        function launchImmersiveReader() {
-          // First, get a token using our /token endpoint
-          $.ajax('/token', { success: token => {
-            // Second, grab the content from the page
+
+        function getImmersiveReaderTokenAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/getimmersivereadertoken',
+                    type: 'GET',
+                    success: token => {
+                        resolve(token);
+                    },
+                    error: err => {
+                        console.log('Error in getting token!', err);
+                        reject(err);
+                    }
+                });
+            });
+        }
+
+        function getSubdomainAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/subdomain',
+                    type: 'GET',
+                    success: subdomain => { resolve(subdomain); },
+                    error: err => { reject(err); }
+                });
+            });
+        }
+
+        async function launchImmersiveReader() {
             const content = {
-              title: document.getElementById('title').innerText,
-              chunks: [ {
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-              } ]
+                title: document.getElementById('title').innerText,
+                chunks: [{
+                    content: document.getElementById('content').innerText + '\n\n',
+                    lang: 'en'
+                }]
             };
 
-            // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
-          }});
+            const token = await getImmersiveReaderTokenAsync();
+            const subdomain = await getSubdomainAsync();
+
+            ImmersiveReader.launchAsync(token, subdomain, content);
         }
     ```
 
-3. Webbapp är nu klar. Starta appen genom att köra:
+3. Vår webbapp är nu klar. Starta appen genom att köra:
 
     ```bash
     npm start
     ```
 
-4. Öppna webbläsaren och navigera till _http://localhost:3000_ . Du bör se innehållet ovan på sidan. Klicka på den **uppslukande läsare** knappen för att starta uppslukande läsaren med innehållet.
+4. Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se innehållet ovan på sidan. Klicka på knappen fördjupad **läsare** för att starta den fördjupade läsaren med ditt innehåll.
 
 ## <a name="specify-the-language-of-your-content"></a>Ange språket för ditt innehåll
 
-Uppslukande läsaren har stöd för många olika språk. Du kan ange språket i ditt innehåll genom att följa stegen nedan.
+Den fördjupade läsaren har stöd för många olika språk. Du kan ange språket för ditt innehåll genom att följa stegen nedan.
 
-1. Öppna _views\index.pug_ och Lägg till följande kod nedan i `p(id=content)` tagg som du lade till i föregående steg. Den här koden lägger till en del innehåll spanska innehåll till din sida.
+1. Öppna _views\index.pug_ och Lägg till följande kod under den `p(id=content)` tagg som du lade till i föregående steg. Den här koden lägger till innehåll spanska innehåll på din sida.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. Lägg till följande ovanför anropet till i JavaScript-koden `ImmersiveReader.launchAsync`. Den här koden skickar spanska innehållet i uppslukande läsaren.
+2. I JavaScript-koden lägger du till följande ovanför anropet till `ImmersiveReader.launchAsync`. Den här koden skickar det spanska innehållet till den fördjupade läsaren.
 
     ```pug
     content.chunks.push({
@@ -163,13 +214,13 @@ Uppslukande läsaren har stöd för många olika språk. Du kan ange språket i 
     });
     ```
 
-3. Gå till _http://localhost:3000_ igen. Du bör se den spanska texten på sidan och när du klickar på **uppslukande läsare**, den börjar gälla den uppslukande läsaren.
+3. Navigera till _http://localhost:3000_ igen. Du bör se den spanska texten på sidan och när du klickar på **Avancerad läsare**visas den även i den fördjupade läsaren.
 
-## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Ange språket för gränssnittet uppslukande läsare
+## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Ange språket för gränssnittet för avancerad läsare
 
-Som standard matchar språket i gränssnittet uppslukande läsare webbläsarens språkinställningar. Du kan också ange språket i gränssnittet uppslukande läsare med följande kod.
+Som standard matchar språket i gränssnittet för avancerad läsare webbläsarens språk inställningar. Du kan också ange språket för gränssnittet för avancerad läsare med följande kod.
 
-1. I _views\index.pug_, Ersätt anropet till `ImmersiveReader.launchAsync(token, content)` med koden nedan.
+1. I _views\index.pug_ersätter du anropet till `ImmersiveReader.launchAsync(token, content)` med koden nedan.
 
     ```javascript
     const options = {
@@ -178,13 +229,13 @@ Som standard matchar språket i gränssnittet uppslukande läsare webbläsarens 
     ImmersiveReader.launchAsync(token, content, options);
     ```
 
-2. Navigera till _http://localhost:3000_ . När du startar uppslukande läsaren visas gränssnittet på franska.
+2. Navigera till _http://localhost:3000_ . När du startar den fördjupade läsaren visas gränssnittet på franska.
 
-## <a name="launch-the-immersive-reader-with-math-content"></a>Starta uppslukande läsaren med matematiska innehåll
+## <a name="launch-the-immersive-reader-with-math-content"></a>Starta den fördjupade läsaren med matematik innehåll
 
-Du kan inkludera matematiska innehåll i uppslukande läsaren genom att använda [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
+Du kan inkludera matematik innehåll i den fördjupade läsaren med hjälp av [mathml](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-1. Ändra _views\index.pug_ att inkludera följande kod över anropet till `ImmersiveReader.launchAsync`:
+1. Ändra _views\index.pug_ för att inkludera följande kod ovanför anropet till `ImmersiveReader.launchAsync`:
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
@@ -209,9 +260,9 @@ Du kan inkludera matematiska innehåll i uppslukande läsaren genom att använda
     });
     ```
 
-2. Navigera till _http://localhost:3000_ . När du startar uppslukande läsare och bläddra till slutet ser matematiska formeln.
+2. Navigera till _http://localhost:3000_ . När du startar den fördjupade läsaren och bläddrar längst ned visas den matematiska formeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska den [uppslukande läsare SDK](https://github.com/Microsoft/immersive-reader-sdk) och [uppslukande läsare SDK-referens](./reference.md)
-* Visa kodexempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Utforska SDK: [n för avancerad läsare](https://github.com/Microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Visa kod exempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)

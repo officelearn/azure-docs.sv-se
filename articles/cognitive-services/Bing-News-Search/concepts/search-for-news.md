@@ -1,6 +1,6 @@
 ---
 title: Sök efter nyheter med API för nyhetssökning i Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du skickar sökfrågor för allmänna nyheter, populära ämnen och rubriker.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274169"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423887"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -51,7 +51,7 @@ Om du vill hämta nyheter från en specifik domän använder du frågeoperatorn 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-I följande JSON-exempel visas svaret på den föregående frågan. Som en del av [användnings- och visningskraven](../useanddisplayrequirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
+Följande JSON-exempel visar svaret på föregående fråga. Som en del av [användnings- och visningskraven](../useanddisplayrequirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
 
 ```json
 {
@@ -107,7 +107,7 @@ Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den 
 
 ## <a name="get-todays-top-news"></a>Hämta dagens viktigaste nyheter
 
-För att få dagens översta nyhetsartiklar, du kan skicka samma allmänna nyheter förfrågan som tidigare och lämna den `q` parameter har angetts.
+Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som `q` du lämnar parametern unset.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Svaret för att få senaste är nästan samma sätt som det för att få allmän nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda den `provider` fältet till attributet i artikeln.
+Svars tiden för att hämta de viktigaste nyheterna är nästan samma som för att få allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda `provider` fältet för att attributa artikeln.
 
 ## <a name="get-news-by-category"></a>Hämta nyheter efter kategori
 

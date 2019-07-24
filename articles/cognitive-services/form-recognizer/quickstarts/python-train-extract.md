@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Träna en modell och extrahera formulärdata med hjälp av REST-API med Python - formuläret Igenkännande'
+title: 'Snabbstart: Träna en modell och extrahera formulär data med hjälp av REST API med python-formulär tolken'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du använda formatet Igenkännande REST-API med Python och tränar en modell som du kan extrahera data från formulär.
+description: I den här snabb starten använder du formulär tolken REST API med python för att träna en modell och extrahera data från formulär.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,38 +9,38 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 63b58e5e667d03d7808973b0783ed98ab4cb5447
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605879"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443839"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en modell för formuläret Igenkännande och extrahera formulärdata med hjälp av REST-API med Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
 
-I den här snabbstarten ska du använda Azure formuläret Igenkännande REST-API med Python för att träna och betygsätta formulär för att extrahera nyckel / värde-par och tabeller.
+I den här snabb starten använder du Azures formulär tolken REST API med python för att träna och Poäng Forms för att extrahera nyckel/värde-par och tabeller.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att slutföra den här snabbstarten måste du ha:
-- Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
+För att slutföra den här snabb starten måste du ha:
+- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning minst fem typer av samma typ. Du använder dessa data för att träna modellen. Du kan använda en [provdatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp data till roten i en Azure Blob Storage-konto.
+- En uppsättning minst fem formulär av samma typ. Du kommer att använda dessa data för att träna modellen. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Överför data till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en resurs för formuläret Igenkännande
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Träna en modell för formuläret Igenkännande
+## <a name="train-a-form-recognizer-model"></a>Träna en formulär igenkännings modell
 
-Först behöver du en uppsättning träningsdata i en Azure Storage blob-behållare. Du bör ha minst fem ifyllda former (PDF-dokument och/eller avbildningar) av samma typ/struktur som dina huvudsakliga indata. Eller du kan använda ett tomt formulär med två fyllts i formulär. Formuläret tomt namn måste innehålla ordet ”tom”. Se [skapa en datauppsättning för träning för en anpassad modell](../build-training-data-set.md) tips och alternativ för att sätta ihop dina utbildningsdata.
+Först behöver du en uppsättning utbildnings data i en Azure Storage BLOB-behållare. Du bör ha minst fem ifyllda formulär (PDF-dokument och/eller bilder) av samma typ/struktur som dina viktigaste indata. Eller så kan du använda ett enda tomt formulär med två ifyllda formulär. Det tomma formulärets fil namn måste innehålla ordet "Empty". Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data.
 
-För att träna en modell för formuläret Igenkännande med dokument i Azure blob-behållare, anropa den **träna** API genom att köra följande python-kod. Innan du kör koden gör dessa ändringar:
+Om du vill träna en formulär tolknings modell med dokumenten i din Azure Blob-behållare anropar du **träna** API genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkts-URL för formuläret Igenkännande resursen i Azure-region där du har fått din prenumerationsnycklar.
-1. Ersätt `<Subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
-1. Ersätt `<SAS URL>` med Azure Blob storage-behållare delade åt URL för signatur (SAS). Att hämta SAS-Webbadressen, öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välj **hämta signatur för delad åtkomst**. Kontrollera att den **Läs** och **lista** behörigheter kontrolleras och på **skapa**. Kopiera sedan värdet i den **URL** avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen i den Azure-region där du har köpt dina prenumerations nycklar.
+1. Ersätt `<Subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
+1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
     ```python
     ########### Python Form Recognizer Train #############
@@ -63,11 +63,11 @@ För att träna en modell för formuläret Igenkännande med dokument i Azure bl
     except Exception as e:
         print(str(e))
     ```
-1. Spara koden i en fil med filnamnstillägget .py. Till exempel *formuläret identifiera train.py*.
+1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-recognize-Train.py*.
 1. Öppna ett kommandotolksfönster.
 1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognize-train.py`.
 
-Du får en `200 (Success)` svar med den här JSON-utdata:
+Du får ett `200 (Success)` svar med följande JSON-utdata:
 
 ```json
 {
@@ -108,16 +108,16 @@ Du får en `200 (Success)` svar med den här JSON-utdata:
 }
 ```
 
-Obs den `"modelId"` värde. Du behöver den för följande steg.
+`"modelId"` Anteckna värdet. Du behöver den för att utföra följande steg.
   
-## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrahera nyckel / värde-par och tabeller från formulär
+## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrahera nyckel/värde-par och tabeller från formulär
 
-Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller från den. Anropa den **modellera – analysera** API genom att köra Python-skriptet som följer. Innan du kör kommandot gör dessa ändringar:
+Härnäst ska du analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **modell-** API: et för analys genom att köra python-skriptet som följer. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<path to your form>` med sökvägen till ditt formulär (exempelvis C:\temp\file.pdf).
-1. Ersätt `<modelID>` med modell-ID som du fick i föregående avsnitt.
-1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<path to your form>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf).
+1. Ersätt `<modelID>` med modell-ID: t som du fick i föregående avsnitt.
+1. Ersätt `<file type>` med filtypen. Typer som stöds `application/pdf`: `image/jpeg`, `image/png`,.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
     ```python
@@ -145,13 +145,13 @@ Nu ska du analysera ett dokument och extrahera nyckel / värde-par och tabeller 
         print(str(e))
     ```
 
-1. Spara koden i en fil med filnamnstillägget .py. Till exempel *formuläret identifiera analyze.py*.
+1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-recognize-Analyze.py*.
 1. Öppna ett kommandotolksfönster.
 1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Ett lyckat svar returneras i JSON. Nyckel / värde-par och tabeller som extraheras från formuläret representerar:
+Ett lyckat svar returneras i JSON. Den representerar nyckel/värde-par och tabeller som extraheras från formuläret:
 
 ```bash
 {
@@ -476,7 +476,7 @@ Ett lyckat svar returneras i JSON. Nyckel / värde-par och tabeller som extraher
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du formuläret Igenkännande REST API med Python du tränar en modell och kör den i ett exempelscenario. Därefter finns i referensdokumentationen för att utforska formuläret Igenkännande API: et i mer detalj.
+I den här snabb starten använde du formulär tolken REST API med python för att träna en modell och köra den i ett exempel scenario. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [Referensdokumentation för REST API](https://aka.ms/form-recognizer/api)
+> [REST API referens dokumentation](https://aka.ms/form-recognizer/api)

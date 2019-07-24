@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Utföra en nyhetssökning med Node.js – REST-API för nyhetssökning i Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Node.js och få ett JSON-svar.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1fb2676fb1513ab4955ffa35c559b2ae36e0efd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 501ae6107232287011388bb67e64a1ae3fe5f7e3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203322"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423722"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med Node.js och REST-API för nyhetssökning i Bing
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -71,7 +71,7 @@ Se även [Priser för Cognitive Services – API för Bing-sökning](https://azu
         });
         ```
 
-    3. När en **slutet** flaggan signaleras, kan visas JSON och rubriker.
+    3. När en **slut** flagga signaleras kan JSON och huvuden visas.
 
         ```javascript
         response.on('end', function () {

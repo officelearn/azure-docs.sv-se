@@ -1,59 +1,59 @@
 ---
-title: Sök efter kategorier för den lokala företag i Bing | Microsoft Docs
+title: Sök efter kategorier för API för lokal sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln för att lära dig hur du anger search kategorier för den lokala företag i Bing search API-slutpunkten.
+description: I den här artikeln får du lära dig hur du anger Sök kategorier för API-slutpunkt för lokal sökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 7e5515aeee319464a65088653ad5e2bfe5b0b1f8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e7088ac11556d8810c744ab4b56d2639865fb2f5
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592820"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423427"
 ---
-# <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök i kategorier för den lokala företag i Bing
+# <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök efter kategorier för API för lokal sökning i Bing
 
-Lokala företag sökning i Bing kan du söka efter lokala affärsentiteter i olika kategorier, där prioritet ges att Stäng resultat användarens plats. Du kan inkludera dessa sökningar i sökningar tillsammans med den `localCircularView` och `localMapView` [parametrar](specify-geographic-search.md).
+Med API: t för lokal sökning i Bing kan du söka efter lokala affär senheter i en mängd olika kategorier, med prioritet till resultat som stänger en användares plats. Du kan inkludera dessa sökningar i sökningar tillsammans med `localCircularView` [parametrarna](specify-geographic-search.md)och `localMapView` .
 
 
-## <a name="toplevel-categories"></a>TopLevel kategorier 
+## <a name="toplevel-categories"></a>TopLevel-kategorier 
 
-Följande typer definiera huvudkategorierna av search.  Mer än en kategori kan anges med hjälp av en kommaavgränsad lista som tilldelats den `localCategories` parametern.  
+Följande typer definierar viktiga Sök kategorier.  Mer än en kategori kan anges med en kommaavgränsad lista som har tilldelats till `localCategories` parametern.  
 - EatDrink 
 - SeeDo 
-- Leta 
+- Butik 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
-- Parkera 
+- Parkering 
 - Sjukhus 
 
-## <a name="sub-categories"></a>Underkategorier
-Underkategorier skickas på samma sätt som `localCategories`. Underkategorier finns mer specifika kategorier. De är underordnade i den mening att om du anger en kategori C och en av dess underkategorier S i samma kommaavgränsad lista du får samma resultat som om du har angett C enbart.
+## <a name="sub-categories"></a>Under Kategorier
+Under Kategorier skickas på samma sätt som `localCategories`. Under kategorier är mer exakta kategorier. De är underordnade i den meningen att om du anger en kategori C och en av dess under Kategorier i samma kommaavgränsad lista får du samma resultat som om du har angett enbart C.
 
 ### <a name="eat-drink"></a>Äta dryck 
 |  |  |  |  |
 | - | - | - | - |
 | BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
 | AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Staplar |
+| Taverns | SportsBars | Fält |
 | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
 | BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
 | ChineseRestaurants | CoffeeAndTea | Delicatessens | 
 | DeliveryService | Diners | DiscountStores | 
 | Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Stormarknader | 
-| GreekRestaurants | Grocers | HawaiianRestaurants | 
+| FrozenYogurt | GermanRestaurants | Supermarknad | 
+| GreekRestaurants | Inköps varor | HawaiianRestaurants | 
 | HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
-| ItalianRestaurants | JapaneseRestaurants | Bärsaft | 
+| ItalianRestaurants | JapaneseRestaurants | Juicer | 
 | KoreanRestaurants | LiquorStores | MexicanRestaurants |
 | MiddleEasternRestaurants | Pizza | PolishRestaurants | 
-| PortugueseRestaurants | Salta pinnar | Restauranger | 
-| RussianAndUkrainianRestaurants | Smörgåsar | SeafoodRestaurants | 
+| PortugueseRestaurants | Pretzels | Sektorn | 
+| RussianAndUkrainianRestaurants | Sydsandwichöarna | SeafoodRestaurants | 
 | SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
 | Sak | ThaiRestaurants | TurkishRestaurants | 
 | VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
@@ -61,15 +61,15 @@ Underkategorier skickas på samma sätt som `localCategories`. Underkategorier f
 ### <a name="see-do"></a>Se gör 
 |  |  |  |
 | -- | -- | -- |
-| AmusementParks | Attraktioner | Carnivals |
-| Kasinon | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Museer | Parker |
-| SightseeingTours | TouristInformation | Djurparker |
+| AmusementParks | Attractions | Carnivals |
+| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
+| MovieTheaters | Museums | Parker |
+| SightseeingTours | TouristInformation | Zoos |
  
-### <a name="shop"></a>Leta 
+### <a name="shop"></a>Butik 
 |  |  |  |
 | -- | -- | -- |
-| AntiqueStores | Bokhandeln | CDAndRecordStores |
+| AntiqueStores | Böcker | CDAndRecordStores |
 | ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
 | DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
 | FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
@@ -80,9 +80,9 @@ Underkategorier skickas på samma sätt som `localCategories`. Underkategorier f
 | VitaminAndSupplementStores | WomensClothingStores |  |
 
 
-## <a name="examples-of-local-categories-search"></a>Exempel på lokal kategorier sökning
+## <a name="examples-of-local-categories-search"></a>Exempel på lokala Sök kategorier
 
-I följande exempel resulterar GET enligt den `localCategories` parameter:
+Följande exempel får resultat enligt `localCategories` parametern:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels`
 
@@ -92,11 +92,11 @@ I följande exempel resulterar GET enligt den `localCategories` parameter:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals`
 
-Följande fråga begränsar antalet 'sjukhuset' resultaten till första tre som returnerades från den lokala företag i Bing:
+Följande fråga begränsar antalet "sjukhus"-resultat till de första tre returnerade från Bing-API: et för lokal affärs sökning:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0`
 
-I följande exempel JSON-svaret innehåller tre sjukhus i större Seattle-området:
+I följande exempel på JSON-svar ingår tre sjukhus i den större Seattle-ytan:
 
 ```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
@@ -216,6 +216,6 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Geografisk search gränser](specify-geographic-search.md)
-- [Frågor och svar](local-search-query-response.md)
-- [Snabbstart iC#](quickstarts/local-quickstart.md)
+- [Geografiska Sök gränser](specify-geographic-search.md)
+- [Fråga och svar](local-search-query-response.md)
+- [Snabb start iC#](quickstarts/local-quickstart.md)

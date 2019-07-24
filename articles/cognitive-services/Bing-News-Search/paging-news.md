@@ -1,7 +1,7 @@
 ---
-title: Hur du bläddrar igenom resultaten för nyhetssökning i Bing
-titlesuffix: Azure Cognitive Services
-description: Lär dig mer om att bläddra igenom nyhetsartiklar som returnerar de nyhetssökning i Bing.
+title: Så här bläddrar du genom Nyhetssökning i Bing resultat
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du bläddrar bland nyhets artiklarna som API för nyhetssökning i Bing returnerar.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f8dce1a03e44758eea737ad2da419fa67c36a2
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390479"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423742"
 ---
-# <a name="how-to-page-through-news-search-results"></a>Hur du bläddrar igenom nyhetssökningsresultat
+# <a name="how-to-page-through-news-search-results"></a>Hur du bläddrar bland nyhets Sök Resultat
 
-När du anropar API: et för Nyheter Search returnerar Bing en lista med resultat som är relevanta för din fråga. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) fält.  
+När du anropar Nyhetssökning API returnerar Bing en lista med resultat som är relevanta för din fråga. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) -fält.  
   
-I följande exempel visas den `totalEstimatedMatches` fält som innehåller ett nytt svar.  
+I följande exempel visas `totalEstimatedMatches` fältet som ett nyhets svar innehåller.  
 
 ```json
 {  
@@ -32,17 +32,17 @@ I följande exempel visas den `totalEstimatedMatches` fält som innehåller ett 
 }  
 ```  
   
-Om du vill bläddra igenom tillgängliga artiklar, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) Frågeparametrar.  
+Du kan bläddra igenom de tillgängliga artiklarna med parametrarna [Count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) Query.  
  
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|`count`     | Anger hur många resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 100. Standardvärdet är 10. Det faktiska talet som levereras kan vara mindre än vad som begärts.        |
-|`offset`     | Anger hur många resultat som hoppas över. Den `offset` är nollbaserat och måste vara mindre än (`totalEstimatedMatches` - `count`).          |
+|`count`     | Anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 100. Standardvärdet är 10. Det faktiska antalet som levereras kan vara mindre än begärt.        |
+|`offset`     | Anger antalet resultat som ska hoppas över. Är noll-baserat och måste vara mindre än - (`count``totalEstimatedMatches`). `offset`          |
 
-Till exempel om du vill visa 20 artiklar per sida du vill ange `count` till 20 och `offset` på 0 för att hämta den första sidan i resultaten. För varje efterföljande sida du vill öka `offset` med 20 (till exempel 20, 40).  
+Om du till exempel vill visa 20 artiklar per sida, anger `count` du 20 och `offset` till 0 för att få den första resultat sidan. För varje efterföljande sida skulle du öka `offset` med 20 (till exempel 20, 40).  
   
-I följande exempel begär 20 nyhetsartiklar som börjar vid förskjutningen 40.  
+I följande exempel begärs 20 nyhets artiklar som börjar vid förskjutningen 40.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
@@ -50,7 +50,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
   
-Om standard `count` värde fungerar för din implementering, bara ange den `offset` frågeparameter som visas i följande exempel:  
+Om standardvärdet fungerar för din implementering anger du `offset` bara Frågeparametern som visas i följande exempel: `count`  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -59,7 +59,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Växling gäller endast för nyhetssökning (/ news/Sök) och inte på populära ämnen (/ news/trendingtopics) eller nyhetskategorier (/ nyheter).
+> Sid indelning gäller enbart för nyhets sökning (/News/search) och inte för att hitta ämnen (/News/trendingtopics) eller nyhets kategorier (/News).
 
 > [!NOTE]
-> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 
+> `TotalEstimatedAnswers` Fältet är en uppskattning av det totala antalet Sök resultat som du kan hämta för den aktuella frågan.  När du ställer `count` in `offset` och parametrar `TotalEstimatedAnswers` kan antalet ändras. 

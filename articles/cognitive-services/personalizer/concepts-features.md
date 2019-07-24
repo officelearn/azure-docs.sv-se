@@ -1,7 +1,7 @@
 ---
-title: 'Funktioner: Åtgärden och kontext - Personalizer'
+title: 'Funktioner: Åtgärd och kontext – Personanpassare'
 titleSuffix: Azure Cognitive Services
-description: Personalizer använder funktioner, information om åtgärder och kontext för att göra bättre rangordning förslag. Funktioner kan vara mycket allmän eller specifika för ett objekt.
+description: Personanpassare använder funktioner, information om åtgärder och kontext för att göra bättre rangordnings förslag. Funktioner kan vara mycket generiska eller bara för ett objekt.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,55 +10,55 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253592"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423283"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
-Tjänsten Personalizer fungerar genom att lära dig vad ditt program bör visas för användarna i ett visst sammanhang.
+Personanpassa tjänsten arbetar genom att lära dig vad ditt program ska visa för användare i en specifik kontext.
 
-Personalizer använder **funktioner**, vilket är information om den **kontext** att välja bäst **åtgärd**. Funktionerna representerar all information som du tror kan hjälpa dig att anpassa för att uppnå högre belöningar. Funktioner kan vara mycket allmän eller specifika för ett objekt. 
+I personanpassaren används **funktioner**, som innehåller information om den **aktuella kontexten** för att välja den bästa **åtgärden**. Funktionerna representerar all information du tycker kan hjälpa dig att anpassa för att uppnå högre förmåner. Funktioner kan vara mycket generiska eller bara för ett objekt. 
 
-Du kan till exempel ha en **funktionen** om:
+Du kan till exempel ha en **funktion** om:
 
-* Den _användaren_ som en `UserID`. 
-* Den _innehåll_ till exempel om en video är en `Documentary`, ett `Movie`, eller en `TV Series`, eller om ett retail-objekt är tillgängliga i store.
-* Den _aktuella_ period tid som det är till exempel vilken dag i veckan.
+* _Användaren_ , till exempel en `UserID`. 
+* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie`, eller en `TV Series`, eller om en butiks artikel är tillgänglig i butiken.
+* Den _aktuella_ tids perioden, till exempel vilken veckodag det är.
 
-Personalizer föreskriver, begränsa eller åtgärda vilka funktioner som du kan skicka för åtgärder och kontext:
+Personanpassaren anger inte, begränsar eller åtgärdar vilka funktioner du kan skicka för åtgärder och kontext:
 
-* Du kan skicka vissa funktioner för vissa åtgärder och inte för andra, om du inte har något. TV-serie kan exempelvis ha filmer inte har attribut.
-* Du kanske vissa funktioner som är tillgängliga bara några gånger. En mobilapp kan till exempel ge mer än en webbsida. 
-* Med tiden kan du lägga till och ta bort funktioner om kontext och åtgärder. Personalizer fortsätter att lära sig från tillgänglig information.
-* Det måste finnas minst en funktion för kontexten. Personalizer stöder inte en tom kontext. Om du skickar bara en fast kontext varje gång, väljer Personalizer åtgärden för rangordning endast om funktionerna i åtgärderna. 
-* Personalizer försöker att välja åtgärder som passar bäst för alla när som helst.
+* Du kan skicka vissa funktioner för vissa åtgärder och inte för andra, om du inte har dem. TV-serier kan t. ex. ha attributs-filmer.
+* Vissa funktioner är bara tillgängliga vissa gånger. Ett mobil program kan till exempel ge mer information än en webb sida. 
+* Med tiden kan du lägga till och ta bort funktioner för kontext och åtgärder. Personanpassaren fortsätter att lära sig från tillgänglig information.
+* Det måste finnas minst en funktion för kontexten. Personanpassaren har inte stöd för en tom kontext. Om du bara skickar en fast kontext varje gång väljer Personanpassaren åtgärden för rankning enbart för funktionerna i åtgärderna.
+* För kategoriska-funktioner behöver du inte definiera möjliga värden, och du behöver inte definiera intervall för numeriska värden.
 
-## <a name="supported-feature-types"></a>Typer av funktion som stöds
+## <a name="supported-feature-types"></a>Funktions typer som stöds
 
-Personalizer har stöd för funktionerna i sträng, numeriska och booleska typer.
+En personanpassare stöder funktioner av typerna String, numeric och Boolean.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hur påverkar valet av funktionstyp Machine Learning i Personalizer
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hur valet av funktions typ påverkar Machine Learning i personanpassa
 
-* **Strängar**: För strängtyper skapar varje enskild kombination med nyckel- och nya vikterna i Personalizer-machine learning-modell. 
-* **Numeriska**: När antalet bör proportionellt påverkar personanpassning resultatet bör du använda numeriska värden. Detta är mycket scenariot beroende. I ett förenklat exempel t.ex. när anpassa en officiell uppstår NumberOfPetsOwned kan vara en funktion som är numeriska som du kanske vill att användare med 2 eller 3 husdjur att påverka resultatet personanpassning två gånger eller tre gånger om så mycket som har 1 husdjur. Funktioner som är baserade på numeriska enheter men där betydelse inte är linjär – till exempel ålder, temperatur eller Person höjd - är bäst kodade som strängar, och funktion kvaliteten vanligtvis kan förbättras genom att använda intervall. Till exempel ålder kan vara kodad som ”Age”: ”0-5”, ”Age” ”: 6 – 10”, osv.
-* **Booleska** värden som skickas med värdet ”false” act som om de inte tagit emot alls.
+* **Strängar**: För sträng typer skapar varje kombination av nyckel och värde nya vikter i personanpassa maskin inlärnings modell. 
+* **Numerisk**: Du bör använda numeriska värden när antalet ska proportionellt påverka anpassnings resultatet. Detta är mycket scenariot beroende. I ett förenklat exempel, t. ex. När du anpassar en återförsäljarversion, kan NumberOfPetsOwned vara en funktion som är numerisk eftersom du vill att personer med 2 eller tre hus djur ska påverka anpassnings resultatet två gånger eller tre gånger om så mycket som med 1 hus djur. Funktioner som baseras på numeriska enheter men där innebörden inte är linjär, till exempel ålder, temperatur eller person höjd – är bäst kodade som strängar, och funktions kvaliteten kan vanligt vis förbättras med hjälp av intervall. Till exempel kan ålder kodas som "ålder": "0-5", "Age": "6-10" osv.
+* **Booleska** värden som skickas med värdet "false" fungerar som om de inte hade har skickats över huvud taget.
 
-Funktioner som inte finns ska utelämnas från begäran. Undvika att skicka funktioner med ett null-värde eftersom det kommer att behandlas som befintlig och med värdet ”null” vid utbildning av modellen.
+Funktioner som inte finns ska utelämnas från begäran. Undvik att skicka funktioner med ett null-värde eftersom det kommer att bearbetas som befintligt och med värdet "null" när du tränar modellen.
 
-## <a name="categorize-features-with-namespaces"></a>Kategorisera funktioner med namnområden
+## <a name="categorize-features-with-namespaces"></a>Kategorisera funktioner med namn områden
 
-Personalizer tar funktioner som är ordnade i namnområden. Du avgör i ditt program, om namnområden används och vad de ska vara. Namnområden använder för att gruppera funktioner om ett liknande ämne eller funktioner som kommer från en viss källa.
+En personanpassare använder funktioner som är ordnade i namn områden. Du fastställer, i ditt program, om namn områden används och vad de ska vara. Namn områden används för att gruppera funktioner om ett liknande ämne, eller funktioner som kommer från en viss källa.
 
-Här följer några exempel på funktionen namnområden som används av program:
+Följande är exempel på funktions namn rymder som används av program:
 
 * User_Profile_from_CRM
 * Time
 * Mobile_Device_Info
-* HTTP_USER_AGENT
+* http_user_agent
 * VideoResolution
 * UserDeviceInfo
 * Väder
@@ -66,12 +66,12 @@ Här följer några exempel på funktionen namnområden som används av program:
 * current_time
 * NewsArticle_TextAnalytics
 
-Du kan kalla funktionen namnområden efter egna konventioner så länge de är giltig JSON-nycklarna. Namnområden används för att organisera funktioner i olika uppsättningar och för att undvika funktioner med liknande namn. Föreställ dig av namnrum som ett prefix som läggs till i funktionsnamn. Namnområden kan inte kapslas.
+Du kan namnge funktions namn rymder efter dina egna konventioner så länge de är giltiga JSON-nycklar. Namn områden används för att organisera funktioner i olika uppsättningar och för att disambiguate funktioner med liknande namn. Du kan tänka på namn områden som "prefix" som läggs till i funktions namn. Det går inte att kapsla namn områden.
 
 
-I följande JSON `user`, `state`, och `device` är funktionen namnområden. Offentlig förhandsversion Obs: För närvarande vi starkt bör du använda namn för funktionen namnområden som är UTF-8-baserade och börja med en annan bokstav. Till exempel `user`, `state`, och `device` börjar med `u`, `s`, och `d`. För närvarande med namnområden med samma första tecken kan resultera i kollisioner i index som används för maskininlärning.
+I följande JSON, `user`, `state`, och `device` är funktions namn rymder. Offentlig för hands versions anteckning: För närvarande rekommenderar vi starkt att du använder namn för funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till `user`exempel `device` `u`,, och börjar med ,`s`, och `d`. `state` För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
 
-JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
 ```JSON
 {
@@ -98,109 +98,109 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En m
 }
 ```
 
-## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Så här gör funktionen anger effektivare för Personalizer
+## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Så här gör du funktions uppsättningar mer effektiva för personligt anpassade
 
-En bra funktionsuppsättningen hjälper Personalizer Lär dig att förutse vad som kommer att öka den högsta trafik. 
+Med en bra funktions uppsättning kan Personanpassare lära sig hur man förutsäger den åtgärd som kommer att driva den högsta belöningen. 
 
-Överväg att funktioner för att skicka till Personalizer rangordning API som följer de här rekommendationerna:
+Överväg att skicka funktioner till API: et för personanpassa rankning som följer dessa rekommendationer:
 
-* Det finns tillräckligt med funktioner till enheten anpassning. Ju fler mål exakt content måste vara, fler funktioner krävs.
+* Det finns tillräckligt med funktioner för att driva anpassning. Den mer precis riktade innehållet måste vara, desto fler funktioner behövs.
 
-* Det finns tillräckligt med funktionerna i olika *densitet*. En funktion är *kompakta* om många objekt som är grupperade i några buckets. Till exempel tusentals videor kan klassificeras som ”långt” (under 5 minuter långa) och ”korta” (under 5 minuter långa). Det här är en *mycket kompakta* funktionen. Å andra sidan kan samma tusentals objekt ha ett attribut som kallas ”Title” som nästan aldrig har samma värde från ett objekt till en annan. Det här är en mycket icke-dense eller *null-optimerade* funktionen.  
+* Det finns tillräckligt med funktioner i olika *tätare*. En funktion är *tätare* om många objekt är grupperade i några buckets. Till exempel kan tusentals videor klassificeras som "Long" (över 5 min lång tid) och "Short" (under 5 min lång tid). Det här är en *mycket kompakt* funktion. Å andra sidan kan samma tusentals objekt ha ett attribut med namnet "title", som nästan aldrig har samma värde från ett objekt till ett annat. Det här är en mycket icke-kompakt eller *sparse* -funktion.  
 
-Med funktioner med hög densitet hjälper Personalizer extrapolera learning från ett objekt till en annan. Men om det finns bara ett par funktioner och de är för kompakta, Personalizer försöker exakt mål innehåll med bara några få bucketarna att välja mellan.
+Om du har funktioner med hög densitet blir det lättare för dig att lära sig lära från ett objekt till ett annat. Men om det bara finns några få funktioner och de är för enkla, kommer Personanpassaren att försöka exakt rikta in innehåll med bara några buckets att välja bland.
 
-### <a name="improve-feature-sets"></a>Förbättra funktioner 
+### <a name="improve-feature-sets"></a>Förbättra funktions uppsättningar 
 
-Analysera användarnas beteende genom att göra en Offline-utvärdering. På så sätt kan du titta på senaste data och se vad funktioner kraftigt bidrar till positivt fördelar jämfört med de som bidrar mindre. Du kan se vilka funktioner hjälper och det är upp till dig och ditt program för att hitta bättre funktioner att skicka till Personalizer att förbättra resultatet ytterligare.
+Analysera användar beteendet genom att göra en offline-utvärdering. På så sätt kan du titta på tidigare data för att se vilka funktioner som bidrar kraftigt till positiva förmåner jämfört med de som bidrar mindre. Du kan se vilka funktioner som hjälper och det kommer att vara upp till dig och ditt program för att hitta bättre funktioner som kan skickas till Personanpassare för att förbättra resultaten ytterligare.
 
-De följande är vanliga metoder för att förbättra funktioner som skickas till Personalizer.
+Följande avsnitt är vanliga metoder för att förbättra funktioner som skickas till Personanpassare.
 
-#### <a name="make-features-more-dense"></a>Göra funktioner mer kompakta
+#### <a name="make-features-more-dense"></a>Gör funktioner mer täta
 
-Det är möjligt att förbättra din funktionsuppsättningarna genom att redigera dem för att göra dem större och mer eller mindre kompakta.
+Det är möjligt att förbättra dina funktions uppsättningar genom att ändra dem så att de blir större och mer eller mindre kompakta.
 
-Till exempel är en tidsstämpel till andra en mycket begränsad funktion. Det kan göras mer kompakta (gäller från) genom att klassificera gånger i ”morgon”, ”dag”, ”eftermiddagen” osv.
+En tidsstämpel till den andra är till exempel en mycket sparse-funktion. Det kan göras mer kompakt (effektiv) genom att klassificera tiderna i "morgon", "kulminera", "eftermiddag" osv.
 
 
-#### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandera funktionsuppsättningar med extrapolerade information
+#### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandera funktions uppsättningar med extrapolerad information
 
-Du kan också få fler funktioner genom att tänka på nytt attribut som kan härledas från information som du redan har. Till exempel i en lista över anpassning fiktiva film är du det möjliga som en helg vs vardag elicits olika beteenden från användare? Tid kan utökas för att ha ett ”lördag” eller ”veckodag”-attribut. Kulturella helgdagar enhet uppmärksam på vissa typer av film? Attributet ”Halloween” är till exempel användbart på platser där det är relevant. Är det möjligt att regn väder har stor inverkan på valet av en film för många användare? En väder-tjänst kan ange att information och du kan lägga till den som en extra funktion för med tid och plats. 
+Du kan också få fler funktioner genom att tänka på ännu inte utforskade attribut som kan härledas från information som du redan har. Till exempel, i en fiktiv Films List anpassning, är det möjligt att en helg vs-veckodag gör olika saker från användarna? Det gick inte att expandera tiden till attributet "helg" eller "Weekday". Uppmärksammar vi nationella kultur helgdags enheter på vissa typer av filmer? Till exempel är ett "Halloween"-attribut användbart i platser där det är relevant. Är det möjligt att regna väder har stor inverkan på valet av en film för många personer? Med tid och plats kan en väder tjänst tillhandahålla den informationen och du kan lägga till den som en extra funktion. 
 
-#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expandera funktionsuppsättningar med artificiell intelligens och cognitive services
+#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expandera funktions uppsättningar med artificiell intelligens och kognitiva tjänster
 
-Artificiell intelligens och redo att köra Cognitive Services kan vara en mycket kraftfull utöver Personalizer. 
+Artificiell intelligens och klar att köra Cognitive Services kan vara ett mycket kraftfullt tillägg till Personanpassaren. 
 
-Förbearbeta dina objekt som använder artificiell intelligens tjänster för att automatiskt extrahera information som sannolikt kommer att vara relevanta för anpassning.
+Genom att Förbearbeta dina objekt med hjälp av artificiell intelligens-tjänster kan du automatiskt extrahera information som troligen är relevant för anpassning.
 
 Exempel:
 
-* Du kan köra en filmfilen via [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) att extrahera scen element, text, känsla och många andra attribut. Dessa attribut kan sedan göras mer kompakta att återspegla egenskaper som den ursprungliga objektmetadata hade. 
-* Bilder kan köras via objektidentifiering, ansikten via sentiment, osv.
-* Informationen i text kan förstärkas genom att extrahera entiteter, sentiment, expandera entiteter med Bing knowledge graph och så vidare.
+* Du kan köra en filmfil via [video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) för att extrahera scen element, text, sentiment och många andra attribut. Dessa attribut kan sedan göras mer kompakta för att avspegla egenskaper som det ursprungliga objektets metadata inte hade. 
+* Avbildningar kan köras genom objekt identifiering, ansikten genom sentiment osv.
+* Information i text kan utökas genom att extrahera entiteter, sentiment, expandera entiteter med Bing Knowledge Graph osv.
 
-Du kan använda flera andra [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), till exempel
+Du kan använda flera andra [Azure-Cognitive Services](https://www.microsoft.com/cognitive-services), t. ex.
 
-* [Entitetslänkning](../entitylinking/home.md)
+* [Länkning av entitet](../entitylinking/home.md)
 * [Textanalys](../text-analytics/overview.md)
-* [Igenkänning](../emotion/home.md)
+* [Känslo](../emotion/home.md)
 * [Visuellt innehåll](../computer-vision/home.md)
 
-## <a name="actions-represent-a-list-of-options"></a>Åtgärder som representerar en lista med alternativ
+## <a name="actions-represent-a-list-of-options"></a>Åtgärder representerar en lista med alternativ
 
 Varje åtgärd:
 
 * Har ett ID.
-* Har en lista över funktioner.
-* Lista över funktioner kan vara stor (hundratals) men rekommenderar vi att utvärdera funktionen effektivitet för att ta bort funktioner som inte är bidrar till att hämta alla. 
-* Funktioner i den **åtgärder** kanske eller kanske inte alla samband med funktioner i den **kontext** används av Personalizer.
-* Funktioner för åtgärder som kan finnas i vissa åtgärder och inte andra. 
-* Funktioner för en viss åtgärds-ID kan vara tillgänglig en dag, men senare på blir otillgänglig. 
+* Innehåller en lista med funktioner.
+* Listan över funktioner kan vara stor (hundratals) men vi rekommenderar att du utvärderar funktions effektiviteten för att ta bort funktioner som inte bidrar till att få några fördelar. 
+* Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i kontexten som  används av personanpassan.
+* Funktioner för åtgärder kan finnas i vissa åtgärder och inte andra. 
+* Funktioner för ett visst åtgärds-ID kan vara tillgängliga en dag, men senare blir det otillgängligt. 
 
-Personalizers maskininlärningsalgoritmer ger bättre prestanda när det finns stabila funktioner, men misslyckas inte rangordnas anrop om funktionen ställer in ändringar över tid.
+En personanpassas Machine Learning-algoritmer fungerar bättre när det finns stabila funktions uppsättningar, men ranknings anrop Miss Miss Miss kan inte utföras om funktionen har ändrats över tid.
 
-Skicka inte i mer än 50 åtgärder när rangordning åtgärder. Dessa kan vara samma 50 åtgärder varje gång eller de kan förändras. Till exempel, om du har en produktkatalog över 10 000 objekt för en e-handelsprogram kan kan du använda en rekommendation eller filtrering-motorn för att fastställa upp 40 kan en kund som och använda Personalizer för att hitta det som genererar de flesta utmärkelse (till exempel användaren läggs till i korgen) för den aktuella kontexten.
+Skicka inte mer än 50 åtgärder vid rangordning av åtgärder. Detta kan vara samma 50-åtgärder varje gång, eller så kan de ändras. Om du till exempel har en produkt katalog med 10 000 objekt för ett e-handelsprogram, kan du använda en rekommendations-eller filtrerings motor för att fastställa den översta 40 en kund kan till exempel, och använda en Personanpassare för att hitta den som kommer att generera störst belöning (till exempel läggs användaren till i korgen) för den aktuella kontexten.
 
 
 ### <a name="examples-of-actions"></a>Exempel på åtgärder
 
-De åtgärder som du skickar till API: et rangordning beror på vad du vill anpassa.
+De åtgärder som du skickar till ranknings-API: et beror på vad du försöker anpassa.
 
 Här följer några exempel:
 
 |Syfte|Action|
 |--|--|
-|Anpassa vilka artikel är markerad på en webbplats med nyheter.|Varje åtgärd är en potentiell nyhetsartikel.|
-|Optimera ad placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonser (till exempel på överkanten på rätt, små bilderna, stora bilder).|
-|Visa personligt anpassade rangordning rekommenderade objekt på en perioder webbplats.|Varje åtgärd är en specifik produkt.|
-|Föreslå element för användargränssnitt, till exempel filter som används i ett specifikt foto.|Varje åtgärd kan vara ett annat filter.|
-|Välj en chattrobot svar på förtydliga användaravsikt eller föreslå en åtgärd.|Varje åtgärd är ett alternativ för hur du tolkar svaret.|
-|Välj vad som ska visas överst i en lista över sökresultat|Varje åtgärd är en av övre några sökresultaten.|
+|Anpassa vilken artikel som är markerad på en nyhets webbplats.|Varje åtgärd är en potentiell nyhets artikel.|
+|Optimera AD-placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonserna (till exempel överst, till höger, små bilder, stora bilder).|
+|Visa anpassad rangordning av rekommenderade objekt på en shopping webbplats.|Varje åtgärd är en enskild produkt.|
+|Föreslå användar gränssnitts element, till exempel filter som ska användas för ett bestämt foto.|Varje åtgärd kan vara ett annat filter.|
+|Välj ett svar för chatt-roboten för att klargöra användar avsikten eller föreslå en åtgärd.|Varje åtgärd är ett alternativ för att tolka svaret.|
+|Välj vad som ska visas överst i en lista med Sök Resultat|Varje åtgärd är ett av de viktigaste Sök resultaten.|
 
 
 ### <a name="examples-of-features-for-actions"></a>Exempel på funktioner för åtgärder
 
-Här följer några bra exempel på funktioner för åtgärder. Dessa beror mycket på varje program.
+Följande är användbara exempel på funktioner för åtgärder. De kommer att vara beroende av varje program.
 
-* Funktioner med egenskaper av åtgärder. Till exempel är det en film eller en serie?
-* Funktioner om hur användare kan har interagerat med den här åtgärden i förflutna. Exempelvis kan den här filmen är främst ses av personer i demografi A eller B, det är vanligtvis speldagar mer än en gång.
-* Funktioner vilka egenskaper som hur användaren *ser* åtgärderna. Till exempel fungerar affisch för filmen visas i miniatyr inkludera ansikten, bilar eller landskap?
+* Funktioner med egenskaperna för åtgärderna. Är det till exempel en film eller TV-serie?
+* Funktioner för hur användare kan ha interagerat med den här åtgärden tidigare. Den här filmen visas till exempel främst av personer i demografisk A eller B, men den spelas vanligt vis inte mer än en gången.
+* Funktioner om egenskaperna för hur användaren *ser* de olika åtgärderna. Till exempel visas affischen för den film som visas i miniatyr bilden med ansikten, bilar eller landskap?
 
-### <a name="load-actions-from-the-client-application"></a>Läsa in åtgärder från klientprogrammet
+### <a name="load-actions-from-the-client-application"></a>Läs in åtgärder från klient programmet
 
-Funktioner från åtgärder kan normalt komma från innehållshanteringssystem, kataloger och rekommenderare system. Programmet ansvarar för information om åtgärderna som lästes in från relevanta databaser och system som du har. Om dina åtgärder inte ändra eller hämta dem inläst varje gång har en onödig inverkan på prestanda, kan du lägga till logik i din app för att cachelagra den här informationen.
+Funktioner från åtgärder kan normalt komma från innehålls hanterings system, kataloger och rekommenderade system. Programmet ansvarar för att läsa in informationen om åtgärder från relevanta databaser och system som du har. Om åtgärderna inte ändras eller när de läses in varje gång har en onödig påverkan på prestanda kan du lägga till logik i programmet för att cachelagra den här informationen.
 
-### <a name="prevent-actions-from-being-ranked"></a>Förhindra åtgärder från som rangordnas
+### <a name="prevent-actions-from-being-ranked"></a>Förhindra att åtgärder rangordnas
 
-I vissa fall kan finns det åtgärder som du inte vill ska visas för användarna. Det bästa sättet att förhindra att en åtgärd från som rangordnas som översta ska inte inkludera den i åtgärdslistan rangordning-API: et i första hand.
+I vissa fall finns det åtgärder som du inte vill visa för användarna. Det bästa sättet att förhindra att en åtgärd rangordnas som översta är att inte ta med den i åtgärds listan till ranknings-API: et på den första platsen.
 
-I vissa fall kan det kan bara fastställas senare i din affärslogik om en som är resultatet _åtgärd_ anrop ska visas för en användare av en rangordning API. För dessa fall bör du använda _inaktiva händelser_.
+I vissa fall kan det bara fastställas senare i affärs logiken om en resulterande _åtgärd_ av ett rang-API-anrop visas för en användare. I dessa fall bör du använda _inaktiva händelser_.
 
 ## <a name="json-format-for-actions"></a>JSON-format för åtgärder
 
-När du anropar rankning, skickar du flera åtgärder för att välja mellan:
+När du anropar rang skickas flera åtgärder som du kan välja bland:
 
-JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
 ```json
 {
@@ -265,23 +265,23 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En m
 }
 ```
 
-## <a name="examples-of-context-information"></a>Exempel på kontextinformation
+## <a name="examples-of-context-information"></a>Exempel på Sammanhangs information
 
-Information för den _kontext_ beror på varje program och Använd fall, men det vanligtvis kan innehålla information som:
+Informationen för _kontexten_ beror på varje program och användnings fall, men det kan vanligt vis omfatta information som:
 
-* Demografi och profilen information om dina användare.
-* Information som extraherats från HTTP-huvuden, till exempel användaragenten eller härleds från HTTP-information, till exempel omvänd geografiska uppslag baserat på IP-adresser.
-* Information om den aktuella tiden, till exempel dag i veckan, helgen eller inte, morgon eller eftermiddagen, Rean eller inte osv.
-* Information som extraherats från mobila program, till exempel plats, flytt eller batterinivå.
-* Historiska aggregeringar av beteendet för användare – till exempel vilka är film genrer den här användaren har visat mest.
+* Demografisk och profil information om användaren.
+* Information som extraherats från HTTP-huvuden som användar agent eller härleds från HTTP-information, till exempel omvänd geografisk sökning baserat på IP-adresser.
+* Information om den aktuella tiden, till exempel dag i veckan, helg eller inte, morgon eller eftermiddag, jul säsong eller inte, osv.
+* Information som extraherats från mobila program, till exempel plats, transport eller batteri nivå.
+* Historiska mängder av användar beteende, t. ex. vilka film genrer den här användaren har sett mest.
 
-Programmet ansvarar för att läsa in information om kontexten från relevanta databaser, sensorer och system som du kan ha. Om din kontextinformation inte ändras du lägga till logik i din app för att cachelagra den här informationen innan den skickas till API: et för rangordning.
+Ditt program ansvarar för att läsa in informationen om kontexten från relevanta databaser, sensorer och system som du kan ha. Om kontext informationen inte ändras kan du lägga till logik i programmet för att cachelagra den här informationen innan du skickar den till ranknings-API: et.
 
 ## <a name="json-format-for-context"></a>JSON-format för kontext 
 
-Kontext uttrycks som ett JSON-objekt som ska skickas till API: et rangordning:
+Kontexten uttrycks som ett JSON-objekt som skickas till ranknings-API: et:
 
-JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En matris kan inkluderas endast om matrisobjekt är siffror. 
+JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
 ```JSON
 {
@@ -311,4 +311,4 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkel egenskapsvärden. En m
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstärkande inlärning](concepts-reinforcement-learning.md) 
+[Förstärka inlärning](concepts-reinforcement-learning.md) 

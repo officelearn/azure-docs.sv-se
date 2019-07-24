@@ -1,7 +1,7 @@
 ---
-title: Använda geografiska gränser för att filtrera resultaten från den lokala företag i Bing | Microsoft Docs
+title: 'Använd geografiska gränser för att filtrera resultat från Bing-API: et för lokal affärs sökning'
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln om du vill lära dig att filtrera sökresultaten från den lokala företag i Bing.
+description: 'Använd den här artikeln för att lära dig hur du filtrerar Sök Resultat från Bing-API: et för lokal sökning.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,28 +9,28 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 6da8e9e08f84fa16f22d2a061be28398d064dc8c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e47a2ab8db17089773fd9a439b6dff225d6a8a29
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592701"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423309"
 ---
-# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Använda geografiska gränser för att filtrera resultaten från den lokala företag i Bing
+# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Använd geografiska gränser för att filtrera resultat från Bing-API: et för lokal affärs sökning
 
-Den lokala företag i Bing kan du ange gränser på specifika geografiska område som du vill söka genom att använda den `localCircularView` eller `localMapView` Frågeparametrar. Glöm inte att använda endast en parameter i dina frågor. 
+I Bing-API: et för lokal Business search kan du ange gränser för det specifika geografiska område som du vill söka efter `localCircularView` med `localMapView` parametrarna eller. Se till att du bara använder en parameter i dina frågor. 
 
-Om en sökterm innehåller en explicit geografisk plats, använda den lokala företag i Bing automatiskt den för att ange gränser för sökresultaten. Om sökordet är till exempel `sailing in San Diego`, sedan `San Diego` används när platsen och andra angivna platser i frågeparametrar eller användaren rubriker kommer att ignoreras. 
+Om en sökterm innehåller en explicit geografisk plats, används det lokala API: t för lokal handel automatiskt för att ange gränser för Sök resultaten. Om Sök termen till exempel är `sailing in San Diego` `San Diego` , kommer att användas som plats och andra angivna platser i frågeparametrar eller användar rubriker ignoreras. 
 
-Om en geografisk plats inte har identifierats i söktermen, och ingen geografisk plats har angetts med hjälp av frågeparametrar, den lokala företag i Bing försöker fastställa platsen i begäran `X-Search-ClientIP` eller `X-Search-Location` rubriker. Om varken sidhuvudet har angetts, API: N avgör platsen från antingen klientens IP-Adressen för begäran eller GPS-koordinater för mobila enheter.
+Om en geografisk plats inte identifieras i sökordet, och ingen geografisk plats har angetts med hjälp av frågeparametrar, försöker Bing-API: et för lokal sökning att fastställa plats från begärans `X-Search-ClientIP` eller `X-Search-Location` rubrikerna. Om ingen rubrik anges fastställer API: t antingen klientens IP-adress för begäran eller GPS-koordinater för mobila enheter.
 
 ## <a name="localcircularview"></a>localCircularView
 
-Den `localCircularView` parametern skapar ett cirkulärt geografiskt område runt en uppsättning koordinater för latitud/longitud, definieras av en radius. När du använder den här parametern svar från den lokala företag i Bing enbart att inkludera platser inom den här cirkel, till skillnad från den `localMapView` parameter som kan innehålla platser lite utanför området.
+`localCircularView` Parametern skapar ett cirkulärt geografiskt område runt en uppsättning latitud-/longitud-koordinater, som definieras av en RADIUS. När du använder den här parametern kommer svar från Bing-API: et för lokal sökning bara att inkludera platser i den här `localMapView` cirkeln, till skillnad från parametern som kan innehålla platser något utanför Sök området.
 
-Om du vill ange en cirkulär geografiska sökområdet, väljer du en latitud och longitud som fungerar som mitten av cirkeln och en radie i mätare. Den här parametern kan sedan läggas till en frågesträng, till exempel: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
+Om du vill ange ett cirkulärt geografiskt sökområde väljer du en latitud och en longitud som ska fungera som centrum för cirkeln och en radie i meter. Den här parametern kan sedan läggas till i en frågesträng, till exempel: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
 
-Fullständig fråga:
+Slutför fråga:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
@@ -38,18 +38,18 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 
 ## <a name="localmapview"></a>localMapView
 
-Den `localMapView` parametern anger ett rektangulärt geografiskt område kan söka, använder två uppsättningar med koordinater för att ange dess sydöstra Australien och nordvästra hörn. När du använder den här parametern svar från den lokala företag i Bing kan omfatta platser inom och utanför det angivna området, till skillnad från den `localCircularView` parameter som bara innehåller platser inom området.
+`localMapView` Parametern anger ett rektangulärt geografiskt område att söka i med två uppsättningar koordinater för att ange dess sydöstra och Northwest-hörn. När du använder den här parametern kan svar från Bing-API: et för lokal sökning inkludera platser inom och precis utanför det angivna området, `localCircularView` till skillnad från parametern, som bara omfattar platser inom Sök området.
 
-Om du vill ange en rektangulär sökområdet, väljer du två uppsättningar med koordinater för latitud/longitud som fungerar som sydöst och nordvästra hörnen på gränsen. Se till att definiera sydöstra koordinaterna först, som i följande exempel: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.
+Om du vill ange ett rektangulärt sökområde väljer du två uppsättningar med latitud-och longitud-koordinater som ska fungera som sydöstra och Northwest-hörn i kanten. Se till att definiera de sydöstra koordinaterna först, som i följande exempel: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.
 
-Fullständig fråga:
+Slutför fråga:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lokala företag Search Java Snabbstart](quickstarts/local-search-java-quickstart.md)
-- [Sök i lokala företag C# Snabbstart](quickstarts/local-quickstart.md)
-- [Lokala företag Search Node-Quickstart](quickstarts/local-search-node-quickstart.md)
-- [Lokala företag Search Python-Snabbstart](quickstarts/local-search-python-quickstart.md)
+- [Lokal affärs sökning Java snabb start](quickstarts/local-search-java-quickstart.md)
+- [Snabb start för C# lokal affärs sökning](quickstarts/local-quickstart.md)
+- [Snabb start för lokal Business search-nod](quickstarts/local-search-node-quickstart.md)
+- [Snabb start för att söka i lokalt företag](quickstarts/local-search-python-quickstart.md)
